@@ -187,8 +187,20 @@
   .pilgrim h2{color:var(--paper)}
   .pilgrim .lede{color:rgba(250,249,245,.78)}
   .pilgrim .lede strong{color:var(--paper)}
-  .pilgrim .btn{border-color:var(--paper);color:var(--paper);margin-top:2rem}
+  .pilgrim .btn{border-color:var(--paper);color:var(--paper)}
   .pilgrim .btn:hover{background:var(--paper);color:var(--ink)}
+  .interest-form{display:flex;gap:.8rem;margin-top:2rem;max-width:520px;flex-wrap:wrap}
+  .interest-form input[type=email]{
+    flex:1;min-width:220px;padding:.75rem 1rem;
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+    border:1px solid var(--paper);background:transparent;color:var(--paper);
+  }
+  .interest-form input[type=email]::placeholder{color:rgba(250,249,245,.5)}
+  .form-thanks{
+    font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.06em;
+    color:var(--seal);margin-top:1.2rem;
+  }
+  .pilgrim .form-thanks{color:var(--paper)}
 
   /* ---------- ecosystem ---------- */
   .path-line{
@@ -482,7 +494,16 @@
       <h2>Pilgrimage to Japan</h2>
       <p class="lede">The first Kaphtziel journeys are now taking shape: small-group contemplative travel through temples, shrines, gardens, and mountain paths. Days shaped by silence, beauty, and Jewish spiritual practice through the lens of <strong>52 Gates</strong> — one gate at a time, one threshold at a time.</p>
       <p class="lede">Groups will be kept small. If you feel the pull, write to us and you'll be the first to know when the inaugural journey opens.</p>
-      <a class="btn" href="mailto:rabbibennewman@gmail.com?subject=Japan%20Pilgrimage%20Interest">Express interest</a>
+      <form class="interest-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="PASTE_KEY_HERE">
+        <input type="hidden" name="subject" value="Kaphtziel Studios — Japan pilgrimage interest">
+        <input type="hidden" name="from_name" value="kaphtziel.com">
+        <input type="hidden" name="redirect" value="https://kaphtziel.com/?thanks=pilgrimage#pilgrimage">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
+        <button class="btn" type="submit">Express interest</button>
+      </form>
+      <p class="form-thanks" data-thanks="pilgrimage" hidden>You're on the pilgrimage list — you'll hear first when the journey opens.</p>
     </div>
   </section>
 
@@ -528,17 +549,16 @@
 
       <div class="signup">
         <p class="lede" style="margin-top:2.6rem"><strong>Stay at the gate.</strong> Occasional letters when a new book, journey, or tool opens.</p>
-        <!-- To capture signups automatically: create a free Web3Forms access key at web3forms.com,
-             then (1) change the form tag to:
-                 <form action="https://api.web3forms.com/submit" method="POST">
-             (2) add inside it:
-                 <input type="hidden" name="access_key" value="YOUR-KEY-HERE">
-             (3) delete the onsubmit attribute below.
-             Until then, submitting opens the visitor's email client, pre-addressed. -->
-        <form onsubmit="event.preventDefault();var e=this.email.value;location.href='mailto:rabbibennewman@gmail.com?subject='+encodeURIComponent('Kaphtziel Studios signup')+'&body='+encodeURIComponent('Please add me to the list: '+e);">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="PASTE_KEY_HERE">
+          <input type="hidden" name="subject" value="Kaphtziel Studios — mailing list signup">
+          <input type="hidden" name="from_name" value="kaphtziel.com">
+          <input type="hidden" name="redirect" value="https://kaphtziel.com/?thanks=list#connect">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
           <button class="btn" type="submit">Sign up</button>
         </form>
+        <p class="form-thanks" data-thanks="list" hidden>You're on the list. Welcome to the gate.</p>
       </div>
     </div>
   </section>
@@ -556,5 +576,13 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var t = new URLSearchParams(location.search).get('thanks');
+    if(!t) return;
+    var el = document.querySelector('.form-thanks[data-thanks="'+t+'"]');
+    if(el){ el.hidden = false; }
+  })();
+</script>
 </body>
 </html>
