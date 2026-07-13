@@ -67,22 +67,19 @@
   @media(max-width:720px){.nav ul{display:none}}
 
   /* ---------- hero ---------- */
+  .hero-band{background:var(--ink)}
   .hero{
-    position:relative;
-    padding:5.5rem 1.5rem 5rem;
     max-width:var(--max);margin:0 auto;
-    display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;
+    padding:5rem 1.5rem 4.5rem;
+    display:flex;flex-direction:column;align-items:center;text-align:center;
   }
-  .hero h1{
-    font-size:clamp(2.6rem,6vw,4.4rem);
-    font-weight:700;letter-spacing:.01em;
-  }
+  .hero .lockup{width:min(560px,82vw);height:auto;display:block}
   .hero .thesis{
-    margin-top:1.6rem;font-size:clamp(1.15rem,2.2vw,1.4rem);
-    font-weight:300;max-width:34ch;line-height:1.55;color:var(--ink-soft);
+    margin-top:2.4rem;font-size:clamp(1.15rem,2.2vw,1.4rem);
+    font-weight:300;max-width:38ch;line-height:1.55;color:rgba(250,249,245,.82);
   }
-  .hero .thesis em{font-style:italic;color:var(--ink)}
-  .hero .cta-row{margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap}
+  .hero .thesis em{font-style:italic;color:var(--paper)}
+  .hero .cta-row{margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
   .btn{
     display:inline-block;padding:.75rem 1.6rem;text-decoration:none;
     font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
@@ -92,22 +89,11 @@
   .btn:hover{background:var(--ink);color:var(--paper)}
   .btn.seal{border-color:var(--seal);color:var(--seal)}
   .btn.seal:hover{background:var(--seal);color:var(--paper)}
-
-  /* the gate — hand-weighted brush strokes */
-  .gate{width:min(340px,36vw);flex-shrink:0}
-  .gate img{width:100%;height:auto;display:block}
-  .vertical-jp{
-    position:absolute;right:1.5rem;bottom:1.2rem;
-    writing-mode:vertical-rl;
-    font-family:'Zen Old Mincho',serif;font-size:.95rem;letter-spacing:.5em;
-    color:var(--ink-faint);
-  }
-  .vertical-jp span{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.28em;color:var(--ink-faint)}
-  @media(max-width:720px){
-    .hero{grid-template-columns:1fr;padding-top:3.5rem}
-    .gate{display:none}
-    .vertical-jp{display:none}
-  }
+  .hero .btn{border-color:var(--paper);color:var(--paper)}
+  .hero .btn:hover{background:var(--paper);color:var(--ink)}
+  .hero .btn.seal{border-color:#C9502F;color:#D97A5C}
+  .hero .btn.seal:hover{background:var(--seal);border-color:var(--seal);color:var(--paper)}
+  @media(max-width:720px){.hero{padding-top:3.5rem}}
 
   /* ---------- sections ---------- */
   section{padding:4.5rem 0;border-top:1px solid var(--line)}
@@ -246,20 +232,15 @@
 
 <main id="top">
 
-  <div class="hero">
-    <div>
-      <p class="eyebrow">A studio for crossing thresholds</p>
-      <h1>Kaphtziel<br>Studios</h1>
+  <div class="hero-band">
+    <div class="hero">
+      <img class="lockup" src="logo-full-white.png" alt="Kaphtziel Studios — kefitzat ha-derekh amulet from a Jewish spell book">
       <p class="thesis">Books, experiences, and technology that help people <em>cross the next threshold</em> in their spiritual journey.</p>
       <div class="cta-row">
         <a class="btn" href="#doorways">Enter the doorways</a>
         <a class="btn seal" href="#pilgrimage">Japan pilgrimage</a>
       </div>
     </div>
-    <div class="gate">
-      <img src="mark-ink.png" alt="Kefitzat ha-derekh amulet diagram from a Jewish spell book" onerror="this.parentElement.style.display='none'">
-    </div>
-    <p class="vertical-jp">縮地 <span>SHUKUCHI · SHORTENING THE EARTH</span></p>
   </div>
 
   <section id="about">
