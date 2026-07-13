@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaphtziel Studios — Cross the Next Threshold</title>
+<meta name="description" content="Kaphtziel Studios creates books, experiences, and technology that help people cross the next threshold in their spiritual journey.">
+<meta property="og:title" content="Kaphtziel Studios">
+<meta property="og:description" content="Books, experiences, and technology that help people cross the next threshold in their spiritual journey.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kaphtziel.com">
+<meta property="og:image" content="https://kaphtziel.com/logo-social.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F5;
+    --paper-deep:#F2F0E9;
+    --ink:#1B1A17;
+    --ink-soft:#4A4842;
+    --ink-faint:#8B887E;
+    --seal:#A63B26;
+    --line:#D8D5CB;
+    --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:1.0625rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--seal);color:var(--paper)}
+  a{color:inherit}
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--seal);outline-offset:3px;
+  }
+  h1,h2,h3{font-family:'Zen Old Mincho', 'Source Serif 4', serif;font-weight:600;line-height:1.2}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:10;
+    background:rgba(250,249,245,.92);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:baseline;justify-content:space-between;padding:.9rem 1.5rem;max-width:var(--max);margin:0 auto}
+  .nav .mark{font-family:'Zen Old Mincho',serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;text-decoration:none}
+  .nav ul{display:flex;gap:1.6rem;list-style:none}
+  .nav ul a{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+  .nav ul a:hover{color:var(--seal)}
+  @media(max-width:720px){.nav ul{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:5.5rem 1.5rem 5rem;
+    max-width:var(--max);margin:0 auto;
+    display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    font-weight:700;letter-spacing:.01em;
+  }
+  .hero .thesis{
+    margin-top:1.6rem;font-size:clamp(1.15rem,2.2vw,1.4rem);
+    font-weight:300;max-width:34ch;line-height:1.55;color:var(--ink-soft);
+  }
+  .hero .thesis em{font-style:italic;color:var(--ink)}
+  .hero .cta-row{margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:.75rem 1.6rem;text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    border:1px solid var(--ink);color:var(--ink);background:transparent;
+    transition:background .18s,color .18s;
+  }
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .btn.seal{border-color:var(--seal);color:var(--seal)}
+  .btn.seal:hover{background:var(--seal);color:var(--paper)}
+
+  /* the gate — hand-weighted brush strokes */
+  .gate{width:min(340px,36vw);flex-shrink:0}
+  .gate img{width:100%;height:auto;display:block}
+  .vertical-jp{
+    position:absolute;right:1.5rem;bottom:1.2rem;
+    writing-mode:vertical-rl;
+    font-family:'Zen Old Mincho',serif;font-size:.95rem;letter-spacing:.5em;
+    color:var(--ink-faint);
+  }
+  .vertical-jp span{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.28em;color:var(--ink-faint)}
+  @media(max-width:720px){
+    .hero{grid-template-columns:1fr;padding-top:3.5rem}
+    .gate{display:none}
+    .vertical-jp{display:none}
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:4.5rem 0;border-top:1px solid var(--line)}
+  section .wrap>h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin:.5rem 0 1.4rem}
+  .lede{max-width:62ch;color:var(--ink-soft)}
+  .lede+.lede{margin-top:1rem}
+  .lede strong{color:var(--ink);font-weight:600}
+
+  /* ---------- the name ---------- */
+  .name-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:start}
+  .name-grid figure{border:1px solid var(--line);padding:1rem;background:var(--paper-deep)}
+  .name-grid img{width:100%;display:block;filter:grayscale(1) contrast(1.05)}
+  .name-grid figcaption{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--ink-faint);margin-top:.7rem;line-height:1.5}
+  .hebrew{font-size:1.5rem;letter-spacing:.05em;font-family:'Zen Old Mincho',serif}
+  @media(max-width:720px){.name-grid{grid-template-columns:1fr}}
+
+  /* ---------- doorways ---------- */
+  .doors{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2.4rem}
+  .door{
+    border:1px solid var(--ink);
+    border-top-width:4px;               /* the lintel */
+    padding:1.5rem 1.1rem 1.4rem;
+    display:flex;flex-direction:column;min-height:300px;
+    background:var(--paper);
+    transition:transform .18s, box-shadow .18s;
+  }
+  .door:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(27,26,23,.08)}
+  .door h3{font-size:1.15rem;margin:.5rem 0 .8rem}
+  .door p{font-size:.88rem;line-height:1.6;color:var(--ink-soft);flex-grow:1}
+  .door .kanji{font-family:'Zen Old Mincho',serif;font-size:1.3rem;color:var(--seal);line-height:1}
+  .door a.more{
+    font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink);margin-top:1rem;
+  }
+  .door a.more:hover{color:var(--seal)}
+  @media(max-width:1000px){.doors{grid-template-columns:repeat(2,1fr)}.door{min-height:auto}}
+  @media(max-width:520px){.doors{grid-template-columns:1fr}}
+
+  /* ---------- books ---------- */
+  .shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.4rem}
+  .book{border:1px solid var(--line);background:var(--paper-deep);display:flex;flex-direction:column}
+  .book .cover{
+    aspect-ratio:2/3;display:flex;flex-direction:column;justify-content:space-between;
+    padding:1.6rem 1.3rem;border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(var(--paper) 0 0) padding-box;
+    position:relative;
+  }
+  .book .cover::after{ /* small red seal on each cover */
+    content:"קפציאל";
+    position:absolute;bottom:1.1rem;right:1.1rem;
+    font-family:'Zen Old Mincho',serif;font-size:.6rem;line-height:1.15;
+    color:var(--paper);background:var(--seal);
+    padding:.28em .3em;letter-spacing:.03em;
+  }
+  .book .cover h3{font-size:1.35rem;font-weight:700;line-height:1.25}
+  .book .cover .sub{font-size:.82rem;font-style:italic;color:var(--ink-soft);margin-top:.5rem}
+  .book .cover .rule{width:2.2rem;height:3px;background:var(--ink);margin-top:1rem}
+  .book .meta{padding:1.1rem 1.3rem 1.3rem}
+  .book .meta p{font-size:.88rem;color:var(--ink-soft);line-height:1.6}
+  .book .meta a{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--ink);display:inline-block;margin-top:.8rem}
+  .book .meta a:hover{color:var(--seal)}
+  .book .meta .soon{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:inline-block;margin-top:.8rem}
+  @media(max-width:820px){.shelf{grid-template-columns:1fr}.book .cover{aspect-ratio:auto;padding-bottom:2.6rem}}
+
+  /* ---------- pilgrimage ---------- */
+  .pilgrim{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+  .pilgrim::after{
+    content:"";position:absolute;right:-40px;top:50%;transform:translateY(-50%);
+    width:340px;height:256px;background:url('mark-white.png') no-repeat center/contain;
+    opacity:.14;pointer-events:none;
+  }
+  .pilgrim .wrap{position:relative;z-index:1}
+  .pilgrim .eyebrow{color:rgba(250,249,245,.55)}
+  .pilgrim h2{color:var(--paper)}
+  .pilgrim .lede{color:rgba(250,249,245,.78)}
+  .pilgrim .lede strong{color:var(--paper)}
+  .pilgrim .btn{border-color:var(--paper);color:var(--paper);margin-top:2rem}
+  .pilgrim .btn:hover{background:var(--paper);color:var(--ink)}
+
+  /* ---------- ecosystem ---------- */
+  .path-line{
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.1em;
+    color:var(--ink-soft);margin-top:2rem;line-height:2.1;
+  }
+  .path-line b{color:var(--ink);font-weight:500}
+  .path-line .arrow{color:var(--seal);padding:0 .35em}
+
+  /* ---------- links ---------- */
+  .link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin-top:2.2rem}
+  .link-grid a{
+    padding:1.2rem 1.3rem;text-decoration:none;border:1px solid var(--line);margin:-1px 0 0 -1px;
+    display:block;transition:background .15s;
+  }
+  .link-grid a:hover{background:var(--paper-deep)}
+  .link-grid .lg-title{font-family:'Zen Old Mincho',serif;font-weight:600;font-size:1rem}
+  .link-grid .lg-sub{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:.3rem}
+  @media(max-width:720px){.link-grid{grid-template-columns:1fr}}
+
+  /* ---------- signup ---------- */
+  .signup form{display:flex;gap:.8rem;margin-top:1.8rem;max-width:520px;flex-wrap:wrap}
+  .signup input{
+    flex:1;min-width:220px;padding:.75rem 1rem;
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+    border:1px solid var(--ink);background:var(--paper);color:var(--ink);
+  }
+  .signup input::placeholder{color:var(--ink-faint)}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:3rem 0 3.5rem}
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+  .foot .small{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:var(--ink-faint);line-height:1.9}
+  .hanko{
+    width:64px;height:64px;background:var(--seal);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Zen Old Mincho',serif;font-size:1.05rem;line-height:1.15;
+    letter-spacing:.02em;text-align:center;
+    box-shadow:0 0 0 1px var(--seal), inset 0 0 0 2px var(--paper), inset 0 0 0 3px var(--seal);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="mark" href="#top">Kaphtziel Studios</a>
+    <ul>
+      <li><a href="#name">The Name</a></li>
+      <li><a href="#doorways">Doorways</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#pilgrimage">Pilgrimage</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow">A studio for crossing thresholds</p>
+      <h1>Kaphtziel<br>Studios</h1>
+      <p class="thesis">Books, experiences, and technology that help people <em>cross the next threshold</em> in their spiritual journey.</p>
+      <div class="cta-row">
+        <a class="btn" href="#doorways">Enter the doorways</a>
+        <a class="btn seal" href="#pilgrimage">Japan pilgrimage</a>
+      </div>
+    </div>
+    <div class="gate">
+      <img src="mark-ink.png" alt="Kefitzat ha-derekh amulet diagram from a Jewish spell book" onerror="this.parentElement.style.display='none'">
+    </div>
+    <p class="vertical-jp">縮地 <span>SHUKUCHI · SHORTENING THE EARTH</span></p>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <p class="eyebrow">Why a studio</p>
+      <h2>One work, many doorways</h2>
+      <p class="lede">For years these felt like separate projects — writing, teaching, AI, apps, Japan, meditation, Hasidut, music, pilgrimage. They aren't. Each one is a gateway into the same larger journey: <strong>a life of awareness, wisdom, and transformation.</strong></p>
+      <p class="lede">Someone might read a book, listen to the podcast, use an app, attend a workshop, walk a temple path in Japan, and keep learning afterward. Each project opens onto the next.</p>
+      <p class="path-line"><b>book</b><span class="arrow">→</span><b>podcast</b><span class="arrow">→</span><b>app</b><span class="arrow">→</span><b>workshop</b><span class="arrow">→</span><b>pilgrimage</b><span class="arrow">→</span><b>practice</b></p>
+    </div>
+  </section>
+
+  <section id="name">
+    <div class="wrap">
+      <p class="eyebrow">The name</p>
+      <h2>Kephitzat ha-derekh — the shortening of the path</h2>
+      <div class="name-grid">
+        <div>
+          <p class="lede">In Jewish legend, <em>kephitzat ha-derekh</em> names those moments when a journey that might have taken years suddenly becomes possible — because someone, or something, opens a door. The angel of the leap is <span class="hebrew">קפציאל</span> — <strong>Kaphtziel</strong>.</p>
+          <p class="lede">Medieval Jewish spell books invoked Kaphtziel to jump the road: to cross in a day what would otherwise take a hundred. The Japanese tradition knows the same magic as <em>shukuchi</em> — shrinking the earth. This studio takes its name, and its work, from that idea: building doorways that shorten the path.</p>
+          <p class="lede">The image at right comes from a seventeenth-century Jewish manuscript of practical Kabbalah — the same drawing that opened the original Kaphtziel blog in 2004. Twenty years later, the angel is still on the door.</p>
+        </div>
+        <figure>
+          <img src="kaphtziel.jpg" alt="Manuscript illustration of the angel Kaphtziel from a Jewish spell book" onerror="this.closest('figure').style.display='none'">
+          <figcaption>The angel Kaphtziel · JTS MS 1867 f. 4b · from a manuscript of Jewish magic</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="doorways">
+    <div class="wrap">
+      <p class="eyebrow">What we make</p>
+      <h2>Five doorways</h2>
+      <div class="doors">
+        <article class="door">
+          <span class="kanji" title="sho — writing">書</span>
+          <h3>Books</h3>
+          <p>Contemplative works that serve as gateways into practice — reflections, guides, and explorations of pilgrimage, Judaism, Buddhism, and AI.</p>
+          <a class="more" href="#books">See the books →</a>
+        </article>
+        <article class="door">
+          <span class="kanji" title="michi — the path">道</span>
+          <h3>Pilgrimages</h3>
+          <p>Small-group contemplative journeys to Japan, now in formation: Zen temples, shrines, silence, beauty, and Jewish spiritual practice through the lens of 52 Gates.</p>
+          <a class="more" href="#pilgrimage">Walk with us →</a>
+        </article>
+        <article class="door">
+          <span class="kanji" title="ki — vessel, instrument">器</span>
+          <h3>Technology</h3>
+          <p>Meditation apps, Japanese-learning tools, and AI resources for clergy and spiritual seekers — thoughtful technology in service of practice.</p>
+          <a class="more" href="https://www.rabbibennewman.com/aiforclergy">AI for Clergy →</a>
+        </article>
+        <article class="door">
+          <span class="kanji" title="gaku — learning">学</span>
+          <h3>Teaching</h3>
+          <p>Retreats and workshops on meditation, Hasidic wisdom, AI and spirituality, and the meeting of Judaism, Buddhism, and contemporary life.</p>
+          <a class="more" href="#connect">Inquire →</a>
+        </article>
+        <article class="door">
+          <span class="kanji" title="koe — voice">声</span>
+          <h3>Media</h3>
+          <p>Podcast, music, essays, video, and online courses — the studio's voice in the world, free to enter and open to all.</p>
+          <a class="more" href="#connect">Listen &amp; read →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="books">
+    <div class="wrap">
+      <p class="eyebrow">Doorway one</p>
+      <h2>Books</h2>
+      <div class="shelf">
+        <article class="book">
+          <div class="cover">
+            <div>
+              <h3>52 Gates</h3>
+              <p class="sub">Reflections on Living</p>
+            </div>
+            <div class="rule"></div>
+          </div>
+          <div class="meta">
+            <p>Short contemplative reflections — one gate each week — that serve as doorways into spiritual practice.</p>
+            <a href="https://www.amazon.com/52-Gates-Reflections-Ben-Newman/dp/B0FXB3M3LB">Buy on Amazon →</a>
+          </div>
+        </article>
+        <article class="book">
+          <div class="cover">
+            <div>
+              <h3>The Ten Pathways</h3>
+              <p class="sub">Walking a Life of Transformation</p>
+            </div>
+            <div class="rule"></div>
+          </div>
+          <div class="meta">
+            <p>A guide for walking a life of transformation, drawing on Jewish spirituality, recovery wisdom, and mindfulness.</p>
+            <a href="https://www.rabbibennewman.com/publications">See publications →</a>
+          </div>
+        </article>
+        <article class="book">
+          <div class="cover">
+            <div>
+              <h3>AI for Clergy</h3>
+              <p class="sub">Harnessing the Power of the Digital Golem</p>
+            </div>
+            <div class="rule"></div>
+          </div>
+          <div class="meta">
+            <p>A practical and theological guide to artificial intelligence for clergy and spiritual seekers.</p>
+            <a href="https://www.rabbibennewman.com/aiforclergy">Learn more →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilgrimage" class="pilgrim">
+    <div class="wrap">
+      <p class="eyebrow">Doorway two</p>
+      <h2>Pilgrimage to Japan</h2>
+      <p class="lede">The first Kaphtziel journeys are now taking shape: small-group contemplative travel through temples, shrines, gardens, and mountain paths. Days shaped by silence, beauty, and Jewish spiritual practice through the lens of <strong>52 Gates</strong> — one gate at a time, one threshold at a time.</p>
+      <p class="lede">Groups will be kept small. If you feel the pull, write to us and you'll be the first to know when the inaugural journey opens.</p>
+      <a class="btn" href="mailto:rabbibennewman@gmail.com?subject=Japan%20Pilgrimage%20Interest">Express interest</a>
+    </div>
+  </section>
+
+  <section id="connect">
+    <div class="wrap">
+      <p class="eyebrow">The studio's voice</p>
+      <h2>Listen, read, follow</h2>
+      <div class="link-grid">
+        <a href="https://podcasts.apple.com/us/podcast/the-neshamah-project/id979100756">
+          <div class="lg-title">The Neshamah Project</div>
+          <div class="lg-sub">Podcast</div>
+        </a>
+        <a href="https://open.spotify.com/artist/4VCWLfGC3BjxbsRybBsont">
+          <div class="lg-title">Music</div>
+          <div class="lg-sub">Spotify artist page</div>
+        </a>
+        <a href="https://blogs.timesofisrael.com/author/ben-newman/">
+          <div class="lg-title">Essays</div>
+          <div class="lg-sub">Times of Israel</div>
+        </a>
+        <a href="https://kaphtziel.blogspot.com">
+          <div class="lg-title">Kaphtziel Blog</div>
+          <div class="lg-sub">Kabbalah &amp; philosophy · est. 2004</div>
+        </a>
+        <a href="https://www.rabbibennewman.com/aiforclergy">
+          <div class="lg-title">AI for Clergy</div>
+          <div class="lg-sub">Book &amp; resources</div>
+        </a>
+        <a href="https://www.rabbibennewman.com">
+          <div class="lg-title">Rabbi Ben Newman</div>
+          <div class="lg-sub">About the founder</div>
+        </a>
+      </div>
+
+      <div class="signup">
+        <p class="lede" style="margin-top:2.6rem"><strong>Stay at the gate.</strong> Occasional letters when a new book, journey, or tool opens.</p>
+        <!-- To capture signups automatically: create a free Web3Forms access key at web3forms.com,
+             then (1) change the form tag to:
+                 <form action="https://api.web3forms.com/submit" method="POST">
+             (2) add inside it:
+                 <input type="hidden" name="access_key" value="YOUR-KEY-HERE">
+             (3) delete the onsubmit attribute below.
+             Until then, submitting opens the visitor's email client, pre-addressed. -->
+        <form onsubmit="event.preventDefault();var e=this.email.value;location.href='mailto:rabbibennewman@gmail.com?subject='+encodeURIComponent('Kaphtziel Studios signup')+'&body='+encodeURIComponent('Please add me to the list: '+e);">
+          <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
+          <button class="btn" type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p class="small">
+      Kaphtziel Studios · Founded by Rabbi Ben Newman<br>
+      Dobbs Ferry, New York · <a href="mailto:rabbibennewman@gmail.com" style="color:inherit">rabbibennewman@gmail.com</a><br>
+      © 2026 Kaphtziel Studios. All rights reserved.
+    </p>
+    <div class="hanko" aria-hidden="true">קפצ<br>יאל</div>
+  </div>
+</footer>
+
+</body>
+</html>
