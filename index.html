@@ -135,6 +135,8 @@
   /* ---------- books ---------- */
   .shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2.4rem}
   .book{border:1px solid var(--line);background:var(--paper-deep);display:flex;flex-direction:column}
+  .book img.cover-img{width:100%;aspect-ratio:2/3;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+  .book .cover.fallback{display:none}
   .book .cover{
     aspect-ratio:2/3;display:flex;flex-direction:column;justify-content:space-between;
     padding:1.6rem 1.3rem;border-bottom:1px solid var(--line);
@@ -186,8 +188,9 @@
   .link-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin-top:2.2rem}
   .link-grid a{
     padding:1.2rem 1.3rem;text-decoration:none;border:1px solid var(--line);margin:-1px 0 0 -1px;
-    display:block;transition:background .15s;
+    display:flex;align-items:center;gap:1rem;transition:background .15s;
   }
+  .link-grid img.thumb{width:52px;height:52px;object-fit:cover;flex-shrink:0;border:1px solid var(--line)}
   .link-grid a:hover{background:var(--paper-deep)}
   .link-grid .lg-title{font-family:'Zen Old Mincho',serif;font-weight:600;font-size:1rem}
   .link-grid .lg-sub{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:.3rem}
@@ -316,7 +319,8 @@
       <h2>Books</h2>
       <div class="shelf">
         <article class="book">
-          <div class="cover">
+          <img class="cover-img" src="cover-52gates.jpg" alt="52 Gates book cover" onerror="this.style.display='none';this.nextElementSibling.classList.remove('fallback')">
+          <div class="cover fallback">
             <div>
               <h3>52 Gates</h3>
               <p class="sub">Reflections on Living</p>
@@ -329,10 +333,25 @@
           </div>
         </article>
         <article class="book">
-          <div class="cover">
+          <img class="cover-img" src="cover-52gates-guide.jpg" alt="52 Gates Companion Guide book cover" onerror="this.style.display='none';this.nextElementSibling.classList.remove('fallback')">
+          <div class="cover fallback">
+            <div>
+              <h3>52 Gates: Companion Guide</h3>
+              <p class="sub">For Individual Practice and Group Exploration</p>
+            </div>
+            <div class="rule"></div>
+          </div>
+          <div class="meta">
+            <p>Questions, practices, and pathways for walking the 52 gates alone or with a group.</p>
+            <a href="https://www.amazon.com/Gates-Reflections-Living-Individual-Exploration/dp/B0H28V84RC">Buy on Amazon →</a>
+          </div>
+        </article>
+        <article class="book">
+          <img class="cover-img" src="cover-tenpathways.jpg" alt="The Ten Pathways book cover" onerror="this.style.display='none';this.nextElementSibling.classList.remove('fallback')">
+          <div class="cover fallback">
             <div>
               <h3>The Ten Pathways</h3>
-              <p class="sub">Walking a Life of Transformation</p>
+              <p class="sub">A Mystical Guide to Transformation</p>
             </div>
             <div class="rule"></div>
           </div>
@@ -342,7 +361,22 @@
           </div>
         </article>
         <article class="book">
-          <div class="cover">
+          <img class="cover-img" src="cover-laughinglightning.jpg" alt="Laughing Lightning: A Life of Milarepa book cover" onerror="this.style.display='none';this.nextElementSibling.classList.remove('fallback')">
+          <div class="cover fallback">
+            <div>
+              <h3>Laughing Lightning</h3>
+              <p class="sub">A Life of Milarepa · A Novel</p>
+            </div>
+            <div class="rule"></div>
+          </div>
+          <div class="meta">
+            <p>The great Tibetan yogi retold as a novel: sorcery, remorse, the hard apprenticeship, and the laughter at the top of the mountain.</p>
+            <a href="https://www.amazon.com/Laughing-Lightning-Milarepa-Ben-Newman/dp/B0H79QWZJ4">Buy on Amazon →</a>
+          </div>
+        </article>
+        <article class="book">
+          <img class="cover-img" src="cover-aiforclergy.jpg" alt="AI for Clergy book cover" onerror="this.style.display='none';this.nextElementSibling.classList.remove('fallback')">
+          <div class="cover fallback">
             <div>
               <h3>AI for Clergy</h3>
               <p class="sub">Harnessing the Power of the Digital Golem</p>
@@ -374,12 +408,18 @@
       <h2>Listen, read, follow</h2>
       <div class="link-grid">
         <a href="https://podcasts.apple.com/us/podcast/the-neshamah-project/id979100756">
-          <div class="lg-title">The Neshamah Project</div>
-          <div class="lg-sub">Podcast</div>
+          <img class="thumb" src="podcast-neshamah.jpg" alt="" onerror="this.remove()">
+          <div>
+            <div class="lg-title">The Neshamah Project</div>
+            <div class="lg-sub">Podcast</div>
+          </div>
         </a>
         <a href="https://open.spotify.com/artist/4VCWLfGC3BjxbsRybBsont">
-          <div class="lg-title">Music</div>
-          <div class="lg-sub">Spotify artist page</div>
+          <img class="thumb" src="music-kaphtziel.jpg" alt="" onerror="this.remove()">
+          <div>
+            <div class="lg-title">Kaphtziel</div>
+            <div class="lg-sub">Music on Spotify</div>
+          </div>
         </a>
         <a href="https://blogs.timesofisrael.com/author/ben-newman/">
           <div class="lg-title">Essays</div>
@@ -389,9 +429,12 @@
           <div class="lg-title">Kaphtziel Blog</div>
           <div class="lg-sub">Kabbalah &amp; philosophy · est. 2004</div>
         </a>
-        <a href="https://www.rabbibennewman.com/aiforclergy">
-          <div class="lg-title">AI for Clergy</div>
-          <div class="lg-sub">Book &amp; resources</div>
+        <a href="https://kaijinharu.com">
+          <img class="thumb" src="music-kaijinharu.jpg" alt="" onerror="this.remove()">
+          <div>
+            <div class="lg-title">Kaijin Haru</div>
+            <div class="lg-sub">Music project</div>
+          </div>
         </a>
         <a href="https://www.rabbibennewman.com">
           <div class="lg-title">Rabbi Ben Newman</div>
