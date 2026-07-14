@@ -161,6 +161,48 @@
   .book .meta .soon{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);display:inline-block;margin-top:.8rem}
   @media(max-width:820px){.shelf{grid-template-columns:1fr}.book .cover{aspect-ratio:auto;padding-bottom:2.6rem}}
 
+  /* ---------- newsletter ---------- */
+  .news-band{border-bottom:1px solid var(--line);background:var(--paper-deep)}
+  .news-band .inner{
+    max-width:var(--max);margin:0 auto;padding:1.6rem 1.5rem;
+    display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+  }
+  .news-band .pitch{
+    font-family:'Zen Old Mincho',serif;font-size:1.02rem;line-height:1.5;
+    max-width:44ch;color:var(--ink);
+  }
+  .bd-form{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+  .bd-form .visually-hidden{
+    position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;
+  }
+  .bd-form input[type=email]{
+    min-width:240px;padding:.72rem 1rem;
+    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+    border:1px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink);
+    -webkit-appearance:none;appearance:none;
+  }
+  .bd-form input[type=email]::placeholder{color:var(--ink-faint)}
+  .bd-form input[type=submit]{
+    padding:.75rem 1.6rem;cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+    border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);
+    -webkit-appearance:none;appearance:none;
+    transition:background .18s,color .18s;
+  }
+  .bd-form input[type=submit]:hover{background:var(--ink);color:var(--paper)}
+  .bd-form .powered{flex-basis:100%;margin:0}
+  .bd-form .powered a{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-faint);text-decoration:none;
+  }
+  .bd-form .powered a:hover{color:var(--seal)}
+  @media(max-width:720px){
+    .news-band .inner{flex-direction:column;align-items:flex-start;gap:1.1rem;padding:1.4rem 1.5rem}
+    .bd-form{width:100%}
+    .bd-form input[type=email]{flex:1;min-width:0}
+  }
+
   /* ---------- retreat ---------- */
   .retreat-card{
     border:1px solid var(--ink);border-top-width:4px;
@@ -223,13 +265,7 @@
   @media(max-width:720px){.link-grid{grid-template-columns:1fr}}
 
   /* ---------- signup ---------- */
-  .signup form{display:flex;gap:.8rem;margin-top:1.8rem;max-width:520px;flex-wrap:wrap}
-  .signup input{
-    flex:1;min-width:220px;padding:.75rem 1rem;
-    font-family:'IBM Plex Mono',monospace;font-size:.85rem;
-    border:1px solid var(--ink);background:var(--paper);color:var(--ink);
-  }
-  .signup input::placeholder{color:var(--ink-faint)}
+  .signup .bd-form{margin-top:1.8rem;max-width:560px}
 
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:3rem 0 3.5rem}
@@ -270,6 +306,18 @@
         <a class="btn" href="#doorways">Enter the doorways</a>
         <a class="btn seal" href="#pilgrimage">Japan pilgrimage</a>
       </div>
+    </div>
+  </div>
+
+  <div class="news-band">
+    <div class="inner">
+      <p class="pitch">A monthly letter on contemplative craft — pilgrimage, Torah, Zen, and the making of things.</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/kaphtziel" method="post" class="bd-form">
+          <label for="bd-email" class="visually-hidden">Enter your email</label>
+          <input type="email" name="email" id="bd-email" placeholder="your@email.com" required>
+          <input type="submit" value="Subscribe">
+          <p class="powered"><a href="https://buttondown.com/refer/kaphtziel" target="_blank" rel="noopener">Powered by Buttondown</a></p>
+        </form>
     </div>
   </div>
 
@@ -548,17 +596,13 @@
       </div>
 
       <div class="signup">
-        <p class="lede" style="margin-top:2.6rem"><strong>Stay at the gate.</strong> Occasional letters when a new book, journey, or tool opens.</p>
-        <form action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="123a0576-d887-4a99-a377-899015df42a1">
-          <input type="hidden" name="subject" value="Kaphtziel Studios — mailing list signup">
-          <input type="hidden" name="from_name" value="kaphtziel.com">
-          <input type="hidden" name="redirect" value="https://kaphtziel.com/?thanks=list#connect">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
-          <button class="btn" type="submit">Sign up</button>
+        <p class="lede" style="margin-top:2.6rem"><strong>Stay at the gate.</strong> A monthly letter on contemplative craft — pilgrimage, Torah, Zen, and the making of things.</p>
+        <form action="https://buttondown.com/api/emails/embed-subscribe/kaphtziel" method="post" class="bd-form">
+          <label for="bd-email-2" class="visually-hidden">Enter your email</label>
+          <input type="email" name="email" id="bd-email-2" placeholder="your@email.com" required>
+          <input type="submit" value="Subscribe">
+          <p class="powered"><a href="https://buttondown.com/refer/kaphtziel" target="_blank" rel="noopener">Powered by Buttondown</a></p>
         </form>
-        <p class="form-thanks" data-thanks="list" hidden>You're on the list. Welcome to the gate.</p>
       </div>
     </div>
   </section>
