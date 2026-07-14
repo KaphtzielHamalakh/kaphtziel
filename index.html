@@ -231,13 +231,20 @@
   .pilgrim .lede strong{color:var(--paper)}
   .pilgrim .btn{border-color:var(--paper);color:var(--paper)}
   .pilgrim .btn:hover{background:var(--paper);color:var(--ink)}
-  .interest-form{display:flex;gap:.8rem;margin-top:2rem;max-width:520px;flex-wrap:wrap}
-  .interest-form input[type=email]{
-    flex:1;min-width:220px;padding:.75rem 1rem;
+  .interest-form{display:flex;flex-direction:column;gap:.8rem;margin-top:2rem;max-width:560px}
+  .interest-form .row{display:flex;gap:.8rem;flex-wrap:wrap}
+  .interest-form .row input{flex:1;min-width:200px}
+  .interest-form input[type=text],
+  .interest-form input[type=email],
+  .interest-form textarea{
+    padding:.75rem 1rem;
     font-family:'IBM Plex Mono',monospace;font-size:.85rem;
-    border:1px solid var(--paper);background:transparent;color:var(--paper);
+    border:1px solid var(--paper);border-radius:0;background:transparent;color:var(--paper);
+    -webkit-appearance:none;appearance:none;resize:vertical;
   }
-  .interest-form input[type=email]::placeholder{color:rgba(250,249,245,.5)}
+  .interest-form input::placeholder,
+  .interest-form textarea::placeholder{color:rgba(250,249,245,.5)}
+  .interest-form .btn{align-self:flex-start}
   .form-thanks{
     font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.06em;
     color:var(--seal);margin-top:1.2rem;
@@ -548,7 +555,11 @@
         <input type="hidden" name="from_name" value="kaphtziel.com">
         <input type="hidden" name="redirect" value="https://kaphtziel.com/?thanks=pilgrimage#pilgrimage">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
+        <div class="row">
+          <input type="text" name="name" placeholder="Your name" aria-label="Your name" required>
+          <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
+        </div>
+        <textarea name="message" rows="3" placeholder="What draws you? (optional — a sentence is plenty)" aria-label="What draws you to this pilgrimage?"></textarea>
         <button class="btn" type="submit">Express interest</button>
       </form>
       <p class="form-thanks" data-thanks="pilgrimage" hidden>You're on the pilgrimage list — you'll hear first when the journey opens.</p>
