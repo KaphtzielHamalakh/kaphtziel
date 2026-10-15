@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShulGolem | Kaphtziel Studios</title>
+<meta name="description" content="ShulGolem brings synagogue administration into one place. Hosting and Google sign-in are being configured.">
+<link rel="canonical" href="https://kaphtziel.com/shulgolem/">
+<link rel="icon" href="/favicon.png">
+<style>
+:root{color-scheme:light;--paper:#faf9f5;--ink:#1b1a17;--muted:#666258;--line:#d8d5cb;--seal:#a63b26}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.7 Georgia,serif}a{color:inherit}a:focus-visible{outline:3px solid var(--seal);outline-offset:5px}
+.wrap{width:min(1080px,100% - 48px);margin:auto}header{border-bottom:1px solid var(--line)}nav{min-height:84px;display:flex;justify-content:space-between;align-items:center;gap:24px}nav a{text-decoration:none}nav img{display:block;width:42px;height:42px;object-fit:contain}.brand{display:flex;align-items:center;gap:16px}.label{font:12px/1.5 monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+main{padding:92px 0 72px}.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:64px;align-items:start}h1{font-size:clamp(52px,8vw,90px);line-height:1.03;letter-spacing:-.055em;margin:20px 0 28px;font-weight:normal}h1 span{color:var(--seal)}.intro{font-size:22px;max-width:38ch;color:var(--muted);margin-bottom:32px}.link{display:inline-block;border-bottom:1px solid var(--seal);text-decoration:none;padding-bottom:4px}
+.status{margin-top:26px;padding:28px;border:1px solid var(--line);background:#f2f0e9}.status h2{font-size:25px;font-weight:normal;margin:12px 0}.status p{font-size:16px;color:var(--muted);margin:12px 0 0}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#a47a2c;margin-right:10px}
+.features{margin-top:90px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding-top:30px}.features h2{font-size:22px;font-weight:normal}.features p{font-size:16px;color:var(--muted)}footer{padding:24px 0;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}footer .wrap{display:flex;justify-content:space-between;gap:24px}
+@media(max-width:720px){main{padding-top:50px}.hero{grid-template-columns:1fr;gap:12px}.features{grid-template-columns:1fr;gap:8px;margin-top:48px}nav{min-height:72px}.brand span{font-size:16px}footer .wrap{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+<header><nav class="wrap" aria-label="Main navigation"><a class="brand" href="/"><img src="/mark-ink.png" alt=""><span>Kaphtziel Studios</span></a><a href="#status" class="label">Application status</a></nav></header>
+<main class="wrap">
+<div class="hero">
+<section aria-labelledby="title"><div class="label">ShulGolem · Synagogue administration</div><h1>More room<br>for <span>community.</span></h1><p class="intro">A home for the people, households, calendars, and everyday work that keep a congregation connected.</p><a class="link" href="#status">View setup status &darr;</a></section>
+<aside class="status" id="status" aria-labelledby="status-title"><div class="label"><span class="dot"></span>Setup in progress</div><h2 id="status-title">This is ShulGolem’s new address.</h2><p>The application server, database, and Google sign-in still need to be connected. Member sign-in and data imports are not available here yet.</p><p>Please wait to upload congregation information until setup is complete.</p></aside>
+</div>
+<section class="features" aria-label="What ShulGolem is being built to bring together">
+<div><span class="label">01 / People</span><h2>A connected congregation</h2><p>Bring member records and household relationships into one place.</p></div>
+<div><span class="label">02 / Jewish life</span><h2>Dates with meaning</h2><p>Keep yahrzeits, Hebrew dates, and religious school information close at hand.</p></div>
+<div><span class="label">03 / Administration</span><h2>Everyday work, together</h2><p>Manage imports, financial records, and communications through one application.</p></div>
+</section>
+</main>
+<footer><div class="wrap"><span>ShulGolem · A Kaphtziel Studios project</span><a href="/">Return to kaphtziel.com</a></div></footer>
+</body>
+</html>
