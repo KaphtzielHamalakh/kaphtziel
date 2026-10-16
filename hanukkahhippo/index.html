@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hanukkah Hippo | Kaphtziel Studios</title>
+<meta name="description" content="Play Hanukkah Hippo, a retro platforming adventure through eight nights of Hanukkah. Collect gelt, light the menorah, and take on the Goblin King.">
+<link rel="canonical" href="https://kaphtziel.com/hanukkahhippo/">
+<link rel="icon" href="/favicon.png">
+<meta property="og:title" content="Hanukkah Hippo | Kaphtziel Studios">
+<meta property="og:description" content="A retro Hanukkah platforming adventure. Play free in your browser with a keyboard.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kaphtziel.com/hanukkahhippo/">
+<style>
+  * { box-sizing: border-box; user-select: none; }
+  body {
+    margin: 0; background-color: #080a12; color: #eee;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; min-height: 100svh; padding: 16px 12px;
+  }
+  #game-wrapper {
+    width: min(780px, 100%, max(260px, calc(106.667svh - 192px)));
+    position: relative; border: 6px solid #3a4466; border-radius: 6px;
+    box-shadow: 0 14px 45px rgba(0,0,0,0.95); background: #000;
+  }
+  canvas {
+    display: block; width: 100%; height: auto; aspect-ratio: 16 / 15;
+    image-rendering: pixelated; image-rendering: crisp-edges;
+  }
+  .controls-bar {
+    max-width: 780px; margin-top: 10px; font-size: 13px; color: #b8c4d8; text-align: center;
+    line-height: 1.5; background: #121624; padding: 8px 18px;
+    border-radius: 4px; border: 1px solid #2b3554;
+  }
+  .controls-bar span { color: #ffd700; font-weight: bold; }
+  .site-nav { margin-bottom: 12px; text-align: center; font-size: 12px; line-height: 1.5; color: #b8c4d8; }
+  .site-nav a { color: #b8c4d8; }
+  .site-nav a:focus-visible { outline: 2px solid #ffd700; outline-offset: 4px; }
+  .site-nav p { margin: 4px 0 0; }
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Site navigation"><a href="/">&#8592; Kaphtziel Studios</a><p>Keyboard required &middot; Press Z or Space to start</p></nav>
+<div id="game-wrapper">
+  <canvas id="game" width="256" height="240" aria-label="Hanukkah Hippo game" aria-describedby="game-controls">Your browser needs canvas support to play Hanukkah Hippo.</canvas>
+</div>
+<div class="controls-bar" id="game-controls">
+  <span>ARROWS / WASD</span> Move (Go Back Anytime!) &nbsp;|&nbsp;
+  <span>Z / SPACE</span> Jump &nbsp;|&nbsp;
+  <span>X / SHIFT / C</span> Run &amp; Shoot Fireball<br>
+  <span>DOWN + JUMP (Mid-air)</span> Ground-Pound &nbsp;|&nbsp;
+  <span>DOWN (On Ice)</span> Belly-Slide &nbsp;|&nbsp;
+  <span>H</span> Hat &nbsp;|&nbsp;
+  <span>N</span> Next Night &nbsp;|&nbsp;
+  <span>M</span> Mute
+</div>
+
+<noscript>Enable JavaScript to play Hanukkah Hippo.</noscript>
+<script>
+const N = {
+  _:0, G2:98, A2:110, B2:123.47, C3:130.81, D3:146.83, E3:164.81, F3:174.61, Fs3:185, G3:196, Gs3:207.65, A3:220, Bb3:233.08, B3:246.94,
+  C4:261.63, Cs4:277.18, D4:293.66, Eb4:311.13, E4:329.63, F4:349.23, Fs4:369.99, G4:392, Gs4:415.3, A4:440, Bb4:466.16, B4:493.88,
+  C5:523.25, Cs5:554.37, D5:587.33, Eb5:622.25, E5:659.25, F5:698.46, Fs5:739.99, G5:783.99, A5:880
+};
+
+const SONGS = [
+  { name: "I Have a Little Dreidel", tempo: 10,
+    melody: [N.C5,N.C5,N.D5,N.D5,N.E5,N.C5,N.G5,N._, N.G5,N.F5,N.E5,N.D5,N.C5,N.E5,N.D5,N._, N.D5,N.D5,N.E5,N.E5,N.F5,N.D5,N.G5,N._, N.G5,N.F5,N.E5,N.D5,N.C5,N.E5,N.C5,N._],
+    bass: [N.C3,N.G3,N.C3,N.G3,N.C3,N.G3,N.C3,N.G3, N.G3,N.D3,N.C3,N.G3,N.C3,N.E3,N.G3,N.D3, N.G3,N.D3,N.G3,N.D3,N.G3,N.D3,N.G3,N.D3, N.G3,N.D3,N.C3,N.G3,N.C3,N.G3,N.C3,N._] },
+  { name: "Hanukkah, Oh Hanukkah", tempo: 9,
+    melody: [N.A4,N.E4,N.A4,N.A4,N.E4,N.A4,N.A4,N.C5,N.B4,N.A4,N.B4,N._, N.A4,N.B4,N.C5,N.C5,N.B4,N.A4,N.B4,N.B4,N.A4,N.Gs4,N.A4,N._, N.E5,N.D5,N.C5,N.B4,N.C5,N.A4,N.D5,N.C5,N.B4,N.A4,N.B4,N.E4, N.A4,N.B4,N.C5,N.D5,N.E5,N.F5,N.E5,N.D5,N.C5,N.B4,N.A4,N._],
+    bass: [N.A2,N.E3,N.A2,N.E3,N.A2,N.E3,N.A2,N.E3,N.E3,N.B2,N.E3,N._, N.A2,N.E3,N.A2,N.E3,N.E3,N.B2,N.E3,N.B2,N.A2,N.E3,N.A2,N._, N.A2,N.E3,N.A2,N.E3,N.A2,N.E3,N.D3,N.A3,N.E3,N.B2,N.E3,N._, N.A2,N.E3,N.A2,N.E3,N.D3,N.A3,N.E3,N.B2,N.A2,N.E3,N.A2,N._] },
+  { name: "Ocho Kandelikas", tempo: 9,
+    melody: [N.D5,N.D5,N.C5,N.Bb4,N.A4,N.G4,N.Fs4,N.G4,N.A4,N.D4,N._,N._, N.G4,N.A4,N.Bb4,N.C5,N.D5,N.C5,N.Bb4,N.A4,N.Bb4,N.G4,N._,N._, N.D5,N.D5,N.Eb5,N.D5,N.C5,N.Bb4,N.A4,N.Bb4,N.C5,N.A4,N._,N._, N.Bb4,N.A4,N.G4,N.Fs4,N.G4,N.A4,N.Bb4,N.A4,N.G4,N.G4,N._,N._],
+    bass: [N.D3,N.A3,N.D3,N.A3,N.D3,N.A3,N.D3,N.A3,N.D3,N.A3,N.D3,N._, N.G3,N.D3,N.G3,N.D3,N.G3,N.D3,N.D3,N.A3,N.G3,N.D3,N.G3,N._, N.D3,N.A3,N.D3,N.A3,N.G3,N.D3,N.F3,N.C3,N.F3,N.C3,N.D3,N._, N.G3,N.D3,N.D3,N.A2,N.G3,N.D3,N.D3,N.A2,N.G3,N.D3,N.G2,N._] },
+  { name: "Hava Nagila", tempo: 9,
+    melody: [N.E4,N.E4,N.Gs4,N.F4,N.E4,N.Gs4,N.Gs4,N.B4,N.A4,N.Gs4,N.A4,N._, N.A4,N.A4,N.C5,N.B4,N.A4,N.Gs4,N.F4,N.Gs4,N.F4,N.E4,N.E4,N._, N.Gs4,N.Gs4,N.F4,N.E4,N.E4,N.E4,N.F4,N.F4,N.E4,N.D4,N.D4,N._, N.D4,N.F4,N.E4,N.D4,N.Gs4,N.F4,N.E4,N.D4,N.E4,N.E4,N.E4,N._],
+    bass: [N.E3,N.B2,N.E3,N.B2,N.E3,N.B2,N.E3,N.B2,N.A2,N.E3,N.A2,N._, N.A2,N.E3,N.A2,N.E3,N.E3,N.B2,N.D3,N.A2,N.E3,N.B2,N.E3,N._, N.E3,N.B2,N.E3,N.B2,N.E3,N.B2,N.D3,N.A2,N.D3,N.A2,N.D3,N._, N.D3,N.A2,N.D3,N.A2,N.E3,N.B2,N.E3,N.B2,N.E3,N.B2,N.E2,N._] },
+  { name: "Ma'oz Tzur (Rock of Ages)", tempo: 11,
+    melody: [N.F4,N.C4,N.F4,N.G4,N.A4,N.Bb4,N.A4,N.G4,N.F4,N._, N.C5,N.Bb4,N.A4,N.G4,N.F4,N.E4,N.F4,N._, N.C5,N.C5,N.D5,N.E5,N.F5,N.B4,N.C5,N._, N.A4,N.Bb4,N.C5,N.F4,N.G4,N.E4,N.F4,N._],
+    bass: [N.F3,N.C3,N.F3,N.C3,N.F3,N.Bb2,N.F3,N.C3,N.F3,N._, N.A2,N.Bb2,N.C3,N.C3,N.D3,N.C3,N.F3,N._, N.C3,N.G3,N.G3,N.C3,N.F3,N.G3,N.C3,N._, N.F3,N.Bb2,N.A2,N.D3,N.Bb2,N.C3,N.F2,N._] },
+  { name: "S'vivon Sov Sov Sov", tempo: 8,
+    melody: [N.D5,N.A4,N.D5,N._,N.F5,N.E5,N.D5,N._, N.C5,N.D5,N.E5,N.C5,N.D5,N.E5,N.A4,N._, N.D5,N.A4,N.D5,N._,N.F5,N.E5,N.D5,N._, N.E5,N.F5,N.G5,N.E5,N.F5,N.E5,N.D5,N._],
+    bass: [N.D3,N.A3,N.D3,N.A3,N.D3,N.A3,N.D3,N.A3, N.A2,N.E3,N.A2,N.E3,N.D3,N.A3,N.A2,N.E3, N.D3,N.A3,N.D3,N.A3,N.D3,N.A3,N.D3,N.A3, N.A2,N.E3,N.A2,N.E3,N.D3,N.A2,N.D3,N._] },
+  { name: "Mi Yimalel (Who Can Retell)", tempo: 9,
+    melody: [N.G4,N.C5,N.C5,N.B4,N.C5,N.D5,N.G4,N.G4, N.A4,N.B4,N.C5,N.D5,N.E5,N.C5,N.D5,N._, N.G4,N.C5,N.C5,N.B4,N.C5,N.D5,N.G4,N.G4, N.A4,N.D5,N.B4,N.G4,N.C5,N.C5,N.C5,N._],
+    bass: [N.C3,N.G3,N.C3,N.G3,N.C3,N.G3,N.B2,N.G3, N.F3,N.G3,N.C3,N.B2,N.A2,N.E3,N.G3,N._, N.C3,N.G3,N.C3,N.G3,N.C3,N.G3,N.B2,N.G3, N.F3,N.D3,N.G3,N.B2,N.C3,N.G2,N.C3,N._] },
+  { name: "Siman Tov u'Mazal Tov", tempo: 8,
+    melody: [N.E4,N.A4,N.A4,N.B4,N.C5,N.B4,N.A4,N._, N.Gs4,N.E4,N.Gs4,N.B4,N.A4,N.Gs4,N.A4,N._, N.C5,N.E5,N.E5,N.D5,N.C5,N.D5,N.E5,N._, N.D5,N.C5,N.B4,N.C5,N.B4,N.A4,N.A4,N._],
+    bass: [N.A2,N.E3,N.A2,N.E3,N.A2,N.E3,N.A2,N._, N.E3,N.B2,N.E3,N.B2,N.A2,N.E3,N.A2,N._, N.A2,N.E3,N.C3,N.G3,N.A2,N.E3,N.A2,N._, N.D3,N.A2,N.E3,N.B2,N.A2,N.E3,N.A2,N._] }
+];
+
+class SoundEngine {
+  constructor() { this.ctx = null; this.muted = false; this.bgmTimer = 0; this.noteIdx = 0; this.currentSongIdx = 0; }
+  init() {
+    if (!this.ctx) { const AudioCtx = window.AudioContext || window.webkitAudioContext; this.ctx = new AudioCtx(); }
+    if (this.ctx.state === 'suspended') this.ctx.resume();
+  }
+  setSong(nightIdx) {
+    const idx = Math.max(0, Math.min(SONGS.length - 1, nightIdx));
+    if (this.currentSongIdx !== idx) { this.currentSongIdx = idx; this.noteIdx = 0; this.bgmTimer = 0; }
+  }
+  playTone(freq, type, duration, vol = 0.08, slideTo = null, delay = 0) {
+    if (this.muted || !this.ctx || freq <= 0) return;
+    const t = this.ctx.currentTime + delay;
+    const osc = this.ctx.createOscillator(), gain = this.ctx.createGain();
+    osc.type = type; osc.frequency.setValueAtTime(freq, t);
+    if (slideTo) osc.frequency.exponentialRampToValueAtTime(slideTo, t + duration);
+    gain.gain.setValueAtTime(vol, t); gain.gain.exponentialRampToValueAtTime(0.001, t + duration);
+    osc.connect(gain); gain.connect(this.ctx.destination);
+    osc.start(t); osc.stop(t + duration);
+  }
+  sfxJump() { this.playTone(165, 'square', 0.15, 0.07, 490); }
+  sfxPoundStart() { this.playTone(420, 'triangle', 0.1, 0.11, 130); }
+  sfxSlam() { this.playTone(95, 'sawtooth', 0.24, 0.15, 32); this.playTone(65, 'square', 0.2, 0.13, 25); }
+  sfxGelt() { this.playTone(1318.5, 'sine', 0.07, 0.08, null, 0); this.playTone(1760, 'sine', 0.15, 0.09, null, 0.055); }
+  sfx1Up() { [330,392,659,523,587,784].forEach((n,i) => this.playTone(n, 'square', 0.09, 0.09, null, i*0.075)); }
+  sfxPowerup() { [261,329,392,523,392,523,659,784].forEach((n,i) => this.playTone(n, 'square', 0.07, 0.08, null, i*0.055)); }
+  sfxShrink() { [523,440,349,261,196].forEach((n,i) => this.playTone(n, 'sawtooth', 0.06, 0.08, null, i*0.05)); }
+  sfxStomp() { this.playTone(290, 'square', 0.09, 0.1, 110); }
+  sfxFireball() { this.playTone(760, 'square', 0.06, 0.09, 220); this.playTone(520, 'triangle', 0.09, 0.08, 140, 0.03); }
+  sfxBreak() { this.playTone(170, 'sawtooth', 0.14, 0.13, 50); this.playTone(260, 'square', 0.09, 0.09, 65, 0.03); }
+  sfxCheckpoint() { this.playTone(440,'triangle',0.1,0.11,null,0); this.playTone(554.37,'triangle',0.1,0.11,null,0.09); this.playTone(659.25,'triangle',0.22,0.11,null,0.18); }
+  sfxDreidelLetter() { [523.25,659.25,783.99,1046.5].forEach((n,i) => this.playTone(n, 'triangle', 0.1, 0.11, null, i*0.06)); }
+  sfxDie() { [493.88,698.46,0,698.46,698.46,659.25,587.33,523.25].forEach((n,i) => this.playTone(n, 'square', 0.11, 0.09, null, i*0.09)); }
+  sfxTick() { this.playTone(880, 'square', 0.025, 0.05); }
+  sfxWin() { [261.6,329.6,392,523.2,659.2,784,1046.5].forEach((n,i) => this.playTone(n, 'square', 0.14, 0.09, null, i*0.09)); }
+  updateBGM(lowOil, starActive, paused) {
+    if (this.muted || !this.ctx || paused) return;
+    const song = SONGS[this.currentSongIdx];
+    let tempo = song.tempo;
+    if (lowOil) tempo = Math.max(5, Math.floor(tempo * 0.65));
+    if (starActive) tempo = 5;
+    if (++this.bgmTimer >= tempo) {
+      this.bgmTimer = 0;
+      const m = song.melody[this.noteIdx % song.melody.length];
+      const b = song.bass[this.noteIdx % song.bass.length];
+      const pm = starActive ? 1.2 : 1.0;
+      if (m > 0) this.playTone(m * pm, 'square', 0.12, 0.032);
+      if (b > 0) this.playTone(b * pm, 'triangle', 0.15, 0.055);
+      this.noteIdx = (this.noteIdx + 1) % song.melody.length;
+    }
+  }
+}
+const sfx = new SoundEngine();
+
+const keys = {}, justPressed = {};
+const PASSWORDS = [
+  [0,0,0,0], [0,1,2,3], [1,1,2,0], [2,0,3,1], [3,2,1,0], [1,3,1,2], [2,2,3,3], [3,1,0,2], [1,1,1,1]
+];
+const HATS = [
+  { name: "CLASSIC KIPPAH", unlocked: true },
+  { name: "TINSEL SCARF", unlocked: false },
+  { name: "WINTER USHANKA", unlocked: false },
+  { name: "MENORAH CROWN", unlocked: false }
+];
+
+window.addEventListener('keydown', (e) => {
+  sfx.init();
+  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code)) e.preventDefault();
+  if (!keys[e.code]) justPressed[e.code] = true;
+  keys[e.code] = true;
+  if (e.code === 'KeyM') sfx.muted = !sfx.muted;
+  if (e.code === 'KeyH') { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
+  if (e.code === 'KeyN' && gameState === 'PLAY') {
+    stats.night = (stats.night % 9) + 1;
+    stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
+    startLevel(false);
+  }
+});
+window.addEventListener('keyup', (e) => { keys[e.code] = false; });
+
+const isLeft = () => keys['ArrowLeft'] || keys['KeyA'];
+const isRight = () => keys['ArrowRight'] || keys['KeyD'];
+const isDown = () => keys['ArrowDown'] || keys['KeyS'];
+const isUp = () => keys['ArrowUp'] || keys['KeyW'];
+const isJumpDown = () => keys['KeyZ'] || keys['Space'];
+const isJumpPressed = () => justPressed['KeyZ'] || justPressed['Space'];
+const isActionDown = () => keys['KeyX'] || keys['KeyC'] || keys['ShiftLeft'] || keys['ShiftRight'];
+const isActionPressed = () => justPressed['KeyX'] || justPressed['KeyC'] || justPressed['ShiftLeft'] || justPressed['ShiftRight'];
+const isLeftPressed = () => justPressed['ArrowLeft'] || justPressed['KeyA'];
+const isRightPressed = () => justPressed['ArrowRight'] || justPressed['KeyD'];
+const isUpPressed = () => justPressed['ArrowUp'] || justPressed['KeyW'];
+const isDownPressed = () => justPressed['ArrowDown'] || justPressed['KeyS'];
+function clearJustPressed() { for (let k in justPressed) delete justPressed[k]; }
+
+const canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
+const darkCanvas = document.createElement('canvas'); darkCanvas.width = 256; darkCanvas.height = 240;
+const darkCtx = darkCanvas.getContext('2d');
+
+const TILE = 16, LEVEL_WIDTH = 175, LEVEL_HEIGHT = 15, MAX_OIL = 100;
+let gameState = 'TITLE', titleCursor = 0, pwEntry = [0,0,0,0], pwCursor = 0, pwError = 0;
+let stateTimer = 0, hitStop = 0, screenShake = 0, frameCount = 0, cameraX = 0, oil = 100;
+
+let stats = {
+  night: 1, score: 0, NextBonusIndex: 0, bonusThresholds: [20000, 50000, 100000],
+  gelt: 0, lives: 3, checkpointX: 32, checkpointY: 160, checkpointLit: false,
+  letters: [false, false, false, false], totalLetters: 0, hatIdx: 0
+};
+let tally = { geltScore: 0, enemyScore: 0, comboScore: 0, oilLeft: 0, oilScore: 0, phase: 0 };
+let dreidelSpin = {
+  spinning: false, timer: 0, faceIdx: 0,
+  faces: ['NUN', 'GIMEL', 'HEI', 'SHIN'], hebrew: ['נ', 'ג', 'ה', 'ש'],
+  desc: ['NOTHING (+0%)', 'JACKPOT! (x2 SCORE)', 'HALF (+50% SCORE)', 'PUT IN (-10% SCORE)'], done: false
+};
+
+let map = [], blockContents = {}, player, gelts = [], items = [], enemies = [], icicles = [], projectiles = [], fireballs = [], particles = [], popups = [];
+let shamash = { x: 88*TILE, y: 11*TILE, lit: false };
+let bonusDoor = { x: 131*TILE, y: 11*TILE, active: false, used: false };
+let menorah = { x: 166*TILE, y: 10*TILE, lit: false };
+let boss = null;
+
+function addScore(pts, x, y, label = null) {
+  stats.score += pts;
+  if (stats.NextBonusIndex < stats.bonusThresholds.length && stats.score >= stats.bonusThresholds[stats.NextBonusIndex]) {
+    stats.lives++; stats.NextBonusIndex++; sfx.sfx1Up();
+    spawnPopup(player.x, player.y - 12, "1-UP!", "#55ff55");
+  }
+  if (x !== undefined && y !== undefined) spawnPopup(x, y, label || `${pts}`, "#ffffff");
+}
+function addGelt(x, y) {
+  stats.gelt++; sfx.sfxGelt(); tally.geltScore += 50; addScore(50);
+  spawnParticles(x, y, '#ffd700', 7);
+  if (stats.gelt >= 100) { stats.gelt -= 100; stats.lives++; sfx.sfx1Up(); spawnPopup(player.x, player.y - 10, "1-UP!", "#55ff55"); }
+}
+function spawnPopup(x, y, text, color = '#fff') { popups.push({ x, y, text, color, life: 45 }); }
+function spawnParticles(x, y, color, count = 8, speed = 2.5) {
+  for (let i = 0; i < count; i++) {
+    const a = Math.random() * Math.PI * 2, spd = 0.6 + Math.random() * speed;
+    particles.push({ x, y, vx: Math.cos(a)*spd, vy: Math.sin(a)*spd - 1.2, color, size: Math.random() > 0.4 ? 3 : 2, life: 18 + Math.floor(Math.random()*14) });
+  }
+}
+
+function buildLevel(night) {
+  sfx.setSong(night - 1);
+  map = Array.from({ length: LEVEL_HEIGHT }, () => Array(LEVEL_WIDTH).fill(0));
+  blockContents = {}; gelts = []; items = []; enemies = []; icicles = []; projectiles = []; fireballs = []; particles = []; popups = [];
+  oil = MAX_OIL;
+
+  const setTile = (x, y, t, content = null) => {
+    if (y >= 0 && y < LEVEL_HEIGHT && x >= 0 && x < LEVEL_WIDTH) {
+      map[y][x] = t; if (content) blockContents[`${x},${y}`] = content;
+    }
+  };
+
+  const pit1 = 66 + (night % 3) * 2, pit2 = 116 + (night % 2) * 2;
+  for (let x = 0; x < LEVEL_WIDTH; x++) {
+    if ((x >= pit1 && x <= pit1 + 2) || (x >= pit2 && x <= pit2 + 2)) continue;
+    map[13][x] = 1; map[14][x] = 1;
+  }
+
+  setTile(10, 10, 5, 'latke');
+  setTile(11, 10, 7);
+  setTile(12, 10, 5, 'sufganiyah');
+  setTile(13, 10, 7);
+  setTile(14, 10, 5, 'gelt');
+
+  setTile(16 + (night % 2), 13, 8); setTile(17 + (night % 2), 13, 8);
+
+  for (let x = 19; x <= 23; x++) setTile(x, 10, night >= 4 ? 2 : 7);
+  for (let x = 20; x <= 22; x++) gelts.push({ x: x*TILE + 4, y: 8*TILE + 4, collected: false });
+
+  setTile(22, 7, 5, 'gelt');
+  items.push({ x: 22*TILE + 2, y: 5*TILE + 4, vx: 0, vy: 0, type: 'letter', letterIdx: 0, permanent: true });
+
+  enemies.push(createGoblin(25*TILE, 12*TILE, night >= 3 ? 'jumper' : 'walker'));
+  enemies.push(createGoblin(29*TILE, 12*TILE, night >= 2 ? 'thrower' : 'walker'));
+  if (night >= 2) setTile(27, 12, 9);
+
+  setTile(32, 12, 1);
+  for (let x = 33; x <= 36; x++) { setTile(x, 11, 1); setTile(x, 12, 1); }
+  for (let x = 43; x <= 46; x++) { setTile(x, 11, 1); setTile(x, 12, 1); }
+  setTile(47, 12, 1);
+
+  if (night >= 2) {
+    for (let x = 35; x <= 44; x++) setTile(x, 3, 7);
+    icicles.push({ x: 38*TILE + 4, y: 4*TILE, vy: 0, state: 'hang' });
+    icicles.push({ x: 41*TILE + 4, y: 4*TILE, vy: 0, state: 'hang' });
+  }
+
+  for (let x = 37; x <= 42; x++) {
+    setTile(x, 11, 3); setTile(x, 13, 0); setTile(x, 14, 1);
+    gelts.push({ x: x*TILE + 4, y: 12*TILE + 4, collected: false });
+    gelts.push({ x: x*TILE + 4, y: 13*TILE + 4, collected: false });
+  }
+  setTile(37, 13, 1); setTile(42, 13, 1);
+
+  items.push({ x: 39*TILE + 2, y: 12*TILE + 2, vx: 0, vy: 0, type: 'letter', letterIdx: 1, permanent: true });
+  items.push({ x: 45*TILE + 2, y: 9*TILE, vx: 0, vy: 0, type: 'oil', permanent: true });
+  setTile(48, 10, 5, 'progressive'); setTile(49, 10, 5, 'applesauce');
+
+  for (let x = 51; x <= pit1 - 1; x++) setTile(x, 13, 2);
+  const slideEnemyType = night >= 4 ? 'skater' : 'walker';
+  enemies.push(createGoblin(55*TILE, 12*TILE, slideEnemyType));
+  enemies.push(createGoblin(57*TILE, 12*TILE, slideEnemyType));
+  enemies.push(createGoblin(59*TILE, 12*TILE, slideEnemyType));
+  enemies.push(createGoblin(61*TILE, 12*TILE, 'thrower'));
+
+  const wallX = pit1 - 4;
+  setTile(wallX, 11, 4); setTile(wallX, 12, 4);
+  setTile(wallX + 1, 10, 7); setTile(wallX + 2, 10, 7);
+  items.push({ x: (wallX + 1)*TILE + 2, y: 11*TILE + 2, vx: 0, vy: 0, type: 'letter', letterIdx: 2, permanent: true });
+
+  for (let x = pit1 + 3; x <= pit1 + 7; x++) setTile(x, 11, 2);
+  for (let x = pit1 + 9; x <= pit1 + 13; x++) setTile(x, 9, 2);
+  setTile(pit1 + 11, 6, 5, 'star');
+
+  if (night >= 5) {
+    setTile(85, 11, 7); setTile(86, 11, 7);
+    setTile(87, 9, 7); setTile(88, 9, 7); setTile(89, 9, 7);
+    shamash.x = 88*TILE; shamash.y = 7*TILE;
+  } else {
+    shamash.x = 88*TILE; shamash.y = 11*TILE;
+  }
+  shamash.lit = stats.checkpointLit;
+
+  items.push({ x: 91*TILE, y: 11*TILE, vx: 0, vy: 0, type: 'oil', permanent: true });
+  setTile(93, 10, 5, 'progressive');
+
+  setTile(99, 10, 7); setTile(100, 10, 7);
+  setTile(102, 7, 7); setTile(103, 7, 7);
+  setTile(105, 5, 7); setTile(106, 5, 7);
+  for (let x = 90; x <= 114; x += 2) gelts.push({ x: x*TILE + 4, y: 3*TILE, collected: false });
+  items.push({ x: 105*TILE + 2, y: 3*TILE, vx: 0, vy: 0, type: 'letter', letterIdx: 3, permanent: true });
+
+  for (let x = 96; x <= pit2 - 1; x++) setTile(x, 13, 2);
+  if (night >= 3) { setTile(101, 12, 9); setTile(108, 12, 9); }
+  enemies.push(createGoblin(99*TILE, 12*TILE, 'jumper'));
+  enemies.push(createGoblin(103*TILE, 12*TILE, night >= 3 ? 'skater' : 'jumper'));
+  enemies.push(createGoblin(106*TILE, 12*TILE, 'jumper'));
+  enemies.push(createGoblin(110*TILE, 12*TILE, night >= 2 ? 'thrower' : 'jumper'));
+  enemies.push(createGoblin(113*TILE, 12*TILE, 'jumper'));
+
+  items.push({ x: 123*TILE, y: 11*TILE, vx: 0, vy: 0, type: 'oil', permanent: true });
+  setTile(125, 10, 5, 'sufganiyah');
+  setTile(128, 12, 7);
+  items.push({ x: 128*TILE + 2, y: 11*TILE - 2, vx: 0, vy: 0, type: 'sufganiyah', permanent: true });
+
+  bonusDoor.x = 131*TILE; bonusDoor.y = 11*TILE; bonusDoor.used = false;
+
+  setTile(135, 12, 7);
+  const bossNames = [
+    "GRUMBLE THE GOBLIN CHIEFTAIN", "FROST-BLADE SKATER LORD",
+    "ICICLE SHAMAN", "TUNDRA BERSERKER", "KING ANTIOCHUS GOBLIN REX"
+  ];
+  const bossType = night >= 8 ? 5 : ((night - 1) % 4) + 1;
+  const speedMult = night >= 5 ? 1.3 : 1.0;
+  const maxHp = night >= 8 ? 5 : 3;
+
+  boss = {
+    name: bossNames[bossType - 1],
+    x: 152*TILE, y: 13*TILE - 34, vx: -1.05 * speedMult, vy: 0,
+    w: 30, h: 34, dir: -1, hp: maxHp, maxHp: maxHp,
+    type: bossType, speedMult, state: 'patrol', timer: 0, invuln: 0, active: false
+  };
+  menorah.x = 166*TILE; menorah.y = 10*TILE; menorah.lit = false;
+}
+
+function createGoblin(x, y, subtype = 'walker') {
+  return { x, y, vx: subtype === 'skater' ? -1.25 : -0.55, vy: 0, w: 14, h: 14, subtype, grounded: false, stunTimer: 0, dead: false, actionTimer: Math.floor(Math.random()*50) };
+}
+
+class Hippo {
+  constructor(x, y) {
+    this.x = x; this.y = y; this.vx = 0; this.vy = 0; this.dir = 1;
+    this.power = 0; this.w = 14; this.h = 15;
+    this.grounded = false; this.onIce = false; this.sliding = false;
+    this.groundPounding = false; this.poundFreeze = 0;
+    this.coyoteTimer = 0; this.jumpBuffer = 0; this.airCombo = 0;
+    this.invulnTimer = 0; this.applesauceTimer = 0; this.starTimer = 0; this.fireCooldown = 0;
+    this.animFrame = 0; this.animTimer = 0;
+  }
+  setPower(newPower) {
+    const oldH = this.h; this.power = newPower;
+    this.h = this.power === 0 ? 15 : 22; this.y -= (this.h - oldH);
+  }
+  takeDamage() {
+    if (this.invulnTimer > 0 || this.starTimer > 0 || gameState !== 'PLAY') return;
+    if (this.power > 0) {
+      sfx.sfxShrink(); this.setPower(this.power - 1); this.invulnTimer = 90; hitStop = 5;
+      spawnParticles(this.x + this.w/2, this.y + this.h/2, '#ffffff', 10);
+    } else killPlayer();
+  }
+  update() {
+    if (this.invulnTimer > 0) this.invulnTimer--;
+    if (this.applesauceTimer > 0) this.applesauceTimer--;
+    if (this.fireCooldown > 0) this.fireCooldown--;
+
+    if (this.starTimer > 0) {
+      this.starTimer--; this.groundPounding = false; this.sliding = false;
+      this.vx = isRight() ? 2.6 : (isLeft() ? -2.6 : 0);
+      this.vy = (isUp() || isJumpDown()) ? -2.0 : (isDown() ? 2.0 : this.vy * 0.8);
+      this.x = Math.max(0, this.x + this.vx);
+      this.y = Math.max(8, Math.min(11*TILE, this.y + this.vy));
+      if (frameCount % 3 === 0) spawnParticles(this.x + 6, this.y + this.h, '#ffd700', 1, 1);
+      return;
+    }
+
+    if (this.groundPounding) {
+      if (this.poundFreeze > 0) {
+        if (--this.poundFreeze === 0) this.vy = 7.5;
+        return;
+      }
+      this.vx = 0; this.vy = 8.0; this.moveAndCollide();
+      if (this.grounded) this.onGroundPoundLand();
+      return;
+    }
+
+    const running = isActionDown() || this.applesauceTimer > 0;
+    const maxSpeed = (running ? 2.65 : 1.75) * (this.applesauceTimer > 0 ? 1.35 : 1.0);
+
+    if (this.grounded && isDown()) {
+      if (this.onIce && Math.abs(this.vx) > 0.85 && !this.sliding) {
+        this.sliding = true; this.vx = this.dir * Math.max(Math.abs(this.vx)*1.15, 3.1); sfx.sfxJump();
+      }
+    } else if (!isDown() || !this.grounded) this.sliding = false;
+
+    if (this.sliding) {
+      this.vx *= this.onIce ? 0.992 : 0.94;
+      if (Math.abs(this.vx) < 0.35) this.sliding = false;
+      if (frameCount % 3 === 0) spawnParticles(this.x + (this.dir > 0 ? 0 : this.w), this.y + this.h, '#e0f7ff', 1, 0.8);
+    } else {
+      let accel = this.grounded ? (this.onIce ? 0.055 : 0.19) : 0.14;
+      let decel = this.grounded ? (this.onIce ? 0.022 : 0.22) : 0.04;
+      if (isLeft()) { this.dir = -1; if (this.vx > -maxSpeed) this.vx = Math.max(-maxSpeed, this.vx - accel); }
+      else if (isRight()) { this.dir = 1; if (this.vx < maxSpeed) this.vx = Math.min(maxSpeed, this.vx + accel); }
+      else {
+        if (this.vx > 0) this.vx = Math.max(0, this.vx - decel);
+        if (this.vx < 0) this.vx = Math.min(0, this.vx + decel);
+      }
+    }
+
+    if (this.grounded) { this.coyoteTimer = 7; this.airCombo = 0; }
+    else if (this.coyoteTimer > 0) this.coyoteTimer--;
+
+    if (isJumpPressed()) {
+      if (!this.grounded && isDown() && this.coyoteTimer === 0) {
+        this.groundPounding = true; this.sliding = false; this.poundFreeze = 8; sfx.sfxPoundStart(); return;
+      }
+      this.jumpBuffer = 7;
+    } else if (this.jumpBuffer > 0) this.jumpBuffer--;
+
+    if (this.jumpBuffer > 0 && this.coyoteTimer > 0) {
+      this.vy = -(5.25 + Math.abs(this.vx) * 0.2);
+      this.grounded = false; this.coyoteTimer = 0; this.jumpBuffer = 0; this.sliding = false; sfx.sfxJump();
+    }
+    if (!isJumpDown() && this.vy < -2.0) this.vy *= 0.58;
+    this.vy = Math.min(6.5, this.vy + (this.vy < 0 ? 0.22 : 0.33));
+
+    if (this.power === 2 && isActionPressed() && this.fireCooldown === 0 && fireballs.length < 3) {
+      sfx.sfxFireball(); this.fireCooldown = 12;
+      fireballs.push({ x: this.dir > 0 ? this.x + this.w + 2 : this.x - 6, y: this.y + 7, vx: this.dir * 4.4, vy: 1.2, bounces: 0 });
+    }
+
+    this.moveAndCollide();
+
+    if (Math.abs(this.vx) > 0.2 && this.grounded) {
+      this.animTimer += Math.abs(this.vx) * 0.15;
+      if (this.animTimer >= 1) { this.animTimer = 0; this.animFrame = (this.animFrame + 1) % 4; }
+    } else this.animFrame = 0;
+
+    if (this.y > LEVEL_HEIGHT * TILE + 8) killPlayer();
+  }
+
+  moveAndCollide() {
+    this.x += this.vx;
+    const minX = (boss && boss.active && boss.state !== 'dead') ? 136 * TILE : 0;
+    if (this.x < minX) { this.x = minX; this.vx = 0; }
+    if (this.x > (LEVEL_WIDTH - 1) * TILE) { this.x = (LEVEL_WIDTH - 1) * TILE; this.vx = 0; }
+    this.resolveCollisions(true);
+    this.y += this.vy; this.grounded = false; this.onIce = false;
+    this.resolveCollisions(false);
+  }
+
+  resolveCollisions(horizontal) {
+    const startX = Math.floor(this.x / TILE), endX = Math.floor((this.x + this.w - 0.01) / TILE);
+    const startY = Math.floor(this.y / TILE), endY = Math.floor((this.y + this.h - 0.01) / TILE);
+
+    for (let ty = startY; ty <= endY; ty++) {
+      for (let tx = startX; tx <= endX; tx++) {
+        if (ty < 0 || ty >= LEVEL_HEIGHT || tx < 0 || tx >= LEVEL_WIDTH) continue;
+        const tile = map[ty][tx];
+        if (tile === 0) continue;
+        if (tile === 9) { this.takeDamage(); continue; }
+
+        if (horizontal) {
+          if (tile === 4 && (this.sliding || Math.abs(this.vx) >= 2.6)) {
+            this.shatterBrick(tx, ty, '#8899aa'); continue;
+          }
+          if (this.vx > 0) { this.x = tx * TILE - this.w; this.vx = 0; this.sliding = false; }
+          else if (this.vx < 0) { this.x = (tx + 1) * TILE; this.vx = 0; this.sliding = false; }
+        } else {
+          if (this.vy > 0) {
+            this.y = ty * TILE - this.h; this.vy = 0; this.grounded = true;
+            if (tile === 2 || tile === 3) this.onIce = true;
+          } else if (this.vy < 0) {
+            this.y = (ty + 1) * TILE; this.vy = 0;
+            this.hitBlockFromBelow(tx, ty, tile);
+          }
+        }
+      }
+    }
+  }
+
+  shatterBrick(tx, ty, color = '#7084b0') {
+    map[ty][tx] = 0; sfx.sfxBreak(); screenShake = 5; addScore(50);
+    const cx = tx * TILE + 8, cy = ty * TILE + 8;
+    [ {vx:-2.2, vy:-4.2}, {vx:2.2, vy:-4.2}, {vx:-1.6, vy:-2.4}, {vx:1.6, vy:-2.4} ].forEach(c => {
+      particles.push({ x: cx, y: cy, vx: c.vx, vy: c.vy, color, size: 5, life: 32 });
+    });
+    enemies.forEach(e => {
+      if (!e.dead && Math.abs((e.x + 7) - cx) < 14 && Math.abs((e.y + e.h) - ty * TILE) < 8) {
+        e.dead = true; sfx.sfxStomp(); addScore(100, e.x, e.y);
+      }
+    });
+  }
+
+  hitBlockFromBelow(tx, ty, tile) {
+    if (tile === 5) {
+      map[ty][tx] = 6;
+      const content = blockContents[`${tx},${ty}`] || 'gelt';
+      if (content === 'gelt') addGelt(tx * TILE + 8, (ty - 1) * TILE + 8);
+      else {
+        let spawnType = content === 'progressive' ? (this.power === 0 ? 'latke' : 'sufganiyah') : content;
+        sfx.sfxCheckpoint();
+        items.push({ x: tx * TILE + 2, y: (ty - 1) * TILE - 2, vx: spawnType === 'latke' || spawnType === 'star' ? 0.75 : 0, vy: -2.0, type: spawnType, permanent: false });
+      }
+    } else if (tile === 7 || tile === 4 || tile === 3) {
+      this.shatterBrick(tx, ty, tile === 3 ? '#70e0ff' : '#7084b0');
+    } else sfx.sfxStomp();
+  }
+
+  onGroundPoundLand() {
+    this.groundPounding = false; sfx.sfxSlam(); screenShake = 10; hitStop = 3;
+    spawnParticles(this.x + this.w/2, this.y + this.h, '#ffffff', 12, 3);
+    const cx = Math.floor((this.x + this.w/2) / TILE), fy = Math.floor((this.y + this.h + 2) / TILE);
+    let brokeIce = false;
+    for (let tx = cx - 1; tx <= cx + 1; tx++) {
+      for (let ty = fy - 1; ty <= fy + 1; ty++) {
+        if (ty >= 0 && ty < LEVEL_HEIGHT && tx >= 0 && tx < LEVEL_WIDTH) {
+          if (map[ty][tx] === 3) { map[ty][tx] = 0; brokeIce = true; spawnParticles(tx*TILE+8, ty*TILE+8, '#70e0ff', 10, 3.2); }
+          else if (map[ty][tx] === 8) {
+            map[ty][tx] = 1; sfx.sfxGelt();
+            for (let i = 0; i < 3; i++) items.push({ x: tx*TILE+4, y: (ty-1)*TILE, vx: (Math.random()-0.5)*2.4, vy: -3.2-Math.random()*1.5, type: 'popped_gelt' });
+          }
+        }
+      }
+    }
+    if (brokeIce) { sfx.sfxBreak(); this.vy = 2.0; }
+    enemies.forEach(e => {
+      if (!e.dead && Math.abs(e.x - this.x) < 68 && Math.abs(e.y - this.y) < 40) {
+        e.stunTimer = 150; e.vy = -2.6; spawnPopup(e.x, e.y - 8, "STUN!", "#70e0ff");
+      }
+    });
+  }
+}
+
+function startLevel(resetCampaign = false) {
+  if (resetCampaign) {
+    stats.night = 1; stats.score = 0; stats.gelt = 0; stats.lives = 3;
+    stats.checkpointX = 32; stats.checkpointY = 160; stats.checkpointLit = false;
+    stats.letters = [false, false, false, false]; stats.totalLetters = 0;
+  }
+  buildLevel(stats.night);
+  player = new Hippo(stats.checkpointX, stats.checkpointY);
+  cameraX = Math.max(0, player.x - 96);
+  gameState = 'PLAY';
+}
+function killPlayer() {
+  if (gameState === 'DEAD') return;
+  gameState = 'DEAD'; stateTimer = 0; hitStop = 18; player.vy = -4.6; player.vx = 0; sfx.sfxDie();
+}
+function aabb(a, b) { return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y; }
+
+function updatePlay() {
+  frameCount++;
+  oil = Math.max(0, oil - 0.02);
+  if (oil <= 0) { killPlayer(); return; }
+
+  sfx.updateBGM(oil < 25, player.starTimer > 0, false);
+  player.update();
+
+  cameraX += ((player.x - 104) - cameraX) * 0.22;
+  if (player.x > 136 * TILE && boss && boss.state !== 'dead') boss.active = true;
+  const minCam = (boss && boss.active && boss.state !== 'dead') ? 136 * TILE : 0;
+  cameraX = Math.max(minCam, Math.min(LEVEL_WIDTH * TILE - canvas.width, cameraX));
+
+  bonusDoor.active = stats.letters.every(Boolean);
+  if (bonusDoor.active && !bonusDoor.used && isUpPressed() && aabb(player, { x: bonusDoor.x, y: bonusDoor.y, w: 16, h: 32 })) {
+    bonusDoor.used = true; sfx.sfxPowerup();
+    for (let i = 0; i < 20; i++) items.push({ x: bonusDoor.x + (Math.random()-0.5)*40, y: bonusDoor.y - 16, vx: (Math.random()-0.5)*3.5, vy: -2.5 - Math.random()*3, type: 'popped_gelt' });
+    oil = MAX_OIL; player.setPower(2); spawnPopup(bonusDoor.x - 12, bonusDoor.y - 16, "DREIDEL TREASURY!", "#ffd700");
+  }
+
+  gelts.forEach(g => {
+    if (!g.collected && aabb(player, { x: g.x, y: g.y, w: 8, h: 10 })) { g.collected = true; addGelt(g.x + 4, g.y + 4); }
+  });
+
+  icicles.forEach(ic => {
+    if (ic.state === 'hang') {
+      if (Math.abs((player.x + 7) - ic.x) < 36 && player.y > ic.y) { ic.state = 'shake'; ic.timer = 18; }
+    } else if (ic.state === 'shake') {
+      if (--ic.timer <= 0) ic.state = 'fall';
+    } else if (ic.state === 'fall') {
+      ic.vy = Math.min(5.5, ic.vy + 0.28); ic.y += ic.vy;
+      if (aabb(player, { x: ic.x, y: ic.y, w: 8, h: 14 })) { player.takeDamage(); ic.state = 'done'; }
+      const ty = Math.floor((ic.y + 14) / TILE), tx = Math.floor((ic.x + 4) / TILE);
+      if (map[ty] && map[ty][tx] > 0) { ic.state = 'done'; spawnParticles(ic.x + 4, ic.y + 12, '#a8ecff', 6); }
+    }
+  });
+
+  for (let i = items.length - 1; i >= 0; i--) {
+    const it = items[i];
+    if (it.type === 'letter' && stats.letters[it.letterIdx]) { items.splice(i, 1); continue; }
+    if (!it.permanent) {
+      it.vy = Math.min(4.5, it.vy + 0.2); it.x += it.vx;
+      const tx = Math.floor((it.x + (it.vx > 0 ? 12 : 0)) / TILE), ty = Math.floor((it.y + 6) / TILE);
+      if (map[ty] && map[ty][tx] > 0) it.vx = -it.vx;
+      it.y += it.vy;
+      const fty = Math.floor((it.y + 12) / TILE), ftx = Math.floor((it.x + 6) / TILE);
+      if (map[fty] && map[fty][ftx] > 0 && it.vy > 0) { it.y = fty * TILE - 12; it.vy = 0; }
+    }
+    if (aabb(player, { x: it.x, y: it.y, w: 13, h: 13 })) {
+      if (it.type === 'popped_gelt') addGelt(it.x, it.y);
+      else if (it.type === 'latke') { sfx.sfxPowerup(); if (player.power < 1) player.setPower(1); addScore(1000, it.x, it.y, "LATKE! BIG HIPPO!"); }
+      else if (it.type === 'sufganiyah') { sfx.sfxPowerup(); player.setPower(2); addScore(1000, it.x, it.y, "FIRE HIPPO! PRESS X!"); }
+      else if (it.type === 'applesauce') { sfx.sfxPowerup(); player.applesauceTimer = 360; addScore(500, it.x, it.y, "SPEED UP!"); }
+      else if (it.type === 'oil') { sfx.sfxCheckpoint(); oil = Math.min(MAX_OIL, oil + 42); addScore(300, it.x, it.y, "+OIL"); }
+      else if (it.type === 'star') { sfx.sfxPowerup(); player.starTimer = 280; addScore(1000, it.x, it.y, "DREIDEL FLIGHT!"); }
+      else if (it.type === 'letter') {
+        sfx.sfxDreidelLetter(); stats.letters[it.letterIdx] = true; stats.totalLetters++;
+        if (stats.letters.every(Boolean)) HATS[1].unlocked = true;
+        addScore(500, it.x, it.y, ['NUN!','GIMEL!','HEI!','SHIN!'][it.letterIdx]);
+      }
+      items.splice(i, 1);
+    }
+  }
+
+  if (!shamash.lit && aabb(player, { x: shamash.x, y: shamash.y, w: 12, h: 32 })) {
+    shamash.lit = true; stats.checkpointLit = true; stats.checkpointX = shamash.x; stats.checkpointY = shamash.y;
+    sfx.sfxCheckpoint(); spawnParticles(shamash.x + 6, shamash.y, '#ffaa00', 14);
+    spawnPopup(shamash.x, shamash.y - 10, "CHECKPOINT!", "#ffdd44");
+  }
+
+  for (let i = projectiles.length - 1; i >= 0; i--) {
+    const pr = projectiles[i]; pr.x += pr.vx; pr.y += pr.vy; pr.vy += 0.14;
+    if (aabb(player, { x: pr.x - 3, y: pr.y - 3, w: 6, h: 6 })) { player.takeDamage(); projectiles.splice(i, 1); continue; }
+    if (pr.y > LEVEL_HEIGHT * TILE || pr.x < cameraX - 20 || pr.x > cameraX + canvas.width + 20) projectiles.splice(i, 1);
+  }
+
+  for (let i = fireballs.length - 1; i >= 0; i--) {
+    const f = fireballs[i]; f.x += f.vx; f.vy += 0.25; f.y += f.vy;
+    if (frameCount % 2 === 0) particles.push({ x: f.x, y: f.y, vx: 0, vy: 0, color: '#ffaa00', size: 2, life: 8 });
+    const tx = Math.floor(f.x / TILE), ty = Math.floor(f.y / TILE);
+    if (ty >= 0 && ty < LEVEL_HEIGHT && tx >= 0 && tx < LEVEL_WIDTH) {
+      if (map[ty][tx] === 4) { map[ty][tx] = 0; sfx.sfxBreak(); spawnParticles(tx*TILE+8, ty*TILE+8, '#ff7733', 8); fireballs.splice(i, 1); continue; }
+      else if (map[ty][tx] > 0 && map[ty][tx] !== 9) { f.y = ty * TILE - 3; f.vy = -2.8; f.bounces++; }
+    }
+    if (f.bounces > 4 || f.x > cameraX + canvas.width + 24 || f.x < cameraX - 24) { fireballs.splice(i, 1); continue; }
+
+    let hitEnemy = false;
+    for (let e of enemies) {
+      if (!e.dead && aabb({ x: f.x - 4, y: f.y - 4, w: 8, h: 8 }, e)) {
+        e.dead = true; sfx.sfxStomp(); spawnParticles(e.x + 7, e.y + 7, '#55ff55', 10);
+        tally.enemyScore += 100; addScore(100, e.x, e.y); fireballs.splice(i, 1); hitEnemy = true; break;
+      }
+    }
+    if (hitEnemy) continue;
+    if (boss && boss.active && boss.state !== 'dead' && boss.invuln === 0 && aabb({ x: f.x - 4, y: f.y - 4, w: 8, h: 8 }, boss)) {
+      damageBoss(); fireballs.splice(i, 1);
+    }
+  }
+
+  enemies.forEach(e => {
+    if (e.dead || Math.abs(e.x - player.x) > 220) return;
+    if (e.stunTimer > 0) e.stunTimer--;
+    else {
+      e.x += e.vx;
+      const sideX = Math.floor((e.x + (e.vx > 0 ? e.w : 0)) / TILE), sideY = Math.floor((e.y + 6) / TILE);
+      if (map[sideY] && map[sideY][sideX] > 0) e.vx = -e.vx;
+      e.actionTimer++;
+      if (e.subtype === 'jumper' && e.grounded && e.actionTimer > 60) { e.actionTimer = 0; e.vy = -3.8; e.grounded = false; }
+      else if (e.subtype === 'thrower' && e.actionTimer > 85) {
+        e.actionTimer = 0; projectiles.push({ x: e.x + 7, y: e.y + 2, vx: (player.x < e.x ? -1 : 1) * 2.1, vy: -2.6 });
+      }
+    }
+    e.vy = Math.min(5, e.vy + 0.25); e.y += e.vy;
+    const footY = Math.floor((e.y + e.h) / TILE), footX = Math.floor((e.x + e.w / 2) / TILE);
+    if (map[footY] && map[footY][footX] > 0 && e.vy >= 0) { e.y = footY * TILE - e.h; e.vy = 0; e.grounded = true; }
+
+    if (aabb(player, e)) {
+      if (player.sliding || player.groundPounding || player.starTimer > 0) {
+        e.dead = true; sfx.sfxStomp(); hitStop = 3; spawnParticles(e.x + 7, e.y + 7, '#66ff66', 10);
+        tally.enemyScore += 200; addScore(200, e.x, e.y);
+      } else if (player.vy > 0 && player.y + player.h - player.vy <= e.y + 9) {
+        e.dead = true; sfx.sfxStomp(); hitStop = 4; player.vy = -4.4; spawnParticles(e.x + 7, e.y + 7, '#66ff66', 10);
+        const comboTable = [100, 200, 400, 800];
+        if (player.airCombo < comboTable.length) {
+          const pts = comboTable[player.airCombo]; tally.comboScore += pts; addScore(pts, e.x, e.y - 6);
+        } else { stats.lives++; sfx.sfx1Up(); spawnPopup(e.x, e.y - 8, "1-UP!", "#55ff55"); }
+        player.airCombo++;
+      } else if (e.stunTimer > 0) { e.dead = true; sfx.sfxStomp(); tally.enemyScore += 100; addScore(100, e.x, e.y); }
+      else player.takeDamage();
+    }
+  });
+
+  if (boss && boss.active && boss.state !== 'dead') {
+    if (boss.invuln > 0) boss.invuln--;
+    boss.timer++; boss.dir = player.x < boss.x ? -1 : 1;
+    if (boss.state === 'patrol') {
+      boss.x += boss.vx;
+      if (boss.x < 138 * TILE) boss.vx = Math.abs(boss.vx);
+      if (boss.x > 160 * TILE) boss.vx = -Math.abs(boss.vx);
+      if (boss.timer > Math.floor(68 / boss.speedMult)) { boss.state = 'telegraph'; boss.timer = 0; }
+    } else if (boss.state === 'telegraph') {
+      if (boss.timer > 28) {
+        boss.timer = 0;
+        const pattern = boss.type === 5 ? ((boss.hp % 4) + 1) : boss.type;
+        if (pattern === 1 || pattern === 4) {
+          boss.state = 'jump'; boss.vy = -5.3; boss.vx = (player.x < boss.x ? -1.8 : 1.8) * boss.speedMult; sfx.sfxJump();
+        } else if (pattern === 2) {
+          boss.state = 'charge'; boss.vx = (player.x < boss.x ? -3.2 : 3.2) * boss.speedMult; sfx.sfxPoundStart();
+        } else if (pattern === 3) {
+          boss.state = 'patrol'; const dir = player.x < boss.x ? -1 : 1;
+          projectiles.push({ x: boss.x + 15, y: boss.y + 6, vx: dir * 2.4, vy: -3.2 });
+          projectiles.push({ x: boss.x + 15, y: boss.y + 6, vx: dir * 1.5, vy: -3.8 });
+          sfx.sfxFireball();
+        }
+      }
+    } else if (boss.state === 'charge') {
+      boss.x += boss.vx;
+      if (boss.x < 138 * TILE || boss.x > 160 * TILE || boss.timer > 42) {
+        boss.state = 'patrol'; boss.vx = -1.05 * boss.speedMult; boss.timer = 0;
+      }
+    } else if (boss.state === 'jump') {
+      boss.x += boss.vx; boss.vy += 0.22; boss.y += boss.vy;
+      if (boss.y >= 13 * TILE - boss.h) {
+        boss.y = 13 * TILE - boss.h; boss.vy = 0; boss.state = 'patrol'; boss.timer = 0; screenShake = 6; sfx.sfxSlam();
+      }
+    }
+    if (aabb(player, boss) && boss.invuln === 0) {
+      if (player.groundPounding || (player.vy > 0 && player.y + player.h - player.vy <= boss.y + 12)) {
+        player.vy = -4.8; player.groundPounding = false; damageBoss();
+      } else player.takeDamage();
+    }
+  }
+
+  if ((!boss || boss.state === 'dead') && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
+    menorah.lit = true; sfx.sfxWin();
+    if (stats.night >= 3) HATS[2].unlocked = true;
+    if (stats.night >= 8) HATS[3].unlocked = true;
+    tally.oilLeft = Math.ceil(oil); tally.oilScore = 0; tally.phase = 0;
+    dreidelSpin.spinning = false; dreidelSpin.done = false;
+    gameState = 'TALLY'; stateTimer = 0;
+  }
+  updateParticlesAndPopups();
+}
+
+function damageBoss() {
+  boss.hp--; boss.invuln = 50; hitStop = 5; screenShake = 7; sfx.sfxStomp();
+  spawnParticles(boss.x + 15, boss.y + 14, '#ff5555', 14);
+  spawnPopup(boss.x + 4, boss.y - 8, boss.hp > 0 ? `${boss.hp} HP LEFT!` : "DEFEATED!", "#ffdd44");
+  if (boss.hp <= 0) {
+    boss.state = 'dead'; sfx.sfxBreak();
+    addScore(2000, boss.x, boss.y, "BOSS DEFEATED!");
+    spawnParticles(boss.x + 15, boss.y + 16, '#ffd700', 28, 4);
+  }
+}
+
+function updateParticlesAndPopups() {
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i]; p.x += p.vx; p.y += p.vy; p.vy += 0.18;
+    if (--p.life <= 0) particles.splice(i, 1);
+  }
+  for (let i = popups.length - 1; i >= 0; i--) {
+    const pop = popups[i]; pop.y -= 0.45;
+    if (--pop.life <= 0) popups.splice(i, 1);
+  }
+}
+
+function updateDead() {
+  stateTimer++; player.y += player.vy; player.vy += 0.26;
+  if (stateTimer > 80) {
+    if (--stats.lives <= 0) gameState = 'TITLE';
+    else startLevel(false);
+  }
+}
+
+function updateTally() {
+  stateTimer++; updateParticlesAndPopups();
+  if (tally.phase === 0) {
+    if (stateTimer % 2 === 0 && tally.oilLeft > 0) {
+      tally.oilLeft--; tally.oilScore += 10; stats.score += 10; sfx.sfxTick();
+    } else if (tally.oilLeft <= 0 && stateTimer > 35) tally.phase = 1;
+  } else if (tally.phase === 1) {
+    if (!dreidelSpin.spinning && !dreidelSpin.done) {
+      if (isJumpPressed() || isActionPressed()) { dreidelSpin.spinning = true; dreidelSpin.timer = 65; }
+    } else if (dreidelSpin.spinning) {
+      if (--dreidelSpin.timer % 4 === 0) { dreidelSpin.faceIdx = (dreidelSpin.faceIdx + 1) % 4; sfx.sfxTick(); }
+      if (dreidelSpin.timer <= 0) {
+        dreidelSpin.spinning = false; dreidelSpin.done = true;
+        const levelTotal = tally.geltScore + tally.enemyScore + tally.comboScore + tally.oilScore;
+        if (dreidelSpin.faceIdx === 1) { stats.score += levelTotal; sfx.sfx1Up(); }
+        else if (dreidelSpin.faceIdx === 2) { stats.score += Math.floor(levelTotal * 0.5); sfx.sfxPowerup(); }
+        else if (dreidelSpin.faceIdx === 3) { stats.score = Math.max(0, stats.score - Math.floor(levelTotal * 0.1)); sfx.sfxShrink(); }
+        else sfx.sfxCheckpoint();
+      }
+    } else if (dreidelSpin.done && (isJumpPressed() || isActionPressed())) {
+      gameState = 'MENORAH'; stateTimer = 0; sfx.sfxWin();
+    }
+  }
+}
+
+function updateMenorahScreen() {
+  stateTimer++;
+  if (isJumpPressed() || isActionPressed()) {
+    if (stats.night < 8 || (stats.night === 8 && stats.totalLetters >= 16)) {
+      stats.night++; stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
+      stats.letters = [false, false, false, false];
+      tally.geltScore = 0; tally.enemyScore = 0; tally.comboScore = 0;
+      startLevel(false);
+    } else gameState = 'VICTORY';
+  }
+}
+
+function drawOutlinedRect(x, y, w, h, fill, outline = '#080a12') {
+  ctx.fillStyle = outline; ctx.fillRect(x, y, w, h);
+  ctx.fillStyle = fill; ctx.fillRect(x + 1, y + 1, w - 2, h - 2);
+}
+
+function drawHeart(x, y, filled) {
+  ctx.fillStyle = '#080a12';
+  ctx.fillRect(x, y + 1, 9, 5); ctx.fillRect(x + 1, y, 3, 7); ctx.fillRect(x + 5, y, 3, 7);
+  ctx.fillRect(x + 2, y + 6, 5, 2); ctx.fillRect(x + 3, y + 8, 3, 1);
+  ctx.fillStyle = filled ? '#ff2244' : '#323850';
+  ctx.fillRect(x + 1, y + 1, 3, 4); ctx.fillRect(x + 5, y + 1, 3, 4);
+  ctx.fillRect(x + 2, y + 2, 5, 5); ctx.fillRect(x + 3, y + 7, 3, 1);
+  if (filled) { ctx.fillStyle = '#ffaaaa'; ctx.fillRect(x + 1, y + 1, 2, 1); }
+}
+
+function draw() {
+  ctx.save();
+  if (screenShake > 0) {
+    ctx.translate((Math.random() - 0.5) * screenShake, (Math.random() - 0.5) * screenShake);
+    screenShake = Math.max(0, screenShake - 1);
+  }
+
+  const skyTopColors = ['#1c254c','#171f42','#121936','#0e132b','#0b0f22','#080b1a','#060814','#03040a','#180d2c'];
+  const skyBotColors = ['#584878','#453a66','#342e54','#262244','#1c1936','#131228','#0c0c1c','#070712','#3a1c54'];
+  const nIdx = Math.min(8, stats.night - 1);
+  const skyGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  skyGrad.addColorStop(0, skyTopColors[nIdx]); skyGrad.addColorStop(1, skyBotColors[nIdx]);
+  ctx.fillStyle = skyGrad; ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = '#ffffff';
+  for (let i = 0; i < 28; i++) {
+    const sx = ((i * 67) - Math.floor(cameraX * 0.1)) % canvas.width, sy = (i * 29) % 120;
+    if ((frameCount + i * 13) % 40 < 32) ctx.fillRect((sx + canvas.width) % canvas.width, sy, i % 5 === 0 ? 2 : 1, i % 5 === 0 ? 2 : 1);
+  }
+
+  for (let i = 0; i < 7; i++) {
+    const mx = ((i * 96) - Math.floor(cameraX * 0.22)) % (canvas.width + 96) - 48;
+    ctx.fillStyle = '#1b223d'; ctx.beginPath(); ctx.moveTo(mx, 208); ctx.lineTo(mx + 48, 126); ctx.lineTo(mx + 96, 208); ctx.fill();
+    ctx.fillStyle = '#6d7fa8'; ctx.beginPath(); ctx.moveTo(mx + 34, 150); ctx.lineTo(mx + 48, 126); ctx.lineTo(mx + 62, 150); ctx.fill();
+  }
+
+  if (gameState === 'TITLE') { drawTitleScreen(); ctx.restore(); return; }
+  if (gameState === 'PASSWORD') { drawPasswordScreen(); ctx.restore(); return; }
+  if (gameState === 'MENORAH') { drawMenorahCeremony(); ctx.restore(); return; }
+  if (gameState === 'VICTORY') { drawVictoryScreen(); ctx.restore(); return; }
+
+  const startCol = Math.max(0, Math.floor(cameraX / TILE));
+  const endCol = Math.min(LEVEL_WIDTH - 1, startCol + Math.ceil(canvas.width / TILE) + 1);
+
+  for (let y = 0; y < LEVEL_HEIGHT; y++) {
+    for (let x = startCol; x <= endCol; x++) {
+      const tile = map[y][x];
+      if (tile === 0) continue;
+      const px = Math.floor(x * TILE - cameraX), py = y * TILE;
+
+      if (tile === 1 || tile === 8) {
+        drawOutlinedRect(px, py, TILE, TILE, '#485470', '#121624');
+        ctx.fillStyle = '#364058'; ctx.fillRect(px + 3, py + 9, 4, 4); ctx.fillRect(px + 10, py + 11, 3, 3);
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 5);
+        ctx.fillStyle = '#b8d0f0'; ctx.fillRect(px + 2, py + 5, 5, 2); ctx.fillRect(px + 10, py + 5, 4, 2);
+        if (tile === 8 && (frameCount + x * 7) % 28 < 7) { ctx.fillStyle = '#ffd700'; ctx.fillRect(px + 7, py + 2, 3, 3); }
+      } else if (tile === 2) {
+        drawOutlinedRect(px, py, TILE, TILE, '#44b4e8', '#0d2b45');
+        ctx.fillStyle = '#b4f4ff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 3); ctx.fillRect(px + 3, py + 6, 4, 2); ctx.fillRect(px + 9, py + 10, 4, 2);
+      } else if (tile === 3) {
+        drawOutlinedRect(px, py, TILE, TILE, '#2c8ec4', '#0a1e32');
+        ctx.fillStyle = '#9eeeff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 3);
+        ctx.fillStyle = '#0a1e32'; ctx.fillRect(px + 4, py + 4, 2, 8); ctx.fillRect(px + 6, py + 7, 5, 2); ctx.fillRect(px + 10, py + 9, 2, 5);
+      } else if (tile === 4) {
+        drawOutlinedRect(px, py, TILE, TILE, '#626c82', '#141820');
+        ctx.fillStyle = '#434b5c'; ctx.fillRect(px + 2, py + 5, 6, 5); ctx.fillRect(px + 9, py + 8, 5, 6);
+        ctx.fillStyle = '#ffffff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 3);
+      } else if (tile === 5) {
+        drawOutlinedRect(px, py, TILE, TILE, '#f0a818', '#241400');
+        ctx.fillStyle = '#ffe868'; ctx.fillRect(px + 1, py + 1, TILE - 2, 2);
+        ctx.fillStyle = '#703800'; ctx.fillRect(px + 6, py + 4, 4, 8); ctx.fillRect(px + 4, py + 6, 8, 4);
+      } else if (tile === 6) {
+        drawOutlinedRect(px, py, TILE, TILE, '#545868', '#14161f');
+      } else if (tile === 7) {
+        drawOutlinedRect(px, py, TILE, TILE, '#4a5a80', '#121828');
+        ctx.fillStyle = '#7084b0'; ctx.fillRect(px + 1, py + 1, 6, 6); ctx.fillRect(px + 9, py + 1, 6, 6); ctx.fillRect(px + 1, py + 9, 14, 6);
+      } else if (tile === 9) {
+        drawOutlinedRect(px + 4, py + 5, 8, 11, '#fff5e0', '#1a120b');
+        ctx.fillStyle = '#ff2222'; ctx.fillRect(px + 5, py + 8, 6, 2);
+        ctx.fillStyle = frameCount % 6 < 3 ? '#ff6600' : '#ffdd00'; ctx.fillRect(px + 5, py, 6, 5);
+      }
+    }
+  }
+
+  const bdx = Math.floor(bonusDoor.x - cameraX);
+  if (bonusDoor.active && !bonusDoor.used) {
+    drawOutlinedRect(bdx, bonusDoor.y, 16, 32, '#2860c8', '#ffd700');
+    ctx.fillStyle = '#ffd700'; ctx.font = 'bold 8px monospace'; ctx.fillText('UP', bdx + 3, bonusDoor.y - 3);
+  }
+
+  const sx = Math.floor(shamash.x - cameraX);
+  drawOutlinedRect(sx + 3, shamash.y + 8, 6, 24, '#e6b830', '#1a1200');
+  drawOutlinedRect(sx, shamash.y + 28, 12, 4, '#ffd700', '#1a1200');
+  drawOutlinedRect(sx + 3, shamash.y + 1, 6, 8, '#ffffff', '#1a1200');
+  if (shamash.lit) {
+    ctx.fillStyle = frameCount % 6 < 3 ? '#ff7700' : '#ffee22'; ctx.fillRect(sx + 2, shamash.y - 6, 8, 7);
+  }
+
+  const mx = Math.floor(menorah.x - cameraX);
+  drawOutlinedRect(mx + 9, menorah.y + 6, 6, 42, '#ffd700', '#241800');
+  drawOutlinedRect(mx + 1, menorah.y + 43, 22, 5, '#ffd700', '#241800');
+  drawOutlinedRect(mx - 1, menorah.y + 19, 26, 4, '#ffd700', '#241800');
+  for (let i = 0; i < 9; i++) {
+    const bx = mx - 1 + i * 3;
+    ctx.fillStyle = '#ffd700'; ctx.fillRect(bx, menorah.y + 12, 2, 8);
+    if (i === 4 || i < stats.night - 1 || (menorah.lit && i < stats.night)) {
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(bx, menorah.y + 7, 2, 5);
+      ctx.fillStyle = frameCount % 6 < 3 ? '#ff8800' : '#ffff00'; ctx.fillRect(bx - 1, menorah.y + 3, 4, 4);
+    }
+  }
+
+  gelts.forEach(g => {
+    if (g.collected) return;
+    const gx = Math.floor(g.x - cameraX);
+    if (gx < -16 || gx > canvas.width + 16) return;
+    drawOutlinedRect(gx, g.y, 8, 10, '#ffd700', '#1a1200');
+    if (Math.floor(frameCount / 10) % 2 === 0) { ctx.fillStyle = '#fff9b0'; ctx.fillRect(gx + 3, g.y + 2, 2, 6); }
+  });
+
+  icicles.forEach(ic => {
+    if (ic.state === 'done') return;
+    const ix = Math.floor(ic.x - cameraX) + (ic.state === 'shake' ? (frameCount % 2)*2 - 1 : 0);
+    drawOutlinedRect(ix, Math.floor(ic.y), 8, 14, '#70e4ff', '#0a223a');
+  });
+
+  const hebChars = ['נ', 'ג', 'ה', 'ש'];
+  items.forEach(it => {
+    const ix = Math.floor(it.x - cameraX), iy = Math.floor(it.y);
+    if (it.type === 'latke') {
+      drawOutlinedRect(ix, iy + 2, 13, 9, '#d88028', '#221000');
+      ctx.fillStyle = '#ffc458'; ctx.fillRect(ix + 2, iy + 4, 9, 4);
+    } else if (it.type === 'sufganiyah') {
+      drawOutlinedRect(ix, iy + 2, 13, 10, '#e89c48', '#221000');
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(ix + 2, iy + 2, 9, 3);
+      ctx.fillStyle = '#ff1133'; ctx.fillRect(ix + 4, iy + 1, 5, 3);
+    } else if (it.type === 'applesauce') {
+      drawOutlinedRect(ix + 1, iy, 10, 12, '#88e0ff', '#0a1828');
+      ctx.fillStyle = '#f8d868'; ctx.fillRect(ix + 2, iy + 4, 8, 7);
+    } else if (it.type === 'oil') {
+      drawOutlinedRect(ix + 1, iy + 2, 10, 10, '#38c8ff', '#081828');
+      drawOutlinedRect(ix + 3, iy - 1, 6, 4, '#ffd700', '#221400');
+    } else if (it.type === 'star') {
+      drawOutlinedRect(ix + 1, iy + 1, 10, 10, frameCount % 6 < 3 ? '#ffd700' : '#70f0ff', '#000');
+    } else if (it.type === 'letter') {
+      drawOutlinedRect(ix, iy, 13, 13, '#1e54c8', '#081228');
+      ctx.strokeStyle = '#ffd700'; ctx.strokeRect(ix + 1.5, iy + 1.5, 10, 10);
+      ctx.fillStyle = '#ffd700'; ctx.font = 'bold 10px monospace'; ctx.fillText(hebChars[it.letterIdx], ix + 3, iy + 10);
+    } else if (it.type === 'popped_gelt') {
+      drawOutlinedRect(ix + 1, iy + 1, 7, 7, '#ffd700', '#1a1200');
+    }
+  });
+
+  enemies.forEach(e => {
+    if (e.dead) return;
+    const ex = Math.floor(e.x - cameraX), ey = Math.floor(e.y);
+    if (ex < -24 || ex > canvas.width + 24) return;
+    let gobColor = '#38a838';
+    if (e.subtype === 'jumper') gobColor = '#78d838';
+    if (e.subtype === 'thrower') gobColor = '#3898d8';
+    if (e.subtype === 'skater') gobColor = '#b058e8';
+    if (e.stunTimer > 0) gobColor = '#80f0ff';
+
+    drawOutlinedRect(ex - 2, ey + 3, 4, 4, gobColor);
+    drawOutlinedRect(ex + 12, ey + 3, 4, 4, gobColor);
+    drawOutlinedRect(ex, ey + 1, 14, 11, gobColor);
+    ctx.fillStyle = '#ff1122'; ctx.fillRect(ex + 2, ey + 5, 3, 2); ctx.fillRect(ex + 9, ey + 5, 3, 2);
+    const step = Math.floor(frameCount / 7) % 2;
+    ctx.fillStyle = e.subtype === 'skater' ? '#e0f8ff' : '#24180c';
+    ctx.fillRect(ex + 2, ey + 12, 4, 2 + step); ctx.fillRect(ex + 8, ey + 12, 4, 4 - step);
+  });
+
+  if (boss && boss.state !== 'dead') drawBoss();
+
+  projectiles.forEach(pr => drawOutlinedRect(Math.floor(pr.x - cameraX) - 3, Math.floor(pr.y) - 3, 6, 6, '#80f0ff', '#081828'));
+  fireballs.forEach(f => drawOutlinedRect(Math.floor(f.x - cameraX) - 4, Math.floor(f.y) - 4, 8, 8, frameCount % 4 < 2 ? '#ff5500' : '#ffee00', '#220800'));
+
+  drawHippo();
+  drawNightDarkness();
+
+  particles.forEach(p => { ctx.fillStyle = p.color; ctx.fillRect(Math.floor(p.x - cameraX), Math.floor(p.y), p.size, p.size); });
+  ctx.font = 'bold 8px monospace';
+  popups.forEach(pop => {
+    ctx.fillStyle = '#000'; ctx.fillText(pop.text, Math.floor(pop.x - cameraX) + 1, Math.floor(pop.y) + 1);
+    ctx.fillStyle = pop.color; ctx.fillText(pop.text, Math.floor(pop.x - cameraX), Math.floor(pop.y));
+  });
+
+  drawHUD();
+  if (gameState === 'TALLY') drawTallyOverlay();
+  ctx.restore();
+}
+
+function drawBoss() {
+  const bx = Math.floor(boss.x - cameraX), by = Math.floor(boss.y);
+  if (bx < -48 || bx > canvas.width + 48) return;
+
+  const heartStartX = bx + Math.floor((boss.w - boss.maxHp * 11) / 2);
+  for (let h = 0; h < boss.maxHp; h++) drawHeart(heartStartX + h * 11, by - 14, h < boss.hp);
+
+  if (boss.invuln % 2 !== 0) return;
+  const skinColors = ['#2e963c', '#3888d0', '#8c44c8', '#c85028', '#48a840'];
+  const armorColors = ['#8c5228', '#244878', '#4c2078', '#782018', '#d4af37'];
+  const skin = boss.state === 'telegraph' && frameCount % 4 < 2 ? '#ffaa44' : skinColors[boss.type - 1];
+  const armor = armorColors[boss.type - 1];
+  const step = Math.floor(frameCount / 8) % 2;
+
+  drawOutlinedRect(boss.dir < 0 ? bx + 16 : bx - 4, by + 12, 18, 18, '#901828', '#080a12');
+  drawOutlinedRect(bx + 3, by + 28, 9, 6 - step, '#241810', '#080a12');
+  drawOutlinedRect(bx + 18, by + 28, 9, 4 + step, '#241810', '#080a12');
+  drawOutlinedRect(bx + 2, by + 13, 26, 16, armor, '#080a12');
+  drawOutlinedRect(bx + 3, by + 23, 24, 5, '#382414', '#080a12');
+  drawOutlinedRect(bx + 11, by + 22, 8, 6, '#ffd700', '#080a12');
+  drawOutlinedRect(bx - 3, by + 12, 9, 8, '#788498', '#080a12');
+  drawOutlinedRect(bx + 24, by + 12, 9, 8, '#788498', '#080a12');
+  drawOutlinedRect(bx - 4, by + 5, 6, 5, skin, '#080a12');
+  drawOutlinedRect(bx + 28, by + 5, 6, 5, skin, '#080a12');
+  drawOutlinedRect(bx + 4, by + 2, 22, 14, skin, '#080a12');
+  drawOutlinedRect(bx + 1, by - 3, 5, 6, '#e8e4d8', '#080a12');
+  drawOutlinedRect(bx + 24, by - 3, 5, 6, '#e8e4d8', '#080a12');
+  drawOutlinedRect(bx + 5, by - 2, 20, 6, '#ffd700', '#080a12');
+  ctx.fillStyle = '#ff1133'; ctx.fillRect(bx + 13, by, 4, 3);
+  ctx.fillStyle = '#080a12'; ctx.fillRect(bx + 6, by + 6, 18, 2);
+  ctx.fillStyle = '#ff0022'; ctx.fillRect(bx + 7, by + 8, 5, 3); ctx.fillRect(bx + 18, by + 8, 5, 3);
+  ctx.fillStyle = '#180808'; ctx.fillRect(bx + 8, by + 12, 14, 3);
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(bx + 8, by + 10, 3, 4); ctx.fillRect(bx + 19, by + 10, 3, 4);
+
+  const clubX = boss.dir < 0 ? bx - 9 : bx + 29, clubY = boss.state === 'telegraph' ? by - 6 : by + 8;
+  drawOutlinedRect(clubX, clubY, 7, 18, '#8c5228', '#080a12');
+  drawOutlinedRect(clubX - 1, clubY - 2, 9, 8, boss.type === 3 ? '#70f0ff' : '#687488', '#080a12');
+}
+
+function drawHippo() {
+  if (player.invulnTimer > 0 && Math.floor(player.invulnTimer / 3) % 2 === 1) return;
+  const px = Math.floor(player.x - cameraX), py = Math.floor(player.y);
+  let bodyColor = player.power === 2 ? '#f25c30' : '#7b88d8';
+  let bellyColor = player.power === 2 ? '#ffe878' : '#b8c4ff';
+  if (player.applesauceTimer > 0 && frameCount % 6 < 3) bodyColor = '#68f8ff';
+
+  if (player.starTimer > 0) {
+    drawOutlinedRect(px - 1, py + player.h - 2, 16, 8, '#2870d8', '#081228');
+    drawOutlinedRect(px + 5, py + player.h + 5, 4, 4, '#ffd700', '#081228');
+  }
+  if (player.sliding) {
+    drawOutlinedRect(px - 2, py + player.h - 11, 18, 11, bodyColor, '#080a14');
+    ctx.fillStyle = bellyColor; ctx.fillRect(px + 1, py + player.h - 5, 12, 4);
+  } else {
+    const walkOffset = player.animFrame % 2 === 1 ? 2 : 0;
+    drawOutlinedRect(px + 1, py + player.h - 4, 5, 4 - walkOffset, bodyColor, '#080a14');
+    drawOutlinedRect(px + 8, py + player.h - 4, 5, 4 - (2 - walkOffset), bodyColor, '#080a14');
+    drawOutlinedRect(px, py + 4, player.w, player.h - 6, bodyColor, '#080a14');
+    ctx.fillStyle = bellyColor; ctx.fillRect(px + 3, py + 7, player.w - 6, player.h - 10);
+
+    const snoutX = player.dir > 0 ? px + 6 : px - 4;
+    drawOutlinedRect(px + 1, py - 1, 12, 9, bodyColor, '#080a14');
+    drawOutlinedRect(snoutX, py + 1, 10, 8, bodyColor, '#080a14');
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(player.dir > 0 ? snoutX + 6 : snoutX + 2, py + 7, 2, 2);
+    ctx.fillStyle = '#18182c'; ctx.fillRect(player.dir > 0 ? snoutX + 7 : snoutX + 1, py + 3, 2, 2);
+
+    const eyeX = player.dir > 0 ? px + 7 : px + 3;
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(eyeX, py + 1, 3, 3);
+    ctx.fillStyle = '#080a14'; ctx.fillRect(player.dir > 0 ? eyeX + 1 : eyeX, py + 2, 2, 2);
+
+    if (stats.hatIdx === 0) drawOutlinedRect(px + 3, py - 3, 8, 3, player.power === 2 ? '#ffd700' : '#2468e8', '#080a14');
+    else if (stats.hatIdx === 1) { drawOutlinedRect(px + 1, py + 6, 12, 3, '#ff2244', '#080a14'); ctx.fillStyle = '#ffd700'; ctx.fillRect(px + 3, py + 7, 2, 3); }
+    else if (stats.hatIdx === 2) { drawOutlinedRect(px + 1, py - 4, 12, 5, '#8c5830', '#080a14'); ctx.fillStyle = '#e8dec8'; ctx.fillRect(px + 3, py - 3, 8, 3); }
+    else if (stats.hatIdx === 3) { drawOutlinedRect(px + 2, py - 4, 10, 4, '#ffd700', '#080a14'); ctx.fillStyle = '#ff8800'; ctx.fillRect(px + 6, py - 6, 2, 2); }
+  }
+}
+
+function drawNightDarkness() {
+  const darknessLevels = [0.0, 0.12, 0.24, 0.35, 0.46, 0.56, 0.65, 0.74, 0.45];
+  const alpha = darknessLevels[Math.min(8, stats.night - 1)];
+  if (alpha <= 0.01) return;
+  darkCtx.clearRect(0, 0, 256, 240);
+  darkCtx.fillStyle = `rgba(4, 6, 16, ${alpha})`; darkCtx.fillRect(0, 0, 256, 240);
+  darkCtx.globalCompositeOperation = 'destination-out';
+  const punchLight = (lx, ly, r) => {
+    const g = darkCtx.createRadialGradient(lx, ly, 4, lx, ly, r);
+    g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    darkCtx.fillStyle = g; darkCtx.beginPath(); darkCtx.arc(lx, ly, r, 0, Math.PI * 2); darkCtx.fill();
+  };
+  punchLight(Math.floor(player.x - cameraX + 7), Math.floor(player.y + 10), player.starTimer > 0 ? 85 : (player.power === 2 ? 70 : 54));
+  if (shamash.lit) punchLight(Math.floor(shamash.x - cameraX + 6), shamash.y, 68);
+  punchLight(Math.floor(menorah.x - cameraX + 12), menorah.y + 12, 55 + stats.night * 7);
+  fireballs.forEach(f => punchLight(Math.floor(f.x - cameraX), Math.floor(f.y), 38));
+  darkCtx.globalCompositeOperation = 'source-over';
+  ctx.drawImage(darkCanvas, 0, 0);
+}
+
+function drawHUD() {
+  ctx.fillStyle = '#080b16'; ctx.fillRect(0, 0, canvas.width, 26);
+  ctx.fillStyle = '#2b3554'; ctx.fillRect(0, 25, canvas.width, 1);
+  ctx.fillStyle = '#ffffff'; ctx.font = 'bold 8px monospace';
+  ctx.fillText(`NIGHT ${stats.night}`, 6, 10);
+  ctx.fillText(`SCORE:${String(stats.score).padStart(6, '0')}`, 56, 10);
+  ctx.fillStyle = '#ffd700'; ctx.fillText(`GELT:${String(stats.gelt).padStart(2, '0')}`, 6, 21);
+  ctx.fillStyle = '#ff99aa'; ctx.fillText(`x${stats.lives}`, 56, 21);
+  ctx.fillStyle = '#ffd700'; ctx.fillText('OIL', 82, 21);
+  ctx.strokeStyle = '#ffffff'; ctx.strokeRect(102, 15, 42, 6);
+  ctx.fillStyle = oil < 25 ? (frameCount % 8 < 4 ? '#ff3333' : '#ffaa00') : '#40d8ff';
+  ctx.fillRect(103, 16, Math.floor((oil / MAX_OIL) * 40), 4);
+
+  const pwrLabels = ['SMALL', 'BIG', 'FIRE(X)'];
+  const pwrColors = ['#8899bb', '#70e0ff', '#ff6622'];
+  ctx.fillStyle = pwrColors[player.power]; ctx.font = 'bold 7px monospace';
+  ctx.fillText(`PWR:${pwrLabels[player.power]}`, 148, 10);
+
+  const chars = ['נ', 'ג', 'ה', 'ש'];
+  ctx.font = 'bold 8px monospace';
+  for (let i = 0; i < 4; i++) {
+    ctx.fillStyle = stats.letters[i] ? '#ffd700' : '#252c44';
+    ctx.fillRect(198 + i * 13, 12, 11, 11);
+    ctx.fillStyle = stats.letters[i] ? '#000' : '#667';
+    ctx.fillText(chars[i], 200 + i * 13, 20);
+  }
+
+  if (boss && boss.active && boss.state !== 'dead') {
+    drawOutlinedRect(36, 28, 184, 20, 'rgba(16, 12, 28, 0.92)', '#ff3344');
+    ctx.fillStyle = '#ffd700'; ctx.font = 'bold 7px monospace';
+    ctx.fillText(boss.name.substring(0, 26), 44, 37);
+    ctx.fillStyle = '#ffffff'; ctx.fillText('HP:', 82, 45);
+    for (let i = 0; i < boss.maxHp; i++) drawHeart(102 + i * 12, 38, i < boss.hp);
+  }
+}
+
+function drawTitleScreen() {
+  drawOutlinedRect(16, 18, canvas.width - 32, canvas.height - 36, 'rgba(10, 14, 28, 0.92)', '#ffd700');
+  ctx.fillStyle = '#ffd700'; ctx.font = 'bold 15px monospace'; ctx.fillText('HANUKKAH HIPPO', 60, 44);
+  ctx.fillStyle = '#70e0ff'; ctx.font = 'bold 8px monospace'; ctx.fillText('8 NIGHTS OF NES PLATFORMING ACTION', 38, 58);
+  const opts = [`START GAME (NIGHT ${stats.night})`, `ENTER DREIDEL PASSWORD`, `HAT: ${HATS[stats.hatIdx].name}`];
+  opts.forEach((opt, idx) => {
+    ctx.fillStyle = titleCursor === idx ? '#55ff55' : '#ffffff';
+    ctx.fillText(`${titleCursor === idx ? '▶ ' : '  '}${opt}`, 44, 88 + idx * 18);
+  });
+  ctx.fillStyle = '#b8c4d8'; ctx.font = '8px monospace';
+  ctx.fillText('• Eat LATKE -> Big | DONUT -> Fireballs (X)', 26, 152);
+  ctx.fillText('• Ground-Pound: Mid-air DOWN + JUMP', 26, 166);
+  ctx.fillText('• Belly-Slide:  Ice Run + DOWN', 26, 180);
+  ctx.fillText('• Hit Bricks from below to shatter them!', 26, 194);
+}
+
+function drawPasswordScreen() {
+  drawOutlinedRect(24, 36, canvas.width - 48, canvas.height - 72, '#0e1326', '#ffd700');
+  ctx.fillStyle = '#ffd700'; ctx.font = 'bold 10px monospace'; ctx.fillText('ENTER 4-DREIDEL PASSWORD', 52, 62);
+  const heb = ['נ', 'ג', 'ה', 'ש'], names = ['NUN', 'GIM', 'HEI', 'SHN'];
+  for (let i = 0; i < 4; i++) {
+    const bx = 54 + i * 40;
+    drawOutlinedRect(bx, 86, 28, 34, pwCursor === i ? '#2860c8' : '#1b223d', '#ffd700');
+    ctx.fillStyle = '#ffd700'; ctx.font = 'bold 16px monospace'; ctx.fillText(heb[pwEntry[i]], bx + 9, 108);
+    ctx.font = '7px monospace'; ctx.fillStyle = '#ffffff'; ctx.fillText(names[pwEntry[i]], bx + 5, 130);
+  }
+  ctx.font = '8px monospace';
+  if (pwError > 0) { pwError--; ctx.fillStyle = '#ff4444'; ctx.fillText('INVALID PASSWORD! TRY AGAIN', 56, 154); }
+  else { ctx.fillStyle = '#88d8ff'; ctx.fillText('UP/DOWN: Change Letter | Z: Confirm', 40, 154); }
+  ctx.fillStyle = '#aaa'; ctx.fillText('Press X to Return to Title', 62, 174);
+}
+
+function drawTallyOverlay() {
+  drawOutlinedRect(20, 30, canvas.width - 40, canvas.height - 50, 'rgba(10, 14, 28, 0.94)', '#ffd700');
+  ctx.fillStyle = '#ffd700'; ctx.font = 'bold 10px monospace'; ctx.fillText(`NIGHT ${stats.night} CLEAR!`, 76, 48);
+  ctx.fillStyle = '#ffffff'; ctx.font = '8px monospace';
+  ctx.fillText(`GELT COLLECTED:      ${tally.geltScore}`, 36, 68);
+  ctx.fillText(`GOBLINS SQUASHED:    ${tally.enemyScore}`, 36, 82);
+  ctx.fillText(`AIR STOMP COMBOS:    ${tally.comboScore}`, 36, 96);
+  ctx.fillText(`REMAINING OIL BONUS: ${tally.oilScore} (${tally.oilLeft})`, 36, 110);
+  if (tally.phase === 1) {
+    ctx.fillStyle = '#70e0ff'; ctx.fillText('SPIN DREIDEL BEFORE LIGHTING MENORAH:', 34, 130);
+    drawOutlinedRect(114, 138, 28, 28, '#2860c8', '#ffd700');
+    ctx.fillStyle = '#ffd700'; ctx.font = 'bold 16px monospace'; ctx.fillText(dreidelSpin.hebrew[dreidelSpin.faceIdx], 123, 158);
+    ctx.font = 'bold 8px monospace';
+    if (!dreidelSpin.spinning && !dreidelSpin.done) { ctx.fillStyle = '#55ff55'; ctx.fillText('PRESS Z / SPACE TO SPIN!', 66, 184); }
+    else if (dreidelSpin.done) {
+      ctx.fillStyle = '#ffd700'; ctx.fillText(`${dreidelSpin.faces[dreidelSpin.faceIdx]}: ${dreidelSpin.desc[dreidelSpin.faceIdx]}`, 42, 180);
+      ctx.fillStyle = '#55ff55'; ctx.fillText('PRESS Z TO LIGHT THE MENORAH!', 54, 196);
+    }
+  }
+}
+
+function drawMenorahCeremony() {
+  drawOutlinedRect(16, 20, canvas.width - 32, canvas.height - 40, '#0b1022', '#ffd700');
+  ctx.fillStyle = '#ffd700'; ctx.font = 'bold 11px monospace'; ctx.fillText(`NIGHT ${stats.night} MENORAH LIT!`, 58, 44);
+  const cx = 128, cy = 115;
+  drawOutlinedRect(cx - 48, cy, 96, 8, '#ffd700', '#241800');
+  drawOutlinedRect(cx - 6, cy - 10, 12, 32, '#ffd700', '#241800');
+  drawOutlinedRect(cx - 24, cy + 18, 48, 6, '#ffd700', '#241800');
+  for (let i = 0; i < 9; i++) {
+    const bx = cx - 44 + i * 11, isShamash = i === 4, branchH = isShamash ? 24 : 18;
+    drawOutlinedRect(bx - 2, cy - branchH, 5, branchH, '#ffd700', '#241800');
+    if (isShamash || i < stats.night || (stats.night >= 5 && i <= stats.night)) {
+      drawOutlinedRect(bx - 2, cy - branchH - 10, 5, 10, '#ffffff', '#1a1200');
+      ctx.fillStyle = frameCount % 6 < 3 ? '#ff8800' : '#ffee00'; ctx.fillRect(bx - 3, cy - branchH - 16, 7, 6);
+    }
+  }
+  const pw = PASSWORDS[Math.min(8, stats.night)], heb = ['נ', 'ג', 'ה', 'ש'];
+  ctx.fillStyle = '#88d8ff'; ctx.font = 'bold 8px monospace';
+  ctx.fillText(`NEXT NIGHT PASSWORD:  ${heb[pw[0]]}  ${heb[pw[1]]}  ${heb[pw[2]]}  ${heb[pw[3]]}`, 44, 166);
+  ctx.fillStyle = '#55ff55'; ctx.fillText('PRESS Z / SPACE FOR NEXT NIGHT', 52, 192);
+}
+
+function drawVictoryScreen() {
+  drawOutlinedRect(16, 20, canvas.width - 32, canvas.height - 40, '#10142c', '#ffd700');
+  ctx.fillStyle = '#ffd700'; ctx.font = 'bold 13px monospace'; ctx.fillText('HAPPY HANUKKAH!', 68, 54);
+  ctx.fillStyle = '#ffffff'; ctx.font = '8px monospace';
+  ctx.fillText('HANUKKAH HIPPO DEFEATED THE GOBLIN KING', 32, 82);
+  ctx.fillText('AND LIT ALL 8 CANDLES IN THE TUNDRA!', 38, 96);
+  ctx.fillStyle = '#70e0ff';
+  ctx.fillText(`FINAL SCORE: ${stats.score}`, 82, 126);
+  ctx.fillText(`DREIDEL LETTERS FOUND: ${stats.totalLetters}`, 66, 142);
+  ctx.fillStyle = '#55ff55';
+  ctx.fillText('PRESS Z TO RETURN TO TITLE', 62, 184);
+}
+
+function loop() {
+  if (hitStop > 0) { hitStop--; draw(); clearJustPressed(); requestAnimationFrame(loop); return; }
+
+  if (gameState === 'TITLE') {
+    frameCount++; sfx.updateBGM(false, false, false);
+    if (isUpPressed()) { titleCursor = (titleCursor + 2) % 3; sfx.sfxTick(); }
+    if (isDownPressed()) { titleCursor = (titleCursor + 1) % 3; sfx.sfxTick(); }
+    if (isJumpPressed()) {
+      sfx.init();
+      if (titleCursor === 0) startLevel(false);
+      else if (titleCursor === 1) { gameState = 'PASSWORD'; pwCursor = 0; }
+      else if (titleCursor === 2) { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
+    }
+  } else if (gameState === 'PASSWORD') {
+    frameCount++;
+    if (isLeftPressed()) { pwCursor = (pwCursor + 3) % 4; sfx.sfxTick(); }
+    if (isRightPressed()) { pwCursor = (pwCursor + 1) % 4; sfx.sfxTick(); }
+    if (isUpPressed()) { pwEntry[pwCursor] = (pwEntry[pwCursor] + 1) % 4; sfx.sfxTick(); }
+    if (isDownPressed()) { pwEntry[pwCursor] = (pwEntry[pwCursor] + 3) % 4; sfx.sfxTick(); }
+    if (isActionPressed()) gameState = 'TITLE';
+    if (isJumpPressed()) {
+      const matchIdx = PASSWORDS.findIndex(pw => pw.every((val, i) => val === pwEntry[i]));
+      if (matchIdx !== -1) {
+        stats.night = matchIdx + 1; stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
+        sfx.sfxPowerup(); startLevel(false);
+      } else { pwError = 60; sfx.sfxShrink(); }
+    }
+  } else if (gameState === 'PLAY') updatePlay();
+  else if (gameState === 'DEAD') updateDead();
+  else if (gameState === 'TALLY') updateTally();
+  else if (gameState === 'MENORAH') updateMenorahScreen();
+  else if (gameState === 'VICTORY') {
+    frameCount++;
+    if (isJumpPressed() || isActionPressed()) { stats.night = 1; gameState = 'TITLE'; }
+  }
+
+  draw();
+  clearJustPressed();
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
