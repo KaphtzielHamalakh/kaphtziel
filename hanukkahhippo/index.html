@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hanukkah Hippo | Kaphtziel Studios</title>
 <meta name="description" content="Play Hanukkah Hippo, a retro platforming adventure through eight nights of Hanukkah. Collect gelt, light the menorah, and take on the Goblin King.">
 <link rel="canonical" href="https://kaphtziel.com/hanukkahhippo/">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="Hanukkah Hippo | Kaphtziel Studios">
-<meta property="og:description" content="A retro Hanukkah platforming adventure. Play free in your browser with a keyboard.">
+<meta property="og:description" content="A retro Hanukkah platforming adventure. Play free in your browser with touch controls or a keyboard.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kaphtziel.com/hanukkahhippo/">
 <style>
@@ -17,10 +17,11 @@
     margin: 0; background-color: #080a12; color: #eee;
     font-family: 'Courier New', Courier, monospace;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    min-height: 100vh; min-height: 100svh; padding: 16px 12px;
+    min-height: 100vh; min-height: 100svh;
+    padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   }
   #game-wrapper {
-    width: min(780px, 100%, max(260px, calc(106.667svh - 192px)));
+    width: min(780px, 100%, max(220px, calc(106.667svh - 150px)));
     position: relative; border: 6px solid #3a4466; border-radius: 6px;
     box-shadow: 0 14px 45px rgba(0,0,0,0.95); background: #000;
   }
@@ -38,13 +39,98 @@
   .site-nav a { color: #b8c4d8; }
   .site-nav a:focus-visible { outline: 2px solid #ffd700; outline-offset: 4px; }
   .site-nav p { margin: 4px 0 0; }
+  button { font: inherit; cursor: pointer; color: #eee; }
+  button:focus-visible, summary:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
+  .site-nav { width: min(100%, 1100px); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 16px; }
+  .toolbar { display: flex; gap: 6px; }
+  .utility { min-width: 44px; min-height: 44px; padding: 7px 10px; border: 1px solid #56658c; border-radius: 8px; background: #182035; font-size: 12px; touch-action: manipulation; }
+  .utility[aria-pressed="true"] { border-color: #ffd700; color: #ffd700; background: #303042; }
+  #game-layout { display: grid; justify-items: center; gap: 10px; width: min(100%, 780px); }
+  #touch-controller { display: none; width: 100%; max-width: 620px; }
+  .touch-ui #touch-controller { display: block; }
+  .touch-ui #game-wrapper { width: min(780px, 100%, max(220px, calc(106.667svh - 330px))); }
+  .touch-main { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .dpad { display: grid; grid-template-columns: repeat(3, 48px); grid-template-rows: repeat(2, 48px); gap: 4px; }
+  .pad-up { grid-column: 2; }
+  .pad-left { grid-column: 1; grid-row: 2; }
+  .pad-down { grid-column: 2; grid-row: 2; }
+  .pad-right { grid-column: 3; grid-row: 2; }
+  .game-button { touch-action: none; -webkit-touch-callout: none; -webkit-user-select: none; border: 2px solid #56658c; border-radius: 12px; background: #202c49; box-shadow: 0 4px 0 #0c101e; }
+  .dpad .game-button { font-size: 24px; }
+  .game-button.pressed { transform: translateY(2px); background: #40557e; border-color: #ffd700; box-shadow: 0 2px 0 #0c101e; }
+  .action-buttons { display: flex; align-items: center; gap: 8px; }
+  .action-buttons .game-button { width: 66px; height: 66px; border-radius: 50%; font-weight: bold; font-size: 13px; line-height: 1.25; }
+  .action-buttons small { display: block; font-size: 10px; font-weight: normal; }
+  .jump-button { border-color: #e5ba3d; background: #534523; }
+  .touch-options { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .touch-note { text-align: center; color: #b8c4d8; font-size: 11px; line-height: 1.5; margin: 10px 0 0; }
+  .keyboard-help { max-width: 780px; margin-top: 12px; color: #b8c4d8; font-size: 12px; text-align: center; }
+  .keyboard-help summary { cursor: pointer; padding: 6px; }
+  .pause-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: center; background: #080a12dd; text-align: center; }
+  .pause-overlay[hidden] { display: none; }
+  .pause-overlay strong { color: #ffd700; font-size: 24px; }
+  #resume-button { padding: 14px 24px; font-size: 16px; }
+  @media (max-width: 370px) {
+    .site-nav { gap: 6px; }
+    .utility { padding-inline: 8px; font-size: 11px; }
+    .dpad { grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 44px); }
+    .action-buttons { gap: 6px; }
+    .action-buttons .game-button { width: 60px; height: 60px; }
+    .touch-main { gap: 6px; }
+  }
+  @media (orientation: portrait) and (max-height: 700px) {
+    .touch-ui .touch-note { display: none; }
+    .touch-ui .keyboard-help { margin-top: 6px; }
+  }
+  @media (orientation: landscape) and (max-height: 600px) {
+    .touch-ui { justify-content: flex-start; padding-top: max(6px, env(safe-area-inset-top)); padding-bottom: max(6px, env(safe-area-inset-bottom)); }
+    .touch-ui .site-nav { margin-bottom: 6px; }
+    .touch-ui #game-layout { width: min(100%, 1100px); grid-template-columns: minmax(140px, 1fr) minmax(0, 2fr) minmax(140px, 1fr); gap: 6px 12px; align-items: center; }
+    .touch-ui #game-wrapper { grid-column: 2; grid-row: 1; width: min(100%, max(160px, calc(106.667svh - 140px))); }
+    .touch-ui #touch-controller, .touch-ui .touch-main { display: contents; }
+    .touch-ui .dpad { grid-column: 1; grid-row: 1; grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 48px); }
+    .touch-ui .action-buttons { grid-column: 3; grid-row: 1; }
+    .touch-ui .touch-options { grid-column: 1 / -1; grid-row: 2; margin-top: 0; }
+    .touch-ui .touch-note, .touch-ui .keyboard-help { display: none; }
+  }
 </style>
 </head>
 <body>
-<nav class="site-nav" aria-label="Site navigation"><a href="/">&#8592; Kaphtziel Studios</a><p>Keyboard required &middot; Press Z or Space to start</p></nav>
+<nav class="site-nav" aria-label="Site navigation">
+  <a href="/">&#8592; Kaphtziel Studios</a>
+  <div class="toolbar" aria-label="Game settings">
+    <button type="button" class="utility" id="controller-toggle" aria-pressed="false" aria-controls="touch-controller">Touch controls</button>
+    <button type="button" class="utility" id="mute-button" aria-pressed="false">Mute</button>
+    <button type="button" class="utility" id="pause-button" aria-pressed="false">Pause</button>
+  </div>
+</nav>
+<main id="game-layout" aria-label="Hanukkah Hippo">
 <div id="game-wrapper">
-  <canvas id="game" width="256" height="240" aria-label="Hanukkah Hippo game" aria-describedby="game-controls">Your browser needs canvas support to play Hanukkah Hippo.</canvas>
+  <canvas id="game" width="256" height="240" aria-label="Hanukkah Hippo game" aria-describedby="touch-help game-controls">Your browser needs canvas support to play Hanukkah Hippo.</canvas>
+  <div class="pause-overlay" id="pause-overlay" hidden><strong>PAUSED</strong><button type="button" class="utility" id="resume-button">Resume game</button></div>
 </div>
+<section id="touch-controller" aria-label="On-screen game controller">
+  <div class="touch-main">
+    <div class="dpad" role="group" aria-label="Direction pad">
+      <button type="button" class="game-button pad-up" data-code="ArrowUp" aria-label="Up" aria-pressed="false">&#9650;</button>
+      <button type="button" class="game-button pad-left" data-code="ArrowLeft" aria-label="Left" aria-pressed="false">&#9664;</button>
+      <button type="button" class="game-button pad-down" data-code="ArrowDown" aria-label="Down" aria-pressed="false">&#9660;</button>
+      <button type="button" class="game-button pad-right" data-code="ArrowRight" aria-label="Right" aria-pressed="false">&#9654;</button>
+    </div>
+    <div class="action-buttons" role="group" aria-label="Action buttons">
+      <button type="button" class="game-button" data-code="KeyX" aria-label="Run, fire, or back" aria-pressed="false">RUN<small>FIRE / BACK</small></button>
+      <button type="button" class="game-button jump-button" data-code="KeyZ" aria-label="Jump or select" aria-pressed="false">JUMP<small>SELECT</small></button>
+    </div>
+  </div>
+  <div class="touch-options">
+    <button type="button" class="utility" id="auto-run-button" aria-pressed="false">Auto-run: off</button>
+    <button type="button" class="utility game-button" data-code="KeyH" aria-pressed="false">Hat</button>
+    <button type="button" class="utility game-button" data-code="KeyN" aria-pressed="false">Next night</button>
+  </div>
+  <p class="touch-note" id="touch-help">Tap JUMP to start or select. Hold directions to move.<br>Down + Jump in mid-air: ground-pound. Auto-run frees a thumb.</p>
+</section>
+</main>
+<details class="keyboard-help"><summary>Keyboard controls &amp; tips</summary>
 <div class="controls-bar" id="game-controls">
   <span>ARROWS / WASD</span> Move (Go Back Anytime!) &nbsp;|&nbsp;
   <span>Z / SPACE</span> Jump &nbsp;|&nbsp;
@@ -53,8 +139,9 @@
   <span>DOWN (On Ice)</span> Belly-Slide &nbsp;|&nbsp;
   <span>H</span> Hat &nbsp;|&nbsp;
   <span>N</span> Next Night &nbsp;|&nbsp;
-  <span>M</span> Mute
+  <span>M</span> Mute &nbsp;|&nbsp; <span>P</span> Pause<br>On touch screens, JUMP selects menu items and RUN / FIRE goes back.
 </div>
+</details>
 
 <noscript>Enable JavaScript to play Hanukkah Hippo.</noscript>
 <script>
@@ -94,8 +181,12 @@ const SONGS = [
 class SoundEngine {
   constructor() { this.ctx = null; this.muted = false; this.bgmTimer = 0; this.noteIdx = 0; this.currentSongIdx = 0; }
   init() {
-    if (!this.ctx) { const AudioCtx = window.AudioContext || window.webkitAudioContext; this.ctx = new AudioCtx(); }
-    if (this.ctx.state === 'suspended') this.ctx.resume();
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      try { this.ctx = new AudioCtx(); } catch { return; }
+    }
+    if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
   }
   setSong(nightIdx) {
     const idx = Math.max(0, Math.min(SONGS.length - 1, nightIdx));
@@ -156,20 +247,140 @@ const HATS = [
   { name: "MENORAH CROWN", unlocked: false }
 ];
 
-window.addEventListener('keydown', (e) => {
+// Keyboard and each finger own their inputs independently, so releasing one
+// finger never cancels another held button (or a physical keyboard key).
+const inputSources = new Map(), pointerInputs = new Map();
+const controller = document.getElementById('touch-controller');
+const controllerToggle = document.getElementById('controller-toggle');
+const muteButton = document.getElementById('mute-button');
+const pauseButton = document.getElementById('pause-button');
+const autoRunButton = document.getElementById('auto-run-button');
+const pauseOverlay = document.getElementById('pause-overlay');
+const touchButtons = [...controller.querySelectorAll('[data-code]')];
+const controlCodes = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyZ', 'Space', 'KeyX', 'KeyC', 'ShiftLeft', 'ShiftRight', 'KeyH', 'KeyN', 'KeyM', 'KeyP']);
+const touchMedia = window.matchMedia('(any-pointer: coarse), (max-width: 900px)');
+let paused = false, autoRun = false, manualTouchUI = null;
+
+function setAutoRun(value) {
+  autoRun = value;
+  autoRunButton.setAttribute('aria-pressed', String(value));
+  autoRunButton.textContent = value ? 'Auto-run: on' : 'Auto-run: off';
+}
+function toggleMute() {
+  sfx.muted = !sfx.muted;
+  muteButton.setAttribute('aria-pressed', String(sfx.muted));
+  muteButton.textContent = sfx.muted ? 'Unmute' : 'Mute';
+}
+function paintTouchButton(button) {
+  const held = [...pointerInputs.values()].some(input => input.button === button);
+  button.classList.toggle('pressed', held);
+  button.setAttribute('aria-pressed', String(held));
+}
+function releaseInput(code, source) {
+  const sources = inputSources.get(code);
+  if (!sources) return;
+  sources.delete(source);
+  if (sources.size === 0) { inputSources.delete(code); keys[code] = false; }
+}
+function releasePointer(pointerId) {
+  const input = pointerInputs.get(pointerId);
+  if (!input) return;
+  pointerInputs.delete(pointerId);
+  releaseInput(input.code, 'pointer:' + pointerId);
+  paintTouchButton(input.button);
+  if (input.button.hasPointerCapture(pointerId)) input.button.releasePointerCapture(pointerId);
+}
+function clearInputs() {
+  [...pointerInputs.keys()].forEach(releasePointer);
+  inputSources.clear();
+  for (const code in keys) delete keys[code];
+  clearJustPressed();
+}
+function setPaused(value) {
+  paused = value;
+  clearInputs();
+  pauseOverlay.hidden = !value;
+  pauseButton.setAttribute('aria-pressed', String(value));
+  pauseButton.textContent = value ? 'Resume' : 'Pause';
+  previousFrameTime = null;
+  accumulatedTime = 0;
+  if (!value) sfx.init();
+}
+function pressInput(code, source) {
+  if (paused && code !== 'KeyP' && code !== 'KeyM') return;
   sfx.init();
-  if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'].includes(e.code)) e.preventDefault();
-  if (!keys[e.code]) justPressed[e.code] = true;
-  keys[e.code] = true;
-  if (e.code === 'KeyM') sfx.muted = !sfx.muted;
-  if (e.code === 'KeyH') { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
-  if (e.code === 'KeyN' && gameState === 'PLAY') {
+  let sources = inputSources.get(code);
+  if (!sources) { sources = new Set(); inputSources.set(code, sources); }
+  if (sources.has(source)) return;
+  sources.add(source);
+  if (keys[code]) return;
+  keys[code] = true;
+  justPressed[code] = true;
+  if (code === 'KeyM') toggleMute();
+  if (code === 'KeyP') setPaused(!paused);
+  if (code === 'KeyH') { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
+  if (code === 'KeyN' && gameState === 'PLAY') {
     stats.night = (stats.night % 9) + 1;
     stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
     startLevel(false);
   }
+}
+window.addEventListener('keydown', e => {
+  if (!controlCodes.has(e.code) || e.repeat) return;
+  if (e.target.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+  if (e.code === 'Space' && e.target.closest?.('button, a, summary')) return;
+  e.preventDefault();
+  pressInput(e.code, 'keyboard');
 });
-window.addEventListener('keyup', (e) => { keys[e.code] = false; });
+window.addEventListener('keyup', e => releaseInput(e.code, 'keyboard'));
+
+for (const button of touchButtons) {
+  const code = button.dataset.code;
+  button.addEventListener('pointerdown', e => {
+    if (e.button !== 0 || paused) return;
+    e.preventDefault();
+    button.setPointerCapture(e.pointerId);
+    pointerInputs.set(e.pointerId, { button, code });
+    pressInput(code, 'pointer:' + e.pointerId);
+    paintTouchButton(button);
+  });
+  for (const eventName of ['pointerup', 'pointercancel', 'lostpointercapture']) {
+    button.addEventListener(eventName, e => releasePointer(e.pointerId));
+  }
+  // Native keyboard activation and assistive technology produce detail=0 clicks.
+  button.addEventListener('click', e => {
+    if (e.detail !== 0) return;
+    pressInput(code, 'activation');
+    releaseInput(code, 'activation');
+  });
+  button.addEventListener('contextmenu', e => e.preventDefault());
+}
+
+function updateTouchUI() {
+  const visible = manualTouchUI ?? touchMedia.matches;
+  document.body.classList.toggle('touch-ui', visible);
+  controllerToggle.setAttribute('aria-pressed', String(visible));
+  clearInputs();
+  if (!visible) setAutoRun(false);
+}
+controllerToggle.addEventListener('click', () => {
+  manualTouchUI = !document.body.classList.contains('touch-ui');
+  updateTouchUI();
+});
+touchMedia.addEventListener('change', updateTouchUI);
+updateTouchUI();
+muteButton.addEventListener('click', () => { sfx.init(); toggleMute(); });
+autoRunButton.addEventListener('click', () => { sfx.init(); setAutoRun(!autoRun); });
+pauseButton.addEventListener('click', () => setPaused(!paused));
+document.getElementById('resume-button').addEventListener('click', () => setPaused(false));
+
+function loseFocus() {
+  clearInputs();
+  if (gameState !== 'TITLE') setPaused(true);
+}
+window.addEventListener('blur', loseFocus);
+document.addEventListener('visibilitychange', () => { if (document.hidden) loseFocus(); });
+window.addEventListener('resize', clearInputs);
 
 const isLeft = () => keys['ArrowLeft'] || keys['KeyA'];
 const isRight = () => keys['ArrowRight'] || keys['KeyD'];
@@ -177,7 +388,7 @@ const isDown = () => keys['ArrowDown'] || keys['KeyS'];
 const isUp = () => keys['ArrowUp'] || keys['KeyW'];
 const isJumpDown = () => keys['KeyZ'] || keys['Space'];
 const isJumpPressed = () => justPressed['KeyZ'] || justPressed['Space'];
-const isActionDown = () => keys['KeyX'] || keys['KeyC'] || keys['ShiftLeft'] || keys['ShiftRight'];
+const isActionDown = () => keys['KeyX'] || keys['KeyC'] || keys['ShiftLeft'] || keys['ShiftRight'] || (autoRun && gameState === 'PLAY');
 const isActionPressed = () => justPressed['KeyX'] || justPressed['KeyC'] || justPressed['ShiftLeft'] || justPressed['ShiftRight'];
 const isLeftPressed = () => justPressed['ArrowLeft'] || justPressed['KeyA'];
 const isRightPressed = () => justPressed['ArrowRight'] || justPressed['KeyD'];
@@ -624,7 +835,7 @@ function updatePlay() {
     if (aabb(player, { x: it.x, y: it.y, w: 13, h: 13 })) {
       if (it.type === 'popped_gelt') addGelt(it.x, it.y);
       else if (it.type === 'latke') { sfx.sfxPowerup(); if (player.power < 1) player.setPower(1); addScore(1000, it.x, it.y, "LATKE! BIG HIPPO!"); }
-      else if (it.type === 'sufganiyah') { sfx.sfxPowerup(); player.setPower(2); addScore(1000, it.x, it.y, "FIRE HIPPO! PRESS X!"); }
+      else if (it.type === 'sufganiyah') { sfx.sfxPowerup(); player.setPower(2); addScore(1000, it.x, it.y, "FIRE HIPPO! FIRE / X!"); }
       else if (it.type === 'applesauce') { sfx.sfxPowerup(); player.applesauceTimer = 360; addScore(500, it.x, it.y, "SPEED UP!"); }
       else if (it.type === 'oil') { sfx.sfxCheckpoint(); oil = Math.min(MAX_OIL, oil + 42); addScore(300, it.x, it.y, "+OIL"); }
       else if (it.type === 'star') { sfx.sfxPowerup(); player.starTimer = 280; addScore(1000, it.x, it.y, "DREIDEL FLIGHT!"); }
@@ -1180,9 +1391,9 @@ function drawPasswordScreen() {
     ctx.font = '7px monospace'; ctx.fillStyle = '#ffffff'; ctx.fillText(names[pwEntry[i]], bx + 5, 130);
   }
   ctx.font = '8px monospace';
-  if (pwError > 0) { pwError--; ctx.fillStyle = '#ff4444'; ctx.fillText('INVALID PASSWORD! TRY AGAIN', 56, 154); }
-  else { ctx.fillStyle = '#88d8ff'; ctx.fillText('UP/DOWN: Change Letter | Z: Confirm', 40, 154); }
-  ctx.fillStyle = '#aaa'; ctx.fillText('Press X to Return to Title', 62, 174);
+  if (pwError > 0) { ctx.fillStyle = '#ff4444'; ctx.fillText('INVALID PASSWORD! TRY AGAIN', 56, 154); }
+  else { ctx.fillStyle = '#88d8ff'; ctx.fillText('UP/DOWN: Letter | JUMP: Confirm', 40, 154); }
+  ctx.fillStyle = '#aaa'; ctx.fillText('FIRE / X: Return to Title', 62, 174);
 }
 
 function drawTallyOverlay() {
@@ -1198,10 +1409,10 @@ function drawTallyOverlay() {
     drawOutlinedRect(114, 138, 28, 28, '#2860c8', '#ffd700');
     ctx.fillStyle = '#ffd700'; ctx.font = 'bold 16px monospace'; ctx.fillText(dreidelSpin.hebrew[dreidelSpin.faceIdx], 123, 158);
     ctx.font = 'bold 8px monospace';
-    if (!dreidelSpin.spinning && !dreidelSpin.done) { ctx.fillStyle = '#55ff55'; ctx.fillText('PRESS Z / SPACE TO SPIN!', 66, 184); }
+    if (!dreidelSpin.spinning && !dreidelSpin.done) { ctx.fillStyle = '#55ff55'; ctx.fillText('JUMP / Z: SPIN!', 66, 184); }
     else if (dreidelSpin.done) {
       ctx.fillStyle = '#ffd700'; ctx.fillText(`${dreidelSpin.faces[dreidelSpin.faceIdx]}: ${dreidelSpin.desc[dreidelSpin.faceIdx]}`, 42, 180);
-      ctx.fillStyle = '#55ff55'; ctx.fillText('PRESS Z TO LIGHT THE MENORAH!', 54, 196);
+      ctx.fillStyle = '#55ff55'; ctx.fillText('JUMP / Z: LIGHT THE MENORAH!', 54, 196);
     }
   }
 }
@@ -1224,7 +1435,7 @@ function drawMenorahCeremony() {
   const pw = PASSWORDS[Math.min(8, stats.night)], heb = ['נ', 'ג', 'ה', 'ש'];
   ctx.fillStyle = '#88d8ff'; ctx.font = 'bold 8px monospace';
   ctx.fillText(`NEXT NIGHT PASSWORD:  ${heb[pw[0]]}  ${heb[pw[1]]}  ${heb[pw[2]]}  ${heb[pw[3]]}`, 44, 166);
-  ctx.fillStyle = '#55ff55'; ctx.fillText('PRESS Z / SPACE FOR NEXT NIGHT', 52, 192);
+  ctx.fillStyle = '#55ff55'; ctx.fillText('JUMP / Z: NEXT NIGHT', 52, 192);
 }
 
 function drawVictoryScreen() {
@@ -1237,11 +1448,11 @@ function drawVictoryScreen() {
   ctx.fillText(`FINAL SCORE: ${stats.score}`, 82, 126);
   ctx.fillText(`DREIDEL LETTERS FOUND: ${stats.totalLetters}`, 66, 142);
   ctx.fillStyle = '#55ff55';
-  ctx.fillText('PRESS Z TO RETURN TO TITLE', 62, 184);
+  ctx.fillText('JUMP / Z: RETURN TO TITLE', 62, 184);
 }
 
-function loop() {
-  if (hitStop > 0) { hitStop--; draw(); clearJustPressed(); requestAnimationFrame(loop); return; }
+function updateGame() {
+  if (hitStop > 0) { hitStop--; clearJustPressed(); return; }
 
   if (gameState === 'TITLE') {
     frameCount++; sfx.updateBGM(false, false, false);
@@ -1255,6 +1466,7 @@ function loop() {
     }
   } else if (gameState === 'PASSWORD') {
     frameCount++;
+    if (pwError > 0) pwError--;
     if (isLeftPressed()) { pwCursor = (pwCursor + 3) % 4; sfx.sfxTick(); }
     if (isRightPressed()) { pwCursor = (pwCursor + 1) % 4; sfx.sfxTick(); }
     if (isUpPressed()) { pwEntry[pwCursor] = (pwEntry[pwCursor] + 1) % 4; sfx.sfxTick(); }
@@ -1276,9 +1488,27 @@ function loop() {
     if (isJumpPressed() || isActionPressed()) { stats.night = 1; gameState = 'TITLE'; }
   }
 
-  draw();
   clearJustPressed();
+}
+
+// Physics and music were authored for 60 ticks/sec, including on 90/120 Hz phones.
+const FRAME_MS = 1000 / 60;
+let previousFrameTime = null, accumulatedTime = 0;
+function loop(timestamp) {
   requestAnimationFrame(loop);
+  if (paused || document.hidden) {
+    previousFrameTime = null;
+    accumulatedTime = 0;
+    return;
+  }
+  if (previousFrameTime === null) previousFrameTime = timestamp;
+  accumulatedTime += Math.min(timestamp - previousFrameTime, 100);
+  previousFrameTime = timestamp;
+  while (accumulatedTime + 0.001 >= FRAME_MS) {
+    updateGame();
+    accumulatedTime -= FRAME_MS;
+  }
+  draw();
 }
 
 requestAnimationFrame(loop);
