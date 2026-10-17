@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hanukkah Hippo | Kaphtziel Studios</title>
-<meta name="description" content="Play Hanukkah Hippo, a retro platforming adventure through eight nights of Hanukkah. Collect gelt, light the menorah, and take on the Goblin King.">
+<meta name="description" content="Play Hanukkah Hippo, a retro platforming adventure through eight lands and eight nights of Hanukkah. Collect gelt, light the menorah, and take on the Goblin King.">
 <link rel="canonical" href="https://kaphtziel.com/hanukkahhippo/">
 <link rel="icon" href="/favicon.png">
 <meta property="og:title" content="Hanukkah Hippo | Kaphtziel Studios">
@@ -125,7 +125,6 @@
   <div class="touch-options">
     <button type="button" class="utility" id="auto-run-button" aria-pressed="false">Auto-run: off</button>
     <button type="button" class="utility game-button" data-code="KeyH" aria-pressed="false">Hat</button>
-    <button type="button" class="utility game-button" data-code="KeyN" aria-pressed="false">Next night</button>
   </div>
   <p class="touch-note" id="touch-help">Tap JUMP to start or select. Hold directions to move.<br>Down + Jump in mid-air: ground-pound. Auto-run frees a thumb.</p>
 </section>
@@ -138,7 +137,6 @@
   <span>DOWN + JUMP (Mid-air)</span> Ground-Pound &nbsp;|&nbsp;
   <span>DOWN (On Ice)</span> Belly-Slide &nbsp;|&nbsp;
   <span>H</span> Hat &nbsp;|&nbsp;
-  <span>N</span> Next Night &nbsp;|&nbsp;
   <span>M</span> Mute &nbsp;|&nbsp; <span>P</span> Pause<br>On touch screens, JUMP selects menu items and RUN / FIRE goes back.
 </div>
 </details>
@@ -270,7 +268,7 @@ const sfx = new SoundEngine();
 
 const keys = {}, justPressed = {};
 const PASSWORDS = [
-  [0,0,0,0], [0,1,2,3], [1,1,2,0], [2,0,3,1], [3,2,1,0], [1,3,1,2], [2,2,3,3], [3,1,0,2], [1,1,1,1]
+  [0,0,0,0], [0,1,2,3], [1,1,2,0], [2,0,3,1], [3,2,1,0], [1,3,1,2], [2,2,3,3], [3,1,0,2]
 ];
 const HATS = [
   { name: "CLASSIC KIPPAH", unlocked: true },
@@ -294,7 +292,7 @@ const pauseButton = document.getElementById('pause-button');
 const autoRunButton = document.getElementById('auto-run-button');
 const pauseOverlay = document.getElementById('pause-overlay');
 const touchButtons = [...controller.querySelectorAll('[data-code]')];
-const controlCodes = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyZ', 'Space', 'KeyX', 'KeyC', 'ShiftLeft', 'ShiftRight', 'KeyH', 'KeyN', 'KeyM', 'KeyP']);
+const controlCodes = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyZ', 'Space', 'KeyX', 'KeyC', 'ShiftLeft', 'ShiftRight', 'KeyH', 'KeyM', 'KeyP']);
 const touchMedia = window.matchMedia('(any-pointer: coarse), (max-width: 900px)');
 let paused = false, autoRun = false, manualTouchUI = null;
 
@@ -360,11 +358,7 @@ function pressInput(code, source) {
   if (code === 'KeyM') toggleMute();
   if (code === 'KeyP') setPaused(!paused);
   if (code === 'KeyH') { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
-  if (code === 'KeyN' && gameState === 'PLAY') {
-    stats.night = (stats.night % 9) + 1;
-    stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
-    startLevel(false);
-  }
+
 }
 window.addEventListener('keydown', e => {
   if (!controlCodes.has(e.code) || e.repeat) return;
@@ -467,7 +461,20 @@ const canvas = document.getElementById('game'), ctx = canvas.getContext('2d');
 const darkCanvas = document.createElement('canvas'); darkCanvas.width = 256; darkCanvas.height = 240;
 const darkCtx = darkCanvas.getContext('2d');
 
-const TILE = 16, LEVEL_WIDTH = 175, LEVEL_HEIGHT = 15, MAX_OIL = 100;
+const TILE = 16, LEVEL_WIDTH = 175, LEVEL_HEIGHT = 15, MAX_OIL = 100, NIGHT_COUNT = 8;
+let goblinUnlocked = false, character = 'hippo';
+try { goblinUnlocked = localStorage.getItem('hippo-goblin-unlocked') === 'yes'; } catch {}
+const LANDS = [
+  {name:'OLIVE HILLS', place:'JUDEA', kind:'hills', sky:['#587fba','#edc990'], stone:'#b69a69', trim:'#94aa55', brick:'#bdab83', dark:0},
+  {name:'PYRAMID PATH', place:'EGYPT', kind:'desert', sky:['#7ec9dd','#f8d68b'], stone:'#c39449', trim:'#f6d082', brick:'#e3b967', dark:0},
+  {name:'HANGING GARDENS', place:'BABYLONIA', kind:'gardens', sky:['#493a80','#e7ad94'], stone:'#b27b55', trim:'#6cad71', brick:'#568cba', dark:0.06},
+  {name:'MOONLIT COURTYARDS', place:'SEPHARAD', kind:'courtyard', sky:['#17234e','#ad7990'], stone:'#bc8c77', trim:'#edcfa4', brick:'#50a0a5', dark:0.12},
+  {name:'LANTERN VOYAGE', place:'MEDITERRANEAN SEA', kind:'ship', sky:['#233658','#c0808b'], stone:'#80523c', trim:'#c79357', brick:'#b57c4e', dark:0.08},
+  {name:'WINTER LANTERNS', place:'ASHKENAZ', kind:'winter', sky:['#253958','#a5b8d5'], stone:'#485470', trim:'#f3f8ff', brick:'#7084b0', dark:0.1},
+  {name:'THE HIDDEN VAULTS', place:'UNDERGROUND PASSAGES', kind:'dungeon', sky:['#11152a','#35304c'], stone:'#555469', trim:'#85829b', brick:'#716785', dark:0.28},
+  {name:'CITADEL OF LIGHT', place:'JERUSALEM', kind:'castle', sky:['#202043','#ce907a'], stone:'#baa28b', trim:'#eed6ac', brick:'#ad9070', dark:0.16}
+];
+const land = () => LANDS[Math.max(0, Math.min(NIGHT_COUNT-1, stats.night-1))];
 let gameState = 'TITLE', titleCursor = 0, pwEntry = [0,0,0,0], pwCursor = 0, pwError = 0;
 let stateTimer = 0, hitStop = 0, screenShake = 0, frameCount = 0, cameraX = 0, oil = 100;
 
@@ -511,6 +518,7 @@ function spawnParticles(x, y, color, count = 8, speed = 2.5) {
 }
 
 function buildLevel(night) {
+  if (!Number.isInteger(night) || night < 1 || night > NIGHT_COUNT) throw new RangeError('Night must be 1 through 8');
   sfx.setSong(night - 1);
   map = Array.from({ length: LEVEL_HEIGHT }, () => Array(LEVEL_WIDTH).fill(0));
   blockContents = {}; gelts = []; items = []; enemies = []; icicles = []; projectiles = []; fireballs = []; particles = []; popups = [];
@@ -525,42 +533,38 @@ function buildLevel(night) {
   // Authored courses use classic platformer ideas: teach, vary, then combine.
   // Rows count down from the sky. Each tuple is [first column, last column, row].
   const courses = [
-    { name: 'GELT GARDENS', pits: [[45,47],[110,112]], ice: [],
+    { name: 'OLIVE HILLS', pits: [[45,47],[110,112]], ice: [],
       ledges: [[18,23,10],[57,62,11],[65,70,9],[96,101,10]],
       stairs: [[32,3],[119,4]], letters: [[21,9],[60,10],[69,8],[99,9]],
       foes: [[27,'walker'],[52,'walker'],[76,'walker'],[105,'jumper']], checkpoint: 83 },
-    { name: 'FROZEN ARCADE', pits: [[61,63],[102,104]], ice: [[32,54],[89,101]],
+    { name: 'PYRAMID PATH', pits: [[61,63],[102,104]], ice: [],
       ledges: [[15,23,9],[36,43,10],[48,55,8],[69,76,10],[91,98,9],[112,120,10]],
       stairs: [[27,2],[123,3]], letters: [[20,8],[52,7],[73,9],[116,9]],
-      foes: [[30,'walker'],[46,'skater'],[81,'thrower'],[99,'skater']], checkpoint: 85, ceiling: true },
-    { name: 'LANTERN HEIGHTS', pits: [[29,32],[56,59],[99,102]], ice: [],
+      foes: [[30,'walker'],[46,'skater'],[81,'thrower'],[99,'skater']], checkpoint: 85 },
+    { name: 'HANGING GARDENS', pits: [[29,32],[56,59],[99,102]], ice: [],
       ledges: [[17,23,11],[26,34,9],[39,45,7],[49,55,9],[57,65,10],[70,76,8],[94,103,10],[109,116,8]],
       stairs: [[120,4]], letters: [[31,8],[42,6],[73,7],[113,7]],
       foes: [[37,'jumper'],[68,'walker'],[90,'jumper'],[118,'thrower']], checkpoint: 85 },
-    { name: 'BELLY SLIDE RUN', pits: [[48,50],[93,95]], ice: [[15,47],[66,92],[106,123]],
+    { name: 'MOONLIT COURTYARDS', pits: [[48,50],[93,95]], ice: [],
       ledges: [[23,28,10],[52,58,11],[70,76,9],[98,104,11],[113,120,10]],
       stairs: [[125,3]], letters: [[26,9],[55,10],[73,8],[117,9]],
       foes: [[33,'skater'],[40,'walker'],[79,'skater'],[110,'skater']], checkpoint: 63 },
-    { name: 'SHATTERED BRIDGES', pits: [[35,38],[70,73],[107,110]], ice: [],
+    { name: 'LANTERN VOYAGE', pits: [[35,38],[70,73],[107,110]], ice: [],
       ledges: [[19,25,10],[32,41,11],[48,55,9],[67,76,11],[92,99,10],[104,113,11]],
       stairs: [[123,4]], letters: [[22,9],[51,8],[72,10],[108,10]],
       foes: [[29,'jumper'],[59,'thrower'],[96,'jumper'],[118,'skater']], checkpoint: 84, bridges: true },
-    { name: 'ICICLE HALLS', pits: [[52,54],[116,118]], ice: [[24,48],[94,115]],
+    { name: 'WINTER LANTERNS', pits: [[52,54],[116,118]], ice: [[24,48],[94,115]],
       ledges: [[16,22,10],[32,39,9],[58,65,11],[71,77,8],[98,105,10]],
       stairs: [[43,3],[123,3]], letters: [[19,9],[36,8],[74,7],[102,9]],
-      foes: [[27,'skater'],[66,'thrower'],[91,'skater'],[111,'jumper']], checkpoint: 85, ceiling: true },
-    { name: 'MIDNIGHT STAIRWAY', pits: [[40,43],[72,75],[108,111]], ice: [[89,100]],
+      foes: [[27,'skater'],[66,'thrower'],[91,'skater'],[111,'jumper']], checkpoint: 85 },
+    { name: 'THE HIDDEN VAULTS', pits: [[40,43],[72,75],[108,111]], ice: [],
       ledges: [[21,27,10],[36,46,9],[51,57,7],[68,78,10],[95,102,9],[105,115,11]],
       stairs: [[15,3],[59,3],[120,4]], letters: [[24,9],[54,6],[73,9],[99,8]],
       foes: [[30,'thrower'],[64,'jumper'],[91,'skater'],[116,'thrower']], checkpoint: 84 },
-    { name: 'KINGS CAUSEWAY', pits: [[30,33],[62,65],[100,103]], ice: [[44,58],[90,99]],
+    { name: 'CITADEL OF LIGHT', pits: [[30,33],[62,65],[100,103]], ice: [],
       ledges: [[19,24,10],[27,36,11],[45,52,9],[59,68,10],[73,79,8],[97,106,11],[113,119,9]],
       stairs: [[124,4]], letters: [[22,9],[49,8],[76,7],[116,8]],
-      foes: [[39,'jumper'],[56,'skater'],[91,'thrower'],[109,'jumper']], checkpoint: 85, ceiling: true },
-    { name: 'ENCORE EXPRESS', pits: [[43,46],[78,81],[111,114]], ice: [[25,42],[96,110]],
-      ledges: [[18,24,11],[39,49,10],[55,61,8],[74,84,11],[97,104,9],[108,117,10]],
-      stairs: [[65,3],[124,3]], letters: [[21,10],[58,7],[79,10],[101,8]],
-      foes: [[31,'skater'],[51,'jumper'],[93,'thrower'],[119,'skater']], checkpoint: 88 }
+      foes: [[39,'jumper'],[56,'skater'],[91,'thrower'],[109,'jumper']], checkpoint: 85 }
   ];
   const course = courses[Math.max(0, Math.min(courses.length - 1, night - 1))];
   const span = (a, b, y, tile) => { for (let x = a; x <= b; x++) setTile(x, y, tile); };
@@ -568,7 +572,7 @@ function buildLevel(night) {
   for (let x = 0; x < LEVEL_WIDTH; x++) {
     if (!course.pits.some(([a,b]) => x >= a && x <= b)) { setTile(x,13,1); setTile(x,14,1); }
   }
-  for (const [a,b] of course.ice) span(a,b,13,2);
+  if (land().kind === 'winter') for (const [a,b] of course.ice) span(a,b,13,2);
   for (const [a,b,y] of course.ledges) {
     span(a,b,y,course.bridges ? 3 : 7);
     for (let x = a+1; x < b; x += 2) gelts.push({ x:x*TILE+4, y:(y-1)*TILE+3, collected:false });
@@ -578,12 +582,42 @@ function buildLevel(night) {
       for (let y = 12-step; y <= 12; y++) setTile(start+step,y,1);
     }
   }
+  if (land().kind === 'desert') {
+    // Two-sided stepped pyramids replace the arcade's flat opening platforms.
+    for (const [center,height] of [[37,3],[69,4],[109,3]]) {
+      for (let dx=-height; dx<=height; dx++) {
+        for (let y=13-(height-Math.abs(dx)); y<13; y++) setTile(center+dx,y,1);
+      }
+    }
+  }
+  if (land().kind === 'gardens') {
+    // Terraced gardens have solid columns supporting the higher route.
+    for (const [x,y] of [[18,11],[40,7],[71,8],[110,8]]) {
+      for (let row=y+1; row<13; row++) setTile(x,row,1);
+    }
+  }
+  if (land().kind === 'courtyard') {
+    // Dry courtyard floors, alternating fountains and tiled roof paths.
+    for (const x of [35,61,88]) { setTile(x,12,1); setTile(x+1,12,1); }
+  }
+  if (land().kind === 'ship') {
+    // Cargo stacks and upper decks; gaps below the gangways reveal the sea.
+    for (const x of [27,58,91]) { setTile(x,12,7); setTile(x+1,12,7); }
+  }
+  if (land().kind === 'dungeon') {
+    for (const [a,b] of [[15,31],[48,63],[88,102],[116,130]]) span(a,b,4,1);
+    for (const x of [29,62,91]) setTile(x,12,9);
+  }
+  if (land().kind === 'castle') {
+    for (const [a,b] of [[17,24],[45,52],[73,79],[113,119]]) span(a,b,4,1);
+    for (const x of [40,91,120]) setTile(x,12,9);
+  }
   // A small, safe opening teaches blocks before introducing each course's specialty.
   setTile(9,10,5,'latke'); setTile(11,10,5,'sufganiyah');
   setTile(13,10,5,'gelt');
   course.letters.forEach(([x,y],idx) => item(x,y,'letter',idx));
   course.foes.forEach(([x,type]) => enemies.push(createGoblin(x*TILE,12*TILE,type)));
-  if (course.ceiling) {
+  if (land().kind === 'winter') {
     for (const x of [35,47,96,112]) {
       span(x-1,x+1,4,7);
       icicles.push({x:x*TILE+4,y:5*TILE,vy:0,state:'hang'});
@@ -597,15 +631,17 @@ function buildLevel(night) {
   bonusDoor.x = 131*TILE; bonusDoor.y = 11*TILE; bonusDoor.used = false;
   // Keep the boss arena flat, with a clear runway after the last obstacle.
   const bossNames = [
-    "GRUMBLE THE GOBLIN CHIEFTAIN", "FROST-BLADE SKATER LORD",
-    "ICICLE SHAMAN", "TUNDRA BERSERKER", "KING ANTIOCHUS GOBLIN REX"
+    'THE OLIVE GROVE GUARDIAN', 'THE SANDSTONE SENTINEL',
+    'THE GARDEN GATEKEEPER', 'THE COURTYARD CAPTAIN',
+    'THE LANTERN PRIVATEER', 'THE FROST-BLADE LORD',
+    'THE VAULT WARDEN', 'THE GOBLIN KING'
   ];
   const bossType = night >= 8 ? 5 : ((night - 1) % 4) + 1;
   const speedMult = night >= 5 ? 1.3 : 1.0;
   const maxHp = night >= 8 ? 5 : 3;
 
   boss = {
-    name: bossNames[bossType - 1],
+    name: bossNames[night - 1],
     x: 152*TILE, y: 13*TILE - 34, vx: -1.05 * speedMult, vy: 0,
     w: 30, h: 34, dir: -1, hp: maxHp, maxHp: maxHp,
     type: bossType, speedMult, state: 'patrol', timer: 0, invuln: 0, active: false
@@ -814,14 +850,16 @@ class Hippo {
 
 function startLevel(resetCampaign = false) {
   if (resetCampaign) {
-    stats.night = 1; stats.score = 0; stats.gelt = 0; stats.lives = 3;
+    stats.night = 1; stats.score = 0; stats.gelt = 0; stats.lives = 3; stats.NextBonusIndex = 0;
     stats.checkpointX = 32; stats.checkpointY = 160; stats.checkpointLit = false;
     stats.letters = [false, false, false, false]; stats.totalLetters = 0;
+    tally.geltScore = 0; tally.enemyScore = 0; tally.comboScore = 0;
+    hitStop = 0; screenShake = 0;
   }
   buildLevel(stats.night);
   player = new Hippo(stats.checkpointX, stats.checkpointY);
   cameraX = Math.max(0, player.x - 96);
-  gameState = 'PLAY';
+  gameState = 'INTRO'; stateTimer = 0; clearInputs();
 }
 function killPlayer() {
   if (gameState === 'DEAD') return;
@@ -879,8 +917,8 @@ function updatePlay() {
     }
     if (aabb(player, { x: it.x, y: it.y, w: 13, h: 13 })) {
       if (it.type === 'popped_gelt') addGelt(it.x, it.y);
-      else if (it.type === 'latke') { sfx.sfxPowerup(); if (player.power < 1) player.setPower(1); addScore(1000, it.x, it.y, "LATKE! BIG HIPPO!"); }
-      else if (it.type === 'sufganiyah') { sfx.sfxPowerup(); player.setPower(2); addScore(1000, it.x, it.y, "FIRE HIPPO! FIRE / X!"); }
+      else if (it.type === 'latke') { sfx.sfxPowerup(); if (player.power < 1) player.setPower(1); addScore(1000, it.x, it.y, "LATKE! POWER UP!"); }
+      else if (it.type === 'sufganiyah') { sfx.sfxPowerup(); player.setPower(2); addScore(1000, it.x, it.y, "FIRE POWER! FIRE / X!"); }
       else if (it.type === 'applesauce') { sfx.sfxPowerup(); player.applesauceTimer = 360; addScore(500, it.x, it.y, "SPEED UP!"); }
       else if (it.type === 'oil') { sfx.sfxCheckpoint(); oil = Math.min(MAX_OIL, oil + 42); addScore(300, it.x, it.y, "+OIL"); }
       else if (it.type === 'star') { sfx.sfxPowerup(); player.starTimer = 280; addScore(1000, it.x, it.y, "DREIDEL FLIGHT!"); }
@@ -1002,13 +1040,13 @@ function updatePlay() {
     }
   }
 
-  if ((!boss || boss.state === 'dead') && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
+  if (gameState === 'PLAY' && (!boss || boss.state === 'dead') && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
     menorah.lit = true; sfx.sfxWin();
     if (stats.night >= 3) HATS[2].unlocked = true;
     if (stats.night >= 8) HATS[3].unlocked = true;
     tally.oilLeft = Math.ceil(oil); tally.oilScore = 0; tally.phase = 0;
     dreidelSpin.spinning = false; dreidelSpin.done = false;
-    gameState = 'TALLY'; stateTimer = 0;
+    gameState = 'TALLY'; stateTimer = 0; clearInputs();
   }
   updateParticlesAndPopups();
 }
@@ -1063,20 +1101,35 @@ function updateTally() {
         else sfx.sfxCheckpoint();
       }
     } else if (dreidelSpin.done && (isJumpPressed() || isActionPressed())) {
-      gameState = 'MENORAH'; stateTimer = 0; sfx.sfxWin();
+      gameState = 'MENORAH'; stateTimer = 0; clearInputs(); sfx.sfxWin();
     }
   }
 }
 
 function updateMenorahScreen() {
-  stateTimer++;
-  if (isJumpPressed() || isActionPressed()) {
-    if (stats.night < 8 || (stats.night === 8 && stats.totalLetters >= 16)) {
+  frameCount++; stateTimer++;
+  // A new press after the ceremony has appeared is required to advance once.
+  if (stateTimer >= 60 && (isJumpPressed() || isActionPressed())) {
+    clearInputs();
+    if (stats.night < NIGHT_COUNT) {
       stats.night++; stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
       stats.letters = [false, false, false, false];
       tally.geltScore = 0; tally.enemyScore = 0; tally.comboScore = 0;
       startLevel(false);
-    } else gameState = 'VICTORY';
+    } else {
+      goblinUnlocked = true;
+      try { localStorage.setItem('hippo-goblin-unlocked','yes'); } catch {}
+      gameState = 'VICTORY'; stateTimer = 0; sfx.setSong(4); sfx.sfxWin();
+    }
+  }
+}
+
+function updateEnding() {
+  frameCount++; stateTimer++; sfx.updateBGM(false, false, false);
+  if (gameState === 'VICTORY' && stateTimer >= 240) {
+    gameState = 'CREDITS'; stateTimer = 0; clearInputs();
+  } else if (gameState === 'CREDITS' && stateTimer >= 720) {
+    character = 'goblin'; startLevel(true);
   }
 }
 
@@ -1095,6 +1148,55 @@ function drawHeart(x, y, filled) {
   if (filled) { ctx.fillStyle = '#ffaaaa'; ctx.fillRect(x + 1, y + 1, 2, 1); }
 }
 
+function drawLandscape() {
+  const scene=land(), kind=scene.kind;
+  const gradient=ctx.createLinearGradient(0,0,0,240);
+  gradient.addColorStop(0,scene.sky[0]);gradient.addColorStop(1,scene.sky[1]);
+  ctx.fillStyle=gradient;ctx.fillRect(0,0,256,240);
+  const rect=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(Math.floor(x),y,w,h);};
+  const triangle=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+w/2,y-h);ctx.lineTo(x+w,y);ctx.fill();};
+  const scroll=(i,spacing,factor)=>i*spacing-(cameraX*factor%spacing)-spacing;
+  if (kind==='desert') {
+    rect(192,40,22,22,'#ffefad');
+    rect(0,180,256,60,'#e1b36e');
+    for(let i=0;i<5;i++) {const x=scroll(i,100,0.15);triangle(x,190,110,80,'#b68a50');triangle(x+4,190,54,80,'#dab16e');}
+    for(let i=0;i<4;i++) {const x=scroll(i,90,0.4);rect(x,147,4,50,'#6e7046');triangle(x-22,152,48,16,'#68804f');}
+  } else if (kind==='ship') {
+    rect(0,172,256,68,'#254f76');
+    for(let y=176;y<240;y+=12)for(let i=0;i<10;i++)rect((i*34+frameCount*(y%3+1)*0.15)%300-30,y,20,2,'#619bb7');
+    for(let i=0;i<5;i++) {
+      const x=scroll(i,100,0.65);rect(x,55,5,154,'#624639');rect(x-28,77,62,4,'#b98c60');
+      triangle(x+5,143,57,60,'#e8d9b8');rect(x-18,90,18,48,'#d1c2a5');
+      rect(x-30,201,75,7,'#bc8855');
+    }
+  } else if (kind==='dungeon') {
+    for(let y=28;y<208;y+=18)for(let i=0;i<10;i++)rect(i*32+(y%36?0:-16),y,30,16,'#302e43');
+    for(let i=0;i<5;i++) {const x=scroll(i,80,0.35);rect(x,56,34,152,'#171b2d');rect(x-5,50,44,8,'#61596c');rect(x-5,193,44,14,'#61596c');
+      rect(x+12,115,5,25,'#ae7c49');rect(x+10,107,9,11,frameCount%12<6?'#ffd775':'#e69a40');}
+  } else if(kind==='castle') {
+    rect(200,42,15,15,'#fff0be');
+    for(let i=0;i<6;i++) {const x=scroll(i,70,0.2);rect(x,105,55,103,'#897f91');
+      for(let j=0;j<4;j++)rect(x+j*16,96,8,12,'#897f91');rect(x+20,125,12,25,'#efc880');}
+    for(let i=0;i<4;i++) {const x=scroll(i,100,0.45);rect(x,54,18,154,'#a98e80');rect(x+2,60,14,3,'#d8c7ab');rect(x-4,50,26,8,'#d8c7ab');
+      rect(x+20,78,21,34,'#374e7f');triangle(x+20,123,21,12,'#374e7f');}
+  } else if(kind==='courtyard') {
+    rect(201,35,15,15,'#fff3d4');
+    for(let i=0;i<5;i++) {const x=scroll(i,86,0.25);rect(x,100,76,108,'#a77471');triangle(x-2,100,80,25,'#4d526e');
+      rect(x+9,133,20,75,'#423b60');rect(x+42,133,20,75,'#423b60');rect(x+8,128,22,7,'#d4b08a');rect(x+41,128,22,7,'#d4b08a');}
+    for(let i=0;i<4;i++){const x=scroll(i,104,0.5);rect(x,183,27,10,'#66a8bd');rect(x+10,160,6,28,'#d9b79b');rect(x+5,171,16,4,'#66a8bd');}
+  } else if(kind==='gardens') {
+    for(let i=0;i<5;i++) {const x=scroll(i,88,0.2);rect(x,117,80,91,'#b88c79');rect(x+10,92,60,25,'#c89f8b');rect(x+22,72,36,20,'#d2ae94');
+      for(let j=0;j<4;j++){rect(x+j*20,113,18,8,'#649273');rect(x+j*20+4,120,4,25,'#649273');}rect(x+23,70,35,5,'#7fa578');}
+  } else if(kind==='winter') {
+    for(let i=0;i<5;i++){const x=scroll(i,85,0.2);rect(x,137,64,71,'#715c64');triangle(x-5,139,74,41,'#eef3ed');rect(x+9,159,12,17,'#f7d68a');rect(x+41,159,12,17,'#f7d68a');}
+    for(let i=0;i<35;i++)rect((i*47+frameCount*0.3)%256,28+(i*31+frameCount*0.5)%180,2,2,'#eef6ff');
+  } else {
+    rect(192,40,22,22,'#fff0ba');
+    for(let i=0;i<6;i++){const x=scroll(i,76,0.18);triangle(x,208,105,57,'#889b79');}
+    for(let i=0;i<6;i++){const x=scroll(i,71,0.42);rect(x+17,153,5,53,'#806248');rect(x,146,39,19,'#537f59');rect(x+6,135,26,19,'#648c60');}
+  }
+}
+
 function draw() {
   ctx.save();
   if (screenShake > 0) {
@@ -1102,29 +1204,14 @@ function draw() {
     screenShake = Math.max(0, screenShake - 1);
   }
 
-  const skyTopColors = ['#1c254c','#171f42','#121936','#0e132b','#0b0f22','#080b1a','#060814','#03040a','#180d2c'];
-  const skyBotColors = ['#584878','#453a66','#342e54','#262244','#1c1936','#131228','#0c0c1c','#070712','#3a1c54'];
-  const nIdx = Math.min(8, stats.night - 1);
-  const skyGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-  skyGrad.addColorStop(0, skyTopColors[nIdx]); skyGrad.addColorStop(1, skyBotColors[nIdx]);
-  ctx.fillStyle = skyGrad; ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#ffffff';
-  for (let i = 0; i < 28; i++) {
-    const sx = ((i * 67) - Math.floor(cameraX * 0.1)) % canvas.width, sy = (i * 29) % 120;
-    if ((frameCount + i * 13) % 40 < 32) ctx.fillRect((sx + canvas.width) % canvas.width, sy, i % 5 === 0 ? 2 : 1, i % 5 === 0 ? 2 : 1);
-  }
-
-  for (let i = 0; i < 7; i++) {
-    const mx = ((i * 96) - Math.floor(cameraX * 0.22)) % (canvas.width + 96) - 48;
-    ctx.fillStyle = '#1b223d'; ctx.beginPath(); ctx.moveTo(mx, 208); ctx.lineTo(mx + 48, 126); ctx.lineTo(mx + 96, 208); ctx.fill();
-    ctx.fillStyle = '#6d7fa8'; ctx.beginPath(); ctx.moveTo(mx + 34, 150); ctx.lineTo(mx + 48, 126); ctx.lineTo(mx + 62, 150); ctx.fill();
-  }
+  drawLandscape();
 
   if (gameState === 'TITLE') { drawTitleScreen(); ctx.restore(); return; }
   if (gameState === 'PASSWORD') { drawPasswordScreen(); ctx.restore(); return; }
   if (gameState === 'MENORAH') { drawMenorahCeremony(); ctx.restore(); return; }
   if (gameState === 'VICTORY') { drawVictoryScreen(); ctx.restore(); return; }
+  if (gameState === 'CREDITS') { drawCredits(); ctx.restore(); return; }
+  if (gameState === 'INTRO') { drawIntro(); ctx.restore(); return; }
 
   const startCol = Math.max(0, Math.floor(cameraX / TILE));
   const endCol = Math.min(LEVEL_WIDTH - 1, startCol + Math.ceil(canvas.width / TILE) + 1);
@@ -1136,17 +1223,17 @@ function draw() {
       const px = Math.floor(x * TILE - cameraX), py = y * TILE;
 
       if (tile === 1 || tile === 8) {
-        drawOutlinedRect(px, py, TILE, TILE, '#485470', '#121624');
+        drawOutlinedRect(px, py, TILE, TILE, land().stone, '#292633');
         ctx.fillStyle = '#364058'; ctx.fillRect(px + 3, py + 9, 4, 4); ctx.fillRect(px + 10, py + 11, 3, 3);
-        ctx.fillStyle = '#ffffff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 5);
-        ctx.fillStyle = '#b8d0f0'; ctx.fillRect(px + 2, py + 5, 5, 2); ctx.fillRect(px + 10, py + 5, 4, 2);
+        ctx.fillStyle = land().trim; ctx.fillRect(px + 1, py + 1, TILE - 2, 5);
+        ctx.fillStyle = land().trim; ctx.fillRect(px + 2, py + 5, 5, 2); ctx.fillRect(px + 10, py + 5, 4, 2);
         if (tile === 8 && (frameCount + x * 7) % 28 < 7) { ctx.fillStyle = '#ffd700'; ctx.fillRect(px + 7, py + 2, 3, 3); }
       } else if (tile === 2) {
         drawOutlinedRect(px, py, TILE, TILE, '#44b4e8', '#0d2b45');
         ctx.fillStyle = '#b4f4ff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 3); ctx.fillRect(px + 3, py + 6, 4, 2); ctx.fillRect(px + 9, py + 10, 4, 2);
       } else if (tile === 3) {
-        drawOutlinedRect(px, py, TILE, TILE, '#2c8ec4', '#0a1e32');
-        ctx.fillStyle = '#9eeeff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 3);
+        drawOutlinedRect(px, py, TILE, TILE, land().kind === 'ship' ? '#9b704b' : '#2c8ec4', '#0a1e32');
+        ctx.fillStyle = land().kind === 'ship' ? '#e1b77d' : '#9eeeff'; ctx.fillRect(px + 1, py + 1, TILE - 2, 3);
         ctx.fillStyle = '#0a1e32'; ctx.fillRect(px + 4, py + 4, 2, 8); ctx.fillRect(px + 6, py + 7, 5, 2); ctx.fillRect(px + 10, py + 9, 2, 5);
       } else if (tile === 4) {
         drawOutlinedRect(px, py, TILE, TILE, '#626c82', '#141820');
@@ -1159,8 +1246,8 @@ function draw() {
       } else if (tile === 6) {
         drawOutlinedRect(px, py, TILE, TILE, '#545868', '#14161f');
       } else if (tile === 7) {
-        drawOutlinedRect(px, py, TILE, TILE, '#4a5a80', '#121828');
-        ctx.fillStyle = '#7084b0'; ctx.fillRect(px + 1, py + 1, 6, 6); ctx.fillRect(px + 9, py + 1, 6, 6); ctx.fillRect(px + 1, py + 9, 14, 6);
+        drawOutlinedRect(px, py, TILE, TILE, land().brick, '#292633');
+        ctx.fillStyle = land().trim; ctx.fillRect(px + 1, py + 1, 6, 6); ctx.fillRect(px + 9, py + 1, 6, 6); ctx.fillRect(px + 1, py + 9, 14, 6);
       } else if (tile === 9) {
         drawOutlinedRect(px + 4, py + 5, 8, 11, '#fff5e0', '#1a120b');
         ctx.fillStyle = '#ff2222'; ctx.fillRect(px + 5, py + 8, 6, 2);
@@ -1190,7 +1277,7 @@ function draw() {
   for (let i = 0; i < 9; i++) {
     const bx = mx - 1 + i * 3;
     ctx.fillStyle = '#ffd700'; ctx.fillRect(bx, menorah.y + 12, 2, 8);
-    if (i === 4 || i < stats.night - 1 || (menorah.lit && i < stats.night)) {
+    if (i === 4 || (i < 4 ? i : i-1) < stats.night - (menorah.lit ? 0 : 1)) {
       ctx.fillStyle = '#ffffff'; ctx.fillRect(bx, menorah.y + 7, 2, 5);
       ctx.fillStyle = frameCount % 6 < 3 ? '#ff8800' : '#ffff00'; ctx.fillRect(bx - 1, menorah.y + 3, 4, 4);
     }
@@ -1322,6 +1409,21 @@ function drawHippo() {
   let bellyColor = player.power === 2 ? '#ffe878' : '#b8c4ff';
   if (player.applesauceTimer > 0 && frameCount % 6 < 3) bodyColor = '#68f8ff';
 
+  if (character === 'goblin') {
+    const green = player.power === 2 ? '#d5b34c' : '#68b65b';
+    const h = player.sliding ? 12 : player.h;
+    const y = py + player.h - h;
+    drawOutlinedRect(px, y+5,14,h-4,green);
+    drawOutlinedRect(px-3,y+1,5,6,green);drawOutlinedRect(px+12,y+1,5,6,green);
+    drawOutlinedRect(px+1,y,12,10,green);
+    ctx.fillStyle='#ffffff';ctx.fillRect(px+3,y+3,3,3);ctx.fillRect(px+9,y+3,3,3);
+    ctx.fillStyle='#142b25';ctx.fillRect(px+4,y+4,1,2);ctx.fillRect(px+10,y+4,1,2);
+    ctx.fillStyle='#ffe3a3';ctx.fillRect(px+5,y+8,5,2);
+    ctx.fillStyle='#315aa0';ctx.fillRect(px+2,y+h-7,10,4);
+    ctx.fillStyle='#493123';ctx.fillRect(px,y+h-3,5,3);ctx.fillRect(px+9,y+h-3,5,3);
+    drawOutlinedRect(px+4,y-3,7,3,'#ffd700');
+    return;
+  }
   if (player.starTimer > 0) {
     drawOutlinedRect(px - 1, py + player.h - 2, 16, 8, '#2870d8', '#081228');
     drawOutlinedRect(px + 5, py + player.h + 5, 4, 4, '#ffd700', '#081228');
@@ -1354,8 +1456,7 @@ function drawHippo() {
 }
 
 function drawNightDarkness() {
-  const darknessLevels = [0.0, 0.12, 0.24, 0.35, 0.46, 0.56, 0.65, 0.74, 0.45];
-  const alpha = darknessLevels[Math.min(8, stats.night - 1)];
+  const alpha = land().dark;
   if (alpha <= 0.01) return;
   darkCtx.clearRect(0, 0, 256, 240);
   darkCtx.fillStyle = `rgba(4, 6, 16, ${alpha})`; darkCtx.fillRect(0, 0, 256, 240);
@@ -1412,8 +1513,9 @@ function drawHUD() {
 function drawTitleScreen() {
   drawOutlinedRect(16, 18, canvas.width - 32, canvas.height - 36, 'rgba(10, 14, 28, 0.92)', '#ffd700');
   ctx.fillStyle = '#ffd700'; ctx.font = 'bold 15px monospace'; ctx.fillText('HANUKKAH HIPPO', 60, 44);
-  ctx.fillStyle = '#70e0ff'; ctx.font = 'bold 8px monospace'; ctx.fillText('8 NIGHTS OF NES PLATFORMING ACTION', 38, 58);
+  ctx.fillStyle = '#70e0ff'; ctx.font = 'bold 8px monospace'; ctx.fillText('8 LANDS - 8 NIGHTS - ONE LIGHT', 38, 58);
   const opts = [`START GAME (NIGHT ${stats.night})`, `ENTER DREIDEL PASSWORD`, `HAT: ${HATS[stats.hatIdx].name}`];
+  if (goblinUnlocked) opts.push(`HERO: ${character.toUpperCase()}`);
   opts.forEach((opt, idx) => {
     ctx.fillStyle = titleCursor === idx ? '#55ff55' : '#ffffff';
     ctx.fillText(`${titleCursor === idx ? '▶ ' : '  '}${opt}`, 44, 88 + idx * 18);
@@ -1472,28 +1574,61 @@ function drawMenorahCeremony() {
   for (let i = 0; i < 9; i++) {
     const bx = cx - 44 + i * 11, isShamash = i === 4, branchH = isShamash ? 24 : 18;
     drawOutlinedRect(bx - 2, cy - branchH, 5, branchH, '#ffd700', '#241800');
-    if (isShamash || i < stats.night || (stats.night >= 5 && i <= stats.night)) {
+    if (isShamash || (i < 4 ? i : i-1) < stats.night) {
       drawOutlinedRect(bx - 2, cy - branchH - 10, 5, 10, '#ffffff', '#1a1200');
       ctx.fillStyle = frameCount % 6 < 3 ? '#ff8800' : '#ffee00'; ctx.fillRect(bx - 3, cy - branchH - 16, 7, 6);
     }
   }
-  const pw = PASSWORDS[Math.min(8, stats.night)], heb = ['נ', 'ג', 'ה', 'ש'];
   ctx.fillStyle = '#88d8ff'; ctx.font = 'bold 8px monospace';
-  ctx.fillText(`NEXT NIGHT PASSWORD:  ${heb[pw[0]]}  ${heb[pw[1]]}  ${heb[pw[2]]}  ${heb[pw[3]]}`, 44, 166);
-  ctx.fillStyle = '#55ff55'; ctx.fillText('JUMP / Z: NEXT NIGHT', 52, 192);
+  if (stats.night < NIGHT_COUNT) {
+    const pw = PASSWORDS[stats.night], heb = ['נ', 'ג', 'ה', 'ש'];
+    ctx.fillText(`PASSWORD: ${pw.map(i => heb[i]).join('  ')}`, 55, 166);
+  } else ctx.fillText('ALL EIGHT LIGHTS SHINE!', 40, 166);
+  ctx.fillStyle = '#55ff55';
+  if (stateTimer >= 60) ctx.fillText(stats.night === NIGHT_COUNT ? 'JUMP: FINAL CELEBRATION' : 'JUMP: NEXT NIGHT', 36, 192);
+
 }
 
+function centered(text, y, color = '#ffffff', size = 8) {
+  ctx.fillStyle = color; ctx.font = `bold ${size}px monospace`;
+  ctx.textAlign = 'center'; ctx.fillText(text,128,y); ctx.textAlign = 'left';
+}
 function drawVictoryScreen() {
-  drawOutlinedRect(16, 20, canvas.width - 32, canvas.height - 40, '#10142c', '#ffd700');
-  ctx.fillStyle = '#ffd700'; ctx.font = 'bold 13px monospace'; ctx.fillText('HAPPY HANUKKAH!', 68, 54);
-  ctx.fillStyle = '#ffffff'; ctx.font = '8px monospace';
-  ctx.fillText('HANUKKAH HIPPO DEFEATED THE GOBLIN KING', 32, 82);
-  ctx.fillText('AND LIT ALL 8 CANDLES IN THE TUNDRA!', 38, 96);
-  ctx.fillStyle = '#70e0ff';
-  ctx.fillText(`FINAL SCORE: ${stats.score}`, 82, 126);
-  ctx.fillText(`DREIDEL LETTERS FOUND: ${stats.totalLetters}`, 66, 142);
-  ctx.fillStyle = '#55ff55';
-  ctx.fillText('JUMP / Z: RETURN TO TITLE', 62, 184);
+  drawOutlinedRect(12, 16, 232, 208, '#10142c', '#ffd700');
+  centered('HAPPY HANUKKAH!',42,'#ffd700',14);
+  centered('EIGHT LANDS. EIGHT LIGHTS.',60,'#88e8ff');
+  for (let i=0; i<9; i++) {
+    const x=60+i*17, y=i===4?88:100;
+    drawOutlinedRect(x, y, 5, 30, '#fff6cf');
+    ctx.fillStyle=frameCount%12<6?'#ff9b38':'#ffd768'; ctx.fillRect(x-1,y-8,7,7);
+    ctx.fillStyle='#d9ae57'; ctx.fillRect(x,130,5,10);
+  }
+  ctx.fillStyle='#d9ae57';ctx.fillRect(60,140,141,5);
+  centered('THE GOBLIN KING IS DEFEATED',162);
+  centered(`FINAL SCORE: ${stats.score}`,180,'#88e8ff');
+  centered('GOBLIN HERO UNLOCKED!',199,'#88ff99');
+  centered('THE CREDITS BEGIN SHORTLY...',214,'#b8c4d8',7);
+}
+function drawCredits() {
+  ctx.fillStyle='#0b1022';ctx.fillRect(0,0,256,240);
+  const lines = [
+    ['HANUKKAH HIPPO','#ffd700'],['EIGHT LANDS OF LIGHT','#88e8ff'],[''],
+    ['A KAPHTZIEL STUDIOS GAME'],['CREATED BY KAPHTZIEL'],[''],
+    ['MUSIC: TRADITIONAL MELODIES'],['CODE & ART: KAPHTZIEL STUDIOS'],['WITH OPENAI CODEX'],[''],
+    ['INSPIRED BY JEWISH JOURNEYS'],['AND CLASSIC PLATFORM ADVENTURES'],[''],
+    ['THANK YOU FOR PLAYING!','#ffd700'],[''],
+    ['A FRIENDLY GOBLIN JOINS YOU.','#88ff99'],['YOUR NEXT JOURNEY BEGINS SOON.']
+  ];
+  const offset=240-stateTimer*0.65;
+  lines.forEach(([text,color],i)=> {const y=offset+i*20;if(y>20&&y<218)centered(text,y,color||'#ffffff',8);});
+  centered('RESTARTING AS THE GOBLIN HERO',233,'#88ff99',7);
+}
+function drawIntro() {
+  drawOutlinedRect(12,58,232,124,'#10142cee','#ffd700');
+  centered(`NIGHT ${stats.night} OF ${NIGHT_COUNT}`,82,'#ffd700',11);
+  centered(land().name,106,'#ffffff',11);
+  centered(land().place,127,'#88e8ff',8);
+  centered(character==='goblin'?'THE GOBLIN HERO RETURNS':'FOLLOW THE LIGHT',155,'#88ff99',8);
 }
 
 function updateGame() {
@@ -1501,12 +1636,13 @@ function updateGame() {
 
   if (gameState === 'TITLE') {
     frameCount++; sfx.updateBGM(false, false, false);
-    if (isUpPressed()) { titleCursor = (titleCursor + 2) % 3; sfx.sfxTick(); }
-    if (isDownPressed()) { titleCursor = (titleCursor + 1) % 3; sfx.sfxTick(); }
+    if (isUpPressed()) { titleCursor = (titleCursor + (goblinUnlocked ? 3 : 2)) % (goblinUnlocked ? 4 : 3); sfx.sfxTick(); }
+    if (isDownPressed()) { titleCursor = (titleCursor + 1) % (goblinUnlocked ? 4 : 3); sfx.sfxTick(); }
     if (isJumpPressed()) {
       sfx.init();
-      if (titleCursor === 0) startLevel(false);
+      if (titleCursor === 0) startLevel(stats.lives <= 0);
       else if (titleCursor === 1) { gameState = 'PASSWORD'; pwCursor = 0; }
+      else if (titleCursor === 3 && goblinUnlocked) { character = character === 'hippo' ? 'goblin' : 'hippo'; }
       else if (titleCursor === 2) { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
     }
   } else if (gameState === 'PASSWORD') {
@@ -1528,9 +1664,9 @@ function updateGame() {
   else if (gameState === 'DEAD') updateDead();
   else if (gameState === 'TALLY') updateTally();
   else if (gameState === 'MENORAH') updateMenorahScreen();
-  else if (gameState === 'VICTORY') {
-    frameCount++;
-    if (isJumpPressed() || isActionPressed()) { stats.night = 1; gameState = 'TITLE'; }
+  else if (gameState === 'VICTORY' || gameState === 'CREDITS') updateEnding();
+  else if (gameState === 'INTRO') {
+    frameCount++; if (++stateTimer >= 120) { gameState = 'PLAY'; clearInputs(); }
   }
 
   clearJustPressed();

@@ -18,7 +18,7 @@ sfx.ctx.state='interrupted';sfx.init();assert.equal(resumes,2);
 sfx.ctx.state='suspended';sfx.playTone(440,'square',.1);assert.equal(resumes,2);
 sfx.ctx=null; window.AudioContext=undefined;
 const layouts=new Set();
-for(let night=1;night<=9;night++) {
+for(const height of [15,22]) for(let night=1;night<=8;night++) {
  stats.night=night;buildLevel(night);boss=null;gameState='PLAY';
  const original=map.map(r=>r.slice());
  layouts.add(JSON.stringify(original));
@@ -29,7 +29,7 @@ for(let night=1;night<=9;night++) {
  while(queue.length){
   const [sx,sy]=queue.shift();
   for(const dir of [-1,1])for(const speed of [1.75,2.65])for(const jump of [false,true]){
-   map=original.map(r=>r.slice());player=new Hippo(sx*16,sy*16-15);player.vx=dir*speed;
+   map=original.map(r=>r.slice());player=new Hippo(sx*16,sy*16-height);player.h=height;player.power=height===22?1:0;player.vx=dir*speed;
    player.vy=jump?-(5.25+speed*.2):0;
    for(let tick=0;tick<75;tick++){
     player.vy=Math.min(6.5,player.vy+(player.vy<0?.22:.33));player.moveAndCollide();
@@ -37,7 +37,7 @@ for(let night=1;night<=9;night++) {
     if(player.x>132*16&&player.grounded)exit=true;
     if(player.y>240)break;
     if(player.grounded){
-     const x=Math.floor((player.x+7)/16), y=Math.round((player.y+15)/16),key=x+','+y;
+     const x=Math.floor((player.x+7)/16), y=Math.round((player.y+height)/16),key=x+','+y;
      if(!visited.has(key)){visited.add(key);queue.push([x,y]);}
      if(jump||tick>12)break;
     }
@@ -46,7 +46,7 @@ for(let night=1;night<=9;night++) {
  }
  assert(exit,'Night '+night+' exit unreachable');assert.equal(found.size,4,'Night '+night+' letters unreachable: '+[...found]);
  for(let x=136;x<175;x++)assert.equal(original[13][x],1);
- console.log('Night '+night+': exit and all four letters reachable, safe arena ('+visited.size+' reachable landing positions)');
+ console.log('Night '+night+' (height '+height+'): exit and all four letters reachable, safe arena ('+visited.size+' reachable landing positions)');
 }
-assert.equal(layouts.size,9);console.log('PASS: audio session, suspended/interrupted resume, suspended tone guard, nine distinct traversable courses');
+assert.equal(layouts.size,8);console.log('PASS: audio session, suspended/interrupted resume, suspended tone guard, eight distinct traversable courses');
 `,sandbox,{timeout:120000});
