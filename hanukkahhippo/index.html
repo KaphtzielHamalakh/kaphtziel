@@ -180,22 +180,43 @@ const SONGS = [
 
 class SoundEngine {
   constructor() { this.ctx = null; this.muted = false; this.bgmTimer = 0; this.noteIdx = 0; this.currentSongIdx = 0; }
-  init() {
-    // iOS defaults Web Audio to an ambient session, which follows the silent switch.
+  interrupt() {
+    // Safari can leave a context reporting "running" with a silent output route.
+    this.needsRecovery = true;
+    this.unlocked = false;
+  }
+  init(restart = false) {
     try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch {}
-    if (!this.ctx || this.ctx.state === 'closed') {
+    if (restart || this.needsRecovery || this.ctx?.state === 'closed') {
+      const oldContext = this.ctx;
+      this.ctx = null;
+      this.needsRecovery = false;
+      this.unlocked = false;
+      if (oldContext && oldContext.state !== 'closed') oldContext.close().catch(() => {});
+    }
+    if (!this.ctx) {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;
       try { this.ctx = new AudioCtx(); this.unlocked = false; } catch { return; }
+      const context = this.ctx;
+      context.onstatechange = () => {
+        if (this.ctx === context && context.state === 'interrupted') this.interrupt();
+      };
     }
-    if (this.ctx.state !== 'running') this.ctx.resume().catch(() => {});
-    // Start a silent buffer inside the gesture; older Safari needs this to unlock output.
+    const context = this.ctx;
+    if (context.state !== 'running') context.resume().catch(() => {});
+    // Prime the new output route inside a native gesture, including after interruptions.
     if (!this.unlocked) {
-      const source = this.ctx.createBufferSource();
-      source.buffer = this.ctx.createBuffer(1, 1, this.ctx.sampleRate);
-      source.connect(this.ctx.destination);
-      source.onended = () => { source.disconnect(); this.unlocked = this.ctx.state === 'running'; };
-      source.start(0);
+      try {
+        const source = context.createBufferSource();
+        source.buffer = context.createBuffer(1, 1, context.sampleRate);
+        source.connect(context.destination);
+        source.onended = () => {
+          source.disconnect();
+          if (this.ctx === context) this.unlocked = context.state === 'running';
+        };
+        source.start(0);
+      } catch { this.unlocked = false; }
     }
   }
   setSong(nightIdx) {
@@ -304,7 +325,10 @@ function releasePointer(pointerId) {
   pointerInputs.delete(pointerId);
   releaseInput(input.code, 'pointer:' + pointerId);
   paintTouchButton(input.button);
-  if (input.button.hasPointerCapture(pointerId)) input.button.releasePointerCapture(pointerId);
+  // Capture may already be gone after an OS gesture; cleanup must still finish.
+  try {
+    if (input.button.hasPointerCapture(pointerId)) input.button.releasePointerCapture(pointerId);
+  } catch {}
 }
 function clearInputs() {
   [...pointerInputs.keys()].forEach(releasePointer);
@@ -320,7 +344,8 @@ function setPaused(value) {
   pauseButton.textContent = value ? 'Resume' : 'Pause';
   previousFrameTime = null;
   accumulatedTime = 0;
-  if (!value) sfx.init();
+  if (value) sfx.interrupt();
+  else sfx.init(true); // Rebuild Safari's output route in the Resume gesture.
 }
 function pressInput(code, source) {
   if (paused && code !== 'KeyP' && code !== 'KeyM') return;
@@ -355,8 +380,10 @@ for (const button of touchButtons) {
   button.addEventListener('pointerdown', e => {
     if (e.button !== 0 || paused) return;
     e.preventDefault();
-    button.setPointerCapture(e.pointerId);
-    pointerInputs.set(e.pointerId, { button, code });
+    // Pointer IDs can be reused after a missed cancellation. Release the old owner first.
+    releasePointer(e.pointerId);
+    pointerInputs.set(e.pointerId, { button, code, pointerType: e.pointerType });
+    try { button.setPointerCapture(e.pointerId); } catch {}
     pressInput(code, 'pointer:' + e.pointerId);
     paintTouchButton(button);
   });
@@ -370,6 +397,28 @@ for (const button of touchButtons) {
     releaseInput(code, 'activation');
   });
   button.addEventListener('contextmenu', e => e.preventDefault());
+}
+
+// Listen outside the button too: Safari can drop capture during system gestures.
+for (const eventName of ['pointerup', 'pointercancel']) {
+  window.addEventListener(eventName, e => releasePointer(e.pointerId), true);
+}
+window.addEventListener('pointermove', e => {
+  const input = pointerInputs.get(e.pointerId);
+  if (!input) return;
+  const bounds = input.button.getBoundingClientRect();
+  if (e.buttons === 0 || e.clientX < bounds.left || e.clientX > bounds.right ||
+      e.clientY < bounds.top || e.clientY > bounds.bottom) releasePointer(e.pointerId);
+}, true);
+for (const eventName of ['touchend', 'touchcancel']) {
+  window.addEventListener(eventName, e => {
+    // A last-finger release is an independent safety net for missing pointer events.
+    if (eventName === 'touchcancel' || e.touches.length === 0) {
+      for (const [id, input] of pointerInputs) {
+        if (input.pointerType === 'touch') releasePointer(id);
+      }
+    }
+  }, { capture: true, passive: true });
 }
 
 function updateTouchUI() {
@@ -391,10 +440,12 @@ pauseButton.addEventListener('click', () => setPaused(!paused));
 document.getElementById('resume-button').addEventListener('click', () => setPaused(false));
 
 function loseFocus() {
+  sfx.interrupt();
   clearInputs();
   if (gameState !== 'TITLE') setPaused(true);
 }
 window.addEventListener('blur', loseFocus);
+window.addEventListener('pagehide', loseFocus);
 document.addEventListener('visibilitychange', () => { if (document.hidden) loseFocus(); });
 window.addEventListener('resize', clearInputs);
 
@@ -1509,4 +1560,5 @@ requestAnimationFrame(loop);
 </script>
 </body>
 </html>
+
 
