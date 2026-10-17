@@ -181,25 +181,36 @@ const SONGS = [
 class SoundEngine {
   constructor() { this.ctx = null; this.muted = false; this.bgmTimer = 0; this.noteIdx = 0; this.currentSongIdx = 0; }
   init() {
-    if (!this.ctx) {
+    // iOS defaults Web Audio to an ambient session, which follows the silent switch.
+    try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch {}
+    if (!this.ctx || this.ctx.state === 'closed') {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;
-      try { this.ctx = new AudioCtx(); } catch { return; }
+      try { this.ctx = new AudioCtx(); this.unlocked = false; } catch { return; }
     }
-    if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+    if (this.ctx.state !== 'running') this.ctx.resume().catch(() => {});
+    // Start a silent buffer inside the gesture; older Safari needs this to unlock output.
+    if (!this.unlocked) {
+      const source = this.ctx.createBufferSource();
+      source.buffer = this.ctx.createBuffer(1, 1, this.ctx.sampleRate);
+      source.connect(this.ctx.destination);
+      source.onended = () => { source.disconnect(); this.unlocked = this.ctx.state === 'running'; };
+      source.start(0);
+    }
   }
   setSong(nightIdx) {
     const idx = Math.max(0, Math.min(SONGS.length - 1, nightIdx));
     if (this.currentSongIdx !== idx) { this.currentSongIdx = idx; this.noteIdx = 0; this.bgmTimer = 0; }
   }
   playTone(freq, type, duration, vol = 0.08, slideTo = null, delay = 0) {
-    if (this.muted || !this.ctx || freq <= 0) return;
+    if (this.muted || !this.ctx || this.ctx.state !== 'running' || freq <= 0) return;
     const t = this.ctx.currentTime + delay;
     const osc = this.ctx.createOscillator(), gain = this.ctx.createGain();
     osc.type = type; osc.frequency.setValueAtTime(freq, t);
     if (slideTo) osc.frequency.exponentialRampToValueAtTime(slideTo, t + duration);
     gain.gain.setValueAtTime(vol, t); gain.gain.exponentialRampToValueAtTime(0.001, t + duration);
     osc.connect(gain); gain.connect(this.ctx.destination);
+    osc.onended = () => { osc.disconnect(); gain.disconnect(); };
     osc.start(t); osc.stop(t + duration);
   }
   sfxJump() { this.playTone(165, 'square', 0.15, 0.07, 490); }
@@ -218,7 +229,7 @@ class SoundEngine {
   sfxTick() { this.playTone(880, 'square', 0.025, 0.05); }
   sfxWin() { [261.6,329.6,392,523.2,659.2,784,1046.5].forEach((n,i) => this.playTone(n, 'square', 0.14, 0.09, null, i*0.09)); }
   updateBGM(lowOil, starActive, paused) {
-    if (this.muted || !this.ctx || paused) return;
+    if (this.muted || !this.ctx || this.ctx.state !== 'running' || paused) return;
     const song = SONGS[this.currentSongIdx];
     let tempo = song.tempo;
     if (lowOil) tempo = Math.max(5, Math.floor(tempo * 0.65));
@@ -249,6 +260,11 @@ const HATS = [
 
 // Keyboard and each finger own their inputs independently, so releasing one
 // finger never cancels another held button (or a physical keyboard key).
+// Keep unlocking in native gesture handlers, including touchend on iPhone Safari.
+for (const eventName of ['touchend', 'pointerup', 'keydown']) {
+  document.addEventListener(eventName, () => sfx.init(), { capture: true, passive: true });
+}
+
 const inputSources = new Map(), pointerInputs = new Map();
 const controller = document.getElementById('touch-controller');
 const controllerToggle = document.getElementById('controller-toggle');
@@ -455,102 +471,80 @@ function buildLevel(night) {
     }
   };
 
-  const pit1 = 66 + (night % 3) * 2, pit2 = 116 + (night % 2) * 2;
+  // Authored courses use classic platformer ideas: teach, vary, then combine.
+  // Rows count down from the sky. Each tuple is [first column, last column, row].
+  const courses = [
+    { name: 'GELT GARDENS', pits: [[45,47],[110,112]], ice: [],
+      ledges: [[18,23,10],[57,62,11],[65,70,9],[96,101,10]],
+      stairs: [[32,3],[119,4]], letters: [[21,9],[60,10],[69,8],[99,9]],
+      foes: [[27,'walker'],[52,'walker'],[76,'walker'],[105,'jumper']], checkpoint: 83 },
+    { name: 'FROZEN ARCADE', pits: [[61,63],[102,104]], ice: [[32,54],[89,101]],
+      ledges: [[15,23,9],[36,43,10],[48,55,8],[69,76,10],[91,98,9],[112,120,10]],
+      stairs: [[27,2],[123,3]], letters: [[20,8],[52,7],[73,9],[116,9]],
+      foes: [[30,'walker'],[46,'skater'],[81,'thrower'],[99,'skater']], checkpoint: 85, ceiling: true },
+    { name: 'LANTERN HEIGHTS', pits: [[29,32],[56,59],[99,102]], ice: [],
+      ledges: [[17,23,11],[26,34,9],[39,45,7],[49,55,9],[57,65,10],[70,76,8],[94,103,10],[109,116,8]],
+      stairs: [[120,4]], letters: [[31,8],[42,6],[73,7],[113,7]],
+      foes: [[37,'jumper'],[68,'walker'],[90,'jumper'],[118,'thrower']], checkpoint: 85 },
+    { name: 'BELLY SLIDE RUN', pits: [[48,50],[93,95]], ice: [[15,47],[66,92],[106,123]],
+      ledges: [[23,28,10],[52,58,11],[70,76,9],[98,104,11],[113,120,10]],
+      stairs: [[125,3]], letters: [[26,9],[55,10],[73,8],[117,9]],
+      foes: [[33,'skater'],[40,'walker'],[79,'skater'],[110,'skater']], checkpoint: 63 },
+    { name: 'SHATTERED BRIDGES', pits: [[35,38],[70,73],[107,110]], ice: [],
+      ledges: [[19,25,10],[32,41,11],[48,55,9],[67,76,11],[92,99,10],[104,113,11]],
+      stairs: [[123,4]], letters: [[22,9],[51,8],[72,10],[108,10]],
+      foes: [[29,'jumper'],[59,'thrower'],[96,'jumper'],[118,'skater']], checkpoint: 84, bridges: true },
+    { name: 'ICICLE HALLS', pits: [[52,54],[116,118]], ice: [[24,48],[94,115]],
+      ledges: [[16,22,10],[32,39,9],[58,65,11],[71,77,8],[98,105,10]],
+      stairs: [[43,3],[123,3]], letters: [[19,9],[36,8],[74,7],[102,9]],
+      foes: [[27,'skater'],[66,'thrower'],[91,'skater'],[111,'jumper']], checkpoint: 85, ceiling: true },
+    { name: 'MIDNIGHT STAIRWAY', pits: [[40,43],[72,75],[108,111]], ice: [[89,100]],
+      ledges: [[21,27,10],[36,46,9],[51,57,7],[68,78,10],[95,102,9],[105,115,11]],
+      stairs: [[15,3],[59,3],[120,4]], letters: [[24,9],[54,6],[73,9],[99,8]],
+      foes: [[30,'thrower'],[64,'jumper'],[91,'skater'],[116,'thrower']], checkpoint: 84 },
+    { name: 'KINGS CAUSEWAY', pits: [[30,33],[62,65],[100,103]], ice: [[44,58],[90,99]],
+      ledges: [[19,24,10],[27,36,11],[45,52,9],[59,68,10],[73,79,8],[97,106,11],[113,119,9]],
+      stairs: [[124,4]], letters: [[22,9],[49,8],[76,7],[116,8]],
+      foes: [[39,'jumper'],[56,'skater'],[91,'thrower'],[109,'jumper']], checkpoint: 85, ceiling: true },
+    { name: 'ENCORE EXPRESS', pits: [[43,46],[78,81],[111,114]], ice: [[25,42],[96,110]],
+      ledges: [[18,24,11],[39,49,10],[55,61,8],[74,84,11],[97,104,9],[108,117,10]],
+      stairs: [[65,3],[124,3]], letters: [[21,10],[58,7],[79,10],[101,8]],
+      foes: [[31,'skater'],[51,'jumper'],[93,'thrower'],[119,'skater']], checkpoint: 88 }
+  ];
+  const course = courses[Math.max(0, Math.min(courses.length - 1, night - 1))];
+  const span = (a, b, y, tile) => { for (let x = a; x <= b; x++) setTile(x, y, tile); };
+  const item = (x, y, type, letterIdx) => items.push({ x: x*TILE+2, y: y*TILE+2, vx: 0, vy: 0, type, letterIdx, permanent: true });
   for (let x = 0; x < LEVEL_WIDTH; x++) {
-    if ((x >= pit1 && x <= pit1 + 2) || (x >= pit2 && x <= pit2 + 2)) continue;
-    map[13][x] = 1; map[14][x] = 1;
+    if (!course.pits.some(([a,b]) => x >= a && x <= b)) { setTile(x,13,1); setTile(x,14,1); }
   }
-
-  setTile(10, 10, 5, 'latke');
-  setTile(11, 10, 7);
-  setTile(12, 10, 5, 'sufganiyah');
-  setTile(13, 10, 7);
-  setTile(14, 10, 5, 'gelt');
-
-  setTile(16 + (night % 2), 13, 8); setTile(17 + (night % 2), 13, 8);
-
-  for (let x = 19; x <= 23; x++) setTile(x, 10, night >= 4 ? 2 : 7);
-  for (let x = 20; x <= 22; x++) gelts.push({ x: x*TILE + 4, y: 8*TILE + 4, collected: false });
-
-  setTile(22, 7, 5, 'gelt');
-  items.push({ x: 22*TILE + 2, y: 5*TILE + 4, vx: 0, vy: 0, type: 'letter', letterIdx: 0, permanent: true });
-
-  enemies.push(createGoblin(25*TILE, 12*TILE, night >= 3 ? 'jumper' : 'walker'));
-  enemies.push(createGoblin(29*TILE, 12*TILE, night >= 2 ? 'thrower' : 'walker'));
-  if (night >= 2) setTile(27, 12, 9);
-
-  setTile(32, 12, 1);
-  for (let x = 33; x <= 36; x++) { setTile(x, 11, 1); setTile(x, 12, 1); }
-  for (let x = 43; x <= 46; x++) { setTile(x, 11, 1); setTile(x, 12, 1); }
-  setTile(47, 12, 1);
-
-  if (night >= 2) {
-    for (let x = 35; x <= 44; x++) setTile(x, 3, 7);
-    icicles.push({ x: 38*TILE + 4, y: 4*TILE, vy: 0, state: 'hang' });
-    icicles.push({ x: 41*TILE + 4, y: 4*TILE, vy: 0, state: 'hang' });
+  for (const [a,b] of course.ice) span(a,b,13,2);
+  for (const [a,b,y] of course.ledges) {
+    span(a,b,y,course.bridges ? 3 : 7);
+    for (let x = a+1; x < b; x += 2) gelts.push({ x:x*TILE+4, y:(y-1)*TILE+3, collected:false });
   }
-
-  for (let x = 37; x <= 42; x++) {
-    setTile(x, 11, 3); setTile(x, 13, 0); setTile(x, 14, 1);
-    gelts.push({ x: x*TILE + 4, y: 12*TILE + 4, collected: false });
-    gelts.push({ x: x*TILE + 4, y: 13*TILE + 4, collected: false });
+  for (const [start,height] of course.stairs) {
+    for (let step = 0; step < height; step++) {
+      for (let y = 12-step; y <= 12; y++) setTile(start+step,y,1);
+    }
   }
-  setTile(37, 13, 1); setTile(42, 13, 1);
-
-  items.push({ x: 39*TILE + 2, y: 12*TILE + 2, vx: 0, vy: 0, type: 'letter', letterIdx: 1, permanent: true });
-  items.push({ x: 45*TILE + 2, y: 9*TILE, vx: 0, vy: 0, type: 'oil', permanent: true });
-  setTile(48, 10, 5, 'progressive'); setTile(49, 10, 5, 'applesauce');
-
-  for (let x = 51; x <= pit1 - 1; x++) setTile(x, 13, 2);
-  const slideEnemyType = night >= 4 ? 'skater' : 'walker';
-  enemies.push(createGoblin(55*TILE, 12*TILE, slideEnemyType));
-  enemies.push(createGoblin(57*TILE, 12*TILE, slideEnemyType));
-  enemies.push(createGoblin(59*TILE, 12*TILE, slideEnemyType));
-  enemies.push(createGoblin(61*TILE, 12*TILE, 'thrower'));
-
-  const wallX = pit1 - 4;
-  setTile(wallX, 11, 4); setTile(wallX, 12, 4);
-  setTile(wallX + 1, 10, 7); setTile(wallX + 2, 10, 7);
-  items.push({ x: (wallX + 1)*TILE + 2, y: 11*TILE + 2, vx: 0, vy: 0, type: 'letter', letterIdx: 2, permanent: true });
-
-  for (let x = pit1 + 3; x <= pit1 + 7; x++) setTile(x, 11, 2);
-  for (let x = pit1 + 9; x <= pit1 + 13; x++) setTile(x, 9, 2);
-  setTile(pit1 + 11, 6, 5, 'star');
-
-  if (night >= 5) {
-    setTile(85, 11, 7); setTile(86, 11, 7);
-    setTile(87, 9, 7); setTile(88, 9, 7); setTile(89, 9, 7);
-    shamash.x = 88*TILE; shamash.y = 7*TILE;
-  } else {
-    shamash.x = 88*TILE; shamash.y = 11*TILE;
+  // A small, safe opening teaches blocks before introducing each course's specialty.
+  setTile(9,10,5,'latke'); setTile(11,10,5,'sufganiyah');
+  setTile(13,10,5,'gelt');
+  course.letters.forEach(([x,y],idx) => item(x,y,'letter',idx));
+  course.foes.forEach(([x,type]) => enemies.push(createGoblin(x*TILE,12*TILE,type)));
+  if (course.ceiling) {
+    for (const x of [35,47,96,112]) {
+      span(x-1,x+1,4,7);
+      icicles.push({x:x*TILE+4,y:5*TILE,vy:0,state:'hang'});
+    }
   }
+  for (const x of [course.checkpoint-7,121]) item(x,12,'oil');
+  setTile(course.checkpoint+5,10,5,'progressive');
+  setTile(127,10,5,'sufganiyah');
+  shamash.x = course.checkpoint*TILE; shamash.y = 11*TILE;
   shamash.lit = stats.checkpointLit;
-
-  items.push({ x: 91*TILE, y: 11*TILE, vx: 0, vy: 0, type: 'oil', permanent: true });
-  setTile(93, 10, 5, 'progressive');
-
-  setTile(99, 10, 7); setTile(100, 10, 7);
-  setTile(102, 7, 7); setTile(103, 7, 7);
-  setTile(105, 5, 7); setTile(106, 5, 7);
-  for (let x = 90; x <= 114; x += 2) gelts.push({ x: x*TILE + 4, y: 3*TILE, collected: false });
-  items.push({ x: 105*TILE + 2, y: 3*TILE, vx: 0, vy: 0, type: 'letter', letterIdx: 3, permanent: true });
-
-  for (let x = 96; x <= pit2 - 1; x++) setTile(x, 13, 2);
-  if (night >= 3) { setTile(101, 12, 9); setTile(108, 12, 9); }
-  enemies.push(createGoblin(99*TILE, 12*TILE, 'jumper'));
-  enemies.push(createGoblin(103*TILE, 12*TILE, night >= 3 ? 'skater' : 'jumper'));
-  enemies.push(createGoblin(106*TILE, 12*TILE, 'jumper'));
-  enemies.push(createGoblin(110*TILE, 12*TILE, night >= 2 ? 'thrower' : 'jumper'));
-  enemies.push(createGoblin(113*TILE, 12*TILE, 'jumper'));
-
-  items.push({ x: 123*TILE, y: 11*TILE, vx: 0, vy: 0, type: 'oil', permanent: true });
-  setTile(125, 10, 5, 'sufganiyah');
-  setTile(128, 12, 7);
-  items.push({ x: 128*TILE + 2, y: 11*TILE - 2, vx: 0, vy: 0, type: 'sufganiyah', permanent: true });
-
   bonusDoor.x = 131*TILE; bonusDoor.y = 11*TILE; bonusDoor.used = false;
-
-  setTile(135, 12, 7);
+  // Keep the boss arena flat, with a clear runway after the last obstacle.
   const bossNames = [
     "GRUMBLE THE GOBLIN CHIEFTAIN", "FROST-BLADE SKATER LORD",
     "ICICLE SHAMAN", "TUNDRA BERSERKER", "KING ANTIOCHUS GOBLIN REX"
@@ -1515,3 +1509,4 @@ requestAnimationFrame(loop);
 </script>
 </body>
 </html>
+
