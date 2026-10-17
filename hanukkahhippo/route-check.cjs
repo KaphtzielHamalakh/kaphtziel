@@ -8,9 +8,10 @@ vm.runInContext(src,sandbox);
 vm.runInContext(`
 // Every search edge runs Hippo.update(), with real acceleration and button input.
 // Preserve exact landing positions and modified blocks; never snap into a wall.
-function route(night, power, checkpoint=false, groundColumn=null, barrier=false, target=null) {
+function route(night, power, checkpoint=false, groundColumn=null, barrier=false, target=null, tunnel=false) {
  stats.night=night;buildLevel(night);if(barrier)for(let y=0;y<15;y++)map[y][12]=1;boss=null;enemies=[];sfx.ctx=null;
- clearInputs();gameState='PLAY';player=new Hippo(groundColumn===null?(checkpoint?shamash.x:32):groundColumn*TILE,groundColumn===null?(checkpoint?shamash.y:160):193);
+ if(tunnel)enterTunnel(passagePipes[0]);
+ clearInputs();gameState='PLAY';player=new Hippo(groundColumn===null?(tunnel?2*TILE+9:(checkpoint?shamash.x:32)):groundColumn*TILE,groundColumn===null?(checkpoint?shamash.y:160):193);
  if(power)player.setPower(power);
  const initialPower=player.power;
  for(let t=0;t<20;t++){player.update();clearJustPressed();}
@@ -19,7 +20,7 @@ function route(night, power, checkpoint=false, groundColumn=null, barrier=false,
  while(pending.length && expanded<18000) {
   pending.sort((a,b)=>a.p.x-b.p.x);
   const node=pending.pop();expanded++;best=Math.max(best,node.p.x);
-  if(target ? aabb(node.p,target) : node.p.x>=166*TILE) return {expanded,moves:node.moves};
+  if(target ? aabb(node.p,target) : node.p.x>=(tunnel?42:166)*TILE) return {expanded,moves:node.moves};
   for(const action of [{walk:6},{walk:12},{walk:20},{jump:10},{jump:40}]) {
    player=Object.assign(new Hippo(0,0),node.p);map=node.map.map(r=>r.slice());gameState='PLAY';
    clearInputs();keys.ArrowRight=true;keys.KeyX=true;
@@ -50,4 +51,6 @@ for(const power of [0,1]) {route(3,power,false,70);console.log('PASS: escape scr
 for(const power of [0,1]) {route(3,power,false,64,false,{x:73*TILE,y:7*TILE,w:13,h:13});console.log('PASS: climb screenshot ledge via new terraces, power '+power);}
 assert.throws(()=>route(1,0,false,null,true),/blocked/);
 console.log('PASS: checker rejects an intentionally sealed course');
+for(let night=1;night<=8;night++)for(const power of [0,1]) {route(night,power,false,null,false,null,true);console.log('PASS underground route night '+night+', power '+power);
+ stats.night=night;buildLevel(night);const exitColumn=passagePipes[0].exitX/TILE;route(night,power,false,exitColumn);console.log('PASS onward route from passage exit night '+night+', power '+power);}
 `,sandbox,{timeout:120000});

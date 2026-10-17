@@ -126,7 +126,7 @@
     <button type="button" class="utility" id="auto-run-button" aria-pressed="false">Auto-run: off</button>
     <button type="button" class="utility game-button" data-code="KeyH" aria-pressed="false">Hat</button>
   </div>
-  <p class="touch-note" id="touch-help">Tap JUMP to start or select. Hold directions to move.<br>Down + Jump in mid-air: ground-pound. Auto-run frees a thumb.</p>
+  <p class="touch-note" id="touch-help">Tap JUMP to start or select. Hold directions to move.<br>Down on a green pipe: secret passage.<br>Down + Jump in mid-air: ground-pound. Auto-run frees a thumb.</p>
 </section>
 </main>
 <details class="keyboard-help"><summary>Keyboard controls &amp; tips</summary>
@@ -136,7 +136,7 @@
   <span>X / SHIFT / C</span> Run &amp; Shoot Fireball<br>
   <span>DOWN + JUMP (Mid-air)</span> Ground-Pound &nbsp;|&nbsp;
   <span>DOWN (On Ice)</span> Belly-Slide &nbsp;|&nbsp;
-  <span>H</span> Hat &nbsp;|&nbsp;
+  <span>DOWN (On a green pipe)</span> Secret passage &nbsp;|&nbsp; <span>H</span> Hat &nbsp;|&nbsp;
   <span>M</span> Mute &nbsp;|&nbsp; <span>P</span> Pause<br>On touch screens, JUMP selects menu items and RUN / FIRE goes back.
 </div>
 </details>
@@ -491,6 +491,8 @@ let dreidelSpin = {
 };
 
 let map = [], blockContents = {}, player, gelts = [], items = [], enemies = [], icicles = [], projectiles = [], fireballs = [], particles = [], popups = [];
+let passagePipes = [], activeTunnel = null, surfaceWorld = null, pipeTravel = null;
+const TUNNEL_WIDTH = 47;
 let shamash = { x: 88*TILE, y: 11*TILE, lit: false };
 let bonusDoor = { x: 131*TILE, y: 11*TILE, active: false, used: false };
 let menorah = { x: 166*TILE, y: 10*TILE, lit: false };
@@ -518,6 +520,7 @@ function spawnParticles(x, y, color, count = 8, speed = 2.5) {
 }
 
 function buildLevel(night) {
+  passagePipes = []; activeTunnel = null; surfaceWorld = null; pipeTravel = null;
   if (!Number.isInteger(night) || night < 1 || night > NIGHT_COUNT) throw new RangeError('Night must be 1 through 8');
   sfx.setSong(night - 1);
   map = Array.from({ length: LEVEL_HEIGHT }, () => Array(LEVEL_WIDTH).fill(0));
@@ -630,6 +633,11 @@ function buildLevel(night) {
   shamash.x = course.checkpoint*TILE; shamash.y = 11*TILE;
   shamash.lit = stats.checkpointLit;
   bonusDoor.x = 131*TILE; bonusDoor.y = 11*TILE; bonusDoor.used = false;
+  // Flush pipe mouths preserve the normal route and don't create new jump barriers.
+  const pipeLocations = [[24,76],[24,79],[46,80],[30,58],[44,79],[23,78],[32,78],[37,80]];
+  const [entry, exit] = pipeLocations[night-1];
+  passagePipes = [{x:entry*TILE, exitX:exit*TILE, kind:'entrance', used:false},
+                  {x:exit*TILE, kind:'surface-exit', used:false}];
   // Keep the boss arena flat, with a clear runway after the last obstacle.
   const bossNames = [
     'THE OLIVE GROVE GUARDIAN', 'THE SANDSTONE SENTINEL',
@@ -648,6 +656,63 @@ function buildLevel(night) {
     type: bossType, speedMult, state: 'patrol', timer: 0, invuln: 0, active: false
   };
   menorah.x = 166*TILE; menorah.y = 10*TILE; menorah.lit = false;
+}
+
+function pipeUnderPlayer() {
+  if (!player.grounded || player.starTimer > 0 || player.groundPounding) return null;
+  return passagePipes.find(pipe => pipe.kind !== 'surface-exit' && !pipe.used &&
+    Math.abs(player.x + player.w/2 - (pipe.x+16)) < 17 &&
+    Math.abs(player.y + player.h - 13*TILE) < 2);
+}
+function beginPipeTravel(pipe) {
+  pipeTravel = {pipe, frame:0, entering:!activeTunnel};
+  gameState = 'PIPE'; clearInputs(); sfx.sfxCheckpoint();
+}
+function enterTunnel(pipe) {
+  pipe.used = true;
+  surfaceWorld = {map,blockContents,gelts,items,enemies,icicles,projectiles,fireballs,
+    particles,popups,shamash,bonusDoor,menorah,boss,passagePipes};
+  activeTunnel = {entryX:pipe.x, exitX:pipe.exitX};
+  map = Array.from({length:LEVEL_HEIGHT},()=>Array(LEVEL_WIDTH).fill(0));
+  blockContents = {};gelts=[];items=[];enemies=[];icicles=[];projectiles=[];fireballs=[];particles=[];popups=[];
+  boss=null;shamash={x:-1000,y:176,lit:false};
+  bonusDoor={x:-1000,y:176,active:false,used:true};menorah={x:-1000,y:160,lit:false};
+  for(let x=0;x<TUNNEL_WIDTH;x++) {
+    for(const y of [0,1,2,3,13,14])map[y][x]=1;
+  }
+  for(let y=0;y<15;y++){map[y][0]=1;map[y][TUNNEL_WIDTH-1]=1;}
+  const ledges = stats.night%2 ? [[10,15,10],[22,26,9],[32,36,11]] : [[11,16,11],[21,27,10],[32,36,9]];
+  for(const [a,b,y] of ledges)for(let x=a;x<=b;x++)map[y][x]=7;
+  for(let x=7;x<=38;x+=2)gelts.push({x:x*TILE+4,y:12*TILE+3,collected:false});
+  for(const [a,b,y] of ledges)for(let x=a+1;x<b;x++)gelts.push({x:x*TILE+4,y:(y-1)*TILE+3,collected:false});
+  items.push({x:37*TILE,y:12*TILE,vx:0,vy:0,type:'oil',permanent:true});
+  map[9][18]=5;blockContents['18,9']='progressive';
+  passagePipes=[{x:2*TILE,kind:'return',used:false},{x:42*TILE,kind:'forward',used:false}];
+  placeAtPipe(2*TILE);
+}
+function placeAtPipe(x) {
+  player.x=x+9;player.y=13*TILE-player.h;player.vx=0;player.vy=0;
+  player.grounded=true;player.onIce=false;player.sliding=false;player.groundPounding=false;
+  player.jumpBuffer=0;player.coyoteTimer=0;player.airCombo=0;
+  player.invulnTimer=Math.max(player.invulnTimer,90);
+  cameraX=Math.max(0,Math.min(player.x-104,(activeTunnel?TUNNEL_WIDTH:LEVEL_WIDTH)*TILE-canvas.width));
+}
+function leaveTunnel(forward) {
+  const destination=forward?activeTunnel.exitX:activeTunnel.entryX;
+  ({map,blockContents,gelts,items,enemies,icicles,projectiles,fireballs,particles,popups,
+    shamash,bonusDoor,menorah,boss,passagePipes}=surfaceWorld);
+  surfaceWorld=null;activeTunnel=null;
+  placeAtPipe(destination);
+}
+function updatePipeTravel() {
+  frameCount++;pipeTravel.frame++;
+  if(pipeTravel.frame===18) {
+    if(pipeTravel.entering)enterTunnel(pipeTravel.pipe);
+    else leaveTunnel(pipeTravel.pipe.kind==='forward');
+  }
+  if(pipeTravel.frame>=36) {
+    pipeTravel=null;gameState='PLAY';clearInputs();
+  }
 }
 
 function createGoblin(x, y, subtype = 'walker') {
@@ -873,13 +938,15 @@ function updatePlay() {
   oil = Math.max(0, oil - 0.02);
   if (oil <= 0) { killPlayer(); return; }
 
+  const pipe = isDownPressed() && pipeUnderPlayer();
+  if (pipe) { beginPipeTravel(pipe); return; }
   sfx.updateBGM(oil < 25, player.starTimer > 0, false);
   player.update();
 
   cameraX += ((player.x - 104) - cameraX) * 0.22;
   if (player.x > 136 * TILE && boss && boss.state !== 'dead') boss.active = true;
   const minCam = (boss && boss.active && boss.state !== 'dead') ? 136 * TILE : 0;
-  cameraX = Math.max(minCam, Math.min(LEVEL_WIDTH * TILE - canvas.width, cameraX));
+  cameraX = Math.max(minCam, Math.min((activeTunnel ? TUNNEL_WIDTH : LEVEL_WIDTH) * TILE - canvas.width, cameraX));
 
   bonusDoor.active = stats.letters.every(Boolean);
   if (bonusDoor.active && !bonusDoor.used && isUpPressed() && aabb(player, { x: bonusDoor.x, y: bonusDoor.y, w: 16, h: 32 })) {
@@ -1041,7 +1108,7 @@ function updatePlay() {
     }
   }
 
-  if (gameState === 'PLAY' && (!boss || boss.state === 'dead') && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
+  if (!activeTunnel && gameState === 'PLAY' && (!boss || boss.state === 'dead') && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
     menorah.lit = true; sfx.sfxWin();
     if (stats.night >= 3) HATS[2].unlocked = true;
     if (stats.night >= 8) HATS[3].unlocked = true;
@@ -1150,7 +1217,7 @@ function drawHeart(x, y, filled) {
 }
 
 function drawLandscape() {
-  const scene=land(), kind=scene.kind;
+  const scene=activeTunnel ? {...land(),kind:'dungeon',sky:['#101528','#342f48']} : land(), kind=scene.kind;
   const gradient=ctx.createLinearGradient(0,0,0,240);
   gradient.addColorStop(0,scene.sky[0]);gradient.addColorStop(1,scene.sky[1]);
   ctx.fillStyle=gradient;ctx.fillRect(0,0,256,240);
@@ -1207,7 +1274,7 @@ function draw() {
 
   drawLandscape();
 
-  if (land().kind === 'gardens' && ['PLAY','DEAD','TALLY'].includes(gameState)) {
+  if (!activeTunnel && land().kind === 'gardens' && ['PLAY','DEAD','TALLY'].includes(gameState)) {
     for (const [x,y] of [[18,11],[40,7],[71,8],[110,8]]) {
       const px=Math.floor(x*TILE-cameraX);
       ctx.fillStyle='#876e69';ctx.fillRect(px+5,(y+1)*TILE,6,(12-y)*TILE);
@@ -1264,6 +1331,8 @@ function draw() {
       }
     }
   }
+
+  drawPassagePipes();
 
   const bdx = Math.floor(bonusDoor.x - cameraX);
   if (bonusDoor.active && !bonusDoor.used) {
@@ -1368,8 +1437,32 @@ function draw() {
   });
 
   drawHUD();
+  if (activeTunnel) {
+    ctx.fillStyle='#101528';ctx.fillRect(30,28,196,13);
+    centered('SECRET PASSAGE - DOWN TO EXIT',37,'#a6dfb5',7);
+  }
+  if (pipeTravel) {
+    ctx.fillStyle=`rgba(5,8,18,${1-Math.abs(pipeTravel.frame-18)/18})`;
+    ctx.fillRect(0,0,256,240);
+  }
   if (gameState === 'TALLY') drawTallyOverlay();
   ctx.restore();
+}
+
+function drawPassagePipes() {
+  for(const pipe of passagePipes) {
+    const x=Math.floor(pipe.x-cameraX),y=13*TILE;
+    if(x<-40||x>256)continue;
+    const available=!pipe.used && pipe.kind!=='surface-exit';
+    drawOutlinedRect(x+3,y,26,30,available?'#36785d':'#48605b','#0c2423');
+    ctx.fillStyle='#78ac7e';ctx.fillRect(x+6,y+1,4,27);
+    drawOutlinedRect(x-1,y-5,34,8,available?'#82ba87':'#6b8b7b','#102e2c');
+    ctx.fillStyle='#122e30';ctx.fillRect(x+5,y-3,22,3);
+    if(available && Math.abs(player.x+player.w/2-(pipe.x+16))<48) {
+      ctx.fillStyle='#ffd878';ctx.font='bold 7px monospace';
+      ctx.fillText('DOWN',x+2,y-12);
+    }
+  }
 }
 
 function drawBoss() {
@@ -1670,6 +1763,7 @@ function updateGame() {
       } else { pwError = 60; sfx.sfxShrink(); }
     }
   } else if (gameState === 'PLAY') updatePlay();
+  else if (gameState === 'PIPE') updatePipeTravel();
   else if (gameState === 'DEAD') updateDead();
   else if (gameState === 'TALLY') updateTally();
   else if (gameState === 'MENORAH') updateMenorahScreen();
