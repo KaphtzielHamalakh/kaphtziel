@@ -591,9 +591,10 @@ function buildLevel(night) {
     }
   }
   if (land().kind === 'gardens') {
-    // Terraced gardens have solid columns supporting the higher route.
-    for (const [x,y] of [[18,11],[40,7],[71,8],[110,8]]) {
-      for (let row=y+1; row<13; row++) setTile(x,row,1);
+    // Keep the ground route open. Tall supports are scenery, never collision walls.
+    // Stepping terraces let a player climb to each upper garden from ground level.
+    for (const [a,b,y] of [[35,37,11],[37,39,9],[66,68,11],[68,70,10],[105,107,11],[107,109,10]]) {
+      span(a,b,y,7);
     }
   }
   if (land().kind === 'courtyard') {
@@ -1206,6 +1207,14 @@ function draw() {
 
   drawLandscape();
 
+  if (land().kind === 'gardens' && ['PLAY','DEAD','TALLY'].includes(gameState)) {
+    for (const [x,y] of [[18,11],[40,7],[71,8],[110,8]]) {
+      const px=Math.floor(x*TILE-cameraX);
+      ctx.fillStyle='#876e69';ctx.fillRect(px+5,(y+1)*TILE,6,(12-y)*TILE);
+      ctx.fillStyle='#b69d83';ctx.fillRect(px+6,(y+1)*TILE,2,(12-y)*TILE);
+    }
+  }
+
   if (gameState === 'TITLE') { drawTitleScreen(); ctx.restore(); return; }
   if (gameState === 'PASSWORD') { drawPasswordScreen(); ctx.restore(); return; }
   if (gameState === 'MENORAH') { drawMenorahCeremony(); ctx.restore(); return; }
@@ -1696,5 +1705,6 @@ requestAnimationFrame(loop);
 </script>
 </body>
 </html>
+
 
 

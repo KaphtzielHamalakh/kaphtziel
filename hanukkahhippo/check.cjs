@@ -23,30 +23,8 @@ for(const height of [15,22]) for(let night=1;night<=8;night++) {
  const original=map.map(r=>r.slice());
  layouts.add(JSON.stringify(original));
  const letters=items.filter(i=>i.type==='letter');assert.equal(letters.length,4);
- const surfaces=[];
- for(let y=1;y<15;y++)for(let x=0;x<175;x++)if(map[y][x]&&!map[y-1][x])surfaces.push([x,y]);
- const visited=new Set(['2,13']), queue=[[2,13]], found=new Set();let exit=false;
- while(queue.length){
-  const [sx,sy]=queue.shift();
-  for(const dir of [-1,1])for(const speed of [1.75,2.65])for(const jump of [false,true]){
-   map=original.map(r=>r.slice());player=new Hippo(sx*16,sy*16-height);player.h=height;player.power=height===22?1:0;player.vx=dir*speed;
-   player.vy=jump?-(5.25+speed*.2):0;
-   for(let tick=0;tick<75;tick++){
-    player.vy=Math.min(6.5,player.vy+(player.vy<0?.22:.33));player.moveAndCollide();
-    for(const l of letters)if(aabb(player,{...l,w:13,h:13}))found.add(l.letterIdx);
-    if(player.x>132*16&&player.grounded)exit=true;
-    if(player.y>240)break;
-    if(player.grounded){
-     const x=Math.floor((player.x+7)/16), y=Math.round((player.y+height)/16),key=x+','+y;
-     if(!visited.has(key)){visited.add(key);queue.push([x,y]);}
-     if(jump||tick>12)break;
-    }
-   }
-  }
- }
- assert(exit,'Night '+night+' exit unreachable');assert.equal(found.size,4,'Night '+night+' letters unreachable: '+[...found]);
  for(let x=136;x<175;x++)assert.equal(original[13][x],1);
- console.log('Night '+night+' (height '+height+'): exit and all four letters reachable, safe arena ('+visited.size+' reachable landing positions)');
+
 }
-assert.equal(layouts.size,8);console.log('PASS: audio session, suspended/interrupted resume, suspended tone guard, eight distinct traversable courses');
+assert.equal(layouts.size,8);console.log('PASS: audio session, suspended/interrupted resume, suspended tone guard, eight distinct maps with four letters and safe boss floors (route-check.cjs verifies traversal)');
 `,sandbox,{timeout:120000});
