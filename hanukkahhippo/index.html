@@ -266,6 +266,21 @@ class SoundEngine {
 }
 const sfx = new SoundEngine();
 
+const CHEAT_CODE = ['up','up','down','down','left','right','left','right','jump'];
+let cheatButtons = [], hungryPending = false;
+function trackCheat(code) {
+  if (!['TITLE','PLAY','INTRO'].includes(gameState)) { cheatButtons=[]; return; }
+  const token = ({ArrowUp:'up',KeyW:'up',ArrowDown:'down',KeyS:'down',
+    ArrowLeft:'left',KeyA:'left',ArrowRight:'right',KeyD:'right',KeyZ:'jump',Space:'jump'})[code];
+  if (!token) { cheatButtons=[]; return; }
+  cheatButtons.push(token); if(cheatButtons.length>CHEAT_CODE.length)cheatButtons.shift();
+  if (cheatButtons.length===CHEAT_CODE.length && CHEAT_CODE.every((v,i)=>v===cheatButtons[i])) {
+    cheatButtons=[];stats.lives+=10;character='hippo';
+    if(gameState==='TITLE') {hungryPending=true;titleCursor=0;}
+    else player.becomeHungry();
+    clearJustPressed();sfx.sfx1Up();
+  }
+}
 const keys = {}, justPressed = {};
 const PASSWORDS = [
   [0,0,0,0], [0,1,2,3], [1,1,2,0], [2,0,3,1], [3,2,1,0], [1,3,1,2], [2,2,3,3], [3,1,0,2]
@@ -329,6 +344,7 @@ function releasePointer(pointerId) {
   } catch {}
 }
 function clearInputs() {
+  cheatButtons = [];
   [...pointerInputs.keys()].forEach(releasePointer);
   inputSources.clear();
   for (const code in keys) delete keys[code];
@@ -355,6 +371,7 @@ function pressInput(code, source) {
   if (keys[code]) return;
   keys[code] = true;
   justPressed[code] = true;
+  trackCheat(code);
   if (code === 'KeyM') toggleMute();
   if (code === 'KeyP') setPaused(!paused);
   if (code === 'KeyH') { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
@@ -633,6 +650,7 @@ function buildLevel(night) {
   shamash.x = course.checkpoint*TILE; shamash.y = 11*TILE;
   shamash.lit = stats.checkpointLit;
   bonusDoor.x = 131*TILE; bonusDoor.y = 11*TILE; bonusDoor.used = false;
+  if(night===2) setTile(30,10,10); // The dark blue secret brick.
   // Flush pipe mouths preserve the normal route and don't create new jump barriers.
   const pipeLocations = [[24,76],[24,79],[46,80],[30,58],[44,79],[23,78],[32,78],[37,80]];
   const [entry, exit] = pipeLocations[night-1];
@@ -688,6 +706,12 @@ function enterTunnel(pipe) {
   items.push({x:37*TILE,y:12*TILE,vx:0,vy:0,type:'oil',permanent:true});
   map[9][18]=5;blockContents['18,9']='progressive';
   passagePipes=[{x:2*TILE,kind:'return',used:false},{x:42*TILE,kind:'forward',used:false}];
+  if(pipe.kind==='warp-entrance') {
+    activeTunnel.warp=true;gelts=[];items=[];blockContents={};
+    for(let y=4;y<13;y++)for(let x=1;x<TUNNEL_WIDTH-1;x++)map[y][x]=0;
+    passagePipes=[{x:2*TILE,kind:'return',used:false},
+      ...[5,7,8].map((destination,i)=>({x:(12+i*12)*TILE,kind:'warp-destination',destination,used:false}))];
+  }
   placeAtPipe(2*TILE);
 }
 function placeAtPipe(x) {
@@ -704,11 +728,21 @@ function leaveTunnel(forward) {
   surfaceWorld=null;activeTunnel=null;
   placeAtPipe(destination);
 }
+function warpToNight(destination) {
+  if(![5,7,8].includes(destination))return;
+  const power=player.power;
+  stats.night=destination;stats.checkpointLit=false;stats.checkpointX=32;stats.checkpointY=160;
+  stats.letters=[false,false,false,false];
+  tally.geltScore=0;tally.enemyScore=0;tally.comboScore=0;tally.oilScore=0;
+  hitStop=0;startLevel(false);player.setPower(power);
+}
 function updatePipeTravel() {
   frameCount++;pipeTravel.frame++;
   if(pipeTravel.frame===18) {
     if(pipeTravel.entering)enterTunnel(pipeTravel.pipe);
-    else leaveTunnel(pipeTravel.pipe.kind==='forward');
+    else if(pipeTravel.pipe.kind==='warp-destination') {
+      warpToNight(pipeTravel.pipe.destination);return;
+    } else leaveTunnel(pipeTravel.pipe.kind==='forward');
   }
   if(pipeTravel.frame>=36) {
     pipeTravel=null;gameState='PLAY';clearInputs();
@@ -722,18 +756,56 @@ function createGoblin(x, y, subtype = 'walker') {
 class Hippo {
   constructor(x, y) {
     this.x = x; this.y = y; this.vx = 0; this.vy = 0; this.dir = 1;
-    this.power = 0; this.w = 14; this.h = 15;
+    this.power = 0; this.w = 14; this.h = 15; this.lastSafe = null; this.chompTimer = 0;
     this.grounded = false; this.onIce = false; this.sliding = false;
     this.groundPounding = false; this.poundFreeze = 0;
     this.coyoteTimer = 0; this.jumpBuffer = 0; this.airCombo = 0;
     this.invulnTimer = 0; this.applesauceTimer = 0; this.starTimer = 0; this.fireCooldown = 0;
     this.animFrame = 0; this.animTimer = 0;
   }
-  setPower(newPower) {
-    const oldH = this.h; this.power = newPower;
-    this.h = this.power === 0 ? 15 : 22; this.y -= (this.h - oldH);
+  becomeHungry() {
+    this.starTimer=0;this.groundPounding=false;this.sliding=false;
+    this.setPower(3);this.invulnTimer=0;
+    spawnPopup(this.x,this.y-12,'HUNGRY HIPPO! +10 LIVES','#ffd76a');
   }
-  takeDamage() {
+  setPower(newPower, force = false) {
+    if(this.power===3 && newPower!==3 && !force)return;
+    const oldH=this.h;this.power=newPower;this.w=newPower===3?30:14;
+    this.h=newPower===3?34:(newPower===0?15:22);this.y-=this.h-oldH;
+    if(newPower===3)this.fitHungry();
+  }
+  fitHungry() {
+    const baseX=this.x,baseY=this.y;
+    for(const dy of [0,-16,-32,-48,16,32])for(const dx of [0,-16,16,-32,32,-48,48,-64,64]) {
+      const x=baseX+dx,y=baseY+dy;
+      if(x<0||x+this.w>(activeTunnel?TUNNEL_WIDTH-1:LEVEL_WIDTH)*TILE||y<4*TILE||y+this.h>13*TILE)continue;
+      let clear=true;
+      for(let ty=Math.floor(y/TILE);ty<=Math.floor((y+this.h-.01)/TILE);ty++)
+        for(let tx=Math.floor(x/TILE);tx<=Math.floor((x+this.w-.01)/TILE);tx++)
+          if(map[ty]?.[tx] && ![3,4,7,9].includes(map[ty][tx]))clear=false;
+      if(clear) {
+        this.x=x;this.y=y;
+        for(let ty=Math.floor(y/TILE);ty<=Math.floor((y+this.h-.01)/TILE);ty++)
+          for(let tx=Math.floor(x/TILE);tx<=Math.floor((x+this.w-.01)/TILE);tx++)
+            if([3,4,7].includes(map[ty]?.[tx]))map[ty][tx]=0;
+        return;
+      }
+    }
+    // An open, safe starting area is preferable to embedding a boss-sized body in stone.
+    this.x=(activeTunnel?3:2)*TILE;this.y=13*TILE-this.h;
+  }
+  eatGoblin(enemy, isBoss = false) {
+    if(enemy.dead || enemy.state==='dead')return;
+    this.chompTimer=40;sfx.sfxGelt();spawnParticles(enemy.x+7,enemy.y+7,'#a9ef80',12);
+    spawnPopup(enemy.x,enemy.y-10,'CHOMP!','#ffdf81');
+    if(isBoss){boss.hp=1;damageBoss();}
+    else {enemy.dead=true;tally.enemyScore+=300;addScore(300);}
+  }
+  takeDamage(kind = 'ordinary') {
+    if(this.power===3 && kind!=='flame')return;
+    if(this.power===3 && kind==='flame' && this.invulnTimer<=0 && gameState==='PLAY') {
+      this.setPower(2,true);this.invulnTimer=90;hitStop=5;sfx.sfxShrink();return;
+    }
     if (this.invulnTimer > 0 || this.starTimer > 0 || gameState !== 'PLAY') return;
     if (this.power > 0) {
       sfx.sfxShrink(); this.setPower(this.power - 1); this.invulnTimer = 90; hitStop = 5;
@@ -741,6 +813,7 @@ class Hippo {
     } else killPlayer();
   }
   update() {
+    if(this.chompTimer>0)this.chompTimer--;
     if (this.invulnTimer > 0) this.invulnTimer--;
     if (this.applesauceTimer > 0) this.applesauceTimer--;
     if (this.fireCooldown > 0) this.fireCooldown--;
@@ -818,7 +891,13 @@ class Hippo {
       if (this.animTimer >= 1) { this.animTimer = 0; this.animFrame = (this.animFrame + 1) % 4; }
     } else this.animFrame = 0;
 
-    if (this.y > LEVEL_HEIGHT * TILE + 8) killPlayer();
+    if(this.power===3 && this.grounded)this.lastSafe={x:this.x,y:this.y};
+    if (this.y > LEVEL_HEIGHT * TILE + 8) {
+      if(this.power===3) {
+        this.x=this.lastSafe?.x ?? (activeTunnel?3:2)*TILE;this.y=this.lastSafe?.y ?? 13*TILE-this.h;
+        this.vx=0;this.vy=0;this.fitHungry();
+      } else killPlayer();
+    }
   }
 
   moveAndCollide() {
@@ -840,7 +919,8 @@ class Hippo {
         if (ty < 0 || ty >= LEVEL_HEIGHT || tx < 0 || tx >= LEVEL_WIDTH) continue;
         const tile = map[ty][tx];
         if (tile === 0) continue;
-        if (tile === 9) { this.takeDamage(); continue; }
+        if (tile === 9) { this.takeDamage('flame'); continue; }
+        if (this.power===3 && [3,4,7].includes(tile)) { this.shatterBrick(tx,ty);continue; }
 
         if (horizontal) {
           if (tile === 4 && (this.sliding || Math.abs(this.vx) >= 2.6)) {
@@ -875,7 +955,14 @@ class Hippo {
   }
 
   hitBlockFromBelow(tx, ty, tile) {
-    if (tile === 5) {
+    if (tile === 10) {
+      map[ty][tx]=6;
+      if(stats.night===2 && !activeTunnel && !passagePipes.some(pipe=>pipe.kind==='warp-entrance')) {
+        passagePipes.push({x:32*TILE,kind:'warp-entrance',used:false});
+        sfx.sfxCheckpoint();spawnParticles(32*TILE+16,13*TILE,'#509cff',24);
+        spawnPopup(30*TILE,9*TILE,'WARP PIPE REVEALED!','#85b5ff');
+      }
+    } else if (tile === 5) {
       map[ty][tx] = 6;
       const content = blockContents[`${tx},${ty}`] || 'gelt';
       if (content === 'gelt') addGelt(tx * TILE + 8, (ty - 1) * TILE + 8);
@@ -915,7 +1002,9 @@ class Hippo {
 }
 
 function startLevel(resetCampaign = false) {
+  const keepHungry = !resetCampaign && (hungryPending || player?.power===3);
   if (resetCampaign) {
+    hungryPending=false;
     stats.night = 1; stats.score = 0; stats.gelt = 0; stats.lives = 3; stats.NextBonusIndex = 0;
     stats.checkpointX = 32; stats.checkpointY = 160; stats.checkpointLit = false;
     stats.letters = [false, false, false, false]; stats.totalLetters = 0;
@@ -924,6 +1013,7 @@ function startLevel(resetCampaign = false) {
   }
   buildLevel(stats.night);
   player = new Hippo(stats.checkpointX, stats.checkpointY);
+  if(keepHungry){player.setPower(3);hungryPending=false;}
   cameraX = Math.max(0, player.x - 96);
   gameState = 'INTRO'; stateTimer = 0; clearInputs();
 }
@@ -935,8 +1025,8 @@ function aabb(a, b) { return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b
 
 function updatePlay() {
   frameCount++;
-  oil = Math.max(0, oil - 0.02);
-  if (oil <= 0) { killPlayer(); return; }
+  if(player.power!==3)oil = Math.max(0, oil - 0.02);
+  if (oil <= 0 && player.power!==3) { killPlayer(); return; }
 
   const pipe = isDownPressed() && pipeUnderPlayer();
   if (pipe) { beginPipeTravel(pipe); return; }
@@ -1052,6 +1142,7 @@ function updatePlay() {
     if (map[footY] && map[footY][footX] > 0 && e.vy >= 0) { e.y = footY * TILE - e.h; e.vy = 0; e.grounded = true; }
 
     if (aabb(player, e)) {
+      if(player.power===3){player.eatGoblin(e);return;}
       if (player.sliding || player.groundPounding || player.starTimer > 0) {
         e.dead = true; sfx.sfxStomp(); hitStop = 3; spawnParticles(e.x + 7, e.y + 7, '#66ff66', 10);
         tally.enemyScore += 200; addScore(200, e.x, e.y);
@@ -1102,7 +1193,8 @@ function updatePlay() {
       }
     }
     if (aabb(player, boss) && boss.invuln === 0) {
-      if (player.groundPounding || (player.vy > 0 && player.y + player.h - player.vy <= boss.y + 12)) {
+      if(player.power===3)player.eatGoblin(boss,true);
+      else if (player.groundPounding || (player.vy > 0 && player.y + player.h - player.vy <= boss.y + 12)) {
         player.vy = -4.8; player.groundPounding = false; damageBoss();
       } else player.takeDamage();
     }
@@ -1324,6 +1416,9 @@ function draw() {
       } else if (tile === 7) {
         drawOutlinedRect(px, py, TILE, TILE, land().brick, '#292633');
         ctx.fillStyle = land().trim; ctx.fillRect(px + 1, py + 1, 6, 6); ctx.fillRect(px + 9, py + 1, 6, 6); ctx.fillRect(px + 1, py + 9, 14, 6);
+      } else if (tile === 10) {
+        drawOutlinedRect(px,py,TILE,TILE,'#122c70','#08132e');
+        ctx.fillStyle='#294a96';ctx.fillRect(px+1,py+1,6,6);ctx.fillRect(px+9,py+1,6,6);ctx.fillRect(px+1,py+9,14,6);
       } else if (tile === 9) {
         drawOutlinedRect(px + 4, py + 5, 8, 11, '#fff5e0', '#1a120b');
         ctx.fillStyle = '#ff2222'; ctx.fillRect(px + 5, py + 8, 6, 2);
@@ -1439,7 +1534,7 @@ function draw() {
   drawHUD();
   if (activeTunnel) {
     ctx.fillStyle='#101528';ctx.fillRect(30,28,196,13);
-    centered('SECRET PASSAGE - DOWN TO EXIT',37,'#a6dfb5',7);
+    centered(activeTunnel.warp?'WARP ZONE - CHOOSE A NIGHT':'SECRET PASSAGE - DOWN TO EXIT',37,'#a6dfb5',7);
   }
   if (pipeTravel) {
     ctx.fillStyle=`rgba(5,8,18,${1-Math.abs(pipeTravel.frame-18)/18})`;
@@ -1458,6 +1553,9 @@ function drawPassagePipes() {
     ctx.fillStyle='#78ac7e';ctx.fillRect(x+6,y+1,4,27);
     drawOutlinedRect(x-1,y-5,34,8,available?'#82ba87':'#6b8b7b','#102e2c');
     ctx.fillStyle='#122e30';ctx.fillRect(x+5,y-3,22,3);
+    if(pipe.kind==='warp-destination') {
+      ctx.fillStyle='#ffd878';ctx.font='bold 8px monospace';ctx.fillText('NIGHT '+pipe.destination,x-8,y-22);
+    }
     if(available && Math.abs(player.x+player.w/2-(pipe.x+16))<48) {
       ctx.fillStyle='#ffd878';ctx.font='bold 7px monospace';
       ctx.fillText('DOWN',x+2,y-12);
@@ -1511,6 +1609,21 @@ function drawHippo() {
   let bellyColor = player.power === 2 ? '#ffe878' : '#b8c4ff';
   if (player.applesauceTimer > 0 && frameCount % 6 < 3) bodyColor = '#68f8ff';
 
+  if(player.power===3) {
+    const open=player.chompTimer>0 || Math.floor(frameCount/25)%2===0;
+    drawOutlinedRect(px+2,py+9,26,22,'#8994dd');
+    drawOutlinedRect(px+6,py+14,18,15,'#c7c9ff');
+    drawOutlinedRect(px+1,py+29,10,5,'#6873c3');drawOutlinedRect(px+20,py+29,10,5,'#6873c3');
+    const mouthX=player.dir>0?px+13:px-4;
+    drawOutlinedRect(px+3,py+1,22,15,'#8994dd');
+    drawOutlinedRect(mouthX,py+9,21,open?15:10,'#8994dd');
+    ctx.fillStyle='#28203e';ctx.fillRect(mouthX+2,py+15,17,open?7:2);
+    ctx.fillStyle='#ffffff';ctx.fillRect(mouthX+3,py+15,3,3);ctx.fillRect(mouthX+13,py+15,3,3);
+    ctx.fillRect(player.dir>0?px+19:px+6,py+4,5,5);
+    ctx.fillStyle='#14142c';ctx.fillRect(player.dir>0?px+22:px+6,py+5,2,3);
+    drawOutlinedRect(px+10,py-2,11,4,'#ffd76a');
+    return;
+  }
   if (character === 'goblin') {
     const green = player.power === 2 ? '#d5b34c' : '#68b65b';
     const h = player.sliding ? 12 : player.h;
@@ -1589,8 +1702,8 @@ function drawHUD() {
   ctx.fillStyle = oil < 25 ? (frameCount % 8 < 4 ? '#ff3333' : '#ffaa00') : '#40d8ff';
   ctx.fillRect(103, 16, Math.floor((oil / MAX_OIL) * 40), 4);
 
-  const pwrLabels = ['SMALL', 'BIG', 'FIRE(X)'];
-  const pwrColors = ['#8899bb', '#70e0ff', '#ff6622'];
+  const pwrLabels = ['SMALL', 'BIG', 'FIRE(X)', 'HUNGRY'];
+  const pwrColors = ['#8899bb', '#70e0ff', '#ff6622', '#ffd76a'];
   ctx.fillStyle = pwrColors[player.power]; ctx.font = 'bold 7px monospace';
   ctx.fillText(`PWR:${pwrLabels[player.power]}`, 148, 10);
 

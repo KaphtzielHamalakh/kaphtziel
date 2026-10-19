@@ -42,15 +42,15 @@ function route(night, power, checkpoint=false, groundColumn=null, barrier=false,
  }
  throw new Error('Night '+night+' power '+power+' checkpoint '+checkpoint+' blocked near column '+(best/16).toFixed(1)+' after '+expanded+' states');
 }
-for(let night=1;night<=8;night++)for(const power of [0,1])for(const checkpoint of [false,true]) {
+for(let night=1;night<=8;night++)for(const power of [0,1,3])for(const checkpoint of [false,true]) {
  const result=route(night,power,checkpoint);
- console.log('PASS night '+night+', '+(power?'BIG':'SMALL')+', '+(checkpoint?'checkpoint':'start')+': '+result.moves.length+' control sequences ('+result.expanded+' states)');
+ console.log('PASS night '+night+', '+(power===3?'HUNGRY':power?'BIG':'SMALL')+', '+(checkpoint?'checkpoint':'start')+': '+result.moves.length+' control sequences ('+result.expanded+' states)');
 }
 
 for(const power of [0,1]) {route(3,power,false,70);console.log('PASS: escape screenshot location at ground column 70, power '+power);}
 for(const power of [0,1]) {route(3,power,false,64,false,{x:73*TILE,y:7*TILE,w:13,h:13});console.log('PASS: climb screenshot ledge via new terraces, power '+power);}
 assert.throws(()=>route(1,0,false,null,true),/blocked/);
 console.log('PASS: checker rejects an intentionally sealed course');
-for(let night=1;night<=8;night++)for(const power of [0,1]) {route(night,power,false,null,false,null,true);console.log('PASS underground route night '+night+', power '+power);
+for(let night=1;night<=8;night++)for(const power of [0,1,3]) {route(night,power,false,null,false,null,true);console.log('PASS underground route night '+night+', power '+power);
  stats.night=night;buildLevel(night);const exitColumn=passagePipes[0].exitX/TILE;route(night,power,false,exitColumn);console.log('PASS onward route from passage exit night '+night+', power '+power);}
 `,sandbox,{timeout:120000});
