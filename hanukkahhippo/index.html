@@ -275,10 +275,24 @@ function trackCheat(code) {
   if (!token) { cheatButtons=[]; return; }
   cheatButtons.push(token); if(cheatButtons.length>CHEAT_CODE.length)cheatButtons.shift();
   if (cheatButtons.length===CHEAT_CODE.length && CHEAT_CODE.every((v,i)=>v===cheatButtons[i])) {
-    cheatButtons=[];stats.lives+=10;character='hippo';
-    if(gameState==='TITLE') {hungryPending=true;titleCursor=0;}
-    else player.becomeHungry();
-    clearJustPressed();sfx.sfx1Up();
+    cheatButtons=[];
+    const turningOff=gameState==='TITLE'?hungryPending:player.power===3;
+    if(turningOff) {
+      hungryPending=false;
+      if(player?.power===3) {
+        player.setPower(2,true);player.chompTimer=0;
+        player.invulnTimer=Math.max(player.invulnTimer,60);
+        if(gameState!=='TITLE')spawnPopup(player.x,player.y-12,'HUNGRY MODE OFF','#88e8ff');
+      }
+      sfx.sfxShrink();
+    } else {
+      stats.lives+=10;character='hippo';
+      if(gameState==='TITLE')hungryPending=true;
+      else player.becomeHungry();
+      sfx.sfx1Up();
+    }
+    if(gameState==='TITLE')titleCursor=0;
+    clearJustPressed();
   }
 }
 const keys = {}, justPressed = {};
