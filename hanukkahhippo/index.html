@@ -69,6 +69,12 @@
   .pause-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: center; background: #080a12dd; text-align: center; }
   .pause-overlay[hidden] { display: none; }
   .pause-overlay strong { color: #ffd700; font-size: 24px; }
+  .utility[hidden] { display: none; }
+  .hero-menu { justify-content: flex-start; padding: 12px; overflow-y: auto; gap: 10px; background: #080a12f5; }
+  .hero-menu strong { font-size: 16px; }
+  .hero-menu p { font-size: 11px; margin: 0; }
+  .hero-grid { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .hero-grid button { font-size: 12px; white-space: normal; }
   #resume-button { padding: 14px 24px; font-size: 16px; }
   @media (max-width: 370px) {
     .site-nav { gap: 6px; }
@@ -102,12 +108,19 @@
     <button type="button" class="utility" id="controller-toggle" aria-pressed="false" aria-controls="touch-controller">Touch controls</button>
     <button type="button" class="utility" id="mute-button" aria-pressed="false">Mute</button>
     <button type="button" class="utility" id="pause-button" aria-pressed="false">Pause</button>
+    <button type="button" class="utility" id="character-menu-button" aria-haspopup="dialog" aria-controls="character-overlay" hidden>Characters</button>
   </div>
 </nav>
 <main id="game-layout" aria-label="Hanukkah Hippo">
 <div id="game-wrapper">
   <canvas id="game" width="256" height="240" aria-label="Hanukkah Hippo game" aria-describedby="touch-help game-controls">Your browser needs canvas support to play Hanukkah Hippo.</canvas>
   <div class="pause-overlay" id="pause-overlay" hidden><strong>PAUSED</strong><button type="button" class="utility" id="resume-button">Resume game</button></div>
+  <section class="pause-overlay hero-menu" id="character-overlay" role="dialog" aria-modal="true" aria-labelledby="character-menu-title" hidden>
+    <strong id="character-menu-title">CHOOSE YOUR CHARACTER</strong>
+    <p>Switch heroes and keep your progress.</p>
+    <div class="hero-grid" id="character-choices"></div>
+    <button type="button" class="utility" id="close-character-menu">Back to game</button>
+  </section>
 </div>
 <section id="touch-controller" aria-label="On-screen game controller">
   <div class="touch-main">
@@ -365,11 +378,11 @@ function clearInputs() {
   clearJustPressed();
 }
 function setPaused(value) {
-  paused = value;
+  paused = value || characterMenuOpen;
   clearInputs();
-  pauseOverlay.hidden = !value;
-  pauseButton.setAttribute('aria-pressed', String(value));
-  pauseButton.textContent = value ? 'Resume' : 'Pause';
+  pauseOverlay.hidden = !paused || characterMenuOpen;
+  pauseButton.setAttribute('aria-pressed', String(paused));
+  pauseButton.textContent = paused ? 'Resume' : 'Pause';
   previousFrameTime = null;
   accumulatedTime = 0;
   if (value) sfx.interrupt();
@@ -493,8 +506,90 @@ const darkCanvas = document.createElement('canvas'); darkCanvas.width = 256; dar
 const darkCtx = darkCanvas.getContext('2d');
 
 const TILE = 16, LEVEL_WIDTH = 175, LEVEL_HEIGHT = 15, MAX_OIL = 100, NIGHT_COUNT = 8;
-let goblinUnlocked = false, character = 'hippo';
-try { goblinUnlocked = localStorage.getItem('hippo-goblin-unlocked') === 'yes'; } catch {}
+const HEROES = [
+  {id:'hippo',name:'Hanukkah Hippo',wins:0},
+  {id:'goblin',name:'Friendly Goblin',wins:1},
+  {id:'harry',name:'Hanukkah Harry',wins:3},
+  {id:'snowman',name:'Snowman',wins:4},
+  {id:'latke',name:'Latke',wins:5},
+  {id:'hanukkiah',name:'Hanukkiah',wins:6},
+  {id:'coin',name:'Gelt Coin',wins:7}
+];
+const PROFILE_KEY='hippo-character-progress-v1';
+let completions=0, character='hippo', goblinUnlocked=false, replayCharacter='hippo';
+function rewardCharacter(wins) {
+  return [...HEROES].reverse().find(hero=>wins>=hero.wins).id;
+}
+try {
+  const profile=JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');
+  if(profile && Number.isSafeInteger(profile.completions) && profile.completions>=0) {
+    completions=profile.completions;
+    character=completions>=8 && HEROES.some(h=>h.id===profile.character)?profile.character:rewardCharacter(completions);
+  } else if(localStorage.getItem('hippo-goblin-unlocked')==='yes') {
+    completions=1;character='goblin';
+  }
+} catch {
+  try {if(localStorage.getItem('hippo-goblin-unlocked')==='yes'){completions=1;character='goblin';}}catch {}
+}
+goblinUnlocked=completions>=1;replayCharacter=character;
+function heroName(id=character) {return HEROES.find(h=>h.id===id)?.name || 'Hanukkah Hippo';}
+function unlockedHeroes() {return HEROES.filter(h=>completions>=h.wins);}
+function saveCharacterProgress(selected=character) {
+  try {
+    localStorage.setItem(PROFILE_KEY,JSON.stringify({completions,character:selected}));
+    if(completions>=1)localStorage.setItem('hippo-goblin-unlocked','yes');
+  }catch {}
+}
+function recordCompletion() {
+  completions++;goblinUnlocked=true;
+  replayCharacter=completions>=8?character:rewardCharacter(completions);
+  saveCharacterProgress(replayCharacter);refreshCharacterMenu();
+}
+const characterMenuButton=document.getElementById('character-menu-button');
+const characterOverlay=document.getElementById('character-overlay');
+const characterChoices=document.getElementById('character-choices');
+let characterMenuOpen=false, menuWasPaused=false, menuPreviousFocus=null;
+function refreshCharacterMenu() {
+  characterMenuButton.hidden=completions<8;
+  characterChoices.replaceChildren();
+  for(const hero of unlockedHeroes()) {
+    const button=document.createElement('button');
+    button.type='button';button.className='utility';button.textContent=hero.name;
+    button.setAttribute('aria-pressed',String(character===hero.id));
+    button.addEventListener('click',()=>selectCharacter(hero.id));
+    characterChoices.appendChild(button);
+  }
+}
+function selectCharacter(id) {
+  if(completions<8 || !unlockedHeroes().some(hero=>hero.id===id))return false;
+  character=id;replayCharacter=id;hungryPending=false;
+  if(player?.power===3){player.setPower(2,true);player.chompTimer=0;}
+  saveCharacterProgress();closeCharacterMenu();return true;
+}
+function openCharacterMenu() {
+  if(completions<8 || characterMenuOpen || !['TITLE','INTRO','PLAY'].includes(gameState))return;
+  menuWasPaused=paused;menuPreviousFocus=document.activeElement;
+  setPaused(true);characterMenuOpen=true;pauseOverlay.hidden=true;
+  refreshCharacterMenu();characterOverlay.hidden=false;
+  characterChoices.querySelector('button')?.focus();
+}
+function closeCharacterMenu() {
+  if(!characterMenuOpen)return;
+  characterMenuOpen=false;characterOverlay.hidden=true;setPaused(menuWasPaused);
+  (menuPreviousFocus || characterMenuButton).focus();
+}
+characterMenuButton.addEventListener('click',openCharacterMenu);
+document.getElementById('close-character-menu').addEventListener('click',closeCharacterMenu);
+characterOverlay.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){e.preventDefault();closeCharacterMenu();}
+  if(e.key==='Tab') {
+    const buttons=[...characterOverlay.querySelectorAll('button')];
+    const first=buttons[0],last=buttons[buttons.length-1];
+    if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+  }
+});
+refreshCharacterMenu();
 const LANDS = [
   {name:'OLIVE HILLS', place:'JUDEA', kind:'hills', sky:['#587fba','#edc990'], stone:'#b69a69', trim:'#94aa55', brick:'#bdab83', dark:0},
   {name:'PYRAMID PATH', place:'EGYPT', kind:'desert', sky:['#7ec9dd','#f8d68b'], stone:'#c39449', trim:'#f6d082', brick:'#e3b967', dark:0},
@@ -1291,8 +1386,7 @@ function updateMenorahScreen() {
       tally.geltScore = 0; tally.enemyScore = 0; tally.comboScore = 0;
       startLevel(false);
     } else {
-      goblinUnlocked = true;
-      try { localStorage.setItem('hippo-goblin-unlocked','yes'); } catch {}
+      recordCompletion();
       gameState = 'VICTORY'; stateTimer = 0; sfx.setSong(4); sfx.sfxWin();
     }
   }
@@ -1303,7 +1397,8 @@ function updateEnding() {
   if (gameState === 'VICTORY' && stateTimer >= 240) {
     gameState = 'CREDITS'; stateTimer = 0; clearInputs();
   } else if (gameState === 'CREDITS' && stateTimer >= 720) {
-    character = 'goblin'; startLevel(true);
+    character=replayCharacter;startLevel(true);
+    if(completions>=8)openCharacterMenu();
   }
 }
 
@@ -1638,6 +1733,9 @@ function drawHippo() {
     drawOutlinedRect(px+10,py-2,11,4,'#ffd76a');
     return;
   }
+  if(['harry','snowman','latke','hanukkiah','coin'].includes(character)) {
+    drawUnlockedHero(px,py);return;
+  }
   if (character === 'goblin') {
     const green = player.power === 2 ? '#d5b34c' : '#68b65b';
     const h = player.sliding ? 12 : player.h;
@@ -1684,6 +1782,47 @@ function drawHippo() {
   }
 }
 
+function drawUnlockedHero(px,py) {
+  const height=player.sliding?12:player.h;
+  ctx.save();ctx.translate(px,py+player.h-height);ctx.scale(player.w/16,height/22);
+  const box=(x,y,w,h,color)=>drawOutlinedRect(x,y,w,h,color,'#121525');
+  const fire=player.power===2;
+  if(character==='harry') {
+    box(3,7,10,11,fire?'#e29935':'#4075c5');
+    box(4,2,8,8,'#edbd92');
+    box(2,1,12,3,'#e4edf9');box(4,-1,8,3,'#377bc3');
+    ctx.fillStyle='#fff5dc';ctx.fillRect(4,7,8,5);ctx.fillRect(6,11,4,3);
+    ctx.fillStyle='#162338';ctx.fillRect(5,5,2,2);ctx.fillRect(10,5,2,2);
+    ctx.fillStyle='#ffd76a';ctx.fillRect(7,14,2,4);
+    box(2,18,5,4,'#293552');box(9,18,5,4,'#293552');
+  } else if(character==='snowman') {
+    box(2,14,12,8,'#e6f4ff');box(3,7,10,9,'#f3fbff');box(4,1,8,7,'#f3fbff');
+    box(2,7,12,3,fire?'#ed8c39':'#5682cc');
+    ctx.fillStyle='#1a2942';ctx.fillRect(5,3,2,2);ctx.fillRect(10,3,2,2);
+    ctx.fillRect(7,12,2,2);ctx.fillRect(7,17,2,2);
+    ctx.fillStyle='#ed983d';ctx.fillRect(player.dir>0?10:2,5,4,2);
+    box(3,-1,10,2,'#263954');box(5,-4,6,4,'#263954');
+  } else if(character==='latke') {
+    box(2,4,12,14,fire?'#e99a38':'#b9813f');box(0,7,16,8,'#d7a34c');
+    ctx.fillStyle='#f7d77e';for(const [x,y] of [[3,7],[10,6],[6,14],[12,12],[2,12]])ctx.fillRect(x,y,2,2);
+    ctx.fillStyle='#36231a';ctx.fillRect(4,9,2,2);ctx.fillRect(10,9,2,2);ctx.fillRect(6,13,4,1);
+    box(2,19,4,3,'#72513a');box(10,19,4,3,'#72513a');
+  } else if(character==='hanukkiah') {
+    ctx.fillStyle='#e8bc53';ctx.fillRect(0,12,16,2);ctx.fillRect(7,5,2,15);ctx.fillRect(3,20,10,2);
+    for(let i=0;i<9;i++) {
+      const x=i*1.75,y=i===4?1:6;
+      ctx.fillStyle='#f2ce76';ctx.fillRect(x,y+3,1,10-y);
+      ctx.fillStyle='#fff5cc';ctx.fillRect(x,y+1,1,3);
+      ctx.fillStyle=frameCount%12<6?'#ffb343':'#ffe48b';ctx.fillRect(x,y-1,1,2);
+    }
+    ctx.fillStyle='#1c3556';ctx.fillRect(4,13,2,2);ctx.fillRect(10,13,2,2);
+  } else {
+    box(3,2,10,18,'#d79a28');box(0,5,16,12,'#f3c54e');
+    ctx.fillStyle='#fff0a3';ctx.fillRect(2,6,2,10);ctx.fillRect(5,3,6,2);
+    ctx.fillStyle='#95601c';ctx.fillRect(6,7,5,2);ctx.fillRect(5,9,2,5);ctx.fillRect(7,14,4,2);ctx.fillRect(9,11,2,4);
+  }
+  ctx.restore();
+}
 function drawNightDarkness() {
   const alpha = land().dark;
   if (alpha <= 0.01) return;
@@ -1744,7 +1883,7 @@ function drawTitleScreen() {
   ctx.fillStyle = '#ffd700'; ctx.font = 'bold 15px monospace'; ctx.fillText('HANUKKAH HIPPO', 60, 44);
   ctx.fillStyle = '#70e0ff'; ctx.font = 'bold 8px monospace'; ctx.fillText('8 LANDS - 8 NIGHTS - ONE LIGHT', 38, 58);
   const opts = [`START GAME (NIGHT ${stats.night})`, `ENTER DREIDEL PASSWORD`, `HAT: ${HATS[stats.hatIdx].name}`];
-  if (goblinUnlocked) opts.push(`HERO: ${character.toUpperCase()}`);
+  if (goblinUnlocked) opts.push(`HERO: ${heroName().toUpperCase()}`);
   opts.forEach((opt, idx) => {
     ctx.fillStyle = titleCursor === idx ? '#55ff55' : '#ffffff';
     ctx.fillText(`${titleCursor === idx ? '▶ ' : '  '}${opt}`, 44, 88 + idx * 18);
@@ -1835,7 +1974,7 @@ function drawVictoryScreen() {
   ctx.fillStyle='#d9ae57';ctx.fillRect(60,140,141,5);
   centered('THE GOBLIN KING IS DEFEATED',162);
   centered(`FINAL SCORE: ${stats.score}`,180,'#88e8ff');
-  centered('GOBLIN HERO UNLOCKED!',199,'#88ff99');
+  centered(completions>=8?'CHARACTER MENU UNLOCKED!':heroName(replayCharacter).toUpperCase()+' UNLOCKED!',199,'#88ff99',7);
   centered('THE CREDITS BEGIN SHORTLY...',214,'#b8c4d8',7);
 }
 function drawCredits() {
@@ -1846,18 +1985,18 @@ function drawCredits() {
     ['MUSIC: TRADITIONAL MELODIES'],['CODE & ART: KAPHTZIEL STUDIOS'],['WITH OPENAI CODEX'],[''],
     ['INSPIRED BY JEWISH JOURNEYS'],['AND CLASSIC PLATFORM ADVENTURES'],[''],
     ['THANK YOU FOR PLAYING!','#ffd700'],[''],
-    ['A FRIENDLY GOBLIN JOINS YOU.','#88ff99'],['YOUR NEXT JOURNEY BEGINS SOON.']
+    [completions>=8?'CHOOSE ANY UNLOCKED HERO.':heroName(replayCharacter).toUpperCase()+' JOINS YOU.','#88ff99'],['YOUR NEXT JOURNEY BEGINS SOON.']
   ];
   const offset=240-stateTimer*0.65;
   lines.forEach(([text,color],i)=> {const y=offset+i*20;if(y>20&&y<218)centered(text,y,color||'#ffffff',8);});
-  centered('RESTARTING AS THE GOBLIN HERO',233,'#88ff99',7);
+  centered(completions>=8?'CHARACTER CHOICE AFTER CREDITS':'RESTARTING AS '+heroName(replayCharacter).toUpperCase(),233,'#88ff99',7);
 }
 function drawIntro() {
   drawOutlinedRect(12,58,232,124,'#10142cee','#ffd700');
   centered(`NIGHT ${stats.night} OF ${NIGHT_COUNT}`,82,'#ffd700',11);
   centered(land().name,106,'#ffffff',11);
   centered(land().place,127,'#88e8ff',8);
-  centered(character==='goblin'?'THE GOBLIN HERO RETURNS':'FOLLOW THE LIGHT',155,'#88ff99',8);
+  centered(heroName().toUpperCase(),155,'#88ff99',8);
 }
 
 function updateGame() {
@@ -1871,7 +2010,10 @@ function updateGame() {
       sfx.init();
       if (titleCursor === 0) startLevel(stats.lives <= 0);
       else if (titleCursor === 1) { gameState = 'PASSWORD'; pwCursor = 0; }
-      else if (titleCursor === 3 && goblinUnlocked) { character = character === 'hippo' ? 'goblin' : 'hippo'; }
+      else if (titleCursor === 3 && goblinUnlocked) {
+        const heroes=unlockedHeroes();character=heroes[(heroes.findIndex(h=>h.id===character)+1)%heroes.length].id;
+        replayCharacter=character;saveCharacterProgress();
+      }
       else if (titleCursor === 2) { stats.hatIdx = (stats.hatIdx + 1) % HATS.length; sfx.sfxTick(); }
     }
   } else if (gameState === 'PASSWORD') {

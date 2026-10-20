@@ -1,5 +1,5 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const noop=()=>{}; const element=()=>({addEventListener:noop,setAttribute:noop,querySelectorAll:()=>[],classList:{toggle:noop,contains:()=>false},getContext:()=>({}),dataset:{}});
+const noop=()=>{}; const element=()=>({addEventListener:noop,setAttribute:noop,replaceChildren(){},appendChild(){},querySelector(){return null;},focus(){},querySelectorAll:()=>[],classList:{toggle:noop,contains:()=>false},getContext:()=>({}),dataset:{}});
 const events={};const document={getElementById:element,createElement:element,body:element(),addEventListener:(n,f)=>events[n]=f};
 const sandbox={document,window:{addEventListener:noop,matchMedia:()=>({matches:true,addEventListener:noop})},navigator:{audioSession:{}},requestAnimationFrame:noop,console,assert};
 vm.createContext(sandbox);

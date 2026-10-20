@@ -5,7 +5,7 @@ function target() {
   const listeners = {};
   return {listeners, addEventListener(name, fn) { (listeners[name] ??= []).push(fn); },
     emit(name, event = {}) { for (const fn of listeners[name] ?? []) fn(event); },
-    setAttribute() {}, classList: {toggle() {}, contains() {return false;}},
+    setAttribute() {},replaceChildren(){},appendChild(){},querySelector(){return null;},focus(){}, classList: {toggle() {}, contains() {return false;}},
     getBoundingClientRect() {return {left: 0, top: 0, right: 48, bottom: 48};},
     setPointerCapture() {}, hasPointerCapture() {return true;}, releasePointerCapture() {},
     getContext() {return {};}, dataset: {}};

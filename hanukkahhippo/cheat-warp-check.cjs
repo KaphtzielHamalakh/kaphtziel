@@ -3,7 +3,7 @@ const fs = require('node:fs');
 function makeGame(html) {
   const noop=()=>{};
   const draw = new Proxy({}, {get:(target,key)=> key==='createLinearGradient'||key==='createRadialGradient' ? ()=>({addColorStop:noop}) : noop});
-  const makeElement=()=>({addEventListener:noop,setAttribute:noop,querySelectorAll:()=>[],classList:{toggle:noop,contains:()=>false},getContext:()=>draw,dataset:{}});
+  const makeElement=()=>({addEventListener:noop,setAttribute:noop,replaceChildren(){},appendChild(){},querySelector(){return null;},focus(){},querySelectorAll:()=>[],classList:{toggle:noop,contains:()=>false},getContext:()=>draw,dataset:{}});
   const document={getElementById:makeElement,createElement:makeElement,body:makeElement(),addEventListener:noop};
   const window={addEventListener:noop,matchMedia:()=>({matches:true,addEventListener:noop})};
   const localStorage={getItem:()=>null,setItem:noop};
