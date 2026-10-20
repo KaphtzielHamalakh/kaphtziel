@@ -9,7 +9,29 @@ function normalize(s){return {...fresh(),...s};}
 function flameCount(){return Number(state.flame)+Number(state.flame2);}
 function regionLit(){return room.kind==='flats'?state.flame2:state.flame;}
 function save(){state.room=room.id;state.x=p.x;state.y=p.y;state.face=p.face;try{localStorage.setItem(SAVE,JSON.stringify(state));}catch{document.getElementById('status').textContent='Storage unavailable · export to keep progress';}}
-function tone(freq=440,length=.08,type='square'){if(!sound||!audio||audio.state!=='running')return;const o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.setValueAtTime(freq,audio.currentTime);g.gain.setValueAtTime(.025,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+length);}
+// iOS routes a playback session independently of the phone's silent switch.
+// Start a buffer and resume synchronously within a real input gesture.
+function updateSoundButton(){const active=sound&&audio?.state==='running';const b=document.getElementById('sound');b.textContent=!sound?'Sound: off':active?'Sound: on':'Sound: tap to retry';b.setAttribute('aria-pressed',String(active));}
+function unlockAudio(){
+ if(!sound)return;
+ try{
+  if(navigator.audioSession)navigator.audioSession.type='playback';
+  if(!audio||audio.state==='closed'){
+   const Audio=window.AudioContext||window.webkitAudioContext;
+   if(!Audio)throw Error('Web Audio unavailable');
+   audio=new Audio();audio.onstatechange=updateSoundButton;
+  }
+  const resumed=audio.resume();
+  const buffer=audio.createBuffer(1,1,audio.sampleRate);
+  const source=audio.createBufferSource();source.buffer=buffer;source.connect(audio.destination);source.onended=()=>source.disconnect();source.start(0);
+  updateSoundButton();
+  Promise.resolve(resumed).then(()=>{updateSoundButton();tone(660,.14,'triangle');}).catch(()=>{updateSoundButton();});
+ }catch{document.getElementById('status').textContent='Audio unavailable · tap Sound to retry';updateSoundButton();}
+}
+function recoverAudio(event){if(event?.target?.closest?.('#sound'))return;if(sound&&(!audio||audio.state!=='running'))unlockAudio();}
+window.addEventListener('pointerdown',recoverAudio,{capture:true});
+window.addEventListener('keydown',recoverAudio,{capture:true});
+function tone(freq=440,length=.08,type='square'){if(!sound||!audio||audio.state!=='running')return;const o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.setValueAtTime(freq,audio.currentTime);g.gain.setValueAtTime(.08,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+length);}
 function say(...lines){dialogue=lines;mode='dialogue';keys.clear();}
 function enter(id,x=128,y=136){room=World.rooms[id];p.x=x;p.y=y;p.inv=45;lit=false;basinTime=0;shots=[];drops=[];bombs=[];blasts=[];leverProgress=0;swing=0;cooldown=0;enemies=state.cleared.includes(id)?[]:(room.spawns||[]).map((e,i)=>({...e,hp:e.type==='bruiser'?4:e.type==='split'?2:1,t:30+i*40,stun:0,inv:0}));if(room.boss&&!(room.night===2?state.flame2:state.flame))enemies=[{type:room.bossKind==='ketev'?'ketev':'boss',x:128,y:56,hp:6,t:65,phase:'tell',lunges:0,stun:0,inv:0,vx:0,vy:0}];document.getElementById('status').textContent=room.name;document.getElementById('chapter').textContent=room.night===2?'✦ NIGHT TWO · THE LATKE FURNACE':'✦ NIGHT ONE · THE OIL PRESS';save();}
 function begin(){if(mode==='title'){try{const s=JSON.parse(localStorage.getItem(SAVE));if(valid(s))state=normalize(s);}catch{}p.face=state.face;enter(state.room,state.x,state.y);mode=state.hp<=0?'dead':'play';if(!state.mallet&&mode==='play')say('BUBBE: The eight flames are gone.','It’s dark out there. Take this shamash.','Find Judah by the well. Then go east.');}canvas.focus();}
@@ -37,12 +59,12 @@ function suspend(){keys.clear();if(mode==='play'){mode='inventory';save();}last=
 window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
 for(const b of document.querySelectorAll('[data-key]')){b.addEventListener('pointerdown',e=>{e.preventDefault();b.setPointerCapture(e.pointerId);const k=b.dataset.key;action(k);keys.add(k);});for(const ev of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(ev,()=>keys.delete(b.dataset.key));}
 document.getElementById('start').onclick=()=>{if(mode==='title')begin();else if(mode!=='inventory')action('KeyZ');else mode='play';canvas.focus();};document.getElementById('pause').onclick=()=>{action('Enter');canvas.focus();};
-document.getElementById('sound').onclick=async()=>{try{audio??=new(window.AudioContext||window.webkitAudioContext)();await audio.resume();sound=!sound;document.getElementById('sound').textContent='Sound: '+(sound?'on':'off');document.getElementById('sound').setAttribute('aria-pressed',String(sound));tone();}catch{document.getElementById('status').textContent='Audio unavailable in this browser';}};
+document.getElementById('sound').onclick=()=>{if(sound&&audio?.state==='running'){sound=false;updateSoundButton();}else{sound=true;unlockAudio();}};
 document.getElementById('export').onclick=()=>{if(!room){hint('Begin your journey before exporting.');return;}save();const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='eight-nights-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 document.getElementById('import').onclick=()=>{suspend();const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.onchange=async()=>{try{if(input.files[0].size>20000)throw Error();const s=JSON.parse(await input.files[0].text());if(!valid(s))throw Error();state=normalize(s);p.face=s.face;enter(s.room,s.x,s.y);mode='play';}catch{document.getElementById('status').textContent='Invalid save file · progress kept';}};input.click();};
 function heatPhase(){const phase=time%180;return phase<80?0:phase<120?1:2;}
 function explode(b){blasts.push({x:b.x,y:b.y,t:14});tone(85,.2,'sawtooth');if(Math.abs(p.x-b.x)<24&&Math.abs(p.y-b.y)<24)hurt(2,b);for(const e of enemies)if(Math.abs(e.x-b.x)<32&&Math.abs(e.y-b.y)<32)hit(e,2,0,0,'bomb');if(room.target&&Math.hypot(b.x-room.target.x,b.y-room.target.y)<30&&!state.solved.includes(room.id)){state.solved.push(room.id);tone(700,.2);save();hint('The stone breaks. A passage opens.');}}
-function update(){time++;if(hintTimer>0&&!--hintTimer)document.getElementById('status').textContent=room?.name||'The Eight Nights';if(mode!=='play')return;if(p.inv>0)p.inv--;if(cooldown>0)cooldown--;if(swing>0)swing--;
+function update(){time++; if(sound&&time%22===0){const melody=room.kind==='dungeon'?[220,261.63,293.66,220,196,220,164.81,196]:[293.66,369.99,440,369.99,329.63,293.66,246.94,220];tone(melody[notes++%melody.length],.12,'triangle');}if(hintTimer>0&&!--hintTimer)document.getElementById('status').textContent=room?.name||'The Eight Nights';if(mode!=='play')return;if(p.inv>0)p.inv--;if(cooldown>0)cooldown--;if(swing>0)swing--;
  let dir=keys.has('ArrowUp')?'n':keys.has('ArrowDown')?'s':keys.has('ArrowLeft')?'w':keys.has('ArrowRight')?'e':null;
  if(dir){if(dirs[dir][0]!==0&&dirs[p.face][0]===0)p.y+=(Math.round(p.y/8)*8-p.y)*.45;if(dirs[dir][1]!==0&&dirs[p.face][1]===0)p.x+=(Math.round(p.x/8)*8-p.x)*.45;p.face=dir;const[dx,dy]=dirs[dir];move(dx*1.25,dy*1.25);if(p.x<13&&dir==='w')door('w');else if(p.x>243&&dir==='e')door('e');else if(p.y<13&&dir==='n')door('n');else if(p.y>163&&dir==='s')door('s');}
  const portal=room.portal;if(portal&&Math.hypot(p.x-portal.x,p.y-portal.y)<10){const to=portal.to;enter(to,portal.arrivalX??(to==='town'?48:128),portal.arrivalY??(to==='town'?64:to==='home'?120:to==='grove1'?80:136));return;}
@@ -64,7 +86,7 @@ function update(){time++;if(hintTimer>0&&!--hintTimer)document.getElementById('s
  }
  shots=shots.filter(s=>s.t>0);const before=enemies.length;enemies=enemies.filter(e=>e.hp>0);if(before&&!enemies.length&&room.kind==='dungeon'&&!state.cleared.includes(room.id)){state.cleared.push(room.id);tone(660,.2);save();}
  drops=drops.filter(d=>{if(Math.hypot(p.x-d.x,p.y-d.y)<12){if(d.type==='bomb')state.bombs=Math.min(8,state.bombs+1);else if(d.type==='heart')state.hp=Math.min(state.max,state.hp+2);else state.gelt=Math.min(255,state.gelt+1);tone(880,.04);return false;}return true;});if(time%300===0)save();
- if(sound&&time%22===0){const melody=room.kind==='dungeon'?[220,261.63,293.66,220,196,220,164.81,196]:[293.66,369.99,440,369.99,329.63,293.66,246.94,220];tone(melody[notes++%melody.length],.12,'triangle');}
+
 }
 function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),w,h);}function text(s,x,y,c='#f2e5c4',size=8){ctx.fillStyle=c;ctx.font=size+'px monospace';ctx.fillText(s,x,y);}function center(s,y,c,size=8){ctx.textAlign='center';text(s,128,y,c,size);ctx.textAlign='left';}
 function heart(x,y,full,half=false){rect(x+1,y,2,1,full?'#ed8f98':'#45515c');rect(x+4,y,2,1,full?'#ed8f98':'#45515c');rect(x,y+1,7,3,full?'#ed8f98':'#45515c');rect(x+1,y+4,5,1,full?'#ed8f98':'#45515c');rect(x+2,y+5,3,1,full?'#ed8f98':'#45515c');rect(x+3,y+6,1,1,full?'#ed8f98':'#45515c');if(half)rect(x,y+1,3,4,'#ed8f98');}
