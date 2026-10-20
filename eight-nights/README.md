@@ -35,3 +35,9 @@ Place bombs with X while equipped; the fuse lasts 1.5 seconds and the blast can 
 The bomb supply chest refills an entirely empty bag without charge so a missed boss attempt cannot permanently exhaust the chapter's ammunition. The baker in the Flats sells four for twenty gelt. This free refill is a preview-specific concession to the limited economy. First-chapter saves migrate automatically; both nights can be completed in either order. The second flame restores the Flats and gives one additional heart.
 
 Run `node eight-nights/night-two-check.cjs` for the first chapter regression suite plus bomb fuses, both puzzle gates, oven order, ammunition recovery, Ketev's phases/immunities, both boss completion orders, heat damage and old-save migration. Browser checks remain unverified under the socket restrictions described above.
+
+## Mobile viewport and audio
+
+Touch devices use a compact header and a play area sized to the small viewport (`svh`), with safe-area space reserved for the home indicator. The canvas scales within the available area; the controller row stays with it. Landscape puts controls beside the playfield. Information below the game remains scrollable.
+
+Audio is opt-in. The Sound tap requests an iOS playback audio session where supported, resumes Web Audio and starts a one-sample buffer inside the gesture. Later game input recovers suspended/interrupted audio. The button shows a retry label until the context is running. Music continues in the inventory. Run `node eight-nights/mobile-check.cjs` for mocked audio activation/recovery checks; physical iPhone speaker routing and Safari toolbar sizing still need device confirmation.
