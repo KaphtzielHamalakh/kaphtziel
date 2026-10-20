@@ -4,7 +4,7 @@ const ctx=new Proxy({createRadialGradient:()=>({addColorStop:noop})},{get:(o,k)=
 function element(key){return {dataset:key?{key}:{},events:{},addEventListener(n,f){(this.events[n]??=[]).push(f);},setPointerCapture(){if(this.throwCapture)throw Error('no capture');},setAttribute:noop,focus:noop,getContext:()=>ctx,closest(selector){return selector==='.touch'||selector==='[data-key]'?this:null;}};}
 const buttons=['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyZ','KeyX','KeyC'].map(element);
 const sandbox={console,assert,document:{getElementById:id=>elements[id]??=element(),querySelectorAll:()=>buttons,elementFromPoint:()=>hitTarget,addEventListener:(n,f)=>(documentEvents[n]??=[]).push(f),hidden:false},window:{addEventListener:(n,f)=>(windowEvents[n]??=[]).push(f)},localStorage:{getItem:k=>storage[k],setItem:(k,v)=>storage[k]=v},requestAnimationFrame:noop,setTimeout:noop,Blob,URL};
-vm.createContext(sandbox);for(const name of ['world.js','game.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+name,'utf8'),sandbox);
+vm.createContext(sandbox);for(const name of ['world.js','art.js','game.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+name,'utf8'),sandbox);
 const run=code=>vm.runInContext(code,sandbox,{timeout:30000});
 function event(extra={}){return {pointerId:1,preventDefault(){this.prevented=true;},target:{tagName:'BUTTON'},...extra};}
 function fire(target,name,e){for(const f of target[name]||[])f(e);}
