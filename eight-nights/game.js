@@ -116,7 +116,22 @@ function drawWorld(){const bright=!['grove','flats'].includes(room.kind)||region
  if(room.boss&&!(room.night===2?state.flame2:state.flame)){text(room.night===2?'KETEV MERIRI':'SHIBTA',18,19,'#e9c68a',7);const e=enemies[0];if(e)for(let i=0;i<6;i++)rect((room.night===2?108:54)+i*6,14,4,4,i<e.hp?'#e59a85':'#35434a');}
 }
 function panel(){rect(16,24,224,132,'#101f2e');rect(18,26,220,1,'#bea169');rect(18,153,220,1,'#bea169');}
-function draw(){rect(0,0,256,224,'#101c2a');ctx.save();ctx.translate(0,32);if(room)drawWorld();else{for(let i=0;i<40;i++)rect((i*73)%256,(i*37)%176,1,1,'#66828d');menorah(128,126,0);hippo(128,152);}
+function currentObjective(){
+ if(!state.mallet)return 'Find Judah by the well. Take his mallet, then head east twice.';
+ const furnace=room?.night===2||state.flame;
+ if(state.flame&&state.flame2)return 'Two flames restored! Nights Three–Eight are still to come.';
+ if(furnace&&!state.flame2){
+  if(!state.bombBag)return 'South from the first grove, then east twice. Find the furnace’s jelly bag.';
+  if(!state.solved.includes('f5'))return 'Use a jelly bomb at the cracked flue. Stand clear of the blast.';
+  if(!state.solved.includes('f6'))return 'Tap A at the ovens: left, right, then middle. Find the second key west.';
+  if(!state.solved.includes('f10'))return 'Open the north passage. Bomb the central, forward-facing cook.';
+  return 'Ketev rolls, then opens its eye. Land three bombs during that opening.';
+ }
+ if(!state.dreidel)return 'Enter the hollow olive two screens east of Judea. Find the Dreidel.';
+ if(!state.solved.includes('d6'))return 'Throw the Dreidel north at the crystal. Find the second key to the west.';
+ return 'Unlock the north passage. Strike Shibta after her third lunge.';
+}
+function draw(){const objective=currentObjective(),label=document.getElementById('objective');if(label.textContent!==objective)label.textContent=objective;rect(0,0,256,224,'#101c2a');ctx.save();ctx.translate(0,32);if(room)drawWorld();else{for(let i=0;i<40;i++)rect((i*73)%256,(i*37)%176,1,1,'#66828d');menorah(128,126,0);hippo(128,152);}
  if(mode==='title'){rect(17,12,222,87,'#162734');center('THE LEGEND OF',30,'#a6b7b6',8);center('HANUKKAH HIPPO',49,'#ebce8d',15);center('THE EIGHT NIGHTS',65,'#b9c7ba',8);center('Z / TAP BEGIN TO CARRY THE LIGHT',88,'#ead6a4',7);}
  if(mode==='dialogue'){rect(5,117,246,54,'#132432');rect(6,118,244,1,'#d5b775');const words=dialogue[0].split(' ');let line='',y=134;for(const word of words){if((line+word).length>37){text(line,14,y,'#efe4c7',7);y+=11;line='';}line+=word+' ';}text(line,14,y,'#efe4c7',7);text('Z / A  >',205,163,'#c5ac77',6);}
  if(mode==='inventory'){panel();center('HARRY’S SATCHEL',43,'#e9c47c',10);text('A  '+(state.mallet?'WOODEN MALLET':'FIND JUDAH'),30,61);text('B  '+state.equipped.toUpperCase(),30,75);text('DREIDEL '+(state.dreidel?'YES':'—')+'   KEYS '+state.keys,30,89);text('FLAMES '+flameCount()+'/8  GELT '+state.gelt,30,103);if(room.night===2?state.map2:state.map){const ids=Object.keys(World.rooms).filter(id=>id.startsWith(room.night===2?'f':'d')&&World.rooms[id].kind==='dungeon');for(const id of ids){const r=World.rooms[id],x=166+(r.grid[0]+1)*17,y=46+(r.grid[1]+6)*12;rect(x,y,10,9,state.cleared.includes(id)?'#c5a666':'#53686b');if(room.id===id)rect(x+3,y+2,4,4,'#f6e5bb');if((room.night===2?state.compass2:state.compass)&&r.boss)flame(x+5,y+5);}}text('BOMBS '+state.bombs+'/8',30,117,'#d1ac8e',7);text('ENTER / PAUSE TO RETURN',30,138,'#c0b18f',7);}
