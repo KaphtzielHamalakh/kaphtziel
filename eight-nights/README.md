@@ -1,6 +1,6 @@
 # The Legend of Hanukkah Hippo: The Eight Nights
 
-An original, dependency-free Canvas adventure for kaphtziel.com. This first playable chapter follows the Night One milestone in the supplied outline (see [milestone notes](DESIGN.md)). The existing `/hanukkahhippo/` platformer remains a separate game.
+An original, dependency-free Canvas adventure for kaphtziel.com. These first two playable chapters follow the opening milestones in the supplied outline (see [milestone notes](DESIGN.md)). The existing `/hanukkahhippo/` platformer remains a separate game.
 
 ## Play locally
 
@@ -14,7 +14,7 @@ Talk to Judah at the well for the mallet. Walk east twice and enter the Great Ol
 
 Included: Judea exterior, Bubbe's interior and healing stove, eight connected grove screens, twelve Oil Press rooms, two keys and persistent locks, block and ranged-switch gates, map/compass, hammer throw at full health, directional pan, splitting slimes, ranged enemies, Shibta, first-flame ceremony, touch controls, original synthesized audio, local persistence and JSON save import/export.
 
-This is a first chapter preview, not the completed eight-night campaign. Later nights, the full town/economy, 96-screen overworld, second quest and final Temple remain future work. Room layouts, boss tuning, sprite detail, lighting and sound still need human playtesting. The first block puzzle uses a single push; lighting has a readable dim tint and reveal action, rather than hidden floor collision.
+This is a two-chapter preview, not the completed eight-night campaign. Nights Three–Eight, the full town/economy, 96-screen overworld, second quest and final Temple remain future work. Room layouts, boss tuning, sprite detail, lighting and sound still need human playtesting. The first block puzzle uses a single push; lighting has a readable dim tint and reveal action, rather than hidden floor collision.
 
 `world.js` authors 16×11 rooms and their graph; `game.js` contains simulation/rendering; `style.css` handles the responsive cabinet. Original pixel sprites are drawn in code. Save data uses a separate `kaphtziel-eight-nights-v1` key and survives death. Export a save before clearing browser storage.
 
@@ -25,3 +25,13 @@ Run `node eight-nights/logic-check.cjs` for collision reachability, progression 
 For actual browser checks install Playwright externally (`npm install --no-save playwright`), start the local server above and run `node eight-nights/check.cjs`. Set `CHROMIUM_PATH` to your Chromium executable if it is not `/usr/bin/chromium`. This checks keyboard movement, progression, desktop and touch startup, reload persistence and mobile overflow; it writes local screenshots. Logic progression uses direct fixture placement to isolate systems, so it does not replace a full manual playthrough.
 
 Authoring environment result: JavaScript syntax and logic checks passed. Chromium launch and local HTTP binding were blocked by sandbox socket restrictions, so browser, real-device audio/touch and visual checks remain outstanding.
+
+## Night Two: The Latke Furnace
+
+From the first grove east of Judea, take the southern exit to the Frying Flats, then travel east twice to the smoking flue. This route is open before Night One is complete. The furnace adds fourteen rooms, a second map and compass, two keys, two griddle crossings, Jelly Bombs, a cracked flue, the three ovens, the hollow cook and Ketev Meriri.
+
+Place bombs with X while equipped; the fuse lasts 1.5 seconds and the blast can hurt Harry. Bomb the cracked flue to open the west exit. Use A at the ovens in left, right, middle order. Bomb the central, forward-facing statue to open the next stair. Ketev rolls and bounces, then exposes its eye and breathes fire; three bomb hits during that opening defeat it. The griddle darkens, glows in warning, then heats. Keep to the safe edges.
+
+The bomb supply chest refills an entirely empty bag without charge so a missed boss attempt cannot permanently exhaust the chapter's ammunition. The baker in the Flats sells four for twenty gelt. This free refill is a preview-specific concession to the limited economy. First-chapter saves migrate automatically; both nights can be completed in either order. The second flame restores the Flats and gives one additional heart.
+
+Run `node eight-nights/night-two-check.cjs` for the first chapter regression suite plus bomb fuses, both puzzle gates, oven order, ammunition recovery, Ketev's phases/immunities, both boss completion orders, heat damage and old-save migration. Browser checks remain unverified under the socket restrictions described above.
