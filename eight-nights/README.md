@@ -41,3 +41,11 @@ Run `node eight-nights/night-two-check.cjs` for the first chapter regression sui
 Touch devices use a compact header and a play area sized to the small viewport (`svh`), with safe-area space reserved for the home indicator. The canvas scales within the available area; the controller row stays with it. Landscape puts controls beside the playfield. Information below the game remains scrollable.
 
 Audio is opt-in. The Sound tap requests an iOS playback audio session where supported, resumes Web Audio and starts a one-sample buffer inside the gesture. Later game input recovers suspended/interrupted audio. The button shows a retry label until the context is running. Music continues in the inventory. Run `node eight-nights/mobile-check.cjs` for mocked audio activation/recovery checks; physical iPhone speaker routing and Safari toolbar sizing still need device confirmation.
+
+## Input and room-exit regression sweep
+
+Touch input is tracked per pointer, with global release/cancel handling and capture-loss recovery. iOS selection and long-press callouts are suppressed only on the controller. Sliding off an arrow releases it; sliding onto another arrow changes direction. Keyboard and touch sources remain independent. Pausing, dialogue, page hiding and orientation changes clear held inputs. Holding A repeats the hammer at its normal cooldown.
+
+Puzzle shutters block only the forward exit; the oil-channel room keeps its south exit available and the crystal room keeps its east/west routes available. Locked key doors and combat shutters retain their existing rules. Visible bars mark unsolved puzzle shutters. Turning cannot snap Harry into a wall, doorway approaches guide him between the jambs, and loading a position inside an obstacle moves him to the nearest valid spot without resetting progress.
+
+Run `node eight-nights/input-room-check.cjs` for 390 physical doorway approaches, 67,152 collision-safe turns, unsolved-puzzle retreats, saved-position repair, oil-channel escape and the touch/keyboard release scenarios. These are simulation/event-fixture checks, not physical Safari validation.

@@ -20,10 +20,10 @@ const World = (() => {
  rooms.d0.portal={x:128,y:148,to:'grove1'};
  rooms.d1.chest={x:80,y:64,reward:'key'};rooms.d1.spawns=[{type:'slime',x:160,y:100}];
  rooms.d2.chest={x:112,y:64,reward:'map'};rooms.d2.npcs=[{x:160,y:96,who:'Sage'}];
- rooms.d3.puzzle='block';rooms.d3.block={x:96,y:80};rooms.d3.plate={x:128,y:80};for(let x=2;x<14;x++)rooms.d3.tiles[3][x]='~';
+ rooms.d3.puzzle='block';rooms.d3.gate='e';rooms.d3.block={x:96,y:80};rooms.d3.plate={x:128,y:80};for(let x=2;x<14;x++)rooms.d3.tiles[3][x]='~';
  rooms.d4.dim=true;for(let y=2;y<9;y++)for(let x=2;x<14;x++)if(y!==5&&x!==8)rooms.d4.tiles[y][x]='O';
  rooms.d5.spawns=[{type:'bruiser',x:160,y:88}];rooms.d5.chest={x:128,y:48,reward:'dreidel'};
- rooms.d6.puzzle='switch';rooms.d6.switch={x:128,y:40};for(let x=2;x<14;x++)rooms.d6.tiles[3][x]='O';rooms.d6.tiles[3][7]='.';rooms.d6.tiles[3][8]='.';
+ rooms.d6.puzzle='switch';rooms.d6.gate='n';rooms.d6.switch={x:128,y:40};for(let x=2;x<14;x++)rooms.d6.tiles[3][x]='O';rooms.d6.tiles[3][7]='.';rooms.d6.tiles[3][8]='.';
  rooms.d7.spawns=[{type:'split',x:96,y:72},{type:'split',x:160,y:112}];rooms.d7.chest={x:128,y:48,reward:'key'};
  rooms.d8.chest={x:112,y:64,reward:'compass'};
  rooms.d9.spawns=[{type:'rock',x:96,y:72},{type:'grunt',x:176,y:112}];

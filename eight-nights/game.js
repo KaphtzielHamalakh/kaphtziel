@@ -32,41 +32,96 @@ function recoverAudio(event){if(event?.target?.closest?.('#sound'))return;if(sou
 window.addEventListener('pointerdown',recoverAudio,{capture:true});
 window.addEventListener('keydown',recoverAudio,{capture:true});
 function tone(freq=440,length=.08,type='square'){if(!sound||!audio||audio.state!=='running')return;const o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.setValueAtTime(freq,audio.currentTime);g.gain.setValueAtTime(.08,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+length);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+length);}
-function say(...lines){dialogue=lines;mode='dialogue';keys.clear();}
-function enter(id,x=128,y=136){room=World.rooms[id];p.x=x;p.y=y;p.inv=45;lit=false;basinTime=0;shots=[];drops=[];bombs=[];blasts=[];leverProgress=0;swing=0;cooldown=0;enemies=state.cleared.includes(id)?[]:(room.spawns||[]).map((e,i)=>({...e,hp:e.type==='bruiser'?4:e.type==='split'?2:1,t:30+i*40,stun:0,inv:0}));if(room.boss&&!(room.night===2?state.flame2:state.flame))enemies=[{type:room.bossKind==='ketev'?'ketev':'boss',x:128,y:56,hp:6,t:65,phase:'tell',lunges:0,stun:0,inv:0,vx:0,vy:0}];document.getElementById('status').textContent=room.name;document.getElementById('chapter').textContent=room.night===2?'✦ NIGHT TWO · THE LATKE FURNACE':'✦ NIGHT ONE · THE OIL PRESS';save();}
+function say(...lines){dialogue=lines;mode='dialogue';clearInput();}
+function enter(id,x=128,y=136){room=World.rooms[id];p.x=x;p.y=y;repairPosition();p.inv=45;lit=false;basinTime=0;shots=[];drops=[];bombs=[];blasts=[];leverProgress=0;swing=0;cooldown=0;enemies=state.cleared.includes(id)?[]:(room.spawns||[]).map((e,i)=>({...e,hp:e.type==='bruiser'?4:e.type==='split'?2:1,t:30+i*40,stun:0,inv:0}));if(room.boss&&!(room.night===2?state.flame2:state.flame))enemies=[{type:room.bossKind==='ketev'?'ketev':'boss',x:128,y:56,hp:6,t:65,phase:'tell',lunges:0,stun:0,inv:0,vx:0,vy:0}];document.getElementById('status').textContent=room.name;document.getElementById('chapter').textContent=room.night===2?'✦ NIGHT TWO · THE LATKE FURNACE':'✦ NIGHT ONE · THE OIL PRESS';save();}
 function begin(){if(mode==='title'){try{const s=JSON.parse(localStorage.getItem(SAVE));if(valid(s))state=normalize(s);}catch{}p.face=state.face;enter(state.room,state.x,state.y);mode=state.hp<=0?'dead':'play';if(!state.mallet&&mode==='play')say('BUBBE: The eight flames are gone.','It’s dark out there. Take this shamash.','Find Judah by the well. Then go east.');}canvas.focus();}
-function hurt(amount,source){if(p.inv>0||mode!=='play')return;state.hp=Math.max(0,state.hp-amount);p.inv=30;tone(100,.16,'sawtooth');if(source){const dx=p.x-source.x,dy=p.y-source.y,len=Math.hypot(dx,dy)||1;move(dx/len*10,dy/len*10);}if(state.hp<=0){mode='dead';keys.clear();save();}}
+function hurt(amount,source){if(p.inv>0||mode!=='play')return;state.hp=Math.max(0,state.hp-amount);p.inv=30;tone(100,.16,'sawtooth');if(source){const dx=p.x-source.x,dy=p.y-source.y,len=Math.hypot(dx,dy)||1;move(dx/len*10,dy/len*10);}if(state.hp<=0){mode='dead';clearInput();save();}}
 function reward(item){if(item==='bombBag'){state.bombBag=true;state.bombs=8;state.equipped='bombs';}else if(item==='key')state.keys++;else if(['map','compass','dreidel','map2','compass2'].includes(item))state[item]=true;tone(784,.25);save();say(...({bombBag:['Jelly Bombs! X places one; stand clear.','A short fuse. Cracked stone yields to jelly.','Return to this chest if your bag runs dry.'],map2:['The Latke Furnace map.'],compass2:['The compass points to Ketev Meriri.'],key:['A small key. It opens one locked door.'],map:['The Oil Press map. Open your inventory.'],compass:['A compass. The flame waits in the far north.'],dreidel:['The Dreidel! X throws; C changes items.','Stun enemies. Strike distant crystals.']}[item]||[item]));}
 function interact(){const npc=(room.npcs||[]).find(n=>Math.hypot(p.x-n.x,p.y-n.y)<25);if(npc){if(npc.who==='Judah'){state.mallet=true;save();say('JUDAH: My zayde’s mallet.','Don’t lose it. Don’t drop it on your foot.','East, east. The hollow olive leads down.');}else if(npc.who==='Bubbe'){state.hp=state.max;save();say(state.flame?'BUBBE: One light more than yesterday.':'BUBBE: Warm your hands. Eat something.','Her stove restores all your hearts.');}else if(npc.who==='Hillel')say('HILLEL: Add a light each night.',state.flame?'South of the first grove: the furnace.':'A spinning thing reaches where hands cannot.');else if(npc.who==='Baker'){if(!state.bombBag)say('THE BAKER: My guard keeps the jelly bag.','South and east. Find the smoking flue.');else if(state.bombs>=8)say('Your jelly bag is already full.');else if(state.gelt>=20){state.gelt-=20;state.bombs=Math.min(8,state.bombs+4);save();say('Four jelly bombs. Twenty gelt. No tasting.');}else say('Four jelly bombs cost twenty gelt.','The furnace supply chest is free if empty.');}else if(npc.who==='Cook')say('THE COOK: Cold hands first.','Left oven. Right oven. Then the middle.','Only the cook facing the door is hollow.');else say('THE SAGE: The oil goes where the stone lets it.');return true;}
  if(room.levers&&!state.solved.includes(room.id)){const index=room.levers.findIndex(l=>Math.hypot(p.x-l.x,p.y-l.y)<22);if(index>=0){leverProgress=index===room.order[leverProgress]?leverProgress+1:0;tone(leverProgress?500:130,.1);if(leverProgress===room.order.length){state.solved.push(room.id);save();hint('The ovens fall quiet. The north shutter opens.');}return true;}}
  const c=room.chest;if(c?.reward==='bombBag'&&state.opened.includes(room.id)&&state.bombs===0&&Math.hypot(p.x-c.x,p.y-c.y)<25){state.bombs=8;save();say('The baker left another bag of jelly bombs.');return true;}if(c&&!state.opened.includes(room.id)&&!enemies.length&&Math.hypot(p.x-c.x,p.y-c.y)<25){state.opened.push(room.id);reward(c.reward);return true;}return false;}
 function attack(){if(interact()||!state.mallet||cooldown>0)return;cooldown=20;swing=12;tone(180,.06,'triangle');const [dx,dy]=dirs[p.face];for(const e of enemies)if(Math.hypot(e.x-(p.x+dx*16),e.y-(p.y+dy*16))<(e.type==='boss'?26:22))hit(e,1,dx,dy);if(state.hp===state.max&&!shots.some(s=>s.type==='hammer'))shots.push({type:'hammer',x:p.x,y:p.y,dx:dx*3,dy:dy*3,t:100});}
 function item(){if(cooldown>0)return;cooldown=22;if(state.equipped==='bombs'){if(state.bombs>0&&bombs.length<2){state.bombs--;bombs.push({x:p.x,y:p.y,t:90});tone(180,.06);save();}else hint(state.bombs===0?'Your jelly bag is empty. Return to its chest.':'Two bombs at a time.');return;}if(state.equipped==='shamash'){if(!lit){lit=true;tone(560,.18,'triangle');if(room.dim)say('The shamash reveals a path through the dark.');}}else if(state.dreidel&&!shots.some(s=>s.type==='dreidel')){const[dx,dy]=dirs[p.face];shots.push({type:'dreidel',x:p.x,y:p.y,dx:dx*2.6,dy:dy*2.6,t:62});tone(650,.1,'triangle');}}
-function hit(e,damage,dx=0,dy=0,source='hammer'){if(e.inv>0||e.hp<=0)return;if(e.type==='ketev'&&(source!=='bomb'||e.phase!=='eye')){tone(130,.04);return;}if(e.type==='boss'&&e.phase!=='rest'){tone(130,.04);return;}e.hp-=damage;e.inv=18;if(e.type!=='boss'){const nx=e.x+dx*10,ny=e.y+dy*10;if(walkable(nx,ny)){e.x=nx;e.y=ny;}}tone(250,.08);if(e.hp<=0){if(e.type==='split')for(let i=0;i<2;i++)enemies.push({type:'slime',x:e.x+(i?7:-7),y:e.y,hp:1,t:25,stun:0,inv:0});if(e.type==='boss'||e.type==='ketev'){ceremonyNight=e.type==='ketev'?2:1;if(ceremonyNight===2)state.flame2=true;else state.flame=true;state.max=6+flameCount()*2;state.hp=state.max;state.cleared.push(room.id);save();mode='ceremony';keys.clear();tone(1046,.6,'triangle');}else drops.push({x:e.x,y:e.y,type:room.night===2&&state.bombBag&&Math.random()<.3?'bomb':Math.random()<.35?'heart':'gelt'});}}
+function hit(e,damage,dx=0,dy=0,source='hammer'){if(e.inv>0||e.hp<=0)return;if(e.type==='ketev'&&(source!=='bomb'||e.phase!=='eye')){tone(130,.04);return;}if(e.type==='boss'&&e.phase!=='rest'){tone(130,.04);return;}e.hp-=damage;e.inv=18;if(e.type!=='boss'){const nx=e.x+dx*10,ny=e.y+dy*10;if(walkable(nx,ny)){e.x=nx;e.y=ny;}}tone(250,.08);if(e.hp<=0){if(e.type==='split')for(let i=0;i<2;i++)enemies.push({type:'slime',x:e.x+(i?7:-7),y:e.y,hp:1,t:25,stun:0,inv:0});if(e.type==='boss'||e.type==='ketev'){ceremonyNight=e.type==='ketev'?2:1;if(ceremonyNight===2)state.flame2=true;else state.flame=true;state.max=6+flameCount()*2;state.hp=state.max;state.cleared.push(room.id);save();mode='ceremony';clearInput();tone(1046,.6,'triangle');}else drops.push({x:e.x,y:e.y,type:room.night===2&&state.bombBag&&Math.random()<.3?'bomb':Math.random()<.35?'heart':'gelt'});}}
 function walkable(x,y){if(x<6||x>250||y<6||y>170)return false;for(const[ox,oy]of [[-5,-4],[5,-4],[-5,5],[5,5]]){let c=room.tiles[Math.floor((y+oy)/16)]?.[Math.floor((x+ox)/16)];if(!c||'#T~O'.includes(c))return false;}if(room.block&&!state.solved.includes(room.id)&&Math.abs(x-room.block.x)<12&&Math.abs(y-room.block.y)<12)return false;return true;}
 function move(dx,dy){let nx=p.x+dx,ny=p.y+dy;
  if(room.block&&!state.solved.includes(room.id)&&Math.abs(nx-room.block.x)<13&&Math.abs(ny-room.block.y)<13){if(dx>0&&Math.abs(p.y-room.block.y)<8){state.solved.push(room.id);tone(330,.2);save();}}
  if(walkable(nx,ny)){p.x=nx;p.y=ny;}}
+function repairPosition(){
+ if(walkable(p.x,p.y))return;
+ let best=null,distance=Infinity;
+ for(let y=8;y<=168;y+=4)for(let x=8;x<=248;x+=4){const d=(x-p.x)**2+(y-p.y)**2;if(d<distance&&walkable(x,y)){best={x,y};distance=d;}}
+ if(best){p.x=best.x;p.y=best.y;}
+}
+function movePlayer(dir){
+ const [dx,dy]=dirs[dir];
+ if(dx&&dirs[p.face][0]===0){const y=p.y+(Math.round(p.y/8)*8-p.y)*.45;if(walkable(p.x,y))p.y=y;}
+ if(dy&&dirs[p.face][1]===0){const x=p.x+(Math.round(p.x/8)*8-p.x)*.45;if(walkable(x,p.y))p.x=x;}
+ // A thumb need not line up with a doorway to the exact pixel.
+ if(room.exits[dir]){
+  const near=dir==='n'?p.y<25:dir==='s'?p.y>151:dir==='w'?p.x<25:p.x>231;
+  if(near&&dy&&Math.abs(p.x-128)<24)move(Math.sign(128-p.x)*Math.min(1.25,Math.abs(128-p.x)),0);
+  if(near&&dx&&Math.abs(p.y-88)<24)move(0,Math.sign(88-p.y)*Math.min(1.25,Math.abs(88-p.y)));
+ }
+ p.face=dir;move(dx*1.25,dy*1.25);
+ if(p.x<13&&dir==='w')door('w');else if(p.x>243&&dir==='e')door('e');else if(p.y<13&&dir==='n')door('n');else if(p.y>163&&dir==='s')door('s');
+}
 function door(dir){const e=room.exits[dir];if(!e)return false;if((room.puzzle&&(!room.gate||room.gate===dir)&&!state.solved.includes(room.id))||enemies.length&&room.kind==='dungeon'){hint(room.puzzle==='block'?'Push the stone east onto the brass plate.':room.puzzle==='switch'?'Strike the north crystal with the Dreidel.':room.puzzle==='ovens'?'Left oven, right oven, middle. Use A.':room.puzzle==='crack'?'A jelly bomb will open the cracked flue.':room.puzzle==='statue'?'Bomb the cook who faces the door.':'The doors are sealed. Clear the room.');return false;}
  const id=[room.id,e.to].sort().join(':');if(e.locked&&!state.doors.includes(id)){if(!state.keys){hint('A small key is needed.');return false;}state.keys--;state.doors.push(id);tone(300,.15);}
- const x=dir==='e'?12:dir==='w'?244:p.x,y=dir==='s'?12:dir==='n'?164:p.y;enter(e.to,x,y);return true;}
+ const x=dir==='e'?12:dir==='w'?244:128,y=dir==='s'?12:dir==='n'?164:88;enter(e.to,x,y);return true;}
 let hintTimer=0;function hint(s){if(hintTimer<=0){document.getElementById('status').textContent=s;hintTimer=120;}}
-function action(code){if(code==='Enter'||code==='Escape'){if(mode==='play')mode='inventory';else if(mode==='inventory')mode='play';keys.clear();return;}if(mode==='title'){begin();return;}if(mode==='dialogue'){dialogue.shift();if(!dialogue.length)mode='play';return;}if(mode==='dead'){state.hp=state.max;p.face='s';enter(room.kind==='dungeon'?(room.night===2?'f0':'d0'):'town');mode='play';return;}if(mode==='ceremony'){if(ceremonyNight===2){enter('flats2',128,88);mode='play';say('A second branch catches on the hill.','The Frying Flats glow with warm light.','NIGHT TWO COMPLETE. Six lights still wait.');}else{enter('grove1',128,88);mode='play';say('The first branch catches on the hill.','The Olive Groves brighten.','A smoking furnace waits to the south.');}return;}if(mode!=='play')return;if(code==='KeyZ'||code==='Space')attack();if(code==='KeyX')item();if(code==='KeyC'){const items=['shamash',...(state.dreidel?['dreidel']:[]),...(state.bombBag?['bombs']:[])];state.equipped=items[(items.indexOf(state.equipped)+1)%items.length];tone(440,.04);}}
+function action(code){if(code.startsWith('Arrow'))return;if(code==='Enter'||code==='Escape'){if(mode==='play')mode='inventory';else if(mode==='inventory')mode='play';clearInput();return;}if(mode==='title'){begin();return;}if(mode==='dialogue'){dialogue.shift();if(!dialogue.length)mode='play';return;}if(mode==='dead'){state.hp=state.max;p.face='s';enter(room.kind==='dungeon'?(room.night===2?'f0':'d0'):'town');mode='play';return;}if(mode==='ceremony'){if(ceremonyNight===2){enter('flats2',128,88);mode='play';say('A second branch catches on the hill.','The Frying Flats glow with warm light.','NIGHT TWO COMPLETE. Six lights still wait.');}else{enter('grove1',128,88);mode='play';say('The first branch catches on the hill.','The Olive Groves brighten.','A smoking furnace waits to the south.');}return;}if(mode!=='play')return;if(code==='KeyZ'||code==='Space')attack();if(code==='KeyX')item();if(code==='KeyC'){const items=['shamash',...(state.dreidel?['dreidel']:[]),...(state.bombBag?['bombs']:[])];state.equipped=items[(items.indexOf(state.equipped)+1)%items.length];tone(440,.04);}}
 const aliases={KeyW:'ArrowUp',KeyA:'ArrowLeft',KeyS:'ArrowDown',KeyD:'ArrowRight'};
 const controls=['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyZ','Space','KeyX','KeyC','Enter','Escape'];
-window.addEventListener('keydown',e=>{const k=aliases[e.code]||e.code;if(!controls.includes(k)||/INPUT|TEXTAREA/.test(e.target.tagName))return;e.preventDefault();if(!keys.has(k)&&!e.repeat)action(k);keys.add(k);});window.addEventListener('keyup',e=>keys.delete(aliases[e.code]||e.code));
-function suspend(){keys.clear();if(mode==='play'){mode='inventory';save();}last=null;acc=0;}
-window.addEventListener('blur',suspend);document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
-for(const b of document.querySelectorAll('[data-key]')){b.addEventListener('pointerdown',e=>{e.preventDefault();b.setPointerCapture(e.pointerId);const k=b.dataset.key;action(k);keys.add(k);});for(const ev of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(ev,()=>keys.delete(b.dataset.key));}
+// Track input by physical key and pointer, not by button. One finger releasing
+// must not cancel another finger, and every cancellation path must release it.
+const keyboardHeld=new Map(),touchHeld=new Map();
+function syncInput(){keys.clear();for(const code of [...keyboardHeld.values(),...touchHeld.values()]){keys.delete(code);keys.add(code);}}
+function clearInput(){keyboardHeld.clear();touchHeld.clear();keys.clear();}
+function releasePointer(event){if(touchHeld.delete(event.pointerId))syncInput();}
+function pressPointer(event,button){
+ event.preventDefault();if(touchHeld.has(event.pointerId))return;
+ const code=button.dataset.key;touchHeld.set(event.pointerId,code);syncInput();
+ try{button.setPointerCapture(event.pointerId);}catch{} // Global release still works.
+ action(code);
+}
+window.addEventListener('keydown',event=>{
+ const code=aliases[event.code]||event.code;
+ if(!controls.includes(code)||/INPUT|TEXTAREA/.test(event.target.tagName))return;
+ event.preventDefault();if(keyboardHeld.has(event.code)||event.repeat)return;
+ keyboardHeld.set(event.code,code);syncInput();action(code);
+});
+window.addEventListener('keyup',event=>{keyboardHeld.delete(event.code);syncInput();});
+window.addEventListener('pointerup',releasePointer,{capture:true});
+window.addEventListener('pointercancel',releasePointer,{capture:true});
+window.addEventListener('pointermove',event=>{
+ const code=touchHeld.get(event.pointerId);if(!code?.startsWith('Arrow'))return;
+ event.preventDefault();const target=document.elementFromPoint?.(event.clientX,event.clientY)?.closest('[data-key]');
+ if(target?.dataset.key.startsWith('Arrow'))touchHeld.set(event.pointerId,target.dataset.key);else touchHeld.delete(event.pointerId);
+ syncInput();
+},{passive:false});
+function suspend(){clearInput();if(mode==='play'){mode='inventory';save();}last=null;acc=0;}
+window.addEventListener('blur',suspend);window.addEventListener('pagehide',suspend);window.addEventListener('orientationchange',suspend);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();});
+for(const button of document.querySelectorAll('[data-key]')){
+ button.addEventListener('pointerdown',event=>pressPointer(event,button));
+ for(const name of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(name,releasePointer);
+ button.addEventListener('touchstart',event=>event.preventDefault(),{passive:false});
+}
+for(const name of ['contextmenu','selectstart'])document.addEventListener(name,event=>{if(event.target.closest?.('.touch')){event.preventDefault();if(name==='contextmenu')clearInput();}});
 document.getElementById('start').onclick=()=>{if(mode==='title')begin();else if(mode!=='inventory')action('KeyZ');else mode='play';canvas.focus();};document.getElementById('pause').onclick=()=>{action('Enter');canvas.focus();};
 document.getElementById('sound').onclick=()=>{if(sound&&audio?.state==='running'){sound=false;updateSoundButton();}else{sound=true;unlockAudio();}};
 document.getElementById('export').onclick=()=>{if(!room){hint('Begin your journey before exporting.');return;}save();const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='eight-nights-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 document.getElementById('import').onclick=()=>{suspend();const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.onchange=async()=>{try{if(input.files[0].size>20000)throw Error();const s=JSON.parse(await input.files[0].text());if(!valid(s))throw Error();state=normalize(s);p.face=s.face;enter(s.room,s.x,s.y);mode='play';}catch{document.getElementById('status').textContent='Invalid save file · progress kept';}};input.click();};
 function heatPhase(){const phase=time%180;return phase<80?0:phase<120?1:2;}
 function explode(b){blasts.push({x:b.x,y:b.y,t:14});tone(85,.2,'sawtooth');if(Math.abs(p.x-b.x)<24&&Math.abs(p.y-b.y)<24)hurt(2,b);for(const e of enemies)if(Math.abs(e.x-b.x)<32&&Math.abs(e.y-b.y)<32)hit(e,2,0,0,'bomb');if(room.target&&Math.hypot(b.x-room.target.x,b.y-room.target.y)<30&&!state.solved.includes(room.id)){state.solved.push(room.id);tone(700,.2);save();hint('The stone breaks. A passage opens.');}}
-function update(){time++; if(sound&&time%22===0){const melody=room.kind==='dungeon'?[220,261.63,293.66,220,196,220,164.81,196]:[293.66,369.99,440,369.99,329.63,293.66,246.94,220];tone(melody[notes++%melody.length],.12,'triangle');}if(hintTimer>0&&!--hintTimer)document.getElementById('status').textContent=room?.name||'The Eight Nights';if(mode!=='play')return;if(p.inv>0)p.inv--;if(cooldown>0)cooldown--;if(swing>0)swing--;
- let dir=keys.has('ArrowUp')?'n':keys.has('ArrowDown')?'s':keys.has('ArrowLeft')?'w':keys.has('ArrowRight')?'e':null;
- if(dir){if(dirs[dir][0]!==0&&dirs[p.face][0]===0)p.y+=(Math.round(p.y/8)*8-p.y)*.45;if(dirs[dir][1]!==0&&dirs[p.face][1]===0)p.x+=(Math.round(p.x/8)*8-p.x)*.45;p.face=dir;const[dx,dy]=dirs[dir];move(dx*1.25,dy*1.25);if(p.x<13&&dir==='w')door('w');else if(p.x>243&&dir==='e')door('e');else if(p.y<13&&dir==='n')door('n');else if(p.y>163&&dir==='s')door('s');}
+function update(){time++; if(sound&&time%22===0){const melody=room?.kind==='dungeon'?[220,261.63,293.66,220,196,220,164.81,196]:[293.66,369.99,440,369.99,329.63,293.66,246.94,220];tone(melody[notes++%melody.length],.12,'triangle');}if(hintTimer>0&&!--hintTimer)document.getElementById('status').textContent=room?.name||'The Eight Nights';if(mode!=='play')return;if(p.inv>0)p.inv--;if(cooldown>0)cooldown--;if(swing>0)swing--;
+ if(!walkable(p.x,p.y))repairPosition();
+ const directionKeys={ArrowUp:'n',ArrowDown:'s',ArrowLeft:'w',ArrowRight:'e'};
+ const heldDirections=[...keys].filter(code=>directionKeys[code]);
+ const dir=directionKeys[heldDirections.at(-1)];
+ if(dir)movePlayer(dir);
+ if(mode==='play'&&(keys.has('KeyZ')||keys.has('Space'))&&cooldown<=0)attack();
  const portal=room.portal;if(portal&&Math.hypot(p.x-portal.x,p.y-portal.y)<10){const to=portal.to;enter(to,portal.arrivalX??(to==='town'?48:128),portal.arrivalY??(to==='town'?64:to==='home'?120:to==='grove1'?80:136));return;}
  if(room.spring&&Math.hypot(p.x-room.spring.x,p.y-room.spring.y)<16){state.hp=state.max;}
  if(room.kind==='home'&&p.x>180&&p.y<65){state.hp=state.max;}
@@ -99,6 +154,7 @@ function drawWorld(){const bright=!['grove','flats'].includes(room.kind)||region
  if(room.kind==='home'){rect(184,24,30,32,'#927b5e');rect(189,39,20,12,'#352e30');flame(198,47);rect(48,48,20,20,'#897658');rect(40,120,32,20,'#717667');text('STOVE',185,67,'#e8cb8b',6);}
  if(room.portal){const{x,y}=room.portal;rect(x-9,y-8,18,16,'#27313b');rect(x-7,y-6,14,12,'#17252d');for(let i=0;i<3;i++)rect(x-6,y+i*3,12,1,'#7c7d61');if(room.id==='grove1'){rect(x-17,y-18,9,28,'#756b51');rect(x+8,y-18,9,28,'#756b51');text('THE GREAT OLIVE',83,24,'#e8d4a1',6);}}
  if(room.spring){rect(112,67,32,25,'#6d9b9d');flame(128,78);}
+ if(room.gate&&!state.solved.includes(room.id)){const g=room.gate;if(g==='n'||g==='s'){for(let i=0;i<4;i++)rect(114+i*8,g==='n'?0:168,3,8,'#b69d66');}else{for(let i=0;i<4;i++)rect(g==='w'?0:248,82+i*8,8,3,'#b69d66');}}
  if(room.block){const solved=state.solved.includes(room.id),b=room.block;rect(121,73,14,14,'#b5a260');rect((solved?128:b.x)-7,b.y-7,14,14,'#8e907d');rect((solved?128:b.x)-5,b.y-5,10,3,'#bec0a1');}
  if(room.switch){const s=room.switch;rect(s.x-4,s.y-4,8,8,state.solved.includes(room.id)?'#e8cb7c':'#6bbed1');}
  if(room.basin){rect(53,103,22,18,'#b0b7a3');rect(56,106,16,12,basinTime>60?'#496f7c':'#84bfbd');}
@@ -127,6 +183,8 @@ function currentObjective(){
   if(!state.solved.includes('f10'))return 'Open the north passage. Bomb the central, forward-facing cook.';
   return 'Ketev rolls, then opens its eye. Land three bombs during that opening.';
  }
+ if(room?.id==='d3'&&!state.solved.includes('d3'))return 'Push the gray stone east onto the brass plate. The south exit stays open.';
+ if(room?.id==='d6'&&!state.solved.includes('d6'))return 'Throw the Dreidel north at the crystal. You can return east to find it.';
  if(!state.dreidel)return 'Enter the hollow olive two screens east of Judea. Find the Dreidel.';
  if(!state.solved.includes('d6'))return 'Throw the Dreidel north at the crystal. Find the second key to the west.';
  return 'Unlock the north passage. Strike Shibta after her third lunge.';
