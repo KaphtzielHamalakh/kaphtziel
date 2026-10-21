@@ -11,11 +11,13 @@ function pixelText(value,x,y,color,size){
 function bevel(x,y,w,h,base,light,shade){rect(x,y,w,h,shade);rect(x,y,w-1,h-1,base);rect(x+1,y+1,w-3,1,light);rect(x+1,y+1,1,h-3,light);rect(x+2,y+h-3,w-3,1,shade);rect(x+w-3,y+2,1,h-3,shade);}
 function groundShadow(x,y,width=14){rect(x-width/2,y+5,width,3,'#152a2b55');rect(x-width/2+2,y+8,width-4,1,'#152a2b33');}
 function drawTile(c,x,y,dungeon,bright,night){
- const xx=x*16,yy=y*16,teal=night!==2;
+ if(c==='W'&&room.puzzle==='drain'&&state.solved.includes(room.id))c='.';
+ const xx=x*16,yy=y*16,teal=night===1||night===3;
  const floor=dungeon?(teal?'#247a7f':'#745044'):room.kind==='flats'?(bright?'#c49a64':'#81725c'):(bright?'#c6bc86':'#7c8e82');
  rect(xx,yy,16,16,floor);
  if(dungeon){rect(xx,yy,16,1,teal?'#14434d':'#3f3437');rect(xx,yy,1,16,teal?'#14434d':'#3f3437');rect(xx+1,yy+1,14,1,teal?'#55a3a2':'#ab7e5b');rect(xx+1,yy+1,1,14,teal?'#55a3a2':'#ab7e5b');rect(xx+14,yy+2,1,13,teal?'#1a5c68':'#543c3b');rect(xx+2,yy+14,13,1,teal?'#1a5c68':'#543c3b');if((x*7+y)%11===0){rect(xx+5,yy+6,3,1,teal?'#31888a':'#895c48');rect(xx+8,yy+7,1,2,teal?'#31888a':'#895c48');}}
  else{const seed=x*13+y*7;for(let i=0;i<3;i++){const dx=(seed+i*7)%14,dy=(seed*3+i*5)%14;rect(xx+dx,yy+dy,1,1,bright?'#aa9e70':'#6b8077');}}
+ if(c==='W'){rect(xx,yy,16,16,'#286b87');rect(xx+1,yy+1,14,1,'#6cb8bd');rect(xx+2+(time%60<30?0:2),yy+7,8,1,'#8bc7c4');rect(xx+5,yy+12,7,1,'#3e91a7');return;}
  if(c==='#'){
   if(dungeon){const base=teal?'#2d9297':'#937253',hi=teal?'#70d2ca':'#cfaa77',dark=teal?'#103e55':'#493e3b';bevel(xx,yy,16,16,base,hi,dark);rect(xx+3,yy+3,10,2,hi);rect(xx+3,yy+3,2,10,base);rect(xx+3,yy+12,10,2,dark);rect(xx+12,yy+3,2,11,dark);rect(xx+5,yy+5,7,7,teal?'#287a87':'#806344');}
   else{rect(xx+1,yy+11,15,5,'#253d3855');bevel(xx,yy,16,14,bright?'#6f8a55':'#486962',bright?'#b6c080':'#7a9b82',bright?'#344d3c':'#29434b');for(let i=0;i<3;i++){rect(xx+3+i*4,yy+4+i%2*3,2,4,bright?'#869f63':'#5e7b6b');}}
@@ -30,17 +32,19 @@ function itemIcon(item,x,y){
  else if(item==='shamash'){rect(x-1,y-2,3,11,'#e1c692');rect(x-3,y+9,7,2,'#937748');flame(x,y-1);}
  else if(item==='dreidel'){rect(x-1,y-9,2,4,'#ebc477');bevel(x-5,y-5,11,10,'#668fc1','#b4d8e7','#354a81');rect(x-2,y+5,5,2,'#779ac9');rect(x,y+7,1,2,'#c6b77c');rect(x-1,y-3,3,1,'#f0d897');rect(x+1,y-2,1,4,'#f0d897');}
  else if(item==='bombs'){rect(x-5,y-3,11,9,'#9c4c69');rect(x-3,y-5,7,12,'#d28b8b');rect(x-2,y-3,4,2,'#f7d8bb');rect(x-3,y-7,6,2,'#cbad6a');rect(x+2,y-10,1,3,'#e6c679');}
+ else if(item==='strength'){bevel(x-6,y-4,13,11,'#bb8d55','#e5c17e','#634b3d');rect(x-3,y-8,3,6,'#d9b772');rect(x+1,y-8,3,6,'#d9b772');}
  else if(item==='coin'){bevel(x-3,y-5,7,10,'#d3a847','#fff0a0','#806033');rect(x,y-3,1,6,'#f9dc7b');}
  else if(item==='key'){rect(x-3,y-5,6,5,'#c3ccda');rect(x-1,y-4,2,2,'#1e2b41');rect(x-1,y,2,6,'#c3ccda');rect(x+1,y+3,3,2,'#c3ccda');}
 }
 function drawMiniMap(){
  const ox=8,oy=18;bevel(ox-2,oy-2,65,32,'#172b36','#3f5e69','#0b1521');
  if(room?.kind==='dungeon'){
-  const mapped=room.night===2?state.map2:state.map,compass=room.night===2?state.compass2:state.compass;
-  for(const r of Object.values(World.rooms).filter(r=>r.kind==='dungeon'&&(r.night===2)===(room.night===2))){if(!mapped&&!state.seen.includes(r.id))continue;const x=ox+12+(r.grid[0]+1)*12,y=oy+2+(r.grid[1]+6)*4;rect(x,y,8,3,r.id===room.id?'#f1ca7e':'#6f9292');if(compass&&r.boss)rect(x+3,y,2,2,'#ee9c70');}
+  const n=nightOf(),mapped=state[n===1?'map':'map'+n],compass=state[n===1?'compass':'compass'+n];
+  const rooms=Object.values(World.rooms).filter(r=>r.kind==='dungeon'&&nightOf(r)===n),minY=Math.min(...rooms.map(r=>r.grid[1]));
+  for(const r of rooms){if(!mapped&&!state.seen.includes(r.id))continue;const x=ox+12+(r.grid[0]+1)*12,y=oy+2+(r.grid[1]-minY)*3;rect(x,y,8,2,r.id===room.id?'#f1ca7e':'#6f9292');if(compass&&r.boss)rect(x+3,y,2,2,'#ee9c70');}
  }else{
-  const positions={town:[0,1],home:[0,1]};for(let i=0;i<8;i++)positions['grove'+i]=[i%4+1,i<4?1:0];for(let i=0;i<4;i++)positions['flats'+i]=[i+1,2];
-  for(const[id,[x,y]]of Object.entries(positions)){const seen=state.seen.includes(id),active=room?.id===id;rect(ox+x*11,oy+3+y*8,8,6,active?'#eacd87':seen?'#6c9292':'#293e4b');if(active)rect(ox+x*11+3,oy+5+y*8,2,2,'#e9f0c8');}
+  const positions={town:[5,2],home:[5,2],river0:[4,2]};for(let i=0;i<8;i++)positions['grove'+i]=[6+i%4,i<4?2:1];for(let i=0;i<4;i++){positions['flats'+i]=[6+i,3];positions['marsh'+i]=[5+i,4];positions['hills'+i]=[3-i,2];}
+  for(const[id,[x,y]]of Object.entries(positions)){const seen=state.seen.includes(id),active=room?.id===id;rect(ox+x*6,oy+2+y*5,4,4,active?'#eacd87':seen?'#6c9292':'#293e4b');if(active)rect(ox+x*6+1,oy+3+y*5,2,2,'#e9f0c8');}
  }
 }
 function drawHUD(){
@@ -74,6 +78,7 @@ function drawTownSet(){
 }
 function enemyHighlights(e){
  if(e.inv>0&&time%4<2)return;const x=Math.round(e.x),y=Math.round(e.y);
+ if(['shabriri','azazel','arm'].includes(e.type))return;
  if(e.type==='slime'||e.type==='split'){rect(x-3,y-4,5,1,'#e0cc91');rect(x-5,y+4,10,1,'#716b44');}
  else if(!['boss','ketev'].includes(e.type)){rect(x-4,y-10,7,2,'#a8be8c');rect(x+4,y-5,2,5,'#516e59');rect(x-5,y+5,4,3,'#4b4941');rect(x+2,y+5,4,3,'#4b4941');rect(x-2,y,5,1,'#d6b47d');if(e.type==='rock'){bevel(x+6,y-2,6,6,'#9caaa7','#d5ceac','#4f6670');}else{rect(x+7,y-3,2,10,'#917148');bevel(x+5,y-6,6,6,'#a4afa5','#e3d3a7','#465f69');}}
 }
