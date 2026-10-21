@@ -54,8 +54,39 @@ const World = (() => {
  rooms.f10.puzzle='statue';rooms.f10.gate='n';rooms.f10.target={x:128,y:64};
  rooms.f12.spawns=[{type:'bruiser',x:96,y:72},{type:'split',x:176,y:112}];
  rooms.f13.boss=true;rooms.f13.bossKind='ketev';
- // Derive coordinates from the graph so the inventory maps follow real doors.
- for(const start of ['d0','f0']){const queue=[[start,0,0]],seen=new Set();while(queue.length){const[id,x,y]=queue.shift();if(seen.has(id))continue;seen.add(id);rooms[id].grid=[x,y];for(const[d,e]of Object.entries(rooms[id].exits)){const v={n:[0,-1],s:[0,1],w:[-1,0],e:[1,0]}[d];queue.push([e.to,x+v[0],y+v[1]]);}}}
+
+ // Nights Three and Four: the marsh is open; the western crossing needs the Snorkel.
+ for(let i=0;i<4;i++){
+  const r=room('marsh'+i,'Hippo Marsh · '+(i+1),'marsh',{night:3,spawns:[{type:'water',x:176,y:88},{type:'slime',x:80,y:120}]});
+  for(let y=2;y<9;y++)for(let x=2;x<14;x++)if(y!==5&&y!==6&&x!==7&&x!==8)r.tiles[y][x]='W';
+ }
+ link('town','s','marsh0');for(let i=0;i<3;i++)link('marsh'+i,'e','marsh'+(i+1));rooms.marsh2.portal={x:128,y:48,to:'m0',arrivalX:128,arrivalY:136};rooms.marsh0.npcs=[{x:64,y:88,who:'Bathkeeper'}];
+ room('river0','The river crossing','river',{night:4,spawns:[]});link('town','w','river0');for(let y=1;y<10;y++)for(let x=6;x<10;x++)rooms.river0.tiles[y][x]='W';
+ for(let i=0;i<4;i++){const r=room('hills'+i,'Gelt Hills · '+(i+1),'hills',{night:4,spawns:[{type:'mine',x:176,y:88},{type:'rock',x:80,y:120}]});for(let y=2;y<9;y++)for(let x=2;x<14;x++)if((x*5+y*7+i)%11===0&&y!==5&&y!==6&&x!==7&&x!==8)r.tiles[y][x]='#';}
+ link('river0','w','hills0');for(let i=0;i<3;i++)link('hills'+i,'w','hills'+(i+1));rooms.hills2.portal={x:128,y:48,to:'l0',arrivalX:128,arrivalY:136};rooms.hills0.npcs=[{x:128,y:112,who:'Miner'}];rooms.hills3.spring={x:128,y:80};
+ const baths=['The mikveh stair','The changing room','The bathhouse map','The three valves','The stepping stones','The bridge Bruiser','The submerged drain','The low pool','The bathhouse compass','The cross-current','The mirror pool','The reflected gate','The dim pool','The final drain','The tentacle court','Shabriri'];
+ const mines=['The mine entrance','The ore store','The survey room','The rail junction','The foreman’s guard','The heavy boulder','The three plates','The crystal vault','The miner’s compass','The deep shaft','The honest scales','The dim gallery','The cart platform','The last key','The forge guard','Azazel'];
+ for(const [prefix,names,night]of [['m',baths,3],['l',mines,4]]){
+  for(let i=0;i<16;i++)room(prefix+i,names[i],'dungeon',{night,index:i,spawns:[]});
+  for(const [a,d,b,locked]of [[0,'n',1],[1,'w',2],[1,'n',3],[3,'e',4,true],[4,'n',5],[5,'w',6],[6,'w',7],[7,'s',8],[6,'n',9,true],[9,'e',10],[10,'n',11],[11,'w',12],[12,'n',13],[13,'e',14],[14,'n',15,true]])link(prefix+a,d,prefix+b,!!locked);
+  rooms[prefix+'0'].portal={x:128,y:148,to:night===3?'marsh2':'hills2',arrivalX:128,arrivalY:80};
+  for(const n of [1,7,13]){rooms[prefix+n].chest={x:128,y:48,reward:'key'};rooms[prefix+n].spawns=[{type:night===3?'water':'mine',x:176,y:104}];}
+  rooms[prefix+'2'].chest={x:112,y:64,reward:'map'+night};rooms[prefix+'8'].chest={x:112,y:64,reward:'compass'+night};
+  rooms[prefix+'5'].spawns=[{type:'bruiser',x:176,y:88}];rooms[prefix+'5'].chest={x:128,y:48,reward:night===3?'snorkel':'band'};
+  rooms[prefix+'9'].spawns=[{type:night===3?'water':'mine',x:176,y:112}];rooms[prefix+'14'].spawns=[{type:'bruiser',x:80,y:80},{type:night===3?'water':'mine',x:176,y:120}];
+  rooms[prefix+'12'].dim=true;rooms[prefix+'15'].boss=true;rooms[prefix+'15'].bossKind=night===3?'shabriri':'azazel';
+ }
+ rooms.m2.npcs=[{x:176,y:104,who:'WaterSage'}];rooms.m3.puzzle='valves';rooms.m3.gate='e';rooms.m3.valvePositions=[{x:64,y:64},{x:128,y:64},{x:192,y:64}];
+ rooms.m6.puzzle='drain';rooms.m6.gate='n';rooms.m6.submergedSwitch={x:128,y:80};
+ for(const id of ['m4','m6','m9','m10','m11','m12','m15'])for(let y=3;y<8;y++)for(let x=4;x<12;x++)if(id!=='m4'||x!==7&&x!==8)rooms[id].tiles[y][x]='W';
+ rooms.m9.current=true;rooms.m10.mirrorPlate={x:64,y:112,to:'m11'};rooms.m11.mirrorPlate={x:192,y:112,to:'m10'};rooms.m11.puzzle='mirror';rooms.m11.gate='w';
+ rooms.l2.npcs=[{x:176,y:104,who:'MineSage'}];rooms.l3.puzzle='rails';rooms.l3.gate='e';rooms.l3.railSwitch={x:128,y:80};
+ rooms.l5.puzzle='heavy';rooms.l5.gate='w';rooms.l5.heavy={x:80,y:88};
+ rooms.l6.puzzle='plates';rooms.l6.gate='n';rooms.l6.plates=[{x:64,y:64},{x:128,y:64},{x:192,y:64}];rooms.l6.rocks=[{x:64,y:120},{x:192,y:120}];
+ rooms.l10.puzzle='scales';rooms.l10.gate='n';rooms.l10.scale={x:128,y:80};rooms.l12.cart=true;
+ rooms.l15.rocks=[{x:48,y:120},{x:208,y:120}];
+ // Derive each dungeon map from its actual room graph.
+ for(const start of ['d0','f0','m0','l0']){const queue=[[start,0,0]],seen=new Set();while(queue.length){const[id,x,y]=queue.shift();if(seen.has(id))continue;seen.add(id);rooms[id].grid=[x,y];for(const[d,e]of Object.entries(rooms[id].exits)){const v={n:[0,-1],s:[0,1],w:[-1,0],e:[1,0]}[d];queue.push([e.to,x+v[0],y+v[1]]);}}}
  return {rooms,link};
 })();
 if(typeof module!=='undefined')module.exports=World;

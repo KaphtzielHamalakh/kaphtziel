@@ -25,7 +25,7 @@ function renderSlotList(){
   const play=document.createElement('button');play.className='slot-play';play.type='button';play.innerHTML=portraitSVG(slot?.tunic);
   const label=document.createElement('span'),name=document.createElement('strong'),detail=document.createElement('small');
   name.textContent=slot?.name||('FILE '+(index+1)+' · '+(slot?'NAME YOUR HERO':'NEW ADVENTURE'));
-  detail.textContent=slot?`${slot.max/2} HEARTS · ${Number(slot.flame)+Number(slot.flame2)} LIGHTS · ${World.rooms[slot.room].name}`:'REGISTER A NAME TO BEGIN';
+  detail.textContent=slot?`${slot.max/2} HEARTS · ${[1,2,3,4].filter(n=>slot[flameFor(n)]).length} LIGHTS · ${World.rooms[slot.room].name}`:'REGISTER A NAME TO BEGIN';
   label.append(name,detail);play.append(label);play.onclick=()=>slot?.name?startProfile(index):registerProfile(index);card.append(play);
   if(slot){const manage=document.createElement('div');manage.className='slot-manage';for(const [text,fn]of [['Rename',()=>registerProfile(index,true)],['Erase',()=>confirmErase(index)]]){const button=document.createElement('button');button.type='button';button.textContent=text;button.onclick=fn;manage.append(button);}card.append(manage);}
   list.append(card);
@@ -77,6 +77,6 @@ document.getElementById('export').onclick=()=>{if(activeSlot===null){profileMess
 document.getElementById('import').onclick=()=>{
  if(activeSlot===null){profileMessage('Choose or register a file before importing into it.');return;}
  suspend();const input=document.createElement('input');input.type='file';input.accept='.json,application/json';
- input.onchange=async()=>{try{if(!input.files?.[0])return;if(input.files[0].size>20000)throw Error();const imported=JSON.parse(await input.files[0].text());if(!valid(imported))throw Error();if(!window.confirm('Replace file '+(activeSlot+1)+' with this imported adventure?'))return;const name=cleanName(imported.name||state.name);state={...normalize(imported),name,tunic:imported.tunic||state.tunic};saveActiveProfile();startProfile(activeSlot);}catch{document.getElementById('status').textContent='Invalid save file · progress kept';}};input.click();
+ input.onchange=async()=>{try{if(!input.files?.[0])return;if(input.files[0].size>524288)throw Error();const imported=JSON.parse(await input.files[0].text());if(!valid(imported))throw Error();if(!window.confirm('Replace file '+(activeSlot+1)+' with this imported adventure?'))return;const name=cleanName(imported.name||state.name);state={...normalize(imported),name,tunic:imported.tunic||state.tunic};saveActiveProfile();startProfile(activeSlot);}catch{document.getElementById('status').textContent='Invalid save file · progress kept';}};input.click();
 };
 showProfiles();

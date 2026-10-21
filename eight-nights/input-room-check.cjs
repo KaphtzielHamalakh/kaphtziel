@@ -4,7 +4,7 @@ const ctx=new Proxy({createRadialGradient:()=>({addColorStop:noop})},{get:(o,k)=
 function element(key){return {dataset:key?{key}:{},events:{},addEventListener(n,f){(this.events[n]??=[]).push(f);},setPointerCapture(){if(this.throwCapture)throw Error('no capture');},setAttribute:noop,focus:noop,getContext:()=>ctx,closest(selector){return selector==='.touch'||selector==='[data-key]'?this:null;}};}
 const buttons=['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyZ','KeyX','KeyC'].map(element);
 const sandbox={console,assert,document:{getElementById:id=>elements[id]??=element(),querySelectorAll:()=>buttons,elementFromPoint:()=>hitTarget,addEventListener:(n,f)=>(documentEvents[n]??=[]).push(f),hidden:false},window:{addEventListener:(n,f)=>(windowEvents[n]??=[]).push(f)},localStorage:{getItem:k=>storage[k],setItem:(k,v)=>storage[k]=v},requestAnimationFrame:noop,setTimeout:noop,Blob,URL};
-vm.createContext(sandbox);for(const name of ['world.js','art.js','game.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+name,'utf8'),sandbox);
+vm.createContext(sandbox);for(const name of ['world.js','art.js','campaign.js','music.js','game.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+name,'utf8'),sandbox);
 const run=code=>vm.runInContext(code,sandbox,{timeout:30000});
 function event(extra={}){return {pointerId:1,preventDefault(){this.prevented=true;},target:{tagName:'BUTTON'},...extra};}
 function fire(target,name,e){for(const f of target[name]||[])f(e);}
@@ -26,7 +26,7 @@ let transitions=0,turns=0;
 const all=Object.keys(World.rooms);const doorIds=[...new Set(all.flatMap(id=>Object.values(World.rooms[id].exits).map(e=>[id,e.to].sort().join(':'))))];
 // Drive the actual movement routine into every exit, including near each jamb.
 for(const id of all)for(const [dir,exit]of Object.entries(World.rooms[id].exits))for(const offset of [-16,-8,0,8,16]){
- state=fresh();state.solved=all;state.doors=doorIds;mode='play';
+ state=fresh();state.snorkel=true;state.band=true;state.solved=all;state.doors=doorIds;mode='play';
  const vertical=dir==='n'||dir==='s';enter(id,vertical?128+offset:dir==='w'?24:232,vertical?(dir==='n'?24:152):88+offset);enemies=[];
  for(let i=0;i<75&&room.id===id;i++)movePlayer(dir);
  assert.equal(room.id,exit.to,id+' '+dir+' offset '+offset);assert.ok(walkable(p.x,p.y),'valid arrival');transitions++;
