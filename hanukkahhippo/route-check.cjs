@@ -8,8 +8,8 @@ vm.runInContext(src,sandbox);
 vm.runInContext(`
 // Every search edge runs Hippo.update(), with real acceleration and button input.
 // Preserve exact landing positions and modified blocks; never snap into a wall.
-function route(night, power, checkpoint=false, groundColumn=null, barrier=false, target=null, tunnel=false) {
- stats.night=night;buildLevel(night);if(barrier)for(let y=0;y<15;y++)map[y][12]=1;boss=null;enemies=[];sfx.ctx=null;
+function route(night, power, checkpoint=false, groundColumn=null, barrier=false, target=null, tunnel=false, realm=null) {
+ stats.night=night;bonusLevel=realm;buildLevel(night);if(barrier)for(let y=0;y<15;y++)map[y][12]=1;boss=null;enemies=[];sfx.ctx=null;
  if(tunnel)enterTunnel(passagePipes[0]);
  clearInputs();gameState='PLAY';player=new Hippo(groundColumn===null?(tunnel?2*TILE+9:(checkpoint?shamash.x:32)):groundColumn*TILE,groundColumn===null?(checkpoint?shamash.y:160):193);
  if(power)player.setPower(power);
@@ -53,4 +53,9 @@ assert.throws(()=>route(1,0,false,null,true),/blocked/);
 console.log('PASS: checker rejects an intentionally sealed course');
 for(let night=1;night<=8;night++)for(const power of [0,1,3]) {route(night,power,false,null,false,null,true);console.log('PASS underground route night '+night+', power '+power);
  stats.night=night;buildLevel(night);const exitColumn=passagePipes[0].exitX/TILE;route(night,power,false,exitColumn);console.log('PASS onward route from passage exit night '+night+', power '+power);}
+for(const realm of ['midbar','prague','temple'])for(const power of [0,1,3])for(const checkpoint of [false,true]){
+ const result=route(8,power,checkpoint,null,false,null,false,realm);
+ console.log('PASS secret realm '+realm+', power '+power+', '+(checkpoint?'checkpoint':'start')+': '+result.moves.length+' moves');
+}
+
 `,sandbox,{timeout:120000});

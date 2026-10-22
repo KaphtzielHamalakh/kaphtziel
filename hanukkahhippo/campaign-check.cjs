@@ -56,7 +56,7 @@ for(const totalLetters of [0,32]) {
   player.x=menorah.x; player.y=193; player.vx=0; player.vy=0;
   player.invulnTimer=1000; enemies=[];icicles=[];items=[];projectiles=[];
   boss.active=false;boss.x=150*16; updateGame(); assert.equal(gameState,'PLAY');
-  boss.state='dead'; updateGame(); assert.equal(gameState,'TALLY');draw();
+  boss.state='dead'; if(night===8)justPressed.ArrowUp=true; updateGame(); assert.equal(gameState,'TALLY');draw();
   ticks(220); assert.equal(tally.phase,1);
   press(); assert(dreidelSpin.spinning); ticks(65);assert(dreidelSpin.done);
   press(); assert.equal(gameState,'MENORAH'); assert.equal(stats.night,night);draw();

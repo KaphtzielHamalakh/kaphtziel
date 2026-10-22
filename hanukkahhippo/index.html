@@ -513,18 +513,22 @@ const HEROES = [
   {id:'snowman',name:'Snowman',wins:4},
   {id:'latke',name:'Latke',wins:5},
   {id:'hanukkiah',name:'Hanukkiah',wins:6},
-  {id:'coin',name:'Gelt Coin',wins:7}
+  {id:'coin',name:'Gelt Coin',wins:7},
+  {id:'moses',name:'Moses',bonus:true},
+  {id:'golem',name:'Golem',bonus:true},
+  {id:'solomon',name:'King Solomon',bonus:true}
 ];
 const PROFILE_KEY='hippo-character-progress-v1';
-let completions=0, character='hippo', goblinUnlocked=false, replayCharacter='hippo';
+let completions=0, character='hippo', goblinUnlocked=false, replayCharacter='hippo', bonusUnlocks=[];
 function rewardCharacter(wins) {
-  return [...HEROES].reverse().find(hero=>wins>=hero.wins).id;
+  return [...HEROES].reverse().find(hero=>!hero.bonus && wins>=hero.wins).id;
 }
 try {
   const profile=JSON.parse(localStorage.getItem(PROFILE_KEY)||'null');
   if(profile && Number.isSafeInteger(profile.completions) && profile.completions>=0) {
     completions=profile.completions;
-    character=completions>=8 && HEROES.some(h=>h.id===profile.character)?profile.character:rewardCharacter(completions);
+    bonusUnlocks=Array.isArray(profile.bonusUnlocks)?[...new Set(profile.bonusUnlocks.filter(id=>HEROES.some(h=>h.id===id&&h.bonus)))]:[];
+    character=unlockedHeroes().some(h=>h.id===profile.character) && (completions>=8||bonusUnlocks.includes(profile.character))?profile.character:rewardCharacter(completions);
   } else if(localStorage.getItem('hippo-goblin-unlocked')==='yes') {
     completions=1;character='goblin';
   }
@@ -533,10 +537,10 @@ try {
 }
 goblinUnlocked=completions>=1;replayCharacter=character;
 function heroName(id=character) {return HEROES.find(h=>h.id===id)?.name || 'Hanukkah Hippo';}
-function unlockedHeroes() {return HEROES.filter(h=>completions>=h.wins);}
+function unlockedHeroes() {return HEROES.filter(h=>h.bonus?bonusUnlocks.includes(h.id):completions>=h.wins);}
 function saveCharacterProgress(selected=character) {
   try {
-    localStorage.setItem(PROFILE_KEY,JSON.stringify({completions,character:selected}));
+    localStorage.setItem(PROFILE_KEY,JSON.stringify({completions,character:selected,bonusUnlocks}));
     if(completions>=1)localStorage.setItem('hippo-goblin-unlocked','yes');
   }catch {}
 }
@@ -600,7 +604,13 @@ const LANDS = [
   {name:'THE HIDDEN VAULTS', place:'UNDERGROUND PASSAGES', kind:'dungeon', sky:['#11152a','#35304c'], stone:'#555469', trim:'#85829b', brick:'#716785', dark:0.28},
   {name:'CITADEL OF LIGHT', place:'JERUSALEM', kind:'castle', sky:['#202043','#ce907a'], stone:'#baa28b', trim:'#eed6ac', brick:'#ad9070', dark:0.16}
 ];
-const land = () => LANDS[Math.max(0, Math.min(NIGHT_COUNT-1, stats.night-1))];
+const BONUS_LANDS = {
+  midbar:{name:'THE MIDBAR',place:'WILDERNESS',kind:'wilderness',hero:'moses',sky:['#7ea9bc','#edc68a'],stone:'#b78c57',trim:'#f0cc8d',brick:'#bc9b69',dark:0},
+  prague:{name:'PRAGUE',place:'THE CITY OF LEGENDS',kind:'prague',hero:'golem',sky:['#293c65','#be9294'],stone:'#7b7785',trim:'#b3b4bc',brick:'#a48c7a',dark:0.08},
+  temple:{name:'THE TEMPLE',place:'A FANTASY OF ANCIENT JERUSALEM',kind:'temple',hero:'solomon',sky:['#303952','#c3a074'],stone:'#bfa77e',trim:'#fff0be',brick:'#d6b76d',dark:0.06}
+};
+let bonusLevel=null;
+const land = () => bonusLevel?BONUS_LANDS[bonusLevel]:LANDS[Math.max(0, Math.min(NIGHT_COUNT-1, stats.night-1))];
 let gameState = 'TITLE', titleCursor = 0, pwEntry = [0,0,0,0], pwCursor = 0, pwError = 0;
 let stateTimer = 0, hitStop = 0, screenShake = 0, frameCount = 0, cameraX = 0, oil = 100;
 
@@ -618,6 +628,7 @@ let dreidelSpin = {
 
 let map = [], blockContents = {}, player, gelts = [], items = [], enemies = [], icicles = [], projectiles = [], fireballs = [], particles = [], popups = [];
 let passagePipes = [], activeTunnel = null, surfaceWorld = null, pipeTravel = null;
+let finalSecretStep=0, finalSecretFailed=false;
 const TUNNEL_WIDTH = 47;
 let shamash = { x: 88*TILE, y: 11*TILE, lit: false };
 let bonusDoor = { x: 131*TILE, y: 11*TILE, active: false, used: false };
@@ -647,6 +658,8 @@ function spawnParticles(x, y, color, count = 8, speed = 2.5) {
 
 function buildLevel(night) {
   passagePipes = []; activeTunnel = null; surfaceWorld = null; pipeTravel = null;
+  finalSecretStep=0;finalSecretFailed=false;
+  if(bonusLevel){buildBonusLevel(bonusLevel);return;}
   if (!Number.isInteger(night) || night < 1 || night > NIGHT_COUNT) throw new RangeError('Night must be 1 through 8');
   sfx.setSong(night - 1);
   map = Array.from({ length: LEVEL_HEIGHT }, () => Array(LEVEL_WIDTH).fill(0));
@@ -783,6 +796,72 @@ function buildLevel(night) {
     type: bossType, speedMult, state: 'patrol', timer: 0, invuln: 0, active: false
   };
   menorah.x = 166*TILE; menorah.y = 10*TILE; menorah.lit = false;
+  if(night===8){setTile(169,9,11);setTile(172,9,12);}
+
+}
+
+
+function resetRealmCheckpoint() {
+  stats.checkpointLit=false;stats.checkpointX=32;stats.checkpointY=160;
+  stats.letters=[false,false,false,false];
+  tally.geltScore=0;tally.enemyScore=0;tally.comboScore=0;tally.oilScore=0;hitStop=0;
+}
+function startBonusLevel(realm) {
+  if(!BONUS_LANDS[realm])return;
+  const power=player.power;bonusLevel=realm;
+  resetRealmCheckpoint();startLevel(false);player.setPower(power);
+}
+function buildBonusLevel(realm) {
+  const profiles={
+    midbar:{pits:[[42,44],[101,103]],ledges:[[18,24,10],[48,54,11],[59,65,9],[91,97,10],[112,120,11]],stairs:[[31,2],[122,3]],foes:[[28,'walker'],[55,'jumper'],[95,'walker'],[116,'thrower']],letters:[[21,9],[51,10],[62,8],[115,10]],boss:'THE DUNE GUARDIAN',type:1},
+    prague:{pits:[[35,37],[68,70],[111,113]],ledges:[[18,24,10],[32,40,11],[48,54,9],[65,73,11],[93,99,10],[108,117,11]],stairs:[[27,2],[122,3]],foes:[[28,'walker'],[58,'thrower'],[95,'jumper'],[120,'walker']],letters:[[21,9],[51,8],[69,10],[112,10]],boss:'THE BRIDGE WATCHMAN',type:3},
+    temple:{pits:[[50,52],[104,106]],ledges:[[20,26,10],[40,46,9],[58,65,11],[91,98,10],[112,120,9]],stairs:[[15,2],[72,3],[122,3]],foes:[[30,'jumper'],[56,'walker'],[87,'thrower'],[119,'jumper']],letters:[[23,9],[43,8],[61,10],[116,8]],boss:'THE GOLDEN GATEKEEPER',type:4}
+  };
+  const course=profiles[realm];
+  map=Array.from({length:15},()=>Array(LEVEL_WIDTH).fill(0));
+  blockContents={};gelts=[];items=[];enemies=[];icicles=[];projectiles=[];fireballs=[];particles=[];popups=[];
+  oil=MAX_OIL;sfx.setSong({midbar:2,prague:5,temple:4}[realm]);
+  for(let x=0;x<LEVEL_WIDTH;x++)if(!course.pits.some(([a,b])=>x>=a&&x<=b)){map[13][x]=1;map[14][x]=1;}
+  for(const [a,b,y] of course.ledges)for(let x=a;x<=b;x++){
+    map[y][x]=7;if(x%2===0)gelts.push({x:x*TILE+4,y:(y-1)*TILE+3,collected:false});
+  }
+  for(const [a,h] of course.stairs)for(let step=0;step<h;step++)for(let y=12-step;y<13;y++)map[y][a+step]=1;
+  for(const [x,content] of [[9,'latke'],[12,'sufganiyah'],[84,'progressive'],[127,'sufganiyah']]){
+    map[10][x]=5;blockContents[x+',10']=content;
+  }
+  course.letters.forEach(([x,y],i)=>items.push({x:x*TILE+2,y:y*TILE+2,vx:0,vy:0,type:'letter',letterIdx:i,permanent:true}));
+  for(const x of [72,121])items.push({x:x*TILE,y:12*TILE,vx:0,vy:0,type:'oil',permanent:true});
+  enemies=course.foes.map(([x,type])=>createGoblin(x*TILE,12*TILE,type));
+  if(realm==='temple'){
+    for(const [a,b] of [[20,26],[40,46],[91,98],[112,120]])for(let x=a;x<=b;x++)map[4][x]=1;
+    for(const x of [48,99])map[12][x]=9;
+  }
+  shamash={x:80*TILE,y:11*TILE,lit:stats.checkpointLit};
+  bonusDoor={x:131*TILE,y:11*TILE,active:false,used:false};
+  menorah={x:-1000,y:160,lit:false};
+  boss={name:course.boss,x:152*TILE,y:13*TILE-34,vx:-1.05,vy:0,w:30,h:34,dir:-1,hp:3,maxHp:3,
+    type:course.type,speedMult:1,state:'patrol',timer:0,invuln:0,active:false};
+}
+function finishBonusLevel() {
+  const hero=land().hero;
+  if(!bonusUnlocks.includes(hero))bonusUnlocks.push(hero);
+  character=hero;replayCharacter=hero;hungryPending=false;
+  saveCharacterProgress();refreshCharacterMenu();
+  gameState='BONUS_CLEAR';stateTimer=0;clearInputs();sfx.sfxWin();
+}
+function returnFromBonus() {
+  const power=Math.min(player.power,2);
+  if(player.power===3)player.setPower(2,true);
+  bonusLevel=null;stats.night=1;resetRealmCheckpoint();
+  startLevel(false);player.setPower(power);
+}
+function drawBonusClear() {
+  drawOutlinedRect(12,35,232,170,'#111d35','#e5d18a');
+  centered(land().name+' COMPLETE!',64,'#ffd76a',10);
+  centered(heroName(land().hero).toUpperCase()+' UNLOCKED!',96,'#a8edcf',10);
+  centered('YOUR NEW HERO JOINS THE JOURNEY',128,'#e6f3ff',7);
+  centered('RETURNING TO NIGHT ONE',151,'#a8d4ff',8);
+  if(stateTimer>=60)centered('JUMP: CONTINUE',180,'#a8edcf',8);
 }
 
 function pipeUnderPlayer() {
@@ -821,6 +900,12 @@ function enterTunnel(pipe) {
     passagePipes=[{x:2*TILE,kind:'return',used:false},
       ...[5,7,8].map((destination,i)=>({x:(12+i*12)*TILE,kind:'warp-destination',destination,used:false}))];
   }
+  if(pipe.kind==='bonus-entrance') {
+    activeTunnel.realmZone=true;gelts=[];items=[];blockContents={};
+    for(let y=4;y<13;y++)for(let x=1;x<TUNNEL_WIDTH-1;x++)map[y][x]=0;
+    passagePipes=[{x:2*TILE,kind:'return',used:false},
+      ...['midbar','prague','temple'].map((realm,i)=>({x:(12+i*12)*TILE,kind:'realm-destination',realm,used:false}))];
+  }
   placeAtPipe(2*TILE);
 }
 function placeAtPipe(x) {
@@ -839,7 +924,7 @@ function leaveTunnel(forward) {
 }
 function warpToNight(destination) {
   if(![5,7,8].includes(destination))return;
-  const power=player.power;
+  const power=player.power;bonusLevel=null;
   stats.night=destination;stats.checkpointLit=false;stats.checkpointX=32;stats.checkpointY=160;
   stats.letters=[false,false,false,false];
   tally.geltScore=0;tally.enemyScore=0;tally.comboScore=0;tally.oilScore=0;
@@ -849,7 +934,9 @@ function updatePipeTravel() {
   frameCount++;pipeTravel.frame++;
   if(pipeTravel.frame===18) {
     if(pipeTravel.entering)enterTunnel(pipeTravel.pipe);
-    else if(pipeTravel.pipe.kind==='warp-destination') {
+    else if(pipeTravel.pipe.kind==='realm-destination') {
+      startBonusLevel(pipeTravel.pipe.realm);return;
+    } else if(pipeTravel.pipe.kind==='warp-destination') {
       warpToNight(pipeTravel.pipe.destination);return;
     } else leaveTunnel(pipeTravel.pipe.kind==='forward');
   }
@@ -1064,7 +1151,17 @@ class Hippo {
   }
 
   hitBlockFromBelow(tx, ty, tile) {
-    if (tile === 10) {
+    if(tile===11 || tile===12) {
+      if(stats.night!==8 || bonusLevel || activeTunnel || map[ty]?.[tx]!==tile)return;
+      map[ty][tx]=6;sfx.sfxTick();
+      if(tile===11) {if(!finalSecretFailed)finalSecretStep=1;}
+      else if(finalSecretStep===1 && !finalSecretFailed) {
+        finalSecretStep=2;
+        passagePipes.push({x:170*TILE,kind:'bonus-entrance',used:false});
+        sfx.sfxCheckpoint();spawnParticles(170*TILE+16,13*TILE,'#addcff',24);
+        spawnPopup(169*TILE,8*TILE,'SECRET REALMS OPEN!','#d9ecff');
+      } else {finalSecretFailed=true;finalSecretStep=0;}
+    } else if (tile === 10) {
       map[ty][tx]=6;
       if(stats.night===2 && !activeTunnel && !passagePipes.some(pipe=>pipe.kind==='warp-entrance')) {
         passagePipes.push({x:32*TILE,kind:'warp-entrance',used:false});
@@ -1113,7 +1210,7 @@ class Hippo {
 function startLevel(resetCampaign = false) {
   const keepHungry = !resetCampaign && (hungryPending || player?.power===3);
   if (resetCampaign) {
-    hungryPending=false;
+    hungryPending=false;bonusLevel=null;
     stats.night = 1; stats.score = 0; stats.gelt = 0; stats.lives = 3; stats.NextBonusIndex = 0;
     stats.checkpointX = 32; stats.checkpointY = 160; stats.checkpointLit = false;
     stats.letters = [false, false, false, false]; stats.totalLetters = 0;
@@ -1309,7 +1406,12 @@ function updatePlay() {
     }
   }
 
-  if (!activeTunnel && gameState === 'PLAY' && (!boss || boss.state === 'dead') && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
+  if(bonusLevel && gameState==='PLAY' && (!boss || boss.state==='dead') &&
+     aabb(player,{x:166*TILE,y:10*TILE,w:24,h:48})) {
+    finishBonusLevel();return;
+  }
+  if (!bonusLevel && !activeTunnel && gameState === 'PLAY' && (!boss || boss.state === 'dead') &&
+      (stats.night!==8 || isUpPressed()) && aabb(player, { x: menorah.x, y: menorah.y, w: 24, h: 48 })) {
     menorah.lit = true; sfx.sfxWin();
     if (stats.night >= 3) HATS[2].unlocked = true;
     if (stats.night >= 8) HATS[3].unlocked = true;
@@ -1425,7 +1527,23 @@ function drawLandscape() {
   const rect=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(Math.floor(x),y,w,h);};
   const triangle=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+w/2,y-h);ctx.lineTo(x+w,y);ctx.fill();};
   const scroll=(i,spacing,factor)=>i*spacing-(cameraX*factor%spacing)-spacing;
-  if (kind==='desert') {
+
+  if(kind==='wilderness') {
+    rect(197,39,17,17,'#ffebaa');
+    for(let i=0;i<6;i++){const x=scroll(i,78,0.18);triangle(x,210,105,55,'#b79468');}
+    for(let i=0;i<5;i++){const x=scroll(i,93,0.4);rect(x+18,164,4,43,'#7e6848');rect(x,153,45,10,'#71845d');rect(x+5,148,34,8,'#809264');}
+    for(let i=0;i<4;i++){const x=scroll(i,121,0.3);triangle(x,208,42,26,'#e4d4b2');rect(x+17,193,8,15,'#7c6a54');}
+  } else if(kind==='prague') {
+    rect(0,186,256,54,'#3e657c');
+    for(let i=0;i<6;i++){const x=scroll(i,67,0.2);rect(x,125,56,70,'#a49a9b');triangle(x-3,125,62,28,'#6d4a55');
+      rect(x+8,145,9,15,'#f4d49b');rect(x+34,145,9,15,'#f4d49b');}
+    for(let i=0;i<4;i++){const x=scroll(i,104,0.38);rect(x,91,21,116,'#666b81');triangle(x-4,91,29,48,'#303d5d');rect(x+7,111,7,13,'#eed79e');}
+    rect(0,197,256,11,'#817d8a');
+  } else if(kind==='temple') {
+    rect(0,58,256,150,'#b7a27e');
+    for(let i=0;i<6;i++){const x=scroll(i,57,0.25);rect(x+7,83,15,125,'#e8d9b1');rect(x+3,76,23,10,'#f3e5bf');rect(x+3,198,23,10,'#f3e5bf');rect(x+11,86,3,110,'#fff0ca');}
+    rect(0,62,256,12,'#d8bb76');rect(0,69,256,3,'#f0d791');
+  } else if (kind==='desert') {
     rect(192,40,22,22,'#ffefad');
     rect(0,180,256,60,'#e1b36e');
     for(let i=0;i<5;i++) {const x=scroll(i,100,0.15);triangle(x,190,110,80,'#b68a50');triangle(x+4,190,54,80,'#dab16e');}
@@ -1489,6 +1607,7 @@ function draw() {
   if (gameState === 'VICTORY') { drawVictoryScreen(); ctx.restore(); return; }
   if (gameState === 'CREDITS') { drawCredits(); ctx.restore(); return; }
   if (gameState === 'INTRO') { drawIntro(); ctx.restore(); return; }
+  if (gameState === 'BONUS_CLEAR') { drawBonusClear(); ctx.restore(); return; }
 
   const startCol = Math.max(0, Math.floor(cameraX / TILE));
   const endCol = Math.min(LEVEL_WIDTH - 1, startCol + Math.ceil(canvas.width / TILE) + 1);
@@ -1525,6 +1644,10 @@ function draw() {
       } else if (tile === 7) {
         drawOutlinedRect(px, py, TILE, TILE, land().brick, '#292633');
         ctx.fillStyle = land().trim; ctx.fillRect(px + 1, py + 1, 6, 6); ctx.fillRect(px + 9, py + 1, 6, 6); ctx.fillRect(px + 1, py + 9, 14, 6);
+      } else if (tile===11 || tile===12) {
+        drawOutlinedRect(px,py,TILE,TILE,tile===11?'#2855a4':'#f0f5ff','#162543');
+        ctx.fillStyle=tile===11?'#70a4ec':'#aebfd9';
+        ctx.fillRect(px+1,py+1,6,6);ctx.fillRect(px+9,py+1,6,6);ctx.fillRect(px+1,py+9,14,6);
       } else if (tile === 10) {
         drawOutlinedRect(px,py,TILE,TILE,'#122c70','#08132e');
         ctx.fillStyle='#294a96';ctx.fillRect(px+1,py+1,6,6);ctx.fillRect(px+9,py+1,6,6);ctx.fillRect(px+1,py+9,14,6);
@@ -1537,6 +1660,15 @@ function draw() {
   }
 
   drawPassagePipes();
+  if(bonusLevel) {
+    const gx=Math.floor(166*TILE-cameraX);
+    drawOutlinedRect(gx,10*TILE,24,48,'#243759','#eacf78');
+    ctx.fillStyle='#b5e8e9';ctx.fillRect(gx+5,10*TILE+5,14,38);
+    ctx.fillStyle='#fff0ae';ctx.font='bold 7px monospace';ctx.fillText('EXIT',gx-1,10*TILE-7);
+  } else if(stats.night===8 && boss?.state==='dead') {
+    const mx=Math.floor(menorah.x-cameraX);
+    ctx.fillStyle='#ffe797';ctx.font='bold 7px monospace';ctx.fillText('UP: LIGHT',mx-9,menorah.y-9);
+  }
 
   const bdx = Math.floor(bonusDoor.x - cameraX);
   if (bonusDoor.active && !bonusDoor.used) {
@@ -1643,7 +1775,7 @@ function draw() {
   drawHUD();
   if (activeTunnel) {
     ctx.fillStyle='#101528';ctx.fillRect(30,28,196,13);
-    centered(activeTunnel.warp?'WARP ZONE - CHOOSE A NIGHT':'SECRET PASSAGE - DOWN TO EXIT',37,'#a6dfb5',7);
+    centered(activeTunnel.realmZone?'SECRET REALMS - CHOOSE A LAND':activeTunnel.warp?'WARP ZONE - CHOOSE A NIGHT':'SECRET PASSAGE - DOWN TO EXIT',37,'#a6dfb5',7);
   }
   if (pipeTravel) {
     ctx.fillStyle=`rgba(5,8,18,${1-Math.abs(pipeTravel.frame-18)/18})`;
@@ -1662,6 +1794,9 @@ function drawPassagePipes() {
     ctx.fillStyle='#78ac7e';ctx.fillRect(x+6,y+1,4,27);
     drawOutlinedRect(x-1,y-5,34,8,available?'#82ba87':'#6b8b7b','#102e2c');
     ctx.fillStyle='#122e30';ctx.fillRect(x+5,y-3,22,3);
+    if(pipe.kind==='realm-destination') {
+      ctx.fillStyle='#deedff';ctx.font='bold 8px monospace';ctx.fillText(pipe.realm.toUpperCase(),x-8,y-22);
+    }
     if(pipe.kind==='warp-destination') {
       ctx.fillStyle='#ffd878';ctx.font='bold 8px monospace';ctx.fillText('NIGHT '+pipe.destination,x-8,y-22);
     }
@@ -1733,7 +1868,7 @@ function drawHippo() {
     drawOutlinedRect(px+10,py-2,11,4,'#ffd76a');
     return;
   }
-  if(['harry','snowman','latke','hanukkiah','coin'].includes(character)) {
+  if(['harry','snowman','latke','hanukkiah','coin','moses','golem','solomon'].includes(character)) {
     drawUnlockedHero(px,py);return;
   }
   if (character === 'goblin') {
@@ -1787,7 +1922,24 @@ function drawUnlockedHero(px,py) {
   ctx.save();ctx.translate(px,py+player.h-height);ctx.scale(player.w/16,height/22);
   const box=(x,y,w,h,color)=>drawOutlinedRect(x,y,w,h,color,'#121525');
   const fire=player.power===2;
-  if(character==='harry') {
+  if(character==='moses') {
+    box(3,8,10,12,'#d7c49b');box(5,2,7,8,'#bd9976');
+    ctx.fillStyle='#e7e3d6';ctx.fillRect(4,1,8,3);ctx.fillRect(4,7,9,6);ctx.fillRect(6,12,5,3);
+    ctx.fillStyle='#23334a';ctx.fillRect(6,5,1,2);ctx.fillRect(10,5,1,2);
+    box(0,3,2,19,'#8c623c');box(3,19,4,3,'#574833');box(10,19,4,3,'#574833');
+  } else if(character==='golem') {
+    box(2,7,12,12,'#928773');box(3,1,10,8,'#a79c87');box(0,9,4,8,'#7e7567');box(12,9,4,8,'#7e7567');
+    ctx.fillStyle='#bce2d3';ctx.fillRect(5,4,2,2);ctx.fillRect(10,4,2,2);
+    ctx.fillStyle='#514b45';ctx.fillRect(5,8,6,1);ctx.fillRect(7,12,2,5);
+    box(2,19,5,3,'#706759');box(10,19,5,3,'#706759');
+    ctx.fillStyle='#d7c8a4';ctx.fillRect(5,1,5,1);
+  } else if(character==='solomon') {
+    box(3,8,10,13,fire?'#c97d3c':'#6e5b9b');box(4,2,8,8,'#d9ae85');
+    box(3,0,10,3,'#e9c15a');ctx.fillStyle='#ffe296';ctx.fillRect(3,-2,2,3);ctx.fillRect(7,-3,2,4);ctx.fillRect(11,-2,2,3);
+    ctx.fillStyle='#3f354a';ctx.fillRect(5,5,2,2);ctx.fillRect(10,5,2,2);ctx.fillRect(5,9,6,3);
+    ctx.fillStyle='#f1cc6f';ctx.fillRect(7,12,2,8);
+    box(3,20,4,2,'#473f4b');box(10,20,4,2,'#473f4b');
+  } else if(character==='harry') {
     box(3,7,10,11,fire?'#e29935':'#4075c5');
     box(4,2,8,8,'#edbd92');
     box(2,1,12,3,'#e4edf9');box(4,-1,8,3,'#377bc3');
@@ -1846,7 +1998,7 @@ function drawHUD() {
   ctx.fillStyle = '#080b16'; ctx.fillRect(0, 0, canvas.width, 26);
   ctx.fillStyle = '#2b3554'; ctx.fillRect(0, 25, canvas.width, 1);
   ctx.fillStyle = '#ffffff'; ctx.font = 'bold 8px monospace';
-  ctx.fillText(`NIGHT ${stats.night}`, 6, 10);
+  ctx.fillText(bonusLevel?'BONUS':`NIGHT ${stats.night}`, 6, 10);
   ctx.fillText(`SCORE:${String(stats.score).padStart(6, '0')}`, 56, 10);
   ctx.fillStyle = '#ffd700'; ctx.fillText(`GELT:${String(stats.gelt).padStart(2, '0')}`, 6, 21);
   ctx.fillStyle = '#ff99aa'; ctx.fillText(`x${stats.lives}`, 56, 21);
@@ -1883,7 +2035,7 @@ function drawTitleScreen() {
   ctx.fillStyle = '#ffd700'; ctx.font = 'bold 15px monospace'; ctx.fillText('HANUKKAH HIPPO', 60, 44);
   ctx.fillStyle = '#70e0ff'; ctx.font = 'bold 8px monospace'; ctx.fillText('8 LANDS - 8 NIGHTS - ONE LIGHT', 38, 58);
   const opts = [`START GAME (NIGHT ${stats.night})`, `ENTER DREIDEL PASSWORD`, `HAT: ${HATS[stats.hatIdx].name}`];
-  if (goblinUnlocked) opts.push(`HERO: ${heroName().toUpperCase()}`);
+  if (unlockedHeroes().length>1) opts.push(`HERO: ${heroName().toUpperCase()}`);
   opts.forEach((opt, idx) => {
     ctx.fillStyle = titleCursor === idx ? '#55ff55' : '#ffffff';
     ctx.fillText(`${titleCursor === idx ? '▶ ' : '  '}${opt}`, 44, 88 + idx * 18);
@@ -1993,10 +2145,10 @@ function drawCredits() {
 }
 function drawIntro() {
   drawOutlinedRect(12,58,232,124,'#10142cee','#ffd700');
-  centered(`NIGHT ${stats.night} OF ${NIGHT_COUNT}`,82,'#ffd700',11);
+  centered(bonusLevel?'SECRET REALM':`NIGHT ${stats.night} OF ${NIGHT_COUNT}`,82,'#ffd700',11);
   centered(land().name,106,'#ffffff',11);
   centered(land().place,127,'#88e8ff',8);
-  centered(heroName().toUpperCase(),155,'#88ff99',8);
+  centered(bonusLevel?'UNLOCK '+heroName(land().hero).toUpperCase():heroName().toUpperCase(),155,'#88ff99',8);
 }
 
 function updateGame() {
@@ -2004,13 +2156,13 @@ function updateGame() {
 
   if (gameState === 'TITLE') {
     frameCount++; sfx.updateBGM(false, false, false);
-    if (isUpPressed()) { titleCursor = (titleCursor + (goblinUnlocked ? 3 : 2)) % (goblinUnlocked ? 4 : 3); sfx.sfxTick(); }
-    if (isDownPressed()) { titleCursor = (titleCursor + 1) % (goblinUnlocked ? 4 : 3); sfx.sfxTick(); }
+    if (isUpPressed()) { titleCursor = (titleCursor + (unlockedHeroes().length>1 ? 3 : 2)) % (unlockedHeroes().length>1 ? 4 : 3); sfx.sfxTick(); }
+    if (isDownPressed()) { titleCursor = (titleCursor + 1) % (unlockedHeroes().length>1 ? 4 : 3); sfx.sfxTick(); }
     if (isJumpPressed()) {
       sfx.init();
       if (titleCursor === 0) startLevel(stats.lives <= 0);
       else if (titleCursor === 1) { gameState = 'PASSWORD'; pwCursor = 0; }
-      else if (titleCursor === 3 && goblinUnlocked) {
+      else if (titleCursor === 3 && unlockedHeroes().length>1) {
         const heroes=unlockedHeroes();character=heroes[(heroes.findIndex(h=>h.id===character)+1)%heroes.length].id;
         replayCharacter=character;saveCharacterProgress();
       }
@@ -2027,12 +2179,13 @@ function updateGame() {
     if (isJumpPressed()) {
       const matchIdx = PASSWORDS.findIndex(pw => pw.every((val, i) => val === pwEntry[i]));
       if (matchIdx !== -1) {
-        stats.night = matchIdx + 1; stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
+        bonusLevel=null;stats.night = matchIdx + 1; stats.checkpointLit = false; stats.checkpointX = 32; stats.checkpointY = 160;
         sfx.sfxPowerup(); startLevel(false);
       } else { pwError = 60; sfx.sfxShrink(); }
     }
   } else if (gameState === 'PLAY') updatePlay();
   else if (gameState === 'PIPE') updatePipeTravel();
+  else if (gameState === 'BONUS_CLEAR') { frameCount++;if(++stateTimer>=240 || (stateTimer>=60 && isJumpPressed()))returnFromBonus(); }
   else if (gameState === 'DEAD') updateDead();
   else if (gameState === 'TALLY') updateTally();
   else if (gameState === 'MENORAH') updateMenorahScreen();
