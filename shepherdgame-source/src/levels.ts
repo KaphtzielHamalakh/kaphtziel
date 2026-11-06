@@ -8,7 +8,7 @@ export function makeRoom(realm:number,index:number):Room{
  const ladder=(x:number,y:number,n:number)=>{for(let i=y;i<y+n;i++)tiles[i][x]='H';};
  const puzzle=index===2||index===5;
  const titles=['OUTER REACHES','THE BROKEN ROAD','THE FIRST SEAL','THE GAUNTLET','SANCTUARY','THE SECOND SEAL','THE HEIGHTS','THE SPARK GATE','THE CAPTIVE SPARK'];
- if(index===0){platform(6,10,3);platform(12,8,3);put('walker','enemy0',138,190,14,16,2);put('honey','honey',202,112,8,10);}
+ if(index===0){for(let i=0;i<4;i++)put('step','approach'+i,64+i*16,200-i*8,16,240-(200-i*8));platform(8,10,2);platform(12,8,3);put('walker','enemy0',138,190,14,16,2);put('honey','honey',202,112,8,10);}
  if(index===1){platform(4,10,3);platform(9,8,3);platform(13,10,3);put('flyer','enemy1',164,100,16,16,2);put('turret','enemy2',214,192,16,16,3);put('plate','reflect',120,168).timer=1;}
  if(index===2){
   const variant=realm%4;
@@ -28,13 +28,26 @@ export function makeRoom(realm:number,index:number):Room{
   const powers=[0,2,5,6,7,2,4,1];const kinds=['thorn','cracked','curtain','shadow','stalactite','cracked','sand','water'];const e=put(kinds[realm],'alcove',186,128,16,48);e.power=powers[realm];put('fragment','fragment',204,152,8,12).power=powers[realm];
   if(realm===4)put('light','light',148,152,32,6);
  }
- if(index===6){platform(2,10,4);platform(8,7,4);platform(3,4,4);platform(13,4,3);ladder(4,10,3);ladder(9,7,6);ladder(5,4,6);put('flyer','flyer',128,92,16,16,2);put('turret','turret',174,96,16,16,3);}
+ if(index===6){
+  // Broad stone stair landing, followed by a continuous ladder into the upper room.
+  for(let i=0;i<9;i++)put('step','stair'+i,48+i*16,200-i*8,16,240-(200-i*8));
+  ladder(12,0,13);
+  put('flyer','flyer',120,64,16,16,2);
+ }
+ if(index===9){
+  for(let i=0;i<10;i++)put('step','upper-stair'+i,64+i*16,200-i*8,16,240-(200-i*8));
+  put('step','upper-landing',224,128,32,112);
+  // A shaft at the left landing connects both directions with room six.
+  tiles[13][2]='H';tiles[14][2]='H';ladder(2,10,3);
+  put('honey','upper-honey',144,128,10,12);
+ }
+
  if(index===7){put('checkpoint','checkpoint',40,176);put('honey','honey',100,184,10,12);put('energy','energy',130,184,10,12);put('bossgate','bossgate',224,96,16,112);}
  if(index===8){platform(3,10,2);platform(11,10,2);}
- if(!puzzle&&index!==4&&index!==7&&index!==8){
+ if(!puzzle&&index!==4&&index!==7&&index!==8&&index!==6&&index!==9){
   const kinds=['sun','icicle','vent','lightning','gust','current','rhythm','crumble'];put(kinds[realm],'hazard',120,realm===1?32:192,32,16);
   if(realm===6)put('lantern','lantern',172,118,10,28);
  }
- return {tiles:tiles.map(r=>r.join('')),entities,title:titles[index],puzzle,vertical:index===6};
+ return {tiles:tiles.map(r=>r.join('')),entities,title:index===9?'THE UPPER TERRACES':titles[index],puzzle,vertical:index===6};
 }
 export function prologueRoom(index:number):Room{const r=makeRoom(0,index===0?0:index===1?2:8);r.title=['THE FIELDS OF JESSE','THE LION AT THE FOLD','THE BEAR IN THE HILLS'][index]||'BETHLEHEM';r.entities=r.entities.filter(e=>['honey','plate'].includes(e.type));if(index>0)r.entities.push(entity('mini',index===1?'lion':'bear',164,176,28,32,index===1?8:12));return r;}

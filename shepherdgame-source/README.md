@@ -40,7 +40,10 @@ Complete Bethlehem's lion and bear encounters, then choose eight realms in any
 order. Free sparks to earn weapon palettes and powers; optional alcoves hold
 Psalm fragments. Shoot bells or play the lyre to open puzzle gates. Shoot the R
 bell to reset a puzzle. Each realm has two puzzle rooms, a miniboss, checkpoints,
-a climb and a boss. The pause menu records songs and offers Horns of Oil.
+a climb, an upper terrace and a boss. Walk left to return to earlier screens.
+Walk up the stone stairs and hold UP on the ladder to reach the upper terrace;
+its stairs lead right to the boss gate. Return left from the gate and hold DOWN
+on the terrace ladder to descend. Tower screens also connect up and down. The pause menu records songs and offers Horns of Oil.
 Ayil unlocks after one spark, the Dove after four. Revisit realms for fragments.
 
 After eight sparks, select David in the center to enter Elah. Hold FIRE for

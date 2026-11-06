@@ -1,0 +1,23 @@
+import {realms} from '../data/realms';
+const scenes=new Map<string,HTMLCanvasElement>();
+function surface(w:number,h:number){const c=document.createElement('canvas');c.width=w;c.height=h;return [c,c.getContext('2d')!] as const;}
+export function landscape(realm:number,title=false,pastoral=false){const key=[realm,title,pastoral].join();if(scenes.has(key))return scenes.get(key)!;const [c,g]=surface(256,240),r=realms[realm];const fill=(x:number,y:number,w:number,h:number,color:string)=>{g.fillStyle=color;g.fillRect(Math.floor(x),Math.floor(y),w,h);};
+ fill(0,0,256,240,pastoral?'#23395d':r.sky);
+ const disc=(x:number,y:number,radius:number,color:string)=>{for(let yy=-radius;yy<=radius;yy++){const w=Math.floor(Math.sqrt(radius*radius-yy*yy));fill(x-w,y+yy,w*2+1,1,color);}};
+ const rock=(x:number,y:number,w:number,h:number,color:string)=>{for(let yy=0;yy<h;yy++){const inset=yy<8?Math.max(0,8-yy):0;fill(x+inset,y+yy,w-inset*2,1,color);}for(let j=12;j<h;j+=13){fill(x+3,y+j,w-6,1,r.sky);fill(x+5,y+j+2,Math.max(2,w/3),1,r.ground);}};
+ const column=(x:number,y:number,h:number)=>{fill(x,y,14,h,r.back);fill(x+2,y,2,h,r.ground);fill(x+10,y,2,h,r.sky);fill(x-3,y-3,20,5,r.ground);fill(x-3,y+h-4,20,5,r.ground);for(let yy=12;yy<h;yy+=16)fill(x,y+yy,14,1,r.sky);};
+ for(let i=0;i<38;i++)fill((i*71+13)%256,(i*29+11)%128,1,1,i%3?r.back:r.light);
+ if(realm===0||realm===7){disc(195,70,29,realm===0?'#d79c60':'#b96555');for(let j=0;j<6;j++)fill(162,79+j*4,66,2,r.sky);for(let i=0;i<7;i++)rock(i*44-12,128-(i*17)%54,35+(i%2)*10,140,r.back);for(let i=0;i<6;i++){fill(i*53,178,43,30,r.ground);fill(i*53+2,180,39,2,r.light);for(let j=0;j<4;j++)fill(i*53+j*9,184,1,22,r.back);}}
+ if(realm===1){disc(202,50,19,'#c6dbe8');for(let i=0;i<6;i++){const x=i*58-24,peak=66+(i%3)*20;for(let y=peak;y<208;y++){const w=Math.floor((y-peak)*.47);fill(x-w,y,w*2,1,r.back);if(y<peak+18)fill(x-w,y,w*2,1,r.light);else if(y<peak+40)fill(x,y,2,1,r.ground);}}for(let i=0;i<8;i++)fill(i*37+4,143+(i%3)*13,3,70,'#345274');}
+ if(realm===2){disc(200,76,26,'#b76d47');for(let i=0;i<9;i++){const x=i*33-9,y=115+(i%3)*15;rock(x,y,22,120,r.back);fill(x+3,y,16,3,r.light);}for(let i=0;i<7;i++){fill(i*41,186,32,18,'#3a3040');fill(i*41+3,186,26,2,'#bf8547');}for(let i=0;i<5;i++){fill(27+i*47,162,3,24,'#8f765b');fill(25+i*47,158,7,3,'#ac9974');}}
+ if(realm===3||realm===4||realm===6){if(realm!==3)disc(207,46,17,realm===6?'#cab9ad':'#d09b85');for(let i=0;i<9;i++){const x=i*34-12,y=95+(i*19)%55;fill(x,y,29,113,r.back);fill(x+2,y+3,25,2,r.ground);for(let wy=y+13;wy<195;wy+=20){fill(x+7,wy,5,9,r.sky);fill(x+19,wy,4,9,r.sky);if(realm===6)fill(x+8,wy+2,2,5,'#b79863');}}for(let i=0;i<4;i++)column(i*73+10,127+i%2*14,82);if(realm===3){for(let i=0;i<6;i++){fill(i*48,38+(i%2)*11,45,13,r.back);fill(i*48+7,31+(i%2)*11,28,10,r.back);}}if(realm===4)for(let i=0;i<24;i++){const x=i*11;fill(x,195-(i%4)*4,2,15,r.ground);fill(x-2,192-(i%4)*4,6,3,'#59604c');}}
+ if(realm===5){for(let y=18;y<208;y+=24)fill(0,y,256,1,'#1c3a4b');for(let i=0;i<7;i++){const x=i*42+7;column(x,124+(i%3)*13,90);for(let n=0;n<8;n++){fill(x+20+(n%3),192-n*8,2,8,n%2?'#397f79':'#305b69');fill(x+16,192-n*8,7,2,'#397f79');}}for(let i=0;i<24;i++){const x=(i*61)%256,y=50+(i*39)%143;fill(x,y,2,2,'#73b6b0');fill(x+1,y+1,1,1,'#b3dbbb');}fill(65,180,68,13,'#2b4652');fill(77,170,2,24,'#59716a');fill(79,171,29,1,'#8e9f88');}
+ if(pastoral||title){fill(0,181,256,59,'#213b3d');for(let x=0;x<256;x++){const y=170+Math.floor(Math.sin(x/36)*12);fill(x,y,1,69,'#263e3d');if(x%11===0)fill(x,y-3,1,5,'#5b7256');}for(let i=0;i<8;i++){fill(i*37,202,2,12,'#ac9161');fill(i*37,205,37,2,'#79684b');}for(let i=0;i<4;i++){fill(i*67+12,150,4,45,'#443b38');for(let n=0;n<4;n++)fill(i*67+n*7,143+n%2*6,15,16,n%2?'#465a49':'#596c4e');}}
+ scenes.set(key,c);return c;
+}
+export function stoneTile(realm:number,top:boolean,variant=0){const key='tile'+realm+top+variant;if(scenes.has(key))return scenes.get(key)!;const [c,g]=surface(16,16),r=realms[realm];const f=(x:number,y:number,w:number,h:number,col:string)=>{g.fillStyle=col;g.fillRect(x,y,w,h);};
+ f(0,0,16,16,'#141624');f(1,1,14,14,r.ground);f(1,1,14,1,r.light);f(1,2,1,12,r.light);f(2,13,13,2,r.back);f(14,2,1,12,r.back);
+ if(realm===1){f(2,3,11,2,'#aacbdf');f(3,5,2,5,'#87accb');f(10,7,2,4,r.back);}else{f(2,7,12,1,r.back);f(variant%2?5:10,2,1,5,r.back);f(variant%2?10:5,8,1,5,r.back);f(3,4,2,1,r.light);f(9,10,3,1,r.light);f(3+variant*3,11,1,1,r.back);}
+ if(top){f(0,0,16,2,r.light);f(1,2,14,1,r.ground);if(realm===4||realm===5){f(1,0,4,3,realm===4?'#7c8f61':'#75b6a1');f(10,0,3,4,realm===4?'#536846':'#467e6a');}}
+ scenes.set(key,c);return c;
+}

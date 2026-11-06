@@ -109,3 +109,24 @@ Source lives in shepherdgame-source; the checked-in static Vite output lives in
 shepherdgame. The existing GitHub Pages deployment and CNAME are unchanged.
 Music files should be added to source/public/music and rebuilt, so later builds
 do not erase a file placed only into the generated directory.
+
+## Revision — connected screens and detailed pixel artwork
+
+- Main paths now allow left/right backtracking in the tutorial, realms, Elah and
+  tower. Active boss arenas remain locked until their fight concludes.
+- Every realm has a tenth, upper terrace screen: the Heights lead up a ladder
+  to that terrace; its walk-up stairs lead right to the spark gate. The route
+  is reciprocal: gate → terrace → ladder down → Heights. Eight-pixel stone
+  stairs support walking ascent without repeated jumps. Tower rooms also
+  connect upward and downward through their ladders; advancing upward still
+  requires the room's power interaction.
+- Added shaded David sprite details, equipment, climb and airborne poses,
+  original individual demon sprites, larger enemy drawings and beveled
+  portrait frames. Added cached realm-specific scenery and textured tile art.
+  These replace the first-release simple geometric rendering, while retaining
+  code-generated art, the original characters, and the 256×240 resolution.
+- `tests/traversal.mjs` verifies stairs into the ladder, upper-screen travel,
+  return from the gate, descent, and ordinary horizontal round trips in all
+  eight realms. Shaft descent positioning is set by the harness; the ascent
+  walks and climbs using simulated inputs. Chromium desktop, multi-touch and
+  existing puzzle/combat regression checks also pass.

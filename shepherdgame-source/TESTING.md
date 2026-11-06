@@ -63,3 +63,14 @@ missing. Safari/iOS is not claimed as verified.
 - [ ] Listen to supplied tracks across loop boundaries and tune manifest padding.
 - [ ] Verify all detailed spec deviations in DECISIONS.md before declaring 1:1
   implementation of the attached game specification.
+
+## Connected-screen revision
+
+`node tests/traversal.mjs` passes for all eight realms: walking up stairs,
+climbing into the upper terrace, traversing its stairs to the gate, returning
+left, descending the shaft, and crossing ordinary room boundaries in both
+horizontal directions. The ascent uses simulated directional input without
+teleporting between the staircase and its ladder. The return-shaft position is
+set directly to isolate descent. Updated title, realm and portrait screenshots
+were visually inspected. Desktop/multi-touch and puzzle/tower regression scripts
+were rerun successfully. Physical phone and Firefox/Safari checks remain pending.

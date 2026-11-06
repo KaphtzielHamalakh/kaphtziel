@@ -5,7 +5,9 @@ import {Audio} from './engine/audio/audio';
 import {musicManifest} from './engine/audio/musicManifest';
 import {fresh,read,write,encode,decode,options,saveOptions,type Save} from './engine/save';
 import {text} from './art/font';
-import {david,raster,ENEMY} from './art/sprites';
+import {david,enemySprite} from './art/sprites';
+import {demonSprite} from './art/demons';
+import {landscape,stoneTile} from './art/landscape';
 import {realms,songs,psalms} from './data/realms';
 import {story} from './data/text';
 import {makeRoom,prologueRoom,type Room,type Entity} from './levels';
@@ -21,7 +23,7 @@ document.querySelector('#fullscreen')!.addEventListener('click',()=>{if(document
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='stage'){state='pause';audio.paused=true;audio.volumes();}else if(!document.hidden)audio.unlock();});
 type State='title'|'slots'|'difficulty'|'select'|'stage'|'pause'|'options'|'story'|'intro'|'power'|'password'|'gameover'|'ending'|'sound'|'remap'|'layout'|'rematches';
 let state:State='title',returnOptions:State='title',t=0,stateTime=0,select=0,menu=0,slot=0,save:Save=fresh(),realm=0,roomIndex=0,room:Room=makeRoom(0,0),campaign:'prologue'|'realms'|'elah'|'tower'|'rematch'|'final'|'saul'='prologue';
-let hp=28,lives=3,energy=Array(8).fill(28),companionEnergy=28,weapon=-1,face=1,invul=0,knock=0,throwing=0,charge=0,stones=5,refill=0,checkpoint=0,respawnX=24,slideFace=1,frame=0,transition=0,transitionDir=1,doorWait=0;
+let hp=28,lives=3,energy=Array(8).fill(28),companionEnergy=28,weapon=-1,face=1,invul=0,knock=0,throwing=0,charge=0,stones=5,refill=0,checkpoint=0,respawnX=24,slideFace=1,frame=0,transition=0,transitionDir=1,doorWait=0,verticalTransition=false;
 let p:Body={x:24,y:180,vx:0,vy:0,ground:false,wasMoving:false,slide:0,climbing:false};
 type Shot={x:number,y:number,vx:number,vy:number,life:number,power:number,damage:number,bounce:number,enemy:boolean};
 let shots:Shot[]=[],particles:{x:number,y:number,vx:number,vy:number,life:number,color:string}[]=[],drops:Entity[]=[],boss:{x:number,y:number,hp:number,max:number,frame:number,hit:number,phase:number,stun:number}|null=null;
@@ -38,7 +40,7 @@ function saveGame(){write(slot,save);}
 function startSlot(n:number,newGame=false){slot=n;save=newGame?fresh():read(n)||fresh();lives=save.difficulty===0?5:3;hp=28;energy.fill(28);companionEnergy=28;weapon=-1;if(!save.prologue){change('difficulty');}else{change('select');tune('stage_select');}}
 function beginPrologue(){campaign='prologue';realm=0;checkpoint=0;roomIndex=0;tell(story.prologue,()=>{enterRoom(0);tune('prologue');});}
 function startRealm(n:number){if(weapon===8)weapon=-1;realm=n;campaign='realms';checkpoint=0;hp=28;enterRoom(0);tune(realms[n].track);}
-function enterRoom(n:number,fromLeft=false){roomIndex=n;state='stage';stateTime=0;shots=[];drops=[];boss=null;doorWait=0;room=campaign==='prologue'?prologueRoom(n):makeRoom(realm,Math.min(n,8));p.x=fromLeft?224:24;p.y=180;p.vy=0;p.slide=0;p.wasMoving=false;respawnX=p.x;transition=18;transitionDir=fromLeft?-1:1;notes='';
+function enterRoom(n:number,fromLeft=false){roomIndex=n;state='stage';stateTime=0;shots=[];drops=[];boss=null;doorWait=0;room=campaign==='prologue'?prologueRoom(n):makeRoom(realm,n);p.x=fromLeft?224:24;p.y=180;p.vy=0;p.slide=0;p.wasMoving=false;respawnX=p.x;transition=18;transitionDir=fromLeft?-1:1;verticalTransition=false;notes='';
  if(campaign==='elah'){room.title=['THE PHILISTINE LINES','THE BROOK','GOLIATH'][Math.min(n,2)];if(n===0){room.entities.filter(e=>e.type==='walker').forEach(e=>e.type='shield');}if(n===1){room=makeRoom(5,4);room.title='THE BROOK';room.entities=[];tell(story.brook,()=>{stones=5;weapon=8;change('stage');});}if(n===2){room=makeRoom(7,8);room.title='GOLIATH';startBoss();}}
  if(campaign==='tower'){room.title='TOWER OF SHADOWS '+(n+1);realm=n%8;room=makeRoom(realm,6);room.title='TOWER OF SHADOWS '+(n+1);const obj=['thorn','water','cracked','standing','windmill','basin','shadow','socket'][n];room.entities.push({id:'required',type:obj,x:218,y:160,w:16,h:48,hp:1,active:false,timer:0,power:n});}
  if(campaign==='final'){room=makeRoom(6,8);room.title='ASHMEDAI THE KING';startBoss();}
@@ -52,7 +54,7 @@ function rect(x:number,y:number,w:number,h:number,c:string){ctx.fillStyle=c;ctx.
 function overlap(a:{x:number,y:number,w:number,h:number},b:{x:number,y:number,w:number,h:number}){return a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;}
 function playerBox(){return {x:p.x,y:p.y+(p.slide?10:0),w:14,h:p.slide?12:22};}
 function tile(x:number,y:number){if(x<0||x>=256)return '.';return room.tiles[Math.floor(y/16)]?.[Math.floor(x/16)]||'.';}
-const blockKinds=['gate','harp','block','crate','thorn','cracked','shadow','sand','water','ice','bossgate'];
+const blockKinds=['gate','harp','block','crate','thorn','cracked','shadow','sand','water','ice','bossgate','step'];
 function solids(){const a:{x:number,y:number,w:number,h:number}[]=[];room.tiles.forEach((r,y)=>[...r].forEach((v,x)=>{if(v==='#')a.push({x:x*16,y:y*16,w:16,h:16});}));for(const e of room.entities){if((blockKinds.includes(e.type)&&!e.active&&(e.type!=='shadow'||veil===0))||(e.type==='animal'&&e.active)||e.type==='light'&&lightTime>0||e.type==='rhythm'&&Math.floor(t/(3600/(musicManifest.realm_night.bpm||120)))%4<2)a.push(e);if(e.type==='water'&&e.active)a.push({...e,h:4});}if(companion)a.push({x:companion.x,y:companion.y,w:28,h:8});return a;}
 function damage(n:number,from:number){if(invul||veil||state!=='stage')return;hp-=Math.max(1,Math.round(n*(save.difficulty===0?.5:save.difficulty===2?1.5:1)));invul=C.invincible+C.knockFrames;knock=C.knockFrames;p.vx=p.x<from?-1:1;p.vy=-2;audio.sfx('hurt');spark(p.x+7,p.y+8,'#e3b282',5);if(hp<=0)die();}
 function die(){lives--;audio.sfx('death');if(lives<=0){change('gameover');void audio.jingle('jingle_game_over');}else{hp=28;invul=120;enterRoom(checkpoint);notify('THE FLOCK STILL NEEDS YOU.');}}
@@ -82,6 +84,35 @@ function bossDefeated(){if(!boss)return;spark(boss.x,boss.y,'#f1d890',40);boss=n
  if(campaign==='rematch'){rematchMask|=1<<realm;if(rematchMask===255){save.fortress=3;saveGame();tell(['THE EIGHT SPARKS SHINE.','THE THRONE AWAITS.'],()=>{campaign='final';enterRoom(8);});}else {change('rematches');tune('ashmedai_hall');}return;}
  if(campaign==='final'){save.fortress=4;saveGame();campaign='saul';saulSongs=0;save.morning=true;tell(['THE SPARKS RISE AS ONE.','BUT A SHADOW LINGERS','IN THE PALACE OF SAUL.'],()=>enterRoom(8));return;}
  save.mask|=1<<realm;weapon=realm;saveGame();change('power');void audio.jingle('jingle_get_power');}
+function travelHorizontal(direction:number){
+ if(boss){p.x=direction<0?0:242;return;}
+ if(direction<0){
+  if(campaign==='realms'&&roomIndex>0){
+   const n=roomIndex===7?9:roomIndex===9?-1:roomIndex-1;
+   if(n>=0){enterRoom(n,true);if(n===9)p.y=106;}else p.x=0;
+  }else if((campaign==='prologue'||campaign==='elah'||campaign==='tower')&&roomIndex>0)enterRoom(roomIndex-1,true);
+  else p.x=0;
+  return;
+ }
+ if(campaign==='tower'||campaign==='realms'&&roomIndex===6){p.x=242;notify('CLIMB UP TO THE NEXT SCREEN');return;}
+ if(campaign==='realms'&&roomIndex===9){if(p.y>130){p.x=242;return;}enterRoom(7);p.y=106;return;}
+ advanceRoom();
+}
+function verticalTravel(){
+ if(campaign==='tower'){
+  if(input.is('up')&&p.x>=184&&p.x<=208&&p.y<=18){advanceRoom();if(state==='stage'){p.x=193;p.y=180;verticalTransition=true;}return true;}
+  if(roomIndex>0&&input.is('down')&&p.x>=184&&p.x<=208&&p.y>=180){enterRoom(roomIndex-1);p.x=193;p.y=20;verticalTransition=true;transitionDir=-1;return true;}
+  return false;
+ }
+ if(campaign!=='realms')return false;
+ if(roomIndex===6&&input.is('up')&&p.x>=184&&p.x<=208&&p.y<=18){
+  enterRoom(9);p.x=34;p.y=198;p.climbing=true;p.vy=-C.climb;verticalTransition=true;transitionDir=1;return true;
+ }
+ if(roomIndex===9&&p.x>=25&&p.x<=48&&p.y>=198&&(input.is('down')||p.y>226)){
+  enterRoom(6);p.x=194;p.y=20;p.climbing=true;p.vy=C.climb;verticalTransition=true;transitionDir=-1;return true;
+ }
+ return false;
+}
 function advanceRoom(){if(campaign==='prologue'){if(room.entities.some(e=>e.type==='mini'&&e.hp>0)){p.x=238;return;}if(roomIndex<2){enterRoom(roomIndex+1);return;}tell(story.anointing,()=>{tune('anointing');tell([...story.breaking,...story.charge],()=>{save.prologue=true;saveGame();change('select');tune('stage_select');});});return;}
  if(campaign==='elah'){if(roomIndex<2){enterRoom(roomIndex+1);return;}}
  if(campaign==='tower'){const e=room.entities.find(e=>e.id==='required');if(e&&!e.active){p.x=232;notify('USE '+realms[roomIndex].power);return;}if(roomIndex<7){enterRoom(roomIndex+1);return;}save.fortress=2;saveGame();rematchMask=0;change('rematches');return;}
@@ -96,17 +127,19 @@ function updateStage(){
  else {
   const dir=Number(input.is('right'))-Number(input.is('left'));if(dir)face=dir;
   const ladder=tile(p.x+7,p.y+12)==='H'||tile(p.x+7,p.y+22)==='H';
-  if(ladder&&(input.is('up')||input.is('down'))){p.climbing=true;p.vy=(Number(input.is('down'))-Number(input.is('up')))*C.climb;p.vx=dir*C.climb;p.y+=p.vy;p.x+=p.vx;p.ground=false;if(input.hit('jump')){p.climbing=false;p.vy=C.jump;}}
+  if(ladder&&(input.is('up')||input.is('down'))){p.climbing=true;p.vy=(Number(input.is('down'))-Number(input.is('up')))*C.climb;p.vx=dir*C.climb;p.y+=p.vy;p.x+=p.vx;if(!dir)p.x=Math.floor((p.x+7)/16)*16+1;p.ground=false;if(input.hit('jump')){p.climbing=false;p.vy=C.jump;}}
   else {p.climbing=false;if(knock>0){knock--;p.vy=Math.min(7,p.vy+C.gravity);}else{const ce=solids().some(s=>overlap({x:p.x,y:p.y,w:14,h:10},s));motion(p,dir,input.is('jump'),input.hit('jump'),input.is('down'),ce,realm===5&&campaign==='realms');if(realm===1&&campaign==='realms'&&p.ground){iceVX+=(dir*C.walk-iceVX)/24;p.vx=iceVX;}else iceVX=p.vx;if(veil)p.vx=face*4;if(bubbleRide>0){bubbleRide--;p.vy=-1.4;}}
    if(input.hit('jump')){audio.sfx('jump');if(companion&&companion.kind===9&&Math.abs(p.x-companion.x)<32){p.vy=-7;companion=null;}}
    const b=solids();p.x+=p.vx;for(const s of b){if(overlap(playerBox(),s)){const e=room.entities.find(e=>e===s);if(e&&['block','crate'].includes(e.type)){const next={...e,x:e.x+Math.sign(p.vx)*.5};if(next.x>0&&next.x+next.w<220&&!b.some(o=>o!==s&&overlap(next,o)))e.x=next.x;}
-    p.x=p.vx>0?s.x-14:s.x+s.w;
+    const rise=p.y+22-s.y;const isStep=room.entities.some(e=>e===s&&e.type==='step');
+    if(isStep&&p.ground&&rise>0&&rise<=8.1&&!b.some(o=>o!==s&&overlap({x:p.x,y:p.y-rise,w:14,h:22},o))){p.y-=rise;p.vy=0;}else p.x=p.vx>0?s.x-14:s.x+s.w;
    }}p.y+=p.vy;p.ground=false;for(const s of b){if(overlap(playerBox(),s)){if(p.vy>=0){p.y=s.y-22;p.ground=true;if(p.vy>2)audio.sfx('land');}else p.y=s.y+s.h-(p.slide?10:0);p.vy=0;}}
   }
   if(input.hit('fire')&&!(campaign==='elah'&&roomIndex>=1))fire();if(weapon===4&&input.is('fire')&&t%10===0)fire();
   if(campaign==='elah'&&roomIndex>=1){if(input.is('fire')){charge++;if(charge===40)audio.tone(880,.2);if(charge%10===0&&charge<40)audio.tone(200+charge*10,.1);}if(input.released.has('fire')){fire();charge=0;}if(p.x<60&&input.is('down')){refill++;if(refill>=30){stones=Math.min(5,stones+1);refill=0;audio.sfx('bell');}}else refill=0;}
  }
- if(p.x>242)advanceRoom();if(p.x<0){if(roomIndex>0&&campaign==='realms')enterRoom(roomIndex-1,true);else p.x=0;}
+ if(verticalTravel())return;
+ if(p.x>242)travelHorizontal(1);if(p.x<0)travelHorizontal(-1);
  if(p.y>240){if(save.difficulty===0){p.x=respawnX;p.y=160;p.vy=0;damage(4,128);}else die();return;}
  if(companion){companion.time--;if(companion.kind===10)companion.x+=face*.65;if(companion.time<=0)companion=null;}
  updateEntities();updateShots();updateBoss();
@@ -216,10 +249,8 @@ function update(){t++;stateTime++;input.update();if(t%60===0)resize();
  else {const lengths:Partial<Record<State,number>>={title:3,slots:3,difficulty:3,pause:5,options:11,gameover:3,remap:10};const n=lengths[state]||1;if(input.hit('up'))menu=(menu+n-1)%n;if(input.hit('down'))menu=(menu+1)%n;if(state==='options'&&(input.hit('left')||input.hit('right')))optionAction(input.hit('left')?-1:1);}
  if(input.hit('pause')||input.hit('jump')||input.hit('fire'))activate();
 }
-function bg(r=realms[realm],title=false){rect(0,0,256,240,r.sky);for(let i=0;i<28;i++){const x=(i*73+17)%256,y=(i*37+11)%130;if(title||realm!==0)rect(x,y,1,1,i%3?r.light:r.back);}
- for(let i=0;i<9;i++){const x=i*38-18,h=30+(i*17)%55;ctx.fillStyle=r.back;ctx.beginPath();ctx.moveTo(x,190);ctx.lineTo(x+24,190-h);ctx.lineTo(x+52,190);ctx.fill();}rect(0,187,256,53,r.back);
- if(title){rect(0,203,256,37,'#101925');for(let i=0;i<10;i++)rect(i*32,198+Math.round(Math.sin(i)*3),32,10,'#101925');}
-}
+function bg(r=realms[realm],title=false){const i=realms.indexOf(r);ctx.drawImage(landscape(Math.max(0,i),title,campaign==='prologue'),0,0);}
+
 function panel(x:number,y:number,w:number,h:number){rect(x,y,w,h,'#0d111e');rect(x,y,w,1,'#b49b65');rect(x,y+h-1,w,1,'#b49b65');rect(x,y,1,h,'#b49b65');rect(x+w-1,y,1,h,'#b49b65');}
 function label(s:string,x:number,y:number,c='#f4e3b2',scale=1,center=false){text(ctx,s,x,y,c,scale,center);}
 function button(s:string,x:number,y:number,w:number,h:number,on:boolean,action:()=>void){rect(x,y,w,h,on?'#4a3f39':'#192231');if(on){rect(x,y,2,h,'#e7c573');label('>',x+5,y+Math.floor((h-7)/2),'#e7c573');}label(s,x+w/2,y+Math.floor((h-7)/2),on?'#ffe7a1':'#a7a7b1',1,true);hitAreas.push({x,y,w,h,action});}
@@ -228,18 +259,21 @@ function sheep(x:number,y:number){rect(x,y,14,8,'#e9dfbd');rect(x-3,y+2,5,5,'#6d
 function titleScreen(){bg(realms[1],true);rect(126,14,2,12,'#f5df9a');rect(121,19,12,2,'#f5df9a');label('KAPHTZIEL PRESENTS',128,37,'#a9acb9',1,true);label('SHEPHERD',128,58,'#f0d38c',3,true);label('OF ELAH',128,85,'#f0d38c',3,true);label('A SLING. A SONG. EIGHT SPARKS.',128,118,'#b6b6c3',1,true);
  ['BEGIN / SAVE SLOTS','CONTINUE WITH PASSWORD','OPTIONS'].forEach((s,i)=>button(s,46,137+i*18,164,16,menu===i,()=>{menu=i;activate();}));david(ctx,115,211,1,'#d0aa70','#87654a',0,'idle');sheep(45,215);sheep(187,217);label('Z JUMP  X FIRE  C LYRE',128,231,'#7f8a9f',1,true);}
 function stageSelect(rematches=false){bg(realms[6]);label(rematches?'HALL OF THE EIGHT':'CHOOSE YOUR PATH',128,10,'#e8ca85',1,true);const positions=[0,1,2,3,5,6,7,8];
- for(let i=0;i<8;i++){const pos=positions[i],x=40+(pos%3)*62,y=30+Math.floor(pos/3)*56,r=realms[i],done=rematches?rematchMask&(1<<i):save.mask&(1<<i);rect(x,y,52,48,i===select?'#e8c879':'#5d5c73');rect(x+2,y+2,48,44,r.sky);if(done){label('+',x+26,y+12,r.light,3,true);}else drawBoss(i,x+26,y+24,.65);label(r.boss.split(' ')[0].slice(0,8),x+26,y+37,r.light,1,true);hitAreas.push({x,y,w:52,h:48,action:()=>{select=i;activate();}});}
+ for(let i=0;i<8;i++){const pos=positions[i],x=40+(pos%3)*62,y=30+Math.floor(pos/3)*56,r=realms[i],done=rematches?rematchMask&(1<<i):save.mask&(1<<i);rect(x,y,52,48,i===select?'#e8c879':'#5d5c73');rect(x+2,y+2,48,44,r.sky);rect(x+1,y+1,50,2,'#f4d49a');rect(x+1,y+3,2,43,'#ae8c56');rect(x+49,y+3,2,43,'#55456b');for(const dx of [3,45])for(const dy of [3,41]){rect(x+dx,y+dy,4,4,'#2b2237');rect(x+dx+1,y+dy+1,2,2,'#efd18c');}if(done){label('+',x+26,y+12,r.light,3,true);}else drawBoss(i,x+26,y+24,.65);label(r.boss.split(' ')[0].slice(0,8),x+26,y+37,r.light,1,true);hitAreas.push({x,y,w:52,h:48,action:()=>{select=i;activate();}});}
  const x=102,y=86;rect(x,y,52,48,select===8?'#e8c879':'#5d5c73');rect(x+2,y+2,48,44,'#20273b');david(ctx,x+19,y+10,select<4?-1:1,'#d0aa70','#87654a',0,'idle');label(rematches?'REFILL':save.mask===255?'ELAH':'DAVID',128,y+37,'#e8ca85',1,true);hitAreas.push({x,y,w:52,h:48,action:()=>{if(rematches){hp=28;energy.fill(28);notify('HEALTH AND ENERGY RESTORED');}else{select=8;activate();}}});
  label(select===8?'VALLEY OF ELAH':realms[select].name,128,204,'#f4e3b2',1,true);label(`${count(rematches?rematchMask:save.mask)}/8 SPARKS FREED`,128,219,'#a9a6b4',1,true);hitAreas.push({x:0,y:225,w:256,h:15,action:()=>{returnOptions='select';change('options');}});label('START: TRAVEL     TAP HERE: OPTIONS',128,232,'#81849b',1,true);}
-function drawBoss(i:number,x:number,y:number,scale=1){const r=realms[i];ctx.save();ctx.translate(Math.floor(x),Math.floor(y));ctx.scale(scale,scale);const c=r.color,l=r.light,d=r.shadow;
- if(i===0){for(let n=0;n<8;n++){const a=n*Math.PI/4+t/80;rect(Math.cos(a)*23-2,Math.sin(a)*23-2,5,5,c);}rect(-15,-15,30,30,c);rect(-11,-19,22,38,c);rect(-8,-5,5,4,d);rect(5,-5,5,4,d);rect(-6,7,13,3,l);}
- else if(i===5){for(let n=0;n<5;n++){const xx=Math.sin(n*1.5+t/50)*14;rect(xx-11,n*6-10,22,9,n%2?d:c);}rect(-13,-25,26,16,c);rect(-8,-22,4,4,l);rect(5,-22,4,4,l);rect(-17,-26,5,5,d);rect(13,-26,5,5,d);}
- else {if(i===1||i===4){for(let n=0;n<4;n++){rect(-30+n*4,-10+n*4,12,5,i===1?l:d);rect(18-n*4,-10+n*4,12,5,i===1?l:d);}}rect(-11,-17,22,18,c);rect(-15,1,30,21,d);rect(-9,20,7,7,c);rect(3,20,7,7,c);rect(-7,-11,4,4,l);rect(4,-11,4,4,l);rect(-3,-1,6,2,l);
- if(i===2||i===7||i===3){rect(-15,-25,4,15,l);rect(11,-25,4,15,l);}if(i===6){rect(-25,22,50,6,c);rect(-20,28,8,8,d);rect(12,28,8,8,d);}if(i===3){rect(20,-5,3,29,l);rect(16,-9,10,4,l);}}
- ctx.restore();}
-function renderTiles(){const r=realms[realm];room.tiles.forEach((row,y)=>[...row].forEach((v,x)=>{if(v==='#'){rect(x*16,y*16,16,16,r.ground);rect(x*16,y*16,16,2,r.light);rect(x*16+1,y*16+6,6,2,r.back);rect(x*16+10,y*16+12,5,2,r.back);rect(x*16,y*16,1,16,r.back);}if(v==='H'){rect(x*16+3,y*16,2,16,r.light);rect(x*16+11,y*16,2,16,r.light);for(let j=0;j<3;j++)rect(x*16+3,y*16+j*6,10,1,r.light);}}));}
+function drawBoss(i:number,x:number,y:number,scale=1){
+ ctx.save();ctx.translate(Math.floor(x),Math.floor(y));ctx.scale(scale,scale);
+ ctx.drawImage(demonSprite(i,Math.floor(t/24)%2),-32,-36);ctx.restore();
+}
+
+function renderTiles(){const r=realms[realm];room.tiles.forEach((row,y)=>[...row].forEach((v,x)=>{
+ if(v==='#')ctx.drawImage(stoneTile(realm,room.tiles[y-1]?.[x]!=='#',x%3),x*16,y*16);
+ if(v==='H'){rect(x*16+2,y*16,3,16,'#101420');rect(x*16+11,y*16,3,16,'#101420');rect(x*16+3,y*16,1,16,r.light);rect(x*16+12,y*16,1,16,r.light);for(let j=0;j<3;j++){rect(x*16+3,y*16+j*6,10,3,r.back);rect(x*16+3,y*16+j*6,10,1,r.light);}}
+ }));}
+
 function renderEntity(e:Entity){if(e.hp<=0)return;const r=realms[realm],x=e.x,y=e.y;
- switch(e.type){case 'walker':case 'flyer':case 'turret':case 'shield':case 'mini':case 'animal':{if(e.type==='animal'&&e.active){sheep(x,y);break;}const image=raster(ENEMY,['','#100e19',r.light,r.color]);ctx.drawImage(image,Math.floor(x),Math.floor(y),e.w,e.h);if(e.type==='shield')rect(x-2,y+4,4,14,r.light);break;}
+ switch(e.type){case 'step':for(let yy=0;yy<e.h;yy+=16)ctx.drawImage(stoneTile(realm,yy===0,Math.floor(e.x/16)%3),Math.floor(e.x),Math.floor(e.y+yy));break;case 'walker':case 'flyer':case 'turret':case 'shield':case 'mini':case 'animal':{if(e.type==='animal'&&e.active){sheep(x,y);break;}const image=enemySprite(e.type,realm,e.id);const w=Math.max(22,e.w),h=Math.max(24,e.h);ctx.drawImage(image,Math.floor(x+(e.w-w)/2),Math.floor(y+e.h-h),w,h);if(e.type==='shield')rect(x-2,y+4,4,14,r.light);break;}
  case 'bell':case 'reset':rect(x+5,y-6,2,22,r.ground);rect(x+1,y+4,12,8,e.active?'#ffe1a0':'#b9975c');rect(x+4,y,6,6,'#c9a365');rect(x+5,y+12,3,2,'#f8d98e');if(e.type==='reset')label('R',x+3,y-8,'#e4c284');break;
  case 'plate':rect(x,y,16,16,'#6f553e');for(let i=0;i<14;i++)rect(x+14-i,y+i,2,2,'#d1b773');break;
  case 'gate':case 'bossgate':case 'harp':if(!e.active){rect(x,y,e.w,e.h,r.back);for(let i=0;i<e.h;i+=8)rect(x,y+i,e.w,1,r.light);if(e.type==='harp')label('H',x+5,y+20,'#dfbd7b');}break;
@@ -271,11 +305,12 @@ function renderStage(){bg();renderTiles();for(const e of [...room.entities,...dr
  if(campaign==='saul'){const c=['#221d38','#514354','#8d776a','#d3bb8a'][saulSongs];rect(190,140,32,66,c);rect(184,161,44,6,'#b89d5e');rect(197,132,15,20,'#d0a582');rect(198,128,14,5,'#dabc69');if(saulSongs<3){rect(190+Math.sin(t/25)*8,116,30-saulSongs*5,10,'#171524');}rect(128,206,22,2,'#ecd48e');}
  if(boss){if(campaign==='elah'){rect(boss.x-24,64,44,90,'#8c7453');rect(boss.x-22,154,16,54,'#6a5747');rect(boss.x+6,154,16,54,'#6a5747');rect(boss.x-20,boss.y-20,40,32,'#b79463');rect(boss.x-22,boss.y-27,44,12,'#8d7b56');rect(boss.x-10,boss.y-10,5,4,'#171524');rect(boss.x+7,boss.y-10,5,4,'#171524');if(boss.frame%240>145){rect(boss.x-2,boss.y-18,6,4,'#fff1ba');label('COME TO ME!',156,42,'#f2daaa');}}else if(campaign==='final'){drawBoss(3,boss.x,boss.y,boss.phase===2?2:1.3);rect(boss.x-17,boss.y-38,34,7,boss.phase===0?realms[3].color:realms[0].color);for(let i=0;i<4;i++)rect(boss.x-17+i*10,boss.y-45,5,10,'#e0bf6c');if(boss.stun)label('LIGHT!',boss.x,70,'#fff1c2',1,true);}else if(!boss.hit||t%4<2)drawBoss(realm,boss.x,boss.y);}
  for(const s of shots){const color=s.enemy?'#efb0aa':s.power<0?'#d7d8cc':s.power===8?'#fff2b5':realms[s.power].color;rect(s.x,s.y,s.power===8?8:6,s.power===8?8:6,'#11121d');rect(s.x+1,s.y+1,s.power===8?6:4,s.power===8?6:4,color);rect(s.x+1,s.y+1,2,1,'#fff5ce');}
- if(invul===0||Math.floor(t/2)%2===0)david(ctx,p.x,p.y,face,weapon>=0&&weapon<8?realms[weapon].color:'#d1b17b',weapon>=0&&weapon<8?realms[weapon].shadow:'#87654a',t,input.is('lyre')?'lyre':p.slide?'slide':throwing?'fire':Math.abs(p.vx)>.1&&p.ground?'run':'idle');
+ if(invul===0||Math.floor(t/2)%2===0)david(ctx,p.x,p.y,face,weapon>=0&&weapon<8?realms[weapon].color:'#d1b17b',weapon>=0&&weapon<8?realms[weapon].shadow:'#87654a',t,input.is('lyre')?'lyre':p.climbing?'climb':p.slide?'slide':throwing?'fire':!p.ground?(p.vy<0?'jump':'fall'):Math.abs(p.vx)>.1?'run':'idle');
  if(charge>0)for(let i=0;i<3;i++)rect(p.x+7+Math.cos(t/4+i*2)*12,p.y-5+Math.sin(t/4+i*2)*4,2,2,'#f6dda0');
  if(input.is('lyre')){panel(48,52,160,46);label('LYRE  U L R D',128,60,'#e9cd8c',1,true);label(notes,128,75,'#f3e2b1',1,true);if(opt.showNotes)label('FOLD DLR  OPEN UDU',128,87,'#9ba8b5',1,true);}
- hud();if(stateTime<150&&!noticeTime)label(room.title,128,225,'#e7d2a6',1,true);
- if(transition>0){const w=transition*15;rect(transitionDir===1?256-w:0,17,w,223,'#0d111e');}
+ if(campaign==='realms'&&roomIndex===6){label('UP',200,27,'#ffe8aa',1,true);label('CLIMB TO UPPER TERRACE',128,225,'#e7d2a6',1,true);}if(campaign==='realms'&&roomIndex===9)label('DOWN',39,191,'#ffe8aa',1,true);
+ hud();if(stateTime<150&&!noticeTime&&!(campaign==='realms'&&roomIndex===6))label(room.title,128,225,'#e7d2a6',1,true);
+ if(transition>0){const w=transition*15;if(verticalTransition)rect(0,transitionDir===1?240-w:17,256,w,'#0d111e');else rect(transitionDir===1?256-w:0,17,w,223,'#0d111e');}
 }
 function render(){hitAreas.length=0;ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,256,240);
  if(state==='title')titleScreen();
@@ -302,4 +337,4 @@ canvas.addEventListener('pointerdown',e=>{e.preventDefault();audio.unlock();cons
 for(const el of document.querySelectorAll<HTMLElement>('#controller>*')){let drag:number|null=null,dx=0,dy=0;el.addEventListener('pointerdown',e=>{if(state!=='layout')return;drag=e.pointerId;const r=el.getBoundingClientRect();dx=e.clientX-r.left;dy=e.clientY-r.top;},true);el.addEventListener('pointermove',e=>{if(state!=='layout'||drag!==e.pointerId)return;const id=el.id||el.dataset.key||'';opt.layout[id]={x:Math.max(0,Math.min(innerWidth-el.offsetWidth,e.clientX-dx)),y:Math.max(0,Math.min(innerHeight-el.offsetHeight,e.clientY-dy))};applyOptions();});el.addEventListener('pointerup',()=>drag=null);}
 let last=0,acc=0;function loop(now:number){if(!last)last=now;acc+=Math.min(100,now-last);last=now;while(acc>=1000/60){update();acc-=1000/60;}render();requestAnimationFrame(loop);}tune('title');requestAnimationFrame(loop);
 // Explicit opt-in test harness; absent from normal sessions.
-if(new URLSearchParams(location.search).has('test'))Object.assign(window,{elah:{get:()=>({state,p:{...p},hp,lives,realm,roomIndex,campaign,shots:shots.map(s=>({...s})),save:{...save},boss:boss&&{...boss},notes,notice,entities:room.entities.map(e=>({...e}))}),startRealm:(n:number)=>{save.prologue=true;startRealm(n);},setSave:(s:Partial<Save>)=>{Object.assign(save,s);},startFortress,enterRoom,damage,playSong,fire,advanceRoom,hitBoss,setPlayer:(a:Partial<Body>)=>Object.assign(p,a),setWeapon:(n:number)=>weapon=n,setState:(s:State)=>change(s),setBoss:(b:object)=>Object.assign(boss!,b),setCampaign:(c:typeof campaign)=>campaign=c,setHP:(n:number)=>hp=n,activate,audio:()=>({state:audio.ctx?.state,current:audio.current,loaded:!!audio.source,loop:audio.source?.loop,music:audio.musicBus?.gain.value,missing:[...audio.missing]}),step:(keys:Key[],n=1)=>{input.keyboard=new Set(keys);for(let i=0;i<n;i++)update();input.keyboard.clear();}}});
+if(new URLSearchParams(location.search).has('test'))Object.assign(window,{elah:{get:()=>({state,p:{...p},hp,lives,realm,roomIndex,campaign,shots:shots.map(s=>({...s})),save:{...save},boss:boss&&{...boss},notes,notice,entities:room.entities.map(e=>({...e}))}),startRealm:(n:number)=>{save.prologue=true;startRealm(n);},setSave:(s:Partial<Save>)=>{Object.assign(save,s);},startFortress,enterRoom,damage,playSong,fire,advanceRoom,hitBoss,setPlayer:(a:Partial<Body>)=>Object.assign(p,a),setWeapon:(n:number)=>weapon=n,setState:(s:State)=>change(s),setBoss:(b:object)=>Object.assign(boss!,b),setCampaign:(c:typeof campaign)=>campaign=c,setHP:(n:number)=>hp=n,activate,travelHorizontal,verticalTravel,audio:()=>({state:audio.ctx?.state,current:audio.current,loaded:!!audio.source,loop:audio.source?.loop,music:audio.musicBus?.gain.value,missing:[...audio.missing]}),step:(keys:Key[],n=1)=>{input.keyboard=new Set(keys);for(let i=0;i<n;i++)update();input.keyboard.clear();}}});
