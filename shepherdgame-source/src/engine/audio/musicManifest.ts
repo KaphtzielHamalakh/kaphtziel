@@ -1,0 +1,3 @@
+const loops=['title','stage_select','prologue','anointing','realm_zin','realm_hermon','realm_sodom','realm_resheph','realm_edom','realm_jaffa','realm_night','realm_azazel','boss','elah','goliath','ashmedai_hall','ashmedai_final','saul'];
+const jingles=['coronation','credits','jingle_get_power','jingle_stage_clear','jingle_boss_intro','jingle_game_over','jingle_song_learned'];
+export const musicManifest=Object.fromEntries([...loops,...jingles].map(id=>[id,{id,file:id+'.mp3',loop:loops.includes(id),loopStart:0,loopEnd:null as number|null,trimStart:0,volume:1,bpm:id==='realm_night'?120:undefined}]));

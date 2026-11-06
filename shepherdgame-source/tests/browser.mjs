@@ -1,0 +1,34 @@
+import { chromium } from '@playwright/test';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
+const page=await browser.newPage({viewport:{width:1024,height:768}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://localhost:5173/shepherdgame/?test=1');await page.waitForFunction(()=>window.elah);
+await page.screenshot({path:'/tmp/elah-title.png'});
+await page.keyboard.press('Enter');await page.waitForTimeout(50);assert.equal(await page.evaluate(()=>window.elah.get().state),'slots');
+await page.keyboard.press('Enter');await page.waitForTimeout(50);assert.equal(await page.evaluate(()=>window.elah.get().state),'difficulty');
+await page.keyboard.press('Enter');await page.waitForTimeout(50);assert.equal(await page.evaluate(()=>window.elah.get().state),'story');
+await page.keyboard.press('Enter');await page.waitForTimeout(400);assert.equal(await page.evaluate(()=>window.elah.get().state),'stage');
+const before=await page.evaluate(()=>window.elah.get().p.x);await page.keyboard.down('ArrowRight');await page.waitForTimeout(600);await page.keyboard.up('ArrowRight');assert.ok((await page.evaluate(()=>window.elah.get().p.x))>before+30);
+await page.keyboard.down('z');await page.waitForTimeout(180);const high=await page.evaluate(()=>window.elah.get().p.y);await page.keyboard.up('z');assert.ok(high<180);
+await page.evaluate(()=>{window.elah.startRealm(0);window.elah.setPlayer({x:30,y:130});for(let i=0;i<10;i++)window.elah.fire();});assert.equal(await page.evaluate(()=>window.elah.get().shots.filter(s=>s.power===-1).length),3);
+await page.keyboard.press('Enter');await page.waitForTimeout(50);assert.equal(await page.evaluate(()=>window.elah.get().state),'pause');await page.keyboard.press('Enter');await page.waitForTimeout(50);assert.equal(await page.evaluate(()=>window.elah.get().state),'stage');
+for(let r=0;r<8;r++){
+ await page.evaluate(r=>{window.elah.startRealm(r);window.elah.enterRoom(8);window.elah.setState('stage');window.elah.setBoss({frame:1,hp:28,hit:0});},r);
+ const weak=[6,0,1,7,5,3,4,2][r];await page.evaluate(w=>window.elah.hitBoss(1,w),weak);assert.equal(await page.evaluate(()=>window.elah.get().boss.hp),24);
+ await page.evaluate(()=>{window.elah.setBoss({hit:0});window.elah.hitBoss(24,-1);});assert.equal(await page.evaluate(()=>window.elah.get().state),'power');
+}
+await page.evaluate(()=>{window.elah.setSave({mask:255,prologue:true,fortress:0,morning:true});window.elah.startFortress();window.elah.enterRoom(2);window.elah.setBoss({frame:160,hit:0});window.elah.hitBoss(8,-1);});assert.equal(await page.evaluate(()=>window.elah.get().boss.hp),40);
+await page.evaluate(()=>window.elah.hitBoss(8,8));assert.equal(await page.evaluate(()=>window.elah.get().boss.hp),32);
+await page.evaluate(()=>{window.elah.setCampaign('final');window.elah.enterRoom(8);window.elah.setBoss({frame:1,hit:0,hp:1});window.elah.hitBoss(1,-1);});assert.equal(await page.evaluate(()=>window.elah.get().boss.phase),1);
+await page.evaluate(()=>{window.elah.setBoss({hit:0,hp:1});window.elah.hitBoss(1,-1);});assert.equal(await page.evaluate(()=>window.elah.get().boss.phase),2);
+await page.evaluate(()=>{window.elah.playSong('RUL');window.elah.setBoss({hit:0,hp:1});window.elah.hitBoss(1,-1);});assert.equal(await page.evaluate(()=>window.elah.get().state),'story');
+await page.evaluate(()=>window.elah.activate());for(let i=0;i<3;i++)await page.evaluate(()=>{window.elah.setPlayer({x:130});window.elah.playSong('RUL');});assert.equal(await page.evaluate(()=>window.elah.get().state),'story');await page.evaluate(()=>window.elah.activate());assert.equal(await page.evaluate(()=>window.elah.get().state),'ending');
+await page.evaluate(()=>window.elah.startRealm(4));await page.waitForTimeout(500);await page.screenshot({path:'/tmp/elah-stage.png'});
+assert.deepEqual(errors,[]);console.log('Desktop: menus, movement, jump, pellet cap, pause, 8 weaknesses, Goliath armor, final phases, lyre epilogue PASS');
+const mobile=await browser.newContext({viewport:{width:844,height:390},isMobile:true,hasTouch:true,deviceScaleFactor:2});const mp=await mobile.newPage();await mp.goto('http://localhost:5173/shepherdgame/?test=1');await mp.waitForFunction(()=>window.elah);await mp.evaluate(()=>window.elah.startRealm(0));await mp.waitForTimeout(450);await mp.screenshot({path:'/tmp/elah-mobile.png'});
+const client=await mobile.newCDPSession(mp);const pad=await mp.locator('#pad').boundingBox(),fire=await mp.locator('[data-key=fire]').boundingBox(),jump=await mp.locator('[data-key=jump]').boundingBox();const pt=(r,id,xf=.5,yf=.5)=>({x:r.x+r.width*xf,y:r.y+r.height*yf,id});
+const x0=await mp.evaluate(()=>window.elah.get().p.x);
+await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt(pad,1,.85,.5),pt(fire,2)]});await mp.waitForTimeout(200);
+await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[pt(pad,1,.85,.5),pt(fire,2),pt(jump,3)]});await mp.waitForTimeout(150);
+assert.ok((await mp.evaluate(()=>window.elah.get().p.x))>x0+10);assert.ok((await mp.evaluate(()=>window.elah.get().p.y))<180);await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert.equal(await mp.evaluate(()=>scrollY),0);console.log('Mobile: simultaneous direction + FIRE + JUMP, no page scroll PASS');
+await browser.close();
