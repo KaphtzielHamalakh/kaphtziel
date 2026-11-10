@@ -115,3 +115,11 @@ scaling. Measured examples: 390×844 now shows a 390×365.6 game (previously
 256×240); 844×390 shows a 416×390 game (previously 256×240). Existing desktop
 and simultaneous touch movement/fire/jump regression tests also pass. Physical
 safe-area devices and Safari remain manual checks.
+
+## Ketev platform regression
+
+`node tests/ketev-platforms.mjs` verifies a normal running jump from the floor,
+a stable landing on each perch, and a sling hit from both platforms in the
+first fight and rematch. The boss is held still and player damage disabled to
+isolate jump, collision, standing and projectile behavior. Production build
+passes with the restored platforms.

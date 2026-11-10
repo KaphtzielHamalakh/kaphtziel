@@ -189,3 +189,10 @@ transparent when narrow landscape margins cause them to overlap the game.
 Emulated mobile layout checks cover six portrait/landscape viewports, scaled
 menu taps, no horizontal overflow, all control bounds and existing multitouch
 movement/fire/jump. This supersedes the initial integer-only mobile decision.
+
+## Restore Ketev's reachable platforms
+
+The realm geography revision moved Ketev's perches 48px above the floor, beyond
+David's normal jump reach. Restore the two solid 32px-wide platforms at x=48
+and x=176, with tops at y=176 (32px above the floor). This applies to both the
+first fight and the rematch. Other boss arenas retain their authored layouts.

@@ -104,8 +104,9 @@ export function applyGeography(realm:number,index:number,room:Room):Room{
  }
  if(index===8){
   ground(Array(16).fill(13),realm===1);
-  const arenas=[[[3,10,2],[11,10,2]],[[2,11,3],[11,9,3]],[[4,11,2],[10,11,2]],[[3,9,3],[10,9,3]],[[2,10,3],[11,8,3]],[[2,10,3],[7,8,3],[12,10,3]],[[3,11,2],[11,11,2]],[[2,10,3],[7,11,2],[12,10,2]]][realm];
-  for(const [x,y,w] of arenas)ledge(x,y,w);
+  const arenas=[[[3,11,2],[11,11,2]],[[2,11,3],[11,9,3]],[[4,11,2],[10,11,2]],[[3,9,3],[10,9,3]],[[2,10,3],[11,8,3]],[[2,10,3],[7,8,3],[12,10,3]],[[3,11,2],[11,11,2]],[[2,10,3],[7,11,2],[12,10,2]]][realm];
+  // Ketev's original solid perches sit 32px above the floor, within a normal jump.
+  for(const [x,y,w] of arenas)ledge(x,y,w,realm===0?'#':'=');
  }
  room.tiles=grid.map(r=>r.join(''));
  for(const e of room.entities){if(['vent','lightning'].includes(e.type)||index===0&&e.type==='honey'){const col=Math.min(15,Math.floor((e.x+e.w/2)/16));let row=13;for(let y=10;y<15;y++)if(['#','I'].includes(grid[y][col])){row=y;break;}e.y=row*16-(e.type==='honey'?24:e.h);e.originY=e.y;}}
