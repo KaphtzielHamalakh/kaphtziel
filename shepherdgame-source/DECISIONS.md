@@ -175,3 +175,17 @@ rendered; the soundtrack and saved progression formats are unchanged.
 The movement tests isolate geometry using invulnerability and simulated inputs;
 they are not full combat-balanced manual playthroughs. Some underlying enemy
 and boss behavior still uses the shared systems described earlier in this file.
+
+## Larger mobile play area
+
+Mobile devices now scale the 256×240 canvas to fit the available viewport,
+without rounding down to an integer zoom. Portrait uses the phone width and
+reserves a control area below; landscape uses the available height. The canvas
+keeps its aspect ratio and nearest-neighbor rendering. Desktop retains integer
+scaling. Dynamic viewport height, visualViewport resize and orientation events
+handle browser toolbar changes and rotation. Touch controls become more
+transparent when narrow landscape margins cause them to overlap the game.
+
+Emulated mobile layout checks cover six portrait/landscape viewports, scaled
+menu taps, no horizontal overflow, all control bounds and existing multitouch
+movement/fire/jump. This supersedes the initial integer-only mobile decision.

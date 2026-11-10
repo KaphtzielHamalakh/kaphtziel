@@ -105,3 +105,13 @@ were rerun successfully. Physical phone and Firefox/Safari checks remain pending
   terrain, scenery, room composition and readable environmental signals.
 - Full difficulty-balanced human playthroughs and physical iOS/Android tests
   remain required; geometry tests deliberately separate combat from traversal.
+
+## Mobile fit revision
+
+`node tests/mobile-fit.mjs` verifies six mobile viewport sizes, aspect ratio,
+full-width portrait fit, full-height landscape fit, control bounds, no horizontal
+page overflow, rotation, scaled menu hit targets and preserved desktop integer
+scaling. Measured examples: 390×844 now shows a 390×365.6 game (previously
+256×240); 844×390 shows a 416×390 game (previously 256×240). Existing desktop
+and simultaneous touch movement/fire/jump regression tests also pass. Physical
+safe-area devices and Safari remain manual checks.

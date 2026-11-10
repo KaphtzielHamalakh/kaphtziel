@@ -17,8 +17,24 @@ const input=new Input(),audio=new Audio();input.onGesture=()=>audio.unlock();
 let opt=options();
 function applyOptions(){document.body.classList.toggle('always-touch',opt.touch===1);document.body.classList.toggle('no-touch',opt.touch===2);document.documentElement.style.setProperty('--control-opacity',String(opt.opacity));document.documentElement.style.setProperty('--control-scale',String(opt.scale));for(const el of document.querySelectorAll<HTMLElement>('#controller>*')){const id=el.id||el.dataset.key||'';el.style.transform=`scale(${opt.scale})`;if(opt.layout[id]){el.style.left=opt.layout[id].x+'px';el.style.top=opt.layout[id].y+'px';el.style.right='auto';el.style.bottom='auto';}}saveOptions(opt);audio.volumes();}
 applyOptions();
-function resize(){const portrait=innerHeight>innerWidth&&document.body.classList.contains('touch');const h=portrait?innerHeight-250:innerHeight;const scale=Math.max(1,Math.floor(Math.min(innerWidth/256,h/240)));canvas.style.width=256*scale+'px';canvas.style.height=240*scale+'px';}
-addEventListener('resize',resize);resize();document.querySelector('#dismiss')!.addEventListener('click',()=>document.querySelector<HTMLElement>('#rotate')!.style.setProperty('display','none'));
+function resize(){
+ const mobile=matchMedia('(pointer:coarse)').matches||document.body.classList.contains('touch')||opt.touch===1;
+ const viewport=window.visualViewport;
+ const portrait=mobile&&(viewport?.height??innerHeight)>(viewport?.width??innerWidth);
+ document.body.classList.toggle('phone-portrait',portrait);
+ const game=document.querySelector<HTMLElement>('#game')!,style=getComputedStyle(game);
+ const px=(value:string)=>Number.parseFloat(value)||0;
+ const width=Math.min(game.clientWidth,viewport?.width??innerWidth)-px(style.paddingLeft)-px(style.paddingRight);
+ const height=Math.min(game.clientHeight,viewport?.height??innerHeight)-px(style.paddingTop)-px(style.paddingBottom)-(portrait?220:0);
+ const fit=Math.min(width/256,Math.max(1,height)/240);
+ // Phones use all the available room; desktop retains whole-pixel scaling.
+ const scale=mobile?fit:(fit>=1?Math.floor(fit):fit);
+ canvas.style.width=256*scale+'px';canvas.style.height=240*scale+'px';
+ document.body.classList.toggle('controls-overlap',mobile&&!portrait&&(width-256*scale)/2<190);
+}
+addEventListener('resize',resize);window.visualViewport?.addEventListener('resize',resize);addEventListener('orientationchange',resize);
+addEventListener('pointerdown',e=>{if(e.pointerType==='touch'){document.body.classList.add('touch');resize();}});
+resize();document.querySelector('#dismiss')!.addEventListener('click',()=>document.querySelector<HTMLElement>('#rotate')!.style.setProperty('display','none'));
 document.querySelector('#fullscreen')!.addEventListener('click',()=>{if(document.fullscreenElement)void document.exitFullscreen();else document.querySelector('#game')!.requestFullscreen?.().catch(()=>{});});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='stage'){state='pause';audio.paused=true;audio.volumes();}else if(!document.hidden)audio.unlock();});
 type State='title'|'slots'|'difficulty'|'select'|'stage'|'pause'|'options'|'story'|'intro'|'power'|'password'|'gameover'|'ending'|'sound'|'remap'|'layout'|'rematches';
