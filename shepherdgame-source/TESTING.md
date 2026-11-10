@@ -84,3 +84,24 @@ were rerun successfully. Physical phone and Firefox/Safari checks remain pending
   missing-track silence and one-warning behavior after the soundtrack is added.
 - Original uploaded bytes are retained in both source and generated static output.
   Exact musical loop seams have not been tuned; the full tracks loop for now.
+
+## Realm geography verification
+
+- `npm test`: 13 tests pass, including all existing physics/password checks and
+  terrain uniqueness, material/feature placement, shaft connectivity and
+  tutorial/fortress isolation.
+- `node tests/traversal.mjs`: 48 redesigned opening/road/gauntlet/shelter/gate/
+  upper routes cross in both directions through actual game physics using
+  movement, jumping and the sling, with combat damage disabled. Upper-room
+  forward starts use the arrival shaft and climb normally. Shaft descent and
+  lower-room ascent are separately checked from positioned test starts.
+- All eight distinct shafts connect up/down; screen boundaries and the fortress
+  power-gated ladder round trip still work.
+- Dry shore and submerged ship-hull tests verify different jump velocities and
+  correct local water detection.
+- Existing puzzle-gate and eight-power tower interactions, desktop campaign and
+  multitouch movement/fire/jump regression checks pass.
+- All eight realm screenshots visually inspected for distinguishable foreground
+  terrain, scenery, room composition and readable environmental signals.
+- Full difficulty-balanced human playthroughs and physical iOS/Android tests
+  remain required; geometry tests deliberately separate combat from traversal.

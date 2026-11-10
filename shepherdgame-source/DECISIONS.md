@@ -145,3 +145,33 @@ budget in addition to the six-entry cap (one oversized track may remain). This
 limits memory use with these longer stereo tracks. Whole-track loops are used
 for now; no arbitrary musical loop points or BPM values have been inferred.
 Dedicated music slots remain available for future uploads.
+
+## Realm geography revision
+
+The original shared combat-room terrain has been replaced with authored terrain
+profiles for each realm in src/geography.ts. Opening roads, secondary roads,
+gauntlets, shelters, final approaches, arenas, climbs and upper terraces now
+have realm-specific terrain, platform placement, scene art and names. Existing
+base-kit puzzle switches and optional power alcoves remain compatible.
+
+| Realm | Geography and environmental identity |
+|---|---|
+| Zin | Dunes, oasis, shaded sandstone passages, exposed mesas; awnings protect from sun pulses; an optional low passage can be slid under or crossed above. |
+| Hermon | Ice shelves, frozen waterfalls, blue ice caves and snowfields; slippery ice is a tile material rather than a global movement modifier; falling icicles break and respawn. |
+| Sodom | Salt pillars, lowered vent beds, basalt chimneys and sulfur chambers; staggered vent cycles and elevated bypass ledges. |
+| Resheph | Broken causeways, insulated platforms, central shrine spires, storm towers and high sky bridges; marked lightning zones and rain. |
+| Edom | Thorn gardens, fallen arches, root-covered masonry, vine climbs, a quiet Morning shrine and broken rooftops. |
+| Jaffa | Dry tidal shore, submerged ship hull, sluices, coral caves, flooded well and aqueduct; room-local water depth, currents, rising/falling rafts and land/water physics transitions. |
+| City of Night | Lantern markets, plazas, layered roofs, a bell tower and optional rhythmic shadow balconies above a permanent route. |
+| Azazel | Red-rock gorges, rocky switchbacks, rope spans, boulder caves and crumbling platforms that rebuild after falling; lower recovery routes prevent mandatory power locks. |
+
+Each realm now has its own climb shaft position and upper-screen return shaft.
+One-way ledges can be jumped through from below. Moving rafts carry a standing
+player. Optional ladders stop at their supporting ground rather than cutting
+unintended holes through it. Tower and tutorial templates remain separate from
+the authored realm terrain. All sprite, tile and scenery artwork remains code
+rendered; the soundtrack and saved progression formats are unchanged.
+
+The movement tests isolate geometry using invulnerability and simulated inputs;
+they are not full combat-balanced manual playthroughs. Some underlying enemy
+and boss behavior still uses the shared systems described earlier in this file.

@@ -1,7 +1,8 @@
+import {applyGeography} from './geography';
 export type Entity={id:string,type:string,x:number,y:number,w:number,h:number,hp:number,active:boolean,timer:number,links?:string[],requires?:{all?:string[],any?:string[]},power?:number,vx?:number,vy?:number,originX?:number,originY?:number};
-export type Room={tiles:string[],entities:Entity[],title:string,puzzle:boolean,vertical:boolean};
+export type Room={tiles:string[],entities:Entity[],title:string,puzzle:boolean,vertical:boolean,scene?:string,waterLine?:number,ascentX?:number,descentX?:number,exitY?:number};
 export function entity(type:string,id:string,x:number,y:number,w=16,h=16,hp=1):Entity{return {id,type,x,y,w,h,hp,active:false,timer:0,originX:x,originY:y};}
-export function makeRoom(realm:number,index:number):Room{
+export function makeRoom(realm:number,index:number,authored=true):Room{
  const tiles=Array.from({length:15},()=>Array(16).fill('.'));const entities:Entity[]=[];const put=(type:string,id:string,x:number,y:number,w=16,h=16,hp=1)=>{const e=entity(type,id,x,y,w,h,hp);entities.push(e);return e;};
  for(let x=0;x<16;x++){tiles[13][x]='#';tiles[14][x]='#';}
  const platform=(x:number,y:number,n:number)=>{if(y===10)y=11;else if(y===8)y=9;for(let i=x;i<x+n;i++)tiles[y][i]='#';};
@@ -48,6 +49,7 @@ export function makeRoom(realm:number,index:number):Room{
   const kinds=['sun','icicle','vent','lightning','gust','current','rhythm','crumble'];put(kinds[realm],'hazard',120,realm===1?32:192,32,16);
   if(realm===6)put('lantern','lantern',172,118,10,28);
  }
- return {tiles:tiles.map(r=>r.join('')),entities,title:index===9?'THE UPPER TERRACES':titles[index],puzzle,vertical:index===6};
+ const result:Room={tiles:tiles.map(r=>r.join('')),entities,title:index===9?'THE UPPER TERRACES':titles[index],puzzle,vertical:index===6};
+ return authored?applyGeography(realm,index,result):result;
 }
-export function prologueRoom(index:number):Room{const r=makeRoom(0,index===0?0:index===1?2:8);r.title=['THE FIELDS OF JESSE','THE LION AT THE FOLD','THE BEAR IN THE HILLS'][index]||'BETHLEHEM';r.entities=r.entities.filter(e=>['honey','plate'].includes(e.type));if(index>0)r.entities.push(entity('mini',index===1?'lion':'bear',164,176,28,32,index===1?8:12));return r;}
+export function prologueRoom(index:number):Room{const r=makeRoom(0,index===0?0:index===1?2:8,false);r.title=['THE FIELDS OF JESSE','THE LION AT THE FOLD','THE BEAR IN THE HILLS'][index]||'BETHLEHEM';r.entities=r.entities.filter(e=>['honey','plate'].includes(e.type));if(index>0)r.entities.push(entity('mini',index===1?'lion':'bear',164,176,28,32,index===1?8:12));return r;}
