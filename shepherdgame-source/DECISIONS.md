@@ -130,3 +130,18 @@ do not erase a file placed only into the generated directory.
   eight realms. Shaft descent positioning is set by the harness; the ascent
   walks and climbs using simulated inputs. Chromium desktop, multi-touch and
   existing puzzle/combat regression checks also pass.
+
+## First author-supplied music batch
+
+The five uploaded MP3s are preserved unchanged in public/music. Main Theme #1
+plays on the title and stage-select screens. Three Fields of Bethlehem versions
+and Main Theme #2 are temporarily distributed across all eight realms, with the
+original Fields track also assigned to the tutorial. The exact mapping is in
+public/music/README.md and soundtrackAssignments in musicManifest.ts.
+
+Shared assignments reuse buffers by filename and continue playback across title
+and stage-select without restarting. Decoded buffers now have a 96 MiB cache
+budget in addition to the six-entry cap (one oversized track may remain). This
+limits memory use with these longer stereo tracks. Whole-track loops are used
+for now; no arbitrary musical loop points or BPM values have been inferred.
+Dedicated music slots remain available for future uploads.

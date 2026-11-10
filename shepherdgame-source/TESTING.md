@@ -74,3 +74,13 @@ teleporting between the staircase and its ladder. The return-shaft position is
 set directly to isolate descent. Updated title, realm and portrait screenshots
 were visually inspected. Desktop/multi-touch and puzzle/tower regression scripts
 were rerun successfully. Physical phone and Firefox/Safari checks remain pending.
+
+## Author-supplied soundtrack verification
+
+- `node tests/uploaded-music.mjs`: all five actual MP3 files decode in Chromium;
+  title and stage select reuse Main Theme #1 without restarting; all eight realm
+  states load their assigned tracks and loop them, with no JavaScript page errors.
+- `node tests/audio.mjs`: separately mocks unavailable files to keep verifying
+  missing-track silence and one-warning behavior after the soundtrack is added.
+- Original uploaded bytes are retained in both source and generated static output.
+  Exact musical loop seams have not been tuned; the full tracks loop for now.

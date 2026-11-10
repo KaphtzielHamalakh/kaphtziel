@@ -47,3 +47,22 @@ clock at this tempo, so they work without a track. Adjust it to your real song.
 
 Sound Test is available in Options and marks failed tracks with `!`.
 Missing jingles use a short synthesized arpeggio instead.
+
+## Current uploaded soundtrack
+
+The first five author-supplied MP3s are included unchanged. Temporary assignments:
+
+| Uploaded title | Stored filename | Plays in |
+|---|---|---|
+| Shepherd Main Theme#1 | shepherd-main-theme-1.mp3 | Opening/title and world choice |
+| fields of bethlehem | fields-of-bethlehem.mp3 | Bethlehem tutorial, Jaffa, City of Night |
+| fields of bethlehem#1 | fields-of-bethlehem-1.mp3 | Zin, Azazel |
+| fields of bethlehem (1) | fields-of-bethlehem-alt.mp3 | Hermon, Edom |
+| Shepherd Main Theme#2 | shepherd-main-theme-2.mp3 | Sodom, Resheph |
+
+`src/engine/audio/musicManifest.ts` lists these in `soundtrackAssignments`.
+New dedicated tracks can replace individual assignments as they arrive. Shared
+assignments reuse one decoded buffer, and the title music continues when moving
+to world choice. Other scenes retain their existing named-file slots and silent
+fallback until their music is supplied. Loop points currently use the whole
+track; musical seam timing can be refined later for each supplied composition.

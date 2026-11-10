@@ -1,0 +1,10 @@
+import {chromium} from '@playwright/test';import assert from 'node:assert/strict';
+const browser=await chromium.launch({args:['--no-sandbox']});const page=await browser.newPage();const errors=[];const requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.url().endsWith('.mp3'))requests.push(r.url().split('/').pop());});
+await page.goto('http://127.0.0.1:5173/shepherdgame/?test');await page.waitForFunction(()=>window.elah);
+await page.keyboard.press('ArrowDown');await page.waitForFunction(()=>window.elah.audio().loaded,{},{timeout:30000});
+assert.equal(await page.evaluate(()=>window.elah.audio().current),'title');assert.ok(requests.includes('shepherd-main-theme-1.mp3'));
+const continuity=await page.evaluate(async()=>{const {Audio}=await import('/shepherdgame/src/engine/audio/audio.ts');const a=new Audio();a.unlock();await a.play('title');const first=a.source;await a.play('stage_select');return {sameSource:first===a.source,cache:a.cache.size,loop:a.source.loop};});assert.equal(continuity.sameSource,true);assert.equal(continuity.cache,1);assert.equal(continuity.loop,true);
+const expected=['fields-of-bethlehem-1.mp3','fields-of-bethlehem-alt.mp3','shepherd-main-theme-2.mp3','shepherd-main-theme-2.mp3','fields-of-bethlehem-alt.mp3','fields-of-bethlehem.mp3','fields-of-bethlehem.mp3','fields-of-bethlehem-1.mp3'];
+for(let n=0;n<8;n++){await page.evaluate(n=>window.elah.startRealm(n),n);await page.waitForFunction(()=>window.elah.audio().loaded,{},{timeout:30000});const a=await page.evaluate(()=>window.elah.audio());assert.equal(a.current,['realm_zin','realm_hermon','realm_sodom','realm_resheph','realm_edom','realm_jaffa','realm_night','realm_azazel'][n]);assert.ok(requests.includes(expected[n]));assert.equal(a.loop,true);}
+assert.deepEqual(errors,[]);assert.deepEqual(await page.evaluate(()=>window.elah.audio().missing),[]);
+console.log('Five uploaded MP3s decode and loop; opening/choice share Main Theme #1 without restart; all eight realms have their assigned music; no page errors PASS');await browser.close();
