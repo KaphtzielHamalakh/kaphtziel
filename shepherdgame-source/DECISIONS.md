@@ -196,3 +196,23 @@ The realm geography revision moved Ketev's perches 48px above the floor, beyond
 David's normal jump reach. Restore the two solid 32px-wide platforms at x=48
 and x=176, with tops at y=176 (32px above the floor). This applies to both the
 first fight and the rematch. Other boss arenas retain their authored layouts.
+
+## Distinct realm routes, reliable audio and deliberate touch sizing
+
+Replace the common realm room sequence with eight authored cardinal routes and
+sixteen different puzzle mechanisms. Reciprocal portals permit backtracking;
+covered downward hatches require deliberate DOWN input. Preserve the terrain
+height under removed legacy shafts and preserve Ketev's restored perches. A
+pause-map records route orientation. Mega Man 2's stage identity and traversal
+structure informed the approach (https://en.wikipedia.org/wiki/Mega_Man_2);
+all maps, puzzle rules and drawings here are original.
+
+Failed music loads no longer poison the cache permanently. Retry transient
+failures, resume non-running contexts on trusted interaction, crossfade only
+when replacement audio is ready, and use supplied tracks for unsupplied scenes.
+The title and realm selection retain Main Theme #1. Intentional jingle ducking
+and pause volume are tracked independently.
+
+Touch sizing is an explicit 60–100% Fit preference with a one-tap reset. Move
+Fullscreen into the screen panel to avoid the former Jump overlap. Suppress
+browser zoom gestures while retaining independent gameplay touch pointers.

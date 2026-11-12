@@ -12,15 +12,13 @@ describe('distinct, connected realm geography',()=>{
   expect(makeRoom(3,1).tiles.some(row=>row.includes('='))).toBe(true);
   expect(makeRoom(7,1).entities.some(e=>e.type==='crumbling')).toBe(true);
  });
- it('provides reciprocal clear ladder shafts with exits at different positions',()=>{
-  expect(new Set(geography.map(p=>p.climb)).size).toBe(8);
-  for(let r=0;r<8;r++){
-   const lower=makeRoom(r,6),upper=makeRoom(r,9);
-   const up=Math.floor(lower.ascentX!/16),down=Math.floor(upper.descentX!/16);
-   expect(lower.tiles[0][up]).toBe('H');expect(lower.tiles[12][up]).toBe('H');
-   expect(upper.tiles[14][down]).toBe('H');expect(upper.tiles[2][down]).toBe('H');
-   expect(upper.tiles[8][14]).toMatch(/[#I]/);
-  }
+ it('uses distinct, reciprocal world maps with safe vertical landings',()=>{
+  for(let r=0;r<8;r++)for(let i=0;i<10;i++){const room=makeRoom(r,i);for(const [d,exit] of Object.entries(room.exits??{})){
+   const target=makeRoom(r,exit.room),op={left:'right',right:'left',up:'down',down:'up'}[d] as 'left'|'right'|'up'|'down';
+   expect(target.exits?.[op]?.room).toBe(i);
+   if(d==='up'){expect(room.tiles[0][Math.floor(exit.x/16)]).toBe('H');}
+   if(d==='down'){const row=Math.round((exit.y!+22)/16);expect(room.tiles[row][Math.floor(exit.x/16)]).toBe('=');}
+  }}
  });
  it('keeps the tutorial and fortress template separate from the realm authoring',()=>{
   expect(prologueRoom(0).scene).toBeUndefined();expect(makeRoom(0,6,false).ascentX).toBeUndefined();

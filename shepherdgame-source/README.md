@@ -63,3 +63,27 @@ See [DECISIONS.md](DECISIONS.md) for scope and spec differences and
 [TESTING.md](TESTING.md) for evidence and remaining manual checks.
 Music installation instructions are in [public/music/README.md](public/music/README.md).
 The original supplied specification is retained in [GAME_SPEC.md](GAME_SPEC.md).
+
+## Audio, realm routes and touch display revision
+
+Each realm now follows its own branching-direction geography: dunes descend into
+shade chambers, alpine ledges climb and double back, flooded caves descend through
+sluices, and ruins rise through broken terraces. Open REALM MAP from Pause to
+see visited rooms and the route. Follow directional exit markers; press DOWN at
+a covered floor hatch to descend. DOWN + JUMP drops through thin platforms.
+
+The two puzzle rooms in each realm now use different mechanisms: ricochets and
+weighted plates; ibex steps and ordered crystals; vent explosions and a
+counterweight lift; timed conductors and a storm bridge; two-song seals and
+wind vanes; sluice valves and a floating barrel; rhythmic drums and a lantern
+escort; ordered ropes and a falling-stone step. Room hints explain the goal;
+the R bell resets the room. Backtracking remains available.
+
+Tap SCREEN for a saved play-area size from 60–100% of Fit. RESET SCREEN TO FIT
+restores the largest uncropped view. Fullscreen and touch-control arrangement
+are in that panel. Pinch/double-tap zoom is suppressed during gameplay while
+simultaneous movement, jumping and firing remain supported.
+
+Audio retries temporary failures, resumes interrupted contexts after interaction,
+and keeps the old song playing while the next downloads. Scenes without supplied
+music use the uploaded themes as fallbacks. TAP FOR SOUND offers explicit recovery.

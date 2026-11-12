@@ -108,7 +108,7 @@ export function applyGeography(realm:number,index:number,room:Room):Room{
   // Ketev's original solid perches sit 32px above the floor, within a normal jump.
   for(const [x,y,w] of arenas)ledge(x,y,w,realm===0?'#':'=');
  }
- room.tiles=grid.map(r=>r.join(''));
+ room.floorHeights=[...baseHeights];room.tiles=grid.map(r=>r.join(''));
  for(const e of room.entities){if(['vent','lightning'].includes(e.type)||index===0&&e.type==='honey'){const col=Math.min(15,Math.floor((e.x+e.w/2)/16));let row=13;for(let y=10;y<15;y++)if(['#','I'].includes(grid[y][col])){row=y;break;}e.y=row*16-(e.type==='honey'?24:e.h);e.originY=e.y;}}
  // Place enemies and pickups on their authored ground, rather than inside a raised terrace.
  for(const e of room.entities){if(['walker','turret','mini'].includes(e.type)){

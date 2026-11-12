@@ -123,3 +123,27 @@ a stable landing on each perch, and a sling hit from both platforms in the
 first fight and rematch. The boss is held still and player damage disabled to
 isolate jump, collision, standing and projectile behavior. Production build
 passes with the restored platforms.
+
+## Audio, distinct puzzles and touch display revision
+
+- `npm test`: 22 tests cover core behavior, reciprocal realm routes, puzzle
+  geometry, distinct mechanics and preserved Ketev platforms.
+- `tests/reliability.mjs`: simulated MP3 503 recovers without reload; decoded
+  music produces a nonzero waveform; old music continues during delayed loads;
+  missing boss music falls back to uploaded music; a trusted gesture resumes a
+  suspended context without restarting its source; pause volume restores.
+  Saved screen sizing, Reset to Fit and Chromium touch pinch suppression pass.
+- `tests/puzzle-play.mjs`: all 16 mechanisms block the forward exit until solved
+  and open the correct exit afterward. Uses real projectiles, songs, timing,
+  lift riding, ricochet and platform jumps, plus controlled positioning fixtures.
+- `tests/realm-geography.mjs`: all 136 directed room connections and 56 non-puzzle
+  room routes pass. Traversal uses real movement with damage disabled; solved
+  puzzle fixtures isolate connections. This is not a full combat playthrough.
+- `tests/rooms.mjs`: puzzle checks plus all eight fortress power gates pass.
+- Desktop campaign, simultaneous three-finger movement/fire/jump, six mobile
+  viewport fits, uploaded music assignments and Ketev perch regressions pass.
+
+Chromium automation covers these changes. Firefox/WebKit cannot launch in this
+container because required shared libraries are absent. Physical iPhone/Safari
+interruption recovery, device gestures and full difficulty balance remain manual
+checks; no physical-device compatibility claim is made.

@@ -1,6 +1,1 @@
-// Includes the authored-world movement, shaft, local-water and reverse-route suite.
 import './realm-geography.mjs';
-import {chromium} from '@playwright/test';import assert from 'node:assert/strict';
-const b=await chromium.launch({args:['--no-sandbox']});const p=await b.newPage();await p.goto('http://127.0.0.1:5173/shepherdgame/?test');await p.waitForFunction(()=>window.elah);
-for(let realm=0;realm<8;realm++){const r=await p.evaluate(realm=>{const g=window.elah;g.startRealm(realm);g.enterRoom(1);g.step([],22);g.setPlayer({x:0,y:186});g.step(['left'],2);const back=g.get().roomIndex;g.step([],22);g.setPlayer({x:242,y:160});g.step(['right'],2);return {back,next:g.get().roomIndex};},realm);assert.equal(r.back,0);assert.equal(r.next,1);}
-const tower=await p.evaluate(()=>{const g=window.elah;g.setSave({mask:255,prologue:true,fortress:1});g.startFortress();g.step([],25);g.setPlayer({x:193,y:20});g.step(['up'],10);const blocked=g.get().roomIndex;g.setPlayer({x:184,y:186,ground:true,vy:0});g.setWeapon(0);g.fire();g.step([],20);g.setPlayer({x:193,y:20});g.step(['up'],10);const up=g.get().roomIndex;g.step([],22);g.setPlayer({x:193,y:186});g.step(['down'],2);return {blocked,up,down:g.get().roomIndex};});assert.deepEqual(tower,{blocked:0,up:1,down:0});console.log('Realm screen boundaries and fortress power-gated ladder round trip PASS');await b.close();
