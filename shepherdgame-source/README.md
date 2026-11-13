@@ -87,3 +87,11 @@ simultaneous movement, jumping and firing remain supported.
 Audio retries temporary failures, resumes interrupted contexts after interaction,
 and keeps the old song playing while the next downloads. Scenes without supplied
 music use the uploaded themes as fallbacks. TAP FOR SOUND offers explicit recovery.
+
+## Phone display recovery
+
+The game now anchors its whole surface to the browser's visible viewport and
+compensates for forced/restored page magnification and panning. Tap **FIT** at
+the top right in portrait (near SCREEN in landscape) to restore the largest
+play area and default touch-control size/positions without restarting the room.
+SCREEN still offers deliberate screen-size adjustment.

@@ -1,5 +1,5 @@
 import './style.css';
-import {guardGameGestures,installDisplayPanel} from './engine/display';
+import {guardGameGestures,installDisplayPanel,installViewportFit} from './engine/display';
 import {C,motion,type Body} from './config';
 import {Input,type Key} from './engine/input';
 import {Audio} from './engine/audio/audio';
@@ -22,20 +22,20 @@ function applyOptions(){document.body.classList.toggle('always-touch',opt.touch=
 applyOptions();
 function resize(){
  const mobile=matchMedia('(pointer:coarse)').matches||document.body.classList.contains('touch')||opt.touch===1;
- const viewport=window.visualViewport;const nativeScale=viewport?.scale??1;
- const portrait=mobile&&(nativeScale===1?(viewport?.height??innerHeight):innerHeight)>(nativeScale===1?(viewport?.width??innerWidth):innerWidth);
+ const game=document.querySelector<HTMLElement>('#game')!;
+ const portrait=mobile&&game.clientHeight>game.clientWidth;
  document.body.classList.toggle('phone-portrait',portrait);
- const game=document.querySelector<HTMLElement>('#game')!,style=getComputedStyle(game);
+ const style=getComputedStyle(game);
  const px=(value:string)=>Number.parseFloat(value)||0;
- const width=Math.min(game.clientWidth,nativeScale===1?(viewport?.width??innerWidth):innerWidth)-px(style.paddingLeft)-px(style.paddingRight);
- const height=Math.min(game.clientHeight,nativeScale===1?(viewport?.height??innerHeight):innerHeight)-px(style.paddingTop)-px(style.paddingBottom)-(portrait?220:0);
+ const width=game.clientWidth-px(style.paddingLeft)-px(style.paddingRight);
+ const height=game.clientHeight-px(style.paddingTop)-px(style.paddingBottom)-(portrait?220:0);
  const fit=Math.min(width/256,Math.max(1,height)/240);
  // Phones use all the available room; desktop retains whole-pixel scaling.
  const scale=(mobile?fit:(fit>=1?Math.floor(fit):fit))*opt.screenScale;
  canvas.style.width=256*scale+'px';canvas.style.height=240*scale+'px';
  document.body.classList.toggle('controls-overlap',mobile&&!portrait&&(width-256*scale)/2<190);
 }
-addEventListener('resize',resize);window.visualViewport?.addEventListener('resize',resize);addEventListener('orientationchange',resize);
+const refreshViewport=installViewportFit(document.querySelector<HTMLElement>('#game')!,resize);
 addEventListener('pointerdown',e=>{if(e.pointerType==='touch'){document.body.classList.add('touch');resize();}});
 resize();document.querySelector('#dismiss')!.addEventListener('click',()=>document.querySelector<HTMLElement>('#rotate')!.style.setProperty('display','none'));
 document.querySelector('#fullscreen')!.addEventListener('click',()=>{if(document.fullscreenElement)void document.exitFullscreen();else document.querySelector('#game')!.requestFullscreen?.().catch(()=>{});});
@@ -413,12 +413,14 @@ canvas.addEventListener('pointerdown',e=>{e.preventDefault();audio.unlock();cons
 // In the layout editor pointer motion repositions the DOM controls themselves.
 for(const el of document.querySelectorAll<HTMLElement>('#controller>*')){let drag:number|null=null,dx=0,dy=0;el.addEventListener('pointerdown',e=>{if(state!=='layout')return;drag=e.pointerId;const r=el.getBoundingClientRect();dx=e.clientX-r.left;dy=e.clientY-r.top;},true);el.addEventListener('pointermove',e=>{if(state!=='layout'||drag!==e.pointerId)return;const id=el.id||el.dataset.key||'';opt.layout[id]={x:Math.max(0,Math.min(innerWidth-el.offsetWidth,e.clientX-dx)),y:Math.max(0,Math.min(innerHeight-el.offsetHeight,e.clientY-dy))};applyOptions();});el.addEventListener('pointerup',()=>drag=null);}
 guardGameGestures(document.querySelector<HTMLElement>('#game')!);
+function resetTouchControls(){opt.layout={};opt.scale=1;opt.opacity=.55;document.querySelectorAll<HTMLElement>('#controller>*').forEach(el=>{el.style.left='';el.style.top='';el.style.right='';el.style.bottom='';});applyOptions();}
 let screenReturn:State|null=null,screenWasPaused=false;
 const displayPanel=installDisplayPanel({get:()=>opt.screenScale,set:value=>{opt.screenScale=Math.max(.6,Math.min(1,value));saveOptions(opt);resize();},
  open:()=>{input.clear();screenReturn=state;screenWasPaused=audio.paused;if(state==='stage')change('pause');audio.paused=true;audio.volumes();},
  close:()=>{input.clear();if(screenReturn)change(screenReturn);audio.paused=screenWasPaused;audio.volumes();screenReturn=null;},
- resetControls:()=>{opt.layout={};opt.scale=1;opt.opacity=.55;document.querySelectorAll<HTMLElement>('#controller>*').forEach(el=>{el.style.left='';el.style.top='';el.style.right='';el.style.bottom='';});applyOptions();},
+ resetControls:resetTouchControls,
  arrange:()=>{change('layout');notify('DRAG CONTROLS. START TO SAVE.');}});
+document.querySelector('#quick-fit')!.addEventListener('click',()=>{displayPanel.close();input.clear();opt.screenScale=1;resetTouchControls();window.scrollTo(0,0);refreshViewport();});
 document.querySelector('#sound-recover')!.addEventListener('click',()=>audio.retry());
 let last=0,acc=0;function loop(now:number){if(!last)last=now;acc+=Math.min(100,now-last);last=now;while(acc>=1000/60){update();acc-=1000/60;}render();requestAnimationFrame(loop);}tune('title');requestAnimationFrame(loop);
 // Explicit opt-in test harness; absent from normal sessions.

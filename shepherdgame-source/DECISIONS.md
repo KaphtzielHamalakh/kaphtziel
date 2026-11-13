@@ -216,3 +216,17 @@ and pause volume are tracked independently.
 Touch sizing is an explicit 60–100% Fit preference with a one-tap reset. Move
 Fullscreen into the screen panel to avoid the former Jump overlap. Suppress
 browser zoom gestures while retaining independent gameplay touch pointers.
+
+## Recover from forced phone zoom
+
+A phone screenshot showed enlarged, clipped controls and an offscreen game.
+Zoom prevention alone did not cover browsers restoring or overriding page scale.
+Size the entire game surface from VisualViewport width/height times scale, then
+apply inverse scale and visual offset translation with a fixed origin. Listen
+for visual viewport scroll as well as resize, and refresh on pageshow, focus,
+visibility return and settled orientation changes. This keeps rendering and
+pointer-coordinate conversion together rather than shrinking only the canvas.
+
+Expose a persistent FIT button outside the settings modal. It restores screen
+Fit, touch-control size and arrangement, and scroll origin without reloading or
+clearing game progress. Existing dedicated SCREEN sizing remains available.

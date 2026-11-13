@@ -147,3 +147,15 @@ Chromium automation covers these changes. Firefox/WebKit cannot launch in this
 container because required shared libraries are absent. Physical iPhone/Safari
 interruption recovery, device gestures and full difficulty balance remain manual
 checks; no physical-device compatibility claim is made.
+
+## Forced viewport zoom recovery
+
+`tests/viewport-recovery.mjs` forces real Chromium browser page scale to 1x,
+1.5x, 2x and 3x in portrait and landscape. Canvas, controls, SCREEN and FIT stay
+within the physical visible viewport; native menu touch coordinates still work.
+A synthetic VisualViewport offset/scroll fixture covers panning updates.
+A real touch on FIT at 2x repairs deliberately oversized, offscreen saved
+controls. FIT restores full size and leaves the active room intact. Six mobile
+fit cases, desktop integer scaling, existing audio/touch reliability and
+three-finger gameplay regressions also pass. This reproduces the magnified
+viewport failure mechanism in Chromium; physical iOS Safari remains unverified.
