@@ -103,6 +103,7 @@ function updateSelection(){
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${label(start)} to ${label(end)}`:`Cursor: Genesis ${label(state.cursor)}`;
   $('span-preview').textContent=`Genesis ${label(start)} to ${label(end)} · ${end-start+1} word${end>start?'s':''}`;
+  $('compact-span').textContent=`${label(start)}–${label(end)}`;
   $('end-selection').setAttribute('aria-pressed',String(chooseEnd));
   $('end-selection').textContent=chooseEnd?'Click the last word':'Choose span end';
   const w=words[state.cursor];$('current-word').textContent=w.sourceHebrew;
@@ -145,6 +146,7 @@ $('groups').addEventListener('change',e=>{state.groups=e.target.checked;render()
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;render();});
 $('end-selection').addEventListener('click',()=>{chooseEnd=!chooseEnd;updateSelection();});
 $('play').addEventListener('click',play);$('stop').addEventListener('click',()=>stop());
+$('compact-play').addEventListener('click',play);$('compact-stop').addEventListener('click',()=>stop());
 $('repeat').addEventListener('change',e=>{const running=player.running;state.repeat=e.target.checked;persist();if(running)play();});
 function changeSound(key,value,min,max){
   if(!Number.isFinite(value))return;const running=player.running;
@@ -170,4 +172,6 @@ $('download').addEventListener('click',()=>{
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){stop();return;}if(e.key==='F2'){e.preventDefault();stop();}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&player.running)stop('Paused because this tab is hidden. Press Play to restart the span.');});
 render();
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local audio · available offline after first load';}).catch(()=>{});
+document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
+if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';
+else if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local audio · available offline after first load';}).catch(()=>{});

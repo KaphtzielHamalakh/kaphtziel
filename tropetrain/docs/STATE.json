@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-11-18",
+  "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
+  "status": "active",
+  "publishedCommit": "e27cbee71ff22322d8f868f1ce00880527b8d6ab",
+  "nextTask": "Fix downloaded-file initialization and visible transport; then full Torah corpus and selector.",
+  "lastPassingTests": {
+    "automated": 10,
+    "ui": "Milestone 1 passed in in-app browser; user seeing different file entry point.",
+    "distribution": "Self-contained HTML initialized over HTTP with 27 words and quick transport. File-URL UI inspection remains unavailable by browser policy."
+  },
+  "completionRequires": [
+    "All roadmap features complete and tested",
+    "Full Torah and sourced reading divisions",
+    "Six independent reviewed pronunciation grammars/voices",
+    "Every recovered melody system musically realized, sourced, licensed and reviewed",
+    "Final desktop roster or explicitly agreed bounded roster",
+    "No unsupported preset advertised as playable"
+  ],
+  "features": [
+    {
+      "id": "startup",
+      "description": "Reliable browser and downloaded-file startup",
+      "status": "implemented_local_qa_passed"
+    },
+    {
+      "id": "corpus",
+      "description": "Complete Torah text, exact marks and provenance",
+      "status": "pending"
+    },
+    {
+      "id": "reader",
+      "description": "Pointed/consonantal/parallel views and stable IDs",
+      "status": "partial"
+    },
+    {
+      "id": "alignment",
+      "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
+      "status": "evidence_needed"
+    },
+    {
+      "id": "playback",
+      "description": "Word/group/verse/aliyah/reading/span and repeat",
+      "status": "partial"
+    },
+    {
+      "id": "pronunciations",
+      "description": "Six historical Accent profiles with independent reviewed phonemes",
+      "status": "evidence_needed"
+    },
+    {
+      "id": "melodies",
+      "description": "All recovered original melody systems by reading type, source and review",
+      "status": "evidence_needed"
+    },
+    {
+      "id": "singing",
+      "description": "Reusable singing voice and accompaniment, independently controlled",
+      "status": "evidence_needed"
+    },
+    {
+      "id": "voice_range",
+      "description": "Historical voice ranges, transposition and volume",
+      "status": "partial"
+    },
+    {
+      "id": "repertoire",
+      "description": "Torah/haftarot/five scrolls/blessings edition coverage",
+      "status": "partial"
+    },
+    {
+      "id": "calendar",
+      "description": "Perpetual calendar and Israel/Diaspora annual/triennial/holiday divisions",
+      "status": "pending"
+    },
+    {
+      "id": "assignments",
+      "description": "Named ordered sections, discontinuous haftarot/Megillah, aliyot",
+      "status": "pending"
+    },
+    {
+      "id": "sharing",
+      "description": "Assignment export/import with musical/display settings",
+      "status": "pending"
+    },
+    {
+      "id": "recent",
+      "description": "Eight recent readings and tutorials",
+      "status": "pending"
+    },
+    {
+      "id": "score",
+      "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
+      "status": "partial"
+    },
+    {
+      "id": "display",
+      "description": "STaM provenance, scroll layout, adjustable panes/sizes/vowels",
+      "status": "pending"
+    },
+    {
+      "id": "analysis",
+      "description": "Group colors, accent hierarchy, exceptions and rules inspector",
+      "status": "partial"
+    },
+    {
+      "id": "curriculum",
+      "description": "Tutorials, randomized groups, recall, Kadma and combinations charts",
+      "status": "pending"
+    },
+    {
+      "id": "outputs",
+      "description": "Print pointed/scroll/tikkun/score, portable audio and blessings",
+      "status": "partial"
+    },
+    {
+      "id": "offline",
+      "description": "Offline corpus and practice state, robust version upgrades",
+      "status": "partial"
+    },
+    {
+      "id": "verification",
+      "description": "Normal UI checks, automated invariants, musical review",
+      "status": "partial"
+    }
+  ],
+  "evidenceRequests": [
+    "Original V5/V6 Melody Help/menu captures with version and edition",
+    "Permission-cleared complete melody scores/recordings by named tradition",
+    "Qualified reader/reviewer for syllabification, pronunciation and chant",
+    "Reusable singing voice material with explicit rights"
+  ],
+  "archiveResearch": {
+    "v3": {
+      "url": "https://archive.org/details/Trope_Trainer_Kinnor_Software_Inc._Version_3.2_2005",
+      "status": "primary archive metadata verified; 2005 Version 3.2 ISO"
+    },
+    "v6": {
+      "url": "https://archive.org/details/trope-trainer-6",
+      "status": "uploader labels V6 Deluxe, date 2017; internal version verification pending",
+      "archiveSha1": "5d4917e3dc96e9321c3051f5559f7b4e192fa03c",
+      "reuseRights": "No permissive license found in item metadata. Research reference; do not redistribute proprietary assets."
+    }
+  }
+}
