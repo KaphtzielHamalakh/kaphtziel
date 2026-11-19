@@ -3,8 +3,8 @@
   "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "c80f9243145fb0c4ccf4c82c1d836ef1e439b685",
-  "nextTask": "Publish tested v0.6 recorded-reference release through connected GitHub tools; verify Pages/live bytes and returning live UI. Then extend rights-cleared, edition-aware recording coverage across Torah while continuing reviewed pitch/phoneme source pipeline and full roadmap. No independent historical melody/pronunciation profiles may be claimed from fixed recordings.",
+  "publishedCommit": "cdd933c5e9ddd6e036bee04e117c3e9f37dfcb7b",
+  "nextTask": "Extend rights-cleared recorded-reference coverage across the Torah using original 2012 WLC XML, identical word-timing files and Archive audio metadata. Build per-recording checksummed, edition-aware alignment and coverage audit that rejects unmapped or reordered words; preserve every source difference and occurrence ID. Avoid adding hundreds of MB to startup; design explicit on-demand/offline reference loading. In parallel with this source work, continue reviewed score/phoneme pipeline; fixed recordings do not complete independent melodies or six pronunciation profiles. Retain all roadmap features.",
   "lastPassingTests": {
     "automated": 50,
     "ui": "Local source and embedded standalone: covered/unsupported spans, word/final boundaries, WLC/UXLC difference, view highlighting, independent volumes, key-change/Stop/Escape, repeated assignment transitions/repeat, 320/390 layouts and mutual exclusion with demo. Stopped/muted.",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "c80f9243145fb0c4ccf4c82c1d836ef1e439b685",
+    "commit": "cdd933c5e9ddd6e036bee04e117c3e9f37dfcb7b",
     "status": "success",
-    "workflowRun": 44526800629,
-    "liveAssets": "eight matched byte-for-byte, including versioned bundle/style, standalone, sign modules and source audit",
-    "ui": "Returning live tab upgraded from v0.4 to v0.5, restored Deuteronomy 6:4 and volume 0, searched 365 Zarqa / 10 helper / 1 Qarnei fara words and navigated to Numbers 35:5 word 8. No captured warnings/errors. Stopped/muted.",
+    "workflowRun": 44534366849,
+    "liveAssets": "ten matched byte-for-byte, including MP3, notices, alignment/source excerpt, standalone and versioned runtime/style",
+    "ui": "Returning live tab upgraded from v0.5 to v0.6, restored Numbers 35:5 and volume 0, played opening reference word muted and stopped at 3.352635 s, then displayed/played WLC source disagreement at Genesis 1:11 word 5 and stopped. Actual media duration 449.515 s; no captured warnings/errors. 1280 desktop layout fit. Left stopped with both volumes 0.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -187,7 +187,7 @@
   },
   "workingIteration": {
     "version": "0.6.0",
-    "status": "local_qa_passed_publication_pending",
+    "status": "published_live_verified",
     "automatedTests": 50,
     "newFeatures": [
       "Licensed, unmodified PocketTorah opening MP3 and original word starts",
@@ -204,11 +204,10 @@
       "Repeat continued across section transitions; Escape removed all reference highlights and stopped audio",
       "320/390 layouts had no body overflow; viewport reset",
       "Standalone embedded MP3 decoded and final word finished at exact 449.515-second media end",
-      "Instrument and recorded-reference playback mutually exclusive; no captured warnings/errors"
+      "Instrument and recorded-reference playback mutually exclusive; no captured warnings/errors",
+      "Returning live v0.5→v0.6 upgrade, full library/restored reading, decoded reference/word stop, source disagreement/Stop and 1280 layout; no captured warnings/errors"
     ],
-    "uiPending": [
-      "Publication and returning-live-tab verification"
-    ],
+    "uiPending": [],
     "limits": [
       "Recording is source-described Avery–Binder style; individual reader for this file not yet identified",
       "Word timings are source-provided, not acoustically reviewed",
