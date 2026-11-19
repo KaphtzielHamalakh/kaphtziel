@@ -3493,6 +3493,135 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return result;
   }
 
+  // accents.js
+  var SIGN_ANALYSIS = Object.freeze({
+    id: "uxlc-prose-signs",
+    revision: 1,
+    source: "https://www.tanach.us/Pages/Coding.html",
+    unicode: "https://www.unicode.org/Public/18.0.0/charts/PDF/U0590.pdf",
+    scope: "Source-sign recognition for Torah/prose. Full contextual hierarchy and melodies are not implemented."
+  });
+  var rows = [
+    [1425, "etnahta", "Etnaḥta", "ETNAHTA", "D1"],
+    [1426, "segolta", "Segolta", "SEGOL", "D2"],
+    [1427, "shalshelet", "Shalshelet", "SHALSHELET", "D2"],
+    [1428, "zakef-katon", "Zakef katon", "ZAQEF QATAN", "D2"],
+    [1429, "zakef-gadol", "Zakef gadol", "ZAQEF GADOL", "D2"],
+    [1430, "tipha", "Tipḥa", "TIPEHA", "D2"],
+    [1431, "revia", "Revia", "REVIA", "D3"],
+    [1432, "zarqa-helper", "Zarqa stress helper", "ZARQA", null, "helper"],
+    [1433, "pashta", "Pashta", "PASHTA", "D3"],
+    [1434, "yetiv", "Yetiv", "YETIV", "D3"],
+    [1435, "tevir", "Tevir", "TEVIR", "D3"],
+    [1436, "geresh", "Geresh", "GERESH", "D4"],
+    [1437, "geresh-muqdam", "Geresh muqdam", "GERESH MUQDAM", null, "poetic"],
+    [1438, "gershayim", "Gershayim", "GERSHAYIM", "D4"],
+    [1439, "qarnei-fara", "Qarnei fara", "QARNEY PARA", "D4"],
+    [1440, "telisha-gedola", "Telisha gedola", "TELISHA GEDOLA", "D4"],
+    [1441, "pazer", "Pazer", "PAZER", "D4"],
+    [1442, "atnah-hafukh", "Atnaḥ hafukh", "ATNAH HAFUKH", null, "poetic"],
+    [1443, "munah", "Munaḥ", "MUNAH", "C"],
+    [1444, "mahapakh", "Mahapakh", "MAHAPAKH", "C"],
+    [1445, "merkha", "Merkha", "MERKHA", "C"],
+    [1446, "merkha-kefula", "Merkha kefula", "MERKHA KEFULA", "C"],
+    [1447, "darga", "Darga", "DARGA", "C"],
+    [1448, "qadma", "Qadma", "QADMA", "C"],
+    [1449, "telisha-qetana", "Telisha qetana", "TELISHA QETANA", "C"],
+    [1450, "yerah-ben-yomo", "Yeraḥ ben yomo", "YERAH BEN YOMO", "C"],
+    [1451, "ole", "Ole", "OLE", null, "poetic"],
+    [1452, "iluy", "Iluy", "ILUY", null, "poetic"],
+    [1453, "dehi", "Deḥi", "DEHI", null, "poetic"],
+    [1454, "zarqa", "Zarqa (postpositive)", "ZINOR", "D3"]
+  ];
+  var ACCENT_CATALOG = Object.freeze(rows.map(([point, id, name, unicode, proseClass, role]) => Object.freeze({
+    id,
+    point,
+    char: String.fromCodePoint(point),
+    code: `U+${point.toString(16).toUpperCase().padStart(4, "0")}`,
+    name,
+    unicodeName: `HEBREW ACCENT ${unicode}`,
+    proseClass,
+    role: role ?? (proseClass === "C" ? "conjunctive" : "disjunctive")
+  })));
+  var byPoint = new Map(ACCENT_CATALOG.map((s) => [s.point, s]));
+  var otherRows = [
+    [1469, "meteg", "Meteg", "HEBREW POINT METEG"],
+    [1470, "maqaf", "Maqaf", "HEBREW PUNCTUATION MAQAF"],
+    [1472, "paseq", "Paseq", "HEBREW PUNCTUATION PASEQ"],
+    [1475, "sof-pasuq", "Sof pasuq", "HEBREW PUNCTUATION SOF PASUQ"],
+    [1471, "rafe", "Rafe", "HEBREW POINT RAFE"],
+    [1476, "upper-dot", "Extraordinary upper dot", "HEBREW MARK UPPER DOT"],
+    [1477, "lower-dot", "Extraordinary lower dot", "HEBREW MARK LOWER DOT"],
+    [847, "cgj", "CGJ (source shaping control)", "COMBINING GRAPHEME JOINER"],
+    [8205, "zwj", "ZWJ (source shaping control)", "ZERO WIDTH JOINER"]
+  ];
+  var others = new Map(otherRows.map(([point, id, name, unicodeName]) => [point, Object.freeze({
+    point,
+    id,
+    name,
+    unicodeName,
+    char: String.fromCodePoint(point),
+    code: `U+${point.toString(16).toUpperCase().padStart(4, "0")}`,
+    proseClass: null,
+    role: "source-mark"
+  })]));
+  var SEARCH_SIGNS = Object.freeze([
+    ...ACCENT_CATALOG.filter((s) => s.role !== "poetic"),
+    Object.freeze({ ...others.get(1469), id: "silluq", name: "Silluq position before sof pasuq", proseClass: "D1", role: "contextual" }),
+    ...[1469, 1470, 1472, 1475].map((p) => others.get(p))
+  ]);
+  function analyzeSourceSigns(sourceHebrew) {
+    const signs = [], marks = [], warnings = [];
+    let offset = 0;
+    const sof = sourceHebrew.lastIndexOf("׃"), silluqOffset = sof < 0 ? -1 : sourceHebrew.lastIndexOf("ֽ", sof);
+    for (const char of sourceHebrew) {
+      const point = char.codePointAt(0), definition = byPoint.get(point) ?? others.get(point);
+      if (definition) {
+        const record = {
+          char,
+          code: definition.code,
+          offset,
+          id: definition.id,
+          name: definition.name,
+          unicodeName: definition.unicodeName,
+          proseClass: definition.proseClass,
+          role: definition.role
+        };
+        if (point === 1469 && offset === silluqOffset) {
+          record.id = "silluq";
+          record.name = "Silluq position";
+          record.proseClass = "D1";
+          record.role = "contextual";
+        }
+        (byPoint.has(point) ? signs : marks).push(record);
+      }
+      offset += char.length;
+    }
+    if (signs.some((s) => s.id === "zarqa")) warnings.push("UXLC encodes postpositive Zarqa with U+05AE, whose Unicode name is ZINOR. Its position alone does not identify the stressed syllable.");
+    if (signs.some((s) => s.id === "zarqa-helper")) warnings.push("U+0598 is a Zarqa stress helper in this prose edition; it is kept separate from the postpositive sign.");
+    if (signs.some((s) => s.role === "poetic")) warnings.push("A poetic-system sign is present. This prose inspector does not infer its contextual function.");
+    if (new Set(signs.map((s) => s.id)).size < signs.length) warnings.push("Repeated source signs are listed separately. Their count is not a count of musical motifs.");
+    const paseq = marks.some((s) => s.id === "paseq"), hasMunah = signs.some((s) => s.id === "munah");
+    if (paseq) warnings.push(hasMunah ? "Munaḥ with paseq can form legarmeh. Classification of the composite requires phrase context." : "Paseq is retained as punctuation. A contextual musical function is not inferred.");
+    if (marks.some((s) => s.id === "silluq")) warnings.push("The last U+05BD before sof pasuq is identified by its verse-closing position. Earlier meteg signs remain separate.");
+    const musical = [...signs, ...marks.filter((s) => s.id === "silluq")].sort((a, b) => a.offset - b.offset);
+    const classes = [...new Set(musical.map((s) => s.proseClass).filter(Boolean))];
+    const disjunctives = new Set(musical.filter((s) => s.proseClass?.startsWith("D")).map((s) => s.id));
+    if (new Set(signs.map((s) => s.id)).size > 1 && disjunctives.size <= 1) warnings.push("Several different signs share this word. Their combined reading is not inferred from the character names.");
+    const className = paseq && hasMunah ? "ambiguous" : disjunctives.size > 1 ? "multiple" : classes.find((c) => c.startsWith("D")) ?? classes[0] ?? (signs.some((s) => s.role === "helper") ? "helper" : null);
+    if (disjunctives.size > 1) warnings.push("Several disjunctive signs are encoded on this word. Their combined reading is not reduced to one hierarchy level.");
+    const label2 = musical.length ? musical.map((s) => s.name).join(" + ") : marks.some((s) => s.id === "maqaf") ? "Joined by maqaf" : marks.some((s) => s.id === "sof-pasuq") ? "Sof pasuq (no Silluq codepoint)" : marks.some((s) => s.id === "meteg") ? "Meteg (no cantillation accent encoded)" : "No cantillation accent encoded";
+    return { revision: SIGN_ANALYSIS.revision, signs, marks, label: label2, className, warnings };
+  }
+  function sourceClassLabel(className) {
+    if (className === "C") return "Conjunctive (C)";
+    if (/^D[1-4]$/u.test(className ?? "")) return `Disjunctive · source level ${className[1]} (${className})`;
+    if (className === "ambiguous") return "Context required · Munaḥ / paseq";
+    if (className === "multiple") return "Several disjunctives · context required";
+    if (className === "helper") return "Stress helper · not a separate cadence";
+    return "No prose class assigned";
+  }
+
   // music.js
   var syllableDrafts = [
     [[1, 2, 3], ["bə", "rē", "shīt"], 2],
@@ -3526,7 +3655,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var fixtureWords = passage.verses.flatMap((v) => v.words);
   var fixtures = new Map(fixtureWords.map((w, i) => [w.id, { text: w.sourceHebrew, syllables: syllableDrafts[i] }]));
   var melody = Object.freeze({ id: "original-demo-01", revision: 1, name: "Original demonstration 01", status: "original, unreviewed", license: "CC0-1.0", description: "A newly composed note fixture for playback and alignment. No historical or communal attribution." });
-  var accentNames = { "֑": "Etnaḥta", "֒": "Segolta", "֓": "Shalshelet", "֔": "Zakef katon", "֕": "Zakef gadol", "֖": "Tipḥa", "֗": "Revia", "֘": "Zarqa", "֙": "Pashta", "֚": "Yetiv", "֛": "Tevir", "֜": "Geresh", "֝": "Geresh muqdam", "֞": "Gershayim", "֟": "Qarnei fara", "֠": "Telisha gedola", "֡": "Pazer", "֣": "Munaḥ", "֤": "Mahapakh", "֥": "Merkha", "֦": "Merkha kefula", "֧": "Darga", "֨": "Qadma", "֩": "Telisha qetana", "֪": "Yeraḥ ben yomo" };
   var consonantal = (text) => text.replace(/[\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u200d\u034f]/gu, "");
   var noteName = (midi) => ["C", "C♯", "D", "E♭", "E", "F", "F♯", "G", "A♭", "A", "B♭", "B"][(midi % 12 + 12) % 12] + (Math.floor(midi / 12) - 1);
   function createReadingModel(passage3) {
@@ -3547,14 +3675,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const syllables = alignedSyllables(w, { fixture: fixture?.text === w.sourceHebrew ? fixture.syllables : null });
       const atVerseEnd = index === raw.length - 1 || raw[index + 1].verseKey !== w.verseKey;
       const groupEnd = atVerseEnd || !w.sourceHebrew.endsWith("־") && /[\u0591-\u0595]/u.test(w.sourceHebrew);
-      const names = Object.entries(accentNames).filter(([c]) => w.sourceHebrew.includes(c)).map(([, name]) => name);
+      const signAnalysis = analyzeSourceSigns(w.sourceHebrew);
       const word = {
         ...w,
         index,
         syllables,
         group,
         groupEnd,
-        accent: w.sourceHebrew.endsWith("׃") ? "Silluq / sof pasuq" : names.join(" + ") || (w.sourceHebrew.endsWith("־") ? "Joined by maqaf" : "No accent identified"),
+        signAnalysis,
+        accent: signAnalysis.label,
         analysisStatus: syllables.some((s) => s.reviewStatus === "unsegmented") ? "unsegmented" : syllables[0].reviewStatus
       };
       if (groupEnd) group++;
@@ -3740,7 +3869,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       title: typeof data.title === "string" ? data.title.slice(0, 120) : "Imported assignment",
       sections: passage3.ranges,
       musicalPreferences: { melodyId, pronunciationId },
-      displayPreferences: { view: ["pointed", "consonantal", "parallel"].includes(data.displayPreferences?.view) ? data.displayPreferences.view : "pointed", groups: data.displayPreferences?.groups !== false }
+      displayPreferences: { view: ["pointed", "consonantal", "parallel"].includes(data.displayPreferences?.view) ? data.displayPreferences.view : "pointed", groups: data.displayPreferences?.groups !== false, signClasses: data.displayPreferences?.signClasses === true }
     };
   }
   function createAssignment(title, sections, displayPreferences = {}) {
@@ -3750,7 +3879,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       title: (String(title).trim() || "Untitled assignment").slice(0, 120),
       sections,
       musicalPreferences: { melodyId: "original-demo-01", pronunciationId: null },
-      displayPreferences: { view: displayPreferences.view || "pointed", groups: displayPreferences.groups !== false }
+      displayPreferences: { view: displayPreferences.view || "pointed", groups: displayPreferences.groups !== false, signClasses: displayPreferences.signClasses === true }
     };
   }
 
@@ -4128,6 +4257,64 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { ...summary, peak, blob: new Blob(parts, { type: "audio/wav" }) };
   }
 
+  // sign-search.js
+  var UNMARKED = Object.freeze({ id: "unmarked", name: "Unmarked source words", char: null });
+  var SIGN_QUERIES = Object.freeze([...SEARCH_SIGNS, UNMARKED]);
+  var query = (id) => {
+    const q = SIGN_QUERIES.find((s) => s.id === id);
+    if (!q) throw Error("Choose a source sign from the list.");
+    return q;
+  };
+  function occurrences(analysis, id) {
+    if (id === "unmarked") return !analysis.signs.length && !analysis.marks.some((s) => ["maqaf", "meteg", "silluq", "sof-pasuq"].includes(s.id)) ? 1 : 0;
+    return [...analysis.signs, ...analysis.marks].filter((s) => s.id === id).length;
+  }
+  function findSignsInReading(words3, id) {
+    query(id);
+    return words3.flatMap((word, wordIndex) => {
+      const count = occurrences(word.signAnalysis ?? analyzeSourceSigns(word.sourceHebrew), id);
+      return count ? [{ word, wordIndex, occurrenceId: word.id, sourceWordId: word.sourceWordId ?? word.id, count }] : [];
+    });
+  }
+  var caches = /* @__PURE__ */ new WeakMap();
+  async function findSignsInCorpus(corpus2, id) {
+    const q = query(id);
+    let cache = caches.get(corpus2);
+    if (!cache) {
+      cache = /* @__PURE__ */ new Map();
+      caches.set(corpus2, cache);
+    }
+    if (cache.has(id)) return cache.get(id);
+    const result = [];
+    for (const book of corpus2.books) {
+      for (const chapter of book.chapters) for (const verse of chapter.verses) {
+        let ordinal = 0;
+        for (const token of verse.tokens) {
+          if (token.kind === "k" || !/[א-ת]/u.test(token.sourceHebrew)) continue;
+          ordinal++;
+          if (q.char && !token.sourceHebrew.includes(q.char)) continue;
+          const count = occurrences(analyzeSourceSigns(token.sourceHebrew), id);
+          if (!count) continue;
+          const word = {
+            ...token,
+            sourceWordId: token.id,
+            bookId: book.id,
+            bookName: book.name,
+            chapter: chapter.number,
+            verse: verse.number,
+            ordinal,
+            reference: `${book.name} ${chapter.number}:${verse.number}`
+          };
+          result.push({ word, sourceWordId: token.id, count });
+        }
+      }
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+    if (cache.size >= 8) cache.delete(cache.keys().next().value);
+    cache.set(id, result);
+    return result;
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -4142,6 +4329,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     volume: 70,
     repeat: false,
     groups: true,
+    signClasses: false,
+    signQuery: "etnahta",
+    findScope: "reading",
     rangeLow: 60,
     rangeHigh: 72,
     readerPage: 0,
@@ -4157,7 +4347,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (Number.isInteger(saved[key]) && saved[key] >= min && saved[key] <= max) state[key] = saved[key];
       if (["pointed", "consonantal", "parallel"].includes(saved.view)) state.view = saved.view;
       if (["word", "group", "verse", "aliyah", "selection", "passage"].includes(saved.scope)) state.scope = saved.scope;
-      for (const key of ["repeat", "groups", "followPlayback"]) if (typeof saved[key] === "boolean") state[key] = saved[key];
+      for (const key of ["repeat", "groups", "followPlayback", "signClasses"]) if (typeof saved[key] === "boolean") state[key] = saved[key];
+      if (["reading", "torah"].includes(saved.findScope)) state.findScope = saved.findScope;
+      if (SIGN_QUERIES.some((q) => q.id === saved.signQuery)) state.signQuery = saved.signQuery;
       if (Array.isArray(saved.ranges)) state.ranges = saved.ranges;
     }
   } catch {
@@ -4181,6 +4373,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var exportsKey = null;
   var wavJob = null;
   var exportUrls = /* @__PURE__ */ new Map();
+  var findGeneration = 0;
+  var findHits = [];
+  var findPage = 0;
+  var findWords = null;
   function loadArray(key) {
     try {
       const data = JSON.parse(localStorage.getItem(key));
@@ -4302,10 +4498,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     b.className = `word group-${w.group % 2 ? "odd" : "even"}${w.groupEnd ? " group-end" : ""}${w.kind === "q" ? " qere-word" : ""}`;
     b.dataset.word = w.id;
     b.dataset.index = w.index;
+    b.dataset.signClass = w.signAnalysis.className ?? "";
     setWordText(b, w, plain);
     b.lang = "he";
     b.dir = "rtl";
-    b.title = `${w.reference}, word ${w.ordinal} · ${w.accent}`;
+    b.title = `${w.reference}, word ${w.ordinal} · ${w.accent} · ${sourceClassLabel(w.signAnalysis.className)}`;
     b.setAttribute("aria-label", `${b.textContent}, ${w.reference}, word ${w.ordinal}`);
     b.addEventListener("click", (e) => selectWord(w.index, e.shiftKey));
     b.addEventListener("dblclick", () => {
@@ -4329,6 +4526,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function renderReader() {
     $("reader").replaceChildren();
     $("reader").classList.toggle("guides", state.groups);
+    $("reader").classList.toggle("sign-classes", state.signClasses);
+    $("class-guide").hidden = !state.signClasses;
     const pages = Math.ceil(passage2.verses.length / VERSE_PAGE);
     state.readerPage = Math.min(state.readerPage, pages - 1);
     if (state.view === "parallel") {
@@ -4389,6 +4588,100 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("group-name").textContent = `Practice group ${w.group + 1} · ${w.sourceWordId ?? w.id}`;
     $("source-variant").textContent = w.kind === "q" ? `Reading form (qere). Written form: ${(w.writtenVariants || []).map((t) => t.sourceHebrew).join(" ") || "see source edition"}` : "";
     $("alignment-status").textContent = w.analysisStatus === "unsegmented" ? "Syllable boundaries unresolved; word shown as one aligned unit." : `${w.syllables.length} draft syllables · ${w.analysisStatus === "draft-manual" ? "manual fixture" : "automatic analysis"} · not reader-reviewed`;
+    renderSourceSigns(w);
+  }
+  function renderSourceSigns(word) {
+    const analysis = word.signAnalysis;
+    $("source-class").textContent = sourceClassLabel(analysis.className);
+    $("source-sign-rows").replaceChildren();
+    $("source-sign-warnings").replaceChildren();
+    for (const sign of [...analysis.signs, ...analysis.marks].sort((a, b) => a.offset - b.offset)) {
+      const row = document.createElement("tr");
+      const glyph = /[\u034f\u200d]/u.test(sign.char) ? "invisible" : /\p{Mark}/u.test(sign.char) ? "◌" + sign.char : sign.char;
+      for (const [i, value] of [glyph, sign.code, sign.name, sign.proseClass ?? sign.role, sign.offset + 1].entries()) {
+        const cell = document.createElement("td");
+        cell.textContent = value;
+        if (i === 2) {
+          const unicode = document.createElement("small");
+          unicode.textContent = sign.unicodeName;
+          cell.append(unicode);
+        }
+        if (i === 0 && glyph !== "invisible") {
+          cell.lang = "he";
+          cell.dir = "rtl";
+        }
+        row.append(cell);
+      }
+      $("source-sign-rows").append(row);
+    }
+    if (!analysis.signs.length && !analysis.marks.length) {
+      const row = document.createElement("tr"), cell = document.createElement("td");
+      cell.colSpan = 5;
+      cell.textContent = "No listed cantillation, punctuation or shaping sign is encoded in this word.";
+      row.append(cell);
+      $("source-sign-rows").append(row);
+    }
+    for (const text of analysis.warnings) {
+      const li = document.createElement("li");
+      li.textContent = text;
+      $("source-sign-warnings").append(li);
+    }
+  }
+  async function refreshSignSearch({ reset = false } = {}) {
+    const generation = ++findGeneration;
+    findWords = words2;
+    if (reset) findPage = 0;
+    $("sign-query").value = state.signQuery;
+    $("find-scope").value = state.findScope;
+    $("sign-results").replaceChildren();
+    $("sign-result-status").textContent = state.findScope === "torah" ? "Searching the Torah…" : "Searching this reading…";
+    $("sign-previous").disabled = true;
+    $("sign-next").disabled = true;
+    try {
+      const hits = state.findScope === "torah" ? await findSignsInCorpus(await getCorpus(), state.signQuery) : findSignsInReading(words2, state.signQuery);
+      if (generation !== findGeneration) return;
+      findHits = hits;
+      renderSignResults();
+    } catch (error) {
+      if (generation === findGeneration) $("sign-result-status").textContent = error.message;
+    }
+  }
+  function renderSignResults() {
+    findPage = Math.min(findPage, Math.max(0, Math.ceil(findHits.length / 8) - 1));
+    const first = findPage * 8, last = Math.min(first + 8, findHits.length), count = findHits.reduce((n, h) => n + h.count, 0);
+    $("sign-result-status").textContent = `${findHits.length.toLocaleString()} word${findHits.length === 1 ? "" : "s"}${state.signQuery === "unmarked" ? " without an accent, meteg or final maqaf" : ` · ${count.toLocaleString()} source position${count === 1 ? "" : "s"}`}. ${findHits.length ? `Showing ${first + 1}–${last}.` : "No matches."}`;
+    $("sign-results").replaceChildren();
+    $("sign-previous").disabled = first === 0;
+    $("sign-next").disabled = last === findHits.length;
+    for (const hit of findHits.slice(first, last)) {
+      const row = document.createElement("li"), text = document.createElement("span"), ref = document.createElement("span"), button = document.createElement("button");
+      text.className = "sign-result-word";
+      text.lang = "he";
+      text.dir = "rtl";
+      setWordText(text, hit.word, false);
+      const section = state.findScope === "reading" && passage2.ranges.length > 1 ? passage2.ranges.findIndex((r) => r.id === hit.word.sectionId) + 1 : null;
+      ref.textContent = `${hit.word.reference} · word ${hit.word.ordinal}${section ? ` · section ${section}` : ""}${hit.count > 1 ? ` · ${hit.count} signs` : ""}`;
+      button.textContent = "Go to word";
+      button.setAttribute("aria-label", `Go to ${hit.word.reference} word ${hit.word.ordinal}${section ? ` in section ${section}` : ""}`);
+      button.addEventListener("click", () => {
+        if (state.findScope === "torah") libraryAction(() => {
+          const point = { chapter: hit.word.chapter, verse: hit.word.verse };
+          applyRanges([{ id: "sign-example", bookId: hit.word.bookId, start: point, end: point, label: "Sign example" }]);
+          const index = words2.findIndex((w) => (w.sourceWordId ?? w.id) === hit.sourceWordId);
+          if (index >= 0) selectWord(index);
+        });
+        else {
+          const index = words2.findIndex((w) => w.id === hit.occurrenceId);
+          if (index >= 0) selectWord(index);
+          else refreshSignSearch({ reset: true });
+        }
+        const cursor = document.querySelector(`[data-word="${words2[state.cursor].id}"]`);
+        cursor?.focus();
+        $("reader").scrollIntoView({ block: "start" });
+      });
+      row.append(text, ref, button);
+      $("sign-results").append(row);
+    }
   }
   function renderNotes() {
     state.notePage = Math.min(state.notePage, Math.max(0, Math.ceil(plan.length / NOTE_PAGE) - 1));
@@ -4469,6 +4762,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       title: `${fullLabel(start)} to ${fullLabel(end)}`,
       melody,
       instrument,
+      signAnalysis: SIGN_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
       textSource: { ...passage2, verses: void 0 },
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
@@ -4567,7 +4861,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   });
   function render() {
     for (const key of ["scope", "tempo", "transpose", "volume"]) $(key).value = state[key];
-    for (const key of ["repeat", "groups"]) $(key).checked = state[key];
+    for (const key of ["repeat", "groups", "sign-classes"]) $(key).checked = state[key === "sign-classes" ? "signClasses" : key];
     $("follow-playback").checked = state.followPlayback;
     $("range-low").value = state.rangeLow;
     $("range-high").value = state.rangeHigh;
@@ -4580,6 +4874,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderReader();
     renderSequence();
     persist();
+    if (findWords !== words2 && state.findScope === "reading") refreshSignSearch({ reset: true });
   }
   function rememberReading() {
     const key = (ranges) => JSON.stringify(ranges.map((r) => ({ bookId: r.bookId, start: r.start, end: r.end, hidden: r.hidden })));
@@ -4706,6 +5001,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.groups = e.target.checked;
     render();
   });
+  $("sign-classes").addEventListener("change", (e) => {
+    state.signClasses = e.target.checked;
+    render();
+  });
+  for (const query2 of SIGN_QUERIES) {
+    const option = document.createElement("option");
+    option.value = query2.id;
+    option.textContent = query2.name;
+    $("sign-query").append(option);
+  }
+  for (const [id, key] of [["sign-query", "signQuery"], ["find-scope", "findScope"]]) $(id).addEventListener("change", (e) => {
+    state[key] = e.target.value;
+    persist();
+    refreshSignSearch({ reset: true });
+  });
+  for (const [id, delta] of [["sign-previous", -1], ["sign-next", 1]]) $(id).addEventListener("click", () => {
+    findPage += delta;
+    renderSignResults();
+  });
   $("scope").addEventListener("change", (e) => {
     stop("Ready to listen.");
     state.scope = e.target.value;
@@ -4769,6 +5083,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       textSource: { ...passage2, verses: void 0 },
       melody,
       instrument,
+      signAnalysis: SIGN_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
       tempo: state.tempo,
@@ -4807,6 +5122,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const saved = parseAssignment(JSON.stringify(assignments[Number(e.target.value)]), corpus);
       state.view = saved.displayPreferences.view;
       state.groups = saved.displayPreferences.groups;
+      state.signClasses = saved.displayPreferences.signClasses;
       applyRanges(saved.sections);
       $("assignment-title").value = saved.title;
     });
@@ -4820,6 +5136,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const assignment = parseAssignment(await file.text(), corpus);
       state.view = assignment.displayPreferences.view;
       state.groups = assignment.displayPreferences.groups;
+      state.signClasses = assignment.displayPreferences.signClasses;
       applyRanges(assignment.sections);
       $("assignment-title").value = assignment.title;
     } catch (error) {
@@ -4841,6 +5158,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   render();
   renderSections();
   renderPickers();
+  if (state.findScope === "torah") refreshSignSearch();
   document.documentElement.dataset.ready = "true";
   $("startup-status").hidden = true;
   getCorpus().then((value) => {

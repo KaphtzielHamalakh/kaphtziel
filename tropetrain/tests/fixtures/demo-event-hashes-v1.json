@@ -1,0 +1,27 @@
+{
+  "melody": "original-demo-01",
+  "revision": 1,
+  "source": "v0.4.0 events; complete book as one range",
+  "books": {
+    "gen": {
+      "events": 59539,
+      "sha256": "7c015e2e1facb6489585dc1290600c03869f7dde54992e1d8942b25e3ce6c312"
+    },
+    "exo": {
+      "events": 48469,
+      "sha256": "2df24780b4e4badec0d46e884e2db0d229bc493717cb14ddff131d521c18dc2a"
+    },
+    "lev": {
+      "events": 33757,
+      "sha256": "f39829a1cd6eee67c77633f50844421f50f8b11564c3f20351aa6a8aae9e72d0"
+    },
+    "num": {
+      "events": 47996,
+      "sha256": "feafa03b48aef25d7bcacfd9901c14fbce150c1a0c93edc68ae15e51309abcc7"
+    },
+    "deu": {
+      "events": 41417,
+      "sha256": "76f6a955c44b11498541f1a5214c1469d40c6e9601d9ce099b6963d1eb2847ac"
+    }
+  }
+}

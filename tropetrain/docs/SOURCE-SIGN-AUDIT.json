@@ -1,0 +1,356 @@
+{
+  "edition": "Unicode/XML Leningrad Codex (UXLC) 2.6, build 27.7",
+  "analysis": {
+    "id": "uxlc-prose-signs",
+    "revision": 1,
+    "source": "https://www.tanach.us/Pages/Coding.html",
+    "unicode": "https://www.unicode.org/Public/18.0.0/charts/PDF/U0590.pdf",
+    "scope": "Source-sign recognition for Torah/prose. Full contextual hierarchy and melodies are not implemented."
+  },
+  "readingWords": 79985,
+  "books": [
+    {
+      "id": "gen",
+      "readingWords": 20614
+    },
+    {
+      "id": "exo",
+      "readingWords": 16714
+    },
+    {
+      "id": "lev",
+      "readingWords": 11950
+    },
+    {
+      "id": "num",
+      "readingWords": 16412
+    },
+    {
+      "id": "deu",
+      "readingWords": 14295
+    }
+  ],
+  "cantillationCodepoints": [
+    {
+      "code": "U+0591",
+      "id": "etnahta",
+      "name": "Etnaḥta",
+      "occurrences": 5491,
+      "words": 5491,
+      "example": {
+        "id": "gen-1-1-3",
+        "sourceHebrew": "אֱלֹהִ֑ים"
+      }
+    },
+    {
+      "code": "U+0592",
+      "id": "segolta",
+      "name": "Segolta",
+      "occurrences": 372,
+      "words": 372,
+      "example": {
+        "id": "gen-1-7-4",
+        "sourceHebrew": "הָרָקִיעַ֒"
+      }
+    },
+    {
+      "code": "U+0593",
+      "id": "shalshelet",
+      "name": "Shalshelet",
+      "occurrences": 4,
+      "words": 4,
+      "example": {
+        "id": "gen-19-16-1",
+        "sourceHebrew": "וֽ͏ַיִּתְמַהְמָ֓הּ ׀"
+      }
+    },
+    {
+      "code": "U+0594",
+      "id": "zakef-katon",
+      "name": "Zakef katon",
+      "occurrences": 6997,
+      "words": 6997,
+      "example": {
+        "id": "gen-1-2-4",
+        "sourceHebrew": "וָבֹ֔הוּ"
+      }
+    },
+    {
+      "code": "U+0595",
+      "id": "zakef-gadol",
+      "name": "Zakef gadol",
+      "occurrences": 526,
+      "words": 526,
+      "example": {
+        "id": "gen-1-14-7",
+        "sourceHebrew": "לְהַבְדִּ֕יל"
+      }
+    },
+    {
+      "code": "U+0596",
+      "id": "tipha",
+      "name": "Tipḥa",
+      "occurrences": 11290,
+      "words": 11290,
+      "example": {
+        "id": "gen-1-1-1",
+        "sourceHebrew": "בְּרֵאשִׁ֖ית"
+      }
+    },
+    {
+      "code": "U+0597",
+      "id": "revia",
+      "name": "Revia",
+      "occurrences": 2444,
+      "words": 2444,
+      "example": {
+        "id": "gen-1-2-1",
+        "sourceHebrew": "וְהָאָ֗רֶץ"
+      }
+    },
+    {
+      "code": "U+0598",
+      "id": "zarqa-helper",
+      "name": "Zarqa stress helper",
+      "occurrences": 10,
+      "words": 10,
+      "example": {
+        "id": "gen-17-20-1",
+        "sourceHebrew": "וּֽלְיִשְׁמָעֵאל֘"
+      }
+    },
+    {
+      "code": "U+0599",
+      "id": "pashta",
+      "name": "Pashta",
+      "occurrences": 6375,
+      "words": 5441,
+      "example": {
+        "id": "gen-1-2-3",
+        "sourceHebrew": "תֹ֙הוּ֙"
+      }
+    },
+    {
+      "code": "U+059A",
+      "id": "yetiv",
+      "name": "Yetiv",
+      "occurrences": 357,
+      "words": 357,
+      "example": {
+        "id": "gen-1-11-6",
+        "sourceHebrew": "עֵ֚שֶׂב"
+      }
+    },
+    {
+      "code": "U+059B",
+      "id": "tevir",
+      "name": "Tevir",
+      "occurrences": 2678,
+      "words": 2678,
+      "example": {
+        "id": "gen-1-4-2",
+        "sourceHebrew": "אֱלֹהִ֛ים"
+      }
+    },
+    {
+      "code": "U+059C",
+      "id": "geresh",
+      "name": "Geresh",
+      "occurrences": 1121,
+      "words": 1121,
+      "example": {
+        "id": "gen-1-9-4",
+        "sourceHebrew": "הַמַּ֜יִם"
+      }
+    },
+    {
+      "code": "U+059E",
+      "id": "gershayim",
+      "name": "Gershayim",
+      "occurrences": 512,
+      "words": 512,
+      "example": {
+        "id": "gen-1-11-10",
+        "sourceHebrew": "פְּרִ֞י"
+      }
+    },
+    {
+      "code": "U+059F",
+      "id": "qarnei-fara",
+      "name": "Qarnei fara",
+      "occurrences": 1,
+      "words": 1,
+      "example": {
+        "id": "num-35-5-8",
+        "sourceHebrew": "בָּֽאַמָּ֟ה"
+      }
+    },
+    {
+      "code": "U+05A0",
+      "id": "telisha-gedola",
+      "name": "Telisha gedola",
+      "occurrences": 269,
+      "words": 269,
+      "example": {
+        "id": "gen-1-12-3",
+        "sourceHebrew": "דֶּ֠שֶׁא"
+      }
+    },
+    {
+      "code": "U+05A1",
+      "id": "pazer",
+      "name": "Pazer",
+      "occurrences": 159,
+      "words": 159,
+      "example": {
+        "id": "gen-1-21-10",
+        "sourceHebrew": "הָֽרֹמֶ֡שֶׂת"
+      }
+    },
+    {
+      "code": "U+05A3",
+      "id": "munah",
+      "name": "Munaḥ",
+      "occurrences": 9464,
+      "words": 9463,
+      "example": {
+        "id": "gen-1-1-2",
+        "sourceHebrew": "בָּרָ֣א"
+      }
+    },
+    {
+      "code": "U+05A4",
+      "id": "mahapakh",
+      "name": "Mahapakh",
+      "occurrences": 3048,
+      "words": 3048,
+      "example": {
+        "id": "gen-1-5-2",
+        "sourceHebrew": "אֱלֹהִ֤ים ׀"
+      }
+    },
+    {
+      "code": "U+05A5",
+      "id": "merkha",
+      "name": "Merkha",
+      "occurrences": 9126,
+      "words": 9125,
+      "example": {
+        "id": "gen-1-1-4",
+        "sourceHebrew": "אֵ֥ת"
+      }
+    },
+    {
+      "code": "U+05A6",
+      "id": "merkha-kefula",
+      "name": "Merkha kefula",
+      "occurrences": 5,
+      "words": 5,
+      "example": {
+        "id": "gen-27-25-14",
+        "sourceHebrew": "ל֦וֹ"
+      }
+    },
+    {
+      "code": "U+05A7",
+      "id": "darga",
+      "name": "Darga",
+      "occurrences": 1091,
+      "words": 1091,
+      "example": {
+        "id": "gen-1-4-1",
+        "sourceHebrew": "וַיַּ֧רְא"
+      }
+    },
+    {
+      "code": "U+05A8",
+      "id": "qadma",
+      "name": "Qadma",
+      "occurrences": 2074,
+      "words": 2074,
+      "example": {
+        "id": "gen-1-5-1",
+        "sourceHebrew": "וַיִּקְרָ֨א"
+      }
+    },
+    {
+      "code": "U+05A9",
+      "id": "telisha-qetana",
+      "name": "Telisha qetana",
+      "occurrences": 460,
+      "words": 458,
+      "example": {
+        "id": "gen-1-21-11",
+        "sourceHebrew": "אֲשֶׁר֩"
+      }
+    },
+    {
+      "code": "U+05AA",
+      "id": "yerah-ben-yomo",
+      "name": "Yeraḥ ben yomo",
+      "occurrences": 1,
+      "words": 1,
+      "example": {
+        "id": "num-35-5-7",
+        "sourceHebrew": "אַלְפַּ֪יִם"
+      }
+    },
+    {
+      "code": "U+05AE",
+      "id": "zarqa",
+      "name": "Zarqa (postpositive)",
+      "occurrences": 365,
+      "words": 365,
+      "example": {
+        "id": "gen-1-7-2",
+        "sourceHebrew": "אֱלֹהִים֮"
+      }
+    }
+  ],
+  "otherSourceCharacters": {
+    "U+05BD": 10192,
+    "U+05C3": 5831,
+    "U+05BE": 11474,
+    "U+05C0": 388,
+    "U+034F": 436,
+    "U+200D": 3
+  },
+  "unmarkedWords": [
+    {
+      "id": "exo-4-2-5",
+      "sourceHebrew": "מַה",
+      "kind": "q"
+    },
+    {
+      "id": "exo-4-10-17",
+      "sourceHebrew": "דַּבֶּרְךָ",
+      "kind": "w"
+    },
+    {
+      "id": "exo-9-22-4",
+      "sourceHebrew": "מֹשֶׁה",
+      "kind": "w"
+    },
+    {
+      "id": "num-4-49-6",
+      "sourceHebrew": "בְּיַד",
+      "kind": "w"
+    },
+    {
+      "id": "num-7-59-17",
+      "sourceHebrew": "פְּדָה",
+      "kind": "w"
+    },
+    {
+      "id": "deu-1-38-2",
+      "sourceHebrew": "בִּן",
+      "kind": "w"
+    },
+    {
+      "id": "deu-8-3-4",
+      "sourceHebrew": "אֶת",
+      "kind": "w"
+    }
+  ],
+  "scope": "Preferred reading forms (w/q); ketiv retained in source corpus, excluded from this reading-word census. Counts describe this edition, not a universal verse or musical-motif count."
+}

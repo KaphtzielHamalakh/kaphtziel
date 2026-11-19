@@ -2,6 +2,8 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {getCorpus,createAssignment,parseAssignment} from '../library.js';
 import {createReadingModel} from '../music.js';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 
 const corpus=await getCorpus();
 const range=(bookId,c,v,endC=c,endV=v)=>({bookId,start:{chapter:c,verse:v},end:{chapter:endC,verse:endV}});
@@ -34,15 +36,18 @@ test('invalid references, backwards ranges and all-hidden readings fail explicit
 });
 test('assignment interchange preserves boundaries and excludes personal key and tempo',()=>{
   const sections=corpus.passage([{...range('gen',1,1,1,3),id:'one',label:'First aliyah'}, {...range('deu',6,4),id:'two',hidden:true}]).ranges;
-  const assignment=createAssignment('Tutor test',sections,{view:'parallel',groups:false,tempo:42,transpose:3});
+  const assignment=createAssignment('Tutor test',sections,{view:'parallel',groups:false,signClasses:true,tempo:42,transpose:3});
   const roundtrip=parseAssignment(JSON.stringify(assignment),corpus);
   assert.deepEqual(roundtrip.sections,sections);assert.equal(roundtrip.displayPreferences.view,'parallel');
   assert.equal(roundtrip.musicalPreferences.pronunciationId,null);
+  assert.equal(roundtrip.displayPreferences.signClasses,true);
+  delete assignment.displayPreferences.signClasses;assert.equal(parseAssignment(JSON.stringify(assignment),corpus).displayPreferences.signClasses,false);
   assert.equal('tempo' in assignment,false);assert.equal('transpose' in assignment,false);
   assignment.musicalPreferences.melodyId='unimplemented-historical-system';
   assert.throws(()=>parseAssignment(JSON.stringify(assignment),corpus),/not yet implemented/);
 });
 test('all Torah reading words retain exact source strings through syllable and event generation',()=>{
+  const original=JSON.parse(readFileSync(new URL('./fixtures/demo-event-hashes-v1.json',import.meta.url),'utf8'));
   let wordCount=0,unresolved=0;
   for(const book of corpus.books){
     const lastChapter=book.chapters.at(-1),lastVerse=lastChapter.verses.at(-1);
@@ -56,6 +61,8 @@ test('all Torah reading words retain exact source strings through syllable and e
       if(w.analysisStatus==='unsegmented')unresolved++;wordCount++;
     }
     const eventWords=new Set(m.events.map(e=>e.wordId));assert.equal(eventWords.size,m.words.length);
+    assert.equal(m.events.length,original.books[book.id].events);
+    assert.equal(createHash('sha256').update(JSON.stringify(m.events)).digest('hex'),original.books[book.id].sha256,'Source analysis must preserve every original demo event.');
   }
   assert.ok(wordCount>79000);console.log(`Full-corpus alignment: ${wordCount} reading words; ${unresolved} explicitly unresolved words.`);
 });

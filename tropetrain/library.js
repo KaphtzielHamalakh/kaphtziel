@@ -76,11 +76,11 @@ export function parseAssignment(text,corpus){
   return {format:data.format,id:typeof data.id==='string'?data.id.slice(0,100):'imported',
     title:typeof data.title==='string'?data.title.slice(0,120):'Imported assignment',sections:passage.ranges,
     musicalPreferences:{melodyId,pronunciationId},
-    displayPreferences:{view:['pointed','consonantal','parallel'].includes(data.displayPreferences?.view)?data.displayPreferences.view:'pointed',groups:data.displayPreferences?.groups!==false}};
+    displayPreferences:{view:['pointed','consonantal','parallel'].includes(data.displayPreferences?.view)?data.displayPreferences.view:'pointed',groups:data.displayPreferences?.groups!==false,signClasses:data.displayPreferences?.signClasses===true}};
 }
 export function createAssignment(title,sections,displayPreferences={}){
   return {format:'tropetrain-assignment-v1',id:globalThis.crypto?.randomUUID?.()||`assignment-${Date.now()}`,
     title:(String(title).trim()||'Untitled assignment').slice(0,120),sections,
     musicalPreferences:{melodyId:'original-demo-01',pronunciationId:null},
-    displayPreferences:{view:displayPreferences.view||'pointed',groups:displayPreferences.groups!==false}};
+    displayPreferences:{view:displayPreferences.view||'pointed',groups:displayPreferences.groups!==false,signClasses:displayPreferences.signClasses===true}};
 }

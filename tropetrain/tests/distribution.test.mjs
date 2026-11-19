@@ -8,7 +8,7 @@ const read=name=>readFileSync(new URL('../'+name,import.meta.url),'utf8');
 test('downloaded entry point uses a classic bundle instead of file-origin ES modules',()=>{
   const html=read('index.html'), bundle=read('app.bundle.js');
   assert.doesNotMatch(html,/type=["']module["']/);
-  assert.match(html,/<script defer src="\.\/app\.bundle\.js\?v=0\.4\.0"><\/script>/);
+  assert.match(html,/<script defer src="\.\/app\.bundle\.js\?v=[0-9.]+"><\/script>/);
   assert.doesNotMatch(bundle,/^\s*(?:import|export)\s/m);
   assert.doesNotThrow(()=>new vm.Script(bundle));
   assert.match(html,/id="startup-status"/);

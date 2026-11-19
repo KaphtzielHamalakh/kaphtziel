@@ -1,5 +1,6 @@
 import { passage as defaultPassage } from './passage.js';
 import { alignedSyllables } from './syllables.js';
+import {analyzeSourceSigns} from './accents.js';
 
 const syllableDrafts = [
   [[1,2,3],['bə','rē','shīt'],2], [[1,2],['bā','rā'],1], [[1,1,3],['e','lo','hīm'],2],
@@ -16,7 +17,6 @@ const syllableDrafts = [
 const fixtureWords=defaultPassage.verses.flatMap(v=>v.words);
 const fixtures=new Map(fixtureWords.map((w,i)=>[w.id,{text:w.sourceHebrew,syllables:syllableDrafts[i]}]));
 export const melody=Object.freeze({id:'original-demo-01',revision:1,name:'Original demonstration 01',status:'original, unreviewed',license:'CC0-1.0',description:'A newly composed note fixture for playback and alignment. No historical or communal attribution.'});
-const accentNames={'\u0591':'Etnaḥta','\u0592':'Segolta','\u0593':'Shalshelet','\u0594':'Zakef katon','\u0595':'Zakef gadol','\u0596':'Tipḥa','\u0597':'Revia','\u0598':'Zarqa','\u0599':'Pashta','\u059a':'Yetiv','\u059b':'Tevir','\u059c':'Geresh','\u059d':'Geresh muqdam','\u059e':'Gershayim','\u059f':'Qarnei fara','\u05a0':'Telisha gedola','\u05a1':'Pazer','\u05a3':'Munaḥ','\u05a4':'Mahapakh','\u05a5':'Merkha','\u05a6':'Merkha kefula','\u05a7':'Darga','\u05a8':'Qadma','\u05a9':'Telisha qetana','\u05aa':'Yeraḥ ben yomo'};
 export const consonantal=text=>text.replace(/[\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u200d\u034f]/gu,'');
 export const frequency=midi=>440*2**((midi-69)/12);
 export const noteName=midi=>['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'][((midi%12)+12)%12]+(Math.floor(midi/12)-1);
@@ -30,8 +30,8 @@ export function createReadingModel(passage){
     const syllables=alignedSyllables(w,{fixture:fixture?.text===w.sourceHebrew?fixture.syllables:null});
     const atVerseEnd=index===raw.length-1||raw[index+1].verseKey!==w.verseKey;
     const groupEnd=atVerseEnd||(!w.sourceHebrew.endsWith('־')&&/[\u0591-\u0595]/u.test(w.sourceHebrew));
-    const names=Object.entries(accentNames).filter(([c])=>w.sourceHebrew.includes(c)).map(([,name])=>name);
-    const word={...w,index,syllables,group,groupEnd,accent:w.sourceHebrew.endsWith('׃')?'Silluq / sof pasuq':names.join(' + ')||(w.sourceHebrew.endsWith('־')?'Joined by maqaf':'No accent identified'),
+    const signAnalysis=analyzeSourceSigns(w.sourceHebrew);
+    const word={...w,index,syllables,group,groupEnd,signAnalysis,accent:signAnalysis.label,
       analysisStatus:syllables.some(s=>s.reviewStatus==='unsegmented')?'unsegmented':syllables[0].reviewStatus};
     if(groupEnd)group++;return word;
   });

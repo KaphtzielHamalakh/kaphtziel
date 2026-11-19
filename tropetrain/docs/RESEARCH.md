@@ -1,6 +1,6 @@
 # Evidence map and reconstruction roadmap
 
-Research date: November 18, 2026. Brief: Rabbi Ben Newman’s supplied `TropeTrainer-Reconstruction.md`, read in full. Its embedded prompt was treated as reference material; implementation scope and publishing authorization came from the user’s chat request. The initial workspace was empty. The requested domain was traced through the connected GitHub account to `KaphtzielHamalakh/kaphtziel`, which has `CNAME: kaphtziel.com`, static HTML subdirectories and no applicable AGENTS.md. This implementation preserves those conventions.
+Research updated: November 19, 2026. Brief: Rabbi Ben Newman’s supplied `TropeTrainer-Reconstruction.md`, read in full. Its embedded prompt was treated as reference material; implementation scope and publishing authorization came from the user’s chat request. The initial workspace was empty. The requested domain was traced through the connected GitHub account to `KaphtzielHamalakh/kaphtziel`, which has `CNAME: kaphtziel.com`, static HTML subdirectories and no applicable AGENTS.md. This implementation preserves those conventions.
 
 ## Evidence levels
 
@@ -17,6 +17,7 @@ The source distinctions and further historical claims below follow the supplied 
 | Marked Hebrew | Complete Torah corpus: five books, 187 chapters, 5,853 source verse records and 79,985 reading words; exact source strings and canonical IDs | UXLC edition attribution is verified; this does not claim it was Kinnor’s electronic edition |
 | Reading views | Pointed, consonantal, parallel with consonantal on the left | Print font, responsive lines; neither authentic STaM shapes nor a verified scroll layout |
 | Playback | Word, major group, verse, assigned section, arbitrary inclusive span and cursor-to-reading end; repeat and double-click | Major groups use selected disjunctive signs and verse ends; the full contextual cantillation hierarchy remains pending |
+| Source-sign inspection | Ordered accent/mark records, conservative prose-class frames, current-reading and whole-Torah search with stable occurrence links | Source-guide classes are generic; full contextual hierarchy, exceptional melody and musical realizations remain pending |
 | Alignment | All Torah words link to source-preserving manual or automatic draft syllables and demo events; 1,895 words explicitly unresolved | Syllabification, stress, sheva and furtive pataḥ need expert review; phoneme fields intentionally null |
 | Melody | Original demonstration 01, revision 1, CC0 | Newly composed fixture; not a traditional melody and not a reproduction of Kinnor |
 | Sound | Web Audio triangle oscillators; exact scheduled start/end times | No singer, no DECtalk recreation, no ordinary speech presented as chant; piano timbre remains pending |
@@ -85,3 +86,18 @@ These are research leads, not a claim that all contents or reuse rights were ver
 v0.4 staff and MusicXML/MIDI/WAV use the same event pitches, timing and exact Hebrew IDs as playback. Original demo timing is unchanged: individual 5:3 quarter/dotted-quarter values represent 0.6/0.9 beats; cadence events remain 0.5 beats. This is notation of an original fixture, not historical musical verification. Instrument revision 2 uses a shared smooth triangle envelope and 12-tone equal temperament at A4=440 Hz; that tuning is a property of the demo and not a claim about every tradition.
 
 MusicXML follows the [4.0 specification](https://www.w3.org/2021/06/musicxml40/), including [time-modification](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/time-modification/), Hebrew text direction and lyric extensions. Generated files were checked against the official raw v4.0 schema. WAV uses browser OfflineAudioContext without output-device playback during generation. Silent waveform tests use development-only web-audio-engine 0.13.4 (MIT); it is absent from the browser bundle. Detailed measured evidence and remaining limits are recorded in VERIFICATION-0.4.md.
+
+
+## Original-program archives
+
+The [Internet Archive V3.2 CD item](https://archive.org/details/Trope_Trainer_Kinnor_Software_Inc._Version_3.2_2005) preserves an ISO labeled 2005. The [V6 Deluxe item](https://archive.org/details/trope-trainer-6) contains `TropeTrainer6.zip`, 107,822,672 bytes, SHA-1 `5d4917e3dc96e9321c3051f5559f7b4e192fa03c`; Archive metadata rechecked November 19, 2026. The executable version resources identify product 6.0.428 / file 6.0.428.1. Archive timestamps and uploader descriptions are not independently verified release dates. The archive was inspected as data without execution, installation or registration.
+
+Help files confirm six Accent labels and their illustrative examples. The 79 definition records establish factual catalog labels (32 Torah, 25 haftarah and 22 other entries), recorded with provenance in ORIGINAL-CATALOG.json. This does not establish that every record was exposed in a running menu or that its musical realization has been reviewed. No permissive redistribution license was found; proprietary program, scores, recordings and engine assets are not included in the reconstruction. Continued historical research can inspect lawfully accessible documentation, compare versions and seek rights-cleared scores or recordings.
+
+## Source-sign evidence and limits
+
+[UXLC’s encoding guide](https://www.tanach.us/Pages/Coding.html) and the [Unicode Hebrew chart](https://www.unicode.org/Public/18.0.0/charts/PDF/U0590.pdf) distinguish character names from source-edition roles. For Torah/prose in this edition, U+05AE (Unicode ZINOR) encodes postpositive Zarqa; U+0598 (Unicode ZARQA) is a distinct stress helper. Pashta and other signs can repeat within a source word. The inspector preserves every occurrence and encoded offset; postpositive location alone is not the stressed syllable.
+
+Silluq-position labeling is restricted to the final U+05BD in a source word that also contains a following sof pasuq. Earlier metegs remain separate. Munaḥ with paseq, multiple distinct disjunctives and mixed combinations carry explicit context warnings. These conservative character-level observations do not resolve the full contextual hierarchy or tune. Poetic accent characters are recognized but are not assigned prose classes.
+
+The independent census in SOURCE-SIGN-AUDIT.json covers all 79,985 preferred reading words (w/q), excluding ketiv alternatives from reading counts while retaining them in the corpus. It finds 25 cantillation codepoints, 365 postpositive Zarqa positions, ten stress helpers and seven words with no encoded accent/meteg/final maqaf/sof pasuq. Counts are specific to this source edition. Search never invents a missing accent. All 231,178 original demonstration events remain hash-identical to v0.4; improved sign recognition does not claim a new musical realization. See VERIFICATION-0.5.md.

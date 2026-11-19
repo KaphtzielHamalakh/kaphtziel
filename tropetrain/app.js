@@ -6,9 +6,11 @@ import {staffMarkup,STAFF_PAGE} from './staff.js';
 import {musicXml,midiFile} from './music-exports.js';
 import {renderWav,wavSummary} from './wav.js';
 import {instrument} from './synthesis.js';
+import {SIGN_ANALYSIS,sourceClassLabel} from './accents.js';
+import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
-const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,
+const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null};
 try{
   const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
@@ -17,7 +19,9 @@ try{
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
     if(['word','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
-    for(const key of ['repeat','groups','followPlayback'])if(typeof saved[key]==='boolean')state[key]=saved[key];
+    for(const key of ['repeat','groups','followPlayback','signClasses'])if(typeof saved[key]==='boolean')state[key]=saved[key];
+    if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
+    if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
     if(Array.isArray(saved.ranges))state.ranges=saved.ranges;
   }
 }catch{}
@@ -30,6 +34,7 @@ let recent=loadArray('tropetrain-recent-v1'),assignments=loadArray('tropetrain-a
 let restoringReading=!!restore.ranges;
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
+let findGeneration=0,findHits=[],findPage=0,findWords=null;
 function loadArray(key){try{const data=JSON.parse(localStorage.getItem(key));return Array.isArray(data)?data.filter(item=>item&&typeof item==='object'&&typeof item.title==='string').slice(0,100):[];}catch{return [];}}
 function store(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
 function persist(){if(!restoringReading)store('tropetrain-practice-v1',{...state,ranges:passage.ranges});}
@@ -83,8 +88,8 @@ function setWordText(button,word,plain){
 }
 function wordButton(w,plain){
   const b=document.createElement('button');b.className=`word group-${w.group%2?'odd':'even'}${w.groupEnd?' group-end':''}${w.kind==='q'?' qere-word':''}`;
-  b.dataset.word=w.id;b.dataset.index=w.index;setWordText(b,w,plain);b.lang='he';b.dir='rtl';
-  b.title=`${w.reference}, word ${w.ordinal} · ${w.accent}`;b.setAttribute('aria-label',`${b.textContent}, ${w.reference}, word ${w.ordinal}`);
+  b.dataset.word=w.id;b.dataset.index=w.index;b.dataset.signClass=w.signAnalysis.className??'';setWordText(b,w,plain);b.lang='he';b.dir='rtl';
+  b.title=`${w.reference}, word ${w.ordinal} · ${w.accent} · ${sourceClassLabel(w.signAnalysis.className)}`;b.setAttribute('aria-label',`${b.textContent}, ${w.reference}, word ${w.ordinal}`);
   b.addEventListener('click',e=>selectWord(w.index,e.shiftKey));
   b.addEventListener('dblclick',()=>{state.cursor=w.index;state.anchor=w.index;state.scope='word';state.notePage=0;render();play();});
   b.addEventListener('keydown',e=>{
@@ -95,7 +100,7 @@ function wordButton(w,plain){
   });return b;
 }
 function renderReader(){
-  $('reader').replaceChildren();$('reader').classList.toggle('guides',state.groups);
+  $('reader').replaceChildren();$('reader').classList.toggle('guides',state.groups);$('reader').classList.toggle('sign-classes',state.signClasses);$('class-guide').hidden=!state.signClasses;
   const pages=Math.ceil(passage.verses.length/VERSE_PAGE);state.readerPage=Math.min(state.readerPage,pages-1);
   if(state.view==='parallel'){
     const headings=document.createElement('div');headings.className='parallel-headings';headings.innerHTML='<span>Consonantal practice</span><span>Pointed source</span>';$('reader').append(headings);
@@ -131,6 +136,56 @@ function updateSelection(){
   $('accent-name').textContent=w.accent;$('group-name').textContent=`Practice group ${w.group+1} · ${w.sourceWordId??w.id}`;
   $('source-variant').textContent=w.kind==='q'?`Reading form (qere). Written form: ${(w.writtenVariants||[]).map(t=>t.sourceHebrew).join(' ')||'see source edition'}`:'';
   $('alignment-status').textContent=w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
+  renderSourceSigns(w);
+}
+function renderSourceSigns(word){
+  const analysis=word.signAnalysis;$('source-class').textContent=sourceClassLabel(analysis.className);
+  $('source-sign-rows').replaceChildren();$('source-sign-warnings').replaceChildren();
+  for(const sign of [...analysis.signs,...analysis.marks].sort((a,b)=>a.offset-b.offset)){
+    const row=document.createElement('tr');
+    const glyph=/[\u034f\u200d]/u.test(sign.char)?'invisible':/\p{Mark}/u.test(sign.char)?'◌'+sign.char:sign.char;
+    for(const [i,value] of [glyph,sign.code,sign.name,sign.proseClass??sign.role,sign.offset+1].entries()){
+      const cell=document.createElement('td');cell.textContent=value;
+      if(i===2){const unicode=document.createElement('small');unicode.textContent=sign.unicodeName;cell.append(unicode);}
+      if(i===0&&glyph!=='invisible'){cell.lang='he';cell.dir='rtl';}row.append(cell);
+    }
+    $('source-sign-rows').append(row);
+  }
+  if(!analysis.signs.length&&!analysis.marks.length){const row=document.createElement('tr'),cell=document.createElement('td');cell.colSpan=5;cell.textContent='No listed cantillation, punctuation or shaping sign is encoded in this word.';row.append(cell);$('source-sign-rows').append(row);}
+  for(const text of analysis.warnings){const li=document.createElement('li');li.textContent=text;$('source-sign-warnings').append(li);}
+}
+async function refreshSignSearch({reset=false}={}){
+  const generation=++findGeneration;findWords=words;if(reset)findPage=0;
+  $('sign-query').value=state.signQuery;$('find-scope').value=state.findScope;
+  $('sign-results').replaceChildren();$('sign-result-status').textContent=state.findScope==='torah'?'Searching the Torah…':'Searching this reading…';
+  $('sign-previous').disabled=true;$('sign-next').disabled=true;
+  try{
+    const hits=state.findScope==='torah'?await findSignsInCorpus(await getCorpus(),state.signQuery):findSignsInReading(words,state.signQuery);
+    if(generation!==findGeneration)return;findHits=hits;renderSignResults();
+  }catch(error){if(generation===findGeneration)$('sign-result-status').textContent=error.message;}
+}
+function renderSignResults(){
+  findPage=Math.min(findPage,Math.max(0,Math.ceil(findHits.length/8)-1));
+  const first=findPage*8,last=Math.min(first+8,findHits.length),count=findHits.reduce((n,h)=>n+h.count,0);
+  $('sign-result-status').textContent=`${findHits.length.toLocaleString()} word${findHits.length===1?'':'s'}${state.signQuery==='unmarked'?' without an accent, meteg or final maqaf':` · ${count.toLocaleString()} source position${count===1?'':'s'}`}. ${findHits.length?`Showing ${first+1}–${last}.`:'No matches.'}`;
+  $('sign-results').replaceChildren();$('sign-previous').disabled=first===0;$('sign-next').disabled=last===findHits.length;
+  for(const hit of findHits.slice(first,last)){
+    const row=document.createElement('li'),text=document.createElement('span'),ref=document.createElement('span'),button=document.createElement('button');
+    text.className='sign-result-word';text.lang='he';text.dir='rtl';setWordText(text,hit.word,false);
+    const section=state.findScope==='reading'&&passage.ranges.length>1?passage.ranges.findIndex(r=>r.id===hit.word.sectionId)+1:null;
+    ref.textContent=`${hit.word.reference} · word ${hit.word.ordinal}${section?` · section ${section}`:''}${hit.count>1?` · ${hit.count} signs`:''}`;
+    button.textContent='Go to word';button.setAttribute('aria-label',`Go to ${hit.word.reference} word ${hit.word.ordinal}${section?` in section ${section}`:''}`);
+    button.addEventListener('click',()=>{
+      if(state.findScope==='torah')libraryAction(()=>{
+        const point={chapter:hit.word.chapter,verse:hit.word.verse};
+        applyRanges([{id:'sign-example',bookId:hit.word.bookId,start:point,end:point,label:'Sign example'}]);
+        const index=words.findIndex(w=>(w.sourceWordId??w.id)===hit.sourceWordId);if(index>=0)selectWord(index);
+      });
+      else{const index=words.findIndex(w=>w.id===hit.occurrenceId);if(index>=0)selectWord(index);else refreshSignSearch({reset:true});}
+      const cursor=document.querySelector(`[data-word="${words[state.cursor].id}"]`);cursor?.focus();$('reader').scrollIntoView({block:'start'});
+    });
+    row.append(text,ref,button);$('sign-results').append(row);
+  }
 }
 function renderNotes(){
   state.notePage=Math.min(state.notePage,Math.max(0,Math.ceil(plan.length/NOTE_PAGE)-1));
@@ -170,7 +225,7 @@ function renderStaff(){
 }
 function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody,instrument,pronunciation:{id:null,status:'not implemented'},
+  return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     textSource:{...passage,verses:undefined},vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},
     tempo:state.tempo,transpose:state.transpose,volume:state.volume};
 }
@@ -219,12 +274,12 @@ $('cancel-wav').addEventListener('click',()=>wavJob?.abort());
 $('wav-preview').addEventListener('play',()=>{player.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
 function render(){
   for(const key of ['scope','tempo','transpose','volume'])$(key).value=state[key];
-  for(const key of ['repeat','groups'])$(key).checked=state[key];$('follow-playback').checked=state.followPlayback;
+  for(const key of ['repeat','groups','sign-classes'])$(key).checked=state[key==='sign-classes'?'signClasses':key];$('follow-playback').checked=state.followPlayback;
   $('range-low').value=state.rangeLow;$('range-high').value=state.rangeHigh;
   $('tempo-value').textContent=`${state.tempo} BPM`;$('transpose-value').textContent=`${state.transpose>0?'+':''}${state.transpose} semitone${Math.abs(state.transpose)!==1?'s':''}`;$('volume-value').textContent=`${state.volume}%`;
   $('passage-title').textContent=passage.title;$('word-count').textContent=`${passage.verses.length} verse${passage.verses.length===1?'':'s'} · ${words.length} words`;
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
-  renderReader();renderSequence();persist();
+  renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -274,6 +329,10 @@ for(const [id,key] of [['range-low','rangeLow'],['range-high','rangeHigh']]){
 }
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;render();}));
 $('groups').addEventListener('change',e=>{state.groups=e.target.checked;render();});
+$('sign-classes').addEventListener('change',e=>{state.signClasses=e.target.checked;render();});
+for(const query of SIGN_QUERIES){const option=document.createElement('option');option.value=query.id;option.textContent=query.name;$('sign-query').append(option);}
+for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
+for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
 $('end-selection').addEventListener('click',()=>{chooseEnd=!chooseEnd;updateSelection();});
 for(const id of ['play','compact-play'])$(id).addEventListener('click',play);
@@ -296,7 +355,7 @@ for(const [id,delta] of [['notes-previous',-1],['notes-next',1]])$(id).addEventL
 for(const [id,delta] of [['staff-previous',-1],['staff-next',1]])$(id).addEventListener('click',()=>{state.staffPage+=delta;renderStaff();});
 $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody,instrument,pronunciation:{id:null,status:'not implemented'},
+  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan});
 });
@@ -310,20 +369,20 @@ $('save-assignment').addEventListener('click',()=>libraryAction(()=>{
   store('tropetrain-assignments-v1',assignments);renderPickers();$('library-message').textContent=`Saved “${assignment.title}” on this device.`;
 }));
 $('saved-assignments').addEventListener('change',e=>{if(e.target.value!=='')libraryAction(()=>{
-  const saved=parseAssignment(JSON.stringify(assignments[Number(e.target.value)]),corpus);state.view=saved.displayPreferences.view;state.groups=saved.displayPreferences.groups;
+  const saved=parseAssignment(JSON.stringify(assignments[Number(e.target.value)]),corpus);state.view=saved.displayPreferences.view;state.groups=saved.displayPreferences.groups;state.signClasses=saved.displayPreferences.signClasses;
   applyRanges(saved.sections);$('assignment-title').value=saved.title;
 });});
 $('export-assignment').addEventListener('click',()=>download('tropetrain-assignment.json',createAssignment($('assignment-title').value,passage.ranges,state)));
 $('import-assignment').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
   try{if(file.size>2_000_000)throw Error('Assignment file is too large.');const assignment=parseAssignment(await file.text(),corpus);
-    state.view=assignment.displayPreferences.view;state.groups=assignment.displayPreferences.groups;applyRanges(assignment.sections);$('assignment-title').value=assignment.title;
+    state.view=assignment.displayPreferences.view;state.groups=assignment.displayPreferences.groups;state.signClasses=assignment.displayPreferences.signClasses;applyRanges(assignment.sections);$('assignment-title').value=assignment.title;
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.running||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
 if(matchMedia('(min-width: 761px)').matches)$('library-options').open=true;
-render();renderSections();renderPickers();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
+render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();
   for(const book of corpus.books){const o=document.createElement('option');o.value=book.id;o.textContent=`${book.name} · ${book.hebrewName}`;$('book').append(o);}

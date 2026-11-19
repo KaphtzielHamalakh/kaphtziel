@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore the full Torah text with an original instrumental demonstration, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.4.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.5.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -23,12 +23,15 @@
     <div class="workspace">
       <section class="reading-panel" aria-label="Passage reader">
         <div class="passage-heading"><div><p class="eyebrow">Torah · practice reader</p><h2 id="passage-title">Genesis 1:1–3</h2></div><span class="word-count" id="word-count">3 verses · 27 words</span></div>
-        <div class="reader-toolbar"><div class="segments" role="group" aria-label="Hebrew view"><button data-view="pointed" aria-pressed="true">Pointed</button><button data-view="consonantal" aria-pressed="false">Consonantal</button><button data-view="parallel" aria-pressed="false">Side by side</button></div><label class="check"><input type="checkbox" id="groups" checked> Group guides</label></div>
+        <div class="reader-toolbar"><div class="segments" role="group" aria-label="Hebrew view"><button data-view="pointed" aria-pressed="true">Pointed</button><button data-view="consonantal" aria-pressed="false">Consonantal</button><button data-view="parallel" aria-pressed="false">Side by side</button></div><label class="check"><input type="checkbox" id="groups" checked> Group guides</label><label class="check"><input type="checkbox" id="sign-classes"> Sign classes</label></div>
         <p class="reader-help">Click a word to begin. Shift-click another word to select a span. Double-click to hear one word.</p>
         <div id="reader" tabindex="-1"></div>
         <div class="reader-pagination"><button id="reader-previous" aria-label="Previous reader page">Previous</button><span id="reader-page-label"></span><button id="reader-next" aria-label="Next reader page">Next</button><label class="check"><input type="checkbox" id="follow-playback" checked> Follow playback</label></div>
         <div class="selection-bar"><span id="selection-label"></span><button id="end-selection" aria-pressed="false">Choose span end</button></div>
         <div class="word-detail"><div><p class="eyebrow">At the cursor</p><div class="word-heading"><b id="current-word" lang="he" dir="rtl"></b><span id="current-reference"></span></div><p id="source-variant" class="muted"></p></div><div><p class="eyebrow">Accent in source text</p><p id="accent-name"></p><p class="muted" id="group-name"></p><p id="alignment-status" class="muted"></p></div></div>
+        <p id="class-guide" class="class-guide" hidden>C: conjunctive. D1–D4: source-guide disjunctive levels. Frames follow the pointed source in every view. Context-dependent combinations are marked separately.</p>
+        <details id="source-details" class="source-inspector"><summary>Inspect source signs</summary><p id="source-class"></p><p class="muted">Names and prose classes follow the source guide. A complete contextual hierarchy and musical realization still require review. Positions below count encoded source characters, including combining marks.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Source sign characters"><table><thead><tr><th>Sign</th><th>Code</th><th>Name</th><th>Class / role</th><th>Position</th></tr></thead><tbody id="source-sign-rows"></tbody></table></div><ul id="source-sign-warnings"></ul><a href="https://www.tanach.us/Pages/Coding.html">Source encoding guide</a></details>
+        <details id="find-signs" class="sign-search"><summary>Find a source sign</summary><p class="muted">Find words with a sign in this reading or across the Torah. Go to word opens the example and keeps your key, speed and volume.</p><div class="sign-search-controls"><label>Find sign<select id="sign-query"></select></label><label>Search in<select id="find-scope"><option value="reading">This reading</option><option value="torah">Entire Torah</option></select></label></div><p id="sign-result-status" role="status"></p><ol id="sign-results"></ol><div class="sign-search-pages"><button id="sign-previous">Previous matches</button><button id="sign-next">Next matches</button></div></details>
       </section>
       <aside class="playback" id="playback-controls" aria-label="Playback controls">
         <p class="eyebrow">Listen & repeat</p><h2>Practice a little at a time.</h2>
@@ -63,7 +66,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Consonantal text uses a print font with responsive lines, not a STaM facsimile.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed chant</h3><p>A reusable Genesis 1:1–3 recording or annotated score, with named melody, reader, pronunciation, syllable boundaries and review. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.4.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.5.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -74,6 +77,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.4.0"></script>
+  <script defer src="./app.bundle.js?v=0.5.0"></script>
 </body>
 </html>

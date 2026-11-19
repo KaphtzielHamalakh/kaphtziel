@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "6f06ee6a76d1476accf234e680cabfb69ba591dc",
-  "nextTask": "Correct the source-accent inspector: UXLC uses U+05AE for prose Zarqa; Genesis 1:7 word 2 currently says no accent identified. Audit all source accent codepoints against Tanach.us Coding and Unicode, preserve raw marks, then continue primary pronunciation/melody review pipeline and reading/calendar divisions.",
+  "nextTask": "Publish v0.5 source-sign inspector/search through connected GitHub tools; verify Pages, live bytes and returning live UI. Then prioritize reusable, reviewed melody/pronunciation source pipeline and sourced reading/calendar divisions. Keep the full roadmap active.",
   "lastPassingTests": {
-    "automated": 35,
-    "ui": "v0.4 local: staff, note navigation, key/tempo, file preparation/capture, WAV preview Stop, stale-file invalidation, longer-span cancellation, 320/390/1280 layouts, standalone.",
-    "limits": "No reviewed traditional music/singing, external notation-app import, printing or physical-device acoustic review."
+    "automated": 41,
+    "ui": "v0.5 local source and standalone: Zarqa/helper and rare/unmarked searches, qere navigation, repeated/mixed signs, duplicate assignment occurrences, saved display preferences independent of student settings, reload, parallel views, keyboard focus and 320/390 layouts. No captured warnings/errors. Audio stayed stopped/muted.",
+    "limits": "No reviewed traditional music/singing, file-origin UI, external notation-app import, printing or screen-reader review."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -102,7 +102,7 @@
     {
       "id": "analysis",
       "description": "Group colors, accent hierarchy, exceptions and rules inspector",
-      "status": "partial"
+      "status": "source_sign_inspector_classes_search_tested_full_context_and_exceptions_pending"
     },
     {
       "id": "curriculum",
@@ -152,7 +152,8 @@
         "Eichah": 3,
         "Ruth-Koheles-ShirHashirim": 2,
         "Tehillim": 1
-      }
+      },
+      "metadataRechecked": "2026-11-19"
     }
   },
   "lastDeployment": {
@@ -182,32 +183,39 @@
     "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions."
   },
   "workingIteration": {
-    "version": "0.4.0",
-    "status": "published_and_verified",
-    "automatedTests": 35,
+    "version": "0.5.0",
+    "status": "local_qa_passed_publication_pending",
+    "automatedTests": 41,
     "newFeatures": [
-      "staff with exact demo rhythms and Hebrew underlay",
-      "MusicXML and MIDI with source metadata",
-      "chunked instrument WAV export using shared live synthesis"
+      "Complete Torah source-accent character recognition with positions and repeated marks",
+      "Conservative source class frames and contextual warnings",
+      "Current-reading and whole-Torah sign search with canonical/occurrence navigation"
     ],
     "uiVerified": [
-      "Numbers 27:5 full staff and continued melisma page",
-      "MusicXML/MIDI/WAV preparation at volume 0%",
-      "WAV metadata 6.642857 seconds and native preview Start/Stop",
-      "key change clears stale downloads",
-      "keyboard staff-to-source-word navigation"
+      "Zarqa Genesis 1:7 word 2 correctly identified as U+05AE",
+      "Whole Torah Zarqa 365 / stress helper 10 with pages",
+      "Helper navigation to Genesis 17:20 preserving 40 BPM/+1/volume 0",
+      "Unique Yerah ben yomo and Qarnei fara in Numbers 35:5",
+      "Seven unmarked words, qere navigation to Exodus 4:2 word 4 without invented accent",
+      "Mixed and repeated signs, conservative context warnings",
+      "Duplicate assignment sections retain occurrence navigation and counts",
+      "Saved sign-class display restores without changing personal speed/key/volume",
+      "Keyboard focus frame, 320/390 layouts and horizontally scrollable source table",
+      "Standalone whole-Torah rare-sign search and navigation, no captured warnings/errors"
     ],
-    "uiPending": [],
+    "uiPending": [
+      "publication/live verification"
+    ],
     "limits": [
-      "No new historical musical realization or pronunciation",
-      "Actual browser files captured and independently validated; capture was very slow"
+      "Full contextual hierarchy and musical realization remain pending",
+      "No historical melody, pronunciation or voice added"
     ]
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
-    "current": "No accent identified",
+    "current": "Correctly identified as postpositive Zarqa in local v0.5; helper kept separate.",
     "evidence": "https://www.tanach.us/Pages/Coding.html",
-    "nextAction": "Context-aware sign recognition and full-corpus accent coverage tests; musical realization remains separate."
+    "nextAction": "Verify published build; full contextual hierarchy and musical realization remain pending."
   }
 }
