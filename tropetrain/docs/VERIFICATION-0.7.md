@@ -37,4 +37,10 @@ Only three non-bundled originals were actually downloaded/hashed in local browse
 
 Persistent cache and blob playback after reload were demonstrated. Full network-failure testing, direct file-origin UI, additional devices, screen-reader review, notation-app import, printing and assignment file dialogs remain pending. If browser storage fails, transient audio memory is limited to three files; large selections require working device storage. Cached copies can be removed and downloaded again. Browser frame/native-media timing is not sample-accurate editing.
 
-Publication and returning-live-tab checks are pending at this checkpoint. All original scope and roadmap requirements remain active.
+## Published verification
+
+Commit `0ca1e245dac24f39db4caa2367ac69b63f5f5ffe`; GitHub Pages run `44543424391` succeeded. Thirteen deployed resources matched tested bytes, including reference modules, packed library, original-source ZIP and source/availability audits.
+
+The returning live v0.6 tab upgraded to v0.7 and restored Genesis 1:11 and mute settings. It displayed 54 portions / 378 recordings, explicitly loaded and verified Vaethanan 6, played Deuteronomy 6:4 word 1 from a blob URL with correct source text/highlight and 411.6375-second media duration, then retained saved availability after reload. Shemot 1 timing-review status and disabled word playback were verified. At 1280 pixels the reference panel/body fit the viewport; temporary override reset. No captured warnings/errors. Both volumes remain zero and all playback is stopped. Task proof: outputs/TropeTrain-Torah-library-0.7.png.
+
+All original scope and roadmap requirements remain active.

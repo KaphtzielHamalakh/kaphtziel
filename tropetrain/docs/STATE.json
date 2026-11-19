@@ -3,8 +3,8 @@
   "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "cdd933c5e9ddd6e036bee04e117c3e9f37dfcb7b",
-  "nextTask": "Publish tested v0.7 through GitHub connector; verify Pages, live assets and returning live UI. Then prioritize independent reviewed musical/phonetic realization and investigate original timing corrections for eight flagged files; retain remaining calendar/divisions/repertoire/learning roadmap.",
+  "publishedCommit": "0ca1e245dac24f39db4caa2367ac69b63f5f5ffe",
+  "nextTask": "Prioritize musical/phonetic fidelity: compare original platform/version timing files and primary sources for the eight flagged records; pursue reviewed score/phoneme transcriptions with provenance and no guessed repairs. Then implement sourced reading/calendar divisions and remaining learning/repertoire features. The full Torah fixed-reference library is published, but it does not complete the independent 32 Torah melody realizations, six Accent profiles or singing synthesis. Keep the full scope active.",
   "lastPassingTests": {
     "automated": 63,
     "ui": "Local/standalone: all catalog controls, verified download and IndexedDB reload, muted Deuteronomy word playback, two-file selected span, timing-review full take, remove/cancel, source boundary/verse cases, 320/390 layouts. Three original audio files actually loaded.",
@@ -52,12 +52,12 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "catalog_and_opening_recorded_source_verified_rules_and_musical_review_pending"
+      "status": "historical_catalog_and_full_torah_fixed_reference_verified_independent_rules_and_musical_review_pending"
     },
     {
       "id": "singing",
       "description": "Reusable singing voice and accompaniment, independently controlled",
-      "status": "licensed_recorded_chant_reference_only_no_singing_synthesis"
+      "status": "full_torah_original_recorded_references_no_singing_synthesis"
     },
     {
       "id": "voice_range",
@@ -117,7 +117,7 @@
     {
       "id": "offline",
       "description": "Offline corpus and practice state, robust version upgrades",
-      "status": "embedded_corpus_and_cached_app_implemented_network_failure_ui_pending"
+      "status": "embedded_source_library_and_verified_device_audio_cache_tested_network_failure_and_file_origin_ui_pending"
     },
     {
       "id": "verification",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "cdd933c5e9ddd6e036bee04e117c3e9f37dfcb7b",
+    "commit": "0ca1e245dac24f39db4caa2367ac69b63f5f5ffe",
     "status": "success",
-    "workflowRun": 44534366849,
-    "liveAssets": "ten matched byte-for-byte, including MP3, notices, alignment/source excerpt, standalone and versioned runtime/style",
-    "ui": "Returning live tab upgraded from v0.5 to v0.6, restored Numbers 35:5 and volume 0, played opening reference word muted and stopped at 3.352635 s, then displayed/played WLC source disagreement at Genesis 1:11 word 5 and stopped. Actual media duration 449.515 s; no captured warnings/errors. 1280 desktop layout fit. Left stopped with both volumes 0.",
+    "workflowRun": 44543424391,
+    "liveAssets": "13 matched byte-for-byte: index, runtime/style, standalone, service worker, reference modules, compressed source library, original-source ZIP, notice and audits",
+    "ui": "Returning live tab upgraded to v0.7, restored Genesis 1:11 and zero volumes, loaded/verified/saved Vaethanan 6, played Deuteronomy 6:4 word 1 via blob audio (411.6375-second media), and retained saved availability after reload. Shemot timing-review word playback disabled; 1280 layout fit. No captured warnings/errors. Both volumes zero and all audio stopped.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -179,7 +179,7 @@
     "repositoryCommit": "8a23287221dd535966ee9914de9a03e71769a469",
     "creatorAnnouncement": "https://ejewishphilanthropy.com/torah-on-the-go/",
     "linkedLicense": "CC BY-SA 2.5",
-    "status": "Full Torah reference library implemented locally: 54 portions/378 original takes, complete source correspondence, 370 consistent timing files and eight complete-take-only records. All 378 endpoints checked; per-file audio hashes verified on explicit load.",
+    "status": "Published full-Torah reference library: 54 portions/378 original takes, complete source correspondence, 370 structurally consistent timing files and eight complete-take-only records. All 378 endpoints checked; audio hashes verified on explicit load.",
     "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions.",
     "archiveCollection": "https://archive.org/details/PockettorahAudioFiles",
     "archiveAudioLicense": "CC-BY-SA-3.0",
@@ -188,7 +188,7 @@
   },
   "workingIteration": {
     "version": "0.7.0",
-    "status": "local_qa_passed_publication_pending",
+    "status": "published_live_verified",
     "newFeatures": [
       "Whole Torah reference source importer and deterministic compact library/source pack",
       "Complete chapter consonantal alignment preserving both editions and original word boundaries",
@@ -323,9 +323,7 @@
       ],
       "limits": "Text/metadata correspondence, not acoustic or musical review. Unreliable timing records are not used for word alignment."
     },
-    "uiPending": [
-      "Publication, deployed bytes and returning-live-tab verification"
-    ],
+    "uiPending": [],
     "uiVerified": [
       "54/378 catalog initializes with preserved preferences",
       "Vaethanan 6 1.6 MB audio downloaded, source checksum verified and saved to IndexedDB",
@@ -336,7 +334,8 @@
       "Saved-copy removal and 4.1 MB load cancellation behaved correctly",
       "Numbers 12:9 and Exodus Decalogue showed both boundaries/verse references without altering UXLC",
       "320/390 layouts fit; viewport reset; standalone catalog and saved Deuteronomy playback passed",
-      "No captured warnings/errors; both volumes 0 and stopped"
+      "No captured warnings/errors; both volumes 0 and stopped",
+      "Returning live v0.6→v0.7 restored reading/mute, showed full catalog, verified/saved/played Deuteronomy original and retained it after reload; timing review and 1280 desktop layout verified"
     ],
     "automatedTests": 63
   },
