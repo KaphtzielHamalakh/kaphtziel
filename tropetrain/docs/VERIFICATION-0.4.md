@@ -44,3 +44,9 @@ Browser file-capture calls succeeded but were very slow despite requested timeou
 Live v0.4 publication/upgrade verification is pending at this checkpoint. Independent notation-app import, printed output, screen reader and another physical device are not verified. MIDI timbre and UTF-8 Hebrew display depend on the receiving application; WAV preserves this application’s instrument. MusicXML/MIDI resolution is explicit; the current score exporter rejects noninteger MIDI pitches rather than silently rounding them. Staff spelling is an equal-tempered demo spelling, not a tradition’s reviewed enharmonic/tuning analysis.
 
 WAV batches bound working float buffers; the resulting file still needs memory proportional to its encoded size. The RIFF file-size limit is enforced. No singing, blessings, reviewed transliteration, historical melody rules, or community pronunciation is implemented. Assignment file-dialog flows, offline network-failure recovery and the rest of the full roadmap remain pending.
+
+## Published verification
+
+Release commit `6f06ee6a76d1476accf234e680cabfb69ba591dc`; GitHub Pages run `44466529434` succeeded. Seven live assets matched source bytes. The returning live tab displayed v0.4.0 and staff, prepared MusicXML and a silent WAV for Deuteronomy 6:4 word 1, with browser duration 1.071429 seconds and no captured warnings/errors. Audio stopped, volume 0. Screenshot: outputs/TropeTrain-score-0.4.png.
+
+A separate existing source-analysis defect was identified in Genesis 1:7 word 2: U+05AE is omitted from the inspector’s accent names. Raw Hebrew, alignment and demo event preservation are unaffected, but sign interpretation is incomplete. This is the next accuracy task, not a verified complete hierarchy.

@@ -3,12 +3,12 @@
   "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "2bca33bca500a3f8e648dc89d199f9bd3ed7803c",
-  "nextTask": "Publish and verify v0.4.0 staff and music/audio exports. Then return to reusable reviewed chant/phoneme sources and sourced reading/calendar divisions; full roadmap remains active.",
+  "publishedCommit": "6f06ee6a76d1476accf234e680cabfb69ba591dc",
+  "nextTask": "Correct the source-accent inspector: UXLC uses U+05AE for prose Zarqa; Genesis 1:7 word 2 currently says no accent identified. Audit all source accent codepoints against Tanach.us Coding and Unicode, preserve raw marks, then continue primary pronunciation/melody review pipeline and reading/calendar divisions.",
   "lastPassingTests": {
     "automated": 35,
     "ui": "v0.4 local: staff, note navigation, key/tempo, file preparation/capture, WAV preview Stop, stale-file invalidation, longer-span cancellation, 320/390/1280 layouts, standalone.",
-    "limits": "Live deployment pending; no reviewed traditional music/singing, external notation import, printing or physical-device acoustic review."
+    "limits": "No reviewed traditional music/singing, external notation-app import, printing or physical-device acoustic review."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -156,11 +156,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "2bca33bca500a3f8e648dc89d199f9bd3ed7803c",
+    "commit": "6f06ee6a76d1476accf234e680cabfb69ba591dc",
     "status": "success",
-    "workflowRun": 44460369163,
-    "liveAssets": "six matched byte-for-byte, including versioned runtime/style URLs",
-    "ui": "Returning live tab upgraded successfully; full library, Deuteronomy 6:4 and muted word playback verified. No captured warnings/errors.",
+    "workflowRun": 44466529434,
+    "liveAssets": "seven matched byte-for-byte, including versioned runtime/style URLs and Bravura font/license",
+    "ui": "Returning live tab displayed v0.4.0, staff and full library, prepared MusicXML and silent WAV; no captured warnings/errors. Stopped and muted.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -183,7 +183,7 @@
   },
   "workingIteration": {
     "version": "0.4.0",
-    "status": "local_qa_passed_publish_pending",
+    "status": "published_and_verified",
     "automatedTests": 35,
     "newFeatures": [
       "staff with exact demo rhythms and Hebrew underlay",
@@ -197,12 +197,17 @@
       "key change clears stale downloads",
       "keyboard staff-to-source-word navigation"
     ],
-    "uiPending": [
-      "live deployment"
-    ],
+    "uiPending": [],
     "limits": [
       "No new historical musical realization or pronunciation",
       "Actual browser files captured and independently validated; capture was very slow"
     ]
+  },
+  "sourceAnalysisIssue": {
+    "example": "Genesis 1:7 word 2",
+    "codepoint": "U+05AE",
+    "current": "No accent identified",
+    "evidence": "https://www.tanach.us/Pages/Coding.html",
+    "nextAction": "Context-aware sign recognition and full-corpus accent coverage tests; musical realization remains separate."
   }
 }
