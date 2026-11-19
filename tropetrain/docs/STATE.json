@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "2bca33bca500a3f8e648dc89d199f9bd3ed7803c",
-  "nextTask": "Continue reusable chant/voice provenance and reviewed note/phoneme pipeline; implement sourced reading/calendar divisions. Retest assignment file UI and offline recovery. Full roadmap remains active.",
+  "nextTask": "Publish and verify v0.4.0 staff and music/audio exports. Then return to reusable reviewed chant/phoneme sources and sourced reading/calendar divisions; full roadmap remains active.",
   "lastPassingTests": {
-    "automated": 23,
-    "ui": "v0.3: all five books, cross-chapter/page spans, ketiv/qere, enlarged letters, saved multi-section reading, personal controls, long Genesis playback (muted), desktop layout, standalone initialization. Returning live upgrade to v0.3.1 verified.",
-    "limits": "Assignment file-dialog UI, offline network-failure recovery and historical music/singing review pending."
+    "automated": 35,
+    "ui": "v0.4 local: staff, note navigation, key/tempo, file preparation/capture, WAV preview Stop, stale-file invalidation, longer-span cancellation, 320/390/1280 layouts, standalone.",
+    "limits": "Live deployment pending; no reviewed traditional music/singing, external notation import, printing or physical-device acoustic review."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -92,7 +92,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "partial"
+      "status": "demo_staff_hebrew_melismas_navigation_musicxml_midi_tested"
     },
     {
       "id": "display",
@@ -112,7 +112,7 @@
     {
       "id": "outputs",
       "description": "Print pointed/scroll/tikkun/score, portable audio and blessings",
-      "status": "partial"
+      "status": "instrumental_wav_score_midi_json_tested_print_and_blessings_pending"
     },
     {
       "id": "offline",
@@ -180,5 +180,29 @@
     "linkedLicense": "CC BY-SA 2.5",
     "status": "Candidate; current opening files introduced in 2017; continuity to 2012 release still needs confirmation.",
     "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions."
+  },
+  "workingIteration": {
+    "version": "0.4.0",
+    "status": "local_qa_passed_publish_pending",
+    "automatedTests": 35,
+    "newFeatures": [
+      "staff with exact demo rhythms and Hebrew underlay",
+      "MusicXML and MIDI with source metadata",
+      "chunked instrument WAV export using shared live synthesis"
+    ],
+    "uiVerified": [
+      "Numbers 27:5 full staff and continued melisma page",
+      "MusicXML/MIDI/WAV preparation at volume 0%",
+      "WAV metadata 6.642857 seconds and native preview Start/Stop",
+      "key change clears stale downloads",
+      "keyboard staff-to-source-word navigation"
+    ],
+    "uiPending": [
+      "live deployment"
+    ],
+    "limits": [
+      "No new historical musical realization or pronunciation",
+      "Actual browser files captured and independently validated; capture was very slow"
+    ]
   }
 }

@@ -2,10 +2,14 @@ import {createReadingModel,consonantal,noteName,melody} from './music.js';
 import {passage as openingPassage} from './passage.js';
 import {getCorpus,defaultRange,createAssignment,parseAssignment} from './library.js';
 import {Player} from './audio.js';
+import {staffMarkup,STAFF_PAGE} from './staff.js';
+import {musicXml,midiFile} from './music-exports.js';
+import {renderWav,wavSummary} from './wav.js';
+import {instrument} from './synthesis.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,
-  rangeLow:60,rangeHigh:72,readerPage:0,notePage:0,followPlayback:true,ranges:null};
+  rangeLow:60,rangeHigh:72,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null};
 try{
   const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
   if(saved){
@@ -24,6 +28,8 @@ state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.a
 let corpus,chooseEnd=false,plan=[],activeId=null,activeEventId=null,playingBounds=null;
 let recent=loadArray('tropetrain-recent-v1'),assignments=loadArray('tropetrain-assignments-v1');
 let restoringReading=!!restore.ranges;
+let exportsKey=null,wavJob=null;
+const exportUrls=new Map();
 function loadArray(key){try{const data=JSON.parse(localStorage.getItem(key));return Array.isArray(data)?data.filter(item=>item&&typeof item==='object'&&typeof item.title==='string').slice(0,100):[];}catch{return [];}}
 function store(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
 function persist(){if(!restoringReading)store('tropetrain-practice-v1',{...state,ranges:passage.ranges});}
@@ -36,6 +42,8 @@ const player=new Player((event,cycle,progress,index)=>{
     if(page!==state.readerPage){state.readerPage=page;renderReader();}
     const notePage=Math.floor(index/NOTE_PAGE);
     if(notePage!==state.notePage){state.notePage=notePage;renderNotes();}
+    const staffPage=Math.floor(index/STAFF_PAGE);
+    if(staffPage!==state.staffPage){state.staffPage=staffPage;renderStaff();}
   }
   setActive(event.wordId,event.id);
   $('progress').style.width=`${progress*100}%`;
@@ -49,9 +57,10 @@ function setActive(wordId,eventId){
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
 function stop(message='Stopped. Your selection is kept.'){
-  player.stop();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
+  player.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
 }
 async function play(){
+  $('wav-preview').pause();
   playingBounds=bounds(state.cursor,state.anchor,state.scope);renderSequence();
   $('status').setAttribute('aria-live','off');transportLabel(true);player.setVolume(state.volume/100);
   try{await player.play(plan,state.repeat);}catch(error){stop(`Audio unavailable: ${error.message}`);}
@@ -60,7 +69,7 @@ function selectWord(index,extend=false){
   stop('Ready to listen.');
   if(extend||chooseEnd){state.cursor=index;state.scope='selection';chooseEnd=false;}
   else{state.cursor=index;state.anchor=index;}
-  state.readerPage=Math.floor(words[index].verseIndex/VERSE_PAGE);state.notePage=0;render();
+  state.readerPage=Math.floor(words[index].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;render();
 }
 function setWordText(button,word,plain){
   if(plain){button.textContent=consonantal(word.sourceHebrew);return;}
@@ -143,10 +152,71 @@ function renderNotes(){
 function renderSequence(){
   plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);
   const duration=plan.at(-1).startSeconds+plan.at(-1).durationSeconds;
-  $('event-count').textContent=`${plan.length} events · ${duration.toFixed(2)} s`;renderNotes();
+  $('event-count').textContent=`${plan.length} events · ${duration.toFixed(2)} s`;renderNotes();renderStaff();updateExportSummary();
   const out=plan.filter(e=>e.midi<state.rangeLow||e.midi>state.rangeHigh).length;
   $('range-report').textContent=state.rangeLow>state.rangeHigh?'Lowest note must be below highest note.':`${out} of ${plan.length} notes outside ${noteName(state.rangeLow)}–${noteName(state.rangeHigh)}.`;
 }
+function renderStaff(){
+  state.staffPage=Math.min(state.staffPage,Math.max(0,Math.ceil(plan.length/STAFF_PAGE)-1));
+  const from=state.staffPage*STAFF_PAGE,to=Math.min(from+STAFF_PAGE,plan.length);
+  $('pitch-staff').innerHTML=staffMarkup(plan,words,from);
+  $('staff-page-label').textContent=`Score notes ${from+1}–${to} of ${plan.length}`;
+  $('staff-previous').disabled=from===0;$('staff-next').disabled=to===plan.length;
+  $('pitch-staff').querySelectorAll('[data-word-index]').forEach(el=>{
+    el.classList.toggle('active',el.dataset.event===activeEventId);
+    const activate=()=>selectWord(Number(el.dataset.wordIndex));el.addEventListener('click',activate);
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
+  });
+}
+function exportContext(){
+  const [start,end]=bounds(state.cursor,state.anchor,state.scope);
+  return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody,instrument,pronunciation:{id:null,status:'not implemented'},
+    textSource:{...passage,verses:undefined},vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},
+    tempo:state.tempo,transpose:state.transpose,volume:state.volume};
+}
+function clearExports(){
+  wavJob?.abort();wavJob=null;
+  $('wav-preview').pause();$('wav-preview').removeAttribute('src');$('wav-preview').hidden=true;
+  for(const [id,url] of exportUrls){URL.revokeObjectURL(url);$(id).hidden=true;$(id).removeAttribute('href');}exportUrls.clear();
+  $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
+}
+function updateExportSummary(){
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.tempo,state.transpose,state.volume]);
+  if(key!==exportsKey){clearExports();exportsKey=key;}
+  try{
+    const s=wavSummary(plan);
+    $('export-summary').textContent=`${plan.length} notes · ${s.duration.toFixed(2)} seconds · ${state.tempo} BPM · ${state.transpose>0?'+':''}${state.transpose} semitones · volume ${state.volume}% · WAV about ${(s.bytes/1048576).toFixed(2)} MB.${state.volume===0?' The WAV will be silent at 0% volume.':''}`;
+  }catch(error){$('export-summary').textContent=error.message;$('prepare-wav').disabled=true;}
+}
+function readyDownload(id,data,type,extension){
+  if(exportUrls.has(id))URL.revokeObjectURL(exportUrls.get(id));
+  const blob=data instanceof Blob?data:new Blob([data],{type}),url=URL.createObjectURL(blob);
+  exportUrls.set(id,url);$(id).href=url;$(id).download=`tropetrain-${words[bounds(state.cursor,state.anchor,state.scope)[0]].sourceWordId??words[state.cursor].id}-${state.tempo}bpm-${state.transpose}st.${extension}`;$(id).hidden=false;
+  return blob.size;
+}
+for(const type of ['musicxml','midi'])$('prepare-'+type).addEventListener('click',async()=>{
+  const key=exportsKey,selected=plan,sourceWords=words,context=exportContext(),button=$('prepare-'+type);button.disabled=true;
+  $('export-status').textContent='Preparing '+(type==='midi'?'MIDI notes':'MusicXML score')+'…';
+  try{
+    await new Promise(resolve=>setTimeout(resolve,0));if(key!==exportsKey)return;
+    const data=type==='midi'?midiFile(selected,sourceWords,context):musicXml(selected,sourceWords,context);
+    const size=readyDownload('save-'+type,data,type==='midi'?'audio/midi':'application/vnd.recordare.musicxml+xml',type==='midi'?'mid':'musicxml');
+    $('export-status').textContent=`${type==='midi'?'MIDI notes':'MusicXML score'} ready · ${selected.length} notes · ${size.toLocaleString()} bytes. Use the Save link.`;
+  }catch(error){$('export-status').textContent=`Export unavailable: ${error.message}`;}finally{button.disabled=false;}
+});
+$('prepare-wav').addEventListener('click',async()=>{
+  stop('Preparing an audio file.');wavJob?.abort();const job=new AbortController();wavJob=job;
+  $('prepare-wav').disabled=true;$('cancel-wav').hidden=false;
+  try{
+    const result=await renderWav(plan,{volume:state.volume/100,signal:job.signal,onProgress:p=>{$('export-status').textContent=`Rendering WAV · ${Math.round(p*100)}%`;}});
+    if(wavJob!==job)return;
+    readyDownload('save-wav',result.blob,'audio/wav','wav');$('wav-preview').src=exportUrls.get('save-wav');$('wav-preview').hidden=false;
+    $('export-status').textContent=`WAV ready · ${result.duration.toFixed(2)} seconds · ${result.bytes.toLocaleString()} bytes · ${result.peak===0?'silent (volume 0%)':'instrumental audio'}. Preview or save the file.`;
+  }catch(error){if(wavJob===job)$('export-status').textContent=job.signal.aborted?'Audio export cancelled.':`Audio export unavailable: ${error.message}`;}
+  finally{if(wavJob===job){wavJob=null;$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;}}
+});
+$('cancel-wav').addEventListener('click',()=>wavJob?.abort());
+$('wav-preview').addEventListener('play',()=>{player.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
 function render(){
   for(const key of ['scope','tempo','transpose','volume'])$(key).value=state[key];
   for(const key of ['repeat','groups'])$(key).checked=state[key];$('follow-playback').checked=state.followPlayback;
@@ -164,8 +234,12 @@ function applyRanges(ranges,{remember=true,restoreCursor=null}={}){
   if(!corpus)throw Error('The Torah library is still loading.');
   const nextPassage=corpus.passage(ranges),nextModel=createReadingModel(nextPassage);
   stop('Reading opened. Ready to listen.');passage=nextPassage;model=nextModel;({words,bounds,buildPlan}=model);
+  if(passage.ranges.length===1){
+    const range=passage.ranges[0];$('book').value=range.bookId;
+    for(const [id,value] of [['start-chapter',range.start.chapter],['start-verse',range.start.verse],['end-chapter',range.end.chapter],['end-verse',range.end.verse]])$(id).value=value;
+  }
   state.cursor=restoreCursor&&words[restoreCursor.cursor]?restoreCursor.cursor:0;state.anchor=restoreCursor&&words[restoreCursor.anchor]?restoreCursor.anchor:state.cursor;
-  state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
+  state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
   const unresolved=words.filter(w=>w.analysisStatus==='unsegmented').length;
   $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}All musical output is the original demonstration; syllables are unreviewed.`;
 }
@@ -214,11 +288,15 @@ $('tempo').addEventListener('input',e=>changeSound('tempo',Number(e.target.value
 $('transpose').addEventListener('change',e=>changeSound('transpose',Number(e.target.value),-12,12));
 $('pitch-up').addEventListener('click',()=>changeSound('transpose',state.transpose+1,-12,12));$('pitch-down').addEventListener('click',()=>changeSound('transpose',state.transpose-1,-12,12));
 $('volume').addEventListener('input',e=>{state.volume=Number(e.target.value);player.setVolume(state.volume/100);$('volume-value').textContent=`${state.volume}%`;persist();});
+// A prepared audio file is a snapshot. Changing volume must not leave a stale
+// file labelled with the new settings.
+$('volume').addEventListener('input',updateExportSummary);
 for(const [id,delta] of [['reader-previous',-1],['reader-next',1]])$(id).addEventListener('click',()=>{state.readerPage+=delta;state.followPlayback=false;$('follow-playback').checked=false;renderReader();persist();});
 for(const [id,delta] of [['notes-previous',-1],['notes-next',1]])$(id).addEventListener('click',()=>{state.notePage+=delta;renderNotes();});
+for(const [id,delta] of [['staff-previous',-1],['staff-next',1]])$(id).addEventListener('click',()=>{state.staffPage+=delta;renderStaff();});
 $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody,pronunciation:{id:null,status:'not implemented'},
+  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody,instrument,pronunciation:{id:null,status:'not implemented'},
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan});
 });
@@ -243,7 +321,7 @@ $('import-assignment').addEventListener('change',async e=>{
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&player.running)stop('Paused because this tab is hidden. Press Play to restart the span.');});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.running||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
 if(matchMedia('(min-width: 761px)').matches)$('library-options').open=true;
 render();renderSections();renderPickers();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getCorpus().then(value=>{

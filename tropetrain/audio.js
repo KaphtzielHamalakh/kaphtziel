@@ -1,4 +1,4 @@
-import {frequency} from './music.js';
+import {scheduleInstrument,validatePlan} from './synthesis.js';
 
 // A short lookahead keeps long readings bounded in oscillator count. The audio
 // clock owns timing; requestAnimationFrame only renders highlights.
@@ -6,11 +6,7 @@ export class Player {
   constructor(onFrame,onEnd){this.onFrame=onFrame;this.onEnd=onEnd;this.generation=0;this.sources=[];this.volume=0.7;}
   async play(plan,repeat=false){
     this.stop();
-    if(!Array.isArray(plan)||!plan.length)throw Error('There are no notes in this span.');
-    for(let i=0;i<plan.length;i++){
-      const e=plan[i];
-      if(!Number.isFinite(e.midi)||!Number.isFinite(e.startSeconds)||!Number.isFinite(e.durationSeconds)||e.startSeconds<0||e.durationSeconds<=0||(i&&e.startSeconds<plan[i-1].startSeconds))throw Error('The note sequence has invalid timing or pitch.');
-    }
+    validatePlan(plan);
     const generation=this.generation;
     this.context??=new(window.AudioContext||window.webkitAudioContext)();
     this.master??=this.context.createGain();this.master.gain.value=this.volume;
@@ -49,12 +45,7 @@ export class Player {
     }
   }
   scheduleNote(e,at){
-    const oscillator=this.context.createOscillator(),gain=this.context.createGain(),end=at+e.durationSeconds;
-    oscillator.type='triangle';oscillator.frequency.value=frequency(e.midi);
-    gain.gain.setValueAtTime(0,at);gain.gain.linearRampToValueAtTime(.16,at+Math.min(.012,e.durationSeconds/4));
-    gain.gain.setValueAtTime(.12,Math.max(at+.012,end-.025));gain.gain.linearRampToValueAtTime(0,end);
-    oscillator.connect(gain);gain.connect(this.master);oscillator.start(at);oscillator.stop(end);
-    oscillator.onended=()=>{oscillator.disconnect();gain.disconnect();};this.sources.push({oscillator,end});
+    this.sources.push(scheduleInstrument(this.context,this.master,e,at));
   }
   setVolume(value){this.volume=Math.min(1,Math.max(0,value));if(this.master)this.master.gain.value=this.volume;}
   stop(){

@@ -3528,7 +3528,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var melody = Object.freeze({ id: "original-demo-01", revision: 1, name: "Original demonstration 01", status: "original, unreviewed", license: "CC0-1.0", description: "A newly composed note fixture for playback and alignment. No historical or communal attribution." });
   var accentNames = { "֑": "Etnaḥta", "֒": "Segolta", "֓": "Shalshelet", "֔": "Zakef katon", "֕": "Zakef gadol", "֖": "Tipḥa", "֗": "Revia", "֘": "Zarqa", "֙": "Pashta", "֚": "Yetiv", "֛": "Tevir", "֜": "Geresh", "֝": "Geresh muqdam", "֞": "Gershayim", "֟": "Qarnei fara", "֠": "Telisha gedola", "֡": "Pazer", "֣": "Munaḥ", "֤": "Mahapakh", "֥": "Merkha", "֦": "Merkha kefula", "֧": "Darga", "֨": "Qadma", "֩": "Telisha qetana", "֪": "Yeraḥ ben yomo" };
   var consonantal = (text) => text.replace(/[\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u200d\u034f]/gu, "");
-  var frequency = (midi) => 440 * 2 ** ((midi - 69) / 12);
   var noteName = (midi) => ["C", "C♯", "D", "E♭", "E", "F", "F♯", "G", "A♭", "A", "B♭", "B"][(midi % 12 + 12) % 12] + (Math.floor(midi / 12) - 1);
   function createReadingModel(passage3) {
     let group = 0;
@@ -3755,6 +3754,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
   }
 
+  // synthesis.js
+  var instrument = Object.freeze({ id: "triangle-soft", revision: 2, name: "Soft triangle instrument", mode: "instrumental", tuning: "12-TET, A4 = 440 Hz", provenance: "New synthesis for this reconstruction; no historical voice attribution." });
+  function validatePlan(plan2) {
+    if (!Array.isArray(plan2) || !plan2.length) throw Error("There are no notes in this span.");
+    let previousEnd = 0;
+    for (const e of plan2) {
+      if (!Number.isFinite(e.midi) || e.midi < 0 || e.midi > 127 || !Number.isFinite(e.startSeconds) || !Number.isFinite(e.durationSeconds) || e.startSeconds < 0 || e.durationSeconds <= 0 || e.startSeconds < previousEnd - 1e-7)
+        throw Error("The note sequence has invalid timing or pitch.");
+      previousEnd = e.startSeconds + e.durationSeconds;
+    }
+    return previousEnd;
+  }
+  function scheduleInstrument(context, destination, event, at) {
+    const oscillator = context.createOscillator(), gain = context.createGain();
+    const end = at + event.durationSeconds, attack = Math.min(0.012, event.durationSeconds / 4), release = Math.min(0.025, event.durationSeconds / 3);
+    oscillator.type = "triangle";
+    oscillator.frequency.value = 440 * 2 ** ((event.midi - 69) / 12);
+    gain.gain.setValueAtTime(0, at);
+    gain.gain.linearRampToValueAtTime(0.16, at + attack);
+    gain.gain.linearRampToValueAtTime(0.12, end - release);
+    gain.gain.linearRampToValueAtTime(0, end);
+    oscillator.connect(gain);
+    gain.connect(destination);
+    oscillator.start(at);
+    oscillator.stop(end);
+    oscillator.onended = () => {
+      oscillator.disconnect();
+      gain.disconnect();
+    };
+    return { oscillator, gain, end };
+  }
+
   // audio.js
   var Player = class {
     constructor(onFrame, onEnd) {
@@ -3766,11 +3797,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     async play(plan2, repeat = false) {
       this.stop();
-      if (!Array.isArray(plan2) || !plan2.length) throw Error("There are no notes in this span.");
-      for (let i = 0; i < plan2.length; i++) {
-        const e = plan2[i];
-        if (!Number.isFinite(e.midi) || !Number.isFinite(e.startSeconds) || !Number.isFinite(e.durationSeconds) || e.startSeconds < 0 || e.durationSeconds <= 0 || i && e.startSeconds < plan2[i - 1].startSeconds) throw Error("The note sequence has invalid timing or pitch.");
-      }
+      validatePlan(plan2);
       const generation = this.generation;
       this.context ??= new (window.AudioContext || window.webkitAudioContext)();
       this.master ??= this.context.createGain();
@@ -3832,22 +3859,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
     }
     scheduleNote(e, at) {
-      const oscillator = this.context.createOscillator(), gain = this.context.createGain(), end = at + e.durationSeconds;
-      oscillator.type = "triangle";
-      oscillator.frequency.value = frequency(e.midi);
-      gain.gain.setValueAtTime(0, at);
-      gain.gain.linearRampToValueAtTime(0.16, at + Math.min(0.012, e.durationSeconds / 4));
-      gain.gain.setValueAtTime(0.12, Math.max(at + 0.012, end - 0.025));
-      gain.gain.linearRampToValueAtTime(0, end);
-      oscillator.connect(gain);
-      gain.connect(this.master);
-      oscillator.start(at);
-      oscillator.stop(end);
-      oscillator.onended = () => {
-        oscillator.disconnect();
-        gain.disconnect();
-      };
-      this.sources.push({ oscillator, end });
+      this.sources.push(scheduleInstrument(this.context, this.master, e, at));
     }
     setVolume(value) {
       this.volume = Math.min(1, Math.max(0, value));
@@ -3868,6 +3880,254 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   };
 
+  // score-data.js
+  var escapeXml = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
+  var gcd = (a, b) => b ? gcd(b, a % b) : a;
+  function pitchSpelling(midi) {
+    if (!Number.isInteger(midi) || midi < 0 || midi > 127) throw Error("This score exporter currently requires integer MIDI pitches.");
+    const [step, alter] = [["C", 0], ["C", 1], ["D", 0], ["E", -1], ["E", 0], ["F", 0], ["F", 1], ["G", 0], ["A", -1], ["A", 0], ["B", -1], ["B", 0]][midi % 12];
+    const octave = Math.floor(midi / 12) - 1, position = octave * 7 + "CDEFGAB".indexOf(step);
+    return { step, alter, octave, position };
+  }
+  function rhythmSpelling(beats) {
+    if (!Number.isFinite(beats) || beats <= 0) throw Error("Invalid score duration.");
+    for (const [type, value] of [["whole", 4], ["half", 2], ["quarter", 1], ["eighth", 0.5], ["16th", 0.25], ["32nd", 0.125]]) {
+      if (Math.abs(beats - value) < 1e-8) return { type, dots: 0, actual: 1, normal: 1 };
+      if (Math.abs(beats - value * 1.5) < 1e-8) return { type, dots: 1, actual: 1, normal: 1 };
+    }
+    if (Math.abs(beats - 0.6) < 1e-8) return { type: "quarter", dots: 0, actual: 5, normal: 3 };
+    if (Math.abs(beats - 0.9) < 1e-8) return { type: "quarter", dots: 1, actual: 5, normal: 3 };
+    const normal = Math.round(beats * 1e4), factor = gcd(1e4, normal);
+    if (normal <= 0) throw Error("This duration is below the score resolution.");
+    return { type: "quarter", dots: 0, actual: 1e4 / factor, normal: normal / factor };
+  }
+  function scoreData(plan2, words3) {
+    return plan2.map((event, index) => {
+      const word = words3[event.wordIndex];
+      if (!word || word.id !== event.wordId) throw Error("Score notes no longer match their source words.");
+      const previous = plan2[index - 1], next = plan2[index + 1], continuation = previous?.syllableId === event.syllableId;
+      const extendsNext = next?.syllableId === event.syllableId;
+      const syllableIndex = word.syllables.findIndex((s) => s.id === event.syllableId);
+      if (syllableIndex < 0 || word.syllables[syllableIndex].sourceHebrew !== event.syllable) throw Error("Score syllables no longer match the source.");
+      const syllabic = word.syllables.length === 1 ? "single" : syllableIndex === 0 ? "begin" : syllableIndex === word.syllables.length - 1 ? "end" : "middle";
+      return { ...event, word, pitch: pitchSpelling(event.midi), rhythm: rhythmSpelling(event.beats), continuation, extendsNext, syllabic };
+    });
+  }
+
+  // staff.js
+  var STAFF_PAGE = 12;
+  function staffNotes(plan2, words3, from = 0, count = STAFF_PAGE) {
+    const notes = scoreData(plan2.slice(from, from + count), words3);
+    let position = 84;
+    return notes.map((e, index) => {
+      const width = Math.max(90, Math.min(220, [...e.syllable].length * 7 + 40));
+      const cx = position + width / 2, y = 100 - (e.pitch.position - 30) * 5, ledgers = [];
+      position += width;
+      if (y >= 110) for (let line = 110; line <= y; line += 10) ledgers.push(line);
+      if (y <= 50) for (let line = 50; line >= y; line -= 10) ledgers.push(line);
+      return {
+        ...e,
+        index: from + index,
+        x: cx,
+        y,
+        width,
+        endX: position,
+        ledgers,
+        continuedFromPrevious: from > 0 && index === 0 && plan2[from - 1].syllableId === e.syllableId
+      };
+    });
+  }
+  function staffMarkup(plan2, words3, from = 0, count = STAFF_PAGE) {
+    const notes = staffNotes(plan2, words3, from, count), width = (notes.at(-1)?.endX ?? 200) + 30;
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="250" viewBox="0 0 ${width} 250" role="group" aria-label="Selected staff notes"><title>Playback score. Exact demo pitches and durations; draft Hebrew syllables.</title>`;
+    for (let y = 60; y <= 100; y += 10) svg += `<line class="staff-line" x1="14" y1="${y}" x2="${width - 12}" y2="${y}"/>`;
+    svg += '<text class="music-symbol clef" x="24" y="90"></text>';
+    for (const e of notes) {
+      const up = e.y >= 80, stemX = e.x + (up ? 5 : -5), stemEnd = e.y + (up ? -32 : 32), r = e.rhythm;
+      const word = `${e.word.reference} · word ${e.word.ordinal}`, name = `Go to ${word}; ${noteName(e.midi)}; ${e.beats} beats; ${e.syllable}`;
+      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}" data-word-index="${e.wordIndex}" aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="235" rx="5"/>`;
+      for (const y of e.ledgers) svg += `<line class="ledger" x1="${e.x - 10}" x2="${e.x + 10}" y1="${y}" y2="${y}"/>`;
+      svg += `<text class="music-symbol accidental" x="${e.x - 22}" y="${e.y}">${e.pitch.alter === 1 ? "" : e.pitch.alter === -1 ? "" : ""}</text><ellipse class="notehead" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
+      if (r.type !== "whole") svg += `<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
+      if (["eighth", "16th", "32nd"].includes(r.type)) {
+        const flags = r.type === "eighth" ? 1 : r.type === "16th" ? 2 : 3;
+        for (let flag = 0; flag < flags; flag++) {
+          const y = stemEnd + (up ? flag * 6 : -flag * 6), direction = up ? 1 : -1;
+          svg += `<path class="flag" d="M${stemX} ${y} q18 ${10 * direction} 4 ${24 * direction} q6 ${-12 * direction} -4 ${-16 * direction} Z"/>`;
+        }
+      }
+      for (let dot = 0; dot < r.dots; dot++) svg += `<circle class="dot" cx="${e.x + 13 + dot * 5}" cy="${e.y % 10 === 0 ? e.y - 5 : e.y}" r="1.7"/>`;
+      if (r.actual !== r.normal) svg += `<text class="rhythm-ratio" x="${e.x}" y="24">${r.actual}:${r.normal}</text>`;
+      svg += `<text class="staff-pitch" x="${e.x}" y="165">${escapeXml(noteName(e.midi))}</text>`;
+      if (!e.continuation || e.continuedFromPrevious) svg += `<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${escapeXml(e.syllable)}</text>`;
+      if (e.continuation || e.continuedFromPrevious) svg += `<line class="melisma-line" x1="${e.x - e.width / 2 + 5}" x2="${e.x + e.width / 2 - 5}" y1="206" y2="206"/>`;
+      svg += `<text class="staff-beats" x="${e.x}" y="230">${e.beats} beats</text></g>`;
+    }
+    return svg + "</svg>";
+  }
+
+  // music-exports.js
+  var DIVISIONS = 1e4;
+  var MIDI_PPQ = 4800;
+  function checked(plan2, words3, context) {
+    validatePlan(plan2);
+    if (!Number.isFinite(context.tempo) || context.tempo <= 0) throw Error("The export needs a tempo.");
+    for (const e of plan2) if (!Number.isFinite(e.startBeat) || e.startBeat < 0 || Math.abs(e.startBeat * 60 / context.tempo - e.startSeconds) > 1e-6 || Math.abs(e.beats * 60 / context.tempo - e.durationSeconds) > 1e-6) throw Error("Beat and playback timing disagree.");
+    return scoreData(plan2, words3);
+  }
+  function identity(notes, context) {
+    const selected = [...new Map(notes.map((e) => [e.word.id, e.word])).values()];
+    return {
+      ...context,
+      format: "tropetrain-score-metadata-v1",
+      words: selected,
+      events: notes.map((e, i) => ({ noteId: `note-${i + 1}`, eventId: e.id, wordId: e.wordId, sourceWordId: e.sourceWordId, syllableId: e.syllableId, syllable: e.syllable, midi: e.midi, startBeat: e.startBeat, beats: e.beats }))
+    };
+  }
+  function durationNotation(beats, accidental = null) {
+    const r = rhythmSpelling(beats);
+    return `<type>${r.type}</type>${"<dot/>".repeat(r.dots)}${accidental ? `<accidental>${accidental}</accidental>` : ""}${r.actual === r.normal ? "" : `<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
+  }
+  function musicXml(plan2, words3, context) {
+    const notes = checked(plan2, words3, context), metadata = identity(notes, context);
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<score-partwise version="4.0"><work><work-title>${escapeXml(context.title)}</work-title></work><identification><creator type="composer">TropeTrain original demonstration</creator><rights>Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${escapeXml(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental demonstration</part-name></score-part></part-list><part id="P1">`;
+    let measure = 0, verseKey = null, beat = 0;
+    notes.forEach((e, index) => {
+      if (e.word.verseKey !== verseKey) {
+        if (measure) xml += "</measure>";
+        verseKey = e.word.verseKey;
+        measure++;
+        xml += `<measure number="${measure}" implicit="yes">`;
+        if (measure === 1) xml += `<attributes><divisions>${DIVISIONS}</divisions><time><senza-misura/></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><direction-type><words>Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
+        xml += `<direction><direction-type><words>${escapeXml(e.word.reference)}</words></direction-type></direction>`;
+      }
+      const gap = e.startBeat - beat;
+      if (gap > 1e-7) xml += `<note><rest/><duration>${Math.round(gap * DIVISIONS)}</duration>${durationNotation(gap)}</note>`;
+      const p = e.pitch, accidental = p.alter === 1 ? "sharp" : p.alter === -1 ? "flat" : "natural";
+      if (p.octave < 0) throw Error("MusicXML pitch octaves begin at C0.");
+      xml += `<note id="note-${index + 1}"><pitch><step>${p.step}</step>${p.alter ? `<alter>${p.alter}</alter>` : ""}<octave>${p.octave}</octave></pitch><duration>${Math.round(e.beats * DIVISIONS)}</duration>${durationNotation(e.beats, accidental)}`;
+      const extension = e.extendsNext ? e.continuation ? "continue" : "start" : e.continuation ? "stop" : null;
+      xml += `<lyric number="1">${e.continuation ? "" : `<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${escapeXml(e.syllable)}</text>`}${extension ? `<extend type="${extension}"/>` : ""}</lyric></note>`;
+      beat = e.startBeat + e.beats;
+    });
+    return xml + '<barline location="right"><bar-style>light-heavy</bar-style></barline></measure></part></score-partwise>\n';
+  }
+  function join(parts) {
+    const result = new Uint8Array(parts.reduce((n, p) => n + p.length, 0));
+    let offset = 0;
+    for (const p of parts) {
+      result.set(p, offset);
+      offset += p.length;
+    }
+    return result;
+  }
+  function u32(n) {
+    return Uint8Array.of(n >>> 24, n >>> 16 & 255, n >>> 8 & 255, n & 255);
+  }
+  function vlq(n) {
+    if (!Number.isInteger(n) || n < 0 || n > 268435455) throw Error("MIDI time exceeds the supported range.");
+    const bytes = [n & 127];
+    while (n >>= 7) bytes.unshift(n & 127 | 128);
+    return Uint8Array.from(bytes);
+  }
+  function midiFile(plan2, words3, context) {
+    const notes = checked(plan2, words3, context), text = new TextEncoder(), parts = [];
+    const meta = (delta, type, value) => {
+      const bytes = typeof value === "string" ? text.encode(value) : value;
+      parts.push(vlq(delta), Uint8Array.of(255, type), vlq(bytes.length), bytes);
+    };
+    const micros = Math.round(6e7 / context.tempo);
+    if (micros > 16777215) throw Error("Tempo exceeds the MIDI format range.");
+    meta(0, 3, context.title);
+    meta(0, 1, JSON.stringify(identity(notes, context)));
+    meta(0, 81, Uint8Array.of(micros >>> 16, micros >>> 8 & 255, micros & 255));
+    parts.push(Uint8Array.of(0, 176, 7, Math.round(Math.min(100, Math.max(0, context.volume ?? 70)) * 1.27)));
+    let tick = 0;
+    for (const e of notes) {
+      const start = Math.round(e.startBeat * MIDI_PPQ), end = Math.round((e.startBeat + e.beats) * MIDI_PPQ);
+      meta(start - tick, 1, e.id);
+      if (!e.continuation) meta(0, 5, e.syllable);
+      parts.push(Uint8Array.of(0, 144, e.midi, 80), vlq(end - start), Uint8Array.of(128, e.midi, 0));
+      tick = end;
+    }
+    meta(0, 47, new Uint8Array());
+    const track = join(parts);
+    return join([text.encode("MThd"), u32(6), Uint8Array.of(0, 0, 0, 1, MIDI_PPQ >>> 8, MIDI_PPQ & 255), text.encode("MTrk"), u32(track.length), track]);
+  }
+
+  // wav.js
+  function wavSummary(plan2, sampleRate = 22050) {
+    const duration = validatePlan(plan2);
+    if (!Number.isInteger(sampleRate) || sampleRate < 8e3 || sampleRate > 96e3) throw Error("Invalid audio sample rate.");
+    const frames = Math.ceil(duration * sampleRate), bytes = 44 + frames * 2;
+    if (bytes - 8 > 4294967295) throw Error("This span exceeds the WAV file-size limit. Export its assigned sections separately.");
+    return { duration, sampleRate, frames, bytes };
+  }
+  function wavHeader(frames, sampleRate) {
+    const buffer = new ArrayBuffer(44), view = new DataView(buffer);
+    const text = (offset, value) => {
+      for (let i = 0; i < value.length; i++) view.setUint8(offset + i, value.charCodeAt(i));
+    };
+    text(0, "RIFF");
+    view.setUint32(4, 36 + frames * 2, true);
+    text(8, "WAVE");
+    text(12, "fmt ");
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    text(36, "data");
+    view.setUint32(40, frames * 2, true);
+    return buffer;
+  }
+  function pcm16(samples) {
+    const out = new ArrayBuffer(samples.length * 2), view = new DataView(out);
+    for (let i = 0; i < samples.length; i++) {
+      const v = Math.min(1, Math.max(-1, samples[i]));
+      view.setInt16(i * 2, Math.round(v * (v < 0 ? 32768 : 32767)), true);
+    }
+    return out;
+  }
+  function* audioBatches(plan2, sampleRate = 22050, seconds = 20) {
+    const { frames } = wavSummary(plan2, sampleRate);
+    let first = 0, startFrame = 0;
+    while (first < plan2.length) {
+      let end = first + 1;
+      while (end < plan2.length && plan2[end].startSeconds - startFrame / sampleRate < seconds) end++;
+      const endFrame = end < plan2.length ? Math.floor(plan2[end].startSeconds * sampleRate) : frames;
+      yield { startFrame, frames: endFrame - startFrame, events: plan2.slice(first, end) };
+      startFrame = endFrame;
+      first = end;
+    }
+  }
+  async function renderWav(plan2, { volume = 0.7, sampleRate = 22050, signal, onProgress = () => {
+  }, createContext } = {}) {
+    if (!Number.isFinite(volume) || volume < 0 || volume > 1) throw Error("Invalid instrument volume.");
+    const summary = wavSummary(plan2, sampleRate), parts = [wavHeader(summary.frames, sampleRate)];
+    createContext ??= (length, rate) => new (window.OfflineAudioContext || window.webkitOfflineAudioContext)(1, length, rate);
+    let peak = 0;
+    for (const batch of audioBatches(plan2, sampleRate)) {
+      signal?.throwIfAborted();
+      const context = createContext(batch.frames, sampleRate), master = context.createGain();
+      master.gain.value = volume;
+      master.connect(context.destination);
+      for (const e of batch.events) scheduleInstrument(context, master, e, e.startSeconds - batch.startFrame / sampleRate);
+      const buffer = await context.startRendering();
+      signal?.throwIfAborted();
+      const samples = buffer.getChannelData(0);
+      for (const v of samples) peak = Math.max(peak, Math.abs(v));
+      parts.push(pcm16(samples));
+      onProgress((batch.startFrame + batch.frames) / summary.frames);
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+    signal?.throwIfAborted();
+    return { ...summary, peak, blob: new Blob(parts, { type: "audio/wav" }) };
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -3886,6 +4146,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     rangeHigh: 72,
     readerPage: 0,
     notePage: 0,
+    staffPage: 0,
     followPlayback: true,
     ranges: null
   };
@@ -3917,6 +4178,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var recent = loadArray("tropetrain-recent-v1");
   var assignments = loadArray("tropetrain-assignments-v1");
   var restoringReading = !!restore.ranges;
+  var exportsKey = null;
+  var wavJob = null;
+  var exportUrls = /* @__PURE__ */ new Map();
   function loadArray(key) {
     try {
       const data = JSON.parse(localStorage.getItem(key));
@@ -3952,6 +4216,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         state.notePage = notePage;
         renderNotes();
       }
+      const staffPage = Math.floor(index / STAFF_PAGE);
+      if (staffPage !== state.staffPage) {
+        state.staffPage = staffPage;
+        renderStaff();
+      }
     }
     setActive(event.wordId, event.id);
     $("progress").style.width = `${progress * 100}%`;
@@ -3977,12 +4246,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function stop(message = "Stopped. Your selection is kept.") {
     player.stop();
+    $("wav-preview").pause();
     setActive(null, null);
     $("progress").style.width = "0%";
     say(message);
     transportLabel(false);
   }
   async function play() {
+    $("wav-preview").pause();
     playingBounds = bounds2(state.cursor, state.anchor, state.scope);
     renderSequence();
     $("status").setAttribute("aria-live", "off");
@@ -4006,6 +4277,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     state.readerPage = Math.floor(words2[index].verseIndex / VERSE_PAGE);
     state.notePage = 0;
+    state.staffPage = 0;
     render();
   }
   function setWordText(button, word, plain) {
@@ -4167,9 +4439,132 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const duration = plan.at(-1).startSeconds + plan.at(-1).durationSeconds;
     $("event-count").textContent = `${plan.length} events · ${duration.toFixed(2)} s`;
     renderNotes();
+    renderStaff();
+    updateExportSummary();
     const out = plan.filter((e) => e.midi < state.rangeLow || e.midi > state.rangeHigh).length;
     $("range-report").textContent = state.rangeLow > state.rangeHigh ? "Lowest note must be below highest note." : `${out} of ${plan.length} notes outside ${noteName(state.rangeLow)}–${noteName(state.rangeHigh)}.`;
   }
+  function renderStaff() {
+    state.staffPage = Math.min(state.staffPage, Math.max(0, Math.ceil(plan.length / STAFF_PAGE) - 1));
+    const from = state.staffPage * STAFF_PAGE, to = Math.min(from + STAFF_PAGE, plan.length);
+    $("pitch-staff").innerHTML = staffMarkup(plan, words2, from);
+    $("staff-page-label").textContent = `Score notes ${from + 1}–${to} of ${plan.length}`;
+    $("staff-previous").disabled = from === 0;
+    $("staff-next").disabled = to === plan.length;
+    $("pitch-staff").querySelectorAll("[data-word-index]").forEach((el) => {
+      el.classList.toggle("active", el.dataset.event === activeEventId);
+      const activate = () => selectWord(Number(el.dataset.wordIndex));
+      el.addEventListener("click", activate);
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
+  }
+  function exportContext() {
+    const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
+    return {
+      title: `${fullLabel(start)} to ${fullLabel(end)}`,
+      melody,
+      instrument,
+      pronunciation: { id: null, status: "not implemented" },
+      textSource: { ...passage2, verses: void 0 },
+      vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
+      tempo: state.tempo,
+      transpose: state.transpose,
+      volume: state.volume
+    };
+  }
+  function clearExports() {
+    wavJob?.abort();
+    wavJob = null;
+    $("wav-preview").pause();
+    $("wav-preview").removeAttribute("src");
+    $("wav-preview").hidden = true;
+    for (const [id, url] of exportUrls) {
+      URL.revokeObjectURL(url);
+      $(id).hidden = true;
+      $(id).removeAttribute("href");
+    }
+    exportUrls.clear();
+    $("export-status").textContent = "";
+    $("prepare-wav").disabled = false;
+    $("cancel-wav").hidden = true;
+  }
+  function updateExportSummary() {
+    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.tempo, state.transpose, state.volume]);
+    if (key !== exportsKey) {
+      clearExports();
+      exportsKey = key;
+    }
+    try {
+      const s = wavSummary(plan);
+      $("export-summary").textContent = `${plan.length} notes · ${s.duration.toFixed(2)} seconds · ${state.tempo} BPM · ${state.transpose > 0 ? "+" : ""}${state.transpose} semitones · volume ${state.volume}% · WAV about ${(s.bytes / 1048576).toFixed(2)} MB.${state.volume === 0 ? " The WAV will be silent at 0% volume." : ""}`;
+    } catch (error) {
+      $("export-summary").textContent = error.message;
+      $("prepare-wav").disabled = true;
+    }
+  }
+  function readyDownload(id, data, type, extension) {
+    if (exportUrls.has(id)) URL.revokeObjectURL(exportUrls.get(id));
+    const blob = data instanceof Blob ? data : new Blob([data], { type }), url = URL.createObjectURL(blob);
+    exportUrls.set(id, url);
+    $(id).href = url;
+    $(id).download = `tropetrain-${words2[bounds2(state.cursor, state.anchor, state.scope)[0]].sourceWordId ?? words2[state.cursor].id}-${state.tempo}bpm-${state.transpose}st.${extension}`;
+    $(id).hidden = false;
+    return blob.size;
+  }
+  for (const type of ["musicxml", "midi"]) $("prepare-" + type).addEventListener("click", async () => {
+    const key = exportsKey, selected = plan, sourceWords = words2, context = exportContext(), button = $("prepare-" + type);
+    button.disabled = true;
+    $("export-status").textContent = "Preparing " + (type === "midi" ? "MIDI notes" : "MusicXML score") + "…";
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      if (key !== exportsKey) return;
+      const data = type === "midi" ? midiFile(selected, sourceWords, context) : musicXml(selected, sourceWords, context);
+      const size = readyDownload("save-" + type, data, type === "midi" ? "audio/midi" : "application/vnd.recordare.musicxml+xml", type === "midi" ? "mid" : "musicxml");
+      $("export-status").textContent = `${type === "midi" ? "MIDI notes" : "MusicXML score"} ready · ${selected.length} notes · ${size.toLocaleString()} bytes. Use the Save link.`;
+    } catch (error) {
+      $("export-status").textContent = `Export unavailable: ${error.message}`;
+    } finally {
+      button.disabled = false;
+    }
+  });
+  $("prepare-wav").addEventListener("click", async () => {
+    stop("Preparing an audio file.");
+    wavJob?.abort();
+    const job = new AbortController();
+    wavJob = job;
+    $("prepare-wav").disabled = true;
+    $("cancel-wav").hidden = false;
+    try {
+      const result = await renderWav(plan, { volume: state.volume / 100, signal: job.signal, onProgress: (p) => {
+        $("export-status").textContent = `Rendering WAV · ${Math.round(p * 100)}%`;
+      } });
+      if (wavJob !== job) return;
+      readyDownload("save-wav", result.blob, "audio/wav", "wav");
+      $("wav-preview").src = exportUrls.get("save-wav");
+      $("wav-preview").hidden = false;
+      $("export-status").textContent = `WAV ready · ${result.duration.toFixed(2)} seconds · ${result.bytes.toLocaleString()} bytes · ${result.peak === 0 ? "silent (volume 0%)" : "instrumental audio"}. Preview or save the file.`;
+    } catch (error) {
+      if (wavJob === job) $("export-status").textContent = job.signal.aborted ? "Audio export cancelled." : `Audio export unavailable: ${error.message}`;
+    } finally {
+      if (wavJob === job) {
+        wavJob = null;
+        $("prepare-wav").disabled = false;
+        $("cancel-wav").hidden = true;
+      }
+    }
+  });
+  $("cancel-wav").addEventListener("click", () => wavJob?.abort());
+  $("wav-preview").addEventListener("play", () => {
+    player.stop();
+    setActive(null, null);
+    transportLabel(false);
+    say("Playing the exported instrumental audio.");
+  });
   function render() {
     for (const key of ["scope", "tempo", "transpose", "volume"]) $(key).value = state[key];
     for (const key of ["repeat", "groups"]) $(key).checked = state[key];
@@ -4199,10 +4594,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     passage2 = nextPassage;
     model = nextModel;
     ({ words: words2, bounds: bounds2, buildPlan: buildPlan2 } = model);
+    if (passage2.ranges.length === 1) {
+      const range = passage2.ranges[0];
+      $("book").value = range.bookId;
+      for (const [id, value] of [["start-chapter", range.start.chapter], ["start-verse", range.start.verse], ["end-chapter", range.end.chapter], ["end-verse", range.end.verse]]) $(id).value = value;
+    }
     state.cursor = restoreCursor && words2[restoreCursor.cursor] ? restoreCursor.cursor : 0;
     state.anchor = restoreCursor && words2[restoreCursor.anchor] ? restoreCursor.anchor : state.cursor;
     state.readerPage = Math.floor(words2[state.cursor].verseIndex / VERSE_PAGE);
     state.notePage = 0;
+    state.staffPage = 0;
     chooseEnd = false;
     render();
     renderSections();
@@ -4345,6 +4746,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("volume-value").textContent = `${state.volume}%`;
     persist();
   });
+  $("volume").addEventListener("input", updateExportSummary);
   for (const [id, delta] of [["reader-previous", -1], ["reader-next", 1]]) $(id).addEventListener("click", () => {
     state.readerPage += delta;
     state.followPlayback = false;
@@ -4356,12 +4758,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.notePage += delta;
     renderNotes();
   });
+  for (const [id, delta] of [["staff-previous", -1], ["staff-next", 1]]) $(id).addEventListener("click", () => {
+    state.staffPage += delta;
+    renderStaff();
+  });
   $("download").addEventListener("click", () => {
     const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
     download("tropetrain-note-events.json", {
       format: "tropetrain-events-v1",
       textSource: { ...passage2, verses: void 0 },
       melody,
+      instrument,
       pronunciation: { id: null, status: "not implemented" },
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
       tempo: state.tempo,
@@ -4428,7 +4835,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   });
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden && player.running) stop("Paused because this tab is hidden. Press Play to restart the span.");
+    if (document.hidden && (player.running || !$("wav-preview").paused)) stop("Paused because this tab is hidden. Press Play to restart the span.");
   });
   if (matchMedia("(min-width: 761px)").matches) $("library-options").open = true;
   render();
