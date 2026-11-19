@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "edition": "Unicode/XML Leningrad Codex (UXLC) 2.6, build 27.7",
+  "license": "Biblical Hebrew may be viewed or copied without restriction.",
+  "licenseUrl": "https://www.tanach.us/License.html",
+  "retrieved": "2026-11-18",
+  "representation": "Reading tokens retain w/q; written k tokens, section markers and editorial flags remain separately available. No Unicode normalization applied.",
+  "books": [
+    {
+      "id": "gen",
+      "name": "Genesis",
+      "hebrewName": "בראשית",
+      "file": "gen.json",
+      "sourceUrl": "https://www.tanach.us/Books/Genesis.xml",
+      "sourceSha256": "6c1aa3a69b57b77332d054f3ae9a01faa79b5fb1c2e7d08995a1ace82ff5a92b",
+      "dataSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
+      "chapters": 50,
+      "verseRecords": 1533,
+      "tokenKinds": {
+        "w": 20597,
+        "pe": 42,
+        "samekh": 50,
+        "k": 16,
+        "q": 17
+      }
+    },
+    {
+      "id": "exo",
+      "name": "Exodus",
+      "hebrewName": "שמות",
+      "file": "exo.json",
+      "sourceUrl": "https://www.tanach.us/Books/Exodus.xml",
+      "sourceSha256": "863d34307358ae5adbb16c2b1085aa9058cc2f2f49d5bd1f1a69a5c2bfaed538",
+      "dataSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "chapters": 40,
+      "verseRecords": 1213,
+      "tokenKinds": {
+        "w": 16701,
+        "pe": 70,
+        "samekh": 94,
+        "k": 12,
+        "q": 13
+      }
+    },
+    {
+      "id": "lev",
+      "name": "Leviticus",
+      "hebrewName": "ויקרא",
+      "file": "lev.json",
+      "sourceUrl": "https://www.tanach.us/Books/Leviticus.xml",
+      "sourceSha256": "300f2dd9164e581af55e40c2bd854e855bc063b06bfd47c5343ba5e9e8189734",
+      "dataSha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492",
+      "chapters": 27,
+      "verseRecords": 859,
+      "tokenKinds": {
+        "w": 11945,
+        "samekh": 49,
+        "pe": 55,
+        "k": 5,
+        "q": 5
+      }
+    },
+    {
+      "id": "num",
+      "name": "Numbers",
+      "hebrewName": "במדבר",
+      "file": "num.json",
+      "sourceUrl": "https://www.tanach.us/Books/Numbers.xml",
+      "sourceSha256": "a73aa7a198c012d05bad4c2627a4db7dac80394d1d926aa90b20e072bfdd03f2",
+      "dataSha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452",
+      "chapters": 36,
+      "verseRecords": 1289,
+      "tokenKinds": {
+        "w": 16403,
+        "k": 9,
+        "q": 9,
+        "pe": 94,
+        "samekh": 65,
+        "x": 2,
+        "reversednun": 2
+      }
+    },
+    {
+      "id": "deu",
+      "name": "Deuteronomy",
+      "hebrewName": "דברים",
+      "file": "deu.json",
+      "sourceUrl": "https://www.tanach.us/Books/Deuteronomy.xml",
+      "sourceSha256": "7615f0b872e99c47327fec856bc07ff6fcd8a7cfc814121fecda696522f1067f",
+      "dataSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "chapters": 34,
+      "verseRecords": 959,
+      "tokenKinds": {
+        "w": 14269,
+        "samekh": 136,
+        "k": 25,
+        "q": 26,
+        "pe": 32
+      }
+    }
+  ]
+}

@@ -3,12 +3,12 @@
   "updated": "2026-11-18",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "e27cbee71ff22322d8f868f1ce00880527b8d6ab",
-  "nextTask": "Fix downloaded-file initialization and visible transport; then full Torah corpus and selector.",
+  "publishedCommit": "0f7d1628d5d16a74273ad5cabb23a56317672658",
+  "nextTask": "Publish and verify v0.3.0; then pursue reusable reviewed chant/voice sources and calendar/reading-division support while retaining full roadmap.",
   "lastPassingTests": {
-    "automated": 10,
-    "ui": "Milestone 1 passed in in-app browser; user seeing different file entry point.",
-    "distribution": "Self-contained HTML initialized over HTTP with 27 words and quick transport. File-URL UI inspection remains unavailable by browser policy."
+    "automated": 22,
+    "ui": "v0.3: all five books, cross-chapter/page spans, ketiv/qere, enlarged letters, saved multi-section reading, personal controls, long Genesis playback (muted), desktop layout, standalone initialization.",
+    "limits": "Assignment file-dialog UI, offline network-failure recovery and historical music/singing review pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -27,22 +27,22 @@
     {
       "id": "corpus",
       "description": "Complete Torah text, exact marks and provenance",
-      "status": "pending"
+      "status": "full_torah_reader_tested"
     },
     {
       "id": "reader",
       "description": "Pointed/consonantal/parallel views and stable IDs",
-      "status": "partial"
+      "status": "full_torah_views_and_paging_tested_scroll_facsimile_pending"
     },
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "evidence_needed"
+      "status": "source_preservation_tested_automatic_drafts_unreviewed"
     },
     {
       "id": "playback",
       "description": "Word/group/verse/aliyah/reading/span and repeat",
-      "status": "partial"
+      "status": "full_torah_instrumental_scopes_and_bounded_queue_tested"
     },
     {
       "id": "pronunciations",
@@ -62,7 +62,7 @@
     {
       "id": "voice_range",
       "description": "Historical voice ranges, transposition and volume",
-      "status": "partial"
+      "status": "independent_instrument_volume_range_guide_and_transposition"
     },
     {
       "id": "repertoire",
@@ -77,17 +77,17 @@
     {
       "id": "assignments",
       "description": "Named ordered sections, discontinuous haftarot/Megillah, aliyot",
-      "status": "pending"
+      "status": "torah_ordered_sections_save_load_jump_hide_tested"
     },
     {
       "id": "sharing",
       "description": "Assignment export/import with musical/display settings",
-      "status": "pending"
+      "status": "versioned_assignment_schema_tested_file_dialog_ui_pending"
     },
     {
       "id": "recent",
       "description": "Eight recent readings and tutorials",
-      "status": "pending"
+      "status": "eight_readings_tested_tutorial_recall_pending"
     },
     {
       "id": "score",
@@ -117,7 +117,7 @@
     {
       "id": "offline",
       "description": "Offline corpus and practice state, robust version upgrades",
-      "status": "partial"
+      "status": "embedded_corpus_and_cached_app_implemented_network_failure_ui_pending"
     },
     {
       "id": "verification",
@@ -138,9 +138,37 @@
     },
     "v6": {
       "url": "https://archive.org/details/trope-trainer-6",
-      "status": "uploader labels V6 Deluxe, date 2017; internal version verification pending",
+      "status": "ZIP SHA-1 verified; executable metadata identifies product 6.0.428 and file 6.0.428.1. V6 help and 79 definition labels inspected without execution.",
       "archiveSha1": "5d4917e3dc96e9321c3051f5559f7b4e192fa03c",
-      "reuseRights": "No permissive license found in item metadata. Research reference; do not redistribute proprietary assets."
+      "reuseRights": "No permissive license found in item metadata. Research reference; do not redistribute proprietary assets.",
+      "productVersion": "6.0.428",
+      "counts": {
+        "Torah": 32,
+        "Haftarah": 25,
+        "HiHoliday": 6,
+        "TorahBlessing": 2,
+        "HaftarahBlessing": 2,
+        "Esther": 6,
+        "Eichah": 3,
+        "Ruth-Koheles-ShirHashirim": 2,
+        "Tehillim": 1
+      }
     }
+  },
+  "lastDeployment": {
+    "commit": "0f7d1628d5d16a74273ad5cabb23a56317672658",
+    "status": "success",
+    "liveAssets": "five matched by byte equality",
+    "url": "https://kaphtziel.com/tropetrain/"
+  },
+  "corpusImport": {
+    "books": 5,
+    "chapters": 187,
+    "sourceVerseRecords": 5853,
+    "sourceEdition": "UXLC 2.6 build 27.7",
+    "tests": "Sequential records, unique IDs, data hashes, no editorial Latin injected, ketiv/qere and enlarged letters retained",
+    "runtimeStatus": "All Torah ranges now available with paging and demo playback.",
+    "readingWords": 79985,
+    "unresolvedWords": 1895
   }
 }

@@ -6,7 +6,7 @@ Research date: November 18, 2026. Brief: Rabbi Ben Newman’s supplied `TropeTra
 
 The [2011 V5 manual transcription](https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s), pp. 44–52, was directly checked for display modes, Accent and Voice settings, half-step pitch controls, separate melody choice, and playback boundaries. It documents shift-selected spans, repeat, double-click word playback and a Melody Help menu for the active reading type. These establish historical interface behavior, not the pitches of a melody.
 
-All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi Modern, Sephardi, Sephardi Traditional, U.S. Sephardi and Galician. The label evidence does not supply a full pronunciation grammar. Litvak/Lithuanian remains unverified. The complete V6 melody roster remains unresolved. No historical music has been transcribed or reader-reviewed here, and none of these labels appears as an available sound preset.
+All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi Modern, Sephardi, Sephardi Traditional, U.S. Sephardi and Galician. The label evidence does not supply a full pronunciation grammar. Litvak/Lithuanian remains unverified. The preserved 6.0.428 archive now supplies 79 definition labels, including 32 Torah entries, in ORIGINAL-CATALOG.json. These are data-file observations, not yet running-menu observations or a claim that this archive is the final issued build. No historical music has been transcribed or reader-reviewed here, and none of these labels appears as an available sound preset.
 
 The source distinctions and further historical claims below follow the supplied brief; those other references have not all been independently audited in this milestone. A modern product’s recordings or menus are not evidence of Kinnor V6.
 
@@ -14,23 +14,24 @@ The source distinctions and further historical claims below follow the supplied 
 
 | Behavior | Implemented now | Fidelity or evidence still needed |
 | --- | --- | --- |
-| Marked Hebrew | Genesis 1:1–3, 27 stable word IDs; source strings retained verbatim | UXLC edition attribution is verified; this does not claim it was Kinnor’s electronic edition |
+| Marked Hebrew | Complete Torah corpus: five books, 187 chapters, 5,853 source verse records and 79,985 reading words; exact source strings and canonical IDs | UXLC edition attribution is verified; this does not claim it was Kinnor’s electronic edition |
 | Reading views | Pointed, consonantal, parallel with consonantal on the left | Print font, responsive lines; neither authentic STaM shapes nor a verified scroll layout |
-| Playback | Word, major group, verse, arbitrary inclusive span and cursor-to-passage end; repeat and double-click | Major groups are manually curated for this passage, not a general cantillation hierarchy engine |
-| Alignment | 83 events linked to word and draft Hebrew syllable IDs; melismas share a syllable ID | Syllabification, stress, sheva and furtive pataḥ need expert review; phoneme fields intentionally null |
+| Playback | Word, major group, verse, assigned section, arbitrary inclusive span and cursor-to-reading end; repeat and double-click | Major groups use selected disjunctive signs and verse ends; the full contextual cantillation hierarchy remains pending |
+| Alignment | All Torah words link to source-preserving manual or automatic draft syllables and demo events; 1,895 words explicitly unresolved | Syllabification, stress, sheva and furtive pataḥ need expert review; phoneme fields intentionally null |
 | Melody | Original demonstration 01, revision 1, CC0 | Newly composed fixture; not a traditional melody and not a reproduction of Kinnor |
 | Sound | Web Audio triangle oscillators; exact scheduled start/end times | No singer, no DECtalk recreation, no ordinary speech presented as chant; piano timbre remains pending |
 | Pitch and speed | Independent integer semitone shift and BPM; advisory comfort range | Range guide does not modify pitch. No historical Voice presets are claimed |
 | Notes | Ribbon, inspectable event table, JSON export from the playback sequence | Conventional staff engraving and reviewed sung underlay remain pending |
-| Practice state | Local cursor, endpoints, controls; offline cache | Named tutor assignments and portable assignment interchange remain pending |
+| Practice state | Local preferences, eight recent readings, named ordered Torah sections, jump/hide and versioned assignment JSON | Calendar/triennial selection and haftarah/Megillah content remain pending; file-dialog UI checks remain pending |
 
 ## Reusable materials and revisions
 
 - Hebrew: [Unicode/XML Leningrad Codex](https://www.tanach.us/Books/Genesis.xml), UXLC 2.6, build 27.7 (October 2026), retrieved November 18, 2026. [Terms](https://www.tanach.us/License.html) permit viewing and copying biblical Hebrew without restriction. This is UXLC, not a claim to distribute the WLC edition. `passage.js` records the full source-file SHA-256, metadata and exact words; `genesis-1-1-3.xml` preserves the excerpt’s word structure. XML formatting was regenerated; word text was not normalized. No Tanach.us interface, stylesheets or nontext material were copied.
 - Font: unmodified Noto Serif Hebrew variable font from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/notoserifhebrew), retrieved November 18, 2026; SIL Open Font License 1.1 in `assets/OFL.txt`. No external font request is needed at runtime.
 - Music: `original-demo-01`, revision 1, composed expressly for this project, dedicated under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Its pitches and timing are test material. `music.js` contains the motif, syllable fixtures and derivation. Concluding practice groups use an invented three-note fall; it is not an etnaḥta or sof-pasuq realization.
+- Syllable analysis: [havarotjs 0.25.5](https://github.com/charlesLoder/havarotjs), MIT; full notice in assets/havarotjs-LICENSE.txt and embedded distribution. Analyzer normalization never overwrites source strings. All inferred syllables remain unreviewed.
 - Pronunciation: no active profile. Roman labels and stress are draft annotations, not a supported community preset. Range guidance, transposition and tempo are separate fields. Exported JSON retains their independent values.
-- Application code is new for this reconstruction. No proprietary recordings, scores, engine assets or Kinnor software binaries were used.
+- Application code is new for this reconstruction. No proprietary recordings, scores, engine assets or Kinnor binaries are distributed or executed by the app. The preserved V6 archive was inspected as a historical research reference; factual definition labels and hashes are recorded separately.
 
 ## Evidence to replace the demonstration
 
