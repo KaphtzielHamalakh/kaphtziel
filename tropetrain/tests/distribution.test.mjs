@@ -31,8 +31,8 @@ test('page assets and offline cache use the release version to avoid mixed upgra
 });
 test('standalone HTML embeds runtime, source Hebrew, CSS and font',()=>{
   const html=read('TropeTrain.html');
-  assert.doesNotMatch(html,/<script[^>]+src=/);
-  assert.doesNotMatch(html,/<link[^>]+rel="stylesheet"/);
+  assert.ok(!/<script[^>]+src=/.test(html),'Standalone script is embedded.');
+  assert.ok(!/<link[^>]+rel="stylesheet"/.test(html),'Standalone CSS is embedded.');
   assert.match(html,/data:font\/ttf;base64,/);
   assert.match(html,/data:font\/otf;base64,/);
   assert.match(html,/Reserved Font Name/);
@@ -40,4 +40,12 @@ test('standalone HTML embeds runtime, source Hebrew, CSS and font',()=>{
   assert.match(html,/id="compact-play"/);
   assert.match(html,/dataset\.ready/);
   assert.ok(html.includes(read('app.bundle.js').replaceAll('</script','<\\/script')),'Script contents survive HTML embedding without replacement-string expansion.');
+});
+test('standalone reference audio is losslessly embedded with source attribution and offline assets',()=>{
+  const html=read('TropeTrain.html'),worker=read('sw.js');
+  const encoded=html.match(/src="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);
+  assert.ok(encoded);assert.deepEqual(Buffer.from(encoded[1],'base64'),readFileSync(new URL('../assets/references/Bereshit-1.mp3',import.meta.url)));
+  assert.match(html,/Not-a-Box Media Lab/);assert.match(html,/CC BY-SA 3\.0/);assert.match(html,/755c6e9918ba2021bba8b33c46db309c115620d6/);
+  assert.ok(!/src="\.\/assets\/references\//.test(html),'Standalone recording is embedded.');
+  assert.ok(worker.includes('./assets/references/Bereshit-1.mp3'));assert.ok(worker.includes('./assets/references/NOTICE.txt'));
 });

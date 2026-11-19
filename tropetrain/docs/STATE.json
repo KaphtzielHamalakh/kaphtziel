@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "c80f9243145fb0c4ccf4c82c1d836ef1e439b685",
-  "nextTask": "Prioritize reusable and reviewed musical/phonetic source pipeline: continue PocketTorah release-continuity evidence, source-aligned recording/score import and review records; preserve independent melody/pronunciation/range/transposition. Then source reading/calendar divisions and continue all roadmap features. Assignment file-dialog and offline-failure UI checks remain pending. Do not invent traditional presets or mark the full goal complete.",
+  "nextTask": "Publish tested v0.6 recorded-reference release through connected GitHub tools; verify Pages/live bytes and returning live UI. Then extend rights-cleared, edition-aware recording coverage across Torah while continuing reviewed pitch/phoneme source pipeline and full roadmap. No independent historical melody/pronunciation profiles may be claimed from fixed recordings.",
   "lastPassingTests": {
-    "automated": 41,
-    "ui": "v0.5 local source and standalone: Zarqa/helper and rare/unmarked searches, qere navigation, repeated/mixed signs, duplicate assignment occurrences, saved display preferences independent of student settings, reload, parallel views, keyboard focus and 320/390 layouts. No captured warnings/errors. Audio stayed stopped/muted.",
-    "limits": "No reviewed traditional music/singing, file-origin UI, external notation-app import, printing or screen-reader review."
+    "automated": 50,
+    "ui": "Local source and embedded standalone: covered/unsupported spans, word/final boundaries, WLC/UXLC difference, view highlighting, independent volumes, key-change/Stop/Escape, repeated assignment transitions/repeat, 320/390 layouts and mutual exclusion with demo. Stopped/muted.",
+    "limits": "No acoustic boundary or musical/phonetic review, named individual reader, independent historical melody/pronunciation profile or singing synthesis. File-origin/offline-failure UI, notation-app import, printing and screen-reader review remain pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -52,12 +52,12 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "evidence_needed"
+      "status": "catalog_and_opening_recorded_source_verified_rules_and_musical_review_pending"
     },
     {
       "id": "singing",
       "description": "Reusable singing voice and accompaniment, independently controlled",
-      "status": "evidence_needed"
+      "status": "licensed_recorded_chant_reference_only_no_singing_synthesis"
     },
     {
       "id": "voice_range",
@@ -179,35 +179,40 @@
     "repositoryCommit": "8a23287221dd535966ee9914de9a03e71769a469",
     "creatorAnnouncement": "https://ejewishphilanthropy.com/torah-on-the-go/",
     "linkedLicense": "CC BY-SA 2.5",
-    "status": "Candidate; current opening files introduced in 2017; continuity to 2012 release still needs confirmation.",
-    "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions."
+    "status": "Opening audio Git blob matches 2012/current repo and plain SHA-1 matches original Archive collection; reusable reference locally implemented. Archive explicitly licenses audio CC BY-SA 3.0 and describes Avery–Binder style. All 432 current timing blobs match 2012 files.",
+    "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions.",
+    "archiveCollection": "https://archive.org/details/PockettorahAudioFiles",
+    "archiveAudioLicense": "CC-BY-SA-3.0",
+    "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd"
   },
   "workingIteration": {
-    "version": "0.5.0",
-    "status": "published_live_verified",
-    "automatedTests": 41,
+    "version": "0.6.0",
+    "status": "local_qa_passed_publication_pending",
+    "automatedTests": 50,
     "newFeatures": [
-      "Complete Torah source-accent character recognition with positions and repeated marks",
-      "Conservative source class frames and contextual warnings",
-      "Current-reading and whole-Torah sign search with canonical/occurrence navigation"
+      "Licensed, unmodified PocketTorah opening MP3 and original word starts",
+      "Exact WLC source/UXLC alignment, explicit accent and joiner differences",
+      "Separate recorded-reference volume, span/repeat playback, occurrence-aware segment jumps and shared Stop"
     ],
     "uiVerified": [
-      "Zarqa Genesis 1:7 word 2 correctly identified as U+05AE",
-      "Whole Torah Zarqa 365 / stress helper 10 with pages",
-      "Helper navigation to Genesis 17:20 preserving 40 BPM/+1/volume 0",
-      "Unique Yerah ben yomo and Qarnei fara in Numbers 35:5",
-      "Seven unmarked words, qere navigation to Exodus 4:2 word 4 without invented accent",
-      "Mixed and repeated signs, conservative context warnings",
-      "Duplicate assignment sections retain occurrence navigation and counts",
-      "Saved sign-class display restores without changing personal speed/key/volume",
-      "Keyboard focus frame, 320/390 layouts and horizontally scrollable source table",
-      "Standalone whole-Torah rare-sign search and navigation, no captured warnings/errors",
-      "Returning live tab v0.5, full library restored; Zarqa 365/helper 10/rare 1, Numbers 35:5 word 8 navigation; muted, no captured warnings/errors"
+      "Startup after restoring saved reading; native frame/cancel calls wrapped to preserve browser receiver",
+      "Full opening reference coverage; first-word muted playback, 449.515-second decoded media duration",
+      "Stop at first word boundary observed at 3.354841 seconds versus source boundary 3.351900; no captured warnings/errors",
+      "WLC/UXLC accent disagreement displayed without changing source; parallel view follows both source-linked words",
+      "Reference volume independent; key changes stop reference without changing recording source",
+      "Uncovered Deuteronomy 6:4 span rejected, covered two-word jump between repeated section occurrences played correctly",
+      "Repeat continued across section transitions; Escape removed all reference highlights and stopped audio",
+      "320/390 layouts had no body overflow; viewport reset",
+      "Standalone embedded MP3 decoded and final word finished at exact 449.515-second media end",
+      "Instrument and recorded-reference playback mutually exclusive; no captured warnings/errors"
     ],
-    "uiPending": [],
+    "uiPending": [
+      "Publication and returning-live-tab verification"
+    ],
     "limits": [
-      "Full contextual hierarchy and musical realization remain pending",
-      "No historical melody, pronunciation or voice added"
+      "Recording is source-described Avery–Binder style; individual reader for this file not yet identified",
+      "Word timings are source-provided, not acoustically reviewed",
+      "No pitches/phonemes transcribed, no Kinnor melody or community pronunciation preset added"
     ]
   },
   "sourceAnalysisIssue": {

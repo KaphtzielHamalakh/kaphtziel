@@ -8,14 +8,16 @@ import {renderWav,wavSummary} from './wav.js';
 import {instrument} from './synthesis.js';
 import {SIGN_ANALYSIS,sourceClassLabel} from './accents.js';
 import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.js';
+import recording from './data/references/pockettorah-bereshit-1.json' with {type:'json'};
+import {referenceIndex,referenceSelection,RecordingPlayer} from './recorded-reference.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
-  rangeLow:60,rangeHigh:72,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null};
+  rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null};
 try{
   const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
   if(saved){
-    for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['tempo',40,160],['transpose',-12,12],['volume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
+    for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
     if(['word','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
@@ -35,6 +37,18 @@ let restoringReading=!!restore.ranges;
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
+const recordedWords=referenceIndex(recording);
+let referenceActiveId=null,referencePlan=null;
+const referencePlayer=new RecordingPlayer($('reference-audio'),{
+  onWord:word=>{
+    referenceActiveId=word?.occurrenceId??null;
+    if(word&&state.followPlayback){const page=Math.floor(words[word.wordIndex].verseIndex/VERSE_PAGE);if(page!==state.readerPage){state.readerPage=page;renderReader();}}
+    document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',el.dataset.word===referenceActiveId));
+    if(word)renderRecordedWord(word);
+  },
+  onEnd:()=>{$('reference-status').textContent='Reference span finished. Your selection is kept.';},
+  onError:error=>{$('reference-status').textContent=`Reference unavailable: ${error.message}`;}
+});
 function loadArray(key){try{const data=JSON.parse(localStorage.getItem(key));return Array.isArray(data)?data.filter(item=>item&&typeof item==='object'&&typeof item.title==='string').slice(0,100):[];}catch{return [];}}
 function store(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
 function persist(){if(!restoringReading)store('tropetrain-practice-v1',{...state,ranges:passage.ranges});}
@@ -62,10 +76,10 @@ function setActive(wordId,eventId){
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
 function stop(message='Stopped. Your selection is kept.'){
-  player.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
+  player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped. Your selection is kept.';referencePlayer.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
 }
 async function play(){
-  $('wav-preview').pause();
+  referencePlayer.stop();$('reference-status').textContent='';$('wav-preview').pause();
   playingBounds=bounds(state.cursor,state.anchor,state.scope);renderSequence();
   $('status').setAttribute('aria-live','off');transportLabel(true);player.setVolume(state.volume/100);
   try{await player.play(plan,state.repeat);}catch(error){stop(`Audio unavailable: ${error.message}`);}
@@ -127,6 +141,7 @@ function updateSelection(){
   document.querySelectorAll('[data-word]').forEach(el=>{
     const i=Number(el.dataset.index),selected=i>=start&&i<=end;el.classList.toggle('selected',selected);el.classList.toggle('cursor',i===state.cursor);
     el.classList.toggle('active',el.dataset.word===activeId);el.setAttribute('aria-pressed',String(selected));
+    el.classList.toggle('reference-active',el.dataset.word===referenceActiveId);
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${fullLabel(start)} to ${fullLabel(end)}`:`Cursor: ${fullLabel(state.cursor)}`;
   $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`;
@@ -137,6 +152,26 @@ function updateSelection(){
   $('source-variant').textContent=w.kind==='q'?`Reading form (qere). Written form: ${(w.writtenVariants||[]).map(t=>t.sourceHebrew).join(' ')||'see source edition'}`:'';
   $('alignment-status').textContent=w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
   renderSourceSigns(w);
+  renderReference();
+}
+function renderRecordedWord(word){
+  $('reference-word').textContent=word.sourceHebrew;
+  $('reference-word-label').textContent=`Recording source · Genesis ${word.chapter}:${word.verse} · word ${word.ordinal} · ${word.startSeconds.toFixed(3)} s`;
+  $('reference-source-comparison').textContent=word.comparison==='source-difference'?`Different source accent. UXLC has ${word.uxlcHebrew}; the recording’s WLC text has ${word.sourceHebrew}. Both readings are retained; no musical equivalence is claimed.`:word.comparison==='joiner-only'?'The editions differ only by an encoded combining grapheme joiner; both exact source strings are retained.':'This word’s displayed source string matches UXLC exactly.';
+}
+function renderReference(){
+  $('reference-volume').value=state.referenceVolume;$('reference-volume-value').textContent=`${state.referenceVolume}%`;$('reference-audio').volume=state.referenceVolume/100;
+  try{
+    referencePlan=referenceSelection(words,...bounds(state.cursor,state.anchor,state.scope),recordedWords);
+    const differences=referencePlan.filter(w=>w.comparison==='source-difference').length;
+    $('reference-coverage').textContent=`${referencePlan.length} selected word${referencePlan.length===1?'':'s'} covered.${differences?' This span includes a different source accent at Genesis 1:11 word 5; the recording follows its WLC source.':''}`;
+    $('reference-play').disabled=false;
+  }catch(error){referencePlan=null;$('reference-play').disabled=true;$('reference-coverage').textContent=error.message;}
+  if(!referencePlayer.running&&!referencePlayer.starting){
+    const word=recordedWords.get(words[state.cursor].sourceWordId??words[state.cursor].id);
+    if(word)renderRecordedWord(word);
+    else{$('reference-word').textContent='';$('reference-word-label').textContent='Choose a word in the reference passage.';$('reference-source-comparison').textContent='';}
+  }
 }
 function renderSourceSigns(word){
   const analysis=word.signAnalysis;$('source-class').textContent=sourceClassLabel(analysis.className);
@@ -271,7 +306,16 @@ $('prepare-wav').addEventListener('click',async()=>{
   finally{if(wavJob===job){wavJob=null;$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;}}
 });
 $('cancel-wav').addEventListener('click',()=>wavJob?.abort());
-$('wav-preview').addEventListener('play',()=>{player.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
+$('wav-preview').addEventListener('play',()=>{player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped.';referencePlayer.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
+$('reference-play').addEventListener('click',async()=>{
+  if(!referencePlan)return;const selected=referencePlan;stop('Listening to the recorded reference.');
+  $('reference-status').textContent='Loading the reference recording…';
+  await referencePlayer.play(selected,state.repeat);
+  if(referencePlayer.running)$('reference-status').textContent=`Playing the recording’s original key, tempo and pronunciation${state.referenceVolume===0?' · muted at 0% volume':''}. Source timings are unreviewed.`;
+});
+$('reference-stop').addEventListener('click',()=>stop());
+$('reference-open').addEventListener('click',()=>libraryAction(()=>applyRanges([{id:'recorded-reference',...recording.coverage,label:'PocketTorah reference'}])));
+$('reference-volume').addEventListener('input',e=>{state.referenceVolume=Number(e.target.value);$('reference-audio').volume=state.referenceVolume/100;$('reference-volume-value').textContent=`${state.referenceVolume}%`;persist();});
 function render(){
   for(const key of ['scope','tempo','transpose','volume'])$(key).value=state[key];
   for(const key of ['repeat','groups','sign-classes'])$(key).checked=state[key==='sign-classes'?'signClasses':key];$('follow-playback').checked=state.followPlayback;
@@ -296,7 +340,7 @@ function applyRanges(ranges,{remember=true,restoreCursor=null}={}){
   state.cursor=restoreCursor&&words[restoreCursor.cursor]?restoreCursor.cursor:0;state.anchor=restoreCursor&&words[restoreCursor.anchor]?restoreCursor.anchor:state.cursor;
   state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
   const unresolved=words.filter(w=>w.analysisStatus==='unsegmented').length;
-  $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}All musical output is the original demonstration; syllables are unreviewed.`;
+  $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}The practice engine uses the original demonstration; syllables are unreviewed. The recorded reference is separate.`;
 }
 function rangeFromForm(){return {id:`section-${globalThis.crypto?.randomUUID?.()||Date.now()}`,bookId:$('book').value,
   start:{chapter:Number($('start-chapter').value),verse:Number($('start-verse').value)},end:{chapter:Number($('end-chapter').value),verse:Number($('end-verse').value)},label:`Section ${passage.ranges.length+1}`};}
@@ -337,7 +381,7 @@ $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.
 $('end-selection').addEventListener('click',()=>{chooseEnd=!chooseEnd;updateSelection();});
 for(const id of ['play','compact-play'])$(id).addEventListener('click',play);
 for(const id of ['stop','compact-stop'])$(id).addEventListener('click',()=>stop());
-$('repeat').addEventListener('change',e=>{const running=player.running;state.repeat=e.target.checked;persist();if(running)play();});
+$('repeat').addEventListener('change',e=>{const running=player.running;state.repeat=e.target.checked;referencePlayer.repeat=state.repeat;persist();if(running)play();});
 $('follow-playback').addEventListener('change',e=>{state.followPlayback=e.target.checked;persist();});
 function changeSound(key,value,min,max){
   if(!Number.isFinite(value))return;const running=player.running;state[key]=Math.min(max,Math.max(min,Math.round(value)));
@@ -380,13 +424,13 @@ $('import-assignment').addEventListener('change',async e=>{
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.running||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.running||referencePlayer.running||referencePlayer.starting||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
 if(matchMedia('(min-width: 761px)').matches)$('library-options').open=true;
 render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();
   for(const book of corpus.books){const o=document.createElement('option');o.value=book.id;o.textContent=`${book.name} · ${book.hebrewName}`;$('book').append(o);}
-  $('library-status').textContent='5 books · 187 chapters · available offline';$('open-reading').disabled=false;$('append-section').disabled=false;
+  $('library-status').textContent='5 books · 187 chapters · available offline';$('open-reading').disabled=false;$('append-section').disabled=false;$('reference-open').disabled=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore});}catch(error){$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
   restoringReading=false;persist();
   renderSections();

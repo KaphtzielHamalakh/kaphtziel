@@ -19,3 +19,5 @@
 .sign-classes .word:focus-visible{outline:3px solid var(--seal);outline-offset:3px}
 
 .source-inspector .table-scroll:focus-visible{outline:3px solid var(--seal);outline-offset:3px}
+
+.recorded-reference{margin-top:2rem;padding:clamp(1rem,3vw,2rem);border:1px solid var(--line);background:var(--paper)}.recorded-reference p{max-width:76ch}.reference-actions{display:flex;flex-wrap:wrap;gap:.6rem}.reference-volume{max-width:24rem}.reference-word-detail{padding:1rem;border-inline-start:3px solid var(--seal);margin:1rem 0}.reference-word-detail b{display:block;font-family:Noto Hebrew,serif;font-size:2rem}.reference-word-detail p{overflow-wrap:anywhere}.reference-active{box-shadow:inset 0 -5px 0 var(--seal)!important}.recorded-reference details{margin-top:1rem}.recorded-reference .section-heading{flex-wrap:wrap}.recorded-reference .badge{white-space:normal}

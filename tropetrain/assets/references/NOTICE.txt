@@ -1,0 +1,43 @@
+PocketTorah recorded reference — Genesis 1:1–2:3 (Bereshit-1)
+
+PocketTorah Audio Files · Not-a-Box Media Lab.
+Project credits: Russel Neiss and Rabbi Charlie Schwartz.
+The project lists multiple Torah readers; an individual reader for this file has not been established. No endorsement is implied.
+
+Original audio source: https://archive.org/download/PockettorahAudioFiles/Bereshit-1.mp3
+Collection/source description: https://archive.org/details/PockettorahAudioFiles
+Source style description: Avery-Binder style. This is the source's attribution, not a verified equivalence to a Kinnor preset.
+Audio license in collection metadata: Creative Commons Attribution-ShareAlike 3.0 Unported
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Creator release announcement, April 17, 2012:
+https://ejewishphilanthropy.com/torah-on-the-go/
+The announcement links Creative Commons Attribution-ShareAlike 2.5 Generic for audio and metadata:
+https://creativecommons.org/licenses/by-sa/2.5/
+Original word-timing metadata is preserved unmodified under that release license.
+The derived source comparison, alignment and recorded-reference playback adaptation are offered under CC BY-SA 3.0. Their complete source is included in this repository. No additional restrictions apply to this reference material.
+
+The MP3 and timing file are copied byte-for-byte, without editing, pitch shifting or time stretching. The source text is WLC 4.14 (2010), as distributed in the 2012 PocketTorah release, whose header states freely available. Morphology slashes are removed only from display Hebrew, XML editorial codes are stored separately, and original source tokens and marks remain in the alignment data/source excerpt. UXLC strings remain separate and unchanged.
+
+The 469 word positions align: 458 exact display strings; ten joiner-only differences; one accent difference at Genesis 1:11 word 5 (WLC zakef katon, UXLC revia). Word boundaries are source-provided and have not been independently reviewed acoustically. No phonemes, syllables or pitches were inferred. No musical or pronunciation review or reusable synthesis profile is claimed.
+
+Pinned original repository commit:
+https://github.com/rneiss/PocketTorah/tree/c8540eae1c5e07138aafc89afb571b71326d13dd
+Current comparison commit: 8a23287221dd535966ee9914de9a03e71769a469
+The opening MP3 and timing file have identical Git blobs in both revisions. The original source XML is preserved in the 2012 Webbrowser/content/torah/xml/Genesis.xml path.
+
+SHA-256 and original Git blob checksums:
+Bereshit-1.mp3
+  SHA-256: 02dbf8d157ab4a9003c29d8cebd21d212de58f061171e7f344fa71345bc678d2
+  Git blob: ff17c9f12cb79a0eac02889db975de73a27bba09
+  Bytes: 1798060
+Bereshit-1.txt
+  SHA-256: 7bf860e270d562c00039c695106daa968776c349ee004caabd5a3871fecfe9c0
+  Git blob: e347386e1b1dbed89e062617f5865b66029a6e62
+  Bytes: 5044
+Genesis-2012.xml
+  SHA-256: 2fdc4af975005fdda974be2117af40cba72ac6bd524dd422aaf7d78d620a7beb
+  Git blob: 8feda8a879c8e95a8cfa796f303629cf8c0865ad
+  Bytes: 734902
+
+MP3 plain SHA-1 (also recorded by Internet Archive): 755c6e9918ba2021bba8b33c46db309c115620d6

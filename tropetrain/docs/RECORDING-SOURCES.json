@@ -1,0 +1,64 @@
+{
+  "verified": "2026-11-19",
+  "collection": {
+    "url": "https://archive.org/details/PockettorahAudioFiles",
+    "metadataUrl": "https://archive.org/metadata/PockettorahAudioFiles",
+    "creator": "not-a-box media lab",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "addedDate": "2012-04-05 03:56:17",
+    "originalMp3Files": 515
+  },
+  "creatorAnnouncement": "https://ejewishphilanthropy.com/torah-on-the-go/",
+  "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+  "currentCommit": "8a23287221dd535966ee9914de9a03e71769a469",
+  "comparison": {
+    "currentWordTimingFiles": 432,
+    "timingFilesIdenticalTo2012": 432,
+    "currentAudioFiles": 444,
+    "currentAudioNamesAndSizesMatchArchive": 444,
+    "audioBlobsIdenticalToOriginal2012GitFiles": 8,
+    "scope": "File-name/size matches are weaker than checksums. Only the opening MP3 was downloaded and independently hashed against Archive metadata in this iteration."
+  },
+  "opening": {
+    "sourceFiles": {
+      "Bereshit-1.mp3": {
+        "gitBlob": "ff17c9f12cb79a0eac02889db975de73a27bba09",
+        "sha1": "755c6e9918ba2021bba8b33c46db309c115620d6",
+        "sha256": "02dbf8d157ab4a9003c29d8cebd21d212de58f061171e7f344fa71345bc678d2",
+        "bytes": 1798060
+      },
+      "Bereshit-1.txt": {
+        "gitBlob": "e347386e1b1dbed89e062617f5865b66029a6e62",
+        "sha1": "ffc9cd1afeb3ca04c2f59b579a48487c6927a0e3",
+        "sha256": "7bf860e270d562c00039c695106daa968776c349ee004caabd5a3871fecfe9c0",
+        "bytes": 5044
+      },
+      "Genesis-2012.xml": {
+        "gitBlob": "8feda8a879c8e95a8cfa796f303629cf8c0865ad",
+        "sha1": "6e4523537eaebc449fa7c96dc8b3f4d21749c716",
+        "sha256": "2fdc4af975005fdda974be2117af40cba72ac6bd524dd422aaf7d78d620a7beb",
+        "bytes": 734902
+      }
+    },
+    "comparisonCounts": {
+      "exact": 458,
+      "joiner-only": 10,
+      "source-difference": 1
+    },
+    "differences": [
+      {
+        "id": "gen-1-11-5",
+        "recordingSource": "דֶּ֔שֶׁא",
+        "uxlcSource": "דֶּ֗שֶׁא"
+      }
+    ]
+  },
+  "review": {
+    "timing": "source-provided; acoustic boundary review pending",
+    "alignment": "mechanical comparison; reader review pending",
+    "musical": "not independently reviewed",
+    "pronunciation": "not independently reviewed",
+    "reviewer": null,
+    "date": null
+  }
+}
