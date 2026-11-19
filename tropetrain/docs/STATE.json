@@ -3,11 +3,11 @@
   "updated": "2026-11-18",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "190af2ea96a2652cfe88da1067080fb81b97559a",
-  "nextTask": "Publish v0.3.1 versioned-asset fix and verify returning live browser; then reusable chant/voice and reading/calendar sources.",
+  "publishedCommit": "2bca33bca500a3f8e648dc89d199f9bd3ed7803c",
+  "nextTask": "Continue reusable chant/voice provenance and reviewed note/phoneme pipeline; implement sourced reading/calendar divisions. Retest assignment file UI and offline recovery. Full roadmap remains active.",
   "lastPassingTests": {
     "automated": 23,
-    "ui": "v0.3: all five books, cross-chapter/page spans, ketiv/qere, enlarged letters, saved multi-section reading, personal controls, long Genesis playback (muted), desktop layout, standalone initialization.",
+    "ui": "v0.3: all five books, cross-chapter/page spans, ketiv/qere, enlarged letters, saved multi-section reading, personal controls, long Genesis playback (muted), desktop layout, standalone initialization. Returning live upgrade to v0.3.1 verified.",
     "limits": "Assignment file-dialog UI, offline network-failure recovery and historical music/singing review pending."
   },
   "completionRequires": [
@@ -156,9 +156,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "190af2ea96a2652cfe88da1067080fb81b97559a",
+    "commit": "2bca33bca500a3f8e648dc89d199f9bd3ed7803c",
     "status": "success",
-    "liveAssets": "six matched byte-for-byte; returning browser retained old unversioned bundle",
+    "workflowRun": 44460369163,
+    "liveAssets": "six matched byte-for-byte, including versioned runtime/style URLs",
+    "ui": "Returning live tab upgraded successfully; full library, Deuteronomy 6:4 and muted word playback verified. No captured warnings/errors.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -170,5 +172,13 @@
     "runtimeStatus": "All Torah ranges now available with paging and demo playback.",
     "readingWords": 79985,
     "unresolvedWords": 1895
+  },
+  "recordingLead": {
+    "source": "PocketTorah",
+    "repositoryCommit": "8a23287221dd535966ee9914de9a03e71769a469",
+    "creatorAnnouncement": "https://ejewishphilanthropy.com/torah-on-the-go/",
+    "linkedLicense": "CC BY-SA 2.5",
+    "status": "Candidate; current opening files introduced in 2017; continuity to 2012 release still needs confirmation.",
+    "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions."
   }
 }

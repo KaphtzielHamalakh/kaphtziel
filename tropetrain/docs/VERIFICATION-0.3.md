@@ -47,3 +47,5 @@ Assignment import/export have schema/round-trip code coverage but their browser 
 ## v0.3.1 upgrade regression
 
 The initial v0.3.0 Pages deployment succeeded and index, bundle, standalone, CSS, service worker and corpus manifest matched tested bytes. The returning live browser nevertheless used an older cached unversioned script with new HTML; its library stayed disabled. Versioned runtime/style URLs and matching offline cache entries now separate releases. All 23 checks pass, including version consistency and exact standalone embedding. Local normal UI restored the full library and saved Numbers passage. Live returning-tab verification is pending publication of this patch.
+
+Post-publication: v0.3.1 Pages run 44460369163 succeeded. Six live assets matched source bytes, including the versioned runtime/style URLs. The same returning live tab that failed under v0.3.0 now displayed the full library and v0.3.1, opened Deuteronomy 6:4, and completed a muted word-play/stop check with no captured warnings/errors. Screenshot: task outputs/TropeTrain-live-0.3.1.png.
