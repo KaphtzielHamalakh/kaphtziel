@@ -8,7 +8,7 @@ const read=name=>readFileSync(new URL('../'+name,import.meta.url),'utf8');
 test('downloaded entry point uses a classic bundle instead of file-origin ES modules',()=>{
   const html=read('index.html'), bundle=read('app.bundle.js');
   assert.doesNotMatch(html,/type=["']module["']/);
-  assert.match(html,/<script defer src="\.\/app\.bundle\.js"><\/script>/);
+  assert.match(html,/<script defer src="\.\/app\.bundle\.js\?v=0\.3\.1"><\/script>/);
   assert.doesNotMatch(bundle,/^\s*(?:import|export)\s/m);
   assert.doesNotThrow(()=>new vm.Script(bundle));
   assert.match(html,/id="startup-status"/);
@@ -20,6 +20,14 @@ test('browser bundle embeds the same complete Torah data as the source corpus',(
   const data=JSON.parse(gunzipSync(Buffer.from(encoded[1],'base64')).toString('utf8'));
   assert.deepEqual(data.manifest,JSON.parse(read('data/torah/manifest.json')));
   for(const book of data.books)assert.deepEqual(book,JSON.parse(read(`data/torah/${book.id}.json`)));
+});
+test('page assets and offline cache use the release version to avoid mixed upgrades',()=>{
+  const version=JSON.parse(read('package.json')).version,html=read('index.html'),worker=read('sw.js');
+  for(const asset of ['app.bundle.js','style.css']){
+    assert.ok(html.includes(`./${asset}?v=${version}`));
+    assert.ok(worker.includes(`./${asset}?v=${version}`));
+  }
+  assert.ok(html.includes(`v${version}`));
 });
 test('standalone HTML embeds runtime, source Hebrew, CSS and font',()=>{
   const html=read('TropeTrain.html');

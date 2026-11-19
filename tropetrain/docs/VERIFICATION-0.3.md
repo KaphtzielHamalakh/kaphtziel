@@ -43,3 +43,7 @@ Used the Codex in-app browser with volume set to 0% before playback checks. No d
 The file-URL browser surface is blocked by tooling policy; the standalone artifact was checked for self-contained contents and initialized over HTTP. Native Chrome automation remains unreliable and was not used. No physical speaker output, singing, historical melody, or community pronunciation was verified. The original demo remains clearly labeled.
 
 Assignment import/export have schema/round-trip code coverage but their browser file-dialog flows were not exercised in this pass. Browser download waits previously stalled, so this is recorded explicitly. Offline recovery with networking disabled, screen-reader use and another physical device remain pending.
+
+## v0.3.1 upgrade regression
+
+The initial v0.3.0 Pages deployment succeeded and index, bundle, standalone, CSS, service worker and corpus manifest matched tested bytes. The returning live browser nevertheless used an older cached unversioned script with new HTML; its library stayed disabled. Versioned runtime/style URLs and matching offline cache entries now separate releases. All 23 checks pass, including version consistency and exact standalone embedding. Local normal UI restored the full library and saved Numbers passage. Live returning-tab verification is pending publication of this patch.

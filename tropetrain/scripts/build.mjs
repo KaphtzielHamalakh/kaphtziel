@@ -27,8 +27,8 @@ await writeFile(path.join(root,'assets/havarotjs-LICENSE.txt'),license);
 const fontLicense=await readFile(path.join(root,'assets/OFL.txt'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`);
-const standalone=html.replace('<link rel="stylesheet" href="./style.css">',()=>`<style>${css}</style>`)
- .replace('<script defer src="./app.bundle.js"></script>',()=>`<script>${script.replaceAll('</script','<\\/script')}</script>`)
+const standalone=html.replace('<link rel="stylesheet" href="./style.css?v=0.3.1">',()=>`<style>${css}</style>`)
+ .replace('<script defer src="./app.bundle.js?v=0.3.1"></script>',()=>`<script>${script.replaceAll('</script','<\\/script')}</script>`)
  .replaceAll('href="./assets/OFL.txt"','href="#license-notices"').replaceAll('href="./assets/havarotjs-LICENSE.txt"','href="#license-notices"')
  .replace('<footer>',()=>`<details id="license-notices"><summary>Font and software licenses</summary><pre style="white-space:pre-wrap;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(license)}</pre></details><footer>`);
 await writeFile(path.join(root,'TropeTrain.html'),standalone);

@@ -3,10 +3,10 @@
   "updated": "2026-11-18",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "0f7d1628d5d16a74273ad5cabb23a56317672658",
-  "nextTask": "Publish and verify v0.3.0; then pursue reusable reviewed chant/voice sources and calendar/reading-division support while retaining full roadmap.",
+  "publishedCommit": "190af2ea96a2652cfe88da1067080fb81b97559a",
+  "nextTask": "Publish v0.3.1 versioned-asset fix and verify returning live browser; then reusable chant/voice and reading/calendar sources.",
   "lastPassingTests": {
-    "automated": 22,
+    "automated": 23,
     "ui": "v0.3: all five books, cross-chapter/page spans, ketiv/qere, enlarged letters, saved multi-section reading, personal controls, long Genesis playback (muted), desktop layout, standalone initialization.",
     "limits": "Assignment file-dialog UI, offline network-failure recovery and historical music/singing review pending."
   },
@@ -156,9 +156,9 @@
     }
   },
   "lastDeployment": {
-    "commit": "0f7d1628d5d16a74273ad5cabb23a56317672658",
+    "commit": "190af2ea96a2652cfe88da1067080fb81b97559a",
     "status": "success",
-    "liveAssets": "five matched by byte equality",
+    "liveAssets": "six matched byte-for-byte; returning browser retained old unversioned bundle",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {

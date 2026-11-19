@@ -74,3 +74,7 @@ These are research leads, not a claim that all contents or reuse rights were ver
 8. [Sinai Temple 2019 handbook](https://cybermitzvah.sinaitemple.org/wp-content/uploads/2018/12/BnaiMitzvahPreparationBook2019.pdf).
 9. [Judaism 101](https://www.jewfaq.org/trop), independent repertoire account.
 10. [Current product](https://www.tropetrainer.com/), a separate browser application, not evidence of the final Kinnor release.
+
+## Reusable recording investigation
+
+[Creator Russel Neiss’s April 17, 2012 announcement](https://ejewishphilanthropy.com/torah-on-the-go/) explicitly releases PocketTorah audio and corresponding metadata under Attribution-ShareAlike. The linked license is [CC BY-SA 2.5 Generic](https://creativecommons.org/licenses/by-sa/2.5/); later third-party claims of 4.0 must not replace this primary evidence. Original Dropbox audio/label links returned 404. The [creator’s current repository](https://github.com/rneiss/PocketTorah), inspected at commit `8a23287221dd535966ee9914de9a03e71769a469`, has 444 audio blobs, timing labels and 54 portion records with annual/triennial boundaries. Match file provenance and text/time alignment before shipping. Sefaria describes its PocketTorah recordings as Avery-Binder style; that description does not establish equivalence to a Kinnor preset or an independent pronunciation profile. No recording has been incorporated in this release.
