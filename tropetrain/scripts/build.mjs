@@ -37,6 +37,8 @@ const musicFont=await readFile(path.join(root,'assets/Bravura.otf'));
 const musicFontLicense=await readFile(path.join(root,'assets/Bravura-OFL.txt'),'utf8');
 const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1.mp3'));
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
+const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
+const printedEvidence=await readFile(path.join(root,'docs/PRINTED-SCORE.json'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`);
 const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
@@ -45,6 +47,9 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./assets/Bravura-OFL.txt"','href="#license-notices"')
  .replace('src="./assets/references/Bereshit-1.mp3"',()=>`src="data:audio/mpeg;base64,${referenceAudio.toString('base64')}"`)
  .replaceAll('href="./assets/references/NOTICE.txt"','href="#license-notices"')
- .replace('<footer>',()=>`<details id="license-notices"><summary>Font, software and recording licenses</summary><pre style="white-space:pre-wrap;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}</pre></details><footer>`);
+ .replaceAll('src="./assets/scores/cohen-1902-genesis22.png"',()=>`src="data:image/png;base64,${printedScan.toString('base64')}"`)
+ .replaceAll('href="./assets/scores/cohen-1902-genesis22.png"',()=>`href="data:image/png;base64,${printedScan.toString('base64')}"`)
+ .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
+ .replace('<footer>',()=>`<details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 await writeFile(path.join(root,'TropeTrain.html'),standalone);
 console.log('Built classic-script app.bundle.js and self-contained TropeTrain.html.');

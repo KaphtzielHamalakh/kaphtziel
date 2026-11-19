@@ -15,7 +15,7 @@ export function staffNotes(plan,words,from=0,count=STAFF_PAGE){
 }
 export function staffMarkup(plan,words,from=0,count=STAFF_PAGE){
   const notes=staffNotes(plan,words,from,count),width=(notes.at(-1)?.endX??200)+30;
-  let svg=`<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="250" viewBox="0 0 ${width} 250" role="group" aria-label="Selected staff notes"><title>Playback score. Exact demo pitches and durations; draft Hebrew syllables.</title>`;
+  let svg=`<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="250" viewBox="0 0 ${width} 250" role="group" aria-label="Selected staff notes"><title>Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source.</title>`;
   for(let y=60;y<=100;y+=10)svg+=`<line class="staff-line" x1="14" y1="${y}" x2="${width-12}" y2="${y}"/>`;
   svg+='<text class="music-symbol clef" x="24" y="90">\ue050</text>';
   for(const e of notes){
@@ -23,7 +23,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE){
     const word=`${e.word.reference} · word ${e.word.ordinal}`,name=`Go to ${word}; ${noteName(e.midi)}; ${e.beats} beats; ${e.syllable}`;
     svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}" data-word-index="${e.wordIndex}" aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="235" rx="5"/>`;
     for(const y of e.ledgers)svg+=`<line class="ledger" x1="${e.x-10}" x2="${e.x+10}" y1="${y}" y2="${y}"/>`;
-    svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
+    svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
     if(r.type!=='whole')svg+=`<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
     if(['eighth','16th','32nd'].includes(r.type)){
       const flags=r.type==='eighth'?1:r.type==='16th'?2:3;

@@ -23,3 +23,8 @@
 .recorded-reference{margin-top:2rem;padding:clamp(1rem,3vw,2rem);border:1px solid var(--line);background:var(--paper)}.recorded-reference p{max-width:76ch}.reference-actions{display:flex;flex-wrap:wrap;gap:.6rem}.reference-volume{max-width:24rem}.reference-word-detail{padding:1rem;border-inline-start:3px solid var(--seal);margin:1rem 0}.reference-word-detail b{display:block;font-family:Noto Hebrew,serif;font-size:2rem}.reference-word-detail p{overflow-wrap:anywhere}.reference-active{box-shadow:inset 0 -5px 0 var(--seal)!important}.recorded-reference details{margin-top:1rem}.recorded-reference .section-heading{flex-wrap:wrap}.recorded-reference .badge{white-space:normal}
 
 .reference-picker{display:flex;flex-wrap:wrap;align-items:end;gap:.75rem;margin-block:1rem}.reference-picker label{display:flex;flex-direction:column;gap:.3rem;min-width:0}.reference-picker select{max-width:100%;min-width:8rem}#reference-library-status{font:13px/1.6 system-ui,sans-serif;color:var(--soft)}#reference-status,#reference-storage,#reference-timing-status{overflow-wrap:anywhere}
+
+.printed-study{margin:2rem 0;padding:1.6rem;border:1px solid var(--line,#d5d4c6);border-radius:12px;background:var(--paper,#faf9f3)}
+.printed-study p{max-width:85ch}.printed-study img{display:block;width:100%;height:auto;margin:1rem 0}.printed-study details{margin-top:1rem}
+.printed-study .section-heading{flex-wrap:wrap;gap:1rem}.printed-study .badge{white-space:normal;max-width:100%}
+.pitch-staff .open-notehead{fill:var(--paper,#faf9f3);stroke:currentColor;stroke-width:1.8}

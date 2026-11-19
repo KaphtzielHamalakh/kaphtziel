@@ -3622,6 +3622,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return "No prose class assigned";
   }
 
+  // printed-score.js
+  var PRINTED_SCORE = Object.freeze({
+    id: "cohen-1902-gen22-ending",
+    revision: 1,
+    name: "Printed score study · Cohen 1902",
+    status: "source transcription; independent musical/underlay review pending",
+    license: "Public-domain printed source; new transcription CC0-1.0",
+    creator: "Francis L. Cohen · Jewish Encyclopedia, vol. III (1902), p. 539",
+    source: "https://www.jewishencyclopedia.com/articles/718",
+    scan: "./assets/scores/cohen-1902-genesis22.png",
+    description: "Only Genesis 22:1, final two words (12–13), before the separately printed untexted CODA. Six pitches and printed durations. No general melody rules or singing voice.",
+    performanceNote: "The source says “Rather briskly; without strict tempo.” This study uses a regular quarter-note beat; expressive timing and vocal delivery are not reconstructed.",
+    evidenceNote: "The printed Hebrew and underlay identify Genesis 22:1. The article prose instead says Gen. xxix.; that inconsistent reference is not silently adopted.",
+    coverage: ["gen-22-1-12", "gen-22-1-13"]
+  });
+  var PRINTED_WORDS = Object.freeze([
+    {
+      id: "gen-22-1-12",
+      sourceHebrew: "וַיֹּ֥אמֶר",
+      lengths: [1, 2, 2],
+      stress: 1,
+      notes: [[64, 0.5, "way", "system 3, last note"], [71, 2, "yo", "system 4, note 1"], [69, 1, "mer", "system 4, note 2"]]
+    },
+    {
+      id: "gen-22-1-13",
+      sourceHebrew: "הִנֵּֽנִי׃",
+      lengths: [1, 1, 2],
+      stress: 1,
+      notes: [[64, 1, "hin", "system 4, note 3"], [67, 2, "ne", "system 4, note 4"], [67, 1, "ni", "system 4, note 5"]]
+    }
+  ]);
+  function printedWord(word) {
+    return PRINTED_WORDS.find((row) => row.id === (word.sourceWordId ?? word.id) && row.sourceHebrew === word.sourceHebrew) ?? null;
+  }
+
   // music.js
   var syllableDrafts = [
     [[1, 2, 3], ["bə", "rē", "shīt"], 2],
@@ -3657,7 +3692,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var melody = Object.freeze({ id: "original-demo-01", revision: 1, name: "Original demonstration 01", status: "original, unreviewed", license: "CC0-1.0", description: "A newly composed note fixture for playback and alignment. No historical or communal attribution." });
   var consonantal = (text) => text.replace(/[\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u200d\u034f]/gu, "");
   var noteName = (midi) => ["C", "C♯", "D", "E♭", "E", "F", "F♯", "G", "A♭", "A", "B♭", "B"][(midi % 12 + 12) % 12] + (Math.floor(midi / 12) - 1);
-  function createReadingModel(passage3) {
+  var melodyProfiles = Object.freeze([melody, PRINTED_SCORE]);
+  function createReadingModel(passage3, { melodyId = melody.id } = {}) {
+    const profile = melodyProfiles.find((p) => p.id === melodyId);
+    if (!profile) throw Error("This musical source is not implemented.");
     let group = 0;
     const raw = passage3.verses.flatMap((v, verseIndex) => v.words.map((w, ordinal) => ({
       ...w,
@@ -3671,8 +3709,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       ordinal: w.ordinal ?? ordinal + 1
     })));
     const words3 = raw.map((w, index) => {
-      const fixture = fixtures.get(w.sourceWordId ?? w.id);
-      const syllables = alignedSyllables(w, { fixture: fixture?.text === w.sourceHebrew ? fixture.syllables : null });
+      const fixture = fixtures.get(w.sourceWordId ?? w.id), printed = melodyId === PRINTED_SCORE.id ? printedWord(w) : null;
+      const syllables = alignedSyllables(w, { fixture: printed ? [printed.lengths, null, printed.stress] : fixture?.text === w.sourceHebrew ? fixture.syllables : null });
       const atVerseEnd = index === raw.length - 1 || raw[index + 1].verseKey !== w.verseKey;
       const groupEnd = atVerseEnd || !w.sourceHebrew.endsWith("־") && /[\u0591-\u0595]/u.test(w.sourceHebrew);
       const signAnalysis = analyzeSourceSigns(w.sourceHebrew);
@@ -3690,6 +3728,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       return word;
     });
     const events2 = Object.freeze(words3.flatMap((w) => w.syllables.flatMap((s, i) => {
+      if (melodyId === PRINTED_SCORE.id) {
+        const row = printedWord(w);
+        if (!row) return [];
+        const [midi, beats, sourceLyric, sourceLocation] = row.notes[i];
+        return [Object.freeze({
+          id: `${s.id}-cohen-n1`,
+          wordId: w.id,
+          wordIndex: w.index,
+          sourceWordId: w.sourceWordId ?? w.id,
+          syllableId: s.id,
+          syllable: s.sourceHebrew,
+          roman: null,
+          phonemes: null,
+          midi,
+          beats,
+          part: 1,
+          sourceLyric,
+          sourceLocation,
+          sourceProfile: PRINTED_SCORE.id
+        })];
+      }
       const seed = [62, 64, 65, 67][w.index % 4];
       const pitches = w.groupEnd && i === w.syllables.length - 1 ? [65, 64, 62] : [seed + (i % 2 ? 2 : 0)];
       return pitches.map((midi, j) => Object.freeze({
@@ -3719,6 +3778,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     function buildPlan3(start, end, { tempo = 84, transpose = 0 } = {}) {
       if (!Number.isInteger(start) || !Number.isInteger(end) || !words3[start] || !words3[end] || start > end) throw Error("Invalid playback span.");
       if (!Number.isFinite(tempo) || tempo <= 0 || !Number.isInteger(transpose) || Math.abs(transpose) > 36) throw Error("Invalid tempo or transposition.");
+      if (melodyId === PRINTED_SCORE.id && words3.slice(start, end + 1).some((w) => !printedWord(w)))
+        throw Error("This printed-score study covers only Genesis 22:1, words 12–13. Select those words or choose the original demonstration. No notes are substituted.");
       let beat = 0;
       return events2.filter((e) => e.wordIndex >= start && e.wordIndex <= end).map((e) => {
         const event = { ...e, midi: e.midi + transpose, startBeat: beat, startSeconds: beat * 60 / tempo, durationSeconds: e.beats * 60 / tempo };
@@ -3726,7 +3787,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return event;
       });
     }
-    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3 };
+    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile };
   }
   var initial = createReadingModel(passage);
   var words = initial.words;
@@ -3862,7 +3923,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const passage3 = corpus2.passage(data.sections);
     const melodyId = data.musicalPreferences?.melodyId ?? "original-demo-01";
     const pronunciationId = data.musicalPreferences?.pronunciationId ?? null;
-    if (melodyId !== "original-demo-01" || pronunciationId !== null) throw Error("This assignment requests a melody or pronunciation that is not yet implemented. Its settings were not replaced.");
+    if (!["original-demo-01", PRINTED_SCORE.id].includes(melodyId) || pronunciationId !== null) throw Error("This assignment requests a melody or pronunciation that is not yet implemented. Its settings were not replaced.");
     return {
       format: data.format,
       id: typeof data.id === "string" ? data.id.slice(0, 100) : "imported",
@@ -3878,7 +3939,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       id: globalThis.crypto?.randomUUID?.() || `assignment-${Date.now()}`,
       title: (String(title).trim() || "Untitled assignment").slice(0, 120),
       sections,
-      musicalPreferences: { melodyId: "original-demo-01", pronunciationId: null },
+      musicalPreferences: { melodyId: displayPreferences.melodyId ?? "original-demo-01", pronunciationId: null },
       displayPreferences: { view: displayPreferences.view || "pointed", groups: displayPreferences.groups !== false, signClasses: displayPreferences.signClasses === true }
     };
   }
@@ -4068,7 +4129,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function staffMarkup(plan2, words3, from = 0, count = STAFF_PAGE) {
     const notes = staffNotes(plan2, words3, from, count), width = (notes.at(-1)?.endX ?? 200) + 30;
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="250" viewBox="0 0 ${width} 250" role="group" aria-label="Selected staff notes"><title>Playback score. Exact demo pitches and durations; draft Hebrew syllables.</title>`;
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="250" viewBox="0 0 ${width} 250" role="group" aria-label="Selected staff notes"><title>Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source.</title>`;
     for (let y = 60; y <= 100; y += 10) svg += `<line class="staff-line" x1="14" y1="${y}" x2="${width - 12}" y2="${y}"/>`;
     svg += '<text class="music-symbol clef" x="24" y="90"></text>';
     for (const e of notes) {
@@ -4076,7 +4137,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const word = `${e.word.reference} · word ${e.word.ordinal}`, name = `Go to ${word}; ${noteName(e.midi)}; ${e.beats} beats; ${e.syllable}`;
       svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}" data-word-index="${e.wordIndex}" aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="235" rx="5"/>`;
       for (const y of e.ledgers) svg += `<line class="ledger" x1="${e.x - 10}" x2="${e.x + 10}" y1="${y}" y2="${y}"/>`;
-      svg += `<text class="music-symbol accidental" x="${e.x - 22}" y="${e.y}">${e.pitch.alter === 1 ? "" : e.pitch.alter === -1 ? "" : ""}</text><ellipse class="notehead" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
+      svg += `<text class="music-symbol accidental" x="${e.x - 22}" y="${e.y}">${e.pitch.alter === 1 ? "" : e.pitch.alter === -1 ? "" : ""}</text><ellipse class="notehead${["whole", "half"].includes(r.type) ? " open-notehead" : ""}" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
       if (r.type !== "whole") svg += `<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
       if (["eighth", "16th", "32nd"].includes(r.type)) {
         const flags = r.type === "eighth" ? 1 : r.type === "16th" ? 2 : 3;
@@ -4110,7 +4171,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       ...context,
       format: "tropetrain-score-metadata-v1",
       words: selected,
-      events: notes.map((e, i) => ({ noteId: `note-${i + 1}`, eventId: e.id, wordId: e.wordId, sourceWordId: e.sourceWordId, syllableId: e.syllableId, syllable: e.syllable, midi: e.midi, startBeat: e.startBeat, beats: e.beats }))
+      events: notes.map((e, i) => ({
+        noteId: `note-${i + 1}`,
+        eventId: e.id,
+        wordId: e.wordId,
+        sourceWordId: e.sourceWordId,
+        syllableId: e.syllableId,
+        syllable: e.syllable,
+        midi: e.midi,
+        startBeat: e.startBeat,
+        beats: e.beats,
+        ...e.sourceProfile ? { sourceProfile: e.sourceProfile, sourceLocation: e.sourceLocation, sourceLyric: e.sourceLyric } : {}
+      }))
     };
   }
   function durationNotation(beats, accidental = null) {
@@ -4119,8 +4191,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function musicXml(plan2, words3, context) {
     const notes = checked(plan2, words3, context), metadata = identity(notes, context);
+    const printed = context.melody?.id === "cohen-1902-gen22-ending";
+    const creator = printed ? context.melody.creator : "TropeTrain original demonstration";
+    const rights = printed ? "Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda." : "Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.";
+    const direction = printed ? "Cohen 1902, p. 539, Genesis 22:1 final two words only. Printed durations regularized; source requests flexible tempo. No added coda." : "Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.";
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<score-partwise version="4.0"><work><work-title>${escapeXml(context.title)}</work-title></work><identification><creator type="composer">TropeTrain original demonstration</creator><rights>Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${escapeXml(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental demonstration</part-name></score-part></part-list><part id="P1">`;
+<score-partwise version="4.0"><work><work-title>${escapeXml(context.title)}</work-title></work><identification><creator type="composer">${escapeXml(creator)}</creator><rights>${escapeXml(rights)}</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${escapeXml(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental study</part-name></score-part></part-list><part id="P1">`;
     let measure = 0, verseKey = null, beat = 0;
     notes.forEach((e, index) => {
       if (e.word.verseKey !== verseKey) {
@@ -4128,7 +4204,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         verseKey = e.word.verseKey;
         measure++;
         xml += `<measure number="${measure}" implicit="yes">`;
-        if (measure === 1) xml += `<attributes><divisions>${DIVISIONS}</divisions><time><senza-misura/></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><direction-type><words>Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
+        if (measure === 1) xml += `<attributes><divisions>${DIVISIONS}</divisions><time><senza-misura/></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><direction-type><words>${escapeXml(direction)}</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
         xml += `<direction><direction-type><words>${escapeXml(e.word.reference)}</words></direction-type></direction>`;
       }
       const gap = e.startBeat - beat;
@@ -4723,7 +4799,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     notePage: 0,
     staffPage: 0,
     followPlayback: true,
-    ranges: null
+    ranges: null,
+    melodyId: "original-demo-01"
   };
   try {
     const saved = JSON.parse(localStorage.getItem("tropetrain-practice-v1"));
@@ -4736,12 +4813,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (["reading", "torah"].includes(saved.findScope)) state.findScope = saved.findScope;
       if (SIGN_QUERIES.some((q) => q.id === saved.signQuery)) state.signQuery = saved.signQuery;
       if (Array.isArray(saved.ranges)) state.ranges = saved.ranges;
+      if (melodyProfiles.some((p) => p.id === saved.melodyId)) state.melodyId = saved.melodyId;
     }
   } catch {
   }
   var restore = { cursor: state.cursor, anchor: state.anchor, readerPage: state.readerPage, ranges: state.ranges };
   var passage2 = { ...passage, title: "Genesis 1:1–3", ranges: [structuredClone(defaultRange)] };
-  var model = createReadingModel(passage2);
+  var model = createReadingModel(passage2, state);
   var { words: words2, bounds: bounds2, buildPlan: buildPlan2 } = model;
   state.cursor = Math.min(state.cursor, words2.length - 1);
   state.anchor = Math.min(state.anchor, words2.length - 1);
@@ -4883,7 +4961,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reference-status").textContent = "";
     $("wav-preview").pause();
     playingBounds = bounds2(state.cursor, state.anchor, state.scope);
-    renderSequence();
+    if (!renderSequence()) {
+      stop($("musical-source-status").textContent);
+      return;
+    }
     $("status").setAttribute("aria-live", "off");
     transportLabel(true);
     player.setVolume(state.volume / 100);
@@ -5236,12 +5317,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       $("event-rows").append(row);
     }
-    $("note-page-label").textContent = `Notes ${from + 1}–${to} of ${plan.length}`;
+    $("note-page-label").textContent = plan.length ? `Notes ${from + 1}–${to} of ${plan.length}` : "No notes in this span";
     $("notes-previous").disabled = from === 0;
     $("notes-next").disabled = to === plan.length;
   }
   function renderSequence() {
-    plan = buildPlan2(...bounds2(state.cursor, state.anchor, state.scope), state);
+    let unavailable = null;
+    try {
+      plan = buildPlan2(...bounds2(state.cursor, state.anchor, state.scope), state);
+    } catch (error) {
+      plan = [];
+      unavailable = error.message;
+    }
+    for (const id of ["play", "compact-play", "download", "prepare-musicxml", "prepare-midi"]) $(id).disabled = !!unavailable;
+    $("musical-source-status").textContent = unavailable ?? (model.profile.id === PRINTED_SCORE.id ? "Six printed notes · source transcription, review pending · regularized tempo · no added coda." : "Original demonstration · newly composed pitches; syllables unreviewed.");
+    if (unavailable) {
+      $("event-count").textContent = "No sourced notes for this span";
+      renderNotes();
+      renderStaff();
+      updateExportSummary();
+      $("range-report").textContent = "Select a covered span to inspect its range.";
+      return false;
+    }
     const duration = plan.at(-1).startSeconds + plan.at(-1).durationSeconds;
     $("event-count").textContent = `${plan.length} events · ${duration.toFixed(2)} s`;
     renderNotes();
@@ -5249,12 +5346,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     updateExportSummary();
     const out = plan.filter((e) => e.midi < state.rangeLow || e.midi > state.rangeHigh).length;
     $("range-report").textContent = state.rangeLow > state.rangeHigh ? "Lowest note must be below highest note." : `${out} of ${plan.length} notes outside ${noteName(state.rangeLow)}–${noteName(state.rangeHigh)}.`;
+    return true;
   }
   function renderStaff() {
     state.staffPage = Math.min(state.staffPage, Math.max(0, Math.ceil(plan.length / STAFF_PAGE) - 1));
     const from = state.staffPage * STAFF_PAGE, to = Math.min(from + STAFF_PAGE, plan.length);
     $("pitch-staff").innerHTML = staffMarkup(plan, words2, from);
-    $("staff-page-label").textContent = `Score notes ${from + 1}–${to} of ${plan.length}`;
+    $("staff-page-label").textContent = plan.length ? `Score notes ${from + 1}–${to} of ${plan.length}` : "No score notes in this span";
     $("staff-previous").disabled = from === 0;
     $("staff-next").disabled = to === plan.length;
     $("pitch-staff").querySelectorAll("[data-word-index]").forEach((el) => {
@@ -5273,7 +5371,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
     return {
       title: `${fullLabel(start)} to ${fullLabel(end)}`,
-      melody,
+      melody: model.profile,
       instrument,
       signAnalysis: SIGN_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
@@ -5301,7 +5399,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("cancel-wav").hidden = true;
   }
   function updateExportSummary() {
-    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.tempo, state.transpose, state.volume]);
+    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.melodyId, state.tempo, state.transpose, state.volume]);
     if (key !== exportsKey) {
       clearExports();
       exportsKey = key;
@@ -5454,6 +5552,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("volume-value").textContent = `${state.volume}%`;
     $("passage-title").textContent = passage2.title;
     $("word-count").textContent = `${passage2.verses.length} verse${passage2.verses.length === 1 ? "" : "s"} · ${words2.length} words`;
+    const printed = model.profile.id === PRINTED_SCORE.id;
+    $("musical-source").value = state.melodyId;
+    $("melody-name").textContent = model.profile.name;
+    $("music-badge").textContent = printed ? "Printed score study" : "Instrumental demo";
+    $("music-notice").textContent = printed ? "A bounded transcription of six printed notes, Genesis 22:1 words 12–13. Musical and Hebrew underlay review is pending. This is an instrumental study; no full tradition or singing voice is claimed." : "This original motif tests the practice workflow. It is not a historical cantillation melody. Syllable divisions are drafts awaiting review.";
+    $("score-description").textContent = printed ? "The staff, note list and exports use the same six notes transcribed from Cohen’s 1902 printed example. Hebrew underlay is a source-preserving draft." : "The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.";
+    $("score-help").textContent = printed ? "Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. The separately printed untexted coda is omitted." : "Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.";
     document.querySelectorAll("[data-view]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === state.view)));
     renderReader();
     renderSequence();
@@ -5468,7 +5573,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function applyRanges(ranges, { remember = true, restoreCursor = null } = {}) {
     if (!corpus) throw Error("The Torah library is still loading.");
-    const nextPassage = corpus.passage(ranges), nextModel = createReadingModel(nextPassage);
+    const nextPassage = corpus.passage(ranges), nextModel = createReadingModel(nextPassage, state);
     stop("Reading opened. Ready to listen.");
     passage2 = nextPassage;
     model = nextModel;
@@ -5488,7 +5593,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderSections();
     if (remember) rememberReading();
     const unresolved = words2.filter((w) => w.analysisStatus === "unsegmented").length;
-    $("library-message").textContent = `Opened ${passage2.title}. ${unresolved ? `${unresolved} words have unresolved syllable boundaries. ` : ""}The practice engine uses the original demonstration; syllables are unreviewed. The recorded reference is separate.`;
+    $("library-message").textContent = `Opened ${passage2.title}. ${unresolved ? `${unresolved} words have unresolved syllable boundaries. ` : ""}Musical source: ${model.profile.name}. Syllables are unreviewed; the recorded reference is separate.`;
   }
   function rangeFromForm() {
     return {
@@ -5595,6 +5700,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     option.textContent = query2.name;
     $("sign-query").append(option);
   }
+  for (const profile of melodyProfiles) {
+    const option = document.createElement("option");
+    option.value = profile.id;
+    option.textContent = profile.name;
+    $("musical-source").append(option);
+  }
+  $("musical-source").addEventListener("change", (e) => {
+    stop("Musical source changed.");
+    state.melodyId = e.target.value;
+    model = createReadingModel(passage2, state);
+    ({ words: words2, bounds: bounds2, buildPlan: buildPlan2 } = model);
+    state.notePage = 0;
+    state.staffPage = 0;
+    render();
+  });
+  $("source-study-open").addEventListener("click", () => libraryAction(() => {
+    state.melodyId = PRINTED_SCORE.id;
+    applyRanges([{ id: "cohen-study", bookId: "gen", start: { chapter: 22, verse: 1 }, end: { chapter: 22, verse: 1 }, label: "Printed score context" }]);
+    state.anchor = words2.findIndex((w) => w.sourceWordId === "gen-22-1-12");
+    state.cursor = state.anchor + 1;
+    state.scope = "selection";
+    render();
+    $("reader").focus();
+    $("practice").scrollIntoView();
+  }));
   for (const [id, key] of [["sign-query", "signQuery"], ["find-scope", "findScope"]]) $(id).addEventListener("change", (e) => {
     state[key] = e.target.value;
     persist();
@@ -5666,7 +5796,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     download("tropetrain-note-events.json", {
       format: "tropetrain-events-v1",
       textSource: { ...passage2, verses: void 0 },
-      melody,
+      melody: model.profile,
       instrument,
       signAnalysis: SIGN_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
@@ -5708,6 +5838,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       state.view = saved.displayPreferences.view;
       state.groups = saved.displayPreferences.groups;
       state.signClasses = saved.displayPreferences.signClasses;
+      state.melodyId = saved.musicalPreferences.melodyId;
       applyRanges(saved.sections);
       $("assignment-title").value = saved.title;
     });
@@ -5719,6 +5850,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     try {
       if (file.size > 2e6) throw Error("Assignment file is too large.");
       const assignment = parseAssignment(await file.text(), corpus);
+      state.melodyId = assignment.musicalPreferences.melodyId;
       state.view = assignment.displayPreferences.view;
       state.groups = assignment.displayPreferences.groups;
       state.signClasses = assignment.displayPreferences.signClasses;
@@ -5758,6 +5890,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("library-status").textContent = "5 books · 187 chapters · available offline";
     $("open-reading").disabled = false;
     $("append-section").disabled = false;
+    $("source-study-open").disabled = false;
     if (restore.ranges) {
       try {
         applyRanges(restore.ranges, { remember: false, restoreCursor: restore });

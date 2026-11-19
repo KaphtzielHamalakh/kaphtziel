@@ -1,0 +1,243 @@
+{
+  "checked": "2026-11-19",
+  "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+  "finding": "No corrected timing variant found. All available original platform copies match each other and the current source; these files remain flagged. Repository history shows initial import and later removal, not a timing edit. This is not acoustic review.",
+  "records": [
+    {
+      "name": "Shemot-1",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Shemot-1.txt",
+          "sha": "9c69e303611eb358f23343c5105b5a22cfd1a2b3",
+          "size": 1883
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Shemot-1.txt",
+          "sha": "9c69e303611eb358f23343c5105b5a22cfd1a2b3",
+          "size": 1883
+        },
+        {
+          "path": "iOS Phonegap Code/content/torah/labels/Shemot-1.txt",
+          "sha": "9c69e303611eb358f23343c5105b5a22cfd1a2b3",
+          "size": 1883
+        }
+      ]
+    },
+    {
+      "name": "Shemot-5",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Shemot-5.txt",
+          "sha": "f6c4976846c8b312637f53f525ace21a9b9aabf6",
+          "size": 4114
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Shemot-5.txt",
+          "sha": "f6c4976846c8b312637f53f525ace21a9b9aabf6",
+          "size": 4114
+        },
+        {
+          "path": "iOS Phonegap Code/content/torah/labels/Shemot-5.txt",
+          "sha": "f6c4976846c8b312637f53f525ace21a9b9aabf6",
+          "size": 4114
+        }
+      ]
+    },
+    {
+      "name": "Shemot-7",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Shemot-7.txt",
+          "sha": "ae618d27854c4e247dd7b0da6f0d63e274937ac6",
+          "size": 3580
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Shemot-7.txt",
+          "sha": "ae618d27854c4e247dd7b0da6f0d63e274937ac6",
+          "size": 3580
+        },
+        {
+          "path": "iOS Phonegap Code/content/torah/labels/Shemot-7.txt",
+          "sha": "ae618d27854c4e247dd7b0da6f0d63e274937ac6",
+          "size": 3580
+        }
+      ]
+    },
+    {
+      "name": "Tetzaveh-1",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Tetzaveh-1.txt",
+          "sha": "f067b2e23e26c41c3ac62650d96647b5104a91e6",
+          "size": 2210
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Tetzaveh-1.txt",
+          "sha": "f067b2e23e26c41c3ac62650d96647b5104a91e6",
+          "size": 2210
+        }
+      ]
+    },
+    {
+      "name": "Tetzaveh-3",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Tetzaveh-3.txt",
+          "sha": "53662de7c5840cb7fd91613558680da992da3133",
+          "size": 1899
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Tetzaveh-3.txt",
+          "sha": "53662de7c5840cb7fd91613558680da992da3133",
+          "size": 1899
+        }
+      ]
+    },
+    {
+      "name": "Shmini-6",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Shmini-6.txt",
+          "sha": "409146ee419126a6b68f7b485854d4994ee360a2",
+          "size": 4140
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Shmini-6.txt",
+          "sha": "409146ee419126a6b68f7b485854d4994ee360a2",
+          "size": 4140
+        }
+      ]
+    },
+    {
+      "name": "Nasso-4",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Nasso-4.txt",
+          "sha": "90b024a0503c4ac66d929a1d80c44503353c57d2",
+          "size": 7454
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Nasso-4.txt",
+          "sha": "90b024a0503c4ac66d929a1d80c44503353c57d2",
+          "size": 7454
+        },
+        {
+          "path": "iOS Phonegap Code/content/torah/labels/Nasso-4.txt",
+          "sha": "90b024a0503c4ac66d929a1d80c44503353c57d2",
+          "size": 7454
+        }
+      ]
+    },
+    {
+      "name": "Eikev-3",
+      "history": [
+        {
+          "sha": "f263ac0990b21bdb1f964a6400ab24bdd547a0a2",
+          "date": "2017-05-09T04:30:09Z",
+          "message": "replace phone gap w/ react native"
+        },
+        {
+          "sha": "c2a86f48232725efc61b7316efbe4ffe2de0a61f",
+          "date": "2012-04-02T01:24:14Z",
+          "message": "first commit"
+        }
+      ],
+      "originalPlatformCopies": [
+        {
+          "path": "Android Phonegap Code/www/content/torah/labels/Eikev-3.txt",
+          "sha": "a4ffb9944d939d6cae08adb80a8a7f3ac2c1394b",
+          "size": 4813
+        },
+        {
+          "path": "Webbrowser/content/torah/labels/Eikev-3.txt",
+          "sha": "a4ffb9944d939d6cae08adb80a8a7f3ac2c1394b",
+          "size": 4813
+        }
+      ]
+    }
+  ]
+}

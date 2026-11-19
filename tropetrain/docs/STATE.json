@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "0ca1e245dac24f39db4caa2367ac69b63f5f5ffe",
-  "nextTask": "Prioritize musical/phonetic fidelity: compare original platform/version timing files and primary sources for the eight flagged records; pursue reviewed score/phoneme transcriptions with provenance and no guessed repairs. Then implement sourced reading/calendar divisions and remaining learning/repertoire features. The full Torah fixed-reference library is published, but it does not complete the independent 32 Torah melody realizations, six Accent profiles or singing synthesis. Keep the full scope active.",
+  "nextTask": "Finish v0.8 normal UI, export, standalone and responsive checks; publish and verify. Continue reviewed pitch/phoneme sources and full musical systems, then sourced calendar/divisions and remaining roadmap. Preserve eight original timing faults; original platform/history copies provide no correction.",
   "lastPassingTests": {
     "automated": 63,
     "ui": "Local/standalone: all catalog controls, verified download and IndexedDB reload, muted Deuteronomy word playback, two-file selected span, timing-review full take, remove/cancel, source boundary/verse cases, 320/390 layouts. Three original audio files actually loaded.",
@@ -187,157 +187,16 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.7.0",
-    "status": "published_live_verified",
+    "version": "0.8.0",
+    "status": "local_qa_passed",
     "newFeatures": [
-      "Whole Torah reference source importer and deterministic compact library/source pack",
-      "Complete chapter consonantal alignment preserving both editions and original word boundaries",
-      "54 portions / 378 recordings; 370 timing-consistent, eight timing-review records retained"
+      "Bounded public-domain printed-score transcription with exact source evidence",
+      "Explicit independent musical-source selection; no fallback for missing source notes",
+      "Source-aware assignment and exports, original scan embedded in standalone"
     ],
-    "audit": {
-      "readerWords": 79985,
-      "sourceWords": 79986,
-      "portions": 54,
-      "recordings": 378,
-      "alignedRecordings": 370,
-      "timingReviewRecordings": [
-        {
-          "id": "pt-portion-13-1",
-          "title": "Shemot · aliyah 1",
-          "issues": [
-            {
-              "kind": "word-count",
-              "sourceWords": 181,
-              "timings": 182
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-13-5",
-          "title": "Shemot · aliyah 5",
-          "issues": [
-            {
-              "kind": "non-increasing",
-              "sourceIndex": 53,
-              "before": 67.122439,
-              "after": 67.122439
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-13-7",
-          "title": "Shemot · aliyah 7",
-          "issues": [
-            {
-              "kind": "non-increasing",
-              "sourceIndex": 188,
-              "before": 191.070213,
-              "after": 191.070213
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-20-1",
-          "title": "Tetzaveh · aliyah 1",
-          "issues": [
-            {
-              "kind": "non-increasing",
-              "sourceIndex": 203,
-              "before": 208.954471,
-              "after": 208.954471
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-20-3",
-          "title": "Tetzaveh · aliyah 3",
-          "issues": [
-            {
-              "kind": "word-count",
-              "sourceWords": 182,
-              "timings": 181
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-26-6",
-          "title": "Shmini · aliyah 6",
-          "issues": [
-            {
-              "kind": "word-count",
-              "sourceWords": 385,
-              "timings": 386
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-35-4",
-          "title": "Nasso · aliyah 4",
-          "issues": [
-            {
-              "kind": "non-increasing",
-              "sourceIndex": 557,
-              "before": 584.8,
-              "after": 584.32667
-            }
-          ]
-        },
-        {
-          "id": "pt-portion-46-3",
-          "title": "Eikev · aliyah 3",
-          "issues": [
-            {
-              "kind": "non-increasing",
-              "sourceIndex": 66,
-              "before": 140.1,
-              "after": 105.177339
-            }
-          ]
-        }
-      ],
-      "comparisonCounts": {
-        "exact": 79385,
-        "joiner-only": 430,
-        "source-difference": 169,
-        "source-boundaries": 1
-      },
-      "verseRenumberedWords": 393,
-      "renumberedExamples": [
-        "exo-20-14-1",
-        "exo-20-14-2",
-        "exo-20-15-1",
-        "exo-20-15-2",
-        "exo-20-16-1",
-        "exo-20-16-2",
-        "exo-20-16-3",
-        "exo-20-16-4"
-      ],
-      "sourceBoundaryGroups": [
-        {
-          "readerId": "num-12-9-1",
-          "sourceIds": [
-            "wlc-2012-num-12-9-1",
-            "wlc-2012-num-12-9-2"
-          ]
-        }
-      ],
-      "limits": "Text/metadata correspondence, not acoustic or musical review. Unreliable timing records are not used for word alignment."
-    },
-    "uiPending": [],
-    "uiVerified": [
-      "54/378 catalog initializes with preserved preferences",
-      "Vaethanan 6 1.6 MB audio downloaded, source checksum verified and saved to IndexedDB",
-      "Muted Deuteronomy 6:4 playback used blob audio, source word highlight and decoded 411.6375-second duration",
-      "Reload retained saved recording availability without reloading it",
-      "Cross-file selected span switched Bereshit 1→2 at actual media end and retained source/occurrence identity",
-      "Shemot 1 rejected unreliable word timing; complete original played muted with no word highlights",
-      "Saved-copy removal and 4.1 MB load cancellation behaved correctly",
-      "Numbers 12:9 and Exodus Decalogue showed both boundaries/verse references without altering UXLC",
-      "320/390 layouts fit; viewport reset; standalone catalog and saved Deuteronomy playback passed",
-      "No captured warnings/errors; both volumes 0 and stopped",
-      "Returning live v0.6→v0.7 restored reading/mute, showed full catalog, verified/saved/played Deuteronomy original and retained it after reload; timing review and 1280 desktop layout verified"
-    ],
-    "automatedTests": 63
+    "tests": "67 automated checks pass; source-key notes, word/span stopping, repeat, semitone/tempo/view invariants, disabled uncovered playback, XML/MIDI/silent WAV preparation, embedded standalone scan/playback, 320/390 layout checks passed.",
+    "browser": "IAB 2 / tab 13, local port 8766; muted/stopped after repeat and source-coverage tests",
+    "next": "Publish through connected GitHub tools, verify Pages run/live bytes and live UI; update deliverables."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

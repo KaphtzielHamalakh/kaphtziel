@@ -1,0 +1,96 @@
+{
+  "format": "tropetrain-printed-score-v1",
+  "profileId": "cohen-1902-gen22-ending",
+  "revision": 1,
+  "creator": "Francis L. Cohen",
+  "articleAuthors": [
+    "Cyrus Adler",
+    "Francis L. Cohen"
+  ],
+  "publication": {
+    "title": "The Jewish Encyclopedia",
+    "volume": "III",
+    "year": 1902,
+    "page": 539,
+    "article": "Cantillation",
+    "articleUrl": "https://www.jewishencyclopedia.com/articles/718"
+  },
+  "scan": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/The_Jewish_Encylopedia_1901%E2%80%931906_Volume_III_Cantillation_by_Francis_L._Cohen_p._539_Pentateuchal_Chant.png",
+    "bytes": 1747284,
+    "sha256": "ca8a874f489548f76305f5201afa4fd4857762f7443611d1450ce4f077b70581",
+    "changes": "None; Wikimedia Commons crop of the original scan retained byte-for-byte.",
+    "rights": "Public-domain original publication; faithful scan. Website interface not copied."
+  },
+  "scope": {
+    "passage": "Genesis 22:1",
+    "wordIds": [
+      "gen-22-1-12",
+      "gen-22-1-13"
+    ],
+    "excluded": "All earlier words and the separate untexted CODA. No contextual melodic grammar inferred."
+  },
+  "review": {
+    "transcription": "Manually compared with high-resolution source scan during implementation; independent review pending.",
+    "hebrewUnderlay": "Draft source-letter allocation matches the three printed syllables per word; no phonemes or community pronunciation inferred.",
+    "performance": "Printed durations regularized to quarter-note BPM; source explicitly says without strict tempo. Modern 12-TET and triangle instrument are approximations.",
+    "referenceMismatch": "The printed Hebrew/lyrics are Genesis 22:1, whereas the article prose says Gen. xxix."
+  },
+  "transcriptionLicense": "CC0-1.0",
+  "notes": [
+    {
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 0,
+      "midi": 64,
+      "pitch": "E4",
+      "quarterBeats": 0.5,
+      "printedLyric": "way",
+      "location": "system 3, last note"
+    },
+    {
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 1,
+      "midi": 71,
+      "pitch": "B4",
+      "quarterBeats": 2,
+      "printedLyric": "yo",
+      "location": "system 4, note 1"
+    },
+    {
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 2,
+      "midi": 69,
+      "pitch": "A4",
+      "quarterBeats": 1,
+      "printedLyric": "mer",
+      "location": "system 4, note 2"
+    },
+    {
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 0,
+      "midi": 64,
+      "pitch": "E4",
+      "quarterBeats": 1,
+      "printedLyric": "hin",
+      "location": "system 4, note 3"
+    },
+    {
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 1,
+      "midi": 67,
+      "pitch": "G4",
+      "quarterBeats": 2,
+      "printedLyric": "ne",
+      "location": "system 4, note 4"
+    },
+    {
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 2,
+      "midi": 67,
+      "pitch": "G4",
+      "quarterBeats": 1,
+      "printedLyric": "ni",
+      "location": "system 4, note 5"
+    }
+  ]
+}

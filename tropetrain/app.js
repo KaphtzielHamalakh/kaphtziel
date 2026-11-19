@@ -1,4 +1,5 @@
-import {createReadingModel,consonantal,noteName,melody} from './music.js';
+import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js';
+import {PRINTED_SCORE} from './printed-score.js';
 import {passage as openingPassage} from './passage.js';
 import {getCorpus,defaultRange,createAssignment,parseAssignment} from './library.js';
 import {Player} from './audio.js';
@@ -14,7 +15,7 @@ import {ReferenceAudioStore} from './reference-audio-store.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
-  rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null};
+  rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01'};
 try{
   const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
   if(saved){
@@ -26,11 +27,12 @@ try{
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
     if(Array.isArray(saved.ranges))state.ranges=saved.ranges;
+    if(melodyProfiles.some(p=>p.id===saved.melodyId))state.melodyId=saved.melodyId;
   }
 }catch{}
 const restore={cursor:state.cursor,anchor:state.anchor,readerPage:state.readerPage,ranges:state.ranges};
 let passage={...openingPassage,title:'Genesis 1:1–3',ranges:[structuredClone(defaultRange)]};
-let model=createReadingModel(passage),{words,bounds,buildPlan}=model;
+let model=createReadingModel(passage,state),{words,bounds,buildPlan}=model;
 state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.anchor,words.length-1);state.readerPage=0;
 let corpus,chooseEnd=false,plan=[],activeId=null,activeEventId=null,playingBounds=null;
 let recent=loadArray('tropetrain-recent-v1'),assignments=loadArray('tropetrain-assignments-v1');
@@ -84,7 +86,7 @@ function stop(message='Stopped. Your selection is kept.'){
 }
 async function play(){
   referencePlayer.stop();$('reference-status').textContent='';$('wav-preview').pause();
-  playingBounds=bounds(state.cursor,state.anchor,state.scope);renderSequence();
+  playingBounds=bounds(state.cursor,state.anchor,state.scope);if(!renderSequence()){stop($('musical-source-status').textContent);return;}
   $('status').setAttribute('aria-live','off');transportLabel(true);player.setVolume(state.volume/100);
   try{await player.play(plan,state.repeat);}catch(error){stop(`Audio unavailable: ${error.message}`);}
 }
@@ -270,20 +272,28 @@ function renderNotes(){
       const cell=document.createElement('td');cell.textContent=value;if(i===1){cell.lang='he';cell.dir='rtl';}row.append(cell);
     }$('event-rows').append(row);
   }
-  $('note-page-label').textContent=`Notes ${from+1}–${to} of ${plan.length}`;$('notes-previous').disabled=from===0;$('notes-next').disabled=to===plan.length;
+  $('note-page-label').textContent=plan.length?`Notes ${from+1}–${to} of ${plan.length}`:'No notes in this span';$('notes-previous').disabled=from===0;$('notes-next').disabled=to===plan.length;
 }
 function renderSequence(){
-  plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);
+  let unavailable=null;
+  try{plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);}catch(error){plan=[];unavailable=error.message;}
+  for(const id of ['play','compact-play','download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
+  $('musical-source-status').textContent=unavailable??(model.profile.id===PRINTED_SCORE.id?'Six printed notes · source transcription, review pending · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
+  if(unavailable){
+    $('event-count').textContent='No sourced notes for this span';renderNotes();renderStaff();updateExportSummary();
+    $('range-report').textContent='Select a covered span to inspect its range.';return false;
+  }
   const duration=plan.at(-1).startSeconds+plan.at(-1).durationSeconds;
   $('event-count').textContent=`${plan.length} events · ${duration.toFixed(2)} s`;renderNotes();renderStaff();updateExportSummary();
   const out=plan.filter(e=>e.midi<state.rangeLow||e.midi>state.rangeHigh).length;
   $('range-report').textContent=state.rangeLow>state.rangeHigh?'Lowest note must be below highest note.':`${out} of ${plan.length} notes outside ${noteName(state.rangeLow)}–${noteName(state.rangeHigh)}.`;
+  return true;
 }
 function renderStaff(){
   state.staffPage=Math.min(state.staffPage,Math.max(0,Math.ceil(plan.length/STAFF_PAGE)-1));
   const from=state.staffPage*STAFF_PAGE,to=Math.min(from+STAFF_PAGE,plan.length);
   $('pitch-staff').innerHTML=staffMarkup(plan,words,from);
-  $('staff-page-label').textContent=`Score notes ${from+1}–${to} of ${plan.length}`;
+  $('staff-page-label').textContent=plan.length?`Score notes ${from+1}–${to} of ${plan.length}`:'No score notes in this span';
   $('staff-previous').disabled=from===0;$('staff-next').disabled=to===plan.length;
   $('pitch-staff').querySelectorAll('[data-word-index]').forEach(el=>{
     el.classList.toggle('active',el.dataset.event===activeEventId);
@@ -293,7 +303,7 @@ function renderStaff(){
 }
 function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+  return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     textSource:{...passage,verses:undefined},vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},
     tempo:state.tempo,transpose:state.transpose,volume:state.volume};
 }
@@ -304,7 +314,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.tempo,state.transpose,state.volume]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,state.tempo,state.transpose,state.volume]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -378,6 +388,12 @@ function render(){
   $('range-low').value=state.rangeLow;$('range-high').value=state.rangeHigh;
   $('tempo-value').textContent=`${state.tempo} BPM`;$('transpose-value').textContent=`${state.transpose>0?'+':''}${state.transpose} semitone${Math.abs(state.transpose)!==1?'s':''}`;$('volume-value').textContent=`${state.volume}%`;
   $('passage-title').textContent=passage.title;$('word-count').textContent=`${passage.verses.length} verse${passage.verses.length===1?'':'s'} · ${words.length} words`;
+  const printed=model.profile.id===PRINTED_SCORE.id;
+  $('musical-source').value=state.melodyId;$('melody-name').textContent=model.profile.name;
+  $('music-badge').textContent=printed?'Printed score study':'Instrumental demo';
+  $('music-notice').textContent=printed?'A bounded transcription of six printed notes, Genesis 22:1 words 12–13. Musical and Hebrew underlay review is pending. This is an instrumental study; no full tradition or singing voice is claimed.':'This original motif tests the practice workflow. It is not a historical cantillation melody. Syllable divisions are drafts awaiting review.';
+  $('score-description').textContent=printed?'The staff, note list and exports use the same six notes transcribed from Cohen’s 1902 printed example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
+  $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
   renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});
 }
@@ -387,7 +403,7 @@ function rememberReading(){
 }
 function applyRanges(ranges,{remember=true,restoreCursor=null}={}){
   if(!corpus)throw Error('The Torah library is still loading.');
-  const nextPassage=corpus.passage(ranges),nextModel=createReadingModel(nextPassage);
+  const nextPassage=corpus.passage(ranges),nextModel=createReadingModel(nextPassage,state);
   stop('Reading opened. Ready to listen.');passage=nextPassage;model=nextModel;({words,bounds,buildPlan}=model);
   if(passage.ranges.length===1){
     const range=passage.ranges[0];$('book').value=range.bookId;
@@ -396,7 +412,7 @@ function applyRanges(ranges,{remember=true,restoreCursor=null}={}){
   state.cursor=restoreCursor&&words[restoreCursor.cursor]?restoreCursor.cursor:0;state.anchor=restoreCursor&&words[restoreCursor.anchor]?restoreCursor.anchor:state.cursor;
   state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
   const unresolved=words.filter(w=>w.analysisStatus==='unsegmented').length;
-  $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}The practice engine uses the original demonstration; syllables are unreviewed. The recorded reference is separate.`;
+  $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}Musical source: ${model.profile.name}. Syllables are unreviewed; the recorded reference is separate.`;
 }
 function rangeFromForm(){return {id:`section-${globalThis.crypto?.randomUUID?.()||Date.now()}`,bookId:$('book').value,
   start:{chapter:Number($('start-chapter').value),verse:Number($('start-verse').value)},end:{chapter:Number($('end-chapter').value),verse:Number($('end-verse').value)},label:`Section ${passage.ranges.length+1}`};}
@@ -431,6 +447,16 @@ document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',(
 $('groups').addEventListener('change',e=>{state.groups=e.target.checked;render();});
 $('sign-classes').addEventListener('change',e=>{state.signClasses=e.target.checked;render();});
 for(const query of SIGN_QUERIES){const option=document.createElement('option');option.value=query.id;option.textContent=query.name;$('sign-query').append(option);}
+for(const profile of melodyProfiles){const option=document.createElement('option');option.value=profile.id;option.textContent=profile.name;$('musical-source').append(option);}
+$('musical-source').addEventListener('change',e=>{
+  stop('Musical source changed.');state.melodyId=e.target.value;model=createReadingModel(passage,state);({words,bounds,buildPlan}=model);state.notePage=0;state.staffPage=0;render();
+});
+$('source-study-open').addEventListener('click',()=>libraryAction(()=>{
+  state.melodyId=PRINTED_SCORE.id;
+  applyRanges([{id:'cohen-study',bookId:'gen',start:{chapter:22,verse:1},end:{chapter:22,verse:1},label:'Printed score context'}]);
+  state.anchor=words.findIndex(w=>w.sourceWordId==='gen-22-1-12');state.cursor=state.anchor+1;state.scope='selection';render();
+  $('reader').focus();$('practice').scrollIntoView();
+}));
 for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
 for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
@@ -455,7 +481,7 @@ for(const [id,delta] of [['notes-previous',-1],['notes-next',1]])$(id).addEventL
 for(const [id,delta] of [['staff-previous',-1],['staff-next',1]])$(id).addEventListener('click',()=>{state.staffPage+=delta;renderStaff();});
 $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan});
 });
@@ -470,12 +496,14 @@ $('save-assignment').addEventListener('click',()=>libraryAction(()=>{
 }));
 $('saved-assignments').addEventListener('change',e=>{if(e.target.value!=='')libraryAction(()=>{
   const saved=parseAssignment(JSON.stringify(assignments[Number(e.target.value)]),corpus);state.view=saved.displayPreferences.view;state.groups=saved.displayPreferences.groups;state.signClasses=saved.displayPreferences.signClasses;
+  state.melodyId=saved.musicalPreferences.melodyId;
   applyRanges(saved.sections);$('assignment-title').value=saved.title;
 });});
 $('export-assignment').addEventListener('click',()=>download('tropetrain-assignment.json',createAssignment($('assignment-title').value,passage.ranges,state)));
 $('import-assignment').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
   try{if(file.size>2_000_000)throw Error('Assignment file is too large.');const assignment=parseAssignment(await file.text(),corpus);
+    state.melodyId=assignment.musicalPreferences.melodyId;
     state.view=assignment.displayPreferences.view;state.groups=assignment.displayPreferences.groups;state.signClasses=assignment.displayPreferences.signClasses;applyRanges(assignment.sections);$('assignment-title').value=assignment.title;
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
@@ -487,6 +515,7 @@ getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();
   for(const book of corpus.books){const o=document.createElement('option');o.value=book.id;o.textContent=`${book.name} · ${book.hebrewName}`;$('book').append(o);}
   $('library-status').textContent='5 books · 187 chapters · available offline';$('open-reading').disabled=false;$('append-section').disabled=false;
+  $('source-study-open').disabled=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore});}catch(error){$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
   restoringReading=false;persist();
   renderSections();

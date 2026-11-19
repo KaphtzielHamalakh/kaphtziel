@@ -11,7 +11,8 @@ function checked(plan,words,context){
 function identity(notes,context){
   const selected=[...new Map(notes.map(e=>[e.word.id,e.word])).values()];
   return {...context,format:'tropetrain-score-metadata-v1',words:selected,
-    events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,midi:e.midi,startBeat:e.startBeat,beats:e.beats}))};
+    events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,midi:e.midi,startBeat:e.startBeat,beats:e.beats,
+      ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceLyric:e.sourceLyric}:{})}))};
 }
 function durationNotation(beats,accidental=null){
   const r=rhythmSpelling(beats);
@@ -19,14 +20,18 @@ function durationNotation(beats,accidental=null){
 }
 export function musicXml(plan,words,context){
   const notes=checked(plan,words,context),metadata=identity(notes,context);
-  let xml=`<?xml version="1.0" encoding="UTF-8"?>\n<score-partwise version="4.0"><work><work-title>${x(context.title)}</work-title></work><identification><creator type="composer">TropeTrain original demonstration</creator><rights>Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${x(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental demonstration</part-name></score-part></part-list><part id="P1">`;
+  const printed=context.melody?.id==='cohen-1902-gen22-ending';
+  const creator=printed?context.melody.creator:'TropeTrain original demonstration';
+  const rights=printed?'Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda.':'Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.';
+  const direction=printed?'Cohen 1902, p. 539, Genesis 22:1 final two words only. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.';
+  let xml=`<?xml version="1.0" encoding="UTF-8"?>\n<score-partwise version="4.0"><work><work-title>${x(context.title)}</work-title></work><identification><creator type="composer">${x(creator)}</creator><rights>${x(rights)}</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${x(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental study</part-name></score-part></part-list><part id="P1">`;
   let measure=0,verseKey=null,beat=0;
   notes.forEach((e,index)=>{
     if(e.word.verseKey!==verseKey){
       if(measure)xml+='</measure>';
       verseKey=e.word.verseKey;measure++;
       xml+=`<measure number="${measure}" implicit="yes">`;
-      if(measure===1)xml+=`<attributes><divisions>${DIVISIONS}</divisions><time><senza-misura/></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><direction-type><words>Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
+      if(measure===1)xml+=`<attributes><divisions>${DIVISIONS}</divisions><time><senza-misura/></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><direction-type><words>${x(direction)}</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
       xml+=`<direction><direction-type><words>${x(e.word.reference)}</words></direction-type></direction>`;
     }
     const gap=e.startBeat-beat;

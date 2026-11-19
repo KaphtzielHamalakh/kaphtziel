@@ -1,4 +1,5 @@
 import {loadCorpus} from './library-data.js';
+import {PRINTED_SCORE} from './printed-score.js';
 
 export const defaultRange=Object.freeze({id:'opening',bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:3},label:'Opening verses'});
 const integer=n=>(typeof n==='number'||(typeof n==='string'&&/^\d+$/.test(n)))&&Number.isInteger(Number(n))&&Number(n)>0;
@@ -72,7 +73,7 @@ export function parseAssignment(text,corpus){
   const passage=corpus.passage(data.sections);
   const melodyId=data.musicalPreferences?.melodyId??'original-demo-01';
   const pronunciationId=data.musicalPreferences?.pronunciationId??null;
-  if(melodyId!=='original-demo-01'||pronunciationId!==null)throw Error('This assignment requests a melody or pronunciation that is not yet implemented. Its settings were not replaced.');
+  if(!['original-demo-01',PRINTED_SCORE.id].includes(melodyId)||pronunciationId!==null)throw Error('This assignment requests a melody or pronunciation that is not yet implemented. Its settings were not replaced.');
   return {format:data.format,id:typeof data.id==='string'?data.id.slice(0,100):'imported',
     title:typeof data.title==='string'?data.title.slice(0,120):'Imported assignment',sections:passage.ranges,
     musicalPreferences:{melodyId,pronunciationId},
@@ -81,6 +82,6 @@ export function parseAssignment(text,corpus){
 export function createAssignment(title,sections,displayPreferences={}){
   return {format:'tropetrain-assignment-v1',id:globalThis.crypto?.randomUUID?.()||`assignment-${Date.now()}`,
     title:(String(title).trim()||'Untitled assignment').slice(0,120),sections,
-    musicalPreferences:{melodyId:'original-demo-01',pronunciationId:null},
+    musicalPreferences:{melodyId:displayPreferences.melodyId??'original-demo-01',pronunciationId:null},
     displayPreferences:{view:displayPreferences.view||'pointed',groups:displayPreferences.groups!==false,signClasses:displayPreferences.signClasses===true}};
 }
