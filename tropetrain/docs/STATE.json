@@ -3,12 +3,12 @@
   "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "0ca1e245dac24f39db4caa2367ac69b63f5f5ffe",
-  "nextTask": "Finish v0.8 normal UI, export, standalone and responsive checks; publish and verify. Continue reviewed pitch/phoneme sources and full musical systems, then sourced calendar/divisions and remaining roadmap. Preserve eight original timing faults; original platform/history copies provide no correction.",
+  "publishedCommit": "45689aedd597fca6b4b93da8ce54e39d141f2505",
+  "nextTask": "Continue musical/phonetic fidelity using primary reusable score/recording material: expand only source-checked bounded transcriptions and review underlay/context before claiming full melody rules. The Cohen 1902 six-note study is independently unreviewed and not a Kinnor profile. All 32 Torah systems, six Accent grammars and singing remain pending. Preserve eight faulty timings. Then implement sourced calendar/annual/triennial divisions and remaining repertoire/learning/print roadmap; keep full goal active.",
   "lastPassingTests": {
-    "automated": 63,
-    "ui": "Local/standalone: all catalog controls, verified download and IndexedDB reload, muted Deuteronomy word playback, two-file selected span, timing-review full take, remove/cancel, source boundary/verse cases, 320/390 layouts. Three original audio files actually loaded.",
-    "limits": "Delivery/source correspondence is not acoustic/musical review. Eight timing files remain unaligned. Full network-failure and file-origin UI, independent traditional melodies/phonemes, singing synthesis and all remaining roadmap features are unfinished."
+    "automated": 67,
+    "ui": "Local/live source excerpt, exact span/word stopping, repeat, semitone/tempo/view invariants, refused uncovered notes, export preparation, standalone embedded scan/playback, 320/390/1280 layouts; muted throughout.",
+    "limits": "Independent musical/underlay/pronunciation review and singing pending. Six-note printed source is bounded; no full traditional system claimed. Original eight timing files still need acoustic review/correction; direct file-origin and network-failure UI remain pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -52,7 +52,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "historical_catalog_and_full_torah_fixed_reference_verified_independent_rules_and_musical_review_pending"
+      "status": "historical_catalog_full_torah_fixed_references_and_bounded_public_domain_printed_study_verified_full_independent_rules_and_review_pending"
     },
     {
       "id": "singing",
@@ -92,7 +92,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "demo_staff_hebrew_melismas_navigation_musicxml_midi_tested"
+      "status": "original_demo_and_bounded_six_note_printed_study_staff_underlay_navigation_exports_tested_independent_review_pending"
     },
     {
       "id": "display",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "0ca1e245dac24f39db4caa2367ac69b63f5f5ffe",
+    "commit": "45689aedd597fca6b4b93da8ce54e39d141f2505",
     "status": "success",
-    "workflowRun": 44543424391,
-    "liveAssets": "13 matched byte-for-byte: index, runtime/style, standalone, service worker, reference modules, compressed source library, original-source ZIP, notice and audits",
-    "ui": "Returning live tab upgraded to v0.7, restored Genesis 1:11 and zero volumes, loaded/verified/saved Vaethanan 6, played Deuteronomy 6:4 word 1 via blob audio (411.6375-second media), and retained saved availability after reload. Shemot timing-review word playback disabled; 1280 layout fit. No captured warnings/errors. Both volumes zero and all audio stopped.",
+    "workflowRun": 44549056913,
+    "liveAssets": "14 deployed resources matched tested bytes, including source selector/model/exports, bundle/style/standalone, worker, original scan and transcription/history records.",
+    "ui": "Returning v0.7 tab upgraded to v0.8. Source button selected Genesis 22:1 words 12–13; six expected notes at 60 BPM/transpose 0 totaled 7.50 s and finished at word 13. Uncovered word 1 disabled Play. 1280 layout fit, two hollow half-note heads visible, no warnings/errors. Both volumes zero and all audio stopped.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -188,15 +188,15 @@
   },
   "workingIteration": {
     "version": "0.8.0",
-    "status": "local_qa_passed",
+    "status": "published_live_verified",
     "newFeatures": [
       "Bounded public-domain printed-score transcription with exact source evidence",
       "Explicit independent musical-source selection; no fallback for missing source notes",
       "Source-aware assignment and exports, original scan embedded in standalone"
     ],
     "tests": "67 automated checks pass; source-key notes, word/span stopping, repeat, semitone/tempo/view invariants, disabled uncovered playback, XML/MIDI/silent WAV preparation, embedded standalone scan/playback, 320/390 layout checks passed.",
-    "browser": "IAB 2 / tab 13, local port 8766; muted/stopped after repeat and source-coverage tests",
-    "next": "Publish through connected GitHub tools, verify Pages run/live bytes and live UI; update deliverables."
+    "browser": "IAB 2 / live tab 2, score view; selected two source words, tempo 60, transpose 0, volumes 0 and stopped.",
+    "next": "Continue musical/phonetic fidelity using primary reusable score/recording material: expand only source-checked bounded transcriptions and review underlay/context before claiming full melody rules. The Cohen 1902 six-note study is independently unreviewed and not a Kinnor profile. All 32 Torah systems, six Accent grammars and singing remain pending. Preserve eight faulty timings. Then implement sourced calendar/annual/triennial divisions and remaining repertoire/learning/print roadmap; keep full goal active."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -204,5 +204,16 @@
     "current": "Fixed and verified in published v0.5; postpositive Zarqa and helper distinguished.",
     "evidence": "https://www.tanach.us/Pages/Coding.html",
     "nextAction": "Full contextual hierarchy and musical realization remain pending."
+  },
+  "printedScore": {
+    "id": "cohen-1902-gen22-ending",
+    "source": "Jewish Encyclopedia III (1902), p. 539, Cohen",
+    "coverage": "Genesis 22:1, words 12–13 only; six notes, before separate untexted coda.",
+    "review": "Source scan manually checked during implementation; independent musical/transcription/underlay review pending. Regularized timing, modern tuning and instrumental sound are approximations.",
+    "record": "docs/PRINTED-SCORE.json"
+  },
+  "timingHistory": {
+    "record": "docs/TIMING-HISTORY.json",
+    "finding": "All available original platform copies match; no timing edit in per-path history. Eight records remain complete-take only."
   }
 }

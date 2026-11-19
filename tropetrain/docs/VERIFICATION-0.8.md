@@ -19,4 +19,6 @@ Normal browser UI, with both volumes 0 throughout:
 
 The eight original invalid PocketTorah timing files have matching original Android/Webbrowser/iOS blobs. Per-path history contains import/removal and no timing edit. TIMING-HISTORY.json preserves evidence; they remain complete-take only. Fixed recordings remain a separate source with original key/tempo/pronunciation.
 
-Publication/live verification pending at this checkpoint. Full roadmap remains active.
+Published commit `45689aedd597fca6b4b93da8ce54e39d141f2505`; Pages run `44549056913` completed successfully. Fourteen deployed resources matched tested bytes (18,227,691 total bytes checked). Returning v0.7 live tab upgraded to v0.8, selected the source excerpt, displayed exact six notes at 60 BPM/transpose 0 and played silently to word 13. Selecting word 1 disabled Play with the coverage message. 1280-pixel layout fit and both half-note heads were hollow. No captured warnings/errors. Both volumes remain zero and all audio is stopped. Screenshot: outputs/TropeTrain-printed-score-0.8.png. Standalone playback also completed at word 13; switching back to the original demo cleared all prepared export links.
+
+Full roadmap remains active.
