@@ -33,4 +33,8 @@ Character recognition and source-guide prose classes are verified against encodi
 
 All music remains the original instrumental demonstration. The six historical Accent labels and the recovered melody catalog are reference evidence only. No archive executable or proprietary music is shipped. File-origin interaction, screen-reader review, assignment file dialogs, external notation-app import, printing and offline network-failure recovery remain pending. Earlier waveform and score checks are documented in VERIFICATION-0.4.md.
 
-Publication and returning-live-tab verification are pending at this checkpoint.
+## Published verification
+
+Release commit `c80f9243145fb0c4ccf4c82c1d836ef1e439b685`; GitHub Pages run `44526800629` succeeded. Eight live assets matched tested bytes: index, versioned bundle/CSS, standalone HTML, service worker, both source-sign modules and source-audit JSON.
+
+The returning live tab upgraded from v0.4 to v0.5, restored Deuteronomy 6:4 and mute settings, and exposed the five-book library. Whole-Torah queries returned 365 Zarqa words, ten helper words and one Qarnei fara word. Normal navigation selected Numbers 35:5 word 8, preserving exact marked Hebrew and separate meteg/Qarnei fara records. No captured warnings/errors. Audio stayed stopped and muted. Task proof image: outputs/TropeTrain-signs-0.5.png.

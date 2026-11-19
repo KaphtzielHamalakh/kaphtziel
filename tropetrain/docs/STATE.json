@@ -3,8 +3,8 @@
   "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "6f06ee6a76d1476accf234e680cabfb69ba591dc",
-  "nextTask": "Publish v0.5 source-sign inspector/search through connected GitHub tools; verify Pages, live bytes and returning live UI. Then prioritize reusable, reviewed melody/pronunciation source pipeline and sourced reading/calendar divisions. Keep the full roadmap active.",
+  "publishedCommit": "c80f9243145fb0c4ccf4c82c1d836ef1e439b685",
+  "nextTask": "Prioritize reusable and reviewed musical/phonetic source pipeline: continue PocketTorah release-continuity evidence, source-aligned recording/score import and review records; preserve independent melody/pronunciation/range/transposition. Then source reading/calendar divisions and continue all roadmap features. Assignment file-dialog and offline-failure UI checks remain pending. Do not invent traditional presets or mark the full goal complete.",
   "lastPassingTests": {
     "automated": 41,
     "ui": "v0.5 local source and standalone: Zarqa/helper and rare/unmarked searches, qere navigation, repeated/mixed signs, duplicate assignment occurrences, saved display preferences independent of student settings, reload, parallel views, keyboard focus and 320/390 layouts. No captured warnings/errors. Audio stayed stopped/muted.",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "6f06ee6a76d1476accf234e680cabfb69ba591dc",
+    "commit": "c80f9243145fb0c4ccf4c82c1d836ef1e439b685",
     "status": "success",
-    "workflowRun": 44466529434,
-    "liveAssets": "seven matched byte-for-byte, including versioned runtime/style URLs and Bravura font/license",
-    "ui": "Returning live tab displayed v0.4.0, staff and full library, prepared MusicXML and silent WAV; no captured warnings/errors. Stopped and muted.",
+    "workflowRun": 44526800629,
+    "liveAssets": "eight matched byte-for-byte, including versioned bundle/style, standalone, sign modules and source audit",
+    "ui": "Returning live tab upgraded from v0.4 to v0.5, restored Deuteronomy 6:4 and volume 0, searched 365 Zarqa / 10 helper / 1 Qarnei fara words and navigated to Numbers 35:5 word 8. No captured warnings/errors. Stopped/muted.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -184,7 +184,7 @@
   },
   "workingIteration": {
     "version": "0.5.0",
-    "status": "local_qa_passed_publication_pending",
+    "status": "published_live_verified",
     "automatedTests": 41,
     "newFeatures": [
       "Complete Torah source-accent character recognition with positions and repeated marks",
@@ -201,11 +201,10 @@
       "Duplicate assignment sections retain occurrence navigation and counts",
       "Saved sign-class display restores without changing personal speed/key/volume",
       "Keyboard focus frame, 320/390 layouts and horizontally scrollable source table",
-      "Standalone whole-Torah rare-sign search and navigation, no captured warnings/errors"
+      "Standalone whole-Torah rare-sign search and navigation, no captured warnings/errors",
+      "Returning live tab v0.5, full library restored; Zarqa 365/helper 10/rare 1, Numbers 35:5 word 8 navigation; muted, no captured warnings/errors"
     ],
-    "uiPending": [
-      "publication/live verification"
-    ],
+    "uiPending": [],
     "limits": [
       "Full contextual hierarchy and musical realization remain pending",
       "No historical melody, pronunciation or voice added"
@@ -214,8 +213,8 @@
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
-    "current": "Correctly identified as postpositive Zarqa in local v0.5; helper kept separate.",
+    "current": "Fixed and verified in published v0.5; postpositive Zarqa and helper distinguished.",
     "evidence": "https://www.tanach.us/Pages/Coding.html",
-    "nextAction": "Verify published build; full contextual hierarchy and musical realization remain pending."
+    "nextAction": "Full contextual hierarchy and musical realization remain pending."
   }
 }
