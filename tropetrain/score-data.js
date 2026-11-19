@@ -1,5 +1,9 @@
 export const escapeXml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 const gcd=(a,b)=>b?gcd(b,a%b):a;
+export function beatLabel(beats){
+  for(const [n,d] of [[1,3],[1,6],[2,3],[5,6]])if(Math.abs(beats-n/d)<1e-8)return `${n}/${d}`;
+  return String(Number(beats.toFixed(6)));
+}
 export function pitchSpelling(midi){
   if(!Number.isInteger(midi)||midi<0||midi>127)throw Error('This score exporter currently requires integer MIDI pitches.');
   const [step,alter]=[['C',0],['C',1],['D',0],['E',-1],['E',0],['F',0],['F',1],['G',0],['A',-1],['A',0],['B',-1],['B',0]][midi%12];
@@ -16,9 +20,18 @@ export function rhythmSpelling(beats){
   // its 0.6/0.9-beat durations to easier values for engraving.
   if(Math.abs(beats-.6)<1e-8)return {type:'quarter',dots:0,actual:5,normal:3};
   if(Math.abs(beats-.9)<1e-8)return {type:'quarter',dots:1,actual:5,normal:3};
+  if(Math.abs(beats-1/3)<1e-8)return {type:'eighth',dots:0,actual:3,normal:2};
+  if(Math.abs(beats-1/6)<1e-8)return {type:'16th',dots:0,actual:3,normal:2};
   const normal=Math.round(beats*10000),factor=gcd(10000,normal);
   if(normal<=0)throw Error('This duration is below the score resolution.');
   return {type:'quarter',dots:0,actual:10000/factor,normal:normal/factor};
+}
+export function eventRhythm(event){
+  const r=event.sourceRhythm;if(!r)return rhythmSpelling(event.beats);
+  const value={whole:4,half:2,quarter:1,eighth:.5,'16th':.25,'32nd':.125}[r.type];
+  if(!value||![0,1].includes(r.dots)||!Number.isInteger(r.actual)||r.actual<1||!Number.isInteger(r.normal)||r.normal<1||Math.abs(value*(r.dots?1.5:1)*r.normal/r.actual-event.beats)>1e-8)
+    throw Error('Printed rhythm and sounding duration disagree.');
+  return r;
 }
 export function scoreData(plan,words){
   return plan.map((event,index)=>{
@@ -29,6 +42,7 @@ export function scoreData(plan,words){
     const syllableIndex=word.syllables.findIndex(s=>s.id===event.syllableId);
     if(syllableIndex<0||word.syllables[syllableIndex].sourceHebrew!==event.syllable)throw Error('Score syllables no longer match the source.');
     const syllabic=word.syllables.length===1?'single':syllableIndex===0?'begin':syllableIndex===word.syllables.length-1?'end':'middle';
-    return {...event,word,pitch:pitchSpelling(event.midi),rhythm:rhythmSpelling(event.beats),continuation,extendsNext,syllabic};
+    const gapAfterBeats=next?next.startBeat-event.startBeat-event.beats:0;
+    return {...event,word,pitch:pitchSpelling(event.midi),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
   });
 }

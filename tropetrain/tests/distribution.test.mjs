@@ -58,3 +58,10 @@ test('whole-Torah source library survives lossless bundling and standalone embed
   const library=JSON.parse(gunzipSync(original));assert.equal(library.recordings.length,378);assert.equal(library.audit.readerWords,79985);
   assert.ok(read('TropeTrain.html').includes(encoded[1]),'Standalone retains the complete source catalog without an extra network dependency.');
 });
+
+test('standalone carries the full evidence map and roadmap without a sibling documentation folder',()=>{
+ const html=read('TropeTrain.html'),roadmap=read('docs/RESEARCH.md').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+ assert.ok(html.includes('href="#standalone-roadmap"'));assert.ok(html.includes('id="standalone-roadmap"'));
+ assert.ok(html.includes(roadmap),'The full inventory and evidence survive moving the standalone file.');
+ assert.ok(!html.includes('href="./docs/RESEARCH.md"'));
+});

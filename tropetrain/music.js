@@ -42,10 +42,11 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
   const events=Object.freeze(words.flatMap(w=>w.syllables.flatMap((s,i)=>{
     if(melodyId===PRINTED_SCORE.id){
       const row=printedWord(w);if(!row)return [];
-      const [midi,beats,sourceLyric,sourceLocation]=row.notes[i];
-      return [Object.freeze({id:`${s.id}-cohen-n1`,wordId:w.id,wordIndex:w.index,
+      return row.notes.filter(n=>n.syllableIndex===i).map((n,j)=>Object.freeze({id:`${s.id}-cohen-n${j+1}`,wordId:w.id,wordIndex:w.index,
         sourceWordId:w.sourceWordId??w.id,syllableId:s.id,syllable:s.sourceHebrew,roman:null,phonemes:null,
-        midi,beats,part:1,sourceLyric,sourceLocation,sourceProfile:PRINTED_SCORE.id})];
+        midi:n.midi,beats:n.quarterBeats,part:j+1,sourceLyric:n.printedLyric,sourceLocation:n.location,sourceBar:n.bar,sourceProfile:PRINTED_SCORE.id,sourceRhythm:n.rhythm,
+        ...(n.restAfterBeats?{sourceRestAfterBeats:n.restAfterBeats}:{}),
+        ...(n.tieId?{tieId:`${w.id}-${n.tieId}`,tieStart:n.tiePhase==='start',tieStop:n.tiePhase==='stop'}:{})}));
     }
     const seed=[62,64,65,67][w.index%4];
     const pitches=w.groupEnd&&i===w.syllables.length-1?[65,64,62]:[seed+(i%2?2:0)];
@@ -66,10 +67,10 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     if(melodyId===PRINTED_SCORE.id&&words.slice(start,end+1).some(w=>!printedWord(w)))
-      throw Error('This printed-score study covers only Genesis 22:1, words 12–13. Select those words or choose the original demonstration. No notes are substituted.');
+      throw Error('This printed-score study covers only the unchanged words of Genesis 22:1. Open that verse or choose the original demonstration. No notes are substituted.');
     let beat=0;
     return events.filter(e=>e.wordIndex>=start&&e.wordIndex<=end).map(e=>{
-      const event={...e,midi:e.midi+transpose,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats;return event;
+      const event={...e,midi:e.midi+transpose,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
     });
   }
   return {passage,words,events,bounds,buildPlan,profile};

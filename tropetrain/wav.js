@@ -1,4 +1,4 @@
-import {scheduleInstrument,validatePlan} from './synthesis.js';
+import {scheduleInstrument,validatePlan,soundingNotes} from './synthesis.js';
 
 export function wavSummary(plan,sampleRate=22050){
   const duration=validatePlan(plan);
@@ -34,9 +34,10 @@ export function* audioBatches(plan,sampleRate=22050,seconds=20){
 export async function renderWav(plan,{volume=.7,sampleRate=22050,signal,onProgress=()=>{},createContext}={}){
   if(!Number.isFinite(volume)||volume<0||volume>1)throw Error('Invalid instrument volume.');
   const summary=wavSummary(plan,sampleRate),parts=[wavHeader(summary.frames,sampleRate)];
+  const sounding=soundingNotes(plan);
   createContext??=(length,rate)=>new (window.OfflineAudioContext||window.webkitOfflineAudioContext)(1,length,rate);
   let peak=0;
-  for(const batch of audioBatches(plan,sampleRate)){
+  for(const batch of audioBatches(sounding,sampleRate)){
     signal?.throwIfAborted();
     const context=createContext(batch.frames,sampleRate),master=context.createGain();master.gain.value=volume;master.connect(context.destination);
     for(const e of batch.events)scheduleInstrument(context,master,e,e.startSeconds-batch.startFrame/sampleRate);

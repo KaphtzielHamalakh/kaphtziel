@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "45689aedd597fca6b4b93da8ce54e39d141f2505",
-  "nextTask": "Continue musical/phonetic fidelity using primary reusable score/recording material: expand only source-checked bounded transcriptions and review underlay/context before claiming full melody rules. The Cohen 1902 six-note study is independently unreviewed and not a Kinnor profile. All 32 Torah systems, six Accent grammars and singing remain pending. Preserve eight faulty timings. Then implement sourced calendar/annual/triennial divisions and remaining repertoire/learning/print roadmap; keep full goal active.",
+  "nextTask": "Publish v0.9, verify Pages/live bytes/UI, and synchronize deliverables. Then continue sourced contextual melody/phoneme work and all remaining roadmap features; preserve complete objective.",
   "lastPassingTests": {
     "automated": 67,
     "ui": "Local/live source excerpt, exact span/word stopping, repeat, semitone/tempo/view invariants, refused uncovered notes, export preparation, standalone embedded scan/playback, 320/390/1280 layouts; muted throughout.",
@@ -187,16 +187,15 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.8.0",
-    "status": "published_live_verified",
+    "version": "0.9.0",
+    "status": "local_qa_passed",
     "newFeatures": [
-      "Bounded public-domain printed-score transcription with exact source evidence",
-      "Explicit independent musical-source selection; no fallback for missing source notes",
-      "Source-aware assignment and exports, original scan embedded in standalone"
+      "Complete source-checked Genesis 22:1 printed transcription, 52 components/44 beats",
+      "Shared tie-aware sounding notes and explicit rests, source measures and exact tuplets",
+      "Independent scan comparison resolved pickup ring artifact; exact source preservation retained"
     ],
-    "tests": "67 automated checks pass; source-key notes, word/span stopping, repeat, semitone/tempo/view invariants, disabled uncovered playback, XML/MIDI/silent WAV preparation, embedded standalone scan/playback, 320/390 layout checks passed.",
-    "browser": "IAB 2 / live tab 2, score view; selected two source words, tempo 60, transpose 0, volumes 0 and stopped.",
-    "next": "Continue musical/phonetic fidelity using primary reusable score/recording material: expand only source-checked bounded transcriptions and review underlay/context before claiming full melody rules. The Cohen 1902 six-note study is independently unreviewed and not a Kinnor profile. All 32 Torah systems, six Accent grammars and singing remain pending. Preserve eight faulty timings. Then implement sourced calendar/annual/triennial divisions and remaining repertoire/learning/print roadmap; keep full goal active."
+    "next": "Publish v0.9, verify Pages/live bytes/UI, and synchronize deliverables. Then continue sourced contextual melody/phoneme work and all remaining roadmap features; preserve complete objective.",
+    "tests": "73 full-suite checks passed; distribution/source checks repeated after final standalone wrapping fix. Four MusicXML exports validate. Full source playback, all boundaries, rests, repeat/view, transpose/tempo, exports, unsupported verse, standalone resume and 320/390 layouts verified, muted."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

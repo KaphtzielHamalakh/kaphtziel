@@ -1,7 +1,7 @@
-import {validatePlan} from './synthesis.js';
+import {validatePlan,soundingNotes} from './synthesis.js';
 import {scoreData,rhythmSpelling,escapeXml as x} from './score-data.js';
 
-export const DIVISIONS=10000,MIDI_PPQ=4800;
+export const DIVISIONS=4800,MIDI_PPQ=4800;
 function checked(plan,words,context){
   validatePlan(plan);
   if(!Number.isFinite(context.tempo)||context.tempo<=0)throw Error('The export needs a tempo.');
@@ -12,10 +12,10 @@ function identity(notes,context){
   const selected=[...new Map(notes.map(e=>[e.word.id,e.word])).values()];
   return {...context,format:'tropetrain-score-metadata-v1',words:selected,
     events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,midi:e.midi,startBeat:e.startBeat,beats:e.beats,
-      ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceLyric:e.sourceLyric}:{})}))};
+      ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceBar:e.sourceBar,sourceLyric:e.sourceLyric,sourceRhythm:e.sourceRhythm,
+        sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop}:{})}))};
 }
-function durationNotation(beats,accidental=null){
-  const r=rhythmSpelling(beats);
+function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
   return `<type>${r.type}</type>${'<dot/>'.repeat(r.dots)}${accidental?`<accidental>${accidental}</accidental>`:''}${r.actual===r.normal?'':`<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
 }
 export function musicXml(plan,words,context){
@@ -23,22 +23,27 @@ export function musicXml(plan,words,context){
   const printed=context.melody?.id==='cohen-1902-gen22-ending';
   const creator=printed?context.melody.creator:'TropeTrain original demonstration';
   const rights=printed?'Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda.':'Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.';
-  const direction=printed?'Cohen 1902, p. 539, Genesis 22:1 final two words only. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.';
+  const direction=printed?'Cohen 1902, p. 539, Genesis 22:1 complete printed verse. Ties sustain without re-attack; source rests preserved. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.';
   let xml=`<?xml version="1.0" encoding="UTF-8"?>\n<score-partwise version="4.0"><work><work-title>${x(context.title)}</work-title></work><identification><creator type="composer">${x(creator)}</creator><rights>${x(rights)}</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${x(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental study</part-name></score-part></part-list><part id="P1">`;
-  let measure=0,verseKey=null,beat=0;
+  let measure=0,verseKey=null,beat=0,previousMeter=null;
   notes.forEach((e,index)=>{
-    if(e.word.verseKey!==verseKey){
+    const key=e.sourceBar===undefined?e.word.verseKey:`${e.word.verseKey}:bar-${e.sourceBar}`;
+    if(key!==verseKey){
       if(measure)xml+='</measure>';
-      verseKey=e.word.verseKey;measure++;
+      verseKey=key;measure++;
       xml+=`<measure number="${measure}" implicit="yes">`;
-      if(measure===1)xml+=`<attributes><divisions>${DIVISIONS}</divisions><time><senza-misura/></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><direction-type><words>${x(direction)}</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
+      const meter=printed?(e.sourceBar>=3&&e.sourceBar<=10?3:4):null;
+      if(measure===1||meter!==previousMeter)xml+=`<attributes>${measure===1?`<divisions>${DIVISIONS}</divisions>`:''}<time>${meter?`<beats>${meter}</beats><beat-type>4</beat-type>`:'<senza-misura/>'}</time>${measure===1?'<clef><sign>G</sign><line>2</line></clef>':''}</attributes>`;
+      previousMeter=meter;
+      if(measure===1)xml+=`<direction><direction-type><words>${x(direction)}</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
       xml+=`<direction><direction-type><words>${x(e.word.reference)}</words></direction-type></direction>`;
     }
     const gap=e.startBeat-beat;
     if(gap>1e-7)xml+=`<note><rest/><duration>${Math.round(gap*DIVISIONS)}</duration>${durationNotation(gap)}</note>`;
     const p=e.pitch,accidental=p.alter===1?'sharp':p.alter===-1?'flat':'natural';
     if(p.octave<0)throw Error('MusicXML pitch octaves begin at C0.');
-    xml+=`<note id="note-${index+1}"><pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch><duration>${Math.round(e.beats*DIVISIONS)}</duration>${durationNotation(e.beats,accidental)}`;
+    xml+=`<note id="note-${index+1}"><pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch><duration>${Math.round(e.beats*DIVISIONS)}</duration>${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,e.rhythm)}`;
+    if(e.tieStart||e.tieStop)xml+=`<notations>${e.tieStop?'<tied type="stop"/>':''}${e.tieStart?'<tied type="start"/>':''}</notations>`;
     const extension=e.extendsNext?(e.continuation?'continue':'start'):e.continuation?'stop':null;
     xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric></note>`;
     beat=e.startBeat+e.beats;
@@ -57,7 +62,7 @@ export function midiFile(plan,words,context){
   // General MIDI triangle/synth timbres vary by player. MIDI contains notes,
   // not the application's instrument or a recording of its sound.
   let tick=0;
-  for(const e of notes){
+  for(const e of soundingNotes(notes)){
     const start=Math.round(e.startBeat*MIDI_PPQ),end=Math.round((e.startBeat+e.beats)*MIDI_PPQ);
     meta(start-tick,1,e.id);if(!e.continuation)meta(0,5,e.syllable);
     parts.push(Uint8Array.of(0,0x90,e.midi,80),vlq(end-start),Uint8Array.of(0x80,e.midi,0));tick=end;

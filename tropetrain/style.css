@@ -28,3 +28,5 @@
 .printed-study p{max-width:85ch}.printed-study img{display:block;width:100%;height:auto;margin:1rem 0}.printed-study details{margin-top:1rem}
 .printed-study .section-heading{flex-wrap:wrap;gap:1rem}.printed-study .badge{white-space:normal;max-width:100%}
 .pitch-staff .open-notehead{fill:var(--paper,#faf9f3);stroke:currentColor;stroke-width:1.8}
+
+.tie-arc{fill:none;stroke:var(--ink);stroke-width:1.4}.staff-rest .staff-beats{font-size:10px}

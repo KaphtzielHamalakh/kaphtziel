@@ -5,16 +5,16 @@ import {buildPlan,frequency} from '../music.js';
 
 function fakeAudio(){
   const originals=Object.fromEntries(['window','requestAnimationFrame','cancelAnimationFrame','setInterval','clearInterval'].map(k=>[k,globalThis[k]]));
-  let now=10,id=0;const nodes=[],frames=new Map(),timers=new Map();
+  let now=10,id=0,suspends=0,resumes=0;const nodes=[],frames=new Map(),timers=new Map();
   const gains=()=>({gain:{setValueAtTime(){},linearRampToValueAtTime(){}},connect(){},disconnect(){}});
   globalThis.window={AudioContext:class{
-    get currentTime(){return now;}destination={};resume(){return Promise.resolve();}
+    get currentTime(){return now;}destination={};resume(){resumes++;return Promise.resolve();}suspend(){suspends++;return Promise.resolve();}
     createOscillator(){const n={frequency:{},connect(){},disconnect(){},start(at){this.startAt=at;},stop(at){this.stopAt=at;this.cancelled=at===undefined;}};nodes.push(n);return n;}
     createGain(){return gains();}
   }};
   globalThis.requestAnimationFrame=fn=>{frames.set(++id,fn);return id;};globalThis.cancelAnimationFrame=id=>frames.delete(id);
   globalThis.setInterval=fn=>{timers.set(++id,fn);return id;};globalThis.clearInterval=id=>timers.delete(id);
-  return {nodes,frames,timers,get now(){return now;},tick(time,{render=true}={}){now=time;for(const fn of [...timers.values()])fn();if(render){const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();}},
+  return {nodes,frames,timers,get now(){return now;},get suspends(){return suspends;},get resumes(){return resumes;},tick(time,{render=true}={}){now=time;for(const fn of [...timers.values()])fn();if(render){const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();}},
     restore(){for(const [key,value] of Object.entries(originals))globalThis[key]=value;}};
 }
 
@@ -58,4 +58,28 @@ test('invalid note timing is rejected before starting sound',async()=>{
   const env=fakeAudio(),player=new Player(()=>{},()=>{});
   try{await assert.rejects(player.play([]),/no notes/);await assert.rejects(player.play([{midi:62,startSeconds:0,durationSeconds:0}]),/invalid timing/);assert.equal(env.nodes.length,0);}
   finally{player.stop();env.restore();}
+});
+
+test('printed tied components use one oscillator and rests emit silence frames without shifting the clock',async()=>{
+ const env=fakeAudio(),seen=[],rests=[];let ends=0;
+ const player=new Player(e=>seen.push(e.id),()=>ends++,(cycle,progress)=>rests.push([cycle,progress]));
+ const plan=[{id:'a',wordId:'word',syllableId:'syllable',midi:64,startSeconds:0,durationSeconds:.5,beats:.5,tieId:'held',tieStart:true},
+  {id:'b',wordId:'word',syllableId:'syllable',midi:64,startSeconds:.5,durationSeconds:.5,beats:.5,tieId:'held',tieStop:true},
+  {id:'c',wordId:'next',syllableId:'next-s',midi:67,startSeconds:1.5,durationSeconds:.5,beats:.5}];
+ try{
+  await player.play(plan);env.tick(10.66);assert.equal(env.nodes.length,1);assert.equal(env.nodes[0].stopAt,11.06);assert.equal(seen.at(-1),'b');
+  env.tick(11.26);assert.equal(rests.length,1);assert.equal(seen.at(-1),'b');
+  env.tick(11.66);assert.equal(env.nodes.length,2);assert.equal(env.nodes[1].startAt,11.56);assert.equal(seen.at(-1),'c');
+  env.tick(12.07);assert.equal(ends,1);assert.equal(player.running,false);
+ }finally{player.stop();env.restore();}
+});
+
+test('completion and explicit stop suspend idle device audio; a new play resumes it without an internal suspend',async()=>{
+ const env=fakeAudio(),player=new Player(()=>{},()=>{}),plan=buildPlan(0,0,{tempo:160});
+ try{
+  await player.play(plan);assert.equal(env.resumes,1);assert.equal(env.suspends,0);
+  env.tick(10.06+plan.at(-1).startSeconds+plan.at(-1).durationSeconds+.01);assert.equal(player.running,false);assert.equal(env.suspends,1);
+  await player.play(plan);assert.equal(env.resumes,2);assert.equal(env.suspends,1);
+  player.stop();assert.equal(env.suspends,2);await player.play(plan);assert.equal(env.resumes,3);assert.equal(env.suspends,2);
+ }finally{player.stop();env.restore();}
 });

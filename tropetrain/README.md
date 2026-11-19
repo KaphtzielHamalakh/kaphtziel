@@ -61,3 +61,12 @@ See [evidence and full roadmap](docs/RESEARCH.md), [v0.7 verification](docs/VERI
 Click **Open the six-note score study** below the recorded-reference panel. It opens Genesis 22:1 and selects its final two words, וַיֹּ֥אמֶר הִנֵּֽנִי׃. Choose tempo 60 and transpose 0 to compare E4–B4–A4 / E4–G4–G4 with the original 1902 Cohen scan. Play/repeat, source-preserving Hebrew views and exports use the same six events. The printed durations total 7.5 quarter-note beats. Tempo, key and range are independent; no singing or pronunciation profile is added.
 
 This is a bounded, independently unreviewed source transcription, not an entire traditional system or Kinnor preset. The source calls for flexible tempo; playback regularizes timing. The separately printed untexted coda is excluded. Selecting an uncovered word disables source playback/export. Switch **Musical source** back to **Original demonstration 01** for original-demo practice anywhere. Inspect PRINTED-SCORE.json and the original scan for provenance; TIMING-HISTORY.json records why eight PocketTorah takes still lack trustworthy word timing.
+
+
+### Complete printed verse (v0.9)
+
+Use **Printed study → Open the printed verse study** for all 13 words of Genesis 22:1. At tempo 60 / transpose 0, it is 44 seconds: 52 printed components, 50 sounding notes, four rests and two held ties. Word/group/verse/span/repeat and score exports use this same source sequence. Rests clear highlights; ties hold one pitch without re-attack. Stop/natural completion suspend idle instrument output, and Play resumes it.
+
+Two independent 1902 scans support the manually checked transcription; both are included. Exact source words, source rhythms/locations, bar totals and provenance are in PRINTED-SCORE.json. Run `node scripts/import-printed-score.mjs` to validate/regenerate its source fixture; build does this automatically. MusicXML retains source measures/meters and exact tuplets/ties/rests. The standalone embeds both images and the full evidence map/roadmap.
+
+This revision expands the earlier two-word excerpt; the final six pitches/durations/IDs are unchanged. The legacy profile ID remains for existing assignments. Regularized tempo, modern tuning/instrument and draft source-cluster underlay remain approximate; independent musical/transcription/underlay review is pending. The untexted coda and general rules for other verses are excluded. All 32 Torah systems, six Accent realizations, singing and remaining roadmap work remain unfinished.

@@ -1,7 +1,7 @@
 {
   "format": "tropetrain-printed-score-v1",
   "profileId": "cohen-1902-gen22-ending",
-  "revision": 1,
+  "revision": 2,
   "creator": "Francis L. Cohen",
   "articleAuthors": [
     "Cyrus Adler",
@@ -25,72 +25,2083 @@
   "scope": {
     "passage": "Genesis 22:1",
     "wordIds": [
+      "gen-22-1-1",
+      "gen-22-1-2",
+      "gen-22-1-3",
+      "gen-22-1-4",
+      "gen-22-1-5",
+      "gen-22-1-6",
+      "gen-22-1-7",
+      "gen-22-1-8",
+      "gen-22-1-9",
+      "gen-22-1-10",
+      "gen-22-1-11",
       "gen-22-1-12",
       "gen-22-1-13"
     ],
-    "excluded": "All earlier words and the separate untexted CODA. No contextual melodic grammar inferred."
+    "excluded": "Separate untexted CODA. No accent-to-melody grammar for other verses inferred."
   },
   "review": {
-    "transcription": "Manually compared with high-resolution source scan during implementation; independent review pending.",
-    "hebrewUnderlay": "Draft source-letter allocation matches the three printed syllables per word; no phonemes or community pronunciation inferred.",
+    "transcription": "Manually compared against two independent high-resolution scans. All 14 bar totals balance, including pickup/complement. Independent musical/transcription/underlay review still pending.",
+    "hebrewUnderlay": "Draft source-letter allocation follows printed syllabic underlay without changing UXLC. Printed nis/hin include phonetic gemination not duplicated in source clusters; phonemes remain null.",
     "performance": "Printed durations regularized to quarter-note BPM; source explicitly says without strict tempo. Modern 12-TET and triangle instrument are approximations.",
     "referenceMismatch": "The printed Hebrew/lyrics are Genesis 22:1, whereas the article prose says Gen. xxix."
   },
   "transcriptionLicense": "CC0-1.0",
   "notes": [
     {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 0.75,
+      "beatFraction": "3/4",
+      "bar": 0,
+      "system": 1,
+      "printedLyric": "Wa",
+      "location": "system 1, bar 0",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 1,
+      "midi": 67,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 0,
+      "system": 1,
+      "printedLyric": "ye",
+      "location": "system 1, bar 0",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "midi": 69,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "hi",
+      "location": "system 1, bar 1",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      }
+    },
+    {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "midi": 67,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "system 1, bar 1",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      }
+    },
+    {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "midi": 66,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "system 1, bar 1",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      }
+    },
+    {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "midi": 64,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "system 1, bar 1",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "tieId": "hi-hold",
+      "tiePhase": "start"
+    },
+    {
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "system 1, bar 1",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "tieId": "hi-hold",
+      "tiePhase": "stop",
+      "restAfterBeats": 0.5
+    },
+    {
+      "wordId": "gen-22-1-2",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "a",
+      "location": "system 1, bar 1",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-2",
+      "syllableIndex": 1,
+      "midi": 71,
+      "quarterBeats": 3.0,
+      "beatFraction": "3",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "har",
+      "location": "system 1, bar 2",
+      "rhythm": {
+        "type": "half",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 0,
+      "midi": 62,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "ha",
+      "location": "system 1, bar 2",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 3,
+        "normal": 2
+      }
+    },
+    {
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 1,
+      "midi": 62,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "de",
+      "location": "system 1, bar 2",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      }
+    },
+    {
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 2,
+      "midi": 62,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "ba",
+      "location": "system 1, bar 2",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      }
+    },
+    {
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 3,
+      "midi": 71,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 1,
+      "printedLyric": "rim",
+      "location": "system 1, bar 3",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 3,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 1,
+      "printedLyric": "",
+      "location": "system 1, bar 3",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 1,
+      "printedLyric": "ha",
+      "location": "system 1, bar 3",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 1,
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "el",
+      "location": "system 2, bar 4",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 1,
+      "midi": 71,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "",
+      "location": "system 2, bar 4",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 1,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "",
+      "location": "system 2, bar 4",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 2,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "leh",
+      "location": "system 2, bar 4",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "we",
+      "location": "system 2, bar 4",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 1,
+      "midi": 74,
+      "quarterBeats": 1.5,
+      "beatFraction": "3/2",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "ha",
+      "location": "system 2, bar 5",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 2,
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "e",
+      "location": "system 2, bar 5",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 3,
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "lo",
+      "location": "system 2, bar 5",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 4,
+      "midi": 71,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "him",
+      "location": "system 2, bar 6",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 4,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "",
+      "location": "system 2, bar 6",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "nis",
+      "location": "system 2, bar 6",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 1,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "sah",
+      "location": "system 2, bar 7",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 1,
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "",
+      "location": "system 2, bar 7",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-7",
+      "syllableIndex": 0,
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "et",
+      "location": "system 2, bar 7",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 0,
+      "midi": 64,
+      "quarterBeats": 0.75,
+      "beatFraction": "3/4",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "Ab",
+      "location": "system 2, bar 7",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 1,
+      "midi": 64,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "ra",
+      "location": "system 2, bar 7",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 2,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 8,
+      "system": 3,
+      "printedLyric": "ham",
+      "location": "system 3, bar 8",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 2,
+      "midi": 62,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 8,
+      "system": 3,
+      "printedLyric": "",
+      "location": "system 3, bar 8",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5
+    },
+    {
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 8,
+      "system": 3,
+      "printedLyric": "way",
+      "location": "system 3, bar 8",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 1,
+      "midi": 71,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "yo",
+      "location": "system 3, bar 9",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 2,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "mer",
+      "location": "system 3, bar 9",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "e",
+      "location": "system 3, bar 9",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 1,
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "law",
+      "location": "system 3, bar 10",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 1,
+      "midi": 71,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "system 3, bar 10",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 1,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "system 3, bar 10",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5
+    },
+    {
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 0,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "Ab",
+      "location": "system 3, bar 10",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 1,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "ra",
+      "location": "system 3, bar 10",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "ham",
+      "location": "system 3, bar 11",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "midi": 71,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "",
+      "location": "system 3, bar 11",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "midi": 64,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "",
+      "location": "system 3, bar 11",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "tieId": "ham-hold",
+      "tiePhase": "start"
+    },
+    {
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "midi": 64,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "",
+      "location": "system 3, bar 11",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "tieId": "ham-hold",
+      "tiePhase": "stop",
+      "restAfterBeats": 0.5
+    },
+    {
       "wordId": "gen-22-1-12",
       "syllableIndex": 0,
       "midi": 64,
-      "pitch": "E4",
       "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
       "printedLyric": "way",
-      "location": "system 3, last note"
+      "location": "system 3, bar 11",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
     },
     {
       "wordId": "gen-22-1-12",
       "syllableIndex": 1,
       "midi": 71,
-      "pitch": "B4",
-      "quarterBeats": 2,
+      "quarterBeats": 2.0,
+      "beatFraction": "2",
+      "bar": 12,
+      "system": 4,
       "printedLyric": "yo",
-      "location": "system 4, note 1"
+      "location": "system 4, bar 12",
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
     },
     {
       "wordId": "gen-22-1-12",
       "syllableIndex": 2,
       "midi": 69,
-      "pitch": "A4",
-      "quarterBeats": 1,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 12,
+      "system": 4,
       "printedLyric": "mer",
-      "location": "system 4, note 2"
+      "location": "system 4, bar 12",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
     },
     {
       "wordId": "gen-22-1-13",
       "syllableIndex": 0,
       "midi": 64,
-      "pitch": "E4",
-      "quarterBeats": 1,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 12,
+      "system": 4,
       "printedLyric": "hin",
-      "location": "system 4, note 3"
+      "location": "system 4, bar 12",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
     },
     {
       "wordId": "gen-22-1-13",
       "syllableIndex": 1,
       "midi": 67,
-      "pitch": "G4",
-      "quarterBeats": 2,
+      "quarterBeats": 2.0,
+      "beatFraction": "2",
+      "bar": 13,
+      "system": 4,
       "printedLyric": "ne",
-      "location": "system 4, note 4"
+      "location": "system 4, bar 13",
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
     },
     {
       "wordId": "gen-22-1-13",
       "syllableIndex": 2,
       "midi": 67,
-      "pitch": "G4",
-      "quarterBeats": 1,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 13,
+      "system": 4,
       "printedLyric": "ni",
-      "location": "system 4, note 5"
+      "location": "system 4, bar 13",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
     }
-  ]
+  ],
+  "words": [
+    {
+      "id": "gen-22-1-1",
+      "sourceHebrew": "וַיְהִ֗י",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 0.75,
+          "beatFraction": "3/4",
+          "bar": 0,
+          "system": 1,
+          "printedLyric": "Wa",
+          "location": "system 1, bar 0",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 1,
+          "midi": 67,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 0,
+          "system": 1,
+          "printedLyric": "ye",
+          "location": "system 1, bar 0",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "midi": 69,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "hi",
+          "location": "system 1, bar 1",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          }
+        },
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "midi": 67,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "system 1, bar 1",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          }
+        },
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "midi": 66,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "system 1, bar 1",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          }
+        },
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "system 1, bar 1",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "tieId": "hi-hold",
+          "tiePhase": "start"
+        },
+        {
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "system 1, bar 1",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "tieId": "hi-hold",
+          "tiePhase": "stop",
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-2",
+      "sourceHebrew": "אַחַר֙",
+      "lengths": [
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-2",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "a",
+          "location": "system 1, bar 1",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-2",
+          "syllableIndex": 1,
+          "midi": 71,
+          "quarterBeats": 3.0,
+          "beatFraction": "3",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "har",
+          "location": "system 1, bar 2",
+          "rhythm": {
+            "type": "half",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-3",
+      "sourceHebrew": "הַדְּבָרִ֣ים",
+      "lengths": [
+        1,
+        1,
+        1,
+        3
+      ],
+      "stress": 3,
+      "notes": [
+        {
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 0,
+          "midi": 62,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "ha",
+          "location": "system 1, bar 2",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 3,
+            "normal": 2
+          }
+        },
+        {
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 1,
+          "midi": 62,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "de",
+          "location": "system 1, bar 2",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          }
+        },
+        {
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 2,
+          "midi": 62,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "ba",
+          "location": "system 1, bar 2",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          }
+        },
+        {
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 3,
+          "midi": 71,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 1,
+          "printedLyric": "rim",
+          "location": "system 1, bar 3",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 3,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 1,
+          "printedLyric": "",
+          "location": "system 1, bar 3",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-4",
+      "sourceHebrew": "הָאֵ֔לֶּה",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 1,
+          "printedLyric": "ha",
+          "location": "system 1, bar 3",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 1,
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "el",
+          "location": "system 2, bar 4",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 1,
+          "midi": 71,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "",
+          "location": "system 2, bar 4",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 1,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "",
+          "location": "system 2, bar 4",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 2,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "leh",
+          "location": "system 2, bar 4",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-5",
+      "sourceHebrew": "וְהָ֣אֱלֹהִ֔ים",
+      "lengths": [
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "stress": 4,
+      "notes": [
+        {
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "we",
+          "location": "system 2, bar 4",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 1,
+          "midi": 74,
+          "quarterBeats": 1.5,
+          "beatFraction": "3/2",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "ha",
+          "location": "system 2, bar 5",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 2,
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "e",
+          "location": "system 2, bar 5",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 3,
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "lo",
+          "location": "system 2, bar 5",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 4,
+          "midi": 71,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "him",
+          "location": "system 2, bar 6",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 4,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "",
+          "location": "system 2, bar 6",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-6",
+      "sourceHebrew": "נִסָּ֖ה",
+      "lengths": [
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "nis",
+          "location": "system 2, bar 6",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 1,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "sah",
+          "location": "system 2, bar 7",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 1,
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "",
+          "location": "system 2, bar 7",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-7",
+      "sourceHebrew": "אֶת־",
+      "lengths": [
+        2
+      ],
+      "stress": null,
+      "notes": [
+        {
+          "wordId": "gen-22-1-7",
+          "syllableIndex": 0,
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "et",
+          "location": "system 2, bar 7",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-8",
+      "sourceHebrew": "אַבְרָהָ֑ם",
+      "lengths": [
+        2,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 0,
+          "midi": 64,
+          "quarterBeats": 0.75,
+          "beatFraction": "3/4",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "Ab",
+          "location": "system 2, bar 7",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 1,
+          "midi": 64,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "ra",
+          "location": "system 2, bar 7",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 2,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 8,
+          "system": 3,
+          "printedLyric": "ham",
+          "location": "system 3, bar 8",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 2,
+          "midi": 62,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 8,
+          "system": 3,
+          "printedLyric": "",
+          "location": "system 3, bar 8",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-9",
+      "sourceHebrew": "וַיֹּ֣אמֶר",
+      "lengths": [
+        1,
+        2,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 8,
+          "system": 3,
+          "printedLyric": "way",
+          "location": "system 3, bar 8",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 1,
+          "midi": 71,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "yo",
+          "location": "system 3, bar 9",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 2,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "mer",
+          "location": "system 3, bar 9",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-10",
+      "sourceHebrew": "אֵלָ֔יו",
+      "lengths": [
+        1,
+        3
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "e",
+          "location": "system 3, bar 9",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 1,
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "law",
+          "location": "system 3, bar 10",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 1,
+          "midi": 71,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "system 3, bar 10",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 1,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "system 3, bar 10",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-11",
+      "sourceHebrew": "אַבְרָהָ֖ם",
+      "lengths": [
+        2,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 0,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "Ab",
+          "location": "system 3, bar 10",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 1,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "ra",
+          "location": "system 3, bar 10",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "ham",
+          "location": "system 3, bar 11",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "midi": 71,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "",
+          "location": "system 3, bar 11",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "",
+          "location": "system 3, bar 11",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "tieId": "ham-hold",
+          "tiePhase": "start"
+        },
+        {
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "",
+          "location": "system 3, bar 11",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "tieId": "ham-hold",
+          "tiePhase": "stop",
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-12",
+      "sourceHebrew": "וַיֹּ֥אמֶר",
+      "lengths": [
+        1,
+        2,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 0,
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "way",
+          "location": "system 3, bar 11",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 1,
+          "midi": 71,
+          "quarterBeats": 2.0,
+          "beatFraction": "2",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "yo",
+          "location": "system 4, bar 12",
+          "rhythm": {
+            "type": "half",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 2,
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "mer",
+          "location": "system 4, bar 12",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-13",
+      "sourceHebrew": "הִנֵּֽנִי׃",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 0,
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "hin",
+          "location": "system 4, bar 12",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 1,
+          "midi": 67,
+          "quarterBeats": 2.0,
+          "beatFraction": "2",
+          "bar": 13,
+          "system": 4,
+          "printedLyric": "ne",
+          "location": "system 4, bar 13",
+          "rhythm": {
+            "type": "half",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 2,
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 13,
+          "system": 4,
+          "printedLyric": "ni",
+          "location": "system 4, bar 13",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    }
+  ],
+  "bars": [
+    {
+      "bar": 0,
+      "quarterBeats": 1.0,
+      "meter": "4/4",
+      "partial": true
+    },
+    {
+      "bar": 1,
+      "quarterBeats": 4.0,
+      "meter": "4/4",
+      "partial": false
+    },
+    {
+      "bar": 2,
+      "quarterBeats": 4.0,
+      "meter": "4/4",
+      "partial": false
+    },
+    {
+      "bar": 3,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 4,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 5,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 6,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 7,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 8,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 9,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 10,
+      "quarterBeats": 3.0,
+      "meter": "3/4",
+      "partial": false
+    },
+    {
+      "bar": 11,
+      "quarterBeats": 4.0,
+      "meter": "4/4",
+      "partial": false
+    },
+    {
+      "bar": 12,
+      "quarterBeats": 4.0,
+      "meter": "4/4",
+      "partial": false
+    },
+    {
+      "bar": 13,
+      "quarterBeats": 3.0,
+      "meter": "4/4",
+      "partial": true
+    }
+  ],
+  "totals": {
+    "printedComponents": 52,
+    "soundingAttacks": 50,
+    "quarterBeats": 44,
+    "rests": 4,
+    "tiedPairs": 2
+  },
+  "alternateScan": {
+    "item": "https://archive.org/details/jewishencyclopedia03sing",
+    "pdf": "https://archive.org/download/jewishencyclopedia03sing/jewishencyclopedia03sing.pdf",
+    "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+    "pdfBytes": 75621345,
+    "pdfPageOneBased": 577,
+    "printedPage": 539,
+    "sourceLeaf": 583,
+    "changes": "Relevant score cropped from PDF page rendered at 220 dpi with Poppler; no retouching. PDF omits seven leaves relative to source leaf numbering.",
+    "cropSha256": "d9f00ee4cdc9eb3df37cec109027da63ce5630caa1cd110ded7202eaea1aa151",
+    "cropBytes": 290952,
+    "comparison": "The small ring between pickup notes in the first scan is absent from this independent copy. It is not treated as a pitched note. Pitches, rests, ties and note durations compared between both copies."
+  }
 }
