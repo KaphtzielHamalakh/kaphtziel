@@ -32,4 +32,10 @@ Both instrument/reference volumes stayed at 0 throughout; no acoustic or qualifi
 
 Rhythm is regularized to chosen BPM; modern 12-TET/A4=440 and triangle instrument are approximations. Source underlay and transcription are not independently reader-reviewed. No coda underlay, rules for other verses, Kinnor-equivalent preset, pronunciation grammar or singer is inferred. The previous six-note source ending keeps its pitches/durations/IDs in revision 2. Direct file-origin UI, network-failure/device/accessibility testing and the complete remaining roadmap are still pending.
 
-Publication/live verification pending at this checkpoint.
+## Published verification
+
+Commit `f51782a8f3e0e954e79e00822bfdadb520fb0e11`; Pages run `44587761998` succeeded. Twenty deployed resources matched tested bytes (19,175,877 bytes), including changed runtime/audio/score code, standalone, both scans, generated source fixture, importer and evidence map.
+
+Returning v0.8 live tab upgraded to v0.9 and retained the legacy two-word source selection, 7.50-second sequence, 60 BPM, transpose 0 and zero volumes. New study selected all 13 words, displayed 52 events / 22.00 s at 120 BPM, cleared highlights during a printed pause and finished at word 13. First-word playback after natural completion also finished, demonstrating resume. Left full verse selected at 60 BPM/transpose 0 (44.00 s), no active highlights, both media paused and both volumes zero. 1280-pixel source/score layout fit; no captured warnings/errors. Viewport reset. Screenshot: outputs/TropeTrain-full-verse-study-0.9.png.
+
+All remaining full-reconstruction scope remains active.
