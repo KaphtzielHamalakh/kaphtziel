@@ -49,3 +49,12 @@ test('standalone reference audio is losslessly embedded with source attribution 
   assert.ok(!/src="\.\/assets\/references\//.test(html),'Standalone recording is embedded.');
   assert.ok(worker.includes('./assets/references/Bereshit-1.mp3'));assert.ok(worker.includes('./assets/references/NOTICE.txt'));
 });
+
+test('whole-Torah source library survives lossless bundling and standalone embedding',()=>{
+  const bundle=read('app.bundle.js'),encoded=bundle.match(/var referenceEncoded = "([A-Za-z0-9+/=]+)"/);
+  assert.ok(encoded,'Packed reference library is embedded.');
+  const original=readFileSync(new URL('../data/references/torah-library.json.gz',import.meta.url));
+  assert.deepEqual(Buffer.from(encoded[1],'base64'),original);
+  const library=JSON.parse(gunzipSync(original));assert.equal(library.recordings.length,378);assert.equal(library.audit.readerWords,79985);
+  assert.ok(read('TropeTrain.html').includes(encoded[1]),'Standalone retains the complete source catalog without an extra network dependency.');
+});

@@ -8,8 +8,9 @@ import {renderWav,wavSummary} from './wav.js';
 import {instrument} from './synthesis.js';
 import {SIGN_ANALYSIS,sourceClassLabel} from './accents.js';
 import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.js';
-import recording from './data/references/pockettorah-bereshit-1.json' with {type:'json'};
-import {referenceIndex,referenceSelection,RecordingPlayer} from './recorded-reference.js';
+import {RecordingPlayer} from './recorded-reference.js';
+import {getReferenceLibrary} from './reference-library.js';
+import {ReferenceAudioStore} from './reference-audio-store.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
@@ -37,8 +38,8 @@ let restoringReading=!!restore.ranges;
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-const recordedWords=referenceIndex(recording);
-let referenceActiveId=null,referencePlan=null;
+let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
+const referenceStore=new ReferenceAudioStore({openingUrl:$('reference-audio').getAttribute('src')});
 const referencePlayer=new RecordingPlayer($('reference-audio'),{
   onWord:word=>{
     referenceActiveId=word?.occurrenceId??null;
@@ -46,8 +47,11 @@ const referencePlayer=new RecordingPlayer($('reference-audio'),{
     document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',el.dataset.word===referenceActiveId));
     if(word)renderRecordedWord(word);
   },
-  onEnd:()=>{$('reference-status').textContent='Reference span finished. Your selection is kept.';},
-  onError:error=>{$('reference-status').textContent=`Reference unavailable: ${error.message}`;}
+  onEnd:()=>{$('reference-status').textContent='Reference playback finished. Your selection is kept.';say('Recorded reference finished. Your selection is kept.');},
+  onError:error=>{$('reference-status').textContent=`Reference unavailable: ${error.message}`;renderReference({keepChoice:true});},
+  onLoading:id=>{$('reference-status').textContent=`Opening ${referenceLibrary?.byId.get(id)?.title??'reference'}…`;},
+  onRecording:id=>{if(id){selectedReferenceId=id;syncReferencePickers();$('reference-status').textContent=`Playing ${referenceLibrary.byId.get(id).title} · original recorded key, tempo and pronunciation${state.referenceVolume===0?' · muted at 0%':''}.`;}},
+  resolveSource:(id,options)=>referenceStore.url(referenceLibrary.byId.get(id),options)
 });
 function loadArray(key){try{const data=JSON.parse(localStorage.getItem(key));return Array.isArray(data)?data.filter(item=>item&&typeof item==='object'&&typeof item.title==='string').slice(0,100):[];}catch{return [];}}
 function store(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
@@ -76,7 +80,7 @@ function setActive(wordId,eventId){
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
 function stop(message='Stopped. Your selection is kept.'){
-  player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped. Your selection is kept.';referencePlayer.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
+  referenceLoadJob?.abort();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped. Your selection is kept.';referencePlayer.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
 }
 async function play(){
   referencePlayer.stop();$('reference-status').textContent='';$('wav-preview').pause();
@@ -154,24 +158,53 @@ function updateSelection(){
   renderSourceSigns(w);
   renderReference();
 }
-function renderRecordedWord(word){
-  $('reference-word').textContent=word.sourceHebrew;
-  $('reference-word-label').textContent=`Recording source · Genesis ${word.chapter}:${word.verse} · word ${word.ordinal} · ${word.startSeconds.toFixed(3)} s`;
-  $('reference-source-comparison').textContent=word.comparison==='source-difference'?`Different source accent. UXLC has ${word.uxlcHebrew}; the recording’s WLC text has ${word.sourceHebrew}. Both readings are retained; no musical equivalence is claimed.`:word.comparison==='joiner-only'?'The editions differ only by an encoded combining grapheme joiner; both exact source strings are retained.':'This word’s displayed source string matches UXLC exactly.';
-}
-function renderReference(){
-  $('reference-volume').value=state.referenceVolume;$('reference-volume-value').textContent=`${state.referenceVolume}%`;$('reference-audio').volume=state.referenceVolume/100;
-  try{
-    referencePlan=referenceSelection(words,...bounds(state.cursor,state.anchor,state.scope),recordedWords);
-    const differences=referencePlan.filter(w=>w.comparison==='source-difference').length;
-    $('reference-coverage').textContent=`${referencePlan.length} selected word${referencePlan.length===1?'':'s'} covered.${differences?' This span includes a different source accent at Genesis 1:11 word 5; the recording follows its WLC source.':''}`;
-    $('reference-play').disabled=false;
-  }catch(error){referencePlan=null;$('reference-play').disabled=true;$('reference-coverage').textContent=error.message;}
-  if(!referencePlayer.running&&!referencePlayer.starting){
-    const word=recordedWords.get(words[state.cursor].sourceWordId??words[state.cursor].id);
-    if(word)renderRecordedWord(word);
-    else{$('reference-word').textContent='';$('reference-word-label').textContent='Choose a word in the reference passage.';$('reference-source-comparison').textContent='';}
+function syncReferencePickers(){
+  const selected=referenceLibrary?.byId.get(selectedReferenceId);if(!selected)return;
+  $('reference-portion').value=selected.partId;
+  if($('reference-aliyah').dataset.part!==selected.partId){
+    $('reference-aliyah').replaceChildren();
+    for(const id of referenceLibrary.parts.find(p=>p.id===selected.partId).recordingIds){const record=referenceLibrary.byId.get(id),option=document.createElement('option');option.value=id;option.textContent=`Aliyah ${record.number}${record.status!=='aligned'?' · timing review':''}`;$('reference-aliyah').append(option);}
+    $('reference-aliyah').dataset.part=selected.partId;
   }
+  $('reference-aliyah').value=selected.id;
+  $('reference-title').textContent=selected.title;
+  $('reference-timing-status').textContent=selected.status==='aligned'?'Source word timings available · acoustic review pending':`Word timing needs review: ${selected.issues.map(i=>i.kind==='word-count'?`${i.sourceWords} source words / ${i.timings} timestamps`:'non-increasing timestamps').join('; ')}. Complete-recording playback is available without timed highlights.`;
+}
+function renderRecordedWord(word){
+  const record=referenceLibrary?.byId.get(word.recordingId),names={gen:'Genesis',exo:'Exodus',lev:'Leviticus',num:'Numbers',deu:'Deuteronomy'},book=names[record?.bookId]??'Genesis';
+  $('reference-word').textContent=word.sourceHebrew;
+  $('reference-word-label').textContent=`Recording source · ${book} ${word.chapter}:${word.verse} · word ${word.ordinal}${word.sourceWords?.length>1?` · ${word.sourceWords.length} source word units`:''}${Number.isFinite(word.startSeconds)?` · ${word.startSeconds.toFixed(3)} s`:''}`;
+  let comparison=word.comparison==='source-boundaries'?`Two WLC source word units correspond to one UXLC unit: ${word.uxlcHebrew}. Both original words and their marks are retained.`:word.comparison==='source-difference'?`Source marks differ. UXLC has ${word.uxlcHebrew}; the recording’s WLC text has ${word.sourceHebrew}. Neither source is replaced.`:word.comparison==='joiner-only'?'The editions differ only by an encoded combining grapheme joiner; both exact strings are retained.':'This word’s displayed source string matches UXLC exactly.';
+  if(word.readerChapter!==undefined&&(word.readerChapter!==word.chapter||word.readerVerse!==word.verse))comparison+=` Verse numbering differs: the reader calls this ${book} ${word.readerChapter}:${word.readerVerse}.`;
+  $('reference-source-comparison').textContent=comparison;
+}
+function renderReference({keepChoice=false}={}){
+  const generation=++referenceUiGeneration;
+  $('reference-volume').value=state.referenceVolume;$('reference-volume-value').textContent=`${state.referenceVolume}%`;$('reference-audio').volume=state.referenceVolume/100;
+  if(!referenceLibrary)return;
+  const atCursor=referenceLibrary.at(words[state.cursor]);
+  if(!keepChoice&&!referencePlayer.running&&!referencePlayer.starting)selectedReferenceId=atCursor?.recording.id??selectedReferenceId;
+  selectedReferenceId??=referenceLibrary.recordings[0].id;syncReferencePickers();
+  const selected=referenceLibrary.byId.get(selectedReferenceId);
+  try{
+    const [start,end]=bounds(state.cursor,state.anchor,state.scope);
+    if(!words.slice(start,end+1).some(word=>referenceLibrary.at(word)?.recording.id===selected.id))throw Error('The selected recording is outside this reader span. Open selected reading, or load and play its complete take.');
+    referencePlan=referenceLibrary.selection(words,start,end);referenceRequired=referenceLibrary.recordsFor(referencePlan);
+    if(!referenceRequired.some(r=>r.id===selected.id))throw Error('Open the selected reading to align a span, or load and play its complete recording.');
+    const differences=referencePlan.filter(w=>w.comparison==='source-difference'||w.comparison==='source-boundaries').length;
+    $('reference-coverage').textContent=`${referencePlan.length.toLocaleString()} selected word${referencePlan.length===1?'':'s'} · ${referenceRequired.length} recording${referenceRequired.length===1?'':'s'}.${differences?` ${differences} source-mark or word-boundary differences are retained.`:''}`;
+  }catch(error){referencePlan=null;referenceRequired=[selected];$('reference-coverage').textContent=error.message;}
+  if(!referencePlayer.running&&!referencePlayer.starting){if(atCursor?.recording.id===selected.id)renderRecordedWord(atCursor.word);else{$('reference-word').textContent='';$('reference-word-label').textContent='Open the selected reading to compare its source words.';$('reference-source-comparison').textContent='';}}
+  referenceReady=false;$('reference-play').disabled=true;$('reference-full').disabled=true;$('reference-load').disabled=true;$('reference-remove').disabled=true;
+  Promise.all(referenceRequired.map(r=>referenceStore.has(r))).then(async availability=>{
+    const selectedReady=await referenceStore.has(selected);if(generation!==referenceUiGeneration)return;
+    const missing=referenceRequired.filter((r,i)=>!availability[i]);referenceReady=missing.length===0;
+    $('reference-play').disabled=!referencePlan||!referenceReady;$('reference-full').disabled=!selectedReady;
+    $('reference-load').disabled=!!referenceLoadJob||!missing.length;
+    const size=missing.reduce((n,r)=>n+r.audio.bytes,0);$('reference-load').textContent=missing.length?`Load ${missing.length} recording${missing.length===1?'':'s'} · ${(size/1048576).toFixed(1)} MB`:'Recordings loaded';
+    $('reference-storage').textContent=selected.audio.localFile?'Opening recording included with the app.':selectedReady?(referenceStore.saved.has(selected.audio.sha1)?'Selected recording saved on this device.':'Selected recording loaded for this session.'):`Selected recording needs a ${(selected.audio.bytes/1048576).toFixed(1)} MB download. Files are checksum-checked before use and saved on this device when storage is available.`;
+    $('reference-remove').disabled=!!selected.audio.localFile||!selectedReady;
+  }).catch(error=>{$('reference-storage').textContent=error.message;});
 }
 function renderSourceSigns(word){
   const analysis=word.signAnalysis;$('source-class').textContent=sourceClassLabel(analysis.className);
@@ -308,13 +341,36 @@ $('prepare-wav').addEventListener('click',async()=>{
 $('cancel-wav').addEventListener('click',()=>wavJob?.abort());
 $('wav-preview').addEventListener('play',()=>{player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped.';referencePlayer.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
 $('reference-play').addEventListener('click',async()=>{
-  if(!referencePlan)return;const selected=referencePlan;stop('Listening to the recorded reference.');
-  $('reference-status').textContent='Loading the reference recording…';
+  if(!referencePlan||!referenceReady)return;const selected=referencePlan;stop('Listening to the recorded reference.');
   await referencePlayer.play(selected,state.repeat);
-  if(referencePlayer.running)$('reference-status').textContent=`Playing the recording’s original key, tempo and pronunciation${state.referenceVolume===0?' · muted at 0% volume':''}. Source timings are unreviewed.`;
+});
+$('reference-full').addEventListener('click',async()=>{
+  const id=selectedReferenceId;stop('Listening to the complete recording.');$('reference-word').textContent='';$('reference-word-label').textContent='Complete unmodified recording · timed word highlighting is off.';$('reference-source-comparison').textContent='The recording retains its original text, key, tempo and pronunciation.';
+  await referencePlayer.playWhole(id,state.repeat);
 });
 $('reference-stop').addEventListener('click',()=>stop());
-$('reference-open').addEventListener('click',()=>libraryAction(()=>applyRanges([{id:'recorded-reference',...recording.coverage,label:'PocketTorah reference'}])));
+$('reference-open').addEventListener('click',()=>libraryAction(()=>{
+  const selected=referenceLibrary.byId.get(selectedReferenceId);applyRanges([{id:'recorded-reference',...selected.coverage,label:selected.title}]);
+}));
+$('reference-portion').addEventListener('change',e=>{const part=referenceLibrary.parts.find(p=>p.id===e.target.value);selectedReferenceId=part.recordingIds[0];renderReference({keepChoice:true});});
+$('reference-aliyah').addEventListener('change',e=>{selectedReferenceId=e.target.value;renderReference({keepChoice:true});});
+$('reference-load').addEventListener('click',async()=>{
+  if(referenceLoadJob)return;const job=new AbortController();referenceLoadJob=job;$('reference-cancel-load').hidden=false;$('reference-load').disabled=true;
+  try{
+    await referenceStore.ready;
+    const missing=[];for(const record of referenceRequired)if(!await referenceStore.has(record))missing.push(record);
+    if(!referenceStore.storageAvailable&&missing.length>3)throw Error('Device storage is unavailable. Load a smaller span of at most three recordings for this session.');
+    for(const [i,record] of missing.entries()){
+      $('reference-status').textContent=`Loading ${i+1} of ${missing.length}: ${record.title}…`;
+      const result=await referenceStore.load(record,{signal:job.signal});
+      if(!result.saved&&missing.length>3)throw Error('This browser could not save the recordings. Load a smaller span for this session.');
+    }
+    if(referenceLoadJob===job)$('reference-status').textContent='Recordings loaded and source checksums verified. Press Play when ready.';
+  }catch(error){if(referenceLoadJob===job)$('reference-status').textContent=job.signal.aborted?'Reference loading cancelled. Completed recordings are kept.':error.message;}
+  finally{if(referenceLoadJob===job){referenceLoadJob=null;$('reference-cancel-load').hidden=true;renderReference({keepChoice:true});}}
+});
+$('reference-cancel-load').addEventListener('click',()=>referenceLoadJob?.abort());
+$('reference-remove').addEventListener('click',async()=>{const record=referenceLibrary.byId.get(selectedReferenceId);stop();await referenceStore.remove(record);$('reference-status').textContent=`Removed the saved copy of ${record.title}. You can load it again.`;renderReference({keepChoice:true});});
 $('reference-volume').addEventListener('input',e=>{state.referenceVolume=Number(e.target.value);$('reference-audio').volume=state.referenceVolume/100;$('reference-volume-value').textContent=`${state.referenceVolume}%`;persist();});
 function render(){
   for(const key of ['scope','tempo','transpose','volume'])$(key).value=state[key];
@@ -430,10 +486,16 @@ render();renderSections();renderPickers();if(state.findScope==='torah')refreshSi
 getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();
   for(const book of corpus.books){const o=document.createElement('option');o.value=book.id;o.textContent=`${book.name} · ${book.hebrewName}`;$('book').append(o);}
-  $('library-status').textContent='5 books · 187 chapters · available offline';$('open-reading').disabled=false;$('append-section').disabled=false;$('reference-open').disabled=false;
+  $('library-status').textContent='5 books · 187 chapters · available offline';$('open-reading').disabled=false;$('append-section').disabled=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore});}catch(error){$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
   restoringReading=false;persist();
   renderSections();
 }).catch(error=>{$('library-status').textContent='Opening passage only';$('library-message').textContent=error.message;});
+getReferenceLibrary().then(value=>{
+  referenceLibrary=value;$('reference-portion').replaceChildren();
+  for(const part of value.parts){const option=document.createElement('option');option.value=part.id;option.textContent=part.name;$('reference-portion').append(option);}
+  $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${value.source.audit.timingReviewRecordings.length} complete-take only`;
+  $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();
+}).catch(error=>{$('reference-library-status').textContent=error.message;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';
 else if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local audio & Torah text · available offline after first load';}).catch(()=>{});

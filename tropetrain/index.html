@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore the full Torah text with an original instrumental demonstration, a sourced opening chant reference, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.6.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.7.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -48,14 +48,19 @@
       </aside>
     </div>
     <section class="recorded-reference" id="recorded-reference" aria-labelledby="reference-heading">
-      <div class="section-heading"><div><p class="eyebrow">A sourced recording</p><h2 id="reference-heading">Listen to a recorded reference</h2></div><span class="badge">PocketTorah · Genesis 1:1–2:3</span></div>
-      <p>Unmodified chant from <a href="https://archive.org/details/PockettorahAudioFiles">PocketTorah Audio Files</a>, Not-a-Box Media Lab · Russel Neiss & Rabbi Charlie Schwartz. The source describes Avery–Binder style; the individual reader for this file is not identified. <a href="https://creativecommons.org/licenses/by-sa/3.0/">Audio and derived alignment: CC BY-SA 3.0</a>.</p>
-      <p class="muted">This take retains its recorded key, tempo and pronunciation. Instrument controls affect the original demonstration above. Source word timings have not been acoustically reviewed; no syllables, pitches or pronunciation grammar have been transcribed from this recording.</p>
-      <div class="reference-actions"><button id="reference-open" disabled>Open Genesis 1:1–2:3</button><button id="reference-play" class="primary" disabled>Play reference span</button><button id="reference-stop">Stop reference</button></div>
-      <p id="reference-coverage"></p><p id="reference-status" role="status"></p>
+      <div class="section-heading"><div><p class="eyebrow">Sourced recordings</p><h2 id="reference-heading">Listen to a recorded reference</h2></div><span class="badge">PocketTorah · Torah library</span></div>
+      <p id="reference-library-status" role="status">Loading the recorded-reference catalog…</p>
+      <p>Unmodified chant from <a href="https://archive.org/details/PockettorahAudioFiles">PocketTorah Audio Files</a>, Not-a-Box Media Lab · Russel Neiss & Rabbi Charlie Schwartz. The source describes Avery–Binder style; individual readers are not identified per file. <a href="https://creativecommons.org/licenses/by-sa/3.0/">Audio and derived alignment: CC BY-SA 3.0</a>.</p>
+      <p class="muted">Each take retains its recorded key, tempo and pronunciation. Instrument controls affect the original demonstration above. Word timings come from the source and await acoustic review; no syllables, pitches or pronunciation grammar have been transcribed.</p>
+      <div class="reference-picker"><label>Reference portion<select id="reference-portion" disabled></select></label><label>Reference aliyah<select id="reference-aliyah" disabled></select></label><button id="reference-open" disabled>Open selected reading</button></div>
+      <h3 id="reference-title"></h3><p id="reference-timing-status"></p>
+      <p id="reference-coverage"></p><a href="#playback-controls">Change the selected span or repeat setting</a>
+      <p id="reference-storage" class="muted"></p>
+      <div class="reference-actions"><button id="reference-load" disabled>Load recordings</button><button id="reference-cancel-load" hidden>Cancel reference loading</button><button id="reference-play" class="primary" disabled>Play reference span</button><button id="reference-full" disabled>Play complete recording</button><button id="reference-stop">Stop reference</button><button id="reference-remove" disabled>Remove saved recording</button></div>
+      <p id="reference-status" role="status"></p>
       <div class="reference-volume"><div class="label-row"><label for="reference-volume">Reference volume</label><output id="reference-volume-value">0%</output></div><input id="reference-volume" type="range" min="0" max="100" step="1" value="0"></div>
       <div class="reference-word-detail"><p id="reference-word-label" class="muted"></p><b id="reference-word" lang="he" dir="rtl"></b><p id="reference-source-comparison"></p></div>
-      <details><summary>Recording source & edition differences</summary><p>The recording’s text is WLC 4.14 as distributed in 2012. The practice reader uses UXLC 2.6. Their 469 word positions correspond: 458 strings match, ten differ only by combining grapheme joiners, and Genesis 1:11 word 5 has a different accent (WLC zakef katon; UXLC revia). The comparison retains both strings. Editorial codes and morphological separators are stored separately from the displayed Hebrew.</p><p>The original MP3 and timing file are unchanged. Timing metadata follows the creator’s <a href="https://ejewishphilanthropy.com/torah-on-the-go/">2012 release announcement</a> under <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. This source comparison and reference playback adaptation are offered under CC BY-SA 3.0. <a href="./assets/references/NOTICE.txt">Attribution and source checksums</a>.</p></details>
+      <details><summary>Recording sources & edition differences</summary><p>The reference covers all 54 portions in 378 original recordings. Eight timing files have count or ordering errors; their complete takes remain available without timed word highlighting. The catalog identifies those records instead of guessing boundaries. Other spans can cross recordings and repeated assigned sections.</p><p>The recording text is WLC 4.14 as distributed in 2012; the practice reader retains UXLC 2.6. Chapter letter sequences match, but marks, verse numbering and one word boundary differ. Both exact sources and original word parts are retained. Numbering differences in the Decalogue are explicit. No source text is silently replaced.</p><p>Load downloads only the recordings needed for your choice, verifies their original checksums and saves them on this device when possible. Complete-recording playback includes the original opening and closing sound. Timing metadata follows the creator’s <a href="https://ejewishphilanthropy.com/torah-on-the-go/">2012 release</a> under <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>. The derived comparison and reference adaptation are CC BY-SA 3.0. <a href="./assets/references/NOTICE.txt">Attribution and source checksums</a>.</p></details>
       <audio id="reference-audio" src="./assets/references/Bereshit-1.mp3" preload="none" hidden></audio>
     </section>
     <section class="sequence" aria-labelledby="sequence-heading">
@@ -77,7 +82,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Consonantal text uses a print font with responsive lines, not a STaM facsimile.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>The PocketTorah recording is a sourced reference. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.6.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.7.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -88,6 +93,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.6.0"></script>
+  <script defer src="./app.bundle.js?v=0.7.0"></script>
 </body>
 </html>

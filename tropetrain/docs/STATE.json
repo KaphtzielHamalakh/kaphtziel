@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "cdd933c5e9ddd6e036bee04e117c3e9f37dfcb7b",
-  "nextTask": "Extend rights-cleared recorded-reference coverage across the Torah using original 2012 WLC XML, identical word-timing files and Archive audio metadata. Build per-recording checksummed, edition-aware alignment and coverage audit that rejects unmapped or reordered words; preserve every source difference and occurrence ID. Avoid adding hundreds of MB to startup; design explicit on-demand/offline reference loading. In parallel with this source work, continue reviewed score/phoneme pipeline; fixed recordings do not complete independent melodies or six pronunciation profiles. Retain all roadmap features.",
+  "nextTask": "Publish tested v0.7 through GitHub connector; verify Pages, live assets and returning live UI. Then prioritize independent reviewed musical/phonetic realization and investigate original timing corrections for eight flagged files; retain remaining calendar/divisions/repertoire/learning roadmap.",
   "lastPassingTests": {
-    "automated": 50,
-    "ui": "Local source and embedded standalone: covered/unsupported spans, word/final boundaries, WLC/UXLC difference, view highlighting, independent volumes, key-change/Stop/Escape, repeated assignment transitions/repeat, 320/390 layouts and mutual exclusion with demo. Stopped/muted.",
-    "limits": "No acoustic boundary or musical/phonetic review, named individual reader, independent historical melody/pronunciation profile or singing synthesis. File-origin/offline-failure UI, notation-app import, printing and screen-reader review remain pending."
+    "automated": 63,
+    "ui": "Local/standalone: all catalog controls, verified download and IndexedDB reload, muted Deuteronomy word playback, two-file selected span, timing-review full take, remove/cancel, source boundary/verse cases, 320/390 layouts. Three original audio files actually loaded.",
+    "limits": "Delivery/source correspondence is not acoustic/musical review. Eight timing files remain unaligned. Full network-failure and file-origin UI, independent traditional melodies/phonemes, singing synthesis and all remaining roadmap features are unfinished."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -179,40 +179,166 @@
     "repositoryCommit": "8a23287221dd535966ee9914de9a03e71769a469",
     "creatorAnnouncement": "https://ejewishphilanthropy.com/torah-on-the-go/",
     "linkedLicense": "CC BY-SA 2.5",
-    "status": "Opening audio Git blob matches 2012/current repo and plain SHA-1 matches original Archive collection; reusable reference locally implemented. Archive explicitly licenses audio CC BY-SA 3.0 and describes Avery–Binder style. All 432 current timing blobs match 2012 files.",
+    "status": "Full Torah reference library implemented locally: 54 portions/378 original takes, complete source correspondence, 370 consistent timing files and eight complete-take-only records. All 378 endpoints checked; per-file audio hashes verified on explicit load.",
     "openingComparison": "469 timing entries / 469 WLC words; 458 exact UXLC matches after removing source morphology slashes. Ten combining-grapheme-joiner differences and one accent difference at Genesis 1:11 word 5. Do not silently equate editions.",
     "archiveCollection": "https://archive.org/details/PockettorahAudioFiles",
     "archiveAudioLicense": "CC-BY-SA-3.0",
-    "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd"
+    "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+    "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.6.0",
-    "status": "published_live_verified",
-    "automatedTests": 50,
+    "version": "0.7.0",
+    "status": "local_qa_passed_publication_pending",
     "newFeatures": [
-      "Licensed, unmodified PocketTorah opening MP3 and original word starts",
-      "Exact WLC source/UXLC alignment, explicit accent and joiner differences",
-      "Separate recorded-reference volume, span/repeat playback, occurrence-aware segment jumps and shared Stop"
+      "Whole Torah reference source importer and deterministic compact library/source pack",
+      "Complete chapter consonantal alignment preserving both editions and original word boundaries",
+      "54 portions / 378 recordings; 370 timing-consistent, eight timing-review records retained"
+    ],
+    "audit": {
+      "readerWords": 79985,
+      "sourceWords": 79986,
+      "portions": 54,
+      "recordings": 378,
+      "alignedRecordings": 370,
+      "timingReviewRecordings": [
+        {
+          "id": "pt-portion-13-1",
+          "title": "Shemot · aliyah 1",
+          "issues": [
+            {
+              "kind": "word-count",
+              "sourceWords": 181,
+              "timings": 182
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-13-5",
+          "title": "Shemot · aliyah 5",
+          "issues": [
+            {
+              "kind": "non-increasing",
+              "sourceIndex": 53,
+              "before": 67.122439,
+              "after": 67.122439
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-13-7",
+          "title": "Shemot · aliyah 7",
+          "issues": [
+            {
+              "kind": "non-increasing",
+              "sourceIndex": 188,
+              "before": 191.070213,
+              "after": 191.070213
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-20-1",
+          "title": "Tetzaveh · aliyah 1",
+          "issues": [
+            {
+              "kind": "non-increasing",
+              "sourceIndex": 203,
+              "before": 208.954471,
+              "after": 208.954471
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-20-3",
+          "title": "Tetzaveh · aliyah 3",
+          "issues": [
+            {
+              "kind": "word-count",
+              "sourceWords": 182,
+              "timings": 181
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-26-6",
+          "title": "Shmini · aliyah 6",
+          "issues": [
+            {
+              "kind": "word-count",
+              "sourceWords": 385,
+              "timings": 386
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-35-4",
+          "title": "Nasso · aliyah 4",
+          "issues": [
+            {
+              "kind": "non-increasing",
+              "sourceIndex": 557,
+              "before": 584.8,
+              "after": 584.32667
+            }
+          ]
+        },
+        {
+          "id": "pt-portion-46-3",
+          "title": "Eikev · aliyah 3",
+          "issues": [
+            {
+              "kind": "non-increasing",
+              "sourceIndex": 66,
+              "before": 140.1,
+              "after": 105.177339
+            }
+          ]
+        }
+      ],
+      "comparisonCounts": {
+        "exact": 79385,
+        "joiner-only": 430,
+        "source-difference": 169,
+        "source-boundaries": 1
+      },
+      "verseRenumberedWords": 393,
+      "renumberedExamples": [
+        "exo-20-14-1",
+        "exo-20-14-2",
+        "exo-20-15-1",
+        "exo-20-15-2",
+        "exo-20-16-1",
+        "exo-20-16-2",
+        "exo-20-16-3",
+        "exo-20-16-4"
+      ],
+      "sourceBoundaryGroups": [
+        {
+          "readerId": "num-12-9-1",
+          "sourceIds": [
+            "wlc-2012-num-12-9-1",
+            "wlc-2012-num-12-9-2"
+          ]
+        }
+      ],
+      "limits": "Text/metadata correspondence, not acoustic or musical review. Unreliable timing records are not used for word alignment."
+    },
+    "uiPending": [
+      "Publication, deployed bytes and returning-live-tab verification"
     ],
     "uiVerified": [
-      "Startup after restoring saved reading; native frame/cancel calls wrapped to preserve browser receiver",
-      "Full opening reference coverage; first-word muted playback, 449.515-second decoded media duration",
-      "Stop at first word boundary observed at 3.354841 seconds versus source boundary 3.351900; no captured warnings/errors",
-      "WLC/UXLC accent disagreement displayed without changing source; parallel view follows both source-linked words",
-      "Reference volume independent; key changes stop reference without changing recording source",
-      "Uncovered Deuteronomy 6:4 span rejected, covered two-word jump between repeated section occurrences played correctly",
-      "Repeat continued across section transitions; Escape removed all reference highlights and stopped audio",
-      "320/390 layouts had no body overflow; viewport reset",
-      "Standalone embedded MP3 decoded and final word finished at exact 449.515-second media end",
-      "Instrument and recorded-reference playback mutually exclusive; no captured warnings/errors",
-      "Returning live v0.5→v0.6 upgrade, full library/restored reading, decoded reference/word stop, source disagreement/Stop and 1280 layout; no captured warnings/errors"
+      "54/378 catalog initializes with preserved preferences",
+      "Vaethanan 6 1.6 MB audio downloaded, source checksum verified and saved to IndexedDB",
+      "Muted Deuteronomy 6:4 playback used blob audio, source word highlight and decoded 411.6375-second duration",
+      "Reload retained saved recording availability without reloading it",
+      "Cross-file selected span switched Bereshit 1→2 at actual media end and retained source/occurrence identity",
+      "Shemot 1 rejected unreliable word timing; complete original played muted with no word highlights",
+      "Saved-copy removal and 4.1 MB load cancellation behaved correctly",
+      "Numbers 12:9 and Exodus Decalogue showed both boundaries/verse references without altering UXLC",
+      "320/390 layouts fit; viewport reset; standalone catalog and saved Deuteronomy playback passed",
+      "No captured warnings/errors; both volumes 0 and stopped"
     ],
-    "uiPending": [],
-    "limits": [
-      "Recording is source-described Avery–Binder style; individual reader for this file not yet identified",
-      "Word timings are source-provided, not acoustically reviewed",
-      "No pitches/phonemes transcribed, no Kinnor melody or community pronunciation preset added"
-    ]
+    "automatedTests": 63
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

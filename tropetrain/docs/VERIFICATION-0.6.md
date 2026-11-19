@@ -35,7 +35,9 @@ The source describes Avery–Binder style. Individual reader attribution for thi
 
 Source word starts have not been independently reviewed acoustically. Browser media stopping follows animation frames/native media events, not sample-accurate editing; short clips can include breaths or contextual sound. No sample-accurate boundary claim is made. A comparison warning does not establish that a recording realizes the UXLC accent at a differing source position.
 
-Only Genesis 1:1–2:3 is integrated in this release. The full requested musical/pronunciation roster, reusable synthesis voices, reviewed transcriptions and remaining feature inventory are pending. Direct file-origin UI, offline network-failure recovery, screen-reader review, assignment file dialogs, notation-app import and printing remain pending. ## Published verification
+Only Genesis 1:1–2:3 is integrated in this release. The full requested musical/pronunciation roster, reusable synthesis voices, reviewed transcriptions and remaining feature inventory are pending. Direct file-origin UI, offline network-failure recovery, screen-reader review, assignment file dialogs, notation-app import and printing remain pending.
+
+## Published verification
 
 Commit `cdd933c5e9ddd6e036bee04e117c3e9f37dfcb7b`; GitHub Pages run `44534366849` succeeded. Ten live assets matched tested bytes: page, versioned bundle/CSS, standalone HTML, service worker, player module, original MP3, attribution notice, alignment JSON and WLC source excerpt.
 

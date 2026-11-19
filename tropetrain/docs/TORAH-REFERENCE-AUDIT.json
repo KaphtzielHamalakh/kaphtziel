@@ -1,0 +1,129 @@
+{
+  "readerWords": 79985,
+  "sourceWords": 79986,
+  "portions": 54,
+  "recordings": 378,
+  "alignedRecordings": 370,
+  "timingReviewRecordings": [
+    {
+      "id": "pt-portion-13-1",
+      "title": "Shemot · aliyah 1",
+      "issues": [
+        {
+          "kind": "word-count",
+          "sourceWords": 181,
+          "timings": 182
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-13-5",
+      "title": "Shemot · aliyah 5",
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 53,
+          "before": 67.122439,
+          "after": 67.122439
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-13-7",
+      "title": "Shemot · aliyah 7",
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 188,
+          "before": 191.070213,
+          "after": 191.070213
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-20-1",
+      "title": "Tetzaveh · aliyah 1",
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 203,
+          "before": 208.954471,
+          "after": 208.954471
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-20-3",
+      "title": "Tetzaveh · aliyah 3",
+      "issues": [
+        {
+          "kind": "word-count",
+          "sourceWords": 182,
+          "timings": 181
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-26-6",
+      "title": "Shmini · aliyah 6",
+      "issues": [
+        {
+          "kind": "word-count",
+          "sourceWords": 385,
+          "timings": 386
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-35-4",
+      "title": "Nasso · aliyah 4",
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 557,
+          "before": 584.8,
+          "after": 584.32667
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-46-3",
+      "title": "Eikev · aliyah 3",
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 66,
+          "before": 140.1,
+          "after": 105.177339
+        }
+      ]
+    }
+  ],
+  "comparisonCounts": {
+    "exact": 79385,
+    "joiner-only": 430,
+    "source-difference": 169,
+    "source-boundaries": 1
+  },
+  "verseRenumberedWords": 393,
+  "renumberedExamples": [
+    "exo-20-14-1",
+    "exo-20-14-2",
+    "exo-20-15-1",
+    "exo-20-15-2",
+    "exo-20-16-1",
+    "exo-20-16-2",
+    "exo-20-16-3",
+    "exo-20-16-4"
+  ],
+  "sourceBoundaryGroups": [
+    {
+      "readerId": "num-12-9-1",
+      "sourceIds": [
+        "wlc-2012-num-12-9-1",
+        "wlc-2012-num-12-9-2"
+      ]
+    }
+  ],
+  "limits": "Text/metadata correspondence, not acoustic or musical review. Unreliable timing records are not used for word alignment."
+}

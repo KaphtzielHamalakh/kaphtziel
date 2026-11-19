@@ -1,0 +1,3409 @@
+{
+  "checked": "2026-11-19",
+  "method": "HTTPS HEAD with redirects; no audio bodies downloaded",
+  "results": [
+    {
+      "id": "pt-portion-01-1",
+      "filename": "Bereshit-1.mp3",
+      "status": 200,
+      "bytes": 1798060,
+      "expectedBytes": 1798060,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-01-2",
+      "filename": "Bereshit-2.mp3",
+      "status": 200,
+      "bytes": 804467,
+      "expectedBytes": 804467,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-01-3",
+      "filename": "Bereshit-3.mp3",
+      "status": 200,
+      "bytes": 1535060,
+      "expectedBytes": 1535060,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-01-4",
+      "filename": "Bereshit-4.mp3",
+      "status": 200,
+      "bytes": 1060153,
+      "expectedBytes": 1060153,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-01-5",
+      "filename": "Bereshit-5.mp3",
+      "status": 200,
+      "bytes": 191321,
+      "expectedBytes": 191321,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-01-6",
+      "filename": "Bereshit-6.mp3",
+      "status": 200,
+      "bytes": 1262341,
+      "expectedBytes": 1262341,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-01-7",
+      "filename": "Bereshit-7.mp3",
+      "status": 200,
+      "bytes": 806975,
+      "expectedBytes": 806975,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-1",
+      "filename": "Noach-1.mp3",
+      "status": 200,
+      "bytes": 702380,
+      "expectedBytes": 702380,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-2",
+      "filename": "Noach-2.mp3",
+      "status": 200,
+      "bytes": 682005,
+      "expectedBytes": 682005,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-3",
+      "filename": "Noach-3.mp3",
+      "status": 200,
+      "bytes": 941035,
+      "expectedBytes": 941035,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-4",
+      "filename": "Noach-4.mp3",
+      "status": 200,
+      "bytes": 679497,
+      "expectedBytes": 679497,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-5",
+      "filename": "Noach-5.mp3",
+      "status": 200,
+      "bytes": 392046,
+      "expectedBytes": 392046,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-6",
+      "filename": "Noach-6.mp3",
+      "status": 200,
+      "bytes": 1255131,
+      "expectedBytes": 1255131,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-02-7",
+      "filename": "Noach-7.mp3",
+      "status": 200,
+      "bytes": 1136118,
+      "expectedBytes": 1136118,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-1",
+      "filename": "Lech-Lecha-1.mp3",
+      "status": 200,
+      "bytes": 616908,
+      "expectedBytes": 616908,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-2",
+      "filename": "Lech-Lecha-2.mp3",
+      "status": 200,
+      "bytes": 447112,
+      "expectedBytes": 447112,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-3",
+      "filename": "Lech-Lecha-3.mp3",
+      "status": 200,
+      "bytes": 584620,
+      "expectedBytes": 584620,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-4",
+      "filename": "Lech-Lecha-4.mp3",
+      "status": 200,
+      "bytes": 967680,
+      "expectedBytes": 967680,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-5",
+      "filename": "Lech-Lecha-5.mp3",
+      "status": 200,
+      "bytes": 427781,
+      "expectedBytes": 427781,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-6",
+      "filename": "Lech-Lecha-6.mp3",
+      "status": 200,
+      "bytes": 1559197,
+      "expectedBytes": 1559197,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-03-7",
+      "filename": "Lech-Lecha-7.mp3",
+      "status": 200,
+      "bytes": 1037166,
+      "expectedBytes": 1037166,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-1",
+      "filename": "Vayera-1.mp3",
+      "status": 200,
+      "bytes": 629238,
+      "expectedBytes": 629238,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-2",
+      "filename": "Vayera-2.mp3",
+      "status": 200,
+      "bytes": 913032,
+      "expectedBytes": 913032,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-3",
+      "filename": "Vayera-3.mp3",
+      "status": 200,
+      "bytes": 1197976,
+      "expectedBytes": 1197976,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-4",
+      "filename": "Vayera-4.mp3",
+      "status": 200,
+      "bytes": 1989695,
+      "expectedBytes": 1989695,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-5",
+      "filename": "Vayera-5.mp3",
+      "status": 200,
+      "bytes": 787540,
+      "expectedBytes": 787540,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-6",
+      "filename": "Vayera-6.mp3",
+      "status": 200,
+      "bytes": 565290,
+      "expectedBytes": 565290,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-04-7",
+      "filename": "Vayera-7.mp3",
+      "status": 200,
+      "bytes": 1265685,
+      "expectedBytes": 1265685,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-1",
+      "filename": "ChayeiSara-1.mp3",
+      "status": 200,
+      "bytes": 728816,
+      "expectedBytes": 728816,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-2",
+      "filename": "ChayeiSara-2.mp3",
+      "status": 200,
+      "bytes": 686498,
+      "expectedBytes": 686498,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-3",
+      "filename": "ChayeiSara-3.mp3",
+      "status": 200,
+      "bytes": 838531,
+      "expectedBytes": 838531,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-4",
+      "filename": "ChayeiSara-4.mp3",
+      "status": 200,
+      "bytes": 1358367,
+      "expectedBytes": 1358367,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-5",
+      "filename": "ChayeiSara-5.mp3",
+      "status": 200,
+      "bytes": 666331,
+      "expectedBytes": 666331,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-6",
+      "filename": "ChayeiSara-6.mp3",
+      "status": 200,
+      "bytes": 494759,
+      "expectedBytes": 494759,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-05-7",
+      "filename": "ChayeiSara-7.mp3",
+      "status": 200,
+      "bytes": 315350,
+      "expectedBytes": 315350,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-1",
+      "filename": "Toldot-1.mp3",
+      "status": 200,
+      "bytes": 1091082,
+      "expectedBytes": 1091082,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-2",
+      "filename": "Toldot-2.mp3",
+      "status": 200,
+      "bytes": 404376,
+      "expectedBytes": 404376,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-3",
+      "filename": "Toldot-3.mp3",
+      "status": 200,
+      "bytes": 495909,
+      "expectedBytes": 495909,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-4",
+      "filename": "Toldot-4.mp3",
+      "status": 200,
+      "bytes": 408242,
+      "expectedBytes": 408242,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-5",
+      "filename": "Toldot-5.mp3",
+      "status": 200,
+      "bytes": 1432451,
+      "expectedBytes": 1432451,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-6",
+      "filename": "Toldot-6.mp3",
+      "status": 200,
+      "bytes": 1299540,
+      "expectedBytes": 1299540,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-06-7",
+      "filename": "Toldot-7.mp3",
+      "status": 200,
+      "bytes": 277107,
+      "expectedBytes": 277107,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-1",
+      "filename": "Vayetzei-1.mp3",
+      "status": 200,
+      "bytes": 969296,
+      "expectedBytes": 969296,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-2",
+      "filename": "Vayetzei-2.mp3",
+      "status": 200,
+      "bytes": 1165413,
+      "expectedBytes": 1165413,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-3",
+      "filename": "Vayetzei-3.mp3",
+      "status": 200,
+      "bytes": 2048571,
+      "expectedBytes": 2048571,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-4",
+      "filename": "Vayetzei-4.mp3",
+      "status": 200,
+      "bytes": 926142,
+      "expectedBytes": 926142,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-5",
+      "filename": "Vayetzei-5.mp3",
+      "status": 200,
+      "bytes": 2838828,
+      "expectedBytes": 2838828,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-6",
+      "filename": "Vayetzei-6.mp3",
+      "status": 200,
+      "bytes": 1820470,
+      "expectedBytes": 1820470,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-07-7",
+      "filename": "Vayetzei-7.mp3",
+      "status": 200,
+      "bytes": 1023527,
+      "expectedBytes": 1023527,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-1",
+      "filename": "Vayishlach-1.mp3",
+      "status": 200,
+      "bytes": 816432,
+      "expectedBytes": 816432,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-2",
+      "filename": "Vayishlach-2.mp3",
+      "status": 200,
+      "bytes": 1300951,
+      "expectedBytes": 1300951,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-3",
+      "filename": "Vayishlach-3.mp3",
+      "status": 200,
+      "bytes": 668788,
+      "expectedBytes": 668788,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-4",
+      "filename": "Vayishlach-4.mp3",
+      "status": 200,
+      "bytes": 1055818,
+      "expectedBytes": 1055818,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-5",
+      "filename": "Vayishlach-5.mp3",
+      "status": 200,
+      "bytes": 3036840,
+      "expectedBytes": 3036840,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-6",
+      "filename": "Vayishlach-6.mp3",
+      "status": 200,
+      "bytes": 2311263,
+      "expectedBytes": 2311263,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-08-7",
+      "filename": "Vayishlach-7.mp3",
+      "status": 200,
+      "bytes": 1203149,
+      "expectedBytes": 1203149,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-1",
+      "filename": "Vayeshev-1.mp3",
+      "status": 200,
+      "bytes": 872645,
+      "expectedBytes": 872645,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-2",
+      "filename": "Vayeshev-2.mp3",
+      "status": 200,
+      "bytes": 752587,
+      "expectedBytes": 752587,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-3",
+      "filename": "Vayeshev-3.mp3",
+      "status": 200,
+      "bytes": 944639,
+      "expectedBytes": 944639,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-4",
+      "filename": "Vayeshev-4.mp3",
+      "status": 200,
+      "bytes": 2016495,
+      "expectedBytes": 2016495,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-5",
+      "filename": "Vayeshev-5.mp3",
+      "status": 200,
+      "bytes": 484570,
+      "expectedBytes": 484570,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-6",
+      "filename": "Vayeshev-6.mp3",
+      "status": 200,
+      "bytes": 1237001,
+      "expectedBytes": 1237001,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-09-7",
+      "filename": "Vayeshev-7.mp3",
+      "status": 200,
+      "bytes": 1514317,
+      "expectedBytes": 1514317,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-1",
+      "filename": "Miketz-1.mp3",
+      "status": 200,
+      "bytes": 907180,
+      "expectedBytes": 907180,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-2",
+      "filename": "Miketz-2.mp3",
+      "status": 200,
+      "bytes": 1428062,
+      "expectedBytes": 1428062,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-3",
+      "filename": "Miketz-3.mp3",
+      "status": 200,
+      "bytes": 812095,
+      "expectedBytes": 812095,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-4",
+      "filename": "Miketz-4.mp3",
+      "status": 200,
+      "bytes": 1325558,
+      "expectedBytes": 1325558,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-5",
+      "filename": "Miketz-5.mp3",
+      "status": 200,
+      "bytes": 2498038,
+      "expectedBytes": 2498038,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-6",
+      "filename": "Miketz-6.mp3",
+      "status": 200,
+      "bytes": 997878,
+      "expectedBytes": 997878,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-10-7",
+      "filename": "Miketz-7.mp3",
+      "status": 200,
+      "bytes": 1378847,
+      "expectedBytes": 1378847,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-1",
+      "filename": "Vayigash-1.mp3",
+      "status": 200,
+      "bytes": 710322,
+      "expectedBytes": 710322,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-2",
+      "filename": "Vayigash-2.mp3",
+      "status": 200,
+      "bytes": 656300,
+      "expectedBytes": 656300,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-3",
+      "filename": "Vayigash-3.mp3",
+      "status": 200,
+      "bytes": 671660,
+      "expectedBytes": 671660,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-4",
+      "filename": "Vayigash-4.mp3",
+      "status": 200,
+      "bytes": 562469,
+      "expectedBytes": 562469,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-5",
+      "filename": "Vayigash-5.mp3",
+      "status": 200,
+      "bytes": 1356904,
+      "expectedBytes": 1356904,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-6",
+      "filename": "Vayigash-6.mp3",
+      "status": 200,
+      "bytes": 1052108,
+      "expectedBytes": 1052108,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-11-7",
+      "filename": "Vayigash-7.mp3",
+      "status": 200,
+      "bytes": 1242697,
+      "expectedBytes": 1242697,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-1",
+      "filename": "Vayechi-1.mp3",
+      "status": 200,
+      "bytes": 915331,
+      "expectedBytes": 915331,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-2",
+      "filename": "Vayechi-2.mp3",
+      "status": 200,
+      "bytes": 492565,
+      "expectedBytes": 492565,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-3",
+      "filename": "Vayechi-3.mp3",
+      "status": 200,
+      "bytes": 456202,
+      "expectedBytes": 456202,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-4",
+      "filename": "Vayechi-4.mp3",
+      "status": 200,
+      "bytes": 774896,
+      "expectedBytes": 774896,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-5",
+      "filename": "Vayechi-5.mp3",
+      "status": 200,
+      "bytes": 353593,
+      "expectedBytes": 353593,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-6",
+      "filename": "Vayechi-6.mp3",
+      "status": 200,
+      "bytes": 1702452,
+      "expectedBytes": 1702452,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-12-7",
+      "filename": "Vayechi-7.mp3",
+      "status": 200,
+      "bytes": 384313,
+      "expectedBytes": 384313,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-1",
+      "filename": "Shemot-1.mp3",
+      "status": 200,
+      "bytes": 749923,
+      "expectedBytes": 749923,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-2",
+      "filename": "Shemot-2.mp3",
+      "status": 200,
+      "bytes": 801646,
+      "expectedBytes": 801646,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-3",
+      "filename": "Shemot-3.mp3",
+      "status": 200,
+      "bytes": 801646,
+      "expectedBytes": 801646,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-4",
+      "filename": "Shemot-4.mp3",
+      "status": 200,
+      "bytes": 1149388,
+      "expectedBytes": 1149388,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-5",
+      "filename": "Shemot-5.mp3",
+      "status": 200,
+      "bytes": 1667344,
+      "expectedBytes": 1667344,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-6",
+      "filename": "Shemot-6.mp3",
+      "status": 200,
+      "bytes": 829231,
+      "expectedBytes": 829231,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-13-7",
+      "filename": "Shemot-7.mp3",
+      "status": 200,
+      "bytes": 1390132,
+      "expectedBytes": 1390132,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-1",
+      "filename": "Vaera-1.mp3",
+      "status": 200,
+      "bytes": 755357,
+      "expectedBytes": 755357,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-2",
+      "filename": "Vaera-2.mp3",
+      "status": 200,
+      "bytes": 821708,
+      "expectedBytes": 821708,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-3",
+      "filename": "Vaera-3.mp3",
+      "status": 200,
+      "bytes": 522344,
+      "expectedBytes": 522344,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-4",
+      "filename": "Vaera-4.mp3",
+      "status": 200,
+      "bytes": 1846335,
+      "expectedBytes": 1846335,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-5",
+      "filename": "Vaera-5.mp3",
+      "status": 200,
+      "bytes": 851383,
+      "expectedBytes": 851383,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-6",
+      "filename": "Vaera-6.mp3",
+      "status": 200,
+      "bytes": 1752712,
+      "expectedBytes": 1752712,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-14-7",
+      "filename": "Vaera-7.mp3",
+      "status": 200,
+      "bytes": 1235801,
+      "expectedBytes": 1235801,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-1",
+      "filename": "Bo-1.mp3",
+      "status": 200,
+      "bytes": 884924,
+      "expectedBytes": 884924,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-2",
+      "filename": "Bo-2.mp3",
+      "status": 200,
+      "bytes": 845531,
+      "expectedBytes": 845531,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-3",
+      "filename": "Bo-3.mp3",
+      "status": 200,
+      "bytes": 592144,
+      "expectedBytes": 592144,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-4",
+      "filename": "Bo-4.mp3",
+      "status": 200,
+      "bytes": 1834527,
+      "expectedBytes": 1834527,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-5",
+      "filename": "Bo-5.mp3",
+      "status": 200,
+      "bytes": 577306,
+      "expectedBytes": 577306,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-6",
+      "filename": "Bo-6.mp3",
+      "status": 200,
+      "bytes": 1273522,
+      "expectedBytes": 1273522,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-15-7",
+      "filename": "Bo-7.mp3",
+      "status": 200,
+      "bytes": 1016477,
+      "expectedBytes": 1016477,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-1",
+      "filename": "Beshalach-1.mp3",
+      "status": 200,
+      "bytes": 864862,
+      "expectedBytes": 864862,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-2",
+      "filename": "Beshalach-2.mp3",
+      "status": 200,
+      "bytes": 462890,
+      "expectedBytes": 462890,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-3",
+      "filename": "Beshalach-3.mp3",
+      "status": 200,
+      "bytes": 745221,
+      "expectedBytes": 745221,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-4",
+      "filename": "Beshalach-4.mp3",
+      "status": 200,
+      "bytes": 1732754,
+      "expectedBytes": 1732754,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-5",
+      "filename": "Beshalach-5.mp3",
+      "status": 200,
+      "bytes": 820245,
+      "expectedBytes": 820245,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-6",
+      "filename": "Beshalach-6.mp3",
+      "status": 200,
+      "bytes": 1558152,
+      "expectedBytes": 1558152,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-16-7",
+      "filename": "Beshalach-7.mp3",
+      "status": 200,
+      "bytes": 1044689,
+      "expectedBytes": 1044689,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-1",
+      "filename": "Yitro-1.mp3",
+      "status": 200,
+      "bytes": 875207,
+      "expectedBytes": 875207,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-2",
+      "filename": "Yitro-2.mp3",
+      "status": 200,
+      "bytes": 876878,
+      "expectedBytes": 876878,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-3",
+      "filename": "Yitro-3.mp3",
+      "status": 200,
+      "bytes": 214518,
+      "expectedBytes": 214518,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-4",
+      "filename": "Yitro-4.mp3",
+      "status": 200,
+      "bytes": 378567,
+      "expectedBytes": 378567,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-5",
+      "filename": "Yitro-5.mp3",
+      "status": 200,
+      "bytes": 953678,
+      "expectedBytes": 953678,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-6",
+      "filename": "Yitro-6.mp3",
+      "status": 200,
+      "bytes": 1305182,
+      "expectedBytes": 1305182,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-17-7",
+      "filename": "Yitro-7.mp3",
+      "status": 200,
+      "bytes": 632372,
+      "expectedBytes": 632372,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-1",
+      "filename": "Mishpatim-1.mp3",
+      "status": 200,
+      "bytes": 831425,
+      "expectedBytes": 831425,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-2",
+      "filename": "Mishpatim-2.mp3",
+      "status": 200,
+      "bytes": 1176973,
+      "expectedBytes": 1176973,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-3",
+      "filename": "Mishpatim-3.mp3",
+      "status": 200,
+      "bytes": 1147193,
+      "expectedBytes": 1147193,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-4",
+      "filename": "Mishpatim-4.mp3",
+      "status": 200,
+      "bytes": 387030,
+      "expectedBytes": 387030,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-5",
+      "filename": "Mishpatim-5.mp3",
+      "status": 200,
+      "bytes": 716278,
+      "expectedBytes": 716278,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-6",
+      "filename": "Mishpatim-6.mp3",
+      "status": 200,
+      "bytes": 409391,
+      "expectedBytes": 409391,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-18-7",
+      "filename": "Mishpatim-7.mp3",
+      "status": 200,
+      "bytes": 1568496,
+      "expectedBytes": 1568496,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-1",
+      "filename": "Terumah-1.mp3",
+      "status": 200,
+      "bytes": 829962,
+      "expectedBytes": 829962,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-2",
+      "filename": "Terumah-2.mp3",
+      "status": 200,
+      "bytes": 1015536,
+      "expectedBytes": 1015536,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-3",
+      "filename": "Terumah-3.mp3",
+      "status": 200,
+      "bytes": 1922926,
+      "expectedBytes": 1922926,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-4",
+      "filename": "Terumah-4.mp3",
+      "status": 200,
+      "bytes": 1072274,
+      "expectedBytes": 1072274,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-5",
+      "filename": "Terumah-5.mp3",
+      "status": 200,
+      "bytes": 604996,
+      "expectedBytes": 604996,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-6",
+      "filename": "Terumah-6.mp3",
+      "status": 200,
+      "bytes": 567798,
+      "expectedBytes": 567798,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-19-7",
+      "filename": "Terumah-7.mp3",
+      "status": 200,
+      "bytes": 825992,
+      "expectedBytes": 825992,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-1",
+      "filename": "Tetzaveh-1.mp3",
+      "status": 200,
+      "bytes": 875833,
+      "expectedBytes": 875833,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-2",
+      "filename": "Tetzaveh-2.mp3",
+      "status": 200,
+      "bytes": 1134655,
+      "expectedBytes": 1134655,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-3",
+      "filename": "Tetzaveh-3.mp3",
+      "status": 200,
+      "bytes": 922645,
+      "expectedBytes": 922645,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-4",
+      "filename": "Tetzaveh-4.mp3",
+      "status": 200,
+      "bytes": 1065796,
+      "expectedBytes": 1065796,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-5",
+      "filename": "Tetzaveh-5.mp3",
+      "status": 200,
+      "bytes": 1389819,
+      "expectedBytes": 1389819,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-6",
+      "filename": "Tetzaveh-6.mp3",
+      "status": 200,
+      "bytes": 471458,
+      "expectedBytes": 471458,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-20-7",
+      "filename": "Tetzaveh-7.mp3",
+      "status": 200,
+      "bytes": 627148,
+      "expectedBytes": 627148,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-1",
+      "filename": "KiTisa-1.mp3",
+      "status": 200,
+      "bytes": 2093976,
+      "expectedBytes": 2093976,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-2",
+      "filename": "KiTisa-2.mp3",
+      "status": 200,
+      "bytes": 3610958,
+      "expectedBytes": 3610958,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-3",
+      "filename": "KiTisa-3.mp3",
+      "status": 200,
+      "bytes": 379507,
+      "expectedBytes": 379507,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-4",
+      "filename": "KiTisa-4.mp3",
+      "status": 200,
+      "bytes": 369998,
+      "expectedBytes": 369998,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-5",
+      "filename": "KiTisa-5.mp3",
+      "status": 200,
+      "bytes": 689319,
+      "expectedBytes": 689319,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-6",
+      "filename": "KiTisa-6.mp3",
+      "status": 200,
+      "bytes": 1172480,
+      "expectedBytes": 1172480,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-21-7",
+      "filename": "KiTisa-7.mp3",
+      "status": 200,
+      "bytes": 778449,
+      "expectedBytes": 778449,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-1",
+      "filename": "Vayakhel-1.mp3",
+      "status": 200,
+      "bytes": 963291,
+      "expectedBytes": 963291,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-2",
+      "filename": "Vayakhel-2.mp3",
+      "status": 200,
+      "bytes": 786808,
+      "expectedBytes": 786808,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-3",
+      "filename": "Vayakhel-3.mp3",
+      "status": 200,
+      "bytes": 974994,
+      "expectedBytes": 974994,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-4",
+      "filename": "Vayakhel-4.mp3",
+      "status": 200,
+      "bytes": 822648,
+      "expectedBytes": 822648,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-5",
+      "filename": "Vayakhel-5.mp3",
+      "status": 200,
+      "bytes": 1932957,
+      "expectedBytes": 1932957,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-6",
+      "filename": "Vayakhel-6.mp3",
+      "status": 200,
+      "bytes": 892970,
+      "expectedBytes": 892970,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-22-7",
+      "filename": "Vayakhel-7.mp3",
+      "status": 200,
+      "bytes": 1232457,
+      "expectedBytes": 1232457,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-1",
+      "filename": "Pekudei-1.mp3",
+      "status": 200,
+      "bytes": 924003,
+      "expectedBytes": 924003,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-2",
+      "filename": "Pekudei-2.mp3",
+      "status": 200,
+      "bytes": 1295987,
+      "expectedBytes": 1295987,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-3",
+      "filename": "Pekudei-3.mp3",
+      "status": 200,
+      "bytes": 620669,
+      "expectedBytes": 620669,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-4",
+      "filename": "Pekudei-4.mp3",
+      "status": 200,
+      "bytes": 623491,
+      "expectedBytes": 623491,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-5",
+      "filename": "Pekudei-5.mp3",
+      "status": 200,
+      "bytes": 790779,
+      "expectedBytes": 790779,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-6",
+      "filename": "Pekudei-6.mp3",
+      "status": 200,
+      "bytes": 629656,
+      "expectedBytes": 629656,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-23-7",
+      "filename": "Pekudei-7.mp3",
+      "status": 200,
+      "bytes": 598622,
+      "expectedBytes": 598622,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-1",
+      "filename": "Vayikra-1.mp3",
+      "status": 200,
+      "bytes": 715233,
+      "expectedBytes": 715233,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-2",
+      "filename": "Vayikra-2.mp3",
+      "status": 200,
+      "bytes": 547736,
+      "expectedBytes": 547736,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-3",
+      "filename": "Vayikra-3.mp3",
+      "status": 200,
+      "bytes": 482011,
+      "expectedBytes": 482011,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-4",
+      "filename": "Vayikra-4.mp3",
+      "status": 200,
+      "bytes": 899762,
+      "expectedBytes": 899762,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-5",
+      "filename": "Vayikra-5.mp3",
+      "status": 200,
+      "bytes": 1469962,
+      "expectedBytes": 1469962,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-6",
+      "filename": "Vayikra-6.mp3",
+      "status": 200,
+      "bytes": 1263804,
+      "expectedBytes": 1263804,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-24-7",
+      "filename": "Vayikra-7.mp3",
+      "status": 200,
+      "bytes": 1025985,
+      "expectedBytes": 1025985,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-1",
+      "filename": "Tzav-1.mp3",
+      "status": 200,
+      "bytes": 669362,
+      "expectedBytes": 669362,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-2",
+      "filename": "Tzav-2.mp3",
+      "status": 200,
+      "bytes": 1068199,
+      "expectedBytes": 1068199,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-3",
+      "filename": "Tzav-3.mp3",
+      "status": 200,
+      "bytes": 1568705,
+      "expectedBytes": 1568705,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-4",
+      "filename": "Tzav-4.mp3",
+      "status": 200,
+      "bytes": 660689,
+      "expectedBytes": 660689,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-5",
+      "filename": "Tzav-5.mp3",
+      "status": 200,
+      "bytes": 526211,
+      "expectedBytes": 526211,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-6",
+      "filename": "Tzav-6.mp3",
+      "status": 200,
+      "bytes": 654211,
+      "expectedBytes": 654211,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-25-7",
+      "filename": "Tzav-7.mp3",
+      "status": 200,
+      "bytes": 519051,
+      "expectedBytes": 519051,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-1",
+      "filename": "Shmini-1.mp3",
+      "status": 200,
+      "bytes": 1045002,
+      "expectedBytes": 1045002,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-2",
+      "filename": "Shmini-2.mp3",
+      "status": 200,
+      "bytes": 478459,
+      "expectedBytes": 478459,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-3",
+      "filename": "Shmini-3.mp3",
+      "status": 200,
+      "bytes": 950648,
+      "expectedBytes": 950648,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-4",
+      "filename": "Shmini-4.mp3",
+      "status": 200,
+      "bytes": 434469,
+      "expectedBytes": 434469,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-5",
+      "filename": "Shmini-5.mp3",
+      "status": 200,
+      "bytes": 397793,
+      "expectedBytes": 397793,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-6",
+      "filename": "Shmini-6.mp3",
+      "status": 200,
+      "bytes": 1746965,
+      "expectedBytes": 1746965,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-26-7",
+      "filename": "Shmini-7.mp3",
+      "status": 200,
+      "bytes": 952111,
+      "expectedBytes": 952111,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-1",
+      "filename": "Tazria-1.mp3",
+      "status": 200,
+      "bytes": 819722,
+      "expectedBytes": 819722,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-2",
+      "filename": "Tazria-2.mp3",
+      "status": 200,
+      "bytes": 610116,
+      "expectedBytes": 610116,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-3",
+      "filename": "Tazria-3.mp3",
+      "status": 200,
+      "bytes": 303647,
+      "expectedBytes": 303647,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-4",
+      "filename": "Tazria-4.mp3",
+      "status": 200,
+      "bytes": 359236,
+      "expectedBytes": 359236,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-5",
+      "filename": "Tazria-5.mp3",
+      "status": 200,
+      "bytes": 654942,
+      "expectedBytes": 654942,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-6",
+      "filename": "Tazria-6.mp3",
+      "status": 200,
+      "bytes": 787540,
+      "expectedBytes": 787540,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-27-7",
+      "filename": "Tazria-7.mp3",
+      "status": 200,
+      "bytes": 381388,
+      "expectedBytes": 381388,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-1",
+      "filename": "Metzora-1.mp3",
+      "status": 200,
+      "bytes": 903314,
+      "expectedBytes": 903314,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-2",
+      "filename": "Metzora-2.mp3",
+      "status": 200,
+      "bytes": 634567,
+      "expectedBytes": 634567,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-3",
+      "filename": "Metzora-3.mp3",
+      "status": 200,
+      "bytes": 860787,
+      "expectedBytes": 860787,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-4",
+      "filename": "Metzora-4.mp3",
+      "status": 200,
+      "bytes": 1357949,
+      "expectedBytes": 1357949,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-5",
+      "filename": "Metzora-5.mp3",
+      "status": 200,
+      "bytes": 1049496,
+      "expectedBytes": 1049496,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-6",
+      "filename": "Metzora-6.mp3",
+      "status": 200,
+      "bytes": 907494,
+      "expectedBytes": 907494,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-28-7",
+      "filename": "Metzora-7.mp3",
+      "status": 200,
+      "bytes": 324127,
+      "expectedBytes": 324127,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-1",
+      "filename": "AchreiMot-1.mp3",
+      "status": 200,
+      "bytes": 1124415,
+      "expectedBytes": 1124415,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-2",
+      "filename": "AchreiMot-2.mp3",
+      "status": 200,
+      "bytes": 554632,
+      "expectedBytes": 554632,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-3",
+      "filename": "AchreiMot-3.mp3",
+      "status": 200,
+      "bytes": 720980,
+      "expectedBytes": 720980,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-4",
+      "filename": "AchreiMot-4.mp3",
+      "status": 200,
+      "bytes": 596323,
+      "expectedBytes": 596323,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-5",
+      "filename": "AchreiMot-5.mp3",
+      "status": 200,
+      "bytes": 965486,
+      "expectedBytes": 965486,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-6",
+      "filename": "AchreiMot-6.mp3",
+      "status": 200,
+      "bytes": 724950,
+      "expectedBytes": 724950,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-29-7",
+      "filename": "AchreiMot-7.mp3",
+      "status": 200,
+      "bytes": 522449,
+      "expectedBytes": 522449,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-1",
+      "filename": "Kedoshim-1.mp3",
+      "status": 200,
+      "bytes": 662256,
+      "expectedBytes": 662256,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-2",
+      "filename": "Kedoshim-2.mp3",
+      "status": 200,
+      "bytes": 587232,
+      "expectedBytes": 587232,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-3",
+      "filename": "Kedoshim-3.mp3",
+      "status": 200,
+      "bytes": 424224,
+      "expectedBytes": 424224,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-4",
+      "filename": "Kedoshim-4.mp3",
+      "status": 200,
+      "bytes": 271728,
+      "expectedBytes": 271728,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-5",
+      "filename": "Kedoshim-5.mp3",
+      "status": 200,
+      "bytes": 529056,
+      "expectedBytes": 529056,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-6",
+      "filename": "Kedoshim-6.mp3",
+      "status": 200,
+      "bytes": 935856,
+      "expectedBytes": 935856,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-30-7",
+      "filename": "Kedoshim-7.mp3",
+      "status": 200,
+      "bytes": 397440,
+      "expectedBytes": 397440,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-1",
+      "filename": "Emor-1.mp3",
+      "status": 200,
+      "bytes": 802821,
+      "expectedBytes": 802821,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-2",
+      "filename": "Emor-2.mp3",
+      "status": 200,
+      "bytes": 1484513,
+      "expectedBytes": 1484513,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-3",
+      "filename": "Emor-3.mp3",
+      "status": 200,
+      "bytes": 950674,
+      "expectedBytes": 950674,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-4",
+      "filename": "Emor-4.mp3",
+      "status": 200,
+      "bytes": 1481482,
+      "expectedBytes": 1481482,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-5",
+      "filename": "Emor-5.mp3",
+      "status": 200,
+      "bytes": 559673,
+      "expectedBytes": 559673,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-6",
+      "filename": "Emor-6.mp3",
+      "status": 200,
+      "bytes": 859141,
+      "expectedBytes": 859141,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-31-7",
+      "filename": "Emor-7.mp3",
+      "status": 200,
+      "bytes": 1335510,
+      "expectedBytes": 1335510,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-1",
+      "filename": "Behar-1.mp3",
+      "status": 200,
+      "bytes": 660297,
+      "expectedBytes": 660297,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-2",
+      "filename": "Behar-2.mp3",
+      "status": 200,
+      "bytes": 242338,
+      "expectedBytes": 242338,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-3",
+      "filename": "Behar-3.mp3",
+      "status": 200,
+      "bytes": 279745,
+      "expectedBytes": 279745,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-4",
+      "filename": "Behar-4.mp3",
+      "status": 200,
+      "bytes": 234815,
+      "expectedBytes": 234815,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-5",
+      "filename": "Behar-5.mp3",
+      "status": 200,
+      "bytes": 580467,
+      "expectedBytes": 580467,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-6",
+      "filename": "Behar-6.mp3",
+      "status": 200,
+      "bytes": 379010,
+      "expectedBytes": 379010,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-32-7",
+      "filename": "Behar-7.mp3",
+      "status": 200,
+      "bytes": 587572,
+      "expectedBytes": 587572,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-1",
+      "filename": "Bechukotai-1.mp3",
+      "status": 200,
+      "bytes": 132101,
+      "expectedBytes": 132101,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-2",
+      "filename": "Bechukotai-2.mp3",
+      "status": 200,
+      "bytes": 195004,
+      "expectedBytes": 195004,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-3",
+      "filename": "Bechukotai-3.mp3",
+      "status": 200,
+      "bytes": 2074880,
+      "expectedBytes": 2074880,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-4",
+      "filename": "Bechukotai-4.mp3",
+      "status": 200,
+      "bytes": 835422,
+      "expectedBytes": 835422,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-5",
+      "filename": "Bechukotai-5.mp3",
+      "status": 200,
+      "bytes": 339304,
+      "expectedBytes": 339304,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-6",
+      "filename": "Bechukotai-6.mp3",
+      "status": 200,
+      "bytes": 400117,
+      "expectedBytes": 400117,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-33-7",
+      "filename": "Bechukotai-7.mp3",
+      "status": 200,
+      "bytes": 310779,
+      "expectedBytes": 310779,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-1",
+      "filename": "Bamidbar-1.mp3",
+      "status": 200,
+      "bytes": 605231,
+      "expectedBytes": 605231,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-2",
+      "filename": "Bamidbar-2.mp3",
+      "status": 200,
+      "bytes": 1524219,
+      "expectedBytes": 1524219,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-3",
+      "filename": "Bamidbar-3.mp3",
+      "status": 200,
+      "bytes": 1378351,
+      "expectedBytes": 1378351,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-4",
+      "filename": "Bamidbar-4.mp3",
+      "status": 200,
+      "bytes": 679105,
+      "expectedBytes": 679105,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-5",
+      "filename": "Bamidbar-5.mp3",
+      "status": 200,
+      "bytes": 1196225,
+      "expectedBytes": 1196225,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-6",
+      "filename": "Bamidbar-6.mp3",
+      "status": 200,
+      "bytes": 670850,
+      "expectedBytes": 670850,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-34-7",
+      "filename": "Bamidbar-7.mp3",
+      "status": 200,
+      "bytes": 1235513,
+      "expectedBytes": 1235513,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-1",
+      "filename": "Nasso-1.mp3",
+      "status": 200,
+      "bytes": 845312,
+      "expectedBytes": 845312,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-2",
+      "filename": "Nasso-2.mp3",
+      "status": 200,
+      "bytes": 576669,
+      "expectedBytes": 576669,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-3",
+      "filename": "Nasso-3.mp3",
+      "status": 200,
+      "bytes": 510840,
+      "expectedBytes": 510840,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-4",
+      "filename": "Nasso-4.mp3",
+      "status": 200,
+      "bytes": 2882550,
+      "expectedBytes": 2882550,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-5",
+      "filename": "Nasso-5.mp3",
+      "status": 200,
+      "bytes": 1832020,
+      "expectedBytes": 1832020,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-6",
+      "filename": "Nasso-6.mp3",
+      "status": 200,
+      "bytes": 1357939,
+      "expectedBytes": 1357939,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-35-7",
+      "filename": "Nasso-7.mp3",
+      "status": 200,
+      "bytes": 994210,
+      "expectedBytes": 994210,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-1",
+      "filename": "Behaalotcha-1.mp3",
+      "status": 200,
+      "bytes": 626442,
+      "expectedBytes": 626442,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-2",
+      "filename": "Behaalotcha-2.mp3",
+      "status": 200,
+      "bytes": 700735,
+      "expectedBytes": 700735,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-3",
+      "filename": "Behaalotcha-3.mp3",
+      "status": 200,
+      "bytes": 868336,
+      "expectedBytes": 868336,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-4",
+      "filename": "Behaalotcha-4.mp3",
+      "status": 200,
+      "bytes": 1020369,
+      "expectedBytes": 1020369,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-5",
+      "filename": "Behaalotcha-5.mp3",
+      "status": 200,
+      "bytes": 928209,
+      "expectedBytes": 928209,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-6",
+      "filename": "Behaalotcha-6.mp3",
+      "status": 200,
+      "bytes": 1903517,
+      "expectedBytes": 1903517,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-36-7",
+      "filename": "Behaalotcha-7.mp3",
+      "status": 200,
+      "bytes": 1097169,
+      "expectedBytes": 1097169,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-1",
+      "filename": "Shlach-1.mp3",
+      "status": 200,
+      "bytes": 680464,
+      "expectedBytes": 680464,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-2",
+      "filename": "Shlach-2.mp3",
+      "status": 200,
+      "bytes": 1174073,
+      "expectedBytes": 1174073,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-3",
+      "filename": "Shlach-3.mp3",
+      "status": 200,
+      "bytes": 1097900,
+      "expectedBytes": 1097900,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-4",
+      "filename": "Shlach-4.mp3",
+      "status": 200,
+      "bytes": 1400921,
+      "expectedBytes": 1400921,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-5",
+      "filename": "Shlach-5.mp3",
+      "status": 200,
+      "bytes": 397819,
+      "expectedBytes": 397819,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-6",
+      "filename": "Shlach-6.mp3",
+      "status": 200,
+      "bytes": 540865,
+      "expectedBytes": 540865,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-37-7",
+      "filename": "Shlach-7.mp3",
+      "status": 200,
+      "bytes": 812434,
+      "expectedBytes": 812434,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-1",
+      "filename": "Korach-1.mp3",
+      "status": 200,
+      "bytes": 753047,
+      "expectedBytes": 753047,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-2",
+      "filename": "Korach-2.mp3",
+      "status": 200,
+      "bytes": 402729,
+      "expectedBytes": 402729,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-3",
+      "filename": "Korach-3.mp3",
+      "status": 200,
+      "bytes": 1561485,
+      "expectedBytes": 1561485,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-4",
+      "filename": "Korach-4.mp3",
+      "status": 200,
+      "bytes": 432577,
+      "expectedBytes": 432577,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-5",
+      "filename": "Korach-5.mp3",
+      "status": 200,
+      "bytes": 659843,
+      "expectedBytes": 659843,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-6",
+      "filename": "Korach-6.mp3",
+      "status": 200,
+      "bytes": 1571203,
+      "expectedBytes": 1571203,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-38-7",
+      "filename": "Korach-7.mp3",
+      "status": 200,
+      "bytes": 742181,
+      "expectedBytes": 742181,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-1",
+      "filename": "Chukat-1.mp3",
+      "status": 200,
+      "bytes": 1082713,
+      "expectedBytes": 1082713,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-2",
+      "filename": "Chukat-2.mp3",
+      "status": 200,
+      "bytes": 768407,
+      "expectedBytes": 768407,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-3",
+      "filename": "Chukat-3.mp3",
+      "status": 200,
+      "bytes": 514846,
+      "expectedBytes": 514846,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-4",
+      "filename": "Chukat-4.mp3",
+      "status": 200,
+      "bytes": 554935,
+      "expectedBytes": 554935,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-5",
+      "filename": "Chukat-5.mp3",
+      "status": 200,
+      "bytes": 1213221,
+      "expectedBytes": 1213221,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-6",
+      "filename": "Chukat-6.mp3",
+      "status": 200,
+      "bytes": 592447,
+      "expectedBytes": 592447,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-39-7",
+      "filename": "Chukat-7.mp3",
+      "status": 200,
+      "bytes": 1077488,
+      "expectedBytes": 1077488,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-1",
+      "filename": "Balak-1.mp3",
+      "status": 200,
+      "bytes": 1090967,
+      "expectedBytes": 1090967,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-2",
+      "filename": "Balak-2.mp3",
+      "status": 200,
+      "bytes": 636959,
+      "expectedBytes": 636959,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-3",
+      "filename": "Balak-3.mp3",
+      "status": 200,
+      "bytes": 1634314,
+      "expectedBytes": 1634314,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-4",
+      "filename": "Balak-4.mp3",
+      "status": 200,
+      "bytes": 947398,
+      "expectedBytes": 947398,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-5",
+      "filename": "Balak-5.mp3",
+      "status": 200,
+      "bytes": 843013,
+      "expectedBytes": 843013,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-6",
+      "filename": "Balak-6.mp3",
+      "status": 200,
+      "bytes": 1122628,
+      "expectedBytes": 1122628,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-40-7",
+      "filename": "Balak-7.mp3",
+      "status": 200,
+      "bytes": 1355118,
+      "expectedBytes": 1355118,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-1",
+      "filename": "Pinchas-1.mp3",
+      "status": 200,
+      "bytes": 890627,
+      "expectedBytes": 890627,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-2",
+      "filename": "Pinchas-2.mp3",
+      "status": 200,
+      "bytes": 3005918,
+      "expectedBytes": 3005918,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-3",
+      "filename": "Pinchas-3.mp3",
+      "status": 200,
+      "bytes": 1566051,
+      "expectedBytes": 1566051,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-4",
+      "filename": "Pinchas-4.mp3",
+      "status": 200,
+      "bytes": 1427079,
+      "expectedBytes": 1427079,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-5",
+      "filename": "Pinchas-5.mp3",
+      "status": 200,
+      "bytes": 1223429,
+      "expectedBytes": 1223429,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-6",
+      "filename": "Pinchas-6.mp3",
+      "status": 200,
+      "bytes": 1916509,
+      "expectedBytes": 1916509,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-41-7",
+      "filename": "Pinchas-7.mp3",
+      "status": 200,
+      "bytes": 2136337,
+      "expectedBytes": 2136337,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-1",
+      "filename": "Matot-1.mp3",
+      "status": 200,
+      "bytes": 943752,
+      "expectedBytes": 943752,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-2",
+      "filename": "Matot-2.mp3",
+      "status": 200,
+      "bytes": 591099,
+      "expectedBytes": 591099,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-3",
+      "filename": "Matot-3.mp3",
+      "status": 200,
+      "bytes": 551079,
+      "expectedBytes": 551079,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-4",
+      "filename": "Matot-4.mp3",
+      "status": 200,
+      "bytes": 694544,
+      "expectedBytes": 694544,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-5",
+      "filename": "Matot-5.mp3",
+      "status": 200,
+      "bytes": 613773,
+      "expectedBytes": 613773,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-6",
+      "filename": "Matot-6.mp3",
+      "status": 200,
+      "bytes": 967784,
+      "expectedBytes": 967784,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-42-7",
+      "filename": "Matot-7.mp3",
+      "status": 200,
+      "bytes": 994638,
+      "expectedBytes": 994638,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-1",
+      "filename": "Masei-1.mp3",
+      "status": 200,
+      "bytes": 435096,
+      "expectedBytes": 435096,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-2",
+      "filename": "Masei-2.mp3",
+      "status": 200,
+      "bytes": 884506,
+      "expectedBytes": 884506,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-3",
+      "filename": "Masei-3.mp3",
+      "status": 200,
+      "bytes": 1143641,
+      "expectedBytes": 1143641,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-4",
+      "filename": "Masei-4.mp3",
+      "status": 200,
+      "bytes": 332278,
+      "expectedBytes": 332278,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-5",
+      "filename": "Masei-5.mp3",
+      "status": 200,
+      "bytes": 577202,
+      "expectedBytes": 577202,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-6",
+      "filename": "Masei-6.mp3",
+      "status": 200,
+      "bytes": 1282194,
+      "expectedBytes": 1282194,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-43-7",
+      "filename": "Masei-7.mp3",
+      "status": 200,
+      "bytes": 894015,
+      "expectedBytes": 894015,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-1",
+      "filename": "Devarim-1.mp3",
+      "status": 200,
+      "bytes": 980458,
+      "expectedBytes": 980458,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-2",
+      "filename": "Devarim-2.mp3",
+      "status": 200,
+      "bytes": 1060915,
+      "expectedBytes": 1060915,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-3",
+      "filename": "Devarim-3.mp3",
+      "status": 200,
+      "bytes": 1552551,
+      "expectedBytes": 1552551,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-4",
+      "filename": "Devarim-4.mp3",
+      "status": 200,
+      "bytes": 847872,
+      "expectedBytes": 847872,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-5",
+      "filename": "Devarim-5.mp3",
+      "status": 200,
+      "bytes": 2543207,
+      "expectedBytes": 2543207,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-6",
+      "filename": "Devarim-6.mp3",
+      "status": 200,
+      "bytes": 2175624,
+      "expectedBytes": 2175624,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-44-7",
+      "filename": "Devarim-7.mp3",
+      "status": 200,
+      "bytes": 927702,
+      "expectedBytes": 927702,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-1",
+      "filename": "Vaethanan-1.mp3",
+      "status": 200,
+      "bytes": 1150478,
+      "expectedBytes": 1150478,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-2",
+      "filename": "Vaethanan-2.mp3",
+      "status": 200,
+      "bytes": 4289351,
+      "expectedBytes": 4289351,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-3",
+      "filename": "Vaethanan-3.mp3",
+      "status": 200,
+      "bytes": 810572,
+      "expectedBytes": 810572,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-4",
+      "filename": "Vaethanan-4.mp3",
+      "status": 200,
+      "bytes": 1278060,
+      "expectedBytes": 1278060,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-5",
+      "filename": "Vaethanan-5.mp3",
+      "status": 200,
+      "bytes": 1812629,
+      "expectedBytes": 1812629,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-6",
+      "filename": "Vaethanan-6.mp3",
+      "status": 200,
+      "bytes": 1646595,
+      "expectedBytes": 1646595,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-45-7",
+      "filename": "Vaethanan-7.mp3",
+      "status": 200,
+      "bytes": 1115160,
+      "expectedBytes": 1115160,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-1",
+      "filename": "Eikev-1.mp3",
+      "status": 200,
+      "bytes": 2162979,
+      "expectedBytes": 2162979,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-2",
+      "filename": "Eikev-2.mp3",
+      "status": 200,
+      "bytes": 1054238,
+      "expectedBytes": 1054238,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-3",
+      "filename": "Eikev-3.mp3",
+      "status": 200,
+      "bytes": 2566936,
+      "expectedBytes": 2566936,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-4",
+      "filename": "Eikev-4.mp3",
+      "status": 200,
+      "bytes": 1007949,
+      "expectedBytes": 1007949,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-5",
+      "filename": "Eikev-5.mp3",
+      "status": 200,
+      "bytes": 1554430,
+      "expectedBytes": 1554430,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-6",
+      "filename": "Eikev-6.mp3",
+      "status": 200,
+      "bytes": 922162,
+      "expectedBytes": 922162,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-46-7",
+      "filename": "Eikev-7.mp3",
+      "status": 200,
+      "bytes": 396474,
+      "expectedBytes": 396474,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-1",
+      "filename": "Reeh-1.mp3",
+      "status": 200,
+      "bytes": 1469898,
+      "expectedBytes": 1469898,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-2",
+      "filename": "Reeh-2.mp3",
+      "status": 200,
+      "bytes": 1668742,
+      "expectedBytes": 1668742,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-3",
+      "filename": "Reeh-3.mp3",
+      "status": 200,
+      "bytes": 2048353,
+      "expectedBytes": 2048353,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-4",
+      "filename": "Reeh-4.mp3",
+      "status": 200,
+      "bytes": 1047759,
+      "expectedBytes": 1047759,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-5",
+      "filename": "Reeh-5.mp3",
+      "status": 200,
+      "bytes": 748187,
+      "expectedBytes": 748187,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-6",
+      "filename": "Reeh-6.mp3",
+      "status": 200,
+      "bytes": 1441790,
+      "expectedBytes": 1441790,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-47-7",
+      "filename": "Reeh-7.mp3",
+      "status": 200,
+      "bytes": 1657771,
+      "expectedBytes": 1657771,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-1",
+      "filename": "Shoftim-1.mp3",
+      "status": 200,
+      "bytes": 1445867,
+      "expectedBytes": 1445867,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-2",
+      "filename": "Shoftim-2.mp3",
+      "status": 200,
+      "bytes": 662612,
+      "expectedBytes": 662612,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-3",
+      "filename": "Shoftim-3.mp3",
+      "status": 200,
+      "bytes": 370667,
+      "expectedBytes": 370667,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-4",
+      "filename": "Shoftim-4.mp3",
+      "status": 200,
+      "bytes": 402328,
+      "expectedBytes": 402328,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-5",
+      "filename": "Shoftim-5.mp3",
+      "status": 200,
+      "bytes": 1700718,
+      "expectedBytes": 1700718,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-6",
+      "filename": "Shoftim-6.mp3",
+      "status": 200,
+      "bytes": 1151729,
+      "expectedBytes": 1151729,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-48-7",
+      "filename": "Shoftim-7.mp3",
+      "status": 200,
+      "bytes": 1495500,
+      "expectedBytes": 1495500,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-1",
+      "filename": "KiTeitzei-1.mp3",
+      "status": 200,
+      "bytes": 1005257,
+      "expectedBytes": 1005257,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-2",
+      "filename": "KiTeitzei-2.mp3",
+      "status": 200,
+      "bytes": 841312,
+      "expectedBytes": 841312,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-3",
+      "filename": "KiTeitzei-3.mp3",
+      "status": 200,
+      "bytes": 2155794,
+      "expectedBytes": 2155794,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-4",
+      "filename": "KiTeitzei-4.mp3",
+      "status": 200,
+      "bytes": 1171500,
+      "expectedBytes": 1171500,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-5",
+      "filename": "KiTeitzei-5.mp3",
+      "status": 200,
+      "bytes": 615092,
+      "expectedBytes": 615092,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-6",
+      "filename": "KiTeitzei-6.mp3",
+      "status": 200,
+      "bytes": 700669,
+      "expectedBytes": 700669,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-49-7",
+      "filename": "KiTeitzei-7.mp3",
+      "status": 200,
+      "bytes": 2152973,
+      "expectedBytes": 2152973,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-1",
+      "filename": "KiTavo-1.mp3",
+      "status": 200,
+      "bytes": 996371,
+      "expectedBytes": 996371,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-2",
+      "filename": "KiTavo-2.mp3",
+      "status": 200,
+      "bytes": 590429,
+      "expectedBytes": 590429,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-3",
+      "filename": "KiTavo-3.mp3",
+      "status": 200,
+      "bytes": 415095,
+      "expectedBytes": 415095,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-4",
+      "filename": "KiTavo-4.mp3",
+      "status": 200,
+      "bytes": 947471,
+      "expectedBytes": 947471,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-5",
+      "filename": "KiTavo-5.mp3",
+      "status": 200,
+      "bytes": 1141613,
+      "expectedBytes": 1141613,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-6",
+      "filename": "KiTavo-6.mp3",
+      "status": 200,
+      "bytes": 4023546,
+      "expectedBytes": 4023546,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-50-7",
+      "filename": "KiTavo-7.mp3",
+      "status": 200,
+      "bytes": 624493,
+      "expectedBytes": 624493,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-1",
+      "filename": "Nitzavim-1.mp3",
+      "status": 200,
+      "bytes": 258706,
+      "expectedBytes": 258706,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-2",
+      "filename": "Nitzavim-2.mp3",
+      "status": 200,
+      "bytes": 269364,
+      "expectedBytes": 269364,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-3",
+      "filename": "Nitzavim-3.mp3",
+      "status": 200,
+      "bytes": 1401511,
+      "expectedBytes": 1401511,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-4",
+      "filename": "Nitzavim-4.mp3",
+      "status": 200,
+      "bytes": 612613,
+      "expectedBytes": 612613,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-5",
+      "filename": "Nitzavim-5.mp3",
+      "status": 200,
+      "bytes": 418785,
+      "expectedBytes": 418785,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-6",
+      "filename": "Nitzavim-6.mp3",
+      "status": 200,
+      "bytes": 294442,
+      "expectedBytes": 294442,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-51-7",
+      "filename": "Nitzavim-7.mp3",
+      "status": 200,
+      "bytes": 627033,
+      "expectedBytes": 627033,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-1",
+      "filename": "Vayeilech-1.mp3",
+      "status": 200,
+      "bytes": 301965,
+      "expectedBytes": 301965,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-2",
+      "filename": "Vayeilech-2.mp3",
+      "status": 200,
+      "bytes": 240316,
+      "expectedBytes": 240316,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-3",
+      "filename": "Vayeilech-3.mp3",
+      "status": 200,
+      "bytes": 355777,
+      "expectedBytes": 355777,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-4",
+      "filename": "Vayeilech-4.mp3",
+      "status": 200,
+      "bytes": 407918,
+      "expectedBytes": 407918,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-5",
+      "filename": "Vayeilech-5.mp3",
+      "status": 200,
+      "bytes": 641766,
+      "expectedBytes": 641766,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-6",
+      "filename": "Vayeilech-6.mp3",
+      "status": 200,
+      "bytes": 548456,
+      "expectedBytes": 548456,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-52-7",
+      "filename": "Vayeilech-7.mp3",
+      "status": 200,
+      "bytes": 527141,
+      "expectedBytes": 527141,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-1",
+      "filename": "Haazinu-1.mp3",
+      "status": 200,
+      "bytes": 355986,
+      "expectedBytes": 355986,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-2",
+      "filename": "Haazinu-2.mp3",
+      "status": 200,
+      "bytes": 352016,
+      "expectedBytes": 352016,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-3",
+      "filename": "Haazinu-3.mp3",
+      "status": 200,
+      "bytes": 376257,
+      "expectedBytes": 376257,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-4",
+      "filename": "Haazinu-4.mp3",
+      "status": 200,
+      "bytes": 576460,
+      "expectedBytes": 576460,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-5",
+      "filename": "Haazinu-5.mp3",
+      "status": 200,
+      "bytes": 589625,
+      "expectedBytes": 589625,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-6",
+      "filename": "Haazinu-6.mp3",
+      "status": 200,
+      "bytes": 211581,
+      "expectedBytes": 211581,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-53-7",
+      "filename": "Haazinu-7.mp3",
+      "status": 200,
+      "bytes": 769766,
+      "expectedBytes": 769766,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-1",
+      "filename": "VezotHaberakhah-1.mp3",
+      "status": 200,
+      "bytes": 432682,
+      "expectedBytes": 432682,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-2",
+      "filename": "VezotHaberakhah-2.mp3",
+      "status": 200,
+      "bytes": 334879,
+      "expectedBytes": 334879,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-3",
+      "filename": "VezotHaberakhah-3.mp3",
+      "status": 200,
+      "bytes": 299248,
+      "expectedBytes": 299248,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-4",
+      "filename": "VezotHaberakhah-4.mp3",
+      "status": 200,
+      "bytes": 238435,
+      "expectedBytes": 238435,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-5",
+      "filename": "VezotHaberakhah-5.mp3",
+      "status": 200,
+      "bytes": 231121,
+      "expectedBytes": 231121,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-6",
+      "filename": "VezotHaberakhah-6.mp3",
+      "status": 200,
+      "bytes": 240421,
+      "expectedBytes": 240421,
+      "cors": "*",
+      "error": null
+    },
+    {
+      "id": "pt-portion-54-7",
+      "filename": "VezotHaberakhah-7.mp3",
+      "status": 200,
+      "bytes": 995777,
+      "expectedBytes": 995777,
+      "cors": "*",
+      "error": null
+    }
+  ],
+  "failures": []
+}

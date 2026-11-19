@@ -11,8 +11,15 @@ const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.jso
 const books=await Promise.all(manifest.books.map(b=>readFile(path.join(root,'data/torah',b.file),'utf8').then(JSON.parse)));
 const corpus=JSON.stringify({manifest,books});
 const encoded=gzipSync(corpus,{level:9}).toString('base64');
+const referenceEncoded=(await readFile(path.join(root,'data/references/torah-library.json.gz'))).toString('base64');
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
-  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/library-data\.js$/},()=>({loader:'js',contents:`
+  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/reference-library-data\.js$/},()=>({loader:'js',contents:`
+    const referenceEncoded=${JSON.stringify(referenceEncoded)};
+    export async function loadReferenceData(){
+      if(typeof DecompressionStream==='undefined')throw Error('The recorded-reference library needs a current browser with gzip support.');
+      const bytes=Uint8Array.from(atob(referenceEncoded),c=>c.charCodeAt(0));
+      return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+    }`}));builder.onLoad({filter:/library-data\.js$/},()=>({loader:'js',contents:`
     const encoded=${JSON.stringify(encoded)};
     export async function loadCorpus(){
       if(typeof DecompressionStream==='undefined')throw Error('The full library needs a current browser with gzip support. The opening passage remains available.');

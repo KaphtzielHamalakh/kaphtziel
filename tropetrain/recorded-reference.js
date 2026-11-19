@@ -35,16 +35,27 @@ export function referenceSegments(selection,duration){
   return segments;
 }
 export function referenceWordAt(segment,time){
-  if(time<segment.start||time>=segment.end)return null;
+  if(!segment.words.length||time<segment.start||time>=segment.end)return null;
   let low=0,high=segment.words.length-1,answer=0;
   while(low<=high){const mid=(low+high)>>1;if(segment.words[mid].startSeconds<=time){answer=mid;low=mid+1;}else high=mid-1;}
   return segment.words[answer];
 }
 
+export function splitReferenceSegments(selection){
+  if(!selection.length)throw Error('Choose a nonempty reference span.');
+  const segments=[];
+  for(const word of selection){
+    if(!Number.isFinite(word.startSeconds)||word.startSeconds<0||!(word.endSeconds===null||word.endSeconds>word.startSeconds))throw Error('Reference word timing requires review.');
+    const previous=segments.at(-1),recordingId=word.recordingId??null;
+    if(previous&&previous.recordingId===recordingId&&previous.words.at(-1).referenceIndex+1===word.referenceIndex){previous.words.push(word);previous.end=word.endSeconds;}
+    else segments.push({recordingId,start:word.startSeconds,end:word.endSeconds,words:[word]});
+  }
+  return segments;
+}
 export class RecordingPlayer {
-  constructor(media,{onWord=()=>{},onEnd=()=>{},onError=()=>{},frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
-    this.media=media;this.onWord=onWord;this.onEnd=onEnd;this.onError=onError;this.frame=queueFrame;this.cancelFrame=cancelFrame;this.generation=0;this.running=false;this.starting=false;
-    media.addEventListener('ended',()=>{if(this.running&&media.currentTime>=this.segments[this.segmentIndex].end)this.advance();});
+  constructor(media,{onWord=()=>{},onEnd=()=>{},onError=()=>{},onLoading=()=>{},onRecording=()=>{},resolveSource=null,frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
+    this.media=media;this.onWord=onWord;this.onEnd=onEnd;this.onError=onError;this.onLoading=onLoading;this.onRecording=onRecording;this.resolveSource=resolveSource;this.frame=queueFrame;this.cancelFrame=cancelFrame;this.generation=0;this.running=false;this.starting=false;
+    media.addEventListener('ended',()=>{if(this.running&&media.currentTime>=this.currentSegment.end)this.advance();});
     media.addEventListener('error',()=>{if(this.running){this.stop();onError(Error('The recording could not be decoded or loaded.'));}});
   }
   stop(){
@@ -52,39 +63,47 @@ export class RecordingPlayer {
     this.media.pause();this.cancelFrame(this.raf);this.onWord(null);
   }
   async play(selection,repeat=false){
-    this.stop();const generation=this.generation;this.starting=true;
-    try{
-      if(this.media.readyState<1){
-        const pending=new AbortController();this.pending=pending;
-        await new Promise((resolve,reject)=>{
-          const cleanup=()=>{this.media.removeEventListener('loadedmetadata',ready);this.media.removeEventListener('error',failed);pending.signal.removeEventListener('abort',aborted);};
-          const ready=()=>{cleanup();resolve();},failed=()=>{cleanup();reject(Error('The reference recording is unavailable.'));},aborted=()=>{cleanup();reject(new DOMException('Stopped','AbortError'));};
-          this.media.addEventListener('loadedmetadata',ready,{once:true});this.media.addEventListener('error',failed,{once:true});pending.signal.addEventListener('abort',aborted,{once:true});this.media.load();
-        });
-      }
-      if(generation!==this.generation)return;
-      this.pending=null;this.segments=referenceSegments(selection,this.media.duration);this.segmentIndex=0;this.repeat=repeat;this.starting=false;this.running=true;
-      await this.startSegment(generation);
-    }catch(error){if(generation===this.generation){this.stop();if(error.name!=='AbortError')this.onError(error);}}
+    let segments;try{segments=splitReferenceSegments(selection);}catch(error){this.stop();this.onError(error);return;}
+    return this.playSegments(segments,repeat);
+  }
+  async playWhole(recordingId,repeat=false){return this.playSegments([{recordingId,start:0,end:null,words:[]}],repeat);}
+  async playSegments(segments,repeat=false){
+    this.stop();this.segments=segments;this.segmentIndex=0;this.repeat=repeat;
+    return this.startSegment(this.generation);
+  }
+  async metadata(signal){
+    if(this.media.readyState>=1)return;
+    await new Promise((resolve,reject)=>{
+      const cleanup=()=>{this.media.removeEventListener('loadedmetadata',ready);this.media.removeEventListener('error',failed);signal.removeEventListener('abort',aborted);};
+      const ready=()=>{cleanup();resolve();},failed=()=>{cleanup();reject(Error('The reference recording is unavailable.'));},aborted=()=>{cleanup();reject(new DOMException('Stopped','AbortError'));};
+      this.media.addEventListener('loadedmetadata',ready,{once:true});this.media.addEventListener('error',failed,{once:true});signal.addEventListener('abort',aborted,{once:true});this.media.load();
+    });
   }
   async startSegment(generation){
-    this.cancelFrame(this.raf);this.media.currentTime=this.segments[this.segmentIndex].start;
-    try{await this.media.play();}catch(error){if(generation===this.generation){this.stop();this.onError(error);}return;}
-    if(generation!==this.generation||!this.running)return;
-    const tick=()=>{
-      if(generation!==this.generation||!this.running)return;
-      const segment=this.segments[this.segmentIndex];
-      if(this.media.currentTime>=segment.end){this.advance();return;}
-      this.onWord(referenceWordAt(segment,this.media.currentTime));this.raf=this.frame(tick);
-    };tick();
+    this.running=false;this.starting=true;this.cancelFrame(this.raf);this.pending?.abort();const pending=new AbortController();this.pending=pending;
+    try{
+      const definition=this.segments[this.segmentIndex];this.onLoading(definition.recordingId);
+      if(this.resolveSource&&definition.recordingId){
+        const url=await this.resolveSource(definition.recordingId,{signal:pending.signal});
+        if(generation!==this.generation)return;
+        if(this.media.getAttribute?.('src')!==url)this.media.src=url;
+      }
+      if(this.media.readyState<1)await this.metadata(pending.signal);if(generation!==this.generation)return;
+      const duration=this.media.duration,end=definition.end??duration;
+      if(!Number.isFinite(duration)||definition.start<0||definition.start>=end||end>duration)throw Error('A reference boundary lies outside the decoded recording.');
+      this.currentSegment={...definition,end};this.media.currentTime=definition.start;this.onRecording(definition.recordingId);
+      this.starting=false;this.running=true;await this.media.play();if(generation!==this.generation||!this.running)return;
+      const tick=()=>{
+        if(generation!==this.generation||!this.running)return;
+        if(this.media.currentTime>=this.currentSegment.end){this.advance();return;}
+        this.onWord(referenceWordAt(this.currentSegment,this.media.currentTime));this.raf=this.frame(tick);
+      };tick();
+    }catch(error){if(generation===this.generation){this.stop();if(error.name!=='AbortError')this.onError(error);}}
   }
   advance(){
     if(!this.running)return;
-    this.cancelFrame(this.raf);this.media.pause();this.segmentIndex++;
-    if(this.segmentIndex>=this.segments.length){
-      if(this.repeat)this.segmentIndex=0;
-      else{this.stop();this.onEnd();return;}
-    }
+    this.cancelFrame(this.raf);this.media.pause();this.running=false;this.segmentIndex++;
+    if(this.segmentIndex>=this.segments.length){if(this.repeat)this.segmentIndex=0;else{this.stop();this.onEnd();return;}}
     this.startSegment(this.generation);
   }
 }

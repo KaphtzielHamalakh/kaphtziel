@@ -41,3 +41,15 @@ Genesis-2012.xml
   Bytes: 734902
 
 MP3 plain SHA-1 (also recorded by Internet Archive): 755c6e9918ba2021bba8b33c46db309c115620d6
+
+Whole-Torah reference library (v0.7)
+
+The catalog maps all 79,985 UXLC reader units to 79,986 original WLC source words in 378 Torah recordings (54 portions, seven aliyot each). Source file checksums, original paths, per-recording Archive filename/byte count/SHA-1, review flags and both exact Hebrew editions are retained in data/references/torah-library.json.gz. The compact format removes only repeated derived strings; reference-library.js expands original token columns without Unicode normalization.
+
+Original biblical XML, original aliquot/division metadata and 378 unmodified timing files are included in data/references/torah-sources.zip. SOURCE-MANIFEST.json in that archive records all 384 original files, their Git blob and SHA-256 checksums and original 2012 commit. Biblical XML headers state freely available. Original timing/division creative content retains the creator's CC BY-SA 2.5 notice; the derived source comparison and reference playback adaptation are CC BY-SA 3.0. No application code from PocketTorah is included.
+
+The other MP3s load only after an explicit user choice. They are downloaded from the original Archive collection without editing and checked against the collection's original byte counts and SHA-1 before use. Verified copies can be kept on the device. The opening recording remains bundled and unmodified. No pitch shifting, time stretching, synthesized pronunciation, musical transcription or individual-reader identification is claimed.
+
+370 source timing files have matching counts and strictly increasing starts; this is structural correspondence, not acoustic or musical review. Eight files have original timing errors: Shemot 1/5/7, Tetzaveh 1/3, Shmini 6, Nasso 4 and Eikev 3. Their full original takes are available without timed word highlighting; missing/invalid word boundaries are not guessed. The catalog retains those errors for review.
+
+WLC/UXLC chapter letter sequences correspond, with source-mark differences, 393 word references affected by verse renumbering and a two-WLC-word / one-UXLC-unit boundary at Numbers 12:9. All original tokens, marks, editorial codes and written variants remain distinct. Source records and playback adaptation do not establish an equivalent Kinnor preset, independently reviewed tune or pronunciation profile.
