@@ -194,3 +194,10 @@ Structural census: 79,985 preferred words, 68,511 source units, 67,966 qualified
 ## 2026-11-19 · v0.10 local verification
 
 83 checks pass, including every previous demo event hash. Local and standalone UI verified three Munaḥ/Zakef examples in Genesis22:1, one-word source playback ending at word5, unique rare combination/random selection at Numbers35:5, five-word maqaf selection and parallel ID preservation, chart pagination, explicit paseq exclusion and both original repeated Pashta positions. Source/key/speed/volume retained; unsupported Cohen verse refused without fallback. First playback observation wait ended early; the same finished playback was inspected successfully, never restarted. 320/390 body widths fit; a mobile glyph layout improvement and human section-number labels followed. Final rebuild/recheck, duplicate-section UI and publication next. No sound output, viewport reset, goal active.
+
+
+## 2026-11-19 · v0.10 published and live-verified
+
+Commit 4153cb1697dcd9b3d92addafa88909d5bbd043a5; Pages run44597603344 succeeded. All20 checked release files match tested bytes (17,237,056 bytes). Returning live v0.9 tab upgraded to v0.10 preserving full Genesis22:1 span, source, 60BPM, transpose0 and mute. New three-hit Munaḥ/Zakef search and word5 selection/source playback passed; finished at word5, no active highlights, both media paused. No captured warnings/errors, viewport reset. Proof outputs/TropeTrain-combinations-0.10.png. Final duplicate-section UI selected only section2 IDs and final320px chart layout fits. 83 automated checks pass with all existing event hashes unchanged.
+
+Deliverables are being synchronized with conflict checks against the prior release; old milestone ZIP stays archival. Next primary melody/context/phonetic and singer evidence work remains the priority, then all sourced calendar/divisions/repertoire/tutor/learning/print work. Original V3.2/V6 archive links and exact metadata/checksums are preserved; the proprietary archive was not executed, installed or redistributed. This iteration is progress, not full completion. Keep full objective active.

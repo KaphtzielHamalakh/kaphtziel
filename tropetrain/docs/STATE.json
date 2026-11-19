@@ -3,13 +3,12 @@
   "updated": "2026-11-19",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "f51782a8f3e0e954e79e00822bfdadb520fb0e11",
-  "nextTask": "Finish v0.10 source-context UI, standalone/responsive checks and publication; then continue source-specific melody/pronunciation/singer work and the complete roadmap. Original V3.2/V6 archive locations and V6 checksum verified again; no original code or music reused.",
+  "publishedCommit": "4153cb1697dcd9b3d92addafa88909d5bbd043a5",
+  "nextTask": "Continue full musical/phonetic fidelity: primary Cohen complete accent table, reusable Gaster/Idelsohn counterparts for recovered catalog names, context-specific motif records and review. The new source lookup is not full hierarchy or musical grammar. Complete six independent pronunciation grammars, reusable singer and independent review, then sourced calendar/divisions, remaining repertoire, tutor/learning/print and all roadmap features. Keep the objective active; do not claim completion from this structural release.",
   "lastPassingTests": {
-    "automated": 73,
-    "targetedAfterFinalMarkup": 14,
-    "ui": "Full printed verse, exact first/internal-group/final stops, rest highlight clearing, crossing-group repeat/view, all-52 pitch invariants, tempo, source-aware exports, unsupported verse, source recovery, standalone Stop/restart/replay and 320/390/1280 layouts. Live restored legacy selection and finished full verse. Muted throughout.",
-    "limits": "Independent musical/transcription/underlay/pronunciation review and singing remain pending. One bounded printed verse is not a full traditional grammar. Direct file-origin UI, network-failure/device/accessibility and wider roadmap remain unfinished."
+    "automated": 83,
+    "ui": "Source-context inspector, three within/across-word examples, exact selected-word playback stop, whole-Torah rare and random example, maqaf/parallel preservation, excluded paseq, repeated positions, duplicate section occurrence, chart paging, standalone and 320/390 layouts. Live returning upgrade retained all musical settings and source, then selected and played word5. Muted throughout.",
+    "limits": "Source structural counts are not musical/stress/full hierarchy review. Six pronunciations, full melodic grammars, singer and all remaining roadmap requirements still pending. Direct file-origin, broad accessibility/device/network-failure checks remain unfinished."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -158,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "f51782a8f3e0e954e79e00822bfdadb520fb0e11",
+    "commit": "4153cb1697dcd9b3d92addafa88909d5bbd043a5",
     "status": "success",
-    "workflowRun": 44587761998,
-    "liveAssets": "20 deployed resources matched tested bytes (19,175,877 bytes), including all changed runtime/audio/score modules, standalone, both scans, generated source fixture, importer and evidence map.",
-    "ui": "Returning v0.8 tab upgraded to v0.9 and retained source identity, words 12–13, 60 BPM, transpose 0 and zero volumes. New study selected all 13 words; 52 events/22 seconds at 120 BPM, printed rests cleared highlights, playback finished at word 13. First-word restart after completion also finished. Left full verse at 60 BPM/transpose 0, 44 seconds, no active highlights, both media paused and volumes zero. 1280 layout fit; no warnings/errors; viewport reset.",
+    "workflowRun": 44597603344,
+    "liveAssets": "20 release resources match tested bytes (17,237,056 bytes), including runtime, standalone, source-context module/UI, provenance and source audit.",
+    "ui": "Returning v0.9→v0.10 retained Genesis22:1 full source span, 60BPM, transpose0 and both zero volumes. New Munaḥ→Zakef query found words3–4, word5, words9–10. Selecting word5 retained its exact source and six notes; muted playback finished at word5 with zero active highlights and both audio elements paused. No captured warnings/errors. Viewport reset, live tab retained.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -189,15 +188,15 @@
   },
   "workingIteration": {
     "version": "0.10.0",
-    "status": "local_qa_passed_publication_pending",
+    "status": "published_live_verified",
     "newFeatures": [
       "Source-preserving maqaf units and adjacent combination lookup",
       "Edition-derived combination catalogue and random source example selection",
       "Uncertain contexts excluded; no new melody or pronunciation claimed"
     ],
     "tests": "83 final checks pass. UI/standalone rare and common lookup, single-word source playback, random selection, maqaf/parallel preservation, paseq exclusion, repeated positions, duplicate section2 occurrence navigation, chart paging and final320/390 layouts verified. No captured warnings/errors. Audio stopped/muted, viewport reset.",
-    "next": "Finish v0.10 source-context UI, standalone/responsive checks and publication; then continue source-specific melody/pronunciation/singer work and the complete roadmap. Original V3.2/V6 archive locations and V6 checksum verified again; no original code or music reused.",
-    "browser": "IAB2 tab16 local standalone; Genesis1:2 repeated Pashta, 55BPM/+1, both volumes0, stopped; viewport reset."
+    "next": "Continue full musical/phonetic fidelity: primary Cohen complete accent table, reusable Gaster/Idelsohn counterparts for recovered catalog names, context-specific motif records and review. The new source lookup is not full hierarchy or musical grammar. Complete six independent pronunciation grammars, reusable singer and independent review, then sourced calendar/divisions, remaining repertoire, tutor/learning/print and all roadmap features. Keep the objective active; do not claim completion from this structural release.",
+    "browser": "IAB2 live tab2, Genesis22:1 word5, Munaḥ→Zakef search open, 60BPM/transpose0/volumes0, stopped; viewport reset."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

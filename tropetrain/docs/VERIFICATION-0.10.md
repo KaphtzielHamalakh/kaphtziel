@@ -26,3 +26,8 @@ File-origin, broad device/network-failure/accessibility checks, independent ling
 ## Publication
 
 Final small-markup build passes all 83 checks. Duplicate assigned sections show separate section 1/2 results; selecting section 2 retained only its two occurrence IDs. Final 320-pixel chart glyph row spans 250 pixels, with body/root still 320; viewport reset. No captured warnings/errors. Connected GitHub publication, Pages confirmation and live upgrade checks are next.
+
+
+Published commit `4153cb1697dcd9b3d92addafa88909d5bbd043a5`; Pages run `44597603344` succeeded. All 20 checked deployed files matched tested bytes (17,237,056 bytes), including standalone, new modules, source provenance/audit and generated runtime.
+
+Returning live tab upgraded v0.9→v0.10 and retained Genesis 22:1 full span, Cohen source, 60 BPM, transpose 0 and both volumes 0. The new source query found all three Munaḥ/Zakef examples. Selecting word 5 retained its exact source ID and six notes; muted playback finished at word 5 with no active highlights and both media paused. No captured warnings/errors. Viewport reset; live tab retained with the source search open. Screenshot: outputs/TropeTrain-combinations-0.10.png. Full objective remains unfinished and active.
