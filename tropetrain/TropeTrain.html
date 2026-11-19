@@ -26,6 +26,8 @@
 .sign-classes .word:focus-visible{outline:3px solid var(--seal);outline-offset:3px}
 
 .source-inspector .table-scroll:focus-visible{outline:3px solid var(--seal);outline-offset:3px}
+.sign-search-controls>label{min-width:0}.sign-search select{min-width:0;max-width:100%}.combination-glyphs{font:26px/1.8 'Noto Hebrew',serif;letter-spacing:.12em;unicode-bidi:isolate;overflow-wrap:anywhere}#context-summary,#context-run,#combination-chart-rows li>span{overflow-wrap:anywhere}#combination-random{margin-bottom:8px}
+@media(max-width:760px){.combination-glyphs{grid-column:1/-1}}
 
 .recorded-reference{margin-top:2rem;padding:clamp(1rem,3vw,2rem);border:1px solid var(--line);background:var(--paper)}.recorded-reference p{max-width:76ch}.reference-actions{display:flex;flex-wrap:wrap;gap:.6rem}.reference-volume{max-width:24rem}.reference-word-detail{padding:1rem;border-inline-start:3px solid var(--seal);margin:1rem 0}.reference-word-detail b{display:block;font-family:Noto Hebrew,serif;font-size:2rem}.reference-word-detail p{overflow-wrap:anywhere}.reference-active{box-shadow:inset 0 -5px 0 var(--seal)!important}.recorded-reference details{margin-top:1rem}.recorded-reference .section-heading{flex-wrap:wrap}.recorded-reference .badge{white-space:normal}
 
@@ -63,7 +65,10 @@
         <div class="word-detail"><div><p class="eyebrow">At the cursor</p><div class="word-heading"><b id="current-word" lang="he" dir="rtl"></b><span id="current-reference"></span></div><p id="source-variant" class="muted"></p></div><div><p class="eyebrow">Accent in source text</p><p id="accent-name"></p><p class="muted" id="group-name"></p><p id="alignment-status" class="muted"></p></div></div>
         <p id="class-guide" class="class-guide" hidden>C: conjunctive. D1–D4: source-guide disjunctive levels. Frames follow the pointed source in every view. Context-dependent combinations are marked separately.</p>
         <details id="source-details" class="source-inspector"><summary>Inspect source signs</summary><p id="source-class"></p><p class="muted">Names and prose classes follow the source guide. A complete contextual hierarchy and musical realization still require review. Positions below count encoded source characters, including combining marks.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Source sign characters"><table><thead><tr><th>Sign</th><th>Code</th><th>Name</th><th>Class / role</th><th>Position</th></tr></thead><tbody id="source-sign-rows"></tbody></table></div><ul id="source-sign-warnings"></ul><a href="https://www.tanach.us/Pages/Coding.html">Source encoding guide</a></details>
+        <details id="source-context" class="source-inspector"><summary>Inspect source combinations</summary><p id="context-word" class="sign-result-word" lang="he" dir="rtl"></p><p id="context-summary"></p><p id="context-run"></p><p class="muted">Maqaf joins are retained as units. Repeated positional signs are grouped for search; every original sign remains in Inspect source signs. C* → D means zero or more conjunctives followed by a disjunctive. This is adjacent-sign context, not a full hierarchy or a melodic rule.</p><a href="https://archive.org/details/treatiseonaccent00wickuoft">Wickes 1887 · primary reference, pp. 9–12</a></details>
         <details id="find-signs" class="sign-search"><summary>Find a source sign</summary><p class="muted">Find words with a sign in this reading or across the Torah. Go to word opens the example and keeps your key, speed and volume.</p><div class="sign-search-controls"><label>Find sign<select id="sign-query"></select></label><label>Search in<select id="find-scope"><option value="reading">This reading</option><option value="torah">Entire Torah</option></select></label></div><p id="sign-result-status" role="status"></p><ol id="sign-results"></ol><div class="sign-search-pages"><button id="sign-previous">Previous matches</button><button id="sign-next">Next matches</button></div></details>
+        <details id="find-combinations" class="sign-search"><summary>Find source combinations</summary><p class="muted">Find adjacent accent patterns in qualified source units. Each example selects whole words, including maqaf joins. Your musical source, key, speed and volume stay selected. Cases needing interpretation are excluded. Selection does not start playback.</p><div class="sign-search-controls"><label>Find combination<select id="combination-query"></select></label><label>Search combinations in<select id="combination-scope"><option value="reading">This reading</option><option value="torah">Entire Torah</option></select></label></div><p id="combination-status" role="status"></p><button id="combination-random" disabled>Choose random example</button><ol id="combination-results"></ol><div class="sign-search-pages"><button id="combination-previous" disabled>Previous combinations</button><button id="combination-next" disabled>Next combinations</button></div></details>
+        <details id="combination-chart" class="sign-search"><summary>Torah source combination chart</summary><p class="muted">Patterns are derived from this edition’s C* → D source runs, including shorter suffixes. This is a source lookup chart; it is not a reconstruction of Kinnor’s approximately 70-combination teaching chart or a set of playable traditional motifs.</p><p id="combination-chart-status" role="status">Open to build the chart from the local Torah text.</p><ol id="combination-chart-rows"></ol><div class="sign-search-pages"><button id="chart-previous" disabled>Previous patterns</button><button id="chart-next" disabled>Next patterns</button></div></details>
       </section>
       <aside class="playback" id="playback-controls" aria-label="Playback controls">
         <p class="eyebrow">Listen & repeat</p><h2>Practice a little at a time.</h2>
@@ -130,7 +135,7 @@ Research updated: November 19, 2026. Brief: Rabbi Ben Newman’s supplied `Trope
 
 The [2011 V5 manual transcription](https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s), pp. 44–52, was directly checked for display modes, Accent and Voice settings, half-step pitch controls, separate melody choice, and playback boundaries. It documents shift-selected spans, repeat, double-click word playback and a Melody Help menu for the active reading type. These establish historical interface behavior, not the pitches of a melody.
 
-All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi Modern, Sephardi, Sephardi Traditional, U.S. Sephardi and Galician. The label evidence does not supply a full pronunciation grammar. Litvak/Lithuanian remains unverified. The preserved 6.0.428 archive now supplies 79 definition labels, including 32 Torah entries, in ORIGINAL-CATALOG.json. These are data-file observations, not yet running-menu observations or a claim that this archive is the final issued build. No historical music has been transcribed or reader-reviewed here, and none of these labels appears as an available sound preset.
+All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi Modern, Sephardi, Sephardi Traditional, U.S. Sephardi and Galician. The label evidence does not supply a full pronunciation grammar. Litvak/Lithuanian remains unverified. The preserved 6.0.428 archive now supplies 79 definition labels, including 32 Torah entries, in ORIGINAL-CATALOG.json. These are data-file observations, not yet running-menu observations or a claim that this archive is the final issued build. None of the recovered Kinnor definitions has been transcribed into a playable profile or reader-reviewed here; the separate Cohen 1902 printed study is described below. None of these catalog labels appears as an available sound preset.
 
 The source distinctions and further historical claims below follow the supplied brief; those other references have not all been independently audited in this milestone. A modern product’s recordings or menus are not evidence of Kinnor V6.
 
@@ -271,6 +276,17 @@ Live playback, offline WAV and MIDI join tied components into a single sustained
 This is still a regularly timed instrumental study in modern equal temperament, with draft Hebrew source-cluster underlay and null phonemes. It is not a reviewed full melody grammar, pronunciation realization or singer. The historical text and source score are verifiable; new transcription, underlay, expressive timing and contextual application still need independent musical review. Uncovered or changed marked words remain explicitly unplayable for this source. The full 32-system/six-Accent/singing and remaining roadmap scope is unchanged.
 
 Stop and natural completion suspend idle instrument output; a subsequent Play resumes it. The standalone now embeds both scans and this complete evidence map/roadmap, avoiding its previous relative-link failure when moved by itself. Network-failure, direct file-origin UI and wider device/accessibility review remain separate pending checks.
+
+
+## Source context and combination lookup · v0.10
+
+[Wickes’s 1887 primary treatise](https://archive.org/details/treatiseonaccent00wickuoft), printed p. 12 (PDF page 36 in the checked scan), discusses maqaf-linked words as one accent-bearing unit and repeated pre/postpositive sign positions. Printed p. 9 distinguishes musical conjunctive/disjunctive classes from semantic punctuation. The [original scan](https://upload.wikimedia.org/wikipedia/commons/4/41/Wickes-Accentuation-1887.pdf) was visually checked; byte/hash provenance is in CONTEXT-SOURCES.json. This independent implementation uses those limited structural observations alongside UXLC’s encoding guide. It does not apply the author’s proposed textual corrections, infer stress from postpositive location, or derive a full tree by sorting generic C/D ranks.
+
+All 79,985 preferred w/q words retain exact source strings and canonical/assignment occurrence IDs. Maqaf-linked source words form 68,511 total units; 67,966 units qualify for conservative adjacent-sign lookup and 545 are excluded. Exclusion reasons include paseq, multiple disjunctives, an accented maqaf prefix, an unresolved repeated sign, missing functional accent or an unresolved order. Every excluded word remains readable; no source string is changed. Repeated positional signs on one word can share a derived search atom, which keeps all original sign offsets. Zarqa’s separate stress helper is not a second melodic sign. No phonemes or stress values are added.
+
+Qualified consecutive conjunctives followed by one disjunctive form a source C*→D run, not a complete syntactic or melodic phrase. Their suffixes yield 65 distinct patterns in this edition, with counts and exceptions in SOURCE-CONTEXT-AUDIT.json. The chart is derived from source data; it is not Kinnor’s approximately 70-combination curriculum. Cross-group featured patterns are literal adjacent-sign queries, also without a melody claim. Search stays within one verse and assigned occurrence, never crosses an excluded unit, and selects complete source words including maqaf prefixes and any additional signs.
+
+Genesis 22:1 contains Munaḥ→Zakef across words 3–4, inside word 5, and across words 9–10. The bounded Cohen study can play those exact source words; no generic motif is extrapolated. Numbers 35:5 contains the unique Yeraḥ-ben-yomo→Qarnei-fara pair. Search/random example selection preserves musical source, personal key/speed/range/volume and does not start audio or download a recording. The recorded-reference path remains separate. Independent linguistic/musical review, complete hierarchy, all historical melodic systems, six pronunciation grammars, synthesis and the full curriculum/roadmap remain pending.
 </pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">Copyright 2022 The Noto Project Authors (https://github.com/notofonts/hebrew)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -2633,7 +2649,7 @@ WLC/UXLC chapter letter sequences correspond, with source-mark differences, 393 
     "comparison": "The small ring between pickup notes in the first scan is absent from this independent copy. It is not treated as a pitched note. Pitches, rests, ties and note durations compared between both copies."
   }
 }
-</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.9.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.10.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -6291,6 +6307,197 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return PRINTED_WORDS.find((row) => row.id === (word.sourceWordId ?? word.id) && row.sourceHebrew === word.sourceHebrew) ?? null;
   }
 
+  // accent-context.js
+  var CONTEXT_ANALYSIS = Object.freeze({
+    id: "uxlc-adjacent-combinations",
+    revision: 1,
+    sources: ["https://www.tanach.us/Pages/Coding.html", "https://archive.org/details/treatiseonaccent00wickuoft"],
+    historicalReference: "Wickes, 1887, printed pp. 9–12. Maqaf units and repeated positional signs; no proposed textual corrections applied.",
+    scope: "Derived adjacent source-sign combinations, not a full syntactic hierarchy, melodic grammar or verified Kinnor chart."
+  });
+  var positional = /* @__PURE__ */ new Set(["pashta", "segolta", "zarqa", "telisha-gedola", "telisha-qetana"]);
+  var COMBINATION_SIGNS = Object.freeze(SEARCH_SIGNS.filter((s) => s.proseClass));
+  var definitions = new Map(COMBINATION_SIGNS.map((s) => [s.id, s]));
+  var FEATURED_COMBINATIONS = Object.freeze([
+    ["munah", "etnahta"],
+    ["merkha", "tipha"],
+    ["merkha", "silluq"],
+    ["munah", "zakef-katon"],
+    ["mahapakh", "pashta"],
+    ["darga", "tevir"],
+    ["qadma", "geresh"],
+    ["munah", "revia"],
+    ["munah", "zarqa"],
+    ["yerah-ben-yomo", "qarnei-fara"],
+    ["merkha", "tipha", "munah", "etnahta"],
+    ["zarqa", "munah", "segolta"],
+    ["qadma", "mahapakh", "pashta", "munah", "zakef-katon"]
+  ].map((ids) => Object.freeze({ id: ids.join(">"), ids: Object.freeze(ids) })));
+  var combinationName = (ids) => ids.map((id) => definitions.get(id)?.name ?? id).join(" → ");
+  var combinationGlyphs = (ids) => ids.map((id) => "◌" + definitions.get(id).char).join("  ");
+  function query(value) {
+    const ids = Array.isArray(value) ? value : String(value).split(">");
+    if (ids.length < 2 || ids.length > 32 || ids.some((id) => !definitions.has(id))) throw Error("Choose a source combination from the chart.");
+    return ids;
+  }
+  var verseIdentity = (w) => w.verseKey ?? [w.bookId, w.chapter, w.verse, w.sectionId].join(":");
+  var joined = (w) => /־[\s\u034f\u200d]*$/u.test(w.sourceHebrew);
+  function analyzeAccentContext(words3) {
+    const units = [], runs = [], wordContexts = Array(words3.length);
+    let pending = null;
+    for (let i = 0; i < words3.length; i++) {
+      const word = words3[i], key = verseIdentity(word);
+      if (!pending) pending = { id: `unit:${word.id}`, verseKey: key, wordIndices: [], atoms: [], issues: [], foldedPositions: 0 };
+      const unit = pending;
+      unit.wordIndices.push(i);
+      const analysis = word.signAnalysis ?? analyzeSourceSigns(word.sourceHebrew);
+      const raw = [...analysis.signs, ...analysis.marks.filter((s) => s.id === "silluq")].sort((a, b) => a.offset - b.offset);
+      const groups = /* @__PURE__ */ new Map();
+      for (const sign of raw) {
+        const position = { ...sign, wordIndex: i, wordId: word.id, sourceWordId: word.sourceWordId ?? word.id };
+        if (sign.role === "helper") continue;
+        if (!sign.proseClass) {
+          unit.issues.push("poetic-or-unclassified-sign");
+          continue;
+        }
+        if (!groups.has(sign.id)) groups.set(sign.id, []);
+        groups.get(sign.id).push(position);
+      }
+      for (const [id, positions] of groups) {
+        if (positions.length > 1 && !positional.has(id)) unit.issues.push("unresolved-repeated-sign");
+        if (positions.length > 1) unit.foldedPositions += positional.has(id) ? positions.length - 1 : 0;
+        unit.atoms.push({ id, proseClass: positions[0].proseClass, positions });
+      }
+      if (analysis.marks.some((s) => s.id === "paseq")) unit.issues.push("paseq-context");
+      if (analysis.marks.some((s) => s.id === "sof-pasuq") && i + 1 < words3.length && verseIdentity(words3[i + 1]) === key) unit.issues.push("internal-verse-closing-mark");
+      if (word.sourceHebrew.includes("־") && !joined(word)) unit.issues.push("internal-maqaf");
+      if (joined(word) && raw.some((s) => s.proseClass)) unit.issues.push("accented-maqaf-prefix");
+      const continueUnit = joined(word) && i + 1 < words3.length && verseIdentity(words3[i + 1]) === key;
+      if (joined(word) && !continueUnit) unit.issues.push("dangling-maqaf");
+      if (continueUnit) continue;
+      if (!unit.atoms.length) unit.issues.push("no-functional-accent");
+      const disjunctives = unit.atoms.filter((a) => a.proseClass.startsWith("D"));
+      if (disjunctives.length > 1) unit.issues.push("multiple-disjunctives");
+      if (disjunctives.length && unit.atoms.at(-1) !== disjunctives[0]) unit.issues.push("sign-order-needs-context");
+      unit.issues = [...new Set(unit.issues)];
+      unit.qualified = !unit.issues.length;
+      unit.index = units.length;
+      for (const n of unit.wordIndices) wordContexts[n] = { unitIndex: unit.index, runIndex: null };
+      units.push(unit);
+      pending = null;
+    }
+    let runUnits = [];
+    for (const unit of units) {
+      if (!unit.qualified || runUnits.length && unit.verseKey !== runUnits[0].verseKey) runUnits = [];
+      if (!unit.qualified) continue;
+      runUnits.push(unit);
+      if (unit.atoms.at(-1).proseClass.startsWith("D")) {
+        const run = { id: `run:${runUnits[0].id}`, unitIndices: runUnits.map((u) => u.index), wordIndices: runUnits.flatMap((u) => u.wordIndices), atoms: runUnits.flatMap((u) => u.atoms) };
+        const index = runs.length;
+        runs.push(run);
+        for (const n of run.wordIndices) wordContexts[n].runIndex = index;
+        runUnits = [];
+      }
+    }
+    return { analysis: CONTEXT_ANALYSIS, units, runs, wordContexts };
+  }
+  function streams(context) {
+    const result = [];
+    let stream = [], key = null;
+    for (const unit of context.units) {
+      if (!unit.qualified || key !== unit.verseKey) {
+        if (stream.length) result.push(stream);
+        stream = [];
+      }
+      key = unit.verseKey;
+      if (unit.qualified) stream.push(...unit.atoms.map((atom) => ({ ...atom, unitIndex: unit.index })));
+    }
+    if (stream.length) result.push(stream);
+    return result;
+  }
+  function hitFor(words3, context, atoms) {
+    const unitIndices = [...new Set(atoms.map((a) => a.unitIndex))];
+    const selected = unitIndices.flatMap((n) => context.units[n].wordIndices), start = selected[0], end = selected.at(-1), slice = words3.slice(start, end + 1);
+    return {
+      start,
+      end,
+      word: slice[0],
+      words: slice,
+      occurrenceIds: slice.map((w) => w.id),
+      sourceWordIds: slice.map((w) => w.sourceWordId ?? w.id),
+      atoms,
+      withinWord: new Set(atoms.flatMap((a) => a.positions.map((p) => p.wordId))).size === 1,
+      includesOtherSigns: unitIndices.some((n) => context.units[n].atoms.some((a) => !atoms.some((b) => a.positions === b.positions))),
+      includesMaqaf: slice.some(joined)
+    };
+  }
+  function findCombinationsInReading(words3, value, context = analyzeAccentContext(words3)) {
+    const ids = query(value), hits = [];
+    for (const stream of streams(context)) for (let i = 0; i <= stream.length - ids.length; i++) {
+      if (ids.every((id, j) => stream[i + j].id === id)) hits.push(hitFor(words3, context, stream.slice(i, i + ids.length)));
+    }
+    return hits;
+  }
+  var caches = /* @__PURE__ */ new WeakMap();
+  function cacheFor(corpus2) {
+    let cache = caches.get(corpus2);
+    if (!cache) {
+      cache = { queries: /* @__PURE__ */ new Map() };
+      caches.set(corpus2, cache);
+    }
+    return cache;
+  }
+  async function visitCorpusContext(corpus2, visit) {
+    let count = 0;
+    for (const book of corpus2.books) {
+      const last = book.chapters.at(-1), passage3 = corpus2.passage([{ id: "context-index", bookId: book.id, start: { chapter: 1, verse: 1 }, end: { chapter: last.number, verse: last.verses.at(-1).number } }]);
+      for (const verse of passage3.verses) {
+        visit(verse.words, analyzeAccentContext(verse.words), verse);
+        if (++count % 200 === 0) await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+  }
+  async function findCombinationsInCorpus(corpus2, value) {
+    const ids = query(value), key = ids.join(">"), cache = cacheFor(corpus2).queries;
+    if (cache.has(key)) return cache.get(key);
+    const promise3 = (async () => {
+      const hits = [];
+      await visitCorpusContext(corpus2, (words3, context) => hits.push(...findCombinationsInReading(words3, ids, context)));
+      return hits;
+    })();
+    if (cache.size >= 8) cache.delete(cache.keys().next().value);
+    cache.set(key, promise3);
+    try {
+      return await promise3;
+    } catch (error) {
+      cache.delete(key);
+      throw error;
+    }
+  }
+  async function getCombinationCatalogue(corpus2) {
+    const cache = cacheFor(corpus2);
+    if (cache.catalogue) return cache.catalogue;
+    cache.catalogue = (async () => {
+      const counts = /* @__PURE__ */ new Map();
+      await visitCorpusContext(corpus2, (_words, context) => {
+        for (const run of context.runs) for (let i = 0; i < run.atoms.length - 1; i++) {
+          const ids = run.atoms.slice(i).map((a) => a.id), id = ids.join(">");
+          const entry = counts.get(id) ?? { id, ids, count: 0 };
+          entry.count++;
+          counts.set(id, entry);
+        }
+      });
+      return [...counts.values()].sort((a, b) => b.count - a.count || a.id.localeCompare(b.id));
+    })();
+    try {
+      return await cache.catalogue;
+    } catch (error) {
+      cache.catalogue = null;
+      throw error;
+    }
+  }
+
   // music.js
   var syllableDrafts = [
     [[1, 2, 3], ["bə", "rē", "shīt"], 2],
@@ -6424,7 +6631,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return event;
       });
     }
-    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile };
+    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile, context: analyzeAccentContext(words3) };
   }
   var initial = createReadingModel(passage);
   var words = initial.words;
@@ -7050,7 +7257,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // sign-search.js
   var UNMARKED = Object.freeze({ id: "unmarked", name: "Unmarked source words", char: null });
   var SIGN_QUERIES = Object.freeze([...SEARCH_SIGNS, UNMARKED]);
-  var query = (id) => {
+  var query2 = (id) => {
     const q = SIGN_QUERIES.find((s) => s.id === id);
     if (!q) throw Error("Choose a source sign from the list.");
     return q;
@@ -7060,19 +7267,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return [...analysis.signs, ...analysis.marks].filter((s) => s.id === id).length;
   }
   function findSignsInReading(words3, id) {
-    query(id);
+    query2(id);
     return words3.flatMap((word, wordIndex) => {
       const count = occurrences(word.signAnalysis ?? analyzeSourceSigns(word.sourceHebrew), id);
       return count ? [{ word, wordIndex, occurrenceId: word.id, sourceWordId: word.sourceWordId ?? word.id, count }] : [];
     });
   }
-  var caches = /* @__PURE__ */ new WeakMap();
+  var caches2 = /* @__PURE__ */ new WeakMap();
   async function findSignsInCorpus(corpus2, id) {
-    const q = query(id);
-    let cache = caches.get(corpus2);
+    const q = query2(id);
+    let cache = caches2.get(corpus2);
     if (!cache) {
       cache = /* @__PURE__ */ new Map();
-      caches.set(corpus2, cache);
+      caches2.set(corpus2, cache);
     }
     if (cache.has(id)) return cache.get(id);
     const result = [];
@@ -7489,6 +7696,161 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   };
 
+  // combination-ui.js
+  var issueNames = {
+    "poetic-or-unclassified-sign": "poetic or unclassified sign",
+    "unresolved-repeated-sign": "repeated sign needs interpretation",
+    "paseq-context": "paseq requires context",
+    "internal-verse-closing-mark": "verse-closing mark inside a verse",
+    "internal-maqaf": "maqaf inside a source unit",
+    "accented-maqaf-prefix": "accent on a maqaf prefix",
+    "dangling-maqaf": "maqaf continuation is outside this verse",
+    "no-functional-accent": "no functional accent identified",
+    "multiple-disjunctives": "several disjunctives in one unit",
+    "sign-order-needs-context": "sign order needs interpretation"
+  };
+  function mountCombinationTools({ getModel, getCorpus: getCorpus2, selectHit }) {
+    const $2 = (id) => document.getElementById(id);
+    let hits = [], page = 0, generation = 0, searchWords = null, scope = "reading", catalogue = [], chartPage = 0, cataloguePromise = null;
+    const PAGE = 8, CHART_PAGE = 20;
+    const options = new Map(FEATURED_COMBINATIONS.map((p) => [p.id, p]));
+    function updateOptions() {
+      const selected = $2("combination-query").value || "munah>etnahta";
+      $2("combination-query").replaceChildren();
+      for (const pattern of options.values()) {
+        const option = document.createElement("option");
+        option.value = pattern.id;
+        option.textContent = combinationName(pattern.ids);
+        $2("combination-query").append(option);
+      }
+      $2("combination-query").value = selected;
+    }
+    function choose(hit) {
+      selectHit(hit, scope === "torah");
+    }
+    function renderHits() {
+      page = Math.min(page, Math.max(0, Math.ceil(hits.length / PAGE) - 1));
+      const first = page * PAGE, last = Math.min(first + PAGE, hits.length);
+      $2("combination-status").textContent = `${hits.length.toLocaleString()} source match${hits.length === 1 ? "" : "es"}${hits.length ? ` · showing ${first + 1}–${last}` : ""}. Whole source words are selected.`;
+      $2("combination-results").replaceChildren();
+      $2("combination-previous").disabled = first === 0;
+      $2("combination-next").disabled = last === hits.length;
+      $2("combination-random").disabled = !hits.length;
+      for (const hit of hits.slice(first, last)) {
+        const row = document.createElement("li"), text = document.createElement("span"), ref = document.createElement("span"), button = document.createElement("button");
+        text.className = "sign-result-word";
+        text.lang = "he";
+        text.dir = "rtl";
+        text.textContent = hit.words.map((w) => w.sourceHebrew).join(" ");
+        const from = hit.words[0], to = hit.words.at(-1), ordinal = from.ordinal === to.ordinal ? `word ${from.ordinal}` : `words ${from.ordinal}–${to.ordinal}`;
+        const section = scope === "reading" && getModel().passage.ranges.length > 1 ? ` · section ${getModel().passage.ranges.findIndex((r) => r.id === from.sectionId) + 1}` : "";
+        ref.textContent = `${from.reference} · ${ordinal}${section}${hit.withinWord ? " · within one word" : ""}${hit.includesMaqaf ? " · maqaf unit" : ""}${hit.includesOtherSigns ? " · whole-word selection includes other signs" : ""}`;
+        button.textContent = "Select combination";
+        button.setAttribute("aria-label", `Select ${from.reference} ${ordinal}${section}`);
+        button.addEventListener("click", () => choose(hit));
+        row.append(text, ref, button);
+        $2("combination-results").append(row);
+      }
+    }
+    async function refresh({ reset = false } = {}) {
+      const current = ++generation;
+      searchWords = getModel().words;
+      if (reset) page = 0;
+      scope = $2("combination-scope").value;
+      const query3 = $2("combination-query").value, sourceScope = scope;
+      hits = [];
+      $2("combination-results").replaceChildren();
+      $2("combination-status").textContent = scope === "torah" ? "Searching source combinations across the Torah…" : "Searching this reading…";
+      for (const id of ["combination-previous", "combination-next", "combination-random"]) $2(id).disabled = true;
+      try {
+        const found = sourceScope === "torah" ? await findCombinationsInCorpus(await getCorpus2(), query3) : findCombinationsInReading(searchWords, query3, getModel().context);
+        if (current !== generation) return;
+        hits = found;
+        renderHits();
+      } catch (error) {
+        if (current === generation) $2("combination-status").textContent = error.message;
+      }
+    }
+    function renderChart() {
+      const first = chartPage * CHART_PAGE, last = Math.min(first + CHART_PAGE, catalogue.length);
+      $2("combination-chart-rows").replaceChildren();
+      $2("combination-chart-status").textContent = `${catalogue.length.toLocaleString()} distinct C* → D patterns derived from qualified source units in this edition · ${first + 1}–${last}.`;
+      $2("chart-previous").disabled = first === 0;
+      $2("chart-next").disabled = last === catalogue.length;
+      for (const entry of catalogue.slice(first, last)) {
+        const row = document.createElement("li"), glyph = document.createElement("span"), name = document.createElement("span"), button = document.createElement("button");
+        glyph.className = "combination-glyphs";
+        glyph.lang = "he";
+        glyph.dir = "ltr";
+        glyph.textContent = combinationGlyphs(entry.ids);
+        glyph.setAttribute("aria-hidden", "true");
+        name.textContent = `${combinationName(entry.ids)} · ${entry.count.toLocaleString()} matches`;
+        button.textContent = "Find examples";
+        button.setAttribute("aria-label", `Find ${combinationName(entry.ids)} examples`);
+        button.addEventListener("click", () => {
+          $2("find-combinations").open = true;
+          $2("combination-query").value = entry.id;
+          $2("combination-scope").value = "torah";
+          refresh({ reset: true });
+          $2("combination-query").focus();
+        });
+        row.append(glyph, name, button);
+        $2("combination-chart-rows").append(row);
+      }
+    }
+    async function ensureCatalogue() {
+      if (cataloguePromise) return cataloguePromise;
+      $2("combination-chart-status").textContent = "Building the source combination chart…";
+      cataloguePromise = (async () => {
+        catalogue = await getCombinationCatalogue(await getCorpus2());
+        for (const entry of catalogue) options.set(entry.id, entry);
+        updateOptions();
+        renderChart();
+      })();
+      try {
+        await cataloguePromise;
+      } catch (error) {
+        cataloguePromise = null;
+        $2("combination-chart-status").textContent = error.message;
+      }
+    }
+    for (const id of ["combination-query", "combination-scope"]) $2(id).addEventListener("change", () => refresh({ reset: true }));
+    for (const [id, delta] of [["combination-previous", -1], ["combination-next", 1]]) $2(id).addEventListener("click", () => {
+      page += delta;
+      renderHits();
+    });
+    for (const [id, delta] of [["chart-previous", -1], ["chart-next", 1]]) $2(id).addEventListener("click", () => {
+      chartPage += delta;
+      renderChart();
+    });
+    $2("combination-random").addEventListener("click", () => {
+      if (hits.length) choose(hits[Math.floor(Math.random() * hits.length)]);
+    });
+    $2("combination-chart").addEventListener("toggle", () => {
+      if ($2("combination-chart").open) ensureCatalogue();
+    });
+    $2("find-combinations").addEventListener("toggle", () => {
+      if ($2("find-combinations").open) {
+        refresh();
+        ensureCatalogue();
+      }
+    });
+    updateOptions();
+    refresh();
+    return {
+      readingChanged() {
+        if (searchWords !== getModel().words && scope === "reading") refresh({ reset: true });
+      },
+      showWord(index) {
+        const model2 = getModel(), context = model2.context, entry = context.wordContexts[index], unit = context.units[entry.unitIndex], run = entry.runIndex === null ? null : context.runs[entry.runIndex];
+        const source = unit.wordIndices.map((n) => model2.words[n].sourceHebrew).join(" ");
+        $2("context-word").textContent = source;
+        $2("context-summary").textContent = `${unit.wordIndices.length === 1 ? "One source word" : `${unit.wordIndices.length} source words linked by maqaf`} · ${unit.atoms.length ? combinationName(unit.atoms.map((a) => a.id)) : "no functional accent identified"}${unit.foldedPositions ? ` · ${unit.foldedPositions} repeated positional sign${unit.foldedPositions === 1 ? "" : "s"} grouped for search only` : ""}.`;
+        $2("context-run").textContent = unit.issues.length ? `Needs interpretation: ${unit.issues.map((id) => issueNames[id]).join("; ")}. Excluded from combination search.` : run ? `Source C* → D run: ${combinationName(run.atoms.map((a) => a.id))}. ${run.wordIndices.length} source word${run.wordIndices.length === 1 ? "" : "s"}.` : "No complete C* → D run before the next source boundary. Adjacent-sign lookup only.";
+      }
+    };
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -7554,6 +7916,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var findHits = [];
   var findPage = 0;
   var findWords = null;
+  var combinationTools = null;
   var referenceLibrary = null;
   var selectedReferenceId = null;
   var referenceActiveId = null;
@@ -7903,6 +8266,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
   }
   function renderSourceSigns(word) {
+    combinationTools?.showWord(word.index);
     const analysis = word.signAnalysis;
     $("source-class").textContent = sourceClassLabel(analysis.className);
     $("source-sign-rows").replaceChildren();
@@ -8283,6 +8647,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderSequence();
     persist();
     if (findWords !== words2 && state.findScope === "reading") refreshSignSearch({ reset: true });
+    combinationTools?.readingChanged();
   }
   function rememberReading() {
     const key = (ranges) => JSON.stringify(ranges.map((r) => ({ bookId: r.bookId, start: r.start, end: r.end, hidden: r.hidden })));
@@ -8413,10 +8778,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.signClasses = e.target.checked;
     render();
   });
-  for (const query2 of SIGN_QUERIES) {
+  for (const query3 of SIGN_QUERIES) {
     const option = document.createElement("option");
-    option.value = query2.id;
-    option.textContent = query2.name;
+    option.value = query3.id;
+    option.textContent = query3.name;
     $("sign-query").append(option);
   }
   for (const profile of melodyProfiles) {
@@ -8518,6 +8883,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       melody: model.profile,
       instrument,
       signAnalysis: SIGN_ANALYSIS,
+      contextAnalysis: CONTEXT_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
       tempo: state.tempo,
@@ -8591,6 +8957,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (document.hidden && (player.running || referencePlayer.running || referencePlayer.starting || !$("wav-preview").paused)) stop("Paused because this tab is hidden. Press Play to restart the span.");
   });
   if (matchMedia("(min-width: 761px)").matches) $("library-options").open = true;
+  combinationTools = mountCombinationTools({ getModel: () => model, getCorpus, selectHit: (hit, wholeTorah) => {
+    if (wholeTorah) libraryAction(() => {
+      const point = { chapter: hit.word.chapter, verse: hit.word.verse };
+      applyRanges([{ id: "combination-example", bookId: hit.word.bookId, start: point, end: point, label: "Source combination example" }]);
+    });
+    const ids = wholeTorah ? hit.sourceWordIds : hit.occurrenceIds;
+    const start = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids[0]);
+    const end = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids.at(-1));
+    if (start < 0 || end < start) return;
+    stop("Source combination selected. Press Play to hear the selected musical source.");
+    state.anchor = end;
+    state.cursor = start;
+    state.scope = "selection";
+    state.readerPage = Math.floor(words2[start].verseIndex / VERSE_PAGE);
+    state.notePage = 0;
+    state.staffPage = 0;
+    render();
+    document.querySelector(`[data-word="${words2[start].id}"]`)?.focus();
+    $("reader").scrollIntoView({ block: "start" });
+  } });
   render();
   renderSections();
   renderPickers();

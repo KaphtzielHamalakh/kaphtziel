@@ -2,6 +2,7 @@ import { passage as defaultPassage } from './passage.js';
 import { alignedSyllables } from './syllables.js';
 import {analyzeSourceSigns} from './accents.js';
 import {PRINTED_SCORE,printedWord} from './printed-score.js';
+import {analyzeAccentContext} from './accent-context.js';
 
 const syllableDrafts = [
   [[1,2,3],['bə','rē','shīt'],2], [[1,2],['bā','rā'],1], [[1,1,3],['e','lo','hīm'],2],
@@ -73,7 +74,7 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
       const event={...e,midi:e.midi+transpose,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
     });
   }
-  return {passage,words,events,bounds,buildPlan,profile};
+  return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words)};
 }
 const initial=createReadingModel(defaultPassage);
 export const words=initial.words,events=initial.events,bounds=initial.bounds,buildPlan=initial.buildPlan;

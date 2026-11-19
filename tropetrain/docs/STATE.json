@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "f51782a8f3e0e954e79e00822bfdadb520fb0e11",
-  "nextTask": "Continue full musical/phonetic fidelity: inspect the complete primary Cohen accent table/source attributions and reusable Gaster/Idelsohn material corresponding to recovered catalog names; develop source-specific contextual motif records and validation without extrapolating unreviewed rules. Pronunciation grammars, reusable singer and independent review remain pending. Then implement sourced calendar/reading divisions and remaining repertoire/tutor/learning/print work. Keep every original requirement active; do not equate the complete one-verse study or fixed takes with the 32 Torah systems/six Accent realization goal.",
+  "nextTask": "Finish v0.10 source-context UI, standalone/responsive checks and publication; then continue source-specific melody/pronunciation/singer work and the complete roadmap. Original V3.2/V6 archive locations and V6 checksum verified again; no original code or music reused.",
   "lastPassingTests": {
     "automated": 73,
     "targetedAfterFinalMarkup": 14,
@@ -103,12 +103,12 @@
     {
       "id": "analysis",
       "description": "Group colors, accent hierarchy, exceptions and rules inspector",
-      "status": "source_sign_inspector_classes_search_tested_full_context_and_exceptions_pending"
+      "status": "source_sign_inspector_classes_and_adjacent_context_search_tested_full_hierarchy_and_exceptions_pending"
     },
     {
       "id": "curriculum",
       "description": "Tutorials, randomized groups, recall, Kadma and combinations charts",
-      "status": "pending"
+      "status": "derived_source_combination_chart_and_random_lookup_tested_historical_lessons_recall_kadma_blessings_pending"
     },
     {
       "id": "outputs",
@@ -188,18 +188,16 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.9.0",
-    "status": "published_live_verified",
+    "version": "0.10.0",
+    "status": "local_qa_passed_publication_pending",
     "newFeatures": [
-      "Complete source-checked Genesis 22:1 printed transcription, 52 components/44 beats",
-      "Shared tie-aware sounding notes and explicit rests, source measures and exact tuplets",
-      "Independent scan comparison resolved pickup ring artifact; exact source preservation retained",
-      "Idle instrument context suspension with verified resume",
-      "Both scans and complete evidence/roadmap embedded in standalone with responsive wrapping"
+      "Source-preserving maqaf units and adjacent combination lookup",
+      "Edition-derived combination catalogue and random source example selection",
+      "Uncertain contexts excluded; no new melody or pronunciation claimed"
     ],
-    "next": "Continue full musical/phonetic fidelity: inspect the complete primary Cohen accent table/source attributions and reusable Gaster/Idelsohn material corresponding to recovered catalog names; develop source-specific contextual motif records and validation without extrapolating unreviewed rules. Pronunciation grammars, reusable singer and independent review remain pending. Then implement sourced calendar/reading divisions and remaining repertoire/tutor/learning/print work. Keep every original requirement active; do not equate the complete one-verse study or fixed takes with the 32 Torah systems/six Accent realization goal.",
-    "tests": "73 full-suite checks passed; distribution/source checks repeated after final standalone wrapping fix. Four MusicXML exports validate. Full source playback, all boundaries, rests, repeat/view, transpose/tempo, exports, unsupported verse, standalone resume and 320/390 layouts verified, muted.",
-    "browser": "IAB 2 / live tab 2, printed-study view; full verse selected at 60 BPM, transpose 0, volumes 0, stopped."
+    "tests": "83 final checks pass. UI/standalone rare and common lookup, single-word source playback, random selection, maqaf/parallel preservation, paseq exclusion, repeated positions, duplicate section2 occurrence navigation, chart paging and final320/390 layouts verified. No captured warnings/errors. Audio stopped/muted, viewport reset.",
+    "next": "Finish v0.10 source-context UI, standalone/responsive checks and publication; then continue source-specific melody/pronunciation/singer work and the complete roadmap. Original V3.2/V6 archive locations and V6 checksum verified again; no original code or music reused.",
+    "browser": "IAB2 tab16 local standalone; Genesis1:2 repeated Pashta, 55BPM/+1, both volumes0, stopped; viewport reset."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -219,5 +217,16 @@
   "timingHistory": {
     "record": "docs/TIMING-HISTORY.json",
     "finding": "All available original platform copies match; no timing edit in per-path history. Eight records remain complete-take only."
+  },
+  "sourceContext": {
+    "id": "uxlc-adjacent-combinations",
+    "revision": 1,
+    "readingWords": 79985,
+    "sourceUnits": 68511,
+    "qualifiedUnits": 67966,
+    "excludedUnits": 545,
+    "patterns": 65,
+    "record": "docs/SOURCE-CONTEXT-AUDIT.json",
+    "review": "Structural source lookup only. Full hierarchy, stress, musical context and independent review pending."
   }
 }

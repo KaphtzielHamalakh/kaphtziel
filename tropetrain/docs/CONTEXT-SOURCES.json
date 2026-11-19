@@ -1,0 +1,21 @@
+{
+  "id": "wickes-1887-prose-accents",
+  "title": "A Treatise on the Accentuation of the Twenty-One So-Called Prose Books of the Old Testament",
+  "author": "William Wickes",
+  "year": 1887,
+  "catalogue": "https://archive.org/details/treatiseonaccent00wickuoft",
+  "scan": "https://upload.wikimedia.org/wikipedia/commons/4/41/Wickes-Accentuation-1887.pdf",
+  "bytes": 5650526,
+  "sha256": "f53be0bef939dd9754b7c056ceb866f5111405c2d0821a51fc01c540d05f290f",
+  "pagesVisuallyChecked": [
+    9,
+    12
+  ],
+  "scanPdfPages": [
+    33,
+    36
+  ],
+  "rights": "1887 publication, public domain; factual rules independently implemented. No Kinnor musical assets copied.",
+  "implemented": "Maqaf-linked source units; repeated positional signs preserved and grouped only for search; qualified adjacent C*→D runs. No stress, full hierarchy, melodic grammar, editorial emendations or pronunciation inferred.",
+  "review": "Primary statements visually checked; independent linguistic and musical review pending."
+}

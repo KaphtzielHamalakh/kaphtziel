@@ -13,6 +13,8 @@ import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.j
 import {RecordingPlayer} from './recorded-reference.js';
 import {getReferenceLibrary} from './reference-library.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
+import {CONTEXT_ANALYSIS} from './accent-context.js';
+import {mountCombinationTools} from './combination-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
@@ -41,6 +43,7 @@ let restoringReading=!!restore.ranges;
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
+let combinationTools=null;
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 const referenceStore=new ReferenceAudioStore({openingUrl:$('reference-audio').getAttribute('src')});
 const referencePlayer=new RecordingPlayer($('reference-audio'),{
@@ -213,6 +216,7 @@ function renderReference({keepChoice=false}={}){
   }).catch(error=>{$('reference-storage').textContent=error.message;});
 }
 function renderSourceSigns(word){
+  combinationTools?.showWord(word.index);
   const analysis=word.signAnalysis;$('source-class').textContent=sourceClassLabel(analysis.className);
   $('source-sign-rows').replaceChildren();$('source-sign-warnings').replaceChildren();
   for(const sign of [...analysis.signs,...analysis.marks].sort((a,b)=>a.offset-b.offset)){
@@ -400,7 +404,7 @@ function render(){
   $('score-description').textContent=printed?'The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
   $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
-  renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});
+  renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -486,7 +490,7 @@ for(const [id,delta] of [['notes-previous',-1],['notes-next',1]])$(id).addEventL
 for(const [id,delta] of [['staff-previous',-1],['staff-next',1]])$(id).addEventListener('click',()=>{state.staffPage+=delta;renderStaff();});
 $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+  download('tropetrain-note-events.json',{format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,contextAnalysis:CONTEXT_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan});
 });
@@ -515,6 +519,19 @@ $('import-assignment').addEventListener('change',async e=>{
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.running||referencePlayer.running||referencePlayer.starting||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
 if(matchMedia('(min-width: 761px)').matches)$('library-options').open=true;
+combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(hit,wholeTorah)=>{
+  if(wholeTorah)libraryAction(()=>{
+    const point={chapter:hit.word.chapter,verse:hit.word.verse};
+    applyRanges([{id:'combination-example',bookId:hit.word.bookId,start:point,end:point,label:'Source combination example'}]);
+  });
+  const ids=wholeTorah?hit.sourceWordIds:hit.occurrenceIds;
+  const start=words.findIndex(w=>(wholeTorah?w.sourceWordId??w.id:w.id)===ids[0]);
+  const end=words.findIndex(w=>(wholeTorah?w.sourceWordId??w.id:w.id)===ids.at(-1));
+  if(start<0||end<start)return;
+  stop('Source combination selected. Press Play to hear the selected musical source.');
+  state.anchor=end;state.cursor=start;state.scope='selection';state.readerPage=Math.floor(words[start].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;render();
+  document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
+}});
 render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();

@@ -10,7 +10,7 @@ For development, from the repository root:
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open <http://localhost:8765/tropetrain/>. The checked-in browser bundle runs without installation. After changing source modules, build and test from this directory. Python 3 is used by the independent XML/source-pack audit:
+Open <http://127.0.0.1:8765/tropetrain/>. The checked-in browser bundle runs without installation. After changing source modules, build and test from this directory. Python 3 is used by the independent XML/source-pack audit:
 
 ```sh
 npm ci
@@ -53,7 +53,7 @@ WAV renders the same triangle instrument/envelope as live playback, once through
 
 Preferences and cursor/span endpoints are saved locally when storage is available. A service worker caches the app for later offline use; no remote API or account is required to practice. Changing tempo, transposition, repeat or scope during playback restarts or stops the current span explicitly; switching views preserves active playback. Hiding the tab stops sound, since background display timing cannot be trusted.
 
-See [evidence and full roadmap](docs/RESEARCH.md), [v0.9 verification](docs/VERIFICATION-0.9.md), [continuation log](docs/PROGRESS.md) and [structured state](docs/STATE.json). Runtime modules and compressed Torah data are bundled into a classic script with a pinned esbuild development dependency. A current browser with DecompressionStream support is needed for the embedded full corpus; the opening passage still initializes if that feature is absent. The app is an isolated directory in the existing static GitHub Pages site; the parent homepage and domain configuration are unchanged. Narrow screens have a persistent Play/Stop bar and a Controls link.
+See [evidence and full roadmap](docs/RESEARCH.md), [v0.10 verification](docs/VERIFICATION-0.10.md), [continuation log](docs/PROGRESS.md) and [structured state](docs/STATE.json). Runtime modules and compressed Torah data are bundled into a classic script with a pinned esbuild development dependency. A current browser with DecompressionStream support is needed for the embedded full corpus; the opening passage still initializes if that feature is absent. The app is an isolated directory in the existing static GitHub Pages site; the parent homepage and domain configuration are unchanged. Narrow screens have a persistent Play/Stop bar and a Controls link.
 
 
 ### Complete printed verse (v0.9)
@@ -63,3 +63,12 @@ Use **Printed study → Open the printed verse study** for all 13 words of Genes
 Two independent 1902 scans support the manually checked transcription; both are included. Exact source words, source rhythms/locations, bar totals and provenance are in PRINTED-SCORE.json. Run `node scripts/import-printed-score.mjs` to validate/regenerate its source fixture; build does this automatically. MusicXML retains source measures/meters and exact tuplets/ties/rests. The standalone embeds both images and the full evidence map/roadmap.
 
 This revision expands the earlier two-word excerpt; the final six pitches/durations/IDs are unchanged. The legacy profile ID remains for existing assignments. Regularized tempo, modern tuning/instrument and draft source-cluster underlay remain approximate; independent musical/transcription/underlay review is pending. The untexted coda and general rules for other verses are excluded. All 32 Torah systems, six Accent realizations, singing and remaining roadmap work remain unfinished.
+
+
+### Source combinations (v0.10)
+
+Open **Find source combinations**, choose **Munaḥ → Zakef katon**, and search **This reading** at Genesis 22:1. The three examples are words 3–4, word 5 alone, and words 9–10. **Select combination** selects whole source words; it never starts sound. Press **Play** for the currently selected instrumental source. **Choose random example** selects one of the current search results. Musical source, key, tempo, range and volume remain personal.
+
+Choose **Entire Torah** and **Yeraḥ ben yomo → Qarnei fara** for the single matching pair at Numbers 35:5 words 7–8. The chart also offers **Munaḥ → Yeraḥ ben yomo → Qarnei fara**, which includes the maqaf-linked words 4–6. **Inspect source combinations** shows those original word joins and the surrounding source run. A source study stays selected outside its coverage and clearly disables its unsupported playback; no other melody is substituted.
+
+**Torah source combination chart** derives 65 distinct C*→D suffix patterns from this edition. It does not reproduce the historical approximately 70-combination teaching chart. Cases with paseq, several disjunctives or other unresolved encoding context are excluded from search, while every source word/sign remains available in the reader/inspector. This is structural lookup, not a full hierarchy, stress analysis or musical grammar. Run `node scripts/audit-source-context.mjs` for the reproducible census in docs/SOURCE-CONTEXT-AUDIT.json. Primary references and limits are in docs/CONTEXT-SOURCES.json.

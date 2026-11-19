@@ -1,0 +1,803 @@
+{
+  "edition": "Unicode/XML Leningrad Codex (UXLC) 2.6, build 27.7",
+  "analysis": {
+    "id": "uxlc-adjacent-combinations",
+    "revision": 1,
+    "sources": [
+      "https://www.tanach.us/Pages/Coding.html",
+      "https://archive.org/details/treatiseonaccent00wickuoft"
+    ],
+    "historicalReference": "Wickes, 1887, printed pp. 9–12. Maqaf units and repeated positional signs; no proposed textual corrections applied.",
+    "scope": "Derived adjacent source-sign combinations, not a full syntactic hierarchy, melodic grammar or verified Kinnor chart."
+  },
+  "readingWords": 79985,
+  "sourceUnits": 68511,
+  "qualifiedUnits": 67966,
+  "excludedUnits": 545,
+  "maqafUnits": 11073,
+  "withinWordCombinations": 432,
+  "foldedPositions": 936,
+  "completeSourceRuns": 43669,
+  "cataloguePatterns": 65,
+  "issues": {
+    "paseq-context": 388,
+    "multiple-disjunctives": 59,
+    "sign-order-needs-context": 74,
+    "accented-maqaf-prefix": 47,
+    "no-functional-accent": 44,
+    "unresolved-repeated-sign": 2
+  },
+  "examples": {
+    "paseq-context": [
+      [
+        {
+          "id": "gen-1-5-2",
+          "sourceHebrew": "אֱלֹהִ֤ים ׀"
+        }
+      ],
+      [
+        {
+          "id": "gen-1-10-2",
+          "sourceHebrew": "אֱלֹהִ֤ים ׀"
+        }
+      ],
+      [
+        {
+          "id": "gen-1-21-9",
+          "sourceHebrew": "הֽ͏ַחַיָּ֣ה ׀"
+        }
+      ],
+      [
+        {
+          "id": "gen-1-27-2",
+          "sourceHebrew": "אֱלֹהִ֤ים ׀"
+        }
+      ]
+    ],
+    "multiple-disjunctives": [
+      [
+        {
+          "id": "gen-5-29-6",
+          "sourceHebrew": "זֶ֞֠ה"
+        }
+      ],
+      [
+        {
+          "id": "gen-8-18-1",
+          "sourceHebrew": "וַיֵּ֖צֵא־"
+        },
+        {
+          "id": "gen-8-18-2",
+          "sourceHebrew": "נֹ֑חַ"
+        }
+      ],
+      [
+        {
+          "id": "gen-35-22-7",
+          "sourceHebrew": "רְאוּבֵ֔֗ן"
+        }
+      ],
+      [
+        {
+          "id": "gen-35-22-8",
+          "sourceHebrew": "וַיִּשְׁכַּ֕ב֙"
+        }
+      ]
+    ],
+    "sign-order-needs-context": [
+      [
+        {
+          "id": "gen-5-29-6",
+          "sourceHebrew": "זֶ֞֠ה"
+        }
+      ],
+      [
+        {
+          "id": "gen-8-18-1",
+          "sourceHebrew": "וַיֵּ֖צֵא־"
+        },
+        {
+          "id": "gen-8-18-2",
+          "sourceHebrew": "נֹ֑חַ"
+        }
+      ],
+      [
+        {
+          "id": "gen-35-22-7",
+          "sourceHebrew": "רְאוּבֵ֔֗ן"
+        }
+      ],
+      [
+        {
+          "id": "gen-35-22-8",
+          "sourceHebrew": "וַיִּשְׁכַּ֕ב֙"
+        }
+      ]
+    ],
+    "accented-maqaf-prefix": [
+      [
+        {
+          "id": "gen-7-8-9",
+          "sourceHebrew": "וּמִ֨ן־"
+        },
+        {
+          "id": "gen-7-8-10",
+          "sourceHebrew": "הָע֔וֹף"
+        }
+      ],
+      [
+        {
+          "id": "gen-8-18-1",
+          "sourceHebrew": "וַיֵּ֖צֵא־"
+        },
+        {
+          "id": "gen-8-18-2",
+          "sourceHebrew": "נֹ֑חַ"
+        }
+      ],
+      [
+        {
+          "id": "gen-9-24-6",
+          "sourceHebrew": "אֲשֶׁר־"
+        },
+        {
+          "id": "gen-9-24-7",
+          "sourceHebrew": "עָ֥שָׂה־"
+        },
+        {
+          "id": "gen-9-24-8",
+          "sourceHebrew": "ל֖וֹ"
+        }
+      ],
+      [
+        {
+          "id": "gen-17-17-12",
+          "sourceHebrew": "וְאִ֨ם־"
+        },
+        {
+          "id": "gen-17-17-13",
+          "sourceHebrew": "שָׂרָ֔ה"
+        }
+      ]
+    ],
+    "no-functional-accent": [
+      [
+        {
+          "id": "gen-17-20-1",
+          "sourceHebrew": "וּֽלְיִשְׁמָעֵאל֘"
+        }
+      ],
+      [
+        {
+          "id": "gen-28-7-8",
+          "sourceHebrew": "פַּדֶּֽנָֽה"
+        }
+      ],
+      [
+        {
+          "id": "gen-32-24-6",
+          "sourceHebrew": "אֶת־"
+        },
+        {
+          "id": "gen-32-24-7",
+          "sourceHebrew": "אֲשֶׁר־"
+        },
+        {
+          "id": "gen-32-24-8",
+          "sourceHebrew": "לוֹ׃"
+        }
+      ],
+      [
+        {
+          "id": "gen-47-29-2",
+          "sourceHebrew": "יְמֵֽי־"
+        },
+        {
+          "id": "gen-47-29-3",
+          "sourceHebrew": "יִשְׂרָאֵל֘"
+        }
+      ]
+    ],
+    "unresolved-repeated-sign": [
+      [
+        {
+          "id": "gen-18-15-8",
+          "sourceHebrew": "וַיֹּ֥אמֶ֥ר ׀"
+        }
+      ],
+      [
+        {
+          "id": "gen-36-13-8",
+          "sourceHebrew": "אֵ֣לֶּ֣ה"
+        }
+      ]
+    ]
+  },
+  "catalogue": [
+    {
+      "id": "merkha>tipha",
+      "ids": [
+        "merkha",
+        "tipha"
+      ],
+      "count": 5872
+    },
+    {
+      "id": "munah>zakef-katon",
+      "ids": [
+        "munah",
+        "zakef-katon"
+      ],
+      "count": 4347
+    },
+    {
+      "id": "mahapakh>pashta",
+      "ids": [
+        "mahapakh",
+        "pashta"
+      ],
+      "count": 3024
+    },
+    {
+      "id": "merkha>silluq",
+      "ids": [
+        "merkha",
+        "silluq"
+      ],
+      "count": 2350
+    },
+    {
+      "id": "munah>etnahta",
+      "ids": [
+        "munah",
+        "etnahta"
+      ],
+      "count": 2325
+    },
+    {
+      "id": "munah>revia",
+      "ids": [
+        "munah",
+        "revia"
+      ],
+      "count": 1377
+    },
+    {
+      "id": "darga>tevir",
+      "ids": [
+        "darga",
+        "tevir"
+      ],
+      "count": 1009
+    },
+    {
+      "id": "qadma>geresh",
+      "ids": [
+        "qadma",
+        "geresh"
+      ],
+      "count": 999
+    },
+    {
+      "id": "merkha>tevir",
+      "ids": [
+        "merkha",
+        "tevir"
+      ],
+      "count": 666
+    },
+    {
+      "id": "qadma>mahapakh>pashta",
+      "ids": [
+        "qadma",
+        "mahapakh",
+        "pashta"
+      ],
+      "count": 479
+    },
+    {
+      "id": "telisha-qetana>qadma>geresh",
+      "ids": [
+        "telisha-qetana",
+        "qadma",
+        "geresh"
+      ],
+      "count": 332
+    },
+    {
+      "id": "munah>zarqa",
+      "ids": [
+        "munah",
+        "zarqa"
+      ],
+      "count": 235
+    },
+    {
+      "id": "qadma>darga>tevir",
+      "ids": [
+        "qadma",
+        "darga",
+        "tevir"
+      ],
+      "count": 208
+    },
+    {
+      "id": "munah>segolta",
+      "ids": [
+        "munah",
+        "segolta"
+      ],
+      "count": 202
+    },
+    {
+      "id": "merkha>pashta",
+      "ids": [
+        "merkha",
+        "pashta"
+      ],
+      "count": 147
+    },
+    {
+      "id": "qadma>merkha>tevir",
+      "ids": [
+        "qadma",
+        "merkha",
+        "tevir"
+      ],
+      "count": 126
+    },
+    {
+      "id": "munah>mahapakh>pashta",
+      "ids": [
+        "munah",
+        "mahapakh",
+        "pashta"
+      ],
+      "count": 119
+    },
+    {
+      "id": "qadma>zakef-katon",
+      "ids": [
+        "qadma",
+        "zakef-katon"
+      ],
+      "count": 74
+    },
+    {
+      "id": "munah>telisha-gedola",
+      "ids": [
+        "munah",
+        "telisha-gedola"
+      ],
+      "count": 71
+    },
+    {
+      "id": "munah>telisha-qetana>qadma>geresh",
+      "ids": [
+        "munah",
+        "telisha-qetana",
+        "qadma",
+        "geresh"
+      ],
+      "count": 66
+    },
+    {
+      "id": "munah>gershayim",
+      "ids": [
+        "munah",
+        "gershayim"
+      ],
+      "count": 61
+    },
+    {
+      "id": "darga>munah>revia",
+      "ids": [
+        "darga",
+        "munah",
+        "revia"
+      ],
+      "count": 59
+    },
+    {
+      "id": "telisha-qetana>qadma>mahapakh>pashta",
+      "ids": [
+        "telisha-qetana",
+        "qadma",
+        "mahapakh",
+        "pashta"
+      ],
+      "count": 55
+    },
+    {
+      "id": "munah>munah>zakef-katon",
+      "ids": [
+        "munah",
+        "munah",
+        "zakef-katon"
+      ],
+      "count": 53
+    },
+    {
+      "id": "munah>pazer",
+      "ids": [
+        "munah",
+        "pazer"
+      ],
+      "count": 48
+    },
+    {
+      "id": "qadma>merkha>pashta",
+      "ids": [
+        "qadma",
+        "merkha",
+        "pashta"
+      ],
+      "count": 43
+    },
+    {
+      "id": "qadma>munah>zarqa",
+      "ids": [
+        "qadma",
+        "munah",
+        "zarqa"
+      ],
+      "count": 39
+    },
+    {
+      "id": "munah>darga>tevir",
+      "ids": [
+        "munah",
+        "darga",
+        "tevir"
+      ],
+      "count": 35
+    },
+    {
+      "id": "munah>merkha>tevir",
+      "ids": [
+        "munah",
+        "merkha",
+        "tevir"
+      ],
+      "count": 28
+    },
+    {
+      "id": "telisha-qetana>qadma>darga>tevir",
+      "ids": [
+        "telisha-qetana",
+        "qadma",
+        "darga",
+        "tevir"
+      ],
+      "count": 20
+    },
+    {
+      "id": "munah>munah>segolta",
+      "ids": [
+        "munah",
+        "munah",
+        "segolta"
+      ],
+      "count": 15
+    },
+    {
+      "id": "telisha-qetana>qadma>merkha>tevir",
+      "ids": [
+        "telisha-qetana",
+        "qadma",
+        "merkha",
+        "tevir"
+      ],
+      "count": 15
+    },
+    {
+      "id": "merkha>zarqa",
+      "ids": [
+        "merkha",
+        "zarqa"
+      ],
+      "count": 14
+    },
+    {
+      "id": "munah>munah>telisha-gedola",
+      "ids": [
+        "munah",
+        "munah",
+        "telisha-gedola"
+      ],
+      "count": 14
+    },
+    {
+      "id": "qadma>merkha>zarqa",
+      "ids": [
+        "qadma",
+        "merkha",
+        "zarqa"
+      ],
+      "count": 14
+    },
+    {
+      "id": "munah>munah>pazer",
+      "ids": [
+        "munah",
+        "munah",
+        "pazer"
+      ],
+      "count": 12
+    },
+    {
+      "id": "munah>merkha>pashta",
+      "ids": [
+        "munah",
+        "merkha",
+        "pashta"
+      ],
+      "count": 9
+    },
+    {
+      "id": "telisha-qetana>qadma>merkha>pashta",
+      "ids": [
+        "telisha-qetana",
+        "qadma",
+        "merkha",
+        "pashta"
+      ],
+      "count": 9
+    },
+    {
+      "id": "munah>geresh",
+      "ids": [
+        "munah",
+        "geresh"
+      ],
+      "count": 8
+    },
+    {
+      "id": "munah>munah>zarqa",
+      "ids": [
+        "munah",
+        "munah",
+        "zarqa"
+      ],
+      "count": 8
+    },
+    {
+      "id": "darga>merkha-kefula>tipha",
+      "ids": [
+        "darga",
+        "merkha-kefula",
+        "tipha"
+      ],
+      "count": 5
+    },
+    {
+      "id": "merkha-kefula>tipha",
+      "ids": [
+        "merkha-kefula",
+        "tipha"
+      ],
+      "count": 5
+    },
+    {
+      "id": "munah>munah>etnahta",
+      "ids": [
+        "munah",
+        "munah",
+        "etnahta"
+      ],
+      "count": 5
+    },
+    {
+      "id": "munah>telisha-qetana>qadma>mahapakh>pashta",
+      "ids": [
+        "munah",
+        "telisha-qetana",
+        "qadma",
+        "mahapakh",
+        "pashta"
+      ],
+      "count": 5
+    },
+    {
+      "id": "munah>munah>munah>telisha-gedola",
+      "ids": [
+        "munah",
+        "munah",
+        "munah",
+        "telisha-gedola"
+      ],
+      "count": 4
+    },
+    {
+      "id": "munah>telisha-qetana>qadma>merkha>tevir",
+      "ids": [
+        "munah",
+        "telisha-qetana",
+        "qadma",
+        "merkha",
+        "tevir"
+      ],
+      "count": 4
+    },
+    {
+      "id": "munah>tipha",
+      "ids": [
+        "munah",
+        "tipha"
+      ],
+      "count": 4
+    },
+    {
+      "id": "munah>munah>telisha-qetana>qadma>geresh",
+      "ids": [
+        "munah",
+        "munah",
+        "telisha-qetana",
+        "qadma",
+        "geresh"
+      ],
+      "count": 3
+    },
+    {
+      "id": "telisha-qetana>qadma>merkha>zarqa",
+      "ids": [
+        "telisha-qetana",
+        "qadma",
+        "merkha",
+        "zarqa"
+      ],
+      "count": 3
+    },
+    {
+      "id": "merkha>munah>revia",
+      "ids": [
+        "merkha",
+        "munah",
+        "revia"
+      ],
+      "count": 2
+    },
+    {
+      "id": "qadma>pashta",
+      "ids": [
+        "qadma",
+        "pashta"
+      ],
+      "count": 2
+    },
+    {
+      "id": "darga>darga>tipha",
+      "ids": [
+        "darga",
+        "darga",
+        "tipha"
+      ],
+      "count": 1
+    },
+    {
+      "id": "darga>tipha",
+      "ids": [
+        "darga",
+        "tipha"
+      ],
+      "count": 1
+    },
+    {
+      "id": "mahapakh>munah>munah>pashta",
+      "ids": [
+        "mahapakh",
+        "munah",
+        "munah",
+        "pashta"
+      ],
+      "count": 1
+    },
+    {
+      "id": "mahapakh>qadma>mahapakh>pashta",
+      "ids": [
+        "mahapakh",
+        "qadma",
+        "mahapakh",
+        "pashta"
+      ],
+      "count": 1
+    },
+    {
+      "id": "merkha>munah>zakef-katon",
+      "ids": [
+        "merkha",
+        "munah",
+        "zakef-katon"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>darga>munah>revia",
+      "ids": [
+        "munah",
+        "darga",
+        "munah",
+        "revia"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>munah>munah>munah>pazer",
+      "ids": [
+        "munah",
+        "munah",
+        "munah",
+        "munah",
+        "pazer"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>munah>munah>pazer",
+      "ids": [
+        "munah",
+        "munah",
+        "munah",
+        "pazer"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>munah>pashta",
+      "ids": [
+        "munah",
+        "munah",
+        "pashta"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>pashta",
+      "ids": [
+        "munah",
+        "pashta"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>telisha-qetana>qadma>darga>tevir",
+      "ids": [
+        "munah",
+        "telisha-qetana",
+        "qadma",
+        "darga",
+        "tevir"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>telisha-qetana>qadma>merkha>pashta",
+      "ids": [
+        "munah",
+        "telisha-qetana",
+        "qadma",
+        "merkha",
+        "pashta"
+      ],
+      "count": 1
+    },
+    {
+      "id": "munah>yerah-ben-yomo>qarnei-fara",
+      "ids": [
+        "munah",
+        "yerah-ben-yomo",
+        "qarnei-fara"
+      ],
+      "count": 1
+    },
+    {
+      "id": "yerah-ben-yomo>qarnei-fara",
+      "ids": [
+        "yerah-ben-yomo",
+        "qarnei-fara"
+      ],
+      "count": 1
+    }
+  ],
+  "verification": "Preferred w/q source units and offsets audited. These counts are edition-specific structural evidence, not musical, stress, hierarchy or independent reader review. Every source word, including an excluded case, remains in the reader. Existing major practice groups and demo pitches are unchanged."
+}

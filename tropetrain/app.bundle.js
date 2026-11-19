@@ -3645,6 +3645,197 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return PRINTED_WORDS.find((row) => row.id === (word.sourceWordId ?? word.id) && row.sourceHebrew === word.sourceHebrew) ?? null;
   }
 
+  // accent-context.js
+  var CONTEXT_ANALYSIS = Object.freeze({
+    id: "uxlc-adjacent-combinations",
+    revision: 1,
+    sources: ["https://www.tanach.us/Pages/Coding.html", "https://archive.org/details/treatiseonaccent00wickuoft"],
+    historicalReference: "Wickes, 1887, printed pp. 9–12. Maqaf units and repeated positional signs; no proposed textual corrections applied.",
+    scope: "Derived adjacent source-sign combinations, not a full syntactic hierarchy, melodic grammar or verified Kinnor chart."
+  });
+  var positional = /* @__PURE__ */ new Set(["pashta", "segolta", "zarqa", "telisha-gedola", "telisha-qetana"]);
+  var COMBINATION_SIGNS = Object.freeze(SEARCH_SIGNS.filter((s) => s.proseClass));
+  var definitions = new Map(COMBINATION_SIGNS.map((s) => [s.id, s]));
+  var FEATURED_COMBINATIONS = Object.freeze([
+    ["munah", "etnahta"],
+    ["merkha", "tipha"],
+    ["merkha", "silluq"],
+    ["munah", "zakef-katon"],
+    ["mahapakh", "pashta"],
+    ["darga", "tevir"],
+    ["qadma", "geresh"],
+    ["munah", "revia"],
+    ["munah", "zarqa"],
+    ["yerah-ben-yomo", "qarnei-fara"],
+    ["merkha", "tipha", "munah", "etnahta"],
+    ["zarqa", "munah", "segolta"],
+    ["qadma", "mahapakh", "pashta", "munah", "zakef-katon"]
+  ].map((ids) => Object.freeze({ id: ids.join(">"), ids: Object.freeze(ids) })));
+  var combinationName = (ids) => ids.map((id) => definitions.get(id)?.name ?? id).join(" → ");
+  var combinationGlyphs = (ids) => ids.map((id) => "◌" + definitions.get(id).char).join("  ");
+  function query(value) {
+    const ids = Array.isArray(value) ? value : String(value).split(">");
+    if (ids.length < 2 || ids.length > 32 || ids.some((id) => !definitions.has(id))) throw Error("Choose a source combination from the chart.");
+    return ids;
+  }
+  var verseIdentity = (w) => w.verseKey ?? [w.bookId, w.chapter, w.verse, w.sectionId].join(":");
+  var joined = (w) => /־[\s\u034f\u200d]*$/u.test(w.sourceHebrew);
+  function analyzeAccentContext(words3) {
+    const units = [], runs = [], wordContexts = Array(words3.length);
+    let pending = null;
+    for (let i = 0; i < words3.length; i++) {
+      const word = words3[i], key = verseIdentity(word);
+      if (!pending) pending = { id: `unit:${word.id}`, verseKey: key, wordIndices: [], atoms: [], issues: [], foldedPositions: 0 };
+      const unit = pending;
+      unit.wordIndices.push(i);
+      const analysis = word.signAnalysis ?? analyzeSourceSigns(word.sourceHebrew);
+      const raw = [...analysis.signs, ...analysis.marks.filter((s) => s.id === "silluq")].sort((a, b) => a.offset - b.offset);
+      const groups = /* @__PURE__ */ new Map();
+      for (const sign of raw) {
+        const position = { ...sign, wordIndex: i, wordId: word.id, sourceWordId: word.sourceWordId ?? word.id };
+        if (sign.role === "helper") continue;
+        if (!sign.proseClass) {
+          unit.issues.push("poetic-or-unclassified-sign");
+          continue;
+        }
+        if (!groups.has(sign.id)) groups.set(sign.id, []);
+        groups.get(sign.id).push(position);
+      }
+      for (const [id, positions] of groups) {
+        if (positions.length > 1 && !positional.has(id)) unit.issues.push("unresolved-repeated-sign");
+        if (positions.length > 1) unit.foldedPositions += positional.has(id) ? positions.length - 1 : 0;
+        unit.atoms.push({ id, proseClass: positions[0].proseClass, positions });
+      }
+      if (analysis.marks.some((s) => s.id === "paseq")) unit.issues.push("paseq-context");
+      if (analysis.marks.some((s) => s.id === "sof-pasuq") && i + 1 < words3.length && verseIdentity(words3[i + 1]) === key) unit.issues.push("internal-verse-closing-mark");
+      if (word.sourceHebrew.includes("־") && !joined(word)) unit.issues.push("internal-maqaf");
+      if (joined(word) && raw.some((s) => s.proseClass)) unit.issues.push("accented-maqaf-prefix");
+      const continueUnit = joined(word) && i + 1 < words3.length && verseIdentity(words3[i + 1]) === key;
+      if (joined(word) && !continueUnit) unit.issues.push("dangling-maqaf");
+      if (continueUnit) continue;
+      if (!unit.atoms.length) unit.issues.push("no-functional-accent");
+      const disjunctives = unit.atoms.filter((a) => a.proseClass.startsWith("D"));
+      if (disjunctives.length > 1) unit.issues.push("multiple-disjunctives");
+      if (disjunctives.length && unit.atoms.at(-1) !== disjunctives[0]) unit.issues.push("sign-order-needs-context");
+      unit.issues = [...new Set(unit.issues)];
+      unit.qualified = !unit.issues.length;
+      unit.index = units.length;
+      for (const n of unit.wordIndices) wordContexts[n] = { unitIndex: unit.index, runIndex: null };
+      units.push(unit);
+      pending = null;
+    }
+    let runUnits = [];
+    for (const unit of units) {
+      if (!unit.qualified || runUnits.length && unit.verseKey !== runUnits[0].verseKey) runUnits = [];
+      if (!unit.qualified) continue;
+      runUnits.push(unit);
+      if (unit.atoms.at(-1).proseClass.startsWith("D")) {
+        const run = { id: `run:${runUnits[0].id}`, unitIndices: runUnits.map((u) => u.index), wordIndices: runUnits.flatMap((u) => u.wordIndices), atoms: runUnits.flatMap((u) => u.atoms) };
+        const index = runs.length;
+        runs.push(run);
+        for (const n of run.wordIndices) wordContexts[n].runIndex = index;
+        runUnits = [];
+      }
+    }
+    return { analysis: CONTEXT_ANALYSIS, units, runs, wordContexts };
+  }
+  function streams(context) {
+    const result = [];
+    let stream = [], key = null;
+    for (const unit of context.units) {
+      if (!unit.qualified || key !== unit.verseKey) {
+        if (stream.length) result.push(stream);
+        stream = [];
+      }
+      key = unit.verseKey;
+      if (unit.qualified) stream.push(...unit.atoms.map((atom) => ({ ...atom, unitIndex: unit.index })));
+    }
+    if (stream.length) result.push(stream);
+    return result;
+  }
+  function hitFor(words3, context, atoms) {
+    const unitIndices = [...new Set(atoms.map((a) => a.unitIndex))];
+    const selected = unitIndices.flatMap((n) => context.units[n].wordIndices), start = selected[0], end = selected.at(-1), slice = words3.slice(start, end + 1);
+    return {
+      start,
+      end,
+      word: slice[0],
+      words: slice,
+      occurrenceIds: slice.map((w) => w.id),
+      sourceWordIds: slice.map((w) => w.sourceWordId ?? w.id),
+      atoms,
+      withinWord: new Set(atoms.flatMap((a) => a.positions.map((p) => p.wordId))).size === 1,
+      includesOtherSigns: unitIndices.some((n) => context.units[n].atoms.some((a) => !atoms.some((b) => a.positions === b.positions))),
+      includesMaqaf: slice.some(joined)
+    };
+  }
+  function findCombinationsInReading(words3, value, context = analyzeAccentContext(words3)) {
+    const ids = query(value), hits = [];
+    for (const stream of streams(context)) for (let i = 0; i <= stream.length - ids.length; i++) {
+      if (ids.every((id, j) => stream[i + j].id === id)) hits.push(hitFor(words3, context, stream.slice(i, i + ids.length)));
+    }
+    return hits;
+  }
+  var caches = /* @__PURE__ */ new WeakMap();
+  function cacheFor(corpus2) {
+    let cache = caches.get(corpus2);
+    if (!cache) {
+      cache = { queries: /* @__PURE__ */ new Map() };
+      caches.set(corpus2, cache);
+    }
+    return cache;
+  }
+  async function visitCorpusContext(corpus2, visit) {
+    let count = 0;
+    for (const book of corpus2.books) {
+      const last = book.chapters.at(-1), passage3 = corpus2.passage([{ id: "context-index", bookId: book.id, start: { chapter: 1, verse: 1 }, end: { chapter: last.number, verse: last.verses.at(-1).number } }]);
+      for (const verse of passage3.verses) {
+        visit(verse.words, analyzeAccentContext(verse.words), verse);
+        if (++count % 200 === 0) await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+  }
+  async function findCombinationsInCorpus(corpus2, value) {
+    const ids = query(value), key = ids.join(">"), cache = cacheFor(corpus2).queries;
+    if (cache.has(key)) return cache.get(key);
+    const promise3 = (async () => {
+      const hits = [];
+      await visitCorpusContext(corpus2, (words3, context) => hits.push(...findCombinationsInReading(words3, ids, context)));
+      return hits;
+    })();
+    if (cache.size >= 8) cache.delete(cache.keys().next().value);
+    cache.set(key, promise3);
+    try {
+      return await promise3;
+    } catch (error) {
+      cache.delete(key);
+      throw error;
+    }
+  }
+  async function getCombinationCatalogue(corpus2) {
+    const cache = cacheFor(corpus2);
+    if (cache.catalogue) return cache.catalogue;
+    cache.catalogue = (async () => {
+      const counts = /* @__PURE__ */ new Map();
+      await visitCorpusContext(corpus2, (_words, context) => {
+        for (const run of context.runs) for (let i = 0; i < run.atoms.length - 1; i++) {
+          const ids = run.atoms.slice(i).map((a) => a.id), id = ids.join(">");
+          const entry = counts.get(id) ?? { id, ids, count: 0 };
+          entry.count++;
+          counts.set(id, entry);
+        }
+      });
+      return [...counts.values()].sort((a, b) => b.count - a.count || a.id.localeCompare(b.id));
+    })();
+    try {
+      return await cache.catalogue;
+    } catch (error) {
+      cache.catalogue = null;
+      throw error;
+    }
+  }
+
   // music.js
   var syllableDrafts = [
     [[1, 2, 3], ["bə", "rē", "shīt"], 2],
@@ -3778,7 +3969,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return event;
       });
     }
-    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile };
+    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile, context: analyzeAccentContext(words3) };
   }
   var initial = createReadingModel(passage);
   var words = initial.words;
@@ -4404,7 +4595,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // sign-search.js
   var UNMARKED = Object.freeze({ id: "unmarked", name: "Unmarked source words", char: null });
   var SIGN_QUERIES = Object.freeze([...SEARCH_SIGNS, UNMARKED]);
-  var query = (id) => {
+  var query2 = (id) => {
     const q = SIGN_QUERIES.find((s) => s.id === id);
     if (!q) throw Error("Choose a source sign from the list.");
     return q;
@@ -4414,19 +4605,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return [...analysis.signs, ...analysis.marks].filter((s) => s.id === id).length;
   }
   function findSignsInReading(words3, id) {
-    query(id);
+    query2(id);
     return words3.flatMap((word, wordIndex) => {
       const count = occurrences(word.signAnalysis ?? analyzeSourceSigns(word.sourceHebrew), id);
       return count ? [{ word, wordIndex, occurrenceId: word.id, sourceWordId: word.sourceWordId ?? word.id, count }] : [];
     });
   }
-  var caches = /* @__PURE__ */ new WeakMap();
+  var caches2 = /* @__PURE__ */ new WeakMap();
   async function findSignsInCorpus(corpus2, id) {
-    const q = query(id);
-    let cache = caches.get(corpus2);
+    const q = query2(id);
+    let cache = caches2.get(corpus2);
     if (!cache) {
       cache = /* @__PURE__ */ new Map();
-      caches.set(corpus2, cache);
+      caches2.set(corpus2, cache);
     }
     if (cache.has(id)) return cache.get(id);
     const result = [];
@@ -4843,6 +5034,161 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   };
 
+  // combination-ui.js
+  var issueNames = {
+    "poetic-or-unclassified-sign": "poetic or unclassified sign",
+    "unresolved-repeated-sign": "repeated sign needs interpretation",
+    "paseq-context": "paseq requires context",
+    "internal-verse-closing-mark": "verse-closing mark inside a verse",
+    "internal-maqaf": "maqaf inside a source unit",
+    "accented-maqaf-prefix": "accent on a maqaf prefix",
+    "dangling-maqaf": "maqaf continuation is outside this verse",
+    "no-functional-accent": "no functional accent identified",
+    "multiple-disjunctives": "several disjunctives in one unit",
+    "sign-order-needs-context": "sign order needs interpretation"
+  };
+  function mountCombinationTools({ getModel, getCorpus: getCorpus2, selectHit }) {
+    const $2 = (id) => document.getElementById(id);
+    let hits = [], page = 0, generation = 0, searchWords = null, scope = "reading", catalogue = [], chartPage = 0, cataloguePromise = null;
+    const PAGE = 8, CHART_PAGE = 20;
+    const options = new Map(FEATURED_COMBINATIONS.map((p) => [p.id, p]));
+    function updateOptions() {
+      const selected = $2("combination-query").value || "munah>etnahta";
+      $2("combination-query").replaceChildren();
+      for (const pattern of options.values()) {
+        const option = document.createElement("option");
+        option.value = pattern.id;
+        option.textContent = combinationName(pattern.ids);
+        $2("combination-query").append(option);
+      }
+      $2("combination-query").value = selected;
+    }
+    function choose(hit) {
+      selectHit(hit, scope === "torah");
+    }
+    function renderHits() {
+      page = Math.min(page, Math.max(0, Math.ceil(hits.length / PAGE) - 1));
+      const first = page * PAGE, last = Math.min(first + PAGE, hits.length);
+      $2("combination-status").textContent = `${hits.length.toLocaleString()} source match${hits.length === 1 ? "" : "es"}${hits.length ? ` · showing ${first + 1}–${last}` : ""}. Whole source words are selected.`;
+      $2("combination-results").replaceChildren();
+      $2("combination-previous").disabled = first === 0;
+      $2("combination-next").disabled = last === hits.length;
+      $2("combination-random").disabled = !hits.length;
+      for (const hit of hits.slice(first, last)) {
+        const row = document.createElement("li"), text = document.createElement("span"), ref = document.createElement("span"), button = document.createElement("button");
+        text.className = "sign-result-word";
+        text.lang = "he";
+        text.dir = "rtl";
+        text.textContent = hit.words.map((w) => w.sourceHebrew).join(" ");
+        const from = hit.words[0], to = hit.words.at(-1), ordinal = from.ordinal === to.ordinal ? `word ${from.ordinal}` : `words ${from.ordinal}–${to.ordinal}`;
+        const section = scope === "reading" && getModel().passage.ranges.length > 1 ? ` · section ${getModel().passage.ranges.findIndex((r) => r.id === from.sectionId) + 1}` : "";
+        ref.textContent = `${from.reference} · ${ordinal}${section}${hit.withinWord ? " · within one word" : ""}${hit.includesMaqaf ? " · maqaf unit" : ""}${hit.includesOtherSigns ? " · whole-word selection includes other signs" : ""}`;
+        button.textContent = "Select combination";
+        button.setAttribute("aria-label", `Select ${from.reference} ${ordinal}${section}`);
+        button.addEventListener("click", () => choose(hit));
+        row.append(text, ref, button);
+        $2("combination-results").append(row);
+      }
+    }
+    async function refresh({ reset = false } = {}) {
+      const current = ++generation;
+      searchWords = getModel().words;
+      if (reset) page = 0;
+      scope = $2("combination-scope").value;
+      const query3 = $2("combination-query").value, sourceScope = scope;
+      hits = [];
+      $2("combination-results").replaceChildren();
+      $2("combination-status").textContent = scope === "torah" ? "Searching source combinations across the Torah…" : "Searching this reading…";
+      for (const id of ["combination-previous", "combination-next", "combination-random"]) $2(id).disabled = true;
+      try {
+        const found = sourceScope === "torah" ? await findCombinationsInCorpus(await getCorpus2(), query3) : findCombinationsInReading(searchWords, query3, getModel().context);
+        if (current !== generation) return;
+        hits = found;
+        renderHits();
+      } catch (error) {
+        if (current === generation) $2("combination-status").textContent = error.message;
+      }
+    }
+    function renderChart() {
+      const first = chartPage * CHART_PAGE, last = Math.min(first + CHART_PAGE, catalogue.length);
+      $2("combination-chart-rows").replaceChildren();
+      $2("combination-chart-status").textContent = `${catalogue.length.toLocaleString()} distinct C* → D patterns derived from qualified source units in this edition · ${first + 1}–${last}.`;
+      $2("chart-previous").disabled = first === 0;
+      $2("chart-next").disabled = last === catalogue.length;
+      for (const entry of catalogue.slice(first, last)) {
+        const row = document.createElement("li"), glyph = document.createElement("span"), name = document.createElement("span"), button = document.createElement("button");
+        glyph.className = "combination-glyphs";
+        glyph.lang = "he";
+        glyph.dir = "ltr";
+        glyph.textContent = combinationGlyphs(entry.ids);
+        glyph.setAttribute("aria-hidden", "true");
+        name.textContent = `${combinationName(entry.ids)} · ${entry.count.toLocaleString()} matches`;
+        button.textContent = "Find examples";
+        button.setAttribute("aria-label", `Find ${combinationName(entry.ids)} examples`);
+        button.addEventListener("click", () => {
+          $2("find-combinations").open = true;
+          $2("combination-query").value = entry.id;
+          $2("combination-scope").value = "torah";
+          refresh({ reset: true });
+          $2("combination-query").focus();
+        });
+        row.append(glyph, name, button);
+        $2("combination-chart-rows").append(row);
+      }
+    }
+    async function ensureCatalogue() {
+      if (cataloguePromise) return cataloguePromise;
+      $2("combination-chart-status").textContent = "Building the source combination chart…";
+      cataloguePromise = (async () => {
+        catalogue = await getCombinationCatalogue(await getCorpus2());
+        for (const entry of catalogue) options.set(entry.id, entry);
+        updateOptions();
+        renderChart();
+      })();
+      try {
+        await cataloguePromise;
+      } catch (error) {
+        cataloguePromise = null;
+        $2("combination-chart-status").textContent = error.message;
+      }
+    }
+    for (const id of ["combination-query", "combination-scope"]) $2(id).addEventListener("change", () => refresh({ reset: true }));
+    for (const [id, delta] of [["combination-previous", -1], ["combination-next", 1]]) $2(id).addEventListener("click", () => {
+      page += delta;
+      renderHits();
+    });
+    for (const [id, delta] of [["chart-previous", -1], ["chart-next", 1]]) $2(id).addEventListener("click", () => {
+      chartPage += delta;
+      renderChart();
+    });
+    $2("combination-random").addEventListener("click", () => {
+      if (hits.length) choose(hits[Math.floor(Math.random() * hits.length)]);
+    });
+    $2("combination-chart").addEventListener("toggle", () => {
+      if ($2("combination-chart").open) ensureCatalogue();
+    });
+    $2("find-combinations").addEventListener("toggle", () => {
+      if ($2("find-combinations").open) {
+        refresh();
+        ensureCatalogue();
+      }
+    });
+    updateOptions();
+    refresh();
+    return {
+      readingChanged() {
+        if (searchWords !== getModel().words && scope === "reading") refresh({ reset: true });
+      },
+      showWord(index) {
+        const model2 = getModel(), context = model2.context, entry = context.wordContexts[index], unit = context.units[entry.unitIndex], run = entry.runIndex === null ? null : context.runs[entry.runIndex];
+        const source = unit.wordIndices.map((n) => model2.words[n].sourceHebrew).join(" ");
+        $2("context-word").textContent = source;
+        $2("context-summary").textContent = `${unit.wordIndices.length === 1 ? "One source word" : `${unit.wordIndices.length} source words linked by maqaf`} · ${unit.atoms.length ? combinationName(unit.atoms.map((a) => a.id)) : "no functional accent identified"}${unit.foldedPositions ? ` · ${unit.foldedPositions} repeated positional sign${unit.foldedPositions === 1 ? "" : "s"} grouped for search only` : ""}.`;
+        $2("context-run").textContent = unit.issues.length ? `Needs interpretation: ${unit.issues.map((id) => issueNames[id]).join("; ")}. Excluded from combination search.` : run ? `Source C* → D run: ${combinationName(run.atoms.map((a) => a.id))}. ${run.wordIndices.length} source word${run.wordIndices.length === 1 ? "" : "s"}.` : "No complete C* → D run before the next source boundary. Adjacent-sign lookup only.";
+      }
+    };
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -4908,6 +5254,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var findHits = [];
   var findPage = 0;
   var findWords = null;
+  var combinationTools = null;
   var referenceLibrary = null;
   var selectedReferenceId = null;
   var referenceActiveId = null;
@@ -5257,6 +5604,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
   }
   function renderSourceSigns(word) {
+    combinationTools?.showWord(word.index);
     const analysis = word.signAnalysis;
     $("source-class").textContent = sourceClassLabel(analysis.className);
     $("source-sign-rows").replaceChildren();
@@ -5637,6 +5985,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderSequence();
     persist();
     if (findWords !== words2 && state.findScope === "reading") refreshSignSearch({ reset: true });
+    combinationTools?.readingChanged();
   }
   function rememberReading() {
     const key = (ranges) => JSON.stringify(ranges.map((r) => ({ bookId: r.bookId, start: r.start, end: r.end, hidden: r.hidden })));
@@ -5767,10 +6116,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.signClasses = e.target.checked;
     render();
   });
-  for (const query2 of SIGN_QUERIES) {
+  for (const query3 of SIGN_QUERIES) {
     const option = document.createElement("option");
-    option.value = query2.id;
-    option.textContent = query2.name;
+    option.value = query3.id;
+    option.textContent = query3.name;
     $("sign-query").append(option);
   }
   for (const profile of melodyProfiles) {
@@ -5872,6 +6221,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       melody: model.profile,
       instrument,
       signAnalysis: SIGN_ANALYSIS,
+      contextAnalysis: CONTEXT_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
       tempo: state.tempo,
@@ -5945,6 +6295,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (document.hidden && (player.running || referencePlayer.running || referencePlayer.starting || !$("wav-preview").paused)) stop("Paused because this tab is hidden. Press Play to restart the span.");
   });
   if (matchMedia("(min-width: 761px)").matches) $("library-options").open = true;
+  combinationTools = mountCombinationTools({ getModel: () => model, getCorpus, selectHit: (hit, wholeTorah) => {
+    if (wholeTorah) libraryAction(() => {
+      const point = { chapter: hit.word.chapter, verse: hit.word.verse };
+      applyRanges([{ id: "combination-example", bookId: hit.word.bookId, start: point, end: point, label: "Source combination example" }]);
+    });
+    const ids = wholeTorah ? hit.sourceWordIds : hit.occurrenceIds;
+    const start = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids[0]);
+    const end = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids.at(-1));
+    if (start < 0 || end < start) return;
+    stop("Source combination selected. Press Play to hear the selected musical source.");
+    state.anchor = end;
+    state.cursor = start;
+    state.scope = "selection";
+    state.readerPage = Math.floor(words2[start].verseIndex / VERSE_PAGE);
+    state.notePage = 0;
+    state.staffPage = 0;
+    render();
+    document.querySelector(`[data-word="${words2[start].id}"]`)?.focus();
+    $("reader").scrollIntoView({ block: "start" });
+  } });
   render();
   renderSections();
   renderPickers();
