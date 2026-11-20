@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {gzipSync} from 'node:zlib';
 import './import-printed-score.mjs';
+import './import-printed-patterns.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
@@ -41,6 +42,9 @@ const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.tx
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
 const alternateScan=await readFile(path.join(root,'assets/scores/cohen-1902-alternate-score.png'));
 const printedEvidence=await readFile(path.join(root,'docs/PRINTED-SCORE.json'),'utf8');
+const patternScan=await readFile(path.join(root,'assets/scores/cohen-1902-munah-revia.png'));
+const patternRow=await readFile(path.join(root,'assets/scores/cohen-1902-pentateuch-row-a.png'));
+const patternEvidence=await readFile(path.join(root,'docs/PRINTED-PATTERNS.json'),'utf8');
 const roadmap=await readFile(path.join(root,'docs/RESEARCH.md'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`);
@@ -53,6 +57,11 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('src="./assets/scores/cohen-1902-genesis22.png"',()=>`src="data:image/png;base64,${printedScan.toString('base64')}"`)
  .replaceAll('href="./assets/scores/cohen-1902-genesis22.png"',()=>`href="data:image/png;base64,${printedScan.toString('base64')}"`)
  .replace('src="./assets/scores/cohen-1902-alternate-score.png"',()=>`src="data:image/png;base64,${alternateScan.toString('base64')}"`)
+ .replace('src="./assets/scores/cohen-1902-munah-revia.png"',()=>`src="data:image/png;base64,${patternScan.toString('base64')}"`)
+ .replaceAll('href="./assets/scores/cohen-1902-munah-revia.png"',()=>`href="data:image/png;base64,${patternScan.toString('base64')}"`)
+ .replace('src="./assets/scores/cohen-1902-pentateuch-row-a.png"',()=>`src="data:image/png;base64,${patternRow.toString('base64')}"`)
+ .replaceAll('href="./assets/scores/cohen-1902-pentateuch-row-a.png"',()=>`href="data:image/png;base64,${patternRow.toString('base64')}"`)
+ .replaceAll('href="./docs/PRINTED-PATTERNS.json"',()=>`href="data:application/json;base64,${Buffer.from(patternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/RESEARCH.md"','href="#standalone-roadmap"')
  .replace('<footer>',()=>`<details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(printedEvidence)}</pre></details><footer>`);

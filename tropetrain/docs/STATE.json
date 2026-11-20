@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "4153cb1697dcd9b3d92addafa88909d5bbd043a5",
-  "nextTask": "Continue full musical/phonetic fidelity: primary Cohen complete accent table, reusable Gaster/Idelsohn counterparts for recovered catalog names, context-specific motif records and review. The new source lookup is not full hierarchy or musical grammar. Complete six independent pronunciation grammars, reusable singer and independent review, then sourced calendar/divisions, remaining repertoire, tutor/learning/print and all roadmap features. Keep the objective active; do not claim completion from this structural release.",
+  "nextTask": "Publish tested v0.11 via GitHub, verify Pages/live exact bytes and returning browser upgrade, record commit and synchronize outputs. Then continue source-grounded contextual melody/phonetic/singer work and the complete remaining roadmap.",
   "lastPassingTests": {
-    "automated": 83,
-    "ui": "Source-context inspector, three within/across-word examples, exact selected-word playback stop, whole-Torah rare and random example, maqaf/parallel preservation, excluded paseq, repeated positions, duplicate section occurrence, chart paging, standalone and 320/390 layouts. Live returning upgrade retained all musical settings and source, then selected and played word5. Muted throughout.",
-    "limits": "Source structural counts are not musical/stress/full hierarchy review. Six pronunciations, full melodic grammars, singer and all remaining roadmap requirements still pending. Direct file-origin, broad accessibility/device/network-failure checks remain unfinished."
+    "automated": 92,
+    "ui": "Local and standalone source crop/context image, eight note inspections, exact +1 pitches, independent tempo, Bible selection/view preservation, pair/individual completion, repeat/Stop/replay/Escape, Bible/reference/pattern exclusivity, 1377-hit source lookup, unsupported source refusal, 320/390/1280 widths. Muted throughout; viewport reset.",
+    "limits": "No positive-gain browser/acoustic, direct file-origin, Save-dialog or independent musical/phonetic review. Full melodic grammars, six pronunciations, singer and all remaining roadmap work stay active."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -187,16 +187,15 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.10.0",
-    "status": "published_live_verified",
+    "version": "0.11.0",
+    "status": "local_verified_ready_to_publish",
     "newFeatures": [
-      "Source-preserving maqaf units and adjacent combination lookup",
-      "Edition-derived combination catalogue and random source example selection",
-      "Uncertain contexts excluded; no new melody or pronunciation claimed"
+      "Eight source-transcribed untexted pattern components in separate study",
+      "Shared event staff with explicit absence of syllable/phoneme/word alignment, source slurs and shared instrument controls",
+      "Primary Gaster/Jessurun edition audit; no unsupported musical preset added"
     ],
-    "tests": "83 final checks pass. UI/standalone rare and common lookup, single-word source playback, random selection, maqaf/parallel preservation, paseq exclusion, repeated positions, duplicate section2 occurrence navigation, chart paging and final320/390 layouts verified. No captured warnings/errors. Audio stopped/muted, viewport reset.",
-    "next": "Continue full musical/phonetic fidelity: primary Cohen complete accent table, reusable Gaster/Idelsohn counterparts for recovered catalog names, context-specific motif records and review. The new source lookup is not full hierarchy or musical grammar. Complete six independent pronunciation grammars, reusable singer and independent review, then sourced calendar/divisions, remaining repertoire, tutor/learning/print and all roadmap features. Keep the objective active; do not claim completion from this structural release.",
-    "browser": "IAB2 live tab2, Genesis22:1 word5, Munaḥ→Zakef search open, 60BPM/transpose0/volumes0, stopped; viewport reset."
+    "next": "Publish tested v0.11 via GitHub, verify Pages/live exact bytes and returning browser upgrade, record commit and synchronize outputs. Then continue source-grounded contextual melody/phonetic/singer work and the complete remaining roadmap.",
+    "tests": "All 92 final checks pass. Local/standalone source images and source JSON, muted transport completion/replay, source exclusivity and 320/390/1280 layouts pass; no captured warnings/errors."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

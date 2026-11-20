@@ -3,18 +3,19 @@ import assert from 'node:assert/strict';
 import {Player} from '../audio.js';
 import {buildPlan,frequency} from '../music.js';
 
-function fakeAudio(){
+function fakeAudio({resumeResult=()=>Promise.resolve()}={}){
   const originals=Object.fromEntries(['window','requestAnimationFrame','cancelAnimationFrame','setInterval','clearInterval'].map(k=>[k,globalThis[k]]));
-  let now=10,id=0,suspends=0,resumes=0;const nodes=[],frames=new Map(),timers=new Map();
+  let now=10,id=0,suspends=0,resumes=0,contexts=0;const nodes=[],frames=new Map(),timers=new Map();
   const gains=()=>({gain:{setValueAtTime(){},linearRampToValueAtTime(){}},connect(){},disconnect(){}});
   globalThis.window={AudioContext:class{
-    get currentTime(){return now;}destination={};resume(){resumes++;return Promise.resolve();}suspend(){suspends++;return Promise.resolve();}
+    constructor(){contexts++;}
+    get currentTime(){return now;}destination={};resume(){resumes++;return resumeResult();}suspend(){suspends++;return Promise.resolve();}
     createOscillator(){const n={frequency:{},connect(){},disconnect(){},start(at){this.startAt=at;},stop(at){this.stopAt=at;this.cancelled=at===undefined;}};nodes.push(n);return n;}
     createGain(){return gains();}
   }};
   globalThis.requestAnimationFrame=fn=>{frames.set(++id,fn);return id;};globalThis.cancelAnimationFrame=id=>frames.delete(id);
   globalThis.setInterval=fn=>{timers.set(++id,fn);return id;};globalThis.clearInterval=id=>timers.delete(id);
-  return {nodes,frames,timers,get now(){return now;},get suspends(){return suspends;},get resumes(){return resumes;},tick(time,{render=true}={}){now=time;for(const fn of [...timers.values()])fn();if(render){const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();}},
+  return {nodes,frames,timers,get now(){return now;},get contexts(){return contexts;},get suspends(){return suspends;},get resumes(){return resumes;},tick(time,{render=true}={}){now=time;for(const fn of [...timers.values()])fn();if(render){const callbacks=[...frames.values()];frames.clear();for(const fn of callbacks)fn();}},
     restore(){for(const [key,value] of Object.entries(originals))globalThis[key]=value;}};
 }
 
@@ -82,4 +83,51 @@ test('completion and explicit stop suspend idle device audio; a new play resumes
   await player.play(plan);assert.equal(env.resumes,2);assert.equal(env.suspends,1);
   player.stop();assert.equal(env.suspends,2);await player.play(plan);assert.equal(env.resumes,3);assert.equal(env.suspends,2);
  }finally{player.stop();env.restore();}
+});
+
+test('zero-volume practice advances notes, rests and repeats without allocating any audio device',async()=>{
+ const env=fakeAudio();let wall=0,ends=0;const seen=[],rests=[],player=new Player((e,c)=>seen.push([e.id,c]),()=>ends++,(c)=>rests.push(c),{wallClock:()=>wall});
+ const plan=[{id:'a',wordId:'first',midi:64,beats:.5,startSeconds:0,durationSeconds:.5},{id:'b',wordId:'last',midi:67,beats:.5,startSeconds:1,durationSeconds:.5}];
+ try{
+  player.setVolume(0);await player.play(plan);assert.equal(env.contexts,0);assert.equal(env.resumes,0);assert.equal(env.nodes.length,0);
+  wall=.1;env.tick(10);assert.deepEqual(seen.at(-1),['a',0]);
+  wall=.8;env.tick(10);assert.equal(rests.length,1);
+  wall=1.2;env.tick(10);assert.deepEqual(seen.at(-1),['b',0]);
+  wall=1.57;env.tick(10);assert.equal(ends,1);assert.equal(player.running,false);assert.equal(env.timers.size,0);
+  await player.play(plan,true);wall+=1.7;env.tick(10);assert.deepEqual(seen.at(-1),['a',1]);assert.equal(env.contexts,0);
+  player.stop();assert.equal(env.timers.size,0);assert.equal(env.frames.size,0);
+ }finally{player.stop();env.restore();}
+});
+
+test('unmuting resumes the current note tail and later mute/unmute cycles keep the same musical position',async()=>{
+ const env=fakeAudio();let wall=0;const seen=[],player=new Player(e=>seen.push(e.id),()=>{},undefined,{wallClock:()=>wall});
+ const plan=[{id:'held',wordId:'one',midi:64,startSeconds:0,durationSeconds:2},{id:'next',wordId:'two',midi:67,startSeconds:2,durationSeconds:1}];
+ try{
+  player.setVolume(0);await player.play(plan);wall=.56;env.tick(10);assert.equal(seen.at(-1),'held');
+  await player.setVolume(.5);assert.equal(env.contexts,1);assert.equal(env.nodes[0].frequency.value,frequency(64));assert.equal(env.nodes[0].startAt,10);assert.equal(env.nodes[0].stopAt,11.5);
+  wall=1.06;env.tick(10.5);assert.equal(seen.at(-1),'held');player.setVolume(0);assert.ok(env.nodes[0].cancelled);
+  wall=1.86;env.tick(10.5);assert.equal(seen.at(-1),'held');
+  await player.setVolume(.25);assert.equal(env.resumes,2);assert.equal(env.nodes.at(-2).frequency.value,frequency(64));assert.ok(env.nodes.at(-2).startAt>=env.now);assert.ok(Math.abs(env.nodes.at(-2).stopAt-10.7)<1e-8);
+  env.tick(10.8);assert.equal(seen.at(-1),'next');assert.equal(env.nodes.at(-1).frequency.value,frequency(67));
+ }finally{player.stop();env.restore();}
+});
+
+test('Stop cancels a pending unmute before any oscillator or stale highlight can start',async()=>{
+ let resolve;const gate=new Promise(r=>{resolve=r;}),env=fakeAudio({resumeResult:()=>gate});let wall=0;const seen=[];
+ const player=new Player(e=>seen.push(e.id),()=>{},undefined,{wallClock:()=>wall});
+ try{
+  player.setVolume(0);await player.play([{id:'note',midi:64,startSeconds:0,durationSeconds:2}]);
+  wall=.2;env.tick(10);const pending=player.setVolume(.5);assert.equal(env.contexts,1);player.stop();const count=seen.length;
+  resolve();await pending;wall=1;env.tick(10);assert.equal(env.nodes.length,0);assert.equal(seen.length,count);assert.equal(player.running,false);assert.equal(env.timers.size,0);
+ }finally{resolve();player.stop();env.restore();}
+});
+
+test('returning to zero while an unmute is pending preserves muted timing and releases device audio',async()=>{
+ let resolve;const gate=new Promise(r=>{resolve=r;}),env=fakeAudio({resumeResult:()=>gate});let wall=0;const seen=[];
+ const player=new Player(e=>seen.push(e.id),()=>{},undefined,{wallClock:()=>wall});
+ try{
+  player.setVolume(0);await player.play([{id:'first',midi:64,startSeconds:0,durationSeconds:1},{id:'second',midi:67,startSeconds:1,durationSeconds:1}]);
+  wall=.2;env.tick(10);const pending=player.setVolume(.5);player.setVolume(0);resolve();await pending;
+  assert.equal(env.nodes.length,0);assert.equal(env.suspends,1);wall=1.2;env.tick(10);assert.equal(seen.at(-1),'second');assert.equal(player.running,true);
+ }finally{resolve();player.stop();env.restore();}
 });

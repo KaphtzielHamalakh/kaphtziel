@@ -66,6 +66,11 @@ export function mountCombinationTools({getModel,getCorpus,selectHit}){
   $('find-combinations').addEventListener('toggle',()=>{if($('find-combinations').open){refresh();ensureCatalogue();}});
   updateOptions();refresh();
   return {
+    findPattern(id){
+      if(!options.has(id))throw Error('This source pattern is not in the search catalogue.');
+      $('find-combinations').open=true;$('combination-query').value=id;$('combination-scope').value='torah';refresh({reset:true});
+      $('combination-query').focus();$('find-combinations').scrollIntoView({block:'start'});
+    },
     readingChanged(){if(searchWords!==getModel().words&&scope==='reading')refresh({reset:true});},
     showWord(index){
       const model=getModel(),context=model.context,entry=context.wordContexts[index],unit=context.units[entry.unitIndex],run=entry.runIndex===null?null:context.runs[entry.runIndex];

@@ -15,6 +15,7 @@ import {getReferenceLibrary} from './reference-library.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
 import {CONTEXT_ANALYSIS} from './accent-context.js';
 import {mountCombinationTools} from './combination-ui.js';
+import {mountPatternStudy} from './pattern-study-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
@@ -43,7 +44,7 @@ let restoringReading=!!restore.ranges;
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let combinationTools=null;
+let combinationTools=null,patternTools=null;
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 const referenceStore=new ReferenceAudioStore({openingUrl:$('reference-audio').getAttribute('src')});
 const referencePlayer=new RecordingPlayer($('reference-audio'),{
@@ -82,16 +83,18 @@ const player=new Player((event,cycle,progress,index)=>{
 },(cycle,progress)=>{
   setActive(null,null);$('progress').style.width=`${progress*100}%`;
   $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Rest · the next source note follows the printed pause.`;
-});
+},{onError:error=>stop(`Audio unavailable: ${error.message}`)});
 function transportLabel(running){$('play').innerHTML=running?'<span aria-hidden="true">▶</span> Restart':'<span aria-hidden="true">▶</span> Play';}
 function setActive(wordId,eventId){
   if(wordId!==activeId){activeId=wordId;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',el.dataset.word===wordId));}
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
-function stop(message='Stopped. Your selection is kept.'){
+function stop(message='Stopped. Your selection is kept.',{preservePattern=false}={}){
+  if(!preservePattern)patternTools?.stop();
   referenceLoadJob?.abort();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped. Your selection is kept.';referencePlayer.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
 }
 async function play(){
+  patternTools?.stop();
   referencePlayer.stop();$('reference-status').textContent='';$('wav-preview').pause();
   playingBounds=bounds(state.cursor,state.anchor,state.scope);if(!renderSequence()){stop($('musical-source-status').textContent);return;}
   $('status').setAttribute('aria-live','off');transportLabel(true);player.setVolume(state.volume/100);
@@ -358,7 +361,7 @@ $('prepare-wav').addEventListener('click',async()=>{
   finally{if(wavJob===job){wavJob=null;$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;}}
 });
 $('cancel-wav').addEventListener('click',()=>wavJob?.abort());
-$('wav-preview').addEventListener('play',()=>{player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped.';referencePlayer.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
+$('wav-preview').addEventListener('play',()=>{patternTools?.stop();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped.';referencePlayer.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
 $('reference-play').addEventListener('click',async()=>{
   if(!referencePlan||!referenceReady)return;const selected=referencePlan;stop('Listening to the recorded reference.');
   await referencePlayer.play(selected,state.repeat);
@@ -404,7 +407,7 @@ function render(){
   $('score-description').textContent=printed?'The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
   $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
-  renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();
+  renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -472,7 +475,7 @@ $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.
 $('end-selection').addEventListener('click',()=>{chooseEnd=!chooseEnd;updateSelection();});
 for(const id of ['play','compact-play'])$(id).addEventListener('click',play);
 for(const id of ['stop','compact-stop'])$(id).addEventListener('click',()=>stop());
-$('repeat').addEventListener('change',e=>{const running=player.running;state.repeat=e.target.checked;referencePlayer.repeat=state.repeat;persist();if(running)play();});
+$('repeat').addEventListener('change',e=>{const running=player.running;state.repeat=e.target.checked;referencePlayer.repeat=state.repeat;patternTools?.setRepeat(state.repeat);persist();if(running)play();});
 $('follow-playback').addEventListener('change',e=>{state.followPlayback=e.target.checked;persist();});
 function changeSound(key,value,min,max){
   if(!Number.isFinite(value))return;const running=player.running;state[key]=Math.min(max,Math.max(min,Math.round(value)));
@@ -481,7 +484,7 @@ function changeSound(key,value,min,max){
 $('tempo').addEventListener('input',e=>changeSound('tempo',Number(e.target.value),40,160));
 $('transpose').addEventListener('change',e=>changeSound('transpose',Number(e.target.value),-12,12));
 $('pitch-up').addEventListener('click',()=>changeSound('transpose',state.transpose+1,-12,12));$('pitch-down').addEventListener('click',()=>changeSound('transpose',state.transpose-1,-12,12));
-$('volume').addEventListener('input',e=>{state.volume=Number(e.target.value);player.setVolume(state.volume/100);$('volume-value').textContent=`${state.volume}%`;persist();});
+$('volume').addEventListener('input',e=>{state.volume=Number(e.target.value);player.setVolume(state.volume/100);patternTools?.volumeChanged();$('volume-value').textContent=`${state.volume}%`;persist();});
 // A prepared audio file is a snapshot. Changing volume must not leave a stale
 // file labelled with the new settings.
 $('volume').addEventListener('input',updateExportSummary);
@@ -517,7 +520,7 @@ $('import-assignment').addEventListener('change',async e=>{
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&(player.running||referencePlayer.running||referencePlayer.starting||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)patternTools?.stop();if(document.hidden&&(player.running||referencePlayer.running||referencePlayer.starting||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
 if(matchMedia('(min-width: 761px)').matches)$('library-options').open=true;
 combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(hit,wholeTorah)=>{
   if(wholeTorah)libraryAction(()=>{
@@ -532,6 +535,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   state.anchor=end;state.cursor=start;state.scope='selection';state.readerPage=Math.floor(words[start].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;render();
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
+patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
 render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();

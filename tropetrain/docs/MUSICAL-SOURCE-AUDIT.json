@@ -1,0 +1,83 @@
+{
+  "updated": "2026-11-19",
+  "scope": "Primary-source audit for independent reconstruction. Historical catalog attributions and playable musical realizations are separate. No proprietary Kinnor notes, voices or binaries are imported.",
+  "sources": [
+    {
+      "id": "cohen-1902",
+      "author": "Francis L. Cohen",
+      "title": "Cantillation, The Jewish Encyclopedia III",
+      "publicationYear": 1902,
+      "url": "https://www.jewishencyclopedia.com/articles/718",
+      "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+      "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+      "verifiedPages": [
+        539,
+        540
+      ],
+      "activeRecords": [
+        "docs/PRINTED-SCORE.json",
+        "docs/PRINTED-PATTERNS.json"
+      ],
+      "musicalCoverage": "Complete printed Genesis22:1 example; eight untexted plain Munaḥ/Revia table components only. No full tradition, Kinnor equivalence or generic word-underlay rule.",
+      "rights": "1902 source public domain; new literal transcriptions CC0.",
+      "review": "Manual source checks; independent musical/transcription/underlay review pending."
+    },
+    {
+      "id": "gaster-jessurun-vol1",
+      "catalogYear": 1901,
+      "actualCopyYear": 1939,
+      "titlePageVerified": "PDF3 visually checked; title imprints1939. Separate music supplement title/preface in OCR dated1907; source arrangement credit E.R.Jessurun, editorMosesGaster.",
+      "sourcePage": "https://opensiddur.org/compilations/liturgical/siddurim/kol-bo/seder-hatefilot-vol-1-daily-and-occasional-prayers-by-david-de-aaron-de-sola-revised-by-moses-gaster-1901/",
+      "scanItem": "https://archive.org/details/sederhatefilotvol1dailyandoccasionalprayersmosesgaster1901",
+      "verifiedFiles": [
+        {
+          "name": "derivative text PDF",
+          "bytes": 45373451,
+          "sha1": "a2778a8a562f238f2b7d9a24b450d4f16b28f5c4"
+        },
+        {
+          "name": "OCR",
+          "bytes": 1069300,
+          "sha1": "9fd9d59c6b082654836213ee35e46fbc8b1406dd"
+        }
+      ],
+      "rightsEvidence": "Open Siddur releases imaging under CC0; Archive labels work public domain. First-edition music correspondence/arrangement and relevant cantillation coverage still to verify before import.",
+      "finding": "Supplement index provides congregational liturgical tunes, Tishah-be-Av Haftarah and Job examples; not established as the ordinary Torah-accent source for Kinnor Gaster. No music imported."
+    },
+    {
+      "id": "gaster-jessurun-vol5",
+      "catalogYear": 1906,
+      "actualCopyYear": 1931,
+      "titlePageVerified": "PDF3 visually checked; title imprints1931. Preface dated1906 credits E.R.Jessurun for Traditional Tunes.",
+      "sourcePage": "https://opensiddur.org/compilations/liturgical/mahzorim/regalim/hag-haaviv-mahzorim/seder-hatefilot-lpesah-ulshavuot-translated-by-david-de-aaron-de-sola-and-revised-by-moses-gaster-1906/",
+      "scanItem": "https://archive.org/details/sederhatefilotvol5tefilotlpesahulshavuotmosesgaster1906",
+      "verifiedFiles": [
+        {
+          "name": "derivative text PDF",
+          "bytes": 13490747,
+          "sha1": "b333f6c58e41a4a5a083e6a12897f78ace06b41d"
+        },
+        {
+          "name": "OCR",
+          "bytes": 850286,
+          "sha1": "622da1cc05a21f623584786de8a7018712882a1b"
+        },
+        {
+          "name": "scan index",
+          "bytes": 139958,
+          "sha1": "ffd1b5f379a9c40a6469c4fd2787c872886be524"
+        }
+      ],
+      "rightsEvidence": "Open Siddur CC0 imaging and Archive public-domain metadata. Do not equate catalog date with scanned edition or infer first-edition arrangement identity.",
+      "finding": "Printed223 is Kaddish/EnKelohenu in this copy, not a generic Torah-accent table. End includes a bounded Ruth1:1 example. Not matched to Kinnor Gaster; no music imported."
+    },
+    {
+      "id": "idelsohn-moroccan",
+      "catalogue": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)",
+      "candidate": "VolumeV, Gesänge der marokkanischen Juden,1929; file317924 in catalogue.",
+      "finding": "Bibliographic lead only. File-description endpoint returned a bot check, which was not bypassed. Accessible Archive thesaurusoforien00idel contains v1–2, not the Moroccan volume. No scanned Moroccan notes or musical realization verified.",
+      "next": "Locate a legitimately accessible original library scan; verify title/edition/pages/rights and contextual Torah examples before importing.",
+      "musicalCoverage": null
+    }
+  ]
+}
