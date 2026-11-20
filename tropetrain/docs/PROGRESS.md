@@ -277,3 +277,10 @@ Cua Enter did not activate some toggle buttons; Space did, and only observed act
 ## 2026-11-20 · v0.12 final local checkpoint
 
 Final full100-check run passed (work/check-0.12-final-complete.log). Rebuilt HTTP standalone retains scroll preferences and exact embedded source links; shared Genesis30:11 word3–4 playback completed atword4, Stop/replay/Escape passed. All four enlarged letters verified in actual UI: Leviticus11:42 ו, Numbers27:5 ן, Deuteronomy6:4 ע/ד. Reload retained display choice and independent tempo/source. Native Return with a fresh accessibility snapshot successfully submitted passage forms; unchanged batched submissions were never counted as passes. Restored complete Genesis22:1/Cohen/60BPM/key0/both gains0, stopped, viewport reset. Screenshot capture and independent browser glyph/spacing/scribal review remain pending. GitHub main unchanged at5ff10cd; publish exact tested tree next, then verify Pages/live and sync outputs. This is progress toward the active full objective.
+
+
+## 2026-11-20 · v0.12 published and live verified
+
+Code commitb9fa77266200a06024a8610516e5198bfadce394; Pages run44784787546 succeeded. Connected GitHub tools independently reconstructed the exact tested tree and lease-updated main after Git-object transfer through codex/tropetrain-v0.12. Only28 /tropetrain resources changed; all28 live bytes match (26193887bytes). Returning v0.11→v0.12 retained Genesis22:1 word5, Cohen source,60BPM/key0/both zero gains. Side by side and Sourced scroll lines showed columns22:8–9; muted source playback naturally ended atword5. Stop left active0, source/key/tempo unchanged and no captured warnings/errors. Screenshot capture unavailable; no release screenshot claimed.
+
+All100 automated checks and final local/HTTP standalone checks passed. A read-only DOM font-list probe was unsupported; no browser font-load or spacing-visual review inferred from it. Synchronize outputs using prior records5ff10cd as conflict baseline and publish these final records. Preserve source rights and all music/pronunciation/singing/remaining roadmap requirements. This is progress, not complete reconstruction.

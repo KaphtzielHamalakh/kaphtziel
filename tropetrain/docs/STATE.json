@@ -3,8 +3,8 @@
   "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "790806a7b8ee3c4f1bc2604115bd09363f227425",
-  "nextTask": "Publish tested v0.12 with exact Git objects, verify Pages/live bytes and returning browser state, synchronize outputs. Then continue sourced musical/phonetic/singing work and the full calendar/divisions/repertoire/tutor/learning/print roadmap.",
+  "publishedCommit": "b9fa77266200a06024a8610516e5198bfadce394",
+  "nextTask": "Synchronize the verified v0.12 outputs and publication records. Continue priority musical/phonetic/singer evidence work, then source-attributed calendar/divisions and selected-section print/learning tools. Keep the complete roadmap and objective active.",
   "lastPassingTests": {
     "automated": 100,
     "ui": "Local and rebuilt HTTP standalone: shared/split/joined written units, qere/ketiv aliases, independent musical settings, repeat/Stop/replay/Escape, all four enlarged letters, saved/reloaded display preferences and 320/390/1280 widths. All audio stopped/muted; viewport reset.",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "790806a7b8ee3c4f1bc2604115bd09363f227425",
+    "commit": "b9fa77266200a06024a8610516e5198bfadce394",
     "status": "success",
-    "workflowRun": 44773711681,
-    "liveAssets": "All 28 changed release resources match tested bytes (18,475,654 bytes), including standalone, runtime, pattern source data and both scan crops.",
-    "ui": "Returning v0.10→v0.11 retained Genesis22:1 word5, Cohen source, 60BPM, transpose0 and both zero volumes. Eight-note pattern completed; Stop/replay and final completion passed using keyboard controls. Both source images loaded at exact dimensions; F-sharp4 inspector MIDI66/0.25 beat. No captured warnings/errors. Left stopped/muted and retained live tab1. Mouse input and screenshot capture timed out; no v0.11 release screenshot claimed.",
+    "workflowRun": 44784787546,
+    "liveAssets": "All28 changed resources match tested bytes (26193887bytes), including standalone, runtime, source pack, font and layout data.",
+    "ui": "Returning v0.11→v0.12 retained Genesis22:1 word5, Cohen source,60BPM/key0/both zero gains. Side by side and Sourced scroll lines showed columns22:8–9; muted source playback naturally ended atword5. Stop left active0, source/key/tempo unchanged and no captured warnings/errors. Screenshot capture unavailable; no release screenshot claimed.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -188,12 +188,12 @@
   },
   "workingIteration": {
     "version": "0.12.0",
-    "status": "local_verified_ready_to_publish",
+    "status": "published_live_verified",
     "newFeatures": [
       "Optional sourced Torah scroll lines: 245 columns/10292 rows, all 79985 preferred reading IDs, exact UXLC written-letter preservation, explicit source differences, original licensed scribal font."
     ],
-    "next": "Publish tested v0.12 with exact Git objects, verify Pages/live bytes and returning browser state, synchronize outputs. Then continue sourced musical/phonetic/singing work and the full calendar/divisions/repertoire/tutor/learning/print roadmap.",
-    "tests": "All 100 final npm-run-check checks pass. Local and rebuilt HTTP standalone normal UI checks passed, including all four enlarged letters and saved/reloaded scroll/parallel preferences. Native Return submitted passage forms; Space activated controls. Capture unavailable; all audio stopped/muted. Publication next."
+    "next": "Synchronize the verified v0.12 outputs and publication records. Continue priority musical/phonetic/singer evidence work, then source-attributed calendar/divisions and selected-section print/learning tools. Keep the complete roadmap and objective active.",
+    "tests": "All 100 final npm-run-check checks pass. Local and rebuilt HTTP standalone normal UI checks passed, including all four enlarged letters and saved/reloaded scroll/parallel preferences. Native Return submitted passage forms; Space activated controls. Capture unavailable; all audio stopped/muted. Publication next. Pages44784787546 succeeded; all28 deployed resources match tested bytes. Returning live reader/settings and sourceword5 completion passed; left stopped/muted."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -231,5 +231,14 @@
     "record": "docs/PRINTED-PATTERNS.json",
     "coverage": "Plain Munaḥ and Revia columns only, 8 untexted notes / 7.5 quarter beats; source slurs remain separate attacks.",
     "review": "Manual transcription/source checks; independent musical/transcription review pending. No word/syllable/phoneme allocation or full tradition asserted."
+  },
+  "scrollSource": {
+    "record": "docs/SCROLL-SOURCES.json",
+    "audit": "docs/SCROLL-LAYOUT-AUDIT.json",
+    "columns": 245,
+    "rows": 10292,
+    "readingWords": 79985,
+    "differenceGroups": 132,
+    "review": "Written letters and all reading IDs preserved; typeset widths approximate. Independent scribal and browser glyph/spacing visual review pending."
   }
 }
