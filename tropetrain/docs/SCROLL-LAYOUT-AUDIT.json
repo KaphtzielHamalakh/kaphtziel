@@ -1,0 +1,3043 @@
+{
+  "id": "tikkun-245-uxlc-layout",
+  "revision": 1,
+  "sourceCommit": "57ba104e8de055cf92d3cf6aa91245bd92b34d60",
+  "summary": [
+    {
+      "book": "gen",
+      "uxlcWrittenUnits": 20613,
+      "layoutWrittenUnits": 20612,
+      "exactUnitMatches": 20592
+    },
+    {
+      "book": "exo",
+      "uxlcWrittenUnits": 16713,
+      "layoutWrittenUnits": 16713,
+      "exactUnitMatches": 16688
+    },
+    {
+      "book": "lev",
+      "uxlcWrittenUnits": 11950,
+      "layoutWrittenUnits": 11950,
+      "exactUnitMatches": 11936
+    },
+    {
+      "book": "num",
+      "uxlcWrittenUnits": 16412,
+      "layoutWrittenUnits": 16408,
+      "exactUnitMatches": 16371
+    },
+    {
+      "book": "deu",
+      "uxlcWrittenUnits": 14294,
+      "layoutWrittenUnits": 14294,
+      "exactUnitMatches": 14255
+    }
+  ],
+  "sourceColumns": 245,
+  "sourceRows": 10292,
+  "sourcePageLengths": {
+    "42": 240,
+    "43": 4,
+    "40": 1
+  },
+  "unusualPages": {
+    "61": 43,
+    "78": 40,
+    "111": 43,
+    "148": 43,
+    "200": 43
+  },
+  "readingWordsCovered": 79985,
+  "pieces": 79977,
+  "variantCounts": {
+    "1k:1q": 64,
+    "1k:2q": 3
+  },
+  "differenceGroups": 132,
+  "differences": [
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-8-20-8",
+          "text": "הטהורה",
+          "readingIds": [
+            "gen-8-20-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הטהרה",
+          "page": 8,
+          "line": 42,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-8-20-11",
+          "text": "הטהר",
+          "readingIds": [
+            "gen-8-20-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הטהור",
+          "page": 8,
+          "line": 42,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-13-8-10",
+          "text": "וביניך",
+          "readingIds": [
+            "gen-13-8-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ובינך",
+          "page": 13,
+          "line": 11,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "gen-14-17-9",
+          "text": "כדר",
+          "readingIds": [
+            "gen-14-17-9"
+          ]
+        },
+        {
+          "id": "gen-14-17-10",
+          "text": "לעמר",
+          "readingIds": [
+            "gen-14-17-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "כדרלעמר",
+          "page": 14,
+          "line": 18,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-14-22-6",
+          "text": "הרימתי",
+          "readingIds": [
+            "gen-14-22-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הרמתי",
+          "page": 14,
+          "line": 25,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-19-16-2",
+          "text": "ויחזקו",
+          "readingIds": [
+            "gen-19-16-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ויחזיקו",
+          "page": 19,
+          "line": 8,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-19-20-8",
+          "text": "והיא",
+          "readingIds": [
+            "gen-19-20-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "והוא",
+          "page": 19,
+          "line": 17,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-25-3-11",
+          "text": "ולטושים",
+          "readingIds": [
+            "gen-25-3-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ולטושם",
+          "page": 26,
+          "line": 32,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-26-7-21",
+          "text": "היא",
+          "readingIds": [
+            "gen-26-7-21"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הוא",
+          "page": 28,
+          "line": 9,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-27-31-14",
+          "text": "בעבור",
+          "readingIds": [
+            "gen-27-31-14"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בעבר",
+          "page": 30,
+          "line": 17,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-35-5-8",
+          "text": "סביבתיהם",
+          "readingIds": [
+            "gen-35-5-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "סביבותיהם",
+          "page": 40,
+          "line": 16,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-35-23-10",
+          "text": "וזבולן",
+          "readingIds": [
+            "gen-35-23-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "וזבלון",
+          "page": 41,
+          "line": 3,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-40-10-4",
+          "text": "והיא",
+          "readingIds": [
+            "gen-40-10-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "והוא",
+          "page": 46,
+          "line": 26,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-41-35-6",
+          "text": "הטבת",
+          "readingIds": [
+            "gen-41-35-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הטבות",
+          "page": 48,
+          "line": 25,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-45-15-5",
+          "text": "עליהם",
+          "readingIds": [
+            "gen-45-15-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "עלהם",
+          "page": 54,
+          "line": 20,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-46-9-5",
+          "text": "וחצרון",
+          "readingIds": [
+            "gen-46-9-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "וחצרן",
+          "page": 55,
+          "line": 15,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-46-12-16",
+          "text": "חצרון",
+          "readingIds": [
+            "gen-46-12-16"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "חצרן",
+          "page": 55,
+          "line": 19,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-46-13-6",
+          "text": "ושמרון",
+          "readingIds": [
+            "gen-46-13-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ושמרן",
+          "page": 55,
+          "line": 20,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-46-14-2",
+          "text": "זבולן",
+          "readingIds": [
+            "gen-46-14-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "זבלון",
+          "page": 55,
+          "line": 20,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "gen",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "gen-49-13-7",
+          "text": "אניות",
+          "readingIds": [
+            "gen-49-13-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "אנית",
+          "page": 59,
+          "line": 8,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-1-16-15",
+          "text": "היא",
+          "readingIds": [
+            "exo-1-16-15"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הוא",
+          "page": 61,
+          "line": 27,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-4-3-4",
+          "text": "וישליכהו",
+          "readingIds": [
+            "exo-4-3-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "וישלכהו",
+          "page": 64,
+          "line": 3,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-6-14-11",
+          "text": "חצרון",
+          "readingIds": [
+            "exo-6-14-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "חצרן",
+          "page": 66,
+          "line": 36,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-8-15-2",
+          "text": "החרטמים",
+          "readingIds": [
+            "exo-8-15-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "החרטמם",
+          "page": 69,
+          "line": 13,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-10-25-8",
+          "text": "ועלות",
+          "readingIds": [
+            "exo-10-25-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ועלת",
+          "page": 72,
+          "line": 33,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-12-4-4",
+          "text": "מהית",
+          "readingIds": [
+            "exo-12-4-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מהיות",
+          "page": 73,
+          "line": 24,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-14-13-23",
+          "text": "תסיפו",
+          "readingIds": [
+            "exo-14-13-23"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "תספו",
+          "page": 77,
+          "line": 14,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-14-14-5",
+          "text": "תחרישון",
+          "readingIds": [
+            "exo-14-14-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "תחרשון",
+          "page": 77,
+          "line": 15,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-14-22-9",
+          "text": "חמה",
+          "readingIds": [
+            "exo-14-22-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "חומה",
+          "page": 77,
+          "line": 30,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-19-11-7",
+          "text": "השלישי",
+          "readingIds": [
+            "exo-19-11-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "השלשי",
+          "page": 83,
+          "line": 9,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-19-19-3",
+          "text": "השופר",
+          "readingIds": [
+            "exo-19-19-3"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "השפר",
+          "page": 83,
+          "line": 23,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-23-22-3",
+          "text": "שמע",
+          "readingIds": [
+            "exo-23-22-3"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "שמוע",
+          "page": 88,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-25-22-13",
+          "text": "ארן",
+          "readingIds": [
+            "exo-25-22-13"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ארון",
+          "page": 89,
+          "line": 39,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-26-24-2",
+          "text": "תאמים",
+          "readingIds": [
+            "exo-26-24-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "תאמם",
+          "page": 91,
+          "line": 25,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-28-28-8",
+          "text": "האפד",
+          "readingIds": [
+            "exo-28-28-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "האפוד",
+          "page": 94,
+          "line": 8,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-29-22-20",
+          "text": "עלהן",
+          "readingIds": [
+            "exo-29-22-20"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "עליהן",
+          "page": 95,
+          "line": 33,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-29-40-9",
+          "text": "רבעית",
+          "readingIds": [
+            "exo-29-40-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "רביעת",
+          "page": 96,
+          "line": 22,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-32-34-17",
+          "text": "עליהם",
+          "readingIds": [
+            "exo-32-34-17"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "עלהם",
+          "page": 100,
+          "line": 19,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-34-24-7",
+          "text": "גבולך",
+          "readingIds": [
+            "exo-34-24-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "גבלך",
+          "page": 102,
+          "line": 21,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-36-13-7",
+          "text": "הירעת",
+          "readingIds": [
+            "exo-36-13-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "היריעת",
+          "page": 105,
+          "line": 3,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-36-19-5",
+          "text": "אלים",
+          "readingIds": [
+            "exo-36-19-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "אילם",
+          "page": 105,
+          "line": 13,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-37-3-15",
+          "text": "טבעות",
+          "readingIds": [
+            "exo-37-3-15"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "טבעת",
+          "page": 106,
+          "line": 8,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-38-10-7",
+          "text": "העמדים",
+          "readingIds": [
+            "exo-38-10-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "העמודים",
+          "page": 107,
+          "line": 28,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-39-13-7",
+          "text": "משבצות",
+          "readingIds": [
+            "exo-39-13-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "משבצת",
+          "page": 109,
+          "line": 7,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "exo",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "exo-39-35-2",
+          "text": "ארן",
+          "readingIds": [
+            "exo-39-35-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ארון",
+          "page": 110,
+          "line": 4,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-5-11-30",
+          "text": "היא",
+          "readingIds": [
+            "lev-5-11-30"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הוא",
+          "page": 116,
+          "line": 15,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-10-1-14",
+          "text": "ויקרבו",
+          "readingIds": [
+            "lev-10-1-14"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ויקריבו",
+          "page": 122,
+          "line": 4,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-10-13-4",
+          "text": "קדש",
+          "readingIds": [
+            "lev-10-13-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "קדוש",
+          "page": 122,
+          "line": 28,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-11-4-8",
+          "text": "וממפריסי",
+          "readingIds": [
+            "lev-11-4-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "וממפרסי",
+          "page": 123,
+          "line": 9,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-13-6-17",
+          "text": "היא",
+          "readingIds": [
+            "lev-13-6-17"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הוא",
+          "page": 125,
+          "line": 22,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-14-10-6",
+          "text": "תמימים",
+          "readingIds": [
+            "lev-14-10-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "תמימם",
+          "page": 128,
+          "line": 13,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-16-8-6",
+          "text": "גורלות",
+          "readingIds": [
+            "lev-16-8-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "גרלות",
+          "page": 132,
+          "line": 1,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-18-29-6",
+          "text": "התועבות",
+          "readingIds": [
+            "lev-18-29-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "התועבת",
+          "page": 135,
+          "line": 10,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-19-4-4",
+          "text": "האלילים",
+          "readingIds": [
+            "lev-19-4-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "האלילם",
+          "page": 135,
+          "line": 19,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-20-6-8",
+          "text": "לזנות",
+          "readingIds": [
+            "lev-20-6-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "לזנת",
+          "page": 136,
+          "line": 40,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-20-18-13",
+          "text": "והיא",
+          "readingIds": [
+            "lev-20-18-13"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "והוא",
+          "page": 137,
+          "line": 20,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-23-20-6",
+          "text": "הבכורים",
+          "readingIds": [
+            "lev-23-20-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הבכרים",
+          "page": 141,
+          "line": 1,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-23-38-11",
+          "text": "נדבותיכם",
+          "readingIds": [
+            "lev-23-38-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "נדבתיכם",
+          "page": 141,
+          "line": 36,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "lev",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "lev-26-45-12",
+          "text": "להית",
+          "readingIds": [
+            "lev-26-45-12"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "להיות",
+          "page": 147,
+          "line": 5,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-1-17-9",
+          "text": "בשמות",
+          "readingIds": [
+            "num-1-17-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בשמת",
+          "page": 149,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "num-2-12-10",
+          "text": "צורי",
+          "readingIds": [
+            "num-2-12-10"
+          ]
+        },
+        {
+          "id": "num-2-12-11",
+          "text": "שדי",
+          "readingIds": [
+            "num-2-12-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "צורישדי",
+          "page": 151,
+          "line": 8,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-3-2-5",
+          "text": "הבכור",
+          "readingIds": [
+            "num-3-2-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הבכר",
+          "page": 152,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-3-42-9",
+          "text": "בכר",
+          "readingIds": [
+            "num-3-42-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בכור",
+          "page": 153,
+          "line": 26,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-3-43-6",
+          "text": "שמות",
+          "readingIds": [
+            "num-3-43-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "שמת",
+          "page": 153,
+          "line": 27,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-7-7-3",
+          "text": "העגלת",
+          "readingIds": [
+            "num-7-7-3"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "העגלות",
+          "page": 158,
+          "line": 38,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-7-23-7",
+          "text": "עתודים",
+          "readingIds": [
+            "num-7-23-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "עתדים",
+          "page": 159,
+          "line": 23,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "num-7-54-8",
+          "text": "פדה",
+          "readingIds": [
+            "num-7-54-8"
+          ]
+        },
+        {
+          "id": "num-7-54-9",
+          "text": "צור",
+          "readingIds": [
+            "num-7-54-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "פדהצור",
+          "page": 160,
+          "line": 32,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "num-7-59-17",
+          "text": "פדה",
+          "readingIds": [
+            "num-7-59-17"
+          ]
+        },
+        {
+          "id": "num-7-59-18",
+          "text": "צור",
+          "readingIds": [
+            "num-7-59-18"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "פדהצור",
+          "page": 160,
+          "line": 40,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-9-3-10",
+          "text": "במועדו",
+          "readingIds": [
+            "num-9-3-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "במעדו",
+          "page": 163,
+          "line": 22,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-9-7-12",
+          "text": "הקרב",
+          "readingIds": [
+            "num-9-7-12"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הקריב",
+          "page": 163,
+          "line": 30,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-9-17-2",
+          "text": "העלת",
+          "readingIds": [
+            "num-9-17-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "העלות",
+          "page": 164,
+          "line": 7,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-10-9-10",
+          "text": "בחצצרות",
+          "readingIds": [
+            "num-10-9-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בחצצרת",
+          "page": 164,
+          "line": 33,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-10-16-8",
+          "text": "חלון",
+          "readingIds": [
+            "num-10-16-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "חלן",
+          "page": 165,
+          "line": 3,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "num-10-19-8",
+          "text": "צורי",
+          "readingIds": [
+            "num-10-19-8"
+          ]
+        },
+        {
+          "id": "num-10-19-9",
+          "text": "שדי",
+          "readingIds": [
+            "num-10-19-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "צורישדי",
+          "page": 165,
+          "line": 6,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "num-10-23-8",
+          "text": "פדה",
+          "readingIds": [
+            "num-10-23-8"
+          ]
+        },
+        {
+          "id": "num-10-23-9",
+          "text": "צור",
+          "readingIds": [
+            "num-10-23-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "פדהצור",
+          "page": 165,
+          "line": 11,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-11-26-12",
+          "text": "עליהם",
+          "readingIds": [
+            "num-11-26-12"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "עלהם",
+          "page": 166,
+          "line": 41,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "word-division",
+      "uxlc": [
+        {
+          "id": "num-12-9-1",
+          "text": "ויחראף",
+          "readingIds": [
+            "num-12-9-1"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ויחר",
+          "page": 167,
+          "line": 30,
+          "column": 0,
+          "fragment": 0
+        },
+        {
+          "text": "אף",
+          "page": 167,
+          "line": 30,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-13-26-17",
+          "text": "אותם",
+          "readingIds": [
+            "num-13-26-17"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "אתם",
+          "page": 168,
+          "line": 34,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-13-29-11",
+          "text": "ישב",
+          "readingIds": [
+            "num-13-29-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "יושב",
+          "page": 168,
+          "line": 40,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-13-32-1",
+          "text": "ויוציאו",
+          "readingIds": [
+            "num-13-32-1"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ויציאו",
+          "page": 169,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-15-39-14",
+          "text": "תתרו",
+          "readingIds": [
+            "num-15-39-14"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "תתורו",
+          "page": 172,
+          "line": 25,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-19-7-8",
+          "text": "יבוא",
+          "readingIds": [
+            "num-19-7-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "יבא",
+          "page": 177,
+          "line": 16,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-20-17-22",
+          "text": "גבולך",
+          "readingIds": [
+            "num-20-17-22"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "גבלך",
+          "page": 178,
+          "line": 40,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-21-13-9",
+          "text": "מגבול",
+          "readingIds": [
+            "num-21-13-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מגבל",
+          "page": 179,
+          "line": 42,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-21-30-5",
+          "text": "דיבון",
+          "readingIds": [
+            "num-21-30-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "דיבן",
+          "page": 180,
+          "line": 27,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-22-5-6",
+          "text": "בעור",
+          "readingIds": [
+            "num-22-5-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בער",
+          "page": 181,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-22-38-9",
+          "text": "היכול",
+          "readingIds": [
+            "num-22-38-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "היכל",
+          "page": 182,
+          "line": 26,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-23-29-16",
+          "text": "אילים",
+          "readingIds": [
+            "num-23-29-16"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "אילם",
+          "page": 183,
+          "line": 35,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-26-24-3",
+          "text": "הישובי",
+          "readingIds": [
+            "num-26-24-3"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הישבי",
+          "page": 186,
+          "line": 14,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-32-22-8",
+          "text": "נקיים",
+          "readingIds": [
+            "num-32-22-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "נקים",
+          "page": 195,
+          "line": 23,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-33-35-4",
+          "text": "בעציון",
+          "readingIds": [
+            "num-33-35-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בעצין",
+          "page": 197,
+          "line": 4,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-33-36-2",
+          "text": "מעציון",
+          "readingIds": [
+            "num-33-36-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מעצין",
+          "page": 197,
+          "line": 5,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-33-52-18",
+          "text": "במתם",
+          "readingIds": [
+            "num-33-52-18"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "במותם",
+          "page": 197,
+          "line": 26,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-34-11-8",
+          "text": "הגבול",
+          "readingIds": [
+            "num-34-11-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הגבל",
+          "page": 198,
+          "line": 9,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "num",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "num-35-19-10",
+          "text": "ימיתנו",
+          "readingIds": [
+            "num-35-19-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ימתנו",
+          "page": 199,
+          "line": 23,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-1-15-9",
+          "text": "אתם",
+          "readingIds": [
+            "deu-1-15-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "אותם",
+          "page": 201,
+          "line": 23,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-2-23-8",
+          "text": "מכפתור",
+          "readingIds": [
+            "deu-2-23-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מכפתר",
+          "page": 203,
+          "line": 37,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-3-5-4",
+          "text": "בצרות",
+          "readingIds": [
+            "deu-3-5-4"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בצרת",
+          "page": 204,
+          "line": 31,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-3-25-13",
+          "text": "והלבנון",
+          "readingIds": [
+            "deu-3-25-13"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "והלבנן",
+          "page": 205,
+          "line": 31,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-4-3-2",
+          "text": "הראת",
+          "readingIds": [
+            "deu-4-3-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הראות",
+          "page": 206,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-4-42-14",
+          "text": "מתמול",
+          "readingIds": [
+            "deu-4-42-14"
+          ]
+        },
+        {
+          "id": "deu-4-42-15",
+          "text": "שלשום",
+          "readingIds": [
+            "deu-4-42-15"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מתמל",
+          "page": 208,
+          "line": 5,
+          "column": 0,
+          "fragment": 0
+        },
+        {
+          "text": "שלשם",
+          "page": 208,
+          "line": 5,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-6-9-3",
+          "text": "מזוזת",
+          "readingIds": [
+            "deu-6-9-3"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מזזות",
+          "page": 210,
+          "line": 12,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-6-21-7",
+          "text": "ויוציאנו",
+          "readingIds": [
+            "deu-6-21-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ויציאנו",
+          "page": 210,
+          "line": 33,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-7-16-11",
+          "text": "תחס",
+          "readingIds": [
+            "deu-7-16-11"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "תחוס",
+          "page": 211,
+          "line": 33,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-8-2-6",
+          "text": "הליכך",
+          "readingIds": [
+            "deu-8-2-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הוליכך",
+          "page": 212,
+          "line": 16,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-8-3-13",
+          "text": "הודעך",
+          "readingIds": [
+            "deu-8-3-13"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הודיעך",
+          "page": 212,
+          "line": 20,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-8-12-5",
+          "text": "טובים",
+          "readingIds": [
+            "deu-8-12-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "טבים",
+          "page": 212,
+          "line": 35,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-9-15-9",
+          "text": "לחת",
+          "readingIds": [
+            "deu-9-15-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "לוחת",
+          "page": 214,
+          "line": 2,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-10-11-10",
+          "text": "וירשו",
+          "readingIds": [
+            "deu-10-11-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ויירשו",
+          "page": 215,
+          "line": 12,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-12-20-6",
+          "text": "גבולך",
+          "readingIds": [
+            "deu-12-20-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "גבלך",
+          "page": 218,
+          "line": 18,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-18-22-10",
+          "text": "יבוא",
+          "readingIds": [
+            "deu-18-22-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "יבא",
+          "page": 225,
+          "line": 15,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-20-1-5",
+          "text": "איביך",
+          "readingIds": [
+            "deu-20-1-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "איבך",
+          "page": 226,
+          "line": 18,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-21-15-17",
+          "text": "הבכור",
+          "readingIds": [
+            "deu-21-15-17"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הבכר",
+          "page": 228,
+          "line": 1,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-22-14-5",
+          "text": "והוציא",
+          "readingIds": [
+            "deu-22-14-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "והוצא",
+          "page": 229,
+          "line": 1,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-24-13-6",
+          "text": "כבא",
+          "readingIds": [
+            "deu-24-13-6"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "כבוא",
+          "page": 231,
+          "line": 22,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-25-7-14",
+          "text": "מאין",
+          "readingIds": [
+            "deu-25-7-14"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מאן",
+          "page": 232,
+          "line": 12,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-28-18-8",
+          "text": "ועשתרות",
+          "readingIds": [
+            "deu-28-18-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ועשתרת",
+          "page": 235,
+          "line": 28,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-28-49-5",
+          "text": "מרחוק",
+          "readingIds": [
+            "deu-28-49-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מרחק",
+          "page": 236,
+          "line": 37,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-28-52-8",
+          "text": "הגבהות",
+          "readingIds": [
+            "deu-28-52-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הגבהת",
+          "page": 237,
+          "line": 1,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-28-58-10",
+          "text": "הכתובים",
+          "readingIds": [
+            "deu-28-58-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "הכתבים",
+          "page": 237,
+          "line": 16,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-28-59-9",
+          "text": "גדלות",
+          "readingIds": [
+            "deu-28-59-9"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "גדלת",
+          "page": 237,
+          "line": 18,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-30-9-13",
+          "text": "לטובה",
+          "readingIds": [
+            "deu-30-9-13"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "לטבה",
+          "page": 239,
+          "line": 34,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-30-18-17",
+          "text": "לבא",
+          "readingIds": [
+            "deu-30-18-17"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "לבוא",
+          "page": 240,
+          "line": 11,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-30-19-1",
+          "text": "העידתי",
+          "readingIds": [
+            "deu-30-19-1"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "העדתי",
+          "page": 240,
+          "line": 12,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-32-7-6",
+          "text": "דור",
+          "readingIds": [
+            "deu-32-7-6"
+          ]
+        },
+        {
+          "id": "deu-32-7-7",
+          "text": "ודור",
+          "readingIds": [
+            "deu-32-7-7"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "דר",
+          "page": 242,
+          "line": 17,
+          "column": 1,
+          "fragment": 0
+        },
+        {
+          "text": "ודר",
+          "page": 242,
+          "line": 17,
+          "column": 1,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-32-24-8",
+          "text": "בהמות",
+          "readingIds": [
+            "deu-32-24-8"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "בהמת",
+          "page": 243,
+          "line": 4,
+          "column": 1,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-32-27-10",
+          "text": "ידינו",
+          "readingIds": [
+            "deu-32-27-10"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ידנו",
+          "page": 243,
+          "line": 9,
+          "column": 1,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-32-34-5",
+          "text": "חתם",
+          "readingIds": [
+            "deu-32-34-5"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "חתום",
+          "page": 243,
+          "line": 19,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-33-12-13",
+          "text": "כתיפיו",
+          "readingIds": [
+            "deu-33-12-13"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "כתפיו",
+          "page": 244,
+          "line": 35,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-33-19-12",
+          "text": "ושפוני",
+          "readingIds": [
+            "deu-33-19-12"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "ושפני",
+          "page": 245,
+          "line": 4,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-33-25-3",
+          "text": "מנעליך",
+          "readingIds": [
+            "deu-33-25-3"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "מנעלך",
+          "page": 245,
+          "line": 13,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    },
+    {
+      "book": "deu",
+      "kind": "spelling-difference",
+      "uxlc": [
+        {
+          "id": "deu-34-11-2",
+          "text": "האתות",
+          "readingIds": [
+            "deu-34-11-2"
+          ]
+        }
+      ],
+      "layout": [
+        {
+          "text": "האתת",
+          "page": 245,
+          "line": 38,
+          "column": 0,
+          "fragment": 0
+        }
+      ]
+    }
+  ],
+  "dataSha256": "2e798b2a0ed7f9ea5901980bb3ff676cd09a40a53d082325b130cd7cbf158880",
+  "review": "Automatic source correspondence only; spelling and word-division differences are flagged. No source text, preferred reading, syllable or phoneme was changed."
+}

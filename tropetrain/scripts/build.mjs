@@ -3,10 +3,12 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {gzipSync} from 'node:zlib';
+import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
 import './import-printed-patterns.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -37,6 +39,11 @@ await writeFile(path.join(root,'assets/havarotjs-LICENSE.txt'),license);
 const fontLicense=await readFile(path.join(root,'assets/OFL.txt'),'utf8');
 const musicFont=await readFile(path.join(root,'assets/Bravura.otf'));
 const musicFontLicense=await readFile(path.join(root,'assets/Bravura-OFL.txt'),'utf8');
+const scrollFont=await readFile(path.join(root,'assets/ShlomoStam.ttf'));
+const scrollFontLicense=await readFile(path.join(root,'assets/ShlomoStam-OFL.txt'),'utf8');
+const layoutLicense=await readFile(path.join(root,'assets/layout/tikkun-MIT.txt'),'utf8');
+const layoutEvidence=await readFile(path.join(root,'docs/SCROLL-SOURCES.json'),'utf8');
+const layoutPack=await readFile(path.join(root,'assets/layout/tikkun-torah-sources.zip'));
 const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1.mp3'));
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
@@ -47,11 +54,14 @@ const patternRow=await readFile(path.join(root,'assets/scores/cohen-1902-pentate
 const patternEvidence=await readFile(path.join(root,'docs/PRINTED-PATTERNS.json'),'utf8');
 const roadmap=await readFile(path.join(root,'docs/RESEARCH.md'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`);
+const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
 const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
  .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script>${script.replaceAll('</script','<\\/script')}</script>`)
  .replaceAll('href="./assets/OFL.txt"','href="#license-notices"').replaceAll('href="./assets/havarotjs-LICENSE.txt"','href="#license-notices"')
  .replaceAll('href="./assets/Bravura-OFL.txt"','href="#license-notices"')
+ .replaceAll('href="./assets/ShlomoStam-OFL.txt"','href="#license-notices"').replaceAll('href="./assets/layout/tikkun-MIT.txt"','href="#license-notices"')
+ .replaceAll('href="./docs/SCROLL-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(layoutEvidence).toString('base64')}"`)
+ .replaceAll('href="./assets/layout/tikkun-torah-sources.zip"',()=>`href="data:application/zip;base64,${layoutPack.toString('base64')}"`)
  .replace('src="./assets/references/Bereshit-1.mp3"',()=>`src="data:audio/mpeg;base64,${referenceAudio.toString('base64')}"`)
  .replaceAll('href="./assets/references/NOTICE.txt"','href="#license-notices"')
  .replaceAll('src="./assets/scores/cohen-1902-genesis22.png"',()=>`src="data:image/png;base64,${printedScan.toString('base64')}"`)
@@ -64,6 +74,6 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/PRINTED-PATTERNS.json"',()=>`href="data:application/json;base64,${Buffer.from(patternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/RESEARCH.md"','href="#standalone-roadmap"')
- .replace('<footer>',()=>`<details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
+ .replace('<footer>',()=>`<details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 await writeFile(path.join(root,'TropeTrain.html'),standalone);
 console.log('Built classic-script app.bundle.js and self-contained TropeTrain.html.');

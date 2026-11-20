@@ -37,17 +37,17 @@ export class Corpus {
         for(const verse of chapter.verses){
           const point={chapter:chapter.number,verse:verse.number};
           if(compare(point,range.start)<0||compare(point,range.end)>0)continue;
-          let previousKetiv=[];
+          let previousKetiv=[],qereActive=false;
           const reading=[];
           for(const token of verse.tokens){
-            if(token.kind==='k'){previousKetiv.push(token);continue;}
+            if(token.kind==='k'){if(qereActive)previousKetiv=[];qereActive=false;previousKetiv.push(token);continue;}
             if(!/[א-ת]/u.test(token.sourceHebrew))continue;
             const word={...token,sourceWordId:token.id,ordinal:reading.length+1,
               ...(token.kind==='q'?{writtenVariants:previousKetiv}:{}),
               bookId:book.id,bookName:book.name,chapter:chapter.number,verse:verse.number,
               sectionId:range.id,reference:`${book.name} ${chapter.number}:${verse.number}`};
             if(sourceIds.has(token.id))repeatedIds.add(token.id);sourceIds.add(token.id);
-            reading.push(word);previousKetiv=[];
+            reading.push(word);qereActive=token.kind==='q';if(!qereActive)previousKetiv=[];
           }
           verses.push({id:`${book.id}-${chapter.number}-${verse.number}@${range.id}`,number:verse.number,
             chapter:chapter.number,bookId:book.id,bookName:book.name,
@@ -77,11 +77,11 @@ export function parseAssignment(text,corpus){
   return {format:data.format,id:typeof data.id==='string'?data.id.slice(0,100):'imported',
     title:typeof data.title==='string'?data.title.slice(0,120):'Imported assignment',sections:passage.ranges,
     musicalPreferences:{melodyId,pronunciationId},
-    displayPreferences:{view:['pointed','consonantal','parallel'].includes(data.displayPreferences?.view)?data.displayPreferences.view:'pointed',groups:data.displayPreferences?.groups!==false,signClasses:data.displayPreferences?.signClasses===true}};
+    displayPreferences:{view:['pointed','consonantal','parallel'].includes(data.displayPreferences?.view)?data.displayPreferences.view:'pointed',groups:data.displayPreferences?.groups!==false,signClasses:data.displayPreferences?.signClasses===true,scrollLayout:data.displayPreferences?.scrollLayout===true}};
 }
 export function createAssignment(title,sections,displayPreferences={}){
   return {format:'tropetrain-assignment-v1',id:globalThis.crypto?.randomUUID?.()||`assignment-${Date.now()}`,
     title:(String(title).trim()||'Untitled assignment').slice(0,120),sections,
     musicalPreferences:{melodyId:displayPreferences.melodyId??'original-demo-01',pronunciationId:null},
-    displayPreferences:{view:displayPreferences.view||'pointed',groups:displayPreferences.groups!==false,signClasses:displayPreferences.signClasses===true}};
+    displayPreferences:{view:displayPreferences.view||'pointed',groups:displayPreferences.groups!==false,signClasses:displayPreferences.signClasses===true,scrollLayout:displayPreferences.scrollLayout===true}};
 }

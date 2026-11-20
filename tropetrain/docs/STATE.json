@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "790806a7b8ee3c4f1bc2604115bd09363f227425",
-  "nextTask": "Continue source-grounded contextual melody/phonetic/singer evidence and implementation; full 32-Torah-system/six-Accent/singing objective remains active. Proceed with sourced annual/holiday/calendar divisions and remaining tutor/learning/repertoire/print work where musical evidence is unavailable. Preserve durable checkpoints.",
+  "nextTask": "Publish tested v0.12 with exact Git objects, verify Pages/live bytes and returning browser state, synchronize outputs. Then continue sourced musical/phonetic/singing work and the full calendar/divisions/repertoire/tutor/learning/print roadmap.",
   "lastPassingTests": {
-    "automated": 92,
-    "ui": "Local and standalone source crop/context image, eight note inspections, exact +1 pitches, independent tempo, Bible selection/view preservation, pair/individual completion, repeat/Stop/replay/Escape, Bible/reference/pattern exclusivity, 1377-hit source lookup, unsupported source refusal, 320/390/1280 widths. Muted throughout; viewport reset.",
-    "limits": "No positive-gain browser/acoustic, direct file-origin, Save-dialog or independent musical/phonetic review. Full melodic grammars, six pronunciations, singer and all remaining roadmap work stay active."
+    "automated": 100,
+    "ui": "Local and rebuilt HTTP standalone: shared/split/joined written units, qere/ketiv aliases, independent musical settings, repeat/Stop/replay/Escape, all four enlarged letters, saved/reloaded display preferences and 320/390/1280 widths. All audio stopped/muted; viewport reset.",
+    "limits": "No positive-gain acoustic, file-origin, Save-dialog, browser screenshot/glyph-spacing or independent musical/phonetic/scribal review. Full melodic grammars, six pronunciations, singer and remaining roadmap stay active."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -32,7 +32,7 @@
     {
       "id": "reader",
       "description": "Pointed/consonantal/parallel views and stable IDs",
-      "status": "full_torah_views_and_paging_tested_scroll_facsimile_pending"
+      "status": "full_torah_views_paging_and_sourced_written_scroll_lines_tested"
     },
     {
       "id": "alignment",
@@ -97,7 +97,7 @@
     {
       "id": "display",
       "description": "STaM provenance, scroll layout, adjustable panes/sizes/vowels",
-      "status": "pending"
+      "status": "pinned_MIT_layout_and_original_OFL_scribal_font_with_source_differences_tested_other_controls_and_visual_scribal_review_pending"
     },
     {
       "id": "analysis",
@@ -153,7 +153,7 @@
         "Ruth-Koheles-ShirHashirim": 2,
         "Tehillim": 1
       },
-      "metadataRechecked": "2026-11-19"
+      "metadataRechecked": "2026-11-20"
     }
   },
   "lastDeployment": {
@@ -187,15 +187,13 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.11.0",
-    "status": "published_live_verified",
+    "version": "0.12.0",
+    "status": "local_verified_ready_to_publish",
     "newFeatures": [
-      "Eight source-transcribed untexted pattern components in separate study",
-      "Shared event staff with explicit absence of syllable/phoneme/word alignment, source slurs and shared instrument controls",
-      "Primary Gaster/Jessurun edition audit; no unsupported musical preset added"
+      "Optional sourced Torah scroll lines: 245 columns/10292 rows, all 79985 preferred reading IDs, exact UXLC written-letter preservation, explicit source differences, original licensed scribal font."
     ],
-    "next": "Continue source-grounded contextual melody/phonetic/singer evidence and implementation; full 32-Torah-system/six-Accent/singing objective remains active. Proceed with sourced annual/holiday/calendar divisions and remaining tutor/learning/repertoire/print work where musical evidence is unavailable. Preserve durable checkpoints.",
-    "tests": "All 92 final checks pass. Local/standalone source images and source JSON, muted transport completion/replay, source exclusivity and 320/390/1280 layouts pass; no captured warnings/errors."
+    "next": "Publish tested v0.12 with exact Git objects, verify Pages/live bytes and returning browser state, synchronize outputs. Then continue sourced musical/phonetic/singing work and the full calendar/divisions/repertoire/tutor/learning/print roadmap.",
+    "tests": "All 100 final npm-run-check checks pass. Local and rebuilt HTTP standalone normal UI checks passed, including all four enlarged letters and saved/reloaded scroll/parallel preferences. Native Return submitted passage forms; Space activated controls. Capture unavailable; all audio stopped/muted. Publication next."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

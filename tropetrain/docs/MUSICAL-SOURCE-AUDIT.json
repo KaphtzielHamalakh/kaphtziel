@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "scope": "Primary-source audit for independent reconstruction. Historical catalog attributions and playable musical realizations are separate. No proprietary Kinnor notes, voices or binaries are imported.",
   "sources": [
     {
@@ -78,6 +78,21 @@
       "finding": "Bibliographic lead only. File-description endpoint returned a bot check, which was not bypassed. Accessible Archive thesaurusoforien00idel contains v1–2, not the Moroccan volume. No scanned Moroccan notes or musical realization verified.",
       "next": "Locate a legitimately accessible original library scan; verify title/edition/pages/rights and contextual Torah examples before importing.",
       "musicalCoverage": null
+    },
+    {
+      "id": "cantillate-candidate",
+      "url": "https://github.com/kylemath/cantillate",
+      "readmeBlob": "02d93c09394204e1f73c3baf014222792057dbfd",
+      "noticesBlob": "716d303b323f3d3bb95dbf2c268fd3e206ea61d7",
+      "finding": "Author describes motifs as stylized approximations. No independent musical review or general code-license grant identified in examined root README/notices. Underlying PocketTorah recordings are already separately sourced here; no motif/code imported.",
+      "status": "research lead only"
+    },
+    {
+      "id": "taamimflow-candidate",
+      "url": "https://github.com/Moriahise/taamimflow_project",
+      "readmeBlob": "24e04ac45d72a36c37d91545e1b0bc1eff05c4de",
+      "finding": "README explicitly describes parsers for original-installer XML; general public-domain assertion does not establish rights for individual proprietary-origin files. No music/code/assets imported.",
+      "status": "not a cleared replacement for original musical definitions"
     }
   ]
 }

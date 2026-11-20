@@ -16,9 +16,11 @@ import {ReferenceAudioStore} from './reference-audio-store.js';
 import {CONTEXT_ANALYSIS} from './accent-context.js';
 import {mountCombinationTools} from './combination-ui.js';
 import {mountPatternStudy} from './pattern-study-ui.js';
+import {getScrollLayout} from './scroll-layout.js';
+import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
-const state={cursor:0,anchor:0,view:'pointed',scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
+const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01'};
 try{
   const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
@@ -27,7 +29,7 @@ try{
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
     if(['word','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
-    for(const key of ['repeat','groups','followPlayback','signClasses'])if(typeof saved[key]==='boolean')state[key]=saved[key];
+    for(const key of ['repeat','groups','followPlayback','signClasses','scrollLayout'])if(typeof saved[key]==='boolean')state[key]=saved[key];
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
     if(Array.isArray(saved.ranges))state.ranges=saved.ranges;
@@ -45,13 +47,14 @@ let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
 let combinationTools=null,patternTools=null;
+let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 const referenceStore=new ReferenceAudioStore({openingUrl:$('reference-audio').getAttribute('src')});
 const referencePlayer=new RecordingPlayer($('reference-audio'),{
   onWord:word=>{
     referenceActiveId=word?.occurrenceId??null;
     if(word&&state.followPlayback){const page=Math.floor(words[word.wordIndex].verseIndex/VERSE_PAGE);if(page!==state.readerPage){state.readerPage=page;renderReader();}}
-    document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',el.dataset.word===referenceActiveId));
+    document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',marksWord(el,referenceActiveId)));
     if(word)renderRecordedWord(word);
   },
   onEnd:()=>{$('reference-status').textContent='Reference playback finished. Your selection is kept.';say('Recorded reference finished. Your selection is kept.');},
@@ -86,7 +89,7 @@ const player=new Player((event,cycle,progress,index)=>{
 },{onError:error=>stop(`Audio unavailable: ${error.message}`)});
 function transportLabel(running){$('play').innerHTML=running?'<span aria-hidden="true">▶</span> Restart':'<span aria-hidden="true">▶</span> Play';}
 function setActive(wordId,eventId){
-  if(wordId!==activeId){activeId=wordId;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',el.dataset.word===wordId));}
+  if(wordId!==activeId){activeId=wordId;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',marksWord(el,wordId)));}
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
 function stop(message='Stopped. Your selection is kept.',{preservePattern=false}={}){
@@ -116,38 +119,61 @@ function setWordText(button,word,plain){
   }
   button.append(document.createTextNode(word.sourceHebrew.slice(offset)));
 }
-function wordButton(w,plain){
-  const b=document.createElement('button');b.className=`word group-${w.group%2?'odd':'even'}${w.groupEnd?' group-end':''}${w.kind==='q'?' qere-word':''}`;
+function wordButton(w,plain,piece=null){
+  const linked=piece?.words??[w],end=linked.at(-1);
+  const b=document.createElement('button');b.className=`word group-${w.group%2?'odd':'even'}${end.groupEnd?' group-end':''}${w.kind==='q'?' qere-word':''}`;
   b.dataset.word=w.id;b.dataset.index=w.index;b.dataset.signClass=w.signAnalysis.className??'';setWordText(b,w,plain);b.lang='he';b.dir='rtl';
-  b.title=`${w.reference}, word ${w.ordinal} · ${w.accent} · ${sourceClassLabel(w.signAnalysis.className)}`;b.setAttribute('aria-label',`${b.textContent}, ${w.reference}, word ${w.ordinal}`);
-  b.addEventListener('click',e=>selectWord(w.index,e.shiftKey));
-  b.addEventListener('dblclick',()=>{state.cursor=w.index;state.anchor=w.index;state.scope='word';state.notePage=0;render();play();});
+  if(piece){
+    b.textContent=piece.written;b.dataset.linkedWords=linked.map(word=>word.id).join(' ');b.dataset.endIndex=end.index;b.dataset.signClass=writtenUnitClass(linked);
+    if(piece.letterSizes?.length){
+      b.replaceChildren();let offset=0;
+      for(const size of piece.letterSizes){b.append(document.createTextNode(piece.written.slice(offset,size.index)));const span=document.createElement('span');span.className=`source-letter-${size.size}`;span.textContent=piece.written[size.index];b.append(span);offset=size.index+1;}
+      b.append(document.createTextNode(piece.written.slice(offset)));
+    }
+  }
+  const position=linked.length>1?`words ${w.ordinal}–${end.ordinal}`:`word ${w.ordinal}`;
+  const classes=linked.length>1?'Written unit · separate reading-word classes in the pointed pane':sourceClassLabel(b.dataset.signClass);
+  b.title=`${w.reference}, ${position} · ${linked.map(word=>word.accent).join(' / ')} · ${classes}`;b.setAttribute('aria-label',`${b.textContent}, ${w.reference}, ${position}${piece?.variant?', written variant':''}`);
+  b.addEventListener('click',e=>{
+    if(e.shiftKey||chooseEnd||linked.length===1){selectWord((e.shiftKey||chooseEnd)?end.index:w.index,e.shiftKey);return;}
+    stop('Written unit selected with its corresponding reading words.');state.cursor=w.index;state.anchor=end.index;state.scope='selection';state.readerPage=Math.floor(w.verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;render();
+  });
+  b.addEventListener('dblclick',()=>{state.cursor=w.index;state.anchor=end.index;state.scope=linked.length>1?'selection':'word';state.notePage=0;render();play();});
   b.addEventListener('keydown',e=>{
     if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
-      e.preventDefault();const i=Math.max(0,Math.min(words.length-1,w.index+(e.key==='ArrowLeft'?1:-1)));selectWord(i,e.shiftKey);
-      document.querySelector(`[data-word="${words[i].id}"]`).focus();
+      e.preventDefault();const i=Math.max(0,Math.min(words.length-1,(e.key==='ArrowLeft'?end.index+1:w.index-1)));selectWord(i,e.shiftKey);
+      [...document.querySelectorAll('[data-word]')].find(el=>marksWord(el,words[i].id))?.focus();
     }
   });return b;
 }
 function renderReader(){
   $('reader').replaceChildren();$('reader').classList.toggle('guides',state.groups);$('reader').classList.toggle('sign-classes',state.signClasses);$('class-guide').hidden=!state.signClasses;
   const pages=Math.ceil(passage.verses.length/VERSE_PAGE);state.readerPage=Math.min(state.readerPage,pages-1);
-  if(state.view==='parallel'){
-    const headings=document.createElement('div');headings.className='parallel-headings';headings.innerHTML='<span>Consonantal practice</span><span>Pointed source</span>';$('reader').append(headings);
-  }
   const first=state.readerPage*VERSE_PAGE,last=Math.min(first+VERSE_PAGE,passage.verses.length);
-  for(let verseIndex=first;verseIndex<last;verseIndex++){
+  const useScroll=!!scrollLayout&&state.scrollLayout&&state.view!=='pointed';
+  let pointedTarget=$('reader');
+  if(state.view==='parallel'){
+    const headings=document.createElement('div');headings.className='parallel-headings';headings.innerHTML=useScroll?'<span>Written scroll letters</span><span>Pointed UXLC source</span>':'<span>Consonantal practice</span><span>Pointed source</span>';$('reader').append(headings);
+  }
+  if(useScroll){
+    const visible=words.filter(w=>w.verseIndex>=first&&w.verseIndex<last),rows=scrollLayout.excerpt(visible);
+    const pane=scrollPane(rows,{makeButton:piece=>wordButton(piece.words[0],true,piece)});
+    if(state.view==='parallel'){
+      const pair=document.createElement('div');pair.className='source-parallel';pointedTarget=document.createElement('div');pointedTarget.className='pointed-source-pane';pair.append(pane,pointedTarget);$('reader').append(pair);
+    }else $('reader').append(pane);
+  }
+  for(let verseIndex=first;verseIndex<last&&(!useScroll||state.view==='parallel');verseIndex++){
     const verse=passage.verses[verseIndex],row=document.createElement('div');row.className='verse';
     const number=document.createElement('span');number.className='verse-number';number.textContent=`${verse.chapter??1}:${verse.number}`;number.title=verse.reference;row.append(number);
-    const lines=document.createElement('div');if(state.view==='parallel')lines.className='parallel-lines';
-    for(const plain of state.view==='parallel'?[true,false]:[state.view==='consonantal']){
+    const lines=document.createElement('div');if(state.view==='parallel'&&!useScroll)lines.className='parallel-lines';
+    for(const plain of useScroll?[false]:state.view==='parallel'?[true,false]:[state.view==='consonantal']){
       const line=document.createElement('div');line.className='hebrew-line';line.lang='he';line.dir='rtl';
       for(const word of words.filter(w=>w.verseIndex===verseIndex))line.append(wordButton(word,plain),document.createTextNode(' '));
       lines.append(line);
     }
-    row.append(lines);$('reader').append(row);
+    row.append(lines);pointedTarget.append(row);
   }
-  const note=document.createElement('p');note.className='layout-note';note.textContent='Group guides: major practice divisions only. '+(state.view==='pointed'?'Source marks are preserved verbatim.':'Consonantal practice uses print letters and responsive lines; this is not a scroll facsimile.');$('reader').append(note);
+  const note=document.createElement('p');note.className='layout-note';note.textContent='Group guides: major practice divisions only. '+(useScroll?'Line/gap positions follow the cited 245-column layout; written letters remain UXLC. Edition differences and excerpted lines are labeled. Shlomo Stam is a typeset scribal font; widths are approximate and scrolls vary.':state.scrollLayout&&state.view==='pointed'?'Choose Consonantal or Side by side to see the sourced written scroll lines. Source marks stay unchanged.':state.view==='pointed'?'Source marks are preserved verbatim.':'Consonantal practice uses print letters and responsive lines; this is not a scroll facsimile.');$('reader').append(note);
   $('reader-page-label').textContent=`Verses ${first+1}–${last} of ${passage.verses.length}`;
   $('reader-previous').disabled=state.readerPage===0;$('reader-next').disabled=state.readerPage===pages-1;
   updateSelection();
@@ -155,9 +181,9 @@ function renderReader(){
 function updateSelection(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
   document.querySelectorAll('[data-word]').forEach(el=>{
-    const i=Number(el.dataset.index),selected=i>=start&&i<=end;el.classList.toggle('selected',selected);el.classList.toggle('cursor',i===state.cursor);
-    el.classList.toggle('active',el.dataset.word===activeId);el.setAttribute('aria-pressed',String(selected));
-    el.classList.toggle('reference-active',el.dataset.word===referenceActiveId);
+    const i=Number(el.dataset.index),last=Number(el.dataset.endIndex??i),selected=last>=start&&i<=end;el.classList.toggle('selected',selected);el.classList.toggle('cursor',i<=state.cursor&&last>=state.cursor);
+    el.classList.toggle('active',marksWord(el,activeId));el.setAttribute('aria-pressed',String(selected));
+    el.classList.toggle('reference-active',marksWord(el,referenceActiveId));
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${fullLabel(start)} to ${fullLabel(end)}`:`Cursor: ${fullLabel(state.cursor)}`;
   $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`;
@@ -166,6 +192,8 @@ function updateSelection(){
   const w=words[state.cursor];$('current-word').textContent=w.sourceHebrew;$('current-reference').textContent=`${w.reference} · word ${w.ordinal}`;
   $('accent-name').textContent=w.accent;$('group-name').textContent=`Practice group ${w.group+1} · ${w.sourceWordId??w.id}`;
   $('source-variant').textContent=w.kind==='q'?`Reading form (qere). Written form: ${(w.writtenVariants||[]).map(t=>t.sourceHebrew).join(' ')||'see source edition'}`:'';
+  const locations=scrollLayout?.locations(w)??[];
+  $('source-layout-detail').textContent=locations.length?locations.map(({row,piece})=>`Layout column ${row.page}, line ${row.line}${piece.variant?' · written variant':''}${piece.status!=='exact'?` · ${piece.status}: layout ${piece.layoutSource}, UXLC written ${piece.written}`:''}`).join('; '):'';
   $('alignment-status').textContent=w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
   renderSourceSigns(w);
   renderReference();
@@ -407,6 +435,7 @@ function render(){
   $('score-description').textContent=printed?'The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
   $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
+  $('scroll-layout').checked=state.scrollLayout;$('scroll-layout-status').textContent=scrollMessage;
   renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();
 }
 function rememberReading(){
@@ -458,6 +487,7 @@ for(const [id,key] of [['range-low','rangeLow'],['range-high','rangeHigh']]){
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;render();}));
 $('groups').addEventListener('change',e=>{state.groups=e.target.checked;render();});
 $('sign-classes').addEventListener('change',e=>{state.signClasses=e.target.checked;render();});
+$('scroll-layout').addEventListener('change',e=>{state.scrollLayout=e.target.checked;render();});
 for(const query of SIGN_QUERIES){const option=document.createElement('option');option.value=query.id;option.textContent=query.name;$('sign-query').append(option);}
 for(const profile of melodyProfiles){const option=document.createElement('option');option.value=profile.id;option.textContent=profile.name;$('musical-source').append(option);}
 $('musical-source').addEventListener('change',e=>{
@@ -508,14 +538,14 @@ $('save-assignment').addEventListener('click',()=>libraryAction(()=>{
 }));
 $('saved-assignments').addEventListener('change',e=>{if(e.target.value!=='')libraryAction(()=>{
   const saved=parseAssignment(JSON.stringify(assignments[Number(e.target.value)]),corpus);state.view=saved.displayPreferences.view;state.groups=saved.displayPreferences.groups;state.signClasses=saved.displayPreferences.signClasses;
-  state.melodyId=saved.musicalPreferences.melodyId;
+  state.melodyId=saved.musicalPreferences.melodyId;state.scrollLayout=saved.displayPreferences.scrollLayout;
   applyRanges(saved.sections);$('assignment-title').value=saved.title;
 });});
 $('export-assignment').addEventListener('click',()=>download('tropetrain-assignment.json',createAssignment($('assignment-title').value,passage.ranges,state)));
 $('import-assignment').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
   try{if(file.size>2_000_000)throw Error('Assignment file is too large.');const assignment=parseAssignment(await file.text(),corpus);
-    state.melodyId=assignment.musicalPreferences.melodyId;
+    state.melodyId=assignment.musicalPreferences.melodyId;state.scrollLayout=assignment.displayPreferences.scrollLayout;
     state.view=assignment.displayPreferences.view;state.groups=assignment.displayPreferences.groups;state.signClasses=assignment.displayPreferences.signClasses;applyRanges(assignment.sections);$('assignment-title').value=assignment.title;
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
@@ -552,5 +582,6 @@ getReferenceLibrary().then(value=>{
   $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${value.source.audit.timingReviewRecordings.length} complete-take only`;
   $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
+getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';
 else if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local audio & Torah text · available offline after first load';}).catch(()=>{});
