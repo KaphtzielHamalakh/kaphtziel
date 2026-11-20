@@ -1,6 +1,6 @@
 # Related readings and source numbering · v0.16.0 candidate
 
-November 20, 2026. Unpublished. Full reconstruction active and incomplete. No new normal browser session or speaker output.
+November 20, 2026. Browser-tested release candidate; publication verification follows below. Full reconstruction active and incomplete. No speaker output.
 
 ## Implemented and sourced
 
@@ -48,3 +48,12 @@ CUA remains unavailable. All v0.15 normal UI/standalone/mobile/playback/reload g
 - Publish only after normal UI gates pass; verify connected GitHub/Pages/deployed bytes and a returning live session. Stop playback and any owned preview server at teardown.
 
 All 32 ordinary Torah melodic systems, the other recovered catalog realizations, six pronunciation grammars/voices, singing, upper/lower/contextual review, broader calendar/congregational validation, blessings, curriculum, print and the full RESEARCH.md inventory remain unfinished. This is progress toward the complete app, not a completion claim.
+
+
+## Normal browser release checks · November 20
+
+Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed.
+
+Tested exact candidate ef13e62 through the official installed browser client and existing in-app tab. Both normal and self-contained HTTP builds share restored practice state. Full-scroll source/verse counts and correct mapped Torah endpoints were observed; no new music was supplied. Source-alternative and mobile rendering screenshot is retained in the workspace outputs. Screenshot is browser rendering evidence, not qualified glyph/scribal approval. Narrow sourced-scroll panes intentionally retain horizontal scrolling.
+
+The older Open gates section records the earlier unavailable-CUA checkpoint. Core reading/calendar/persistence/numbering/responsive/muted-playback gates above now pass. Five-section/two-section limits, assignment tamper guards and saved-practice recovery retain automated evidence; file chooser stalled before import, export Save dialog and legacy recovery UI remain pending. Positive-gain acoustics, file origin and expert review remain pending. No critical app failure was found in tested flows.

@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "d492b303e284928cf9ec5e3eb80770272776de7d",
-  "nextTask": "Complete v0.16 normal UI/standalone/source-numbering/recovery/responsive/playback/reload gates when CUA returns, then publish/verify Pages and live state. Continue independent full-roadmap work (print/curriculum/blessings and primary musical/phonetic/singing evidence); no new traditional presets without sources/review. Preserve original v0.14 backup and prior candidate artifacts.",
+  "nextTask": "Publish the browser-tested v0.16 tree via connected GitHub, verify Pages/deployed bytes/returning live state, synchronize outputs, then continue full-roadmap printing and source/reviewer research. Keep file-dialog, saved-practice recovery UI and independent musical/phonetic/scribal review pending.",
   "lastPassingTests": {
-    "automated": 108,
-    "ui": "Calendar: Israel/Diaspora divergence, triennial year3, cross-book festival8sections, weekday aliyah, saved assignment/response reload,55BPM/+1 independence and word-boundary completion. HTTP standalone Maftir/evidence and320/390/1280 fit passed. Stopped/muted; viewport reset.",
-    "limits": "No positive-gain acoustic, file-origin, Save-dialog, browser screenshot/glyph-spacing or independent musical/phonetic/scribal review. Full melodic grammars, six pronunciations, singer and remaining roadmap stay active."
+    "automated": 154,
+    "ui": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed.",
+    "limits": "File-origin, import/export dialogs (chooser stalled), legacy saved-practice recovery UI, acoustic and independent musical/phonetic/scribal review pending. No new traditional melody, pronunciation voice or singer."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -190,14 +190,15 @@
     "version": "0.16.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "9ffa22bb9518db209ee13ae4a99e29a166d498bc",
-    "status": "code_checked_normal_UI_unavailable_unpublished",
+    "status": "normal_UI_checked_ready_for_publication",
     "record": "docs/VERIFICATION-0.16.md",
     "automatedTests": 154,
     "tests": "All154 full checks pass/0fail/0skip; original Torah/additional-corpus event/text invariants pass. Eight primary response examples,100related choices/98checked/2partial refusals; all53 preferred-letter source groups match59 mapped UXLC records. Recovery raw-data/dedup/quota checks pass. No normal UI result inferred.",
     "newFeatures": "Structured related text, full snapshots/source inspector, v3for new provenance, complete source-unit-preserving Megillah joining, explicit Torah coordinate maps and legacy/recovery guard.",
     "limits": "No browser/deployment/acoustic or expert-review result, new traditional melody/pronunciation/singer, or full app completion.",
-    "next": "Complete v0.16 normal UI/standalone/source-numbering/recovery/responsive/playback/reload gates when CUA returns, then publish/verify Pages and live state. Continue independent full-roadmap work (print/curriculum/blessings and primary musical/phonetic/singing evidence); no new traditional presets without sources/review. Preserve original v0.14 backup and prior candidate artifacts.",
-    "finalDocumentationChecks": "Final documentation-only rebuild and45targeted checks pass/0fail. Four generated source/map/audit files are byte-deterministic."
+    "next": "Publish the browser-tested v0.16 tree via connected GitHub, verify Pages/deployed bytes/returning live state, synchronize outputs, then continue full-roadmap printing and source/reviewer research. Keep file-dialog, saved-practice recovery UI and independent musical/phonetic/scribal review pending.",
+    "finalDocumentationChecks": "Final documentation-only rebuild and45targeted checks pass/0fail. Four generated source/map/audit files are byte-deterministic.",
+    "browserVerification": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
