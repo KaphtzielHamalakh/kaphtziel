@@ -3,8 +3,8 @@
   "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "4153cb1697dcd9b3d92addafa88909d5bbd043a5",
-  "nextTask": "Publish tested v0.11 via GitHub, verify Pages/live exact bytes and returning browser upgrade, record commit and synchronize outputs. Then continue source-grounded contextual melody/phonetic/singer work and the complete remaining roadmap.",
+  "publishedCommit": "790806a7b8ee3c4f1bc2604115bd09363f227425",
+  "nextTask": "Continue source-grounded contextual melody/phonetic/singer evidence and implementation; full 32-Torah-system/six-Accent/singing objective remains active. Proceed with sourced annual/holiday/calendar divisions and remaining tutor/learning/repertoire/print work where musical evidence is unavailable. Preserve durable checkpoints.",
   "lastPassingTests": {
     "automated": 92,
     "ui": "Local and standalone source crop/context image, eight note inspections, exact +1 pitches, independent tempo, Bible selection/view preservation, pair/individual completion, repeat/Stop/replay/Escape, Bible/reference/pattern exclusivity, 1377-hit source lookup, unsupported source refusal, 320/390/1280 widths. Muted throughout; viewport reset.",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "4153cb1697dcd9b3d92addafa88909d5bbd043a5",
+    "commit": "790806a7b8ee3c4f1bc2604115bd09363f227425",
     "status": "success",
-    "workflowRun": 44597603344,
-    "liveAssets": "20 release resources match tested bytes (17,237,056 bytes), including runtime, standalone, source-context module/UI, provenance and source audit.",
-    "ui": "Returning v0.9→v0.10 retained Genesis22:1 full source span, 60BPM, transpose0 and both zero volumes. New Munaḥ→Zakef query found words3–4, word5, words9–10. Selecting word5 retained its exact source and six notes; muted playback finished at word5 with zero active highlights and both audio elements paused. No captured warnings/errors. Viewport reset, live tab retained.",
+    "workflowRun": 44773711681,
+    "liveAssets": "All 28 changed release resources match tested bytes (18,475,654 bytes), including standalone, runtime, pattern source data and both scan crops.",
+    "ui": "Returning v0.10→v0.11 retained Genesis22:1 word5, Cohen source, 60BPM, transpose0 and both zero volumes. Eight-note pattern completed; Stop/replay and final completion passed using keyboard controls. Both source images loaded at exact dimensions; F-sharp4 inspector MIDI66/0.25 beat. No captured warnings/errors. Left stopped/muted and retained live tab1. Mouse input and screenshot capture timed out; no v0.11 release screenshot claimed.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -188,13 +188,13 @@
   },
   "workingIteration": {
     "version": "0.11.0",
-    "status": "local_verified_ready_to_publish",
+    "status": "published_live_verified",
     "newFeatures": [
       "Eight source-transcribed untexted pattern components in separate study",
       "Shared event staff with explicit absence of syllable/phoneme/word alignment, source slurs and shared instrument controls",
       "Primary Gaster/Jessurun edition audit; no unsupported musical preset added"
     ],
-    "next": "Publish tested v0.11 via GitHub, verify Pages/live exact bytes and returning browser upgrade, record commit and synchronize outputs. Then continue source-grounded contextual melody/phonetic/singer work and the complete remaining roadmap.",
+    "next": "Continue source-grounded contextual melody/phonetic/singer evidence and implementation; full 32-Torah-system/six-Accent/singing objective remains active. Proceed with sourced annual/holiday/calendar divisions and remaining tutor/learning/repertoire/print work where musical evidence is unavailable. Preserve durable checkpoints.",
     "tests": "All 92 final checks pass. Local/standalone source images and source JSON, muted transport completion/replay, source exclusivity and 320/390/1280 layouts pass; no captured warnings/errors."
   },
   "sourceAnalysisIssue": {
@@ -226,5 +226,12 @@
     "patterns": 65,
     "record": "docs/SOURCE-CONTEXT-AUDIT.json",
     "review": "Structural source lookup only. Full hierarchy, stress, musical context and independent review pending."
+  },
+  "printedPatterns": {
+    "id": "cohen-1902-munah-revia",
+    "revision": 1,
+    "record": "docs/PRINTED-PATTERNS.json",
+    "coverage": "Plain Munaḥ and Revia columns only, 8 untexted notes / 7.5 quarter beats; source slurs remain separate attacks.",
+    "review": "Manual transcription/source checks; independent musical/transcription review pending. No word/syllable/phoneme allocation or full tradition asserted."
   }
 }
