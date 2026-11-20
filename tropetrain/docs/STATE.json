@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "d492b303e284928cf9ec5e3eb80770272776de7d",
-  "nextTask": "Continue repertoire UI integration and offline/standalone embedding on the isolated branch; preserve the separate pending v0.14 calendar work. When CUA returns, complete normal UI checks and integrate tested increments before publication. All musical/phonetic/voice and full roadmap requirements remain active.",
+  "nextTask": "Complete pending v0.15 normal UI/standalone/responsive/playback/reload gates when CUA returns; do not publish until verified. Continue independent remaining work: exact attributed calendar haftarah/Megillah references with explicit partial-verse refusal, print/curriculum/blessings, and primary musical/phonetic/singing evidence. Preserve the complete roadmap and original v0.14 backup.",
   "lastPassingTests": {
     "automated": 108,
     "ui": "Calendar: Israel/Diaspora divergence, triennial year3, cross-book festival8sections, weekday aliyah, saved assignment/response reload,55BPM/+1 independence and word-boundary completion. HTTP standalone Maftir/evidence and320/390/1280 fit passed. Stopped/muted; viewport reset.",
@@ -32,7 +32,7 @@
     {
       "id": "reader",
       "description": "Pointed/consonantal/parallel views and stable IDs",
-      "status": "full_torah_views_paging_and_sourced_written_scroll_lines_tested"
+      "status": "31_book_candidate_source_alternatives_and_Torah_scroll_scope_code_checked_normal_UI_pending"
     },
     {
       "id": "alignment",
@@ -67,7 +67,7 @@
     {
       "id": "repertoire",
       "description": "Torah/haftarot/five scrolls/blessings edition coverage",
-      "status": "full_torah_plus_26book_text_and_typed_assignment_core_checked_additional_ui_distribution_and_music_pending"
+      "status": "31_book_text_selection_and_typed_assignments_integrated_code_checked_normal_UI_pending"
     },
     {
       "id": "calendar",
@@ -77,12 +77,12 @@
     {
       "id": "assignments",
       "description": "Named ordered sections, discontinuous haftarot/Megillah, aliyot",
-      "status": "torah_ordered_sections_save_load_jump_hide_tested"
+      "status": "three_reading_types_names_reorder_hide_jump_v2_interchange_code_checked_normal_UI_pending"
     },
     {
       "id": "sharing",
       "description": "Assignment export/import with musical/display settings",
-      "status": "versioned_assignment_schema_tested_file_dialog_ui_pending"
+      "status": "v2_typed_assignments_legacy_v1_Torah_supported_normal_UI_file_dialogs_pending"
     },
     {
       "id": "recent",
@@ -187,20 +187,17 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
+    "version": "0.15.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "3788302e329d1b157d2dde0cf99f61b3bb5b7c1e",
-    "status": "core_checked_not_wired_to_ui_unpublished",
-    "record": "docs/REPERTOIRE-FOUNDATION.md",
-    "booksAdded": 26,
-    "chaptersAdded": 419,
-    "sourceVerseRecordsAdded": 10041,
-    "sourceTokensAdded": 152382,
-    "sourceMarkersAdded": 1673,
-    "preferredReadingWordsAdded": 151630,
-    "unsegmentedDraftWordsAdded": 4237,
-    "tests": "All118 isolated-branch tests pass (prior108 plus10new); independent DOM source comparison all152382tokens/1673markers exact; reimport28files byte-identical. Not the separate116-test v0.14 build.",
-    "limits": "No new normal UI/distribution result, traditional melody/phonetic realization, singer, scribal or liturgical review. Existing Torah files/runtime/builds unchanged.",
-    "next": "Continue repertoire UI integration and offline/standalone embedding on the isolated branch; preserve the separate pending v0.14 calendar work. When CUA returns, complete normal UI checks and integrate tested increments before publication. All musical/phonetic/voice and full roadmap requirements remain active."
+    "status": "combined_code_checked_normal_ui_unavailable_unpublished",
+    "baseCoreCommit": "df1b07c6d1fd476a096e77b39f65310745e5ef2f",
+    "record": "docs/VERIFICATION-0.15.md",
+    "automatedTests": 135,
+    "tests": "All135 npm-run-check tests pass/0fail/0skip; original Torah musical hashes unchanged. Both builds embed26 added books, exact source evidence/audit/date pack; built decoder WebStreams roundtrip and missing-capability refusal pass. No new browser UI result inferred.",
+    "integration": "Reading type/book selector, v2 assignments/legacyv1, typed recents, source written/read alternatives, section names/reorder/hide/jump, Torah-only search/layout/reference guards. Existing v0.14 date/calendar18files incorporated exactly; original checkout preserved.",
+    "next": "Complete pending v0.15 normal UI/standalone/responsive/playback/reload gates when CUA returns; do not publish until verified. Continue independent remaining work: exact attributed calendar haftarah/Megillah references with explicit partial-verse refusal, print/curriculum/blessings, and primary musical/phonetic/singing evidence. Preserve the complete roadmap and original v0.14 backup.",
+    "limits": "No new traditional melody/phonetic profile/singer, expert/scribal/liturgical review, normal UI/file dialogs/acoustic verification or deployment.",
+    "finalDocumentationChecks": "Final documentation-only rebuild plus26 targeted distribution/calendar/date tests pass; no runtime change after135 full checks."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -252,13 +249,26 @@
     "record": "docs/CALENDAR-SOURCES.json",
     "provider": "Hebcal.com",
     "license": "CC BY4.0",
-    "status": "Explicit month lookup; four bundled source examples and12-month bounded cache. Every selected Torah section/count validated against UXLC. Hebrew-year/sunset conversion and full RA-table/congregation review remain pending."
+    "status": "Explicit month lookup; four bundled source examples and12-month bounded cache. Every selected Torah section/count validated against UXLC. Hebrew-year/sunset conversion and full RA-table/congregation review remain pending.",
+    "candidateStatus": "v0.14 original Hebrew/civil navigation and Purim source-schema fix integrated into0.15, codechecks135 pass; new normal UI pending."
   },
   "parallelCalendarWork": {
     "branch": "main local checkout",
     "version": "0.14.0",
     "status": "116checks_passed_normal_ui_partly_verified_cua_unavailable",
     "record": "main checkout docs/VERIFICATION-0.14.md",
-    "publication": "not published; keep main worktree intact"
+    "publication": "not published; keep main worktree intact",
+    "integration": "18 runtime/source/test files copied exactly into candidate0.15, calendar HTML/CSS/source embedding integrated; original0.14 checkout remains untouched except continuation records."
+  },
+  "repertoireImport": {
+    "additionalBooks": 26,
+    "combinedBooks": 31,
+    "combinedChapters": 606,
+    "combinedSourceVerseRecords": 15894,
+    "combinedReadingWords": 231615,
+    "additionalUnresolvedDraftWords": 4237,
+    "sourceRecord": "docs/REPERTOIRE-SOURCES.json",
+    "audit": "docs/REPERTOIRE-AUDIT.json",
+    "status": "exact_source_and_code_checked_UI_pending_no_new_musical_realization"
   }
 }

@@ -10,7 +10,9 @@ All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi
 
 The source distinctions and further historical claims below follow the supplied brief; those other references have not all been independently audited in this milestone. A modern product’s recordings or menus are not evidence of Kinnor V6.
 
-## What exists now
+## Last verified live behavior (v0.13)
+
+The following table describes the last verified published release. The v0.15 candidate below adds software features but still awaits normal browser UI verification and publication.
 
 | Behavior | Implemented now | Fidelity or evidence still needed |
 | --- | --- | --- |
@@ -195,4 +197,9 @@ Calendar choices leave melody, pronunciation, range, tempo and key separate. Eac
 
 ## Additional repertoire text foundation — unpublished
 
-An isolated v0.13-based branch adds all21Prophets books and fiveMegillot as exactUXLC2.6/27.7 source data, with typed assignment core and118passing tests. The normal/standalone UI is not connected yet. The fiveTorah books and existing musical/reference scope are unchanged. REPERTOIRE-FOUNDATION.md, REPERTOIRE-SOURCES.json and REPERTOIRE-AUDIT.json document complete coverage, rights, independent rawtext comparison and pending UI/distribution work. No new traditional melody, pronunciation, singer, liturgical boundary or reviewed written/read alignment is asserted; all original roadmap requirements remain active.
+An isolated v0.13-based branch adds all21Prophets books and fiveMegillot as exactUXLC2.6/27.7 source data, with typed assignment core and118passing tests. The foundation checkpoint initially had no UI connection; the later unpublished v0.15 integration is described below. The fiveTorah books and existing musical/reference scope are unchanged. REPERTOIRE-FOUNDATION.md, REPERTOIRE-SOURCES.json and REPERTOIRE-AUDIT.json document complete coverage, rights, independent rawtext comparison and pending UI/distribution work. No new traditional melody, pronunciation, singer, liturgical boundary or reviewed written/read alignment is asserted; all original roadmap requirements remain active.
+
+
+## Repertoire/date integration — v0.15 candidate, unpublished
+
+The candidate wires 31-book reading selection, typed haftarah/Megillah assignments, section naming/reordering and explicit source written/read alternatives into both builds. All 135 automated checks pass. Existing whole-Torah search/chart/layout and recordings retain their original scope. The pending original Hebrew-date navigation is integrated without changing its source files; original v0.14 checkout remains intact. VERIFICATION-0.15.md records exact checks and all pending normal UI/standalone/return-state/publication gates. CUA remains unavailable; no normal UI success, new musical realization, pronunciation, singer or expert review is inferred. The entire feature inventory above remains in scope.

@@ -15,9 +15,18 @@ const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.jso
 const books=await Promise.all(manifest.books.map(b=>readFile(path.join(root,'data/torah',b.file),'utf8').then(JSON.parse)));
 const corpus=JSON.stringify({manifest,books});
 const encoded=gzipSync(corpus,{level:9}).toString('base64');
+const repertoireManifest=JSON.parse(await readFile(path.join(root,'data/repertoire/manifest.json'),'utf8'));
+const repertoireBooks=await Promise.all(repertoireManifest.books.map(b=>readFile(path.join(root,'data/repertoire',b.file),'utf8').then(JSON.parse)));
+const repertoireEncoded=gzipSync(JSON.stringify({manifest:repertoireManifest,books:repertoireBooks}),{level:9}).toString('base64');
 const referenceEncoded=(await readFile(path.join(root,'data/references/torah-library.json.gz'))).toString('base64');
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
-  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/reference-library-data\.js$/},()=>({loader:'js',contents:`
+  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/repertoire-data\.js$/},()=>({loader:'js',contents:`
+    const repertoireEncoded=${JSON.stringify(repertoireEncoded)};
+    export async function loadRepertoire(){
+      if(typeof DecompressionStream==='undefined')throw Error('The reading library needs a current browser with gzip support. The opening passage remains available.');
+      const bytes=Uint8Array.from(atob(repertoireEncoded),c=>c.charCodeAt(0));
+      return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+    }`}));builder.onLoad({filter:/reference-library-data\.js$/},()=>({loader:'js',contents:`
     const referenceEncoded=${JSON.stringify(referenceEncoded)};
     export async function loadReferenceData(){
       if(typeof DecompressionStream==='undefined')throw Error('The recorded-reference library needs a current browser with gzip support.');
@@ -53,6 +62,10 @@ const patternScan=await readFile(path.join(root,'assets/scores/cohen-1902-munah-
 const patternRow=await readFile(path.join(root,'assets/scores/cohen-1902-pentateuch-row-a.png'));
 const patternEvidence=await readFile(path.join(root,'docs/PRINTED-PATTERNS.json'),'utf8');
 const calendarEvidence=await readFile(path.join(root,'docs/CALENDAR-SOURCES.json'),'utf8');
+const dateEvidence=await readFile(path.join(root,'docs/HEBREW-DATE-SOURCES.json'),'utf8');
+const dateSources=await readFile(path.join(root,'data/calendar/hebrew-date-sources.zip'));
+const repertoireEvidence=await readFile(path.join(root,'docs/REPERTOIRE-SOURCES.json'),'utf8');
+const repertoireAudit=await readFile(path.join(root,'docs/REPERTOIRE-AUDIT.json'),'utf8');
 const roadmap=await readFile(path.join(root,'docs/RESEARCH.md'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
@@ -75,6 +88,10 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/PRINTED-PATTERNS.json"',()=>`href="data:application/json;base64,${Buffer.from(patternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/CALENDAR-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(calendarEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/HEBREW-DATE-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(dateEvidence).toString('base64')}"`)
+ .replaceAll('href="./data/calendar/hebrew-date-sources.zip"',()=>`href="data:application/zip;base64,${dateSources.toString('base64')}"`)
+ .replaceAll('href="./docs/REPERTOIRE-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(repertoireEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/REPERTOIRE-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(repertoireAudit).toString('base64')}"`)
  .replaceAll('href="./docs/RESEARCH.md"','href="#standalone-roadmap"')
  .replace('<footer>',()=>`<details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 await writeFile(path.join(root,'TropeTrain.html'),standalone);

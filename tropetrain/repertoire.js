@@ -13,7 +13,35 @@ export function getRepertoireCorpus(){
 }
 
 const torahIds=new Set(['gen','exo','lev','num','deu']);
-const types=Object.freeze({torah:{limit:100,repertoire:'torah'},haftarah:{limit:5,repertoire:'prophets'},megillah:{limit:2,repertoire:'megillot'}});
+export const READING_TYPES=Object.freeze([
+  Object.freeze({id:'torah',label:'Torah',limit:100,repertoire:'torah'}),
+  Object.freeze({id:'haftarah',label:'Haftarah',limit:5,repertoire:'prophets'}),
+  Object.freeze({id:'megillah',label:'Megillah',limit:2,repertoire:'megillot'})
+]);
+const types=Object.freeze(Object.fromEntries(READING_TYPES.map(type=>[type.id,type])));
+const bookRepertoire=book=>torahIds.has(book.id)?'torah':book.repertoire;
+export const isTorahReading=ranges=>Array.isArray(ranges)&&ranges.length>0&&ranges.every(range=>torahIds.has(range.bookId));
+export function booksForReadingType(readingType,corpus){
+  const type=Object.hasOwn(types,readingType)?types[readingType]:null;
+  if(!type)throw Error('Choose Torah, haftarah or Megillah as the assignment reading type.');
+  return corpus.books.filter(book=>bookRepertoire(book)===type.repertoire);
+}
+export function readingTypeForRanges(ranges,corpus){
+  if(!Array.isArray(ranges)||!ranges.length)throw Error('A reading needs at least one section.');
+  const choices=new Set(ranges.map(range=>{
+    const book=corpus.byId.get(range?.bookId);
+    if(!book)throw Error('Choose a book in the available library.');
+    return READING_TYPES.find(type=>type.repertoire===bookRepertoire(book))?.id;
+  }));
+  if(choices.size!==1||choices.has(undefined))throw Error('Each assignment must use one reading type. Open a separate assignment for another repertoire.');
+  return [...choices][0];
+}
+export function reorderReadingSection(ranges,sectionId,direction){
+  if(!Array.isArray(ranges)||![-1,1].includes(direction))throw Error('Choose a section and move it one place earlier or later.');
+  const index=ranges.findIndex(range=>range.id===sectionId),target=index+direction;
+  if(index<0||target<0||target>=ranges.length)throw Error('This section cannot move further in that direction.');
+  const result=[...ranges];[result[index],result[target]]=[result[target],result[index]];return result;
+}
 export function validateReadingSections(readingType,sections,corpus){
   const type=Object.hasOwn(types,readingType)?types[readingType]:null;
   if(!type)throw Error('Choose Torah, haftarah or Megillah as the assignment reading type.');
@@ -21,7 +49,7 @@ export function validateReadingSections(readingType,sections,corpus){
   const ranges=sections.map((range,i)=>corpus.range(range,i));
   for(const range of ranges){
     const book=corpus.byId.get(range.bookId);
-    const repertoire=torahIds.has(book.id)?'torah':book.repertoire;
+    const repertoire=bookRepertoire(book);
     if(repertoire!==type.repertoire)throw Error(`${book.name} is outside the ${readingType} assignment repertoire. Its text was not replaced.`);
   }
   // Includes the all-hidden and duplicate section ID guards. Section order and

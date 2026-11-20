@@ -79,3 +79,10 @@ test('failed and malformed refreshes preserve the last verified cache',async()=>
  assert.equal((await store.load(r.month,r.region)).sha256,r.sha256);
  await assert.rejects(new CalendarStore({examples:[],fetcher:async()=>({ok:false,status:429})}).load('2026-11','Israel'),/HTTP429/);
 });
+
+test('a Megillah-only source record preserves the whole month and refuses invented Torah divisions',async()=>{
+ const source=JSON.parse(await readFile(new URL('../docs/CALENDAR-SOURCES.json',import.meta.url)));const entry=source.regressionFixtures[0];const raw=await readFile(new URL('../'+entry.file,import.meta.url),'utf8');assert.equal(await calendarHash(raw),entry.sha256);
+ const record={month:'2024-03',region:'Israel',url:entry.url,sha256:entry.sha256,retrieved:entry.retrieved};const data=parseCalendarResponse(raw,monthRequest(record.month,record.region));assert.equal(data.items.length,17);
+ const eve=data.items.find(x=>x.name.en==='Erev Purim');assert.equal(eve.date,'2024-03-23');assert.equal(Object.keys(eve.megillah).length,10);assert.throws(()=>calendarRanges(eve,'annual',record,corpus),/no Torah divisions/);
+ const purim=data.items.find(x=>x.date==='2024-03-24');const ranges=calendarRanges(purim,'annual',record,corpus);assert.equal(ranges.length,3);assert.equal(ranges[0].bookId,'exo');assert.deepEqual(ranges[0].start,{chapter:17,verse:8});assert.deepEqual(ranges.at(-1).end,{chapter:17,verse:16});
+});

@@ -47,5 +47,15 @@
       "bytes": 10436,
       "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933"
     }
+  ],
+  "regressionFixtures": [
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2024-03-01&end=2024-03-31&i=on",
+      "retrieved": "2026-11-20",
+      "bytes": 13402,
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "reason": "17 records include ErevPurim Megillah-only reference; it must not reject the entire month or fabricate Torah divisions. Only four earlier source examples are embedded as offline month responses."
+    }
   ]
 }

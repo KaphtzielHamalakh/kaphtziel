@@ -2,7 +2,9 @@ import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js
 import {PRINTED_SCORE} from './printed-score.js';
 import {beatLabel} from './score-data.js';
 import {passage as openingPassage} from './passage.js';
-import {getCorpus,defaultRange,createAssignment,parseAssignment} from './library.js';
+import {getCorpus,defaultRange} from './library.js';
+import {getRepertoireCorpus,READING_TYPES,booksForReadingType,readingTypeForRanges,validateReadingSections,isTorahReading,reorderReadingSection,createRepertoireAssignment,parseRepertoireAssignment} from './repertoire.js';
+import {sourceAlternatives} from './source-alternatives.js';
 import {Player} from './audio.js';
 import {staffMarkup,STAFF_PAGE} from './staff.js';
 import {musicXml,midiFile} from './music-exports.js';
@@ -22,7 +24,8 @@ import {mountCalendar} from './calendar-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
-  rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01'};
+  rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',readingType:'torah'};
+let restoredReadingType;
 try{
   const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
   if(saved){
@@ -34,10 +37,12 @@ try{
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
     if(Array.isArray(saved.ranges))state.ranges=saved.ranges;
+    if(READING_TYPES.some(type=>type.id===saved.readingType))state.readingType=restoredReadingType=saved.readingType;
     if(melodyProfiles.some(p=>p.id===saved.melodyId))state.melodyId=saved.melodyId;
   }
 }catch{}
-const restore={cursor:state.cursor,anchor:state.anchor,readerPage:state.readerPage,ranges:state.ranges};
+const restore={cursor:state.cursor,anchor:state.anchor,readerPage:state.readerPage,ranges:state.ranges,readingType:restoredReadingType};
+state.readingType='torah';
 let passage={...openingPassage,title:'Genesis 1:1–3',ranges:[structuredClone(defaultRange)]};
 let model=createReadingModel(passage,state),{words,bounds,buildPlan}=model;
 state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.anchor,words.length-1);state.readerPage=0;
@@ -151,7 +156,7 @@ function renderReader(){
   $('reader').replaceChildren();$('reader').classList.toggle('guides',state.groups);$('reader').classList.toggle('sign-classes',state.signClasses);$('class-guide').hidden=!state.signClasses;
   const pages=Math.ceil(passage.verses.length/VERSE_PAGE);state.readerPage=Math.min(state.readerPage,pages-1);
   const first=state.readerPage*VERSE_PAGE,last=Math.min(first+VERSE_PAGE,passage.verses.length);
-  const useScroll=!!scrollLayout&&state.scrollLayout&&state.view!=='pointed';
+  const torahReading=isTorahReading(passage.ranges),useScroll=!!scrollLayout&&torahReading&&state.scrollLayout&&state.view!=='pointed';
   let pointedTarget=$('reader');
   if(state.view==='parallel'){
     const headings=document.createElement('div');headings.className='parallel-headings';headings.innerHTML=useScroll?'<span>Written scroll letters</span><span>Pointed UXLC source</span>':'<span>Consonantal practice</span><span>Pointed source</span>';$('reader').append(headings);
@@ -174,10 +179,34 @@ function renderReader(){
     }
     row.append(lines);pointedTarget.append(row);
   }
-  const note=document.createElement('p');note.className='layout-note';note.textContent='Group guides: major practice divisions only. '+(useScroll?'Line/gap positions follow the cited 245-column layout; written letters remain UXLC. Edition differences and excerpted lines are labeled. Shlomo Stam is a typeset scribal font; widths are approximate and scrolls vary.':state.scrollLayout&&state.view==='pointed'?'Choose Consonantal or Side by side to see the sourced written scroll lines. Source marks stay unchanged.':state.view==='pointed'?'Source marks are preserved verbatim.':'Consonantal practice uses print letters and responsive lines; this is not a scroll facsimile.');$('reader').append(note);
+  const note=document.createElement('p');note.className='layout-note';note.textContent='Group guides: major practice divisions only. '+(useScroll?'Line/gap positions follow the cited 245-column layout; written letters remain UXLC. Edition differences and excerpted lines are labeled. Shlomo Stam is a typeset scribal font; widths are approximate and scrolls vary.':torahReading&&state.scrollLayout&&state.view==='pointed'?'Choose Consonantal or Side by side to see the sourced written scroll lines. Source marks stay unchanged.':state.view==='pointed'?'Source marks are preserved verbatim.':'Consonantal practice follows the preferred reading. Written/read alternatives remain separate below; these responsive lines are not a scroll facsimile.');$('reader').append(note);
   $('reader-page-label').textContent=`Verses ${first+1}–${last} of ${passage.verses.length}`;
   $('reader-previous').disabled=state.readerPage===0;$('reader-next').disabled=state.readerPage===pages-1;
+  renderAlternatives(passage.verses.slice(first,last));
   updateSelection();
+}
+function renderAlternatives(verses){
+  const groups=sourceAlternatives(verses,words),target=$('written-reading-rows');target.replaceChildren();
+  $('written-reading-count').textContent=`${groups.length} group${groups.length===1?'':'s'} on this page`;
+  for(const group of groups){
+    const row=document.createElement('section');row.className='source-alternative';row.dataset.alternative=group.id;
+    const heading=document.createElement('h4');heading.textContent=group.reference;
+    if(passage.ranges.length>1)heading.textContent+=` · section ${passage.ranges.findIndex(range=>range.id===group.sectionId)+1}`;
+    const written=document.createElement('div'),reading=document.createElement('div');
+    for(const [line,title] of [[written,'Written source'],[reading,'Preferred reading']]){const label=document.createElement('p');label.className='alternative-label';label.textContent=title;line.append(label);}
+    const writtenWords=document.createElement('div');writtenWords.lang='he';writtenWords.dir='rtl';writtenWords.className='alternative-hebrew';
+    for(const token of group.written){const span=document.createElement('span');span.dataset.sourceToken=token.id;setWordText(span,token,false);writtenWords.append(span,document.createTextNode(' '));}
+    if(group.written.length)written.append(writtenWords);
+    else{const empty=document.createElement('p');empty.className='muted';empty.textContent='No written counterpart in this source.';written.append(empty);}
+    const readingWords=document.createElement('div');readingWords.lang='he';readingWords.dir='rtl';readingWords.className='alternative-hebrew';
+    for(const {token,word} of group.reading){const element=word?wordButton(word,false):document.createElement('span');if(!word)setWordText(element,token,false);readingWords.append(element,document.createTextNode(' '));}
+    if(group.reading.length)reading.append(readingWords);
+    else{const empty=document.createElement('p');empty.className='muted';empty.textContent='Written only; no preferred-reading word or playback target.';reading.append(empty);}
+    const pair=document.createElement('div');pair.className='alternative-pair';pair.append(written,reading);
+    const note=document.createElement('p');note.className='muted';note.textContent=group.status==='ketiv-qere'?'The source groups these written/read alternatives. Word and syllable correspondence is not inferred.':group.status==='written-only'?'This source token is retained separately from the reading sequence.':'This reading token is retained without inventing a written form.';
+    row.append(heading,pair,note);target.append(row);
+  }
+  if(!groups.length){const empty=document.createElement('p');empty.className='muted';empty.textContent='No written/read alternative groups in the displayed verses.';target.append(empty);}
 }
 function updateSelection(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
@@ -192,8 +221,8 @@ function updateSelection(){
   $('end-selection').setAttribute('aria-pressed',String(chooseEnd));$('end-selection').textContent=chooseEnd?'Click the last word':'Choose span end';
   const w=words[state.cursor];$('current-word').textContent=w.sourceHebrew;$('current-reference').textContent=`${w.reference} · word ${w.ordinal}`;
   $('accent-name').textContent=w.accent;$('group-name').textContent=`Practice group ${w.group+1} · ${w.sourceWordId??w.id}`;
-  $('source-variant').textContent=w.kind==='q'?`Reading form (qere). Written form: ${(w.writtenVariants||[]).map(t=>t.sourceHebrew).join(' ')||'see source edition'}`:'';
-  const locations=scrollLayout?.locations(w)??[];
+  $('source-variant').textContent=w.kind==='q'?`Reading form (qere). ${(w.writtenVariants||[]).length?`Source written group: ${w.writtenVariants.map(t=>t.sourceHebrew).join(' ')}. Word/syllable correspondence is not inferred.`:'No written counterpart in this source.'}`:'';
+  const locations=isTorahReading(passage.ranges)?scrollLayout?.locations(w)??[]:[];
   $('source-layout-detail').textContent=locations.length?locations.map(({row,piece})=>`Layout column ${row.page}, line ${row.line}${piece.variant?' · written variant':''}${piece.status!=='exact'?` · ${piece.status}: layout ${piece.layoutSource}, UXLC written ${piece.written}`:''}`).join('; '):'';
   $('alignment-status').textContent=w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
   renderSourceSigns(w);
@@ -436,39 +465,70 @@ function render(){
   $('score-description').textContent=printed?'The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
   $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
-  $('scroll-layout').checked=state.scrollLayout;$('scroll-layout-status').textContent=scrollMessage;
+  $('scroll-layout').checked=state.scrollLayout;$('scroll-layout').disabled=!scrollLayout||!isTorahReading(passage.ranges);
+  $('scroll-layout-status').textContent=isTorahReading(passage.ranges)?scrollMessage:'Sourced scroll layout covers Torah only. Your scroll-layout preference is kept for Torah readings.';
+  $('reading-type-label').textContent=`${READING_TYPES.find(type=>type.id===state.readingType).label} · practice reader`;
   renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
-  recent=[{title:passage.title,ranges:passage.ranges},...recent.filter(r=>r.ranges&&key(r.ranges)!==key(passage.ranges))].slice(0,8);store('tropetrain-recent-v1',recent);renderPickers();
+  recent=[{title:passage.title,readingType:state.readingType,ranges:passage.ranges},...recent.filter(r=>r.ranges&&key(r.ranges)!==key(passage.ranges))].slice(0,8);store('tropetrain-recent-v1',recent);renderPickers();
 }
-function applyRanges(ranges,{remember=true,restoreCursor=null}={}){
-  if(!corpus)throw Error('The Torah library is still loading.');
-  const nextPassage=corpus.passage(ranges),nextModel=createReadingModel(nextPassage,state);
-  stop('Reading opened. Ready to listen.');passage=nextPassage;model=nextModel;({words,bounds,buildPlan}=model);
-  if(passage.ranges.length===1){
-    const range=passage.ranges[0];$('book').value=range.bookId;
-    for(const [id,value] of [['start-chapter',range.start.chapter],['start-verse',range.start.verse],['end-chapter',range.end.chapter],['end-verse',range.end.verse]])$(id).value=value;
-  }
+function applyRanges(ranges,{remember=true,restoreCursor=null,readingType}={}){
+  if(!corpus)throw Error('The reading library is still loading.');
+  const nextType=readingType??readingTypeForRanges(ranges,corpus),checked=validateReadingSections(nextType,ranges,corpus);
+  const nextPassage=corpus.passage(checked),nextModel=createReadingModel(nextPassage,state);
+  stop('Reading opened. Ready to listen.');passage=nextPassage;model=nextModel;state.readingType=nextType;({words,bounds,buildPlan}=model);
+  const formRange=passage.ranges.at(-1);syncReadingForm(nextType,formRange.bookId);
+  for(const [id,value] of [['start-chapter',formRange.start.chapter],['start-verse',formRange.start.verse],['end-chapter',formRange.end.chapter],['end-verse',formRange.end.verse]])$(id).value=value;
   state.cursor=restoreCursor&&words[restoreCursor.cursor]?restoreCursor.cursor:0;state.anchor=restoreCursor&&words[restoreCursor.anchor]?restoreCursor.anchor:state.cursor;
   state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
   const unresolved=words.filter(w=>w.analysisStatus==='unsegmented').length;
   $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}Musical source: ${model.profile.name}. Syllables are unreviewed; the recorded reference is separate.`;
+}
+function updateBookLimits({reset=false}={}){
+  const book=corpus?.byId.get($('book').value);if(!book)return;
+  $('start-chapter').max=book.chapters.length;$('end-chapter').max=book.chapters.length;
+  if(reset){$('start-chapter').value=1;$('start-verse').value=1;$('end-chapter').value=1;$('end-verse').value=Math.min(3,book.chapters[0].verses.length);}
+}
+function syncReadingForm(readingType,bookId){
+  $('reading-type').value=readingType;
+  const books=booksForReadingType(readingType,corpus),selected=bookId??$('book').value;
+  $('book').replaceChildren();
+  for(const book of books){const option=document.createElement('option');option.value=book.id;option.textContent=`${book.name} · ${book.hebrewName}`;$('book').append(option);}
+  if(books.some(book=>book.id===selected))$('book').value=selected;
+  updateBookLimits({reset:!bookId});updateReadingFormStatus();
+}
+function updateReadingFormStatus(){
+  const type=READING_TYPES.find(type=>type.id===$('reading-type').value),sameType=type.id===state.readingType;
+  $('append-section').disabled=!corpus||!sameType||passage.ranges.length>=type.limit;
+  $('append-section').title=!sameType?'Open a passage of this reading type before adding sections.':passage.ranges.length>=type.limit?`This reading already has the maximum ${type.limit} sections.`:'';
+  $('reading-form-note').textContent=`${type.label}: up to ${type.limit} ordered sections. ${sameType?'Add as section appends to the open reading.':'Open passage starts a separate reading of this type.'} This text choice adds no traditional melody or pronunciation.`;
+  const active=READING_TYPES.find(type=>type.id===state.readingType);
+  $('assignment-reading-type').textContent=`${active.label} · ${passage.ranges.length} of ${active.limit} sections`;
 }
 function rangeFromForm(){return {id:`section-${globalThis.crypto?.randomUUID?.()||Date.now()}`,bookId:$('book').value,
   start:{chapter:Number($('start-chapter').value),verse:Number($('start-verse').value)},end:{chapter:Number($('end-chapter').value),verse:Number($('end-verse').value)},label:`Section ${passage.ranges.length+1}`};}
 function libraryAction(fn){try{fn();}catch(error){$('library-message').textContent=error.message;}}
 function renderSections(){
   $('sections').replaceChildren();
+  updateReadingFormStatus();
   for(const [index,range] of passage.ranges.entries()){
     const row=document.createElement('div');row.className='section-row';
     const check=document.createElement('input');check.type='checkbox';check.checked=!range.hidden;check.setAttribute('aria-label',`Show ${range.label||'section '+(index+1)}`);
     check.addEventListener('change',()=>libraryAction(()=>{try{applyRanges(passage.ranges.map(r=>r.id===range.id?{...r,hidden:!check.checked}:r),{remember:false});}finally{renderSections();}}));
     const title=document.createElement('span');title.textContent=`${range.label||`Section ${index+1}`} · ${corpus?corpus.describe(range):passage.title}`;
+    const name=document.createElement('input');name.type='text';name.value=range.label;name.maxLength=120;name.className='section-name';name.setAttribute('aria-label',`Name of section ${index+1}`);
+    name.addEventListener('change',()=>libraryAction(()=>applyRanges(passage.ranges.map(r=>r.id===range.id?{...r,label:name.value}:r),{remember:false,restoreCursor:{cursor:state.cursor,anchor:state.anchor}})));
     const jump=document.createElement('button');jump.textContent='Go to section';jump.disabled=!!range.hidden;jump.addEventListener('click',()=>{const i=words.findIndex(w=>w.sectionId===range.id);if(i>=0)selectWord(i);});
-    row.append(check,title,jump);
-    if(passage.ranges.length>1){const remove=document.createElement('button');remove.textContent='Remove section';remove.addEventListener('click',()=>libraryAction(()=>applyRanges(passage.ranges.filter(r=>r.id!==range.id))));row.append(remove);}
+    row.append(check,title,name,jump);
+    if(passage.ranges.length>1){
+      for(const [direction,text] of [[-1,'Move earlier'],[1,'Move later']]){
+        const move=document.createElement('button');move.textContent=text;move.disabled=index+direction<0||index+direction>=passage.ranges.length;move.setAttribute('aria-label',`${text}: ${range.label||'section '+(index+1)}`);
+        move.addEventListener('click',()=>libraryAction(()=>applyRanges(reorderReadingSection(passage.ranges,range.id,direction))));row.append(move);
+      }
+      const remove=document.createElement('button');remove.textContent='Remove section';remove.addEventListener('click',()=>libraryAction(()=>applyRanges(passage.ranges.filter(r=>r.id!==range.id))));row.append(remove);
+    }
     $('sections').append(row);
   }
 }
@@ -528,26 +588,30 @@ $('download').addEventListener('click',()=>{
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan});
 });
-$('reading-form').addEventListener('submit',e=>{e.preventDefault();libraryAction(()=>applyRanges([{...rangeFromForm(),label:'Reading'}]));});
-$('append-section').addEventListener('click',()=>libraryAction(()=>applyRanges([...passage.ranges,rangeFromForm()])));
-$('book').addEventListener('change',()=>{const b=corpus?.byId.get($('book').value);if(b){$('start-chapter').max=b.chapters.length;$('end-chapter').max=b.chapters.length;}});
-$('recent-readings').addEventListener('change',e=>{if(e.target.value!=='')libraryAction(()=>applyRanges(recent[Number(e.target.value)].ranges));});
+$('reading-form').addEventListener('submit',e=>{e.preventDefault();libraryAction(()=>applyRanges([{...rangeFromForm(),label:'Reading'}],{readingType:$('reading-type').value}));});
+$('append-section').addEventListener('click',()=>libraryAction(()=>applyRanges([...passage.ranges,rangeFromForm()],{readingType:$('reading-type').value})));
+$('reading-type').addEventListener('change',()=>libraryAction(()=>syncReadingForm($('reading-type').value)));
+$('book').addEventListener('change',()=>updateBookLimits({reset:true}));
+$('recent-readings').addEventListener('change',e=>{if(e.target.value!=='')libraryAction(()=>{const recentReading=recent[Number(e.target.value)];applyRanges(recentReading.ranges,{readingType:recentReading.readingType});});});
 $('save-assignment').addEventListener('click',()=>libraryAction(()=>{
   if(!corpus)throw Error('The library is still loading.');
-  const assignment=createAssignment($('assignment-title').value,passage.ranges,state);assignments=[assignment,...assignments].slice(0,100);
+  const assignment=createRepertoireAssignment($('assignment-title').value,state.readingType,passage.ranges,state,corpus);assignments=[assignment,...assignments].slice(0,100);
   store('tropetrain-assignments-v1',assignments);renderPickers();$('library-message').textContent=`Saved “${assignment.title}” on this device.`;
 }));
 $('saved-assignments').addEventListener('change',e=>{if(e.target.value!=='')libraryAction(()=>{
-  const saved=parseAssignment(JSON.stringify(assignments[Number(e.target.value)]),corpus);state.view=saved.displayPreferences.view;state.groups=saved.displayPreferences.groups;state.signClasses=saved.displayPreferences.signClasses;
+  const saved=parseRepertoireAssignment(JSON.stringify(assignments[Number(e.target.value)]),corpus);state.view=saved.displayPreferences.view;state.groups=saved.displayPreferences.groups;state.signClasses=saved.displayPreferences.signClasses;
   state.melodyId=saved.musicalPreferences.melodyId;state.scrollLayout=saved.displayPreferences.scrollLayout;
-  applyRanges(saved.sections);$('assignment-title').value=saved.title;
+  applyRanges(saved.sections,{readingType:saved.readingType});$('assignment-title').value=saved.title;
 });});
-$('export-assignment').addEventListener('click',()=>download('tropetrain-assignment.json',createAssignment($('assignment-title').value,passage.ranges,state)));
+$('export-assignment').addEventListener('click',()=>libraryAction(()=>{
+  if(!corpus)throw Error('The library is still loading.');
+  download('tropetrain-assignment.json',createRepertoireAssignment($('assignment-title').value,state.readingType,passage.ranges,state,corpus));
+}));
 $('import-assignment').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
-  try{if(file.size>2_000_000)throw Error('Assignment file is too large.');const assignment=parseAssignment(await file.text(),corpus);
+  try{if(!corpus)throw Error('The library is still loading.');if(file.size>2_000_000)throw Error('Assignment file is too large.');const assignment=parseRepertoireAssignment(await file.text(),corpus);
     state.melodyId=assignment.musicalPreferences.melodyId;state.scrollLayout=assignment.displayPreferences.scrollLayout;
-    state.view=assignment.displayPreferences.view;state.groups=assignment.displayPreferences.groups;state.signClasses=assignment.displayPreferences.signClasses;applyRanges(assignment.sections);$('assignment-title').value=assignment.title;
+    state.view=assignment.displayPreferences.view;state.groups=assignment.displayPreferences.groups;state.signClasses=assignment.displayPreferences.signClasses;applyRanges(assignment.sections,{readingType:assignment.readingType});$('assignment-title').value=assignment.title;
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
@@ -569,12 +633,11 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
 mountCalendar({getCorpus,onOpen:(ranges,title)=>{applyRanges(ranges);$('assignment-title').value=title;}});
 render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
-getCorpus().then(value=>{
-  corpus=value;$('book').replaceChildren();
-  for(const book of corpus.books){const o=document.createElement('option');o.value=book.id;o.textContent=`${book.name} · ${book.hebrewName}`;$('book').append(o);}
-  $('library-status').textContent='5 books · 187 chapters · available offline';$('open-reading').disabled=false;$('append-section').disabled=false;
+getRepertoireCorpus().then(value=>{
+  corpus=value;syncReadingForm('torah','gen');$('reading-type').disabled=false;$('book').disabled=false;
+  $('library-status').textContent='31 books · 606 chapters · text available offline';$('open-reading').disabled=false;
   $('source-study-open').disabled=false;
-  if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore});}catch(error){$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
+  if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
   restoringReading=false;persist();
   renderSections();
 }).catch(error=>{$('library-status').textContent='Opening passage only';$('library-message').textContent=error.message;});
@@ -586,4 +649,4 @@ getReferenceLibrary().then(value=>{
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';
-else if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local audio & Torah text · available offline after first load';}).catch(()=>{});
+else if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local instrument & reading text · available offline after first load';}).catch(()=>{});

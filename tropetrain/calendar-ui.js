@@ -1,18 +1,21 @@
 import {CalendarStore,readingDivisions,calendarRanges} from './calendar.js';
+import {mountDateNavigation} from './date-navigation-ui.js';
 const el=(tag,text,className)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e;};
 export function mountCalendar({getCorpus,onOpen}){
   const $=id=>document.getElementById(id);let storage;try{storage=localStorage;}catch{}
   const store=new CalendarStore({storage}),month=$('calendar-month'),region=$('calendar-region'),cycle=$('calendar-cycle'),list=$('calendar-readings'),status=$('calendar-status');
   const now=new Date();month.value=`${String(now.getFullYear()).padStart(4,'0')}-${String(now.getMonth()+1).padStart(2,'0')}`;
-  let record=null,controller=null,generation=0;
-  function clear(){generation++;controller?.abort();record=null;list.replaceChildren();$('calendar-source').textContent='';status.textContent='Choose Load month, or try one of the bundled examples. Your open reading stays available.';}
+  let record=null,controller=null,generation=0,filterDate='';
+  function clear(){generation++;controller?.abort();record=null;filterDate='';$('calendar-whole-month').hidden=true;list.replaceChildren();$('calendar-source').textContent='';status.textContent='Choose Load month, find a service date, or try a bundled example. Your open reading stays available.';}
   function render(){
     list.replaceChildren();if(!record)return;
     const data=record.data;
     $('calendar-source').textContent=`${record.origin} · ${record.region} · retrieved ${record.retrieved} · SHA-256 ${record.sha256}`;
-    if(!data.items.length){status.textContent='The source returned no Torah readings in this month.';return;}
-    status.textContent=`${data.items.length} reading services · ${record.region}. Choose a service and aliyah; the calendar does not select a melody.`;
-    for(const item of data.items){
+    const items=filterDate?data.items.filter(item=>item.date===filterDate):data.items;
+    $('calendar-whole-month').hidden=!filterDate;
+    if(!items.length){status.textContent=filterDate?`No scheduled Torah reading for ${filterDate} in this source’s ${record.region} schedule. Show the whole month to choose another service.`:'The source returned no Torah readings in this month.';return;}
+    status.textContent=`${items.length} reading service${items.length===1?'':'s'} · ${filterDate||record.month} · ${record.region}. Choose a service and aliyah; the calendar does not select a melody.`;
+    for(const item of items){
       const row=el('details',undefined,'calendar-reading');const summary=el('summary',`${item.date} · ${item.hdate} · ${item.name.en}`);row.append(summary);
       if(item.name.he){const he=el('p',item.name.he,'calendar-hebrew');he.lang='he';he.dir='rtl';row.append(he);}
       row.append(el('p',item.summary?`Full reading overview: ${item.summary}`:'Weekday Torah reading','muted'));
@@ -53,9 +56,11 @@ export function mountCalendar({getCorpus,onOpen}){
     catch(error){if(own===generation)status.textContent=requestController.signal.aborted?'Calendar request timed out. Your open reading is kept; try a bundled example or load again.':error.message;}
     finally{clearTimeout(timeout);}
   }
-  $('calendar-form').addEventListener('submit',e=>{e.preventDefault();load();});
+  $('calendar-form').addEventListener('submit',e=>{e.preventDefault();filterDate='';load();});
   $('calendar-refresh').addEventListener('click',()=>load({refresh:true}));
   for(const input of [month,region])input.addEventListener('change',clear);
   cycle.addEventListener('change',()=>{if(record){generation++;render();}});
-  for(const button of document.querySelectorAll('[data-calendar-example]'))button.addEventListener('click',()=>{month.value=button.dataset.calendarExample;load();});
+  for(const button of document.querySelectorAll('[data-calendar-example]'))button.addEventListener('click',()=>{month.value=button.dataset.calendarExample;filterDate='';load();});
+  $('calendar-whole-month').addEventListener('click',()=>{generation++;filterDate='';render();});
+  mountDateNavigation({onFindDate:iso=>{clear();month.value=iso.slice(0,7);filterDate=iso;load();}});
 }

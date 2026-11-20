@@ -1,6 +1,6 @@
 # Repertoire foundation — unpublished
 
-November 20, 2026. This is working code and data on `codex/tropetrain-repertoire`, based on the published v0.13 records commit `3788302e329d1b157d2dde0cf99f61b3bb5b7c1e`. The normal browser UI is not wired to this addition. The full reconstruction remains active and incomplete.
+November 20, 2026. This is working code and data on `codex/tropetrain-repertoire`, based on the published v0.13 records commit `3788302e329d1b157d2dde0cf99f61b3bb5b7c1e`. At this foundation checkpoint, the normal browser UI was not wired to this addition. The later v0.15 candidate integrates it; see VERIFICATION-0.15.md for current status and pending UI gates. The full reconstruction remains active and incomplete.
 
 The separate main checkout has the v0.14 Hebrew-date work, with 116 code checks passing and specific normal UI gates pending. Browser control tools were removed during that verification. Keep the two workstreams separate until their changes can be integrated and checked through the normal interface; do not publish either as fully verified.
 
