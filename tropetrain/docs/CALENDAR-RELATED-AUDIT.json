@@ -1,0 +1,3403 @@
+{
+  "format": "tropetrain-calendar-related-audit-v1",
+  "sourceRecords": [
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=off"
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=on"
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=off"
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=on"
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-06-01&end=2022-06-30&i=off"
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-08-01&end=2022-08-31&i=off"
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-10-01&end=2022-10-31&i=off"
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2024-03-01&end=2024-03-31&i=on"
+    }
+  ],
+  "choices": 100,
+  "checked": 98,
+  "referenceOnly": 2,
+  "limits": "Structural text/reference/verse-count checks for these eight pinned responses only. Not an exhaustive calendar/congregation, musical, phonetic or independent expert review. Source snapshot/hash retained by assignments is not a signed or independently refetched provider response.",
+  "selections": [
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-02",
+      "service": "Tazria",
+      "variant": "haft",
+      "sourceCitation": "Ezekiel 45:16-46:18",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 28,
+      "sections": [
+        {
+          "id": "related-20220402-diaspora-haft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 45,
+            "verse": 16
+          },
+          "end": {
+            "chapter": 46,
+            "verse": 18
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-02",
+      "service": "Tazria",
+      "variant": "seph",
+      "sourceCitation": "Ezekiel 45:18-46:15",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 23,
+      "sections": [
+        {
+          "id": "related-20220402-diaspora-seph-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 45,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 46,
+            "verse": 15
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-09",
+      "service": "Metzora",
+      "variant": "haft",
+      "sourceCitation": "Malachi 3:4-24",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 21,
+      "sections": [
+        {
+          "id": "related-20220409-diaspora-haft-1",
+          "bookId": "mal",
+          "start": {
+            "chapter": 3,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 24
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-16",
+      "service": "Pesach I (on Shabbat)",
+      "variant": "haft",
+      "sourceCitation": "Joshua 3:5-7, 5:2-6:1, 6:27",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 3,
+      "verses": 19,
+      "sections": [
+        {
+          "id": "related-20220416-diaspora-haft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 3,
+            "verse": 5
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 7
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220416-diaspora-haft-2",
+          "bookId": "jos",
+          "start": {
+            "chapter": 5,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 1
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        },
+        {
+          "id": "related-20220416-diaspora-haft-3",
+          "bookId": "jos",
+          "start": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "sourceSelection": {
+            "first": 2,
+            "last": 2
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-16",
+      "service": "Pesach I (on Shabbat)",
+      "variant": "seph",
+      "sourceCitation": "Joshua 5:2-6:1, 6:27",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220416-diaspora-seph-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 5,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 1
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220416-diaspora-seph-2",
+          "bookId": "jos",
+          "start": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-17",
+      "service": "Pesach II",
+      "variant": "haft",
+      "sourceCitation": "II Kings 23:1-9, 23:21-25",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 14,
+      "sections": [
+        {
+          "id": "related-20220417-diaspora-haft-1",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 23,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 23,
+            "verse": 9
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220417-diaspora-haft-2",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 23,
+            "verse": 21
+          },
+          "end": {
+            "chapter": 23,
+            "verse": 25
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-22",
+      "service": "Pesach VII",
+      "variant": "haft",
+      "sourceCitation": "II Samuel 22:1-51",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 51,
+      "sections": [
+        {
+          "id": "related-20220422-diaspora-haft-1",
+          "bookId": "sam2",
+          "start": {
+            "chapter": 22,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 22,
+            "verse": 51
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-23",
+      "service": "Pesach VIII (on Shabbat)",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 10:32-12:6",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 25,
+      "sections": [
+        {
+          "id": "related-20220423-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 10,
+            "verse": 32
+          },
+          "end": {
+            "chapter": 12,
+            "verse": 6
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-23",
+      "service": "Pesach VIII (on Shabbat)",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 8,
+      "verses": 117,
+      "sections": [
+        {
+          "id": "related-20220423-diaspora-megillah-1",
+          "bookId": "sng",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 7
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-diaspora.json",
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098",
+      "region": "Diaspora",
+      "serviceDate": "2022-04-30",
+      "service": "Achrei Mot",
+      "variant": "haft",
+      "sourceCitation": "I Samuel 20:18-42",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 25,
+      "sections": [
+        {
+          "id": "related-20220430-diaspora-haft-1",
+          "bookId": "sam1",
+          "start": {
+            "chapter": 20,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 20,
+            "verse": 42
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-02",
+      "service": "Tazria",
+      "variant": "haft",
+      "sourceCitation": "Ezekiel 45:16-46:18",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 28,
+      "sections": [
+        {
+          "id": "related-20220402-israel-haft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 45,
+            "verse": 16
+          },
+          "end": {
+            "chapter": 46,
+            "verse": 18
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-02",
+      "service": "Tazria",
+      "variant": "seph",
+      "sourceCitation": "Ezekiel 45:18-46:15",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 23,
+      "sections": [
+        {
+          "id": "related-20220402-israel-seph-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 45,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 46,
+            "verse": 15
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-09",
+      "service": "Metzora",
+      "variant": "haft",
+      "sourceCitation": "Malachi 3:4-24",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 21,
+      "sections": [
+        {
+          "id": "related-20220409-israel-haft-1",
+          "bookId": "mal",
+          "start": {
+            "chapter": 3,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 24
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-16",
+      "service": "Pesach I (on Shabbat)",
+      "variant": "haft",
+      "sourceCitation": "Joshua 3:5-7, 5:2-6:1, 6:27",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 3,
+      "verses": 19,
+      "sections": [
+        {
+          "id": "related-20220416-israel-haft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 3,
+            "verse": 5
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 7
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220416-israel-haft-2",
+          "bookId": "jos",
+          "start": {
+            "chapter": 5,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 1
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        },
+        {
+          "id": "related-20220416-israel-haft-3",
+          "bookId": "jos",
+          "start": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "sourceSelection": {
+            "first": 2,
+            "last": 2
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-16",
+      "service": "Pesach I (on Shabbat)",
+      "variant": "seph",
+      "sourceCitation": "Joshua 5:2-6:1, 6:27",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220416-israel-seph-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 5,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 1
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220416-israel-seph-2",
+          "bookId": "jos",
+          "start": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 27
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-16",
+      "service": "Pesach I (on Shabbat)",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 8,
+      "verses": 117,
+      "sections": [
+        {
+          "id": "related-20220416-israel-megillah-1",
+          "bookId": "sng",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 7
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-22",
+      "service": "Pesach VII",
+      "variant": "haft",
+      "sourceCitation": "II Samuel 22:1-51",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 51,
+      "sections": [
+        {
+          "id": "related-20220422-israel-haft-1",
+          "bookId": "sam2",
+          "start": {
+            "chapter": 22,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 22,
+            "verse": 51
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-23",
+      "service": "Achrei Mot",
+      "variant": "haft",
+      "sourceCitation": "Amos 9:7-15",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 9,
+      "sections": [
+        {
+          "id": "related-20220423-israel-haft-1",
+          "bookId": "amo",
+          "start": {
+            "chapter": 9,
+            "verse": 7
+          },
+          "end": {
+            "chapter": 9,
+            "verse": 15
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-23",
+      "service": "Achrei Mot",
+      "variant": "seph",
+      "sourceCitation": "Ezekiel 22:1-16",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220423-israel-seph-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 22,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 22,
+            "verse": 16
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-23",
+      "service": "Achrei Mot",
+      "variant": "chabad",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 9,
+      "sections": [
+        {
+          "id": "related-20220423-israel-chabad-1",
+          "bookId": "amo",
+          "start": {
+            "chapter": 9,
+            "verse": 7
+          },
+          "end": {
+            "chapter": 9,
+            "verse": 15
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/april2022-israel.json",
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141",
+      "region": "Israel",
+      "serviceDate": "2022-04-30",
+      "service": "Kedoshim",
+      "variant": "haft",
+      "sourceCitation": "I Samuel 20:18-42",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 25,
+      "sections": [
+        {
+          "id": "related-20220430-israel-haft-1",
+          "bookId": "sam1",
+          "start": {
+            "chapter": 20,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 20,
+            "verse": 42
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-02",
+      "service": "Korach",
+      "variant": "haft",
+      "sourceCitation": "I Samuel 11:14-12:22",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 24,
+      "sections": [
+        {
+          "id": "related-20220702-diaspora-haft-1",
+          "bookId": "sam1",
+          "start": {
+            "chapter": 11,
+            "verse": 14
+          },
+          "end": {
+            "chapter": 12,
+            "verse": 22
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-02",
+      "service": "Korach",
+      "variant": "triHaft",
+      "sourceCitation": "Ezekiel 45:1-15",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 15,
+      "sections": [
+        {
+          "id": "related-20220702-diaspora-triHaft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 45,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 45,
+            "verse": 15
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-09",
+      "service": "Chukat",
+      "variant": "haft",
+      "sourceCitation": "Judges 11:1-33",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 33,
+      "sections": [
+        {
+          "id": "related-20220709-diaspora-haft-1",
+          "bookId": "jdg",
+          "start": {
+            "chapter": 11,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 11,
+            "verse": 33
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-09",
+      "service": "Chukat",
+      "variant": "triHaft",
+      "sourceCitation": "II Kings 18:1-13, 19:15-19",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 18,
+      "sections": [
+        {
+          "id": "related-20220709-diaspora-triHaft-1",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 18,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 18,
+            "verse": 13
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220709-diaspora-triHaft-2",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 19,
+            "verse": 15
+          },
+          "end": {
+            "chapter": 19,
+            "verse": 19
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-16",
+      "service": "Balak",
+      "variant": "haft",
+      "sourceCitation": "Micah 5:6-6:8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 17,
+      "sections": [
+        {
+          "id": "related-20220716-diaspora-haft-1",
+          "bookId": "mic",
+          "start": {
+            "chapter": 5,
+            "verse": 6
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-16",
+      "service": "Balak",
+      "variant": "triHaft",
+      "sourceCitation": "Joshua 24:1-14",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 14,
+      "sections": [
+        {
+          "id": "related-20220716-diaspora-triHaft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 24,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 24,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-17",
+      "service": "Tzom Tammuz (Mincha)",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 55:6-56:8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220717-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 55,
+            "verse": 6
+          },
+          "end": {
+            "chapter": 56,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-23",
+      "service": "Pinchas",
+      "variant": "haft",
+      "sourceCitation": "Jeremiah 1:1-2:3",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20220723-diaspora-haft-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 3
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-30",
+      "service": "Matot-Masei",
+      "variant": "haft",
+      "sourceCitation": "Jeremiah 2:4-28, 3:4",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 26,
+      "sections": [
+        {
+          "id": "related-20220730-diaspora-haft-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 2,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 28
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220730-diaspora-haft-2",
+          "bookId": "jer",
+          "start": {
+            "chapter": 3,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 4
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-30",
+      "service": "Matot-Masei",
+      "variant": "seph",
+      "sourceCitation": "Jeremiah 2:4-28, 4:1-2",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 27,
+      "sections": [
+        {
+          "id": "related-20220730-diaspora-seph-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 2,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 28
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220730-diaspora-seph-2",
+          "bookId": "jer",
+          "start": {
+            "chapter": 4,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 4,
+            "verse": 2
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-diaspora.json",
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3",
+      "region": "Diaspora",
+      "serviceDate": "2022-07-30",
+      "service": "Matot-Masei",
+      "variant": "triHaft",
+      "sourceCitation": "I Kings 9:2-9, 9:4-5a",
+      "status": "reference_only",
+      "reason": "Partial or ambiguous verse boundaries remain reference-only. An exact source word boundary is required; no whole verse was substituted."
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-02",
+      "service": "Chukat",
+      "variant": "haft",
+      "sourceCitation": "Judges 11:1-33",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 33,
+      "sections": [
+        {
+          "id": "related-20220702-israel-haft-1",
+          "bookId": "jdg",
+          "start": {
+            "chapter": 11,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 11,
+            "verse": 33
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-02",
+      "service": "Chukat",
+      "variant": "triHaft",
+      "sourceCitation": "II Kings 18:1-13, 19:15-19",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 18,
+      "sections": [
+        {
+          "id": "related-20220702-israel-triHaft-1",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 18,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 18,
+            "verse": 13
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220702-israel-triHaft-2",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 19,
+            "verse": 15
+          },
+          "end": {
+            "chapter": 19,
+            "verse": 19
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-09",
+      "service": "Balak",
+      "variant": "haft",
+      "sourceCitation": "Micah 5:6-6:8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 17,
+      "sections": [
+        {
+          "id": "related-20220709-israel-haft-1",
+          "bookId": "mic",
+          "start": {
+            "chapter": 5,
+            "verse": 6
+          },
+          "end": {
+            "chapter": 6,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-09",
+      "service": "Balak",
+      "variant": "triHaft",
+      "sourceCitation": "Joshua 24:1-14",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 14,
+      "sections": [
+        {
+          "id": "related-20220709-israel-triHaft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 24,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 24,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-16",
+      "service": "Pinchas",
+      "variant": "haft",
+      "sourceCitation": "I Kings 18:46-19:21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20220716-israel-haft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 18,
+            "verse": 46
+          },
+          "end": {
+            "chapter": 19,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-16",
+      "service": "Pinchas",
+      "variant": "triHaft",
+      "sourceCitation": "Ezekiel 46:1-11",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 11,
+      "sections": [
+        {
+          "id": "related-20220716-israel-triHaft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 46,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 46,
+            "verse": 11
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-17",
+      "service": "Tzom Tammuz (Mincha)",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 55:6-56:8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220717-israel-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 55,
+            "verse": 6
+          },
+          "end": {
+            "chapter": 56,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-23",
+      "service": "Matot",
+      "variant": "haft",
+      "sourceCitation": "Jeremiah 1:1-2:3",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20220723-israel-haft-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 3
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-23",
+      "service": "Matot",
+      "variant": "triHaft",
+      "sourceCitation": "Jeremiah 14:11-22",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 12,
+      "sections": [
+        {
+          "id": "related-20220723-israel-triHaft-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 14,
+            "verse": 11
+          },
+          "end": {
+            "chapter": 14,
+            "verse": 22
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-30",
+      "service": "Masei",
+      "variant": "haft",
+      "sourceCitation": "Jeremiah 2:4-28, 3:4",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 26,
+      "sections": [
+        {
+          "id": "related-20220730-israel-haft-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 2,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 28
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220730-israel-haft-2",
+          "bookId": "jer",
+          "start": {
+            "chapter": 3,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 4
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-30",
+      "service": "Masei",
+      "variant": "seph",
+      "sourceCitation": "Jeremiah 2:4-28, 4:1-2",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 27,
+      "sections": [
+        {
+          "id": "related-20220730-israel-seph-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 2,
+            "verse": 4
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 28
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220730-israel-seph-2",
+          "bookId": "jer",
+          "start": {
+            "chapter": 4,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 4,
+            "verse": 2
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/july2022-israel.json",
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933",
+      "region": "Israel",
+      "serviceDate": "2022-07-30",
+      "service": "Masei",
+      "variant": "triHaft",
+      "sourceCitation": "I Kings 9:2-9, 9:4-5a",
+      "status": "reference_only",
+      "reason": "Partial or ambiguous verse boundaries remain reference-only. An exact source word boundary is required; no whole verse was substituted."
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-04",
+      "service": "Bamidbar",
+      "variant": "haft",
+      "sourceCitation": "Hosea 2:1-22",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20220604-diaspora-haft-1",
+          "bookId": "hos",
+          "start": {
+            "chapter": 2,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 22
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-04",
+      "service": "Bamidbar",
+      "variant": "triHaft",
+      "sourceCitation": "Joshua 8:30-35, 8:33",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 7,
+      "sections": [
+        {
+          "id": "related-20220604-diaspora-triHaft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 8,
+            "verse": 30
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 35
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220604-diaspora-triHaft-2",
+          "bookId": "jos",
+          "start": {
+            "chapter": 8,
+            "verse": 33
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 33
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-05",
+      "service": "Shavuot I",
+      "variant": "haft",
+      "sourceCitation": "Ezekiel 1:1-28, 3:12",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 29,
+      "sections": [
+        {
+          "id": "related-20220605-diaspora-haft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 1,
+            "verse": 28
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220605-diaspora-haft-2",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 3,
+            "verse": 12
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 12
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-06",
+      "service": "Shavuot II",
+      "variant": "haft",
+      "sourceCitation": "Habakkuk 3:1-19",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 19,
+      "sections": [
+        {
+          "id": "related-20220606-diaspora-haft-1",
+          "bookId": "hab",
+          "start": {
+            "chapter": 3,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 19
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-06",
+      "service": "Shavuot II",
+      "variant": "seph",
+      "sourceCitation": "Habakkuk 2:20-3:19",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 20,
+      "sections": [
+        {
+          "id": "related-20220606-diaspora-seph-1",
+          "bookId": "hab",
+          "start": {
+            "chapter": 2,
+            "verse": 20
+          },
+          "end": {
+            "chapter": 3,
+            "verse": 19
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-06",
+      "service": "Shavuot II",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 4,
+      "verses": 85,
+      "sections": [
+        {
+          "id": "related-20220606-diaspora-megillah-1",
+          "bookId": "rut",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 4,
+            "verse": 22
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 3
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-11",
+      "service": "Nasso",
+      "variant": "haft",
+      "sourceCitation": "Judges 13:2-25",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 24,
+      "sections": [
+        {
+          "id": "related-20220611-diaspora-haft-1",
+          "bookId": "jdg",
+          "start": {
+            "chapter": 13,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 13,
+            "verse": 25
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-11",
+      "service": "Nasso",
+      "variant": "triHaft",
+      "sourceCitation": "Joel 1:8-13, 2:12-14",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 9,
+      "sections": [
+        {
+          "id": "related-20220611-diaspora-triHaft-1",
+          "bookId": "jol",
+          "start": {
+            "chapter": 1,
+            "verse": 8
+          },
+          "end": {
+            "chapter": 1,
+            "verse": 13
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20220611-diaspora-triHaft-2",
+          "bookId": "jol",
+          "start": {
+            "chapter": 2,
+            "verse": 12
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-18",
+      "service": "Beha'alotcha",
+      "variant": "haft",
+      "sourceCitation": "Zechariah 2:14-4:7",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 21,
+      "sections": [
+        {
+          "id": "related-20220618-diaspora-haft-1",
+          "bookId": "zec",
+          "start": {
+            "chapter": 2,
+            "verse": 14
+          },
+          "end": {
+            "chapter": 4,
+            "verse": 7
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-18",
+      "service": "Beha'alotcha",
+      "variant": "triHaft",
+      "sourceCitation": "II Kings 20:1-11",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 11,
+      "sections": [
+        {
+          "id": "related-20220618-diaspora-triHaft-1",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 20,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 20,
+            "verse": 11
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-25",
+      "service": "Sh'lach",
+      "variant": "haft",
+      "sourceCitation": "Joshua 2:1-24",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 24,
+      "sections": [
+        {
+          "id": "related-20220625-diaspora-haft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 2,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 2,
+            "verse": 24
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-06-diaspora.json",
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "region": "Diaspora",
+      "serviceDate": "2022-06-25",
+      "service": "Sh'lach",
+      "variant": "triHaft",
+      "sourceCitation": "I Kings 17:1-16",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220625-diaspora-triHaft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 17,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 17,
+            "verse": 16
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-06",
+      "service": "Devarim",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 1:1-27",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 27,
+      "sections": [
+        {
+          "id": "related-20220806-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 1,
+            "verse": 27
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-06",
+      "service": "Erev Tish'a B'Av",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 5,
+      "verses": 154,
+      "sections": [
+        {
+          "id": "related-20220806-diaspora-megillah-1",
+          "bookId": "lam",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 5,
+            "verse": 22
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 4
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-07",
+      "service": "Tish'a B'Av",
+      "variant": "haft",
+      "sourceCitation": "Jeremiah 8:13-9:23",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 34,
+      "sections": [
+        {
+          "id": "related-20220807-diaspora-haft-1",
+          "bookId": "jer",
+          "start": {
+            "chapter": 8,
+            "verse": 13
+          },
+          "end": {
+            "chapter": 9,
+            "verse": 23
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-07",
+      "service": "Tish'a B'Av",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 5,
+      "verses": 154,
+      "sections": [
+        {
+          "id": "related-20220807-diaspora-megillah-1",
+          "bookId": "lam",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 5,
+            "verse": 22
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 4
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-07",
+      "service": "Tish'a B'Av (Mincha)",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 55:6-56:8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20220807-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 55,
+            "verse": 6
+          },
+          "end": {
+            "chapter": 56,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-13",
+      "service": "Vaetchanan",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 40:1-26",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 26,
+      "sections": [
+        {
+          "id": "related-20220813-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 40,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 40,
+            "verse": 26
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-20",
+      "service": "Eikev",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 49:14-51:3",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 27,
+      "sections": [
+        {
+          "id": "related-20220820-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 49,
+            "verse": 14
+          },
+          "end": {
+            "chapter": 51,
+            "verse": 3
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-20",
+      "service": "Eikev",
+      "variant": "triHaft",
+      "sourceCitation": "Zechariah 8:1-8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 8,
+      "sections": [
+        {
+          "id": "related-20220820-diaspora-triHaft-1",
+          "bookId": "zec",
+          "start": {
+            "chapter": 8,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-08-diaspora.json",
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "region": "Diaspora",
+      "serviceDate": "2022-08-27",
+      "service": "Re'eh",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 66:1-24",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 24,
+      "sections": [
+        {
+          "id": "related-20220827-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 66,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 66,
+            "verse": 24
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-01",
+      "service": "Vayeilech",
+      "variant": "haft",
+      "sourceCitation": "Hosea 14:2-10; Micah 7:18-20",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 12,
+      "sections": [
+        {
+          "id": "related-20221001-diaspora-haft-1",
+          "bookId": "hos",
+          "start": {
+            "chapter": 14,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 14,
+            "verse": 10
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20221001-diaspora-haft-2",
+          "bookId": "mic",
+          "start": {
+            "chapter": 7,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 7,
+            "verse": 20
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-05",
+      "service": "Yom Kippur",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 57:14-58:14",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20221005-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 57,
+            "verse": 14
+          },
+          "end": {
+            "chapter": 58,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-05",
+      "service": "Yom Kippur (Mincha)",
+      "variant": "haft",
+      "sourceCitation": "Jonah 1:1-4:11; Micah 7:18-20",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 51,
+      "sections": [
+        {
+          "id": "related-20221005-diaspora-haft-1",
+          "bookId": "jon",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 4,
+            "verse": 11
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20221005-diaspora-haft-2",
+          "bookId": "mic",
+          "start": {
+            "chapter": 7,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 7,
+            "verse": 20
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-08",
+      "service": "Ha'azinu",
+      "variant": "haft",
+      "sourceCitation": "II Samuel 22:1-51",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 51,
+      "sections": [
+        {
+          "id": "related-20221008-diaspora-haft-1",
+          "bookId": "sam2",
+          "start": {
+            "chapter": 22,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 22,
+            "verse": 51
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-08",
+      "service": "Ha'azinu",
+      "variant": "triHaft",
+      "sourceCitation": "II Samuel 22:1, 22:31-51",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 2,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20221008-diaspora-triHaft-1",
+          "bookId": "sam2",
+          "start": {
+            "chapter": 22,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 22,
+            "verse": 1
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        },
+        {
+          "id": "related-20221008-diaspora-triHaft-2",
+          "bookId": "sam2",
+          "start": {
+            "chapter": 22,
+            "verse": 31
+          },
+          "end": {
+            "chapter": 22,
+            "verse": 51
+          },
+          "sourceSelection": {
+            "first": 1,
+            "last": 1
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-10",
+      "service": "Sukkot I",
+      "variant": "haft",
+      "sourceCitation": "Zechariah 14:1-21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 21,
+      "sections": [
+        {
+          "id": "related-20221010-diaspora-haft-1",
+          "bookId": "zec",
+          "start": {
+            "chapter": 14,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 14,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-11",
+      "service": "Sukkot II",
+      "variant": "haft",
+      "sourceCitation": "I Kings 8:2-21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 20,
+      "sections": [
+        {
+          "id": "related-20221011-diaspora-haft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 8,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-15",
+      "service": "Sukkot Shabbat Chol ha-Moed",
+      "variant": "haft",
+      "sourceCitation": "Ezekiel 38:18-39:16",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20221015-diaspora-haft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 38,
+            "verse": 18
+          },
+          "end": {
+            "chapter": 39,
+            "verse": 16
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-15",
+      "service": "Sukkot Shabbat Chol ha-Moed",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 12,
+      "verses": 222,
+      "sections": [
+        {
+          "id": "related-20221015-diaspora-megillah-1",
+          "bookId": "ecc",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 12,
+            "verse": 14
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 11
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-17",
+      "service": "Shmini Atzeret",
+      "variant": "haft",
+      "sourceCitation": "I Kings 8:54-66",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 13,
+      "sections": [
+        {
+          "id": "related-20221017-diaspora-haft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 8,
+            "verse": 54
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 66
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-18",
+      "service": "Simchat Torah",
+      "variant": "haft",
+      "sourceCitation": "Joshua 1:1-18",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 18,
+      "sections": [
+        {
+          "id": "related-20221018-diaspora-haft-1",
+          "bookId": "jos",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 1,
+            "verse": 18
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-22",
+      "service": "Bereshit",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 42:5-43:10",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 31,
+      "sections": [
+        {
+          "id": "related-20221022-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 42,
+            "verse": 5
+          },
+          "end": {
+            "chapter": 43,
+            "verse": 10
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-22",
+      "service": "Bereshit",
+      "variant": "seph",
+      "sourceCitation": "Isaiah 42:5-21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 17,
+      "sections": [
+        {
+          "id": "related-20221022-diaspora-seph-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 42,
+            "verse": 5
+          },
+          "end": {
+            "chapter": 42,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-22",
+      "service": "Bereshit",
+      "variant": "triHaft",
+      "sourceCitation": "Isaiah 42:5-21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 17,
+      "sections": [
+        {
+          "id": "related-20221022-diaspora-triHaft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 42,
+            "verse": 5
+          },
+          "end": {
+            "chapter": 42,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-29",
+      "service": "Noach",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 54:1-55:5",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20221029-diaspora-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 54,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 55,
+            "verse": 5
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-29",
+      "service": "Noach",
+      "variant": "seph",
+      "sourceCitation": "Isaiah 54:1-10",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 10,
+      "sections": [
+        {
+          "id": "related-20221029-diaspora-seph-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 54,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 54,
+            "verse": 10
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/2022-10-diaspora.json",
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "region": "Diaspora",
+      "serviceDate": "2022-10-29",
+      "service": "Noach",
+      "variant": "triHaft",
+      "sourceCitation": "Isaiah 54:11-55:5",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 12,
+      "sections": [
+        {
+          "id": "related-20221029-diaspora-triHaft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 54,
+            "verse": 11
+          },
+          "end": {
+            "chapter": 55,
+            "verse": 5
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-02",
+      "service": "Ki Tisa",
+      "variant": "haft",
+      "sourceCitation": "I Kings 18:1-39",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 39,
+      "sections": [
+        {
+          "id": "related-20240302-israel-haft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 18,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 18,
+            "verse": 39
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-02",
+      "service": "Ki Tisa",
+      "variant": "seph",
+      "sourceCitation": "I Kings 18:20-39",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 20,
+      "sections": [
+        {
+          "id": "related-20240302-israel-seph-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 18,
+            "verse": 20
+          },
+          "end": {
+            "chapter": 18,
+            "verse": 39
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-02",
+      "service": "Ki Tisa",
+      "variant": "triHaft",
+      "sourceCitation": "I Kings 18:20-39",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 20,
+      "sections": [
+        {
+          "id": "related-20240302-israel-triHaft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 18,
+            "verse": 20
+          },
+          "end": {
+            "chapter": 18,
+            "verse": 39
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-09",
+      "service": "Vayakhel",
+      "variant": "haft",
+      "sourceCitation": "II Kings 12:1-17",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 17,
+      "sections": [
+        {
+          "id": "related-20240309-israel-haft-1",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 12,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 12,
+            "verse": 17
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-09",
+      "service": "Vayakhel",
+      "variant": "seph",
+      "sourceCitation": "II Kings 11:17-12:17",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 21,
+      "sections": [
+        {
+          "id": "related-20240309-israel-seph-1",
+          "bookId": "kgs2",
+          "start": {
+            "chapter": 11,
+            "verse": 17
+          },
+          "end": {
+            "chapter": 12,
+            "verse": 17
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-16",
+      "service": "Pekudei",
+      "variant": "haft",
+      "sourceCitation": "I Kings 7:51-8:21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20240316-israel-haft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 7,
+            "verse": 51
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-16",
+      "service": "Pekudei",
+      "variant": "seph",
+      "sourceCitation": "I Kings 7:40-50",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 11,
+      "sections": [
+        {
+          "id": "related-20240316-israel-seph-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 7,
+            "verse": 40
+          },
+          "end": {
+            "chapter": 7,
+            "verse": 50
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-16",
+      "service": "Pekudei",
+      "variant": "chabad",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 22,
+      "sections": [
+        {
+          "id": "related-20240316-israel-chabad-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 7,
+            "verse": 51
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-16",
+      "service": "Pekudei",
+      "variant": "triHaft",
+      "sourceCitation": "I Kings 8:10-21",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 12,
+      "sections": [
+        {
+          "id": "related-20240316-israel-triHaft-1",
+          "bookId": "kgs1",
+          "start": {
+            "chapter": 8,
+            "verse": 10
+          },
+          "end": {
+            "chapter": 8,
+            "verse": 21
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-21",
+      "service": "Ta'anit Esther (Mincha)",
+      "variant": "haft",
+      "sourceCitation": "Isaiah 55:6-56:8",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 16,
+      "sections": [
+        {
+          "id": "related-20240321-israel-haft-1",
+          "bookId": "isa",
+          "start": {
+            "chapter": 55,
+            "verse": 6
+          },
+          "end": {
+            "chapter": 56,
+            "verse": 8
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-23",
+      "service": "Vayikra",
+      "variant": "haft",
+      "sourceCitation": "I Samuel 15:2-34",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 33,
+      "sections": [
+        {
+          "id": "related-20240323-israel-haft-1",
+          "bookId": "sam1",
+          "start": {
+            "chapter": 15,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 15,
+            "verse": 34
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-23",
+      "service": "Vayikra",
+      "variant": "seph",
+      "sourceCitation": "I Samuel 15:1-34",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 34,
+      "sections": [
+        {
+          "id": "related-20240323-israel-seph-1",
+          "bookId": "sam1",
+          "start": {
+            "chapter": 15,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 15,
+            "verse": 34
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-23",
+      "service": "Vayikra",
+      "variant": "chabad",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 33,
+      "sections": [
+        {
+          "id": "related-20240323-israel-chabad-1",
+          "bookId": "sam1",
+          "start": {
+            "chapter": 15,
+            "verse": 2
+          },
+          "end": {
+            "chapter": 15,
+            "verse": 34
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-23",
+      "service": "Erev Purim",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 10,
+      "verses": 167,
+      "sections": [
+        {
+          "id": "related-20240323-israel-megillah-1",
+          "bookId": "est",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 10,
+            "verse": 3
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 9
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-24",
+      "service": "Purim",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 10,
+      "verses": 167,
+      "sections": [
+        {
+          "id": "related-20240324-israel-megillah-1",
+          "bookId": "est",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 10,
+            "verse": 3
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 9
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-25",
+      "service": "Shushan Purim",
+      "variant": "megillah",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "megillah",
+      "sourceUnits": 10,
+      "verses": 167,
+      "sections": [
+        {
+          "id": "related-20240325-israel-megillah-1",
+          "bookId": "est",
+          "start": {
+            "chapter": 1,
+            "verse": 1
+          },
+          "end": {
+            "chapter": 10,
+            "verse": 3
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 9
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-30",
+      "service": "Tzav",
+      "variant": "haft",
+      "sourceCitation": "Ezekiel 36:16-38",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 23,
+      "sections": [
+        {
+          "id": "related-20240330-israel-haft-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 36,
+            "verse": 16
+          },
+          "end": {
+            "chapter": 36,
+            "verse": 38
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "region": "Israel",
+      "serviceDate": "2024-03-30",
+      "service": "Tzav",
+      "variant": "seph",
+      "sourceCitation": "Ezekiel 36:16-36",
+      "status": "source_references_checked_against_UXLC",
+      "readingType": "haftarah",
+      "sourceUnits": 1,
+      "verses": 21,
+      "sections": [
+        {
+          "id": "related-20240330-israel-seph-1",
+          "bookId": "ezk",
+          "start": {
+            "chapter": 36,
+            "verse": 16
+          },
+          "end": {
+            "chapter": 36,
+            "verse": 36
+          },
+          "sourceSelection": {
+            "first": 0,
+            "last": 0
+          }
+        }
+      ]
+    }
+  ]
+}

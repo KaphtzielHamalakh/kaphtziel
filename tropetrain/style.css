@@ -54,3 +54,5 @@
 .date-navigator{margin:1rem 0;padding:1rem;background:var(--inset);border-radius:6px}.date-result{font-weight:700;overflow-wrap:anywhere}.date-navigator .calendar-form{margin:.75rem 0}.date-navigator details{margin-top:.8rem}
 
 .section-row>span{overflow-wrap:anywhere}
+
+.calendar-related-reading{padding:.7rem 0;border-top:1px solid var(--line)}.calendar-related-reading h4{font:600 14px/1.7 system-ui,sans-serif;margin:.2rem 0}.calendar-related-reading ol{padding-inline-start:1.4rem}.calendar-related-reading li{overflow-wrap:anywhere}.calendar-related-reading li p{font-size:.8rem}.calendar-raw-reference{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.section-provenance{flex-basis:100%;min-width:0;overflow-wrap:anywhere;padding:.5rem;border:1px solid var(--line);border-radius:4px}.section-provenance ol{padding-inline-start:1.3rem}.section-provenance li p{margin:.3rem 0}.source-service-hebrew{font-family:'Noto Hebrew',serif;font-size:1.3rem}

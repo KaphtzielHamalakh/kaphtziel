@@ -5,6 +5,8 @@ import {passage as openingPassage} from './passage.js';
 import {getCorpus,defaultRange} from './library.js';
 import {getRepertoireCorpus,READING_TYPES,booksForReadingType,readingTypeForRanges,validateReadingSections,isTorahReading,reorderReadingSection,createRepertoireAssignment,parseRepertoireAssignment} from './repertoire.js';
 import {sourceAlternatives} from './source-alternatives.js';
+import {relatedDefinition} from './related-source.js';
+import {practiceRecovery,latestPracticeRecovery,savePracticeRecovery} from './practice-recovery.js';
 import {Player} from './audio.js';
 import {staffMarkup,STAFF_PAGE} from './staff.js';
 import {musicXml,midiFile} from './music-exports.js';
@@ -25,9 +27,9 @@ import {mountCalendar} from './calendar-ui.js';
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',readingType:'torah'};
-let restoredReadingType;
+let restoredReadingType,originalPracticeText=null;
 try{
-  const saved=JSON.parse(localStorage.getItem('tropetrain-practice-v1'));
+  originalPracticeText=localStorage.getItem('tropetrain-practice-v1');const saved=JSON.parse(originalPracticeText);
   if(saved){
     for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
@@ -49,6 +51,7 @@ state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.a
 let corpus,chooseEnd=false,plan=[],activeId=null,activeEventId=null,playingBounds=null;
 let recent=loadArray('tropetrain-recent-v1'),assignments=loadArray('tropetrain-assignments-v1');
 let restoringReading=!!restore.ranges;
+let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecovery(localStorage);}catch{}
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
@@ -468,6 +471,7 @@ function render(){
   $('scroll-layout').checked=state.scrollLayout;$('scroll-layout').disabled=!scrollLayout||!isTorahReading(passage.ranges);
   $('scroll-layout-status').textContent=isTorahReading(passage.ranges)?scrollMessage:'Sourced scroll layout covers Torah only. Your scroll-layout preference is kept for Torah readings.';
   $('reading-type-label').textContent=`${READING_TYPES.find(type=>type.id===state.readingType).label} · practice reader`;
+  $('scope').querySelector('option[value="verse"]').textContent=passage.ranges.some(range=>range.divisionSource?.referenceMapping)?'End of UXLC verse record':'End of verse';
   renderReader();renderSequence();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();
 }
 function rememberReading(){
@@ -478,6 +482,7 @@ function applyRanges(ranges,{remember=true,restoreCursor=null,readingType}={}){
   if(!corpus)throw Error('The reading library is still loading.');
   const nextType=readingType??readingTypeForRanges(ranges,corpus),checked=validateReadingSections(nextType,ranges,corpus);
   const nextPassage=corpus.passage(checked),nextModel=createReadingModel(nextPassage,state);
+  if(remember)restoringReading=false;
   stop('Reading opened. Ready to listen.');passage=nextPassage;model=nextModel;state.readingType=nextType;({words,bounds,buildPlan}=model);
   const formRange=passage.ranges.at(-1);syncReadingForm(nextType,formRange.bookId);
   for(const [id,value] of [['start-chapter',formRange.start.chapter],['start-verse',formRange.start.verse],['end-chapter',formRange.end.chapter],['end-verse',formRange.end.verse]])$(id).value=value;
@@ -485,6 +490,7 @@ function applyRanges(ranges,{remember=true,restoreCursor=null,readingType}={}){
   state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
   const unresolved=words.filter(w=>w.analysisStatus==='unsegmented').length;
   $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}Musical source: ${model.profile.name}. Syllables are unreviewed; the recorded reference is separate.`;
+  if(passage.ranges.some(range=>range.divisionSource?.referenceMapping))$('library-message').textContent+=' Calendar and UXLC verse numbers differ here; inspect Source/UXLC verse numbering under Tutor assignments & sections.';
 }
 function updateBookLimits({reset=false}={}){
   const book=corpus?.byId.get($('book').value);if(!book)return;
@@ -510,6 +516,17 @@ function updateReadingFormStatus(){
 function rangeFromForm(){return {id:`section-${globalThis.crypto?.randomUUID?.()||Date.now()}`,bookId:$('book').value,
   start:{chapter:Number($('start-chapter').value),verse:Number($('start-verse').value)},end:{chapter:Number($('end-chapter').value),verse:Number($('end-verse').value)},label:`Section ${passage.ranges.length+1}`};}
 function libraryAction(fn){try{fn();}catch(error){$('library-message').textContent=error.message;}}
+function showPracticeRecovery(){
+  $('practice-recovery').hidden=!practiceRecoveryRecord;
+  if(practiceRecoveryRecord)$('practice-recovery-message').textContent=`${practiceRecoveryRecord.reason} The original saved practice record is retained for review; its source ranges were not substituted.`;
+}
+function retainPracticeRecovery(error){
+  if(!originalPracticeText)return;
+  practiceRecoveryRecord=practiceRecovery(originalPracticeText,error.message);
+  let saved=false;try{saved=savePracticeRecovery(localStorage,practiceRecoveryRecord);}catch{}
+  showPracticeRecovery();
+  if(!saved)$('practice-recovery-message').textContent+=' Backup storage is unavailable. Export this recovery record before replacing the open practice state.';
+}
 function renderSections(){
   $('sections').replaceChildren();
   updateReadingFormStatus();
@@ -529,8 +546,34 @@ function renderSections(){
       }
       const remove=document.createElement('button');remove.textContent='Remove section';remove.addEventListener('click',()=>libraryAction(()=>applyRanges(passage.ranges.filter(r=>r.id!==range.id))));row.append(remove);
     }
+    if(range.relatedSource)row.append(rangeSourceDetails(range.relatedSource));
+    if(range.divisionSource?.referenceMapping)row.append(rangeNumberingDetails(range));
     $('sections').append(row);
   }
+}
+function rangeNumberingDetails(range){
+  const mapping=range.divisionSource.referenceMapping,unit=mapping.sourceUnit,details=document.createElement('details');details.className='section-provenance';
+  const summary=document.createElement('summary');summary.textContent='Source/UXLC verse numbering';details.append(summary);
+  const source=document.createElement('p');source.textContent=`Hebcal source: ${unit.k} ${unit.b}–${unit.e} · ${mapping.sourceVerseCount} source verses.`;details.append(source);
+  const target=document.createElement('p');target.textContent=`Reader: ${corpus.describe(range)} · ${mapping.uxlcVerseRecords} UXLC source records.`;details.append(target);
+  const note=document.createElement('p');note.textContent='The explicit coordinate map preserves every UXLC word, mark and ID. Verse playback follows UXLC records. Upper/lower cantillation is not selected or musically realized by this map.';details.append(note);
+  const link=document.createElement('a');link.href='#calendar-details';link.textContent='Numbering map, sources and license in calendar source details';details.append(link);return details;
+}
+function rangeSourceDetails(source){
+  const details=document.createElement('details');details.className='section-provenance';
+  const summary=document.createElement('summary');summary.textContent='Calendar reading source';details.append(summary);
+  const context=document.createElement('p');context.textContent=`Hebcal.com · ${source.serviceName.en} · ${source.serviceDate} · ${source.region} · ${relatedDefinition(source.variant).label}`;details.append(context);
+  if(source.serviceName.he){const hebrew=document.createElement('p');hebrew.lang='he';hebrew.dir='rtl';hebrew.className='source-service-hebrew';hebrew.textContent=source.serviceName.he;details.append(hebrew);}
+  if(source.sourceSummary!==undefined){const citation=document.createElement('p');citation.textContent=`Source citation: ${source.sourceSummary}`;details.append(citation);}
+  if(typeof source.serviceContext?.note==='string'){const note=document.createElement('p');note.textContent=source.serviceContext.note;details.append(note);}
+  const list=document.createElement('ol');
+  for(const [index,{key,unit}] of source.units.entries()){
+    const entry=document.createElement('li');entry.textContent=`${unit.k} ${unit.b}–${unit.e} · ${unit.v} source verses · unit ${key}${index>=source.selection.first&&index<=source.selection.last?' · in this section':''}`;
+    for(const field of ['reason','note'])if(typeof unit[field]==='string'){const note=document.createElement('p');note.textContent=unit[field];entry.append(note);}
+    list.append(entry);
+  }
+  details.append(list);const hash=document.createElement('p');hash.textContent=`Retained response SHA-256: ${source.sha256}`;details.append(hash);
+  const link=document.createElement('a');link.href=source.url;link.textContent='Original Hebcal response';link.target='_blank';link.rel='noopener noreferrer';details.append(link);return details;
 }
 function renderPickers(){
   for(const [id,items,placeholder] of [['recent-readings',recent,'Choose a recent reading'],['saved-assignments',assignments,'Choose an assignment']]){
@@ -607,6 +650,7 @@ $('export-assignment').addEventListener('click',()=>libraryAction(()=>{
   if(!corpus)throw Error('The library is still loading.');
   download('tropetrain-assignment.json',createRepertoireAssignment($('assignment-title').value,state.readingType,passage.ranges,state,corpus));
 }));
+$('export-practice-recovery').addEventListener('click',()=>{if(practiceRecoveryRecord)download('tropetrain-practice-recovery.json',practiceRecoveryRecord);});
 $('import-assignment').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
   try{if(!corpus)throw Error('The library is still loading.');if(file.size>2_000_000)throw Error('Assignment file is too large.');const assignment=parseRepertoireAssignment(await file.text(),corpus);
@@ -631,14 +675,15 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-mountCalendar({getCorpus,onOpen:(ranges,title)=>{applyRanges(ranges);$('assignment-title').value=title;}});
-render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
+mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});
+render();renderSections();renderPickers();showPracticeRecovery();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getRepertoireCorpus().then(value=>{
   corpus=value;syncReadingForm('torah','gen');$('reading-type').disabled=false;$('book').disabled=false;
   $('library-status').textContent='31 books · 606 chapters · text available offline';$('open-reading').disabled=false;
   $('source-study-open').disabled=false;
-  if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
-  restoringReading=false;persist();
+  let restoreFailed=false;
+  if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){restoreFailed=true;retainPracticeRecovery(error);$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
+  restoringReading=restoreFailed;persist();
   renderSections();
 }).catch(error=>{$('library-status').textContent='Opening passage only';$('library-message').textContent=error.message;});
 getReferenceLibrary().then(value=>{

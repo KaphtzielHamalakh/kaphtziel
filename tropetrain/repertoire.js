@@ -60,23 +60,25 @@ export function validateReadingSections(readingType,sections,corpus){
 export function parseRepertoireAssignment(text,corpus){
   if(typeof text!=='string'||text.length>2_000_000)throw Error('Assignment file is too large.');
   let data;try{data=JSON.parse(text);}catch{throw Error('This file is not valid assignment JSON.');}
+  const modernSource=Array.isArray(data?.sections)&&data.sections.some(section=>section?.relatedSource!==undefined||section?.divisionSource?.referenceMapping!==undefined);
+  if(modernSource&&data.format!=='tropetrain-assignment-v3')throw Error('This retained source provenance requires assignment v3. Source snapshots and reference mappings were not discarded.');
   if(data?.format==='tropetrain-assignment-v1'){
     const assignment=parseAssignment(text,corpus);
     validateReadingSections('torah',assignment.sections,corpus);
     return {...assignment,readingType:'torah'};
   }
-  if(data?.format!=='tropetrain-assignment-v2')throw Error('Unsupported assignment format. Use a TropeTrain assignment export.');
+  if(!['tropetrain-assignment-v2','tropetrain-assignment-v3'].includes(data?.format))throw Error('Unsupported assignment format. Use a TropeTrain assignment export.');
   const sections=validateReadingSections(data.readingType,data.sections,corpus);
   // Reuse existing strict musical/display validation; unknown melody or
   // pronunciation IDs are refused instead of being silently substituted.
   const assignment=parseAssignment(JSON.stringify({...data,format:'tropetrain-assignment-v1',sections}),corpus);
-  return {...assignment,format:'tropetrain-assignment-v2',readingType:data.readingType};
+  return {...assignment,format:data.format,readingType:data.readingType};
 }
 
 export function createRepertoireAssignment(title,readingType,sections,preferences,corpus){
   const ranges=validateReadingSections(readingType,sections,corpus);
   const assignment=createAssignment(title,ranges,preferences);
-  assignment.format='tropetrain-assignment-v2';assignment.readingType=readingType;
+  assignment.format=ranges.some(range=>range.relatedSource!==undefined||range.divisionSource?.referenceMapping!==undefined)?'tropetrain-assignment-v3':'tropetrain-assignment-v2';assignment.readingType=readingType;
   assignment.musicalPreferences.pronunciationId=preferences?.pronunciationId??null;
   return parseRepertoireAssignment(JSON.stringify(assignment),corpus);
 }

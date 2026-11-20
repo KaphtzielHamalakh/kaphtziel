@@ -1,4 +1,5 @@
 import {calendarExamples} from './calendar-example-data.js';
+import {resolveTorahCalendarUnit} from './torah-numbering.js';
 
 export const CALENDAR_SOURCE=Object.freeze({provider:'Hebcal.com',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',documentation:'https://www.hebcal.com/home/4277/leyning-torah-reading-api'});
 const BOOKS={Genesis:'gen',Exodus:'exo',Leviticus:'lev',Numbers:'num',Deuteronomy:'deu'};
@@ -41,12 +42,11 @@ export function calendarRanges(item,cycle,record,corpus,onlyKey=null){
   const entries=onlyKey===null?divisions.entries:divisions.entries.filter(e=>e.key===onlyKey);
   if(!entries.length)throw Error('Choose an available aliyah.');
   return entries.map(({key,label,unit})=>{
-    const point=value=>{if(typeof value!=='string'||!/^\d+:\d+$/.test(value))throw Error('Partial-verse divisions cannot yet be opened without losing source boundaries.');const [chapter,verse]=value.split(':').map(Number);return {chapter,verse};};
     if(!unit||!BOOKS[unit.k])throw Error('This division needs a book outside the current Torah library.');
-    const range=corpus.range({id:`hebcal-${item.date.replaceAll('-','')}-${record.region.toLowerCase()}-${divisions.field}-${key}`,bookId:BOOKS[unit.k],start:point(unit.b),end:point(unit.e),label:`${item.name.en} · ${label}`});
-    const actual=corpus.passage([range]).verses.length;
-    if(!Number.isInteger(unit.v)||unit.v!==actual)throw Error(`${unit.k} ${unit.b}–${unit.e}: source verse count differs from UXLC. Review the edition numbering before opening.`);
-    range.divisionSource={provider:'Hebcal.com',url:record.url,sha256:record.sha256,retrieved:record.retrieved,serviceDate:item.date,region:record.region,cycle:divisions.field,aliyah:key};
+    const resolved=resolveTorahCalendarUnit(unit,corpus.byId.get(BOOKS[unit.k]));
+    const range=corpus.range({id:`hebcal-${item.date.replaceAll('-','')}-${record.region.toLowerCase()}-${divisions.field}-${key}`,bookId:BOOKS[unit.k],start:resolved.start,end:resolved.end,label:`${item.name.en} · ${label}`});
+    range.divisionSource={provider:'Hebcal.com',url:record.url,sha256:record.sha256,retrieved:record.retrieved,serviceDate:item.date,region:record.region,cycle:divisions.field,aliyah:key,
+      ...(resolved.mapping?{referenceMapping:resolved.mapping}:{})};
     return range;
   });
 }

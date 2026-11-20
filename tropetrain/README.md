@@ -1,6 +1,6 @@
 # TropeTrain · reconstruction in progress
 
-Development candidate **v0.15.0**, unpublished. All 135 code/data checks pass; normal browser UI checks are pending because CUA controls are unavailable. The last verified published release is v0.13. See [candidate verification and exact UI gates](docs/VERIFICATION-0.15.md).
+Development candidate **v0.16.0**, unpublished. All 154 code/data checks pass; normal browser UI checks are pending because CUA controls are unavailable. The last verified published release is v0.13. See [candidate verification and exact UI gates](docs/VERIFICATION-0.16.md).
 
 Independent reconstruction of the teaching workflow of Kinnor’s desktop TropeTrainer. The candidate includes all five Torah books, 21 Prophets books and five Megillot for reading and original instrumental demonstration playback. Independent historical melody/phonetic profiles and synthesized singing remain pending. A separate licensed PocketTorah recording library covers all Torah portions. A bounded instrumental study transcribes all of printed Genesis 22:1 from a public-domain score; independent musical/underlay review remains pending.
 
@@ -100,7 +100,7 @@ Scroll-line choice is a display preference in saved assignments; it never change
 
 Open **Find a reading by date**. **July2022 · doubled portion** with **Diaspora** shows **July30 · Matot–Masei**; choose **Triennial** for year3, then an aliyah or all8 sections including Maftir. Annual opens from Numbers30:2; triennial begins Numbers33:50. **April2022 · festival divergence** shows April23 as **Achrei Mot** in Israel and **Pesach VIII** in the Diaspora. Festival and weekday divisions keep their own labels when Triennial is selected. Try November2026 with **Load month** for weekday readings; uncached months need internet.
 
-Choose **Open selected Torah reading** to create ordered tutor sections. Musical source/key/tempo remain selected; the bounded Cohen study explicitly stays unavailable outside Genesis22:1. Save a named assignment to retain section provenance; personal key/speed remain independent. Calendar-related haftarah variants/Megillah remain reference-only; their books are available through the manual reading selector. Source API output is attributed to Hebcal.com under CC BY4.0, with exact examples/hashes in docs/CALENDAR-SOURCES.json. Four examples are embedded; up to12 loaded month responses are checksum-checked and saved locally. **Refresh from Hebcal** explicitly updates a response. Civil dates refer to the named day’s service; sunset conversion, Hebrew-year navigation and wider congregation/reviewer validation remain pending.
+Choose **Open selected Torah reading** to create ordered tutor sections. Musical source/key/tempo remain selected; the bounded Cohen study explicitly stays unavailable outside Genesis22:1. Save a named assignment to retain section provenance; personal key/speed remain independent. Structured calendar haftarah variants and Megillah now open checked text. Partial or ambiguous references remain reference-only; liturgical variants do not select music or pronunciation. Source API output is attributed to Hebcal.com under CC BY4.0, with exact examples/hashes in docs/CALENDAR-SOURCES.json. Eight examples are embedded; up to12 loaded month responses are checksum-checked and saved locally. **Refresh from Hebcal** explicitly updates a response. Civil dates refer to the named day’s service; sunset conversion and wider congregation/reviewer validation remain pending; Hebrew/civil date navigation is in the candidate.
 
 
 ### Additional repertoire and source alternatives (v0.15 candidate)
@@ -111,4 +111,15 @@ Open **Written/read alternatives** for the current reader page. Try **Haftarah �
 
 **Tutor assignments & sections** shows the active reading type/count. Edit section names, move sections earlier/later, hide/show, remove or jump. Saved and recent readings keep type/boundaries; musical source/display preferences are separate from personal tempo, key, range and volumes. Full Hebrew-date navigation and its source evidence are included from the pending v0.14 work.
 
-Run **npm run check** in this directory for the 135-test combined code/data suite. Normal UI, standalone, reload/playback, responsive, file-dialog and publication gates are still pending; see docs/VERIFICATION-0.15.md. The complete original feature inventory and musical/phonetic evidence requirements remain active.
+Run **npm run check** in this directory for the 135-test combined code/data suite. Normal UI, standalone, reload/playback, responsive, file-dialog and publication gates are still pending; see docs/VERIFICATION-0.16.md. The complete original feature inventory and musical/phonetic evidence requirements remain active.
+
+
+### Calendar-related text and source numbering (v0.16 candidate)
+
+Use **April2022 · festival divergence**, Diaspora, **April16 PesachI**, for the three-section default Joshua reading or distinct two-section Sephardic reading. These are text variants. **October2022 · Ecclesiastes · Diaspora** also includes October1 Hosea/Micah and YomKippur Mincha Jonah/Micah. The June/August/October/March examples cover Ruth, Lamentations, Ecclesiastes and Esther; April covers SongofSongs. Complete scrolls join consecutive source chapter units into one section while retaining every original unit/note. July30 triennial references ending I Kings9:5a remain reference-only.
+
+**August13 Vaetchanan** exposes an important namespace distinction: sourceDeuteronomy5:19–6:3 maps to unchanged UXLC5:22–6:3. **June5 Shavuot** sourceExodus20:15–23 maps to UXLC20:18–26. Inspect **Source/UXLC verse numbering** under tutor sections. All53 source verse groups were compared to59 complete UXLC records; no Hebrew or marks were rewritten. The map does not select upper/lower chant. Verse playback follows the displayed UXLC record.
+
+New source snapshots/numbering maps require assignment**v3**; ordinaryv2 and legacyv1Torah remain readable. Older ambiguous calendar claims must be reopened from source. If current practice cannot restore, **Saved reading needs review** retains its exact original data for export. Its fallback view does not overwrite that original state.
+
+Run **npm run check** for154 passing code/data checks. NormalUI/standalone/responsive/playback/reload/file-dialog/publication gates remain open; see VERIFICATION-0.16.md. The full musical/phonetic/voice and feature roadmap remains active.

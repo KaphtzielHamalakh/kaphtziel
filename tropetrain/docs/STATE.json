@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "d492b303e284928cf9ec5e3eb80770272776de7d",
-  "nextTask": "Complete pending v0.15 normal UI/standalone/responsive/playback/reload gates when CUA returns; do not publish until verified. Continue independent remaining work: exact attributed calendar haftarah/Megillah references with explicit partial-verse refusal, print/curriculum/blessings, and primary musical/phonetic/singing evidence. Preserve the complete roadmap and original v0.14 backup.",
+  "nextTask": "Complete v0.16 normal UI/standalone/source-numbering/recovery/responsive/playback/reload gates when CUA returns, then publish/verify Pages and live state. Continue independent full-roadmap work (print/curriculum/blessings and primary musical/phonetic/singing evidence); no new traditional presets without sources/review. Preserve original v0.14 backup and prior candidate artifacts.",
   "lastPassingTests": {
     "automated": 108,
     "ui": "Calendar: Israel/Diaspora divergence, triennial year3, cross-book festival8sections, weekday aliyah, saved assignment/response reload,55BPM/+1 independence and word-boundary completion. HTTP standalone Maftir/evidence and320/390/1280 fit passed. Stopped/muted; viewport reset.",
@@ -67,17 +67,17 @@
     {
       "id": "repertoire",
       "description": "Torah/haftarot/five scrolls/blessings edition coverage",
-      "status": "31_book_text_selection_and_typed_assignments_integrated_code_checked_normal_UI_pending"
+      "status": "31_book_reader_and_sourced_calendar_related_text_code_checked_UI_pending_no_new_musical_realizations"
     },
     {
       "id": "calendar",
       "description": "Perpetual calendar and Israel/Diaspora annual/triennial/holiday divisions",
-      "status": "sourced_monthly_Gregorian_Israel_Diaspora_weekday_festival_annual_triennial_Torah_selection_and_cache_tested_full_Hebrew_navigation_and_wider_review_pending"
+      "status": "eight_sourced_examples_date_navigation_related_text_and_explicit_reference_maps_code_checked_UI_pending"
     },
     {
       "id": "assignments",
       "description": "Named ordered sections, discontinuous haftarot/Megillah, aliyot",
-      "status": "three_reading_types_names_reorder_hide_jump_v2_interchange_code_checked_normal_UI_pending"
+      "status": "typed_v1_v2_v3_source_snapshots_numbering_maps_and_practice_recovery_code_checked_UI_pending"
     },
     {
       "id": "sharing",
@@ -187,17 +187,17 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.15.0",
+    "version": "0.16.0",
     "branch": "codex/tropetrain-repertoire",
-    "status": "combined_code_checked_normal_ui_unavailable_unpublished",
-    "baseCoreCommit": "df1b07c6d1fd476a096e77b39f65310745e5ef2f",
-    "record": "docs/VERIFICATION-0.15.md",
-    "automatedTests": 135,
-    "tests": "All135 npm-run-check tests pass/0fail/0skip; original Torah musical hashes unchanged. Both builds embed26 added books, exact source evidence/audit/date pack; built decoder WebStreams roundtrip and missing-capability refusal pass. No new browser UI result inferred.",
-    "integration": "Reading type/book selector, v2 assignments/legacyv1, typed recents, source written/read alternatives, section names/reorder/hide/jump, Torah-only search/layout/reference guards. Existing v0.14 date/calendar18files incorporated exactly; original checkout preserved.",
-    "next": "Complete pending v0.15 normal UI/standalone/responsive/playback/reload gates when CUA returns; do not publish until verified. Continue independent remaining work: exact attributed calendar haftarah/Megillah references with explicit partial-verse refusal, print/curriculum/blessings, and primary musical/phonetic/singing evidence. Preserve the complete roadmap and original v0.14 backup.",
-    "limits": "No new traditional melody/phonetic profile/singer, expert/scribal/liturgical review, normal UI/file dialogs/acoustic verification or deployment.",
-    "finalDocumentationChecks": "Final documentation-only rebuild plus26 targeted distribution/calendar/date tests pass; no runtime change after135 full checks."
+    "baseCommit": "9ffa22bb9518db209ee13ae4a99e29a166d498bc",
+    "status": "code_checked_normal_UI_unavailable_unpublished",
+    "record": "docs/VERIFICATION-0.16.md",
+    "automatedTests": 154,
+    "tests": "All154 full checks pass/0fail/0skip; original Torah/additional-corpus event/text invariants pass. Eight primary response examples,100related choices/98checked/2partial refusals; all53 preferred-letter source groups match59 mapped UXLC records. Recovery raw-data/dedup/quota checks pass. No normal UI result inferred.",
+    "newFeatures": "Structured related text, full snapshots/source inspector, v3for new provenance, complete source-unit-preserving Megillah joining, explicit Torah coordinate maps and legacy/recovery guard.",
+    "limits": "No browser/deployment/acoustic or expert-review result, new traditional melody/pronunciation/singer, or full app completion.",
+    "next": "Complete v0.16 normal UI/standalone/source-numbering/recovery/responsive/playback/reload gates when CUA returns, then publish/verify Pages and live state. Continue independent full-roadmap work (print/curriculum/blessings and primary musical/phonetic/singing evidence); no new traditional presets without sources/review. Preserve original v0.14 backup and prior candidate artifacts.",
+    "finalDocumentationChecks": "Final documentation-only rebuild and45targeted checks pass/0fail. Four generated source/map/audit files are byte-deterministic."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -270,5 +270,24 @@
     "sourceRecord": "docs/REPERTOIRE-SOURCES.json",
     "audit": "docs/REPERTOIRE-AUDIT.json",
     "status": "exact_source_and_code_checked_UI_pending_no_new_musical_realization"
+  },
+  "calendarRelated": {
+    "choices": 100,
+    "checked": 98,
+    "referenceOnly": 2,
+    "bundledExamples": 8,
+    "record": "docs/CALENDAR-RELATED-AUDIT.json",
+    "sourceScope": "Eight exact responses only; not exhaustive calendar/congregational or musical approval."
+  },
+  "torahNumbering": {
+    "record": "docs/TORAH-NUMBERING-SOURCES.json",
+    "sourceVerses": 53,
+    "uxlcRecords": 59,
+    "allPreferredLetterSequencesMatch": true,
+    "affectedChapters": [
+      "Exodus20",
+      "Deuteronomy5"
+    ],
+    "review": "Explicit coordinate map; original marks/words/IDs retained; no upper/lower musical interpretation."
   }
 }

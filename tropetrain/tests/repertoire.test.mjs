@@ -171,7 +171,7 @@ test('legacy Torah assignments remain compatible and unknown musical/phonetic re
   for(const preferences of [{melodyId:'historical-label-only'},{pronunciationId:'unimplemented-pronunciation'}])
     assert.throws(()=>createRepertoireAssignment('Refuse unavailable','haftarah',[range('isa',40,1)],preferences,corpus),/not yet implemented/);
   assert.throws(()=>parseRepertoireAssignment('{',corpus),/not valid/);
-  assert.throws(()=>parseRepertoireAssignment(JSON.stringify({format:'tropetrain-assignment-v3'}),corpus),/Unsupported/);
+  assert.throws(()=>parseRepertoireAssignment(JSON.stringify({format:'tropetrain-assignment-v4'}),corpus),/Unsupported/);
 });
 
 test('source importer keeps combining order/notes and refuses unfamiliar XML instead of silently dropping it',()=>{

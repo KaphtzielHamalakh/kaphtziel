@@ -6,6 +6,7 @@ import {gzipSync} from 'node:zlib';
 import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
 import './import-printed-patterns.mjs';
+import './import-calendar-examples.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
@@ -62,6 +63,9 @@ const patternScan=await readFile(path.join(root,'assets/scores/cohen-1902-munah-
 const patternRow=await readFile(path.join(root,'assets/scores/cohen-1902-pentateuch-row-a.png'));
 const patternEvidence=await readFile(path.join(root,'docs/PRINTED-PATTERNS.json'),'utf8');
 const calendarEvidence=await readFile(path.join(root,'docs/CALENDAR-SOURCES.json'),'utf8');
+const calendarRelatedAudit=await readFile(path.join(root,'docs/CALENDAR-RELATED-AUDIT.json'),'utf8');
+const numberingEvidence=await readFile(path.join(root,'docs/TORAH-NUMBERING-SOURCES.json'),'utf8');
+const numberingData=await readFile(path.join(root,'data/calendar/torah-verse-numbering.json'),'utf8');
 const dateEvidence=await readFile(path.join(root,'docs/HEBREW-DATE-SOURCES.json'),'utf8');
 const dateSources=await readFile(path.join(root,'data/calendar/hebrew-date-sources.zip'));
 const repertoireEvidence=await readFile(path.join(root,'docs/REPERTOIRE-SOURCES.json'),'utf8');
@@ -88,6 +92,9 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/PRINTED-PATTERNS.json"',()=>`href="data:application/json;base64,${Buffer.from(patternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/CALENDAR-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(calendarEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/CALENDAR-RELATED-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(calendarRelatedAudit).toString('base64')}"`)
+ .replaceAll('href="./docs/TORAH-NUMBERING-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(numberingEvidence).toString('base64')}"`)
+ .replaceAll('href="./data/calendar/torah-verse-numbering.json"',()=>`href="data:application/json;base64,${Buffer.from(numberingData).toString('base64')}"`)
  .replaceAll('href="./docs/HEBREW-DATE-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(dateEvidence).toString('base64')}"`)
  .replaceAll('href="./data/calendar/hebrew-date-sources.zip"',()=>`href="data:application/zip;base64,${dateSources.toString('base64')}"`)
  .replaceAll('href="./docs/REPERTOIRE-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(repertoireEvidence).toString('base64')}"`)

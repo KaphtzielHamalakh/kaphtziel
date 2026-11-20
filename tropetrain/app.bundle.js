@@ -3577,11 +3577,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     [1453, "dehi", "Deḥi", "DEHI", null, "poetic"],
     [1454, "zarqa", "Zarqa (postpositive)", "ZINOR", "D3"]
   ];
-  var ACCENT_CATALOG = Object.freeze(rows.map(([point, id, name, unicode, proseClass, role]) => Object.freeze({
+  var ACCENT_CATALOG = Object.freeze(rows.map(([point2, id, name, unicode, proseClass, role]) => Object.freeze({
     id,
-    point,
-    char: String.fromCodePoint(point),
-    code: `U+${point.toString(16).toUpperCase().padStart(4, "0")}`,
+    point: point2,
+    char: String.fromCodePoint(point2),
+    code: `U+${point2.toString(16).toUpperCase().padStart(4, "0")}`,
     name,
     unicodeName: `HEBREW ACCENT ${unicode}`,
     proseClass,
@@ -3599,13 +3599,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     [847, "cgj", "CGJ (source shaping control)", "COMBINING GRAPHEME JOINER"],
     [8205, "zwj", "ZWJ (source shaping control)", "ZERO WIDTH JOINER"]
   ];
-  var others = new Map(otherRows.map(([point, id, name, unicodeName]) => [point, Object.freeze({
-    point,
+  var others = new Map(otherRows.map(([point2, id, name, unicodeName]) => [point2, Object.freeze({
+    point: point2,
     id,
     name,
     unicodeName,
-    char: String.fromCodePoint(point),
-    code: `U+${point.toString(16).toUpperCase().padStart(4, "0")}`,
+    char: String.fromCodePoint(point2),
+    code: `U+${point2.toString(16).toUpperCase().padStart(4, "0")}`,
     proseClass: null,
     role: "source-mark"
   })]));
@@ -3619,7 +3619,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     let offset = 0;
     const sof = sourceHebrew.lastIndexOf("׃"), silluqOffset = sof < 0 ? -1 : sourceHebrew.lastIndexOf("ֽ", sof);
     for (const char of sourceHebrew) {
-      const point = char.codePointAt(0), definition = byPoint.get(point) ?? others.get(point);
+      const point2 = char.codePointAt(0), definition = byPoint.get(point2) ?? others.get(point2);
       if (definition) {
         const record = {
           char,
@@ -3631,13 +3631,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           proseClass: definition.proseClass,
           role: definition.role
         };
-        if (point === 1469 && offset === silluqOffset) {
+        if (point2 === 1469 && offset === silluqOffset) {
           record.id = "silluq";
           record.name = "Silluq position";
           record.proseClass = "D1";
           record.role = "contextual";
         }
-        (byPoint.has(point) ? signs : marks).push(record);
+        (byPoint.has(point2) ? signs : marks).push(record);
       }
       offset += char.length;
     }
@@ -4087,10 +4087,693 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(stream).text());
   }
 
+  // related-source.js
+  var RELATED_READINGS = Object.freeze([
+    Object.freeze({ field: "haft", summary: "haftara", count: "haftaraNumV", type: "haftarah", repertoire: "prophets", label: "Haftarah · source default" }),
+    Object.freeze({ field: "seph", summary: "sephardic", count: "sephardicNumV", type: "haftarah", repertoire: "prophets", label: "Haftarah · Sephardic reading variant" }),
+    Object.freeze({ field: "chabad", type: "haftarah", repertoire: "prophets", label: "Haftarah · Chabad reading variant" }),
+    Object.freeze({ field: "triHaft", summary: "triHaftara", count: "triHaftaraNumV", type: "haftarah", repertoire: "prophets", label: "Triennial haftarah · source selection" }),
+    Object.freeze({ field: "megillah", type: "megillah", repertoire: "megillot", label: "Megillah · source reading" })
+  ]);
+  var BOOKS = Object.freeze({
+    Joshua: "jos",
+    Judges: "jdg",
+    "I Samuel": "sam1",
+    "II Samuel": "sam2",
+    "I Kings": "kgs1",
+    "II Kings": "kgs2",
+    Isaiah: "isa",
+    Jeremiah: "jer",
+    Ezekiel: "ezk",
+    Hosea: "hos",
+    Joel: "jol",
+    Amos: "amo",
+    Obadiah: "oba",
+    Jonah: "jon",
+    Micah: "mic",
+    Nahum: "nah",
+    Habakkuk: "hab",
+    Zephaniah: "zep",
+    Haggai: "hag",
+    Zechariah: "zec",
+    Malachi: "mal",
+    Ruth: "rut",
+    "Song of Songs": "sng",
+    Ecclesiastes: "ecc",
+    Lamentations: "lam",
+    Esther: "est"
+  });
+  var object = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+  var positive = (value) => Number.isSafeInteger(value) && value > 0;
+  var compare = (a, b) => a.chapter - b.chapter || a.verse - b.verse;
+  var relatedDefinition = (field) => RELATED_READINGS.find((reading) => reading.field === field);
+  function wholeVersePoint(value) {
+    if (typeof value !== "string" || !/^[1-9]\d{0,2}:[1-9]\d{0,2}$/.test(value)) throw Error("Partial or ambiguous verse boundaries remain reference-only. An exact source word boundary is required; no whole verse was substituted.");
+    const [chapter, verse] = value.split(":").map(Number);
+    return { chapter, verse };
+  }
+  function nextVerse(book, point2) {
+    const chapter = book.chapters[point2.chapter - 1];
+    if (point2.verse < chapter.verses.length) return { chapter: point2.chapter, verse: point2.verse + 1 };
+    return book.chapters[point2.chapter] ? { chapter: point2.chapter + 1, verse: 1 } : null;
+  }
+  function relatedUnits(value) {
+    let shape, entries;
+    if (object(value) && typeof value.k === "string") {
+      shape = "unit";
+      entries = [["unit", value]];
+    } else if (Array.isArray(value)) {
+      shape = "array";
+      entries = value.map((unit, i) => [String(i), unit]);
+    } else if (object(value)) {
+      shape = "numbered";
+      entries = Object.entries(value);
+      if (entries.some(([key]) => !/^[1-9]\d{0,2}$/.test(key))) throw Error("Unsupported numbered source structure; original references are kept.");
+      entries.sort((a, b) => Number(a[0]) - Number(b[0]));
+    } else throw Error("This source has only a citation or an unsupported structure; no passage boundaries were inferred.");
+    if (!entries.length || entries.length > 100) throw Error("The source needs between 1 and 100 explicit reading units.");
+    return { shape, units: entries.map(([key, unit]) => ({ key, unit })) };
+  }
+  function checkedRelatedUnit(entry, definition, corpus2) {
+    if (!object(entry) || typeof entry.key !== "string" || entry.key.length > 10 || !object(entry.unit)) throw Error("Invalid related-reading source unit.");
+    const unit = entry.unit, bookId = Object.hasOwn(BOOKS, unit.k) ? BOOKS[unit.k] : null, book = corpus2.byId.get(bookId);
+    if (!book || book.repertoire !== definition.repertoire) throw Error(`The source book ${String(unit.k)} is outside the available ${definition.type} text. No book was substituted.`);
+    const start = wholeVersePoint(unit.b), end = wholeVersePoint(unit.e);
+    if (compare(start, end) > 0 || !book.chapters[start.chapter - 1]?.verses[start.verse - 1] || !book.chapters[end.chapter - 1]?.verses[end.verse - 1]) throw Error(`${unit.k} ${unit.b}–${unit.e} does not match an available UXLC range.`);
+    let count = 0;
+    for (let chapter = start.chapter; chapter <= end.chapter; chapter++) count += (chapter === end.chapter ? end.verse : book.chapters[chapter - 1].verses.length) - (chapter === start.chapter ? start.verse : 1) + 1;
+    if (!positive(unit.v) || unit.v !== count) throw Error(`${unit.k} ${unit.b}–${unit.e}: source verse count differs from UXLC. Review edition numbering before opening.`);
+    const raw = JSON.stringify(unit);
+    if (raw.length > 8e3) throw Error("Related-reading source unit is too large.");
+    return { key: entry.key, unit: JSON.parse(raw), book, start, end, count };
+  }
+  function preserveRelatedSource(input, range, corpus2) {
+    const definition = relatedDefinition(input?.variant);
+    if (!object(input) || input.format !== "hebcal-related-reading-v1" || input.provider !== "Hebcal.com" || !definition || input.readingType !== definition.type || typeof input.url !== "string" || !/^https:\/\/www\.hebcal\.com\/leyning\?[^\s]{1,300}$/.test(input.url) || typeof input.sha256 !== "string" || !/^[a-f0-9]{64}$/.test(input.sha256) || typeof input.serviceDate !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(input.serviceDate) || input.serviceDate < "0001-01-01" || input.serviceDate > "9999-12-31" || !["Diaspora", "Israel"].includes(input.region) || typeof input.retrieved !== "string" || input.retrieved.length > 40 || !object(input.serviceName) || typeof input.serviceName.en !== "string" || !input.serviceName.en || input.serviceName.en.length > 200 || input.serviceName.he !== void 0 && (typeof input.serviceName.he !== "string" || input.serviceName.he.length > 200) || !["unit", "array", "numbered"].includes(input.shape) || !Array.isArray(input.units) || !input.units.length || input.units.length > 100) throw Error("This section has invalid related-reading source metadata.");
+    const date = /* @__PURE__ */ new Date(input.serviceDate + "T12:00:00Z");
+    if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== input.serviceDate) throw Error("Invalid related-reading service date.");
+    const units = input.units.map((entry) => checkedRelatedUnit(entry, definition, corpus2));
+    if (new Set(units.map((entry) => entry.key)).size !== units.length) throw Error("Source unit keys must remain unique.");
+    if (input.shape === "unit" && (units.length !== 1 || units[0].key !== "unit") || input.shape === "array" && units.some((entry, i) => entry.key !== String(i)) || input.shape === "numbered" && units.some((entry, i) => !/^[1-9]\d{0,2}$/.test(entry.key) || i > 0 && Number(entry.key) <= Number(units[i - 1].key))) throw Error("Source unit ordering does not match its recorded structure.");
+    const selection = input.selection;
+    if (!object(selection) || !Number.isInteger(selection.first) || !Number.isInteger(selection.last) || selection.first < 0 || selection.last < selection.first || selection.last >= units.length || definition.type === "haftarah" && selection.first !== selection.last) throw Error("Invalid related-reading source selection.");
+    const selected = units.slice(selection.first, selection.last + 1), first = selected[0], last = selected.at(-1);
+    for (let i = 1; i < selected.length; i++) if (selected[i].book.id !== first.book.id || compare(selected[i].start, nextVerse(selected[i - 1].book, selected[i - 1].end) ?? { chapter: -1, verse: -1 }) !== 0) throw Error("Discontinuous source units cannot be merged into one section.");
+    if (range.bookId !== first.book.id || compare(range.start, first.start) !== 0 || compare(range.end, last.end) !== 0) throw Error("Section boundaries differ from the retained source selection. Remove or replace the source claim before changing boundaries.");
+    const result = {
+      format: input.format,
+      provider: input.provider,
+      url: input.url,
+      sha256: input.sha256,
+      retrieved: input.retrieved,
+      serviceDate: input.serviceDate,
+      region: input.region,
+      serviceName: { en: input.serviceName.en, ...input.serviceName.he !== void 0 ? { he: input.serviceName.he } : {} },
+      readingType: input.readingType,
+      variant: input.variant,
+      shape: input.shape,
+      units: units.map(({ key, unit }) => ({ key, unit })),
+      selection: { first: selection.first, last: selection.last }
+    };
+    if (input.sourceSummary !== void 0) {
+      if (typeof input.sourceSummary !== "string" || input.sourceSummary.length > 2e3) throw Error("Invalid source citation summary.");
+      result.sourceSummary = input.sourceSummary;
+    }
+    if (input.serviceContext !== void 0) {
+      if (!object(input.serviceContext) || Object.keys(input.serviceContext).some((key) => !["hdate", "type", "reason", "note", "admonition", "parshaNum"].includes(key))) throw Error("Invalid related-reading service context.");
+      const raw = JSON.stringify(input.serviceContext);
+      if (raw.length > 16e3) throw Error("Related-reading service context is too large.");
+      result.serviceContext = JSON.parse(raw);
+    }
+    if (input.reportedTotal !== void 0) {
+      if (!definition.count || !object(input.reportedTotal) || input.reportedTotal.field !== definition.count || input.reportedTotal.value !== units.reduce((n, u) => n + u.count, 0)) throw Error("Source total verse count differs from its exact units.");
+      result.reportedTotal = { field: input.reportedTotal.field, value: input.reportedTotal.value };
+    }
+    if (input.triennialYear !== void 0) {
+      if (input.variant !== "triHaft" || ![1, 2, 3].includes(input.triennialYear)) throw Error("Invalid source triennial year.");
+      result.triennialYear = input.triennialYear;
+    }
+    return result;
+  }
+
+  // data/calendar/torah-verse-numbering.json
+  var torah_verse_numbering_default = {
+    id: "hebcal-uxlc-torah-numbering-v1",
+    revision: 1,
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    sourceCoordinates: "Hebcal-linked Sefaria/Miqra according to the Masorah verse coordinates",
+    targetCoordinates: "Unicode/XML Leningrad Codex (UXLC) 2.6, build 27.7",
+    chapters: [
+      {
+        bookId: "exo",
+        chapter: 20,
+        sourceVerseCount: 23,
+        targetVerseRecords: 26,
+        sourceSha256: "863d34307358ae5adbb16c2b1085aa9058cc2f2f49d5bd1f1a69a5c2bfaed538",
+        dataSha256: "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+        mappings: [
+          {
+            sourceVerse: 1,
+            targetStart: 1,
+            targetEnd: 1,
+            firstWordId: "exo-20-1-1",
+            lastWordId: "exo-20-1-7",
+            readingWords: 7,
+            preferredLettersSha256: "9434a5e2334ef5ed9ef59dcfaa37702eb1e6af582218258ecfe2c642e6ef7b14"
+          },
+          {
+            sourceVerse: 2,
+            targetStart: 2,
+            targetEnd: 2,
+            firstWordId: "exo-20-2-1",
+            lastWordId: "exo-20-2-9",
+            readingWords: 9,
+            preferredLettersSha256: "1b3bb6b45b3aa7185de83c21e9096e07a8375b413be4a688882f2f544f414379"
+          },
+          {
+            sourceVerse: 3,
+            targetStart: 3,
+            targetEnd: 3,
+            firstWordId: "exo-20-3-1",
+            lastWordId: "exo-20-3-7",
+            readingWords: 7,
+            preferredLettersSha256: "cd5a9755cb527b6fcdede835acf11d27a2f0616c68c72bb119586693269ef36b"
+          },
+          {
+            sourceVerse: 4,
+            targetStart: 4,
+            targetEnd: 4,
+            firstWordId: "exo-20-4-1",
+            lastWordId: "exo-20-4-16",
+            readingWords: 16,
+            preferredLettersSha256: "b1bdf01a00bed021dbeec387d2c08896d58c9217e9b3d9e0ed094cbf595a4670"
+          },
+          {
+            sourceVerse: 5,
+            targetStart: 5,
+            targetEnd: 5,
+            firstWordId: "exo-20-5-1",
+            lastWordId: "exo-20-5-21",
+            readingWords: 21,
+            preferredLettersSha256: "07bea4936684a2de9cab9911de0636868df5328fd99eb78f7ca440fb0ef43875"
+          },
+          {
+            sourceVerse: 6,
+            targetStart: 6,
+            targetEnd: 6,
+            firstWordId: "exo-20-6-1",
+            lastWordId: "exo-20-6-6",
+            readingWords: 6,
+            preferredLettersSha256: "fa5a8068ad51e492659cf146f07aadcc81a27fef326dcea54e19184334326177"
+          },
+          {
+            sourceVerse: 7,
+            targetStart: 7,
+            targetEnd: 7,
+            firstWordId: "exo-20-7-1",
+            lastWordId: "exo-20-7-17",
+            readingWords: 17,
+            preferredLettersSha256: "3be54f4089c0f1658ad031a9d117a67d47d512797645614d9c50463cc774b19e"
+          },
+          {
+            sourceVerse: 8,
+            targetStart: 8,
+            targetEnd: 8,
+            firstWordId: "exo-20-8-1",
+            lastWordId: "exo-20-8-5",
+            readingWords: 5,
+            preferredLettersSha256: "53d68fdc91bb605a9e13fa0864eb30877b8899697280a8605b859a42c9ce4964"
+          },
+          {
+            sourceVerse: 9,
+            targetStart: 9,
+            targetEnd: 9,
+            firstWordId: "exo-20-9-1",
+            lastWordId: "exo-20-9-6",
+            readingWords: 6,
+            preferredLettersSha256: "2dcc298a1c39623dbd2e130daaf9a07cd6c84a73485143d7b0b23e920d87cc3f"
+          },
+          {
+            sourceVerse: 10,
+            targetStart: 10,
+            targetEnd: 10,
+            firstWordId: "exo-20-10-1",
+            lastWordId: "exo-20-10-18",
+            readingWords: 18,
+            preferredLettersSha256: "f2998a4b4188e1a4fbcdc6ae79893d650a441c95da3ca5929aadf008ea6baf09"
+          },
+          {
+            sourceVerse: 11,
+            targetStart: 11,
+            targetEnd: 11,
+            firstWordId: "exo-20-11-1",
+            lastWordId: "exo-20-11-26",
+            readingWords: 26,
+            preferredLettersSha256: "2a103c10867a7f279822cebe3a9ef1695a8fb28e5d5b1651e26e5e0dd7ca34bd"
+          },
+          {
+            sourceVerse: 12,
+            targetStart: 12,
+            targetEnd: 12,
+            firstWordId: "exo-20-12-1",
+            lastWordId: "exo-20-12-15",
+            readingWords: 15,
+            preferredLettersSha256: "c3757b38f36eee5e584c9b4a61699b17cf478c11d76bd91c99cd6a8fe6d565bc"
+          },
+          {
+            sourceVerse: 13,
+            targetStart: 13,
+            targetEnd: 16,
+            firstWordId: "exo-20-13-1",
+            lastWordId: "exo-20-16-5",
+            readingWords: 11,
+            preferredLettersSha256: "d40d04f25d3978b2fa1434c7dad8b13e85c5674f96f93b171eeb37130d5f7947"
+          },
+          {
+            sourceVerse: 14,
+            targetStart: 17,
+            targetEnd: 17,
+            firstWordId: "exo-20-17-1",
+            lastWordId: "exo-20-17-15",
+            readingWords: 15,
+            preferredLettersSha256: "3f4b115b2798d0be5d4341bc565ff625848926b64fddbda55c64bd1af8353c50"
+          },
+          {
+            sourceVerse: 15,
+            targetStart: 18,
+            targetEnd: 18,
+            firstWordId: "exo-20-18-1",
+            lastWordId: "exo-20-18-18",
+            readingWords: 18,
+            preferredLettersSha256: "ba22ca5f246dad09f7f6b65e2cc3b5384843be97937073df1a22d0ba72d186df"
+          },
+          {
+            sourceVerse: 16,
+            targetStart: 19,
+            targetEnd: 19,
+            firstWordId: "exo-20-19-1",
+            lastWordId: "exo-20-19-13",
+            readingWords: 13,
+            preferredLettersSha256: "3621ed189fa3f63f9cf0c57403d55f15b647e5a84c369fea4e44b68d8971c120"
+          },
+          {
+            sourceVerse: 17,
+            targetStart: 20,
+            targetEnd: 20,
+            firstWordId: "exo-20-20-1",
+            lastWordId: "exo-20-20-19",
+            readingWords: 19,
+            preferredLettersSha256: "062f705255e97daed542d9529ae8c286d4039e9f82bc998904379a9abdfe6664"
+          },
+          {
+            sourceVerse: 18,
+            targetStart: 21,
+            targetEnd: 21,
+            firstWordId: "exo-20-21-1",
+            lastWordId: "exo-20-21-10",
+            readingWords: 10,
+            preferredLettersSha256: "e5386d7fb45e9f3b387e1a50b3450afb71ab06f6a582b896b223bd5f44a03a42"
+          },
+          {
+            sourceVerse: 19,
+            targetStart: 22,
+            targetEnd: 22,
+            firstWordId: "exo-20-22-1",
+            lastWordId: "exo-20-22-16",
+            readingWords: 16,
+            preferredLettersSha256: "debcdd0a38e48cf23778a8d477462cfea7a780749322434ba89e7090ef59d21d"
+          },
+          {
+            sourceVerse: 20,
+            targetStart: 23,
+            targetEnd: 23,
+            firstWordId: "exo-20-23-1",
+            lastWordId: "exo-20-23-10",
+            readingWords: 10,
+            preferredLettersSha256: "e97fb22ffe17bf44cc7bdb0155cb798831a40a99370121ded55248bb5809b5a7"
+          },
+          {
+            sourceVerse: 21,
+            targetStart: 24,
+            targetEnd: 24,
+            firstWordId: "exo-20-24-1",
+            lastWordId: "exo-20-24-23",
+            readingWords: 23,
+            preferredLettersSha256: "ae7ee48047dba82e9807f9b2c6cc27e513c660f5557faf61c4ed2b8a11cb5646"
+          },
+          {
+            sourceVerse: 22,
+            targetStart: 25,
+            targetEnd: 25,
+            firstWordId: "exo-20-25-1",
+            lastWordId: "exo-20-25-14",
+            readingWords: 14,
+            preferredLettersSha256: "5b83c469e570eeb4ced2026920b295fb4b92f603b78de9b6100e764951155743"
+          },
+          {
+            sourceVerse: 23,
+            targetStart: 26,
+            targetEnd: 26,
+            firstWordId: "exo-20-26-1",
+            lastWordId: "exo-20-26-10",
+            readingWords: 10,
+            preferredLettersSha256: "0476ee1fe7fc79f48ef7ef9c1f85ff56198f93abc0ffb13ebb7f7ab7f0d7d89f"
+          }
+        ]
+      },
+      {
+        bookId: "deu",
+        chapter: 5,
+        sourceVerseCount: 30,
+        targetVerseRecords: 33,
+        sourceSha256: "7615f0b872e99c47327fec856bc07ff6fcd8a7cfc814121fecda696522f1067f",
+        dataSha256: "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+        mappings: [
+          {
+            sourceVerse: 1,
+            targetStart: 1,
+            targetEnd: 1,
+            firstWordId: "deu-5-1-1",
+            lastWordId: "deu-5-1-22",
+            readingWords: 22,
+            preferredLettersSha256: "2352163d1b53585495a824dc72e4878bb7c09dc4af74d316282b22aa5ea1a125"
+          },
+          {
+            sourceVerse: 2,
+            targetStart: 2,
+            targetEnd: 2,
+            firstWordId: "deu-5-2-1",
+            lastWordId: "deu-5-2-6",
+            readingWords: 6,
+            preferredLettersSha256: "08825090896647baa9bc3e38954e5a79ad35cc8f7fa8481e1b7101a510dd38f7"
+          },
+          {
+            sourceVerse: 3,
+            targetStart: 3,
+            targetEnd: 3,
+            firstWordId: "deu-5-3-1",
+            lastWordId: "deu-5-3-16",
+            readingWords: 16,
+            preferredLettersSha256: "94ddf61e900f2eba4f342053154d944b4b216054cd7807879783960aed06b4f9"
+          },
+          {
+            sourceVerse: 4,
+            targetStart: 4,
+            targetEnd: 4,
+            firstWordId: "deu-5-4-1",
+            lastWordId: "deu-5-4-8",
+            readingWords: 8,
+            preferredLettersSha256: "f7bc3b049d6816791b439cf97eba5f1b63bc0acc06e2a4bd3863095aa6a4e887"
+          },
+          {
+            sourceVerse: 5,
+            targetStart: 5,
+            targetEnd: 5,
+            firstWordId: "deu-5-5-1",
+            lastWordId: "deu-5-5-20",
+            readingWords: 20,
+            preferredLettersSha256: "83f27a77f4e8ef4c0ff99765709c51f71a76afe921e834faf4f6e156e8a663bf"
+          },
+          {
+            sourceVerse: 6,
+            targetStart: 6,
+            targetEnd: 6,
+            firstWordId: "deu-5-6-1",
+            lastWordId: "deu-5-6-9",
+            readingWords: 9,
+            preferredLettersSha256: "1b3bb6b45b3aa7185de83c21e9096e07a8375b413be4a688882f2f544f414379"
+          },
+          {
+            sourceVerse: 7,
+            targetStart: 7,
+            targetEnd: 7,
+            firstWordId: "deu-5-7-1",
+            lastWordId: "deu-5-7-7",
+            readingWords: 7,
+            preferredLettersSha256: "cd5a9755cb527b6fcdede835acf11d27a2f0616c68c72bb119586693269ef36b"
+          },
+          {
+            sourceVerse: 8,
+            targetStart: 8,
+            targetEnd: 8,
+            firstWordId: "deu-5-8-1",
+            lastWordId: "deu-5-8-16",
+            readingWords: 16,
+            preferredLettersSha256: "091773ffc3c18f75156f279676ad7d05ddd280345644d5cda871ca5f052f0a16"
+          },
+          {
+            sourceVerse: 9,
+            targetStart: 9,
+            targetEnd: 9,
+            firstWordId: "deu-5-9-1",
+            lastWordId: "deu-5-9-21",
+            readingWords: 21,
+            preferredLettersSha256: "6538a306d1488bcaa1517114d9a2b3e055ea543989918f8d658db1902574b38e"
+          },
+          {
+            sourceVerse: 10,
+            targetStart: 10,
+            targetEnd: 10,
+            firstWordId: "deu-5-10-1",
+            lastWordId: "deu-5-10-7",
+            readingWords: 6,
+            preferredLettersSha256: "fa5a8068ad51e492659cf146f07aadcc81a27fef326dcea54e19184334326177"
+          },
+          {
+            sourceVerse: 11,
+            targetStart: 11,
+            targetEnd: 11,
+            firstWordId: "deu-5-11-1",
+            lastWordId: "deu-5-11-17",
+            readingWords: 17,
+            preferredLettersSha256: "3be54f4089c0f1658ad031a9d117a67d47d512797645614d9c50463cc774b19e"
+          },
+          {
+            sourceVerse: 12,
+            targetStart: 12,
+            targetEnd: 12,
+            firstWordId: "deu-5-12-1",
+            lastWordId: "deu-5-12-9",
+            readingWords: 9,
+            preferredLettersSha256: "724fb308254294bd7aba74cbe8fc3f28b79a343d3ea06bc563527153e38df127"
+          },
+          {
+            sourceVerse: 13,
+            targetStart: 13,
+            targetEnd: 13,
+            firstWordId: "deu-5-13-1",
+            lastWordId: "deu-5-13-6",
+            readingWords: 6,
+            preferredLettersSha256: "2dcc298a1c39623dbd2e130daaf9a07cd6c84a73485143d7b0b23e920d87cc3f"
+          },
+          {
+            sourceVerse: 14,
+            targetStart: 14,
+            targetEnd: 14,
+            firstWordId: "deu-5-14-1",
+            lastWordId: "deu-5-14-26",
+            readingWords: 26,
+            preferredLettersSha256: "3b90a5531f088eeb9379e2c862eb853837b271253644e5692cb3e951d17abfb9"
+          },
+          {
+            sourceVerse: 15,
+            targetStart: 15,
+            targetEnd: 15,
+            firstWordId: "deu-5-15-1",
+            lastWordId: "deu-5-15-23",
+            readingWords: 23,
+            preferredLettersSha256: "a8b6954f440fb769471a975d4209d4f6e89224988b8df43991c2b590c865f78c"
+          },
+          {
+            sourceVerse: 16,
+            targetStart: 16,
+            targetEnd: 16,
+            firstWordId: "deu-5-16-1",
+            lastWordId: "deu-5-16-22",
+            readingWords: 22,
+            preferredLettersSha256: "3dc53fd9de487671a5c6eee16873b236f30004244756273233232cf4df0c5598"
+          },
+          {
+            sourceVerse: 17,
+            targetStart: 17,
+            targetEnd: 20,
+            firstWordId: "deu-5-17-1",
+            lastWordId: "deu-5-20-5",
+            readingWords: 11,
+            preferredLettersSha256: "3e1a0367a61c1d609313f6fa1c579c1cd1203ea771d48c20cc921a71e4542271"
+          },
+          {
+            sourceVerse: 18,
+            targetStart: 21,
+            targetEnd: 21,
+            firstWordId: "deu-5-21-1",
+            lastWordId: "deu-5-21-16",
+            readingWords: 16,
+            preferredLettersSha256: "d54350edf536914c270041e0fe136cb2072f2e87364d72166cd9a2b62b1bcb81"
+          },
+          {
+            sourceVerse: 19,
+            targetStart: 22,
+            targetEnd: 22,
+            firstWordId: "deu-5-22-1",
+            lastWordId: "deu-5-22-24",
+            readingWords: 24,
+            preferredLettersSha256: "3636e55b660bef67d1385af5e29a956292b9e8be5ec6c5056e41331094a63cef"
+          },
+          {
+            sourceVerse: 20,
+            targetStart: 23,
+            targetEnd: 23,
+            firstWordId: "deu-5-23-1",
+            lastWordId: "deu-5-23-15",
+            readingWords: 15,
+            preferredLettersSha256: "f20d91d291f19df6d24f2ea1599b7a443070f4e78801837d909fe1141fef81f5"
+          },
+          {
+            sourceVerse: 21,
+            targetStart: 24,
+            targetEnd: 24,
+            firstWordId: "deu-5-24-1",
+            lastWordId: "deu-5-24-23",
+            readingWords: 23,
+            preferredLettersSha256: "abbac2228adaff5ac1148cf004275bdfa79f67229cea66d80aec8d5568a308f1"
+          },
+          {
+            sourceVerse: 22,
+            targetStart: 25,
+            targetEnd: 25,
+            firstWordId: "deu-5-25-1",
+            lastWordId: "deu-5-25-18",
+            readingWords: 18,
+            preferredLettersSha256: "9fc718c02d84fc3e4829eebd8c633419921146354c21b5aa0d69a08dbfb3569f"
+          },
+          {
+            sourceVerse: 23,
+            targetStart: 26,
+            targetEnd: 26,
+            firstWordId: "deu-5-26-1",
+            lastWordId: "deu-5-26-14",
+            readingWords: 14,
+            preferredLettersSha256: "fce55e4c7906b5553a944053c345a7b5b1cf33953d31b96fcc769c65fe36930d"
+          },
+          {
+            sourceVerse: 24,
+            targetStart: 27,
+            targetEnd: 27,
+            firstWordId: "deu-5-27-1",
+            lastWordId: "deu-5-27-21",
+            readingWords: 21,
+            preferredLettersSha256: "3c483c1eb487048b072b77601aa7a27c8574d50453c0bc1435fffd3868d20548"
+          },
+          {
+            sourceVerse: 25,
+            targetStart: 28,
+            targetEnd: 28,
+            firstWordId: "deu-5-28-1",
+            lastWordId: "deu-5-28-23",
+            readingWords: 23,
+            preferredLettersSha256: "75f0197a51bf2c35af93d0dfcae50c4ac1a2792ec9035fea1bb6e9bf9ce1db9a"
+          },
+          {
+            sourceVerse: 26,
+            targetStart: 29,
+            targetEnd: 29,
+            firstWordId: "deu-5-29-1",
+            lastWordId: "deu-5-29-19",
+            readingWords: 19,
+            preferredLettersSha256: "d0ad2b4b7a177906dccd92ab0867b862c8985ac9b410c484f86cf44a3cd6d693"
+          },
+          {
+            sourceVerse: 27,
+            targetStart: 30,
+            targetEnd: 30,
+            firstWordId: "deu-5-30-1",
+            lastWordId: "deu-5-30-6",
+            readingWords: 6,
+            preferredLettersSha256: "09ce447ad245b6a7295c7a1e3858de4d59172677f29d11449bd5700937805738"
+          },
+          {
+            sourceVerse: 28,
+            targetStart: 31,
+            targetEnd: 31,
+            firstWordId: "deu-5-31-1",
+            lastWordId: "deu-5-31-20",
+            readingWords: 20,
+            preferredLettersSha256: "ef059f54e86fa25f70c1b574cd05044ccc94cdd0ef1a9804c4535bcae47ea3f9"
+          },
+          {
+            sourceVerse: 29,
+            targetStart: 32,
+            targetEnd: 32,
+            firstWordId: "deu-5-32-1",
+            lastWordId: "deu-5-32-11",
+            readingWords: 11,
+            preferredLettersSha256: "143cac577aa25954ca0fc080a8bae127f12c7f991659b61b3d1f8539694c3c9a"
+          },
+          {
+            sourceVerse: 30,
+            targetStart: 33,
+            targetEnd: 33,
+            firstWordId: "deu-5-33-1",
+            lastWordId: "deu-5-33-17",
+            readingWords: 17,
+            preferredLettersSha256: "d2c3338e0a8e4c3935a5c3d9a94608a5b42cae3140bcb652af8245623f4b1042"
+          }
+        ]
+      }
+    ]
+  };
+
+  // torah-numbering.js
+  var compare2 = (a, b) => a.chapter - b.chapter || a.verse - b.verse;
+  var same = (a, b) => a.chapter === b.chapter && a.verse === b.verse;
+  var TORAH_NUMBERING = Object.freeze({ id: torah_verse_numbering_default.id, revision: torah_verse_numbering_default.revision, license: torah_verse_numbering_default.license, licenseUrl: torah_verse_numbering_default.licenseUrl });
+  var tableFor = (book, chapter) => {
+    const table = torah_verse_numbering_default.chapters.find((table2) => table2.bookId === book.id && table2.chapter === chapter);
+    if (table && (table.sourceSha256 !== book.sourceSha256 || table.targetVerseRecords !== book.chapters[chapter - 1]?.verses.length)) throw Error("This Torah numbering map needs review for the current Hebrew edition.");
+    return table;
+  };
+  var sourceLength = (book, chapter) => tableFor(book, chapter)?.sourceVerseCount ?? book.chapters[chapter - 1]?.verses.length;
+  var point = (value) => {
+    if (typeof value !== "string" || !/^[1-9]\d{0,2}:[1-9]\d{0,2}$/.test(value)) throw Error("Partial-verse divisions cannot yet be opened without an exact source word boundary.");
+    const [chapter, verse] = value.split(":").map(Number);
+    return { chapter, verse };
+  };
+  var rangeNeedsNumbering = (range) => torah_verse_numbering_default.chapters.some((table) => table.bookId === range.bookId && table.chapter >= range.start.chapter && table.chapter <= range.end.chapter);
+  function resolveTorahCalendarUnit(unit, book) {
+    if (!book || !["gen", "exo", "lev", "num", "deu"].includes(book.id) || !unit || unit.k !== book.name) throw Error("This division needs a book outside the current Torah library.");
+    const sourceStart = point(unit.b), sourceEnd = point(unit.e);
+    if (compare2(sourceStart, sourceEnd) > 0 || !sourceLength(book, sourceStart.chapter) || !sourceLength(book, sourceEnd.chapter) || sourceStart.verse > sourceLength(book, sourceStart.chapter) || sourceEnd.verse > sourceLength(book, sourceEnd.chapter)) throw Error("The source Torah reference is outside its available numbering scheme.");
+    const mapped = (value, end2) => {
+      const table = tableFor(book, value.chapter), row = table?.mappings[value.verse - 1];
+      if (table && (!row || row.sourceVerse !== value.verse || !Number.isInteger(row.targetStart) || !Number.isInteger(row.targetEnd) || row.targetEnd < row.targetStart)) throw Error("The Torah reference-numbering map is incomplete or invalid.");
+      return { chapter: value.chapter, verse: row ? end2 ? row.targetEnd : row.targetStart : value.verse };
+    };
+    const start = mapped(sourceStart, false), end = mapped(sourceEnd, true);
+    let sourceCount = 0, targetCount = 0;
+    for (let chapter = sourceStart.chapter; chapter <= sourceEnd.chapter; chapter++) sourceCount += (chapter === sourceEnd.chapter ? sourceEnd.verse : sourceLength(book, chapter)) - (chapter === sourceStart.chapter ? sourceStart.verse : 1) + 1;
+    for (let chapter = start.chapter; chapter <= end.chapter; chapter++) targetCount += (chapter === end.chapter ? end.verse : book.chapters[chapter - 1].verses.length) - (chapter === start.chapter ? start.verse : 1) + 1;
+    if (!Number.isInteger(unit.v) || unit.v !== sourceCount) throw Error(`${unit.k} ${unit.b}–${unit.e}: source verse count differs from the checked numbering scheme. Review the source before opening.`);
+    let mapping;
+    if (rangeNeedsNumbering({ bookId: book.id, start, end })) {
+      const raw = JSON.stringify(unit);
+      if (raw.length > 8e3) throw Error("Torah source unit is too large.");
+      mapping = { id: torah_verse_numbering_default.id, revision: torah_verse_numbering_default.revision, sourceUnit: JSON.parse(raw), sourceVerseCount: sourceCount, uxlcVerseRecords: targetCount };
+    }
+    return { start, end, sourceVerseCount: sourceCount, uxlcVerseRecords: targetCount, mapping };
+  }
+  function preserveNumberingMapping(input, range, corpus2) {
+    if (!input || input.id !== torah_verse_numbering_default.id || input.revision !== torah_verse_numbering_default.revision || !input.sourceUnit) throw Error("Unsupported Torah reference-numbering mapping.");
+    const resolved = resolveTorahCalendarUnit(input.sourceUnit, corpus2.byId.get(range.bookId));
+    if (!resolved.mapping || !same(range.start, resolved.start) || !same(range.end, resolved.end) || input.sourceVerseCount !== resolved.sourceVerseCount || input.uxlcVerseRecords !== resolved.uxlcVerseRecords) throw Error("The retained Torah source reference does not match this UXLC section.");
+    return resolved.mapping;
+  }
+
   // library.js
   var defaultRange = Object.freeze({ id: "opening", bookId: "gen", start: { chapter: 1, verse: 1 }, end: { chapter: 1, verse: 3 }, label: "Opening verses" });
   var integer = (n) => (typeof n === "number" || typeof n === "string" && /^\d+$/.test(n)) && Number.isInteger(Number(n)) && Number(n) > 0;
-  var compare = (a, b) => a.chapter - b.chapter || a.verse - b.verse;
+  var compare3 = (a, b) => a.chapter - b.chapter || a.verse - b.verse;
   var Corpus = class {
     constructor({ manifest, books }) {
       this.manifest = manifest;
@@ -4109,7 +4792,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (!book.chapters[chapter - 1]?.verses[verse - 1]) throw Error(`${book.name} ${chapter}:${verse} does not exist in this edition.`);
         points[key] = { chapter, verse };
       }
-      if (compare(points.start, points.end) > 0) throw Error("The end of a section must follow its start.");
+      if (compare3(points.start, points.end) > 0) throw Error("The end of a section must follow its start.");
       const range = {
         id: typeof input.id === "string" && /^[a-zA-Z0-9_-]{1,80}$/.test(input.id) ? input.id : `section-${index + 1}`,
         bookId: book.id,
@@ -4120,14 +4803,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       };
       const source = input.divisionSource;
       if (source !== void 0) {
+        if (!["gen", "exo", "lev", "num", "deu"].includes(book.id) || input.relatedSource !== void 0) throw Error("Torah aliyah provenance cannot be attached to another repertoire or combined with a related-reading source claim.");
         if (source?.provider !== "Hebcal.com" || !/^https:\/\/www\.hebcal\.com\/leyning\?[^\s]{1,300}$/.test(source.url) || !/^[a-f0-9]{64}$/.test(source.sha256) || !/^\d{4}-\d{2}-\d{2}$/.test(source.serviceDate) || !["Diaspora", "Israel"].includes(source.region) || !["fullkriyah", "triennial", "weekday"].includes(source.cycle) || !/^([1-9]|M)$/.test(source.aliyah) || typeof source.retrieved !== "string" || source.retrieved.length > 40) throw Error("This section has invalid calendar-source metadata.");
         range.divisionSource = Object.fromEntries(["provider", "url", "sha256", "retrieved", "serviceDate", "region", "cycle", "aliyah"].map((key) => [key, source[key]]));
+        if (source.referenceMapping !== void 0) range.divisionSource.referenceMapping = preserveNumberingMapping(source.referenceMapping, range, this);
+        else if (rangeNeedsNumbering(range)) throw Error("This saved calendar section has ambiguous source/UXLC numbering. Reopen it from the current calendar source; no boundaries were substituted.");
       }
+      if (input.relatedSource !== void 0) range.relatedSource = preserveRelatedSource(input.relatedSource, range, this);
       return range;
     }
     describe(range) {
       const b = this.byId.get(range.bookId), a = range.start, z = range.end;
-      if (compare(a, z) === 0) return `${b.name} ${a.chapter}:${a.verse}`;
+      if (compare3(a, z) === 0) return `${b.name} ${a.chapter}:${a.verse}`;
       return `${b.name} ${a.chapter}:${a.verse}–${a.chapter === z.chapter ? "" : z.chapter + ":"}${z.verse}`;
     }
     passage(inputs) {
@@ -4140,8 +4827,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         for (const chapter of book.chapters) {
           if (chapter.number < range.start.chapter || chapter.number > range.end.chapter) continue;
           for (const verse of chapter.verses) {
-            const point = { chapter: chapter.number, verse: verse.number };
-            if (compare(point, range.start) < 0 || compare(point, range.end) > 0) continue;
+            const point2 = { chapter: chapter.number, verse: verse.number };
+            if (compare3(point2, range.start) < 0 || compare3(point2, range.end) > 0) continue;
             let previousKetiv = [], qereActive = false;
             const reading = [];
             for (const token of verse.tokens) {
@@ -4304,20 +4991,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } catch {
       throw Error("This file is not valid assignment JSON.");
     }
+    const modernSource = Array.isArray(data?.sections) && data.sections.some((section) => section?.relatedSource !== void 0 || section?.divisionSource?.referenceMapping !== void 0);
+    if (modernSource && data.format !== "tropetrain-assignment-v3") throw Error("This retained source provenance requires assignment v3. Source snapshots and reference mappings were not discarded.");
     if (data?.format === "tropetrain-assignment-v1") {
       const assignment2 = parseAssignment(text, corpus2);
       validateReadingSections("torah", assignment2.sections, corpus2);
       return { ...assignment2, readingType: "torah" };
     }
-    if (data?.format !== "tropetrain-assignment-v2") throw Error("Unsupported assignment format. Use a TropeTrain assignment export.");
+    if (!["tropetrain-assignment-v2", "tropetrain-assignment-v3"].includes(data?.format)) throw Error("Unsupported assignment format. Use a TropeTrain assignment export.");
     const sections = validateReadingSections(data.readingType, data.sections, corpus2);
     const assignment = parseAssignment(JSON.stringify({ ...data, format: "tropetrain-assignment-v1", sections }), corpus2);
-    return { ...assignment, format: "tropetrain-assignment-v2", readingType: data.readingType };
+    return { ...assignment, format: data.format, readingType: data.readingType };
   }
   function createRepertoireAssignment(title, readingType, sections, preferences, corpus2) {
     const ranges = validateReadingSections(readingType, sections, corpus2);
     const assignment = createAssignment(title, ranges, preferences);
-    assignment.format = "tropetrain-assignment-v2";
+    assignment.format = ranges.some((range) => range.relatedSource !== void 0 || range.divisionSource?.referenceMapping !== void 0) ? "tropetrain-assignment-v3" : "tropetrain-assignment-v2";
     assignment.readingType = readingType;
     assignment.musicalPreferences.pronunciationId = preferences?.pronunciationId ?? null;
     return parseRepertoireAssignment(JSON.stringify(assignment), corpus2);
@@ -4360,6 +5049,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       written: group.written,
       reading: group.reading.map((token) => ({ token, word: byOccurrence.get(`${verse.sectionId}|${token.id}`) ?? null }))
     })));
+  }
+
+  // practice-recovery.js
+  var KEY = "tropetrain-practice-recoveries-v1";
+  function practiceRecovery(rawPractice, reason, created = (/* @__PURE__ */ new Date()).toISOString()) {
+    if (typeof rawPractice !== "string" || !rawPractice || rawPractice.length > 6e6) throw Error("Original saved practice data is unavailable for recovery.");
+    return { format: "tropetrain-practice-recovery-v1", created, reason: String(reason).slice(0, 2e3), rawPractice };
+  }
+  var valid = (record) => record?.format === "tropetrain-practice-recovery-v1" && typeof record.rawPractice === "string" && record.rawPractice.length <= 6e6 && typeof record.reason === "string";
+  function latestPracticeRecovery(storage) {
+    try {
+      const records = JSON.parse(storage?.getItem(KEY) || "[]");
+      return Array.isArray(records) ? records.find(valid) ?? null : null;
+    } catch {
+      return null;
+    }
+  }
+  function savePracticeRecovery(storage, record) {
+    if (!valid(record)) return false;
+    try {
+      if (!storage) return false;
+      let previous = [];
+      try {
+        previous = JSON.parse(storage.getItem(KEY) || "[]");
+      } catch {
+      }
+      const records = [record, ...(Array.isArray(previous) ? previous : []).filter(valid).filter((old) => old.rawPractice !== record.rawPractice)].slice(0, 8);
+      storage.setItem(KEY, JSON.stringify(records));
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   // synthesis.js
@@ -5502,7 +6223,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const $2 = (id) => document.getElementById(id);
     let plan2 = [], settingsKey = null, selectedId = null, starting = false, request = 0;
     const setActive2 = (id) => {
-      $2("pattern-staff").querySelectorAll("[data-event]").forEach((el2) => el2.classList.toggle("active", el2.dataset.event === id));
+      $2("pattern-staff").querySelectorAll("[data-event]").forEach((el3) => el3.classList.toggle("active", el3.dataset.event === id));
     };
     const player2 = new Player((event, cycle, _progress, index) => {
       setActive2(event.id);
@@ -5539,10 +6260,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       plan2 = printedPatternPlan(mode, state2);
       $2("pattern-staff").innerHTML = staffMarkup(plan2, [], 0, 12, { untexted: true });
       $2("pattern-summary").textContent = `${plan2.length} printed notes · ${plan2.reduce((n, e) => n + e.beats, 0)} quarter-note beats · ${(plan2.at(-1).startSeconds + plan2.at(-1).durationSeconds).toFixed(2)} seconds. Printed slurs are shown; the instrument articulates the individual notes.`;
-      for (const el2 of $2("pattern-staff").querySelectorAll("[data-event]")) {
-        const event = plan2.find((e) => e.id === el2.dataset.event);
-        el2.addEventListener("click", () => inspect(event));
-        el2.addEventListener("keydown", (e) => {
+      for (const el3 of $2("pattern-staff").querySelectorAll("[data-event]")) {
+        const event = plan2.find((e) => e.id === el3.dataset.event);
+        el3.addEventListener("click", () => inspect(event));
+        el3.addEventListener("keydown", (e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             inspect(event);
@@ -5724,11 +6445,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 
   // calendar-example-data.js
-  var calendarExamples = [{ "month": "2022-04", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=off", "retrieved": "2026-11-20", "file": "data/calendar/april2022-diaspora.json", "bytes": 12454, "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098", "raw": '{"date":"2026-11-20T17:40:44.298Z","location":"Diaspora","range":{"start":"2022-04-01","end":"2022-04-30"},"items":[{"date":"2022-04-02","hdate":"1 Nisan 5782","name":{"en":"Tazria","he":"תַזְרִיעַ"},"type":"shabbat","parshaNum":27,"summary":"Leviticus 12:1-13:59; Numbers 28:9-15; Exodus 12:1-20","fullkriyah":{"1":{"k":"Leviticus","b":"12:1","e":"13:5","v":13},"2":{"k":"Leviticus","b":"13:6","e":"13:17","v":12},"3":{"k":"Leviticus","b":"13:18","e":"13:23","v":6},"4":{"k":"Leviticus","b":"13:24","e":"13:28","v":5},"5":{"k":"Leviticus","b":"13:29","e":"13:39","v":11},"6":{"k":"Leviticus","b":"13:40","e":"13:59","v":20},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"haftara":"Ezekiel 45:16-46:18","haft":{"k":"Ezekiel","b":"45:16","e":"46:18","v":28,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"seph":{"k":"Ezekiel","b":"45:18","e":"46:15","v":23,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"sephardic":"Ezekiel 45:18-46:15","sephardicNumV":23,"summaryParts":[{"k":"Leviticus","b":"12:1","e":"13:59"},{"k":"Numbers","b":"28:9","e":"28:15"},{"k":"Exodus","b":"12:1","e":"12:20"}],"reason":{"7":"Shabbat HaChodesh (on Rosh Chodesh)","haftara":"Shabbat HaChodesh (on Rosh Chodesh)","sephardic":"Shabbat HaChodesh (on Rosh Chodesh)","M":"Shabbat HaChodesh (on Rosh Chodesh)"},"triennial":{"1":{"k":"Leviticus","b":"13:29","e":"13:34","v":6},"2":{"k":"Leviticus","b":"13:35","e":"13:39","v":5},"3":{"k":"Leviticus","b":"13:40","e":"13:42","v":3},"4":{"k":"Leviticus","b":"13:43","e":"13:46","v":4},"5":{"k":"Leviticus","b":"13:47","e":"13:50","v":4},"6":{"k":"Leviticus","b":"13:51","e":"13:59","v":9},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"triYear":3},{"date":"2022-04-04","hdate":"3 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-07","hdate":"6 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-09","hdate":"8 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"shabbat","parshaNum":28,"summary":"Leviticus 14:1-15:33","fullkriyah":{"1":{"k":"Leviticus","b":"14:1","e":"14:12","v":12},"2":{"k":"Leviticus","b":"14:13","e":"14:20","v":8},"3":{"k":"Leviticus","b":"14:21","e":"14:32","v":12},"4":{"k":"Leviticus","b":"14:33","e":"14:53","v":21},"5":{"k":"Leviticus","b":"14:54","e":"15:15","v":19},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"haftara":"Malachi 3:4-24","haft":{"k":"Malachi","b":"3:4","e":"3:24","v":21,"reason":"Shabbat HaGadol"},"reason":{"haftara":"Shabbat HaGadol"},"triennial":{"1":{"k":"Leviticus","b":"14:33","e":"14:38","v":6},"2":{"k":"Leviticus","b":"14:39","e":"14:47","v":9},"3":{"k":"Leviticus","b":"14:48","e":"14:53","v":6},"4":{"k":"Leviticus","b":"14:54","e":"15:7","v":11},"5":{"k":"Leviticus","b":"15:8","e":"15:15","v":8},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"triYear":3},{"date":"2022-04-11","hdate":"10 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-14","hdate":"13 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-16","hdate":"15 Nisan 5782","name":{"en":"Pesach I (on Shabbat)","he":"פֶּסַח יוֹם א׳ (בְּשַׁבָּת)"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"12:21","e":"12:24","v":4},"2":{"p":15,"k":"Exodus","b":"12:25","e":"12:28","v":4},"3":{"p":15,"k":"Exodus","b":"12:29","e":"12:32","v":4},"4":{"p":15,"k":"Exodus","b":"12:33","e":"12:36","v":4},"5":{"p":15,"k":"Exodus","b":"12:37","e":"12:42","v":6},"6":{"p":15,"k":"Exodus","b":"12:43","e":"12:47","v":5},"7":{"p":15,"k":"Exodus","b":"12:48","e":"12:51","v":4},"M":{"p":41,"k":"Numbers","b":"28:16","e":"28:25","v":10}},"summary":"Exodus 12:21-51; Numbers 28:16-25","summaryParts":[{"k":"Exodus","b":"12:21","e":"12:51"},{"k":"Numbers","b":"28:16","e":"28:25"}],"haft":[{"k":"Joshua","b":"3:5","e":"3:7","v":3},{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"haftara":"Joshua 3:5-7, 5:2-6:1, 6:27","seph":[{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"sephardic":"Joshua 5:2-6:1, 6:27","sephardicNumV":16},{"date":"2022-04-17","hdate":"16 Nisan 5782","name":{"en":"Pesach II","he":"פֶּסַח ב׳"},"type":"holiday","fullkriyah":{"1":{"p":31,"k":"Leviticus","b":"22:26","e":"23:3","v":11},"2":{"p":31,"k":"Leviticus","b":"23:4","e":"23:14","v":11},"3":{"p":31,"k":"Leviticus","b":"23:15","e":"23:22","v":8},"4":{"p":31,"k":"Leviticus","b":"23:23","e":"23:32","v":10},"5":{"p":31,"k":"Leviticus","b":"23:33","e":"23:44","v":12},"M":{"p":41,"k":"Numbers","b":"28:16","e":"28:25","v":10}},"summary":"Leviticus 22:26-23:44; Numbers 28:16-25","summaryParts":[{"k":"Leviticus","b":"22:26","e":"23:44"},{"k":"Numbers","b":"28:16","e":"28:25"}],"haft":[{"k":"II Kings","b":"23:1","e":"23:9","v":9},{"k":"II Kings","b":"23:21","e":"23:25","v":5}],"haftara":"II Kings 23:1-9, 23:21-25"},{"date":"2022-04-18","hdate":"17 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 1","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם א׳"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"13:1","e":"13:4","v":4},"2":{"p":15,"k":"Exodus","b":"13:5","e":"13:10","v":6},"3":{"p":15,"k":"Exodus","b":"13:11","e":"13:16","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:1-16; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:1","e":"13:16"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-19","hdate":"18 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 2","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם ב׳"},"type":"holiday","fullkriyah":{"1":{"p":18,"k":"Exodus","b":"22:24","e":"22:26","v":3},"2":{"p":18,"k":"Exodus","b":"22:27","e":"23:5","v":9},"3":{"p":18,"k":"Exodus","b":"23:6","e":"23:19","v":14},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 22:24-23:19; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"22:24","e":"23:19"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-20","hdate":"19 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 3","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם ג׳"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"34:1","e":"34:10","v":10},"2":{"p":21,"k":"Exodus","b":"34:11","e":"34:17","v":7},"3":{"p":21,"k":"Exodus","b":"34:18","e":"34:26","v":9},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 34:1-26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"34:1","e":"34:26"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-21","hdate":"20 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 4","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם ד׳"},"type":"holiday","fullkriyah":{"1":{"p":36,"k":"Numbers","b":"9:1","e":"9:5","v":5},"2":{"p":36,"k":"Numbers","b":"9:6","e":"9:8","v":3},"3":{"p":36,"k":"Numbers","b":"9:9","e":"9:14","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Numbers 9:1-14, 28:19-25","summaryParts":[{"k":"Numbers","b":"9:1","e":"9:14"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-22","hdate":"21 Nisan 5782","name":{"en":"Pesach VII","he":"פֶּסַח ז׳"},"type":"holiday","fullkriyah":{"1":{"p":16,"k":"Exodus","b":"13:17","e":"13:22","v":6},"2":{"p":16,"k":"Exodus","b":"14:1","e":"14:8","v":8},"3":{"p":16,"k":"Exodus","b":"14:9","e":"14:14","v":6},"4":{"p":16,"k":"Exodus","b":"14:15","e":"14:25","v":11},"5":{"p":16,"k":"Exodus","b":"14:26","e":"15:26","v":32},"M":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:17-15:26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:17","e":"15:26"},{"k":"Numbers","b":"28:19","e":"28:25"}],"haft":{"k":"II Samuel","b":"22:1","e":"22:51","v":51},"haftara":"II Samuel 22:1-51"},{"date":"2022-04-23","hdate":"22 Nisan 5782","name":{"en":"Pesach VIII (on Shabbat)","he":"פֶּסַח ח׳ (בְּשַׁבָּת)"},"type":"holiday","fullkriyah":{"1":{"p":47,"k":"Deuteronomy","b":"14:22","e":"14:29","v":8},"2":{"p":47,"k":"Deuteronomy","b":"15:1","e":"15:18","v":18},"3":{"p":47,"k":"Deuteronomy","b":"15:19","e":"15:23","v":5},"4":{"p":47,"k":"Deuteronomy","b":"16:1","e":"16:3","v":3},"5":{"p":47,"k":"Deuteronomy","b":"16:4","e":"16:8","v":5},"6":{"p":47,"k":"Deuteronomy","b":"16:9","e":"16:12","v":4},"7":{"p":47,"k":"Deuteronomy","b":"16:13","e":"16:17","v":5},"M":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Deuteronomy 14:22-16:17; Numbers 28:19-25; Song of Songs 1:1-8:14","summaryParts":[{"k":"Deuteronomy","b":"14:22","e":"16:17"},{"k":"Numbers","b":"28:19","e":"28:25"},{"k":"Song of Songs","b":"1:1","e":"8:14"}],"haft":{"k":"Isaiah","b":"10:32","e":"12:6","v":25},"haftara":"Isaiah 10:32-12:6","megillah":{"1":{"k":"Song of Songs","b":"1:1","e":"1:17","v":17},"2":{"k":"Song of Songs","b":"2:1","e":"2:17","v":17},"3":{"k":"Song of Songs","b":"3:1","e":"3:11","v":11},"4":{"k":"Song of Songs","b":"4:1","e":"4:16","v":16},"5":{"k":"Song of Songs","b":"5:1","e":"5:16","v":16},"6":{"k":"Song of Songs","b":"6:1","e":"6:12","v":12},"7":{"k":"Song of Songs","b":"7:1","e":"7:14","v":14},"8":{"k":"Song of Songs","b":"8:1","e":"8:14","v":14}}},{"date":"2022-04-25","hdate":"24 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-28","hdate":"27 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-30","hdate":"29 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"shabbat","parshaNum":29,"summary":"Leviticus 16:1-18:30","fullkriyah":{"1":{"k":"Leviticus","b":"16:1","e":"16:17","v":17},"2":{"k":"Leviticus","b":"16:18","e":"16:24","v":7},"3":{"k":"Leviticus","b":"16:25","e":"16:34","v":10},"4":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"5":{"k":"Leviticus","b":"17:8","e":"18:5","v":14},"6":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"7":{"k":"Leviticus","b":"18:22","e":"18:30","v":9},"M":{"k":"Leviticus","b":"18:28","e":"18:30","v":3}},"haftara":"I Samuel 20:18-42","haft":{"k":"I Samuel","b":"20:18","e":"20:42","v":25,"reason":"Shabbat Machar Chodesh"},"reason":{"haftara":"Shabbat Machar Chodesh"},"triennial":{"1":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"2":{"k":"Leviticus","b":"17:8","e":"17:12","v":5},"3":{"k":"Leviticus","b":"17:13","e":"17:16","v":4},"4":{"k":"Leviticus","b":"18:1","e":"18:5","v":5},"5":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"6":{"k":"Leviticus","b":"18:22","e":"18:25","v":4},"7":{"k":"Leviticus","b":"18:26","e":"18:30","v":5},"M":{"k":"Leviticus","b":"18:26","e":"18:30","v":5}},"triYear":3}]}' }, { "month": "2022-04", "region": "Israel", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=on", "retrieved": "2026-11-20", "file": "data/calendar/april2022-israel.json", "bytes": 12519, "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141", "raw": `{"date":"2026-11-20T17:40:43.049Z","location":"Israel","range":{"start":"2022-04-01","end":"2022-04-30"},"items":[{"date":"2022-04-02","hdate":"1 Nisan 5782","name":{"en":"Tazria","he":"תַזְרִיעַ"},"type":"shabbat","parshaNum":27,"summary":"Leviticus 12:1-13:59; Numbers 28:9-15; Exodus 12:1-20","fullkriyah":{"1":{"k":"Leviticus","b":"12:1","e":"13:5","v":13},"2":{"k":"Leviticus","b":"13:6","e":"13:17","v":12},"3":{"k":"Leviticus","b":"13:18","e":"13:23","v":6},"4":{"k":"Leviticus","b":"13:24","e":"13:28","v":5},"5":{"k":"Leviticus","b":"13:29","e":"13:39","v":11},"6":{"k":"Leviticus","b":"13:40","e":"13:59","v":20},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"haftara":"Ezekiel 45:16-46:18","haft":{"k":"Ezekiel","b":"45:16","e":"46:18","v":28,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"seph":{"k":"Ezekiel","b":"45:18","e":"46:15","v":23,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"sephardic":"Ezekiel 45:18-46:15","sephardicNumV":23,"summaryParts":[{"k":"Leviticus","b":"12:1","e":"13:59"},{"k":"Numbers","b":"28:9","e":"28:15"},{"k":"Exodus","b":"12:1","e":"12:20"}],"reason":{"7":"Shabbat HaChodesh (on Rosh Chodesh)","haftara":"Shabbat HaChodesh (on Rosh Chodesh)","sephardic":"Shabbat HaChodesh (on Rosh Chodesh)","M":"Shabbat HaChodesh (on Rosh Chodesh)"},"triennial":{"1":{"k":"Leviticus","b":"13:29","e":"13:34","v":6},"2":{"k":"Leviticus","b":"13:35","e":"13:39","v":5},"3":{"k":"Leviticus","b":"13:40","e":"13:42","v":3},"4":{"k":"Leviticus","b":"13:43","e":"13:46","v":4},"5":{"k":"Leviticus","b":"13:47","e":"13:50","v":4},"6":{"k":"Leviticus","b":"13:51","e":"13:59","v":9},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"triYear":3},{"date":"2022-04-04","hdate":"3 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-07","hdate":"6 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-09","hdate":"8 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"shabbat","parshaNum":28,"summary":"Leviticus 14:1-15:33","fullkriyah":{"1":{"k":"Leviticus","b":"14:1","e":"14:12","v":12},"2":{"k":"Leviticus","b":"14:13","e":"14:20","v":8},"3":{"k":"Leviticus","b":"14:21","e":"14:32","v":12},"4":{"k":"Leviticus","b":"14:33","e":"14:53","v":21},"5":{"k":"Leviticus","b":"14:54","e":"15:15","v":19},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"haftara":"Malachi 3:4-24","haft":{"k":"Malachi","b":"3:4","e":"3:24","v":21,"reason":"Shabbat HaGadol"},"reason":{"haftara":"Shabbat HaGadol"},"triennial":{"1":{"k":"Leviticus","b":"14:33","e":"14:38","v":6},"2":{"k":"Leviticus","b":"14:39","e":"14:47","v":9},"3":{"k":"Leviticus","b":"14:48","e":"14:53","v":6},"4":{"k":"Leviticus","b":"14:54","e":"15:7","v":11},"5":{"k":"Leviticus","b":"15:8","e":"15:15","v":8},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"triYear":3},{"date":"2022-04-11","hdate":"10 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-14","hdate":"13 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-16","hdate":"15 Nisan 5782","name":{"en":"Pesach I (on Shabbat)","he":"פֶּסַח יוֹם א׳ (בְּשַׁבָּת)"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"12:21","e":"12:24","v":4},"2":{"p":15,"k":"Exodus","b":"12:25","e":"12:28","v":4},"3":{"p":15,"k":"Exodus","b":"12:29","e":"12:32","v":4},"4":{"p":15,"k":"Exodus","b":"12:33","e":"12:36","v":4},"5":{"p":15,"k":"Exodus","b":"12:37","e":"12:42","v":6},"6":{"p":15,"k":"Exodus","b":"12:43","e":"12:47","v":5},"7":{"p":15,"k":"Exodus","b":"12:48","e":"12:51","v":4},"M":{"p":41,"k":"Numbers","b":"28:16","e":"28:25","v":10}},"summary":"Exodus 12:21-51; Numbers 28:16-25; Song of Songs 1:1-8:14","summaryParts":[{"k":"Exodus","b":"12:21","e":"12:51"},{"k":"Numbers","b":"28:16","e":"28:25"},{"k":"Song of Songs","b":"1:1","e":"8:14"}],"haft":[{"k":"Joshua","b":"3:5","e":"3:7","v":3},{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"haftara":"Joshua 3:5-7, 5:2-6:1, 6:27","seph":[{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"sephardic":"Joshua 5:2-6:1, 6:27","sephardicNumV":16,"megillah":{"1":{"k":"Song of Songs","b":"1:1","e":"1:17","v":17},"2":{"k":"Song of Songs","b":"2:1","e":"2:17","v":17},"3":{"k":"Song of Songs","b":"3:1","e":"3:11","v":11},"4":{"k":"Song of Songs","b":"4:1","e":"4:16","v":16},"5":{"k":"Song of Songs","b":"5:1","e":"5:16","v":16},"6":{"k":"Song of Songs","b":"6:1","e":"6:12","v":12},"7":{"k":"Song of Songs","b":"7:1","e":"7:14","v":14},"8":{"k":"Song of Songs","b":"8:1","e":"8:14","v":14}}},{"date":"2022-04-17","hdate":"16 Nisan 5782","name":{"en":"Pesach II (CH''M)","he":"פֶּסַח ב׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":31,"k":"Leviticus","b":"22:26","e":"23:8","v":16},"2":{"p":31,"k":"Leviticus","b":"23:9","e":"23:14","v":6},"3":{"p":31,"k":"Leviticus","b":"23:15","e":"23:44","v":30},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Leviticus 22:26-23:44; Numbers 28:19-25","summaryParts":[{"k":"Leviticus","b":"22:26","e":"23:44"},{"k":"Numbers","b":"28:19","e":"28:25"}],"note":"Israel only - according to Vaani T'fillati Siddur Yisraeli"},{"date":"2022-04-18","hdate":"17 Nisan 5782","name":{"en":"Pesach III (CH''M)","he":"פֶּסַח ג׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"13:1","e":"13:4","v":4},"2":{"p":15,"k":"Exodus","b":"13:5","e":"13:10","v":6},"3":{"p":15,"k":"Exodus","b":"13:11","e":"13:16","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:1-16; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:1","e":"13:16"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-19","hdate":"18 Nisan 5782","name":{"en":"Pesach IV (CH''M)","he":"פֶּסַח ד׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":18,"k":"Exodus","b":"22:24","e":"22:26","v":3},"2":{"p":18,"k":"Exodus","b":"22:27","e":"23:5","v":9},"3":{"p":18,"k":"Exodus","b":"23:6","e":"23:19","v":14},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 22:24-23:19; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"22:24","e":"23:19"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-20","hdate":"19 Nisan 5782","name":{"en":"Pesach V (CH''M)","he":"פֶּסַח ה׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"34:1","e":"34:10","v":10},"2":{"p":21,"k":"Exodus","b":"34:11","e":"34:17","v":7},"3":{"p":21,"k":"Exodus","b":"34:18","e":"34:26","v":9},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 34:1-26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"34:1","e":"34:26"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-21","hdate":"20 Nisan 5782","name":{"en":"Pesach VI (CH''M)","he":"פֶּסַח ו׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":36,"k":"Numbers","b":"9:1","e":"9:5","v":5},"2":{"p":36,"k":"Numbers","b":"9:6","e":"9:8","v":3},"3":{"p":36,"k":"Numbers","b":"9:9","e":"9:14","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Numbers 9:1-14, 28:19-25","summaryParts":[{"k":"Numbers","b":"9:1","e":"9:14"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-22","hdate":"21 Nisan 5782","name":{"en":"Pesach VII","he":"פֶּסַח ז׳"},"type":"holiday","fullkriyah":{"1":{"p":16,"k":"Exodus","b":"13:17","e":"13:22","v":6},"2":{"p":16,"k":"Exodus","b":"14:1","e":"14:8","v":8},"3":{"p":16,"k":"Exodus","b":"14:9","e":"14:14","v":6},"4":{"p":16,"k":"Exodus","b":"14:15","e":"14:25","v":11},"5":{"p":16,"k":"Exodus","b":"14:26","e":"15:26","v":32},"M":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:17-15:26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:17","e":"15:26"},{"k":"Numbers","b":"28:19","e":"28:25"}],"haft":{"k":"II Samuel","b":"22:1","e":"22:51","v":51},"haftara":"II Samuel 22:1-51"},{"date":"2022-04-23","hdate":"22 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"shabbat","parshaNum":29,"summary":"Leviticus 16:1-18:30","fullkriyah":{"1":{"k":"Leviticus","b":"16:1","e":"16:17","v":17},"2":{"k":"Leviticus","b":"16:18","e":"16:24","v":7},"3":{"k":"Leviticus","b":"16:25","e":"16:34","v":10},"4":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"5":{"k":"Leviticus","b":"17:8","e":"18:5","v":14},"6":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"7":{"k":"Leviticus","b":"18:22","e":"18:30","v":9},"M":{"k":"Leviticus","b":"18:28","e":"18:30","v":3}},"haftara":"Amos 9:7-15","haft":{"k":"Amos","b":"9:7","e":"9:15","v":9},"seph":{"k":"Ezekiel","b":"22:1","e":"22:16","v":16},"sephardic":"Ezekiel 22:1-16","sephardicNumV":16,"chabad":{"k":"Amos","b":"9:7","e":"9:15","v":9},"triennial":{"1":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"2":{"k":"Leviticus","b":"17:8","e":"17:12","v":5},"3":{"k":"Leviticus","b":"17:13","e":"17:16","v":4},"4":{"k":"Leviticus","b":"18:1","e":"18:5","v":5},"5":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"6":{"k":"Leviticus","b":"18:22","e":"18:25","v":4},"7":{"k":"Leviticus","b":"18:26","e":"18:30","v":5},"M":{"k":"Leviticus","b":"18:26","e":"18:30","v":5}},"triYear":3},{"date":"2022-04-25","hdate":"24 Nisan 5782","name":{"en":"Kedoshim","he":"קְדֹשִׁים"},"type":"weekday","parshaNum":30,"weekday":{"1":{"k":"Leviticus","b":"19:1","e":"19:4","v":4},"2":{"k":"Leviticus","b":"19:5","e":"19:10","v":6},"3":{"k":"Leviticus","b":"19:11","e":"19:14","v":4}},"summary":"Leviticus 19:1-14"},{"date":"2022-04-28","hdate":"27 Nisan 5782","name":{"en":"Kedoshim","he":"קְדֹשִׁים"},"type":"weekday","parshaNum":30,"weekday":{"1":{"k":"Leviticus","b":"19:1","e":"19:4","v":4},"2":{"k":"Leviticus","b":"19:5","e":"19:10","v":6},"3":{"k":"Leviticus","b":"19:11","e":"19:14","v":4}},"summary":"Leviticus 19:1-14"},{"date":"2022-04-30","hdate":"29 Nisan 5782","name":{"en":"Kedoshim","he":"קְדֹשִׁים"},"type":"shabbat","parshaNum":30,"summary":"Leviticus 19:1-20:27","fullkriyah":{"1":{"k":"Leviticus","b":"19:1","e":"19:14","v":14},"2":{"k":"Leviticus","b":"19:15","e":"19:22","v":8},"3":{"k":"Leviticus","b":"19:23","e":"19:32","v":10},"4":{"k":"Leviticus","b":"19:33","e":"19:37","v":5},"5":{"k":"Leviticus","b":"20:1","e":"20:7","v":7},"6":{"k":"Leviticus","b":"20:8","e":"20:22","v":15},"7":{"k":"Leviticus","b":"20:23","e":"20:27","v":5},"M":{"k":"Leviticus","b":"20:25","e":"20:27","v":3}},"haftara":"I Samuel 20:18-42","haft":{"k":"I Samuel","b":"20:18","e":"20:42","v":25,"reason":"Shabbat Machar Chodesh"},"reason":{"haftara":"Shabbat Machar Chodesh"},"triennial":{"1":{"k":"Leviticus","b":"19:15","e":"19:18","v":4},"2":{"k":"Leviticus","b":"19:19","e":"19:22","v":4},"3":{"k":"Leviticus","b":"19:23","e":"19:32","v":10},"4":{"k":"Leviticus","b":"19:33","e":"19:37","v":5},"5":{"k":"Leviticus","b":"20:1","e":"20:7","v":7},"6":{"k":"Leviticus","b":"20:8","e":"20:22","v":15},"7":{"k":"Leviticus","b":"20:23","e":"20:27","v":5},"M":{"k":"Leviticus","b":"20:25","e":"20:27","v":3}},"triYear":3}]}` }, { "month": "2022-07", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=off", "retrieved": "2026-11-20", "file": "data/calendar/july2022-diaspora.json", "bytes": 10455, "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3", "raw": `{"date":"2026-11-20T17:40:20.026Z","location":"Diaspora","range":{"start":"2022-07-01","end":"2022-07-31"},"items":[{"date":"2022-07-02","hdate":"3 Tamuz 5782","name":{"en":"Korach","he":"קֹרַח"},"type":"shabbat","parshaNum":38,"summary":"Numbers 16:1-18:32","fullkriyah":{"1":{"k":"Numbers","b":"16:1","e":"16:13","v":13},"2":{"k":"Numbers","b":"16:14","e":"16:19","v":6},"3":{"k":"Numbers","b":"16:20","e":"17:8","v":24},"4":{"k":"Numbers","b":"17:9","e":"17:15","v":7},"5":{"k":"Numbers","b":"17:16","e":"17:24","v":9},"6":{"k":"Numbers","b":"17:25","e":"18:20","v":24},"7":{"k":"Numbers","b":"18:21","e":"18:32","v":12},"M":{"k":"Numbers","b":"18:30","e":"18:32","v":3}},"haftara":"I Samuel 11:14-12:22","haft":{"k":"I Samuel","b":"11:14","e":"12:22","v":24},"triennial":{"1":{"k":"Numbers","b":"17:25","e":"18:7","v":11},"2":{"k":"Numbers","b":"18:8","e":"18:10","v":3},"3":{"k":"Numbers","b":"18:11","e":"18:13","v":3},"4":{"k":"Numbers","b":"18:14","e":"18:20","v":7},"5":{"k":"Numbers","b":"18:21","e":"18:24","v":4},"6":{"k":"Numbers","b":"18:25","e":"18:29","v":5},"7":{"k":"Numbers","b":"18:30","e":"18:32","v":3},"M":{"k":"Numbers","b":"18:30","e":"18:32","v":3}},"triYear":3,"triHaftara":"Ezekiel 45:1-15","triHaft":{"k":"Ezekiel","b":"45:1","e":"45:15","note":"portion of kohen and levi","v":15}},{"date":"2022-07-04","hdate":"5 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"weekday","parshaNum":39,"weekday":{"1":{"k":"Numbers","b":"19:1","e":"19:6","v":6},"2":{"k":"Numbers","b":"19:7","e":"19:9","v":3},"3":{"k":"Numbers","b":"19:10","e":"19:17","v":8}},"summary":"Numbers 19:1-17"},{"date":"2022-07-07","hdate":"8 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"weekday","parshaNum":39,"weekday":{"1":{"k":"Numbers","b":"19:1","e":"19:6","v":6},"2":{"k":"Numbers","b":"19:7","e":"19:9","v":3},"3":{"k":"Numbers","b":"19:10","e":"19:17","v":8}},"summary":"Numbers 19:1-17"},{"date":"2022-07-09","hdate":"10 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"shabbat","parshaNum":39,"summary":"Numbers 19:1-22:1","fullkriyah":{"1":{"k":"Numbers","b":"19:1","e":"19:17","v":17},"2":{"k":"Numbers","b":"19:18","e":"20:6","v":11},"3":{"k":"Numbers","b":"20:7","e":"20:13","v":7},"4":{"k":"Numbers","b":"20:14","e":"20:21","v":8},"5":{"k":"Numbers","b":"20:22","e":"21:9","v":17},"6":{"k":"Numbers","b":"21:10","e":"21:20","v":11},"7":{"k":"Numbers","b":"21:21","e":"22:1","v":16},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"haftara":"Judges 11:1-33","haft":{"k":"Judges","b":"11:1","e":"11:33","v":33},"triennial":{"1":{"k":"Numbers","b":"20:22","e":"21:3","v":11},"2":{"k":"Numbers","b":"21:4","e":"21:10","v":7},"3":{"k":"Numbers","b":"21:11","e":"21:16","v":6},"4":{"k":"Numbers","b":"21:17","e":"21:20","v":4},"5":{"k":"Numbers","b":"21:21","e":"21:25","v":5},"6":{"k":"Numbers","b":"21:26","e":"21:33","v":8},"7":{"k":"Numbers","b":"21:34","e":"22:1","v":3},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"triYear":3,"triHaftara":"II Kings 18:1-13, 19:15-19","triHaft":[{"k":"II Kings","b":"18:1","e":"18:13","note":"Hezekiah destroys nachash n'choshet // Moses builds nachash n'choshet","v":13},{"k":"II Kings","b":"19:15","e":"19:19","v":5}]},{"date":"2022-07-11","hdate":"12 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-14","hdate":"15 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-16","hdate":"17 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"shabbat","parshaNum":40,"summary":"Numbers 22:2-25:9","fullkriyah":{"1":{"k":"Numbers","b":"22:2","e":"22:12","v":11},"2":{"k":"Numbers","b":"22:13","e":"22:20","v":8},"3":{"k":"Numbers","b":"22:21","e":"22:38","v":18},"4":{"k":"Numbers","b":"22:39","e":"23:12","v":15},"5":{"k":"Numbers","b":"23:13","e":"23:26","v":14},"6":{"k":"Numbers","b":"23:27","e":"24:13","v":17},"7":{"k":"Numbers","b":"24:14","e":"25:9","v":21},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"haftara":"Micah 5:6-6:8","haft":{"k":"Micah","b":"5:6","e":"6:8","v":17},"triennial":{"1":{"k":"Numbers","b":"22:39","e":"23:5","v":8},"2":{"k":"Numbers","b":"23:6","e":"23:12","v":7},"3":{"k":"Numbers","b":"23:13","e":"23:26","v":14},"4":{"k":"Numbers","b":"23:27","e":"23:30","v":4},"5":{"k":"Numbers","b":"24:1","e":"24:13","v":13},"6":{"k":"Numbers","b":"24:14","e":"24:25","v":12},"7":{"k":"Numbers","b":"25:1","e":"25:9","v":9},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"triYear":3,"triHaftara":"Joshua 24:1-14","triHaft":{"k":"Joshua","b":"24:1","e":"24:14","note":"history mentions Balak","v":14}},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz","he":"צוֹם י״ז בְּתַמּוּז"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"3":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}]},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz (Mincha)","he":"צוֹם י״ז בְּתַמּוּז (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"M":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}],"haft":{"k":"Isaiah","b":"55:6","e":"56:8","v":16},"haftara":"Isaiah 55:6-56:8"},{"date":"2022-07-18","hdate":"19 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-21","hdate":"22 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-23","hdate":"24 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"shabbat","parshaNum":41,"summary":"Numbers 25:10-30:1","fullkriyah":{"1":{"k":"Numbers","b":"25:10","e":"26:4","v":14},"2":{"k":"Numbers","b":"26:5","e":"26:51","v":47},"3":{"k":"Numbers","b":"26:52","e":"27:5","v":19},"4":{"k":"Numbers","b":"27:6","e":"27:23","v":18},"5":{"k":"Numbers","b":"28:1","e":"28:15","v":15},"6":{"k":"Numbers","b":"28:16","e":"29:11","v":27},"7":{"k":"Numbers","b":"29:12","e":"30:1","v":29},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"haftara":"Jeremiah 1:1-2:3","haft":{"k":"Jeremiah","b":"1:1","e":"2:3","v":22,"reason":"Pinchas occurring after 17 Tammuz"},"admonition":1,"reason":{"haftara":"Pinchas occurring after 17 Tammuz"},"triennial":{"1":{"k":"Numbers","b":"28:16","e":"28:25","v":10},"2":{"k":"Numbers","b":"28:26","e":"28:31","v":6},"3":{"k":"Numbers","b":"29:1","e":"29:6","v":6},"4":{"k":"Numbers","b":"29:7","e":"29:11","v":5},"5":{"k":"Numbers","b":"29:12","e":"29:16","v":5},"6":{"k":"Numbers","b":"29:17","e":"29:28","v":12},"7":{"k":"Numbers","b":"29:29","e":"30:1","v":12},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"triYear":3},{"date":"2022-07-25","hdate":"26 Tamuz 5782","name":{"en":"Matot-Masei","he":"מַטּוֹת־מַסְעֵי"},"type":"weekday","parshaNum":[42,43],"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-28","hdate":"29 Tamuz 5782","name":{"en":"Matot-Masei","he":"מַטּוֹת־מַסְעֵי"},"type":"weekday","parshaNum":[42,43],"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-29","hdate":"1 Av 5782","name":{"en":"Rosh Chodesh Av","he":"רֹאשׁ חוֹדֶשׁ אָב"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-07-30","hdate":"2 Av 5782","name":{"en":"Matot-Masei","he":"מַטּוֹת־מַסְעֵי"},"type":"shabbat","parshaNum":[42,43],"summary":"Numbers 30:2-36:13","fullkriyah":{"1":{"k":"Numbers","b":"30:2","e":"31:12","v":28},"2":{"k":"Numbers","b":"31:13","e":"31:54","v":42},"3":{"k":"Numbers","b":"32:1","e":"32:19","v":19},"4":{"k":"Numbers","b":"32:20","e":"33:49","v":72},"5":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"6":{"k":"Numbers","b":"34:16","e":"35:8","v":22},"7":{"k":"Numbers","b":"35:9","e":"36:13","v":39},"M":{"k":"Numbers","b":"36:11","e":"36:13","v":3}},"haftara":"Jeremiah 2:4-28, 3:4","haft":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"3:4","e":"3:4","v":1}],"seph":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"4:1","e":"4:2","v":2}],"sephardic":"Jeremiah 2:4-28, 4:1-2","sephardicNumV":27,"admonition":2,"triennial":{"1":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"2":{"k":"Numbers","b":"34:16","e":"34:29","v":14},"3":{"k":"Numbers","b":"35:1","e":"35:8","v":8},"4":{"k":"Numbers","b":"35:9","e":"35:15","v":7},"5":{"k":"Numbers","b":"35:16","e":"35:29","v":14},"6":{"k":"Numbers","b":"35:30","e":"35:34","v":5},"7":{"k":"Numbers","b":"36:1","e":"36:13","v":13},"M":{"k":"Numbers","b":"36:10","e":"36:13","v":4}},"triYear":3,"triHaftara":"I Kings 9:2-9, 9:4-5a","triHaft":[{"k":"I Kings","b":"9:2","e":"9:9","note":"l'mashal v'lishninah","v":8},{"k":"I Kings","b":"9:4","e":"9:5a","v":2}]}]}` }, { "month": "2022-07", "region": "Israel", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=on", "retrieved": "2026-11-20", "file": "data/calendar/july2022-israel.json", "bytes": 10436, "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933", "raw": `{"date":"2026-11-20T17:40:44.362Z","location":"Israel","range":{"start":"2022-07-01","end":"2022-07-31"},"items":[{"date":"2022-07-02","hdate":"3 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"shabbat","parshaNum":39,"summary":"Numbers 19:1-22:1","fullkriyah":{"1":{"k":"Numbers","b":"19:1","e":"19:17","v":17},"2":{"k":"Numbers","b":"19:18","e":"20:6","v":11},"3":{"k":"Numbers","b":"20:7","e":"20:13","v":7},"4":{"k":"Numbers","b":"20:14","e":"20:21","v":8},"5":{"k":"Numbers","b":"20:22","e":"21:9","v":17},"6":{"k":"Numbers","b":"21:10","e":"21:20","v":11},"7":{"k":"Numbers","b":"21:21","e":"22:1","v":16},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"haftara":"Judges 11:1-33","haft":{"k":"Judges","b":"11:1","e":"11:33","v":33},"triennial":{"1":{"k":"Numbers","b":"21:11","e":"21:13","v":3},"2":{"k":"Numbers","b":"21:14","e":"21:16","v":3},"3":{"k":"Numbers","b":"21:17","e":"21:20","v":4},"4":{"k":"Numbers","b":"21:21","e":"21:25","v":5},"5":{"k":"Numbers","b":"21:26","e":"21:28","v":3},"6":{"k":"Numbers","b":"21:29","e":"21:33","v":5},"7":{"k":"Numbers","b":"21:34","e":"22:1","v":3},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"triYear":3,"triHaftara":"II Kings 18:1-13, 19:15-19","triHaft":[{"k":"II Kings","b":"18:1","e":"18:13","note":"Hezekiah destroys nachash n'choshet // Moses builds nachash n'choshet","v":13},{"k":"II Kings","b":"19:15","e":"19:19","v":5}]},{"date":"2022-07-04","hdate":"5 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-07","hdate":"8 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-09","hdate":"10 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"shabbat","parshaNum":40,"summary":"Numbers 22:2-25:9","fullkriyah":{"1":{"k":"Numbers","b":"22:2","e":"22:12","v":11},"2":{"k":"Numbers","b":"22:13","e":"22:20","v":8},"3":{"k":"Numbers","b":"22:21","e":"22:38","v":18},"4":{"k":"Numbers","b":"22:39","e":"23:12","v":15},"5":{"k":"Numbers","b":"23:13","e":"23:26","v":14},"6":{"k":"Numbers","b":"23:27","e":"24:13","v":17},"7":{"k":"Numbers","b":"24:14","e":"25:9","v":21},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"haftara":"Micah 5:6-6:8","haft":{"k":"Micah","b":"5:6","e":"6:8","v":17},"triennial":{"1":{"k":"Numbers","b":"23:27","e":"23:30","v":4},"2":{"k":"Numbers","b":"24:1","e":"24:9","v":9},"3":{"k":"Numbers","b":"24:10","e":"24:13","v":4},"4":{"k":"Numbers","b":"24:14","e":"24:19","v":6},"5":{"k":"Numbers","b":"24:20","e":"24:25","v":6},"6":{"k":"Numbers","b":"25:1","e":"25:6","v":6},"7":{"k":"Numbers","b":"25:7","e":"25:9","v":3},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"triYear":3,"triHaftara":"Joshua 24:1-14","triHaft":{"k":"Joshua","b":"24:1","e":"24:14","note":"history mentions Balak","v":14}},{"date":"2022-07-11","hdate":"12 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-14","hdate":"15 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-16","hdate":"17 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"shabbat","parshaNum":41,"summary":"Numbers 25:10-30:1","fullkriyah":{"1":{"k":"Numbers","b":"25:10","e":"26:4","v":14},"2":{"k":"Numbers","b":"26:5","e":"26:51","v":47},"3":{"k":"Numbers","b":"26:52","e":"27:5","v":19},"4":{"k":"Numbers","b":"27:6","e":"27:23","v":18},"5":{"k":"Numbers","b":"28:1","e":"28:15","v":15},"6":{"k":"Numbers","b":"28:16","e":"29:11","v":27},"7":{"k":"Numbers","b":"29:12","e":"30:1","v":29},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"haftara":"I Kings 18:46-19:21","haft":{"k":"I Kings","b":"18:46","e":"19:21","v":22},"triennial":{"1":{"k":"Numbers","b":"28:16","e":"28:25","v":10},"2":{"k":"Numbers","b":"28:26","e":"28:31","v":6},"3":{"k":"Numbers","b":"29:1","e":"29:6","v":6},"4":{"k":"Numbers","b":"29:7","e":"29:11","v":5},"5":{"k":"Numbers","b":"29:12","e":"29:16","v":5},"6":{"k":"Numbers","b":"29:17","e":"29:28","v":12},"7":{"k":"Numbers","b":"29:29","e":"30:1","v":12},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"triYear":3,"triHaftara":"Ezekiel 46:1-11","triHaft":{"k":"Ezekiel","b":"46:1","e":"46:11","note":"sacrifices on Shabbat and holidays // detailed festival sacrifices","v":11}},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz","he":"צוֹם י״ז בְּתַמּוּז"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"3":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}]},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz (Mincha)","he":"צוֹם י״ז בְּתַמּוּז (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"M":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}],"haft":{"k":"Isaiah","b":"55:6","e":"56:8","v":16},"haftara":"Isaiah 55:6-56:8"},{"date":"2022-07-18","hdate":"19 Tamuz 5782","name":{"en":"Matot","he":"מַטּוֹת"},"type":"weekday","parshaNum":42,"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-21","hdate":"22 Tamuz 5782","name":{"en":"Matot","he":"מַטּוֹת"},"type":"weekday","parshaNum":42,"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-23","hdate":"24 Tamuz 5782","name":{"en":"Matot","he":"מַטּוֹת"},"type":"shabbat","parshaNum":42,"summary":"Numbers 30:2-32:42","fullkriyah":{"1":{"k":"Numbers","b":"30:2","e":"30:17","v":16},"2":{"k":"Numbers","b":"31:1","e":"31:12","v":12},"3":{"k":"Numbers","b":"31:13","e":"31:24","v":12},"4":{"k":"Numbers","b":"31:25","e":"31:41","v":17},"5":{"k":"Numbers","b":"31:42","e":"31:54","v":13},"6":{"k":"Numbers","b":"32:1","e":"32:19","v":19},"7":{"k":"Numbers","b":"32:20","e":"32:42","v":23},"M":{"k":"Numbers","b":"32:39","e":"32:42","v":4}},"haftara":"Jeremiah 1:1-2:3","haft":{"k":"Jeremiah","b":"1:1","e":"2:3","v":22},"admonition":1,"triennial":{"1":{"k":"Numbers","b":"31:1","e":"32:4","v":58},"2":{"k":"Numbers","b":"32:5","e":"32:19","v":15},"3":{"k":"Numbers","b":"32:20","e":"32:24","v":5},"4":{"k":"Numbers","b":"32:25","e":"32:27","v":3},"5":{"k":"Numbers","b":"32:28","e":"32:30","v":3},"6":{"k":"Numbers","b":"32:31","e":"32:38","v":8},"7":{"k":"Numbers","b":"32:39","e":"32:42","v":4},"M":{"k":"Numbers","b":"32:39","e":"32:42","v":4}},"triYear":3,"triHaftara":"Jeremiah 14:11-22","triHaft":{"k":"Jeremiah","b":"14:11","e":"14:22","note":"ki yatzumu, eineni shomea","v":12}},{"date":"2022-07-25","hdate":"26 Tamuz 5782","name":{"en":"Masei","he":"מַסְעֵי"},"type":"weekday","parshaNum":43,"weekday":{"1":{"k":"Numbers","b":"33:1","e":"33:3","v":3},"2":{"k":"Numbers","b":"33:4","e":"33:6","v":3},"3":{"k":"Numbers","b":"33:7","e":"33:10","v":4}},"summary":"Numbers 33:1-10"},{"date":"2022-07-28","hdate":"29 Tamuz 5782","name":{"en":"Masei","he":"מַסְעֵי"},"type":"weekday","parshaNum":43,"weekday":{"1":{"k":"Numbers","b":"33:1","e":"33:3","v":3},"2":{"k":"Numbers","b":"33:4","e":"33:6","v":3},"3":{"k":"Numbers","b":"33:7","e":"33:10","v":4}},"summary":"Numbers 33:1-10"},{"date":"2022-07-29","hdate":"1 Av 5782","name":{"en":"Rosh Chodesh Av","he":"רֹאשׁ חוֹדֶשׁ אָב"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-07-30","hdate":"2 Av 5782","name":{"en":"Masei","he":"מַסְעֵי"},"type":"shabbat","parshaNum":43,"summary":"Numbers 33:1-36:13","fullkriyah":{"1":{"k":"Numbers","b":"33:1","e":"33:10","v":10},"2":{"k":"Numbers","b":"33:11","e":"33:49","v":39},"3":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"4":{"k":"Numbers","b":"34:16","e":"34:29","v":14},"5":{"k":"Numbers","b":"35:1","e":"35:8","v":8},"6":{"k":"Numbers","b":"35:9","e":"35:34","v":26},"7":{"k":"Numbers","b":"36:1","e":"36:13","v":13},"M":{"k":"Numbers","b":"36:11","e":"36:13","v":3}},"haftara":"Jeremiah 2:4-28, 3:4","haft":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"3:4","e":"3:4","v":1}],"seph":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"4:1","e":"4:2","v":2}],"sephardic":"Jeremiah 2:4-28, 4:1-2","sephardicNumV":27,"admonition":2,"triennial":{"1":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"2":{"k":"Numbers","b":"34:16","e":"34:29","v":14},"3":{"k":"Numbers","b":"35:1","e":"35:8","v":8},"4":{"k":"Numbers","b":"35:9","e":"35:15","v":7},"5":{"k":"Numbers","b":"35:16","e":"35:29","v":14},"6":{"k":"Numbers","b":"35:30","e":"35:34","v":5},"7":{"k":"Numbers","b":"36:1","e":"36:13","v":13},"M":{"k":"Numbers","b":"36:10","e":"36:13","v":4}},"triYear":3,"triHaftara":"I Kings 9:2-9, 9:4-5a","triHaft":[{"k":"I Kings","b":"9:2","e":"9:9","note":"l'mashal v'lishninah","v":8},{"k":"I Kings","b":"9:4","e":"9:5a","v":2}]}]}` }];
+  var calendarExamples = [{ "month": "2022-04", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=off", "retrieved": "2026-11-20", "file": "data/calendar/april2022-diaspora.json", "bytes": 12454, "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098", "raw": '{"date":"2026-11-20T17:40:44.298Z","location":"Diaspora","range":{"start":"2022-04-01","end":"2022-04-30"},"items":[{"date":"2022-04-02","hdate":"1 Nisan 5782","name":{"en":"Tazria","he":"תַזְרִיעַ"},"type":"shabbat","parshaNum":27,"summary":"Leviticus 12:1-13:59; Numbers 28:9-15; Exodus 12:1-20","fullkriyah":{"1":{"k":"Leviticus","b":"12:1","e":"13:5","v":13},"2":{"k":"Leviticus","b":"13:6","e":"13:17","v":12},"3":{"k":"Leviticus","b":"13:18","e":"13:23","v":6},"4":{"k":"Leviticus","b":"13:24","e":"13:28","v":5},"5":{"k":"Leviticus","b":"13:29","e":"13:39","v":11},"6":{"k":"Leviticus","b":"13:40","e":"13:59","v":20},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"haftara":"Ezekiel 45:16-46:18","haft":{"k":"Ezekiel","b":"45:16","e":"46:18","v":28,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"seph":{"k":"Ezekiel","b":"45:18","e":"46:15","v":23,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"sephardic":"Ezekiel 45:18-46:15","sephardicNumV":23,"summaryParts":[{"k":"Leviticus","b":"12:1","e":"13:59"},{"k":"Numbers","b":"28:9","e":"28:15"},{"k":"Exodus","b":"12:1","e":"12:20"}],"reason":{"7":"Shabbat HaChodesh (on Rosh Chodesh)","haftara":"Shabbat HaChodesh (on Rosh Chodesh)","sephardic":"Shabbat HaChodesh (on Rosh Chodesh)","M":"Shabbat HaChodesh (on Rosh Chodesh)"},"triennial":{"1":{"k":"Leviticus","b":"13:29","e":"13:34","v":6},"2":{"k":"Leviticus","b":"13:35","e":"13:39","v":5},"3":{"k":"Leviticus","b":"13:40","e":"13:42","v":3},"4":{"k":"Leviticus","b":"13:43","e":"13:46","v":4},"5":{"k":"Leviticus","b":"13:47","e":"13:50","v":4},"6":{"k":"Leviticus","b":"13:51","e":"13:59","v":9},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"triYear":3},{"date":"2022-04-04","hdate":"3 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-07","hdate":"6 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-09","hdate":"8 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"shabbat","parshaNum":28,"summary":"Leviticus 14:1-15:33","fullkriyah":{"1":{"k":"Leviticus","b":"14:1","e":"14:12","v":12},"2":{"k":"Leviticus","b":"14:13","e":"14:20","v":8},"3":{"k":"Leviticus","b":"14:21","e":"14:32","v":12},"4":{"k":"Leviticus","b":"14:33","e":"14:53","v":21},"5":{"k":"Leviticus","b":"14:54","e":"15:15","v":19},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"haftara":"Malachi 3:4-24","haft":{"k":"Malachi","b":"3:4","e":"3:24","v":21,"reason":"Shabbat HaGadol"},"reason":{"haftara":"Shabbat HaGadol"},"triennial":{"1":{"k":"Leviticus","b":"14:33","e":"14:38","v":6},"2":{"k":"Leviticus","b":"14:39","e":"14:47","v":9},"3":{"k":"Leviticus","b":"14:48","e":"14:53","v":6},"4":{"k":"Leviticus","b":"14:54","e":"15:7","v":11},"5":{"k":"Leviticus","b":"15:8","e":"15:15","v":8},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"triYear":3},{"date":"2022-04-11","hdate":"10 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-14","hdate":"13 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-16","hdate":"15 Nisan 5782","name":{"en":"Pesach I (on Shabbat)","he":"פֶּסַח יוֹם א׳ (בְּשַׁבָּת)"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"12:21","e":"12:24","v":4},"2":{"p":15,"k":"Exodus","b":"12:25","e":"12:28","v":4},"3":{"p":15,"k":"Exodus","b":"12:29","e":"12:32","v":4},"4":{"p":15,"k":"Exodus","b":"12:33","e":"12:36","v":4},"5":{"p":15,"k":"Exodus","b":"12:37","e":"12:42","v":6},"6":{"p":15,"k":"Exodus","b":"12:43","e":"12:47","v":5},"7":{"p":15,"k":"Exodus","b":"12:48","e":"12:51","v":4},"M":{"p":41,"k":"Numbers","b":"28:16","e":"28:25","v":10}},"summary":"Exodus 12:21-51; Numbers 28:16-25","summaryParts":[{"k":"Exodus","b":"12:21","e":"12:51"},{"k":"Numbers","b":"28:16","e":"28:25"}],"haft":[{"k":"Joshua","b":"3:5","e":"3:7","v":3},{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"haftara":"Joshua 3:5-7, 5:2-6:1, 6:27","seph":[{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"sephardic":"Joshua 5:2-6:1, 6:27","sephardicNumV":16},{"date":"2022-04-17","hdate":"16 Nisan 5782","name":{"en":"Pesach II","he":"פֶּסַח ב׳"},"type":"holiday","fullkriyah":{"1":{"p":31,"k":"Leviticus","b":"22:26","e":"23:3","v":11},"2":{"p":31,"k":"Leviticus","b":"23:4","e":"23:14","v":11},"3":{"p":31,"k":"Leviticus","b":"23:15","e":"23:22","v":8},"4":{"p":31,"k":"Leviticus","b":"23:23","e":"23:32","v":10},"5":{"p":31,"k":"Leviticus","b":"23:33","e":"23:44","v":12},"M":{"p":41,"k":"Numbers","b":"28:16","e":"28:25","v":10}},"summary":"Leviticus 22:26-23:44; Numbers 28:16-25","summaryParts":[{"k":"Leviticus","b":"22:26","e":"23:44"},{"k":"Numbers","b":"28:16","e":"28:25"}],"haft":[{"k":"II Kings","b":"23:1","e":"23:9","v":9},{"k":"II Kings","b":"23:21","e":"23:25","v":5}],"haftara":"II Kings 23:1-9, 23:21-25"},{"date":"2022-04-18","hdate":"17 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 1","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם א׳"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"13:1","e":"13:4","v":4},"2":{"p":15,"k":"Exodus","b":"13:5","e":"13:10","v":6},"3":{"p":15,"k":"Exodus","b":"13:11","e":"13:16","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:1-16; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:1","e":"13:16"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-19","hdate":"18 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 2","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם ב׳"},"type":"holiday","fullkriyah":{"1":{"p":18,"k":"Exodus","b":"22:24","e":"22:26","v":3},"2":{"p":18,"k":"Exodus","b":"22:27","e":"23:5","v":9},"3":{"p":18,"k":"Exodus","b":"23:6","e":"23:19","v":14},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 22:24-23:19; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"22:24","e":"23:19"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-20","hdate":"19 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 3","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם ג׳"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"34:1","e":"34:10","v":10},"2":{"p":21,"k":"Exodus","b":"34:11","e":"34:17","v":7},"3":{"p":21,"k":"Exodus","b":"34:18","e":"34:26","v":9},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 34:1-26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"34:1","e":"34:26"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-21","hdate":"20 Nisan 5782","name":{"en":"Pesach Chol ha-Moed Day 4","he":"פֶּסַח חֹל הַמּוֹעֵד יוֹם ד׳"},"type":"holiday","fullkriyah":{"1":{"p":36,"k":"Numbers","b":"9:1","e":"9:5","v":5},"2":{"p":36,"k":"Numbers","b":"9:6","e":"9:8","v":3},"3":{"p":36,"k":"Numbers","b":"9:9","e":"9:14","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Numbers 9:1-14, 28:19-25","summaryParts":[{"k":"Numbers","b":"9:1","e":"9:14"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-22","hdate":"21 Nisan 5782","name":{"en":"Pesach VII","he":"פֶּסַח ז׳"},"type":"holiday","fullkriyah":{"1":{"p":16,"k":"Exodus","b":"13:17","e":"13:22","v":6},"2":{"p":16,"k":"Exodus","b":"14:1","e":"14:8","v":8},"3":{"p":16,"k":"Exodus","b":"14:9","e":"14:14","v":6},"4":{"p":16,"k":"Exodus","b":"14:15","e":"14:25","v":11},"5":{"p":16,"k":"Exodus","b":"14:26","e":"15:26","v":32},"M":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:17-15:26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:17","e":"15:26"},{"k":"Numbers","b":"28:19","e":"28:25"}],"haft":{"k":"II Samuel","b":"22:1","e":"22:51","v":51},"haftara":"II Samuel 22:1-51"},{"date":"2022-04-23","hdate":"22 Nisan 5782","name":{"en":"Pesach VIII (on Shabbat)","he":"פֶּסַח ח׳ (בְּשַׁבָּת)"},"type":"holiday","fullkriyah":{"1":{"p":47,"k":"Deuteronomy","b":"14:22","e":"14:29","v":8},"2":{"p":47,"k":"Deuteronomy","b":"15:1","e":"15:18","v":18},"3":{"p":47,"k":"Deuteronomy","b":"15:19","e":"15:23","v":5},"4":{"p":47,"k":"Deuteronomy","b":"16:1","e":"16:3","v":3},"5":{"p":47,"k":"Deuteronomy","b":"16:4","e":"16:8","v":5},"6":{"p":47,"k":"Deuteronomy","b":"16:9","e":"16:12","v":4},"7":{"p":47,"k":"Deuteronomy","b":"16:13","e":"16:17","v":5},"M":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Deuteronomy 14:22-16:17; Numbers 28:19-25; Song of Songs 1:1-8:14","summaryParts":[{"k":"Deuteronomy","b":"14:22","e":"16:17"},{"k":"Numbers","b":"28:19","e":"28:25"},{"k":"Song of Songs","b":"1:1","e":"8:14"}],"haft":{"k":"Isaiah","b":"10:32","e":"12:6","v":25},"haftara":"Isaiah 10:32-12:6","megillah":{"1":{"k":"Song of Songs","b":"1:1","e":"1:17","v":17},"2":{"k":"Song of Songs","b":"2:1","e":"2:17","v":17},"3":{"k":"Song of Songs","b":"3:1","e":"3:11","v":11},"4":{"k":"Song of Songs","b":"4:1","e":"4:16","v":16},"5":{"k":"Song of Songs","b":"5:1","e":"5:16","v":16},"6":{"k":"Song of Songs","b":"6:1","e":"6:12","v":12},"7":{"k":"Song of Songs","b":"7:1","e":"7:14","v":14},"8":{"k":"Song of Songs","b":"8:1","e":"8:14","v":14}}},{"date":"2022-04-25","hdate":"24 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-28","hdate":"27 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-30","hdate":"29 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"shabbat","parshaNum":29,"summary":"Leviticus 16:1-18:30","fullkriyah":{"1":{"k":"Leviticus","b":"16:1","e":"16:17","v":17},"2":{"k":"Leviticus","b":"16:18","e":"16:24","v":7},"3":{"k":"Leviticus","b":"16:25","e":"16:34","v":10},"4":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"5":{"k":"Leviticus","b":"17:8","e":"18:5","v":14},"6":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"7":{"k":"Leviticus","b":"18:22","e":"18:30","v":9},"M":{"k":"Leviticus","b":"18:28","e":"18:30","v":3}},"haftara":"I Samuel 20:18-42","haft":{"k":"I Samuel","b":"20:18","e":"20:42","v":25,"reason":"Shabbat Machar Chodesh"},"reason":{"haftara":"Shabbat Machar Chodesh"},"triennial":{"1":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"2":{"k":"Leviticus","b":"17:8","e":"17:12","v":5},"3":{"k":"Leviticus","b":"17:13","e":"17:16","v":4},"4":{"k":"Leviticus","b":"18:1","e":"18:5","v":5},"5":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"6":{"k":"Leviticus","b":"18:22","e":"18:25","v":4},"7":{"k":"Leviticus","b":"18:26","e":"18:30","v":5},"M":{"k":"Leviticus","b":"18:26","e":"18:30","v":5}},"triYear":3}]}' }, { "month": "2022-04", "region": "Israel", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=on", "retrieved": "2026-11-20", "file": "data/calendar/april2022-israel.json", "bytes": 12519, "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141", "raw": `{"date":"2026-11-20T17:40:43.049Z","location":"Israel","range":{"start":"2022-04-01","end":"2022-04-30"},"items":[{"date":"2022-04-02","hdate":"1 Nisan 5782","name":{"en":"Tazria","he":"תַזְרִיעַ"},"type":"shabbat","parshaNum":27,"summary":"Leviticus 12:1-13:59; Numbers 28:9-15; Exodus 12:1-20","fullkriyah":{"1":{"k":"Leviticus","b":"12:1","e":"13:5","v":13},"2":{"k":"Leviticus","b":"13:6","e":"13:17","v":12},"3":{"k":"Leviticus","b":"13:18","e":"13:23","v":6},"4":{"k":"Leviticus","b":"13:24","e":"13:28","v":5},"5":{"k":"Leviticus","b":"13:29","e":"13:39","v":11},"6":{"k":"Leviticus","b":"13:40","e":"13:59","v":20},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"haftara":"Ezekiel 45:16-46:18","haft":{"k":"Ezekiel","b":"45:16","e":"46:18","v":28,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"seph":{"k":"Ezekiel","b":"45:18","e":"46:15","v":23,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"sephardic":"Ezekiel 45:18-46:15","sephardicNumV":23,"summaryParts":[{"k":"Leviticus","b":"12:1","e":"13:59"},{"k":"Numbers","b":"28:9","e":"28:15"},{"k":"Exodus","b":"12:1","e":"12:20"}],"reason":{"7":"Shabbat HaChodesh (on Rosh Chodesh)","haftara":"Shabbat HaChodesh (on Rosh Chodesh)","sephardic":"Shabbat HaChodesh (on Rosh Chodesh)","M":"Shabbat HaChodesh (on Rosh Chodesh)"},"triennial":{"1":{"k":"Leviticus","b":"13:29","e":"13:34","v":6},"2":{"k":"Leviticus","b":"13:35","e":"13:39","v":5},"3":{"k":"Leviticus","b":"13:40","e":"13:42","v":3},"4":{"k":"Leviticus","b":"13:43","e":"13:46","v":4},"5":{"k":"Leviticus","b":"13:47","e":"13:50","v":4},"6":{"k":"Leviticus","b":"13:51","e":"13:59","v":9},"7":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"},"M":{"p":15,"k":"Exodus","b":"12:1","e":"12:20","v":20,"reason":"Shabbat HaChodesh (on Rosh Chodesh)"}},"triYear":3},{"date":"2022-04-04","hdate":"3 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-07","hdate":"6 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"weekday","parshaNum":28,"weekday":{"1":{"k":"Leviticus","b":"14:1","e":"14:5","v":5},"2":{"k":"Leviticus","b":"14:6","e":"14:9","v":4},"3":{"k":"Leviticus","b":"14:10","e":"14:12","v":3}},"summary":"Leviticus 14:1-12"},{"date":"2022-04-09","hdate":"8 Nisan 5782","name":{"en":"Metzora","he":"מְצֹרָע"},"type":"shabbat","parshaNum":28,"summary":"Leviticus 14:1-15:33","fullkriyah":{"1":{"k":"Leviticus","b":"14:1","e":"14:12","v":12},"2":{"k":"Leviticus","b":"14:13","e":"14:20","v":8},"3":{"k":"Leviticus","b":"14:21","e":"14:32","v":12},"4":{"k":"Leviticus","b":"14:33","e":"14:53","v":21},"5":{"k":"Leviticus","b":"14:54","e":"15:15","v":19},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"haftara":"Malachi 3:4-24","haft":{"k":"Malachi","b":"3:4","e":"3:24","v":21,"reason":"Shabbat HaGadol"},"reason":{"haftara":"Shabbat HaGadol"},"triennial":{"1":{"k":"Leviticus","b":"14:33","e":"14:38","v":6},"2":{"k":"Leviticus","b":"14:39","e":"14:47","v":9},"3":{"k":"Leviticus","b":"14:48","e":"14:53","v":6},"4":{"k":"Leviticus","b":"14:54","e":"15:7","v":11},"5":{"k":"Leviticus","b":"15:8","e":"15:15","v":8},"6":{"k":"Leviticus","b":"15:16","e":"15:28","v":13},"7":{"k":"Leviticus","b":"15:29","e":"15:33","v":5},"M":{"k":"Leviticus","b":"15:31","e":"15:33","v":3}},"triYear":3},{"date":"2022-04-11","hdate":"10 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-14","hdate":"13 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"weekday","parshaNum":29,"weekday":{"1":{"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"k":"Leviticus","b":"16:12","e":"16:17","v":6}},"summary":"Leviticus 16:1-17"},{"date":"2022-04-16","hdate":"15 Nisan 5782","name":{"en":"Pesach I (on Shabbat)","he":"פֶּסַח יוֹם א׳ (בְּשַׁבָּת)"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"12:21","e":"12:24","v":4},"2":{"p":15,"k":"Exodus","b":"12:25","e":"12:28","v":4},"3":{"p":15,"k":"Exodus","b":"12:29","e":"12:32","v":4},"4":{"p":15,"k":"Exodus","b":"12:33","e":"12:36","v":4},"5":{"p":15,"k":"Exodus","b":"12:37","e":"12:42","v":6},"6":{"p":15,"k":"Exodus","b":"12:43","e":"12:47","v":5},"7":{"p":15,"k":"Exodus","b":"12:48","e":"12:51","v":4},"M":{"p":41,"k":"Numbers","b":"28:16","e":"28:25","v":10}},"summary":"Exodus 12:21-51; Numbers 28:16-25; Song of Songs 1:1-8:14","summaryParts":[{"k":"Exodus","b":"12:21","e":"12:51"},{"k":"Numbers","b":"28:16","e":"28:25"},{"k":"Song of Songs","b":"1:1","e":"8:14"}],"haft":[{"k":"Joshua","b":"3:5","e":"3:7","v":3},{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"haftara":"Joshua 3:5-7, 5:2-6:1, 6:27","seph":[{"k":"Joshua","b":"5:2","e":"6:1","v":15},{"k":"Joshua","b":"6:27","e":"6:27","v":1}],"sephardic":"Joshua 5:2-6:1, 6:27","sephardicNumV":16,"megillah":{"1":{"k":"Song of Songs","b":"1:1","e":"1:17","v":17},"2":{"k":"Song of Songs","b":"2:1","e":"2:17","v":17},"3":{"k":"Song of Songs","b":"3:1","e":"3:11","v":11},"4":{"k":"Song of Songs","b":"4:1","e":"4:16","v":16},"5":{"k":"Song of Songs","b":"5:1","e":"5:16","v":16},"6":{"k":"Song of Songs","b":"6:1","e":"6:12","v":12},"7":{"k":"Song of Songs","b":"7:1","e":"7:14","v":14},"8":{"k":"Song of Songs","b":"8:1","e":"8:14","v":14}}},{"date":"2022-04-17","hdate":"16 Nisan 5782","name":{"en":"Pesach II (CH''M)","he":"פֶּסַח ב׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":31,"k":"Leviticus","b":"22:26","e":"23:8","v":16},"2":{"p":31,"k":"Leviticus","b":"23:9","e":"23:14","v":6},"3":{"p":31,"k":"Leviticus","b":"23:15","e":"23:44","v":30},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Leviticus 22:26-23:44; Numbers 28:19-25","summaryParts":[{"k":"Leviticus","b":"22:26","e":"23:44"},{"k":"Numbers","b":"28:19","e":"28:25"}],"note":"Israel only - according to Vaani T'fillati Siddur Yisraeli"},{"date":"2022-04-18","hdate":"17 Nisan 5782","name":{"en":"Pesach III (CH''M)","he":"פֶּסַח ג׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":15,"k":"Exodus","b":"13:1","e":"13:4","v":4},"2":{"p":15,"k":"Exodus","b":"13:5","e":"13:10","v":6},"3":{"p":15,"k":"Exodus","b":"13:11","e":"13:16","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:1-16; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:1","e":"13:16"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-19","hdate":"18 Nisan 5782","name":{"en":"Pesach IV (CH''M)","he":"פֶּסַח ד׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":18,"k":"Exodus","b":"22:24","e":"22:26","v":3},"2":{"p":18,"k":"Exodus","b":"22:27","e":"23:5","v":9},"3":{"p":18,"k":"Exodus","b":"23:6","e":"23:19","v":14},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 22:24-23:19; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"22:24","e":"23:19"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-20","hdate":"19 Nisan 5782","name":{"en":"Pesach V (CH''M)","he":"פֶּסַח ה׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"34:1","e":"34:10","v":10},"2":{"p":21,"k":"Exodus","b":"34:11","e":"34:17","v":7},"3":{"p":21,"k":"Exodus","b":"34:18","e":"34:26","v":9},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 34:1-26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"34:1","e":"34:26"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-21","hdate":"20 Nisan 5782","name":{"en":"Pesach VI (CH''M)","he":"פֶּסַח ו׳ (חוה״מ)"},"type":"holiday","fullkriyah":{"1":{"p":36,"k":"Numbers","b":"9:1","e":"9:5","v":5},"2":{"p":36,"k":"Numbers","b":"9:6","e":"9:8","v":3},"3":{"p":36,"k":"Numbers","b":"9:9","e":"9:14","v":6},"4":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Numbers 9:1-14, 28:19-25","summaryParts":[{"k":"Numbers","b":"9:1","e":"9:14"},{"k":"Numbers","b":"28:19","e":"28:25"}]},{"date":"2022-04-22","hdate":"21 Nisan 5782","name":{"en":"Pesach VII","he":"פֶּסַח ז׳"},"type":"holiday","fullkriyah":{"1":{"p":16,"k":"Exodus","b":"13:17","e":"13:22","v":6},"2":{"p":16,"k":"Exodus","b":"14:1","e":"14:8","v":8},"3":{"p":16,"k":"Exodus","b":"14:9","e":"14:14","v":6},"4":{"p":16,"k":"Exodus","b":"14:15","e":"14:25","v":11},"5":{"p":16,"k":"Exodus","b":"14:26","e":"15:26","v":32},"M":{"p":41,"k":"Numbers","b":"28:19","e":"28:25","v":7}},"summary":"Exodus 13:17-15:26; Numbers 28:19-25","summaryParts":[{"k":"Exodus","b":"13:17","e":"15:26"},{"k":"Numbers","b":"28:19","e":"28:25"}],"haft":{"k":"II Samuel","b":"22:1","e":"22:51","v":51},"haftara":"II Samuel 22:1-51"},{"date":"2022-04-23","hdate":"22 Nisan 5782","name":{"en":"Achrei Mot","he":"אַחֲרֵי מוֹת"},"type":"shabbat","parshaNum":29,"summary":"Leviticus 16:1-18:30","fullkriyah":{"1":{"k":"Leviticus","b":"16:1","e":"16:17","v":17},"2":{"k":"Leviticus","b":"16:18","e":"16:24","v":7},"3":{"k":"Leviticus","b":"16:25","e":"16:34","v":10},"4":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"5":{"k":"Leviticus","b":"17:8","e":"18:5","v":14},"6":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"7":{"k":"Leviticus","b":"18:22","e":"18:30","v":9},"M":{"k":"Leviticus","b":"18:28","e":"18:30","v":3}},"haftara":"Amos 9:7-15","haft":{"k":"Amos","b":"9:7","e":"9:15","v":9},"seph":{"k":"Ezekiel","b":"22:1","e":"22:16","v":16},"sephardic":"Ezekiel 22:1-16","sephardicNumV":16,"chabad":{"k":"Amos","b":"9:7","e":"9:15","v":9},"triennial":{"1":{"k":"Leviticus","b":"17:1","e":"17:7","v":7},"2":{"k":"Leviticus","b":"17:8","e":"17:12","v":5},"3":{"k":"Leviticus","b":"17:13","e":"17:16","v":4},"4":{"k":"Leviticus","b":"18:1","e":"18:5","v":5},"5":{"k":"Leviticus","b":"18:6","e":"18:21","v":16},"6":{"k":"Leviticus","b":"18:22","e":"18:25","v":4},"7":{"k":"Leviticus","b":"18:26","e":"18:30","v":5},"M":{"k":"Leviticus","b":"18:26","e":"18:30","v":5}},"triYear":3},{"date":"2022-04-25","hdate":"24 Nisan 5782","name":{"en":"Kedoshim","he":"קְדֹשִׁים"},"type":"weekday","parshaNum":30,"weekday":{"1":{"k":"Leviticus","b":"19:1","e":"19:4","v":4},"2":{"k":"Leviticus","b":"19:5","e":"19:10","v":6},"3":{"k":"Leviticus","b":"19:11","e":"19:14","v":4}},"summary":"Leviticus 19:1-14"},{"date":"2022-04-28","hdate":"27 Nisan 5782","name":{"en":"Kedoshim","he":"קְדֹשִׁים"},"type":"weekday","parshaNum":30,"weekday":{"1":{"k":"Leviticus","b":"19:1","e":"19:4","v":4},"2":{"k":"Leviticus","b":"19:5","e":"19:10","v":6},"3":{"k":"Leviticus","b":"19:11","e":"19:14","v":4}},"summary":"Leviticus 19:1-14"},{"date":"2022-04-30","hdate":"29 Nisan 5782","name":{"en":"Kedoshim","he":"קְדֹשִׁים"},"type":"shabbat","parshaNum":30,"summary":"Leviticus 19:1-20:27","fullkriyah":{"1":{"k":"Leviticus","b":"19:1","e":"19:14","v":14},"2":{"k":"Leviticus","b":"19:15","e":"19:22","v":8},"3":{"k":"Leviticus","b":"19:23","e":"19:32","v":10},"4":{"k":"Leviticus","b":"19:33","e":"19:37","v":5},"5":{"k":"Leviticus","b":"20:1","e":"20:7","v":7},"6":{"k":"Leviticus","b":"20:8","e":"20:22","v":15},"7":{"k":"Leviticus","b":"20:23","e":"20:27","v":5},"M":{"k":"Leviticus","b":"20:25","e":"20:27","v":3}},"haftara":"I Samuel 20:18-42","haft":{"k":"I Samuel","b":"20:18","e":"20:42","v":25,"reason":"Shabbat Machar Chodesh"},"reason":{"haftara":"Shabbat Machar Chodesh"},"triennial":{"1":{"k":"Leviticus","b":"19:15","e":"19:18","v":4},"2":{"k":"Leviticus","b":"19:19","e":"19:22","v":4},"3":{"k":"Leviticus","b":"19:23","e":"19:32","v":10},"4":{"k":"Leviticus","b":"19:33","e":"19:37","v":5},"5":{"k":"Leviticus","b":"20:1","e":"20:7","v":7},"6":{"k":"Leviticus","b":"20:8","e":"20:22","v":15},"7":{"k":"Leviticus","b":"20:23","e":"20:27","v":5},"M":{"k":"Leviticus","b":"20:25","e":"20:27","v":3}},"triYear":3}]}` }, { "month": "2022-07", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=off", "retrieved": "2026-11-20", "file": "data/calendar/july2022-diaspora.json", "bytes": 10455, "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3", "raw": `{"date":"2026-11-20T17:40:20.026Z","location":"Diaspora","range":{"start":"2022-07-01","end":"2022-07-31"},"items":[{"date":"2022-07-02","hdate":"3 Tamuz 5782","name":{"en":"Korach","he":"קֹרַח"},"type":"shabbat","parshaNum":38,"summary":"Numbers 16:1-18:32","fullkriyah":{"1":{"k":"Numbers","b":"16:1","e":"16:13","v":13},"2":{"k":"Numbers","b":"16:14","e":"16:19","v":6},"3":{"k":"Numbers","b":"16:20","e":"17:8","v":24},"4":{"k":"Numbers","b":"17:9","e":"17:15","v":7},"5":{"k":"Numbers","b":"17:16","e":"17:24","v":9},"6":{"k":"Numbers","b":"17:25","e":"18:20","v":24},"7":{"k":"Numbers","b":"18:21","e":"18:32","v":12},"M":{"k":"Numbers","b":"18:30","e":"18:32","v":3}},"haftara":"I Samuel 11:14-12:22","haft":{"k":"I Samuel","b":"11:14","e":"12:22","v":24},"triennial":{"1":{"k":"Numbers","b":"17:25","e":"18:7","v":11},"2":{"k":"Numbers","b":"18:8","e":"18:10","v":3},"3":{"k":"Numbers","b":"18:11","e":"18:13","v":3},"4":{"k":"Numbers","b":"18:14","e":"18:20","v":7},"5":{"k":"Numbers","b":"18:21","e":"18:24","v":4},"6":{"k":"Numbers","b":"18:25","e":"18:29","v":5},"7":{"k":"Numbers","b":"18:30","e":"18:32","v":3},"M":{"k":"Numbers","b":"18:30","e":"18:32","v":3}},"triYear":3,"triHaftara":"Ezekiel 45:1-15","triHaft":{"k":"Ezekiel","b":"45:1","e":"45:15","note":"portion of kohen and levi","v":15}},{"date":"2022-07-04","hdate":"5 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"weekday","parshaNum":39,"weekday":{"1":{"k":"Numbers","b":"19:1","e":"19:6","v":6},"2":{"k":"Numbers","b":"19:7","e":"19:9","v":3},"3":{"k":"Numbers","b":"19:10","e":"19:17","v":8}},"summary":"Numbers 19:1-17"},{"date":"2022-07-07","hdate":"8 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"weekday","parshaNum":39,"weekday":{"1":{"k":"Numbers","b":"19:1","e":"19:6","v":6},"2":{"k":"Numbers","b":"19:7","e":"19:9","v":3},"3":{"k":"Numbers","b":"19:10","e":"19:17","v":8}},"summary":"Numbers 19:1-17"},{"date":"2022-07-09","hdate":"10 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"shabbat","parshaNum":39,"summary":"Numbers 19:1-22:1","fullkriyah":{"1":{"k":"Numbers","b":"19:1","e":"19:17","v":17},"2":{"k":"Numbers","b":"19:18","e":"20:6","v":11},"3":{"k":"Numbers","b":"20:7","e":"20:13","v":7},"4":{"k":"Numbers","b":"20:14","e":"20:21","v":8},"5":{"k":"Numbers","b":"20:22","e":"21:9","v":17},"6":{"k":"Numbers","b":"21:10","e":"21:20","v":11},"7":{"k":"Numbers","b":"21:21","e":"22:1","v":16},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"haftara":"Judges 11:1-33","haft":{"k":"Judges","b":"11:1","e":"11:33","v":33},"triennial":{"1":{"k":"Numbers","b":"20:22","e":"21:3","v":11},"2":{"k":"Numbers","b":"21:4","e":"21:10","v":7},"3":{"k":"Numbers","b":"21:11","e":"21:16","v":6},"4":{"k":"Numbers","b":"21:17","e":"21:20","v":4},"5":{"k":"Numbers","b":"21:21","e":"21:25","v":5},"6":{"k":"Numbers","b":"21:26","e":"21:33","v":8},"7":{"k":"Numbers","b":"21:34","e":"22:1","v":3},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"triYear":3,"triHaftara":"II Kings 18:1-13, 19:15-19","triHaft":[{"k":"II Kings","b":"18:1","e":"18:13","note":"Hezekiah destroys nachash n'choshet // Moses builds nachash n'choshet","v":13},{"k":"II Kings","b":"19:15","e":"19:19","v":5}]},{"date":"2022-07-11","hdate":"12 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-14","hdate":"15 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-16","hdate":"17 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"shabbat","parshaNum":40,"summary":"Numbers 22:2-25:9","fullkriyah":{"1":{"k":"Numbers","b":"22:2","e":"22:12","v":11},"2":{"k":"Numbers","b":"22:13","e":"22:20","v":8},"3":{"k":"Numbers","b":"22:21","e":"22:38","v":18},"4":{"k":"Numbers","b":"22:39","e":"23:12","v":15},"5":{"k":"Numbers","b":"23:13","e":"23:26","v":14},"6":{"k":"Numbers","b":"23:27","e":"24:13","v":17},"7":{"k":"Numbers","b":"24:14","e":"25:9","v":21},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"haftara":"Micah 5:6-6:8","haft":{"k":"Micah","b":"5:6","e":"6:8","v":17},"triennial":{"1":{"k":"Numbers","b":"22:39","e":"23:5","v":8},"2":{"k":"Numbers","b":"23:6","e":"23:12","v":7},"3":{"k":"Numbers","b":"23:13","e":"23:26","v":14},"4":{"k":"Numbers","b":"23:27","e":"23:30","v":4},"5":{"k":"Numbers","b":"24:1","e":"24:13","v":13},"6":{"k":"Numbers","b":"24:14","e":"24:25","v":12},"7":{"k":"Numbers","b":"25:1","e":"25:9","v":9},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"triYear":3,"triHaftara":"Joshua 24:1-14","triHaft":{"k":"Joshua","b":"24:1","e":"24:14","note":"history mentions Balak","v":14}},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz","he":"צוֹם י״ז בְּתַמּוּז"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"3":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}]},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz (Mincha)","he":"צוֹם י״ז בְּתַמּוּז (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"M":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}],"haft":{"k":"Isaiah","b":"55:6","e":"56:8","v":16},"haftara":"Isaiah 55:6-56:8"},{"date":"2022-07-18","hdate":"19 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-21","hdate":"22 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-23","hdate":"24 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"shabbat","parshaNum":41,"summary":"Numbers 25:10-30:1","fullkriyah":{"1":{"k":"Numbers","b":"25:10","e":"26:4","v":14},"2":{"k":"Numbers","b":"26:5","e":"26:51","v":47},"3":{"k":"Numbers","b":"26:52","e":"27:5","v":19},"4":{"k":"Numbers","b":"27:6","e":"27:23","v":18},"5":{"k":"Numbers","b":"28:1","e":"28:15","v":15},"6":{"k":"Numbers","b":"28:16","e":"29:11","v":27},"7":{"k":"Numbers","b":"29:12","e":"30:1","v":29},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"haftara":"Jeremiah 1:1-2:3","haft":{"k":"Jeremiah","b":"1:1","e":"2:3","v":22,"reason":"Pinchas occurring after 17 Tammuz"},"admonition":1,"reason":{"haftara":"Pinchas occurring after 17 Tammuz"},"triennial":{"1":{"k":"Numbers","b":"28:16","e":"28:25","v":10},"2":{"k":"Numbers","b":"28:26","e":"28:31","v":6},"3":{"k":"Numbers","b":"29:1","e":"29:6","v":6},"4":{"k":"Numbers","b":"29:7","e":"29:11","v":5},"5":{"k":"Numbers","b":"29:12","e":"29:16","v":5},"6":{"k":"Numbers","b":"29:17","e":"29:28","v":12},"7":{"k":"Numbers","b":"29:29","e":"30:1","v":12},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"triYear":3},{"date":"2022-07-25","hdate":"26 Tamuz 5782","name":{"en":"Matot-Masei","he":"מַטּוֹת־מַסְעֵי"},"type":"weekday","parshaNum":[42,43],"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-28","hdate":"29 Tamuz 5782","name":{"en":"Matot-Masei","he":"מַטּוֹת־מַסְעֵי"},"type":"weekday","parshaNum":[42,43],"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-29","hdate":"1 Av 5782","name":{"en":"Rosh Chodesh Av","he":"רֹאשׁ חוֹדֶשׁ אָב"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-07-30","hdate":"2 Av 5782","name":{"en":"Matot-Masei","he":"מַטּוֹת־מַסְעֵי"},"type":"shabbat","parshaNum":[42,43],"summary":"Numbers 30:2-36:13","fullkriyah":{"1":{"k":"Numbers","b":"30:2","e":"31:12","v":28},"2":{"k":"Numbers","b":"31:13","e":"31:54","v":42},"3":{"k":"Numbers","b":"32:1","e":"32:19","v":19},"4":{"k":"Numbers","b":"32:20","e":"33:49","v":72},"5":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"6":{"k":"Numbers","b":"34:16","e":"35:8","v":22},"7":{"k":"Numbers","b":"35:9","e":"36:13","v":39},"M":{"k":"Numbers","b":"36:11","e":"36:13","v":3}},"haftara":"Jeremiah 2:4-28, 3:4","haft":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"3:4","e":"3:4","v":1}],"seph":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"4:1","e":"4:2","v":2}],"sephardic":"Jeremiah 2:4-28, 4:1-2","sephardicNumV":27,"admonition":2,"triennial":{"1":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"2":{"k":"Numbers","b":"34:16","e":"34:29","v":14},"3":{"k":"Numbers","b":"35:1","e":"35:8","v":8},"4":{"k":"Numbers","b":"35:9","e":"35:15","v":7},"5":{"k":"Numbers","b":"35:16","e":"35:29","v":14},"6":{"k":"Numbers","b":"35:30","e":"35:34","v":5},"7":{"k":"Numbers","b":"36:1","e":"36:13","v":13},"M":{"k":"Numbers","b":"36:10","e":"36:13","v":4}},"triYear":3,"triHaftara":"I Kings 9:2-9, 9:4-5a","triHaft":[{"k":"I Kings","b":"9:2","e":"9:9","note":"l'mashal v'lishninah","v":8},{"k":"I Kings","b":"9:4","e":"9:5a","v":2}]}]}` }, { "month": "2022-07", "region": "Israel", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=on", "retrieved": "2026-11-20", "file": "data/calendar/july2022-israel.json", "bytes": 10436, "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933", "raw": `{"date":"2026-11-20T17:40:44.362Z","location":"Israel","range":{"start":"2022-07-01","end":"2022-07-31"},"items":[{"date":"2022-07-02","hdate":"3 Tamuz 5782","name":{"en":"Chukat","he":"חֻקַּת"},"type":"shabbat","parshaNum":39,"summary":"Numbers 19:1-22:1","fullkriyah":{"1":{"k":"Numbers","b":"19:1","e":"19:17","v":17},"2":{"k":"Numbers","b":"19:18","e":"20:6","v":11},"3":{"k":"Numbers","b":"20:7","e":"20:13","v":7},"4":{"k":"Numbers","b":"20:14","e":"20:21","v":8},"5":{"k":"Numbers","b":"20:22","e":"21:9","v":17},"6":{"k":"Numbers","b":"21:10","e":"21:20","v":11},"7":{"k":"Numbers","b":"21:21","e":"22:1","v":16},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"haftara":"Judges 11:1-33","haft":{"k":"Judges","b":"11:1","e":"11:33","v":33},"triennial":{"1":{"k":"Numbers","b":"21:11","e":"21:13","v":3},"2":{"k":"Numbers","b":"21:14","e":"21:16","v":3},"3":{"k":"Numbers","b":"21:17","e":"21:20","v":4},"4":{"k":"Numbers","b":"21:21","e":"21:25","v":5},"5":{"k":"Numbers","b":"21:26","e":"21:28","v":3},"6":{"k":"Numbers","b":"21:29","e":"21:33","v":5},"7":{"k":"Numbers","b":"21:34","e":"22:1","v":3},"M":{"k":"Numbers","b":"21:34","e":"22:1","v":3}},"triYear":3,"triHaftara":"II Kings 18:1-13, 19:15-19","triHaft":[{"k":"II Kings","b":"18:1","e":"18:13","note":"Hezekiah destroys nachash n'choshet // Moses builds nachash n'choshet","v":13},{"k":"II Kings","b":"19:15","e":"19:19","v":5}]},{"date":"2022-07-04","hdate":"5 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-07","hdate":"8 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"weekday","parshaNum":40,"weekday":{"1":{"k":"Numbers","b":"22:2","e":"22:4","v":3},"2":{"k":"Numbers","b":"22:5","e":"22:7","v":3},"3":{"k":"Numbers","b":"22:8","e":"22:12","v":5}},"summary":"Numbers 22:2-12"},{"date":"2022-07-09","hdate":"10 Tamuz 5782","name":{"en":"Balak","he":"בָּלָק"},"type":"shabbat","parshaNum":40,"summary":"Numbers 22:2-25:9","fullkriyah":{"1":{"k":"Numbers","b":"22:2","e":"22:12","v":11},"2":{"k":"Numbers","b":"22:13","e":"22:20","v":8},"3":{"k":"Numbers","b":"22:21","e":"22:38","v":18},"4":{"k":"Numbers","b":"22:39","e":"23:12","v":15},"5":{"k":"Numbers","b":"23:13","e":"23:26","v":14},"6":{"k":"Numbers","b":"23:27","e":"24:13","v":17},"7":{"k":"Numbers","b":"24:14","e":"25:9","v":21},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"haftara":"Micah 5:6-6:8","haft":{"k":"Micah","b":"5:6","e":"6:8","v":17},"triennial":{"1":{"k":"Numbers","b":"23:27","e":"23:30","v":4},"2":{"k":"Numbers","b":"24:1","e":"24:9","v":9},"3":{"k":"Numbers","b":"24:10","e":"24:13","v":4},"4":{"k":"Numbers","b":"24:14","e":"24:19","v":6},"5":{"k":"Numbers","b":"24:20","e":"24:25","v":6},"6":{"k":"Numbers","b":"25:1","e":"25:6","v":6},"7":{"k":"Numbers","b":"25:7","e":"25:9","v":3},"M":{"k":"Numbers","b":"25:7","e":"25:9","v":3}},"triYear":3,"triHaftara":"Joshua 24:1-14","triHaft":{"k":"Joshua","b":"24:1","e":"24:14","note":"history mentions Balak","v":14}},{"date":"2022-07-11","hdate":"12 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-14","hdate":"15 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"weekday","parshaNum":41,"weekday":{"1":{"k":"Numbers","b":"25:10","e":"25:12","v":3},"2":{"k":"Numbers","b":"25:13","e":"25:15","v":3},"3":{"k":"Numbers","b":"25:16","e":"26:4","v":8}},"summary":"Numbers 25:10-26:4"},{"date":"2022-07-16","hdate":"17 Tamuz 5782","name":{"en":"Pinchas","he":"פִּינְחָס"},"type":"shabbat","parshaNum":41,"summary":"Numbers 25:10-30:1","fullkriyah":{"1":{"k":"Numbers","b":"25:10","e":"26:4","v":14},"2":{"k":"Numbers","b":"26:5","e":"26:51","v":47},"3":{"k":"Numbers","b":"26:52","e":"27:5","v":19},"4":{"k":"Numbers","b":"27:6","e":"27:23","v":18},"5":{"k":"Numbers","b":"28:1","e":"28:15","v":15},"6":{"k":"Numbers","b":"28:16","e":"29:11","v":27},"7":{"k":"Numbers","b":"29:12","e":"30:1","v":29},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"haftara":"I Kings 18:46-19:21","haft":{"k":"I Kings","b":"18:46","e":"19:21","v":22},"triennial":{"1":{"k":"Numbers","b":"28:16","e":"28:25","v":10},"2":{"k":"Numbers","b":"28:26","e":"28:31","v":6},"3":{"k":"Numbers","b":"29:1","e":"29:6","v":6},"4":{"k":"Numbers","b":"29:7","e":"29:11","v":5},"5":{"k":"Numbers","b":"29:12","e":"29:16","v":5},"6":{"k":"Numbers","b":"29:17","e":"29:28","v":12},"7":{"k":"Numbers","b":"29:29","e":"30:1","v":12},"M":{"k":"Numbers","b":"29:35","e":"30:1","v":6}},"triYear":3,"triHaftara":"Ezekiel 46:1-11","triHaft":{"k":"Ezekiel","b":"46:1","e":"46:11","note":"sacrifices on Shabbat and holidays // detailed festival sacrifices","v":11}},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz","he":"צוֹם י״ז בְּתַמּוּז"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"3":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}]},{"date":"2022-07-17","hdate":"18 Tamuz 5782","name":{"en":"Tzom Tammuz (Mincha)","he":"צוֹם י״ז בְּתַמּוּז (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"M":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}],"haft":{"k":"Isaiah","b":"55:6","e":"56:8","v":16},"haftara":"Isaiah 55:6-56:8"},{"date":"2022-07-18","hdate":"19 Tamuz 5782","name":{"en":"Matot","he":"מַטּוֹת"},"type":"weekday","parshaNum":42,"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-21","hdate":"22 Tamuz 5782","name":{"en":"Matot","he":"מַטּוֹת"},"type":"weekday","parshaNum":42,"weekday":{"1":{"k":"Numbers","b":"30:2","e":"30:9","v":8},"2":{"k":"Numbers","b":"30:10","e":"30:13","v":4},"3":{"k":"Numbers","b":"30:14","e":"30:17","v":4}},"summary":"Numbers 30:2-17"},{"date":"2022-07-23","hdate":"24 Tamuz 5782","name":{"en":"Matot","he":"מַטּוֹת"},"type":"shabbat","parshaNum":42,"summary":"Numbers 30:2-32:42","fullkriyah":{"1":{"k":"Numbers","b":"30:2","e":"30:17","v":16},"2":{"k":"Numbers","b":"31:1","e":"31:12","v":12},"3":{"k":"Numbers","b":"31:13","e":"31:24","v":12},"4":{"k":"Numbers","b":"31:25","e":"31:41","v":17},"5":{"k":"Numbers","b":"31:42","e":"31:54","v":13},"6":{"k":"Numbers","b":"32:1","e":"32:19","v":19},"7":{"k":"Numbers","b":"32:20","e":"32:42","v":23},"M":{"k":"Numbers","b":"32:39","e":"32:42","v":4}},"haftara":"Jeremiah 1:1-2:3","haft":{"k":"Jeremiah","b":"1:1","e":"2:3","v":22},"admonition":1,"triennial":{"1":{"k":"Numbers","b":"31:1","e":"32:4","v":58},"2":{"k":"Numbers","b":"32:5","e":"32:19","v":15},"3":{"k":"Numbers","b":"32:20","e":"32:24","v":5},"4":{"k":"Numbers","b":"32:25","e":"32:27","v":3},"5":{"k":"Numbers","b":"32:28","e":"32:30","v":3},"6":{"k":"Numbers","b":"32:31","e":"32:38","v":8},"7":{"k":"Numbers","b":"32:39","e":"32:42","v":4},"M":{"k":"Numbers","b":"32:39","e":"32:42","v":4}},"triYear":3,"triHaftara":"Jeremiah 14:11-22","triHaft":{"k":"Jeremiah","b":"14:11","e":"14:22","note":"ki yatzumu, eineni shomea","v":12}},{"date":"2022-07-25","hdate":"26 Tamuz 5782","name":{"en":"Masei","he":"מַסְעֵי"},"type":"weekday","parshaNum":43,"weekday":{"1":{"k":"Numbers","b":"33:1","e":"33:3","v":3},"2":{"k":"Numbers","b":"33:4","e":"33:6","v":3},"3":{"k":"Numbers","b":"33:7","e":"33:10","v":4}},"summary":"Numbers 33:1-10"},{"date":"2022-07-28","hdate":"29 Tamuz 5782","name":{"en":"Masei","he":"מַסְעֵי"},"type":"weekday","parshaNum":43,"weekday":{"1":{"k":"Numbers","b":"33:1","e":"33:3","v":3},"2":{"k":"Numbers","b":"33:4","e":"33:6","v":3},"3":{"k":"Numbers","b":"33:7","e":"33:10","v":4}},"summary":"Numbers 33:1-10"},{"date":"2022-07-29","hdate":"1 Av 5782","name":{"en":"Rosh Chodesh Av","he":"רֹאשׁ חוֹדֶשׁ אָב"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-07-30","hdate":"2 Av 5782","name":{"en":"Masei","he":"מַסְעֵי"},"type":"shabbat","parshaNum":43,"summary":"Numbers 33:1-36:13","fullkriyah":{"1":{"k":"Numbers","b":"33:1","e":"33:10","v":10},"2":{"k":"Numbers","b":"33:11","e":"33:49","v":39},"3":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"4":{"k":"Numbers","b":"34:16","e":"34:29","v":14},"5":{"k":"Numbers","b":"35:1","e":"35:8","v":8},"6":{"k":"Numbers","b":"35:9","e":"35:34","v":26},"7":{"k":"Numbers","b":"36:1","e":"36:13","v":13},"M":{"k":"Numbers","b":"36:11","e":"36:13","v":3}},"haftara":"Jeremiah 2:4-28, 3:4","haft":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"3:4","e":"3:4","v":1}],"seph":[{"k":"Jeremiah","b":"2:4","e":"2:28","v":25},{"k":"Jeremiah","b":"4:1","e":"4:2","v":2}],"sephardic":"Jeremiah 2:4-28, 4:1-2","sephardicNumV":27,"admonition":2,"triennial":{"1":{"k":"Numbers","b":"33:50","e":"34:15","v":22},"2":{"k":"Numbers","b":"34:16","e":"34:29","v":14},"3":{"k":"Numbers","b":"35:1","e":"35:8","v":8},"4":{"k":"Numbers","b":"35:9","e":"35:15","v":7},"5":{"k":"Numbers","b":"35:16","e":"35:29","v":14},"6":{"k":"Numbers","b":"35:30","e":"35:34","v":5},"7":{"k":"Numbers","b":"36:1","e":"36:13","v":13},"M":{"k":"Numbers","b":"36:10","e":"36:13","v":4}},"triYear":3,"triHaftara":"I Kings 9:2-9, 9:4-5a","triHaft":[{"k":"I Kings","b":"9:2","e":"9:9","note":"l'mashal v'lishninah","v":8},{"k":"I Kings","b":"9:4","e":"9:5a","v":2}]}]}` }, { "month": "2022-06", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-06-01&end=2022-06-30&i=off", "retrieved": "2026-11-20", "bytes": 9999, "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a", "file": "data/calendar/2022-06-diaspora.json", "raw": `{"date":"2026-11-20T19:12:13.064Z","location":"Diaspora","range":{"start":"2022-06-01","end":"2022-06-30"},"items":[{"date":"2022-06-02","hdate":"3 Sivan 5782","name":{"en":"Bamidbar","he":"בְּמִדְבַּר"},"type":"weekday","parshaNum":34,"weekday":{"1":{"k":"Numbers","b":"1:1","e":"1:4","v":4},"2":{"k":"Numbers","b":"1:5","e":"1:16","v":12},"3":{"k":"Numbers","b":"1:17","e":"1:19","v":3}},"summary":"Numbers 1:1-19"},{"date":"2022-06-04","hdate":"5 Sivan 5782","name":{"en":"Bamidbar","he":"בְּמִדְבַּר"},"type":"shabbat","parshaNum":34,"summary":"Numbers 1:1-4:20","fullkriyah":{"1":{"k":"Numbers","b":"1:1","e":"1:19","v":19},"2":{"k":"Numbers","b":"1:20","e":"1:54","v":35},"3":{"k":"Numbers","b":"2:1","e":"2:34","v":34},"4":{"k":"Numbers","b":"3:1","e":"3:13","v":13},"5":{"k":"Numbers","b":"3:14","e":"3:39","v":26},"6":{"k":"Numbers","b":"3:40","e":"3:51","v":12},"7":{"k":"Numbers","b":"4:1","e":"4:20","v":20},"M":{"k":"Numbers","b":"4:17","e":"4:20","v":4}},"haftara":"Hosea 2:1-22","haft":{"k":"Hosea","b":"2:1","e":"2:22","v":22},"triennial":{"1":{"k":"Numbers","b":"3:14","e":"3:20","v":7},"2":{"k":"Numbers","b":"3:21","e":"3:26","v":6},"3":{"k":"Numbers","b":"3:27","e":"3:39","v":13},"4":{"k":"Numbers","b":"3:40","e":"3:43","v":4},"5":{"k":"Numbers","b":"3:44","e":"3:51","v":8},"6":{"k":"Numbers","b":"4:1","e":"4:10","v":10},"7":{"k":"Numbers","b":"4:11","e":"4:20","v":10},"M":{"k":"Numbers","b":"4:17","e":"4:20","v":4}},"triYear":3,"triHaftara":"Joshua 8:30-35, 8:33","triHaft":[{"k":"Joshua","b":"8:30","e":"8:35","note":"kohanim who carried the ark // korachites","v":6},{"k":"Joshua","b":"8:33","e":"8:33","v":1}]},{"date":"2022-06-05","hdate":"6 Sivan 5782","name":{"en":"Shavuot I","he":"שָׁבוּעוֹת א׳"},"type":"holiday","fullkriyah":{"1":{"p":17,"k":"Exodus","b":"19:1","e":"19:6","v":6},"2":{"p":17,"k":"Exodus","b":"19:7","e":"19:13","v":7},"3":{"p":17,"k":"Exodus","b":"19:14","e":"19:19","v":6},"4":{"p":17,"k":"Exodus","b":"19:20","e":"20:14","v":20},"5":{"p":17,"k":"Exodus","b":"20:15","e":"20:23","v":9},"M":{"p":41,"k":"Numbers","b":"28:26","e":"28:31","v":6}},"summary":"Exodus 19:1-20:23; Numbers 28:26-31","summaryParts":[{"k":"Exodus","b":"19:1","e":"20:23"},{"k":"Numbers","b":"28:26","e":"28:31"}],"haft":[{"k":"Ezekiel","b":"1:1","e":"1:28","v":28},{"k":"Ezekiel","b":"3:12","e":"3:12","v":1}],"haftara":"Ezekiel 1:1-28, 3:12"},{"date":"2022-06-06","hdate":"7 Sivan 5782","name":{"en":"Shavuot II","he":"שָׁבוּעוֹת ב׳"},"type":"holiday","fullkriyah":{"1":{"p":47,"k":"Deuteronomy","b":"15:19","e":"15:23","v":5},"2":{"p":47,"k":"Deuteronomy","b":"16:1","e":"16:3","v":3},"3":{"p":47,"k":"Deuteronomy","b":"16:4","e":"16:8","v":5},"4":{"p":47,"k":"Deuteronomy","b":"16:9","e":"16:12","v":4},"5":{"p":47,"k":"Deuteronomy","b":"16:13","e":"16:17","v":5},"M":{"p":41,"k":"Numbers","b":"28:26","e":"28:31","v":6}},"summary":"Deuteronomy 15:19-16:17; Numbers 28:26-31; Ruth 1:1-4:22","summaryParts":[{"k":"Deuteronomy","b":"15:19","e":"16:17"},{"k":"Numbers","b":"28:26","e":"28:31"},{"k":"Ruth","b":"1:1","e":"4:22"}],"haft":{"k":"Habakkuk","b":"3:1","e":"3:19","v":19},"haftara":"Habakkuk 3:1-19","seph":{"k":"Habakkuk","b":"2:20","e":"3:19","v":20},"sephardic":"Habakkuk 2:20-3:19","sephardicNumV":20,"megillah":{"1":{"k":"Ruth","b":"1:1","e":"1:22","v":22},"2":{"k":"Ruth","b":"2:1","e":"2:23","v":23},"3":{"k":"Ruth","b":"3:1","e":"3:18","v":18},"4":{"k":"Ruth","b":"4:1","e":"4:22","v":22}}},{"date":"2022-06-09","hdate":"10 Sivan 5782","name":{"en":"Nasso","he":"נָשׂא"},"type":"weekday","parshaNum":35,"weekday":{"1":{"k":"Numbers","b":"4:21","e":"4:24","v":4},"2":{"k":"Numbers","b":"4:25","e":"4:28","v":4},"3":{"k":"Numbers","b":"4:29","e":"4:33","v":5}},"summary":"Numbers 4:21-33"},{"date":"2022-06-11","hdate":"12 Sivan 5782","name":{"en":"Nasso","he":"נָשׂא"},"type":"shabbat","parshaNum":35,"summary":"Numbers 4:21-7:89","fullkriyah":{"1":{"k":"Numbers","b":"4:21","e":"4:37","v":17},"2":{"k":"Numbers","b":"4:38","e":"4:49","v":12},"3":{"k":"Numbers","b":"5:1","e":"5:10","v":10},"4":{"k":"Numbers","b":"5:11","e":"6:27","v":48},"5":{"k":"Numbers","b":"7:1","e":"7:41","v":41},"6":{"k":"Numbers","b":"7:42","e":"7:71","v":30},"7":{"k":"Numbers","b":"7:72","e":"7:89","v":18},"M":{"k":"Numbers","b":"7:87","e":"7:89","v":3}},"haftara":"Judges 13:2-25","haft":{"k":"Judges","b":"13:2","e":"13:25","v":24},"triennial":{"1":{"k":"Numbers","b":"7:1","e":"7:11","v":11},"2":{"k":"Numbers","b":"7:12","e":"7:23","v":12},"3":{"k":"Numbers","b":"7:24","e":"7:35","v":12},"4":{"k":"Numbers","b":"7:36","e":"7:47","v":12},"5":{"k":"Numbers","b":"7:48","e":"7:59","v":12},"6":{"k":"Numbers","b":"7:60","e":"7:71","v":12},"7":{"k":"Numbers","b":"7:72","e":"7:89","v":18},"M":{"k":"Numbers","b":"7:87","e":"7:89","v":3}},"triYear":3,"triHaftara":"Joel 1:8-13, 2:12-14","triHaft":[{"k":"Joel","b":"1:8","e":"1:13","note":"end of sacrifices, hope for restart // dedication of Tabernacle","v":6},{"k":"Joel","b":"2:12","e":"2:14","v":3}]},{"date":"2022-06-13","hdate":"14 Sivan 5782","name":{"en":"Beha'alotcha","he":"בְּהַעֲלֹתְךָ"},"type":"weekday","parshaNum":36,"weekday":{"1":{"k":"Numbers","b":"8:1","e":"8:4","v":4},"2":{"k":"Numbers","b":"8:5","e":"8:9","v":5},"3":{"k":"Numbers","b":"8:10","e":"8:14","v":5}},"summary":"Numbers 8:1-14"},{"date":"2022-06-16","hdate":"17 Sivan 5782","name":{"en":"Beha'alotcha","he":"בְּהַעֲלֹתְךָ"},"type":"weekday","parshaNum":36,"weekday":{"1":{"k":"Numbers","b":"8:1","e":"8:4","v":4},"2":{"k":"Numbers","b":"8:5","e":"8:9","v":5},"3":{"k":"Numbers","b":"8:10","e":"8:14","v":5}},"summary":"Numbers 8:1-14"},{"date":"2022-06-18","hdate":"19 Sivan 5782","name":{"en":"Beha'alotcha","he":"בְּהַעֲלֹתְךָ"},"type":"shabbat","parshaNum":36,"summary":"Numbers 8:1-12:16","fullkriyah":{"1":{"k":"Numbers","b":"8:1","e":"8:14","v":14},"2":{"k":"Numbers","b":"8:15","e":"8:26","v":12},"3":{"k":"Numbers","b":"9:1","e":"9:14","v":14},"4":{"k":"Numbers","b":"9:15","e":"10:10","v":19},"5":{"k":"Numbers","b":"10:11","e":"10:34","v":24},"6":{"k":"Numbers","b":"10:35","e":"11:29","v":31},"7":{"k":"Numbers","b":"11:30","e":"12:16","v":22},"M":{"k":"Numbers","b":"12:14","e":"12:16","v":3}},"haftara":"Zechariah 2:14-4:7","haft":{"k":"Zechariah","b":"2:14","e":"4:7","v":21},"triennial":{"1":{"k":"Numbers","b":"10:35","e":"11:9","v":11},"2":{"k":"Numbers","b":"11:10","e":"11:18","v":9},"3":{"k":"Numbers","b":"11:19","e":"11:22","v":4},"4":{"k":"Numbers","b":"11:23","e":"11:29","v":7},"5":{"k":"Numbers","b":"11:30","e":"11:35","v":6},"6":{"k":"Numbers","b":"12:1","e":"12:13","v":13},"7":{"k":"Numbers","b":"12:14","e":"12:16","v":3},"M":{"k":"Numbers","b":"12:14","e":"12:16","v":3}},"triYear":3,"triHaftara":"II Kings 20:1-11","triHaft":{"k":"II Kings","b":"20:1","e":"20:11","note":"Hezekiah healed thru prayer // Miriam","v":11}},{"date":"2022-06-20","hdate":"21 Sivan 5782","name":{"en":"Sh'lach","he":"שְׁלַח־לְךָ"},"type":"weekday","parshaNum":37,"weekday":{"1":{"k":"Numbers","b":"13:1","e":"13:3","v":3},"2":{"k":"Numbers","b":"13:4","e":"13:16","v":13},"3":{"k":"Numbers","b":"13:17","e":"13:20","v":4}},"summary":"Numbers 13:1-20"},{"date":"2022-06-23","hdate":"24 Sivan 5782","name":{"en":"Sh'lach","he":"שְׁלַח־לְךָ"},"type":"weekday","parshaNum":37,"weekday":{"1":{"k":"Numbers","b":"13:1","e":"13:3","v":3},"2":{"k":"Numbers","b":"13:4","e":"13:16","v":13},"3":{"k":"Numbers","b":"13:17","e":"13:20","v":4}},"summary":"Numbers 13:1-20"},{"date":"2022-06-25","hdate":"26 Sivan 5782","name":{"en":"Sh'lach","he":"שְׁלַח־לְךָ"},"type":"shabbat","parshaNum":37,"summary":"Numbers 13:1-15:41","fullkriyah":{"1":{"k":"Numbers","b":"13:1","e":"13:20","v":20},"2":{"k":"Numbers","b":"13:21","e":"14:7","v":20},"3":{"k":"Numbers","b":"14:8","e":"14:25","v":18},"4":{"k":"Numbers","b":"14:26","e":"15:7","v":27},"5":{"k":"Numbers","b":"15:8","e":"15:16","v":9},"6":{"k":"Numbers","b":"15:17","e":"15:26","v":10},"7":{"k":"Numbers","b":"15:27","e":"15:41","v":15},"M":{"k":"Numbers","b":"15:37","e":"15:41","v":5}},"haftara":"Joshua 2:1-24","haft":{"k":"Joshua","b":"2:1","e":"2:24","v":24},"triennial":{"1":{"k":"Numbers","b":"15:8","e":"15:10","v":3},"2":{"k":"Numbers","b":"15:11","e":"15:16","v":6},"3":{"k":"Numbers","b":"15:17","e":"15:21","v":5},"4":{"k":"Numbers","b":"15:22","e":"15:26","v":5},"5":{"k":"Numbers","b":"15:27","e":"15:31","v":5},"6":{"k":"Numbers","b":"15:32","e":"15:36","v":5},"7":{"k":"Numbers","b":"15:37","e":"15:41","v":5},"M":{"k":"Numbers","b":"15:37","e":"15:41","v":5}},"triYear":3,"triHaftara":"I Kings 17:1-16","triHaft":{"k":"I Kings","b":"17:1","e":"17:16","note":"mkosheshet etzim // mkoshesh etzim","v":16}},{"date":"2022-06-27","hdate":"28 Sivan 5782","name":{"en":"Korach","he":"קֹרַח"},"type":"weekday","parshaNum":38,"weekday":{"1":{"k":"Numbers","b":"16:1","e":"16:3","v":3},"2":{"k":"Numbers","b":"16:4","e":"16:7","v":4},"3":{"k":"Numbers","b":"16:8","e":"16:13","v":6}},"summary":"Numbers 16:1-13"},{"date":"2022-06-29","hdate":"30 Sivan 5782","name":{"en":"Rosh Chodesh Tamuz","he":"רֹאשׁ חוֹדֶשׁ תַּמּוּז"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-06-30","hdate":"1 Tamuz 5782","name":{"en":"Rosh Chodesh Tamuz","he":"רֹאשׁ חוֹדֶשׁ תַּמּוּז"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]}]}` }, { "month": "2022-08", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-08-01&end=2022-08-31&i=off", "retrieved": "2026-11-20", "bytes": 10264, "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d", "file": "data/calendar/2022-08-diaspora.json", "raw": `{"date":"2026-11-20T19:12:13.062Z","location":"Diaspora","range":{"start":"2022-08-01","end":"2022-08-31"},"items":[{"date":"2022-08-01","hdate":"4 Av 5782","name":{"en":"Devarim","he":"דְּבָרִים"},"type":"weekday","parshaNum":44,"weekday":{"1":{"k":"Deuteronomy","b":"1:1","e":"1:3","v":3},"2":{"k":"Deuteronomy","b":"1:4","e":"1:7","v":4},"3":{"k":"Deuteronomy","b":"1:8","e":"1:11","v":4}},"summary":"Deuteronomy 1:1-11"},{"date":"2022-08-04","hdate":"7 Av 5782","name":{"en":"Devarim","he":"דְּבָרִים"},"type":"weekday","parshaNum":44,"weekday":{"1":{"k":"Deuteronomy","b":"1:1","e":"1:3","v":3},"2":{"k":"Deuteronomy","b":"1:4","e":"1:7","v":4},"3":{"k":"Deuteronomy","b":"1:8","e":"1:11","v":4}},"summary":"Deuteronomy 1:1-11"},{"date":"2022-08-06","hdate":"9 Av 5782","name":{"en":"Devarim","he":"דְּבָרִים"},"type":"shabbat","parshaNum":44,"summary":"Deuteronomy 1:1-3:22","fullkriyah":{"1":{"k":"Deuteronomy","b":"1:1","e":"1:10","v":10},"2":{"k":"Deuteronomy","b":"1:11","e":"1:21","v":11},"3":{"k":"Deuteronomy","b":"1:22","e":"1:38","v":17},"4":{"k":"Deuteronomy","b":"1:39","e":"2:1","v":9},"5":{"k":"Deuteronomy","b":"2:2","e":"2:30","v":29},"6":{"k":"Deuteronomy","b":"2:31","e":"3:14","v":21},"7":{"k":"Deuteronomy","b":"3:15","e":"3:22","v":8},"M":{"k":"Deuteronomy","b":"3:20","e":"3:22","v":3}},"haftara":"Isaiah 1:1-27","haft":{"k":"Isaiah","b":"1:1","e":"1:27","v":27},"admonition":3,"triennial":{"1":{"k":"Deuteronomy","b":"2:31","e":"2:34","v":4},"2":{"k":"Deuteronomy","b":"2:35","e":"2:37","v":3},"3":{"k":"Deuteronomy","b":"3:1","e":"3:3","v":3},"4":{"k":"Deuteronomy","b":"3:4","e":"3:7","v":4},"5":{"k":"Deuteronomy","b":"3:8","e":"3:11","v":4},"6":{"k":"Deuteronomy","b":"3:12","e":"3:14","v":3},"7":{"k":"Deuteronomy","b":"3:15","e":"3:22","v":8},"M":{"k":"Deuteronomy","b":"3:20","e":"3:22","v":3}},"triYear":3},{"date":"2022-08-06","hdate":"9 Av 5782","name":{"en":"Erev Tish'a B'Av","he":"עֶרֶב תִּשְׁעָה בְּאָב"},"type":"holiday","megillah":{"1":{"k":"Lamentations","b":"1:1","e":"1:22","v":22},"2":{"k":"Lamentations","b":"2:1","e":"2:22","v":22},"3":{"k":"Lamentations","b":"3:1","e":"3:66","v":66},"4":{"k":"Lamentations","b":"4:1","e":"4:22","v":22},"5":{"k":"Lamentations","b":"5:1","e":"5:22","v":22}},"summary":"Lamentations 1:1-5:22"},{"date":"2022-08-07","hdate":"10 Av 5782","name":{"en":"Tish'a B'Av","he":"תִּשְׁעָה בְּאָב"},"type":"holiday","fullkriyah":{"1":{"p":45,"k":"Deuteronomy","b":"4:25","e":"4:29","v":5},"2":{"p":45,"k":"Deuteronomy","b":"4:30","e":"4:35","v":6},"3":{"p":45,"k":"Deuteronomy","b":"4:36","e":"4:40","v":5}},"summary":"Deuteronomy 4:25-40; Lamentations 1:1-5:22","summaryParts":[{"k":"Deuteronomy","b":"4:25","e":"4:40"},{"k":"Lamentations","b":"1:1","e":"5:22"}],"haft":{"k":"Jeremiah","b":"8:13","e":"9:23","v":34},"haftara":"Jeremiah 8:13-9:23","megillah":{"1":{"k":"Lamentations","b":"1:1","e":"1:22","v":22},"2":{"k":"Lamentations","b":"2:1","e":"2:22","v":22},"3":{"k":"Lamentations","b":"3:1","e":"3:66","v":66},"4":{"k":"Lamentations","b":"4:1","e":"4:22","v":22},"5":{"k":"Lamentations","b":"5:1","e":"5:22","v":22}}},{"date":"2022-08-07","hdate":"10 Av 5782","name":{"en":"Tish'a B'Av (Mincha)","he":"תִּשְׁעָה בְּאָב (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"M":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}],"haft":{"k":"Isaiah","b":"55:6","e":"56:8","v":16},"haftara":"Isaiah 55:6-56:8"},{"date":"2022-08-08","hdate":"11 Av 5782","name":{"en":"Vaetchanan","he":"וָאֶתְחַנַּן"},"type":"weekday","parshaNum":45,"weekday":{"1":{"k":"Deuteronomy","b":"3:23","e":"3:25","v":3},"2":{"k":"Deuteronomy","b":"3:26","e":"4:4","v":8},"3":{"k":"Deuteronomy","b":"4:5","e":"4:8","v":4}},"summary":"Deuteronomy 3:23-4:8"},{"date":"2022-08-11","hdate":"14 Av 5782","name":{"en":"Vaetchanan","he":"וָאֶתְחַנַּן"},"type":"weekday","parshaNum":45,"weekday":{"1":{"k":"Deuteronomy","b":"3:23","e":"3:25","v":3},"2":{"k":"Deuteronomy","b":"3:26","e":"4:4","v":8},"3":{"k":"Deuteronomy","b":"4:5","e":"4:8","v":4}},"summary":"Deuteronomy 3:23-4:8"},{"date":"2022-08-13","hdate":"16 Av 5782","name":{"en":"Vaetchanan","he":"וָאֶתְחַנַּן"},"type":"shabbat","parshaNum":45,"summary":"Deuteronomy 3:23-7:11","fullkriyah":{"1":{"k":"Deuteronomy","b":"3:23","e":"4:4","v":11},"2":{"k":"Deuteronomy","b":"4:5","e":"4:40","v":36},"3":{"k":"Deuteronomy","b":"4:41","e":"4:49","v":9},"4":{"k":"Deuteronomy","b":"5:1","e":"5:18","v":18},"5":{"k":"Deuteronomy","b":"5:19","e":"6:3","v":15},"6":{"k":"Deuteronomy","b":"6:4","e":"6:25","v":22},"7":{"k":"Deuteronomy","b":"7:1","e":"7:11","v":11},"M":{"k":"Deuteronomy","b":"7:9","e":"7:11","v":3}},"haftara":"Isaiah 40:1-26","haft":{"k":"Isaiah","b":"40:1","e":"40:26","v":26},"consolation":1,"triennial":{"1":{"k":"Deuteronomy","b":"5:1","e":"5:18","v":18},"2":{"k":"Deuteronomy","b":"5:19","e":"5:24","v":6},"3":{"k":"Deuteronomy","b":"5:25","e":"6:3","v":9},"4":{"k":"Deuteronomy","b":"6:4","e":"6:9","v":6},"5":{"k":"Deuteronomy","b":"6:10","e":"6:19","v":10},"6":{"k":"Deuteronomy","b":"6:20","e":"6:25","v":6},"7":{"k":"Deuteronomy","b":"7:1","e":"7:11","v":11},"M":{"k":"Deuteronomy","b":"7:9","e":"7:11","v":3}},"triYear":3},{"date":"2022-08-15","hdate":"18 Av 5782","name":{"en":"Eikev","he":"עֵקֶב"},"type":"weekday","parshaNum":46,"weekday":{"1":{"k":"Deuteronomy","b":"7:12","e":"7:21","v":10},"2":{"k":"Deuteronomy","b":"7:22","e":"8:3","v":8},"3":{"k":"Deuteronomy","b":"8:4","e":"8:10","v":7}},"summary":"Deuteronomy 7:12-8:10"},{"date":"2022-08-18","hdate":"21 Av 5782","name":{"en":"Eikev","he":"עֵקֶב"},"type":"weekday","parshaNum":46,"weekday":{"1":{"k":"Deuteronomy","b":"7:12","e":"7:21","v":10},"2":{"k":"Deuteronomy","b":"7:22","e":"8:3","v":8},"3":{"k":"Deuteronomy","b":"8:4","e":"8:10","v":7}},"summary":"Deuteronomy 7:12-8:10"},{"date":"2022-08-20","hdate":"23 Av 5782","name":{"en":"Eikev","he":"עֵקֶב"},"type":"shabbat","parshaNum":46,"summary":"Deuteronomy 7:12-11:25","fullkriyah":{"1":{"k":"Deuteronomy","b":"7:12","e":"8:10","v":25},"2":{"k":"Deuteronomy","b":"8:11","e":"9:3","v":13},"3":{"k":"Deuteronomy","b":"9:4","e":"9:29","v":26},"4":{"k":"Deuteronomy","b":"10:1","e":"10:11","v":11},"5":{"k":"Deuteronomy","b":"10:12","e":"11:9","v":20},"6":{"k":"Deuteronomy","b":"11:10","e":"11:21","v":12},"7":{"k":"Deuteronomy","b":"11:22","e":"11:25","v":4},"M":{"k":"Deuteronomy","b":"11:22","e":"11:25","v":4}},"haftara":"Isaiah 49:14-51:3","haft":{"k":"Isaiah","b":"49:14","e":"51:3","v":27},"consolation":2,"triennial":{"1":{"k":"Deuteronomy","b":"10:12","e":"10:15","v":4},"2":{"k":"Deuteronomy","b":"10:16","e":"10:22","v":7},"3":{"k":"Deuteronomy","b":"11:1","e":"11:9","v":9},"4":{"k":"Deuteronomy","b":"11:10","e":"11:12","v":3},"5":{"k":"Deuteronomy","b":"11:13","e":"11:15","v":3},"6":{"k":"Deuteronomy","b":"11:16","e":"11:21","v":6},"7":{"k":"Deuteronomy","b":"11:22","e":"11:25","v":4},"M":{"k":"Deuteronomy","b":"11:22","e":"11:25","v":4}},"triYear":3,"triHaftara":"Zechariah 8:1-8","triHaft":{"k":"Zechariah","b":"8:1","e":"8:8","note":"be'emet u-vitzdakah","v":8}},{"date":"2022-08-22","hdate":"25 Av 5782","name":{"en":"Re'eh","he":"רְאֵה"},"type":"weekday","parshaNum":47,"weekday":{"1":{"k":"Deuteronomy","b":"11:26","e":"11:31","v":6},"2":{"k":"Deuteronomy","b":"11:32","e":"12:5","v":6},"3":{"k":"Deuteronomy","b":"12:6","e":"12:10","v":5}},"summary":"Deuteronomy 11:26-12:10"},{"date":"2022-08-25","hdate":"28 Av 5782","name":{"en":"Re'eh","he":"רְאֵה"},"type":"weekday","parshaNum":47,"weekday":{"1":{"k":"Deuteronomy","b":"11:26","e":"11:31","v":6},"2":{"k":"Deuteronomy","b":"11:32","e":"12:5","v":6},"3":{"k":"Deuteronomy","b":"12:6","e":"12:10","v":5}},"summary":"Deuteronomy 11:26-12:10"},{"date":"2022-08-27","hdate":"30 Av 5782","name":{"en":"Re'eh","he":"רְאֵה"},"type":"shabbat","parshaNum":47,"summary":"Deuteronomy 11:26-16:17; Numbers 28:9-15","fullkriyah":{"1":{"k":"Deuteronomy","b":"11:26","e":"12:10","v":17},"2":{"k":"Deuteronomy","b":"12:11","e":"12:28","v":18},"3":{"k":"Deuteronomy","b":"12:29","e":"13:19","v":22},"4":{"k":"Deuteronomy","b":"14:1","e":"14:21","v":21},"5":{"k":"Deuteronomy","b":"14:22","e":"14:29","v":8},"6":{"k":"Deuteronomy","b":"15:1","e":"15:18","v":18},"7":{"k":"Deuteronomy","b":"15:19","e":"16:17","v":22},"M":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat Rosh Chodesh"}},"haftara":"Isaiah 66:1-24","haft":{"k":"Isaiah","b":"66:1","e":"66:24","v":24,"reason":"Shabbat Rosh Chodesh"},"summaryParts":[{"k":"Deuteronomy","b":"11:26","e":"16:17"},{"k":"Numbers","b":"28:9","e":"28:15"}],"reason":{"haftara":"Shabbat Rosh Chodesh","M":"Shabbat Rosh Chodesh"},"triennial":{"1":{"k":"Deuteronomy","b":"15:1","e":"15:6","v":6},"2":{"k":"Deuteronomy","b":"15:7","e":"15:11","v":5},"3":{"k":"Deuteronomy","b":"15:12","e":"15:18","v":7},"4":{"k":"Deuteronomy","b":"15:19","e":"15:23","v":5},"5":{"k":"Deuteronomy","b":"16:1","e":"16:8","v":8},"6":{"k":"Deuteronomy","b":"16:9","e":"16:12","v":4},"7":{"k":"Deuteronomy","b":"16:13","e":"16:17","v":5},"M":{"p":41,"k":"Numbers","b":"28:9","e":"28:15","v":7,"reason":"Shabbat Rosh Chodesh"}},"triYear":3},{"date":"2022-08-28","hdate":"1 Elul 5782","name":{"en":"Rosh Chodesh Elul","he":"רֹאשׁ חוֹדֶשׁ אֱלוּל"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-08-29","hdate":"2 Elul 5782","name":{"en":"Shoftim","he":"שׁוֹפְטִים"},"type":"weekday","parshaNum":48,"weekday":{"1":{"k":"Deuteronomy","b":"16:18","e":"16:20","v":3},"2":{"k":"Deuteronomy","b":"16:21","e":"17:10","v":12},"3":{"k":"Deuteronomy","b":"17:11","e":"17:13","v":3}},"summary":"Deuteronomy 16:18-17:13"}]}` }, { "month": "2022-10", "region": "Diaspora", "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-10-01&end=2022-10-31&i=off", "retrieved": "2026-11-20", "bytes": 17053, "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb", "file": "data/calendar/2022-10-diaspora.json", "raw": `{"date":"2026-11-20T19:12:13.063Z","location":"Diaspora","range":{"start":"2022-10-01","end":"2022-10-31"},"items":[{"date":"2022-10-01","hdate":"6 Tishrei 5783","name":{"en":"Vayeilech","he":"וַיֵּלֶךְ"},"type":"shabbat","parshaNum":52,"summary":"Deuteronomy 31:1-30","fullkriyah":{"1":{"k":"Deuteronomy","b":"31:1","e":"31:3","v":3},"2":{"k":"Deuteronomy","b":"31:4","e":"31:6","v":3},"3":{"k":"Deuteronomy","b":"31:7","e":"31:9","v":3},"4":{"k":"Deuteronomy","b":"31:10","e":"31:13","v":4},"5":{"k":"Deuteronomy","b":"31:14","e":"31:19","v":6},"6":{"k":"Deuteronomy","b":"31:20","e":"31:24","v":5},"7":{"k":"Deuteronomy","b":"31:25","e":"31:30","v":6},"M":{"k":"Deuteronomy","b":"31:28","e":"31:30","v":3}},"haftara":"Hosea 14:2-10; Micah 7:18-20","haft":[{"k":"Hosea","b":"14:2","e":"14:10","v":9,"reason":"Shabbat Shuva (with Vayeilech)"},{"k":"Micah","b":"7:18","e":"7:20","v":3,"reason":"Shabbat Shuva (with Vayeilech)"}],"reason":{"haftara":"Shabbat Shuva (with Vayeilech)"},"triennial":{"1":{"k":"Deuteronomy","b":"31:1","e":"31:3","v":3},"2":{"k":"Deuteronomy","b":"31:4","e":"31:6","v":3},"3":{"k":"Deuteronomy","b":"31:7","e":"31:9","v":3},"4":{"k":"Deuteronomy","b":"31:10","e":"31:13","v":4},"5":{"k":"Deuteronomy","b":"31:14","e":"31:19","v":6},"6":{"k":"Deuteronomy","b":"31:20","e":"31:24","v":5},"7":{"k":"Deuteronomy","b":"31:25","e":"31:30","v":6},"M":{"k":"Deuteronomy","b":"31:28","e":"31:30","v":3}},"triYear":3},{"date":"2022-10-03","hdate":"8 Tishrei 5783","name":{"en":"Ha'azinu","he":"הַאֲזִינוּ"},"type":"weekday","parshaNum":53,"weekday":{"1":{"k":"Deuteronomy","b":"32:1","e":"32:3","v":3},"2":{"k":"Deuteronomy","b":"32:4","e":"32:6","v":3},"3":{"k":"Deuteronomy","b":"32:7","e":"32:12","v":6}},"summary":"Deuteronomy 32:1-12"},{"date":"2022-10-05","hdate":"10 Tishrei 5783","name":{"en":"Yom Kippur","he":"יוֹם כִּפּוּר"},"type":"holiday","fullkriyah":{"1":{"p":29,"k":"Leviticus","b":"16:1","e":"16:6","v":6},"2":{"p":29,"k":"Leviticus","b":"16:7","e":"16:11","v":5},"3":{"p":29,"k":"Leviticus","b":"16:12","e":"16:17","v":6},"4":{"p":29,"k":"Leviticus","b":"16:18","e":"16:24","v":7},"5":{"p":29,"k":"Leviticus","b":"16:25","e":"16:30","v":6},"6":{"p":29,"k":"Leviticus","b":"16:31","e":"16:34","v":4},"M":{"p":41,"k":"Numbers","b":"29:7","e":"29:11","v":5}},"summary":"Leviticus 16:1-34; Numbers 29:7-11","summaryParts":[{"k":"Leviticus","b":"16:1","e":"16:34"},{"k":"Numbers","b":"29:7","e":"29:11"}],"haft":{"k":"Isaiah","b":"57:14","e":"58:14","v":22},"haftara":"Isaiah 57:14-58:14"},{"date":"2022-10-05","hdate":"10 Tishrei 5783","name":{"en":"Yom Kippur (Mincha)","he":"יוֹם כִּפּוּר (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":29,"k":"Leviticus","b":"18:1","e":"18:5","v":5},"2":{"p":29,"k":"Leviticus","b":"18:6","e":"18:21","v":16},"M":{"p":29,"k":"Leviticus","b":"18:22","e":"18:30","v":9}},"summary":"Leviticus 18:1-30","summaryParts":[{"k":"Leviticus","b":"18:1","e":"18:30"}],"haft":[{"k":"Jonah","b":"1:1","e":"4:11","v":48},{"k":"Micah","b":"7:18","e":"7:20","v":3}],"haftara":"Jonah 1:1-4:11; Micah 7:18-20"},{"date":"2022-10-06","hdate":"11 Tishrei 5783","name":{"en":"Ha'azinu","he":"הַאֲזִינוּ"},"type":"weekday","parshaNum":53,"weekday":{"1":{"k":"Deuteronomy","b":"32:1","e":"32:3","v":3},"2":{"k":"Deuteronomy","b":"32:4","e":"32:6","v":3},"3":{"k":"Deuteronomy","b":"32:7","e":"32:12","v":6}},"summary":"Deuteronomy 32:1-12"},{"date":"2022-10-08","hdate":"13 Tishrei 5783","name":{"en":"Ha'azinu","he":"הַאֲזִינוּ"},"type":"shabbat","parshaNum":53,"summary":"Deuteronomy 32:1-52","fullkriyah":{"1":{"k":"Deuteronomy","b":"32:1","e":"32:6","v":6},"2":{"k":"Deuteronomy","b":"32:7","e":"32:12","v":6},"3":{"k":"Deuteronomy","b":"32:13","e":"32:18","v":6},"4":{"k":"Deuteronomy","b":"32:19","e":"32:28","v":10},"5":{"k":"Deuteronomy","b":"32:29","e":"32:39","v":11},"6":{"k":"Deuteronomy","b":"32:40","e":"32:43","v":4},"7":{"k":"Deuteronomy","b":"32:44","e":"32:52","v":9},"M":{"k":"Deuteronomy","b":"32:48","e":"32:52","v":5}},"haftara":"II Samuel 22:1-51","haft":{"k":"II Samuel","b":"22:1","e":"22:51","v":51},"triennial":{"1":{"k":"Deuteronomy","b":"32:1","e":"32:6","v":6},"2":{"k":"Deuteronomy","b":"32:7","e":"32:12","v":6},"3":{"k":"Deuteronomy","b":"32:13","e":"32:18","v":6},"4":{"k":"Deuteronomy","b":"32:19","e":"32:28","v":10},"5":{"k":"Deuteronomy","b":"32:29","e":"32:39","v":11},"6":{"k":"Deuteronomy","b":"32:40","e":"32:43","v":4},"7":{"k":"Deuteronomy","b":"32:44","e":"32:52","v":9},"M":{"k":"Deuteronomy","b":"32:48","e":"32:52","v":5}},"triYear":1,"triHaftara":"II Samuel 22:1, 22:31-51","triHaft":[{"k":"II Samuel","b":"22:1","e":"22:1","note":"David // Moses' song","v":1},{"k":"II Samuel","b":"22:31","e":"22:51","v":21}]},{"date":"2022-10-10","hdate":"15 Tishrei 5783","name":{"en":"Sukkot I","he":"סֻכּוֹת א׳"},"type":"holiday","fullkriyah":{"1":{"p":31,"k":"Leviticus","b":"22:26","e":"23:3","v":11},"2":{"p":31,"k":"Leviticus","b":"23:4","e":"23:14","v":11},"3":{"p":31,"k":"Leviticus","b":"23:15","e":"23:22","v":8},"4":{"p":31,"k":"Leviticus","b":"23:23","e":"23:32","v":10},"5":{"p":31,"k":"Leviticus","b":"23:33","e":"23:44","v":12},"M":{"p":41,"k":"Numbers","b":"29:12","e":"29:16","v":5}},"summary":"Leviticus 22:26-23:44; Numbers 29:12-16","summaryParts":[{"k":"Leviticus","b":"22:26","e":"23:44"},{"k":"Numbers","b":"29:12","e":"29:16"}],"haft":{"k":"Zechariah","b":"14:1","e":"14:21","v":21},"haftara":"Zechariah 14:1-21"},{"date":"2022-10-11","hdate":"16 Tishrei 5783","name":{"en":"Sukkot II","he":"סֻכּוֹת ב׳"},"type":"holiday","fullkriyah":{"1":{"p":31,"k":"Leviticus","b":"22:26","e":"23:3","v":11},"2":{"p":31,"k":"Leviticus","b":"23:4","e":"23:14","v":11},"3":{"p":31,"k":"Leviticus","b":"23:15","e":"23:22","v":8},"4":{"p":31,"k":"Leviticus","b":"23:23","e":"23:32","v":10},"5":{"p":31,"k":"Leviticus","b":"23:33","e":"23:44","v":12},"M":{"p":41,"k":"Numbers","b":"29:12","e":"29:16","v":5}},"summary":"Leviticus 22:26-23:44; Numbers 29:12-16","summaryParts":[{"k":"Leviticus","b":"22:26","e":"23:44"},{"k":"Numbers","b":"29:12","e":"29:16"}],"haft":{"k":"I Kings","b":"8:2","e":"8:21","v":20},"haftara":"I Kings 8:2-21"},{"date":"2022-10-12","hdate":"17 Tishrei 5783","name":{"en":"Sukkot Chol ha-Moed Day 1","he":"סֻכּוֹת חֹל הַמּוֹעֵד יוֹם א׳"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"29:17","e":"29:19","v":3},"2":{"p":41,"k":"Numbers","b":"29:20","e":"29:22","v":3},"3":{"p":41,"k":"Numbers","b":"29:23","e":"29:25","v":3},"4":{"p":41,"k":"Numbers","b":"29:17","e":"29:22","v":6}},"summary":"Numbers 29:17-25","summaryParts":[{"k":"Numbers","b":"29:17","e":"29:25"}]},{"date":"2022-10-13","hdate":"18 Tishrei 5783","name":{"en":"Sukkot Chol ha-Moed Day 2","he":"סֻכּוֹת חֹל הַמּוֹעֵד יוֹם ב׳"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"29:20","e":"29:22","v":3},"2":{"p":41,"k":"Numbers","b":"29:23","e":"29:25","v":3},"3":{"p":41,"k":"Numbers","b":"29:26","e":"29:28","v":3},"4":{"p":41,"k":"Numbers","b":"29:20","e":"29:25","v":6}},"summary":"Numbers 29:20-28","summaryParts":[{"k":"Numbers","b":"29:20","e":"29:28"}]},{"date":"2022-10-14","hdate":"19 Tishrei 5783","name":{"en":"Sukkot Chol ha-Moed Day 3","he":"סֻכּוֹת חֹל הַמּוֹעֵד יוֹם ג׳"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"29:23","e":"29:25","v":3},"2":{"p":41,"k":"Numbers","b":"29:26","e":"29:28","v":3},"3":{"p":41,"k":"Numbers","b":"29:29","e":"29:31","v":3},"4":{"p":41,"k":"Numbers","b":"29:23","e":"29:28","v":6}},"summary":"Numbers 29:23-31","summaryParts":[{"k":"Numbers","b":"29:23","e":"29:31"}]},{"date":"2022-10-15","hdate":"20 Tishrei 5783","name":{"en":"Sukkot Shabbat Chol ha-Moed","he":"שַׁבַּת חֹל הַמּוֹעֵד סֻכּוֹת"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"33:12","e":"33:16","v":5},"2":{"p":21,"k":"Exodus","b":"33:17","e":"33:19","v":3},"3":{"p":21,"k":"Exodus","b":"33:20","e":"33:23","v":4},"4":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"5":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7},"6":{"p":21,"k":"Exodus","b":"34:11","e":"34:17","v":7},"7":{"p":21,"k":"Exodus","b":"34:18","e":"34:26","v":9},"M":{"p":41,"k":"Numbers","b":"29:26","e":"29:31","v":6}},"summary":"Exodus 33:12-34:26; Numbers 29:26-31; Ecclesiastes 1:1-12:14","summaryParts":[{"k":"Exodus","b":"33:12","e":"34:26"},{"k":"Numbers","b":"29:26","e":"29:31"},{"k":"Ecclesiastes","b":"1:1","e":"12:14"}],"haft":{"k":"Ezekiel","b":"38:18","e":"39:16","v":22},"haftara":"Ezekiel 38:18-39:16","megillah":{"1":{"k":"Ecclesiastes","b":"1:1","e":"1:18","v":18},"2":{"k":"Ecclesiastes","b":"2:1","e":"2:26","v":26},"3":{"k":"Ecclesiastes","b":"3:1","e":"3:22","v":22},"4":{"k":"Ecclesiastes","b":"4:1","e":"4:17","v":17},"5":{"k":"Ecclesiastes","b":"5:1","e":"5:19","v":19},"6":{"k":"Ecclesiastes","b":"6:1","e":"6:12","v":12},"7":{"k":"Ecclesiastes","b":"7:1","e":"7:29","v":29},"8":{"k":"Ecclesiastes","b":"8:1","e":"8:17","v":17},"9":{"k":"Ecclesiastes","b":"9:1","e":"9:18","v":18},"10":{"k":"Ecclesiastes","b":"10:1","e":"10:20","v":20},"11":{"k":"Ecclesiastes","b":"11:1","e":"11:10","v":10},"12":{"k":"Ecclesiastes","b":"12:1","e":"12:14","v":14}}},{"date":"2022-10-16","hdate":"21 Tishrei 5783","name":{"en":"Sukkot Final Day (Hoshana Raba)","he":"סֻכּוֹת ז׳ (הוֹשַׁעְנָא רַבָּה)"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"29:26","e":"29:28","v":3},"2":{"p":41,"k":"Numbers","b":"29:29","e":"29:31","v":3},"3":{"p":41,"k":"Numbers","b":"29:32","e":"29:34","v":3},"4":{"p":41,"k":"Numbers","b":"29:29","e":"29:34","v":6}},"summary":"Numbers 29:26-34","summaryParts":[{"k":"Numbers","b":"29:26","e":"29:34"}]},{"date":"2022-10-17","hdate":"22 Tishrei 5783","name":{"en":"Shmini Atzeret","he":"שְׁמִינִי עֲצֶרֶת"},"type":"holiday","fullkriyah":{"1":{"p":47,"k":"Deuteronomy","b":"14:22","e":"14:29","v":8},"2":{"p":47,"k":"Deuteronomy","b":"15:1","e":"15:18","v":18},"3":{"p":47,"k":"Deuteronomy","b":"15:19","e":"16:3","v":8},"4":{"p":47,"k":"Deuteronomy","b":"16:4","e":"16:8","v":5},"5":{"p":47,"k":"Deuteronomy","b":"16:9","e":"16:17","v":9},"M":{"p":41,"k":"Numbers","b":"29:35","e":"30:1","v":6}},"summary":"Deuteronomy 14:22-16:17; Numbers 29:35-30:1","summaryParts":[{"k":"Deuteronomy","b":"14:22","e":"16:17"},{"k":"Numbers","b":"29:35","e":"30:1"}],"alt":{"1":{"p":47,"k":"Deuteronomy","b":"14:22","e":"15:23","v":31},"2":{"p":47,"k":"Deuteronomy","b":"16:1","e":"16:3","v":3},"3":{"p":47,"k":"Deuteronomy","b":"16:4","e":"16:8","v":5},"4":{"p":47,"k":"Deuteronomy","b":"16:9","e":"16:12","v":4},"5":{"p":47,"k":"Deuteronomy","b":"16:13","e":"16:17","v":5},"M":{"p":41,"k":"Numbers","b":"29:35","e":"30:1","v":6}},"haft":{"k":"I Kings","b":"8:54","e":"8:66","v":13},"haftara":"I Kings 8:54-66"},{"date":"2022-10-17","hdate":"22 Tishrei 5783","name":{"en":"Erev Simchat Torah","he":"עֶרֶב שִׂמְחַת תּוֹרָה"},"type":"holiday","fullkriyah":{"1":{"p":54,"k":"Deuteronomy","b":"33:1","e":"33:7","v":7},"2":{"p":54,"k":"Deuteronomy","b":"33:8","e":"33:12","v":5},"3":{"p":54,"k":"Deuteronomy","b":"33:13","e":"33:17","v":5}},"summary":"Deuteronomy 33:1-17","summaryParts":[{"k":"Deuteronomy","b":"33:1","e":"33:17"}]},{"date":"2022-10-18","hdate":"23 Tishrei 5783","name":{"en":"Simchat Torah","he":"שִׂמְחַת תּוֹרָה"},"type":"holiday","fullkriyah":{"1":{"p":54,"k":"Deuteronomy","b":"33:1","e":"33:7","v":7},"2":{"p":54,"k":"Deuteronomy","b":"33:8","e":"33:12","v":5},"3":{"p":54,"k":"Deuteronomy","b":"33:13","e":"33:17","v":5},"4":{"p":54,"k":"Deuteronomy","b":"33:18","e":"33:21","v":4},"5":{"p":54,"k":"Deuteronomy","b":"33:22","e":"33:26","v":5},"6":{"p":54,"k":"Deuteronomy","b":"33:27","e":"34:12","v":15},"7":{"p":1,"k":"Genesis","b":"1:1","e":"2:3","v":34},"M":{"p":41,"k":"Numbers","b":"29:35","e":"30:1","v":6}},"summary":"Deuteronomy 33:1-34:12; Genesis 1:1-2:3; Numbers 29:35-30:1","summaryParts":[{"k":"Deuteronomy","b":"33:1","e":"34:12"},{"k":"Genesis","b":"1:1","e":"2:3"},{"k":"Numbers","b":"29:35","e":"30:1"}],"haft":{"k":"Joshua","b":"1:1","e":"1:18","v":18},"haftara":"Joshua 1:1-18"},{"date":"2022-10-20","hdate":"25 Tishrei 5783","name":{"en":"Bereshit","he":"בְּרֵאשִׁית"},"type":"weekday","parshaNum":1,"weekday":{"1":{"k":"Genesis","b":"1:1","e":"1:5","v":5},"2":{"k":"Genesis","b":"1:6","e":"1:8","v":3},"3":{"k":"Genesis","b":"1:9","e":"1:13","v":5}},"summary":"Genesis 1:1-13"},{"date":"2022-10-22","hdate":"27 Tishrei 5783","name":{"en":"Bereshit","he":"בְּרֵאשִׁית"},"type":"shabbat","parshaNum":1,"summary":"Genesis 1:1-6:8","fullkriyah":{"1":{"k":"Genesis","b":"1:1","e":"2:3","v":34},"2":{"k":"Genesis","b":"2:4","e":"2:19","v":16},"3":{"k":"Genesis","b":"2:20","e":"3:21","v":27},"4":{"k":"Genesis","b":"3:22","e":"4:18","v":21},"5":{"k":"Genesis","b":"4:19","e":"4:22","reason":"some sources use 4:19-26","v":4},"6":{"k":"Genesis","b":"4:23","e":"5:24","reason":"some sources use 5:1-24","v":28},"7":{"k":"Genesis","b":"5:25","e":"6:8","v":16},"M":{"k":"Genesis","b":"6:5","e":"6:8","v":4}},"haftara":"Isaiah 42:5-43:10","haft":{"k":"Isaiah","b":"42:5","e":"43:10","v":31},"seph":{"k":"Isaiah","b":"42:5","e":"42:21","v":17},"sephardic":"Isaiah 42:5-21","sephardicNumV":17,"triennial":{"1":{"k":"Genesis","b":"1:1","e":"1:5","v":5},"2":{"k":"Genesis","b":"1:6","e":"1:8","v":3},"3":{"k":"Genesis","b":"1:9","e":"1:13","v":5},"4":{"k":"Genesis","b":"1:14","e":"1:19","v":6},"5":{"k":"Genesis","b":"1:20","e":"1:23","v":4},"6":{"k":"Genesis","b":"1:24","e":"1:31","v":8},"7":{"k":"Genesis","b":"2:1","e":"2:3","v":3},"M":{"k":"Genesis","b":"2:1","e":"2:3","v":3}},"triYear":1,"triHaftara":"Isaiah 42:5-21","triHaft":{"k":"Isaiah","b":"42:5","e":"42:21","note":"God identified as the creator // Creation","v":17}},{"date":"2022-10-24","hdate":"29 Tishrei 5783","name":{"en":"Noach","he":"נֹחַ"},"type":"weekday","parshaNum":2,"weekday":{"1":{"k":"Genesis","b":"6:9","e":"6:16","v":8},"2":{"k":"Genesis","b":"6:17","e":"6:19","v":3},"3":{"k":"Genesis","b":"6:20","e":"6:22","v":3}},"summary":"Genesis 6:9-22"},{"date":"2022-10-25","hdate":"30 Tishrei 5783","name":{"en":"Rosh Chodesh Cheshvan","he":"רֹאשׁ חוֹדֶשׁ חֶשְׁוָן"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-10-26","hdate":"1 Cheshvan 5783","name":{"en":"Rosh Chodesh Cheshvan","he":"רֹאשׁ חוֹדֶשׁ חֶשְׁוָן"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2022-10-27","hdate":"2 Cheshvan 5783","name":{"en":"Noach","he":"נֹחַ"},"type":"weekday","parshaNum":2,"weekday":{"1":{"k":"Genesis","b":"6:9","e":"6:16","v":8},"2":{"k":"Genesis","b":"6:17","e":"6:19","v":3},"3":{"k":"Genesis","b":"6:20","e":"6:22","v":3}},"summary":"Genesis 6:9-22"},{"date":"2022-10-29","hdate":"4 Cheshvan 5783","name":{"en":"Noach","he":"נֹחַ"},"type":"shabbat","parshaNum":2,"summary":"Genesis 6:9-11:32","fullkriyah":{"1":{"k":"Genesis","b":"6:9","e":"6:22","v":14},"2":{"k":"Genesis","b":"7:1","e":"7:16","v":16},"3":{"k":"Genesis","b":"7:17","e":"8:14","v":22},"4":{"k":"Genesis","b":"8:15","e":"9:7","v":15},"5":{"k":"Genesis","b":"9:8","e":"9:17","v":10},"6":{"k":"Genesis","b":"9:18","e":"10:32","v":44},"7":{"k":"Genesis","b":"11:1","e":"11:32","v":32},"M":{"k":"Genesis","b":"11:29","e":"11:32","v":4}},"haftara":"Isaiah 54:1-55:5","haft":{"k":"Isaiah","b":"54:1","e":"55:5","v":22},"seph":{"k":"Isaiah","b":"54:1","e":"54:10","v":10},"sephardic":"Isaiah 54:1-10","sephardicNumV":10,"triennial":{"1":{"k":"Genesis","b":"6:9","e":"6:16","v":8},"2":{"k":"Genesis","b":"6:17","e":"6:19","v":3},"3":{"k":"Genesis","b":"6:20","e":"6:22","v":3},"4":{"k":"Genesis","b":"7:1","e":"7:9","v":9},"5":{"k":"Genesis","b":"7:10","e":"7:16","v":7},"6":{"k":"Genesis","b":"7:17","e":"7:24","v":8},"7":{"k":"Genesis","b":"8:1","e":"8:14","v":14},"M":{"k":"Genesis","b":"8:12","e":"8:14","v":3}},"triYear":1,"triHaftara":"Isaiah 54:11-55:5","triHaft":{"k":"Isaiah","b":"54:11","e":"55:5","note":"Storm tossed boat // Ark","v":12}},{"date":"2022-10-31","hdate":"6 Cheshvan 5783","name":{"en":"Lech-Lecha","he":"לֶךְ־לְךָ"},"type":"weekday","parshaNum":3,"weekday":{"1":{"k":"Genesis","b":"12:1","e":"12:3","v":3},"2":{"k":"Genesis","b":"12:4","e":"12:9","v":6},"3":{"k":"Genesis","b":"12:10","e":"12:13","v":4}},"summary":"Genesis 12:1-13"}]}` }, { "month": "2024-03", "region": "Israel", "url": "https://www.hebcal.com/leyning?cfg=json&start=2024-03-01&end=2024-03-31&i=on", "retrieved": "2026-11-20", "file": "data/calendar/purim2024-israel.json", "bytes": 13402, "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc", "raw": `{"date":"2026-11-20T18:10:09.864Z","location":"Israel","range":{"start":"2024-03-01","end":"2024-03-31"},"items":[{"date":"2024-03-02","hdate":"22 Adar I 5784","name":{"en":"Ki Tisa","he":"כִּי תִשָּׂא"},"type":"shabbat","parshaNum":21,"summary":"Exodus 30:11-34:35","fullkriyah":{"1":{"k":"Exodus","b":"30:11","e":"31:17","v":45},"2":{"k":"Exodus","b":"31:18","e":"33:11","v":47},"3":{"k":"Exodus","b":"33:12","e":"33:16","v":5},"4":{"k":"Exodus","b":"33:17","e":"33:23","v":7},"5":{"k":"Exodus","b":"34:1","e":"34:9","v":9},"6":{"k":"Exodus","b":"34:10","e":"34:26","v":17},"7":{"k":"Exodus","b":"34:27","e":"34:35","v":9},"M":{"k":"Exodus","b":"34:33","e":"34:35","v":3}},"haftara":"I Kings 18:1-39","haft":{"k":"I Kings","b":"18:1","e":"18:39","v":39},"seph":{"k":"I Kings","b":"18:20","e":"18:39","v":20},"sephardic":"I Kings 18:20-39","sephardicNumV":20,"triennial":{"1":{"k":"Exodus","b":"31:18","e":"32:6","v":7},"2":{"k":"Exodus","b":"32:7","e":"32:11","v":5},"3":{"k":"Exodus","b":"32:12","e":"32:14","v":3},"4":{"k":"Exodus","b":"32:15","e":"32:24","v":10},"5":{"k":"Exodus","b":"32:25","e":"32:29","v":5},"6":{"k":"Exodus","b":"32:30","e":"33:6","v":12},"7":{"k":"Exodus","b":"33:7","e":"33:11","v":5},"M":{"k":"Exodus","b":"33:9","e":"33:11","v":3}},"triYear":2,"triHaftara":"I Kings 18:20-39","triHaft":{"k":"I Kings","b":"18:20","e":"18:39","note":"Elijah on Carmel // Golden Calf","v":20}},{"date":"2024-03-04","hdate":"24 Adar I 5784","name":{"en":"Vayakhel","he":"וַיַּקְהֵל"},"type":"weekday","parshaNum":22,"weekday":{"1":{"k":"Exodus","b":"35:1","e":"35:3","v":3},"2":{"k":"Exodus","b":"35:4","e":"35:10","v":7},"3":{"k":"Exodus","b":"35:11","e":"35:20","v":10}},"summary":"Exodus 35:1-20"},{"date":"2024-03-07","hdate":"27 Adar I 5784","name":{"en":"Vayakhel","he":"וַיַּקְהֵל"},"type":"weekday","parshaNum":22,"weekday":{"1":{"k":"Exodus","b":"35:1","e":"35:3","v":3},"2":{"k":"Exodus","b":"35:4","e":"35:10","v":7},"3":{"k":"Exodus","b":"35:11","e":"35:20","v":10}},"summary":"Exodus 35:1-20"},{"date":"2024-03-09","hdate":"29 Adar I 5784","name":{"en":"Vayakhel","he":"וַיַּקְהֵל"},"type":"shabbat","parshaNum":22,"summary":"Exodus 35:1-38:20, 30:11-16","fullkriyah":{"1":{"k":"Exodus","b":"35:1","e":"35:20","v":20},"2":{"k":"Exodus","b":"35:21","e":"35:29","v":9},"3":{"k":"Exodus","b":"35:30","e":"36:7","v":13},"4":{"k":"Exodus","b":"36:8","e":"36:19","v":12},"5":{"k":"Exodus","b":"36:20","e":"37:16","v":35},"6":{"k":"Exodus","b":"37:17","e":"37:29","v":13},"7":{"k":"Exodus","b":"38:1","e":"38:20","v":20},"M":{"p":21,"k":"Exodus","b":"30:11","e":"30:16","v":6,"reason":"Shabbat Shekalim"}},"haftara":"II Kings 12:1-17","haft":{"k":"II Kings","b":"12:1","e":"12:17","v":17,"reason":"Shabbat Shekalim"},"seph":{"k":"II Kings","b":"11:17","e":"12:17","v":21,"reason":"Shabbat Shekalim"},"sephardic":"II Kings 11:17-12:17","sephardicNumV":21,"summaryParts":[{"k":"Exodus","b":"35:1","e":"38:20"},{"k":"Exodus","b":"30:11","e":"30:16"}],"reason":{"haftara":"Shabbat Shekalim","sephardic":"Shabbat Shekalim","M":"Shabbat Shekalim"},"triennial":{"1":{"k":"Exodus","b":"35:1","e":"35:3","v":3},"2":{"k":"Exodus","b":"35:4","e":"35:10","v":7},"3":{"k":"Exodus","b":"35:11","e":"35:20","v":10},"4":{"k":"Exodus","b":"35:21","e":"35:29","v":9},"5":{"k":"Exodus","b":"35:30","e":"35:35","v":6},"6":{"k":"Exodus","b":"36:1","e":"36:7","v":7},"7":{"k":"Exodus","b":"36:8","e":"36:19","v":12},"M":{"p":21,"k":"Exodus","b":"30:11","e":"30:16","v":6,"reason":"Shabbat Shekalim"}},"triYear":2},{"date":"2024-03-10","hdate":"30 Adar I 5784","name":{"en":"Rosh Chodesh Adar II","he":"רֹאשׁ חוֹדֶשׁ אֲדָר ב׳"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2024-03-11","hdate":"1 Adar II 5784","name":{"en":"Rosh Chodesh Adar II","he":"רֹאשׁ חוֹדֶשׁ אֲדָר ב׳"},"type":"holiday","fullkriyah":{"1":{"p":41,"k":"Numbers","b":"28:1","e":"28:3","v":3},"2":{"p":41,"k":"Numbers","b":"28:3","e":"28:5","v":3},"3":{"p":41,"k":"Numbers","b":"28:6","e":"28:10","v":5},"4":{"p":41,"k":"Numbers","b":"28:11","e":"28:15","v":5}},"summary":"Numbers 28:1-15","summaryParts":[{"k":"Numbers","b":"28:1","e":"28:15"}]},{"date":"2024-03-14","hdate":"4 Adar II 5784","name":{"en":"Pekudei","he":"פְקוּדֵי"},"type":"weekday","parshaNum":23,"weekday":{"1":{"k":"Exodus","b":"38:21","e":"38:23","v":3},"2":{"k":"Exodus","b":"38:24","e":"38:27","v":4},"3":{"k":"Exodus","b":"38:28","e":"39:1","v":5}},"summary":"Exodus 38:21-39:1"},{"date":"2024-03-16","hdate":"6 Adar II 5784","name":{"en":"Pekudei","he":"פְקוּדֵי"},"type":"shabbat","parshaNum":23,"summary":"Exodus 38:21-40:38","fullkriyah":{"1":{"k":"Exodus","b":"38:21","e":"39:1","v":12},"2":{"k":"Exodus","b":"39:2","e":"39:21","v":20},"3":{"k":"Exodus","b":"39:22","e":"39:32","v":11},"4":{"k":"Exodus","b":"39:33","e":"39:43","v":11},"5":{"k":"Exodus","b":"40:1","e":"40:16","v":16},"6":{"k":"Exodus","b":"40:17","e":"40:27","v":11},"7":{"k":"Exodus","b":"40:28","e":"40:38","v":11},"M":{"k":"Exodus","b":"40:34","e":"40:38","v":5}},"haftara":"I Kings 7:51-8:21","haft":{"k":"I Kings","b":"7:51","e":"8:21","v":22},"seph":{"k":"I Kings","b":"7:40","e":"7:50","v":11},"sephardic":"I Kings 7:40-50","sephardicNumV":11,"chabad":{"k":"I Kings","b":"7:51","e":"8:21","v":22},"triennial":{"1":{"k":"Exodus","b":"38:21","e":"38:23","v":3},"2":{"k":"Exodus","b":"38:24","e":"38:27","v":4},"3":{"k":"Exodus","b":"38:28","e":"39:1","v":5},"4":{"k":"Exodus","b":"39:2","e":"39:7","v":6},"5":{"k":"Exodus","b":"39:8","e":"39:14","v":7},"6":{"k":"Exodus","b":"39:15","e":"39:18","v":4},"7":{"k":"Exodus","b":"39:19","e":"39:21","v":3},"M":{"k":"Exodus","b":"39:19","e":"39:21","v":3}},"triYear":2,"triHaftara":"I Kings 8:10-21","triHaft":{"k":"I Kings","b":"8:10","e":"8:21","note":"T / T","v":12}},{"date":"2024-03-18","hdate":"8 Adar II 5784","name":{"en":"Vayikra","he":"וַיִּקְרָא"},"type":"weekday","parshaNum":24,"weekday":{"1":{"k":"Leviticus","b":"1:1","e":"1:4","v":4},"2":{"k":"Leviticus","b":"1:5","e":"1:9","v":5},"3":{"k":"Leviticus","b":"1:10","e":"1:13","v":4}},"summary":"Leviticus 1:1-13"},{"date":"2024-03-21","hdate":"11 Adar II 5784","name":{"en":"Ta'anit Esther","he":"תַּעֲנִית אֶסְתֵּר"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"3":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}]},{"date":"2024-03-21","hdate":"11 Adar II 5784","name":{"en":"Ta'anit Esther (Mincha)","he":"תַּעֲנִית אֶסְתֵּר (מִנְחָה)"},"type":"holiday","fullkriyah":{"1":{"p":21,"k":"Exodus","b":"32:11","e":"32:14","v":4},"2":{"p":21,"k":"Exodus","b":"34:1","e":"34:3","v":3},"M":{"p":21,"k":"Exodus","b":"34:4","e":"34:10","v":7}},"summary":"Exodus 32:11-14, 34:1-10","summaryParts":[{"k":"Exodus","b":"32:11","e":"32:14"},{"k":"Exodus","b":"34:1","e":"34:10"}],"haft":{"k":"Isaiah","b":"55:6","e":"56:8","v":16},"haftara":"Isaiah 55:6-56:8"},{"date":"2024-03-23","hdate":"13 Adar II 5784","name":{"en":"Vayikra","he":"וַיִּקְרָא"},"type":"shabbat","parshaNum":24,"summary":"Leviticus 1:1-5:26; Deuteronomy 25:17-19","fullkriyah":{"1":{"k":"Leviticus","b":"1:1","e":"1:13","v":13},"2":{"k":"Leviticus","b":"1:14","e":"2:6","v":10},"3":{"k":"Leviticus","b":"2:7","e":"2:16","v":10},"4":{"k":"Leviticus","b":"3:1","e":"3:17","v":17},"5":{"k":"Leviticus","b":"4:1","e":"4:26","v":26},"6":{"k":"Leviticus","b":"4:27","e":"5:10","v":19},"7":{"k":"Leviticus","b":"5:11","e":"5:26","v":16},"M":{"p":49,"k":"Deuteronomy","b":"25:17","e":"25:19","v":3,"reason":"Shabbat Zachor"}},"haftara":"I Samuel 15:2-34","haft":{"k":"I Samuel","b":"15:2","e":"15:34","v":33,"reason":"Shabbat Zachor"},"seph":{"k":"I Samuel","b":"15:1","e":"15:34","v":34,"reason":"Shabbat Zachor"},"sephardic":"I Samuel 15:1-34","sephardicNumV":34,"chabad":{"k":"I Samuel","b":"15:2","e":"15:34","v":33,"reason":"Shabbat Zachor"},"summaryParts":[{"k":"Leviticus","b":"1:1","e":"5:26"},{"k":"Deuteronomy","b":"25:17","e":"25:19"}],"reason":{"haftara":"Shabbat Zachor","sephardic":"Shabbat Zachor","chabad":"Shabbat Zachor","M":"Shabbat Zachor"},"triennial":{"1":{"k":"Leviticus","b":"3:1","e":"3:5","v":5},"2":{"k":"Leviticus","b":"3:6","e":"3:11","v":6},"3":{"k":"Leviticus","b":"3:12","e":"3:17","v":6},"4":{"k":"Leviticus","b":"4:1","e":"4:7","v":7},"5":{"k":"Leviticus","b":"4:8","e":"4:12","v":5},"6":{"k":"Leviticus","b":"4:13","e":"4:21","v":9},"7":{"k":"Leviticus","b":"4:22","e":"4:26","v":5},"M":{"p":49,"k":"Deuteronomy","b":"25:17","e":"25:19","v":3,"reason":"Shabbat Zachor"}},"triYear":2},{"date":"2024-03-23","hdate":"13 Adar II 5784","name":{"en":"Erev Purim","he":"עֶרֶב פּוּרִים"},"type":"holiday","megillah":{"1":{"k":"Esther","b":"1:1","e":"1:22","v":22},"2":{"k":"Esther","b":"2:1","e":"2:23","v":23},"3":{"k":"Esther","b":"3:1","e":"3:15","v":15},"4":{"k":"Esther","b":"4:1","e":"4:17","v":17},"5":{"k":"Esther","b":"5:1","e":"5:14","v":14},"6":{"k":"Esther","b":"6:1","e":"6:14","v":14},"7":{"k":"Esther","b":"7:1","e":"7:10","v":10},"8":{"k":"Esther","b":"8:1","e":"8:17","v":17},"9":{"k":"Esther","b":"9:1","e":"9:32","v":32},"10":{"k":"Esther","b":"10:1","e":"10:3","v":3}},"summary":"Esther 1:1-10:3"},{"date":"2024-03-24","hdate":"14 Adar II 5784","name":{"en":"Purim","he":"פּוּרִים"},"type":"holiday","fullkriyah":{"1":{"p":16,"k":"Exodus","b":"17:8","e":"17:10","v":3},"2":{"p":16,"k":"Exodus","b":"17:11","e":"17:13","v":3},"3":{"p":16,"k":"Exodus","b":"17:14","e":"17:16","v":3}},"summary":"Exodus 17:8-16; Esther 1:1-10:3","summaryParts":[{"k":"Exodus","b":"17:8","e":"17:16"},{"k":"Esther","b":"1:1","e":"10:3"}],"megillah":{"1":{"k":"Esther","b":"1:1","e":"1:22","v":22},"2":{"k":"Esther","b":"2:1","e":"2:23","v":23},"3":{"k":"Esther","b":"3:1","e":"3:15","v":15},"4":{"k":"Esther","b":"4:1","e":"4:17","v":17},"5":{"k":"Esther","b":"5:1","e":"5:14","v":14},"6":{"k":"Esther","b":"6:1","e":"6:14","v":14},"7":{"k":"Esther","b":"7:1","e":"7:10","v":10},"8":{"k":"Esther","b":"8:1","e":"8:17","v":17},"9":{"k":"Esther","b":"9:1","e":"9:32","v":32},"10":{"k":"Esther","b":"10:1","e":"10:3","v":3}}},{"date":"2024-03-25","hdate":"15 Adar II 5784","name":{"en":"Shushan Purim","he":"שׁוּשָׁן פּוּרִים"},"type":"holiday","fullkriyah":{"1":{"p":16,"k":"Exodus","b":"17:8","e":"17:10","v":3},"2":{"p":16,"k":"Exodus","b":"17:11","e":"17:13","v":3},"3":{"p":16,"k":"Exodus","b":"17:14","e":"17:16","v":3}},"summary":"Exodus 17:8-16; Esther 1:1-10:3","summaryParts":[{"k":"Exodus","b":"17:8","e":"17:16"},{"k":"Esther","b":"1:1","e":"10:3"}],"megillah":{"1":{"k":"Esther","b":"1:1","e":"1:22","v":22},"2":{"k":"Esther","b":"2:1","e":"2:23","v":23},"3":{"k":"Esther","b":"3:1","e":"3:15","v":15},"4":{"k":"Esther","b":"4:1","e":"4:17","v":17},"5":{"k":"Esther","b":"5:1","e":"5:14","v":14},"6":{"k":"Esther","b":"6:1","e":"6:14","v":14},"7":{"k":"Esther","b":"7:1","e":"7:10","v":10},"8":{"k":"Esther","b":"8:1","e":"8:17","v":17},"9":{"k":"Esther","b":"9:1","e":"9:32","v":32},"10":{"k":"Esther","b":"10:1","e":"10:3","v":3}},"note":"Jerusalem & walled cities only"},{"date":"2024-03-28","hdate":"18 Adar II 5784","name":{"en":"Tzav","he":"צַו"},"type":"weekday","parshaNum":25,"weekday":{"1":{"k":"Leviticus","b":"6:1","e":"6:3","v":3},"2":{"k":"Leviticus","b":"6:4","e":"6:6","v":3},"3":{"k":"Leviticus","b":"6:7","e":"6:11","v":5}},"summary":"Leviticus 6:1-11"},{"date":"2024-03-30","hdate":"20 Adar II 5784","name":{"en":"Tzav","he":"צַו"},"type":"shabbat","parshaNum":25,"summary":"Leviticus 6:1-8:36; Numbers 19:1-22","fullkriyah":{"1":{"k":"Leviticus","b":"6:1","e":"6:11","v":11},"2":{"k":"Leviticus","b":"6:12","e":"7:10","v":22},"3":{"k":"Leviticus","b":"7:11","e":"7:38","v":28},"4":{"k":"Leviticus","b":"8:1","e":"8:13","v":13},"5":{"k":"Leviticus","b":"8:14","e":"8:21","v":8},"6":{"k":"Leviticus","b":"8:22","e":"8:29","v":8},"7":{"k":"Leviticus","b":"8:30","e":"8:36","v":7},"M":{"p":39,"k":"Numbers","b":"19:1","e":"19:22","v":22,"reason":"Shabbat Parah"}},"haftara":"Ezekiel 36:16-38","haft":{"k":"Ezekiel","b":"36:16","e":"36:38","v":23,"reason":"Shabbat Parah"},"seph":{"k":"Ezekiel","b":"36:16","e":"36:36","v":21,"reason":"Shabbat Parah"},"sephardic":"Ezekiel 36:16-36","sephardicNumV":21,"summaryParts":[{"k":"Leviticus","b":"6:1","e":"8:36"},{"k":"Numbers","b":"19:1","e":"19:22"}],"reason":{"haftara":"Shabbat Parah","sephardic":"Shabbat Parah","M":"Shabbat Parah"},"triennial":{"1":{"k":"Leviticus","b":"7:11","e":"7:15","v":5},"2":{"k":"Leviticus","b":"7:16","e":"7:18","v":3},"3":{"k":"Leviticus","b":"7:19","e":"7:21","v":3},"4":{"k":"Leviticus","b":"7:22","e":"7:27","v":6},"5":{"k":"Leviticus","b":"7:28","e":"7:31","v":4},"6":{"k":"Leviticus","b":"7:32","e":"7:34","v":3},"7":{"k":"Leviticus","b":"7:35","e":"7:38","v":4},"M":{"p":39,"k":"Numbers","b":"19:1","e":"19:22","v":22,"reason":"Shabbat Parah"}},"triYear":2}]}` }];
 
   // calendar.js
   var CALENDAR_SOURCE = Object.freeze({ provider: "Hebcal.com", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/", documentation: "https://www.hebcal.com/home/4277/leyning-torah-reading-api" });
-  var BOOKS = { Genesis: "gen", Exodus: "exo", Leviticus: "lev", Numbers: "num", Deuteronomy: "deu" };
+  var BOOKS2 = { Genesis: "gen", Exodus: "exo", Leviticus: "lev", Numbers: "num", Deuteronomy: "deu" };
   function monthRequest(month, region) {
     if (typeof month !== "string" || !/^\d{4}-(0[1-9]|1[0-2])$/.test(month) || Number(month.slice(0, 4)) < 1) throw Error("Choose a Gregorian month between years0001 and9999.");
     if (!["Diaspora", "Israel"].includes(region)) throw Error("Choose Israel or Diaspora.");
@@ -5780,16 +6501,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const entries = onlyKey === null ? divisions.entries : divisions.entries.filter((e) => e.key === onlyKey);
     if (!entries.length) throw Error("Choose an available aliyah.");
     return entries.map(({ key, label: label2, unit }) => {
-      const point = (value) => {
-        if (typeof value !== "string" || !/^\d+:\d+$/.test(value)) throw Error("Partial-verse divisions cannot yet be opened without losing source boundaries.");
-        const [chapter, verse] = value.split(":").map(Number);
-        return { chapter, verse };
+      if (!unit || !BOOKS2[unit.k]) throw Error("This division needs a book outside the current Torah library.");
+      const resolved = resolveTorahCalendarUnit(unit, corpus2.byId.get(BOOKS2[unit.k]));
+      const range = corpus2.range({ id: `hebcal-${item.date.replaceAll("-", "")}-${record.region.toLowerCase()}-${divisions.field}-${key}`, bookId: BOOKS2[unit.k], start: resolved.start, end: resolved.end, label: `${item.name.en} · ${label2}` });
+      range.divisionSource = {
+        provider: "Hebcal.com",
+        url: record.url,
+        sha256: record.sha256,
+        retrieved: record.retrieved,
+        serviceDate: item.date,
+        region: record.region,
+        cycle: divisions.field,
+        aliyah: key,
+        ...resolved.mapping ? { referenceMapping: resolved.mapping } : {}
       };
-      if (!unit || !BOOKS[unit.k]) throw Error("This division needs a book outside the current Torah library.");
-      const range = corpus2.range({ id: `hebcal-${item.date.replaceAll("-", "")}-${record.region.toLowerCase()}-${divisions.field}-${key}`, bookId: BOOKS[unit.k], start: point(unit.b), end: point(unit.e), label: `${item.name.en} · ${label2}` });
-      const actual = corpus2.passage([range]).verses.length;
-      if (!Number.isInteger(unit.v) || unit.v !== actual) throw Error(`${unit.k} ${unit.b}–${unit.e}: source verse count differs from UXLC. Review the edition numbering before opening.`);
-      range.divisionSource = { provider: "Hebcal.com", url: record.url, sha256: record.sha256, retrieved: record.retrieved, serviceDate: item.date, region: record.region, cycle: divisions.field, aliyah: key };
       return range;
     });
   }
@@ -6034,14 +6759,135 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
   }
 
-  // calendar-ui.js
+  // calendar-related.js
+  function relatedReadingChoices(item) {
+    return RELATED_READINGS.filter((definition) => item[definition.field] !== void 0 || definition.summary && item[definition.summary] !== void 0).map((definition) => ({
+      ...definition,
+      summary: definition.summary && typeof item[definition.summary] === "string" ? item[definition.summary] : typeof item[definition.field] === "string" ? item[definition.field] : null,
+      value: item[definition.field],
+      year: definition.field === "triHaft" ? item.triYear : null
+    }));
+  }
+  function relatedUnitLabel(unit) {
+    return unit && typeof unit === "object" ? `${unit.k ?? "?"} ${unit.b ?? "?"}–${unit.e ?? "?"}${Number.isInteger(unit.v) ? ` · ${unit.v} source verses` : ""}` : String(unit);
+  }
+  function relatedReadingRanges(item, field, record, corpus2) {
+    const definition = relatedDefinition(field);
+    if (!definition) throw Error("Choose an available related reading.");
+    const value = item[field], { shape, units } = relatedUnits(value), checked2 = units.map((entry) => checkedRelatedUnit(entry, definition, corpus2));
+    const groups = [];
+    for (const [index, unit] of checked2.entries()) {
+      const previous = groups.at(-1), last = previous && checked2[previous.last], next = last && nextVerse(last.book, last.end);
+      if (definition.type === "megillah" && previous && unit.book.id === last.book.id && next && unit.start.chapter === next.chapter && unit.start.verse === next.verse) previous.last = index;
+      else groups.push({ first: index, last: index });
+    }
+    const source = {
+      format: "hebcal-related-reading-v1",
+      provider: "Hebcal.com",
+      url: record.url,
+      sha256: record.sha256,
+      retrieved: record.retrieved,
+      serviceDate: item.date,
+      region: record.region,
+      serviceName: { ...item.name },
+      serviceContext: Object.fromEntries(["hdate", "type", "reason", "note", "admonition", "parshaNum"].filter((key) => item[key] !== void 0).map((key) => [key, item[key]])),
+      readingType: definition.type,
+      variant: field,
+      shape,
+      units,
+      ...definition.summary && typeof item[definition.summary] === "string" ? { sourceSummary: item[definition.summary] } : {},
+      ...definition.count && item[definition.count] !== void 0 ? { reportedTotal: { field: definition.count, value: item[definition.count] } } : {},
+      ...field === "triHaft" && item.triYear !== void 0 ? { triennialYear: item.triYear } : {}
+    };
+    const ranges = groups.map((selection, index) => {
+      const first = checked2[selection.first], last = checked2[selection.last];
+      return corpus2.range({
+        id: `related-${item.date.replaceAll("-", "")}-${record.region.toLowerCase()}-${field}-${index + 1}`,
+        bookId: first.book.id,
+        start: first.start,
+        end: last.end,
+        label: `${item.name.en} · ${definition.label} · ${index + 1}`,
+        relatedSource: { ...source, selection }
+      });
+    });
+    return {
+      readingType: definition.type,
+      label: definition.label,
+      ranges: validateReadingSections(definition.type, ranges, corpus2),
+      sourceUnits: checked2.length,
+      verses: checked2.reduce((n, unit) => n + unit.count, 0)
+    };
+  }
+
+  // calendar-related-ui.js
   var el = (tag, text, className) => {
+    const element = document.createElement(tag);
+    if (text !== void 0) element.textContent = text;
+    if (className) element.className = className;
+    return element;
+  };
+  function calendarRelatedPanel({ item, record, getReadingCorpus, onOpen, isCurrent, showStatus }) {
+    const choices = relatedReadingChoices(item);
+    if (!choices.length) return null;
+    const panel = el("div", void 0, "calendar-related");
+    panel.append(el("p", "Reading variants choose passage boundaries. Melody, pronunciation, key, range and speed stay selected.", "muted"));
+    for (const choice of choices) {
+      const row = el("section", void 0, "calendar-related-reading");
+      row.append(el("h4", `${choice.label}${choice.year ? ` · source year ${choice.year}` : ""}`));
+      if (choice.summary) row.append(el("p", `Source citation: ${choice.summary}`));
+      try {
+        const { units } = relatedUnits(choice.value), list = el("ol");
+        for (const { key, unit } of units) {
+          const line = el("li", `${relatedUnitLabel(unit)} · source unit ${key}`);
+          for (const field of ["reason", "note"]) if (typeof unit?.[field] === "string") line.append(el("p", unit[field], "muted"));
+          list.append(line);
+        }
+        row.append(list);
+      } catch {
+        if (choice.value !== void 0 && !choice.summary) row.append(el("pre", JSON.stringify(choice.value, null, 2), "calendar-raw-reference"));
+      }
+      const button = el("button", `Open ${choice.type === "megillah" ? "Megillah" : "haftarah"} text`);
+      button.type = "button";
+      button.disabled = true;
+      button.setAttribute("aria-label", `Open ${item.date} ${item.name.en} ${choice.label}`);
+      const outcome = el("p", "Checking the structured source against UXLC…", "muted");
+      row.append(button, outcome);
+      panel.append(row);
+      void (async () => {
+        try {
+          const corpus2 = await getReadingCorpus(), checked2 = relatedReadingRanges(item, choice.field, record, corpus2);
+          if (!isCurrent()) return;
+          button.disabled = false;
+          outcome.textContent = `${checked2.ranges.length} tutor section${checked2.ranges.length === 1 ? "" : "s"} · ${checked2.verses} source verses · ${checked2.sourceUnits} original source unit${checked2.sourceUnits === 1 ? "" : "s"}. References match UXLC; no musical realization is added.`;
+        } catch (error) {
+          if (isCurrent()) outcome.textContent = `Reference only: ${error.message}`;
+        }
+      })();
+      button.addEventListener("click", async () => {
+        button.disabled = true;
+        try {
+          const corpus2 = await getReadingCorpus(), checked2 = relatedReadingRanges(item, choice.field, record, corpus2);
+          if (!isCurrent()) return;
+          await onOpen(checked2.ranges, `${item.name.en} · ${item.date} · ${choice.label}`, { readingType: checked2.readingType });
+          if (isCurrent()) showStatus(`Opened ${choice.label} · ${item.date} · ${checked2.ranges.length} section${checked2.ranges.length === 1 ? "" : "s"}. Musical source, pronunciation and personal settings are kept. No audio started.`);
+        } catch (error) {
+          if (isCurrent()) showStatus(error.message);
+        } finally {
+          if (isCurrent()) button.disabled = false;
+        }
+      });
+    }
+    return panel;
+  }
+
+  // calendar-ui.js
+  var el2 = (tag, text, className) => {
     const e = document.createElement(tag);
     if (text !== void 0) e.textContent = text;
     if (className) e.className = className;
     return e;
   };
-  function mountCalendar({ getCorpus: getCorpus2, onOpen }) {
+  function mountCalendar({ getCorpus: getCorpus2, getReadingCorpus = getCorpus2, onOpen }) {
     const $2 = (id) => document.getElementById(id);
     let storage;
     try {
@@ -6070,59 +6916,59 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const items = filterDate ? data.items.filter((item) => item.date === filterDate) : data.items;
       $2("calendar-whole-month").hidden = !filterDate;
       if (!items.length) {
-        status.textContent = filterDate ? `No scheduled Torah reading for ${filterDate} in this source’s ${record.region} schedule. Show the whole month to choose another service.` : "The source returned no Torah readings in this month.";
+        status.textContent = filterDate ? `No scheduled reading service for ${filterDate} in this source’s ${record.region} schedule. Show the whole month to choose another service.` : "The source returned no reading services in this month.";
         return;
       }
-      status.textContent = `${items.length} reading service${items.length === 1 ? "" : "s"} · ${filterDate || record.month} · ${record.region}. Choose a service and aliyah; the calendar does not select a melody.`;
+      status.textContent = `${items.length} reading service${items.length === 1 ? "" : "s"} · ${filterDate || record.month} · ${record.region}. Choose Torah divisions or a related text; the calendar does not select a melody.`;
       for (const item of items) {
-        const row = el("details", void 0, "calendar-reading");
-        const summary = el("summary", `${item.date} · ${item.hdate} · ${item.name.en}`);
+        const row = el2("details", void 0, "calendar-reading");
+        const summary = el2("summary", `${item.date} · ${item.hdate} · ${item.name.en}`);
         row.append(summary);
         if (item.name.he) {
-          const he = el("p", item.name.he, "calendar-hebrew");
+          const he = el2("p", item.name.he, "calendar-hebrew");
           he.lang = "he";
           he.dir = "rtl";
           row.append(he);
         }
-        row.append(el("p", item.summary ? `Full reading overview: ${item.summary}` : "Weekday Torah reading", "muted"));
+        row.append(el2("p", item.summary ? `Full reading overview: ${item.summary}` : item.weekday ? "Weekday Torah reading" : "Related reading service", "muted"));
         const sourceNotes = [item.reason, item.note].filter((x) => typeof x === "string");
-        for (const note of sourceNotes) row.append(el("p", note, "muted"));
+        for (const note of sourceNotes) row.append(el2("p", note, "muted"));
         let divisions;
         try {
           divisions = readingDivisions(item, cycle.value);
         } catch (error) {
-          row.append(el("p", error.message, "calendar-error"));
+          row.append(el2("p", error.message, item.fullkriyah || item.weekday ? "calendar-error" : "muted"));
         }
         if (divisions) {
-          row.append(el("p", divisions.label, "calendar-cycle-label"));
-          const controls = el("div", void 0, "calendar-open-controls");
-          const label2 = el("label", "Reading to open");
-          const select = el("select");
+          row.append(el2("p", divisions.label, "calendar-cycle-label"));
+          const controls = el2("div", void 0, "calendar-open-controls");
+          const label2 = el2("label", "Reading to open");
+          const select = el2("select");
           select.setAttribute("aria-label", `${item.date} ${item.name.en} aliyah`);
-          const all = el("option", divisions.entries.some((e) => e.key === "M") ? "All listed aliyot, including Maftir" : "All listed aliyot");
+          const all = el2("option", divisions.entries.some((e) => e.key === "M") ? "All listed aliyot, including Maftir" : "All listed aliyot");
           all.value = "all";
           select.append(all);
           for (const entry of divisions.entries) {
             const u = entry.unit;
-            const option = el("option", `${entry.label} · ${u.k ?? "?"} ${u.b ?? "?"}–${u.e ?? "?"}`);
+            const option = el2("option", `${entry.label} · ${u.k ?? "?"} ${u.b ?? "?"}–${u.e ?? "?"}`);
             option.value = entry.key;
             select.append(option);
           }
           label2.append(select);
-          const button = el("button", "Open selected Torah reading");
+          const button = el2("button", "Open selected Torah reading");
           button.type = "button";
           button.setAttribute("aria-label", `Open ${item.date} ${item.name.en}`);
           button.addEventListener("click", async () => {
-            const activeRecord = record, activeCycle = cycle.value, activeGeneration = generation;
+            const activeRecord2 = record, activeCycle = cycle.value, activeGeneration2 = generation;
             button.disabled = true;
             try {
               const corpus2 = await getCorpus2();
-              const ranges = calendarRanges(item, activeCycle, activeRecord, corpus2, select.value === "all" ? null : select.value);
-              if (activeGeneration !== generation) return;
+              const ranges = calendarRanges(item, activeCycle, activeRecord2, corpus2, select.value === "all" ? null : select.value);
+              if (activeGeneration2 !== generation) return;
               await onOpen(ranges, `${item.name.en} · ${item.date} · ${divisions.label}`);
-              status.textContent = `Opened ${item.name.en} · ${item.date} · ${ranges.length} section${ranges.length === 1 ? "" : "s"}. Musical source, personal key and tempo are kept. No audio started.`;
+              status.textContent = `Opened ${item.name.en} · ${item.date} · ${ranges.length} section${ranges.length === 1 ? "" : "s"}. Musical source, personal key and tempo are kept. No audio started.${ranges.some((range) => range.divisionSource?.referenceMapping) ? " Calendar/UXLC verse numbering is mapped explicitly; see the retained source in section details." : ""}`;
             } catch (error) {
-              if (activeGeneration === generation) status.textContent = error.message;
+              if (activeGeneration2 === generation) status.textContent = error.message;
             } finally {
               button.disabled = false;
             }
@@ -6130,19 +6976,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           controls.append(label2, button);
           row.append(controls);
         }
-        const refs = el("div", void 0, "calendar-related");
-        for (const [field, title] of [["haftara", "Haftarah (source default)"], ["sephardic", "Haftarah · Sephardic variant"], ["chabad", "Haftarah · Chabad variant"], ["triHaftara", "Triennial haftarah"], ["megillah", "Megillah"]]) {
-          const value = item[field];
-          if (typeof value === "string") refs.append(el("p", `${title}: ${value}`));
-          else if (value && typeof value === "object") {
-            const units = Array.isArray(value) ? value : value.k ? [value] : Object.values(value);
-            refs.append(el("p", `${title}: ${units.map((u) => `${u.k ?? ""} ${u.b ?? ""}–${u.e ?? ""}`).join("; ")}`));
-          }
-        }
-        if (refs.childNodes.length) {
-          refs.append(el("p", "Related references only; these books and their melodies are not yet available in the reader. Partial verses and source ordering are retained.", "muted"));
-          row.append(refs);
-        }
+        const activeRecord = record, activeGeneration = generation;
+        const refs = calendarRelatedPanel({ item, record: activeRecord, getReadingCorpus, onOpen, isCurrent: () => record === activeRecord && generation === activeGeneration, showStatus: (text) => {
+          status.textContent = text;
+        } });
+        if (refs) row.append(refs);
         list.append(row);
       }
     }
@@ -6183,6 +7021,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
     for (const button of document.querySelectorAll("[data-calendar-example]")) button.addEventListener("click", () => {
       month.value = button.dataset.calendarExample;
+      if (button.dataset.calendarRegion) region.value = button.dataset.calendarRegion;
       filterDate = "";
       load();
     });
@@ -6229,8 +7068,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     readingType: "torah"
   };
   var restoredReadingType;
+  var originalPracticeText = null;
   try {
-    const saved = JSON.parse(localStorage.getItem("tropetrain-practice-v1"));
+    originalPracticeText = localStorage.getItem("tropetrain-practice-v1");
+    const saved = JSON.parse(originalPracticeText);
     if (saved) {
       for (const [key, min, max] of [["cursor", 0, 1e6], ["anchor", 0, 1e6], ["tempo", 40, 160], ["transpose", -12, 12], ["volume", 0, 100], ["referenceVolume", 0, 100], ["rangeLow", 36, 84], ["rangeHigh", 36, 84], ["readerPage", 0, 1e5]])
         if (Number.isInteger(saved[key]) && saved[key] >= min && saved[key] <= max) state[key] = saved[key];
@@ -6262,6 +7103,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var recent = loadArray("tropetrain-recent-v1");
   var assignments = loadArray("tropetrain-assignments-v1");
   var restoringReading = !!restore.ranges;
+  var practiceRecoveryRecord = null;
+  try {
+    practiceRecoveryRecord = latestPracticeRecovery(localStorage);
+  } catch {
+  }
   var exportsKey = null;
   var wavJob = null;
   var exportUrls = /* @__PURE__ */ new Map();
@@ -6292,7 +7138,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           renderReader();
         }
       }
-      document.querySelectorAll("[data-word]").forEach((el2) => el2.classList.toggle("reference-active", marksWord(el2, referenceActiveId)));
+      document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("reference-active", marksWord(el3, referenceActiveId)));
       if (word) renderRecordedWord(word);
     },
     onEnd: () => {
@@ -6375,11 +7221,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function setActive(wordId, eventId) {
     if (wordId !== activeId) {
       activeId = wordId;
-      document.querySelectorAll("[data-word]").forEach((el2) => el2.classList.toggle("active", marksWord(el2, wordId)));
+      document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("active", marksWord(el3, wordId)));
     }
     if (eventId !== activeEventId) {
       activeEventId = eventId;
-      document.querySelectorAll("[data-event]").forEach((el2) => el2.classList.toggle("active", el2.dataset.event === eventId));
+      document.querySelectorAll("[data-event]").forEach((el3) => el3.classList.toggle("active", el3.dataset.event === eventId));
     }
   }
   function stop(message = "Stopped. Your selection is kept.", { preservePattern = false } = {}) {
@@ -6505,7 +7351,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         e.preventDefault();
         const i = Math.max(0, Math.min(words2.length - 1, e.key === "ArrowLeft" ? end.index + 1 : w.index - 1));
         selectWord(i, e.shiftKey);
-        [...document.querySelectorAll("[data-word]")].find((el2) => marksWord(el2, words2[i].id))?.focus();
+        [...document.querySelectorAll("[data-word]")].find((el3) => marksWord(el3, words2[i].id))?.focus();
       }
     });
     return b;
@@ -6638,13 +7484,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function updateSelection() {
     const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
-    document.querySelectorAll("[data-word]").forEach((el2) => {
-      const i = Number(el2.dataset.index), last = Number(el2.dataset.endIndex ?? i), selected = last >= start && i <= end;
-      el2.classList.toggle("selected", selected);
-      el2.classList.toggle("cursor", i <= state.cursor && last >= state.cursor);
-      el2.classList.toggle("active", marksWord(el2, activeId));
-      el2.setAttribute("aria-pressed", String(selected));
-      el2.classList.toggle("reference-active", marksWord(el2, referenceActiveId));
+    document.querySelectorAll("[data-word]").forEach((el3) => {
+      const i = Number(el3.dataset.index), last = Number(el3.dataset.endIndex ?? i), selected = last >= start && i <= end;
+      el3.classList.toggle("selected", selected);
+      el3.classList.toggle("cursor", i <= state.cursor && last >= state.cursor);
+      el3.classList.toggle("active", marksWord(el3, activeId));
+      el3.setAttribute("aria-pressed", String(selected));
+      el3.classList.toggle("reference-active", marksWord(el3, referenceActiveId));
     });
     $("selection-label").textContent = state.scope === "selection" ? `Selected ${fullLabel(start)} to ${fullLabel(end)}` : `Cursor: ${fullLabel(state.cursor)}`;
     $("span-preview").textContent = `${fullLabel(start)} to ${fullLabel(end)} · ${end - start + 1} word${end > start ? "s" : ""}`;
@@ -6818,8 +7664,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       button.setAttribute("aria-label", `Go to ${hit.word.reference} word ${hit.word.ordinal}${section ? ` in section ${section}` : ""}`);
       button.addEventListener("click", () => {
         if (state.findScope === "torah") libraryAction(() => {
-          const point = { chapter: hit.word.chapter, verse: hit.word.verse };
-          applyRanges([{ id: "sign-example", bookId: hit.word.bookId, start: point, end: point, label: "Sign example" }]);
+          const point2 = { chapter: hit.word.chapter, verse: hit.word.verse };
+          applyRanges([{ id: "sign-example", bookId: hit.word.bookId, start: point2, end: point2, label: "Sign example" }]);
           const index = words2.findIndex((w) => (w.sourceWordId ?? w.id) === hit.sourceWordId);
           if (index >= 0) selectWord(index);
         });
@@ -6914,11 +7760,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("staff-page-label").textContent = plan.length ? `Score notes ${from + 1}–${to} of ${plan.length}` : "No score notes in this span";
     $("staff-previous").disabled = from === 0;
     $("staff-next").disabled = to === plan.length;
-    $("pitch-staff").querySelectorAll("[data-word-index]").forEach((el2) => {
-      el2.classList.toggle("active", el2.dataset.event === activeEventId);
-      const activate = () => selectWord(Number(el2.dataset.wordIndex));
-      el2.addEventListener("click", activate);
-      el2.addEventListener("keydown", (e) => {
+    $("pitch-staff").querySelectorAll("[data-word-index]").forEach((el3) => {
+      el3.classList.toggle("active", el3.dataset.event === activeEventId);
+      const activate = () => selectWord(Number(el3.dataset.wordIndex));
+      el3.addEventListener("click", activate);
+      el3.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           activate();
@@ -7125,6 +7971,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("scroll-layout").disabled = !scrollLayout || !isTorahReading(passage2.ranges);
     $("scroll-layout-status").textContent = isTorahReading(passage2.ranges) ? scrollMessage : "Sourced scroll layout covers Torah only. Your scroll-layout preference is kept for Torah readings.";
     $("reading-type-label").textContent = `${READING_TYPES.find((type) => type.id === state.readingType).label} · practice reader`;
+    $("scope").querySelector('option[value="verse"]').textContent = passage2.ranges.some((range) => range.divisionSource?.referenceMapping) ? "End of UXLC verse record" : "End of verse";
     renderReader();
     renderSequence();
     persist();
@@ -7142,6 +7989,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!corpus) throw Error("The reading library is still loading.");
     const nextType = readingType ?? readingTypeForRanges(ranges, corpus), checked2 = validateReadingSections(nextType, ranges, corpus);
     const nextPassage = corpus.passage(checked2), nextModel = createReadingModel(nextPassage, state);
+    if (remember) restoringReading = false;
     stop("Reading opened. Ready to listen.");
     passage2 = nextPassage;
     model = nextModel;
@@ -7161,6 +8009,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (remember) rememberReading();
     const unresolved = words2.filter((w) => w.analysisStatus === "unsegmented").length;
     $("library-message").textContent = `Opened ${passage2.title}. ${unresolved ? `${unresolved} words have unresolved syllable boundaries. ` : ""}Musical source: ${model.profile.name}. Syllables are unreviewed; the recorded reference is separate.`;
+    if (passage2.ranges.some((range) => range.divisionSource?.referenceMapping)) $("library-message").textContent += " Calendar and UXLC verse numbers differ here; inspect Source/UXLC verse numbering under Tutor assignments & sections.";
   }
   function updateBookLimits({ reset = false } = {}) {
     const book = corpus?.byId.get($("book").value);
@@ -7212,6 +8061,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       $("library-message").textContent = error.message;
     }
   }
+  function showPracticeRecovery() {
+    $("practice-recovery").hidden = !practiceRecoveryRecord;
+    if (practiceRecoveryRecord) $("practice-recovery-message").textContent = `${practiceRecoveryRecord.reason} The original saved practice record is retained for review; its source ranges were not substituted.`;
+  }
+  function retainPracticeRecovery(error) {
+    if (!originalPracticeText) return;
+    practiceRecoveryRecord = practiceRecovery(originalPracticeText, error.message);
+    let saved = false;
+    try {
+      saved = savePracticeRecovery(localStorage, practiceRecoveryRecord);
+    } catch {
+    }
+    showPracticeRecovery();
+    if (!saved) $("practice-recovery-message").textContent += " Backup storage is unavailable. Export this recovery record before replacing the open practice state.";
+  }
   function renderSections() {
     $("sections").replaceChildren();
     updateReadingFormStatus();
@@ -7260,8 +8124,81 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         remove.addEventListener("click", () => libraryAction(() => applyRanges(passage2.ranges.filter((r) => r.id !== range.id))));
         row.append(remove);
       }
+      if (range.relatedSource) row.append(rangeSourceDetails(range.relatedSource));
+      if (range.divisionSource?.referenceMapping) row.append(rangeNumberingDetails(range));
       $("sections").append(row);
     }
+  }
+  function rangeNumberingDetails(range) {
+    const mapping = range.divisionSource.referenceMapping, unit = mapping.sourceUnit, details = document.createElement("details");
+    details.className = "section-provenance";
+    const summary = document.createElement("summary");
+    summary.textContent = "Source/UXLC verse numbering";
+    details.append(summary);
+    const source = document.createElement("p");
+    source.textContent = `Hebcal source: ${unit.k} ${unit.b}–${unit.e} · ${mapping.sourceVerseCount} source verses.`;
+    details.append(source);
+    const target = document.createElement("p");
+    target.textContent = `Reader: ${corpus.describe(range)} · ${mapping.uxlcVerseRecords} UXLC source records.`;
+    details.append(target);
+    const note = document.createElement("p");
+    note.textContent = "The explicit coordinate map preserves every UXLC word, mark and ID. Verse playback follows UXLC records. Upper/lower cantillation is not selected or musically realized by this map.";
+    details.append(note);
+    const link = document.createElement("a");
+    link.href = "#calendar-details";
+    link.textContent = "Numbering map, sources and license in calendar source details";
+    details.append(link);
+    return details;
+  }
+  function rangeSourceDetails(source) {
+    const details = document.createElement("details");
+    details.className = "section-provenance";
+    const summary = document.createElement("summary");
+    summary.textContent = "Calendar reading source";
+    details.append(summary);
+    const context = document.createElement("p");
+    context.textContent = `Hebcal.com · ${source.serviceName.en} · ${source.serviceDate} · ${source.region} · ${relatedDefinition(source.variant).label}`;
+    details.append(context);
+    if (source.serviceName.he) {
+      const hebrew = document.createElement("p");
+      hebrew.lang = "he";
+      hebrew.dir = "rtl";
+      hebrew.className = "source-service-hebrew";
+      hebrew.textContent = source.serviceName.he;
+      details.append(hebrew);
+    }
+    if (source.sourceSummary !== void 0) {
+      const citation = document.createElement("p");
+      citation.textContent = `Source citation: ${source.sourceSummary}`;
+      details.append(citation);
+    }
+    if (typeof source.serviceContext?.note === "string") {
+      const note = document.createElement("p");
+      note.textContent = source.serviceContext.note;
+      details.append(note);
+    }
+    const list = document.createElement("ol");
+    for (const [index, { key, unit }] of source.units.entries()) {
+      const entry = document.createElement("li");
+      entry.textContent = `${unit.k} ${unit.b}–${unit.e} · ${unit.v} source verses · unit ${key}${index >= source.selection.first && index <= source.selection.last ? " · in this section" : ""}`;
+      for (const field of ["reason", "note"]) if (typeof unit[field] === "string") {
+        const note = document.createElement("p");
+        note.textContent = unit[field];
+        entry.append(note);
+      }
+      list.append(entry);
+    }
+    details.append(list);
+    const hash = document.createElement("p");
+    hash.textContent = `Retained response SHA-256: ${source.sha256}`;
+    details.append(hash);
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.textContent = "Original Hebcal response";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    details.append(link);
+    return details;
   }
   function renderPickers() {
     for (const [id, items, placeholder] of [["recent-readings", recent, "Choose a recent reading"], ["saved-assignments", assignments, "Choose an assignment"]]) {
@@ -7470,6 +8407,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!corpus) throw Error("The library is still loading.");
     download("tropetrain-assignment.json", createRepertoireAssignment($("assignment-title").value, state.readingType, passage2.ranges, state, corpus));
   }));
+  $("export-practice-recovery").addEventListener("click", () => {
+    if (practiceRecoveryRecord) download("tropetrain-practice-recovery.json", practiceRecoveryRecord);
+  });
   $("import-assignment").addEventListener("change", async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -7503,8 +8443,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   if (matchMedia("(min-width: 761px)").matches) $("library-options").open = true;
   combinationTools = mountCombinationTools({ getModel: () => model, getCorpus, selectHit: (hit, wholeTorah) => {
     if (wholeTorah) libraryAction(() => {
-      const point = { chapter: hit.word.chapter, verse: hit.word.verse };
-      applyRanges([{ id: "combination-example", bookId: hit.word.bookId, start: point, end: point, label: "Source combination example" }]);
+      const point2 = { chapter: hit.word.chapter, verse: hit.word.verse };
+      applyRanges([{ id: "combination-example", bookId: hit.word.bookId, start: point2, end: point2, label: "Source combination example" }]);
     });
     const ids = wholeTorah ? hit.sourceWordIds : hit.occurrenceIds;
     const start = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids[0]);
@@ -7522,13 +8462,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reader").scrollIntoView({ block: "start" });
   } });
   patternTools = mountPatternStudy({ getSettings: () => state, beforePlay: () => stop("Listening to the printed pattern. Bible-word selection is kept.", { preservePattern: true }), findPattern: (id) => combinationTools.findPattern(id) });
-  mountCalendar({ getCorpus, onOpen: (ranges, title) => {
-    applyRanges(ranges);
+  mountCalendar({ getCorpus, getReadingCorpus: getRepertoireCorpus, onOpen: (ranges, title, options) => {
+    applyRanges(ranges, options);
     $("assignment-title").value = title;
   } });
   render();
   renderSections();
   renderPickers();
+  showPracticeRecovery();
   if (state.findScope === "torah") refreshSignSearch();
   document.documentElement.dataset.ready = "true";
   $("startup-status").hidden = true;
@@ -7540,14 +8481,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("library-status").textContent = "31 books · 606 chapters · text available offline";
     $("open-reading").disabled = false;
     $("source-study-open").disabled = false;
+    let restoreFailed = false;
     if (restore.ranges) {
       try {
         applyRanges(restore.ranges, { remember: false, restoreCursor: restore, readingType: restore.readingType });
       } catch (error) {
+        restoreFailed = true;
+        retainPracticeRecovery(error);
         $("library-message").textContent = `Saved reading could not be restored: ${error.message}`;
       }
     }
-    restoringReading = false;
+    restoringReading = restoreFailed;
     persist();
     renderSections();
   }).catch((error) => {
