@@ -17,8 +17,14 @@ export class Corpus {
       points[key]={chapter,verse};
     }
     if(compare(points.start,points.end)>0)throw Error('The end of a section must follow its start.');
-    return {id:typeof input.id==='string'&&/^[a-zA-Z0-9_-]{1,80}$/.test(input.id)?input.id:`section-${index+1}`,
+    const range={id:typeof input.id==='string'&&/^[a-zA-Z0-9_-]{1,80}$/.test(input.id)?input.id:`section-${index+1}`,
       bookId:book.id,start:points.start,end:points.end,label:typeof input.label==='string'?input.label.slice(0,120):`Section ${index+1}`,hidden:input.hidden===true};
+    const source=input.divisionSource;
+    if(source!==undefined){
+      if(source?.provider!=='Hebcal.com'||!/^https:\/\/www\.hebcal\.com\/leyning\?[^\s]{1,300}$/.test(source.url)||!/^[a-f0-9]{64}$/.test(source.sha256)||!/^\d{4}-\d{2}-\d{2}$/.test(source.serviceDate)||!['Diaspora','Israel'].includes(source.region)||!['fullkriyah','triennial','weekday'].includes(source.cycle)||!/^([1-9]|M)$/.test(source.aliyah)||typeof source.retrieved!=='string'||source.retrieved.length>40)throw Error('This section has invalid calendar-source metadata.');
+      range.divisionSource=Object.fromEntries(['provider','url','sha256','retrieved','serviceDate','region','cycle','aliyah'].map(key=>[key,source[key]]));
+    }
+    return range;
   }
   describe(range){
     const b=this.byId.get(range.bookId),a=range.start,z=range.end;

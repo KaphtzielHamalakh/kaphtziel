@@ -18,6 +18,7 @@ import {mountCombinationTools} from './combination-ui.js';
 import {mountPatternStudy} from './pattern-study-ui.js';
 import {getScrollLayout} from './scroll-layout.js';
 import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
+import {mountCalendar} from './calendar-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
@@ -566,6 +567,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
+mountCalendar({getCorpus,onOpen:(ranges,title)=>{applyRanges(ranges);$('assignment-title').value=title;}});
 render();renderSections();renderPickers();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getCorpus().then(value=>{
   corpus=value;$('book').replaceChildren();

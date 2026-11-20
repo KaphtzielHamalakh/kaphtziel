@@ -4,10 +4,10 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "b9fa77266200a06024a8610516e5198bfadce394",
-  "nextTask": "Synchronize the verified v0.12 outputs and publication records. Continue priority musical/phonetic/singer evidence work, then source-attributed calendar/divisions and selected-section print/learning tools. Keep the complete roadmap and objective active.",
+  "nextTask": "Publish tested v0.13 calendar increment, verify Pages/exact live bytes and returning browser controls, synchronize outputs. Continue musical/phonetic/singing evidence and all remaining full-roadmap work; do not mark complete.",
   "lastPassingTests": {
-    "automated": 100,
-    "ui": "Local and rebuilt HTTP standalone: shared/split/joined written units, qere/ketiv aliases, independent musical settings, repeat/Stop/replay/Escape, all four enlarged letters, saved/reloaded display preferences and 320/390/1280 widths. All audio stopped/muted; viewport reset.",
+    "automated": 108,
+    "ui": "Calendar: Israel/Diaspora divergence, triennial year3, cross-book festival8sections, weekday aliyah, saved assignment/response reload,55BPM/+1 independence and word-boundary completion. HTTP standalone Maftir/evidence and320/390/1280 fit passed. Stopped/muted; viewport reset.",
     "limits": "No positive-gain acoustic, file-origin, Save-dialog, browser screenshot/glyph-spacing or independent musical/phonetic/scribal review. Full melodic grammars, six pronunciations, singer and remaining roadmap stay active."
   },
   "completionRequires": [
@@ -72,7 +72,7 @@
     {
       "id": "calendar",
       "description": "Perpetual calendar and Israel/Diaspora annual/triennial/holiday divisions",
-      "status": "pending"
+      "status": "sourced_monthly_Gregorian_Israel_Diaspora_weekday_festival_annual_triennial_Torah_selection_and_cache_tested_full_Hebrew_navigation_and_wider_review_pending"
     },
     {
       "id": "assignments",
@@ -187,13 +187,13 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.12.0",
-    "status": "published_live_verified",
+    "version": "0.13.0",
+    "status": "local_verified_ready_to_publish",
     "newFeatures": [
-      "Optional sourced Torah scroll lines: 245 columns/10292 rows, all 79985 preferred reading IDs, exact UXLC written-letter preservation, explicit source differences, original licensed scribal font."
+      "Explicit attributed monthly Hebcal reading lookup, Israel/Diaspora and annual/triennial choices, bundled source examples and bounded validated cache, Torah section opening with original source provenance."
     ],
-    "next": "Synchronize the verified v0.12 outputs and publication records. Continue priority musical/phonetic/singer evidence work, then source-attributed calendar/divisions and selected-section print/learning tools. Keep the complete roadmap and objective active.",
-    "tests": "All 100 final npm-run-check checks pass. Local and rebuilt HTTP standalone normal UI checks passed, including all four enlarged letters and saved/reloaded scroll/parallel preferences. Native Return submitted passage forms; Space activated controls. Capture unavailable; all audio stopped/muted. Publication next. Pages44784787546 succeeded; all28 deployed resources match tested bytes. Returning live reader/settings and sourceword5 completion passed; left stopped/muted."
+    "next": "Publish tested v0.13 calendar increment, verify Pages/exact live bytes and returning browser controls, synchronize outputs. Continue musical/phonetic/singing evidence and all remaining full-roadmap work; do not mark complete.",
+    "tests": "All108 checks pass. Local UI bundled divergence, triennial/full/festival/weekday divisions, assignments, online/cache reload,55BPM/+1 preservation, muted word completion and320/390/1280 fit passed. Rebuilt HTTP standalone opens exact Maftir and embedded source evidence. Final docs-only rebuild and15 calendar/distribution checks passed; screenshot unavailable. All stopped/muted, viewport reset."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

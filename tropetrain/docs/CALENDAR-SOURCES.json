@@ -1,0 +1,51 @@
+{
+  "provider": "Hebcal.com",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "apiDocumentation": "https://www.hebcal.com/home/4277/leyning-torah-reading-api",
+  "terms": "https://www.hebcal.com/home/developer-apis",
+  "triennialProviderSource": {
+    "url": "https://github.com/hebcal/hebcal-triennial/tree/8b0de784e11779cb64b4eb4c6431d496d454448c",
+    "description": "Provider identifies CJLS/Eisenberg system with Cohen2020 and Heller2012 amendments. No provider code imported; independent comparison of all divisions to RA source tables remains pending."
+  },
+  "editionPolicy": "Hebcal section references are validated against UXLC verse records/counts before opening. Source strings and original reading divisions are not normalized or replaced. Missing/unsupported divisions refuse opening. Haftarah/Megillah are reference-only until their text is implemented.",
+  "networkPolicy": "Only an explicit month load/refresh contacts Hebcal; no geolocation, time-of-day or candle-lighting data requested. Selected month and Israel/Diaspora flag are sent. Up to12 loaded month responses cached locally; four source examples bundled.",
+  "bundled": [
+    {
+      "month": "2022-04",
+      "region": "Diaspora",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=off",
+      "retrieved": "2026-11-20",
+      "file": "data/calendar/april2022-diaspora.json",
+      "bytes": 12454,
+      "sha256": "7544eecac45d7f905a0c1b60edcfa79fc5967b44a3a09892ade6378b51618098"
+    },
+    {
+      "month": "2022-04",
+      "region": "Israel",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-04-01&end=2022-04-30&i=on",
+      "retrieved": "2026-11-20",
+      "file": "data/calendar/april2022-israel.json",
+      "bytes": 12519,
+      "sha256": "b23b1de50d09027adcbe2a77bafe8c954877998e1b580e72d97244601910b141"
+    },
+    {
+      "month": "2022-07",
+      "region": "Diaspora",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=off",
+      "retrieved": "2026-11-20",
+      "file": "data/calendar/july2022-diaspora.json",
+      "bytes": 10455,
+      "sha256": "a7063b42a83b967f730583a7715fab73d9b4641e7eae114f570ba5cffed776f3"
+    },
+    {
+      "month": "2022-07",
+      "region": "Israel",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-07-01&end=2022-07-31&i=on",
+      "retrieved": "2026-11-20",
+      "file": "data/calendar/july2022-israel.json",
+      "bytes": 10436,
+      "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933"
+    }
+  ]
+}
