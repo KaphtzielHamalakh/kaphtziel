@@ -1,6 +1,6 @@
 # Related readings and source numbering · v0.16.0 candidate
 
-November 20, 2026. Browser-tested release candidate; publication verification follows below. Full reconstruction active and incomplete. No speaker output.
+November 20, 2026. Published browser-tested release; deployment verification is recorded below. Full reconstruction active and incomplete. No speaker output.
 
 ## Implemented and sourced
 
@@ -57,3 +57,14 @@ Browser-client accessibility testing restored. Both HTTP entry points opened; 31
 Tested exact candidate ef13e62 through the official installed browser client and existing in-app tab. Both normal and self-contained HTTP builds share restored practice state. Full-scroll source/verse counts and correct mapped Torah endpoints were observed; no new music was supplied. Source-alternative and mobile rendering screenshot is retained in the workspace outputs. Screenshot is browser rendering evidence, not qualified glyph/scribal approval. Narrow sourced-scroll panes intentionally retain horizontal scrolling.
 
 The older Open gates section records the earlier unavailable-CUA checkpoint. Core reading/calendar/persistence/numbering/responsive/muted-playback gates above now pass. Five-section/two-section limits, assignment tamper guards and saved-practice recovery retain automated evidence; file chooser stalled before import, export Save dialog and legacy recovery UI remain pending. Positive-gain acoustics, file origin and expert review remain pending. No critical app failure was found in tested flows.
+
+
+## Published release
+
+Code commit `263906ae277108356b3936f21f65cc5d034ee592`, GitHub Pages run `44820701429`: successful build and deployment. All91 served changed files exactly match38,122,752 tested bytes, including normal/standalone builds, all added Hebrew data, source/license records and runtime modules. `.gitignore` is a changed repository file intentionally excluded from public hosting by Jekyll; it is not a runtime asset.
+
+Live v0.13→v0.16 retained Genesis22:1 word5/Cohen/60BPM/key0/both gains0. Isaiah40:1–3 opened with Cohen explicitly unavailable. Bundled June6 fullRuth1:1–4:22 opened85verses/1295words and retained source identity after reload; Cohen remained selected/unavailable, no substitution. No captured browser warnings/errors.
+
+Only `/tropetrain/` changed. Rollback is the prior main commit3788302e329d1b157d2dde0cf99f61b3bb5b7c1e (v0.13), using a new leased publication commit/ref update; preserve personal practice/recovery storage. No outstanding critical runtime defect was found in tested flows. All earlier musical/phonetic/singer and remaining roadmap limitations persist.
+
+Restored Genesis22:1 word5/Cohen/60BPM/key0/mutes. Muted live playback naturally finished atword5; Stop left activeWords0 and both gains0. Viewport reset; published tab retained. Browser screenshot outputs/TropeTrain-v0.16-live.jpg.
