@@ -14,14 +14,15 @@ test('Gregorian boundaries include century exceptions and early/final supported 
  for(const bad of ['0000-01','2026-13','2026-00','2026-1','10000-01','2026-02-01'])assert.throws(()=>monthRequest(bad,'Israel'));
  assert.throws(()=>monthRequest('2026-01','unknown'));
 });
-test('all four primary calendar examples preserve source bytes, checksums and usable Torah divisions',async()=>{
+test('all bundled primary calendar examples preserve source bytes, checksums and explicit reading structures',async()=>{
  const source=JSON.parse(await readFile(new URL('../docs/CALENDAR-SOURCES.json',import.meta.url)));
  for(const record of calendarExamples){
   assert.equal(await calendarHash(record.raw),record.sha256);
   assert.equal(await readFile(new URL('../'+record.file,import.meta.url),'utf8'),record.raw);
   assert.equal(source.bundled.find(x=>x.file===record.file).sha256,record.sha256);
-  const data=parseCalendarResponse(record.raw,monthRequest(record.month,record.region));assert(data.items.length>=16);
+  const data=parseCalendarResponse(record.raw,monthRequest(record.month,record.region));assert(data.items.length>0);
   for(const reading of data.items)for(const cycle of ['annual','triennial']){
+   if(!reading.fullkriyah&&!reading.weekday&&!reading.triennial){assert(!!reading.megillah||!!reading.haft||typeof reading.haftara==='string');assert.throws(()=>calendarRanges(reading,cycle,record,corpus),/no Torah divisions/);continue;}
    const ranges=calendarRanges(reading,cycle,record,corpus);
    assert(ranges.length>=3);assert.equal(ranges.length,readingDivisions(reading,cycle).entries.length);
    for(const range of ranges){assert.equal(range.divisionSource.sha256,record.sha256);assert.equal(corpus.range(range).divisionSource.serviceDate,reading.date);}
@@ -46,7 +47,7 @@ test('festival books, repeated Maftir IDs and source provenance survive assignme
  const restored=parseAssignment(JSON.stringify(assignment),corpus);assert.deepEqual(restored.sections,repeated);assert.equal(restored.musicalPreferences.melodyId,'cohen-1902-gen22-ending');assert.equal(restored.displayPreferences.scrollLayout,true);
  assert.throws(()=>createReadingModel(p,{melodyId:'cohen-1902-gen22-ending'}).buildPlan(0,1),/covers only/);
 });
-test('standalone retains the calendar evidence and all four independently checksummed examples',async()=>{
+test('standalone retains the calendar evidence and all independently checksummed examples',async()=>{
  const html=await readFile(new URL('../TropeTrain.html',import.meta.url),'utf8');
  const raw=await readFile(new URL('../docs/CALENDAR-SOURCES.json',import.meta.url));
  assert(html.includes('data:application/json;base64,'+raw.toString('base64')));
@@ -78,4 +79,11 @@ test('failed and malformed refreshes preserve the last verified cache',async()=>
  await store.load(r.month,r.region);fail=true;await assert.rejects(store.load(r.month,r.region,{refresh:true}),/different/);
  assert.equal((await store.load(r.month,r.region)).sha256,r.sha256);
  await assert.rejects(new CalendarStore({examples:[],fetcher:async()=>({ok:false,status:429})}).load('2026-11','Israel'),/HTTP429/);
+});
+
+test('a Megillah-only source record preserves the whole month and refuses invented Torah divisions',async()=>{
+ const source=JSON.parse(await readFile(new URL('../docs/CALENDAR-SOURCES.json',import.meta.url)));const entry=source.regressionFixtures[0];const raw=await readFile(new URL('../'+entry.file,import.meta.url),'utf8');assert.equal(await calendarHash(raw),entry.sha256);
+ const record={month:'2024-03',region:'Israel',url:entry.url,sha256:entry.sha256,retrieved:entry.retrieved};const data=parseCalendarResponse(raw,monthRequest(record.month,record.region));assert.equal(data.items.length,17);
+ const eve=data.items.find(x=>x.name.en==='Erev Purim');assert.equal(eve.date,'2024-03-23');assert.equal(Object.keys(eve.megillah).length,10);assert.throws(()=>calendarRanges(eve,'annual',record,corpus),/no Torah divisions/);
+ const purim=data.items.find(x=>x.date==='2024-03-24');const ranges=calendarRanges(purim,'annual',record,corpus);assert.equal(ranges.length,3);assert.equal(ranges[0].bookId,'exo');assert.deepEqual(ranges[0].start,{chapter:17,verse:8});assert.deepEqual(ranges.at(-1).end,{chapter:17,verse:16});
 });

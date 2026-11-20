@@ -1,4 +1,5 @@
 import {calendarExamples} from './calendar-example-data.js';
+import {resolveTorahCalendarUnit} from './torah-numbering.js';
 
 export const CALENDAR_SOURCE=Object.freeze({provider:'Hebcal.com',license:'CC BY 4.0',licenseUrl:'https://creativecommons.org/licenses/by/4.0/',documentation:'https://www.hebcal.com/home/4277/leyning-torah-reading-api'});
 const BOOKS={Genesis:'gen',Exodus:'exo',Leviticus:'lev',Numbers:'num',Deuteronomy:'deu'};
@@ -18,7 +19,7 @@ export function parseCalendarResponse(raw,request){
   if(data?.range?.start!==request.start||data?.range?.end!==request.end||data?.location!==request.region||!Array.isArray(data.items)||data.items.length>200)throw Error('Calendar response has a different date range or schedule.');
   for(const item of data.items){
     if(!item||typeof item!=='object'||typeof item.date!=='string'||item.date<request.start||item.date>request.end||!/^\d{4}-\d{2}-\d{2}$/.test(item.date)||!item.name||typeof item.name.en!=='string'||!item.name.en||item.name.en.length>200||typeof item.hdate!=='string')throw Error('Calendar contains an invalid reading record.');
-    if(!['fullkriyah','weekday','triennial'].some(key=>item[key]&&typeof item[key]==='object'&&!Array.isArray(item[key])))throw Error('A calendar reading has no supported Torah divisions.');
+    if(!['fullkriyah','weekday','triennial','megillah','haft'].some(key=>item[key]&&typeof item[key]==='object')&&typeof item.haftara!=='string')throw Error('A calendar record has no Torah divisions or related reading references.');
   }
   return data;
 }
@@ -30,7 +31,7 @@ export function readingDivisions(item,cycle){
     if(!item.triennial)throw Error('The source has no triennial divisions for this reading.');
     field='triennial';label=`Triennial · year ${item.triYear??'unspecified'}`;
   }else{field='fullkriyah';label=item.type==='shabbat'?'Annual divisions':'Festival / special divisions';}
-  const units=item[field];if(!units||typeof units!=='object'||Array.isArray(units))throw Error('The source has no divisions for this reading.');
+  const units=item[field];if(!units||typeof units!=='object'||Array.isArray(units))throw Error('Related reading only: the source has no Torah divisions for this service.');
   const keys=Object.keys(units);
   if(!keys.length||keys.some(key=>!/^([1-9]|M)$/.test(key)))throw Error('This source division structure is not supported; no ranges were substituted.');
   const entries=keys.sort((a,b)=>a==='M'?1:b==='M'?-1:Number(a)-Number(b)).map(key=>({key,label:key==='M'?'Maftir':`Aliyah ${key}`,unit:units[key]}));
@@ -41,12 +42,11 @@ export function calendarRanges(item,cycle,record,corpus,onlyKey=null){
   const entries=onlyKey===null?divisions.entries:divisions.entries.filter(e=>e.key===onlyKey);
   if(!entries.length)throw Error('Choose an available aliyah.');
   return entries.map(({key,label,unit})=>{
-    const point=value=>{if(typeof value!=='string'||!/^\d+:\d+$/.test(value))throw Error('Partial-verse divisions cannot yet be opened without losing source boundaries.');const [chapter,verse]=value.split(':').map(Number);return {chapter,verse};};
     if(!unit||!BOOKS[unit.k])throw Error('This division needs a book outside the current Torah library.');
-    const range=corpus.range({id:`hebcal-${item.date.replaceAll('-','')}-${record.region.toLowerCase()}-${divisions.field}-${key}`,bookId:BOOKS[unit.k],start:point(unit.b),end:point(unit.e),label:`${item.name.en} · ${label}`});
-    const actual=corpus.passage([range]).verses.length;
-    if(!Number.isInteger(unit.v)||unit.v!==actual)throw Error(`${unit.k} ${unit.b}–${unit.e}: source verse count differs from UXLC. Review the edition numbering before opening.`);
-    range.divisionSource={provider:'Hebcal.com',url:record.url,sha256:record.sha256,retrieved:record.retrieved,serviceDate:item.date,region:record.region,cycle:divisions.field,aliyah:key};
+    const resolved=resolveTorahCalendarUnit(unit,corpus.byId.get(BOOKS[unit.k]));
+    const range=corpus.range({id:`hebcal-${item.date.replaceAll('-','')}-${record.region.toLowerCase()}-${divisions.field}-${key}`,bookId:BOOKS[unit.k],start:resolved.start,end:resolved.end,label:`${item.name.en} · ${label}`});
+    range.divisionSource={provider:'Hebcal.com',url:record.url,sha256:record.sha256,retrieved:record.retrieved,serviceDate:item.date,region:record.region,cycle:divisions.field,aliyah:key,
+      ...(resolved.mapping?{referenceMapping:resolved.mapping}:{})};
     return range;
   });
 }

@@ -10,7 +10,9 @@ All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi
 
 The source distinctions and further historical claims below follow the supplied brief; those other references have not all been independently audited in this milestone. A modern product’s recordings or menus are not evidence of Kinnor V6.
 
-## What exists now
+## Last verified live behavior (v0.13)
+
+The following table describes the last verified published release. The v0.15 candidate below adds software features but still awaits normal browser UI verification and publication.
 
 | Behavior | Implemented now | Fidelity or evidence still needed |
 | --- | --- | --- |
@@ -191,3 +193,23 @@ Further public repository audit: [cantillate](https://github.com/kylemath/cantil
 [Hebcal’s Leyning REST API](https://www.hebcal.com/home/4277/leyning-torah-reading-api) supplies weekday, Shabbat and festival reading divisions, Israel/Diaspora schedules and optional triennial divisions. Its primary documentation grants generated data under [CC BY4.0](https://creativecommons.org/licenses/by/4.0/). This implementation imports only attributed API output; no provider engine code is copied. Four unmodified April/July2022 response fixtures, exact endpoints, timestamps and hashes are recorded in CALENDAR-SOURCES.json. The provider’s [pinned triennial README](https://github.com/hebcal/hebcal-triennial/tree/8b0de784e11779cb64b4eb4c6431d496d454448c) identifies the CJLS/Eisenberg schedule with Cohen2020 and Heller2012 amendments; comparison to every original RA table remains pending. This is a modern sourced reading service, not proof of Kinnor’s calendar edition.
 
 Calendar choices leave melody, pronunciation, range, tempo and key separate. Each selected aliyah is checked against UXLC references and verse counts before opening; mismatch or partial-verse divisions refuse opening. All-listed aliyot retain Maftir as a separate occurrence, including repeated words. Imported/saved assignments retain division-source URL/hash/date/schedule/cycle/aliyah metadata. Haftarah variants and Megillah references remain reference-only until the corresponding corpus and music are implemented. Civil service dates do not implement evening/sunset conversion. Month loading is explicit; four examples are bundled and up to12 verified responses saved locally for offline use. Arbitrary uncached months need internet. Full Hebrew calendar navigation, wider source/reviewer validation and all remaining musical/phonetic/singing/roadmap requirements remain active.
+
+
+## Additional repertoire text foundation — unpublished
+
+An isolated v0.13-based branch adds all21Prophets books and fiveMegillot as exactUXLC2.6/27.7 source data, with typed assignment core and118passing tests. The foundation checkpoint initially had no UI connection; the later unpublished v0.15 integration is described below. The fiveTorah books and existing musical/reference scope are unchanged. REPERTOIRE-FOUNDATION.md, REPERTOIRE-SOURCES.json and REPERTOIRE-AUDIT.json document complete coverage, rights, independent rawtext comparison and pending UI/distribution work. No new traditional melody, pronunciation, singer, liturgical boundary or reviewed written/read alignment is asserted; all original roadmap requirements remain active.
+
+
+## Repertoire/date integration — v0.15 candidate, unpublished
+
+The candidate wires 31-book reading selection, typed haftarah/Megillah assignments, section naming/reordering and explicit source written/read alternatives into both builds. All 135 automated checks pass. Existing whole-Torah search/chart/layout and recordings retain their original scope. The pending original Hebrew-date navigation is integrated without changing its source files; original v0.14 checkout remains intact. VERIFICATION-0.15.md records exact checks and all pending normal UI/standalone/return-state/publication gates. CUA remains unavailable; no normal UI success, new musical realization, pronunciation, singer or expert review is inferred. The entire feature inventory above remains in scope.
+
+
+## Related readings and reference-coordinate fidelity — v0.16 candidate, unpublished
+
+The candidate adds structured calendar haftarah/Megillah text, complete source snapshots/v3 sharing, eight pinned responses covering all five scrolls, and source-only refusal for partial references. All154 code/data checks pass. A real verse-namespace defect was discovered: count equality alone could select incorrect Torah text in Exodus20/Deuteronomy5. An explicit53-source-verse/59-UXLC-record map now preserves original references/counts and unchanged target words/marks/IDs. Primary Hebrew letter comparisons, rights/attribution and limits are in TORAH-NUMBERING-SOURCES.json; related scope100choices/98checked/2partial refusals is in CALENDAR-RELATED-AUDIT.json. The older2012 reference source's Deut5:21/22 boundary discrepancy is preserved and explicitly excluded as the sole map basis. This reference map does not choose upper/lower cantillation or add a melody, pronunciation or singer. VERIFICATION-0.16.md retains every normalUI/publication gate and the entire unfinished roadmap.
+
+
+## Browser-tested repertoire/calendar release · v0.16
+
+The November20 normal in-app browser session verified the pending31-book reading controls, written/read alternatives, named/reordered/hidden cross-book sections, sourced related selections and complete five-scroll text, Hebrew-date navigation, explicit Torah coordinate maps, saved-state/recent-reading restoration and muted playback. All154 automated checks pass; responsive root/body widths match320/390/1280. The browser file chooser stalled, so import/export dialogs and legacy saved-practice recovery UI remain pending; no acoustic or expert-review result is inferred. VERIFICATION-0.16.md records tested examples and limits. All32Torah and other historical musical realizations, six pronunciation grammars/voices, singing and the complete roadmap remain unfinished.

@@ -8,8 +8,8 @@
     "url": "https://github.com/hebcal/hebcal-triennial/tree/8b0de784e11779cb64b4eb4c6431d496d454448c",
     "description": "Provider identifies CJLS/Eisenberg system with Cohen2020 and Heller2012 amendments. No provider code imported; independent comparison of all divisions to RA source tables remains pending."
   },
-  "editionPolicy": "Hebcal section references are validated against UXLC verse records/counts before opening. Source strings and original reading divisions are not normalized or replaced. Missing/unsupported divisions refuse opening. Haftarah/Megillah are reference-only until their text is implemented.",
-  "networkPolicy": "Only an explicit month load/refresh contacts Hebcal; no geolocation, time-of-day or candle-lighting data requested. Selected month and Israel/Diaspora flag are sent. Up to12 loaded month responses cached locally; four source examples bundled.",
+  "editionPolicy": "Torah and structured related-reading units must match UXLC boundaries and verse counts. Exact source strings, notes, array order and numbered keys are retained. Partial/ambiguous verses and unsupported structures stay reference-only. Consecutive Megillah source units can form one tutor section, with the complete source snapshot/selection retained. Liturgical variants do not select a melody or pronunciation.",
+  "networkPolicy": "Only an explicit month load/refresh contacts Hebcal programmatically; no geolocation, time-of-day or candle-lighting data. Chosen month/Israel-Diaspora flag sent. Up to12 loaded month responses cached; eight source examples bundled. Source links are opened only on user action.",
   "bundled": [
     {
       "month": "2022-04",
@@ -46,6 +46,62 @@
       "file": "data/calendar/july2022-israel.json",
       "bytes": 10436,
       "sha256": "bdd97dd3a78fe263c9cf29b5a41d42c1798b8485e2a5cfb342391ac0276b2933"
+    },
+    {
+      "month": "2022-06",
+      "region": "Diaspora",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-06-01&end=2022-06-30&i=off",
+      "retrieved": "2026-11-20",
+      "bytes": 9999,
+      "sha256": "41c2248a670afed61f127eccb62e6539a5107338804e455dfc9c483b6218be0a",
+      "file": "data/calendar/2022-06-diaspora.json"
+    },
+    {
+      "month": "2022-08",
+      "region": "Diaspora",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-08-01&end=2022-08-31&i=off",
+      "retrieved": "2026-11-20",
+      "bytes": 10264,
+      "sha256": "d9375b76c6c5b30164d256bf50280e5fcc4236f8de736073cfadd88500e1288d",
+      "file": "data/calendar/2022-08-diaspora.json"
+    },
+    {
+      "month": "2022-10",
+      "region": "Diaspora",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2022-10-01&end=2022-10-31&i=off",
+      "retrieved": "2026-11-20",
+      "bytes": 17053,
+      "sha256": "cd196293503ff2e264ed44b5761d414f275da607b0ea7a2ac03e31a5b7c5d1cb",
+      "file": "data/calendar/2022-10-diaspora.json"
+    },
+    {
+      "month": "2024-03",
+      "region": "Israel",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2024-03-01&end=2024-03-31&i=on",
+      "retrieved": "2026-11-20",
+      "file": "data/calendar/purim2024-israel.json",
+      "bytes": 13402,
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc"
     }
-  ]
+  ],
+  "regressionFixtures": [
+    {
+      "file": "data/calendar/purim2024-israel.json",
+      "url": "https://www.hebcal.com/leyning?cfg=json&start=2024-03-01&end=2024-03-31&i=on",
+      "retrieved": "2026-11-20",
+      "bytes": 13402,
+      "sha256": "66636972aa90674a48338074e566baaf7dcf26f4fb1c519e599da9902cfed8fc",
+      "reason": "17 records include ErevPurim Megillah-only reference; it must not reject the month or fabricate Torah divisions. Promoted to a bundled example in candidate0.16."
+    }
+  ],
+  "relatedReferenceDocumentation": [
+    "https://hebcal.github.io/api/leyning/types/HaftarahProps.html",
+    "https://hebcal.github.io/api/leyning/types/LeyningShabbatHoliday.html"
+  ],
+  "sourceClaimLimit": "Fresh responses are checksum-pinned after validation. Assignment import validates source-snapshot structure, counts and selected boundaries locally; retained response hash is attribution metadata, not independent revalidation of the full provider response or congregational/musical approval.",
+  "torahNumbering": {
+    "record": "docs/TORAH-NUMBERING-SOURCES.json",
+    "data": "data/calendar/torah-verse-numbering.json",
+    "policy": "Exodus20/Deuteronomy5 source coordinates are explicitly mapped to unchanged UXLC records, after all53 source preferred-letter sequences matched59 target records. Original source references/counts and mapped target counts survive v3assignments. Other ranges keep numeric references with strict source-count checks. Upper/lower chant and source mark ordering are not changed."
+  }
 }

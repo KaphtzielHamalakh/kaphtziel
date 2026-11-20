@@ -1,0 +1,46 @@
+{
+  "id": "hebcal-uxlc-torah-numbering-v1",
+  "revision": 1,
+  "retrieved": "2026-11-20",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "attribution": "Miqra according to the Masorah contributors, Hebrew Wikisource; Hebrew comparison served by Sefaria.org. Target Hebrew: Tanach.us UXLC. New numeric mapping and checks by the TropeTrain reconstruction.",
+  "primaryContext": [
+    "https://www.tanach.us/Supplements/Decalogues.html",
+    "https://www.hebcal.com/sedrot/vaetchanan-20220813",
+    "https://www.hebcal.com/holidays/shavuot-2022"
+  ],
+  "comparisonSources": [
+    {
+      "url": "https://www.sefaria.org/api/texts/Exodus.20?context=0&commentary=0",
+      "bytes": 48407,
+      "sha256": "bdfb665730f46d9710c88b90d20971d8f14d088ed6fce9b8eeb79a8154759bf6",
+      "hebrewVersion": "Miqra according to the Masorah",
+      "hebrewVersionSource": "https://he.wikisource.org/wiki/%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9:Dovi/%D7%9E%D7%A7%D7%A8%D7%90_%D7%A2%D7%9C_%D7%A4%D7%99_%D7%94%D7%9E%D7%A1%D7%95%D7%A8%D7%94",
+      "hebrewLicenseMetadata": "CC-BY-SA",
+      "scope": "Private comparison response; only Hebrew preferred-reading boundaries used. No response/translation/site markup distributed."
+    },
+    {
+      "url": "https://www.sefaria.org/api/texts/Deuteronomy.5?context=0&commentary=0",
+      "bytes": 51447,
+      "sha256": "e1198fc4fa6a0de1844df40e733c598664405d1f2a4395da0411f375b837330a",
+      "hebrewVersion": "Miqra according to the Masorah",
+      "hebrewVersionSource": "https://he.wikisource.org/wiki/%D7%9E%D7%A9%D7%AA%D7%9E%D7%A9:Dovi/%D7%9E%D7%A7%D7%A8%D7%90_%D7%A2%D7%9C_%D7%A4%D7%99_%D7%94%D7%9E%D7%A1%D7%95%D7%A8%D7%94",
+      "hebrewLicenseMetadata": "CC-BY-SA",
+      "scope": "Private comparison response; only Hebrew preferred-reading boundaries used. No response/translation/site markup distributed."
+    }
+  ],
+  "rightsMetadata": {
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/deed.he",
+    "sha256": "9f93532e9f82579ff3aa0cd4d3ee69017f69a142e2f2c1e1a8c8a25c78f7a932",
+    "text": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "method": "Original candidate boundary rule checked against all53 complete source verses in Exodus20/Deuteronomy5. For comparison only: HTML presentation/section markers and ketiv display removed, preferred-reading Hebrew letters compared exactly. No Unicode normalization or source-text rewriting. Every target word ID/boundary and target JSON/XML hash retained.",
+  "comparison": {
+    "sourceVerses": 53,
+    "uxlcVerseRecords": 59,
+    "allPreferredLetterSequencesMatch": true
+  },
+  "oldReferenceLimit": "Existing pinned2012 PocketTorah source splits its Deut5:21/22 at a different point inside UXLC5:24. That source data is preserved; its verse labels are not used to derive this map.",
+  "limits": "Two explicit chapter-coordinate maps only. Does not separate upper/lower marks, supply chant/phonemes or establish congregational/musical review. Outside these chapters, numeric references and source counts are checked without a new versification claim. Imported source metadata is not a signed/refetched provider response."
+}

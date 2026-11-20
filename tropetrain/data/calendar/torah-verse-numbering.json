@@ -1,0 +1,507 @@
+{
+  "id": "hebcal-uxlc-torah-numbering-v1",
+  "revision": 1,
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "sourceCoordinates": "Hebcal-linked Sefaria/Miqra according to the Masorah verse coordinates",
+  "targetCoordinates": "Unicode/XML Leningrad Codex (UXLC) 2.6, build 27.7",
+  "chapters": [
+    {
+      "bookId": "exo",
+      "chapter": 20,
+      "sourceVerseCount": 23,
+      "targetVerseRecords": 26,
+      "sourceSha256": "863d34307358ae5adbb16c2b1085aa9058cc2f2f49d5bd1f1a69a5c2bfaed538",
+      "dataSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "mappings": [
+        {
+          "sourceVerse": 1,
+          "targetStart": 1,
+          "targetEnd": 1,
+          "firstWordId": "exo-20-1-1",
+          "lastWordId": "exo-20-1-7",
+          "readingWords": 7,
+          "preferredLettersSha256": "9434a5e2334ef5ed9ef59dcfaa37702eb1e6af582218258ecfe2c642e6ef7b14"
+        },
+        {
+          "sourceVerse": 2,
+          "targetStart": 2,
+          "targetEnd": 2,
+          "firstWordId": "exo-20-2-1",
+          "lastWordId": "exo-20-2-9",
+          "readingWords": 9,
+          "preferredLettersSha256": "1b3bb6b45b3aa7185de83c21e9096e07a8375b413be4a688882f2f544f414379"
+        },
+        {
+          "sourceVerse": 3,
+          "targetStart": 3,
+          "targetEnd": 3,
+          "firstWordId": "exo-20-3-1",
+          "lastWordId": "exo-20-3-7",
+          "readingWords": 7,
+          "preferredLettersSha256": "cd5a9755cb527b6fcdede835acf11d27a2f0616c68c72bb119586693269ef36b"
+        },
+        {
+          "sourceVerse": 4,
+          "targetStart": 4,
+          "targetEnd": 4,
+          "firstWordId": "exo-20-4-1",
+          "lastWordId": "exo-20-4-16",
+          "readingWords": 16,
+          "preferredLettersSha256": "b1bdf01a00bed021dbeec387d2c08896d58c9217e9b3d9e0ed094cbf595a4670"
+        },
+        {
+          "sourceVerse": 5,
+          "targetStart": 5,
+          "targetEnd": 5,
+          "firstWordId": "exo-20-5-1",
+          "lastWordId": "exo-20-5-21",
+          "readingWords": 21,
+          "preferredLettersSha256": "07bea4936684a2de9cab9911de0636868df5328fd99eb78f7ca440fb0ef43875"
+        },
+        {
+          "sourceVerse": 6,
+          "targetStart": 6,
+          "targetEnd": 6,
+          "firstWordId": "exo-20-6-1",
+          "lastWordId": "exo-20-6-6",
+          "readingWords": 6,
+          "preferredLettersSha256": "fa5a8068ad51e492659cf146f07aadcc81a27fef326dcea54e19184334326177"
+        },
+        {
+          "sourceVerse": 7,
+          "targetStart": 7,
+          "targetEnd": 7,
+          "firstWordId": "exo-20-7-1",
+          "lastWordId": "exo-20-7-17",
+          "readingWords": 17,
+          "preferredLettersSha256": "3be54f4089c0f1658ad031a9d117a67d47d512797645614d9c50463cc774b19e"
+        },
+        {
+          "sourceVerse": 8,
+          "targetStart": 8,
+          "targetEnd": 8,
+          "firstWordId": "exo-20-8-1",
+          "lastWordId": "exo-20-8-5",
+          "readingWords": 5,
+          "preferredLettersSha256": "53d68fdc91bb605a9e13fa0864eb30877b8899697280a8605b859a42c9ce4964"
+        },
+        {
+          "sourceVerse": 9,
+          "targetStart": 9,
+          "targetEnd": 9,
+          "firstWordId": "exo-20-9-1",
+          "lastWordId": "exo-20-9-6",
+          "readingWords": 6,
+          "preferredLettersSha256": "2dcc298a1c39623dbd2e130daaf9a07cd6c84a73485143d7b0b23e920d87cc3f"
+        },
+        {
+          "sourceVerse": 10,
+          "targetStart": 10,
+          "targetEnd": 10,
+          "firstWordId": "exo-20-10-1",
+          "lastWordId": "exo-20-10-18",
+          "readingWords": 18,
+          "preferredLettersSha256": "f2998a4b4188e1a4fbcdc6ae79893d650a441c95da3ca5929aadf008ea6baf09"
+        },
+        {
+          "sourceVerse": 11,
+          "targetStart": 11,
+          "targetEnd": 11,
+          "firstWordId": "exo-20-11-1",
+          "lastWordId": "exo-20-11-26",
+          "readingWords": 26,
+          "preferredLettersSha256": "2a103c10867a7f279822cebe3a9ef1695a8fb28e5d5b1651e26e5e0dd7ca34bd"
+        },
+        {
+          "sourceVerse": 12,
+          "targetStart": 12,
+          "targetEnd": 12,
+          "firstWordId": "exo-20-12-1",
+          "lastWordId": "exo-20-12-15",
+          "readingWords": 15,
+          "preferredLettersSha256": "c3757b38f36eee5e584c9b4a61699b17cf478c11d76bd91c99cd6a8fe6d565bc"
+        },
+        {
+          "sourceVerse": 13,
+          "targetStart": 13,
+          "targetEnd": 16,
+          "firstWordId": "exo-20-13-1",
+          "lastWordId": "exo-20-16-5",
+          "readingWords": 11,
+          "preferredLettersSha256": "d40d04f25d3978b2fa1434c7dad8b13e85c5674f96f93b171eeb37130d5f7947"
+        },
+        {
+          "sourceVerse": 14,
+          "targetStart": 17,
+          "targetEnd": 17,
+          "firstWordId": "exo-20-17-1",
+          "lastWordId": "exo-20-17-15",
+          "readingWords": 15,
+          "preferredLettersSha256": "3f4b115b2798d0be5d4341bc565ff625848926b64fddbda55c64bd1af8353c50"
+        },
+        {
+          "sourceVerse": 15,
+          "targetStart": 18,
+          "targetEnd": 18,
+          "firstWordId": "exo-20-18-1",
+          "lastWordId": "exo-20-18-18",
+          "readingWords": 18,
+          "preferredLettersSha256": "ba22ca5f246dad09f7f6b65e2cc3b5384843be97937073df1a22d0ba72d186df"
+        },
+        {
+          "sourceVerse": 16,
+          "targetStart": 19,
+          "targetEnd": 19,
+          "firstWordId": "exo-20-19-1",
+          "lastWordId": "exo-20-19-13",
+          "readingWords": 13,
+          "preferredLettersSha256": "3621ed189fa3f63f9cf0c57403d55f15b647e5a84c369fea4e44b68d8971c120"
+        },
+        {
+          "sourceVerse": 17,
+          "targetStart": 20,
+          "targetEnd": 20,
+          "firstWordId": "exo-20-20-1",
+          "lastWordId": "exo-20-20-19",
+          "readingWords": 19,
+          "preferredLettersSha256": "062f705255e97daed542d9529ae8c286d4039e9f82bc998904379a9abdfe6664"
+        },
+        {
+          "sourceVerse": 18,
+          "targetStart": 21,
+          "targetEnd": 21,
+          "firstWordId": "exo-20-21-1",
+          "lastWordId": "exo-20-21-10",
+          "readingWords": 10,
+          "preferredLettersSha256": "e5386d7fb45e9f3b387e1a50b3450afb71ab06f6a582b896b223bd5f44a03a42"
+        },
+        {
+          "sourceVerse": 19,
+          "targetStart": 22,
+          "targetEnd": 22,
+          "firstWordId": "exo-20-22-1",
+          "lastWordId": "exo-20-22-16",
+          "readingWords": 16,
+          "preferredLettersSha256": "debcdd0a38e48cf23778a8d477462cfea7a780749322434ba89e7090ef59d21d"
+        },
+        {
+          "sourceVerse": 20,
+          "targetStart": 23,
+          "targetEnd": 23,
+          "firstWordId": "exo-20-23-1",
+          "lastWordId": "exo-20-23-10",
+          "readingWords": 10,
+          "preferredLettersSha256": "e97fb22ffe17bf44cc7bdb0155cb798831a40a99370121ded55248bb5809b5a7"
+        },
+        {
+          "sourceVerse": 21,
+          "targetStart": 24,
+          "targetEnd": 24,
+          "firstWordId": "exo-20-24-1",
+          "lastWordId": "exo-20-24-23",
+          "readingWords": 23,
+          "preferredLettersSha256": "ae7ee48047dba82e9807f9b2c6cc27e513c660f5557faf61c4ed2b8a11cb5646"
+        },
+        {
+          "sourceVerse": 22,
+          "targetStart": 25,
+          "targetEnd": 25,
+          "firstWordId": "exo-20-25-1",
+          "lastWordId": "exo-20-25-14",
+          "readingWords": 14,
+          "preferredLettersSha256": "5b83c469e570eeb4ced2026920b295fb4b92f603b78de9b6100e764951155743"
+        },
+        {
+          "sourceVerse": 23,
+          "targetStart": 26,
+          "targetEnd": 26,
+          "firstWordId": "exo-20-26-1",
+          "lastWordId": "exo-20-26-10",
+          "readingWords": 10,
+          "preferredLettersSha256": "0476ee1fe7fc79f48ef7ef9c1f85ff56198f93abc0ffb13ebb7f7ab7f0d7d89f"
+        }
+      ]
+    },
+    {
+      "bookId": "deu",
+      "chapter": 5,
+      "sourceVerseCount": 30,
+      "targetVerseRecords": 33,
+      "sourceSha256": "7615f0b872e99c47327fec856bc07ff6fcd8a7cfc814121fecda696522f1067f",
+      "dataSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "mappings": [
+        {
+          "sourceVerse": 1,
+          "targetStart": 1,
+          "targetEnd": 1,
+          "firstWordId": "deu-5-1-1",
+          "lastWordId": "deu-5-1-22",
+          "readingWords": 22,
+          "preferredLettersSha256": "2352163d1b53585495a824dc72e4878bb7c09dc4af74d316282b22aa5ea1a125"
+        },
+        {
+          "sourceVerse": 2,
+          "targetStart": 2,
+          "targetEnd": 2,
+          "firstWordId": "deu-5-2-1",
+          "lastWordId": "deu-5-2-6",
+          "readingWords": 6,
+          "preferredLettersSha256": "08825090896647baa9bc3e38954e5a79ad35cc8f7fa8481e1b7101a510dd38f7"
+        },
+        {
+          "sourceVerse": 3,
+          "targetStart": 3,
+          "targetEnd": 3,
+          "firstWordId": "deu-5-3-1",
+          "lastWordId": "deu-5-3-16",
+          "readingWords": 16,
+          "preferredLettersSha256": "94ddf61e900f2eba4f342053154d944b4b216054cd7807879783960aed06b4f9"
+        },
+        {
+          "sourceVerse": 4,
+          "targetStart": 4,
+          "targetEnd": 4,
+          "firstWordId": "deu-5-4-1",
+          "lastWordId": "deu-5-4-8",
+          "readingWords": 8,
+          "preferredLettersSha256": "f7bc3b049d6816791b439cf97eba5f1b63bc0acc06e2a4bd3863095aa6a4e887"
+        },
+        {
+          "sourceVerse": 5,
+          "targetStart": 5,
+          "targetEnd": 5,
+          "firstWordId": "deu-5-5-1",
+          "lastWordId": "deu-5-5-20",
+          "readingWords": 20,
+          "preferredLettersSha256": "83f27a77f4e8ef4c0ff99765709c51f71a76afe921e834faf4f6e156e8a663bf"
+        },
+        {
+          "sourceVerse": 6,
+          "targetStart": 6,
+          "targetEnd": 6,
+          "firstWordId": "deu-5-6-1",
+          "lastWordId": "deu-5-6-9",
+          "readingWords": 9,
+          "preferredLettersSha256": "1b3bb6b45b3aa7185de83c21e9096e07a8375b413be4a688882f2f544f414379"
+        },
+        {
+          "sourceVerse": 7,
+          "targetStart": 7,
+          "targetEnd": 7,
+          "firstWordId": "deu-5-7-1",
+          "lastWordId": "deu-5-7-7",
+          "readingWords": 7,
+          "preferredLettersSha256": "cd5a9755cb527b6fcdede835acf11d27a2f0616c68c72bb119586693269ef36b"
+        },
+        {
+          "sourceVerse": 8,
+          "targetStart": 8,
+          "targetEnd": 8,
+          "firstWordId": "deu-5-8-1",
+          "lastWordId": "deu-5-8-16",
+          "readingWords": 16,
+          "preferredLettersSha256": "091773ffc3c18f75156f279676ad7d05ddd280345644d5cda871ca5f052f0a16"
+        },
+        {
+          "sourceVerse": 9,
+          "targetStart": 9,
+          "targetEnd": 9,
+          "firstWordId": "deu-5-9-1",
+          "lastWordId": "deu-5-9-21",
+          "readingWords": 21,
+          "preferredLettersSha256": "6538a306d1488bcaa1517114d9a2b3e055ea543989918f8d658db1902574b38e"
+        },
+        {
+          "sourceVerse": 10,
+          "targetStart": 10,
+          "targetEnd": 10,
+          "firstWordId": "deu-5-10-1",
+          "lastWordId": "deu-5-10-7",
+          "readingWords": 6,
+          "preferredLettersSha256": "fa5a8068ad51e492659cf146f07aadcc81a27fef326dcea54e19184334326177"
+        },
+        {
+          "sourceVerse": 11,
+          "targetStart": 11,
+          "targetEnd": 11,
+          "firstWordId": "deu-5-11-1",
+          "lastWordId": "deu-5-11-17",
+          "readingWords": 17,
+          "preferredLettersSha256": "3be54f4089c0f1658ad031a9d117a67d47d512797645614d9c50463cc774b19e"
+        },
+        {
+          "sourceVerse": 12,
+          "targetStart": 12,
+          "targetEnd": 12,
+          "firstWordId": "deu-5-12-1",
+          "lastWordId": "deu-5-12-9",
+          "readingWords": 9,
+          "preferredLettersSha256": "724fb308254294bd7aba74cbe8fc3f28b79a343d3ea06bc563527153e38df127"
+        },
+        {
+          "sourceVerse": 13,
+          "targetStart": 13,
+          "targetEnd": 13,
+          "firstWordId": "deu-5-13-1",
+          "lastWordId": "deu-5-13-6",
+          "readingWords": 6,
+          "preferredLettersSha256": "2dcc298a1c39623dbd2e130daaf9a07cd6c84a73485143d7b0b23e920d87cc3f"
+        },
+        {
+          "sourceVerse": 14,
+          "targetStart": 14,
+          "targetEnd": 14,
+          "firstWordId": "deu-5-14-1",
+          "lastWordId": "deu-5-14-26",
+          "readingWords": 26,
+          "preferredLettersSha256": "3b90a5531f088eeb9379e2c862eb853837b271253644e5692cb3e951d17abfb9"
+        },
+        {
+          "sourceVerse": 15,
+          "targetStart": 15,
+          "targetEnd": 15,
+          "firstWordId": "deu-5-15-1",
+          "lastWordId": "deu-5-15-23",
+          "readingWords": 23,
+          "preferredLettersSha256": "a8b6954f440fb769471a975d4209d4f6e89224988b8df43991c2b590c865f78c"
+        },
+        {
+          "sourceVerse": 16,
+          "targetStart": 16,
+          "targetEnd": 16,
+          "firstWordId": "deu-5-16-1",
+          "lastWordId": "deu-5-16-22",
+          "readingWords": 22,
+          "preferredLettersSha256": "3dc53fd9de487671a5c6eee16873b236f30004244756273233232cf4df0c5598"
+        },
+        {
+          "sourceVerse": 17,
+          "targetStart": 17,
+          "targetEnd": 20,
+          "firstWordId": "deu-5-17-1",
+          "lastWordId": "deu-5-20-5",
+          "readingWords": 11,
+          "preferredLettersSha256": "3e1a0367a61c1d609313f6fa1c579c1cd1203ea771d48c20cc921a71e4542271"
+        },
+        {
+          "sourceVerse": 18,
+          "targetStart": 21,
+          "targetEnd": 21,
+          "firstWordId": "deu-5-21-1",
+          "lastWordId": "deu-5-21-16",
+          "readingWords": 16,
+          "preferredLettersSha256": "d54350edf536914c270041e0fe136cb2072f2e87364d72166cd9a2b62b1bcb81"
+        },
+        {
+          "sourceVerse": 19,
+          "targetStart": 22,
+          "targetEnd": 22,
+          "firstWordId": "deu-5-22-1",
+          "lastWordId": "deu-5-22-24",
+          "readingWords": 24,
+          "preferredLettersSha256": "3636e55b660bef67d1385af5e29a956292b9e8be5ec6c5056e41331094a63cef"
+        },
+        {
+          "sourceVerse": 20,
+          "targetStart": 23,
+          "targetEnd": 23,
+          "firstWordId": "deu-5-23-1",
+          "lastWordId": "deu-5-23-15",
+          "readingWords": 15,
+          "preferredLettersSha256": "f20d91d291f19df6d24f2ea1599b7a443070f4e78801837d909fe1141fef81f5"
+        },
+        {
+          "sourceVerse": 21,
+          "targetStart": 24,
+          "targetEnd": 24,
+          "firstWordId": "deu-5-24-1",
+          "lastWordId": "deu-5-24-23",
+          "readingWords": 23,
+          "preferredLettersSha256": "abbac2228adaff5ac1148cf004275bdfa79f67229cea66d80aec8d5568a308f1"
+        },
+        {
+          "sourceVerse": 22,
+          "targetStart": 25,
+          "targetEnd": 25,
+          "firstWordId": "deu-5-25-1",
+          "lastWordId": "deu-5-25-18",
+          "readingWords": 18,
+          "preferredLettersSha256": "9fc718c02d84fc3e4829eebd8c633419921146354c21b5aa0d69a08dbfb3569f"
+        },
+        {
+          "sourceVerse": 23,
+          "targetStart": 26,
+          "targetEnd": 26,
+          "firstWordId": "deu-5-26-1",
+          "lastWordId": "deu-5-26-14",
+          "readingWords": 14,
+          "preferredLettersSha256": "fce55e4c7906b5553a944053c345a7b5b1cf33953d31b96fcc769c65fe36930d"
+        },
+        {
+          "sourceVerse": 24,
+          "targetStart": 27,
+          "targetEnd": 27,
+          "firstWordId": "deu-5-27-1",
+          "lastWordId": "deu-5-27-21",
+          "readingWords": 21,
+          "preferredLettersSha256": "3c483c1eb487048b072b77601aa7a27c8574d50453c0bc1435fffd3868d20548"
+        },
+        {
+          "sourceVerse": 25,
+          "targetStart": 28,
+          "targetEnd": 28,
+          "firstWordId": "deu-5-28-1",
+          "lastWordId": "deu-5-28-23",
+          "readingWords": 23,
+          "preferredLettersSha256": "75f0197a51bf2c35af93d0dfcae50c4ac1a2792ec9035fea1bb6e9bf9ce1db9a"
+        },
+        {
+          "sourceVerse": 26,
+          "targetStart": 29,
+          "targetEnd": 29,
+          "firstWordId": "deu-5-29-1",
+          "lastWordId": "deu-5-29-19",
+          "readingWords": 19,
+          "preferredLettersSha256": "d0ad2b4b7a177906dccd92ab0867b862c8985ac9b410c484f86cf44a3cd6d693"
+        },
+        {
+          "sourceVerse": 27,
+          "targetStart": 30,
+          "targetEnd": 30,
+          "firstWordId": "deu-5-30-1",
+          "lastWordId": "deu-5-30-6",
+          "readingWords": 6,
+          "preferredLettersSha256": "09ce447ad245b6a7295c7a1e3858de4d59172677f29d11449bd5700937805738"
+        },
+        {
+          "sourceVerse": 28,
+          "targetStart": 31,
+          "targetEnd": 31,
+          "firstWordId": "deu-5-31-1",
+          "lastWordId": "deu-5-31-20",
+          "readingWords": 20,
+          "preferredLettersSha256": "ef059f54e86fa25f70c1b574cd05044ccc94cdd0ef1a9804c4535bcae47ea3f9"
+        },
+        {
+          "sourceVerse": 29,
+          "targetStart": 32,
+          "targetEnd": 32,
+          "firstWordId": "deu-5-32-1",
+          "lastWordId": "deu-5-32-11",
+          "readingWords": 11,
+          "preferredLettersSha256": "143cac577aa25954ca0fc080a8bae127f12c7f991659b61b3d1f8539694c3c9a"
+        },
+        {
+          "sourceVerse": 30,
+          "targetStart": 33,
+          "targetEnd": 33,
+          "firstWordId": "deu-5-33-1",
+          "lastWordId": "deu-5-33-17",
+          "readingWords": 17,
+          "preferredLettersSha256": "d2c3338e0a8e4c3935a5c3d9a94608a5b42cae3140bcb652af8245623f4b1042"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 import {loadCorpus} from './library-data.js';
 import {PRINTED_SCORE} from './printed-score.js';
+import {preserveRelatedSource} from './related-source.js';
+import {preserveNumberingMapping,rangeNeedsNumbering} from './torah-numbering.js';
 
 export const defaultRange=Object.freeze({id:'opening',bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:3},label:'Opening verses'});
 const integer=n=>(typeof n==='number'||(typeof n==='string'&&/^\d+$/.test(n)))&&Number.isInteger(Number(n))&&Number(n)>0;
@@ -21,9 +23,13 @@ export class Corpus {
       bookId:book.id,start:points.start,end:points.end,label:typeof input.label==='string'?input.label.slice(0,120):`Section ${index+1}`,hidden:input.hidden===true};
     const source=input.divisionSource;
     if(source!==undefined){
+      if(!['gen','exo','lev','num','deu'].includes(book.id)||input.relatedSource!==undefined)throw Error('Torah aliyah provenance cannot be attached to another repertoire or combined with a related-reading source claim.');
       if(source?.provider!=='Hebcal.com'||!/^https:\/\/www\.hebcal\.com\/leyning\?[^\s]{1,300}$/.test(source.url)||!/^[a-f0-9]{64}$/.test(source.sha256)||!/^\d{4}-\d{2}-\d{2}$/.test(source.serviceDate)||!['Diaspora','Israel'].includes(source.region)||!['fullkriyah','triennial','weekday'].includes(source.cycle)||!/^([1-9]|M)$/.test(source.aliyah)||typeof source.retrieved!=='string'||source.retrieved.length>40)throw Error('This section has invalid calendar-source metadata.');
       range.divisionSource=Object.fromEntries(['provider','url','sha256','retrieved','serviceDate','region','cycle','aliyah'].map(key=>[key,source[key]]));
+      if(source.referenceMapping!==undefined)range.divisionSource.referenceMapping=preserveNumberingMapping(source.referenceMapping,range,this);
+      else if(rangeNeedsNumbering(range))throw Error('This saved calendar section has ambiguous source/UXLC numbering. Reopen it from the current calendar source; no boundaries were substituted.');
     }
+    if(input.relatedSource!==undefined)range.relatedSource=preserveRelatedSource(input.relatedSource,range,this);
     return range;
   }
   describe(range){

@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-20",
+  "method": "Separate Python minidom parser; compare every original w/k/q text in document order, source-token ID, verse/chapter boundary and marker position. No Unicode normalization. Importer uses ElementTree.",
+  "books": [
+    {
+      "bookId": "jos",
+      "sourceTokens": 10084,
+      "markers": 96,
+      "exactDomTextAndIdSha256": "f9253cd72e324c8a6faac27d021e48b437dbbb0f5a0c3296996fa58d0ffb650e"
+    },
+    {
+      "bookId": "jdg",
+      "sourceTokens": 9905,
+      "markers": 92,
+      "exactDomTextAndIdSha256": "451a7d429e094ce46620131f631b7f887c81d268ccf6d3564a4070a9e18c596f"
+    },
+    {
+      "bookId": "sam1",
+      "sourceTokens": 13335,
+      "markers": 171,
+      "exactDomTextAndIdSha256": "91123166e513bc66799e911446eed18124890b3d3e49dae3e4039a72560f8e28"
+    },
+    {
+      "bookId": "sam2",
+      "sourceTokens": 11128,
+      "markers": 146,
+      "exactDomTextAndIdSha256": "e0a9a38f6d1fd98ef55e691133b65ce379cee74961897665920d45c4b09fd419"
+    },
+    {
+      "bookId": "kgs1",
+      "sourceTokens": 13186,
+      "markers": 108,
+      "exactDomTextAndIdSha256": "d8bb193a1b0dc40a784ec42a3135ca5752fced68e4bf483ca9f8d5f80a809d7e"
+    },
+    {
+      "bookId": "kgs2",
+      "sourceTokens": 12353,
+      "markers": 83,
+      "exactDomTextAndIdSha256": "6b2ce2fa20f4f746ccfab0c49b77027328a2c877f48e0a1ae06051388920f6be"
+    },
+    {
+      "bookId": "isa",
+      "sourceTokens": 16987,
+      "markers": 209,
+      "exactDomTextAndIdSha256": "603d59512aedb9a5a1e43576a575d236a9477b4a5fa7b59d82ee9bbacd862acc"
+    },
+    {
+      "bookId": "jer",
+      "sourceTokens": 21975,
+      "markers": 304,
+      "exactDomTextAndIdSha256": "d9a4dfdefa8811bbc5fb1ef3399ff235c3d33d3de97f373523bfca4997902f88"
+    },
+    {
+      "bookId": "ezk",
+      "sourceTokens": 18866,
+      "markers": 184,
+      "exactDomTextAndIdSha256": "c33d369837dea11ad5e929653f70fa64ab8430bac30deb9a67826e1996cf6bcc"
+    },
+    {
+      "bookId": "hos",
+      "sourceTokens": 2386,
+      "markers": 20,
+      "exactDomTextAndIdSha256": "a821794a026979f4d8c3c056c37aac7673a329cf4870b72fafd091edfcd59cc2"
+    },
+    {
+      "bookId": "jol",
+      "sourceTokens": 958,
+      "markers": 6,
+      "exactDomTextAndIdSha256": "7985a8a6f32eceb4f81f92789af09c042c1a0dbaf4d012889bcf677a3119bc06"
+    },
+    {
+      "bookId": "amo",
+      "sourceTokens": 2045,
+      "markers": 30,
+      "exactDomTextAndIdSha256": "541351fc4e73d86ffda0bd874fdfa9417c9ada614c2e9017041ed746469516ec"
+    },
+    {
+      "bookId": "oba",
+      "sourceTokens": 292,
+      "markers": 0,
+      "exactDomTextAndIdSha256": "d9161b3f1b176de96677f52f87ddd75406d7e676cd88838cbf9749b4040b21dc"
+    },
+    {
+      "bookId": "jon",
+      "sourceTokens": 688,
+      "markers": 3,
+      "exactDomTextAndIdSha256": "39057bc3e6a2ea647a20e26cd0977a3fdab51dafcf00e663e55a8758d1bca9af"
+    },
+    {
+      "bookId": "mic",
+      "sourceTokens": 1400,
+      "markers": 16,
+      "exactDomTextAndIdSha256": "9cdbaeeb26e7213e5e770221d6c9052a0bc5485cc7d23347985245499a53ecf5"
+    },
+    {
+      "bookId": "nah",
+      "sourceTokens": 562,
+      "markers": 3,
+      "exactDomTextAndIdSha256": "97c34b9b89603540533119dc42ca4c2e4cbc889f1d452cac015450281e877310"
+    },
+    {
+      "bookId": "hab",
+      "sourceTokens": 672,
+      "markers": 9,
+      "exactDomTextAndIdSha256": "49b6e9daa789f1506f2ee327dbce75aea145c9fe5fda2f7c1362c9a46358fc14"
+    },
+    {
+      "bookId": "zep",
+      "sourceTokens": 769,
+      "markers": 5,
+      "exactDomTextAndIdSha256": "1083dc3ed6fa606bae70ef7a98c1f2dc585835dbfa7ebace7f8d6c5b3b1021cd"
+    },
+    {
+      "bookId": "hag",
+      "sourceTokens": 601,
+      "markers": 7,
+      "exactDomTextAndIdSha256": "4f5bed72a91b7a76fb7ba0b9ce6e4458071db93f4154e934d15a44e0ecc9869e"
+    },
+    {
+      "bookId": "zec",
+      "sourceTokens": 3134,
+      "markers": 37,
+      "exactDomTextAndIdSha256": "a5c1b246b143ad2cd1a796cd0345b451f351cbe2e5d29dd7fb750ca51642dff4"
+    },
+    {
+      "bookId": "mal",
+      "sourceTokens": 876,
+      "markers": 7,
+      "exactDomTextAndIdSha256": "7b53039a036fffcb8c9292f38e70e5433adeef214154f6a915678b8cc3e5f4b3"
+    },
+    {
+      "bookId": "rut",
+      "sourceTokens": 1306,
+      "markers": 1,
+      "exactDomTextAndIdSha256": "91a875c5b1c0f0e1d9689cbabe51608bddb66492a56e222fe2b59ce9f68e7d2e"
+    },
+    {
+      "bookId": "sng",
+      "sourceTokens": 1254,
+      "markers": 20,
+      "exactDomTextAndIdSha256": "dcf9521126d66cd0926e8415fbc593059ef89c044d9059122e1faa5932b6acee"
+    },
+    {
+      "bookId": "ecc",
+      "sourceTokens": 2999,
+      "markers": 4,
+      "exactDomTextAndIdSha256": "7a7e49bd222ead31c9664b1377c3d0fb41a1226615627c73e8068132b26572c9"
+    },
+    {
+      "bookId": "lam",
+      "sourceTokens": 1564,
+      "markers": 89,
+      "exactDomTextAndIdSha256": "e2f1bac799945b821e367abe67bc889163f058efa73e52845f64cb76e75800ce"
+    },
+    {
+      "bookId": "est",
+      "sourceTokens": 3057,
+      "markers": 23,
+      "exactDomTextAndIdSha256": "a1a4acae693d46e369ee70ded7352746d51342064666f2ebdfaaffd8c5e24143"
+    }
+  ],
+  "sourceTokens": 152382,
+  "sourceMarkers": 1673,
+  "limits": "Digital source correspondence only. No independent musical, linguistic, scribal or liturgical approval."
+}

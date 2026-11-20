@@ -1,0 +1,73 @@
+{
+  "updated": "2026-11-20",
+  "implementation": "Original navigation around ECMA-402 Intl.DateTimeFormat Hebrew calendar, UTC civil service dates. No Hebcal engine code imported. Conversion and reading division sources are independent from musical settings.",
+  "specification": "https://tc39.es/ecma402/#sec-intl.datetimeformat.prototype.formattoparts",
+  "primaryData": "https://www.hebcal.com/home/219/hebrew-date-converter-rest-api",
+  "license": "CC BY4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "scope": "Proleptic Gregorian0001-01-01 through9999-12-31. Boundary Hebrew years3761/13760 are partial. Modern and historical civil-date labels do not assert local historical calendar adoption. No sunset/geolocation conversion.",
+  "verification": "577 independent primary-date examples plus July30,2022 reading-source anchor; runtime checks six known dates before enabling Hebrew navigation. Browser calendar support is required and explicitly refused if source anchors disagree. No claims of independent expert/halachic review.",
+  "fixtures": [
+    {
+      "file": "data/calendar/conversion/2023-autumn.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&start=2023-09-01&end=2024-02-25&g2h=1",
+      "retrieved": "2026-11-20",
+      "bytes": 34236,
+      "sha256": "6ea5c3fe6b3b9e348dec81b00d518554ae4970fd629029f001cbff9f13db33ab",
+      "dates": 178
+    },
+    {
+      "file": "data/calendar/conversion/2024-spring.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&start=2024-02-26&end=2024-08-21&g2h=1",
+      "retrieved": "2026-11-20",
+      "bytes": 35150,
+      "sha256": "b2f78f0804505b960a3b6af1dbe56b01db199b187727cf67b1f6d869463d5d0f",
+      "dates": 178
+    },
+    {
+      "file": "data/calendar/conversion/2026-autumn.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&start=2026-08-01&end=2027-01-27&g2h=1",
+      "retrieved": "2026-11-20",
+      "bytes": 34376,
+      "sha256": "754bae18959f05a90f7122963138ccd7cd941ff08d18c341da56fa57faf8d6c8",
+      "dates": 180
+    },
+    {
+      "file": "data/calendar/conversion/1900-boundary.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&start=1900-02-20&end=1900-03-10&g2h=1",
+      "retrieved": "2026-11-20",
+      "bytes": 3757,
+      "sha256": "b8f9a7fab6c7444cb5cd6b1d23e07125c4228583215c6dd93fff4a538bceb48a",
+      "dates": 19
+    },
+    {
+      "file": "data/calendar/conversion/2000-boundary.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&start=2000-02-20&end=2000-03-10&g2h=1",
+      "retrieved": "2026-11-20",
+      "bytes": 3984,
+      "sha256": "c7cfe8a5e26db2f42a364346bec9682f35bc38b24e41d297c56a7f8869828f14",
+      "dates": 20
+    },
+    {
+      "file": "data/calendar/conversion/first-day.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&date=0001-01-01&g2h=1&strict=1",
+      "retrieved": "2026-11-20",
+      "bytes": 215,
+      "sha256": "9a047cd667de22682382848450f84ed755e5355d740f1c14daaaf44b80790c26",
+      "dates": 1
+    },
+    {
+      "file": "data/calendar/conversion/last-day.json",
+      "url": "https://www.hebcal.com/converter?cfg=json&date=9999-12-31&g2h=1&strict=1",
+      "retrieved": "2026-11-20",
+      "bytes": 232,
+      "sha256": "2ebd2d2a6f13abb1f9cd280ccd4438a1344bc870e131dd967a0002c45c86a4fc",
+      "dates": 1
+    }
+  ],
+  "sourcePack": {
+    "file": "data/calendar/hebrew-date-sources.zip",
+    "bytes": 13235,
+    "sha256": "e4a52134d8f0fe53865cb0b8fc387376de3e8307db0a950b16a0a9d37be94ea6"
+  }
+}
