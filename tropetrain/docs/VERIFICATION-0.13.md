@@ -24,3 +24,8 @@ All playback gains0; no acoustic review claimed.
 - Expanded calendar/source controls fit320,390,1280 body/root widths. Viewport reset. No captured warnings/errors. Restored completeGen22:1/Cohen/60BPM/key0/both gains0, active0.
 
 Some CUA label/role lookups did not match native controls; observed IDs and keyboard actions worked. A transpose-field input did not commit; the observed +button/+1 state alone was counted. Screenshot capture remains unavailable; no new release screenshot claimed. Direct file-origin, Save dialogs, positive-gain/acoustic, qualified reader and full calendar/table validation remain pending. All32 Torah melody grammars, other recovered repertoire, six pronunciations, singing and remaining roadmap requirements stay active.
+
+
+## Live release
+
+Code commit `d492b303e284928cf9ec5e3eb80770272776de7d`; [Pages run44787795606](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44787795606) succeeded. All24 changed release resources match tested bytes (22,789,958bytes). Returning v0.12→v0.13 retained Genesis22:1 word5, Cohen,60BPM/key0/mutes and sourced parallel view. Bundled July30 Diaspora triennial year3 displayed exact ranges and opened Maftir Numbers36:10–13. Cohen stayed selected and explicitly unavailable there. Restored Gen22:1/word5; muted playback naturally completed atword5. Stop left active0/both volumes0, no captured warnings/errors. No screenshot claimed. Viewport had already been reset. No new acoustic, screenshot or independent calendar/music/phonetic review inferred.

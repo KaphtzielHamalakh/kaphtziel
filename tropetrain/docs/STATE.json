@@ -3,8 +3,8 @@
   "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "b9fa77266200a06024a8610516e5198bfadce394",
-  "nextTask": "Publish tested v0.13 calendar increment, verify Pages/exact live bytes and returning browser controls, synchronize outputs. Continue musical/phonetic/singing evidence and all remaining full-roadmap work; do not mark complete.",
+  "publishedCommit": "d492b303e284928cf9ec5e3eb80770272776de7d",
+  "nextTask": "Finish verification-record publication and synchronize v0.13 outputs; continue primary musical/phonetic/singer evidence. Next software work: full Hebrew-date/year calendar navigation with independently verified conversion fixtures, remaining repertoire/assignments and selected-section print/learning tools. Preserve complete roadmap; full objective remains active.",
   "lastPassingTests": {
     "automated": 108,
     "ui": "Calendar: Israel/Diaspora divergence, triennial year3, cross-book festival8sections, weekday aliyah, saved assignment/response reload,55BPM/+1 independence and word-boundary completion. HTTP standalone Maftir/evidence and320/390/1280 fit passed. Stopped/muted; viewport reset.",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "b9fa77266200a06024a8610516e5198bfadce394",
+    "commit": "d492b303e284928cf9ec5e3eb80770272776de7d",
     "status": "success",
-    "workflowRun": 44784787546,
-    "liveAssets": "All28 changed resources match tested bytes (26193887bytes), including standalone, runtime, source pack, font and layout data.",
-    "ui": "Returning v0.11→v0.12 retained Genesis22:1 word5, Cohen source,60BPM/key0/both zero gains. Side by side and Sourced scroll lines showed columns22:8–9; muted source playback naturally ended atword5. Stop left active0, source/key/tempo unchanged and no captured warnings/errors. Screenshot capture unavailable; no release screenshot claimed.",
+    "workflowRun": 44787795606,
+    "liveAssets": "All24 changed code-release resources match tested bytes (22789958bytes), including standalone, runtime, calendar source examples and record.",
+    "ui": "Returning v0.12→v0.13 retained Genesis22:1 word5, Cohen,60BPM/key0/mutes and sourced parallel view. Bundled July30 Diaspora triennial year3 displayed exact ranges and opened Maftir Numbers36:10–13. Cohen stayed selected and explicitly unavailable there. Restored Gen22:1/word5; muted playback naturally completed atword5. Stop left active0/both volumes0, no captured warnings/errors. No screenshot claimed.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -188,12 +188,12 @@
   },
   "workingIteration": {
     "version": "0.13.0",
-    "status": "local_verified_ready_to_publish",
+    "status": "published_live_verified",
     "newFeatures": [
       "Explicit attributed monthly Hebcal reading lookup, Israel/Diaspora and annual/triennial choices, bundled source examples and bounded validated cache, Torah section opening with original source provenance."
     ],
-    "next": "Publish tested v0.13 calendar increment, verify Pages/exact live bytes and returning browser controls, synchronize outputs. Continue musical/phonetic/singing evidence and all remaining full-roadmap work; do not mark complete.",
-    "tests": "All108 checks pass. Local UI bundled divergence, triennial/full/festival/weekday divisions, assignments, online/cache reload,55BPM/+1 preservation, muted word completion and320/390/1280 fit passed. Rebuilt HTTP standalone opens exact Maftir and embedded source evidence. Final docs-only rebuild and15 calendar/distribution checks passed; screenshot unavailable. All stopped/muted, viewport reset."
+    "next": "Finish verification-record publication and synchronize v0.13 outputs; continue primary musical/phonetic/singer evidence. Next software work: full Hebrew-date/year calendar navigation with independently verified conversion fixtures, remaining repertoire/assignments and selected-section print/learning tools. Preserve complete roadmap; full objective remains active.",
+    "tests": "All108 checks pass. Local UI bundled divergence, triennial/full/festival/weekday divisions, assignments, online/cache reload,55BPM/+1 preservation, muted word completion and320/390/1280 fit passed. Rebuilt HTTP standalone opens exact Maftir and embedded source evidence. Final docs-only rebuild and15 calendar/distribution checks passed; screenshot unavailable. All stopped/muted, viewport reset. Pages44787795606 succeeded; all24 live resources match. Returning live calendar/source refusal and word5 completion passed, stopped/muted."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -240,5 +240,11 @@
     "readingWords": 79985,
     "differenceGroups": 132,
     "review": "Written letters and all reading IDs preserved; typeset widths approximate. Independent scribal and browser glyph/spacing visual review pending."
+  },
+  "calendarSource": {
+    "record": "docs/CALENDAR-SOURCES.json",
+    "provider": "Hebcal.com",
+    "license": "CC BY4.0",
+    "status": "Explicit month lookup; four bundled source examples and12-month bounded cache. Every selected Torah section/count validated against UXLC. Hebrew-year/sunset conversion and full RA-table/congregation review remain pending."
   }
 }
