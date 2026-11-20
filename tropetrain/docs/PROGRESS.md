@@ -360,3 +360,14 @@ Browser-client accessibility testing restored. Both HTTP entry points opened; 31
 Exact full-scroll checks: Ruth85verses/1295words, Ecclesiastes222/2987, Esther167/3045, SongofSongs117/1250, Lamentations154/1540. Ecclesiastes inspector retains12sourceunits/hash. DefaultPesachJoshua3sections/19verses versusSephardic2/16. SourceDeut5:19–6:3 opensUXLC5:22–6:3/15records; triennial5:25–6:3 opens5:28–6:3/9; ShavuotExo20:15–23 opens20:18–26/9. Saved sourcedLamentations recent recall/reload retainsCohen/unavailable and60/key0/mutes. Written-only2Sam13:33אִם־ hasno inventedtarget; Judges20:13בְנֵ֣י reading-only target retained; Gen30:11בגד selectsactualwords3–4. Mobile screenshot savedoutputs/TropeTrain-v0.16-mobile.jpg; Hebrew visible, source pane has documented horizontal scroll.
 
 AX input rename rerendered controls; stale targets were refreshed. Recent-select reset after successful onchange caused tool retention error; actual opening and reload were inspected. Filechooser wait stalled and reset REPL; reconnected without retrying download/nativefallback. Those are tool limitations, not counted as passed UI. No positive-gain audio, new musical preset or full-completion claim. Publishing is next; remaining roadmap/print work resumes afterward.
+
+
+## 2026-11-20 · v0.16 published and live verified
+
+Codecommit263906ae277108356b3936f21f65cc5d034ee592; Pagesrun44820701429 build/deploy/report allsuccessful. ConnectedGitHub rebuilt exact tested root treec51bfc324eb45421ae68e791ed45327f986bff96/subtreec7a4c2b1347e784ee667a7c3c8c3a69dd0c8288c and lease-updated mainfrom3788302e after releasebranch Git-objecttransfer. All92changedpaths inside/tropetrain. All91publiclyserved resources exactlymatch38122752bytes; .gitignore correctly404dueJekyllexclusion and omittedfrompublicassetcounts. No applicationfile mismatch. Localbranch merged origin/main withoutconflicts orfilechanges toretainpublished ancestry.
+
+Live v0.13→v0.16 retained Genesis22:1 word5/Cohen/60BPM/key0/both gains0. Isaiah40:1–3 opened with Cohen explicitly unavailable. Bundled June6 fullRuth1:1–4:22 opened85verses/1295words and retained source identity after reload; Cohen remained selected/unavailable, no substitution. No captured browser warnings/errors.
+
+Initialassetcheck stoppedonexpected.gitignore404; correctedassetinventory and91/91matched. No headless/nativeChrome/CDPworkaround orpositive-gain audio. Finalrecordpublication/outputsync/teardown thencontinueprint/sourcework; fullobjectiveactive/incomplete.
+
+Final live playback check: Restored Genesis22:1 word5/Cohen/60BPM/key0/mutes. Muted live playback naturally finished atword5; Stop left activeWords0 and both gains0. Viewport reset; published tab retained. Browser screenshot outputs/TropeTrain-v0.16-live.jpg. Final documentation-only records next; no runtime code changed after154full/35finaltargets.

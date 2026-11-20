@@ -3,11 +3,11 @@
   "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "d492b303e284928cf9ec5e3eb80770272776de7d",
-  "nextTask": "Publish the browser-tested v0.16 tree via connected GitHub, verify Pages/deployed bytes/returning live state, synchronize outputs, then continue full-roadmap printing and source/reviewer research. Keep file-dialog, saved-practice recovery UI and independent musical/phonetic/scribal review pending.",
+  "publishedCommit": "263906ae277108356b3936f21f65cc5d034ee592",
+  "nextTask": "Continue full-roadmap printing selected passages/sections and event-derived scores with preserved marked Hebrew/source IDs and musical settings. Browser-client normal UI testing now works. Retain pending file-dialog/recovery/acoustic/expert-review gates and continue primary musical/phonetic/singing evidence research. Do not claim the full app is complete.",
   "lastPassingTests": {
     "automated": 154,
-    "ui": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed.",
+    "ui": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed. Live upgrade, newIsaiah/Ruth and source-state reload passed; sourceword5 playback naturally completed, stopped/muted.",
     "limits": "File-origin, import/export dialogs (chooser stalled), legacy saved-practice recovery UI, acoustic and independent musical/phonetic/scribal review pending. No new traditional melody, pronunciation voice or singer."
   },
   "completionRequires": [
@@ -32,7 +32,7 @@
     {
       "id": "reader",
       "description": "Pointed/consonantal/parallel views and stable IDs",
-      "status": "31_book_candidate_source_alternatives_and_Torah_scroll_scope_code_checked_normal_UI_pending"
+      "status": "31_book_reader_and_source_alternatives_browser_tested_Torah_scroll_scope_preserved"
     },
     {
       "id": "alignment",
@@ -67,17 +67,17 @@
     {
       "id": "repertoire",
       "description": "Torah/haftarot/five scrolls/blessings edition coverage",
-      "status": "31_book_reader_and_sourced_calendar_related_text_code_checked_UI_pending_no_new_musical_realizations"
+      "status": "31_book_reader_and_sourced_calendar_related_text_published_no_new_musical_realizations"
     },
     {
       "id": "calendar",
       "description": "Perpetual calendar and Israel/Diaspora annual/triennial/holiday divisions",
-      "status": "eight_sourced_examples_date_navigation_related_text_and_explicit_reference_maps_code_checked_UI_pending"
+      "status": "eight_sourced_examples_date_navigation_related_text_and_reference_maps_browser_tested"
     },
     {
       "id": "assignments",
       "description": "Named ordered sections, discontinuous haftarot/Megillah, aliyot",
-      "status": "typed_v1_v2_v3_source_snapshots_numbering_maps_and_practice_recovery_code_checked_UI_pending"
+      "status": "typed_v1_v2_v3_code_checked_named_ordered_hidden_sections_save_reload_recent_browser_tested_file_dialog_and_recovery_UI_pending"
     },
     {
       "id": "sharing",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "d492b303e284928cf9ec5e3eb80770272776de7d",
+    "commit": "263906ae277108356b3936f21f65cc5d034ee592",
     "status": "success",
-    "workflowRun": 44787795606,
-    "liveAssets": "All24 changed code-release resources match tested bytes (22789958bytes), including standalone, runtime, calendar source examples and record.",
-    "ui": "Returning v0.12→v0.13 retained Genesis22:1 word5, Cohen,60BPM/key0/mutes and sourced parallel view. Bundled July30 Diaspora triennial year3 displayed exact ranges and opened Maftir Numbers36:10–13. Cohen stayed selected and explicitly unavailable there. Restored Gen22:1/word5; muted playback naturally completed atword5. Stop left active0/both volumes0, no captured warnings/errors. No screenshot claimed.",
+    "workflowRun": 44820701429,
+    "liveAssets": "All91 publicly served changed resources match tested bytes (38122752bytes). Changed .gitignore is intentionally excluded by Jekyll.",
+    "ui": "Live v0.13→v0.16 retained Genesis22:1 word5/Cohen/60BPM/key0/both gains0. Isaiah40:1–3 opened with Cohen explicitly unavailable. Bundled June6 fullRuth1:1–4:22 opened85verses/1295words and retained source identity after reload; Cohen remained selected/unavailable, no substitution. No captured browser warnings/errors. Restored Genesis22:1 word5/Cohen/60BPM/key0/mutes. Muted live playback naturally finished atword5; Stop left activeWords0 and both gains0. Viewport reset; published tab retained. Browser screenshot outputs/TropeTrain-v0.16-live.jpg.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -190,15 +190,17 @@
     "version": "0.16.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "9ffa22bb9518db209ee13ae4a99e29a166d498bc",
-    "status": "normal_UI_checked_ready_for_publication",
+    "status": "published_live_verified",
     "record": "docs/VERIFICATION-0.16.md",
     "automatedTests": 154,
     "tests": "All154 full checks pass/0fail/0skip; original Torah/additional-corpus event/text invariants pass. Eight primary response examples,100related choices/98checked/2partial refusals; all53 preferred-letter source groups match59 mapped UXLC records. Recovery raw-data/dedup/quota checks pass. No normal UI result inferred.",
     "newFeatures": "Structured related text, full snapshots/source inspector, v3for new provenance, complete source-unit-preserving Megillah joining, explicit Torah coordinate maps and legacy/recovery guard.",
     "limits": "No browser/deployment/acoustic or expert-review result, new traditional melody/pronunciation/singer, or full app completion.",
-    "next": "Publish the browser-tested v0.16 tree via connected GitHub, verify Pages/deployed bytes/returning live state, synchronize outputs, then continue full-roadmap printing and source/reviewer research. Keep file-dialog, saved-practice recovery UI and independent musical/phonetic/scribal review pending.",
-    "finalDocumentationChecks": "Final documentation-only rebuild and45targeted checks pass/0fail. Four generated source/map/audit files are byte-deterministic.",
-    "browserVerification": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed."
+    "next": "Continue full-roadmap printing selected passages/sections and event-derived scores with preserved marked Hebrew/source IDs and musical settings. Browser-client normal UI testing now works. Retain pending file-dialog/recovery/acoustic/expert-review gates and continue primary musical/phonetic/singing evidence research. Do not claim the full app is complete.",
+    "finalDocumentationChecks": "Final documentation-only build and35targeted distribution/source/calendar/date/recovery checks pass/0fail. Runtime JavaScript matches the browser-tested candidate byte-for-byte.",
+    "browserVerification": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed.",
+    "deploymentCommit": "263906ae277108356b3936f21f65cc5d034ee592",
+    "liveVerification": "Live v0.13→v0.16 retained Genesis22:1 word5/Cohen/60BPM/key0/both gains0. Isaiah40:1–3 opened with Cohen explicitly unavailable. Bundled June6 fullRuth1:1–4:22 opened85verses/1295words and retained source identity after reload; Cohen remained selected/unavailable, no substitution. No captured browser warnings/errors. Restored Genesis22:1 word5/Cohen/60BPM/key0/mutes. Muted live playback naturally finished atword5; Stop left activeWords0 and both gains0. Viewport reset; published tab retained. Browser screenshot outputs/TropeTrain-v0.16-live.jpg."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -251,7 +253,7 @@
     "provider": "Hebcal.com",
     "license": "CC BY4.0",
     "status": "Explicit month lookup; four bundled source examples and12-month bounded cache. Every selected Torah section/count validated against UXLC. Hebrew-year/sunset conversion and full RA-table/congregation review remain pending.",
-    "candidateStatus": "v0.14 original Hebrew/civil navigation and Purim source-schema fix integrated into0.15, codechecks135 pass; new normal UI pending."
+    "candidateStatus": "v0.14 date navigation and Purim fix integrated and browser-tested in publishedv0.16; AdarI/II invalidday and exactPurimdate checked."
   },
   "parallelCalendarWork": {
     "branch": "main local checkout",
@@ -270,7 +272,7 @@
     "additionalUnresolvedDraftWords": 4237,
     "sourceRecord": "docs/REPERTOIRE-SOURCES.json",
     "audit": "docs/REPERTOIRE-AUDIT.json",
-    "status": "exact_source_and_code_checked_UI_pending_no_new_musical_realization"
+    "status": "source_checked_reader_browser_tested_published_no_new_musical_realization"
   },
   "calendarRelated": {
     "choices": 100,
