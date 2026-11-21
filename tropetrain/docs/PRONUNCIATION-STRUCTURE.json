@@ -1,8 +1,9 @@
 {
   "schema": "tropetrain-pronunciation-structure-audit-v1",
-  "revision": 1,
+  "revision": 2,
   "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
   "license": "CC-BY-SA-4.0",
+  "wordAlignmentRecord": "docs/PRONUNCIATION-WORD-ALIGNMENT.json",
   "input": "data/pronunciation/torah-display.json.gz",
   "inputSha256": "eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13",
   "structureSha256": "4bf80a03d516a98d060269dee1ffed3fdda0f8066a461d5ef0295ba5eff465fe",
@@ -40,6 +41,6 @@
       "sharedGroupUnits": 41937
     }
   },
-  "method": "Original source AST traversal; exact text, explicit stressed/reading/superscript-e spans and UTF-16 half-open offsets retained. Units end only at literal middle dots, hyphens or whitespace; each boundary remains explicit. Acute and breve positions remain separate from explicit stress markup. Single-reader-word groups link units to that word ID; shared groups retain all reader IDs with no per-word syllable allocation.",
+  "method": "Lossless source AST traversal; exact text, explicit stressed/reading/superscript-e spans and UTF-16 half-open offsets retained. Units end only at literal middle dots, hyphens or whitespace; each boundary remains explicit. Acute and breve positions stay distinct from explicit stress markup. Word-level correspondence is audited separately in PRONUNCIATION-WORD-ALIGNMENT.json.",
   "limits": "Source display structure only. Linguistic/correspondence review pending; no phoneme grammar, Hebrew-cluster spans, note IDs, audio times, voice or equivalence to six Kinnor Accent profiles."
 }

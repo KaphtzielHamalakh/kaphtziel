@@ -6,8 +6,8 @@
   "publishedCommit": "02f256ed2d884c1335dce196cb49ee4cad52fb4d",
   "nextTask": "Align shared pronunciation groups to individual words only where literal original source Hebrew boundaries and transcription joins uniquely correspond; preserve indivisible/ambiguous groups such as Deut32:6. Retain exact marked reader/source text, alternatives, all79,806word links and179unassigned. Continue source-backed stress/Hebrew-cluster/phoneme representation, reusable singing material and contextual traditional melody rules independently. Six Kinnor grammars/voices, full contextual systems/singing and complete roadmap remain active; printing deferred.",
   "lastPassingTests": {
-    "automated": 195,
-    "ui": "Published normal/standalone v0.23 retained Gen8:20word7 הַבְּהֵמָ֣ה/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0. Source units hab/bᵉ/hé/ma↔mo switch independently; during muted source-timed Play they follow listeningword, primary mark changes, natural Endword completion passes. Word8 clears units/disables export; reload retains selected word/style. Standalone unit/styles/mutedPlay/Escape pass. Pointed→sourcedConsonantal→Pointed retains exact marked source word/units. Expanded panel/root/body fit319 and1280; screenshot outputs/TropeTrain-v0.23-live.jpg after layout settled; viewport reset. No captured warnings/errors; all gains0/playbackstopped. Preview additionally verified Deut32:6sharedgroup/Deut1:27alternate and missingcells/Gen1acute vs primary/printedEpair regression. Native Save-dialog/direct file-origin/independent linguistic and acoustic review pending.",
+    "automated": 202,
+    "ui": "Normal preview Gen1:2words6–7: selectingword6 labels only ‘al selected; word7 labels only pᵉ/né. Muted recorded span loop observed6→7→6→7→6→7 with matching one/two unit-word IDs; Escape stops/repeatfalse. Gen14:17word8 kept its ’es↔’et style link while five combined-name units stayed shared; word9 had no fabricated selected units. Deut32:6allfour units remained shared. Standalone reload retained passage/style; restored Gen1:2word7, bothstyle word ownership, muted recorded repeat/Stop and printedEpair/Stop passed. Root/body fit319 and1280; no captured warnings/errors, all four gains0, viewport reset. Native Save/file-origin and linguistic/acoustic review pending.",
     "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice.",
     "releaseTargets": 55
   },
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_units_stress_exact_offsets_79806_word_links_179_unassigned_Hebrew_cluster_phoneme_note_audio_review_pending"
+      "status": "source_units_individually_linked_79792_words_14_shared_179_unassigned_exact_marks_ids_preserved_phoneme_note_audio_review_pending"
     },
     {
       "id": "playback",
@@ -48,7 +48,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_source_text_styles_unit_stress_inspector_and_both_style_export_195_checks_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_source_styles_79792_word_unit_links_selected_listening_highlights_revision2_export_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -188,16 +188,15 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.23.0",
+    "version": "0.24.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "ce9004d157fb830209a51b2ab47defa68e33bcda",
-    "status": "published_live_verified_195_checks_final_records_sync_next",
-    "record": "docs/VERIFICATION-0.23.md",
+    "baseCommit": "f9e218014f861743deef9c48aabd69129549bbe8",
+    "status": "202_checks_normal_standalone_word_following_passed_ready_to_publish",
+    "record": "docs/VERIFICATION-0.24.md",
     "next": "Align shared pronunciation groups to individual words only where literal original source Hebrew boundaries and transcription joins uniquely correspond; preserve indivisible/ambiguous groups such as Deut32:6. Retain exact marked reader/source text, alternatives, all79,806word links and179unassigned. Continue source-backed stress/Hebrew-cluster/phoneme representation, reusable singing material and contextual traditional melody rules independently. Six Kinnor grammars/voices, full contextual systems/singing and complete roadmap remain active; printing deferred.",
-    "newFeatures": "Independent source-unit/stress inspector, both-style study export, exact marks/offsets and group-only refusal; all existing Hebrew/alignment/music/recordings unchanged.",
-    "automatedTests": 195,
-    "ui": "Published normal/standalone v0.23 retained Gen8:20word7 הַבְּהֵמָ֣ה/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0. Source units hab/bᵉ/hé/ma↔mo switch independently; during muted source-timed Play they follow listeningword, primary mark changes, natural Endword completion passes. Word8 clears units/disables export; reload retains selected word/style. Standalone unit/styles/mutedPlay/Escape pass. Pointed→sourcedConsonantal→Pointed retains exact marked source word/units. Expanded panel/root/body fit319 and1280; screenshot outputs/TropeTrain-v0.23-live.jpg after layout settled; viewport reset. No captured warnings/errors; all gains0/playbackstopped. Preview additionally verified Deut32:6sharedgroup/Deut1:27alternate and missingcells/Gen1acute vs primary/printedEpair regression. Native Save-dialog/direct file-origin/independent linguistic and acoustic review pending.",
-    "codeCommit": "02f256ed2d884c1335dce196cb49ee4cad52fb4d"
+    "newFeatures": "Exact source word-boundary links for11,044sharedgroups plus6partial groups; stable unit IDs/current-word inspector/exportrevision2;14linkedwords remain combined and179unassigned.",
+    "automatedTests": 202,
+    "ui": "Normal preview Gen1:2words6–7: selectingword6 labels only ‘al selected; word7 labels only pᵉ/né. Muted recorded span loop observed6→7→6→7→6→7 with matching one/two unit-word IDs; Escape stops/repeatfalse. Gen14:17word8 kept its ’es↔’et style link while five combined-name units stayed shared; word9 had no fabricated selected units. Deut32:6allfour units remained shared. Standalone reload retained passage/style; restored Gen1:2word7, bothstyle word ownership, muted recorded repeat/Stop and printedEpair/Stop passed. Root/body fit319 and1280; no captured warnings/errors, all four gains0, viewport reset. Native Save/file-origin and linguistic/acoustic review pending."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -353,6 +352,10 @@
     "exactCandidateEdges": 2162,
     "partialWindows": 126,
     "structure": "docs/PRONUNCIATION-STRUCTURE.json",
-    "structureReview": "139,196source cells losslessly reconstructed with explicit stress/reading/superscript marks and exact boundaries; single-word IDs or complete group only. Linguistic, Hebrew-letter, phoneme/note/audio alignment pending."
+    "structureReview": "139,196source cells losslessly reconstructed with explicit stress/reading/superscript marks and exact boundaries; single-word IDs or complete group only. Linguistic, Hebrew-letter, phoneme/note/audio alignment pending.",
+    "wordAlignment": "docs/PRONUNCIATION-WORD-ALIGNMENT.json",
+    "individualUnitWords": 79792,
+    "sharedUnitWords": 14,
+    "wordAlignmentReview": "Independent full-corpus enumeration matches both style assignment hashes; independent linguistic/phoneme/note/audio review pending."
   }
 }

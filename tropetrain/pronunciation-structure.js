@@ -1,4 +1,5 @@
 // Source display structure only: no phoneme, Hebrew-cluster or musical inference.
+import {alignSourceWordBoundaries} from './pronunciation-word-alignment.js';
 export function transcriptionStructure(nodes){
  if(nodes===null)return {status:'missing',text:null,units:[],boundaries:[],marks:[]};
  if(!Array.isArray(nodes))throw Error('Invalid pronunciation source cell.');
@@ -51,14 +52,16 @@ export function sourcePronunciationStudy(group,{sourceCommit,word,style}){
   const alignment={readerWordId:singleWord?group.readerIds[0]:null,phonemes:null,hebrewClusterRanges:null,noteIds:null,audioTimes:null};
   return {id,column:column+1,...cell,...alignment,units:cell.units.map(unit=>({id:`${id}-u${unit.number}`,...unit,...alignment}))};
  }
+ const rows=group.rows.map(row=>({number:row.number,styles:Object.fromEntries(['sephardic','ashkenazic'].map(id=>[id,row.transcriptions[id].map((cell,column)=>cellStructure(cell,id,row.number,column))]))}));
+ const aligned=alignSourceWordBoundaries(group,rows,group.rows.map(row=>row.hebrew.map(transcriptionStructure)));
  return {
-  format:'tropetrain-pronunciation-study-v1',revision:1,sourceCommit,license:'CC-BY-SA-4.0',
+  format:'tropetrain-pronunciation-study-v1',revision:2,sourceCommit,license:'CC-BY-SA-4.0',
   attribution:'Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.',
   selectedStyle:style,selection:{sourceWordId,occurrenceId:word.id,sourceHebrew:word.sourceHebrew},
   groupId:group.id,readerIds:[...group.readerIds],readerHebrew:[...group.readerHebrew],
-  alignmentScope:singleWord?'single-reader-word':'complete-reader-group',
-  rows:group.rows.map(row=>({number:row.number,styles:Object.fromEntries(['sephardic','ashkenazic'].map(id=>[id,row.transcriptions[id].map((cell,column)=>cellStructure(cell,id,row.number,column))]))})),
+  alignmentScope:singleWord?'single-reader-word':aligned.wordAlignment.styles[style].status==='word-aligned'?'source-word-boundaries':aligned.wordAlignment.styles[style].status==='partly-word-aligned'?'partial-source-word-boundaries':'complete-reader-group',
+  rows:aligned.rows,wordAlignment:aligned.wordAlignment,
   sourceGroup:group,
-  review:'Source display structure and correspondence only; independent linguistic and correspondence review pending. Dots, joins, primary stress markup, acute/breve and superscript marks stay literal. No per-word split of a shared group, phonemes, Hebrew-cluster mapping, note alignment or audio times inferred.'
+  review:'Source display structure and correspondence only; independent linguistic and correspondence review pending. Word IDs require consensus across all literal Hebrew readings and all exact documented reader-form paths, with explicit transcription joins. Combined or conflicting source words remain unsplit. Dots, joins, stress and all source marks stay literal; phonemes, Hebrew-cluster mapping, note alignment and audio times remain unassigned.'
  };
 }
