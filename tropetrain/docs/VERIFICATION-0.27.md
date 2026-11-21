@@ -1,6 +1,6 @@
 # TropeTrain v0.27 · continued figures and joint coverage
 
-Candidate tested locally; public publication and verification follow.
+Verified locally and publicly; deployment details and browser evidence appear below.
 
 The build and all **227 automated checks pass**, with zero failures/skips. These include original corpus/alignment/playback/export invariants, nine continued-figure tests, three joint-coverage tests and the added source-search regression. An initial portable-summary test had a serialization assertion error; the test now decodes the emitted JSON. Normal browser testing found a real search handoff bug: the old C*→D menu rejected single Yetib and adjacent disjunctive queries. The source lookup now validates and inserts those queries while preserving the derived 65-pattern chart. Full build/tests reran after that runtime fix.
 
@@ -13,3 +13,12 @@ Source: Cohen1902 printed541, one-basedPDF579, manually compared across two scan
 Joint exact-ID/marked-text audit accounts for all79,985words:76,996 source-timed with individual pronunciation ownership;75,058 also written ranges.178timed words lack individual ownership (176unassigned,2combined).2,811words remain timing-review.370terminal onsets end at decoded source-media duration, retaining original null endpoints. Both source styles agree on range/ownership presence. No original Hebrew, accents, source packet, recording or timestamp changed. No phoneme/note/audio syllable alignment or singing voice inferred.
 
 Full reconstruction active/incomplete. Six historical Kinnor pronunciation grammars/voices, complete contextual melody systems, independent singing and the full feature inventory remain pending; printing deferred. Roll back only tested app files to prior publishedfe5ed9d369501f366a292e409f48ab23eb7b999e if a critical startup, Hebrew-preservation or playback regression appears; preserve concurrent site changes.
+
+
+## Published verification
+
+Code **81dcb7097fd604d309ec02832d751aa5e1d2b1f4**, tested local0f4603352cf7360e6c0a849faa71a0ad83d7eb30 / app866f6b186443e6a22ff971a3d610a127bc924ade. Pages [44940444941](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44940444941) completed with successful build/deploy/report jobs. All **31changed files /49,190,325bytes** match tested source exactly. Standalone **29,720,943bytes**, SHA256 **5b804b28275760031da65d414a011b9f9829b23977e358b6b61b5c5c2da6d186**. Only /tropetrain changed, with a current-main lease.
+
+Public v0.26→v0.27 retained Genesis8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair and all four gains0. New Bagdad p541 Yetib muted repeated Play highlights separate rest components4/5; live Sephardic switch changes ma/mo source transcription while exact Hebrew and pattern settings remain fixed. Escape/Stop/repeatfalse. New Europe conditional source spells G-sharp/F-sharp/G-sharp/A; qaton→qaton search26, gadol→qaton0, source image viewer2649px/Escape, joint coverage76996/75058. Public standalone retains passage/style and new source preference; BYetib held tie has five components/one rest/three attacks, FYetib silent rest clock passes. Both public distributions fit319 and1280px (wide standalone checked in visible tab); screenshot outputs/TropeTrain-v0.27-live.jpg viewed. All four gains0/stopped/repeatfalse, viewport reset. Local additionally tests Yetib357/Munah→qaton4347 searches, both unresolved new cells disabled, source JSON viewer, and Gen14:17word9 exact ke/dor ownership with style switch preserving Hebrew/tempo/key/main melody. Native Save/direct-file-origin and independent musical/linguistic/acoustic review pending.
+
+227full checks pass/0fail/0skip. No runtime changes after that full pass; final record changes are prose and validated JSON. Three null-underlay source-study examples saved with v0.27 filenames. Priorfe5ed9d3 release retained for rollback; full objective remains active/incomplete. Final four records publish separately.
