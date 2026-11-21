@@ -1,0 +1,1308 @@
+{
+  "schema": "tropetrain-pronunciation-written-read-variants-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "license": "CC-BY-SA-4.0",
+  "record": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json",
+  "baseGroups": 68354,
+  "baseGroupsSha256": "e0a84b5a2839e025b2e68e71cf3f65af825d410b2f475ab0cf7f4d80ade56c07",
+  "addedGroups": 30,
+  "addedWords": 37,
+  "entries": [
+    {
+      "groupId": "pmam-gen-13-3-8",
+      "bookId": "gen",
+      "displayChapter": 13,
+      "displayVerse": 3,
+      "rowNumber": 8,
+      "readerIds": [
+        "gen-13-3-13"
+      ],
+      "readerHebrew": [
+        "אֽ͏ָהֳלוֹ֙"
+      ],
+      "sourceHebrew": [
+        [
+          {
+            "kind": "reading",
+            "label": "קמץ-ד",
+            "content": [
+              "אׇֽהֳלֹה֙"
+            ]
+          }
+        ],
+        [
+          {
+            "kind": "reading",
+            "label": "קמץ-ס",
+            "content": [
+              "אָֽהֳלֹה֙"
+            ]
+          }
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 13,
+          "verse": 3,
+          "readerWordId": "gen-13-3-13",
+          "readerHebrew": "אֽ͏ָהֳלוֹ֙",
+          "writtenTokenId": "gen-13-3-12",
+          "writtenHebrew": "אהלה"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-13-3-7",
+        "afterGroup": "pmam-gen-13-3-9",
+        "beforeReaderEnd": "gen-13-3-11",
+        "afterReaderStart": "gen-13-3-14"
+      },
+      "readerBookSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
+      "sourceFile": {
+        "filename": "A1-Genesis.json",
+        "bytes": 3813476,
+        "gitBlob": "b4f9767d1ab0514dbde253da8aad2e116ae4e4a2",
+        "sha256": "f96f3aa2921ea0ab3fa56e7896e752d813ce762809d0040ad3634c227301d367"
+      }
+    },
+    {
+      "groupId": "pmam-gen-49-10-9",
+      "bookId": "gen",
+      "displayChapter": 49,
+      "displayVerse": 10,
+      "rowNumber": 9,
+      "readerIds": [
+        "gen-49-10-12"
+      ],
+      "readerHebrew": [
+        "שִׁיל֔וֹ"
+      ],
+      "sourceHebrew": [
+        [
+          "שִׁילֹ֔ה"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 49,
+          "verse": 10,
+          "readerWordId": "gen-49-10-12",
+          "readerHebrew": "שִׁיל֔וֹ",
+          "writtenTokenId": "gen-49-10-11",
+          "writtenHebrew": "שילה"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-49-10-8",
+        "afterGroup": "pmam-gen-49-10-10",
+        "beforeReaderEnd": "gen-49-10-10",
+        "afterReaderStart": "gen-49-10-13"
+      },
+      "readerBookSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
+      "sourceFile": {
+        "filename": "A1-Genesis.json",
+        "bytes": 3813476,
+        "gitBlob": "b4f9767d1ab0514dbde253da8aad2e116ae4e4a2",
+        "sha256": "f96f3aa2921ea0ab3fa56e7896e752d813ce762809d0040ad3634c227301d367"
+      }
+    },
+    {
+      "groupId": "pmam-gen-49-11-3",
+      "bookId": "gen",
+      "displayChapter": 49,
+      "displayVerse": 11,
+      "rowNumber": 3,
+      "readerIds": [
+        "gen-49-11-4"
+      ],
+      "readerHebrew": [
+        "עִיר֔וֹ"
+      ],
+      "sourceHebrew": [
+        [
+          "עִירֹ֔ה"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 49,
+          "verse": 11,
+          "readerWordId": "gen-49-11-4",
+          "readerHebrew": "עִיר֔וֹ",
+          "writtenTokenId": "gen-49-11-3",
+          "writtenHebrew": "עירה"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-49-11-2",
+        "afterGroup": "pmam-gen-49-11-4",
+        "beforeReaderEnd": "gen-49-11-2",
+        "afterReaderStart": "gen-49-11-5"
+      },
+      "readerBookSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
+      "sourceFile": {
+        "filename": "A1-Genesis.json",
+        "bytes": 3813476,
+        "gitBlob": "b4f9767d1ab0514dbde253da8aad2e116ae4e4a2",
+        "sha256": "f96f3aa2921ea0ab3fa56e7896e752d813ce762809d0040ad3634c227301d367"
+      }
+    },
+    {
+      "groupId": "pmam-gen-49-11-11",
+      "bookId": "gen",
+      "displayChapter": 49,
+      "displayVerse": 11,
+      "rowNumber": 11,
+      "readerIds": [
+        "gen-49-11-14"
+      ],
+      "readerHebrew": [
+        "סוּתֽוֹ׃"
+      ],
+      "sourceHebrew": [
+        [
+          "סוּתֹֽה׃"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 49,
+          "verse": 11,
+          "readerWordId": "gen-49-11-14",
+          "readerHebrew": "סוּתֽוֹ׃",
+          "writtenTokenId": "gen-49-11-13",
+          "writtenHebrew": "סותה"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-49-11-10",
+        "afterGroup": "pmam-gen-49-12-1",
+        "beforeReaderEnd": "gen-49-11-12",
+        "afterReaderStart": "gen-49-12-1"
+      },
+      "readerBookSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
+      "sourceFile": {
+        "filename": "A1-Genesis.json",
+        "bytes": 3813476,
+        "gitBlob": "b4f9767d1ab0514dbde253da8aad2e116ae4e4a2",
+        "sha256": "f96f3aa2921ea0ab3fa56e7896e752d813ce762809d0040ad3634c227301d367"
+      }
+    },
+    {
+      "groupId": "pmam-exo-22-4-7",
+      "bookId": "exo",
+      "displayChapter": 22,
+      "displayVerse": 4,
+      "rowNumber": 7,
+      "readerIds": [
+        "exo-22-4-8",
+        "exo-22-4-10"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "בְּעִיר֔וֹ"
+      ],
+      "sourceHebrew": [
+        [
+          "אֶת־בְּעִירֹ֔ה"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 4,
+          "readerWordId": "exo-22-4-10",
+          "readerHebrew": "בְּעִיר֔וֹ",
+          "writtenTokenId": "exo-22-4-9",
+          "writtenHebrew": "בעירה"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-22-4-6",
+        "afterGroup": "pmam-exo-22-4-8",
+        "beforeReaderEnd": "exo-22-4-7",
+        "afterReaderStart": "exo-22-4-11"
+      },
+      "readerBookSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "sourceFile": {
+        "filename": "A2-Exodus.json",
+        "bytes": 3139973,
+        "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+        "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+      }
+    },
+    {
+      "groupId": "pmam-exo-22-26-3",
+      "bookId": "exo",
+      "displayChapter": 22,
+      "displayVerse": 26,
+      "rowNumber": 3,
+      "readerIds": [
+        "exo-22-26-4"
+      ],
+      "readerHebrew": [
+        "כְסוּתוֹ֙"
+      ],
+      "sourceHebrew": [
+        [
+          "כְסוּתֹה֙"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 26,
+          "readerWordId": "exo-22-26-4",
+          "readerHebrew": "כְסוּתוֹ֙",
+          "writtenTokenId": "exo-22-26-3",
+          "writtenHebrew": "כסותה"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-22-26-2",
+        "afterGroup": "pmam-exo-22-26-4",
+        "beforeReaderEnd": "exo-22-26-2",
+        "afterReaderStart": "exo-22-26-5"
+      },
+      "readerBookSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "sourceFile": {
+        "filename": "A2-Exodus.json",
+        "bytes": 3139973,
+        "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+        "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+      }
+    },
+    {
+      "groupId": "pmam-exo-27-11-8",
+      "bookId": "exo",
+      "displayChapter": 27,
+      "displayVerse": 11,
+      "rowNumber": 8,
+      "readerIds": [
+        "exo-27-11-9"
+      ],
+      "readerHebrew": [
+        "וְעַמּוּדָ֣יו"
+      ],
+      "sourceHebrew": [
+        [
+          "וְעַמֻּדָ֣ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 27,
+          "verse": 11,
+          "readerWordId": "exo-27-11-9",
+          "readerHebrew": "וְעַמּוּדָ֣יו",
+          "writtenTokenId": "exo-27-11-8",
+          "writtenHebrew": "ועמדו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-27-11-7",
+        "afterGroup": "pmam-exo-27-11-9",
+        "beforeReaderEnd": "exo-27-11-7",
+        "afterReaderStart": "exo-27-11-10"
+      },
+      "readerBookSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "sourceFile": {
+        "filename": "A2-Exodus.json",
+        "bytes": 3139973,
+        "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+        "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+      }
+    },
+    {
+      "groupId": "pmam-exo-28-28-3",
+      "bookId": "exo",
+      "displayChapter": 28,
+      "displayVerse": 28,
+      "rowNumber": 3,
+      "readerIds": [
+        "exo-28-28-5"
+      ],
+      "readerHebrew": [
+        "מִֽטַּבְּעֹתָ֞יו"
+      ],
+      "sourceHebrew": [
+        [
+          "מִֽטַּבְּעֹתָ֞ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 28,
+          "verse": 28,
+          "readerWordId": "exo-28-28-5",
+          "readerHebrew": "מִֽטַּבְּעֹתָ֞יו",
+          "writtenTokenId": "exo-28-28-4",
+          "writtenHebrew": "מטבעתו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-28-28-2",
+        "afterGroup": "pmam-exo-28-28-4",
+        "beforeReaderEnd": "exo-28-28-3",
+        "afterReaderStart": "exo-28-28-6"
+      },
+      "readerBookSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "sourceFile": {
+        "filename": "A2-Exodus.json",
+        "bytes": 3139973,
+        "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+        "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+      }
+    },
+    {
+      "groupId": "pmam-exo-32-19-11",
+      "bookId": "exo",
+      "displayChapter": 32,
+      "displayVerse": 19,
+      "rowNumber": 11,
+      "readerIds": [
+        "exo-32-19-15"
+      ],
+      "readerHebrew": [
+        "מִיָּדָיו֙"
+      ],
+      "sourceHebrew": [
+        [
+          "מִיָּדָו֙"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 32,
+          "verse": 19,
+          "readerWordId": "exo-32-19-15",
+          "readerHebrew": "מִיָּדָיו֙",
+          "writtenTokenId": "exo-32-19-14",
+          "writtenHebrew": "מידו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-32-19-10",
+        "afterGroup": "pmam-exo-32-19-12",
+        "beforeReaderEnd": "exo-32-19-13",
+        "afterReaderStart": "exo-32-19-16"
+      },
+      "readerBookSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "sourceFile": {
+        "filename": "A2-Exodus.json",
+        "bytes": 3139973,
+        "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+        "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+      }
+    },
+    {
+      "groupId": "pmam-exo-39-33-9",
+      "bookId": "exo",
+      "displayChapter": 39,
+      "displayVerse": 33,
+      "rowNumber": 9,
+      "readerIds": [
+        "exo-39-33-14"
+      ],
+      "readerHebrew": [
+        "בְּרִיחָ֖יו"
+      ],
+      "sourceHebrew": [
+        [
+          "בְּרִיחָ֖ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 39,
+          "verse": 33,
+          "readerWordId": "exo-39-33-14",
+          "readerHebrew": "בְּרִיחָ֖יו",
+          "writtenTokenId": "exo-39-33-13",
+          "writtenHebrew": "בריחו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-39-33-8",
+        "afterGroup": "pmam-exo-39-33-10",
+        "beforeReaderEnd": "exo-39-33-12",
+        "afterReaderStart": "exo-39-33-15"
+      },
+      "readerBookSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "sourceFile": {
+        "filename": "A2-Exodus.json",
+        "bytes": 3139973,
+        "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+        "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+      }
+    },
+    {
+      "groupId": "pmam-lev-9-22-3",
+      "bookId": "lev",
+      "displayChapter": 9,
+      "displayVerse": 22,
+      "rowNumber": 3,
+      "readerIds": [
+        "lev-9-22-3",
+        "lev-9-22-5"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "יָדָ֛יו"
+      ],
+      "sourceHebrew": [
+        [
+          "אֶת־יָדָ֛ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 9,
+          "verse": 22,
+          "readerWordId": "lev-9-22-5",
+          "readerHebrew": "יָדָ֛יו",
+          "writtenTokenId": "lev-9-22-4",
+          "writtenHebrew": "ידו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-9-22-2",
+        "afterGroup": "pmam-lev-9-22-4",
+        "beforeReaderEnd": "lev-9-22-2",
+        "afterReaderStart": "lev-9-22-6"
+      },
+      "readerBookSha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492",
+      "sourceFile": {
+        "filename": "A3-Levit.json",
+        "bytes": 2212301,
+        "gitBlob": "b24d29ed78d7bce259a1bed9fe79ac19aa2b3b6b",
+        "sha256": "6c449767f55cc3fc8ee6b8eaac39eea5adbb1bab47ab07114c8a89c1b35c2875"
+      }
+    },
+    {
+      "groupId": "pmam-lev-16-21-4",
+      "bookId": "lev",
+      "displayChapter": 16,
+      "displayVerse": 21,
+      "rowNumber": 4,
+      "readerIds": [
+        "lev-16-21-6"
+      ],
+      "readerHebrew": [
+        "יָדָ֗יו"
+      ],
+      "sourceHebrew": [
+        [
+          "יָדָ֗ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 16,
+          "verse": 21,
+          "readerWordId": "lev-16-21-6",
+          "readerHebrew": "יָדָ֗יו",
+          "writtenTokenId": "lev-16-21-5",
+          "writtenHebrew": "ידו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-16-21-3",
+        "afterGroup": "pmam-lev-16-21-5",
+        "beforeReaderEnd": "lev-16-21-4",
+        "afterReaderStart": "lev-16-21-7"
+      },
+      "readerBookSha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492",
+      "sourceFile": {
+        "filename": "A3-Levit.json",
+        "bytes": 2212301,
+        "gitBlob": "b24d29ed78d7bce259a1bed9fe79ac19aa2b3b6b",
+        "sha256": "6c449767f55cc3fc8ee6b8eaac39eea5adbb1bab47ab07114c8a89c1b35c2875"
+      }
+    },
+    {
+      "groupId": "pmam-num-12-3-3",
+      "bookId": "num",
+      "displayChapter": 12,
+      "displayVerse": 3,
+      "rowNumber": 3,
+      "readerIds": [
+        "num-12-3-4"
+      ],
+      "readerHebrew": [
+        "עָנָ֣יו"
+      ],
+      "sourceHebrew": [
+        [
+          "עָנָ֣ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 12,
+          "verse": 3,
+          "readerWordId": "num-12-3-4",
+          "readerHebrew": "עָנָ֣יו",
+          "writtenTokenId": "num-12-3-3",
+          "writtenHebrew": "ענו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-12-3-2",
+        "afterGroup": "pmam-num-12-3-4",
+        "beforeReaderEnd": "num-12-3-2",
+        "afterReaderStart": "num-12-3-5"
+      },
+      "readerBookSha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452",
+      "sourceFile": {
+        "filename": "A4-Numbers.json",
+        "bytes": 3099493,
+        "gitBlob": "daddfa102abdac98d4fd134a21c937f719aae871",
+        "sha256": "ab73a333de48ba504f7d10ff5cd1fcd970aeddf26c3abddea04d85e6091d17eb"
+      }
+    },
+    {
+      "groupId": "pmam-deu-2-33-7",
+      "bookId": "deu",
+      "displayChapter": 2,
+      "displayVerse": 33,
+      "rowNumber": 7,
+      "readerIds": [
+        "deu-2-33-7",
+        "deu-2-33-9"
+      ],
+      "readerHebrew": [
+        "וְאֶת־",
+        "בָּנָ֖יו"
+      ],
+      "sourceHebrew": [
+        [
+          "וְאֶת־בָּנָ֖ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 2,
+          "verse": 33,
+          "readerWordId": "deu-2-33-9",
+          "readerHebrew": "בָּנָ֖יו",
+          "writtenTokenId": "deu-2-33-8",
+          "writtenHebrew": "בנו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-2-33-6",
+        "afterGroup": "pmam-deu-2-33-8",
+        "beforeReaderEnd": "deu-2-33-6",
+        "afterReaderStart": "deu-2-33-10"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-7-9-13",
+      "bookId": "deu",
+      "displayChapter": 7,
+      "displayVerse": 9,
+      "rowNumber": 13,
+      "readerIds": [
+        "deu-7-9-15"
+      ],
+      "readerHebrew": [
+        "מִצְוֺתָ֖יו"
+      ],
+      "sourceHebrew": [
+        [
+          "מִצְוֺתָ֖ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 7,
+          "verse": 9,
+          "readerWordId": "deu-7-9-15",
+          "readerHebrew": "מִצְוֺתָ֖יו",
+          "writtenTokenId": "deu-7-9-14",
+          "writtenHebrew": "מצותו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-7-9-12",
+        "afterGroup": "pmam-deu-7-9-14",
+        "beforeReaderEnd": "deu-7-9-13",
+        "afterReaderStart": "deu-7-9-16"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-8-2-18",
+      "bookId": "deu",
+      "displayChapter": 8,
+      "displayVerse": 2,
+      "rowNumber": 18,
+      "readerIds": [
+        "deu-8-2-22"
+      ],
+      "readerHebrew": [
+        "מִצְוֺתָ֖יו"
+      ],
+      "sourceHebrew": [
+        [
+          "מִצְוֺתָ֖ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 8,
+          "verse": 2,
+          "readerWordId": "deu-8-2-22",
+          "readerHebrew": "מִצְוֺתָ֖יו",
+          "writtenTokenId": "deu-8-2-21",
+          "writtenHebrew": "מצותו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-8-2-17",
+        "afterGroup": "pmam-deu-8-2-19",
+        "beforeReaderEnd": "deu-8-2-20",
+        "afterReaderStart": "deu-8-2-23"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-15-3",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 15,
+      "rowNumber": 3,
+      "readerIds": [
+        "deu-22-15-4"
+      ],
+      "readerHebrew": [
+        "הַֽנַּעֲרָ֖ה"
+      ],
+      "sourceHebrew": [
+        [
+          "הַֽנַּעֲרָ֖"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 15,
+          "readerWordId": "deu-22-15-4",
+          "readerHebrew": "הַֽנַּעֲרָ֖ה",
+          "writtenTokenId": "deu-22-15-3",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-15-2",
+        "afterGroup": "pmam-deu-22-15-4",
+        "beforeReaderEnd": "deu-22-15-2",
+        "afterReaderStart": "deu-22-15-5"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-15-7",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 15,
+      "rowNumber": 7,
+      "readerIds": [
+        "deu-22-15-10"
+      ],
+      "readerHebrew": [
+        "הַֽנַּעֲרָ֛ה"
+      ],
+      "sourceHebrew": [
+        [
+          "הַֽנַּעֲרָ֛"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 15,
+          "readerWordId": "deu-22-15-10",
+          "readerHebrew": "הַֽנַּעֲרָ֛ה",
+          "writtenTokenId": "deu-22-15-9",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-15-6",
+        "afterGroup": "pmam-deu-22-15-8",
+        "beforeReaderEnd": "deu-22-15-8",
+        "afterReaderStart": "deu-22-15-11"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-16-3",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 16,
+      "rowNumber": 3,
+      "readerIds": [
+        "deu-22-16-4"
+      ],
+      "readerHebrew": [
+        "הַֽנַּעַרָ֖ה"
+      ],
+      "sourceHebrew": [
+        [
+          "הַֽנַּעֲרָ֖"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 16,
+          "readerWordId": "deu-22-16-4",
+          "readerHebrew": "הַֽנַּעַרָ֖ה",
+          "writtenTokenId": "deu-22-16-3",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-16-2",
+        "afterGroup": "pmam-deu-22-16-4",
+        "beforeReaderEnd": "deu-22-16-2",
+        "afterReaderStart": "deu-22-16-5"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-20-8",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 20,
+      "rowNumber": 8,
+      "readerIds": [
+        "deu-22-20-10"
+      ],
+      "readerHebrew": [
+        "לַֽנַּעֲרָֽה׃"
+      ],
+      "sourceHebrew": [
+        [
+          "לַֽנַּעֲרָֽ׃"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 20,
+          "readerWordId": "deu-22-20-10",
+          "readerHebrew": "לַֽנַּעֲרָֽה׃",
+          "writtenTokenId": "deu-22-20-9",
+          "writtenHebrew": "לנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-20-7",
+        "afterGroup": "pmam-deu-22-21-1",
+        "beforeReaderEnd": "deu-22-20-8",
+        "afterReaderStart": "deu-22-21-1"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-21-2",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 21,
+      "rowNumber": 2,
+      "readerIds": [
+        "deu-22-21-2",
+        "deu-22-21-4"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "הַֽנַּעֲרָ֜ה"
+      ],
+      "sourceHebrew": [
+        [
+          "אֶת־הַֽנַּעֲרָ֜"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 21,
+          "readerWordId": "deu-22-21-4",
+          "readerHebrew": "הַֽנַּעֲרָ֜ה",
+          "writtenTokenId": "deu-22-21-3",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-21-1",
+        "afterGroup": "pmam-deu-22-21-3",
+        "beforeReaderEnd": "deu-22-21-1",
+        "afterReaderStart": "deu-22-21-5"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-23-4",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 23,
+      "rowNumber": 4,
+      "readerIds": [
+        "deu-22-23-4"
+      ],
+      "readerHebrew": [
+        "נַעֲרָ֣ה"
+      ],
+      "sourceHebrew": [
+        [
+          "נַעֲרָ֣"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 23,
+          "readerWordId": "deu-22-23-4",
+          "readerHebrew": "נַעֲרָ֣ה",
+          "writtenTokenId": "deu-22-23-3",
+          "writtenHebrew": "נער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-23-3",
+        "afterGroup": "pmam-deu-22-23-5",
+        "beforeReaderEnd": "deu-22-23-2",
+        "afterReaderStart": "deu-22-23-5"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-24-10",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 24,
+      "rowNumber": 10,
+      "readerIds": [
+        "deu-22-24-12",
+        "deu-22-24-14"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "הַֽנַּעֲרָ֗ה"
+      ],
+      "sourceHebrew": [
+        [
+          "אֶת־הַֽנַּעֲרָ֗"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 24,
+          "readerWordId": "deu-22-24-14",
+          "readerHebrew": "הַֽנַּעֲרָ֗ה",
+          "writtenTokenId": "deu-22-24-13",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-24-9",
+        "afterGroup": "pmam-deu-22-24-11",
+        "beforeReaderEnd": "deu-22-24-11",
+        "afterReaderStart": "deu-22-24-15"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-25-5",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 25,
+      "rowNumber": 5,
+      "readerIds": [
+        "deu-22-25-5",
+        "deu-22-25-7"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "הַֽנַּעֲרָה֙"
+      ],
+      "sourceHebrew": [
+        [
+          "אֶת־הַֽנַּעֲרָ֙"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 25,
+          "readerWordId": "deu-22-25-7",
+          "readerHebrew": "הַֽנַּעֲרָה֙",
+          "writtenTokenId": "deu-22-25-6",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-25-4",
+        "afterGroup": "pmam-deu-22-25-6",
+        "beforeReaderEnd": "deu-22-25-4",
+        "afterReaderStart": "deu-22-25-8"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-26-1",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 26,
+      "rowNumber": 1,
+      "readerIds": [
+        "deu-22-26-2"
+      ],
+      "readerHebrew": [
+        "וְלַֽנַּעֲרָה֙"
+      ],
+      "sourceHebrew": [
+        [
+          "וְלַֽנַּעֲרָ֙"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 26,
+          "readerWordId": "deu-22-26-2",
+          "readerHebrew": "וְלַֽנַּעֲרָה֙",
+          "writtenTokenId": "deu-22-26-1",
+          "writtenHebrew": "ולנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-25-15",
+        "afterGroup": "pmam-deu-22-26-2",
+        "beforeReaderEnd": "deu-22-25-19",
+        "afterReaderStart": "deu-22-26-3"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-26-5",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 26,
+      "rowNumber": 5,
+      "readerIds": [
+        "deu-22-26-8"
+      ],
+      "readerHebrew": [
+        "לַֽנַּעֲרָ֖ה"
+      ],
+      "sourceHebrew": [
+        [
+          "לַֽנַּעֲרָ֖"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 26,
+          "readerWordId": "deu-22-26-8",
+          "readerHebrew": "לַֽנַּעֲרָ֖ה",
+          "writtenTokenId": "deu-22-26-7",
+          "writtenHebrew": "לנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-26-4",
+        "afterGroup": "pmam-deu-22-26-6",
+        "beforeReaderEnd": "deu-22-26-6",
+        "afterReaderStart": "deu-22-26-9"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-27-5",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 27,
+      "rowNumber": 5,
+      "readerIds": [
+        "deu-22-27-6"
+      ],
+      "readerHebrew": [
+        "הַֽנַּעֲרָה֙"
+      ],
+      "sourceHebrew": [
+        [
+          "הַֽנַּעֲרָ֙"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 27,
+          "readerWordId": "deu-22-27-6",
+          "readerHebrew": "הַֽנַּעֲרָה֙",
+          "writtenTokenId": "deu-22-27-5",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-27-4",
+        "afterGroup": "pmam-deu-22-27-6",
+        "beforeReaderEnd": "deu-22-27-4",
+        "afterReaderStart": "deu-22-27-7"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-28-4",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 28,
+      "rowNumber": 4,
+      "readerIds": [
+        "deu-22-28-5"
+      ],
+      "readerHebrew": [
+        "נַעֲרָ֤ה"
+      ],
+      "sourceHebrew": [
+        [
+          "נַעֲרָ֤"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 28,
+          "readerWordId": "deu-22-28-5",
+          "readerHebrew": "נַעֲרָ֤ה",
+          "writtenTokenId": "deu-22-28-4",
+          "writtenHebrew": "נער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-28-3",
+        "afterGroup": "pmam-deu-22-28-5",
+        "beforeReaderEnd": "deu-22-28-3",
+        "afterReaderStart": "deu-22-28-6"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-22-29-6",
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 29,
+      "rowNumber": 6,
+      "readerIds": [
+        "deu-22-29-7"
+      ],
+      "readerHebrew": [
+        "הַֽנַּעֲרָ֖ה"
+      ],
+      "sourceHebrew": [
+        [
+          "הַֽנַּעֲרָ֖"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 22,
+          "verse": 29,
+          "readerWordId": "deu-22-29-7",
+          "readerHebrew": "הַֽנַּעֲרָ֖ה",
+          "writtenTokenId": "deu-22-29-6",
+          "writtenHebrew": "הנער"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-29-5",
+        "afterGroup": "pmam-deu-22-29-7",
+        "beforeReaderEnd": "deu-22-29-5",
+        "afterReaderStart": "deu-22-29-8"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    },
+    {
+      "groupId": "pmam-deu-33-9-9",
+      "bookId": "deu",
+      "displayChapter": 33,
+      "displayVerse": 9,
+      "rowNumber": 9,
+      "readerIds": [
+        "deu-33-9-10",
+        "deu-33-9-12"
+      ],
+      "readerHebrew": [
+        "וְאֶת־",
+        "בָּנָ֖יו"
+      ],
+      "sourceHebrew": [
+        [
+          "וְאֶת־בָּנָ֖ו"
+        ]
+      ],
+      "writtenReadVariants": [
+        {
+          "kind": "uxlc-explicit-one-written-one-reading",
+          "chapter": 33,
+          "verse": 9,
+          "readerWordId": "deu-33-9-12",
+          "readerHebrew": "בָּנָ֖יו",
+          "writtenTokenId": "deu-33-9-11",
+          "writtenHebrew": "בנו"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-33-9-8",
+        "afterGroup": "pmam-deu-33-9-10",
+        "beforeReaderEnd": "deu-33-9-9",
+        "afterReaderStart": "deu-33-9-13"
+      },
+      "readerBookSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "sourceFile": {
+        "filename": "A5-Deuter.json",
+        "bytes": 2726862,
+        "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+        "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+      }
+    }
+  ],
+  "method": "Both existing source/reader anchors are required. A single remaining original source row in the same verse must match every source Hebrew column against exact UXLC reading letters or an explicitly adjacent one-ketiv/one-qere pair. At most two reader words; no spelling normalization, substitutions or inferred multiword variant partition.",
+  "review": "Word correspondence only. Source pronunciation can follow a different written form; no equality of phonology, written syllable ranges, notes or audio times inferred. Original Hebrew/accents and all previous groups/source rows remain unchanged. Independent linguistic review pending.",
+  "primarySources": [
+    "https://www.tanach.us/Pages/Coding.html",
+    "https://www.tanach.us/Pages/Instructions.html"
+  ]
+}

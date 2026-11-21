@@ -40,6 +40,8 @@ export function readerPronunciationWord(word,study,style){
    segment.end=unit.end;segment.text=cell.text.slice(segment.start,segment.end);previousIndex=unitIndex;
   });
  }
+ const variants=study.sourceGroup?.writtenReadVariants?.filter(v=>v.readerWordId===sourceWordId)??[];
+ if(variants.length)for(const entry of result.entries)entry.writtenReadVariant=variants[0];
  result.status=result.entries.length?'word-linked':transcribed?'combined-source-form':'no-style-transcription';
  return result;
 }
@@ -59,7 +61,7 @@ export function appendReaderPronunciation(target,report){
   }
   line.append(text);
   if(entry.labels.length){const labels=document.createElement('small');labels.lang='he';labels.dir='rtl';labels.textContent=entry.labels.join(' / ');line.append(labels);}
-  if(entry.sourceForm){const label=document.createElement('small');label.textContent='Source reading form';line.append(label);}
+  if(entry.sourceForm){const label=document.createElement('small');label.textContent=entry.writtenReadVariant?'Written/read source variant':'Source reading form';if(entry.writtenReadVariant)label.title=`UXLC written ${entry.writtenReadVariant.writtenHebrew}; preferred reading ${entry.writtenReadVariant.readerHebrew}. Source pronunciation retains its own form; written ranges remain unresolved.`;line.append(label);}
   target.append(line);
  }
 }

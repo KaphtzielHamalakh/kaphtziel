@@ -87,6 +87,7 @@ const underlayEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-UNDERLA
 const computationSources=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-computation-sources.zip'));
 const pronunciationNotice=await readFile(path.join(root,'assets/pronunciation/NOTICE.txt'),'utf8');
 const pronunciationEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-ALIGNMENT.json'),'utf8');
+const writtenVariantEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-WRITTEN-VARIANTS.json'),'utf8');
 const pronunciationPack=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-torah-sources.zip'));
 const voiceStudyNotice=await readFile(path.join(root,'assets/voice-studies/NOTICE.txt'),'utf8');
 const chantEvidence=await readFile(path.join(root,'docs/CHANT-COVERAGE.json'),'utf8');
@@ -122,6 +123,7 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/PRONUNCIATION-UNDERLAY.json"',()=>`href="data:application/json;base64,${Buffer.from(underlayEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/phonetic-mam-computation-sources.zip"',()=>`href="data:application/zip;base64,${computationSources.toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-ALIGNMENT.json"',()=>`href="data:application/json;base64,${Buffer.from(pronunciationEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/PRONUNCIATION-WRITTEN-VARIANTS.json"',()=>`href="data:application/json;base64,${Buffer.from(writtenVariantEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/phonetic-mam-torah-sources.zip"',()=>`href="data:application/zip;base64,${pronunciationPack.toString('base64')}"`)
  .replaceAll('href="./docs/JOINT-CHANT-PRONUNCIATION.json"',()=>`href="data:application/json;base64,${Buffer.from(jointEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(noteCorrespondenceEvidence).toString('base64')}"`)

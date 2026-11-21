@@ -15,6 +15,7 @@ def forms(text):
  if re.fullmatch('[ובכלמשה]{0,3}יששכר',raw):values.add(raw.replace('יששכר','ישכר'))
  return sorted(values)
 styles={s:collections.Counter({k:0 for k in ['singleWordGroups','joinedGroupsAligned','joinedGroupsPartial','joinedGroupsUnsplit','wordsWithUnits','assignedUnits','groupOnlyUnits','missingCells','repeatCells','unresolvedRepeats','resolvedRepeatUnits']}) for s in ['sephardic','ashkenazic']};hashes={s:hashlib.sha256() for s in styles};literal_hashes={s:hashlib.sha256() for s in styles};words={s:set() for s in styles};enumerated=0;maximum=0
+base_hashes={s:hashlib.sha256() for s in styles};base_literal_hashes={s:hashlib.sha256() for s in styles}
 for group in data['groups']:
  single=len(group['readerIds'])==1;proof=None
  if not single:
@@ -29,7 +30,9 @@ for group in data['groups']:
    if not variants or len({len(v) for v in variants})!=1:raise AssertionError('Unaccounted alternative boundaries')
    source_rows.append(variants)
   proof=[[set() for _ in row[0]] for row in source_rows]
-  reader_choices=list(itertools.product(*(forms(h) for h in group['readerHebrew'])));maximum=max(maximum,len(reader_choices))
+  choices=[set(forms(h)) for h in group['readerHebrew']]
+  for variant in group.get('writtenReadVariants',[]):choices[group['readerIds'].index(variant['readerWordId'])].add(letters(variant['writtenHebrew']))
+  reader_choices=list(itertools.product(*(sorted(c) for c in choices)));maximum=max(maximum,len(reader_choices))
   for source_choice in itertools.product(*source_rows):
    source=''.join(p for row in source_choice for p in row);matches=[]
    for choice in reader_choices:
@@ -74,8 +77,11 @@ for group in data['groups']:
      record=[style,group['id'],row['number'],column,unit_number,owner]
      line=(json.dumps(record,separators=(',',':'))+'\n').encode();hashes[style].update(line)
      if not is_repeat:literal_hashes[style].update(line)
+     if 'writtenReadVariants' not in group:
+      base_hashes[style].update(line)
+      if not is_repeat:base_literal_hashes[style].update(line)
   assigned=sum(owner is not None for owner in group_units)
   key='singleWordGroups' if single else 'joinedGroupsAligned' if group_units and assigned==len(group_units) else 'joinedGroupsPartial' if assigned else 'joinedGroupsUnsplit'
   count[key]+=1
-for style,count in styles.items():count['wordsWithUnits']=len(words[style]);count['assignmentSha256']=hashes[style].hexdigest();count['literalAssignmentSha256']=literal_hashes[style].hexdigest()
+for style,count in styles.items():count['wordsWithUnits']=len(words[style]);count['assignmentSha256']=hashes[style].hexdigest();count['literalAssignmentSha256']=literal_hashes[style].hexdigest();count['baseAssignmentSha256']=base_hashes[style].hexdigest();count['baseLiteralAssignmentSha256']=base_literal_hashes[style].hexdigest()
 print(json.dumps({'styles':styles,'enumeratedReaderChoices':enumerated,'maximumReaderChoices':maximum}))

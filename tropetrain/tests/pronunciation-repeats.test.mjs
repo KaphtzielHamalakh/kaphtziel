@@ -26,7 +26,7 @@ test('a qamats dash explicitly references the same style and retains its literal
  assert.ok(repeat.units.every(u=>u.id.startsWith('pmam-deu-1-27-2-ashkenazic-r2-c2-u')&&u.sourceReference.cellId===first.id&&u.sourceMarks.every(m=>m.sourceColumn===1)));
  assert.equal(JSON.stringify(library.at(w)),before);
 });
-test('all88source repeat marks resolve, including joined words and four Hebrew alternatives, while old unit links retain their hashes',()=>{
+test('all89source repeat marks resolve, including joined words and four Hebrew alternatives, while old unit links retain their hashes',()=>{
  let count=0,units=0,joined=0,fourWay=0;
  for(const group of data.groups){
   if(!group.rows.some(r=>Object.values(r.transcriptions).some(c=>c.some(n=>JSON.stringify(n)==='["—"]'))))continue;
@@ -37,12 +37,12 @@ test('all88source repeat marks resolve, including joined words and four Hebrew a
    assert.deepEqual(c.units.map(u=>u.readerWordId),first.units.map(u=>u.readerWordId));assert.equal(new Set([...first.units,...c.units].map(u=>u.id)).size,first.units.length+c.units.length);
   }
  }
- assert.deepEqual({count,units,joined,fourWay},{count:88,units:348,joined:10,fourWay:2});
+ assert.deepEqual({count,units,joined,fourWay},{count:89,units:351,joined:10,fourWay:2});
  const audit=JSON.parse(read('docs/PRONUNCIATION-WORD-ALIGNMENT.json')),refs=JSON.parse(read('docs/PRONUNCIATION-REPEATS.json'));
- assert.equal(refs.repetitions.length,88);assert.deepEqual(refs.unresolvedRepeats,[]);
- assert.equal(audit.styles.sephardic.literalAssignmentSha256,'2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443');
- assert.equal(audit.styles.ashkenazic.literalAssignmentSha256,'ebf77ef1f99acc56b158c376582cc98820542223db7983901eabaad6a88c90af');
- assert.equal(createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'),'eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13');
+ assert.equal(refs.repetitions.length,89);assert.deepEqual(refs.unresolvedRepeats,[]);
+ assert.equal(audit.styles.sephardic.baseLiteralAssignmentSha256,'2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443');
+ assert.equal(audit.styles.ashkenazic.baseLiteralAssignmentSha256,'ebf77ef1f99acc56b158c376582cc98820542223db7983901eabaad6a88c90af');
+ assert.equal(createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'),'8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741');
 });
 test('unqualified, missing, cyclic, other-column and other-style references stay unresolved',()=>{
  const good=fixture([reading('קמץ-ד','bo'),['—']]);assert.equal(good[1].text,'bo');

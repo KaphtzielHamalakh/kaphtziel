@@ -6,10 +6,10 @@
   "publishedCommit": "533874e0aaffcbeb7e7fbf7b3154e2c77a7837e3",
   "nextTask": "Continue full word-aligned independent chanting, with pronunciation first: audit the remaining179unassigned Torah word correspondences and primary MAM/UXLC reading/verse differences; resolve only evidence-backed links, preserving exact Hebrew/accents and flagging source-only forms or combined words. Do not substitute approximate spellings or force different source syllable divisions into a common scheme. Keep two existing source text styles independent of notes, melody, range, transpose, tempo and original recordings. Research reviewed phonological/phoneme rules and reusable sung voice material for the six historical Accent grammars, with exact rights/provenance. Continue full contextual melody rules and reciting-note/stress realization from Baer third edition circa1894 pp30–42 and remaining Cohen pp544–548 before generating arbitrary Torah-word pitches. All documented roadmap features, all Torah melody systems and independent singing remain active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 251,
-    "newRegressionChecks": 7,
-    "ui": "Public v0.29→v0.30 retains Genesis22:1word3/Sephardic/Cohen/60 BPM/key0, source C cadence and all four gains0. Enable reader text:13 word labels appear; during muted repeated Play, Sephardic→Ashkenazic changes had·dᵉ·va·rím to had·dᵉ·vo·rím under the same active Hebrew word while every original Hebrew text/mark/button ID/aria-label and main note ID/pitch/rhythm remain exactly equal. Listening target and B4 clock continue; Escape/Repeatoff pass. Hide/reload restores off with zero wrappers/descriptions; re-enable restores13labels. Transpose+2/tempo72 changes notes to E4/C-sharp5/A4 without changing any reader label; restored60/key0. Public standalone restores reading/style/enabled display; muted Ashkenazic→Sephardic changes vo→va under the active word and hide/show keeps the word and clock. Both public distributions fit root/body319/1280; standalone wide checked in visible tab. Screenshot outputs/TropeTrain-v0.30-live.jpg shows actual Hebrew word pronunciation underlay and was viewed; UI invariants saved in work/audits/ui-live-0.30.json. Local additionally verifies source qamats/repeat/combined/unassigned/forms, focused keyboard/span selection, paired view, automatic page-follow90→112labels, source-recorded bo·ro→ba·ra keeping the same original take/clock, and written scroll separation. All four gains0, stopped/repeatfalse/audio elements paused, viewport reset. Native Save/download/direct-file-origin and independent linguistic/cantorial/transcription/acoustic review remain pending.",
-    "limits": "Word and exact-span source text only. Two source styles, not six Kinnor Accent grammars/voices; no new phonemes, chanting voice, acoustic alignment or full melody system."
+    "automated": 257,
+    "newRegressionChecks": 6,
+    "ui": "Normal preview retains Genesis22:1/reader enabled and all four gains0. Through the passage picker, Genesis13:3readingword12 אֽ͏ָהֳלוֹ֙ now shows both qamats columns and Written/read source variant. Cursor evidence identifies the explicit UXLC pair; existing alternatives preserve written אהלה and original marked preferred reading. Explicit OriginalDemo/Endofword muted repeat keeps active word/clock while Ashkenazic→Sephardic changes the second qamats transcription ’o→’a; every original Hebrew word/button ID/aria-label and note ID/pitch/rhythm stays exact. All3qere notes remain unlinked; no false written ranges. Exodus22:4word8 אֶת־ has1of1note linked, while readingword9 בְּעִיר֔וֹ has0of5notes linked and retains source-only variant evidence. Gen8:20words8/11 remain unassigned, Deut32:6first2words combined. Normal root/bodyfit319/1280; all gains0/stopped/repeatfalse/viewportreset. Standalone restores Genesis13:3/style/reader enabled; its explicit evidence link is embedded data JSON. Muted repeated Play on readingword12 with Sephardic→Ashkenazic retains the active word/listening clock while the second source qamats form changes ’a→’o, and all3note links stay explicitly unlinked. Escape/Repeatoff; standalone root/bodyfit319/1280. Rebuilt after final research prose only; app.bundle.js SHA2564897282216f778e347def76fe60afd95a4099bb2989cb46a3426319aeeb61463 stays identical to the257-check runtime. Six critical source/portable checks also pass/0fail. Preview screenshot work/audits/ui-preview-0.31.png shows the actual new variant and was viewed. All gains0/stopped/repeatfalse/viewportreset. Public checks follow.",
+    "limits": "Thirty explicit written/read source pairs add37word links, not phonological approval, a new voice, a full traditional melody or fabricated written syllable ranges."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_syllables_word_ranges_and_structural_note_text_links_preserved_50of52_bounded_printed_notes_linked_two_refused_no_phoneme_or_acoustic_allocation"
+      "status": "source_word_and_exact_syllable_span_links_preserved_30qere_source_forms_7exact_joined_prefixes_added_no_phoneme_or_acoustic_allocation"
     },
     {
       "id": "playback",
@@ -48,7 +48,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_source_text_styles_with_word_aligned_reader_and_exact_score_span_underlay_79804_individual_word_owners_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_source_text_styles_79841_individual_word_owners_including30_explicit_written_read_variants_142unassigned_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -188,14 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.30.0",
+    "version": "0.31.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "1492d2d6753ce4d12264b73f7365f11a28d2dfda",
-    "status": "published_and_live_verified_251_checks_passed",
-    "record": "docs/VERIFICATION-0.30.md",
-    "next": "Continue full word-aligned independent chanting, with pronunciation first: audit the remaining179unassigned Torah word correspondences and primary MAM/UXLC reading/verse differences; resolve only evidence-backed links, preserving exact Hebrew/accents and flagging source-only forms or combined words. Do not substitute approximate spellings or force different source syllable divisions into a common scheme. Keep two existing source text styles independent of notes, melody, range, transpose, tempo and original recordings. Research reviewed phonological/phoneme rules and reusable sung voice material for the six historical Accent grammars, with exact rights/provenance. Continue full contextual melody rules and reciting-note/stress realization from Baer third edition circa1894 pp30–42 and remaining Cohen pp544–548 before generating arbitrary Torah-word pitches. All documented roadmap features, all Torah melody systems and independent singing remain active/incomplete; printing deferred.",
-    "publishedCommit": "533874e0aaffcbeb7e7fbf7b3154e2c77a7837e3",
-    "workflowRun": 44948502291
+    "baseCommit": "03adfde04f1651ddedddfa81dfbebbdabfaa568e",
+    "status": "257_checks_passed_normal_and_standalone_verified_ready_for_publication",
+    "record": "docs/VERIFICATION-0.31.md",
+    "next": "Finish standalone/public UI and byte verification, publish app-only, save progress and output copies; continue full independent pronunciation/chanting/melody goal. Printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -337,42 +335,43 @@
     "license": "Public data CC-BY-SA-4.0; implementation GPL3. Separate32file unmodified computation closure archive with original LICENSE/MANIFEST; GPL3build-time adapter, browseroriginalmappingcode. Third-party source crops not imported.",
     "privateFiles": 8,
     "privateBytes": 15069451,
-    "status": "v0.21 original data and complete-verse plus forced partial-group correspondence.79,806/79,985words in68,354groups;179unassigned. Independent source text views, no new voice; independent review pending."
+    "status": "v0.31 source-preserving correspondence:79,843of79,985words in68,384groups;142unassigned. Thirty explicit UXLC written/read pairs add37word links between old anchors. Independent text styles; no new voice or phonological approval."
   },
   "pronunciationSource": {
     "record": "docs/PRONUNCIATION-SOURCES.json",
     "alignment": "docs/PRONUNCIATION-ALIGNMENT.json",
-    "mappedWords": 79806,
-    "unassignedWords": 179,
-    "groups": 68354,
+    "mappedWords": 79843,
+    "unassignedWords": 142,
+    "groups": 68384,
     "styles": [
       "sephardic",
       "ashkenazic"
     ],
     "review": "Structural/source-preservation checks passed; independent linguistic and correspondence review pending. No new phoneme grammar or voice.",
-    "alignmentRevision": 2,
+    "alignmentRevision": 3,
     "exactCandidateEdges": 2162,
     "partialWindows": 126,
     "structure": "docs/PRONUNCIATION-STRUCTURE.json",
-    "structureReview": "139,196literal cells/AST retained;88same-style qamats repeat references expose348additional alternate-reading units. Original literal assignment hashes unchanged. Individual word ownership structurally audited; Hebrew-letter/phoneme/note/audio and independent linguistic review pending.",
+    "structureReview": "139,258literal source cells/AST retained;89same-style qamats repeat references expose351alternate-reading units. All old literal/resolved owner hashes unchanged; source ranges need exact letter agreement; independent linguistic review pending.",
     "wordAlignment": "docs/PRONUNCIATION-WORD-ALIGNMENT.json",
-    "individualUnitWords": 79804,
+    "individualUnitWords": 79841,
     "sharedUnitWords": 2,
     "wordAlignmentReview": "Prior boundary proofs/non-null unit-word IDs preserved;12formerly combined-name words resolved by exact computed written cluster ranges. Every original slice/mark checked, independent linguistic/cantorial/acoustic review pending.",
     "repeats": "docs/PRONUNCIATION-REPEATS.json",
-    "repeatReferences": 88,
-    "referenceUnits": 348,
+    "repeatReferences": 89,
+    "referenceUnits": 351,
     "underlay": "docs/PRONUNCIATION-UNDERLAY.json",
     "underlayAlignment": "docs/PRONUNCIATION-UNDERLAY-ALIGNMENT.json",
-    "writtenRangeWords": 77775,
-    "sourceOnlyUnitsPerStyle": 5778
+    "writtenRangeWords": 77782,
+    "sourceOnlyUnitsPerStyle": 5878,
+    "writtenReadVariants": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json"
   },
   "jointCoverage": {
     "record": "docs/JOINT-CHANT-PRONUNCIATION.json",
     "words": 79985,
-    "chantWithIndividualPronunciation": 76996,
-    "chantWithWrittenRanges": 75058,
-    "timedWithoutOwner": 178,
+    "chantWithIndividualPronunciation": 77033,
+    "chantWithWrittenRanges": 75065,
+    "timedWithoutOwner": 141,
     "timingReviewWords": 2811,
     "review": "Exact source IDs and marked Hebrew, both text styles agree. Structural correspondence, not phoneme/note/acoustic approval; recordings keep their own pronunciation."
   },
@@ -386,11 +385,11 @@
     "scope": "Exact original written spans linking source text units to existing score syllables; no audio/phoneme allocation. Full-Torah counts below are original-demo notes, not a traditional melody.",
     "originalDemo": {
       "notesPerStyle": 231178,
-      "linkedNotesPerStyle": 220493,
-      "unlinkedNotesPerStyle": 10685,
-      "fullyLinkedWordsPerStyle": 74756,
+      "linkedNotesPerStyle": 220502,
+      "unlinkedNotesPerStyle": 10676,
+      "fullyLinkedWordsPerStyle": 74763,
       "partlyLinkedWordsPerStyle": 2717,
-      "unlinkedWordsPerStyle": 2512
+      "unlinkedWordsPerStyle": 2505
     },
     "boundedPrintedGenesis22": {
       "notes": 52,
@@ -408,23 +407,33 @@
   "readerPronunciation": {
     "version": 1,
     "module": "pronunciation-reader.js",
-    "display": "Optional source text under preferred-reading word buttons; separate from musical settings and written scroll letters. Both existing source text styles retain source stress, joins, reading labels/repeats and source reading-form flags. Combined/unassigned words remain explicit.",
+    "display": "Optional source text under preferred-reading buttons. Explicit UXLC written/read variants are labeled and keep source-only ranges; preceding exact words retain independent written links. Original marked Hebrew, notes and recordings unchanged.",
     "styles": {
       "sephardic": {
-        "individuallyLinkedWords": 79804,
-        "ownedUnits": 193423,
-        "sourceReadingFormWords": 2029,
+        "individuallyLinkedWords": 79841,
+        "ownedUnits": 193532,
+        "sourceReadingFormWords": 2059,
         "combinedWords": 2,
-        "unassignedWords": 179
+        "unassignedWords": 142
       },
       "ashkenazic": {
-        "individuallyLinkedWords": 79804,
-        "ownedUnits": 193447,
-        "sourceReadingFormWords": 2029,
+        "individuallyLinkedWords": 79841,
+        "ownedUnits": 193556,
+        "sourceReadingFormWords": 2059,
         "combinedWords": 2,
-        "unassignedWords": 179
+        "unassignedWords": 142
       }
     },
     "limits": "Source correspondence and transcription only; linguistic review pending. Original Hebrew/accents, source packets, source pronunciation units, score syllables, musical notes, source recording timings and voices unchanged."
+  },
+  "explicitWrittenReadVariants": {
+    "record": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json",
+    "groups": 30,
+    "words": 37,
+    "qereWords": 30,
+    "ordinaryJoinedWords": 7,
+    "baseGroups": 68354,
+    "baseGroupsSha256": "e0a84b5a2839e025b2e68e71cf3f65af825d410b2f475ab0cf7f4d80ade56c07",
+    "review": "Both old anchors, same source verse, all source Hebrew columns and exact explicit UXLC one-written/one-reading token pairs required. No spelling normalization or inferred syllable ranges."
   }
 }

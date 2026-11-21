@@ -64,11 +64,11 @@ test('every corpus range is an exact original slice and preserves all old unit I
    else only++;
   }));
  }
- assert.deepEqual({mapped,only,newLinks},{mapped:375322,only:11556,newLinks:44});assert.equal(createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'),'eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13');
+ assert.deepEqual({mapped,only,newLinks},{mapped:375340,only:11756,newLinks:44});assert.equal(createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'),'8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741');
 });
 test('the pinned GPL3 computation and both full style projections reproducibly regenerate the entire factual packet',()=>{
  const output=execFileSync('python3',[new URL('../scripts/build-pronunciation-underlay.py',import.meta.url).pathname,'--check'],{encoding:'utf8',timeout:60000});const report=JSON.parse(output);
- assert.equal(report.groups,68354);assert.deepEqual(report.unresolved,[]);assert.equal(report.counts.variants,68567);assert.equal(report.counts.variantUnits,193763);assert.equal(report.counts.sharedConsonants,18203);assert.equal(report.outputSha256,createHash('sha256').update(read('data/pronunciation/torah-underlay.json.gz')).digest('hex'));
+ assert.equal(report.groups,68384);assert.deepEqual(report.unresolved,[]);assert.equal(report.counts.variants,68598);assert.equal(report.counts.variantUnits,193872);assert.equal(report.counts.sharedConsonants,18218);assert.equal(report.outputSha256,createHash('sha256').update(read('data/pronunciation/torah-underlay.json.gz')).digest('hex'));
 });
 test('underlay studies preserve musical plans, range/transposition settings and repeated assignment occurrence IDs',()=>{
  const manifest=JSON.parse(read('data/torah/manifest.json')),corpus=new Corpus({manifest,books:manifest.books.map(b=>JSON.parse(read('data/torah/'+b.file)))}),model=createReadingModel(corpus.passage([{id:'a',bookId:'gen',start:{chapter:8,verse:20},end:{chapter:8,verse:20}}]));

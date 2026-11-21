@@ -16,7 +16,7 @@ const text=(g,style)=>g.rows.flatMap(r=>r.transcriptions[style].map(inlineSource
 
 test('every mapped row and marked reader word matches the pinned original, with no duplicates or cross-order joins',()=>{
  const result=JSON.parse(execFileSync('python3',[new URL('../scripts/audit-pronunciation.py',import.meta.url).pathname],{encoding:'utf8'}));
- assert.equal(result.sourceBytes,14992105);assert.equal(result.mappedWords,79806);assert.equal(result.unassignedWords,179);
+ assert.equal(result.sourceBytes,14992105);assert.equal(result.mappedWords,79843);assert.equal(result.unassignedWords,142);
  assert.equal(result.allCandidateEdges,2162);assert.equal(result.maxExactSourceRows,1);assert.equal(result.maxExactReaderWords,3);
  assert.ok(result.exactOriginalRows>66000);assert.ok(result.manyWordGroups>10000);
 });
@@ -84,7 +84,7 @@ test('partial alignments accept only edges shared by all best paths, including r
 });
 test('v0.21 retains every complete v0.20 group exactly while linking only forced groups inside two original anchors',async()=>{
  const {createHash}=await import('node:crypto');
- const previous=data.groups.filter(g=>g.match!=='forced-between-verse-anchors');
+ const previous=data.groups.filter(g=>g.match!=='forced-between-verse-anchors'&&!g.writtenReadVariants);
  const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,stable(value[k])])):value;
  assert.equal(previous.length,66578);
  assert.equal(createHash('sha256').update(JSON.stringify(stable(previous))).digest('hex'),'42555a25020ef99348274c5402bff2816256a9d7efb53c60307a7a9f24c8a9b6');

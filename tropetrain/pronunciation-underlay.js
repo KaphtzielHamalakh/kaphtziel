@@ -20,7 +20,7 @@ function sourceRange(cell,list,start,end,role='written'){
 }
 export class PronunciationUnderlay {
  constructor(data,sourceCommit){
-  if(data?.format!=='tropetrain-pronunciation-underlay-v1'||data.revision!==1||data.sourceCommit!==sourceCommit||data.inputSha256!=='eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13'||!data.groups)throw Error('The pronunciation underlay source needs review.');
+  if(data?.format!=='tropetrain-pronunciation-underlay-v1'||data.revision!==1||data.sourceCommit!==sourceCommit||data.inputSha256!=='8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741'||!data.groups)throw Error('The pronunciation underlay source needs review.');
   this.data=data;
  }
  apply(study){
