@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-printed-pattern-catalog-v1",
-  "revision": 1,
+  "revision": 2,
   "id": "cohen-1902-torah-columns",
   "source": {
     "title": "The Jewish Encyclopedia",
@@ -23,7 +23,11 @@
       "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
       "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
     },
-    "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0."
+    "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
+    "pages": [
+      540,
+      541
+    ]
   },
   "rows": [
     {
@@ -948,7 +952,1501 @@
           "neededEvidence": "A clear notation explanation and qualified monophonic realization of this exact printed cell. It is not playable here."
         }
       ]
+    },
+    {
+      "id": "cohen-1902-I-A-conditional-p541",
+      "label": "Ashkenazim,1902 · conditional figures · p.541 row I.A",
+      "record": {
+        "id": "cohen-1902-I-A-conditional-p541",
+        "revision": 1,
+        "name": "Ashkenazim,1902 · conditional figures · p.541 row I.A",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 541,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 579,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HD3D541Y.jpg",
+          "image": "assets/scores/cohen-1902-conditional-p541.png",
+          "imageSha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+          "imageDerivation": "Unretouched Poppler crop: one-based PDF page579/printed541, scale-to4000,x0/y170,width2649/height1390. First six continued ordinary Torah rows; other columns retained for context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "1. Pentateuch / A. Ashkenazim,1902; continuation in same order from p.540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of checked p.541 cells only. Printed conditions are retained; no automatic Bible-word/syllable/phoneme mapping, full traditional system, voice or Kinnor identity.",
+        "timing": "Literal note/rest values regularized to selected quarter-note BPM; source ad-libitum recitation, tuning and articulation approximate. No complete-bar inference.",
+        "reviewStatus": "Manual comparison of two source scans; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "zakef-preceded": {
+            "target": "zakef-katon",
+            "precededBy": [
+              "zakef-unspecified",
+              "munah"
+            ],
+            "basis": "Printed p.541 header; no general cadence substitution inferred.",
+            "sourcePredecessorLabels": [
+              "זקף",
+              "מונח"
+            ],
+            "lookupCandidates": [
+              "zakef-katon",
+              "zakef-gadol",
+              "munah"
+            ],
+            "subtypeReview": "The printed header says Zaqef without a subtype; qaton/gadol searches are explicit text-lookup candidates, not separately verified automatic musical rules."
+          }
+        },
+        "matchingQuery": [
+          "yetiv"
+        ],
+        "matchingQueries": {
+          "yetiv": [
+            {
+              "label": "Yetiv",
+              "ids": [
+                "yetiv"
+              ]
+            }
+          ],
+          "zakef-preceded": [
+            {
+              "label": "After Zaqef qaton · lookup candidate",
+              "ids": [
+                "zakef-katon",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Zaqef gadol · lookup candidate",
+              "ids": [
+                "zakef-gadol",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Munaḥ",
+              "ids": [
+                "munah",
+                "zakef-katon"
+              ]
+            }
+          ]
+        },
+        "notationEvidence": {
+          "rests": "https://smufl.formats.music/latest/tables/rests.html",
+          "finding": "Hooked flag/head left of the descending stroke is the eighth-rest orientation; modern Z-shaped quarter rests are distinct. Both source rest styles and separate adjacent rests retained."
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-A-conditional-p541-yetiv-1",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, yetiv column, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-yetiv-2",
+            "cell": "yetiv",
+            "midi": 74,
+            "quarterBeats": 1.5,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, yetiv column, component2",
+            "sourcePitch": {
+              "step": "D",
+              "alter": 0,
+              "octave": 5
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-conditional-p541-yetiv-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-yetiv-3",
+            "cell": "yetiv",
+            "midi": 71,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, yetiv column, component3",
+            "sourcePitch": {
+              "step": "B",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-conditional-p541-yetiv-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-yetiv-4",
+            "cell": "yetiv",
+            "midi": null,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, yetiv column, component4",
+            "kind": "rest",
+            "sourceRestGlyph": "eighth-hook"
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-yetiv-5",
+            "cell": "yetiv",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, yetiv column, component5",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-1",
+            "cell": "zakef-preceded",
+            "midi": 74,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, zakef-preceded column, component1",
+            "sourcePitch": {
+              "step": "D",
+              "alter": 0,
+              "octave": 5
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-2",
+            "cell": "zakef-preceded",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, zakef-preceded column, component2",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-3",
+            "cell": "zakef-preceded",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, zakef-preceded column, component3",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-4",
+            "cell": "zakef-preceded",
+            "midi": 71,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, zakef-preceded column, component4",
+            "sourcePitch": {
+              "step": "B",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-slur-2",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-5",
+            "cell": "zakef-preceded",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.A, zakef-preceded column, component5",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-conditional-p541-zakef-preceded-slur-2",
+              "phase": "stop"
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-B-conditional-p541",
+      "label": "Ashkenazim,1518 (Cohen table label) · conditional figures · p.541 row I.B",
+      "record": {
+        "id": "cohen-1902-I-B-conditional-p541",
+        "revision": 1,
+        "name": "Ashkenazim,1518 (Cohen table label) · conditional figures · p.541 row I.B",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 541,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 579,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HD3D541Y.jpg",
+          "image": "assets/scores/cohen-1902-conditional-p541.png",
+          "imageSha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+          "imageDerivation": "Unretouched Poppler crop: one-based PDF page579/printed541, scale-to4000,x0/y170,width2649/height1390. First six continued ordinary Torah rows; other columns retained for context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "1. Pentateuch / B. Ashkenazim,1518 (Cohen table label); continuation in same order from p.540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of checked p.541 cells only. Printed conditions are retained; no automatic Bible-word/syllable/phoneme mapping, full traditional system, voice or Kinnor identity.",
+        "timing": "Literal note/rest values regularized to selected quarter-note BPM; source ad-libitum recitation, tuning and articulation approximate. No complete-bar inference.",
+        "reviewStatus": "Manual comparison of two source scans; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "zakef-preceded": {
+            "target": "zakef-katon",
+            "precededBy": [
+              "zakef-unspecified",
+              "munah"
+            ],
+            "basis": "Printed p.541 header; no general cadence substitution inferred.",
+            "sourcePredecessorLabels": [
+              "זקף",
+              "מונח"
+            ],
+            "lookupCandidates": [
+              "zakef-katon",
+              "zakef-gadol",
+              "munah"
+            ],
+            "subtypeReview": "The printed header says Zaqef without a subtype; qaton/gadol searches are explicit text-lookup candidates, not separately verified automatic musical rules."
+          }
+        },
+        "matchingQuery": [
+          "yetiv"
+        ],
+        "matchingQueries": {
+          "yetiv": [
+            {
+              "label": "Yetiv",
+              "ids": [
+                "yetiv"
+              ]
+            }
+          ],
+          "zakef-preceded": [
+            {
+              "label": "After Zaqef qaton · lookup candidate",
+              "ids": [
+                "zakef-katon",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Zaqef gadol · lookup candidate",
+              "ids": [
+                "zakef-gadol",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Munaḥ",
+              "ids": [
+                "munah",
+                "zakef-katon"
+              ]
+            }
+          ]
+        },
+        "notationEvidence": {
+          "rests": "https://smufl.formats.music/latest/tables/rests.html",
+          "finding": "Hooked flag/head left of the descending stroke is the eighth-rest orientation; modern Z-shaped quarter rests are distinct. Both source rest styles and separate adjacent rests retained."
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-B-conditional-p541-yetiv-1",
+            "cell": "yetiv",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, yetiv column, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-yetiv-2",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 1.5,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, yetiv column, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "tie": {
+              "id": "cohen-1902-I-B-conditional-p541-yetiv-tie-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-yetiv-3",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, yetiv column, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "tie": {
+              "id": "cohen-1902-I-B-conditional-p541-yetiv-tie-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-yetiv-4",
+            "cell": "yetiv",
+            "midi": null,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, yetiv column, component4",
+            "kind": "rest",
+            "sourceRestGlyph": "eighth-hook"
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-yetiv-5",
+            "cell": "yetiv",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, yetiv column, component5",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-zakef-preceded-1",
+            "cell": "zakef-preceded",
+            "midi": 69,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, zakef-preceded column, component1",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-zakef-preceded-2",
+            "cell": "zakef-preceded",
+            "midi": 71,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, zakef-preceded column, component2",
+            "sourcePitch": {
+              "step": "B",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-conditional-p541-zakef-preceded-3",
+            "cell": "zakef-preceded",
+            "midi": 67,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.B, zakef-preceded column, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-C-conditional-p541",
+      "label": "Sephardim (Europe) · conditional figures · p.541 row I.C",
+      "record": {
+        "id": "cohen-1902-I-C-conditional-p541",
+        "revision": 1,
+        "name": "Sephardim (Europe) · conditional figures · p.541 row I.C",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 541,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 579,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HD3D541Y.jpg",
+          "image": "assets/scores/cohen-1902-conditional-p541.png",
+          "imageSha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+          "imageDerivation": "Unretouched Poppler crop: one-based PDF page579/printed541, scale-to4000,x0/y170,width2649/height1390. First six continued ordinary Torah rows; other columns retained for context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "1. Pentateuch / C. Sephardim (Europe); continuation in same order from p.540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0."
+        },
+        "sourceKey": "No key-signature accidental; explicit G-sharp/F-sharp in these figures",
+        "scope": "Untexted literal instrumental study of checked p.541 cells only. Printed conditions are retained; no automatic Bible-word/syllable/phoneme mapping, full traditional system, voice or Kinnor identity.",
+        "timing": "Literal note/rest values regularized to selected quarter-note BPM; source ad-libitum recitation, tuning and articulation approximate. No complete-bar inference.",
+        "reviewStatus": "Manual comparison of two source scans; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "zakef-preceded": {
+            "target": "zakef-katon",
+            "precededBy": [
+              "zakef-unspecified",
+              "munah"
+            ],
+            "basis": "Printed p.541 header; no general cadence substitution inferred.",
+            "sourcePredecessorLabels": [
+              "זקף",
+              "מונח"
+            ],
+            "lookupCandidates": [
+              "zakef-katon",
+              "zakef-gadol",
+              "munah"
+            ],
+            "subtypeReview": "The printed header says Zaqef without a subtype; qaton/gadol searches are explicit text-lookup candidates, not separately verified automatic musical rules."
+          }
+        },
+        "matchingQuery": [
+          "yetiv"
+        ],
+        "matchingQueries": {
+          "yetiv": [
+            {
+              "label": "Yetiv",
+              "ids": [
+                "yetiv"
+              ]
+            }
+          ],
+          "zakef-preceded": [
+            {
+              "label": "After Zaqef qaton · lookup candidate",
+              "ids": [
+                "zakef-katon",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Zaqef gadol · lookup candidate",
+              "ids": [
+                "zakef-gadol",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Munaḥ",
+              "ids": [
+                "munah",
+                "zakef-katon"
+              ]
+            }
+          ]
+        },
+        "notationEvidence": {
+          "rests": "https://smufl.formats.music/latest/tables/rests.html",
+          "finding": "Hooked flag/head left of the descending stroke is the eighth-rest orientation; modern Z-shaped quarter rests are distinct. Both source rest styles and separate adjacent rests retained."
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-C-conditional-p541-yetiv-1",
+            "cell": "yetiv",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, yetiv column, component1",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-yetiv-2",
+            "cell": "yetiv",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, yetiv column, component2",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-C-conditional-p541-yetiv-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-yetiv-3",
+            "cell": "yetiv",
+            "midi": 68,
+            "quarterBeats": 1.5,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, yetiv column, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-C-conditional-p541-yetiv-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-yetiv-4",
+            "cell": "yetiv",
+            "midi": null,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, yetiv column, component4",
+            "kind": "rest",
+            "sourceRestGlyph": "eighth-hook"
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-yetiv-5",
+            "cell": "yetiv",
+            "midi": 68,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, yetiv column, component5",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-zakef-preceded-1",
+            "cell": "zakef-preceded",
+            "midi": 68,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, zakef-preceded column, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-C-conditional-p541-zakef-preceded-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-zakef-preceded-2",
+            "cell": "zakef-preceded",
+            "midi": 66,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, zakef-preceded column, component2",
+            "sourcePitch": {
+              "step": "F",
+              "alter": 1,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-C-conditional-p541-zakef-preceded-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-zakef-preceded-3",
+            "cell": "zakef-preceded",
+            "midi": 68,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, zakef-preceded column, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-conditional-p541-zakef-preceded-4",
+            "cell": "zakef-preceded",
+            "midi": 69,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.C, zakef-preceded column, component4",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-D-conditional-p541",
+      "label": "Morocco · conditional figures · p.541 row I.D",
+      "record": {
+        "id": "cohen-1902-I-D-conditional-p541",
+        "revision": 1,
+        "name": "Morocco · conditional figures · p.541 row I.D",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 541,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 579,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HD3D541Y.jpg",
+          "image": "assets/scores/cohen-1902-conditional-p541.png",
+          "imageSha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+          "imageDerivation": "Unretouched Poppler crop: one-based PDF page579/printed541, scale-to4000,x0/y170,width2649/height1390. First six continued ordinary Torah rows; other columns retained for context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "1. Pentateuch / D. Morocco; continuation in same order from p.540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0."
+        },
+        "sourceKey": "No key-signature accidental",
+        "scope": "Untexted literal instrumental study of checked p.541 cells only. Printed conditions are retained; no automatic Bible-word/syllable/phoneme mapping, full traditional system, voice or Kinnor identity.",
+        "timing": "Literal note/rest values regularized to selected quarter-note BPM; source ad-libitum recitation, tuning and articulation approximate. No complete-bar inference.",
+        "reviewStatus": "Manual comparison of two source scans; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "zakef-preceded": {
+            "target": "zakef-katon",
+            "precededBy": [
+              "zakef-unspecified",
+              "munah"
+            ],
+            "basis": "Printed p.541 header; no general cadence substitution inferred.",
+            "sourcePredecessorLabels": [
+              "זקף",
+              "מונח"
+            ],
+            "lookupCandidates": [
+              "zakef-katon",
+              "zakef-gadol",
+              "munah"
+            ],
+            "subtypeReview": "The printed header says Zaqef without a subtype; qaton/gadol searches are explicit text-lookup candidates, not separately verified automatic musical rules."
+          }
+        },
+        "matchingQuery": [
+          "yetiv"
+        ],
+        "matchingQueries": {
+          "yetiv": [
+            {
+              "label": "Yetiv",
+              "ids": [
+                "yetiv"
+              ]
+            }
+          ],
+          "zakef-preceded": [
+            {
+              "label": "After Zaqef qaton · lookup candidate",
+              "ids": [
+                "zakef-katon",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Zaqef gadol · lookup candidate",
+              "ids": [
+                "zakef-gadol",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Munaḥ",
+              "ids": [
+                "munah",
+                "zakef-katon"
+              ]
+            }
+          ]
+        },
+        "notationEvidence": {
+          "rests": "https://smufl.formats.music/latest/tables/rests.html",
+          "finding": "Hooked flag/head left of the descending stroke is the eighth-rest orientation; modern Z-shaped quarter rests are distinct. Both source rest styles and separate adjacent rests retained."
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-D-conditional-p541-zakef-preceded-1",
+            "cell": "zakef-preceded",
+            "midi": 67,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.D, zakef-preceded column, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-conditional-p541-zakef-preceded-2",
+            "cell": "zakef-preceded",
+            "midi": 60,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.D, zakef-preceded column, component2",
+            "sourcePitch": {
+              "step": "C",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-conditional-p541-zakef-preceded-3",
+            "cell": "zakef-preceded",
+            "midi": 69,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.D, zakef-preceded column, component3",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          }
+        ]
+      },
+      "unavailable": [
+        {
+          "cell": "yetiv",
+          "reason": "Compound/stacked head and upper marking require qualified monophonic/ornament interpretation; no guessed realization.",
+          "neededEvidence": "Clearer exact cell and qualified explanation of the stacked note/upper marking."
+        }
+      ]
+    },
+    {
+      "id": "cohen-1902-I-E-conditional-p541",
+      "label": "Egypt & Syria · conditional figures · p.541 row I.E",
+      "record": {
+        "id": "cohen-1902-I-E-conditional-p541",
+        "revision": 1,
+        "name": "Egypt & Syria · conditional figures · p.541 row I.E",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 541,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 579,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HD3D541Y.jpg",
+          "image": "assets/scores/cohen-1902-conditional-p541.png",
+          "imageSha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+          "imageDerivation": "Unretouched Poppler crop: one-based PDF page579/printed541, scale-to4000,x0/y170,width2649/height1390. First six continued ordinary Torah rows; other columns retained for context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "1. Pentateuch / E. Egypt & Syria; continuation in same order from p.540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of checked p.541 cells only. Printed conditions are retained; no automatic Bible-word/syllable/phoneme mapping, full traditional system, voice or Kinnor identity.",
+        "timing": "Literal note/rest values regularized to selected quarter-note BPM; source ad-libitum recitation, tuning and articulation approximate. No complete-bar inference.",
+        "reviewStatus": "Manual comparison of two source scans; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "zakef-preceded": {
+            "target": "zakef-katon",
+            "precededBy": [
+              "zakef-unspecified",
+              "munah"
+            ],
+            "basis": "Printed p.541 header; no general cadence substitution inferred.",
+            "sourcePredecessorLabels": [
+              "זקף",
+              "מונח"
+            ],
+            "lookupCandidates": [
+              "zakef-katon",
+              "zakef-gadol",
+              "munah"
+            ],
+            "subtypeReview": "The printed header says Zaqef without a subtype; qaton/gadol searches are explicit text-lookup candidates, not separately verified automatic musical rules."
+          }
+        },
+        "matchingQuery": [
+          "yetiv"
+        ],
+        "matchingQueries": {
+          "yetiv": [
+            {
+              "label": "Yetiv",
+              "ids": [
+                "yetiv"
+              ]
+            }
+          ],
+          "zakef-preceded": [
+            {
+              "label": "After Zaqef qaton · lookup candidate",
+              "ids": [
+                "zakef-katon",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Zaqef gadol · lookup candidate",
+              "ids": [
+                "zakef-gadol",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Munaḥ",
+              "ids": [
+                "munah",
+                "zakef-katon"
+              ]
+            }
+          ]
+        },
+        "notationEvidence": {
+          "rests": "https://smufl.formats.music/latest/tables/rests.html",
+          "finding": "Hooked flag/head left of the descending stroke is the eighth-rest orientation; modern Z-shaped quarter rests are distinct. Both source rest styles and separate adjacent rests retained."
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-E-conditional-p541-yetiv-1",
+            "cell": "yetiv",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.E, yetiv column, component1",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-conditional-p541-yetiv-2",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 1.5,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.E, yetiv column, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-E-conditional-p541-yetiv-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-conditional-p541-yetiv-3",
+            "cell": "yetiv",
+            "midi": 66,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.E, yetiv column, component3",
+            "sourcePitch": {
+              "step": "F",
+              "alter": 1,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-E-conditional-p541-yetiv-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-conditional-p541-yetiv-4",
+            "cell": "yetiv",
+            "midi": null,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.E, yetiv column, component4",
+            "kind": "rest",
+            "sourceRestGlyph": "quarter-z"
+          },
+          {
+            "id": "cohen-1902-I-E-conditional-p541-yetiv-5",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.E, yetiv column, component5",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          }
+        ]
+      },
+      "unavailable": [
+        {
+          "cell": "zakef-preceded",
+          "reason": "The last flag/printed duration needs independent clarification; do not silently choose eighth versus sixteenth.",
+          "neededEvidence": "Sharper final flag or qualified reading of this exact printed cell."
+        }
+      ]
+    },
+    {
+      "id": "cohen-1902-I-F-conditional-p541",
+      "label": "Bagdad · conditional figures · p.541 row I.F",
+      "record": {
+        "id": "cohen-1902-I-F-conditional-p541",
+        "revision": 1,
+        "name": "Bagdad · conditional figures · p.541 row I.F",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 541,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 579,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HD3D541Y.jpg",
+          "image": "assets/scores/cohen-1902-conditional-p541.png",
+          "imageSha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+          "imageDerivation": "Unretouched Poppler crop: one-based PDF page579/printed541, scale-to4000,x0/y170,width2649/height1390. First six continued ordinary Torah rows; other columns retained for context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "1. Pentateuch / F. Bagdad; continuation in same order from p.540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of checked p.541 cells only. Printed conditions are retained; no automatic Bible-word/syllable/phoneme mapping, full traditional system, voice or Kinnor identity.",
+        "timing": "Literal note/rest values regularized to selected quarter-note BPM; source ad-libitum recitation, tuning and articulation approximate. No complete-bar inference.",
+        "reviewStatus": "Manual comparison of two source scans; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "zakef-preceded": {
+            "target": "zakef-katon",
+            "precededBy": [
+              "zakef-unspecified",
+              "munah"
+            ],
+            "basis": "Printed p.541 header; no general cadence substitution inferred.",
+            "sourcePredecessorLabels": [
+              "זקף",
+              "מונח"
+            ],
+            "lookupCandidates": [
+              "zakef-katon",
+              "zakef-gadol",
+              "munah"
+            ],
+            "subtypeReview": "The printed header says Zaqef without a subtype; qaton/gadol searches are explicit text-lookup candidates, not separately verified automatic musical rules."
+          }
+        },
+        "matchingQuery": [
+          "yetiv"
+        ],
+        "matchingQueries": {
+          "yetiv": [
+            {
+              "label": "Yetiv",
+              "ids": [
+                "yetiv"
+              ]
+            }
+          ],
+          "zakef-preceded": [
+            {
+              "label": "After Zaqef qaton · lookup candidate",
+              "ids": [
+                "zakef-katon",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Zaqef gadol · lookup candidate",
+              "ids": [
+                "zakef-gadol",
+                "zakef-katon"
+              ]
+            },
+            {
+              "label": "After Munaḥ",
+              "ids": [
+                "munah",
+                "zakef-katon"
+              ]
+            }
+          ]
+        },
+        "notationEvidence": {
+          "rests": "https://smufl.formats.music/latest/tables/rests.html",
+          "finding": "Hooked flag/head left of the descending stroke is the eighth-rest orientation; modern Z-shaped quarter rests are distinct. Both source rest styles and separate adjacent rests retained."
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-F-conditional-p541-yetiv-1",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, yetiv column, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-yetiv-2",
+            "cell": "yetiv",
+            "midi": 74,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, yetiv column, component2",
+            "sourcePitch": {
+              "step": "D",
+              "alter": 0,
+              "octave": 5
+            },
+            "slur": {
+              "id": "cohen-1902-I-F-conditional-p541-yetiv-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-yetiv-3",
+            "cell": "yetiv",
+            "midi": 62,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, yetiv column, component3",
+            "sourcePitch": {
+              "step": "D",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-F-conditional-p541-yetiv-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-yetiv-4",
+            "cell": "yetiv",
+            "midi": null,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, yetiv column, component4",
+            "kind": "rest",
+            "sourceRestGlyph": "eighth-hook"
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-yetiv-5",
+            "cell": "yetiv",
+            "midi": null,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, yetiv column, component5",
+            "kind": "rest",
+            "sourceRestGlyph": "quarter-z"
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-yetiv-6",
+            "cell": "yetiv",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, yetiv column, component6",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-zakef-preceded-1",
+            "cell": "zakef-preceded",
+            "midi": 72,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, zakef-preceded column, component1",
+            "sourcePitch": {
+              "step": "C",
+              "alter": 0,
+              "octave": 5
+            },
+            "slur": {
+              "id": "cohen-1902-I-F-conditional-p541-zakef-preceded-slur-1",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-zakef-preceded-2",
+            "cell": "zakef-preceded",
+            "midi": 71,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, zakef-preceded column, component2",
+            "sourcePitch": {
+              "step": "B",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-F-conditional-p541-zakef-preceded-slur-1",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-zakef-preceded-3",
+            "cell": "zakef-preceded",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, zakef-preceded column, component3",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-conditional-p541-zakef-preceded-4",
+            "cell": "zakef-preceded",
+            "midi": 67,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.541, row I.F, zakef-preceded column, component4",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          }
+        ]
+      },
+      "unavailable": []
     }
   ],
-  "limits": "Six source-labeled Torah rows, ten supported plain Munaḥ/Revia figures, two unresolved cells excluded. No full contextual traditional system, Kinnor identity, Bible-word/syllable/phoneme mapping or singing voice. Independent musical/transcription review pending."
+  "limits": "Six source-labeled ordinary Torah traditions,12source records across p.540–541,20supported figures/95printed components including6rests;4ambiguous cells excluded. Conditions, keys, written accidentals, ties and rests retained. No full contextual traditional system, Kinnor equivalence, word/syllable/phoneme allocation or voice; independent musical/transcription review pending."
 }

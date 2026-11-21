@@ -20,22 +20,38 @@ export function patternEvidence(sourceId,kind){
 export const PATTERN_MODES=Object.freeze([
   {id:'pair',name:'Munaḥ → Revia · both printed columns'},
   {id:'munah',name:'Munaḥ · plain “Resting” column'},
-  {id:'revia',name:'Revia · printed column'}
+  {id:'revia',name:'Revia · printed column'},
+  {id:'yetiv',name:'Yetib · printed form (p.541)'},
+  {id:'zakef-preceded',name:'Zaqef qaton · after Zaqef or Munaḥ (p.541)'}
 ]);
+export function patternContextChoices(sourceId,mode){
+ const record=patternSource(sourceId).record;
+ if(!availablePatternModes(sourceId).some(m=>m.id===mode))return [];
+ return record.matchingQueries?.[mode]??[{label:'Source combination',ids:record.matchingQuery}];
+}
 export function printedPatternPlan(mode='pair',{tempo=84,transpose=0,sourceId=PRINTED_PATTERNS.id}={}){
-  if(!PATTERN_MODES.some(m=>m.id===mode))throw Error('Choose a printed pattern.');
-  const row=patternSource(sourceId),record=row.record;
-  if(!availablePatternModes(sourceId).some(m=>m.id===mode))throw Error('This printed source has no checked transcription for those columns.');
-  if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid pattern tempo or key.');
-  let beat=0;
-  return record.notes.filter(n=>mode==='pair'||n.cell===mode).map(n=>{
-    const e={id:n.id,sourceProfile:record.id,sourceRevision:record.revision,sourceLocation:n.sourceLocation,
-      sourceLabel:n.cell==='munah'?'Munaḥ · printed plain form':'Revia · printed form',midi:n.midi+transpose,beats:n.quarterBeats,
-      startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:n.quarterBeats*60/tempo,sourceRhythm:{...n.rhythm},
-      wordId:null,sourceWordId:null,syllableId:null,syllable:null,phonemes:null,
-      ...(n.slur?{sourceSlurId:n.slur.id,sourceSlurPhase:n.slur.phase}:{}),
-      ...(n.tie?{tieId:n.tie.id,tieStart:n.tie.phase==='start',tieStop:n.tie.phase==='stop'}:{}),
-      ...(n.tuplet?{sourceTupletId:n.tuplet.id,sourceTupletPhase:n.tuplet.phase}:{})};
-    beat+=e.beats;return Object.freeze(e);
-  });
+ if(!PATTERN_MODES.some(m=>m.id===mode))throw Error('Choose a printed pattern.');
+ const row=patternSource(sourceId),record=row.record;
+ if(!availablePatternModes(sourceId).some(m=>m.id===mode))throw Error('This printed source has no checked transcription for those columns.');
+ if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid pattern tempo or key.');
+ const components=record.notes.filter(n=>mode==='pair'?['munah','revia'].includes(n.cell):n.cell===mode),plan=[];
+ if(components[0]?.kind==='rest'||components.at(-1)?.kind==='rest')throw Error('Leading/trailing printed rest needs an explicit notation model.');
+ let beat=0;
+ for(const [index,n] of components.entries()){
+  if(n.kind==='rest'){
+   const previous=plan.at(-1);previous.sourceRestsAfter??=[];
+   previous.sourceRestsAfter.push({...n,beats:n.quarterBeats,durationSeconds:n.quarterBeats*60/tempo,sourceComponentNumber:index+1});beat+=n.quarterBeats;continue;
+  }
+  const event={id:n.id,sourceProfile:record.id,sourceRevision:record.revision,sourceLocation:n.sourceLocation,
+   sourceLabel:PATTERN_MODES.find(m=>m.id===n.cell).name,midi:n.midi+transpose,beats:n.quarterBeats,
+   startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:n.quarterBeats*60/tempo,sourceRhythm:{...n.rhythm},sourceComponentNumber:index+1,sourceComponentCount:components.length,
+   wordId:null,sourceWordId:null,syllableId:null,syllable:null,phonemes:null,
+   ...(n.sourcePitch?{sourcePitch:{...n.sourcePitch},sourceTranspose:transpose}:{}),
+   ...(record.conditions?.[n.cell]?{sourceCondition:record.conditions[n.cell]}:{}),
+   ...(n.slur?{sourceSlurId:n.slur.id,sourceSlurPhase:n.slur.phase}:{}),
+   ...(n.tie?{tieId:n.tie.id,tieStart:n.tie.phase==='start',tieStop:n.tie.phase==='stop'}:{}),
+   ...(n.tuplet?{sourceTupletId:n.tuplet.id,sourceTupletPhase:n.tuplet.phase}:{})};
+  plan.push(event);beat+=event.beats;
+ }
+ return plan.map(e=>Object.freeze({...e,...(e.sourceRestsAfter?{sourceRestsAfter:Object.freeze(e.sourceRestsAfter.map(Object.freeze))}:{})}));
 }

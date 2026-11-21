@@ -1,3 +1,4 @@
+import {JOINT_COVERAGE_SUMMARY} from './joint-coverage-summary.js';
 import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js';
 import {PRINTED_SCORE} from './printed-score.js';
 import {beatLabel} from './score-data.js';
@@ -327,6 +328,7 @@ async function playChantPractice(){
 function renderChantCoverage(){
   const coverage=chantCoverage(referenceLibrary);
   $('chant-coverage-summary').textContent=`${coverage.sourceTimedWords.toLocaleString()} of ${coverage.words.toLocaleString()} Torah words have structurally consistent source timings; ${coverage.reviewWords.toLocaleString()} words in ${coverage.gaps.length} takes await timing review. No missing times are guessed.`;
+  $('joint-coverage-summary').textContent=`${JOINT_COVERAGE_SUMMARY.withChantAndPronunciation.toLocaleString()} words have both source-timed chanting and individual pronunciation units; ${JOINT_COVERAGE_SUMMARY.withChantAndWrittenRanges.toLocaleString()} also have exact written Hebrew ranges. Text styles keep their own evidence; the recording retains its original pronunciation. Independent review is pending.`;
   $('chant-gap-list').replaceChildren();
   for(const gap of coverage.gaps){
     const item=document.createElement('li'),button=document.createElement('button');button.textContent=`Open ${gap.title} · ${gap.words} words needing timing review`;

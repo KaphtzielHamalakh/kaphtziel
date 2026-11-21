@@ -8,15 +8,15 @@ import {staffMarkup} from '../staff.js';
 import {createReadingModel,melodyProfiles} from '../music.js';
 import {passage} from '../passage.js';
 const bytes=name=>readFileSync(new URL('../'+name,import.meta.url));
-const rows=PRINTED_PATTERN_CATALOG.rows,source=letter=>rows.find(r=>r.id.includes('-I-'+letter+'-')).id;
+const rows=PRINTED_PATTERN_CATALOG.rows,legacyRows=rows.slice(0,6),source=letter=>rows.find(r=>r.id.includes('-I-'+letter+'-')).id;
 const plan=(letter,mode='pair',options={})=>printedPatternPlan(mode,{sourceId:source(letter),tempo:60,...options});
 
-test('six source-labeled rows expose exactly ten supported cells; unresolved figures never fall back to another row',()=>{
- assert.equal(rows.length,6);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),50);
- assert.deepEqual(rows.map(r=>availablePatternModes(r.id).map(m=>m.id)),[['pair','munah','revia'],['pair','munah','revia'],['pair','munah','revia'],['munah'],['pair','munah','revia'],['revia']]);
+test('legacy figures stay exact while the continued source adds ten checked figures without unresolved fallbacks',()=>{
+ assert.equal(rows.length,12);assert.equal(legacyRows.reduce((n,r)=>n+r.record.notes.length,0),50);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),95);
+ assert.deepEqual(legacyRows.map(r=>availablePatternModes(r.id).map(m=>m.id)),[['pair','munah','revia'],['pair','munah','revia'],['pair','munah','revia'],['munah'],['pair','munah','revia'],['revia']]);
  assert.throws(()=>plan('D','revia'),/no checked transcription/);assert.throws(()=>plan('D','pair'),/no checked transcription/);
  assert.throws(()=>plan('F','munah'),/no checked transcription/);assert.throws(()=>patternSource('invented'),/checked printed source row/);
- assert.equal(rows.filter(r=>r.unavailable.length).length,2);assert.ok(rows.flatMap(r=>r.unavailable).every(p=>p.reason&&p.neededEvidence));
+ assert.equal(rows.filter(r=>r.unavailable.length).length,4);assert.ok(rows.flatMap(r=>r.unavailable).every(p=>p.reason&&p.neededEvidence));
  assert.deepEqual(rows[0].record,PRINTED_PATTERNS);assert.equal(rows[0].record.id,'cohen-1902-munah-revia');
  for(const row of rows)for(const mode of availablePatternModes(row.id))assert.ok(validatePlan(printedPatternPlan(mode.id,{sourceId:row.id}))>0);
 });
@@ -64,8 +64,8 @@ test('source choice, transposition, pace and range leave marked Hebrew, pronunci
  assert.equal(JSON.stringify(rows),records);assert.equal(JSON.stringify(model),before);
  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending']);
 });
-test('all four original source images and both source records are exact and portable in the standalone',()=>{
- const html=bytes('TropeTrain.html').toString();assert.equal(Object.keys(PATTERN_IMAGE_DATA).length,4);
+test('all five original source images and both source records are exact and portable in the standalone',()=>{
+ const html=bytes('TropeTrain.html').toString();assert.equal(Object.keys(PATTERN_IMAGE_DATA).length,5);
  for(const [path,url] of Object.entries(PATTERN_IMAGE_DATA)){
   assert.ok(url.startsWith('data:image/png;base64,'));assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes(path));assert.ok(html.includes(url));
  }

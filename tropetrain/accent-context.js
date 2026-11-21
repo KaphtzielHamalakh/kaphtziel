@@ -17,9 +17,12 @@ export const combinationName=ids=>ids.map(id=>definitions.get(id)?.name??id).joi
 export const combinationGlyphs=ids=>ids.map(id=>'◌'+definitions.get(id).char).join('  ');
 function query(value){
   const ids=Array.isArray(value)?value:String(value).split('>');
-  if(ids.length<2||ids.length>32||ids.some(id=>!definitions.has(id)))throw Error('Choose a source combination from the chart.');
+  if(ids.length<1||ids.length>32||ids.some(id=>!definitions.has(id)))throw Error('Choose a source combination from the chart.');
   return ids;
 }
+// A source study can request an adjacent pattern outside the C*→D chart.
+// Validate it before adding a lookup option; this does not add a musical rule.
+export function sourceLookupPattern(value){const ids=query(value);return {id:ids.join('>'),ids:[...ids]};}
 const verseIdentity=w=>w.verseKey??[w.bookId,w.chapter,w.verse,w.sectionId].join(':');
 const joined=w=>/־[\s\u034f\u200d]*$/u.test(w.sourceHebrew);
 

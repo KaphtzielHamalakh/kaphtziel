@@ -18,6 +18,7 @@ execFileSync('node',[path.join(root,'scripts/audit-pronunciation-structure.mjs')
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-word-alignment.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-underlay.mjs')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-joint-coverage.mjs')],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -77,6 +78,7 @@ const layoutLicense=await readFile(path.join(root,'assets/layout/tikkun-MIT.txt'
 const layoutEvidence=await readFile(path.join(root,'docs/SCROLL-SOURCES.json'),'utf8');
 const layoutPack=await readFile(path.join(root,'assets/layout/tikkun-torah-sources.zip'));
 const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1.mp3'));
+const jointEvidence=await readFile(path.join(root,'docs/JOINT-CHANT-PRONUNCIATION.json'),'utf8');
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
 const voiceStudyAudio=await readFile(path.join(root,'assets/voice-studies/esther-seed.mp3'));
 const underlayEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-UNDERLAY.json'),'utf8');
@@ -119,6 +121,7 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./assets/pronunciation/phonetic-mam-computation-sources.zip"',()=>`href="data:application/zip;base64,${computationSources.toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-ALIGNMENT.json"',()=>`href="data:application/json;base64,${Buffer.from(pronunciationEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/phonetic-mam-torah-sources.zip"',()=>`href="data:application/zip;base64,${pronunciationPack.toString('base64')}"`)
+ .replaceAll('href="./docs/JOINT-CHANT-PRONUNCIATION.json"',()=>`href="data:application/json;base64,${Buffer.from(jointEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/CHANT-COVERAGE.json"',()=>`href="data:application/json;base64,${Buffer.from(chantEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/voice-studies/NOTICE.txt"','href="#voice-study-notices"')
  .replaceAll('href="./docs/VOICE-STUDIES.json"',()=>`href="data:application/json;base64,${Buffer.from(voiceStudyEvidence).toString('base64')}"`)
