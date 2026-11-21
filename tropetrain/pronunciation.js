@@ -1,4 +1,5 @@
 import {loadPronunciationData} from './pronunciation-data.js';
+import {sourcePronunciationStudy} from './pronunciation-structure.js';
 export const PRONUNCIATION_STYLES=Object.freeze([
  {id:'sephardic',name:'Sephardic · Phonetic MAM text'},
  {id:'ashkenazic',name:'Ashkenazic · Phonetic MAM text'}
@@ -25,6 +26,10 @@ export class PronunciationLibrary {
   if(!hit)return null;
   if(hit.group.readerHebrew[hit.index]!==word.sourceHebrew)throw Error('The Hebrew source changed; this pronunciation link needs review.');
   return hit.group;
+ }
+ study(word,style){
+  const group=this.at(word);
+  return group?sourcePronunciationStudy(group,{sourceCommit:this.sourceCommit,word,style}):null;
  }
 }
 let promise;
