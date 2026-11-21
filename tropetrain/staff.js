@@ -1,27 +1,30 @@
 import {scoreData,untextedScoreData,escapeXml as x,beatLabel,eventPitchName} from './score-data.js';
+import {notePronunciationText} from './pronunciation-note-links.js';
 
 export const STAFF_PAGE=12;
-export function staffNotes(plan,words,from=0,count=STAFF_PAGE,{untexted=false}={}){
+export function staffNotes(plan,words,from=0,count=STAFF_PAGE,{untexted=false,pronunciationLinks=null}={}){
   const slice=plan.slice(from,from+count+1),notes=(untexted?untextedScoreData(slice):scoreData(slice,words)).slice(0,count);let position=84;
   return notes.map((e,index)=>{
-    const width=Math.max(90,Math.min(220,[...e.syllable].length*7+40));
+    const pronunciationLink=untexted?null:pronunciationLinks?.get(e.id),pronunciationText=notePronunciationText(pronunciationLink);
+    const width=Math.max(90,Math.min(220,Math.max([...e.syllable].length*7+40,[...(pronunciationText??'')].length*8+24)));
     const gapWidth=e.gapAfterBeats?55*(e.sourceRestsAfter?.length??1):0;
     const cx=position+width/2,y=100-(e.pitch.position-30)*5,ledgers=[];position+=width+gapWidth;
     if(y>=110)for(let line=110;line<=y;line+=10)ledgers.push(line);
     if(y<=50)for(let line=50;line>=y;line-=10)ledgers.push(line);
-    return {...e,index:from+index,x:cx,y,width,gapWidth,restX:cx+width/2+gapWidth/2,endX:position,ledgers,
+    return {...e,pronunciationLink,pronunciationText,index:from+index,x:cx,y,width,gapWidth,restX:cx+width/2+gapWidth/2,endX:position,ledgers,
       continuedFromPrevious:!untexted&&from>0&&index===0&&plan[from-1].syllableId===e.syllableId};
   });
 }
-export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false}={}){
-  const notes=staffNotes(plan,words,from,count,{untexted}),width=(notes.at(-1)?.endX??200)+30;
-  let svg=`<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="250" viewBox="0 0 ${width} 250" role="group" aria-label="${untexted?'Printed pattern staff notes':'Selected staff notes'}"><title>${untexted?'Printed pattern pitches and durations; no word or syllable underlay is inferred.':'Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source.'}</title>`;
+export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,pronunciationLinks=null}={}){
+  const annotated=!untexted&&pronunciationLinks!==null,height=annotated?280:250,beatsY=annotated?260:230;
+  const notes=staffNotes(plan,words,from,count,{untexted,pronunciationLinks}),width=(notes.at(-1)?.endX??200)+30;
+  let svg=`<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${untexted?'Printed pattern staff notes':'Selected staff notes'}"><title>${untexted?'Printed pattern pitches and durations; no word or syllable underlay is inferred.':'Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source.'}${annotated?' Pronunciation text is linked by exact written spans only; unlinked syllables and shared consonants need review.':''}</title>`;
   for(let y=60;y<=100;y+=10)svg+=`<line class="staff-line" x1="14" y1="${y}" x2="${width-12}" y2="${y}"/>`;
   svg+='<text class="music-symbol clef" x="24" y="90">\ue050</text>';
   for(const e of notes){
     const up=e.y>=80,stemX=e.x+(up?5:-5),stemEnd=e.y+(up?-32:32),r=e.rhythm;
-    const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`;
-    svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${untexted?'':` data-word-index="${e.wordIndex}"`} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="235" rx="5"/>`;
+    const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=(untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`)+(annotated?`; pronunciation text: ${e.pronunciationText??'unlinked'}; written-span correspondence only`:'');
+    svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${untexted?'':` data-word-index="${e.wordIndex}"`}${annotated?` data-pronunciation-status="${x(e.pronunciationLink?.status??'unlinked')}"`:''} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="${height-15}" rx="5"/>`;
     for(const y of e.ledgers)svg+=`<line class="ledger" x1="${e.x-10}" x2="${e.x+10}" y1="${y}" y2="${y}"/>`;
     svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
     if(r.type!=='whole')svg+=`<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
@@ -38,13 +41,14 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false}=
     svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(eventPitchName(e))}</text>`;
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.syllable)}</text>`;
     if(!untexted&&(e.continuation||e.continuedFromPrevious))svg+=`<line class="melisma-line" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="206" y2="206"/>`;
-    svg+=`<text class="staff-beats" x="${e.x}" y="230">${beatLabel(e.beats)} beats</text></g>`;
+    if(annotated&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-pronunciation${e.pronunciationText===null?' unlinked':''}${e.pronunciationLink?.units.length&&e.pronunciationLink.units.every(u=>u.sourceStress)?' source-stressed':''}" x="${e.x}" y="229" lang="en" xml:lang="en" direction="ltr" unicode-bidi="plaintext">${x(e.pronunciationText??'unlinked')}</text>`;
+    svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${beatLabel(e.beats)} beats</text></g>`;
     if(e.gapAfterBeats){
       const rests=e.sourceRestsAfter??[{beats:e.gapAfterBeats}];
       if(Math.abs(rests.reduce((n,r)=>n+r.beats,0)-e.gapAfterBeats)>1e-8)throw Error('Printed rest values and score gap disagree.');
       rests.forEach((rest,index)=>{
        const glyph=Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5',cx=e.x+e.width/2+e.gapWidth*(index+.5)/rests.length;
-       svg+=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="235" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text><text class="staff-beats" x="${cx}" y="230">${beatLabel(rest.beats)} rest</text></g>`;
+       svg+=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="${height-15}" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text><text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
       });
     }
     if(e.tieStart){

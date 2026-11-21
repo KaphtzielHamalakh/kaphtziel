@@ -2,7 +2,8 @@ import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle} from '.
 import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
 import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
 import {hasTranscription} from './pronunciation-repeats.js';
-export function mountPronunciationStudy(){
+import {linkPronunciationToNotes} from './pronunciation-note-links.js';
+export function mountPronunciationStudy({onChange=()=>{}}={}){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
@@ -113,7 +114,9 @@ export function mountPronunciationStudy(){
   const url=URL.createObjectURL(new Blob([JSON.stringify(study,null,2)],{type:'application/json;charset=utf-8'})),a=document.createElement('a');
   a.href=url;a.download=`tropetrain-pronunciation-${study.selection.sourceWordId}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
  });
- $('pronunciation-style').addEventListener('change',()=>{style=pronunciationStyle($('pronunciation-style').value);try{localStorage.setItem(key,JSON.stringify({style}));}catch{}render();});
- getPronunciationLibrary().then(value=>{library=value;render();}).catch(e=>{error=e.message;render();});
- return {showWord(value,{following=false}={}){word=value;listening=following;render();}};
+ $('pronunciation-style').addEventListener('change',()=>{style=pronunciationStyle($('pronunciation-style').value);try{localStorage.setItem(key,JSON.stringify({style}));}catch{}render();onChange();});
+ getPronunciationLibrary().then(value=>{library=value;render();onChange();}).catch(e=>{error=e.message;render();onChange();});
+ return {showWord(value,{following=false}={}){word=value;listening=following;render();},
+  linkNotes(events,words){return library?linkPronunciationToNotes(events,words,library,style):null;},
+  scoreStatus(){return {style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};}};
 }
