@@ -7689,6 +7689,85 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text());
   }
 
+  // pronunciation-structure.js
+  function transcriptionStructure(nodes) {
+    if (nodes === null) return { status: "missing", text: null, units: [], boundaries: [], marks: [] };
+    if (!Array.isArray(nodes)) throw Error("Invalid pronunciation source cell.");
+    let text = "";
+    const marks = [];
+    function visit(items, path = []) {
+      items.forEach((node, index) => {
+        const sourcePath = [...path, index];
+        if (typeof node === "string") {
+          text += node;
+          return;
+        }
+        if (!node || !["stressed", "superscript-e", "reading"].includes(node.kind)) throw Error("Unsupported pronunciation source markup.");
+        const start2 = text.length;
+        if (node.kind === "superscript-e") text += "ᵉ";
+        else {
+          if (!Array.isArray(node.content) || node.kind === "reading" && typeof node.label !== "string") throw Error("Invalid pronunciation source markup.");
+          visit(node.content, [...sourcePath, "content"]);
+        }
+        marks.push({ kind: node.kind, start: start2, end: text.length, path: sourcePath, ...node.kind === "reading" ? { label: node.label } : {} });
+      });
+    }
+    visit(nodes);
+    const status = text === "" ? "empty" : text === "—" ? "unavailable" : "present";
+    if (status !== "present") return { status, text, units: [], boundaries: [], marks };
+    const units = [], boundaries = [];
+    function unit(start2, end) {
+      if (start2 === end) return;
+      const sourceMarks = marks.filter((m) => m.start < end && m.end > start2);
+      const value = text.slice(start2, end);
+      units.push({
+        number: units.length + 1,
+        text: value,
+        start: start2,
+        end,
+        sourceStress: sourceMarks.some((m) => m.kind === "stressed"),
+        sourceMarks: sourceMarks.map((m) => ({ ...m })),
+        acutePositions: [...value.matchAll(/\u0301/gu)].map((m) => start2 + m.index),
+        brevePositions: [...value.matchAll(/\u0306/gu)].map((m) => start2 + m.index)
+      });
+    }
+    let start = 0;
+    for (const match of text.matchAll(/[·\-\s]/gu)) {
+      unit(start, match.index);
+      boundaries.push({ text: match[0], start: match.index, end: match.index + match[0].length, kind: match[0] === "·" ? "syllable-dot" : match[0] === "-" ? "source-join" : "space" });
+      start = match.index + match[0].length;
+    }
+    unit(start, text.length);
+    return { status, text, units, boundaries, marks };
+  }
+  function sourcePronunciationStudy(group, { sourceCommit, word, style }) {
+    if (!["sephardic", "ashkenazic"].includes(style)) throw Error("Unsupported pronunciation text style.");
+    const sourceWordId = word?.sourceWordId ?? word?.id, index = group.readerIds.indexOf(sourceWordId);
+    if (index < 0 || group.readerHebrew[index] !== word.sourceHebrew) throw Error("The Hebrew source changed; this pronunciation link needs review.");
+    const singleWord = group.readerIds.length === 1;
+    function cellStructure(nodes, style2, row, column) {
+      const cell = transcriptionStructure(nodes), id = `${group.id}-${style2}-r${row}-c${column + 1}`;
+      const alignment = { readerWordId: singleWord ? group.readerIds[0] : null, phonemes: null, hebrewClusterRanges: null, noteIds: null, audioTimes: null };
+      return { id, column: column + 1, ...cell, ...alignment, units: cell.units.map((unit) => ({ id: `${id}-u${unit.number}`, ...unit, ...alignment })) };
+    }
+    return {
+      format: "tropetrain-pronunciation-study-v1",
+      revision: 1,
+      sourceCommit,
+      license: "CC-BY-SA-4.0",
+      attribution: "Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.",
+      selectedStyle: style,
+      selection: { sourceWordId, occurrenceId: word.id, sourceHebrew: word.sourceHebrew },
+      groupId: group.id,
+      readerIds: [...group.readerIds],
+      readerHebrew: [...group.readerHebrew],
+      alignmentScope: singleWord ? "single-reader-word" : "complete-reader-group",
+      rows: group.rows.map((row) => ({ number: row.number, styles: Object.fromEntries(["sephardic", "ashkenazic"].map((id) => [id, row.transcriptions[id].map((cell, column) => cellStructure(cell, id, row.number, column))])) })),
+      sourceGroup: group,
+      review: "Source display structure and correspondence only; independent linguistic and correspondence review pending. Dots, joins, primary stress markup, acute/breve and superscript marks stay literal. No per-word split of a shared group, phonemes, Hebrew-cluster mapping, note alignment or audio times inferred."
+    };
+  }
+
   // pronunciation.js
   var PRONUNCIATION_STYLES = Object.freeze([
     { id: "sephardic", name: "Sephardic · Phonetic MAM text" },
@@ -7721,6 +7800,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (hit.group.readerHebrew[hit.index] !== word.sourceHebrew) throw Error("The Hebrew source changed; this pronunciation link needs review.");
       return hit.group;
     }
+    study(word, style) {
+      const group = this.at(word);
+      return group ? sourcePronunciationStudy(group, { sourceCommit: this.sourceCommit, word, style }) : null;
+    }
   };
   var promise5;
   function getPronunciationLibrary() {
@@ -7738,7 +7821,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       saved = JSON.parse(localStorage.getItem(key));
     } catch {
     }
-    let style = pronunciationStyle(saved?.style), word = null, listening = false, library = null, error = null, lastKey = null;
+    let style = pronunciationStyle(saved?.style), word = null, listening = false, library = null, error = null, lastKey = null, study = null;
     for (const s of PRONUNCIATION_STYLES) {
       const option = document.createElement("option");
       option.value = s.id;
@@ -7792,6 +7875,76 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         parent.append(box);
       }
     }
+    function structure() {
+      const scope = $2("pronunciation-unit-scope");
+      scope.textContent = study.alignmentScope === "single-reader-word" ? "These source units correspond to the selected Hebrew word. Their individual Hebrew letters and musical notes are not assigned." : "These source units correspond to the complete Hebrew group below. They are not divided among its individual words.";
+      const group = document.createElement("p");
+      group.className = "pronunciation-group-hebrew";
+      group.lang = "he";
+      group.dir = "rtl";
+      group.textContent = study.readerHebrew.join(" ");
+      $2("pronunciation-units").append(group);
+      for (const row of study.rows) for (const cell of row.styles[style]) {
+        const box = document.createElement("div");
+        box.className = "pronunciation-unit-cell";
+        const title = document.createElement("p");
+        title.className = "muted";
+        title.textContent = `Source row ${row.number} · column ${cell.column}`;
+        box.append(title);
+        const labels = [...new Set(cell.marks.filter((m) => m.kind === "reading").map((m) => m.label))];
+        if (labels.length) {
+          const label2 = document.createElement("p");
+          label2.lang = "he";
+          label2.dir = "rtl";
+          label2.textContent = labels.join(" · ");
+          box.append(label2);
+        }
+        if (cell.status !== "present") {
+          const message = document.createElement("p");
+          message.textContent = cell.status === "missing" ? "No source cell in this column." : cell.status === "unavailable" ? "The source gives — for this style." : "The source cell is empty.";
+          box.append(message);
+        } else {
+          const list = document.createElement("ol");
+          list.className = "pronunciation-unit-list";
+          list.lang = "en";
+          list.dir = "ltr";
+          for (const unit of cell.units) {
+            const li = document.createElement("li");
+            li.className = unit.sourceStress ? "source-stressed" : "";
+            const value = document.createElement("span");
+            value.className = "pronunciation-unit-text";
+            const supers = unit.sourceMarks.filter((m) => m.kind === "superscript-e");
+            let position = unit.start;
+            for (const mark of supers.sort((a, b) => a.start - b.start)) {
+              value.append(document.createTextNode(cell.text.slice(position, mark.start)));
+              const sup = document.createElement("sup");
+              sup.textContent = "e";
+              value.append(sup);
+              position = mark.end;
+            }
+            value.append(document.createTextNode(cell.text.slice(position, unit.end)));
+            li.append(value);
+            if (unit.sourceStress) {
+              const stress = document.createElement("small");
+              stress.textContent = "Primary stress";
+              li.append(stress);
+            }
+            const cues = [unit.acutePositions.length ? "acute mark" : "", unit.brevePositions.length ? "breve mark" : "", supers.length ? "superscript e" : ""].filter(Boolean);
+            li.setAttribute("aria-label", `Source unit ${unit.number}: ${unit.text}${unit.sourceStress ? ", primary stress" : ""}${cues.length ? ", " + cues.join(", ") : ""}`);
+            list.append(li);
+          }
+          box.append(list);
+          const joins = cell.boundaries.filter((b) => b.kind !== "syllable-dot");
+          if (joins.length) {
+            const note = document.createElement("p");
+            note.className = "muted";
+            note.textContent = `Source joins retained: ${joins.map((b) => b.kind === "space" ? "space" : b.text).join(", ")}. They do not assign units to individual Hebrew words.`;
+            box.append(note);
+          }
+        }
+        $2("pronunciation-units").append(box);
+      }
+    }
     function render2() {
       const current = JSON.stringify([style, word?.id, word?.sourceHebrew, word?.reference, listening, !!library, error]);
       if (current === lastKey) return;
@@ -7801,6 +7954,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       $2("pronunciation-rows").replaceChildren();
       $2("pronunciation-source-rows").replaceChildren();
       $2("pronunciation-json").textContent = "";
+      $2("pronunciation-units").replaceChildren();
+      $2("pronunciation-unit-scope").textContent = "Choose a word with source correspondence.";
+      $2("pronunciation-export").disabled = true;
+      study = null;
       if (error) {
         $2("pronunciation-status").textContent = error;
         return;
@@ -7840,8 +7997,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         columns(source, row.hebrew, true);
         $2("pronunciation-source-rows").append(source);
       }
+      study = library.study(word, style);
+      structure();
+      $2("pronunciation-export").disabled = false;
       $2("pronunciation-json").textContent = JSON.stringify({ sourceCommit: library.sourceCommit, license: "CC-BY-SA-4.0", group }, null, 2);
     }
+    $2("pronunciation-export").addEventListener("click", () => {
+      if (!study) return;
+      const url = URL.createObjectURL(new Blob([JSON.stringify(study, null, 2)], { type: "application/json;charset=utf-8" })), a = document.createElement("a");
+      a.href = url;
+      a.download = `tropetrain-pronunciation-${study.selection.sourceWordId}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1e3);
+    });
     $2("pronunciation-style").addEventListener("change", () => {
       style = pronunciationStyle($2("pronunciation-style").value);
       try {

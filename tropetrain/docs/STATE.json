@@ -6,8 +6,8 @@
   "publishedCommit": "d4cc829cf79cbbad8ed48ea514658e89437b25a9",
   "nextTask": "Prioritize source-backed pronunciation syllable/stress/phoneme representation and word/group correspondence independently of melody. Preserve all79,806source-linked words and179unassigned unless exact evidence supports more links. Continue reusable voice research and remaining printed-source columns/contextual musical rules; resolve two ambiguous cells only with adequate evidence/review. Six Kinnor grammars/voices, complete contextual systems/singing and full roadmap remain active; printing deferred.",
   "lastPassingTests": {
-    "automated": 189,
-    "ui": "Published normal and standalone v0.22.1: original PNG/UTF-8 JSON dialogs open; Close/Escape return to study; full context image is 2649px and column image 769px, scroll within actual 319px viewport/dialog281. Muted Play/Escape leaves no active events or open dialog. Normal Genesis8:20word7 הַבְּהֵמָ֣ה changed Sephardic hab·be·hé·ma to Ashkenazic hab·be·hé·mo while marked Hebrew and Egypt&Syria/pair selection stayed identical. Earlier full musical comparison checks retain E14components13attacks/tie/3:2, D/F unavailable-cell refusal, FRevia repeat, natural completion and horizontal staff following at320px. No captured warnings/errors; all four gains0, playback stopped. Native Save dialog and direct file-origin UI remain unverified.",
+    "automated": 195,
+    "ui": "Normal and standalone preview v0.23: Gen8:20word7 source units hab/bᵉ/hé/ma↔mo followed independent styles while Hebrew הַבְּהֵמָ֣ה, OriginalDemo/key0/tempo84 and fixed recorded voice stayed separate. During muted recorded Endword Play, source units followed listening word; style changed ma→mo, Escape stopped. Word8 cleared units and disabled export without changing style. Deut32:6word1/2 showed same complete הֲ־ לַיְהוָה֙ group and no invented split. Deut1:27word2 preserved two Sephardic readings (10units/two primary marks); Ashkenazic column2 remained literal dash/unavailable. Standalone reload retained passage/cursor/style; Gen1:1word1 acute ré stayed distinct from primary shís. Printed Epair Play/Escape regression passed. Root/body/viewport319 and1280 fit; no captured warnings/errors, all four gains0/stopped, viewport reset. Native Save-dialog/file-origin and independent linguistic/acoustic review remain pending.",
     "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice.",
     "releaseTargets": 49
   },
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_preserving_exact_pronunciation_groups_79806_words_179_unassigned_linguistic_mapping_review_and_phonemes_pending"
+      "status": "source_units_stress_exact_offsets_79806_word_links_179_unassigned_Hebrew_cluster_phoneme_note_audio_review_pending"
     },
     {
       "id": "playback",
@@ -48,7 +48,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_Phonetic_MAM_text_views_79806_words_source_verified_browser_tested_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_source_text_styles_unit_stress_inspector_and_both_style_export_195_checks_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -188,15 +188,15 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.22.1",
+    "version": "0.23.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "dc1b05a5c4fc4409d466141e851a44685882948f",
-    "status": "published_live_verified_189_checks_final_records_and_output_sync",
-    "record": "docs/VERIFICATION-0.22.1.md",
+    "baseCommit": "ce9004d157fb830209a51b2ab47defa68e33bcda",
+    "status": "195_checks_normal_standalone_ui_passed_ready_to_publish",
+    "record": "docs/VERIFICATION-0.23.md",
     "next": "Prioritize source-backed pronunciation syllable/stress/phoneme representation and word/group correspondence independently of melody. Preserve all79,806source-linked words and179unassigned unless exact evidence supports more links. Continue reusable voice research and remaining printed-source columns/contextual musical rules; resolve two ambiguous cells only with adequate evidence/review. Six Kinnor grammars/voices, complete contextual systems/singing and full roadmap remain active; printing deferred.",
-    "automatedTests": 189,
-    "codeCommit": "d4cc829cf79cbbad8ed48ea514658e89437b25a9",
-    "newFeatures": "Six source-labeled printed Torah rows, ten supported figures/50components48attacks, ties/mixedtuplets/independentpicker/persistence/portableevidence. Two unclear cells refused; main text/melody/pronunciation unchanged."
+    "newFeatures": "Independent source-unit/stress inspector, both-style study export, exact marks/offsets and group-only refusal; all existing Hebrew/alignment/music/recordings unchanged.",
+    "automatedTests": 195,
+    "ui": "Normal and standalone preview v0.23: Gen8:20word7 source units hab/bᵉ/hé/ma↔mo followed independent styles while Hebrew הַבְּהֵמָ֣ה, OriginalDemo/key0/tempo84 and fixed recorded voice stayed separate. During muted recorded Endword Play, source units followed listening word; style changed ma→mo, Escape stopped. Word8 cleared units and disabled export without changing style. Deut32:6word1/2 showed same complete הֲ־ לַיְהוָה֙ group and no invented split. Deut1:27word2 preserved two Sephardic readings (10units/two primary marks); Ashkenazic column2 remained literal dash/unavailable. Standalone reload retained passage/cursor/style; Gen1:1word1 acute ré stayed distinct from primary shís. Printed Epair Play/Escape regression passed. Root/body/viewport319 and1280 fit; no captured warnings/errors, all four gains0/stopped, viewport reset. Native Save-dialog/file-origin and independent linguistic/acoustic review remain pending."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -350,6 +350,8 @@
     "review": "Structural/source-preservation checks passed; independent linguistic and correspondence review pending. No new phoneme grammar or voice.",
     "alignmentRevision": 2,
     "exactCandidateEdges": 2162,
-    "partialWindows": 126
+    "partialWindows": 126,
+    "structure": "docs/PRONUNCIATION-STRUCTURE.json",
+    "structureReview": "139,196source cells losslessly reconstructed with explicit stress/reading/superscript marks and exact boundaries; single-word IDs or complete group only. Linguistic, Hebrew-letter, phoneme/note/audio alignment pending."
   }
 }
