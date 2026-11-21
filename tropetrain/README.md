@@ -158,3 +158,6 @@ Latest publication: v0.29 code [4bb2da26](https://github.com/KaphtzielHamalakh/k
 
 
 Latest publication: [v0.30 code 533874e0](https://github.com/KaphtzielHamalakh/kaphtziel/commit/533874e0aaffcbeb7e7fbf7b3154e2c77a7837e3), [successful Pages run 44948502291](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44948502291).16changed public files /46,876,461bytes exactly match the tested build. Enable Show pronunciation text under Hebrew words, then compare source styles on Genesis22:1word3 הַדְּבָרִ֣ים. All source text/marks, musical notes and original recording pronunciations remain independent. See [v0.30verification](docs/VERIFICATION-0.30.md).
+
+
+Latest publication: [v0.31code 4ebe2f58](https://github.com/KaphtzielHamalakh/kaphtziel/commit/4ebe2f585008209ea22a53ea117295c61119ef26), [successful Pages run 44951491047](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44951491047).48changed public files /50,432,084bytes exactly match the tested source. Try Genesis13:3readingword12 אֽ͏ָהֳלוֹ֙, pronunciation reader enabled, then compare Sephardic/Ashkenazic source qamats alternatives and explicit written/read evidence. All marked Hebrew and original musical plans unchanged; no new voice or complete grammar inferred. See [v0.31verification](docs/VERIFICATION-0.31.md).
