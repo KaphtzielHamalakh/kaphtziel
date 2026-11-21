@@ -27,9 +27,13 @@ import {mountCalendar} from './calendar-ui.js';
 import {mountVoiceStudies} from './voice-study-ui.js';
 import {mountPronunciationStudy} from './pronunciation-ui.js';
 import {NOTE_LINK_REASONS} from './pronunciation-note-links.js';
+import {appendReaderPronunciation} from './pronunciation-reader.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
+let readerPronunciation=false;
+try{const saved=JSON.parse(localStorage.getItem('tropetrain-reader-pronunciation-v1'));if(typeof saved?.enabled==='boolean')readerPronunciation=saved.enabled;}catch{}
+$('reader-pronunciation').checked=readerPronunciation;
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
 let restoredReadingType,originalPracticeText=null;
@@ -204,6 +208,34 @@ function renderReader(){
   $('reader-previous').disabled=state.readerPage===0;$('reader-next').disabled=state.readerPage===pages-1;
   renderAlternatives(passage.verses.slice(first,last));
   updateSelection();
+  renderReaderPronunciation();
+}
+function renderReaderPronunciation(){
+  const buttons=[...$('reader').querySelectorAll('.hebrew-line .word')],source=pronunciationTools?.scoreStatus(),counts={linked:0,sourceForm:0,combined:0,unassigned:0,review:0},seen=new Set();
+  for(const [index,button] of buttons.entries()){
+    const word=words[Number(button.dataset.index)];
+    const oldId=button.dataset.pronunciationDescription;
+    const described=(button.getAttribute('aria-describedby')??'').split(/\s+/).filter(id=>id&&id!==oldId);
+    if(!readerPronunciation){
+      const wrapper=button.closest('.pronunciation-word');if(wrapper)wrapper.replaceWith(button);
+      if(described.length)button.setAttribute('aria-describedby',described.join(' '));else button.removeAttribute('aria-describedby');
+      delete button.dataset.pronunciationDescription;continue;
+    }
+    let wrapper=button.closest('.pronunciation-word');
+    if(!wrapper){wrapper=document.createElement('span');wrapper.className='pronunciation-word';button.replaceWith(wrapper);wrapper.append(button);}
+    let label=wrapper.querySelector('.reader-word-pronunciation');
+    if(!label){label=document.createElement('span');wrapper.append(label);}
+    label.id=`reader-pronunciation-${index}-${word.id}`;label.className='reader-word-pronunciation';
+    button.dataset.pronunciationDescription=label.id;button.setAttribute('aria-describedby',[...described,label.id].join(' '));
+    try{
+      const report=pronunciationTools?.readerText(word);
+      if(report){
+        appendReaderPronunciation(label,report);
+        if(!seen.has(word.id)){seen.add(word.id);if(report.status==='word-linked'){counts.linked++;counts.sourceForm+=report.entries.some(e=>e.sourceForm);}else counts[report.status==='combined-source-form'?'combined':'unassigned']++;}
+      }else{label.textContent=source?.error?'Source text unavailable':'Loading source text…';label.lang='en';label.dir='ltr';}
+    }catch(error){label.textContent='Source link needs review';label.title=error.message;label.lang='en';label.dir='ltr';if(!seen.has(word.id)){seen.add(word.id);counts.review++;}}
+  }
+  $('reader-pronunciation-status').textContent=!readerPronunciation?'Pronunciation text under the words is hidden.':!buttons.length?'Choose Pointed or Side by side to see pronunciation text with the preferred reading. Written scroll letters keep their separate source.':source?.error?source.error:!seen.size?'Loading local pronunciation text…':`${source.name} · ${counts.linked} word-linked on this page${counts.sourceForm?`, including ${counts.sourceForm} source reading forms`:''}; ${counts.combined} combined and ${counts.unassigned} without individual source text${counts.review?`; ${counts.review} links need review`:''}. Stress and alternatives follow the source; linguistic review is pending. Recordings retain their original pronunciation.`;
 }
 function renderAlternatives(verses){
   const groups=sourceAlternatives(verses,words),target=$('written-reading-rows');target.replaceChildren();
@@ -757,7 +789,8 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy({onChange:()=>renderStaff()});
+pronunciationTools=mountPronunciationStudy({onChange:()=>{renderStaff();renderReaderPronunciation();}});
+$('reader-pronunciation').addEventListener('change',()=>{readerPronunciation=$('reader-pronunciation').checked;try{localStorage.setItem('tropetrain-reader-pronunciation-v1',JSON.stringify({enabled:readerPronunciation}));}catch{}renderReaderPronunciation();});
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
 mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});

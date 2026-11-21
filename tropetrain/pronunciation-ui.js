@@ -3,10 +3,12 @@ import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
 import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
 import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
+import {readerPronunciationWord} from './pronunciation-reader.js';
 export function mountPronunciationStudy({onChange=()=>{}}={}){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
+ const readerCache=new Map();
  for(const s of PRONUNCIATION_STYLES){const option=document.createElement('option');option.value=s.id;option.textContent=s.name;$('pronunciation-style').append(option);}
  $('pronunciation-style').value=style;
  $('pronunciation-coverage').textContent=`${PRONUNCIATION_SUMMARY.mappedWords.toLocaleString()} of ${PRONUNCIATION_SUMMARY.readerWords.toLocaleString()} Torah words linked to source groups. Unmatched words remain unassigned. Correspondence and linguistic review are pending.`;
@@ -117,6 +119,18 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  $('pronunciation-style').addEventListener('change',()=>{style=pronunciationStyle($('pronunciation-style').value);try{localStorage.setItem(key,JSON.stringify({style}));}catch{}render();onChange();});
  getPronunciationLibrary().then(value=>{library=value;render();onChange();}).catch(e=>{error=e.message;render();onChange();});
  return {showWord(value,{following=false}={}){word=value;listening=following;render();},
+  readerText(value){
+   if(!library)return null;
+   // Bounded cache keeps repeated assignment occurrences independent while
+   // avoiding source analysis on every paint. Always recheck the marked word.
+   library.at(value);
+   const cacheKey=JSON.stringify([style,value.sourceWordId??value.id,value.sourceHebrew]);
+   if(!readerCache.has(cacheKey)){
+    if(readerCache.size>=512)readerCache.delete(readerCache.keys().next().value);
+    readerCache.set(cacheKey,readerPronunciationWord(value,library.study(value,style),style));
+   }
+   return {...readerCache.get(cacheKey),wordId:value.id};
+  },
   linkNotes(events,words){return library?linkPronunciationToNotes(events,words,library,style):null;},
   scoreStatus(){return {style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};}};
 }
