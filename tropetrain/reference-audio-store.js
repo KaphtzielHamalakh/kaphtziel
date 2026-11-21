@@ -43,7 +43,7 @@ export class ReferenceAudioStore {
     await this.ready;aborted(signal);if(await this.has(record))return {saved:this.saved.has(this.key(record)),existing:true};
     const response=await this.fetchFile(record.audio.url,{signal,mode:'cors'});
     if(!response.ok)throw Error(`Recording download failed (${response.status}).`);
-    const blob=new Blob([await response.arrayBuffer()],{type:'audio/mpeg'});aborted(signal);await this.verify(record,blob);aborted(signal);
+    const blob=new Blob([await response.arrayBuffer()],{type:record.audio.mimeType??'audio/mpeg'});aborted(signal);await this.verify(record,blob);aborted(signal);
     const key=this.key(record);let saved=false;
     try{await this.cache.put(key,{blob,filename:record.audio.filename,verifiedSha1:key,bytes:blob.size});this.saved.add(key);saved=true;}
     catch{this.storageAvailable=false;this.memory.set(key,blob);while(this.memory.size>3)this.memory.delete(this.memory.keys().next().value);}

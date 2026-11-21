@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "865e09047f5ad6ea07690a8417e8dab53340e063",
-  "nextTask": "Continue melody/pronunciation before printing: inspect checksum-verified Isabel Bard Western Ashkenazi Torah table (private research candidate), source-word/name alignment without guessing, reusable phonetic evidence and qualified review. Preserve full roadmap.",
+  "nextTask": "Finish documentation rebuild, publish v0.18 and verify live AAC download/cache/decoded duration/muted play/Stop/reload; continue musical/phonetic sources before printing.",
   "lastPassingTests": {
-    "automated": 165,
-    "ui": "Both HTTP entry points; five source decodes and four explicit verified/cache loads; pronunciation/delivery independence; .25–1.25s repeat, invalid span refusal, whole-span reset, natural finish, Stop/Escape/mutually exclusive transports; text opening Genesis1:1–13 (13verses/159words), reload/cache remove/reload; expanded source notices; root/body fit320/390/1280. All gains0. Final local normal browser warnings/errors empty.",
-    "limits": "Fixed references only; no word/syllable/audio alignment, phoneme rules or independent acoustic/expert review. Actual hidden-tab transition, file origin and prior file-dialog/recovery UI gates pending."
+    "automated": 166,
+    "ui": "Normal/standalone Bard original loaded/checksummed/cached, actualAACdecoded73.584036s/rate1, .25–1.25s mutedplay/naturalcompletion/8loops/Stop/Escape, savedsource/span/repeat0/cache restoration; previousv0.17 cachedForemanMP3 stillplayed; narrowrequest320 measured319documentfit; no capturedwarn/error; allgains0/viewportreset.",
+    "limits": "Fixed source label/reference only; no Kinnor equivalence, contextual rule, word/syllable timing or phoneme/note allocation; acoustic/expert and priorfile/visibility/recoverygates pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -187,16 +187,14 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.17.0",
+    "version": "0.18.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "b8027a5e4577de4d2ffe679fe70fabc541af0506",
-    "status": "published_live_verified",
-    "record": "docs/VERIFICATION-0.17.md",
-    "automatedTests": 165,
-    "newFeatures": "Five exact source recordings; independent source pronunciation/delivery selectors, seconds spans/repeat, dedicated volume, zero-volume clock, explicit checksum/device cache and source passage opening.",
-    "limits": "Fixed source performances only. No new Kinnor melody/Accent, singing synthesis, word/syllable timing, phoneme grammar or acoustic/expert review.",
-    "next": "Continue melody/pronunciation before printing: inspect checksum-verified Isabel Bard Western Ashkenazi Torah table (private research candidate), source-word/name alignment without guessing, reusable phonetic evidence and qualified review. Preserve full roadmap.",
-    "finalDocumentationChecks": 21
+    "baseCommit": "b13fcf2c0d68d3bd1154fbf573e0f8fac9516b7f",
+    "status": "local_UI_passed_unpublished",
+    "record": "docs/VERIFICATION-0.18.md",
+    "newFeatures": "Unchanged Isabel Bard Western Ashkenazi Torah table; explicit original AAC media type across download/cache; no new note or word allocations.",
+    "next": "Finish documentation rebuild, publish v0.18 and verify live AAC download/cache/decoded duration/muted play/Stop/reload; continue musical/phonetic sources before printing.",
+    "automatedTests": 166
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -291,10 +289,10 @@
   },
   "voiceStudies": {
     "record": "docs/VOICE-STUDIES.json",
-    "studies": 2,
-    "recordings": 5,
-    "bytes": 35549994,
-    "status": "published_exact_originals_normal_and_standalone_browser_checked",
+    "studies": 3,
+    "recordings": 6,
+    "bytes": 36784196,
+    "status": "five_published_v17_six_local_v18_checked",
     "review": "Primary rights/metadata/original bytes verified; independent acoustic/linguistic/musical review and word/syllable timing pending. No Kinnor preset equivalence."
   },
   "musicalResearchNext": {
@@ -308,6 +306,6 @@
     "originalSha1": "a3d2723f845ab5a4118f3d9d83fa927a734ad839",
     "originalSha256": "6c27317e76d6f8f186f77ef7976d7c84bb113e1a5ffe91cffe0d9d07019ce268",
     "estimatedDurationSeconds": 73.536145,
-    "status": "Private candidate original verified; not installed, browser/acoustic/timing/phonetic/musical review pending. No Kinnor equivalence inferred."
+    "status": "Original imported unchanged as optional v0.18 reference, local browserAACchecked. No alignment/phoneme/note or Kinnor equivalence; acoustic/qualified review pending."
   }
 }

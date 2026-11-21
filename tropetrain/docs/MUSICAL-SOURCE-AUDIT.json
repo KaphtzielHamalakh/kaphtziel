@@ -114,6 +114,15 @@
       "musicalCoverage": "Four source performances of Genesis1:1–13: dagesh forte/lene and extended-forte, each without melody or with source-labeled Sefardi melody.",
       "record": "docs/VOICE-STUDIES.json",
       "review": "Primary metadata/rights, exact original bytes and browser decoding checked. No word/syllable/audio alignment, note transcription, six-Kinnor-profile identification or acoustic/qualified review supplied."
+    },
+    {
+      "id": "bard-torah-2021",
+      "creator": "Dr. Isabel Bard",
+      "url": "https://archive.org/details/taamei-ha-mikra-western-ashkenazi-trop-isabel-bard-2021",
+      "license": "CC-BY-SA-4.0, primary Archive item metadata",
+      "record": "docs/VOICE-STUDIES.json",
+      "musicalCoverage": "Unchanged Western Ashkenazi Torah cantillation-name table, source label only. No complete contextual grammar or Bible-word/note/phoneme allocation.",
+      "review": "Original bytes/rights and browser AAC metadata checked; acoustic, transcription and qualified review pending. No Kinnor preset equivalence."
     }
   ]
 }

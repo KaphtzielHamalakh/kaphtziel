@@ -8,19 +8,20 @@ import {createReadingModel,melodyProfiles} from '../music.js';
 import {passage} from '../passage.js';
 
 const bytes=name=>readFileSync(new URL('../'+name,import.meta.url));
-test('all five source originals retain exact licensed bytes and independent source pronunciation/delivery identifiers',()=>{
+test('all six source originals retain exact licensed bytes and independent source pronunciation/delivery identifiers',()=>{
   assert.deepEqual(VOICE_STUDIES,JSON.parse(bytes('docs/VOICE-STUDIES.json')));
-  assert.equal(VOICE_STUDIES.recordings.length,5);assert.equal(VOICE_STUDIES.studies.length,2);
+  assert.equal(VOICE_STUDIES.recordings.length,6);assert.equal(VOICE_STUDIES.studies.length,3);
   let total=0;
   for(const r of VOICE_STUDIES.recordings){
     const raw=bytes(r.audio.file);total+=raw.length;assert.equal(raw.length,r.audio.bytes);
     for(const algorithm of ['sha1','sha256'])assert.equal(createHash(algorithm).update(raw).digest('hex'),r.audio[algorithm]);
     assert.equal(voiceRecording(r.studyId,r.pronunciationId,r.deliveryId),r);
+    assert.equal(r.audio.mimeType,r.id==='bard-torah-2021'?'audio/mp4':'audio/mpeg');
     assert.equal(r.license.id,r.performer==='Alex Foreman'?'CC-BY-4.0':'CC-BY-SA-4.0');
     for(const field of ['timedWords','syllableAlignment','phonemes','musicalNotes','independentReview'])assert.equal(r[field],null);
     assert.ok(r.sourceUrl.startsWith('https:'));assert.ok(r.audio.estimatedDurationSeconds>60);
   }
-  assert.equal(total,35549994);
+  assert.equal(total,36784196);
 });
 test('two Tiberian pronunciation readings each have a distinct spoken and source-labeled melodic performance',()=>{
   const study=voiceStudy('foreman-genesis'),ids=new Set();
@@ -28,6 +29,8 @@ test('two Tiberian pronunciation readings each have a distinct spoken and source
   assert.equal(ids.size,4);assert.deepEqual(study.deliveries.map(d=>d.kind),['chanted','spoken']);
   assert.deepEqual(study.coverage,{bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:13}});
   assert.equal(voiceStudy('seed-esther').coverage,null);
+  assert.equal(voiceStudy('bard-torah').coverage,null);
+  assert.throws(()=>voiceRecording('bard-torah','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceRecording('seed-esther','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceStudy('invented'),/available/);
   assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending']);
