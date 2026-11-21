@@ -95,3 +95,13 @@
 .pitch-grid{stroke:#c3c5bc;stroke-width:1}
 .pitch-points{stroke:#136558;stroke-width:3;stroke-linecap:round;fill:none}
 #source-pitch-range{overflow-wrap:anywhere}
+
+.pronunciation-rule-unit{padding-block:1rem;border-top:1px solid var(--line);min-width:0}
+.pronunciation-rule-unit h4{margin:0;font:600 14px/1.5 system-ui,sans-serif;overflow-wrap:anywhere}
+.pronunciation-rule-hebrew{font:28px/1.8 "Noto Hebrew",serif;margin-block:.3rem}
+.pronunciation-rule-table{border-collapse:collapse;table-layout:fixed;width:100%;font:13px/1.5 system-ui,sans-serif}
+.pronunciation-rule-table caption{text-align:left;padding-block:.6rem;color:var(--soft)}
+.pronunciation-rule-table th,.pronunciation-rule-table td{padding:.6rem .4rem;border:1px solid var(--line);text-align:left;vertical-align:top;overflow-wrap:anywhere}
+.pronunciation-rule-table th{font-weight:500}.pronunciation-rule-table th:first-child{width:46%}
+.pronunciation-rule-table small{display:block;font-size:11px;color:var(--soft)}
+.pronunciation-rule-difference{background:var(--pale)}.selected-source-style{font-weight:700}
