@@ -23,3 +23,12 @@ Pinned PhoneticMAM 6f0612ed:5TorahJSONs plusREADME/license/data-rights8files15,0
 ## Release gate
 
 Publish only/tropetrain with connected GitHub and expected-main lease. Verify Pages build/deploy, changed live bytes, returningv0.18 preferences, main recorded word highlighting/completion/Stop, source gap refusal and standalone. Rollback on startup, original checksum/decoding, stale sound or wrong highlight failure by republishing v0.18tree at2f86d22e483ea5d59f3b8d5cf6575fd670973211; preserve personal practice/cache. No completed full-Torah independent singing/phonetic/melodic claim. Deployment pending at this checkpoint.
+
+
+## Published and live verified
+
+Code commit `fda6d07737eba6d960d2c83670b68aaff9a79cbe`, Pages run `44866031579`: successful build and deployment. All 19 changed public resources match 28,526,512 tested bytes from local `de09672355b16d7c4ad2ab689be6b781a81239e5`. Root tree `72350bca99dd7a3d397df65adc16ebf82b2b7666`; app subtree `b008b6e1ab08e184e25fd32a30946184a9df45f4`. Full 172 checks and 28 documentation/distribution targets pass. Only /tropetrain changed.
+
+Live v0.18→v0.19 preserved Genesis22:1 word5/Cohen/60BPM/key0, Bard study and all mutes. Main recorded mode explicitly loaded/hash-verified Vayera7; word5 highlighted in pointed/consonantal views while media stayed paused at0%, then naturally completed with highlights cleared. Live Shemot1 gap openedExo1:1–17 and disabled timedPlay. PreparedGenesis1:1–3 word2→Endofgroup; standalone restored recorded mode/span and completed source-timed playback. Final handoff uses pointed view, Original demonstration01 as the separate instrument selection,60/key0, recorded main audio, all gains0 and stopped. No capturedwarnings/errors;320root/bodyfit includingexpandedgaps;viewportreset; screenshot outputs/TropeTrain-v0.19-live.jpg.
+
+The source-time coverage is 96.4856% of reader words, not an acoustic accuracy score. All original timing problems remain. Full independent melody/pronunciation systems and reviewed singing are unfinished. Next is the explicit Phonetic MAM correspondence audit, including its alternate reading spans, before exposing any source pronunciation data in the reader. Printing remains deferred.
