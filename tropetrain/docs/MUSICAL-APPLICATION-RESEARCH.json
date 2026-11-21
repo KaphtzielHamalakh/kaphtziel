@@ -1,0 +1,24 @@
+{
+  "schema": "tropetrain-musical-application-research-v1",
+  "updated": "2026-11-21",
+  "baseline": "v0.32",
+  "leads": [
+    {
+      "url": "https://www.etnachta.org/cantillation-lab",
+      "audit": "https://www.etnachta.org/research/cantillation/rule-catalogue.md",
+      "creator": "Idan Dorshav Dershowitz",
+      "finding": "Predicts accent assignments and grammatical groupings. It does not supply sung pitches. No engine code/data reused; no general source-code license established. Source audit gives primary Wickes/Price/Breuer leads for independent research."
+    },
+    {
+      "url": "https://doi.org/10.1121/1.1458024",
+      "primaryPaper": "https://www.ee.columbia.edu/~dpwe/papers/deChevK02-yin.pdf",
+      "authors": [
+        "Alain de Cheveigne",
+        "Hideki Kawahara"
+      ],
+      "year": 2002,
+      "finding": "Fundamental-frequency estimation from periodicity is measurement, not a reviewed musical score. Prototype independently implements fixed-window squared differences, cumulative normalization, thresholded local minima and parabolic interpolation. No global-minimum fallback or paper step6; uncertain frames remain unassigned. Threshold score is not a probability of musical correctness. No published code copied."
+    }
+  ],
+  "plan": "Evaluate source-recording pitch measurements across available Torah timings, preserving source identity and explicit gaps. Keep word timing separate from absent syllable/phoneme timing, exact Hebrew, source text styles and traditional grammar claims. All final full-reconstruction requirements remain active."
+}

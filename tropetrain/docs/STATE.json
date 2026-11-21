@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "163c91b1cfb705493a49a19cede8cd30b9c88fb6",
-  "nextTask": "Continue a full contextual Torah melody grammar from primary reciting-note, stress-placement and cadence evidence, using the new BaerNo939worked passage as52word/145note source test vectors. Inspect remaining Baer third-edition circa1894pp31–36/38–42, No938table/No939connections, and Cohen544–548; do not infer arbitrary prefix pitches or equate source section labels with Kinnor presets. Preserve source table alternatives, notational accidentals, unspecified fermata durations and all existing source data. Continue exact primary evidence for remaining142pronunciation word correspondences and six historical Kinnor phoneme/voice grammars; acquire reusable sung material with provenance and review before independent singing. All Hebrew/accents/canonical and occurrence IDs, two independent source text styles, original recordings and independent melody/range/key/tempo controls remain intact. Full documented roadmap active/incomplete; printing deferred.",
+  "nextTask": "Continue the complete independently pronounced chanting objective. The remaining Baer31–36/38–42pages are inspected; contextual tables and worked examples do not yet define a full arbitrary-word grammar. Validate and review original PocketTorah source-time pitch evidence without treating F0 as notes, rests, a tradition, syllable timing or independently styled singing. Derive documented reciting/stress/cadence rules using primary Cohen544–548 and BaerNo938/939 examples, refusing arbitrary prefix pitches. Resolve remaining142pronunciation word correspondences from exact primary edition/variant evidence; preserve two combined words and2,059word-owned source forms/style without exact written ranges. Establish sourced six Kinnor phoneme grammars and reusable reviewed sung material before exposing additional pronunciation voices. Preserve all Hebrew/accents/canonical and occurrence IDs, two source text styles, original recordings, all existing source-score/demo events and independent melody/range/key/tempo. Entire feature inventory remains active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 264,
-    "newRegressionChecks": 7,
-    "ui": "Public v0.31→v0.32 retains Genesis13:3/Sephardic/OriginalDemo/60BPM/key0/reader text and all four gains0. Open Baer Genesis1:1–5study selects52markedwords/145notes/147.25beats. During muted repeated Gen1:1word2Play, Sephardicba·ra→Ashkenazicbo·ro keeps the active word, G-sharp4clock and exact note IDs/pitches/rhythms; all52Hebrew button texts/IDs/aria-labels and all128visible event rows are equal across styles. Public Gen1:3word5retains1of3exact note links, with both wa/j’ components explicitly unlinked. Public Genesis1:6Play is disabled with the no-substitution explanation. Public standalone embeds the originalNo939image, exact source JSON and pronunciation audit, and repeats the muted Ashkenazic→Sephardicclock/style invariant. Both public distributions root/bodyfit319/1280. Viewed screenshotoutputs/TropeTrain-v0.32-live.jpg shows all five source verses, actual pronunciation text and selected Baer instrument; invariantswork/audits/ui-live-0.32.json. Local additionally verifies transpose+2/tempo72independence and source/reload persistence. All four gains0/stopped/repeatfalse/audio elements paused/viewportreset; owned8767session56403stopped, user8765untouched. NativeSave/download/direct-file-origin and independent musical/linguistic/transcription/acoustic review remain pending.",
-    "limits": "Source-backed bounded instrumental example and exact text-span links only. Full contextual Torah melody rules, six Kinnor pronunciation grammars/voices and independent singing remain incomplete."
+    "automated": 272,
+    "newRegressionChecks": 8,
+    "ui": "Normal and standalone v0.33 muted UI verified: Genesis1:1 word2 בָּרָ֣א has23 periodic /66 original-time frames; Sephardic ba·ra and Ashkenazic bo·ro switch while52 marked Hebrew button texts/IDs/aria-labels, source note IDs/pitches/rhythms, word window and SVG trace stay exact. Muted repeated word playback continues on the same G-sharp4 clock across style changes in both builds. Key+2/tempo72 changes the source instrument toB-flat4 while recording measurements remain fixed; restoredkey0/60BPM. Selecting OriginalDemo and back leaves word, pronunciation, trace and original times unchanged. Deuteronomy34:12word12 keeps יִשְׂרָאֵֽל׃ and explicitly labels244.800000–248.920813 as recording end/not a reviewed word offset (285/413 measured frames). Exodus1:1word1 refuses a window because source timings need review; chart/options clear and export disables. Portable embeds all378 exact packets and both audit JSONs; measured-frame selector advances to3.940s/127.5Hz/score.9293. Both distributions root/bodyfit319/1280. Reload preserves Baer/Gen1:1–5word2/Sephardic/key0/60BPM. All4gains0/stopped/repeatfalse/audio paused/viewportreset. Initial immediate-clock observation preceded the first tick; after220ms both clock checks pass. Initial full-aria comparison correctly differed in pronunciation labels; note IDs/pitches/beats/Hebrew prefixes are equal. Preview screenshot work/audits/ui-preview-0.33.jpg viewed; invariants work/audits/ui-preview-0.33.json. Native Save/download/direct-file-origin and independent acoustic/cantorial/linguistic review remain pending.",
+    "limits": "F0 measurement/provenance checks are not musical, acoustic or phonological approval. No new full melody grammar, singing voice or historical pronunciation preset."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.32.0",
+    "version": "0.33.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "28d8e3ede7a59a2c26aee294c632a5ee624528d0",
-    "status": "published_app_and_public_UI_verified_final_record_publication_and_guarded_output_sync_follow",
-    "record": "docs/VERIFICATION-0.32.md",
-    "next": "Continue a full contextual Torah melody grammar from primary reciting-note, stress-placement and cadence evidence, using the new BaerNo939worked passage as52word/145note source test vectors. Inspect remaining Baer third-edition circa1894pp31–36/38–42, No938table/No939connections, and Cohen544–548; do not infer arbitrary prefix pitches or equate source section labels with Kinnor presets. Preserve source table alternatives, notational accidentals, unspecified fermata durations and all existing source data. Continue exact primary evidence for remaining142pronunciation word correspondences and six historical Kinnor phoneme/voice grammars; acquire reusable sung material with provenance and review before independent singing. All Hebrew/accents/canonical and occurrence IDs, two independent source text styles, original recordings and independent melody/range/key/tempo controls remain intact. Full documented roadmap active/incomplete; printing deferred."
+    "baseCommit": "ab165895d75aefe412f6567ee85c7a210927b8fe",
+    "status": "272_full_checks_and_muted_preview_passed_app_only_publication_pending",
+    "record": "docs/VERIFICATION-0.33.md",
+    "next": "Publish current app-only tree under current-main lease, verify Pages jobs and all changed public bytes, repeat public UI checks, update records and guarded copies; full objective stays active."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -556,5 +556,26 @@
     "correspondence": "docs/BAER-NOTE-CORRESPONDENCE.json",
     "sourceEventsSha256": "eb1b9dde2a3b78b917485d38b9720d4b8624191f3957ec3f57023e994e7571a6",
     "publicationCommit": "163c91b1cfb705493a49a19cede8cd30b9c88fb6"
+  },
+  "sourcePitchEvidence": {
+    "recordings": 378,
+    "sourceAudioBytes": 366232986,
+    "frames": 9155648,
+    "periodicFrames": 3588855,
+    "unassignedFrames": 5566793,
+    "gzipBytes": 23343366,
+    "implementationSha256": "740102a4e31a6c8a936ec87f24e4533e92bd681e700540944c7a8f68386899cd",
+    "manifestSha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf",
+    "sourceSampleAudit": {
+      "recordings": 378,
+      "sampleFrames": 3023,
+      "assigned": 1581,
+      "unassigned": 1442,
+      "status": "all original byte/SHA1 and repeated decoded PCM hashes and direct-difference samples agree"
+    },
+    "alignment": "unchanged source recording time/word bounds; no syllable timing, phonemes, notes, rests or grammar",
+    "review": "independent acoustic/cantorial review pending",
+    "presetAdded": false,
+    "rights": "CC-BY-SA-3.0 adaptation; original audio/timing attribution retained"
   }
 }

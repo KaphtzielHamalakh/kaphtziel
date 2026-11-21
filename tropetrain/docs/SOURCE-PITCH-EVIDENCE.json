@@ -1,0 +1,89 @@
+{
+  "schema": "tropetrain-source-pitch-evidence-v1",
+  "revision": 1,
+  "source": {
+    "name": "PocketTorah Audio Files",
+    "url": "https://archive.org/details/PockettorahAudioFiles",
+    "creator": "Not-a-Box Media Lab",
+    "projectCredits": [
+      "Russel Neiss",
+      "Rabbi Charlie Schwartz"
+    ],
+    "individualReader": null,
+    "audioLicense": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "timingLicense": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "adaptationLicense": "CC-BY-SA-3.0",
+    "sourceStyle": "Avery–Binder as described by source; no independent traditional classification"
+  },
+  "algorithm": {
+    "paper": "Alain de Cheveigné and Hideki Kawahara, YIN, JASA 111(4), 1917–1930 (2002)",
+    "doi": "10.1121/1.1458024",
+    "url": "https://www.ee.columbia.edu/~dpwe/papers/deChevK02-yin.pdf",
+    "implementation": "Original fixed-window difference, cumulative mean normalization, thresholded local minimum, raw-difference parabolic interpolation. No global-minimum fallback; no step6. Not the complete published YIN algorithm. No external algorithm code copied.",
+    "parameters": {
+      "sampleRate": 16000,
+      "hop": 160,
+      "frameLength": 1024,
+      "minHz": 65,
+      "maxHz": 600,
+      "threshold": 0.1,
+      "rmsMin": 0.002,
+      "frequencyUnitHz": 0.1,
+      "periodicityUnit": 0.0001,
+      "method": "fixed-window YIN-derived steps2–5; no global-minimum fallback or step6"
+    },
+    "implementationSha256": "740102a4e31a6c8a936ec87f24e4533e92bd681e700540944c7a8f68386899cd",
+    "scoreMeaning": "1 minus cumulative mean normalized difference at selected lag; not a probability of a correct musical note"
+  },
+  "inputAudit": {
+    "recordings": 378,
+    "alignedRecordings": 370,
+    "timingReviewRecordings": 8,
+    "originalAudioBytes": 366232986,
+    "referencePacketSha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9",
+    "checks": "Every original MP3 byte count and source SHA1 checked before decoding. Every decoded mono16bit16000HzWAV hash retained. No original MP3/PCM is altered or bundled by this import."
+  },
+  "totals": {
+    "frames": 9155648,
+    "periodicFrames": 3588855,
+    "unassignedFrames": 5566793,
+    "belowRmsFrames": 435447,
+    "bytes": 23343366
+  },
+  "units": {
+    "series": "[frameIndex,frequency in0.1Hz,periodicity score in0.0001]",
+    "time": "frameIndex ×0.01 original recording seconds",
+    "missing": "Unassigned; neither silence nor a musical rest is inferred"
+  },
+  "alignment": {
+    "kind": "Raw recording time intersected with unchanged original word-time intervals only for370 aligned takes; exact marked reader-word guard",
+    "syllableTimes": null,
+    "phonemes": null,
+    "musicalNotes": null,
+    "traditionalGrammar": null,
+    "independentVoice": null
+  },
+  "review": {
+    "acoustic": "pending",
+    "musical": "pending",
+    "algorithmComparison": {
+      "record": "SOURCE-PITCH-SAMPLE-AUDIT.json",
+      "sha256": "36a7fc6ffd054f713c95d493c3e19524507bbf7da3ac4d1ce2ce615e81952c64",
+      "recordings": 378,
+      "sampleFrames": 3023,
+      "assignedFrames": 1581,
+      "unassignedFrames": 1442,
+      "status": "all original source byte counts/SHA1, repeated decoded PCM SHA256 and deterministic direct-difference measurements agree",
+      "limits": "This checks numerical derivation from pinned original source audio, not pitch accuracy, note identities, syllable times, phonemes or cantorial/linguistic approval. Independent acoustic and musical review is pending."
+    },
+    "rights": "Original licensed audio and source timing attribution retained; measurements/adaptation CC BY-SA3.0"
+  },
+  "limits": [
+    "F0 can be wrong by an octave or follow recording noise/other harmonics; no correction is silently applied.",
+    "No note attacks, symbolic notes, rhythms, melodic grammar, syllable times or phonemes are inferred.",
+    "Many frames fail strict thresholds and remain unassigned. Gaps are not rests.",
+    "Eight takes have unreliable source word times; no word pitch window is assigned.",
+    "Selecting pronunciation text, instrumental melody, range, transposition or tempo does not alter source measurements or recording.",
+    "This dataset is not all cantillation systems or independently styled singing. Complete requested roadmap remains active."
+  ]
+}

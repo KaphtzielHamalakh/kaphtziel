@@ -31,6 +31,7 @@ import {mountPronunciationStudy} from './pronunciation-ui.js';
 import {NOTE_LINK_REASONS} from './pronunciation-note-links.js';
 import {appendReaderPronunciation} from './pronunciation-reader.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
+import {mountSourcePitch} from './source-pitch-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 let readerPronunciation=false;
@@ -67,7 +68,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null;
+let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -588,7 +589,7 @@ function render(){
   $('scope').querySelector('option[value="verse"]').textContent=passage.ranges.some(range=>range.divisionSource?.referenceMapping)?'End of UXLC verse record':'End of verse';
   $('practice-audio').value=state.practiceAudio;
   $('chant-practice').hidden=state.practiceAudio!=='recorded';
-  renderReader();renderSequence();renderChantPractice();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();
+  renderReader();renderSequence();renderChantPractice();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -804,6 +805,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
 pronunciationTools=mountPronunciationStudy({onChange:()=>{renderStaff();renderReaderPronunciation();}});
+sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
 $('reader-pronunciation').addEventListener('change',()=>{readerPronunciation=$('reader-pronunciation').checked;try{localStorage.setItem('tropetrain-reader-pronunciation-v1',JSON.stringify({enabled:readerPronunciation}));}catch{}renderReaderPronunciation();});
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
@@ -823,7 +825,7 @@ getReferenceLibrary().then(value=>{
   referenceLibrary=value;$('reference-portion').replaceChildren();
   for(const part of value.parts){const option=document.createElement('option');option.value=part.id;option.textContent=part.name;$('reference-portion').append(option);}
   $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${value.source.audit.timingReviewRecordings.length} complete-take only`;
-  $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();
+  $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();sourcePitchTools?.refresh();
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';

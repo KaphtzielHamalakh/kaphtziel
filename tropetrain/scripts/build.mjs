@@ -22,6 +22,7 @@ execFileSync('node',[path.join(root,'scripts/audit-pronunciation-underlay.mjs')]
 execFileSync('node',[path.join(root,'scripts/audit-joint-coverage.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-note-links.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-baer-note-links.mjs')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-source-pitches.mjs')],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -34,6 +35,10 @@ const repertoireEncoded=gzipSync(JSON.stringify({manifest:repertoireManifest,boo
 const underlayEncoded=(await readFile(path.join(root,'data/pronunciation/torah-underlay.json.gz'))).toString('base64');
 const pronunciationEncoded=(await readFile(path.join(root,'data/pronunciation/torah-display.json.gz'))).toString('base64');
 const referenceEncoded=(await readFile(path.join(root,'data/references/torah-library.json.gz'))).toString('base64');
+const pitchManifest=JSON.parse(await readFile(path.join(root,'data/pitch/manifest.json'),'utf8'));
+const pitchPackets=Object.fromEntries(await Promise.all(pitchManifest.records.map(async r=>[r.id,(await readFile(path.join(root,'data/pitch',r.file))).toString('base64')])));
+const pitchEvidence=await readFile(path.join(root,'docs/SOURCE-PITCH-EVIDENCE.json'),'utf8');
+const pitchSampleAudit=await readFile(path.join(root,'docs/SOURCE-PITCH-SAMPLE-AUDIT.json'),'utf8');
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
   name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-underlay-data\.js$/},()=>({loader:'js',contents:`
     const encoded=${JSON.stringify(underlayEncoded)};
@@ -115,7 +120,9 @@ const roadmap=await readFile(path.join(root,'docs/RESEARCH.md'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
 const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
- .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script>${script.replaceAll('</script','<\\/script')}</script>`)
+ .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script><script>${script.replaceAll('</script','<\\/script')}</script>`)
+ .replaceAll('href="./docs/SOURCE-PITCH-EVIDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(pitchEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/SOURCE-PITCH-SAMPLE-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(pitchSampleAudit).toString('base64')}"`)
  .replaceAll('href="./assets/OFL.txt"','href="#license-notices"').replaceAll('href="./assets/havarotjs-LICENSE.txt"','href="#license-notices"')
  .replaceAll('href="./assets/Bravura-OFL.txt"','href="#license-notices"')
  .replaceAll('href="./assets/ShlomoStam-OFL.txt"','href="#license-notices"').replaceAll('href="./assets/layout/tikkun-MIT.txt"','href="#license-notices"')
