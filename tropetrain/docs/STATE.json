@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "b64a19fdf6bd25ce75af2d57baa5af421f918f12",
-  "nextTask": "Continue full word-aligned independent chanting: source explicit reciting-note, stress, cadence and contextual choices from primary Cohen p540–548 and Baer pp30–42 or other reusable named traditions before generating new pitches for Torah words. The note-text bridge now preserves exact matching spans in both styles and refuses differing boundaries; keep the two opening Gen22 printed syllables unlinked from source vay until evidence supports a separate realization. Preserve all original Hebrew/accents, canonical/occurrence IDs, source packets, musical notes, tempos and timing records. Research source-backed phonological/phoneme/note/audio links and reusable sung voice material; six Kinnor grammars/voices, full contextual melody systems and all roadmap features remain active. Printing deferred.",
+  "nextTask": "Continue word-aligned independent chanting and pronunciation: preserve exact marked Hebrew, canonical/occurrence IDs and both independently sourced text styles. Resolve differing syllable boundaries only with source evidence, never by modifying Hebrew or duplicating a unit onto different score syllables. Source explicit reciting-note, stress and contextual rules before generating pitches for arbitrary Torah words. Baer’s Frankfurt third edition circa 1894 (not the 1877 edition cited by Cohen), pp.30–42, and Cohen’s remaining pp.544–548 are primary leads. Research reusable sung voice/phoneme material with clear rights. Six Kinnor grammars/voices, full contextual melody systems and the complete roadmap remain active; printing deferred.",
   "lastPassingTests": {
-    "automated": 236,
-    "newRegressionChecks": 9,
-    "ui": "Public v0.27→v0.28 retained Genesis8:20word7/Sephardic/OriginalDemo/60BPM/key0 and all four gains0; new score labels hab/bᵉ/he/ma match the unchanged Hebrew. Open printed verse study shows first-page10of12matched/two explicit Wa/ye versus vay refusals. Public Gen22:1word3 muted repeated instrumental Play follows B4/G4melisma while source text switches va→vo; all Hebrew, noteIDs and pitches stay exact, clock continues. Escape/Repeatfalse. Public standalone restores Gen22word3/Ashkenazic/Cohen/60/key0, five notes/four labels had/dᵉ/vo/rim; hide/re-enable text and muted Play/Escape pass. Both public distributions root/body fit319 and1280px; wide standalone checked in visible tab. Screenshot outputs/TropeTrain-v0.28-live.jpg includes actual pronunciation score labels and was viewed. Local additionally verifies source-shared consonant inspector, persisted display off/re-enable after reload, transpose+2/tempo72 preserving labels then60/key0, first-word standalone hi melisma/tie, and Gen14:17word9 exact kᵉ/dor. All four gains0/stopped/repeatfalse, viewportreset. Native download/Save/direct-file-origin and independent linguistic/cantorial/transcription/acoustic review pending.",
-    "limits": "Structural note/text correspondence only. Full-Torah counts apply to existing original-demo syllables; historical Gen22study50of52matched. Different divisions and source forms remain unlinked. No new musical system, phonemes, independent singing voice or acoustic syllable alignment."
+    "automated": 244,
+    "newRegressionChecks": 8,
+    "ui": "Normal and standalone preview retained Genesis 22:1 word 3, the bounded Cohen melody, 60 BPM, key 0 and all four gains at 0. New source A with the formerly selected Yetib mode produces an explicit blank selection and disabled Play; choosing Munaḥ → Etnaḥta gives seven components/attacks, three beats and three seconds. Muted repeated playback follows p.542 E4 to p.543 B4, announces the final D4 fermata and starts the next loop after three seconds. Escape/Stop and Repeat off pass. Both source image viewers show the correct crops at natural widths 879 and 650 and close with Escape. Source C retains G♯4/G♯4/G♯4/G♯4/A4 and the explicit/inherited accidental evidence. Find source combination returns 2,325 literal Munaḥ→Etnaḥta candidates without applying pitches to Bible words. Source D’s isolated Etnaḥta preserves its dotted final A4 and unspecified hold. Returning to an old row with an unsupported mode disables Play and hides the continuation. During muted source C playback, Ashkenazic→Sephardic changes the separate main score text vo→va while the marked Hebrew, main Cohen melody, pattern pitches and source-page clock remain intact. Standalone playback reaches the final A4 fermata, stops with Escape and opens the continuation image. Both distributions fit root/body at 319 and 1280 pixels. All four gains remain 0, repeat false, playback stopped and viewport reset. Native Save/download/direct-file-origin and independent linguistic, musical, transcription and acoustic review remain pending.",
+    "limits": "Two source pronunciation text styles and bounded untexted source figures only; no full traditional grammar, new singing voice, phoneme generation or acoustic syllable alignment."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -53,7 +53,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "six_printed_Torah_traditions_20_figures_95_components_six_rests_86_attacks_four_cells_withheld_full_contextual_systems_pending"
+      "status": "six_printed_Torah_traditions_32_figures_129_components_120_attacks_six_rests_six_unspecified_fermatas_four_cells_withheld_full_contextual_systems_pending"
     },
     {
       "id": "singing",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.28.0",
+    "version": "0.29.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "3bdd15f7db2069770b43bcfef84fa4cfa3536c19",
-    "status": "published_runtime_verified_records_prepared",
-    "record": "docs/VERIFICATION-0.28.md",
-    "next": "Continue full word-aligned independent chanting: source explicit reciting-note, stress, cadence and contextual choices from primary Cohen p540–548 and Baer pp30–42 or other reusable named traditions before generating new pitches for Torah words. The note-text bridge now preserves exact matching spans in both styles and refuses differing boundaries; keep the two opening Gen22 printed syllables unlinked from source vay until evidence supports a separate realization. Preserve all original Hebrew/accents, canonical/occurrence IDs, source packets, musical notes, tempos and timing records. Research source-backed phonological/phoneme/note/audio links and reusable sung voice material; six Kinnor grammars/voices, full contextual melody systems and all roadmap features remain active. Printing deferred."
+    "baseCommit": "0d862361bdc2cec29fddd767128822863aa39c4a",
+    "status": "244_checks_passed_local_browser_verified_ready_for_publication",
+    "record": "docs/VERIFICATION-0.29.md",
+    "next": "Continue word-aligned independent chanting and pronunciation: preserve exact marked Hebrew, canonical/occurrence IDs and both independently sourced text styles. Resolve differing syllable boundaries only with source evidence, never by modifying Hebrew or duplicating a unit onto different score syllables. Source explicit reciting-note, stress and contextual rules before generating pitches for arbitrary Torah words. Baer’s Frankfurt third edition circa 1894 (not the 1877 edition cited by Cohen), pp.30–42, and Cohen’s remaining pp.544–548 are primary leads. Research reusable sung voice/phoneme material with clear rights. Six Kinnor grammars/voices, full contextual melody systems and the complete roadmap remain active; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -229,20 +229,21 @@
     "id": "cohen-1902-munah-revia",
     "revision": 1,
     "record": "docs/PRINTED-PATTERNS.json",
-    "coverage": "Six ordinary Torah source traditions across 12 page-specific records; 20 checked untexted figures / 95 components including six rests / 86 attacks. Plain Munah/Revia legacy data unchanged; ten p541 Yetib/conditional Zaqef figures added. No full contextual system or pronunciation underlay.",
+    "coverage": "Six ordinary Torah source traditions across 18 page-specific records; 32 untexted figures / 129 printed components / 120 attacks / six rests / six unspecified fermatas. Four old unresolved cells remain withheld. No full contextual system or pronunciation underlay.",
     "review": "Manual two-scan notation/key/rhythm/rest/tie checks; four unresolved cells excluded. Independent musical/transcription review pending. Printed predecessor Zaqef subtype unspecified; qaton/gadol searches are lookup candidates only.",
     "catalogRecord": "docs/PRINTED-PATTERN-CATALOG.json",
-    "catalogRevision": 2,
-    "rows": 12,
-    "supportedFigures": 20,
-    "printedComponents": 95,
-    "soundingAttacks": 86,
+    "catalogRevision": 3,
+    "rows": 18,
+    "supportedFigures": 32,
+    "printedComponents": 129,
+    "soundingAttacks": 120,
     "unavailable": [
       "I.D Morocco Revia",
       "I.F Bagdad plain Munah",
       "p541 I.D Morocco Yetib",
       "p541 I.E Egypt & Syria conditional Zaqef"
-    ]
+    ],
+    "fermatas": 6
   },
   "scrollSource": {
     "record": "docs/SCROLL-SOURCES.json",
@@ -396,5 +397,10 @@
       "reason": "Printed Wa/ye versus source vay; source syllables and original printed note underlay unchanged."
     },
     "review": "Structural correspondence only; source text, stress, alternative columns/repeats and shared consonant references retained. Independent linguistic/musical/cantorial/acoustic review remains pending."
+  },
+  "baerSourceLead": {
+    "record": "docs/BAER-SOURCE-LEAD.json",
+    "edition": "Third expanded edition [1894], Frankfurt Kauffmann; not the 1877 edition cited by Cohen",
+    "status": "Seven primary page images inspected privately; no Baer media, notes, grammar or voice imported."
   }
 }

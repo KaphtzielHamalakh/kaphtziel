@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-printed-pattern-catalog-v1",
-  "revision": 2,
+  "revision": 3,
   "id": "cohen-1902-torah-columns",
   "source": {
     "title": "The Jewish Encyclopedia",
@@ -26,7 +26,9 @@
     "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
     "pages": [
       540,
-      541
+      541,
+      542,
+      543
     ]
   },
   "rows": [
@@ -2441,6 +2443,1432 @@
               "step": "G",
               "alter": 0,
               "octave": 4
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-A-etnahta-p542-543",
+      "label": "Ashkenazim, 1902 · Munaḥ–Etnaḥta · pp.542–543 row I.A",
+      "record": {
+        "id": "cohen-1902-I-A-etnahta-p542-543",
+        "revision": 1,
+        "name": "Ashkenazim, 1902 · Munaḥ–Etnaḥta · pp.542–543 row I.A",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 542,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 580,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg",
+          "image": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+          "imageSha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+          "imageDerivation": "Unretouched Poppler crop: one-basedPDF580/printed542,scale-to4000,x1770/y80,width879/height1390. Last Munaḥ note in each of six ordinary Torah rows; preceding Merka/Tipha are context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "Ordinary Pentateuch I.A; row order continues from printed540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0.",
+          "pages": [
+            542,
+            543
+          ],
+          "pdfPages": [
+            580,
+            581
+          ],
+          "independentPageImages": [
+            {
+              "page": 542,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg"
+            },
+            {
+              "page": 543,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HF3F543W.jpg"
+            }
+          ],
+          "continuationImage": {
+            "image": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+            "bytes": 267740,
+            "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+            "derivation": "Unretouched Poppler crop: one-basedPDF581/printed543,scale-to4000,x0/y80,width650/height1380. Munaḥ continuation and Etnaḥta endings in six ordinary Torah rows."
+          },
+          "caption": "The Munaḥ figure begins with the last note on p.542 and continues before Etnaḥta on p.543. Only these two figures are transcribed; other printed cells are context. The p.540 context retains source row labels and keys."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of the printed Munaḥ–Etnaḥta group across pages542–543. No arbitrary Bible-word/syllable/phoneme allocation, complete melodic system, voice or Kinnor equivalence.",
+        "timing": "Literal values regularized at the chosen quarter-note BPM. Each checked combined figure totals3quarter-note beats. Printed fermata hold length is unspecified and is not guessed; playback retains the written duration. No expressive or complete-bar performance claim.",
+        "reviewStatus": "Manual two-scan source/keys/rhythms/page-turn/fermata check; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "munah-before-etnahta": {
+            "target": "munah",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          },
+          "etnahta": {
+            "target": "etnahta",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          }
+        },
+        "matchingQuery": [
+          "munah",
+          "etnahta"
+        ],
+        "matchingQueries": {
+          "munah-before-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "munah-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-munah-before-etnahta-1",
+            "cell": "munah-before-etnahta",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 542,
+            "sourceLocation": "p.542, row I.A, munah-before-etnahta, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-munah-before-etnahta-2",
+            "cell": "munah-before-etnahta",
+            "midi": 71,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.A, munah-before-etnahta, component2",
+            "sourcePitch": {
+              "step": "B",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-etnahta-p542-543-munah-before-etnahta-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-munah-before-etnahta-3",
+            "cell": "munah-before-etnahta",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.A, munah-before-etnahta, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-etnahta-p542-543-munah-before-etnahta-slur",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-etnahta-1",
+            "cell": "etnahta",
+            "midi": 64,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.A, etnahta, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-etnahta-2",
+            "cell": "etnahta",
+            "midi": 64,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.A, etnahta, component2",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-etnahta-3",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.A, etnahta, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-etnahta-p542-543-etnahta-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-A-etnahta-p542-543-etnahta-4",
+            "cell": "etnahta",
+            "midi": 62,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.A, etnahta, component4",
+            "sourcePitch": {
+              "step": "D",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-A-etnahta-p542-543-etnahta-slur",
+              "phase": "stop"
+            },
+            "fermata": {
+              "shape": "normal",
+              "placement": "above",
+              "duration": "unspecified"
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-B-etnahta-p542-543",
+      "label": "Ashkenazim, 1518 (Cohen table label) · Munaḥ–Etnaḥta · pp.542–543 row I.B",
+      "record": {
+        "id": "cohen-1902-I-B-etnahta-p542-543",
+        "revision": 1,
+        "name": "Ashkenazim, 1518 (Cohen table label) · Munaḥ–Etnaḥta · pp.542–543 row I.B",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 542,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 580,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg",
+          "image": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+          "imageSha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+          "imageDerivation": "Unretouched Poppler crop: one-basedPDF580/printed542,scale-to4000,x1770/y80,width879/height1390. Last Munaḥ note in each of six ordinary Torah rows; preceding Merka/Tipha are context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "Ordinary Pentateuch I.B; row order continues from printed540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0.",
+          "pages": [
+            542,
+            543
+          ],
+          "pdfPages": [
+            580,
+            581
+          ],
+          "independentPageImages": [
+            {
+              "page": 542,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg"
+            },
+            {
+              "page": 543,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HF3F543W.jpg"
+            }
+          ],
+          "continuationImage": {
+            "image": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+            "bytes": 267740,
+            "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+            "derivation": "Unretouched Poppler crop: one-basedPDF581/printed543,scale-to4000,x0/y80,width650/height1380. Munaḥ continuation and Etnaḥta endings in six ordinary Torah rows."
+          },
+          "caption": "The Munaḥ figure begins with the last note on p.542 and continues before Etnaḥta on p.543. Only these two figures are transcribed; other printed cells are context. The p.540 context retains source row labels and keys."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of the printed Munaḥ–Etnaḥta group across pages542–543. No arbitrary Bible-word/syllable/phoneme allocation, complete melodic system, voice or Kinnor equivalence. The date1518 is Cohen’s1902 row label; the original1518 edition is not independently verified here.",
+        "timing": "Literal values regularized at the chosen quarter-note BPM. Each checked combined figure totals3quarter-note beats. Printed fermata hold length is unspecified and is not guessed; playback retains the written duration. No expressive or complete-bar performance claim.",
+        "reviewStatus": "Manual two-scan source/keys/rhythms/page-turn/fermata check; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "munah-before-etnahta": {
+            "target": "munah",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          },
+          "etnahta": {
+            "target": "etnahta",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          }
+        },
+        "matchingQuery": [
+          "munah",
+          "etnahta"
+        ],
+        "matchingQueries": {
+          "munah-before-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "munah-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-B-etnahta-p542-543-munah-before-etnahta-1",
+            "cell": "munah-before-etnahta",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 542,
+            "sourceLocation": "p.542, row I.B, munah-before-etnahta, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-etnahta-p542-543-munah-before-etnahta-2",
+            "cell": "munah-before-etnahta",
+            "midi": 64,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.B, munah-before-etnahta, component2",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-etnahta-p542-543-etnahta-1",
+            "cell": "etnahta",
+            "midi": 64,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.B, etnahta, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-etnahta-p542-543-etnahta-2",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.B, etnahta, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-etnahta-p542-543-etnahta-3",
+            "cell": "etnahta",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.B, etnahta, component3",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-B-etnahta-p542-543-etnahta-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-etnahta-p542-543-etnahta-4",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.B, etnahta, component4",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-B-etnahta-p542-543-etnahta-slur",
+              "phase": "stop"
+            },
+            "fermata": {
+              "shape": "normal",
+              "placement": "above",
+              "duration": "unspecified"
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-C-etnahta-p542-543",
+      "label": "Sephardim (Europe) · Munaḥ–Etnaḥta · pp.542–543 row I.C",
+      "record": {
+        "id": "cohen-1902-I-C-etnahta-p542-543",
+        "revision": 1,
+        "name": "Sephardim (Europe) · Munaḥ–Etnaḥta · pp.542–543 row I.C",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 542,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 580,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg",
+          "image": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+          "imageSha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+          "imageDerivation": "Unretouched Poppler crop: one-basedPDF580/printed542,scale-to4000,x1770/y80,width879/height1390. Last Munaḥ note in each of six ordinary Torah rows; preceding Merka/Tipha are context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "Ordinary Pentateuch I.C; row order continues from printed540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0.",
+          "pages": [
+            542,
+            543
+          ],
+          "pdfPages": [
+            580,
+            581
+          ],
+          "independentPageImages": [
+            {
+              "page": 542,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg"
+            },
+            {
+              "page": 543,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HF3F543W.jpg"
+            }
+          ],
+          "continuationImage": {
+            "image": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+            "bytes": 267740,
+            "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+            "derivation": "Unretouched Poppler crop: one-basedPDF581/printed543,scale-to4000,x0/y80,width650/height1380. Munaḥ continuation and Etnaḥta endings in six ordinary Torah rows."
+          },
+          "caption": "The Munaḥ figure begins with the last note on p.542 and continues before Etnaḥta on p.543. Only these two figures are transcribed; other printed cells are context. The p.540 context retains source row labels and keys."
+        },
+        "sourceKey": "Natural key signature. G-sharp at the end of p.542 carries to its following Munaḥ note in that bar; p.543 explicitly repeats G-sharp, retained for the following two Gs before the next barline.",
+        "scope": "Untexted literal instrumental study of the printed Munaḥ–Etnaḥta group across pages542–543. No arbitrary Bible-word/syllable/phoneme allocation, complete melodic system, voice or Kinnor equivalence.",
+        "timing": "Literal values regularized at the chosen quarter-note BPM. Each checked combined figure totals3quarter-note beats. Printed fermata hold length is unspecified and is not guessed; playback retains the written duration. No expressive or complete-bar performance claim.",
+        "reviewStatus": "Manual two-scan source/keys/rhythms/page-turn/fermata check; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "munah-before-etnahta": {
+            "target": "munah",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          },
+          "etnahta": {
+            "target": "etnahta",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          }
+        },
+        "matchingQuery": [
+          "munah",
+          "etnahta"
+        ],
+        "matchingQueries": {
+          "munah-before-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "munah-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-C-etnahta-p542-543-munah-before-etnahta-1",
+            "cell": "munah-before-etnahta",
+            "midi": 68,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 542,
+            "sourceLocation": "p.542, row I.C, munah-before-etnahta, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            },
+            "accidentalEvidence": "p.542 final Munaḥ repeats the preceding explicitly sharpened G before its closing barline; p.543 explicitly writes G-sharp on the Munaḥ continuation, retained by the following Gs in Etnaḥta."
+          },
+          {
+            "id": "cohen-1902-I-C-etnahta-p542-543-munah-before-etnahta-2",
+            "cell": "munah-before-etnahta",
+            "midi": 68,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.C, munah-before-etnahta, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            },
+            "accidentalEvidence": "p.542 final Munaḥ repeats the preceding explicitly sharpened G before its closing barline; p.543 explicitly writes G-sharp on the Munaḥ continuation, retained by the following Gs in Etnaḥta."
+          },
+          {
+            "id": "cohen-1902-I-C-etnahta-p542-543-etnahta-1",
+            "cell": "etnahta",
+            "midi": 68,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.C, etnahta, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            },
+            "accidentalEvidence": "p.542 final Munaḥ repeats the preceding explicitly sharpened G before its closing barline; p.543 explicitly writes G-sharp on the Munaḥ continuation, retained by the following Gs in Etnaḥta."
+          },
+          {
+            "id": "cohen-1902-I-C-etnahta-p542-543-etnahta-2",
+            "cell": "etnahta",
+            "midi": 68,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.C, etnahta, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 1,
+              "octave": 4
+            },
+            "accidentalEvidence": "p.542 final Munaḥ repeats the preceding explicitly sharpened G before its closing barline; p.543 explicitly writes G-sharp on the Munaḥ continuation, retained by the following Gs in Etnaḥta."
+          },
+          {
+            "id": "cohen-1902-I-C-etnahta-p542-543-etnahta-3",
+            "cell": "etnahta",
+            "midi": 69,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.C, etnahta, component3",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            },
+            "fermata": {
+              "shape": "normal",
+              "placement": "above",
+              "duration": "unspecified"
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-D-etnahta-p542-543",
+      "label": "Morocco · Munaḥ–Etnaḥta · pp.542–543 row I.D",
+      "record": {
+        "id": "cohen-1902-I-D-etnahta-p542-543",
+        "revision": 1,
+        "name": "Morocco · Munaḥ–Etnaḥta · pp.542–543 row I.D",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 542,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 580,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg",
+          "image": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+          "imageSha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+          "imageDerivation": "Unretouched Poppler crop: one-basedPDF580/printed542,scale-to4000,x1770/y80,width879/height1390. Last Munaḥ note in each of six ordinary Torah rows; preceding Merka/Tipha are context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "Ordinary Pentateuch I.D; row order continues from printed540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0.",
+          "pages": [
+            542,
+            543
+          ],
+          "pdfPages": [
+            580,
+            581
+          ],
+          "independentPageImages": [
+            {
+              "page": 542,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg"
+            },
+            {
+              "page": 543,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HF3F543W.jpg"
+            }
+          ],
+          "continuationImage": {
+            "image": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+            "bytes": 267740,
+            "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+            "derivation": "Unretouched Poppler crop: one-basedPDF581/printed543,scale-to4000,x0/y80,width650/height1380. Munaḥ continuation and Etnaḥta endings in six ordinary Torah rows."
+          },
+          "caption": "The Munaḥ figure begins with the last note on p.542 and continues before Etnaḥta on p.543. Only these two figures are transcribed; other printed cells are context. The p.540 context retains source row labels and keys."
+        },
+        "sourceKey": "No key-signature accidental",
+        "scope": "Untexted literal instrumental study of the printed Munaḥ–Etnaḥta group across pages542–543. No arbitrary Bible-word/syllable/phoneme allocation, complete melodic system, voice or Kinnor equivalence.",
+        "timing": "Literal values regularized at the chosen quarter-note BPM. Each checked combined figure totals3quarter-note beats. Printed fermata hold length is unspecified and is not guessed; playback retains the written duration. No expressive or complete-bar performance claim.",
+        "reviewStatus": "Manual two-scan source/keys/rhythms/page-turn/fermata check; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "munah-before-etnahta": {
+            "target": "munah",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          },
+          "etnahta": {
+            "target": "etnahta",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          }
+        },
+        "matchingQuery": [
+          "munah",
+          "etnahta"
+        ],
+        "matchingQueries": {
+          "munah-before-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "munah-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-D-etnahta-p542-543-munah-before-etnahta-1",
+            "cell": "munah-before-etnahta",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 542,
+            "sourceLocation": "p.542, row I.D, munah-before-etnahta, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-etnahta-p542-543-munah-before-etnahta-2",
+            "cell": "munah-before-etnahta",
+            "midi": 67,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.D, munah-before-etnahta, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-etnahta-p542-543-etnahta-1",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.D, etnahta, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-etnahta-p542-543-etnahta-2",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.D, etnahta, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-etnahta-p542-543-etnahta-3",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.D, etnahta, component3",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-D-etnahta-p542-543-etnahta-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-etnahta-p542-543-etnahta-4",
+            "cell": "etnahta",
+            "midi": 69,
+            "quarterBeats": 0.75,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.D, etnahta, component4",
+            "sourcePitch": {
+              "step": "A",
+              "alter": 0,
+              "octave": 4
+            },
+            "slur": {
+              "id": "cohen-1902-I-D-etnahta-p542-543-etnahta-slur",
+              "phase": "stop"
+            },
+            "fermata": {
+              "shape": "normal",
+              "placement": "above",
+              "duration": "unspecified"
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-E-etnahta-p542-543",
+      "label": "Egypt & Syria · Munaḥ–Etnaḥta · pp.542–543 row I.E",
+      "record": {
+        "id": "cohen-1902-I-E-etnahta-p542-543",
+        "revision": 1,
+        "name": "Egypt & Syria · Munaḥ–Etnaḥta · pp.542–543 row I.E",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 542,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 580,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg",
+          "image": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+          "imageSha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+          "imageDerivation": "Unretouched Poppler crop: one-basedPDF580/printed542,scale-to4000,x1770/y80,width879/height1390. Last Munaḥ note in each of six ordinary Torah rows; preceding Merka/Tipha are context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "Ordinary Pentateuch I.E; row order continues from printed540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0.",
+          "pages": [
+            542,
+            543
+          ],
+          "pdfPages": [
+            580,
+            581
+          ],
+          "independentPageImages": [
+            {
+              "page": 542,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg"
+            },
+            {
+              "page": 543,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HF3F543W.jpg"
+            }
+          ],
+          "continuationImage": {
+            "image": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+            "bytes": 267740,
+            "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+            "derivation": "Unretouched Poppler crop: one-basedPDF581/printed543,scale-to4000,x0/y80,width650/height1380. Munaḥ continuation and Etnaḥta endings in six ordinary Torah rows."
+          },
+          "caption": "The Munaḥ figure begins with the last note on p.542 and continues before Etnaḥta on p.543. Only these two figures are transcribed; other printed cells are context. The p.540 context retains source row labels and keys."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of the printed Munaḥ–Etnaḥta group across pages542–543. No arbitrary Bible-word/syllable/phoneme allocation, complete melodic system, voice or Kinnor equivalence.",
+        "timing": "Literal values regularized at the chosen quarter-note BPM. Each checked combined figure totals3quarter-note beats. Printed fermata hold length is unspecified and is not guessed; playback retains the written duration. No expressive or complete-bar performance claim.",
+        "reviewStatus": "Manual two-scan source/keys/rhythms/page-turn/fermata check; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "munah-before-etnahta": {
+            "target": "munah",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          },
+          "etnahta": {
+            "target": "etnahta",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          }
+        },
+        "matchingQuery": [
+          "munah",
+          "etnahta"
+        ],
+        "matchingQueries": {
+          "munah-before-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "munah-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-E-etnahta-p542-543-munah-before-etnahta-1",
+            "cell": "munah-before-etnahta",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 542,
+            "sourceLocation": "p.542, row I.E, munah-before-etnahta, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-etnahta-p542-543-munah-before-etnahta-2",
+            "cell": "munah-before-etnahta",
+            "midi": 64,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.E, munah-before-etnahta, component2",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-etnahta-p542-543-etnahta-1",
+            "cell": "etnahta",
+            "midi": 64,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.E, etnahta, component1",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-etnahta-p542-543-etnahta-2",
+            "cell": "etnahta",
+            "midi": 64,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.E, etnahta, component2",
+            "sourcePitch": {
+              "step": "E",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-etnahta-p542-543-etnahta-3",
+            "cell": "etnahta",
+            "midi": 66,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.E, etnahta, component3",
+            "sourcePitch": {
+              "step": "F",
+              "alter": 1,
+              "octave": 4
+            },
+            "fermata": {
+              "shape": "normal",
+              "placement": "above",
+              "duration": "unspecified"
+            }
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-F-etnahta-p542-543",
+      "label": "Bagdad · Munaḥ–Etnaḥta · pp.542–543 row I.F",
+      "record": {
+        "id": "cohen-1902-I-F-etnahta-p542-543",
+        "revision": 1,
+        "name": "Bagdad · Munaḥ–Etnaḥta · pp.542–543 row I.F",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 542,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 580,
+          "pdfPageConvention": "one-based Poppler page number",
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg",
+          "image": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+          "imageSha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+          "imageDerivation": "Unretouched Poppler crop: one-basedPDF580/printed542,scale-to4000,x1770/y80,width879/height1390. Last Munaḥ note in each of six ordinary Torah rows; preceding Merka/Tipha are context only.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "row": "Ordinary Pentateuch I.F; row order continues from printed540.",
+          "rights": "1902 source public domain; new literal transcription CC0-1.0.",
+          "pages": [
+            542,
+            543
+          ],
+          "pdfPages": [
+            580,
+            581
+          ],
+          "independentPageImages": [
+            {
+              "page": 542,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HE3E542X.jpg"
+            },
+            {
+              "page": 543,
+              "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HF3F543W.jpg"
+            }
+          ],
+          "continuationImage": {
+            "image": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+            "bytes": 267740,
+            "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+            "derivation": "Unretouched Poppler crop: one-basedPDF581/printed543,scale-to4000,x0/y80,width650/height1380. Munaḥ continuation and Etnaḥta endings in six ordinary Torah rows."
+          },
+          "caption": "The Munaḥ figure begins with the last note on p.542 and continues before Etnaḥta on p.543. Only these two figures are transcribed; other printed cells are context. The p.540 context retains source row labels and keys."
+        },
+        "sourceKey": "F-sharp",
+        "scope": "Untexted literal instrumental study of the printed Munaḥ–Etnaḥta group across pages542–543. No arbitrary Bible-word/syllable/phoneme allocation, complete melodic system, voice or Kinnor equivalence.",
+        "timing": "Literal values regularized at the chosen quarter-note BPM. Each checked combined figure totals3quarter-note beats. Printed fermata hold length is unspecified and is not guessed; playback retains the written duration. No expressive or complete-bar performance claim.",
+        "reviewStatus": "Manual two-scan source/keys/rhythms/page-turn/fermata check; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "conditions": {
+          "munah-before-etnahta": {
+            "target": "munah",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          },
+          "etnahta": {
+            "target": "etnahta",
+            "context": [
+              "munah",
+              "etnahta"
+            ],
+            "basis": "Adjacent names of the continued Munaḥ–Etnaḥta source group only; no generic cadence substitution or reciting-note rule inferred."
+          }
+        },
+        "matchingQuery": [
+          "munah",
+          "etnahta"
+        ],
+        "matchingQueries": {
+          "munah-before-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ],
+          "munah-etnahta": [
+            {
+              "label": "Munaḥ → Etnaḥta · printed adjacent context",
+              "ids": [
+                "munah",
+                "etnahta"
+              ]
+            }
+          ]
+        },
+        "notes": [
+          {
+            "id": "cohen-1902-I-F-etnahta-p542-543-munah-before-etnahta-1",
+            "cell": "munah-before-etnahta",
+            "midi": 66,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 542,
+            "sourceLocation": "p.542, row I.F, munah-before-etnahta, component1",
+            "sourcePitch": {
+              "step": "F",
+              "alter": 1,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-etnahta-p542-543-munah-before-etnahta-2",
+            "cell": "munah-before-etnahta",
+            "midi": 66,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.F, munah-before-etnahta, component2",
+            "sourcePitch": {
+              "step": "F",
+              "alter": 1,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-etnahta-p542-543-etnahta-1",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.F, etnahta, component1",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-etnahta-p542-543-etnahta-2",
+            "cell": "etnahta",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.F, etnahta, component2",
+            "sourcePitch": {
+              "step": "G",
+              "alter": 0,
+              "octave": 4
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-etnahta-p542-543-etnahta-3",
+            "cell": "etnahta",
+            "midi": 62,
+            "quarterBeats": 1,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourcePage": 543,
+            "sourceLocation": "p.543, row I.F, etnahta, component3",
+            "sourcePitch": {
+              "step": "D",
+              "alter": 0,
+              "octave": 4
+            },
+            "fermata": {
+              "shape": "normal",
+              "placement": "above",
+              "duration": "unspecified"
             }
           }
         ]

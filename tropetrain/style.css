@@ -83,3 +83,5 @@
 .score-pronunciation-controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:16px 0}.score-pronunciation-controls label{display:flex;align-items:center;gap:8px;font:14px system-ui,sans-serif}.score-pronunciation-controls button{max-width:100%}.staff-pronunciation{font:16px Georgia,serif;text-anchor:middle;fill:var(--ink)}.staff-pronunciation.source-stressed{font-weight:700;fill:var(--seal)}.staff-pronunciation.unlinked{font:11px system-ui,sans-serif;fill:var(--soft)}.score-pronunciation-limit{font-size:13px;line-height:1.6}#score-pronunciation-detail{min-height:1.8em;overflow-wrap:anywhere}
 
 #pattern-context-query-label[hidden]{display:none}
+
+.staff-fermata path{fill:none;stroke:currentColor;stroke-width:2}.staff-fermata circle{fill:currentColor}#pattern-continuation[hidden]{display:none}

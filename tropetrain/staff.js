@@ -34,6 +34,10 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     }
     for(let dot=0;dot<r.dots;dot++)svg+=`<circle class="dot" cx="${e.x+13+dot*5}" cy="${e.y%10===0?e.y-5:e.y}" r="1.7"/>`;
     if(r.actual!==r.normal&&!e.sourceTupletId)svg+=`<text class="rhythm-ratio" x="${e.x}" y="24">${r.actual}:${r.normal}</text>`;
+    if(e.sourceFermata){
+      if(e.sourceFermata.shape!=='normal'||e.sourceFermata.placement!=='above'||e.sourceFermata.duration!=='unspecified')throw Error('Unsupported printed fermata.');
+      svg+=`<g class="staff-fermata" role="img" aria-label="Printed fermata; hold length unspecified"><path d="M${e.x-11} 36 Q${e.x} 12 ${e.x+11} 36"/><circle cx="${e.x}" cy="31" r="2.2"/></g>`;
+    }
     if(e.sourceTupletPhase==='start'){
       const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');
       if(end)svg+=`<path class="tuplet-bracket" aria-label="Printed tuplet: ${r.actual} in the time of ${r.normal}" d="M${e.x-10} 34 v-5 H${end.x+10} v5"/><text class="rhythm-ratio" x="${(e.x+end.x)/2}" y="22">${r.actual}:${r.normal}</text>`;

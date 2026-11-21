@@ -1,7 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {PRINTED_PATTERN_CATALOG,availablePatternModes,printedPatternPlan,patternContextChoices,PATTERN_IMAGE_DATA} from '../printed-patterns.js';
 import {staffMarkup} from '../staff.js';import {eventPitchName,eventPitchSpelling} from '../score-data.js';import {validatePlan,soundingNotes} from '../synthesis.js';import {Player} from '../audio.js';import {createReadingModel,melodyProfiles} from '../music.js';import {passage} from '../passage.js';
-const read=f=>readFileSync(new URL('../'+f,import.meta.url)),rows=PRINTED_PATTERN_CATALOG.rows.slice(6),source=l=>rows.find(r=>r.id.includes('-I-'+l+'-'));
+const read=f=>readFileSync(new URL('../'+f,import.meta.url)),rows=PRINTED_PATTERN_CATALOG.rows.slice(6,12),source=l=>rows.find(r=>r.id.includes('-I-'+l+'-'));
 const plan=(l,mode='yetiv',opts={})=>printedPatternPlan(mode,{sourceId:source(l).id,tempo:60,...opts});
 test('the continued source keeps six labeled rows, ten checked figures and two exact unresolved cells',()=>{
  assert.equal(rows.length,6);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),45);assert.equal(rows.reduce((n,r)=>n+r.record.notes.filter(e=>e.kind==='rest').length,0),6);

@@ -1,0 +1,79 @@
+{
+  "schema": "tropetrain-musical-source-lead-v1",
+  "id": "baer-third-edition-1894-frankfurt",
+  "title": "Baal t'fillah oder Der practische Vorbeter",
+  "institution": "Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main",
+  "titleRecord": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+  "manifest": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/manifest",
+  "manifestSha256": "bb15fd18d776133a481c5388cd5a928ced6b226a79af8eb9e7b95b63b51c50f6",
+  "publication": {
+    "dateLabel": "[1894]",
+    "edition": "3., verm. und verb. Aufl.",
+    "publisher": "Kauffmann, Frankfurt a./M.",
+    "extent": "XL,358S.",
+    "distinction": "This is the expanded third edition, not the1877 edition cited in Cohen. Retained foreword datedSeptember1877 does not date this printing."
+  },
+  "metadataRights": "Institutional digitization policy identifies metadata asCC0-1.0.",
+  "digitizationPolicy": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+  "imageRightsStatus": "General institutional policy permits unrestricted use of public-domain digitizations, with stated exceptions; this IIIF manifest has no separate license/attribution field. No Baer page image is redistributed by this app increment. Original nineteenth-century musical print is a public-domain source; any later recording requires separate rights.",
+  "canvases": 403,
+  "pagesInspected": [
+    {
+      "label": "[3]",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853542",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853542",
+      "bytes": 10615,
+      "sha256": "39f875ec550ac2ffe5b553ea7a1d21f293b3cae3a7b9d97d94f1d95e20c01a3e",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    },
+    {
+      "label": "VII",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853549",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853549",
+      "bytes": 243916,
+      "sha256": "40f961e53b21a6638fbd768ae8631789f2100767343144f711bb6804f0b14f13",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    },
+    {
+      "label": "X",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853552",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853552",
+      "bytes": 66885,
+      "sha256": "34df675530061cbaaf5be6aac6430f330332ba67736405dcc7fc67c835095eb2",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    },
+    {
+      "label": "XIV",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853556",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853556",
+      "bytes": 443062,
+      "sha256": "d3bb5651085d27b0bd049bb5c63d6833bbf5e5dcd171b5745b63fae8d9d11d6e",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    },
+    {
+      "label": "30",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853614",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853614",
+      "bytes": 267509,
+      "sha256": "b5d7e372639f42de17fbb4f1309b66c4dbb251d074646cc7939bee61f2ce8d82",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    },
+    {
+      "label": "31",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853615",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853615",
+      "bytes": 329732,
+      "sha256": "311fb08a2136607e3398b30d3a920e5f580e7e33fdcb52d3779c79b33a270d87",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    },
+    {
+      "label": "32",
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853616",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853616",
+      "bytes": 332862,
+      "sha256": "c2536f18ab890e3fec85f92d27a7d422d7ff02b6ba6e18b20a1549a68c35f3e6",
+      "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+    }
+  ],
+  "finding": "Printed30 has an Intonation der Accente table: No105ordinaryTorah has three rows labeled1.W,2.W,3.W; additional rows concern Haftarah/penitentialTorah/Esther/Lamentations/Tochachah. These are source row labels, not verified Kinnor preset identities. Printed31continues contextual Munaḥ and Zaqef columns; printed32retrieved for continuation. Original source melodic grammar and independent review remain pending; no notes, phonemes or voice imported from Baer."
+}
