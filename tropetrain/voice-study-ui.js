@@ -1,0 +1,110 @@
+import {VOICE_STUDIES,voiceStudy,voiceRecording,voiceAudioRecord,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
+import {VoiceStudyPlayer} from './voice-study-player.js';
+import {ReferenceAudioStore} from './reference-audio-store.js';
+
+export function mountVoiceStudies({beforePlay,onOpenText}){
+  const $=id=>document.getElementById(id),key='tropetrain-voice-studies-v1';
+  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
+  const prefs=restoreVoicePreferences(saved);let record,study,runtimeRecord,loading=null,opening=false,request=0;
+  const media=$('voice-study-audio'),audioBase=$('voice-studies').dataset.audioBase||location.href;
+  const store=new ReferenceAudioStore({openingUrl:media.getAttribute('src')});
+  const persist=()=>{try{localStorage.setItem(key,JSON.stringify(prefs));}catch{}};
+  const time=n=>`${Math.floor(n/60)}:${Math.floor(n%60).toString().padStart(2,'0')}`;
+  const player=new VoiceStudyPlayer(media,{
+    onPosition:(position,cycle,mode)=>{
+      $('voice-study-position').textContent=`${prefs.repeat?`Loop ${cycle+1} · `:''}${time(position)} / ${time(player.end)}${mode==='muted'?' · muted clock, audio device unused':''}`;
+    },
+    onEnd:()=>{$('voice-study-status').textContent='Recording span finished. Reader word selection is unchanged.';},
+    onError:error=>{opening=false;$('voice-study-status').textContent=`Recording unavailable: ${error.message}`;readiness();}
+  });
+  function stop(){
+    const active=opening||player.running||player.starting||loading;
+    request++;loading?.abort();loading=null;opening=false;player.stop();$('voice-study-cancel').hidden=true;if(record)readiness();
+    if(active)$('voice-study-status').textContent='Recording stopped. Reader word selection is unchanged.';
+  }
+  function options(id,items,value){
+    $(id).replaceChildren();for(const item of items){const option=document.createElement('option');option.value=item.id;option.textContent=item.name;$(id).append(option);}
+    $(id).value=value;
+  }
+  async function readiness(){
+    const selected=record.id,current=++request;
+    try{
+      const available=await store.has(runtimeRecord);if(current!==request||record.id!==selected)return;
+      $('voice-study-play').disabled=!available;$('voice-study-load').disabled=available||!!loading;
+      $('voice-study-load').textContent=available?'Recording available':`Load recording · ${(record.audio.bytes/1048576).toFixed(1)} MB`;
+      $('voice-study-remove').disabled=!!runtimeRecord.audio.localFile||!available;
+      $('voice-study-storage').textContent=runtimeRecord.audio.localFile?'This original recording is included with the app.':available?
+        (store.saved.has(record.audio.sha1)?'Original checksum verified on playback; saved on this device.':'Original recording loaded for this session.'):
+        'Load this original when ready. Its checksum is verified before playback; device storage keeps it offline when available.';
+    }catch(error){$('voice-study-storage').textContent=error.message;}
+  }
+  function showSpan(){
+    const span=prefs.spans[record.id]??{start:0,end:null};
+    $('voice-study-start').value=span.start;$('voice-study-end').value=span.end??'';
+    for(const id of ['voice-study-start','voice-study-end'])$(id).max=record.audio.estimatedDurationSeconds.toFixed(3);
+    $('voice-study-position').textContent=`Source duration about ${time(record.audio.estimatedDurationSeconds)}. No word or syllable timing is assigned.`;
+  }
+  function render(){
+    stop();study=voiceStudy(prefs.studyId);record=voiceRecording(prefs.studyId,prefs.pronunciationId,prefs.deliveryId);runtimeRecord=voiceAudioRecord(record,audioBase);
+    const delivery=study.deliveries.find(d=>d.id===prefs.deliveryId);
+    $('voice-study-kind').textContent=delivery.kind==='spoken'?'Spoken pronunciation study · without melody':'Chanted reference · recorded voice';
+    $('voice-study-description').textContent=study.description;$('voice-study-limits').textContent=study.limits;
+    $('voice-study-coverage').textContent=study.coverageStatus;
+    $('voice-study-creator').textContent=`${record.performer} · ${record.year}`;
+    $('voice-study-source').href=record.sourceUrl;$('voice-study-source').textContent='Original performance source';
+    $('voice-study-book').href=study.sourceUrl;$('voice-study-book').textContent=study.sourceTitle;
+    $('voice-study-license').href=record.license.url;$('voice-study-license').textContent=record.license.id;
+    $('voice-study-hash').textContent=record.audio.sha256;
+    $('voice-study-open').disabled=!study.coverage;$('voice-study-open').textContent=study.coverage?'Open Genesis 1:1–13 text':'Table names · no Bible passage mapping';
+    $('voice-study-volume').value=prefs.volume;$('voice-study-volume-value').textContent=`${prefs.volume}%`;
+    $('voice-study-repeat').checked=prefs.repeat;player.setVolume(prefs.volume/100);
+    $('voice-study-status').textContent='Choose a span in seconds, then Play. The reader’s musical settings and Hebrew selection stay separate.';
+    showSpan();readiness();persist();
+  }
+  function readSpan(){
+    const start=$('voice-study-start').value===''?NaN:Number($('voice-study-start').value),end=$('voice-study-end').value===''?null:Number($('voice-study-end').value);
+    voiceSpan(start,end,record.audio.estimatedDurationSeconds);return {start,end};
+  }
+  function saveSpan(){
+    stop();try{prefs.spans[record.id]=readSpan();persist();$('voice-study-status').textContent='Seconds span kept. Press Play when ready.';}
+    catch(error){$('voice-study-status').textContent=error.message;}
+    readiness();
+  }
+  options('voice-study-choice',VOICE_STUDIES.studies,prefs.studyId);
+  const populate=()=>{const s=voiceStudy(prefs.studyId);options('voice-study-pronunciation',s.pronunciations,prefs.pronunciationId);options('voice-study-delivery',s.deliveries,prefs.deliveryId);};
+  populate();render();
+  $('voice-study-choice').addEventListener('change',()=>{
+    prefs.studyId=$('voice-study-choice').value;const s=voiceStudy(prefs.studyId);
+    prefs.pronunciationId=s.pronunciations[0].id;prefs.deliveryId=s.deliveries[0].id;populate();render();
+  });
+  for(const [id,field] of [['voice-study-pronunciation','pronunciationId'],['voice-study-delivery','deliveryId']])
+    $(id).addEventListener('change',()=>{prefs[field]=$(id).value;render();});
+  for(const id of ['voice-study-start','voice-study-end'])$(id).addEventListener('change',saveSpan);
+  $('voice-study-whole').addEventListener('click',()=>{prefs.spans[record.id]={start:0,end:null};render();});
+  $('voice-study-repeat').addEventListener('change',()=>{prefs.repeat=$('voice-study-repeat').checked;player.repeat=prefs.repeat;persist();});
+  $('voice-study-volume').addEventListener('input',()=>{prefs.volume=Number($('voice-study-volume').value);$('voice-study-volume-value').textContent=`${prefs.volume}%`;player.setVolume(prefs.volume/100);persist();});
+  $('voice-study-load').addEventListener('click',async()=>{
+    if(loading)return;const selected=runtimeRecord,job=new AbortController();loading=job;$('voice-study-load').disabled=true;$('voice-study-cancel').hidden=false;
+    $('voice-study-status').textContent='Loading and verifying the original source recording…';
+    try{await store.load(selected,{signal:job.signal});if(loading===job)$('voice-study-status').textContent='Original recording loaded and checksum verified. Press Play when ready.';}
+    catch(error){if(loading===job)$('voice-study-status').textContent=job.signal.aborted?'Recording load cancelled.':error.message;}
+    finally{if(loading===job){loading=null;$('voice-study-cancel').hidden=true;readiness();}}
+  });
+  $('voice-study-cancel').addEventListener('click',()=>{loading?.abort();});
+  $('voice-study-play').addEventListener('click',async()=>{
+    let span;try{span=readSpan();}catch(error){$('voice-study-status').textContent=error.message;return;}
+    beforePlay();const selected=runtimeRecord,current=++request;opening=true;
+    $('voice-study-status').textContent='Opening the selected recording span…';
+    try{
+      const url=await store.url(selected);if(current!==request)return;
+      const kind=study.deliveries.find(d=>d.id===prefs.deliveryId).kind;
+      $('voice-study-status').textContent=`${kind==='spoken'?'Spoken study, without melody':'Chanted source recording'} · original recorded pitch and timing${prefs.volume===0?' · muted at 0%':''}.`;
+      await player.play(url,{...span,repeat:prefs.repeat,expectedDuration:selected.audio.estimatedDurationSeconds});
+    }catch(error){if(current===request){stop();$('voice-study-status').textContent=error.message;readiness();}}
+    finally{if(current===request)opening=false;}
+  });
+  $('voice-study-stop').addEventListener('click',()=>{stop();$('voice-study-status').textContent='Recording stopped. Reader word selection is unchanged.';readiness();});
+  $('voice-study-remove').addEventListener('click',async()=>{const selected=runtimeRecord;stop();await store.remove(selected);$('voice-study-status').textContent='Saved copy removed. Load it again when needed.';readiness();});
+  $('voice-study-open').addEventListener('click',()=>{if(study.coverage)onOpenText(structuredClone(study.coverage));});
+  return {stop,get running(){return opening||player.running||player.starting;},get loading(){return !!loading;}};
+}

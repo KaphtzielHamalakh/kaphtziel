@@ -1,0 +1,8 @@
+Recorded melody and pronunciation studies
+Retrieved November20,2026.
+
+Alex Foreman, recorded material ©2020, CC BY4.0. Published with Geoffrey Khan, The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I. Cambridge, UK: Open Book Publishers,2020. https://doi.org/10.11647/OBP.0163 . Copyright page explicitly credits recorded material to Alex Foreman under CC BY. §I.5.4.1, printed p.614 links four Genesis1:1–13 performances. License: https://creativecommons.org/licenses/by/4.0/ .
+
+Gabriel Kretzmer Seed, Esther cantillation table, shared March3,2011 by the Open Siddur Project. https://opensiddur.org/?p=2622 . Post-specific CC BY-SA4.0: https://creativecommons.org/licenses/by-sa/4.0/ .
+
+All five MP3s are unchanged originals. No speaker, phoneme, word timing, pitch, pronunciation or musical review is attributed to the app. Optional user-selected seconds spans do not imply word/syllable alignment. No endorsement by the creators or publishers is implied. Full source URLs, exact bytes/SHA1/SHA256 and limits are in docs/VOICE-STUDIES.json.

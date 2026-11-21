@@ -371,3 +371,24 @@ Live v0.13→v0.16 retained Genesis22:1 word5/Cohen/60BPM/key0/both gains0. Isai
 Initialassetcheck stoppedonexpected.gitignore404; correctedassetinventory and91/91matched. No headless/nativeChrome/CDPworkaround orpositive-gain audio. Finalrecordpublication/outputsync/teardown thencontinueprint/sourcework; fullobjectiveactive/incomplete.
 
 Final live playback check: Restored Genesis22:1 word5/Cohen/60BPM/key0/mutes. Muted live playback naturally finished atword5; Stop left activeWords0 and both gains0. Viewport reset; published tab retained. Browser screenshot outputs/TropeTrain-v0.16-live.jpg. Final documentation-only records next; no runtime code changed after154full/35finaltargets.
+
+
+## 2026-11-20 · user reprioritization: melody and pronunciation
+
+User explicitly prioritizes cantillation melodies and pronunciation styles before printing, with continuing reusable-source research, tests and publication. Printing deferred in priority, entire roadmap retained. Active localHEADb8027a5 includes published0.16code263906ae/records3722c3a7;154checks and live byte/UI evidence retained. New primary leads: OpenSiddur Seed Esther zarqa recording and Lavery-Yisraeli7lessons (pagesclaimCCBYSA4), Commons EzraKatz Torah/haftarah examples (primarylicensechecking), Kantor2023classification (bookCCBYNC4; no text/audioimport), Khan2020Tiberianbook/audio (rights/coveragechecking). No newrealization/voice imported yet. Read-only originalarchives remainunchanged.
+
+
+## 2026-11-20 · v0.17 source melody/pronunciation implementation
+
+Retrieved Seed Esther original1,136,250bytes and four Foreman originals34,413,744bytes through primary linked URLs. All35,549,994bytes pinned unchanged bySHA1/SHA256. OpenSiddur post explicitlyCCBYSA4; Khan2020copyright page explicitly credits Foreman recorded materialCCBY, bookCCBY4. Printed614 identifies source reading/delivery cross-product. Direct publisher PDFs405, mirrorDNSfailure and page429 recorded; web primary text available, no bypass or visual-transcription claim. Lavery page containsYouTubeiframes, no media extracted; KantorNCbook researchonly. Sourcecatalog/notice includescredits/rights/noendorsement/reviewlimits.
+
+Implemented separate two-study/five-take panel, Tiberian pronunciation and delivery axes, original-only voice playback, user-selected seconds spans/repeat, independent volume/prefs, checked originals/devicecache, explicit Genesis textopening, zero-volume monotonic clock withoutmedia.play, mutually exclusive transports and hidden-tab stop. All source word/syllable/phoneme/note fields remainunallocated; mainmusic/syllables/Torah unchanged. Default studyvolume0, no speakeroutput. Standalone embedsEsther and metadata/notice; optionalForeman loadsfrompublishedapp/cache.
+
+Initial11focusedchecks10pass/1notice-case assertion; correctedtest toverify fullnotice. Full first159checks158pass/1distributionprocessOOM: old first-audio regex matched newEsther instead of PocketTorah, makingNode attempt a giant binary assertiondiff. Stopped repeatdebugrun and bound assertion toreference-audio ID. Target18pass, full165/165pass/0fail/0skip. No runtimeaudio/text defect found there.
+
+NormalUI loaded/hash-verified allfourForeman files, decodedallfive sources, shortmutedspans passed. Sourcechoice/pro n/delivery retained independently; spokenbadge/DOIs correct. Repeat advancedloops, openingGen1:1–13 showed13verses/159words and stoppedvoice, mainoriginaldemo/84/key0/mute retained. Invalidstart/endrefused, reloadkeptsource/delivery/span/cache/0volume. Voiceaudio DOMpausedtrue/activewords0. Standalone initially404foroptionalunpublishedlivefile (expected sourceavailability); normalpackage loaded originals into shareddevicecache, then standalone restored them. Standaloneplay/responsive/visibility/stop/source-links and publication checks next. AllsixKinnor grammars/32Torah/othermelodies/singer/fullroadmap remain active; printing deferred.
+
+
+## 2026-11-20 · v0.17 local release gates
+
+Both HTTP builds verified through supported in-app AX client. Standalone cachedspoken playback completed; globalStop/Escape/maininstrument stopsource, sourceplay clearsinstrument highlights. Whole reset restores0/blankend withoutautoplay. Optionalcache remove disablesplay; explicitreload rechecksoriginal and restorescache. Expandednotices/hash/CC links present. Root/bodyfit320/390/1280 andstudyinputscontained; mobilebrowsercapture outputs/TropeTrain-v0.17-mobile.jpg. Finalnormalconsolewarn/errorsempty, allgains0, viewportreset. Hidden-tab actualtransition/file-origin/filedialogs/recovery/acoustic/expertreview stillpending. BrowserIDchanged2→5duringcontinuation; refreshedavailablelistandkeptsametabs, nobypass. Deploymentnext; fullobjectiveactive/incomplete.

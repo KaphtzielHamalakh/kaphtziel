@@ -1,0 +1,41 @@
+import {VOICE_STUDIES} from './voice-study-data.js';
+export {VOICE_STUDIES};
+
+export function voiceStudy(id){
+  const study=VOICE_STUDIES.studies.find(s=>s.id===id);
+  if(!study)throw Error('Choose an available source study.');
+  return study;
+}
+export function voiceRecording(studyId,pronunciationId,deliveryId){
+  const study=voiceStudy(studyId);
+  if(!study.pronunciations.some(p=>p.id===pronunciationId)||!study.deliveries.some(d=>d.id===deliveryId))
+    throw Error('This source does not provide that pronunciation and delivery.');
+  const recording=VOICE_STUDIES.recordings.find(r=>r.studyId===studyId&&r.pronunciationId===pronunciationId&&r.deliveryId===deliveryId);
+  if(!recording)throw Error('This source performance is unavailable.');
+  return recording;
+}
+export function voiceAudioRecord(recording,base){
+  return {...recording,title:`${voiceStudy(recording.studyId).name} · ${recording.deliveryId}`,audio:{...recording.audio,
+    url:new URL(recording.audio.file,base).href,localFile:recording.id==='seed-esther-2011'?recording.audio.filename:null}};
+}
+export function voiceSpan(start,end,duration){
+  if(!Number.isFinite(duration)||duration<=0||!Number.isFinite(start)||start<0||start>=duration)
+    throw Error('Choose a start time inside this recording.');
+  const last=end===null||end===''?duration:end;
+  if(!Number.isFinite(last)||last<=start||last>duration+.001)
+    throw Error('Choose an end time after the start and within this recording.');
+  return {start,end:Math.min(last,duration)};
+}
+export function restoreVoicePreferences(saved){
+  const defaults={studyId:'seed-esther',pronunciationId:'as-recorded',deliveryId:'esther-table',volume:0,repeat:false,spans:{}};
+  if(!saved||typeof saved!=='object')return defaults;
+  let record;try{record=voiceRecording(saved.studyId,saved.pronunciationId,saved.deliveryId);}catch{return defaults;}
+  const spans={};
+  for(const candidate of VOICE_STUDIES.recordings){
+    const span=saved.spans?.[candidate.id];if(!span)continue;
+    try{const checked=voiceSpan(span.start,span.end,candidate.audio.estimatedDurationSeconds);spans[candidate.id]={start:checked.start,end:span.end===null?null:checked.end};}catch{}
+  }
+  return {...defaults,studyId:record.studyId,pronunciationId:record.pronunciationId,deliveryId:record.deliveryId,
+    volume:Number.isInteger(saved.volume)&&saved.volume>=0&&saved.volume<=100?saved.volume:0,
+    repeat:typeof saved.repeat==='boolean'?saved.repeat:false,spans};
+}

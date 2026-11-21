@@ -4,11 +4,11 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "263906ae277108356b3936f21f65cc5d034ee592",
-  "nextTask": "Continue full-roadmap printing selected passages/sections and event-derived scores with preserved marked Hebrew/source IDs and musical settings. Browser-client normal UI testing now works. Retain pending file-dialog/recovery/acoustic/expert-review gates and continue primary musical/phonetic/singing evidence research. Do not claim the full app is complete.",
+  "nextTask": "Publish and verify v0.17 source studies. Then continue reusable melody/phonetic sources and reviewed bounded transcriptions before printing.",
   "lastPassingTests": {
-    "automated": 154,
-    "ui": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed. Live upgrade, newIsaiah/Ruth and source-state reload passed; sourceword5 playback naturally completed, stopped/muted.",
-    "limits": "File-origin, import/export dialogs (chooser stalled), legacy saved-practice recovery UI, acoustic and independent musical/phonetic/scribal review pending. No new traditional melody, pronunciation voice or singer."
+    "automated": 165,
+    "ui": "Both HTTP entry points; five source decodes and four explicit verified/cache loads; pronunciation/delivery independence; .25–1.25s repeat, invalid span refusal, whole-span reset, natural finish, Stop/Escape/mutually exclusive transports; text opening Genesis1:1–13 (13verses/159words), reload/cache remove/reload; expanded source notices; root/body fit320/390/1280. All gains0. Final local normal browser warnings/errors empty.",
+    "limits": "Fixed references only; no word/syllable/audio alignment, phoneme rules or independent acoustic/expert review. Actual hidden-tab transition, file origin and prior file-dialog/recovery UI gates pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -47,12 +47,12 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "evidence_needed"
+      "status": "six_Kinnor_grammars_pending_four_fixed_scholarly_Tiberian_comparisons_browser_tested"
     },
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "historical_catalog_fixed_torah_references_and_one_complete_printed_verse_transcription_full_contextual_systems_and_review_pending"
+      "status": "historical_catalog_Torah_references_bounded_printed_studies_Esther_table_and_two_fixed_Tiberian_melodic_takes_full_contextual_systems_pending"
     },
     {
       "id": "singing",
@@ -187,20 +187,15 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.16.0",
+    "version": "0.17.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "9ffa22bb9518db209ee13ae4a99e29a166d498bc",
-    "status": "published_live_verified",
-    "record": "docs/VERIFICATION-0.16.md",
-    "automatedTests": 154,
-    "tests": "All154 full checks pass/0fail/0skip; original Torah/additional-corpus event/text invariants pass. Eight primary response examples,100related choices/98checked/2partial refusals; all53 preferred-letter source groups match59 mapped UXLC records. Recovery raw-data/dedup/quota checks pass. No normal UI result inferred.",
-    "newFeatures": "Structured related text, full snapshots/source inspector, v3for new provenance, complete source-unit-preserving Megillah joining, explicit Torah coordinate maps and legacy/recovery guard.",
-    "limits": "No browser/deployment/acoustic or expert-review result, new traditional melody/pronunciation/singer, or full app completion.",
-    "next": "Continue full-roadmap printing selected passages/sections and event-derived scores with preserved marked Hebrew/source IDs and musical settings. Browser-client normal UI testing now works. Retain pending file-dialog/recovery/acoustic/expert-review gates and continue primary musical/phonetic/singing evidence research. Do not claim the full app is complete.",
-    "finalDocumentationChecks": "Final documentation-only build and35targeted distribution/source/calendar/date/recovery checks pass/0fail. Runtime JavaScript matches the browser-tested candidate byte-for-byte.",
-    "browserVerification": "Browser-client accessibility testing restored. Both HTTP entry points opened; 31-book selection, marked Hebrew/source alternatives, named/reordered/hidden cross-book sections, save/reload/recent recall, all five full sourced scrolls, ordered Hosea/Micah and Jonah/Micah, calendar variants, mapped Vaetchanan/Shavuot references, partial-verse refusal, Adar I/II invalid-day handling and Purim divisions passed. Tempo/key/mutes retained; muted demo and Cohen word completion/replay/Stop passed. Root/body fit320/390/1280; source scroll pane intentionally scrolls. 65pattern/365Zarqa regression passed. No captured warn/error. File chooser stalled; no import/export dialog success claimed.",
-    "deploymentCommit": "263906ae277108356b3936f21f65cc5d034ee592",
-    "liveVerification": "Live v0.13→v0.16 retained Genesis22:1 word5/Cohen/60BPM/key0/both gains0. Isaiah40:1–3 opened with Cohen explicitly unavailable. Bundled June6 fullRuth1:1–4:22 opened85verses/1295words and retained source identity after reload; Cohen remained selected/unavailable, no substitution. No captured browser warnings/errors. Restored Genesis22:1 word5/Cohen/60BPM/key0/mutes. Muted live playback naturally finished atword5; Stop left activeWords0 and both gains0. Viewport reset; published tab retained. Browser screenshot outputs/TropeTrain-v0.16-live.jpg."
+    "baseCommit": "b8027a5e4577de4d2ffe679fe70fabc541af0506",
+    "status": "local_release_gates_passed_unpublished",
+    "record": "docs/VERIFICATION-0.17.md",
+    "automatedTests": 165,
+    "newFeatures": "Five exact source recordings; independent source pronunciation/delivery selectors, seconds spans/repeat, dedicated volume, zero-volume clock, explicit checksum/device cache and source passage opening.",
+    "limits": "Fixed source performances only. No new Kinnor melody/Accent, singing synthesis, word/syllable timing, phoneme grammar or acoustic/expert review.",
+    "next": "Publish and verify v0.17 source studies. Then continue reusable melody/phonetic sources and reviewed bounded transcriptions before printing."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -292,5 +287,13 @@
       "Deuteronomy5"
     ],
     "review": "Explicit coordinate map; original marks/words/IDs retained; no upper/lower musical interpretation."
+  },
+  "voiceStudies": {
+    "record": "docs/VOICE-STUDIES.json",
+    "studies": 2,
+    "recordings": 5,
+    "bytes": 35549994,
+    "status": "exact_originals_local_browser_checked",
+    "review": "Primary rights/metadata/original bytes verified; independent acoustic/linguistic/musical review and word/syllable timing pending. No Kinnor preset equivalence."
   }
 }

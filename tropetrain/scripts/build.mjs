@@ -7,6 +7,7 @@ import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
 import './import-printed-patterns.mjs';
 import './import-calendar-examples.mjs';
+import './import-voice-studies.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
@@ -56,6 +57,9 @@ const layoutEvidence=await readFile(path.join(root,'docs/SCROLL-SOURCES.json'),'
 const layoutPack=await readFile(path.join(root,'assets/layout/tikkun-torah-sources.zip'));
 const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1.mp3'));
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
+const voiceStudyAudio=await readFile(path.join(root,'assets/voice-studies/esther-seed.mp3'));
+const voiceStudyNotice=await readFile(path.join(root,'assets/voice-studies/NOTICE.txt'),'utf8');
+const voiceStudyEvidence=await readFile(path.join(root,'docs/VOICE-STUDIES.json'),'utf8');
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
 const alternateScan=await readFile(path.join(root,'assets/scores/cohen-1902-alternate-score.png'));
 const printedEvidence=await readFile(path.join(root,'docs/PRINTED-SCORE.json'),'utf8');
@@ -81,6 +85,10 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/SCROLL-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(layoutEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/layout/tikkun-torah-sources.zip"',()=>`href="data:application/zip;base64,${layoutPack.toString('base64')}"`)
  .replace('src="./assets/references/Bereshit-1.mp3"',()=>`src="data:audio/mpeg;base64,${referenceAudio.toString('base64')}"`)
+ .replace('id="voice-studies"','id="voice-studies" data-audio-base="https://kaphtziel.com/tropetrain/"')
+ .replace('src="./assets/voice-studies/esther-seed.mp3"',()=>`src="data:audio/mpeg;base64,${voiceStudyAudio.toString('base64')}"`)
+ .replaceAll('href="./assets/voice-studies/NOTICE.txt"','href="#voice-study-notices"')
+ .replaceAll('href="./docs/VOICE-STUDIES.json"',()=>`href="data:application/json;base64,${Buffer.from(voiceStudyEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/references/NOTICE.txt"','href="#license-notices"')
  .replaceAll('src="./assets/scores/cohen-1902-genesis22.png"',()=>`src="data:image/png;base64,${printedScan.toString('base64')}"`)
  .replaceAll('href="./assets/scores/cohen-1902-genesis22.png"',()=>`href="data:image/png;base64,${printedScan.toString('base64')}"`)
@@ -100,6 +108,6 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/REPERTOIRE-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(repertoireEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/REPERTOIRE-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(repertoireAudit).toString('base64')}"`)
  .replaceAll('href="./docs/RESEARCH.md"','href="#standalone-roadmap"')
- .replace('<footer>',()=>`<details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
+ .replace('<footer>',()=>`<details id="voice-study-notices"><summary>Voice-study recording attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(voiceStudyNotice)}</pre></details><details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 await writeFile(path.join(root,'TropeTrain.html'),standalone);
 console.log('Built classic-script app.bundle.js and self-contained TropeTrain.html.');

@@ -23,6 +23,7 @@ import {mountPatternStudy} from './pattern-study-ui.js';
 import {getScrollLayout} from './scroll-layout.js';
 import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
 import {mountCalendar} from './calendar-ui.js';
+import {mountVoiceStudies} from './voice-study-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
@@ -55,7 +56,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let combinationTools=null,patternTools=null;
+let combinationTools=null,patternTools=null,voiceStudyTools=null;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 const referenceStore=new ReferenceAudioStore({openingUrl:$('reference-audio').getAttribute('src')});
@@ -101,12 +102,14 @@ function setActive(wordId,eventId){
   if(wordId!==activeId){activeId=wordId;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',marksWord(el,wordId)));}
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
-function stop(message='Stopped. Your selection is kept.',{preservePattern=false}={}){
+function stop(message='Stopped. Your selection is kept.',{preservePattern=false,preserveVoiceStudy=false}={}){
   if(!preservePattern)patternTools?.stop();
+  if(!preserveVoiceStudy)voiceStudyTools?.stop();
   referenceLoadJob?.abort();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped. Your selection is kept.';referencePlayer.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
 }
 async function play(){
   patternTools?.stop();
+  voiceStudyTools?.stop();
   referencePlayer.stop();$('reference-status').textContent='';$('wav-preview').pause();
   playingBounds=bounds(state.cursor,state.anchor,state.scope);if(!renderSequence()){stop($('musical-source-status').textContent);return;}
   $('status').setAttribute('aria-live','off');transportLabel(true);player.setVolume(state.volume/100);
@@ -422,7 +425,7 @@ $('prepare-wav').addEventListener('click',async()=>{
   finally{if(wavJob===job){wavJob=null;$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;}}
 });
 $('cancel-wav').addEventListener('click',()=>wavJob?.abort());
-$('wav-preview').addEventListener('play',()=>{patternTools?.stop();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped.';referencePlayer.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
+$('wav-preview').addEventListener('play',()=>{voiceStudyTools?.stop();patternTools?.stop();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped.';referencePlayer.stop();setActive(null,null);transportLabel(false);say('Playing the exported instrumental audio.');});
 $('reference-play').addEventListener('click',async()=>{
   if(!referencePlan||!referenceReady)return;const selected=referencePlan;stop('Listening to the recorded reference.');
   await referencePlayer.play(selected,state.repeat);
@@ -659,7 +662,7 @@ $('import-assignment').addEventListener('change',async e=>{
   }catch(error){$('library-message').textContent=error.message;}finally{e.target.value='';}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='F2'){if(e.key==='F2')e.preventDefault();stop();}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)patternTools?.stop();if(document.hidden&&(player.running||referencePlayer.running||referencePlayer.starting||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)patternTools?.stop();if(document.hidden&&(player.running||referencePlayer.running||referencePlayer.starting||voiceStudyTools?.running||voiceStudyTools?.loading||!$('wav-preview').paused))stop('Paused because this tab is hidden. Press Play to restart the span.');});
 if(matchMedia('(min-width: 761px)').matches)$('library-options').open=true;
 combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(hit,wholeTorah)=>{
   if(wholeTorah)libraryAction(()=>{
@@ -675,6 +678,8 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
+voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
+  onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
 mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});
 render();renderSections();renderPickers();showPracticeRecovery();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getRepertoireCorpus().then(value=>{

@@ -43,7 +43,7 @@ test('standalone HTML embeds runtime, source Hebrew, CSS and font',()=>{
 });
 test('standalone reference audio is losslessly embedded with source attribution and offline assets',()=>{
   const html=read('TropeTrain.html'),worker=read('sw.js');
-  const encoded=html.match(/src="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);
+  const encoded=html.match(/id="reference-audio" src="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);
   assert.ok(encoded);assert.deepEqual(Buffer.from(encoded[1],'base64'),readFileSync(new URL('../assets/references/Bereshit-1.mp3',import.meta.url)));
   assert.match(html,/Not-a-Box Media Lab/);assert.match(html,/CC BY-SA 3\.0/);assert.match(html,/755c6e9918ba2021bba8b33c46db309c115620d6/);
   assert.ok(!/src="\.\/assets\/references\//.test(html),'Standalone recording is embedded.');

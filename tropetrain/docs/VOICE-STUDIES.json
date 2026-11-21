@@ -1,0 +1,233 @@
+{
+  "format": "tropetrain-voice-studies-v1",
+  "revision": 1,
+  "retrieved": "2026-11-20",
+  "scope": "Five exact original source performances. Source pronunciation/delivery criteria are separate; no word-aligned or synthesized voice presets. Full Kinnor repertoire/pronunciation reconstruction remains pending.",
+  "studies": [
+    {
+      "id": "foreman-genesis",
+      "name": "Tiberian pronunciation · Genesis 1:1–13",
+      "sourceTitle": "Geoffrey Khan, The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I (2020), §I.5.4.1, pp. 614–618",
+      "sourceUrl": "https://doi.org/10.11647/OBP.0163",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 1,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 1,
+          "verse": 13
+        }
+      },
+      "coverageStatus": "Publication identifies passage. No source-edition comparison or word/syllable/audio alignment is supplied by this app. Opening the text displays unchanged UXLC.",
+      "pronunciations": [
+        {
+          "id": "forte-lene",
+          "name": "Dagesh forte–dagesh lene reading"
+        },
+        {
+          "id": "extended-forte",
+          "name": "Extended dagesh forte reading"
+        }
+      ],
+      "deliveries": [
+        {
+          "id": "sefardi-melody",
+          "name": "With Sefardi melody · source label",
+          "kind": "chanted"
+        },
+        {
+          "id": "spoken",
+          "name": "Without melody · spoken study",
+          "kind": "spoken"
+        }
+      ],
+      "description": "A scholarly reconstruction of Tiberian pronunciation, performed by Alex Foreman in two dagesh readings and with or without a source-labeled Sefardi melody. These are fixed performances, with their original pronunciation, pitch and timing.",
+      "limits": "This study is separate from the six historical Kinnor Accent labels and from a complete communal melody grammar. The recordings do not provide independently controllable singing synthesis.",
+      "rightsEvidence": {
+        "url": "https://books.openbookpublishers.com/10.11647/obp.0163.pdf",
+        "location": "Volume I copyright page; recorded material credited to Alex Foreman, CC BY; book CC BY 4.0.",
+        "resourceList": "https://books.openbookpublishers.com/10.11647/obp.0163.05.pdf",
+        "resourceListLocation": "§I.5.4.1, printed p. 614; four Genesis 1:1–13 audio DOIs.",
+        "retrieval": "Official pages/PDF text read through web tool. Direct PDF download returned405; publisher page direct curl returned429. No PDF bytes or visual transcription claimed."
+      }
+    },
+    {
+      "id": "seed-esther",
+      "name": "Esther cantillation table · Gabriel Kretzmer Seed",
+      "sourceTitle": "Ta’amei Hamiqra for Megillat Esther, Open Siddur Project (2011)",
+      "sourceUrl": "https://opensiddur.org/?p=2622",
+      "coverage": null,
+      "coverageStatus": "A zarqa/cantillation-name table; no Bible-word or syllable mapping is inferred.",
+      "pronunciations": [
+        {
+          "id": "as-recorded",
+          "name": "As recorded · pronunciation not separately identified"
+        }
+      ],
+      "deliveries": [
+        {
+          "id": "esther-table",
+          "name": "Esther chant table · Nusaḥ Ashkenaz",
+          "kind": "chanted"
+        }
+      ],
+      "description": "Gabriel Kretzmer Seed’s recorded Esther cantillation table. Open Siddur identifies the style as Nusaḥ Ashkenaz.",
+      "limits": "A recorded table is not a full Esther text reading, contextual melody grammar or Kinnor preset. No new note or syllable transcription is supplied.",
+      "rightsEvidence": {
+        "url": "https://opensiddur.org/readings-and-sourcetexts/cantillation/taamei-hamiqra-cantillation-for-megillat-esther/",
+        "pageSha256": "ac91386b6d9cdd29e8de908a751441daa11bd7b9844f1b9cf404b8b81e435858",
+        "license": "Post-specific Creative Commons Attribution-ShareAlike4.0 notice, with direct MP3/OGG links. Body also states free redistribution/remix under CC BY-SA.",
+        "retrieved": "2026-11-20"
+      }
+    }
+  ],
+  "recordings": [
+    {
+      "id": "seed-esther-2011",
+      "studyId": "seed-esther",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "esther-table",
+      "performer": "Gabriel Kretzmer Seed",
+      "year": 2011,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2011/03/Megillat-Esther-Trope.mp3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2011/03/Megillat-Esther-Trope.mp3",
+      "audio": {
+        "filename": "esther-seed.mp3",
+        "file": "assets/voice-studies/esther-seed.mp3",
+        "bytes": 1136250,
+        "sha1": "000d8904534ef3fa3760844ea82ff7a386273f39",
+        "sha256": "cac62358d81f509cadeeaf016da88cd8da1cc843f3fbe4400ace9b80c4e458a3",
+        "estimatedDurationSeconds": 70.844063,
+        "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds."
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "foreman-gen-lene-spoken",
+      "studyId": "foreman-genesis",
+      "pronunciationId": "forte-lene",
+      "deliveryId": "spoken",
+      "performer": "Alex Foreman",
+      "year": 2020,
+      "sourceUrl": "https://doi.org/10.11647/OBP.0163.06",
+      "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.06_Gen_1-13_forte_lene.mp3",
+      "audio": {
+        "filename": "foreman-gen-forte-lene-spoken.mp3",
+        "file": "assets/voice-studies/foreman-gen-forte-lene-spoken.mp3",
+        "bytes": 3295259,
+        "sha1": "dacdff7c41eb3996c9bae15d623d6157e17b552a",
+        "sha256": "de4732cf81c83a98329207f414eba384d7ea8bfdc778505ead37dcafb258a17c",
+        "estimatedDurationSeconds": 173.113469,
+        "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds."
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "foreman-gen-lene-melodic",
+      "studyId": "foreman-genesis",
+      "pronunciationId": "forte-lene",
+      "deliveryId": "sefardi-melody",
+      "performer": "Alex Foreman",
+      "year": 2020,
+      "sourceUrl": "https://doi.org/10.11647/OBP.0163.07",
+      "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.07_Gen_1-13_forte_lene_melodic.mp3",
+      "audio": {
+        "filename": "foreman-gen-forte-lene-melodic.mp3",
+        "file": "assets/voice-studies/foreman-gen-forte-lene-melodic.mp3",
+        "bytes": 11989494,
+        "sha1": "4575d3fbb6517611c1edfda815e94f4d6df3efd3",
+        "sha256": "1d9667de1cf1bf242028c1d403994ce1f3899869ccd515de6c98ae4600731475",
+        "estimatedDurationSeconds": 374.543687,
+        "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds."
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "foreman-gen-extended-spoken",
+      "studyId": "foreman-genesis",
+      "pronunciationId": "extended-forte",
+      "deliveryId": "spoken",
+      "performer": "Alex Foreman",
+      "year": 2020,
+      "sourceUrl": "https://doi.org/10.11647/OBP.0163.08",
+      "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.08_Gen_1-13_extended_dagesh_forte.mp3",
+      "audio": {
+        "filename": "foreman-gen-extended-spoken.mp3",
+        "file": "assets/voice-studies/foreman-gen-extended-spoken.mp3",
+        "bytes": 6425622,
+        "sha1": "95872a1dcd83b42feb32a353033a32264671eeee",
+        "sha256": "0246bdb75507b7518ed80de9cf7e7323f61e01a0bd060667081bc494a2e55f9c",
+        "estimatedDurationSeconds": 200.672687,
+        "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds."
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "foreman-gen-extended-melodic",
+      "studyId": "foreman-genesis",
+      "pronunciationId": "extended-forte",
+      "deliveryId": "sefardi-melody",
+      "performer": "Alex Foreman",
+      "year": 2020,
+      "sourceUrl": "https://doi.org/10.11647/OBP.0163.09",
+      "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.09_Gen_1-13_extended_dagesh_forte_melodic.mp3",
+      "audio": {
+        "filename": "foreman-gen-extended-melodic.mp3",
+        "file": "assets/voice-studies/foreman-gen-extended-melodic.mp3",
+        "bytes": 12703369,
+        "sha1": "eeccd4b39b053376130c58843dd32dd1a21e21ab",
+        "sha256": "d7ed2073b9b9dc09d5bee972f59dcc5d3266416506649730c544d03b78a5bfe5",
+        "estimatedDurationSeconds": 396.852281,
+        "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds."
+      },
+      "license": {
+        "id": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    }
+  ]
+}
