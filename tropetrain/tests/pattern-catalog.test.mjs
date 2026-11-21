@@ -12,7 +12,7 @@ const rows=PRINTED_PATTERN_CATALOG.rows,legacyRows=rows.slice(0,6),source=letter
 const plan=(letter,mode='pair',options={})=>printedPatternPlan(mode,{sourceId:source(letter),tempo:60,...options});
 
 test('legacy figures stay exact while the continued source adds ten checked figures without unresolved fallbacks',()=>{
- assert.equal(rows.length,12);assert.equal(legacyRows.reduce((n,r)=>n+r.record.notes.length,0),50);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),95);
+ assert.equal(rows.length,18);assert.equal(legacyRows.reduce((n,r)=>n+r.record.notes.length,0),50);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),129);
  assert.deepEqual(legacyRows.map(r=>availablePatternModes(r.id).map(m=>m.id)),[['pair','munah','revia'],['pair','munah','revia'],['pair','munah','revia'],['munah'],['pair','munah','revia'],['revia']]);
  assert.throws(()=>plan('D','revia'),/no checked transcription/);assert.throws(()=>plan('D','pair'),/no checked transcription/);
  assert.throws(()=>plan('F','munah'),/no checked transcription/);assert.throws(()=>patternSource('invented'),/checked printed source row/);
@@ -64,8 +64,8 @@ test('source choice, transposition, pace and range leave marked Hebrew, pronunci
  assert.equal(JSON.stringify(rows),records);assert.equal(JSON.stringify(model),before);
  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending']);
 });
-test('all five original source images and both source records are exact and portable in the standalone',()=>{
- const html=bytes('TropeTrain.html').toString();assert.equal(Object.keys(PATTERN_IMAGE_DATA).length,5);
+test('all seven source images and both source records are exact and portable in the standalone',()=>{
+ const html=bytes('TropeTrain.html').toString();assert.equal(Object.keys(PATTERN_IMAGE_DATA).length,7);
  for(const [path,url] of Object.entries(PATTERN_IMAGE_DATA)){
   assert.ok(url.startsWith('data:image/png;base64,'));assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes(path));assert.ok(html.includes(url));
  }

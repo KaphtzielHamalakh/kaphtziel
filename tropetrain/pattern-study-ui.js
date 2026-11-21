@@ -1,4 +1,4 @@
-import {PRINTED_PATTERNS,PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA,patternSource,availablePatternModes,printedPatternPlan,patternEvidence,patternContextChoices} from './printed-patterns.js';
+import {PRINTED_PATTERNS,PRINTED_PATTERN_CATALOG,PATTERN_MODES,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA,patternSource,availablePatternModes,printedPatternPlan,patternEvidence,patternContextChoices} from './printed-patterns.js';
 import {Player} from './audio.js';
 import {staffMarkup} from './staff.js';
 import {beatLabel,eventPitchName} from './score-data.js';
@@ -14,14 +14,14 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     if(current){const hit=(current.querySelector('.staff-hit')??current).getBoundingClientRect(),box=container.getBoundingClientRect();if(hit.left<box.left||hit.right>box.right)container.scrollBy({left:hit.left-box.left-(container.clientWidth-hit.width)/2,behavior:'auto'});}
   };
   const player=new Player((event,cycle,_progress,index)=>{
-    setActive(event.id);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed component ${event.sourceComponentNumber??index+1} of ${event.sourceComponentCount??plan.length} · ${eventPitchName(event)}.`;
+    setActive(event.id);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed component ${event.sourceComponentNumber??index+1} of ${event.sourceComponentCount??plan.length}${event.sourcePage?' · p.'+event.sourcePage:''} · ${eventPitchName(event)}.${event.sourceFermata?' Printed fermata; playback uses the written duration.':''}`;
   },()=>{starting=false;setActive(null);$('pattern-status').setAttribute('aria-live','polite');$('pattern-status').textContent='Printed pattern finished. Bible-word selection is unchanged.';},(cycle,progress,index)=>{
     const previous=plan[index];let elapsed=progress*player.duration-(previous.startSeconds+previous.durationSeconds),rest;
     for(const candidate of previous.sourceRestsAfter??[]){if(elapsed<candidate.durationSeconds){rest=candidate;break;}elapsed-=candidate.durationSeconds;}
     setActive(rest?.id??null);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed rest${rest?` · component ${rest.sourceComponentNumber} · ${beatLabel(rest.beats)} quarter-note beats`:''}.`;
   },{onError:error=>{stop();$('pattern-status').textContent=`Pattern audio unavailable: ${error.message}`;}});
   function inspect(event){
-    selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`} · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''} No syllable or phoneme allocation is asserted.`;
+    selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`} · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''}${event.sourceFermata?' Printed fermata: the hold length is unspecified. Playback regularizes the written duration.':''}${event.sourceAccidentalEvidence?' '+event.sourceAccidentalEvidence:''} No syllable or phoneme allocation is asserted.`;
   }
   function stop(message='Printed pattern stopped.'){
     const wasRunning=player.running||starting;request++;starting=false;player.stop();setActive(null);$('pattern-status').setAttribute('aria-live','polite');
@@ -46,20 +46,24 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     $('pattern-settings').textContent=`Uses instrument controls above: ${state.tempo} BPM · transpose ${state.transpose>0?'+':''}${state.transpose} · instrument volume ${state.volume}%. Fixed recordings and the Bible reading’s musical source are separate.`;
     player.setVolume(state.volume/100);if(key===settingsKey)return;stop('Pattern settings changed. Press Play printed pattern to hear them.');settingsKey=key;populateContexts();
     $('pattern-selected-source').textContent=`${row.label}. ${record.sourceKey}`;
-    const cells=[...new Set(record.notes.map(n=>n.cell))].map(c=>({munah:'plain Munaḥ',revia:'Revia',yetiv:'Yetib','zakef-preceded':'Zaqef after Zaqef or Munaḥ'})[c]);
+    const cells=[...new Set(record.notes.map(n=>n.cell))].map(c=>PATTERN_MODES.find(m=>m.id===c)?.name??c);
     $('pattern-availability').textContent=`Transcribed: ${cells.join(' and ')}.${row.unavailable.length?' Awaiting notation evidence: '+row.unavailable.map(p=>({munah:'plain Munaḥ',revia:'Revia',yetiv:'Yetib','zakef-preceded':'conditional Zaqef'})[p.cell]).join(', ')+'.':''} ${record.conditions?.[mode]?.subtypeReview?' The source predecessor “Zaqef” has no subtype; subtype searches are lookup candidates.':''} Independent musical/transcription review is pending.`;
     const legacy=sourceId===PRINTED_PATTERNS.id;
-    $('pattern-source-caption').textContent=legacy?'Printed page 540, row I.A: plain Munaḥ and Revia. The separate context image retains its label and key.':record.source.page===541?`Printed page 541, ${row.label}. The context image retains the p.540 row labels and keys; the continuation keeps their order. Other figures remain context only.`:`Printed page 540, ${row.label}. The images retain the six ordinary Torah rows A–F and their printed keys. Other figures remain context only.`;
+    $('pattern-source-caption').textContent=record.source.caption?`${row.label}. ${record.source.caption}`:legacy?'Printed page 540, row I.A: plain Munaḥ and Revia. The separate context image retains its label and key.':record.source.page===541?`Printed page 541, ${row.label}. The context image retains the p.540 row labels and keys; the continuation keeps their order. Other figures remain context only.`:`Printed page 540, ${row.label}. The images retain the six ordinary Torah rows A–F and their printed keys. Other figures remain context only.`;
     for(const [imageId,linkId,path] of [['pattern-source-scan','pattern-source-link',record.source.image],['pattern-context-scan','pattern-context-link',record.source.contextImage.image]]){
       const value=PATTERN_IMAGE_DATA[path];if($(imageId).getAttribute('src')!==value)$(imageId).src=value;$(linkId).href=value;
       $(imageId).alt=`Cohen 1902 printed Torah pattern source: ${legacy?'row I.A':'six rows A–F; selected '+row.label}`;
     }
+    const continuation=record.source.continuationImage;
+    $('pattern-continuation').hidden=!continuation;
+    if(continuation){$('pattern-continuation-scan').src=PATTERN_IMAGE_DATA[continuation.image];$('pattern-continuation-link').href=PATTERN_IMAGE_DATA[continuation.image];}
+    else{$('pattern-continuation-scan').removeAttribute('src');$('pattern-continuation-link').removeAttribute('href');}
     $('pattern-record-link').href=PATTERN_RECORD_DATA[row.recordPath??'docs/PRINTED-PATTERN-CATALOG.json'];
     const supported=availablePatternModes(sourceId).some(m=>m.id===mode);
     $('pattern-play').disabled=!supported;$('pattern-download').disabled=!supported;
     if(!supported){plan=[];$('pattern-staff').replaceChildren();$('pattern-summary').textContent='Choose a supported printed column. Unresolved figures remain unavailable.';$('pattern-note-detail').textContent='';$('pattern-status').textContent='Choose supported columns for this source row.';return;}
     plan=printedPatternPlan(mode,{...state,sourceId});$('pattern-staff').innerHTML=staffMarkup(plan,[],0,plan.length,{untexted:true});
-    $('pattern-summary').textContent=`${plan[0].sourceComponentCount??plan.length} printed components · ${plan.reduce((n,e)=>n+(e.sourceRestsAfter?.length??0),0)} rests · ${soundingNotes(plan).length} sounding attacks · ${beatLabel(plan.at(-1).startBeat+plan.at(-1).beats)} quarter-note beats · ${(plan.at(-1).startSeconds+plan.at(-1).durationSeconds).toFixed(2)} seconds. Ties hold pitches; slurs keep distinct attacks.`;
+    $('pattern-summary').textContent=`${plan[0].sourceComponentCount??plan.length} printed components · ${plan.reduce((n,e)=>n+(e.sourceRestsAfter?.length??0),0)} rests · ${soundingNotes(plan).length} sounding attacks · ${beatLabel(plan.at(-1).startBeat+plan.at(-1).beats)} quarter-note beats · ${(plan.at(-1).startSeconds+plan.at(-1).durationSeconds).toFixed(2)} seconds.${plan.some(e=>e.sourceFermata)?' Printed fermata hold length is unspecified; playback uses the written duration.':''} Ties hold pitches; slurs keep distinct attacks.`;
     for(const el of $('pattern-staff').querySelectorAll('[data-event],[data-rest]')){
       const event=plan.find(e=>e.id===el.dataset.event)??plan.flatMap(e=>e.sourceRestsAfter??[]).find(r=>r.id===el.dataset.rest);el.addEventListener('click',()=>inspect(event));
       el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(event);}});
@@ -80,7 +84,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     }catch(error){if(current!==request)return;stop();$('pattern-status').textContent=`Pattern unavailable: ${error.message}`;}
   });
   const evidenceUrls=new Map(),viewer=$('pattern-source-viewer');
-  for(const [id,kind] of [['pattern-source-link','columns'],['pattern-context-link','context'],['pattern-record-link','record']])$(id).addEventListener('click',event=>{
+  for(const [id,kind] of [['pattern-source-link','columns'],['pattern-continuation-link','continuation'],['pattern-context-link','context'],['pattern-record-link','record']])$(id).addEventListener('click',event=>{
     event.preventDefault();const evidence=patternEvidence($('pattern-source').value,kind);
     $('pattern-viewer-title').textContent=kind==='record'?'Exact source record':'Full-resolution printed source';
     $('pattern-viewer-caption').textContent=patternSource($('pattern-source').value).label+' · '+evidence.name;
