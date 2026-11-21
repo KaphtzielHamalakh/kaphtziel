@@ -3,8 +3,8 @@
   "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "865e09047f5ad6ea07690a8417e8dab53340e063",
-  "nextTask": "Finish documentation rebuild, publish v0.18 and verify live AAC download/cache/decoded duration/muted play/Stop/reload; continue musical/phonetic sources before printing.",
+  "publishedCommit": "d3e62531af54245cb1ee1fc26a15f0d3e40c01ae",
+  "nextTask": "Continue musical/phonetic source reconstruction before printing: bounded Cohen Morocco rowI.D source comparison and Gaster/Jessurun Ruth1:1 edition/rights/transcription; seek complete contextual scores/annotated reusable recordings and six Accent phonetic evidence. Do not infer alignment or Kinnor identity from fixed tables.",
   "lastPassingTests": {
     "automated": 166,
     "ui": "Normal/standalone Bard original loaded/checksummed/cached, actualAACdecoded73.584036s/rate1, .25–1.25s mutedplay/naturalcompletion/8loops/Stop/Escape, savedsource/span/repeat0/cache restoration; previousv0.17 cachedForemanMP3 stillplayed; narrowrequest320 measured319documentfit; no capturedwarn/error; allgains0/viewportreset.",
@@ -52,7 +52,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "historical_catalog_Torah_references_bounded_printed_studies_Esther_table_and_two_fixed_Tiberian_melodic_takes_full_contextual_systems_pending"
+      "status": "historical_catalog_Torah_references_bounded_printed_studies_Western_Ashkenazi_Torah_and_Esther_tables_two_Tiberian_melodic_takes_full_contextual_systems_pending"
     },
     {
       "id": "singing",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "865e09047f5ad6ea07690a8417e8dab53340e063",
+    "commit": "d3e62531af54245cb1ee1fc26a15f0d3e40c01ae",
     "status": "success",
-    "workflowRun": 44859903006,
-    "liveAssets": "All29 changed public resources match64,080,830 tested bytes, including35,549,994 original recording bytes.",
-    "ui": "Live v0.16→v0.17 retained Genesis22:1 word5/Cohen/60BPM/key0 and all gains0. Included Esther muted span completed. Fresh normal Foreman forte/lene melodic11.4MB and standalone extended melodic12.1MB loads checksum-verified, cached, decoded and completed muted1s spans. Reload retained extended reading/Sefardi delivery and all original reader settings. Reset final study to forte/lene melodic, whole recording, repeatoff/volume0. No captured warnings/errors; no active word highlight, media paused. Published tab retained; screenshot outputs/TropeTrain-v0.17-live.jpg. No acoustic/expert review claimed.",
+    "workflowRun": 44861108282,
+    "liveAssets": "All20 changed public files match29,665,543 tested bytes, including unchanged1,234,202byteBardoriginal.",
+    "ui": "Live v0.17→v0.18 retained Genesis22:1 word5/Cohen/60BPM/key0 and Tiberian forte/lene/Sefardi study selection, all gains0. New Bard original loaded/checksummed/cached from normal live app, decoded73.584036s/rate1 and naturally finished a muted1s span. Removed cachedBard, then published standalone freshly loaded/checksummed/cached it and mutedplay completed. Reload preserved Bard/span and original reader settings. No captured browser warnings/errors. No acoustic review claimed; final playback stopped/volume0/whole-recording/repeatoff, viewportreset, publishedtabretained.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -190,11 +190,12 @@
     "version": "0.18.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "b13fcf2c0d68d3bd1154fbf573e0f8fac9516b7f",
-    "status": "local_UI_passed_unpublished",
+    "status": "published_live_verified",
     "record": "docs/VERIFICATION-0.18.md",
     "newFeatures": "Unchanged Isabel Bard Western Ashkenazi Torah table; explicit original AAC media type across download/cache; no new note or word allocations.",
-    "next": "Finish documentation rebuild, publish v0.18 and verify live AAC download/cache/decoded duration/muted play/Stop/reload; continue musical/phonetic sources before printing.",
-    "automatedTests": 166
+    "next": "Continue musical/phonetic source reconstruction before printing: bounded Cohen Morocco rowI.D source comparison and Gaster/Jessurun Ruth1:1 edition/rights/transcription; seek complete contextual scores/annotated reusable recordings and six Accent phonetic evidence. Do not infer alignment or Kinnor identity from fixed tables.",
+    "automatedTests": 166,
+    "finalDocumentationChecks": 27
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -292,7 +293,7 @@
     "studies": 3,
     "recordings": 6,
     "bytes": 36784196,
-    "status": "five_published_v17_six_local_v18_checked",
+    "status": "published_v18_six_originals_normal_and_standalone_browser_checked",
     "review": "Primary rights/metadata/original bytes verified; independent acoustic/linguistic/musical review and word/syllable timing pending. No Kinnor preset equivalence."
   },
   "musicalResearchNext": {
@@ -306,6 +307,6 @@
     "originalSha1": "a3d2723f845ab5a4118f3d9d83fa927a734ad839",
     "originalSha256": "6c27317e76d6f8f186f77ef7976d7c84bb113e1a5ffe91cffe0d9d07019ce268",
     "estimatedDurationSeconds": 73.536145,
-    "status": "Original imported unchanged as optional v0.18 reference, local browserAACchecked. No alignment/phoneme/note or Kinnor equivalence; acoustic/qualified review pending."
+    "status": "Published optional v0.18 exact original; normal/standalone freshload/cache/decodedAAC/mutedplay checked. No word/syllable/note/phoneme allocation or Kinnor equivalence; acoustic/qualified review pending."
   }
 }
