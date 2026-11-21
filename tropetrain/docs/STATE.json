@@ -3,12 +3,12 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "4ebe2f585008209ea22a53ea117295c61119ef26",
+  "publishedCommit": "163c91b1cfb705493a49a19cede8cd30b9c88fb6",
   "nextTask": "Continue a full contextual Torah melody grammar from primary reciting-note, stress-placement and cadence evidence, using the new BaerNo939worked passage as52word/145note source test vectors. Inspect remaining Baer third-edition circa1894pp31–36/38–42, No938table/No939connections, and Cohen544–548; do not infer arbitrary prefix pitches or equate source section labels with Kinnor presets. Preserve source table alternatives, notational accidentals, unspecified fermata durations and all existing source data. Continue exact primary evidence for remaining142pronunciation word correspondences and six historical Kinnor phoneme/voice grammars; acquire reusable sung material with provenance and review before independent singing. All Hebrew/accents/canonical and occurrence IDs, two independent source text styles, original recordings and independent melody/range/key/tempo controls remain intact. Full documented roadmap active/incomplete; printing deferred.",
   "lastPassingTests": {
     "automated": 264,
     "newRegressionChecks": 7,
-    "ui": "Normal preview: new Open Baer Genesis1:1–5study button selects all52words/145notes/147.25beats and the new bounded profile; normal passage picker opens Genesis1:6with Playdisabled and an explicit no-substitution message. Reopen/reload preserves Baer/style/reader text. During muted repeated Gen1:1word2playback, Sephardicba·ra→Ashkenazicbo·ro keeps the same active Hebrew word, note IDs/pitches/rhythms and running G-sharp4clock; all52original Hebrew button texts/IDs/aria-labels and all128visible event rows remain exact. Transpose+2/tempo72 changes both notes toB-flat4and durations0.417/0.833seconds without changing source pronunciation; restoredkey0/60BPM. Gen1:3word5shows1of3exact note-span links and both original wa/j’ components explicitly unlinked. Standalone repeats the muted Ashkenazic→Sephardicclock/style invariant and preserves source image/JSON and exact-span audit as embedded data. Both normal and standalone root/bodyfit319/1280; screenshotwork/audits/ui-preview-0.32.jpg shows actual new source section/image and was viewed. All four gains0/stopped/repeatfalse. NativeSave/download/direct-file-origin and independent cantorial/phonological/transcription/acoustic review remain pending.",
+    "ui": "Public v0.31→v0.32 retains Genesis13:3/Sephardic/OriginalDemo/60BPM/key0/reader text and all four gains0. Open Baer Genesis1:1–5study selects52markedwords/145notes/147.25beats. During muted repeated Gen1:1word2Play, Sephardicba·ra→Ashkenazicbo·ro keeps the active word, G-sharp4clock and exact note IDs/pitches/rhythms; all52Hebrew button texts/IDs/aria-labels and all128visible event rows are equal across styles. Public Gen1:3word5retains1of3exact note links, with both wa/j’ components explicitly unlinked. Public Genesis1:6Play is disabled with the no-substitution explanation. Public standalone embeds the originalNo939image, exact source JSON and pronunciation audit, and repeats the muted Ashkenazic→Sephardicclock/style invariant. Both public distributions root/bodyfit319/1280. Viewed screenshotoutputs/TropeTrain-v0.32-live.jpg shows all five source verses, actual pronunciation text and selected Baer instrument; invariantswork/audits/ui-live-0.32.json. Local additionally verifies transpose+2/tempo72independence and source/reload persistence. All four gains0/stopped/repeatfalse/audio elements paused/viewportreset; owned8767session56403stopped, user8765untouched. NativeSave/download/direct-file-origin and independent musical/linguistic/transcription/acoustic review remain pending.",
     "limits": "Source-backed bounded instrumental example and exact text-span links only. Full contextual Torah melody rules, six Kinnor pronunciation grammars/voices and independent singing remain incomplete."
   },
   "completionRequires": [
@@ -158,12 +158,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "4ebe2f585008209ea22a53ea117295c61119ef26",
+    "commit": "163c91b1cfb705493a49a19cede8cd30b9c88fb6",
     "status": "success",
-    "workflowRun": 44951491047,
+    "workflowRun": 44955497175,
     "url": "https://kaphtziel.com/tropetrain/",
-    "liveAssets": "48changed public files /50,432,084bytes match tested local1e820541d7f9af9429332d642fb3e2dd12ca6ce8 exactly; final four records follow separately.",
-    "ui": "Public v0.30→v0.31 retains Genesis22:1word3/Sephardic/Cohen/60 BPM/key0, reader text enabled and all four gains0. Open Genesis13:3readingword12 אֽ͏ָהֳלוֹ֙: both source qamats columns and Written/read source variant appear; cursor evidence identifies the explicit UXLC pair, with written אהלה and original marked preferred reading preserved. Explicit OriginalDemo/Endofword muted repeated Play plus Sephardic→Ashkenazic changes the second qamats form ’a→’o under the same active word, while all Hebrew text/marks/button IDs/aria-labels and note IDs/pitches/rhythms remain exactly equal; the A4 clock continues and all3notes remain unlinked. Escape/Repeatoff pass. Public Exodus22:4readingword8 אֶת־ has1of1note linked; readingword9 בְּעִיר֔וֹ has0of5linked, with source-only variant evidence. Public standalone restores Genesis13:3word12/Sephardic/OriginalDemo, retains embedded explicit evidence JSON and repeats the muted style/clock/refusal check. Both public distributions root/bodyfit319/1280; wide standalone checked in visible tab. Viewed screenshot outputs/TropeTrain-v0.31-live.jpg shows actual new variant columns; UI invariant snapshot work/audits/ui-live-0.31.json. Local additionally confirms Gen8:20words8/11 stay unassigned and Deut32:6first2words combined. All gains0/stopped/repeatfalse/audio elements paused/viewportreset. Native Save/download/direct-file-origin and independent linguistic/cantorial/transcription/acoustic review remain pending."
+    "liveAssets": "All30changedfiles/52,002,159bytes match tested local29d149fd8f49e01c45bd1de6f4ea403849b4aa85exactly. App tree7f042d29d8abe72d30c827267b45ad4c00ece657; root5452104714908f83b7694e6c025aeb869205387d. All Pages build/deploy/reportjobs successful. Final four records follow separately.",
+    "ui": "Public v0.31→v0.32 retains Genesis13:3/Sephardic/OriginalDemo/60BPM/key0/reader text and all four gains0. Open Baer Genesis1:1–5study selects52markedwords/145notes/147.25beats. During muted repeated Gen1:1word2Play, Sephardicba·ra→Ashkenazicbo·ro keeps the active word, G-sharp4clock and exact note IDs/pitches/rhythms; all52Hebrew button texts/IDs/aria-labels and all128visible event rows are equal across styles. Public Gen1:3word5retains1of3exact note links, with both wa/j’ components explicitly unlinked. Public Genesis1:6Play is disabled with the no-substitution explanation. Public standalone embeds the originalNo939image, exact source JSON and pronunciation audit, and repeats the muted Ashkenazic→Sephardicclock/style invariant. Both public distributions root/bodyfit319/1280. Viewed screenshotoutputs/TropeTrain-v0.32-live.jpg shows all five source verses, actual pronunciation text and selected Baer instrument; invariantswork/audits/ui-live-0.32.json. Local additionally verifies transpose+2/tempo72independence and source/reload persistence. All four gains0/stopped/repeatfalse/audio elements paused/viewportreset; owned8767session56403stopped, user8765untouched. NativeSave/download/direct-file-origin and independent musical/linguistic/transcription/acoustic review remain pending."
   },
   "corpusImport": {
     "books": 5,
@@ -191,9 +191,9 @@
     "version": "0.32.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "28d8e3ede7a59a2c26aee294c632a5ee624528d0",
-    "status": "local_full_checks_and_normal_standalone_UI_passed_ready_for_app_only_publication",
+    "status": "published_app_and_public_UI_verified_final_record_publication_and_guarded_output_sync_follow",
     "record": "docs/VERIFICATION-0.32.md",
-    "next": "Publish current tested app under current-main lease, await all Pages jobs, verify all changed live bytes and normal/standalone public UI, then save final records and guarded outputs. Full goal remains active; printing deferred."
+    "next": "Continue a full contextual Torah melody grammar from primary reciting-note, stress-placement and cadence evidence, using the new BaerNo939worked passage as52word/145note source test vectors. Inspect remaining Baer third-edition circa1894pp31–36/38–42, No938table/No939connections, and Cohen544–548; do not infer arbitrary prefix pitches or equate source section labels with Kinnor presets. Preserve source table alternatives, notational accidentals, unspecified fermata durations and all existing source data. Continue exact primary evidence for remaining142pronunciation word correspondences and six historical Kinnor phoneme/voice grammars; acquire reusable sung material with provenance and review before independent singing. All Hebrew/accents/canonical and occurrence IDs, two independent source text styles, original recordings and independent melody/range/key/tempo controls remain intact. Full documented roadmap active/incomplete; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -539,7 +539,7 @@
   },
   "baerWorkedExample": {
     "profile": "baer-1894-gen1-1-5",
-    "status": "local_full_checks_and_muted_normal_standalone_UI_passed_independent_musical_review_pending",
+    "status": "published_public_normal_standalone_UI_and264checks_passed_independent_musical_review_pending",
     "words": 52,
     "notes": 145,
     "soundingAttacks": 145,
@@ -554,6 +554,7 @@
     "scope": "Complete printed Genesis1:1–5 example, not a full Torah melodic grammar or a Kinnor preset. Independent review pending.",
     "record": "docs/BAER-GENESIS-SCORE.json",
     "correspondence": "docs/BAER-NOTE-CORRESPONDENCE.json",
-    "sourceEventsSha256": "eb1b9dde2a3b78b917485d38b9720d4b8624191f3957ec3f57023e994e7571a6"
+    "sourceEventsSha256": "eb1b9dde2a3b78b917485d38b9720d4b8624191f3957ec3f57023e994e7571a6",
+    "publicationCommit": "163c91b1cfb705493a49a19cede8cd30b9c88fb6"
   }
 }
