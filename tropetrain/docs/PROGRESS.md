@@ -409,3 +409,10 @@ Continue melody/pronunciation priority afterv0.17liveverified checkpoint. Added 
 ## 2026-11-20 · v0.18 release checks
 
 First166checks160pass/6distributionfail identified actualversionquerymismatch (?v=0.17.0 remained whilepackage0.18), preventingstandaloneinlining. Correctedindexlinks; full166/166pass/0skip. SourceMP3default+AACC MIME/cache tests pass. BrowserBardprimaryidentity/CC/nopassagemapping checked, originalexplicitload verified/saved, actualAAC73.584036s/rate1/ready4, .25–1.25mutedspan finished/repeated8loops/Stop, standalonecachedreload/play/Escape and priorv0.17cachedMP3decode regression pass. Narrow320request measured319root/body/viewport nooverflow, viewportreset; no browserwarn/errors/speakeroutput. MainHebrew/music/syllables unchanged. Finaldocs/build/publicationnext.
+
+
+## 2026-11-20 · v0.18 published and live checked
+
+Code d3e62531af54245cb1ee1fc26a15f0d3e40c01ae/Pages44861108282 successful;20publicfiles29,665,543bytes exactlymatch4fc0a994. Full166/166plus27finaltargets pass. Live v0.17→v0.18 retained Genesis22:1 word5/Cohen/60BPM/key0 and Tiberian forte/lene/Sefardi study selection, all gains0. New Bard original loaded/checksummed/cached from normal live app, decoded73.584036s/rate1 and naturally finished a muted1s span. Removed cachedBard, then published standalone freshly loaded/checksummed/cached it and mutedplay completed. Reload preserved Bard/span and original reader settings. No captured browser warnings/errors. No acoustic review claimed; final playback stopped/volume0/whole-recording/repeatoff, viewportreset, publishedtabretained.
+
+StableArchiveURL retainedincatalog; currenteffective storageredirect dn710005.ca.archive.org checked200, privatelyrecorded. No newaudio processing/wordallocation. Continue primarymusical/phonetic sources beforeprinting; full32Torah/othercatalogcontextualsystems/sixAccentgrammars/voices/singing andfullroadmap remain active/incomplete. Finalrecords/outputsync/ownedserverteardown follows; noruntimechange.

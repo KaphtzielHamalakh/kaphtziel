@@ -21,3 +21,14 @@ Acoustic/phonetic/musical expert review, independent word/syllable/note transcri
 ## Publication gate
 
 Publish only/tropetrain through connected GitHub with expected-main lease. Verify Pages build/deploy, every changed public asset and returning live v0.17state/newAACLoad/mutedplay/Stop/reload. Roll back to v0.17 main0a0e0a2ff2a4deca2bf5da56d1f735ee1ef8fd34 if startup, source checksums/decoding or existing playback fail; preserve personal practice/cache. Publication pending at this checkpoint. Full reconstruction remains active/incomplete; continue musical/phonetic sources before printing.
+
+
+## Published and live verified
+
+Codecommitd3e62531af54245cb1ee1fc26a15f0d3e40c01ae; Pages44861108282build/deploy/report successful. All20changed public files match29,665,543bytes of tested4fc0a994, root9a8d9433f8c7f73da3e38038bec2ce2dd9f15b47/appde979190e392dbaf9c643dfc0627415ffbd036eb. Full166checks plus27finaldistribution/store/source targets pass. Only/tropetrain changed.
+
+Live v0.17→v0.18 retained Genesis22:1 word5/Cohen/60BPM/key0 and Tiberian forte/lene/Sefardi study selection, all gains0. New Bard original loaded/checksummed/cached from normal live app, decoded73.584036s/rate1 and naturally finished a muted1s span. Removed cachedBard, then published standalone freshly loaded/checksummed/cached it and mutedplay completed. Reload preserved Bard/span and original reader settings. No captured browser warnings/errors. No acoustic review claimed; final playback stopped/volume0/whole-recording/repeatoff, viewportreset, publishedtabretained.
+
+The catalog retains the stable Archive original-download resource URL in both source fields; a separate HEAD check followed its current storage redirect to dn710005.ca.archive.org/0/items/taamei-ha-mikra-western-ashkenazi-trop-isabel-bard-2021/…m4a, HTTP200. This storage host may vary; it is not a separate recording or a newly decoded/re-encoded file. Private retrieval record preserves the effective URL.
+
+For independently controlled singing, replace null allocations only with permission-cleared word/syllable/phoneme/note/timing annotation tied to the unchanged Hebrew/source IDs and contextual practitioner review. Each named tradition needs complete accent/context rules and exact source/edition, not just a table label. Six historical Accent styles need reviewed phonetic rules and reusable corresponding voice material. All remaining roadmap items stay active; printing is lower priority than musical/phonetic work.

@@ -1,6 +1,6 @@
 # TropeTrain · reconstruction in progress
 
-Development increment **v0.18.0** adds Isabel Bard’s original Western Ashkenazi Torah table to the published source-study player, with explicit original AAC media support. All166 automated checks pass; release checks are recorded in [v0.18 verification](docs/VERIFICATION-0.18.md). The previous verified live release is v0.17. Full historical melody grammars, six Kinnor Accent realizations and synthesized singing remain pending.
+Published increment **v0.18.0** adds Isabel Bard’s original Western Ashkenazi Torah table to the published source-study player, with explicit original AAC media support. All166 automated checks pass; release checks are recorded in [v0.18 verification](docs/VERIFICATION-0.18.md). GitHub Pages deployment and all20 changed public assets are verified. Full historical melody grammars, six Kinnor Accent realizations and synthesized singing remain pending.
 
 Independent reconstruction of the teaching workflow of Kinnor’s desktop TropeTrainer. The candidate includes all five Torah books, 21 Prophets books and five Megillot for reading and original instrumental demonstration playback. Independent historical melody/phonetic profiles and synthesized singing remain pending. A separate licensed PocketTorah recording library covers all Torah portions. A bounded instrumental study transcribes all of printed Genesis 22:1 from a public-domain score; independent musical/underlay review remains pending.
 
