@@ -191,7 +191,7 @@
     "version": "0.25.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "63d36f45e6ea9a82867b2182f8dddfcccd023d5d",
-    "status": "published_v25_pages_livebytes_normal_standalone_verified_finalrecords_sync_pending",
+    "status": "published_v25_pages_livebytes_normal_standalone_verified",
     "record": "docs/VERIFICATION-0.25.md",
     "next": "Build a strict source-backed Hebrew-syllable underlay adapter after auditing the dependency closure of pinned PhoneticMAM analysis_reader/core/mb_cmn (GPL3 code/CC BY-SA4 public data). Inspect before executing, retain license/source provenance, compare derived syllables to exact published transcriptions, preserve original Hebrew/marks/IDs, and handle shared geminate consonants explicitly. Tentative IPA is not a reviewed dialect. In parallel transcribe remaining primary Cohen p540/p541–548 contextual melody evidence; p541 overview inspected, no new notes. Keep14combined/179unassigned pronunciation words and2,811chanttiming words unresolved. Six Kinnor pronunciation grammars/voices, complete contextual melodies, independent singing and full roadmap remain active; printing deferred.",
     "newFeatures": "88literal source repeats corrected with348referenced units, same-style provenance and original AST retained; old unit-word links unchanged. Public computation/underlay source researched."
