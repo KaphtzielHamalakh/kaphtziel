@@ -1,6 +1,6 @@
 # TropeTrain · reconstruction in progress
 
-Published increment **v0.18.0** adds Isabel Bard’s original Western Ashkenazi Torah table to the published source-study player, with explicit original AAC media support. All166 automated checks pass; release checks are recorded in [v0.18 verification](docs/VERIFICATION-0.18.md). GitHub Pages deployment and all20 changed public assets are verified. Full historical melody grammars, six Kinnor Accent realizations and synthesized singing remain pending.
+Development increment **v0.19.0** connects main Play to source word-timed chanting, with explicit audio loading, chant volume and a silent clock at0%. All172 automated checks pass. The audit counts77,174 source-timed Torah words and2,811 words in8takes still blocked for timing review. [v0.19 verification](docs/VERIFICATION-0.19.md) records browser/release checks; prior verified live version isv0.18. Full independent historical melody/pronunciation grammars and singing synthesis remain pending.
 
 Independent reconstruction of the teaching workflow of Kinnor’s desktop TropeTrainer. The candidate includes all five Torah books, 21 Prophets books and five Megillot for reading and original instrumental demonstration playback. Independent historical melody/phonetic profiles and synthesized singing remain pending. A separate licensed PocketTorah recording library covers all Torah portions. A bounded instrumental study transcribes all of printed Genesis 22:1 from a public-domain score; independent musical/underlay review remains pending.
 
@@ -19,7 +19,11 @@ npm ci
 npm run check
 ```
 
-Try **Genesis 1:1–3**. Click **בָּרָ֣א** (1:1, word 2), select **End of group**, then **Play**. It ends after **אֱלֹהִ֑ים** (word 3). Select **End of verse** to end after **הָאָֽרֶץ׃** (word 7).
+For recorded chanting, open **Genesis 1:1–3**, set **Listen with → Recorded chant · source word timings**, then **Load chant audio** if needed. Choose **End of word**, group, verse or a selected span; raise **Chant volume** yourself, then use the main **Play/Stop** or compact controls. The opening take is included. Repeat and visible Hebrew word highlighting follow the original source timings. At0% a silent clock advances without media.play; all original recordings retain their own pitch/pace/voice. Instrument melody, key, tempo and range remain separate. No recorded sound is substituted for the selected instrumental melody or a synthesized Accent style.
+
+Try a cross-file span from **Genesis2:3 word16 לַעֲשֽׂוֹת׃** through **2:4 word1 אֵ֣לֶּה**. Only the missing second recording loads. **Recording → Torah chanting coverage and timing gaps** shows all8blocked takes and opens their text without autoplay. Source times, exact text variants and acoustic-review limits remain visible; see [CHANT-COVERAGE.json](docs/CHANT-COVERAGE.json). Pronunciation-source research is in [PRONUNCIATION-SOURCES.json](docs/PRONUNCIATION-SOURCES.json); those annotations are not installed yet.
+
+For instrumental practice: Try **Genesis 1:1–3**. Click **בָּרָ֣א** (1:1, word 2), select **End of group**, then **Play**. It ends after **אֱלֹהִ֑ים** (word 3). Select **End of verse** to end after **הָאָֽרֶץ׃** (word 7).
 
 Open **Choose a passage or assignment** to select **Reading type** (Torah, Haftarah or Megillah), then any available book/chapter/verse range, including a range crossing chapters. **Add as section** builds an ordered reading across multiple ranges/books of the same reading type. Haftarah supports five sections, Megillah two. Choose Open passage to start another reading type. **Tutor assignments & sections** can save/load a named assignment, name/reorder, jump to or hide sections, and import/export the versioned JSON format (v2; legacy v1 Torah imports remain supported). Eight recent readings are remembered. Student tempo, transposition, volume and comfort range are independent of saved assignment settings.
 
@@ -120,7 +124,7 @@ Open **Written/read alternatives** for the current reader page. Try **Haftarah �
 
 **Tutor assignments & sections** shows the active reading type/count. Edit section names, move sections earlier/later, hide/show, remove or jump. Saved and recent readings keep type/boundaries; musical source/display preferences are separate from personal tempo, key, range and volumes. Full Hebrew-date navigation and its source evidence were integrated in v0.16.
 
-The combined v0.15 checkpoint passed135 checks. Those reading, standalone, reload/playback and responsive flows passed browser testing in v0.16; file-dialog/recovery and independent review gates remain pending. Current v0.18 passes166 full checks; see docs/VERIFICATION-0.18.md. The complete original feature inventory and musical/phonetic evidence requirements remain active.
+The combined v0.15 checkpoint passed135 checks. Those reading, standalone, reload/playback and responsive flows passed browser testing in v0.16; file-dialog/recovery and independent review gates remain pending. The v0.18 checkpoint passed166 full checks; current v0.19 verification is in docs/VERIFICATION-0.19.md. The complete original feature inventory and musical/phonetic evidence requirements remain active.
 
 
 ### Calendar-related text and source numbering (published v0.16)

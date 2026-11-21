@@ -53,14 +53,28 @@ export function splitReferenceSegments(selection){
   return segments;
 }
 export class RecordingPlayer {
-  constructor(media,{onWord=()=>{},onEnd=()=>{},onError=()=>{},onLoading=()=>{},onRecording=()=>{},resolveSource=null,frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
+  constructor(media,{onWord=()=>{},onEnd=()=>{},onError=()=>{},onLoading=()=>{},onRecording=()=>{},resolveSource=null,clock=()=>performance.now()/1000,frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
     this.media=media;this.onWord=onWord;this.onEnd=onEnd;this.onError=onError;this.onLoading=onLoading;this.onRecording=onRecording;this.resolveSource=resolveSource;this.frame=queueFrame;this.cancelFrame=cancelFrame;this.generation=0;this.running=false;this.starting=false;
-    media.addEventListener('ended',()=>{if(this.running&&media.currentTime>=this.currentSegment.end)this.advance();});
+    this.clock=clock;this.volume=Number.isFinite(media.volume)?media.volume:1;
+    media.addEventListener('ended',()=>{if(this.running&&this.mode==='audio'&&media.currentTime>=this.currentSegment.end)this.advance();});
     media.addEventListener('error',()=>{if(this.running){this.stop();onError(Error('The recording could not be decoded or loaded.'));}});
   }
   stop(){
     this.generation++;this.running=false;this.starting=false;this.pending?.abort();this.pending=null;
-    this.media.pause();this.cancelFrame(this.raf);this.onWord(null);
+    this.enabling=null;this.media.pause();this.cancelFrame(this.raf);this.onWord(null);
+  }
+  now(){return this.mode==='muted'?this.anchorPosition+Math.max(0,this.clock()-this.anchorClock):this.media.currentTime;}
+  async setVolume(value){
+    this.volume=Number.isFinite(value)?Math.min(1,Math.max(0,value)):0;this.media.volume=this.volume;
+    if(!this.running)return;
+    if(this.volume===0&&this.mode==='audio'){
+      this.anchorPosition=this.media.currentTime;this.anchorClock=this.clock();this.mode='muted';this.media.pause();
+    }else if(this.volume>0&&this.mode==='muted'&&!this.enabling){
+      const generation=this.generation,transition={generation};this.media.currentTime=this.now();this.mode='audio';this.enabling=transition;
+      try{await this.media.play();if(generation===this.generation&&this.running&&this.volume===0){this.anchorPosition=this.media.currentTime;this.anchorClock=this.clock();this.mode='muted';this.media.pause();}}
+      catch(error){if(generation===this.generation){this.stop();this.onError(error);}}
+      finally{if(this.enabling===transition)this.enabling=null;}
+    }
   }
   async play(selection,repeat=false){
     let segments;try{segments=splitReferenceSegments(selection);}catch(error){this.stop();this.onError(error);return;}
@@ -91,12 +105,13 @@ export class RecordingPlayer {
       if(this.media.readyState<1)await this.metadata(pending.signal);if(generation!==this.generation)return;
       const duration=this.media.duration,end=definition.end??duration;
       if(!Number.isFinite(duration)||definition.start<0||definition.start>=end||end>duration)throw Error('A reference boundary lies outside the decoded recording.');
-      this.currentSegment={...definition,end};this.media.currentTime=definition.start;this.onRecording(definition.recordingId);
-      this.starting=false;this.running=true;await this.media.play();if(generation!==this.generation||!this.running)return;
+      this.currentSegment={...definition,end};this.media.currentTime=definition.start;this.media.playbackRate=1;this.media.volume=this.volume;
+      this.mode=this.volume===0?'muted':'audio';this.anchorPosition=definition.start;this.anchorClock=this.clock();this.onRecording(definition.recordingId);
+      this.starting=false;this.running=true;if(this.mode==='audio')await this.media.play();if(generation!==this.generation||!this.running)return;
       const tick=()=>{
         if(generation!==this.generation||!this.running)return;
-        if(this.media.currentTime>=this.currentSegment.end){this.advance();return;}
-        this.onWord(referenceWordAt(this.currentSegment,this.media.currentTime));this.raf=this.frame(tick);
+        const time=this.now();if(time>=this.currentSegment.end){this.advance();return;}
+        this.onWord(referenceWordAt(this.currentSegment,time));this.raf=this.frame(tick);
       };tick();
     }catch(error){if(generation===this.generation){this.stop();if(error.name!=='AbortError')this.onError(error);}}
   }
@@ -104,6 +119,6 @@ export class RecordingPlayer {
     if(!this.running)return;
     this.cancelFrame(this.raf);this.media.pause();this.running=false;this.segmentIndex++;
     if(this.segmentIndex>=this.segments.length){if(this.repeat)this.segmentIndex=0;else{this.stop();this.onEnd();return;}}
-    this.startSegment(this.generation);
+    this.enabling=null;this.startSegment(++this.generation);
   }
 }
