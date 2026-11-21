@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "6cebb3b858315dce571fbb8557ed2c94986f4576",
-  "nextTask": "Continue the complete independently pronounced chanting objective. The remaining Baer31–36/38–42pages are inspected; contextual tables and worked examples do not yet define a full arbitrary-word grammar. Validate and review original PocketTorah source-time pitch evidence without treating F0 as notes, rests, a tradition, syllable timing or independently styled singing. Derive documented reciting/stress/cadence rules using primary Cohen544–548 and BaerNo938/939 examples, refusing arbitrary prefix pitches. Resolve remaining142pronunciation word correspondences from exact primary edition/variant evidence; preserve two combined words and2,059word-owned source forms/style without exact written ranges. Establish sourced six Kinnor phoneme grammars and reusable reviewed sung material before exposing additional pronunciation voices. Preserve all Hebrew/accents/canonical and occurrence IDs, two source text styles, original recordings, all existing source-score/demo events and independent melody/range/key/tempo. Entire feature inventory remains active/incomplete; printing deferred.",
+  "nextTask": "Continue the full independently pronounced chanting reconstruction. Use v0.34 source-category plans as the stable pronunciation representation:87 named categories, exact two-style text reconstruction, linked geminate halves and explicit source-only/shared cases. Source and verify the six Kinnor Accent phonological targets and contextual rules; the two PhoneticMAM projections differ only in qamats gadol/tav and are not those six grammars. No tentative IPA or unreviewed acoustic realization should become a playable preset. Obtain/research reusable reviewed singing material and exact syllable/phoneme audio alignment. Continue complete contextual melody grammars from primary Cohen544–548 and BaerNo105/938/939 reciting-note/stress/cadence evidence with literal worked examples; refuse arbitrary prefix pitches or extrapolation from raw F0. Preserve remaining142 pronunciation gaps, two combined words,2,059 word-owned forms/style without exact written ranges,2,811 timing-review words and all unknown source cells. All Hebrew/accents/canonical and occurrence IDs, source styles, recordings, source scores/demo events and independent melody/range/key/tempo remain unchanged. Full inventory active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 272,
+    "automated": 280,
     "newRegressionChecks": 8,
-    "ui": "Public v0.32→v0.33 retains Genesis1:1–5/word2/Sephardic/Baer/key0/60BPM and all4gains0. New word trace has23periodic/66frames over3.351900–4.014584seconds. Both public normal and65,835,348byte standalone pass Sephardic ba·ra→Ashkenazic bo·ro during muted repeated Play: same active gen-1-1-2/G-sharp4 clock, all52 original Hebrew texts/IDs/aria-labels, source note IDs/pitches/beats and exact trace/window. Public Exodus1:1 refuses a word trace and clears chart/options/export; Deut34:12word12 shows285/413frames and244.800000–248.920813 explicitly labeled recording-end/not reviewed word offset. Both public distributions root/bodyfit319/1280, with actual innerWidth checked on the selected tab. Both navigation observations timed out but the same tabs reached ready=true/version0.33.0 without restarting. Final screenshot outputs/TropeTrain-v0.33-live.jpg viewed and shows the actual new trace/marked בָּרָ֣א; work/audits/ui-live-0.33.json retains invariants. Both builds left Gen1:1–5word2/Sephardic/Baer/60BPM/key0/Endofword, all4gains0/stopped/repeatfalse/audio paused/viewportreset. Owned8767session19558stopped/exit0; user8765untouched. NativeSave/download/direct-file-origin and independent acoustic/cantorial/phonological review remain pending. Local additionally verifies key+2/tempo72, instrument-source independence, reload persistence and the measured-frame inspector3.940s/127.5Hz/periodicity.9293.",
-    "limits": "F0 measurement/provenance checks are not musical, acoustic or phonological approval. No new full melody grammar, singing voice or historical pronunciation preset."
+    "ui": "Preview v0.34 normal and standalone: Genesis1:1word2 בָּרָ֣א shows two Qamats gadol a/o rules and a silent alef. Sephardic ba·ra/Ashkenazic bo·ro changes the highlighted text column while all52 Hebrew button texts/IDs/aria-labels and source-note IDs/pitches/beats remain exact. Both builds continue the same muted repeated gen-1-1-2/G-sharp4 clock across the style switch. Genesis1:1word1 shows vocal sheva, silent alef/yod and tav t/s. Gen8:20word7 shows two linked shared bet halves without duplicating written letters; word8 remains unassigned and clears the rule table. Deut1:27word2 retains both qamats Hebrew alternatives and literal Ashkenazic repeat; QAMATS_Q o/o and QAMATS_G a/o remain distinct despite identical Ashkenazic o. Both builds root/body fit319/1280 with actual widths checked. Reload retains Gen1:1–5word2/Sephardic/Baer/key0/60BPM. Screenshot work/audits/ui-preview-0.34.jpg viewed; invariants work/audits/ui-preview-0.34.json. All4gains0/stopped/repeatfalse/audio paused/viewportreset. One stale AX word target was rejected after reader replacement; fresh AX state resolved it. NativeSave/download/direct-file-origin and independent phonological/cantorial/acoustic review remain pending.",
+    "limits": "Both existing source text projections and source categories only; no IPA, reviewed phoneme realization, segment/note timing, new voice or Kinnor equivalence."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_word_and_exact_syllable_span_links_preserved_30qere_source_forms_7exact_joined_prefixes_added_no_phoneme_or_acoustic_allocation"
+      "status": "source_categories_preserve_all_prior_word_syllable_stress_and_Hebrew_ranges_no_individual_segment_letter_phoneme_or_audio_allocation"
     },
     {
       "id": "playback",
@@ -48,7 +48,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_source_text_styles_79841_individual_word_owners_including30_explicit_written_read_variants_142unassigned_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_source_text_styles_79841_individual_owners_and_87_source_categories_142_unassigned_six_Kinnor_phoneme_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.33.0",
+    "version": "0.34.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "ab165895d75aefe412f6567ee85c7a210927b8fe",
-    "status": "published_code_Pages_all_jobs_success_public_bytes_and_muted_UI_verified_final_records_follow",
-    "record": "docs/VERIFICATION-0.33.md",
-    "next": "Continue the complete independently pronounced chanting objective. The remaining Baer31–36/38–42pages are inspected; contextual tables and worked examples do not yet define a full arbitrary-word grammar. Validate and review original PocketTorah source-time pitch evidence without treating F0 as notes, rests, a tradition, syllable timing or independently styled singing. Derive documented reciting/stress/cadence rules using primary Cohen544–548 and BaerNo938/939 examples, refusing arbitrary prefix pitches. Resolve remaining142pronunciation word correspondences from exact primary edition/variant evidence; preserve two combined words and2,059word-owned source forms/style without exact written ranges. Establish sourced six Kinnor phoneme grammars and reusable reviewed sung material before exposing additional pronunciation voices. Preserve all Hebrew/accents/canonical and occurrence IDs, two source text styles, original recordings, all existing source-score/demo events and independent melody/range/key/tempo. Entire feature inventory remains active/incomplete; printing deferred."
+    "baseCommit": "6d52d0b515d2b307986d99396795b596479b9c2f",
+    "status": "280_full_tests_and_muted_normal_standalone_preview_passed_publication_pending",
+    "record": "docs/VERIFICATION-0.34.md",
+    "next": "Publish the tested app-only tree under current-main lease, verify Pages/jobs/public bytes and normal/standalone UI, then save final records and guarded output copies. Keep full goal active."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -364,7 +364,9 @@
     "underlayAlignment": "docs/PRONUNCIATION-UNDERLAY-ALIGNMENT.json",
     "writtenRangeWords": 77782,
     "sourceOnlyUnitsPerStyle": 5878,
-    "writtenReadVariants": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json"
+    "writtenReadVariants": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json",
+    "sourceSegments": "docs/PRONUNCIATION-SEGMENTS.json",
+    "segmentAlignment": "docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json"
   },
   "jointCoverage": {
     "record": "docs/JOINT-CHANT-PRONUNCIATION.json",
@@ -577,5 +579,29 @@
     "review": "independent acoustic/cantorial review pending",
     "presetAdded": false,
     "rights": "CC-BY-SA-3.0 adaptation; original audio/timing attribution retained"
+  },
+  "pronunciationSegments": {
+    "sourceRecord": "docs/PRONUNCIATION-SEGMENTS.json",
+    "alignmentAudit": "docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json",
+    "packet": "data/pronunciation/torah-segments.json.gz",
+    "revision": 1,
+    "studyExportRevision": 5,
+    "categories": 87,
+    "sourceGroups": 68384,
+    "sourceAlternatives": 68598,
+    "sourceSyllables": 193872,
+    "sourceCategoryReferences": 517703,
+    "sourceSharedConsonantPairs": 18218,
+    "projectedUnitsBothStyles": 387096,
+    "projectedReferencesBothStyles": 1035406,
+    "sourceOnlyUnitsBothStyles": 11756,
+    "unownedUnitsBothStyles": 8,
+    "bytes": 566549,
+    "sha256": "c2c0e6e2cb65a5aca857fa9f306673c094564e732dbf7575672cb63bf7064df4",
+    "styleDifferences": [
+      "QAMATS_G",
+      "TAV_0DAG"
+    ],
+    "review": "Every existing study field reconstructs unchanged after removing the new annotations. Source computational categories/text only; independent phonological/cantorial review pending. IPA, acoustic phonemes, individual segment-letter ranges, note/audio times and voice remain unassigned. No additional playable preset."
   }
 }

@@ -19,6 +19,8 @@ execFileSync('node',[path.join(root,'scripts/audit-pronunciation-structure.mjs')
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-word-alignment.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-underlay.mjs')],{stdio:'inherit'});
+execFileSync('python3',[path.join(root,'scripts/build-pronunciation-segments.py')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-pronunciation-segments.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-joint-coverage.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-note-links.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-baer-note-links.mjs')],{stdio:'inherit'});
@@ -33,6 +35,7 @@ const repertoireManifest=JSON.parse(await readFile(path.join(root,'data/repertoi
 const repertoireBooks=await Promise.all(repertoireManifest.books.map(b=>readFile(path.join(root,'data/repertoire',b.file),'utf8').then(JSON.parse)));
 const repertoireEncoded=gzipSync(JSON.stringify({manifest:repertoireManifest,books:repertoireBooks}),{level:9}).toString('base64');
 const underlayEncoded=(await readFile(path.join(root,'data/pronunciation/torah-underlay.json.gz'))).toString('base64');
+const segmentsEncoded=(await readFile(path.join(root,'data/pronunciation/torah-segments.json.gz'))).toString('base64');
 const pronunciationEncoded=(await readFile(path.join(root,'data/pronunciation/torah-display.json.gz'))).toString('base64');
 const referenceEncoded=(await readFile(path.join(root,'data/references/torah-library.json.gz'))).toString('base64');
 const pitchManifest=JSON.parse(await readFile(path.join(root,'data/pitch/manifest.json'),'utf8'));
@@ -40,7 +43,13 @@ const pitchPackets=Object.fromEntries(await Promise.all(pitchManifest.records.ma
 const pitchEvidence=await readFile(path.join(root,'docs/SOURCE-PITCH-EVIDENCE.json'),'utf8');
 const pitchSampleAudit=await readFile(path.join(root,'docs/SOURCE-PITCH-SAMPLE-AUDIT.json'),'utf8');
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
-  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-underlay-data\.js$/},()=>({loader:'js',contents:`
+  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-segment-data\.js$/},()=>({loader:'js',contents:`
+    const segmentsEncoded=${JSON.stringify(segmentsEncoded)};
+    export async function loadPronunciationSegmentData(){
+      if(typeof DecompressionStream==='undefined')throw Error('Pronunciation source rules need a current browser with gzip support.');
+      const bytes=Uint8Array.from(atob(segmentsEncoded),c=>c.charCodeAt(0));
+      return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+    }`}));builder.onLoad({filter:/pronunciation-underlay-data\.js$/},()=>({loader:'js',contents:`
     const encoded=${JSON.stringify(underlayEncoded)};
     export async function loadPronunciationUnderlayData(){
       if(typeof DecompressionStream==='undefined')throw Error('Hebrew underlay needs a current browser with gzip support.');
@@ -91,6 +100,8 @@ const noteCorrespondenceEvidence=await readFile(path.join(root,'docs/PRONUNCIATI
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
 const voiceStudyAudio=await readFile(path.join(root,'assets/voice-studies/esther-seed.mp3'));
 const underlayEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-UNDERLAY.json'),'utf8');
+const segmentsEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-SEGMENTS.json'),'utf8');
+const segmentAlignmentEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json'),'utf8');
 const computationSources=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-computation-sources.zip'));
 const pronunciationNotice=await readFile(path.join(root,'assets/pronunciation/NOTICE.txt'),'utf8');
 const pronunciationEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-ALIGNMENT.json'),'utf8');
@@ -133,6 +144,8 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replace('src="./assets/voice-studies/esther-seed.mp3"',()=>`src="data:audio/mpeg;base64,${voiceStudyAudio.toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/NOTICE.txt"','href="#pronunciation-notices"')
  .replaceAll('href="./docs/PRONUNCIATION-UNDERLAY.json"',()=>`href="data:application/json;base64,${Buffer.from(underlayEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/PRONUNCIATION-SEGMENTS.json"',()=>`href="data:application/json;base64,${Buffer.from(segmentsEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json"',()=>`href="data:application/json;base64,${Buffer.from(segmentAlignmentEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/phonetic-mam-computation-sources.zip"',()=>`href="data:application/zip;base64,${computationSources.toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-ALIGNMENT.json"',()=>`href="data:application/json;base64,${Buffer.from(pronunciationEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-WRITTEN-VARIANTS.json"',()=>`href="data:application/json;base64,${Buffer.from(writtenVariantEvidence).toString('base64')}"`)

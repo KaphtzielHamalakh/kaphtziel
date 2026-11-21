@@ -4,6 +4,7 @@ import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.j
 import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
+import {renderPronunciationRules} from './pronunciation-segment-ui.js';
 export function mountPronunciationStudy({onChange=()=>{}}={}){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
@@ -93,7 +94,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   const coverage=PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
   $('pronunciation-reader-word').textContent=word?.sourceHebrew??'';
   $('pronunciation-rows').replaceChildren();$('pronunciation-source-rows').replaceChildren();$('pronunciation-json').textContent='';
-  $('pronunciation-units').replaceChildren();$('pronunciation-unit-scope').textContent='Choose a word with source correspondence.';$('pronunciation-export').disabled=true;study=null;
+  $('pronunciation-units').replaceChildren();$('pronunciation-unit-scope').textContent='Choose a word with source correspondence.';$('pronunciation-export').disabled=true;study=null;renderPronunciationRules($('pronunciation-rules-content'),null,style);
   if(error){$('pronunciation-status').textContent=error;return;}
   if(!library){$('pronunciation-status').textContent='Loading the local pronunciation source…';return;}
   if(!word){$('pronunciation-status').textContent='Choose a Hebrew word.';return;}
@@ -108,7 +109,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    $('pronunciation-rows').append(item);
    const source=document.createElement('div');source.className='pronunciation-row';columns(source,row.hebrew,true);$('pronunciation-source-rows').append(source);
   }
-  structure();$('pronunciation-export').disabled=false;
+  structure();renderPronunciationRules($('pronunciation-rules-content'),study,style);$('pronunciation-export').disabled=false;
   $('pronunciation-json').textContent=JSON.stringify({sourceCommit:library.sourceCommit,license:'CC-BY-SA-4.0',group},null,2);
  }
  $('pronunciation-export').addEventListener('click',()=>{
