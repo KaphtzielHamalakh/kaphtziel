@@ -24,6 +24,7 @@ import {getScrollLayout} from './scroll-layout.js';
 import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
 import {mountCalendar} from './calendar-ui.js';
 import {mountVoiceStudies} from './voice-study-ui.js';
+import {mountPronunciationStudy} from './pronunciation-ui.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
@@ -58,7 +59,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let combinationTools=null,patternTools=null,voiceStudyTools=null;
+let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 let chantPlan=null,chantReady=false,chantGeneration=0,chantPlayRequest=0,recordedPracticeRunning=false;
@@ -68,7 +69,7 @@ const referencePlayer=new RecordingPlayer($('reference-audio'),{
     referenceActiveId=word?.occurrenceId??null;
     if(word&&state.followPlayback){const page=Math.floor(words[word.wordIndex].verseIndex/VERSE_PAGE);if(page!==state.readerPage){state.readerPage=page;renderReader();}}
     document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',marksWord(el,referenceActiveId)));
-    if(word)renderRecordedWord(word);
+    if(word){renderRecordedWord(word);pronunciationTools?.showWord(words[word.wordIndex],{following:true});}else pronunciationTools?.showWord(words[state.cursor]);
     if(word&&recordedPracticeRunning){$('status').textContent=`Recorded chant · ${label(word.wordIndex)}${state.referenceVolume===0?' · muted clock':''}`;$('progress').style.width=`${100*(word.wordIndex-playingBounds[0]+1)/(playingBounds[1]-playingBounds[0]+1)}%`;}
   },
   onEnd:()=>{$('reference-status').textContent='Reference playback finished. Your selection is kept.';say('Recorded reference finished. Your selection is kept.');recordedPracticeRunning=false;transportLabel(false);},
@@ -93,9 +94,11 @@ const player=new Player((event,cycle,progress,index)=>{
     if(staffPage!==state.staffPage){state.staffPage=staffPage;renderStaff();}
   }
   setActive(event.wordId,event.id);
+  pronunciationTools?.showWord(words[event.wordIndex],{following:true});
   $('progress').style.width=`${progress*100}%`;
   $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Playing ${label(event.wordIndex)} · ${noteName(event.midi)}`;
 },()=>{
+  pronunciationTools?.showWord(words[state.cursor]);
   setActive(null,null);$('progress').style.width='100%';say(`Finished at ${label(playingBounds[1])}.`);transportLabel(false);
 },(cycle,progress)=>{
   setActive(null,null);$('progress').style.width=`${progress*100}%`;
@@ -107,7 +110,7 @@ function setActive(wordId,eventId){
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
 }
 function stop(message='Stopped. Your selection is kept.',{preservePattern=false,preserveVoiceStudy=false}={}){
-  recordedPracticeRunning=false;chantPlayRequest++;
+  recordedPracticeRunning=false;chantPlayRequest++;pronunciationTools?.showWord(words[state.cursor]);
   if(!preservePattern)patternTools?.stop();
   if(!preserveVoiceStudy)voiceStudyTools?.stop();
   referenceLoadJob?.abort();player.stop();if(referencePlayer.running||referencePlayer.starting)$('reference-status').textContent='Reference stopped. Your selection is kept.';referencePlayer.stop();$('wav-preview').pause();setActive(null,null);$('progress').style.width='0%';say(message);transportLabel(false);
@@ -237,6 +240,7 @@ function updateSelection(){
   const locations=isTorahReading(passage.ranges)?scrollLayout?.locations(w)??[]:[];
   $('source-layout-detail').textContent=locations.length?locations.map(({row,piece})=>`Layout column ${row.page}, line ${row.line}${piece.variant?' · written variant':''}${piece.status!=='exact'?` · ${piece.status}: layout ${piece.layoutSource}, UXLC written ${piece.written}`:''}`).join('; '):'';
   $('alignment-status').textContent=w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
+  pronunciationTools?.showWord(w);
   renderSourceSigns(w);
   renderReference();
 }
@@ -733,6 +737,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
+pronunciationTools=mountPronunciationStudy();
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
 mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});

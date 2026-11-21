@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "fda6d07737eba6d960d2c83670b68aaff9a79cbe",
-  "nextTask": "Build and independently audit explicit Phonetic MAM display-row ↔ UXLC word correspondence from the five pinned Torah files, retaining qere/marks/grouping/reading/namespace differences and original IDs. Then add source-labeled pronunciation study separately from melody and audio. No six-Kinnor equivalence or singing claim. Continue reusable melodic/voice evidence; printing deferred.",
+  "nextTask": "Finish v0.20 Phonetic MAM source-preserving join audit, normal UI/standalone testing and publish. Independent Sephardic/Ashkenazic source transcription selector; audio voices stay fixed. Continue melody/pronunciation evidence before printing.",
   "lastPassingTests": {
     "automated": 172,
     "ui": "Normal/standalone main recorded word/group/repeat/Stop/Escape, exact Hebrew source highlights, cross-fileGen2:3word16→2:4word1 naturalcompletion, explicitmissingaudio load/hash/cache, mode/span/Cohen84/key0/mutes reload, source-study exclusivity and320/1280fit pass; no capturedwarnings/errors. SourcegapExo1:1–17 blocksmainPlay.",
@@ -187,15 +187,17 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.19.0",
+    "version": "0.20.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "f6c30f840d53db3f6fc0baa1bcde5ee0c0ccba9e",
-    "status": "published_live_verified",
-    "record": "docs/VERIFICATION-0.19.md",
-    "automatedTests": 172,
-    "newFeatures": "Main Play routes explicitly to source word-timed chant; separate load/volume, zero-volume clock, exact per-book coverage and eight inspectable blocked timing gaps. No timestamp repairs or new musical/phonetic realization.",
-    "next": "Build and independently audit explicit Phonetic MAM display-row ↔ UXLC word correspondence from the five pinned Torah files, retaining qere/marks/grouping/reading/namespace differences and original IDs. Then add source-labeled pronunciation study separately from melody and audio. No six-Kinnor equivalence or singing claim. Continue reusable melodic/voice evidence; printing deferred.",
-    "finalDocumentationChecks": 28
+    "baseCommit": "1489c978bb68bd0a46625a41e17736338afb5145",
+    "status": "179_tests_and_local_normal_standalone_passed_publication_next",
+    "mappedWords": 77756,
+    "readerWords": 79985,
+    "unassignedWords": 2229,
+    "groups": 66578,
+    "record": "docs/PRONUNCIATION-ALIGNMENT.json",
+    "next": "Finish v0.20 Phonetic MAM source-preserving join audit, normal UI/standalone testing and publish. Independent Sephardic/Ashkenazic source transcription selector; audio voices stay fixed. Continue melody/pronunciation evidence before printing.",
+    "automatedTests": 179
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -324,6 +326,18 @@
     "license": "CC-BY-SA-4.0, path-specific data declaration; implementation GPL3 and third-party crops not imported.",
     "privateFiles": 8,
     "privateBytes": 15069451,
-    "status": "Five Torah data files plus README/license/data-rights verified against Git blobs. Public Ashkenazic/Sephardic display, no full source-quality/phoneme judgment layer. Perpetual qere, pointing, row/word and verse differences; explicit UXLC join needed before import. No runtime import or Kinnor-style equivalence."
+    "status": "v0.20 imported original data and conservative source-preserving correspondence. 77,756/79,985 words in66,578groups;2,229 unassigned; two independent source text styles, not new voices. Independent linguistic/mapping review pending."
+  },
+  "pronunciationSource": {
+    "record": "docs/PRONUNCIATION-SOURCES.json",
+    "alignment": "docs/PRONUNCIATION-ALIGNMENT.json",
+    "mappedWords": 77756,
+    "unassignedWords": 2229,
+    "groups": 66578,
+    "styles": [
+      "sephardic",
+      "ashkenazic"
+    ],
+    "review": "Structural/source-preservation checks passed; independent linguistic and correspondence review pending. No new phoneme grammar or voice."
   }
 }

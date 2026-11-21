@@ -1,0 +1,21 @@
+Pronunciation source display and original correspondence study
+
+Source: Phonetic MAM, MAM-basics commit 6f0612ed2109d32e288d7c0ca41ae3dbfaad702b.
+https://github.com/bdenckla/MAM-basics/tree/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM
+
+Attribute to Hebrew Wikisource:
+https://en.wikisource.org/wiki/User:Dovi/Miqra_according_to_the_Masorah#beginning
+MAM was prepared by Seth (Avi) Kadish, with major technical assistance from Erel Segal-Halevi and Benjamin Denckla. The existing Phonetic MAM display also credits Al-Hatorah Mikraot Gedolot.
+
+The Phonetic-MAM/data files and this derived display/correspondence are shared under Creative Commons Attribution-ShareAlike 4.0:
+https://creativecommons.org/licenses/by-sa/4.0/
+Path-specific rights declaration:
+https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/DATA-LICENSES.md
+Original grant:
+https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/LICENSE.md
+
+The five source JSON files are unchanged in the source ZIP. New work: source rows linked to unchanged UXLC word IDs by complete-verse letter correspondence, documented implicit reading forms and ordered anchors. Original Hebrew variants, source columns, NFD transcription strings, stress, superscript-e and alternate-reading objects are retained. Ambiguous/unmatched words have no assigned transcription. The reader's Hebrew, accents, syllable drafts, musical notes and recording timings are not replaced.
+
+The source names its text transcriptions Sephardic and Ashkenazic. This does not identify them with six historical Kinnor Accent labels, change the pronunciation of a recording, supply phonemes/audio timing or implement singing synthesis. Independent linguistic and mapping review remains pending. No endorsement is implied.
+
+No source implementation, third-party example images or font is included. Source metadata and all hashes are in docs/PRONUNCIATION-SOURCES.json and docs/PRONUNCIATION-ALIGNMENT.json.
