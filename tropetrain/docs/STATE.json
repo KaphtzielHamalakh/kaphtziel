@@ -3,13 +3,13 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "81dcb7097fd604d309ec02832d751aa5e1d2b1f4",
+  "publishedCommit": "b64a19fdf6bd25ce75af2d57baa5af421f918f12",
   "nextTask": "Continue full word-aligned independent chanting: source explicit reciting-note, stress, cadence and contextual choices from primary Cohen p540–548 and Baer pp30–42 or other reusable named traditions before generating new pitches for Torah words. The note-text bridge now preserves exact matching spans in both styles and refuses differing boundaries; keep the two opening Gen22 printed syllables unlinked from source vay until evidence supports a separate realization. Preserve all original Hebrew/accents, canonical/occurrence IDs, source packets, musical notes, tempos and timing records. Research source-backed phonological/phoneme/note/audio links and reusable sung voice material; six Kinnor grammars/voices, full contextual melody systems and all roadmap features remain active. Printing deferred.",
   "lastPassingTests": {
-    "automated": 227,
-    "newRegressionChecks": 13,
-    "ui": "Public v0.26→v0.27 retained Genesis8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair and all four gains0. New Bagdad p541 Yetib muted repeated Play highlights separate rest components4/5; live Sephardic switch changes ma/mo source transcription while exact Hebrew and pattern settings remain fixed. Escape/Stop/repeatfalse. New Europe conditional source spells G-sharp/F-sharp/G-sharp/A; qaton→qaton search26, gadol→qaton0, source image viewer2649px/Escape, joint coverage76996/75058. Public standalone retains passage/style and new source preference; BYetib held tie has five components/one rest/three attacks, FYetib silent rest clock passes. Both public distributions fit319 and1280px (wide standalone checked in visible tab); screenshot outputs/TropeTrain-v0.27-live.jpg viewed. All four gains0/stopped/repeatfalse, viewport reset. Local additionally tests Yetib357/Munah→qaton4347 searches, both unresolved new cells disabled, source JSON viewer, and Gen14:17word9 exact ke/dor ownership with style switch preserving Hebrew/tempo/key/main melody. Native Save/direct-file-origin and independent musical/linguistic/acoustic review pending.",
-    "limits": "Muted playback clock/UI, literal two-scan source transcription and full corpus invariants. Four ambiguous printed cells unavailable; 179 pronunciation words unassigned/two combined,2811 timing-review words. No full contextual tradition, six Kinnor grammar/voice equivalence, new phonemes or singing voice."
+    "automated": 236,
+    "newRegressionChecks": 9,
+    "ui": "Public v0.27→v0.28 retained Genesis8:20word7/Sephardic/OriginalDemo/60BPM/key0 and all four gains0; new score labels hab/bᵉ/he/ma match the unchanged Hebrew. Open printed verse study shows first-page10of12matched/two explicit Wa/ye versus vay refusals. Public Gen22:1word3 muted repeated instrumental Play follows B4/G4melisma while source text switches va→vo; all Hebrew, noteIDs and pitches stay exact, clock continues. Escape/Repeatfalse. Public standalone restores Gen22word3/Ashkenazic/Cohen/60/key0, five notes/four labels had/dᵉ/vo/rim; hide/re-enable text and muted Play/Escape pass. Both public distributions root/body fit319 and1280px; wide standalone checked in visible tab. Screenshot outputs/TropeTrain-v0.28-live.jpg includes actual pronunciation score labels and was viewed. Local additionally verifies source-shared consonant inspector, persisted display off/re-enable after reload, transpose+2/tempo72 preserving labels then60/key0, first-word standalone hi melisma/tie, and Gen14:17word9 exact kᵉ/dor. All four gains0/stopped/repeatfalse, viewportreset. Native download/Save/direct-file-origin and independent linguistic/cantorial/transcription/acoustic review pending.",
+    "limits": "Structural note/text correspondence only. Full-Torah counts apply to existing original-demo syllables; historical Gen22study50of52matched. Different divisions and source forms remain unlinked. No new musical system, phonemes, independent singing voice or acoustic syllable alignment."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_computed_syllables_exact_written_ranges_77775words_shared_consonant_refs_79804_unit_word_owners_two_combined179unassigned_phoneme_note_audio_review_pending"
+      "status": "source_syllables_word_ranges_and_structural_note_text_links_preserved_50of52_bounded_printed_notes_linked_two_refused_no_phoneme_or_acoustic_allocation"
     },
     {
       "id": "playback",
@@ -93,7 +93,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "original_demo_and_complete_bounded_printed_verse_staff_rests_ties_underlay_exports_tested_independent_review_pending"
+      "status": "original_demo_and_bounded_Gen22_staff_with_independent_source_pronunciation_text_exact_span_links_shared_consonants_alternatives_and_explicit_boundary_refusals_browser_tested"
     },
     {
       "id": "display",
@@ -158,11 +158,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "81dcb7097fd604d309ec02832d751aa5e1d2b1f4",
+    "commit": "b64a19fdf6bd25ce75af2d57baa5af421f918f12",
     "status": "success",
-    "workflowRun": 44940444941,
-    "liveAssets": "31 changed public files /49,190,325 bytes match tested local0f4603352cf7360e6c0a849faa71a0ad83d7eb30 exactly. Final four records follow separately.",
-    "ui": "Public v0.26→v0.27 retained Genesis8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair and all four gains0. New Bagdad p541 Yetib muted repeated Play highlights separate rest components4/5; live Sephardic switch changes ma/mo source transcription while exact Hebrew and pattern settings remain fixed. Escape/Stop/repeatfalse. New Europe conditional source spells G-sharp/F-sharp/G-sharp/A; qaton→qaton search26, gadol→qaton0, source image viewer2649px/Escape, joint coverage76996/75058. Public standalone retains passage/style and new source preference; BYetib held tie has five components/one rest/three attacks, FYetib silent rest clock passes. Both public distributions fit319 and1280px (wide standalone checked in visible tab); screenshot outputs/TropeTrain-v0.27-live.jpg viewed. All four gains0/stopped/repeatfalse, viewport reset. Local additionally tests Yetib357/Munah→qaton4347 searches, both unresolved new cells disabled, source JSON viewer, and Gen14:17word9 exact ke/dor ownership with style switch preserving Hebrew/tempo/key/main melody. Native Save/direct-file-origin and independent musical/linguistic/acoustic review pending.",
+    "workflowRun": 44942773801,
+    "liveAssets": "20 changed public files /45,062,579 bytes match tested local2bc7cef6f7daf3207a57334014fa04506be1915d exactly; final four records follow separately.",
+    "ui": "Public v0.27→v0.28 retained Genesis8:20word7/Sephardic/OriginalDemo/60BPM/key0 and all four gains0; new score labels hab/bᵉ/he/ma match the unchanged Hebrew. Open printed verse study shows first-page10of12matched/two explicit Wa/ye versus vay refusals. Public Gen22:1word3 muted repeated instrumental Play follows B4/G4melisma while source text switches va→vo; all Hebrew, noteIDs and pitches stay exact, clock continues. Escape/Repeatfalse. Public standalone restores Gen22word3/Ashkenazic/Cohen/60/key0, five notes/four labels had/dᵉ/vo/rim; hide/re-enable text and muted Play/Escape pass. Both public distributions root/body fit319 and1280px; wide standalone checked in visible tab. Screenshot outputs/TropeTrain-v0.28-live.jpg includes actual pronunciation score labels and was viewed. Local additionally verifies source-shared consonant inspector, persisted display off/re-enable after reload, transpose+2/tempo72 preserving labels then60/key0, first-word standalone hi melisma/tie, and Gen14:17word9 exact kᵉ/dor. All four gains0/stopped/repeatfalse, viewportreset. Native download/Save/direct-file-origin and independent linguistic/cantorial/transcription/acoustic review pending.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -191,9 +191,9 @@
     "version": "0.28.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "3bdd15f7db2069770b43bcfef84fa4cfa3536c19",
-    "status": "236_checks_and_local_normal_standalone_UI_passed_publication_pending",
+    "status": "published_runtime_verified_records_prepared",
     "record": "docs/VERIFICATION-0.28.md",
-    "next": "Publish tested v0.28, verify public browser behavior and exact live assets, then save guarded copies and the next source-research task."
+    "next": "Continue full word-aligned independent chanting: source explicit reciting-note, stress, cadence and contextual choices from primary Cohen p540–548 and Baer pp30–42 or other reusable named traditions before generating new pitches for Torah words. The note-text bridge now preserves exact matching spans in both styles and refuses differing boundaries; keep the two opening Gen22 printed syllables unlinked from source vay until evidence supports a separate realization. Preserve all original Hebrew/accents, canonical/occurrence IDs, source packets, musical notes, tempos and timing records. Research source-backed phonological/phoneme/note/audio links and reusable sung voice material; six Kinnor grammars/voices, full contextual melody systems and all roadmap features remain active. Printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
