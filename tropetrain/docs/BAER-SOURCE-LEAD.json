@@ -75,5 +75,32 @@
       "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
     }
   ],
-  "finding": "Printed30 has an Intonation der Accente table: No105ordinaryTorah has three rows labeled1.W,2.W,3.W; additional rows concern Haftarah/penitentialTorah/Esther/Lamentations/Tochachah. These are source row labels, not verified Kinnor preset identities. Printed31continues contextual Munaḥ and Zaqef columns; printed32retrieved for continuation. Original source melodic grammar and independent review remain pending; no notes, phonemes or voice imported from Baer."
+  "finding": "No105ordinary Torah has1.W/2.W/3.Walternative source rows; these are not inferred Kinnor identities. No938/939provide a Sephardic table and worked passage in the third expanded edition circa1894. Table-to-arbitrary-word grammar, complete reciting/stress/context rules and independent review remain pending; only the full No939worked example is transcribed, with no general melody or voice claimed.",
+  "completePdf": {
+    "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/download/pdf/853537",
+    "bytes": 108872946,
+    "sha256": "cfaf8cedc6d2027f800136f35315d34ce03724eab9744a978a282ae0451bd87f",
+    "pages": 403,
+    "pdfCreationDate": "2017-01-11",
+    "localResearchPath": "work/references/baer-1894/baer-third-edition-1894.pdf",
+    "textExtraction": "No embedded text: pdftotext yields403form feeds only. Visual inspection/OCR needed.",
+    "distribution": "Private research copy; complete108MBPDF not added to the browser bundle."
+  },
+  "additionalPrimaryFinding": "Printed30footnote points to appendixNo938. Printed209No938 is the Sephardic accent table; printed210No939 applies it to Genesis1:1–5. ContentsXL credits937–943 to S.Naumbourg’s Agudas Schirim. No937’s African/Moroccan footnote is not transferred to939. FrontIX explains alternative ways and recitative performance without giving an arbitrary-word prefix/stress allocation algorithm.",
+  "newPagesVisuallyInspected": [
+    "IX (one-based PDF12)",
+    "XL (PDF43), including attribution footer",
+    "32 (PDF77)",
+    "37 (PDF82)",
+    "209 (PDF254)",
+    "210 (PDF255), all six No939 systems at4000px",
+    "349 (PDF394)"
+  ],
+  "importedWorkedExample": {
+    "profile": "baer-1894-gen1-1-5",
+    "record": "docs/BAER-GENESIS-SCORE.json",
+    "noteCorrespondence": "docs/BAER-NOTE-CORRESPONDENCE.json",
+    "scope": "Genesis1:1–5;52words/145notes;one rest/two triplets/six unspecified fermatas. Independent transcription/underlay/cantorial review pending.",
+    "distribution": "Only the unretouched2440×1210No939crop and new literal transcription added. Full108MBPDF and OCR remain private research; no OCR-derived pitches."
+  }
 }

@@ -1,0 +1,228 @@
+{
+  "schema": "tropetrain-baer-pronunciation-note-links-v1",
+  "revision": 1,
+  "profile": "baer-1894-gen1-1-5",
+  "words": 52,
+  "notes": 145,
+  "styles": {
+    "sephardic": {
+      "notes": 145,
+      "linkedNotes": 139,
+      "unlinkedNotes": 6,
+      "unlinked": [
+        {
+          "eventId": "gen-1-3-5-s1-baer-n1",
+          "wordId": "gen-1-3-5",
+          "sourceWordId": "gen-1-3-5",
+          "syllableId": "gen-1-3-5-s1",
+          "hebrew": "וַֽ",
+          "hebrewRange": {
+            "start": 0,
+            "end": 3
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-3-5-s2-baer-n1",
+          "wordId": "gen-1-3-5",
+          "sourceWordId": "gen-1-3-5",
+          "syllableId": "gen-1-3-5-s2",
+          "hebrew": "יְ",
+          "hebrewRange": {
+            "start": 3,
+            "end": 5
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-8-s1-baer-n1",
+          "wordId": "gen-1-5-8",
+          "sourceWordId": "gen-1-5-8",
+          "syllableId": "gen-1-5-8-s1",
+          "hebrew": "וַֽ",
+          "hebrewRange": {
+            "start": 0,
+            "end": 3
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-8-s2-baer-n1",
+          "wordId": "gen-1-5-8",
+          "sourceWordId": "gen-1-5-8",
+          "syllableId": "gen-1-5-8-s2",
+          "hebrew": "יְ",
+          "hebrewRange": {
+            "start": 3,
+            "end": 5
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-10-s1-baer-n1",
+          "wordId": "gen-1-5-10",
+          "sourceWordId": "gen-1-5-10",
+          "syllableId": "gen-1-5-10-s1",
+          "hebrew": "וַֽ",
+          "hebrewRange": {
+            "start": 0,
+            "end": 3
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-10-s2-baer-n1",
+          "wordId": "gen-1-5-10",
+          "sourceWordId": "gen-1-5-10",
+          "syllableId": "gen-1-5-10-s2",
+          "hebrew": "יְ",
+          "hebrewRange": {
+            "start": 3,
+            "end": 5
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        }
+      ]
+    },
+    "ashkenazic": {
+      "notes": 145,
+      "linkedNotes": 139,
+      "unlinkedNotes": 6,
+      "unlinked": [
+        {
+          "eventId": "gen-1-3-5-s1-baer-n1",
+          "wordId": "gen-1-3-5",
+          "sourceWordId": "gen-1-3-5",
+          "syllableId": "gen-1-3-5-s1",
+          "hebrew": "וַֽ",
+          "hebrewRange": {
+            "start": 0,
+            "end": 3
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-3-5-s2-baer-n1",
+          "wordId": "gen-1-3-5",
+          "sourceWordId": "gen-1-3-5",
+          "syllableId": "gen-1-3-5-s2",
+          "hebrew": "יְ",
+          "hebrewRange": {
+            "start": 3,
+            "end": 5
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-8-s1-baer-n1",
+          "wordId": "gen-1-5-8",
+          "sourceWordId": "gen-1-5-8",
+          "syllableId": "gen-1-5-8-s1",
+          "hebrew": "וַֽ",
+          "hebrewRange": {
+            "start": 0,
+            "end": 3
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-8-s2-baer-n1",
+          "wordId": "gen-1-5-8",
+          "sourceWordId": "gen-1-5-8",
+          "syllableId": "gen-1-5-8-s2",
+          "hebrew": "יְ",
+          "hebrewRange": {
+            "start": 3,
+            "end": 5
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-10-s1-baer-n1",
+          "wordId": "gen-1-5-10",
+          "sourceWordId": "gen-1-5-10",
+          "syllableId": "gen-1-5-10-s1",
+          "hebrew": "וַֽ",
+          "hebrewRange": {
+            "start": 0,
+            "end": 3
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        },
+        {
+          "eventId": "gen-1-5-10-s2-baer-n1",
+          "wordId": "gen-1-5-10",
+          "sourceWordId": "gen-1-5-10",
+          "syllableId": "gen-1-5-10-s2",
+          "hebrew": "יְ",
+          "hebrewRange": {
+            "start": 3,
+            "end": 5
+          },
+          "status": "unlinked",
+          "reason": "different-syllable-boundaries",
+          "units": []
+        }
+      ]
+    }
+  },
+  "markedWordsSha256": "745c68ec72cfa5e55db7f8492cc5ae703f94ef0a8d8c834bb1f8944732eca877",
+  "sourceEventsSha256": "eb1b9dde2a3b78b917485d38b9720d4b8624191f3957ec3f57023e994e7571a6",
+  "inputs": [
+    {
+      "path": "docs/BAER-GENESIS-SCORE.json",
+      "sha256": "88fcdabec7eeffe7d342a7f721dfacc8b56b29d10fc84f6dc038c66077c46045"
+    },
+    {
+      "path": "baer-score-data.js",
+      "sha256": "2225cf5d21022baef7600ce31400531d2d9fe1142d4ede71e9914c6e0f634a60"
+    },
+    {
+      "path": "baer-score.js",
+      "sha256": "4f2867f8f1bec33c31f9fff2098c2cca467f8875719ef9bc89086009984ed3ae"
+    },
+    {
+      "path": "printed-score-registry.js",
+      "sha256": "53e5fb7c06371beeeaf4d3373852a356be0b42a9b7df65034690cf743d8eb935"
+    },
+    {
+      "path": "music.js",
+      "sha256": "f9e2398a95583a822af2798f6c11ea1a2a5e66dc01a01e7bd9eca57a05c41d4f"
+    },
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    }
+  ],
+  "limits": "Exact written-span text correspondence, not cantorial/phonological/acoustic approval or independent singing. Three printed wa/j’ divisions differ from source vay; all six opening components remain unlinked in both text styles. All original marked Hebrew, source note values, source lyric labels and independent syllable divisions stay unchanged."
+}

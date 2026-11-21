@@ -1,5 +1,5 @@
 import {loadCorpus} from './library-data.js';
-import {PRINTED_SCORE} from './printed-score.js';
+import {isPrintedScore} from './printed-score-registry.js';
 import {preserveRelatedSource} from './related-source.js';
 import {preserveNumberingMapping,rangeNeedsNumbering} from './torah-numbering.js';
 
@@ -85,7 +85,7 @@ export function parseAssignment(text,corpus){
   const passage=corpus.passage(data.sections);
   const melodyId=data.musicalPreferences?.melodyId??'original-demo-01';
   const pronunciationId=data.musicalPreferences?.pronunciationId??null;
-  if(!['original-demo-01',PRINTED_SCORE.id].includes(melodyId)||pronunciationId!==null)throw Error('This assignment requests a melody or pronunciation that is not yet implemented. Its settings were not replaced.');
+  if((melodyId!=='original-demo-01'&&!isPrintedScore(melodyId))||pronunciationId!==null)throw Error('This assignment requests a melody or pronunciation that is not yet implemented. Its settings were not replaced.');
   return {format:data.format,id:typeof data.id==='string'?data.id.slice(0,100):'imported',
     title:typeof data.title==='string'?data.title.slice(0,120):'Imported assignment',sections:passage.ranges,
     musicalPreferences:{melodyId,pronunciationId},
