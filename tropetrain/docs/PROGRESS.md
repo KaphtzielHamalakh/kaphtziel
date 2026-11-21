@@ -399,3 +399,13 @@ Both HTTP builds verified through supported in-app AX client. Standalone cacheds
 Code865e09047f5ad6ea07690a8417e8dab53340e063/Pages44859903006 successful;29publicfiles64,080,830bytes exact. Full165/165 and21finaltargets pass. Live v0.16→v0.17 retained Genesis22:1 word5/Cohen/60BPM/key0 and all gains0. Included Esther muted span completed. Fresh normal Foreman forte/lene melodic11.4MB and standalone extended melodic12.1MB loads checksum-verified, cached, decoded and completed muted1s spans. Reload retained extended reading/Sefardi delivery and all original reader settings. Reset final study to forte/lene melodic, whole recording, repeatoff/volume0. No captured warnings/errors; no active word highlight, media paused. Published tab retained; screenshot outputs/TropeTrain-v0.17-live.jpg. No acoustic/expert review claimed.
 
 Primary linked Bard2021 WesternAshkenaziTorah table located (CCBYSA4item); original1,234,202bytes/73.536145s matchesArchiveSHA1a3d2723f845ab5a4118f3d9d83fa927a734ad839, SHA2566c27317e76d6f8f186f77ef7976d7c84bb113e1a5ffe91cffe0d9d07019ce268. Privatecandidateonly; do notinferword timing, phonemes, completecontext orKinnoridentity. Continue thisprimarymelody/phoneticwork beforeprinting; all32Torah/othercatalogmusicalsystems/sixAccentgrammars/voices/singing andfullroadmap active/incomplete. Finalrecordpublication/outputsync follows; no runtimecodechanged.
+
+
+## 2026-11-20 · v0.18 Bard Torah source implementation
+
+Continue melody/pronunciation priority afterv0.17liveverified checkpoint. Added unchanged Bard2021WesternAshkenaziTorah name-table candidate withArchiveCCBYSA4metadata/OpenSiddurlink,1,234,202bytes exact. Media type carried throughgenericdownload/cache (AACaudio/mp4; legacyMP3defaultpreserved). No word/note/phoneme alignment inferred. Newcatalogrevision2/sixoriginals; tests/browser/deploymentpending.
+
+
+## 2026-11-20 · v0.18 release checks
+
+First166checks160pass/6distributionfail identified actualversionquerymismatch (?v=0.17.0 remained whilepackage0.18), preventingstandaloneinlining. Correctedindexlinks; full166/166pass/0skip. SourceMP3default+AACC MIME/cache tests pass. BrowserBardprimaryidentity/CC/nopassagemapping checked, originalexplicitload verified/saved, actualAAC73.584036s/rate1/ready4, .25–1.25mutedspan finished/repeated8loops/Stop, standalonecachedreload/play/Escape and priorv0.17cachedMP3decode regression pass. Narrow320request measured319root/body/viewport nooverflow, viewportreset; no browserwarn/errors/speakeroutput. MainHebrew/music/syllables unchanged. Finaldocs/build/publicationnext.

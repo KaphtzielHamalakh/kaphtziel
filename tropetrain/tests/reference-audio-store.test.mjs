@@ -24,6 +24,15 @@ test('wrong byte count or checksum is rejected before saving or generating playa
   const r=record(),f=storeFor([r]);f.store.fetchFile=async()=>new Response(new Uint8Array([1]));await assert.rejects(f.store.load(r),/size differs/);assert.equal(f.cache.writes,0);
   f.store.fetchFile=async()=>new Response(new Uint8Array([9,2,3,4,5]));await assert.rejects(f.store.load(r),/checksum differs/);assert.equal(f.cache.writes,0);assert.equal(f.store.urls.size,0);
 });
+test('original AAC media type survives download and device reuse, while older MP3 records retain their default',async()=>{
+  const mp3=record(1),aac=record(2);aac.audio.filename='fixture.m4a';aac.audio.mimeType='audio/mp4';
+  const first=storeFor([mp3,aac]),types=[];first.store.makeUrl=blob=>{types.push(blob.type);return 'blob:'+blob.type;};
+  for(const r of [mp3,aac]){await first.store.load(r);await first.store.url(r);}
+  assert.deepEqual(types,['audio/mpeg','audio/mp4']);
+  const next=storeFor([aac],first.cache);next.store.makeUrl=blob=>{assert.equal(blob.type,'audio/mp4');return 'blob:cached-aac';};
+  assert.equal(await next.store.url(aac),'blob:cached-aac');assert.equal(next.fetched.length,0);
+  assert.deepEqual(new Uint8Array(await first.cache.values.get(aac.audio.sha1).blob.arrayBuffer()),aac.data);
+});
 test('corrupt saved bytes are invalidated and require an explicit reload',async()=>{
   const r=record(),cache=new Cache();cache.values.set(r.audio.sha1,{blob:new Blob([new Uint8Array([9,2,3,4,5])])});const f=storeFor([r],cache);
   await assert.rejects(f.store.url(r),/checksum differs/);assert.equal(await f.store.has(r),false);assert.equal(f.fetched.length,0);await f.store.load(r);assert.equal(f.fetched.length,1);assert.equal(await f.store.has(r),true);
