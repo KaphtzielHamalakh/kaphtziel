@@ -153,3 +153,6 @@ The v0.16 checkpoint passed154 checks and normal/standalone/responsive/playback/
 
 
 Latest publication: v0.29 code [4bb2da26](https://github.com/KaphtzielHamalakh/kaphtziel/commit/4bb2da2644efc3be800691e9c8c15ef80e9478b0), [successful Pages run 44946408769](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44946408769). All 24 changed public files /51,530,565 bytes match the tested source. Try Printed source row → Sephardim (Europe), Munaḥ–Etnaḥta pp.542–543 → Munaḥ → Etnaḥta; inspect the final fermata and both page images. Main score pronunciation: Genesis22:1 word3 הַדְּבָרִ֣ים, toggle independent source text style to compare va/vo with unchanged Hebrew and notes. Full reconstruction remains active. See [v0.29 verification](docs/VERIFICATION-0.29.md).
+
+
+Latest publication: [v0.30 code 533874e0](https://github.com/KaphtzielHamalakh/kaphtziel/commit/533874e0aaffcbeb7e7fbf7b3154e2c77a7837e3), [successful Pages run 44948502291](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44948502291).16changed public files /46,876,461bytes exactly match the tested build. Enable Show pronunciation text under Hebrew words, then compare source styles on Genesis22:1word3 הַדְּבָרִ֣ים. All source text/marks, musical notes and original recording pronunciations remain independent. See [v0.30verification](docs/VERIFICATION-0.30.md).
