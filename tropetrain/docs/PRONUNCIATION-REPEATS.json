@@ -76,6 +76,27 @@
       "units": 3
     },
     {
+      "groupId": "pmam-gen-13-3-8",
+      "readerIds": [
+        "gen-13-3-13"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-13-3-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
       "groupId": "pmam-gen-19-34-2",
       "readerIds": [
         "gen-19-34-2"

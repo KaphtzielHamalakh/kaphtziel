@@ -9,29 +9,29 @@
   "originalDemo": {
     "sephardic": {
       "notes": 231178,
-      "linkedNotes": 220493,
-      "unlinkedNotes": 10685,
-      "wordsFullyLinked": 74756,
+      "linkedNotes": 220502,
+      "unlinkedNotes": 10676,
+      "wordsFullyLinked": 74763,
       "wordsPartlyLinked": 2717,
-      "wordsUnlinked": 2512,
+      "wordsUnlinked": 2505,
       "reasons": {
         "different-syllable-boundaries": 5703,
-        "source-only-written-form": 4378,
-        "no-source-correspondence": 600,
+        "source-only-written-form": 4485,
+        "no-source-correspondence": 484,
         "combined-source-form": 4
       }
     },
     "ashkenazic": {
       "notes": 231178,
-      "linkedNotes": 220493,
-      "unlinkedNotes": 10685,
-      "wordsFullyLinked": 74756,
+      "linkedNotes": 220502,
+      "unlinkedNotes": 10676,
+      "wordsFullyLinked": 74763,
       "wordsPartlyLinked": 2717,
-      "wordsUnlinked": 2512,
+      "wordsUnlinked": 2505,
       "reasons": {
         "different-syllable-boundaries": 5703,
-        "source-only-written-form": 4378,
-        "no-source-correspondence": 600,
+        "source-only-written-form": 4485,
+        "no-source-correspondence": 484,
         "combined-source-form": 4
       }
     }
@@ -80,15 +80,15 @@
   "inputs": [
     {
       "path": "data/pronunciation/torah-display.json.gz",
-      "sha256": "eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13"
+      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
     },
     {
       "path": "data/pronunciation/torah-underlay.json.gz",
-      "sha256": "c04d2894420d19bc6daaa4a1165bae02f0135a039be8433f3b5734940acfb829"
+      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
     },
     {
       "path": "pronunciation.js",
-      "sha256": "faa0b793241147650c108da60ebb1f86f6ae716b3f609a155e6aeb14bc146867"
+      "sha256": "d299c12df4bdc3f503ca2701f69fa77a9266399c6ce375c7f3cacb941b72d05d"
     },
     {
       "path": "pronunciation-note-links.js",
@@ -96,15 +96,15 @@
     },
     {
       "path": "pronunciation-underlay.js",
-      "sha256": "f82ce4ee5329777b156f70bb3358612d17824a14b39b9c89b4dcbb4df2d3be96"
+      "sha256": "c3491734974aa7d2d85e6ef5013d53e0994c79a0afe366b5683b9a5ea2168ed4"
     },
     {
       "path": "pronunciation-structure.js",
-      "sha256": "2f47332346dde396a29b4ca697d63cc39db76b6760f6273ea08c4d563cc3b2ec"
+      "sha256": "52d114dbcda25bae6cabfb9000d4d3452da40387a6ca04c946a5f423287db94a"
     },
     {
       "path": "pronunciation-word-alignment.js",
-      "sha256": "43310adac0c5800c63fdfa534dd8ba2eca9eb89dc363d8b9176e913652213bf7"
+      "sha256": "d1105950b3089bcfe8035a7204096b98bb028c382b1e46591206112c79fb649a"
     },
     {
       "path": "pronunciation-repeats.js",

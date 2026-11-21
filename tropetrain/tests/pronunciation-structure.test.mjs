@@ -60,8 +60,8 @@ test('source units losslessly reconstruct all cells, including joins, spaces and
   }
   missing+=s.status==='missing';repeatMarks+=s.status==='repeat-mark';stress+=counts.stressed??0;readings+=counts.reading??0;supers+=counts['superscript-e']??0;
  }
- assert.deepEqual({count,missing,repeatMarks,stress,readings,supers},{count:139196,missing:2282,repeatMarks:88,stress:136848,readings:324,supers:38921});
- const audit=JSON.parse(read('docs/PRONUNCIATION-STRUCTURE.json'));assert.equal(audit.inputSha256,createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'));assert.equal(audit.groups,68354);assert.equal(audit.mappedReaderWords,79806);
+ assert.deepEqual({count,missing,repeatMarks,stress,readings,supers},{count:139258,missing:2282,repeatMarks:89,stress:136909,readings:327,supers:38937});
+ const audit=JSON.parse(read('docs/PRONUNCIATION-STRUCTURE.json'));assert.equal(audit.inputSha256,createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'));assert.equal(audit.groups,68384);assert.equal(audit.mappedReaderWords,79843);
 });
 test('source study follows occurrence IDs while reader text, syllable drafts, melody, range, tempo and pitches remain independent',()=>{
  const manifest=JSON.parse(read('data/torah/manifest.json')),books=manifest.books.map(b=>JSON.parse(read('data/torah/'+b.file))),corpus=new Corpus({manifest,books});

@@ -5,9 +5,9 @@ import {PronunciationLibrary} from '../pronunciation.js';
 import {PRONUNCIATION_REPEAT_EVIDENCE} from '../pronunciation-repeats.js';
 const bytes=readFileSync(new URL('../data/pronunciation/torah-display.json.gz',import.meta.url));
 const data=JSON.parse(gunzipSync(bytes)),library=new PronunciationLibrary(data);
-const styles={},hashes={},literalHashes={},words={},exceptions=[],repetitions=[],unresolvedRepeats=[];
+const styles={},hashes={},literalHashes={},baseHashes={},baseLiteralHashes={},words={},exceptions=[],repetitions=[],unresolvedRepeats=[];
 for(const style of ['sephardic','ashkenazic']){
- styles[style]={singleWordGroups:0,joinedGroupsAligned:0,joinedGroupsPartial:0,joinedGroupsUnsplit:0,wordsWithUnits:0,assignedUnits:0,groupOnlyUnits:0,missingCells:0,repeatCells:0,unresolvedRepeats:0,resolvedRepeatUnits:0};hashes[style]=createHash('sha256');literalHashes[style]=createHash('sha256');words[style]=new Set();
+ styles[style]={singleWordGroups:0,joinedGroupsAligned:0,joinedGroupsPartial:0,joinedGroupsUnsplit:0,wordsWithUnits:0,assignedUnits:0,groupOnlyUnits:0,missingCells:0,repeatCells:0,unresolvedRepeats:0,resolvedRepeatUnits:0};hashes[style]=createHash('sha256');literalHashes[style]=createHash('sha256');baseHashes[style]=createHash('sha256');baseLiteralHashes[style]=createHash('sha256');words[style]=new Set();
 }
 for(const group of data.groups){
  const study=library.study({id:group.readerIds[0],sourceHebrew:group.readerHebrew[0]},'sephardic');
@@ -21,15 +21,16 @@ for(const group of data.groups){
    for(const unit of cell.units){
     if(unit.readerWordId!==null){count.assignedUnits++;words[style].add(unit.readerWordId);}else count.groupOnlyUnits++;
     const record=JSON.stringify([style,group.id,row.number,cell.column,unit.number,unit.readerWordId])+'\n';hashes[style].update(record);if(!cell.sourceReference)literalHashes[style].update(record);
+    if(!group.writtenReadVariants){baseHashes[style].update(record);if(!cell.sourceReference)baseLiteralHashes[style].update(record);}
    }
   }
  }
  if(group.readerIds.length>1&&Object.values(study.wordAlignment.styles).some(s=>s.status!=='word-aligned'))exceptions.push({groupId:group.id,readerIds:group.readerIds,readerHebrew:group.readerHebrew,styles:study.wordAlignment.styles});
 }
-for(const style of Object.keys(styles)){styles[style].wordsWithUnits=words[style].size;styles[style].assignmentSha256=hashes[style].digest('hex');styles[style].literalAssignmentSha256=literalHashes[style].digest('hex');}
+for(const style of Object.keys(styles)){styles[style].wordsWithUnits=words[style].size;styles[style].assignmentSha256=hashes[style].digest('hex');styles[style].literalAssignmentSha256=literalHashes[style].digest('hex');styles[style].baseAssignmentSha256=baseHashes[style].digest('hex');styles[style].baseLiteralAssignmentSha256=baseLiteralHashes[style].digest('hex');}
 const audit={schema:'tropetrain-pronunciation-word-alignment-v1',revision:2,studyRevision:3,sourceCommit:data.sourceCommit,license:'CC-BY-SA-4.0',inputSha256:createHash('sha256').update(bytes).digest('hex'),groups:data.groups.length,mappedReaderWords:data.groups.reduce((n,g)=>n+g.readerIds.length,0),styles,exceptions,repeatRecord:'docs/PRONUNCIATION-REPEATS.json',
  method:'Single-reader-word groups retain their existing whole-word links. Shared groups require consensus across every literal source Hebrew reading and every exact path through documented reader letter forms. An explicit Hebrew maqaf/space part and transcription hyphen/space part correspond by source order. A unit gets one reader word ID only if the complete source part belongs to that same word on all matching paths. Combined source words retain group scope; alternate/missing cells and all text/IDs stay literal. No cap or approximate spelling distance.',
- limits:'Structural source correspondence, not independent linguistic/acoustic approval. No phonemes, individual Hebrew-letter ranges, note links, audio times, new voice or Kinnor profile equivalence. All original groups and179unassigned words unchanged.'};
+ limits:'Structural source correspondence, not independent linguistic/acoustic approval. No phonemes, individual Hebrew-letter ranges, note links, audio times, new voice or Kinnor profile equivalence. All 68,354 original groups and their word links unchanged. Thirty new groups use explicit UXLC written/read variants between old anchors;142words remain unassigned.'};
 writeFileSync(new URL('../docs/PRONUNCIATION-WORD-ALIGNMENT.json',import.meta.url),JSON.stringify(audit,null,2)+'\n');
 writeFileSync(new URL('../docs/PRONUNCIATION-REPEATS.json',import.meta.url),JSON.stringify({schema:'tropetrain-pronunciation-repeats-v1',revision:1,sourceCommit:data.sourceCommit,license:'CC-BY-SA-4.0',evidence:PRONUNCIATION_REPEAT_EVIDENCE,repetitions,unresolvedRepeats},null,2)+'\n');
 const summary={linkedWords:audit.mappedReaderWords,styles:Object.fromEntries(Object.entries(styles).map(([id,s])=>[id,{wordsWithUnits:s.wordsWithUnits,sharedWords:audit.mappedReaderWords-s.wordsWithUnits}]))};

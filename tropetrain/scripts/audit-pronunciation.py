@@ -8,7 +8,7 @@ packed=(root/'data/pronunciation/torah-display.json.gz').read_bytes()
 data=json.loads(gzip.decompress(packed))
 assert data['sourceCommit']==audit['sourceCommit']==source['commit']=='6f0612ed2109d32e288d7c0ca41ae3dbfaad702b'
 assert hashlib.sha256(packed).hexdigest()==audit['packetSha256']
-raw_rows={};readers={};orders={};source_bytes=0
+raw_rows={};readers={};orders={};source_bytes=0;written_pairs={}
 with zipfile.ZipFile(root/'assets/pronunciation/phonetic-mam-torah-sources.zip') as z:
  assert len(z.namelist())==7
  for spec in audit['sourceFiles']:
@@ -28,10 +28,24 @@ for b in audit['books']:
  assert len(tokens)==b['readerWords']
  readers.update((t['id'],t['sourceHebrew']) for t in tokens)
  orders.update((t['id'],n) for n,t in enumerate(tokens))
+ # Independent one-written/one-reading adjacency check over the original
+ # token stream. Never extend this to guessed multiword partitions.
+ for chapter in json.loads(raw)['chapters']:
+  for verse in chapter['verses']:
+   ts=verse['tokens']
+   for i,q in enumerate(ts):
+    if q['kind']!='q' or i==0 or ts[i-1]['kind']!='k' or i>1 and ts[i-2]['kind']=='k' or i+1<len(ts) and ts[i+1]['kind']=='q':continue
+    k=ts[i-1];written_pairs[q['id']]={'kind':'uxlc-explicit-one-written-one-reading','chapter':chapter['number'],'verse':verse['number'],'readerWordId':q['id'],'readerHebrew':q['sourceHebrew'],'writtenTokenId':k['id'],'writtenHebrew':k['sourceHebrew']}
 seen=set();seen_rows=set();last={};styles=collections.Counter();alternates=0;groups=0
 windows={b['id']:b for b in audit['partialWindows']}
 def flatten(nodes):return ''.join(n if isinstance(n,str) else flatten(n.get('content',[])) for n in nodes)
 def letters(text):return re.sub('[^א-ת]','',text)
+by_group={g['id']:g for g in data['groups']}
+lexical_keys=[]
+for key,row in raw_rows.items():
+ texts=[flatten(cell) for cell in row['hebrew'] if cell is not None]
+ if texts and not all(t in ['פפפ','ססס','פפ','סס','׀',''] for t in texts):lexical_keys.append(key)
+source_order={key:i for i,key in enumerate(lexical_keys)}
 def reading_forms(text):
  value=letters(text);forms={value}
  if value.endswith('יהוה'):forms.update(value[:-4]+name for name in ['אדני','אלהים'])
@@ -101,7 +115,24 @@ for g in data['groups']:
   assert (window['before']['displayChapter'],window['before']['displayVerse'])<(g['displayChapter'],g['displayVerse'])<(window['after']['displayChapter'],window['after']['displayVerse'])
   assert set(g['readerIds'])<=set(window['readerIds'])
  # Independently verify every literal Hebrew reading, without join-code imports.
- allowed={''.join(parts) for parts in itertools.product(*(reading_forms(w) for w in g['readerHebrew']))}
+ choices=[reading_forms(w) for w in g['readerHebrew']]
+ if 'writtenReadVariants' in g:
+  assert g['match']=='explicit-written-read-variants-between-anchors' and 'explicit-written-read-variant' in g['flags']
+  assert len(g['rows'])==1 and 1<=len(g['readerIds'])<=2
+  for variant in g['writtenReadVariants']:
+   assert variant==written_pairs[variant['readerWordId']]
+   i=g['readerIds'].index(variant['readerWordId']);assert g['readerHebrew'][i]==variant['readerHebrew']
+   assert (variant['chapter'],variant['verse'])==(g['displayChapter'],g['displayVerse'])
+   choices[i].add(letters(variant['writtenHebrew']))
+  window=g['variantWindow'];before=by_group[window['beforeGroup']];after=by_group[window['afterGroup']]
+  assert 'writtenReadVariants' not in before and 'writtenReadVariants' not in after
+  assert before['bookId']==after['bookId']==g['bookId']
+  assert window['beforeReaderEnd']==before['readerIds'][-1] and window['afterReaderStart']==after['readerIds'][0]
+  assert nums==list(range(orders[before['readerIds'][-1]]+1,orders[after['readerIds'][0]]))
+  key=lambda group,row:(group['bookId'],group['displayChapter'],group['displayVerse'],row['number'])
+  a=source_order[key(before,before['rows'][-1])]+1;b=source_order[key(after,after['rows'][0])]
+  assert lexical_keys[a:b]==[key(g,g['rows'][0])]
+ allowed={''.join(parts) for parts in itertools.product(*choices)}
  supplied={''.join(parts) for parts in itertools.product(*({letters(flatten(cell)) for cell in r['hebrew'] if cell is not None} for r in g['rows']))}
  assert supplied<=allowed,g['id']
  for rid,hebrew in zip(g['readerIds'],g['readerHebrew']):
@@ -114,7 +145,11 @@ for g in data['groups']:
    styles[style]+=1
    alternates+=sum(cell is not None and len(cells)>1 for cell in cells)
  if len(g['readerIds'])>1:groups+=1
-assert len(seen)==audit['mappedWords']==79806
+base=[g for g in data['groups'] if 'writtenReadVariants' not in g]
+base_hash=hashlib.sha256(json.dumps(base,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+assert len(base)==68354 and base_hash=='e0a84b5a2839e025b2e68e71cf3f65af825d410b2f475ab0cf7f4d80ade56c07'
+assert len(data['groups'])-len(base)==30
+assert len(seen)==audit['mappedWords']==79843
 assert len(readers)==79985
 for b in audit['books']:
  assert set(b['unmappedReaderIds'])=={rid for rid in readers if rid.startswith(b['bookId']+'-') and rid not in seen}

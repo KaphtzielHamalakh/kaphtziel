@@ -7,6 +7,7 @@ surrounding accepted anchors. Missing/ambiguous regions remain unassigned.
 from pathlib import Path
 import collections,gzip,hashlib,itertools,io,json,re,zipfile
 from pronunciation_matching import forced_edges
+from pronunciation_variants import anchored_written_variants,digest_groups
 ROOT=Path(__file__).resolve().parents[1]
 PACK=ROOT/'assets/pronunciation/phonetic-mam-torah-sources.zip'
 BOOKS=[('gen','A1-Genesis.json'),('exo','A2-Exodus.json'),('lev','A3-Levit.json'),('num','A4-Numbers.json'),('deu','A5-Deuter.json')]
@@ -95,7 +96,7 @@ def build():
   for name,f in manifest['files'].items():
    raw=archive.read(name)
    if len(raw)!=f['bytes'] or hashlib.sha256(raw).hexdigest()!=f['sha256'] or hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()!=f['gitBlob']:raise ValueError('Source changed: '+name)
-  groups=[];audits=[];sources=[];unused=[];partial_blocks=[]
+  groups=[];audits=[];sources=[];unused=[];partial_blocks=[];written_variants=[];base_groups=[]
   for bid,filename in BOOKS:
    data=json.loads(archive.read(filename));target_raw=(ROOT/f'data/torah/{bid}.json').read_bytes();target=json.loads(target_raw)
    if data['schema']!='phonetic-mam-public-v1':raise ValueError('Unknown pronunciation display schema.')
@@ -170,13 +171,29 @@ def build():
      groups.append(group)
    if any(a[1]>=b[0] for a,b in zip(starts,starts[1:])):raise ValueError('Non-monotonic accepted verse ordering.')
    reader=[w for _,_,ws in verses for w in ws]
+   original=[g for g in groups if g['bookId']==bid];base_groups.extend(original)
+   added,evidence,order=anchored_written_variants(bid,data,target,original,row_info,hashlib.sha256(target_raw).hexdigest(),{'filename':filename,**manifest['files'][filename]})
+   for group in added:
+    assert not set(group['readerIds'])&mapped
+    mapped.update(group['readerIds']);nrows+=len(group['rows'])
+   groups=[g for g in groups if g['bookId']!=bid]+sorted(original+added,key=lambda g:order[g['readerIds'][0]])
+   written_variants.extend(evidence)
    audits.append({'bookId':bid,'readerWords':len(reader),'mappedWords':len(mapped),'unmappedWords':len(reader)-len(mapped),'acceptedDisplayVerses':len(assigned),'unmatchedDisplayVerses':len(proposals)-len(assigned),'partiallyMatchedDisplayVerses':sum(bool(value) for value in partials.values()),'mappedDisplayRows':nrows,'nonlexicalRows':nonlexical,'anchoredRepeatedVerses':len(resolved),'readerSha256':hashlib.sha256(target_raw).hexdigest(),'unmappedReaderIds':[w['id'] for w in reader if w['id'] not in mapped]})
    sources.append({'bookId':bid,'filename':filename,**manifest['files'][filename]})
- packet={'format':'tropetrain-pronunciation-display-v1','revision':2,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','groups':groups}
+ packet={'format':'tropetrain-pronunciation-display-v1','revision':3,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','groups':groups}
  raw=json.dumps(packet,ensure_ascii=False,separators=(',',':')).encode();packed=gzip.compress(raw,compresslevel=9,mtime=0)
  (ROOT/'data/pronunciation/torah-display.json.gz').write_bytes(packed)
- audit={'schema':'tropetrain-pronunciation-alignment-v1','revision':1,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','sourceFiles':sources,'books':audits,'mappedWords':sum(b['mappedWords'] for b in audits),'readerWords':sum(b['readerWords'] for b in audits),'groups':len(groups),'unmatchedDisplayVerses':unused,'packetSha256':hashlib.sha256(packed).hexdigest(),'method':'Complete display-verse letter correspondence to one to six contiguous UXLC verse records in nearby chapters. Unique matches must be ordered and disjoint; repeats require two surrounding accepted anchors. Only documented implicit-qere name/hi/Yissakhar forms permitted; original strings unchanged. Common row/word boundaries define many-to-many groups; all source columns/readings retained.','limits':'Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending.'}
+ audit={'schema':'tropetrain-pronunciation-alignment-v1','revision':1,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','sourceFiles':sources,'books':audits,'mappedWords':sum(b['mappedWords'] for b in audits),'readerWords':sum(b['readerWords'] for b in audits),'groups':len(groups),'unmatchedDisplayVerses':unused,'packetSha256':hashlib.sha256(packed).hexdigest(),'method':'Complete display-verse letter correspondence to one to six contiguous UXLC verse records in nearby chapters. Unique matches must be ordered and disjoint; repeats require two surrounding accepted anchors. Documented implicit-qere name/hi/Yissakhar forms and separately audited explicit one-written/one-reading UXLC pairs are permitted; original strings unchanged. Common row/word boundaries define many-to-many groups; all source columns/readings retained.','limits':'Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending.'}
  audit.update(revision=2,partialWindows=partial_blocks,partialMethod='Remaining regions require two complete-verse anchors. Within bounded windows, candidate indivisible groups require exact comparison keys and all literal source reading alternatives. Only edges on every maximum-key-unit monotonic alignment are accepted; no substitutions, tie breaks, or inferred syllables. Maximum4source rows/8reader words per candidate;256rows/384words per window.')
+ variant_record={'schema':'tropetrain-pronunciation-written-read-variants-v1','revision':1,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0',
+  'record':'docs/PRONUNCIATION-WRITTEN-VARIANTS.json','baseGroups':len(base_groups),'baseGroupsSha256':digest_groups(base_groups),
+  'addedGroups':len(written_variants),'addedWords':sum(len(g['readerIds']) for g in written_variants),'entries':written_variants,
+  'method':'Both existing source/reader anchors are required. A single remaining original source row in the same verse must match every source Hebrew column against exact UXLC reading letters or an explicitly adjacent one-ketiv/one-qere pair. At most two reader words; no spelling normalization, substitutions or inferred multiword variant partition.',
+  'review':'Word correspondence only. Source pronunciation can follow a different written form; no equality of phonology, written syllable ranges, notes or audio times inferred. Original Hebrew/accents and all previous groups/source rows remain unchanged. Independent linguistic review pending.',
+  'primarySources':['https://www.tanach.us/Pages/Coding.html','https://www.tanach.us/Pages/Instructions.html']}
+ assert digest_groups([g for g in groups if 'writtenReadVariants' not in g])==variant_record['baseGroupsSha256']
+ (ROOT/'docs/PRONUNCIATION-WRITTEN-VARIANTS.json').write_text(json.dumps(variant_record,ensure_ascii=False,indent=2)+'\n')
+ audit.update(revision=3,writtenReadVariantRecord=variant_record['record'],writtenReadVariantGroups=len(written_variants),writtenReadVariantWords=variant_record['addedWords'],stageNote='Partial-window fields retain the exact-match stage before explicit written/read links; final unassigned reader IDs are listed per book.')
  (ROOT/'docs/PRONUNCIATION-ALIGNMENT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
  summary={k:audit[k] for k in ['schema','revision','sourceCommit','mappedWords','readerWords','groups','limits']}
  (ROOT/'pronunciation-summary.js').write_text('// Generated by scripts/import-pronunciation.py.\nexport const PRONUNCIATION_SUMMARY='+json.dumps(summary,ensure_ascii=False,separators=(',',':'))+';\n')

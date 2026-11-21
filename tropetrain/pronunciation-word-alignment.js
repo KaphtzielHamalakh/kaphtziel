@@ -9,6 +9,17 @@ export function readerLetterForms(text){
  if(/^[ובכלמשה]{0,3}יששכר$/u.test(raw))forms.add(raw.replace('יששכר','ישכר'));
  return [...forms];
 }
+export function groupReaderLetterForms(group,index){
+ const text=group.readerHebrew[index],id=group.readerIds[index],forms=readerLetterForms(text);
+ const variants=(group.writtenReadVariants??[]).filter(v=>v.readerWordId===id);
+ if(variants.length>1)throw Error('Ambiguous explicit written/read pronunciation evidence.');
+ for(const variant of variants){
+  if(variant.kind!=='uxlc-explicit-one-written-one-reading'||variant.readerHebrew!==text||!variant.writtenTokenId||variant.writtenTokenId===id||typeof variant.writtenHebrew!=='string'||!letters(variant.writtenHebrew)||!group.flags.includes('explicit-written-read-variant')||!group.variantWindow?.beforeGroup||!group.variantWindow?.afterGroup)
+   throw Error('Explicit written/read pronunciation evidence needs review.');
+  forms.push(letters(variant.writtenHebrew));
+ }
+ return [...new Set(forms)];
+}
 
 export function literalReaderWordPaths(source,forms){
  const levels=[new Map([[0,1n]])],edges=[];
@@ -40,7 +51,7 @@ function boundaryProof(group,hebrewRows){
  if(rows.some(forms=>!forms.length||forms.some(f=>f.invalid)))return {reason:'missing-or-nonlexical-source-Hebrew'};
  if(rows.some(forms=>new Set(forms.map(f=>f.parts.length)).size!==1))return {reason:'source-Hebrew-boundaries-differ'};
  const slots=rows.map(forms=>forms[0].parts.map((_,part)=>({forms:forms.map(f=>({column:f.column,text:f.parts[part].text,start:f.parts[part].start,end:f.parts[part].end,labels:f.labels})),owners:new Set()})));
- const formLists=group.readerHebrew.map(readerLetterForms),variants=[];
+ const formLists=group.readerHebrew.map((_,index)=>groupReaderLetterForms(group,index)),variants=[];
  function visit(row,chosen){
   if(row<rows.length){for(const form of rows[row])visit(row+1,[...chosen,form]);return;}
   let position=0;const spans=chosen.flatMap((form,r)=>form.parts.map((part,p)=>{const start=position;position+=part.letters.length;return {row:r,part:p,start,end:position};}));

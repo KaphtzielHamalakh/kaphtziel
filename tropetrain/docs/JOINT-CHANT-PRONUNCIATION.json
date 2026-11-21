@@ -3,11 +3,11 @@
   "inputs": [
     {
       "path": "data/pronunciation/torah-display.json.gz",
-      "sha256": "eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13"
+      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
     },
     {
       "path": "data/pronunciation/torah-underlay.json.gz",
-      "sha256": "c04d2894420d19bc6daaa4a1165bae02f0135a039be8433f3b5734940acfb829"
+      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
     },
     {
       "path": "data/references/torah-library.json.gz",
@@ -18,9 +18,9 @@
   "words": 79985,
   "terminalOnsets": 370,
   "matrix": {
-    "timed/word-owned/written-range": 75058,
-    "timed/word-owned/source-only": 1938,
-    "timed/no-pronunciation-link/source-only": 176,
+    "timed/word-owned/written-range": 75065,
+    "timed/word-owned/source-only": 1968,
+    "timed/no-pronunciation-link/source-only": 139,
     "timing-review/word-owned/written-range": 2717,
     "timing-review/word-owned/source-only": 91,
     "timing-review/no-pronunciation-link/source-only": 3,
@@ -43,12 +43,6 @@
       "id": "gen-8-20-11",
       "hebrew": "הַטָּהֹ֔ר",
       "recordingId": "pt-portion-02-4",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "gen-13-3-13",
-      "hebrew": "אֽ͏ָהֳלוֹ֙",
-      "recordingId": "pt-portion-03-2",
       "pronunciation": "no-checked-source-link"
     },
     {
@@ -136,24 +130,6 @@
       "pronunciation": "no-checked-source-link"
     },
     {
-      "id": "gen-49-10-12",
-      "hebrew": "שִׁיל֔וֹ",
-      "recordingId": "pt-portion-12-4",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "gen-49-11-4",
-      "hebrew": "עִיר֔וֹ",
-      "recordingId": "pt-portion-12-4",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "gen-49-11-14",
-      "hebrew": "סוּתֽוֹ׃",
-      "recordingId": "pt-portion-12-4",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
       "id": "gen-49-13-7",
       "hebrew": "אֳנִיּ֔וֹת",
       "recordingId": "pt-portion-12-4",
@@ -214,24 +190,6 @@
       "pronunciation": "no-checked-source-link"
     },
     {
-      "id": "exo-22-4-8",
-      "hebrew": "אֶת־",
-      "recordingId": "pt-portion-18-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "exo-22-4-10",
-      "hebrew": "בְּעִיר֔וֹ",
-      "recordingId": "pt-portion-18-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "exo-22-26-4",
-      "hebrew": "כְסוּתוֹ֙",
-      "recordingId": "pt-portion-18-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
       "id": "exo-23-22-2",
       "hebrew": "אִם־",
       "recordingId": "pt-portion-18-6",
@@ -262,18 +220,6 @@
       "pronunciation": "no-checked-source-link"
     },
     {
-      "id": "exo-27-11-9",
-      "hebrew": "וְעַמּוּדָ֣יו",
-      "recordingId": "pt-portion-19-7",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "exo-28-28-5",
-      "hebrew": "מִֽטַּבְּעֹתָ֞יו",
-      "recordingId": "pt-portion-20-2",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
       "id": "exo-28-28-8",
       "hebrew": "הָאֵפֹד֙",
       "recordingId": "pt-portion-20-2",
@@ -289,12 +235,6 @@
       "id": "exo-29-40-9",
       "hebrew": "רְבִעִ֥ית",
       "recordingId": "pt-portion-20-6",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "exo-32-19-15",
-      "hebrew": "מִיָּדָיו֙",
-      "recordingId": "pt-portion-21-2",
       "pronunciation": "no-checked-source-link"
     },
     {
@@ -352,12 +292,6 @@
       "pronunciation": "no-checked-source-link"
     },
     {
-      "id": "exo-39-33-14",
-      "hebrew": "בְּרִיחָ֖יו",
-      "recordingId": "pt-portion-23-4",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
       "id": "exo-39-35-1",
       "hebrew": "אֶת־",
       "recordingId": "pt-portion-23-4",
@@ -367,18 +301,6 @@
       "id": "exo-39-35-2",
       "hebrew": "אֲרֹ֥ן",
       "recordingId": "pt-portion-23-4",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "lev-9-22-3",
-      "hebrew": "אֶת־",
-      "recordingId": "pt-portion-26-2",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "lev-9-22-5",
-      "hebrew": "יָדָ֛יו",
-      "recordingId": "pt-portion-26-2",
       "pronunciation": "no-checked-source-link"
     },
     {
@@ -403,12 +325,6 @@
       "id": "lev-16-8-6",
       "hebrew": "גּוֹרָל֑וֹת",
       "recordingId": "pt-portion-29-1",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "lev-16-21-6",
-      "hebrew": "יָדָ֗יו",
-      "recordingId": "pt-portion-29-2",
       "pronunciation": "no-checked-source-link"
     },
     {
@@ -547,12 +463,6 @@
       "id": "num-11-26-12",
       "hebrew": "עֲלֵיהֶ֣ם",
       "recordingId": "pt-portion-36-6",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "num-12-3-4",
-      "hebrew": "עָנָ֣יו",
-      "recordingId": "pt-portion-36-7",
       "pronunciation": "no-checked-source-link"
     },
     {
@@ -700,18 +610,6 @@
       "pronunciation": "no-checked-source-link"
     },
     {
-      "id": "deu-2-33-7",
-      "hebrew": "וְאֶת־",
-      "recordingId": "pt-portion-44-6",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-2-33-9",
-      "hebrew": "בָּנָ֖יו",
-      "recordingId": "pt-portion-44-6",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
       "id": "deu-3-5-4",
       "hebrew": "בְּצֻר֛וֹת",
       "recordingId": "pt-portion-44-6",
@@ -760,12 +658,6 @@
       "pronunciation": "no-checked-source-link"
     },
     {
-      "id": "deu-7-9-15",
-      "hebrew": "מִצְוֺתָ֖יו",
-      "recordingId": "pt-portion-45-7",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
       "id": "deu-7-16-10",
       "hebrew": "לֹא־",
       "recordingId": "pt-portion-46-1",
@@ -780,12 +672,6 @@
     {
       "id": "deu-8-2-6",
       "hebrew": "הֹלִֽיכֲךָ֜",
-      "recordingId": "pt-portion-46-1",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-8-2-22",
-      "hebrew": "מִצְוֺתָ֖יו",
       "recordingId": "pt-portion-46-1",
       "pronunciation": "no-checked-source-link"
     },
@@ -846,102 +732,6 @@
     {
       "id": "deu-22-14-5",
       "hebrew": "וְהוֹצִ֥יא",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-15-4",
-      "hebrew": "הַֽנַּעֲרָ֖ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-15-10",
-      "hebrew": "הַֽנַּעֲרָ֛ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-16-4",
-      "hebrew": "הַֽנַּעַרָ֖ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-20-10",
-      "hebrew": "לַֽנַּעֲרָֽה׃",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-21-2",
-      "hebrew": "אֶת־",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-21-4",
-      "hebrew": "הַֽנַּעֲרָ֜ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-23-4",
-      "hebrew": "נַעֲרָ֣ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-24-12",
-      "hebrew": "אֶת־",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-24-14",
-      "hebrew": "הַֽנַּעֲרָ֗ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-25-5",
-      "hebrew": "אֶת־",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-25-7",
-      "hebrew": "הַֽנַּעֲרָה֙",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-26-2",
-      "hebrew": "וְלַֽנַּעֲרָה֙",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-26-8",
-      "hebrew": "לַֽנַּעֲרָ֖ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-27-6",
-      "hebrew": "הַֽנַּעֲרָה֙",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-28-5",
-      "hebrew": "נַעֲרָ֤ה",
-      "recordingId": "pt-portion-49-3",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-22-29-7",
-      "hebrew": "הַֽנַּעֲרָ֖ה",
       "recordingId": "pt-portion-49-3",
       "pronunciation": "no-checked-source-link"
     },
@@ -1051,18 +841,6 @@
       "id": "deu-32-34-5",
       "hebrew": "חָתֻ֖ם",
       "recordingId": "pt-portion-53-5",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-33-9-10",
-      "hebrew": "וְאֶת־",
-      "recordingId": "pt-portion-54-2",
-      "pronunciation": "no-checked-source-link"
-    },
-    {
-      "id": "deu-33-9-12",
-      "hebrew": "בָּנָ֖יו",
-      "recordingId": "pt-portion-54-2",
       "pronunciation": "no-checked-source-link"
     },
     {
