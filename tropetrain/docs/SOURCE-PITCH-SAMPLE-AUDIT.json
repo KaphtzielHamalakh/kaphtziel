@@ -1,0 +1,6817 @@
+{
+  "schema": "tropetrain-pitch-source-sample-audit-v1",
+  "revision": 1,
+  "manifestSha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf",
+  "implementationSha256": "740102a4e31a6c8a936ec87f24e4533e92bd681e700540944c7a8f68386899cd",
+  "recordings": 378,
+  "sampleFrames": 3023,
+  "assignedFrames": 1581,
+  "unassignedFrames": 1442,
+  "status": "all original source byte counts/SHA1, repeated decoded PCM SHA256 and deterministic direct-difference measurements agree",
+  "limits": "This checks numerical derivation from pinned original source audio, not pitch accuracy, note identities, syllable times, phonemes or cantorial/linguistic approval. Independent acoustic and musical review is pending.",
+  "records": [
+    {
+      "id": "pt-portion-01-1",
+      "originalAudioSha1": "755c6e9918ba2021bba8b33c46db309c115620d6",
+      "pcmSha256": "ded35376e655235d7f28f34e766d10e27a20c0faa55d61a02d115cb65412b2a3",
+      "sampleFrames": [
+        0,
+        219,
+        11238,
+        21890,
+        22476,
+        33714,
+        44791,
+        44951
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-01-2",
+      "originalAudioSha1": "daa4f9516330a300e2bb77d4aedf28d7ce836443",
+      "pcmSha256": "6430d5252b4332d12c172e88062bf690e32f8b5a129f60f02eff96e9b20689ee",
+      "sampleFrames": [
+        0,
+        149,
+        5028,
+        10056,
+        10168,
+        15084,
+        20084,
+        20111
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-01-3",
+      "originalAudioSha1": "bb340492d760ff0b366c9fc2fd5b09b30ed1e3b8",
+      "pcmSha256": "d5f8238284350fb5ecfe0d11dfe06c2dcd5b33339321b4736047940388074996",
+      "sampleFrames": [
+        0,
+        226,
+        9594,
+        19187,
+        19188,
+        28782,
+        38294,
+        38376
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-01-4",
+      "originalAudioSha1": "72067c6fb19f8ee6ec992362b78c30826c2e9884",
+      "pcmSha256": "9b340d6f6c51384a1b28c66b74c328628da12b10e8cb7e191d59a76d3a8c4f0c",
+      "sampleFrames": [
+        0,
+        479,
+        6626,
+        13028,
+        13252,
+        19878,
+        26368,
+        26503
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-01-5",
+      "originalAudioSha1": "60b03874a87448d83c2c3ea35cf2f509a7ced01a",
+      "pcmSha256": "62e47e5581f4d05e4af74b8b008ac5abd8b7a02fe9869033ecc5e6a182e6e05e",
+      "sampleFrames": [
+        0,
+        179,
+        1196,
+        2392,
+        2600,
+        3588,
+        4605,
+        4783
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-01-6",
+      "originalAudioSha1": "c4d7dd57c98f39dc656bbcef7547f004f12a389e",
+      "pcmSha256": "d9969cba550a37ff8f7e62d914a455ae7a6d3ef8ebeebd47ea7e80ecce2983d8",
+      "sampleFrames": [
+        0,
+        118,
+        7889,
+        15779,
+        16196,
+        23669,
+        31395,
+        31558
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-01-7",
+      "originalAudioSha1": "4025f094431fb6c5d5ce77cc9a2d2999629170b0",
+      "pcmSha256": "7a5aafd5c0e11e2fb8d1d6d6e910af6dd8f34a0705621ba51ed114c411895ed7",
+      "sampleFrames": [
+        0,
+        150,
+        5043,
+        10087,
+        10706,
+        15131,
+        20004,
+        20174
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-1",
+      "originalAudioSha1": "b0549f1e16991a31e2159f52d121bf6f9806ba74",
+      "pcmSha256": "62c81dd322b294e932528981697677ece3f6678f098d70085191db511851c0a2",
+      "sampleFrames": [
+        0,
+        115,
+        4390,
+        8550,
+        8780,
+        13170,
+        17443,
+        17559
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-2",
+      "originalAudioSha1": "cbd6ca1c1332f85b60d8edaac3f478fd132d8e98",
+      "pcmSha256": "3cb6e620525193a97baf937a91951bfcb295714c25cd84e85731ab805ff690a0",
+      "sampleFrames": [
+        0,
+        122,
+        4262,
+        7951,
+        8525,
+        12788,
+        16889,
+        17050
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-3",
+      "originalAudioSha1": "be7afa89efb7d266c623da82f4fce12d77bb600c",
+      "pcmSha256": "a96d6ce21c025b344dc9c723b03cc870ebe65cd652178a7ec799cd40b99010d5",
+      "sampleFrames": [
+        0,
+        126,
+        5881,
+        10140,
+        11763,
+        17644,
+        23270,
+        23525
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-4",
+      "originalAudioSha1": "52b143fbc3f9b8623e3aad28dfb2ef06a30d3d4a",
+      "pcmSha256": "f9bfcf084e278cf5b0fdc1e48d9b6fbd29ee344eac3389e3337f609fff8ae489",
+      "sampleFrames": [
+        0,
+        126,
+        4247,
+        8213,
+        8494,
+        12741,
+        16823,
+        16987
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-5",
+      "originalAudioSha1": "dde59838ad21ecdff1f3c85390a2e621b2592bae",
+      "pcmSha256": "6c27ee6045d35b04f39359b9571e8405f4323f8f4cf947e7eccf1549a6b9306c",
+      "sampleFrames": [
+        0,
+        126,
+        2450,
+        3959,
+        4901,
+        7351,
+        9559,
+        9801
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-6",
+      "originalAudioSha1": "63391b1d27b166b57365c0f1afcae4204b01c4cf",
+      "pcmSha256": "96ed256904fde780c2160e94924e30912b4aa78884731de01ae1bcad6eadab7d",
+      "sampleFrames": [
+        0,
+        155,
+        7844,
+        15689,
+        16440,
+        23534,
+        31157,
+        31378
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-02-7",
+      "originalAudioSha1": "52231a962d65a775ee48a09e600c38372da50a53",
+      "pcmSha256": "01080ef9a8d5915d1fc1fd4c536fc1c757451c20e90b912548b385265a453f21",
+      "sampleFrames": [
+        0,
+        231,
+        7100,
+        12848,
+        14201,
+        21302,
+        28262,
+        28402
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-1",
+      "originalAudioSha1": "89a7bbeacfd289f3af36319f5e8d84eec17d4681",
+      "pcmSha256": "b2e4a53788c11a89f64dc88c741a47e8489aa1da87fa740b53a9a3bb8dfacd6d",
+      "sampleFrames": [
+        0,
+        145,
+        3855,
+        7711,
+        7761,
+        11567,
+        15291,
+        15422
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-2",
+      "originalAudioSha1": "7862142ee75109bef472db87b8498d22f0db3dea",
+      "pcmSha256": "bcae58df39c18ae40e8e4daaece4f08679257d6924185865921798c0e9d9b110",
+      "sampleFrames": [
+        0,
+        75,
+        2794,
+        5589,
+        6151,
+        8383,
+        11116,
+        11177
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-3",
+      "originalAudioSha1": "d7de5b11f64cfffe31bb1c18feac6bd65fa1363a",
+      "pcmSha256": "8d97f019d0662ef64fd797b56d1d74e9fd794b948915f66274a46f5e2dfd87d2",
+      "sampleFrames": [
+        0,
+        61,
+        3654,
+        6742,
+        7308,
+        10962,
+        14472,
+        14615
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-4",
+      "originalAudioSha1": "217ce74f8f2a9d4d6a52042ed2b47d01c5627fa3",
+      "pcmSha256": "5bc0812b38674eeb19238ef2255b1f3cd7c3b0df34fe6920fb9fad1b10a3f8d4",
+      "sampleFrames": [
+        0,
+        103,
+        6048,
+        11421,
+        12096,
+        18144,
+        23872,
+        24191
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-5",
+      "originalAudioSha1": "a7b33a1ea700797564cb6baf9acde5e133d5f97a",
+      "pcmSha256": "77771a058a979f521166d3b4209fc229cec0f24e662d083f66678b4e36eb0c81",
+      "sampleFrames": [
+        0,
+        241,
+        2673,
+        5347,
+        5479,
+        8021,
+        10477,
+        10694
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-6",
+      "originalAudioSha1": "d9ea382dccb980eb8a15cfba0d7d5316041f0eeb",
+      "pcmSha256": "94ae44928f4b891d5e83b01c593a333b15fe71dc334425cd50b91b9078dc1612",
+      "sampleFrames": [
+        0,
+        229,
+        9745,
+        18885,
+        19490,
+        29235,
+        38789,
+        38979
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-03-7",
+      "originalAudioSha1": "c555382f3758a723446adac0c3c77876b1e4ab3d",
+      "pcmSha256": "9c1eee273891588b9716f2f8730675156e7b4bf8a17f99f68bace723bf44f2de",
+      "sampleFrames": [
+        0,
+        161,
+        6482,
+        12360,
+        12965,
+        19447,
+        25804,
+        25929
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-1",
+      "originalAudioSha1": "d64fa37ef0f400bdd7c600c91c94525fff58cb6c",
+      "pcmSha256": "b152408e6f444a598b14be7323a70c7351c7fb101f5904a63e602c13b42c89ec",
+      "sampleFrames": [
+        0,
+        217,
+        3932,
+        7487,
+        7865,
+        11798,
+        15600,
+        15730
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-2",
+      "originalAudioSha1": "46d9b8cd0a9167a13ded239398714c41319b86f4",
+      "pcmSha256": "2967bb8494b949f605db7f9b9e3f4ef2c677c5ddb1f33ccbe6fe6b121012c090",
+      "sampleFrames": [
+        0,
+        124,
+        5706,
+        11385,
+        11413,
+        17119,
+        22693,
+        22825
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-3",
+      "originalAudioSha1": "5a8a890e31322c3b4acf46e885f7ebe6ed454bf3",
+      "pcmSha256": "625e3a69231c1c7e4b1c12a486aa0b32a2e46152e1a48988d4bd3b668c69035f",
+      "sampleFrames": [
+        0,
+        313,
+        7487,
+        14975,
+        15626,
+        22462,
+        29867,
+        29949
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-4",
+      "originalAudioSha1": "72dc27c4f7a54eb2b55bf88e05ca0dd4779aa2b4",
+      "pcmSha256": "900731c64d1ebe5e35b58f9e81d02553cd95ee19c8188e07e6526233575fe80f",
+      "sampleFrames": [
+        0,
+        247,
+        12435,
+        24871,
+        26143,
+        37307,
+        49688,
+        49742
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-5",
+      "originalAudioSha1": "29c451d6dbeadbc7bbb936dc3afb3f6147868916",
+      "pcmSha256": "e7e03ec07052f0c68dca7269fad7331d338ee771f7bd2eb93cc1c76bb08b3a98",
+      "sampleFrames": [
+        0,
+        65,
+        4922,
+        9031,
+        9844,
+        14766,
+        19598,
+        19688
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-6",
+      "originalAudioSha1": "68c2fe01db8741c62ebfe611ac6c481c418f1046",
+      "pcmSha256": "dfd64130eeb4e7b93e4e6f02d7bd24dc822b45e64f5315583b79271f6b6dbcdf",
+      "sampleFrames": [
+        0,
+        318,
+        3533,
+        6210,
+        7066,
+        10599,
+        13985,
+        14132
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-04-7",
+      "originalAudioSha1": "d01422493b528432be2994c85799888513ebd7fc",
+      "pcmSha256": "8d83b95355fd5a287db09b48d9f98a879d13bb4e851b6df7613c9bd87a4317e8",
+      "sampleFrames": [
+        0,
+        164,
+        7910,
+        14171,
+        15821,
+        23732,
+        31497,
+        31642
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-1",
+      "originalAudioSha1": "da9dc780ca2507d621cfca834de82a495c69f8f6",
+      "pcmSha256": "5a7d55da53a209a9cf4552708bae138290aad6e55699a85e643f780613661380",
+      "sampleFrames": [
+        0,
+        247,
+        4555,
+        9110,
+        9290,
+        13665,
+        18079,
+        18220
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-2",
+      "originalAudioSha1": "9c88f212a34afa66893eaecd39650887e5f37a14",
+      "pcmSha256": "95beae6c103c438dd90c03ff08187fb5f9e878998b2455495a2f5d8bdf7aab84",
+      "sampleFrames": [
+        0,
+        346,
+        4290,
+        8581,
+        9831,
+        12872,
+        17062,
+        17162
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-3",
+      "originalAudioSha1": "768a317a92472843674820d0a0564a49f8f891ba",
+      "pcmSha256": "205c4323e43db3811421143501074eb9c86feb6898190a78035eeda082749db5",
+      "sampleFrames": [
+        0,
+        252,
+        5241,
+        10482,
+        11870,
+        15723,
+        20929,
+        20963
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-4",
+      "originalAudioSha1": "cd5c2139d3b2f19e412bcf824288b88424f3ed89",
+      "pcmSha256": "cbcb01cb797737a1f45f1d48ddc5b2e53118f4e0f9eea2fd380e782f98f34583",
+      "sampleFrames": [
+        0,
+        197,
+        8490,
+        16980,
+        17375,
+        25470,
+        33916,
+        33959
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-5",
+      "originalAudioSha1": "51d43dd617c948ca8aa36830c7764cd36b22712b",
+      "pcmSha256": "7b0b6b5da71d23b2690e75fd07df4161e31b8818acc6a5283b0042cff22bcc80",
+      "sampleFrames": [
+        0,
+        394,
+        4164,
+        7892,
+        8329,
+        12494,
+        16600,
+        16658
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-6",
+      "originalAudioSha1": "ff47d559661a082bb355dffb70d80a1e3c94e2de",
+      "pcmSha256": "850a79c60e797ac3fac4e2b57d09eb7430fd6bd8122c1f1a56a1b021c6af93a8",
+      "sampleFrames": [
+        0,
+        137,
+        3092,
+        6112,
+        6184,
+        9276,
+        12281,
+        12368
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-05-7",
+      "originalAudioSha1": "3393e7c5c8a90c333b803e77c93e21fd62cf1eca",
+      "pcmSha256": "bfcfd009d446bc58bee83ab7162b7c41bb3b3eb84098b1fb55610bb1ec6dea38",
+      "sampleFrames": [
+        0,
+        221,
+        1971,
+        3942,
+        4179,
+        5913,
+        7841,
+        7883
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-1",
+      "originalAudioSha1": "ac5f44ec14712cef0f6712b380a773d294edd913",
+      "pcmSha256": "37fa5da766f2fc6fd5c6b28c682591004a684c8a5d6b10a463f7bd2435c2940a",
+      "sampleFrames": [
+        0,
+        181,
+        6819,
+        13639,
+        14379,
+        20458,
+        27226,
+        27277
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-2",
+      "originalAudioSha1": "d133b02b0eda83f77e1608d817f7928cadc3f1e2",
+      "pcmSha256": "0c6ad49fc524c4ce41119618e3911e5e8717ba0d3e172cc66740530939e0dcad",
+      "sampleFrames": [
+        0,
+        237,
+        2527,
+        5022,
+        5055,
+        7582,
+        9835,
+        10109
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-3",
+      "originalAudioSha1": "f2d3c53f2f4f06a54cff0660636d9ddcd450dfc8",
+      "pcmSha256": "5445caea659f5e9619ac98faa01f19960b404f26f5a499433eb64ddea7d9ec1b",
+      "sampleFrames": [
+        0,
+        190,
+        3099,
+        5766,
+        6199,
+        9298,
+        12310,
+        12397
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-4",
+      "originalAudioSha1": "11c83ef52dacd5e3a97d8fff290238d2cc2521fa",
+      "pcmSha256": "8d4c03f361330667fd68e7453458bb15809df0caca69087a797fe447806d32d5",
+      "sampleFrames": [
+        0,
+        156,
+        2551,
+        5103,
+        6004,
+        7655,
+        10078,
+        10206
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-5",
+      "originalAudioSha1": "ee3b0c2b1007a7a6af86db2b75abd41e79eb2de6",
+      "pcmSha256": "e3f48cee1e857cd75a55208dd0ed160b6d5f423e7d16ce99679f62a9806e186d",
+      "sampleFrames": [
+        0,
+        136,
+        8953,
+        17906,
+        19327,
+        26859,
+        35686,
+        35811
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-6",
+      "originalAudioSha1": "7158c12e934f9f8ae7d46251b997e854ecd6e669",
+      "pcmSha256": "ae26443bd7319f36a4030701bc68b879935b5b59c98dfea176592d5c93f38d67",
+      "sampleFrames": [
+        0,
+        174,
+        8122,
+        16244,
+        16605,
+        24366,
+        32481,
+        32488
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-06-7",
+      "originalAudioSha1": "0499f78441936b987d86c54e4d722792999e0514",
+      "pcmSha256": "5961fdaff47bb18df43b89389b65b31c03a5d057ed591e4e26f6ac397cd7d5f4",
+      "sampleFrames": [
+        0,
+        179,
+        1732,
+        3316,
+        3464,
+        5196,
+        6839,
+        6927
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-1",
+      "originalAudioSha1": "8443a665bb21a6ad3a1d7e9b2d9f9f4a98aaffab",
+      "pcmSha256": "bfaff31a1f1ad3245920dccd486dfea57b1ddd3b5b3bd0b2dfbf15e870b7e2b0",
+      "sampleFrames": [
+        0,
+        93,
+        6056,
+        12061,
+        12113,
+        18169,
+        23803,
+        24225
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-2",
+      "originalAudioSha1": "2be1f07491091fe27dfcf20b24ed09f31a5742ad",
+      "pcmSha256": "1bd1b6aa924d008634b0e6b4d209237e0a8681fdadf9f0953fefd8c25a5361a7",
+      "sampleFrames": [
+        0,
+        84,
+        7282,
+        14472,
+        14565,
+        21847,
+        28930,
+        29129
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-3",
+      "originalAudioSha1": "cc659e1abd9247b5c415333ed78b278155853fe9",
+      "pcmSha256": "164ea43719f8e24f3b5ec193895abe7351509da4a168fac09dcaae0029c0a807",
+      "sampleFrames": [
+        0,
+        42,
+        12802,
+        25604,
+        25815,
+        38406,
+        50848,
+        51207
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-4",
+      "originalAudioSha1": "1795396b97936c7a8719c65bc498ac4f6f7a7bbf",
+      "pcmSha256": "7b1bed8596100cd06ad9db757c878421890d2b2a0eb97cbd14a01c67b10231e4",
+      "sampleFrames": [
+        0,
+        52,
+        5787,
+        11418,
+        11574,
+        17361,
+        22705,
+        23147
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-5",
+      "originalAudioSha1": "3273ec2a7553f60bb1a4f7d97ee2e08b6072bea1",
+      "pcmSha256": "c1376e5a7a8701fdd4576b3a9b5732aa08aaf1f855f4d141d60e39fbc10cacd5",
+      "sampleFrames": [
+        0,
+        62,
+        17741,
+        35482,
+        35683,
+        53223,
+        70563,
+        70964
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-6",
+      "originalAudioSha1": "453eaf85fa41384c8e3d5748ace89cccf72a153a",
+      "pcmSha256": "a519fe44a733bd6e5c1bb61ec04e930d8fcb4e21c4b945dc687cc8f608e198ad",
+      "sampleFrames": [
+        0,
+        57,
+        11376,
+        22753,
+        22813,
+        34129,
+        45086,
+        45505
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-07-7",
+      "originalAudioSha1": "5e297eff06c4b7807f2af60ecd236fe9beb8711c",
+      "pcmSha256": "f4a2e1f2b583c3abbc61c609519a3d5e3fccb746b3e65643e98ff2a96e706e2d",
+      "sampleFrames": [
+        0,
+        53,
+        6395,
+        12791,
+        12842,
+        19186,
+        25166,
+        25581
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-1",
+      "originalAudioSha1": "f483c2148b6245e1e205f8e558ecb20be79dd7e3",
+      "pcmSha256": "0244e119707ee4d1b6e247023c08f8cdf6e7ad05d75ff92b8ee26ea7544c3ff3",
+      "sampleFrames": [
+        0,
+        65,
+        5101,
+        10086,
+        10202,
+        15303,
+        19969,
+        20404
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-2",
+      "originalAudioSha1": "134ca4ce5df263f7ab8b7385874609b56d6a9a0e",
+      "pcmSha256": "9a2da6c718d2a8fab745cef3b1a58c07a454d121fff5de09243544925b687af6",
+      "sampleFrames": [
+        0,
+        65,
+        8129,
+        16259,
+        16347,
+        24388,
+        32254,
+        32517
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-3",
+      "originalAudioSha1": "5d1a49aa8901d6828dfe2dc3cf8353127b6acb42",
+      "pcmSha256": "ccf3c07e1779e6f8337399a6a268fa5ed89a38deaca4ac146f6109e572ad1e50",
+      "sampleFrames": [
+        0,
+        77,
+        4178,
+        8128,
+        8357,
+        12535,
+        16240,
+        16713
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-4",
+      "originalAudioSha1": "9c8af36fd3c728703dabf9b1c9dee90f2b300afa",
+      "pcmSha256": "9f7bf0696c10dfaa79d233d0b9e25c61cb1d1ec14447ecb374a4ccb29d17bd2c",
+      "sampleFrames": [
+        0,
+        50,
+        6597,
+        12752,
+        13194,
+        19791,
+        26034,
+        26388
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-5",
+      "originalAudioSha1": "89c0e578e32a856fac658184e016b70891e9f8ce",
+      "pcmSha256": "e368f6784b1cf7b9443166bebc8d78d62b284eeaffbbadd44cda2e26b384205c",
+      "sampleFrames": [
+        0,
+        52,
+        18978,
+        37957,
+        38144,
+        56936,
+        75481,
+        75914
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-6",
+      "originalAudioSha1": "9b9c36054e6c8415bde8909ed80bb2aec6caa335",
+      "pcmSha256": "887f0026600756a028b11887a4c5127c317a4453efcab3d6807f5a699943e995",
+      "sampleFrames": [
+        0,
+        36,
+        14444,
+        28225,
+        28888,
+        43332,
+        57347,
+        57775
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-08-7",
+      "originalAudioSha1": "aa6640039095d293596972a3f9acae4fe776f18e",
+      "pcmSha256": "086d71bad78e92ab609b3e1c4a00335e427872978b2ce42a5950bd95c6fda55e",
+      "sampleFrames": [
+        0,
+        43,
+        7518,
+        14768,
+        15036,
+        22554,
+        29704,
+        30072
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-1",
+      "originalAudioSha1": "e7e97412965c678a5aa4ee2f1f9fdedb3543b31f",
+      "pcmSha256": "3f6f91541d07de15e41f030ebd3ca7ff014a3400b85d9f20f1a047968521b523",
+      "sampleFrames": [
+        0,
+        75,
+        5452,
+        10905,
+        11005,
+        16357,
+        21716,
+        21809
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-2",
+      "originalAudioSha1": "4cf2fc445957e7e340b6cf35dd22c3b157b39983",
+      "pcmSha256": "7810160d0778d880ecc34ae1a7739941d103981d6e328e09c41f574bd07bdba7",
+      "sampleFrames": [
+        0,
+        36,
+        4702,
+        9404,
+        9490,
+        14106,
+        18616,
+        18808
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-3",
+      "originalAudioSha1": "e51a1fd51e3835b860305ecea4666a0bde789adf",
+      "pcmSha256": "9b6b2e0420e315e1e9a10d01d56e6909a5790315e9727ed6d5febba55a5880a1",
+      "sampleFrames": [
+        0,
+        47,
+        5902,
+        11805,
+        12231,
+        17707,
+        23582,
+        23609
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-4",
+      "originalAudioSha1": "e782a5e64c3683e5a46b4c3f1007de099e160f37",
+      "pcmSha256": "7b690463d5d5c1fd76523bbbc4f29fcd15cde0703b3011bafd530823489c9ea6",
+      "sampleFrames": [
+        0,
+        41,
+        12601,
+        25203,
+        25220,
+        37804,
+        49969,
+        50405
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-5",
+      "originalAudioSha1": "1cf6468b1c27aa97debd0c3d163b6a0bae017be1",
+      "pcmSha256": "1827d9ea9b983c8d12d8795869728c57fdd978af878a9351302df93a6f73063c",
+      "sampleFrames": [
+        0,
+        37,
+        3027,
+        5914,
+        6054,
+        9081,
+        11684,
+        12107
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-6",
+      "originalAudioSha1": "e2de9a111953b8c64b69c37e1561db863937c01e",
+      "pcmSha256": "92c84b0e6a5d6f88324487edb41cdb427a5188dbd2a83dddb9e5e5b7535b4621",
+      "sampleFrames": [
+        0,
+        51,
+        7729,
+        15118,
+        15459,
+        23189,
+        30471,
+        30918
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-09-7",
+      "originalAudioSha1": "bbfdfe37316a36b0d11aa2e2955c5d692bb51d1e",
+      "pcmSha256": "57ba19f022b1dd63133426045627346cb4ccaea99b804dc6a07f447b6eea69ee",
+      "sampleFrames": [
+        0,
+        62,
+        9463,
+        18426,
+        18926,
+        28389,
+        37430,
+        37851
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-1",
+      "originalAudioSha1": "b1565047231c1577b6162e91c3bd6daf494abc68",
+      "pcmSha256": "1e2570f899ff09ed8b23057a3a6045b3830a9b3035b7a46a978d82f097a14467",
+      "sampleFrames": [
+        0,
+        302,
+        5670,
+        9746,
+        11340,
+        17010,
+        22580,
+        22679
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-2",
+      "originalAudioSha1": "f67d2941ce16e91ee2224c320de03cd9e26b5656",
+      "pcmSha256": "5a55b9c9c400b7cc59ae67fc706de8b4997d85068108fd0627e73daaebffabc1",
+      "sampleFrames": [
+        0,
+        208,
+        8925,
+        17413,
+        17851,
+        26776,
+        35561,
+        35701
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-3",
+      "originalAudioSha1": "ac7f11902c911a061a8873c0ebeecddd353bbd90",
+      "pcmSha256": "ac1bd69bde29e485a68587323ca079b82737dd4d61d365559bb089b5caaa311e",
+      "sampleFrames": [
+        0,
+        317,
+        5075,
+        9317,
+        10151,
+        15227,
+        20192,
+        20302
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-4",
+      "originalAudioSha1": "953c7e0d1b55731f8e639afdc67173888af2e580",
+      "pcmSha256": "8e3d8bc5c20595fa0a4d6d8fee13759f535ff4370f2d0ac737d6c918c4bdf1a9",
+      "sampleFrames": [
+        0,
+        245,
+        8284,
+        15313,
+        16569,
+        24854,
+        33024,
+        33138
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-5",
+      "originalAudioSha1": "7072af218c8c8005d64d172fc81b970e12a698c4",
+      "pcmSha256": "f7dde325ca3ddc8643e799b3977617940b854847b48c5920be489ebd8769f6cf",
+      "sampleFrames": [
+        0,
+        310,
+        15612,
+        31225,
+        31760,
+        46838,
+        62325,
+        62450
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-6",
+      "originalAudioSha1": "d7f805f7d6a5be41d7678f54dce511fdd6e6588e",
+      "pcmSha256": "c9eced6e0e7534a458ef3b0250d658e925dd8d09a5f523797db2af30e5555c80",
+      "sampleFrames": [
+        0,
+        196,
+        6236,
+        8886,
+        12473,
+        18710,
+        24829,
+        24946
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-10-7",
+      "originalAudioSha1": "a6fc980a16d7cdc1769e691f926af3bdcd8129b7",
+      "pcmSha256": "8e3081021847120075dfbc032174edb64f7b678b3c472772636b6db76ce90ac1",
+      "sampleFrames": [
+        0,
+        267,
+        8618,
+        17236,
+        19105,
+        25854,
+        34356,
+        34471
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-1",
+      "originalAudioSha1": "a394a08991558edc7489c36a808615df24d1367b",
+      "pcmSha256": "362ca33ca6ea4397473837547b168f455e586675c3e6030b35e3203bff0951e7",
+      "sampleFrames": [
+        0,
+        221,
+        4439,
+        8791,
+        8879,
+        13319,
+        17710,
+        17758
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-2",
+      "originalAudioSha1": "76fe436c095cb4f98297b1d3351e66ff962b8303",
+      "pcmSha256": "cdf3135a23d49c8ff4c8c3efad87e3df5710aab3bf697914aa54392fe0842fca",
+      "sampleFrames": [
+        0,
+        238,
+        4102,
+        8204,
+        8431,
+        12306,
+        16357,
+        16407
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-3",
+      "originalAudioSha1": "87ad9b44b98a0f3b5c621ebc3061e617ce20b19c",
+      "pcmSha256": "72493200c9241a81ed7ac80adced633337ab8eefab94649072ffff71db9e8fb1",
+      "sampleFrames": [
+        0,
+        226,
+        4198,
+        8212,
+        8396,
+        12594,
+        16716,
+        16791
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-4",
+      "originalAudioSha1": "505afa3514ba34ac1f4efe84b83bba055e458f66",
+      "pcmSha256": "eaf0b55b9d456fdbeb72cff592876347fe0386253c0a50439f9c9e19df1fc6c0",
+      "sampleFrames": [
+        0,
+        209,
+        3515,
+        7031,
+        7072,
+        10546,
+        13999,
+        14061
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-5",
+      "originalAudioSha1": "ba9941fc0a91f83eb5bd0314957e8a31d81db5bf",
+      "pcmSha256": "7fb9e35c28758cf7154bae83b1b89c3f04595a602514f224b52fbf1659d900e0",
+      "sampleFrames": [
+        0,
+        222,
+        8480,
+        16961,
+        16990,
+        25442,
+        33887,
+        33922
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-6",
+      "originalAudioSha1": "5864d7d0ed52eaf2a4b664d15f7efaf55c28b395",
+      "pcmSha256": "2857caef0be253469dc18675ca47a51e9ac43b8e5a3728b8a9aae60faa60ce4a",
+      "sampleFrames": [
+        0,
+        169,
+        6575,
+        12680,
+        13151,
+        19727,
+        26257,
+        26302
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-11-7",
+      "originalAudioSha1": "4303246478b28107ae0c86e30a5dd0b525e17cc7",
+      "pcmSha256": "bdc8b233a0a65129647f8cb659f9cf65e37bf5e9e4b08adeff24563ecd0a9d8c",
+      "sampleFrames": [
+        0,
+        226,
+        7767,
+        15534,
+        16979,
+        23301,
+        30992,
+        31067
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-1",
+      "originalAudioSha1": "2ada29000b368ef4ef5643da80ad2684876f1725",
+      "pcmSha256": "9362b77c44b040f623621746a19aa3284c74d7e3babc6d405a284ee5a9e12830",
+      "sampleFrames": [
+        0,
+        233,
+        5721,
+        11442,
+        12463,
+        17163,
+        22850,
+        22883
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-2",
+      "originalAudioSha1": "fa42bac6e933e48ce6f64af55911a38038b24f01",
+      "pcmSha256": "de840177df1787c90a2ea84240d8159ed629c1ed41a3d4b4ecfd5e2acdb8ef2a",
+      "sampleFrames": [
+        0,
+        273,
+        3078,
+        6157,
+        6282,
+        9236,
+        12250,
+        12314
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-3",
+      "originalAudioSha1": "21721e438b8012f8b73895509ecf648523b36d34",
+      "pcmSha256": "dbc8c357de4618f5317ce5e495194fdd17d2d3d2f87c67a21822c0775cc0d7bd",
+      "sampleFrames": [
+        0,
+        287,
+        2851,
+        5440,
+        5703,
+        8554,
+        11362,
+        11405
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-4",
+      "originalAudioSha1": "f84c505896848bebebbdc88304b99a0600ce584e",
+      "pcmSha256": "8a5664020d5876a4756b0499ae6d542ff89c88bedaf41722c779ed13e870e330",
+      "sampleFrames": [
+        0,
+        246,
+        4843,
+        9686,
+        10073,
+        14529,
+        19334,
+        19372
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-5",
+      "originalAudioSha1": "9f49610b665829d206da66ae59fe70978515e7f1",
+      "pcmSha256": "e99b61ece5222e45e9588466f1f9d8161df0b8c979823ba7af6572a60cb629ee",
+      "sampleFrames": [
+        0,
+        226,
+        2210,
+        4221,
+        4420,
+        6630,
+        8760,
+        8839
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-6",
+      "originalAudioSha1": "ee0e9d70a78834225b3c645afd2a4707e005f531",
+      "pcmSha256": "ca9c706d00845f958391fd54998cd4bc701344904b2b07edd4ac53bf6b6e475e",
+      "sampleFrames": [
+        0,
+        212,
+        10640,
+        21281,
+        21327,
+        31921,
+        42494,
+        42561
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-12-7",
+      "originalAudioSha1": "25665670fd187767b57a0bb3a37137dbe96a86dd",
+      "pcmSha256": "cedcf80ef254faff152523c8205e900ccaeb9f092e5a131fe761f03668363ed3",
+      "sampleFrames": [
+        0,
+        232,
+        2402,
+        4727,
+        4804,
+        7206,
+        9465,
+        9607
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-1",
+      "originalAudioSha1": "e3b058b2e8a2d45f324176b229a283c915f63ee6",
+      "pcmSha256": "531e7596eb2f01e2c4aab54cecd12f9e0c71a42f53aec6f8fc067affbf4b3f8b",
+      "sampleFrames": [
+        0,
+        188,
+        4687,
+        8672,
+        9374,
+        14061,
+        18634,
+        18748
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-2",
+      "originalAudioSha1": "ae89bca4f10adcf45785b3d6d3589be88ff7e26c",
+      "pcmSha256": "fa8c2b37a6088e80aee9d2f17e2f94231121aa9babf6bb7ee8cf9a5653dc126a",
+      "sampleFrames": [
+        0,
+        188,
+        5010,
+        8463,
+        10021,
+        15031,
+        19944,
+        20041
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-3",
+      "originalAudioSha1": "3e7fe1439ec994363e3c28bfb1faf14e65515e85",
+      "pcmSha256": "22264ddbd73ab030aacc4ebf87b4f00a8107de57fa8227e344e5ae2aee061420",
+      "sampleFrames": [
+        0,
+        182,
+        5010,
+        10021,
+        10632,
+        15031,
+        19979,
+        20041
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-4",
+      "originalAudioSha1": "be59bed92358f8d2caa37b75040e6befec7c1288",
+      "pcmSha256": "e88acfa71bf766c8776f34ef5d145ec1019378ca09ccf0b52a2f21e3efa5e9f4",
+      "sampleFrames": [
+        0,
+        200,
+        7183,
+        13350,
+        14367,
+        21551,
+        28604,
+        28734
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-5",
+      "originalAudioSha1": "63a2fa3b6ce96feaf65f84ed4f4f5b6a216539eb",
+      "pcmSha256": "2b1d6ca5768d9ab21dd09ab2d2df15c65275e62f60fba1c568a0308f76437b4c",
+      "sampleFrames": [
+        0,
+        191,
+        10421,
+        20842,
+        22655,
+        31263,
+        41623,
+        41683
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-6",
+      "originalAudioSha1": "3172b4661b73eabc965f55ff2a4c0bbb77449733",
+      "pcmSha256": "06cf1e08f143c158d9edfe80f690a18b02a701719e44c4a42ea97ce8f2613f03",
+      "sampleFrames": [
+        0,
+        227,
+        5182,
+        10365,
+        10883,
+        15548,
+        20677,
+        20730
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-13-7",
+      "originalAudioSha1": "c8d2a389ebbcb3d9302efd544ff49d73e7fcc969",
+      "pcmSha256": "dbbc628cad006e27b4390a736473be5f817eca776537168f21485ec65cbaa580",
+      "sampleFrames": [
+        0,
+        274,
+        8688,
+        16543,
+        17377,
+        26065,
+        34585,
+        34753
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-1",
+      "originalAudioSha1": "42891dc13f6a5b4e1593a13817a222892a92b375",
+      "pcmSha256": "6e09bad3869cdcfa695a43e05077b281e4f4db22ba21fadf511514593b93ea79",
+      "sampleFrames": [
+        0,
+        265,
+        4721,
+        9442,
+        10507,
+        14163,
+        18771,
+        18883
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-2",
+      "originalAudioSha1": "4a4a13f26e257afec49c2ee13ec954951ae6b102",
+      "pcmSha256": "00d375ce67898ec08dd245f4baf96b968d0384bc1a50422d25c1753e69457c2d",
+      "sampleFrames": [
+        0,
+        227,
+        5135,
+        10174,
+        10271,
+        15407,
+        20481,
+        20542
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-3",
+      "originalAudioSha1": "cc6543a8e29c6ac88457b45f4d52cdf647de24db",
+      "pcmSha256": "43066426b75367c21caa3bb1998947605224261148612d080a2ac44b95884b2e",
+      "sampleFrames": [
+        0,
+        219,
+        3264,
+        6130,
+        6529,
+        9794,
+        13001,
+        13058
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-4",
+      "originalAudioSha1": "b28616badf4db5037fd120d6eab6264b64309323",
+      "pcmSha256": "9f3e55628a68d4cfe325491e7a2595747f5278bdd83835efbab7713c77d61df3",
+      "sampleFrames": [
+        0,
+        223,
+        11539,
+        22171,
+        23079,
+        34619,
+        46097,
+        46158
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-5",
+      "originalAudioSha1": "626d529d995f2f0835913d81c5d06d2253f42b55",
+      "pcmSha256": "b2c2c817f97994677d6a9d62fbb185fb52640b9262904a9ccc4e945d642add57",
+      "sampleFrames": [
+        0,
+        205,
+        5321,
+        10642,
+        12946,
+        15963,
+        21206,
+        21284
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-6",
+      "originalAudioSha1": "c338d2b7da683abfde20f454a25158def69a7e28",
+      "pcmSha256": "90444536ad4cd3ff999e03c5144016e4085a972b23fc6d2706bfef27829875b0",
+      "sampleFrames": [
+        0,
+        212,
+        10954,
+        21812,
+        21909,
+        32863,
+        43744,
+        43817
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-14-7",
+      "originalAudioSha1": "318e9a375a8877918f6dab2546379583303bed4e",
+      "pcmSha256": "2cb6c04dce77624173b4a2c96dbb65eefaa2fffa43a4ca6c9d0d114571e5f638",
+      "sampleFrames": [
+        0,
+        268,
+        7724,
+        14942,
+        15448,
+        23172,
+        30833,
+        30895
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-1",
+      "originalAudioSha1": "f1847138d9599fc1f196104b186c5739a0d67f6c",
+      "pcmSha256": "3b6a85afd1c4c8c58b09ff940f9962f0b119986bea3258339af2be5b33b8942d",
+      "sampleFrames": [
+        0,
+        195,
+        5531,
+        11062,
+        11807,
+        16593,
+        22077,
+        22123
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-2",
+      "originalAudioSha1": "9b4afaed1205954811ad6c301b1fc46025c2ea08",
+      "pcmSha256": "ced84bdd120fa362252888dac255b23460c6846a3dc242f15a140890f43c5f1c",
+      "sampleFrames": [
+        0,
+        249,
+        5284,
+        10569,
+        10875,
+        15854,
+        20985,
+        21138
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-3",
+      "originalAudioSha1": "182d529fc91ae7780db7281f512f300bb105ccca",
+      "pcmSha256": "423376a1dddb51efa1bc61890f941b2adcb255eef9d00bcc320466a00e265b68",
+      "sampleFrames": [
+        0,
+        190,
+        3701,
+        7086,
+        7402,
+        11103,
+        14685,
+        14803
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-4",
+      "originalAudioSha1": "3d71cdc5f9a16dabebaf5e7b66f4800a7b951c87",
+      "pcmSha256": "5fd2d7d6320dd3e44afbda15c6cc9ff21f76de11698cf9866d13c9c6ff03db84",
+      "sampleFrames": [
+        0,
+        181,
+        11466,
+        19541,
+        22932,
+        34398,
+        45806,
+        45863
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-5",
+      "originalAudioSha1": "ccfa2a87f98ebf4f4dafe711ea77645aa803eeeb",
+      "pcmSha256": "9c708927fadfa51c3da221fb3d9d0349a9211a1b6bbf487a0837df0a1d2bb4dc",
+      "sampleFrames": [
+        0,
+        199,
+        3608,
+        7216,
+        7813,
+        10824,
+        14393,
+        14432
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-6",
+      "originalAudioSha1": "d4fe97c1810fa06ceca6ef769c619a7a04647878",
+      "pcmSha256": "6a58a67850b1f2584d39d0143c382f565f46908b489fc7e9e1a2f874e8ff5fc3",
+      "sampleFrames": [
+        0,
+        275,
+        7959,
+        15919,
+        16625,
+        23879,
+        31694,
+        31838
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-15-7",
+      "originalAudioSha1": "b10d8431bd5fcb25488744c5d8e92737fedf213a",
+      "pcmSha256": "6c642d228ebb240b9b50d34efb5fc826e55da5093024024e103fa79a90e16ef8",
+      "sampleFrames": [
+        0,
+        230,
+        6353,
+        10871,
+        12706,
+        19059,
+        25316,
+        25411
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-1",
+      "originalAudioSha1": "379f5f700d74d9a8845b4acac38912d02e8d291d",
+      "pcmSha256": "92d545615d7649855617eba7c28aad52197de6a98cf454a732cd5290ad21f044",
+      "sampleFrames": [
+        0,
+        224,
+        5405,
+        10507,
+        10811,
+        16216,
+        21562,
+        21621
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-2",
+      "originalAudioSha1": "01e01557bb2e8154e535fab6401092b396f14ad4",
+      "pcmSha256": "819b17af4f491549ed2f7809a7fce1557092c0ddf4e65dc525043994f9dd1fcf",
+      "sampleFrames": [
+        0,
+        251,
+        2893,
+        5786,
+        5882,
+        8679,
+        11524,
+        11572
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-3",
+      "originalAudioSha1": "232d4824e7d7ec6b5daad0d6a71c7bc696637b36",
+      "pcmSha256": "6d0391e9332345432754af9fab6030264ad75a1c53031c2a52d63f5e62f1945e",
+      "sampleFrames": [
+        0,
+        204,
+        4657,
+        9315,
+        9630,
+        13973,
+        18555,
+        18630
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-4",
+      "originalAudioSha1": "bce71dcc314577ae53b06fe33067c54c1d88411b",
+      "pcmSha256": "12717adb240d1730141c05cf34af3fefc74edbbc218a7fc68560e28a0df1b6fb",
+      "sampleFrames": [
+        0,
+        243,
+        10829,
+        21372,
+        21659,
+        32489,
+        43282,
+        43318
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-5",
+      "originalAudioSha1": "a2a3a4d0fab14b6337d13b0e88a3c6c0cf2f764e",
+      "pcmSha256": "c06f2f342a8fe67bc131805a4ba94b6c101b25b25d3d75c5bce7d48eec614cc4",
+      "sampleFrames": [
+        0,
+        267,
+        5126,
+        10253,
+        10746,
+        15380,
+        20468,
+        20506
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-6",
+      "originalAudioSha1": "4088dfcc1880565ce9feda7bc0a108479f377d19",
+      "pcmSha256": "ad63baf9f4e169b48c3cced2f3bf43d2478a84f62331a27a6cb2ed8ad61ec3b4",
+      "sampleFrames": [
+        0,
+        219,
+        9738,
+        18178,
+        19477,
+        29215,
+        38899,
+        38953
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-16-7",
+      "originalAudioSha1": "afc778db6b58ed2c770e6bf51ccc71c5adc4da48",
+      "pcmSha256": "756620519cb7f8b2503ba83361274a34b0504ec3e4decfabf2a5f78894fff1ef",
+      "sampleFrames": [
+        0,
+        237,
+        6529,
+        13059,
+        13337,
+        19588,
+        26048,
+        26117
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-1",
+      "originalAudioSha1": "17f8bb4f729a5429fe6a248ad60f98e847690be0",
+      "pcmSha256": "ea729b8fa3a8e148081e6892aacb7c736d7cffdd6bc06354dadbd6400b9cfef5",
+      "sampleFrames": [
+        0,
+        222,
+        5470,
+        10940,
+        10975,
+        16410,
+        21797,
+        21880
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-2",
+      "originalAudioSha1": "3db9cc3d621d40a227bb112564eacaa3179b5c46",
+      "pcmSha256": "fec629f3a198d553a371fa447295cc092de6a5fe1c53a0ad2fc302dd9839cd18",
+      "sampleFrames": [
+        0,
+        209,
+        5480,
+        10894,
+        10961,
+        16441,
+        21864,
+        21921
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-3",
+      "originalAudioSha1": "c37e300e8d86e772f9a4aeca8c8d217a5b7d2a33",
+      "pcmSha256": "b54a869a11f982a7edd22e29c0d72bea661ba340fa45f15251bdee0f14458bf5",
+      "sampleFrames": [
+        0,
+        212,
+        1340,
+        2617,
+        2681,
+        4022,
+        5326,
+        5362
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-4",
+      "originalAudioSha1": "bf180dc1297472bd9374848d37e204fc621d2df0",
+      "pcmSha256": "f1d13500f47d924b69996e0cb873939e2879d798c5c579ed1d717d129ad20706",
+      "sampleFrames": [
+        0,
+        234,
+        2366,
+        4732,
+        4839,
+        7098,
+        9414,
+        9464
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-5",
+      "originalAudioSha1": "9eef37d9e0e48f2ee956f01ea058a70330f99b09",
+      "pcmSha256": "b48ed5e95bdd11e79670edc314d5504bbb88c2e26d0660ddad330b1dc8a04dcf",
+      "sampleFrames": [
+        0,
+        267,
+        5960,
+        11544,
+        11921,
+        17881,
+        23801,
+        23841
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-6",
+      "originalAudioSha1": "f5c2e34b825dfa93bd4096495ca1bab8fd9de190",
+      "pcmSha256": "45a79277a6a830e665a1fc22c609c7d0bcacdc4e25eee828d56dbc6999642465",
+      "sampleFrames": [
+        0,
+        262,
+        8157,
+        16167,
+        16315,
+        24472,
+        32560,
+        32629
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-17-7",
+      "originalAudioSha1": "ef8803b58d892dd48cf531da98a1acd30c7b3092",
+      "pcmSha256": "fad3ffd322b1fefd04f4f93094e76b861a7e5359af16189f0325d5301897f81a",
+      "sampleFrames": [
+        0,
+        227,
+        3952,
+        7757,
+        7905,
+        11857,
+        15732,
+        15809
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-1",
+      "originalAudioSha1": "41922497edd2632bd660153a3a04308a6b98ca4a",
+      "pcmSha256": "97fa363021de900803ba74b0091c605be6c1c23def5771b4f8857d18a854078a",
+      "sampleFrames": [
+        0,
+        238,
+        5196,
+        10393,
+        11318,
+        15589,
+        20761,
+        20785
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-2",
+      "originalAudioSha1": "0b13a11aa0c15eb7ef8d7e90567502797e1f5a25",
+      "pcmSha256": "99bda0b9a612ed5616715f7dcded048f4b1eddc50dc7d14ca235e0de435b6eb1",
+      "sampleFrames": [
+        0,
+        220,
+        7356,
+        14712,
+        15037,
+        22068,
+        29410,
+        29424
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-3",
+      "originalAudioSha1": "507f6f66dec67b1b644c041d8f41e840e3e92f44",
+      "pcmSha256": "3558d71175cee4abc568787d6b79a534fd9bfcee8e5f473f5a3c5ebc0d5dde64",
+      "sampleFrames": [
+        0,
+        219,
+        7170,
+        14340,
+        14443,
+        21510,
+        28620,
+        28679
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-4",
+      "originalAudioSha1": "8f30c93f1404735a1dd3034723884d88fc419299",
+      "pcmSha256": "3e5789a98c2e47d005f6df063b51c5304554aae87dac7eeb97b01e79d400a0cd",
+      "sampleFrames": [
+        0,
+        201,
+        2419,
+        4838,
+        5257,
+        7257,
+        9607,
+        9675
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-5",
+      "originalAudioSha1": "4f9964b17d81fa3a6266a472e1d01eba974e5cce",
+      "pcmSha256": "bda0a081cf2a110bf786b0d90b79f1a4f91b3657a44586bd4e37f7069241e51c",
+      "sampleFrames": [
+        0,
+        232,
+        4476,
+        8953,
+        9046,
+        13430,
+        17829,
+        17906
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-6",
+      "originalAudioSha1": "9b5a03180232211fbf2c9df861e452d4b5740ad1",
+      "pcmSha256": "cd5ea85ed0a6a6fe269bb5a30565faf0e2e949b2231b84d13102a40dcc6091ee",
+      "sampleFrames": [
+        0,
+        208,
+        2558,
+        5098,
+        5117,
+        7676,
+        10166,
+        10234
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-18-7",
+      "originalAudioSha1": "85d7c957d9c01503c2a5c580b3a5aa3d24eb8f95",
+      "pcmSha256": "6514867ec30386edf9f6eea5f532578a17eb48490ddbeee71f25f6692607925b",
+      "sampleFrames": [
+        0,
+        214,
+        9803,
+        19489,
+        19606,
+        29409,
+        39125,
+        39212
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-1",
+      "originalAudioSha1": "552149ceaf556263bc4dcd29011899c3c1a3e5cd",
+      "pcmSha256": "37a8f7744a443dbf7fa9c7a43e8de0a773b462f16b3b880872a48becb5625db6",
+      "sampleFrames": [
+        0,
+        300,
+        5187,
+        10375,
+        10950,
+        15562,
+        20665,
+        20749
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-2",
+      "originalAudioSha1": "ffc8153fea9087d9b4af9aa9d22cd671f0514232",
+      "pcmSha256": "5ed8a1b379d07a94ed0402b821ed1ee72c4f83cec5b660804ed0a4671e70aab3",
+      "sampleFrames": [
+        0,
+        264,
+        6347,
+        12540,
+        12694,
+        19041,
+        25170,
+        25388
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-3",
+      "originalAudioSha1": "e71151ff95948723110f4a49348478c46d538d16",
+      "pcmSha256": "6f138e5f9892e5264ae8af38673627af05f8fa187f7a07f4ea8fd2a9e2416ee8",
+      "sampleFrames": [
+        0,
+        277,
+        12018,
+        22864,
+        24037,
+        36055,
+        48000,
+        48073
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-4",
+      "originalAudioSha1": "efb480b4bc19c47a4cfc080dcf8b42d89cd51f3b",
+      "pcmSha256": "a63ac47f128949c9cca1933c7d0e3f8a95309e211c09ba5cee5e75d7095a9fbd",
+      "sampleFrames": [
+        0,
+        275,
+        6701,
+        13403,
+        13944,
+        20105,
+        26702,
+        26806
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-5",
+      "originalAudioSha1": "25d4a9d814bfe8dddc8d7dbd92838f42a1c1bf6e",
+      "pcmSha256": "b55294b145beabed9a142a07fd3291abc1afe26c748854ee8ad8c82e2da8e1a7",
+      "sampleFrames": [
+        0,
+        272,
+        3781,
+        7511,
+        7562,
+        11343,
+        14984,
+        15124
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-6",
+      "originalAudioSha1": "602d484d711d2702e26d3f7e89680a2022360580",
+      "pcmSha256": "3865a9f5436a951293aa922d0939d6b27cfdc09f6145226d4f78fbbe9ce53dcc",
+      "sampleFrames": [
+        0,
+        269,
+        3548,
+        7097,
+        7110,
+        10646,
+        14020,
+        14194
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-19-7",
+      "originalAudioSha1": "adf5577f02df2188afea4b0b37a26155c5f04aa6",
+      "pcmSha256": "145b999ce4f47bab149e33e081f9992497d17c907eade226a77ebf6e3b199542",
+      "sampleFrames": [
+        0,
+        266,
+        5162,
+        10069,
+        10325,
+        15487,
+        20521,
+        20649
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-1",
+      "originalAudioSha1": "d2bddc1fadaa8f16094fc5d71da4181fc186deef",
+      "pcmSha256": "8ba948a801ac54643e633678c28fb324c360453620bf746b1878e87d5f89c341",
+      "sampleFrames": [
+        0,
+        69,
+        5474,
+        9746,
+        10948,
+        16422,
+        21796,
+        21895
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-2",
+      "originalAudioSha1": "f460b07008316ec06b08ab69f5595583bf6a1e2f",
+      "pcmSha256": "ef55c754611c366578410762318040880638799d2cd71c5059ec956f0563e4ca",
+      "sampleFrames": [
+        0,
+        95,
+        7091,
+        12817,
+        14183,
+        21275,
+        28223,
+        28366
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-3",
+      "originalAudioSha1": "da3e321dc0501d755038a7eaa6cbccfa9874b649",
+      "pcmSha256": "6231f76527e6b6568530e3e423c47df49eb68fa62dc4028930e6823f40f713c8",
+      "sampleFrames": [
+        0,
+        109,
+        5766,
+        11379,
+        11533,
+        17300,
+        22952,
+        23066
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-4",
+      "originalAudioSha1": "19918a684250394dc05439f1dc31e70d06d9ce82",
+      "pcmSha256": "fd7542acac0a9086374c440ab0f3c3bc683fe86ff98f8a242ea3c372f1a22944",
+      "sampleFrames": [
+        0,
+        68,
+        6661,
+        13152,
+        13322,
+        19983,
+        26526,
+        26644
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-5",
+      "originalAudioSha1": "f35274341ca103480ab6f14f6726b7740c3fdb47",
+      "pcmSha256": "99ce03705a2c016fba7eb22e66a830fe207b03eacb3eed2011f7a0b2935a738a",
+      "sampleFrames": [
+        0,
+        93,
+        8686,
+        17373,
+        17816,
+        26059,
+        34672,
+        34745
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-6",
+      "originalAudioSha1": "6d50afe63995b735e0d0587393e330f99aa59d62",
+      "pcmSha256": "499fcc10fcf3681b2aa75b0711cf4b8875b160d120ccd74fedfaf6c552bab765",
+      "sampleFrames": [
+        0,
+        113,
+        2946,
+        5893,
+        6057,
+        8840,
+        11727,
+        11786
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-20-7",
+      "originalAudioSha1": "ca2184090d89ce0fe17e54fcd0c24a7954a11a16",
+      "pcmSha256": "29287eba9c0632371c4c57bd302f1d8d389dc0658499a5fec3d06a3bcb4edf8f",
+      "sampleFrames": [
+        0,
+        85,
+        3919,
+        7827,
+        7839,
+        11759,
+        15518,
+        15678
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-1",
+      "originalAudioSha1": "2a7480aa5619139a143b0d282f1f5163d7595316",
+      "pcmSha256": "f67bbd6684f149158e2bb82b36f9a024362a73c319f4b7d09e9b80325015b912",
+      "sampleFrames": [
+        0,
+        104,
+        13087,
+        25589,
+        26175,
+        39262,
+        52257,
+        52349
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-2",
+      "originalAudioSha1": "45585b9f88e32a83d4c8629b496d3336fdfcd574",
+      "pcmSha256": "a99495e37356a6624b308c5431664b30d78aa5a906c18d9ab2b10c2aabbefeaf",
+      "sampleFrames": [
+        0,
+        129,
+        22568,
+        42596,
+        45137,
+        67705,
+        90118,
+        90273
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-3",
+      "originalAudioSha1": "72495da2506a2cc61678e9a9be61822ee7c84a46",
+      "pcmSha256": "b972c338fb113502183f50961338d9011ce296033c21ddf302912e37203b269d",
+      "sampleFrames": [
+        0,
+        117,
+        2372,
+        4421,
+        4744,
+        7116,
+        9202,
+        9487
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-4",
+      "originalAudioSha1": "9516de218c34b733b83126daf16889b6afe0cfc4",
+      "pcmSha256": "0c9d362dee8a1790ae49b55d6492690e3db80b5f5a00d6f6a543c09127454e3d",
+      "sampleFrames": [
+        0,
+        173,
+        2312,
+        4625,
+        4804,
+        6937,
+        9192,
+        9249
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-5",
+      "originalAudioSha1": "b94449eb26eb452229dd53040970295626ae2ce0",
+      "pcmSha256": "120428031d5b0c1829d852cfbfc4357f10c041535c219332c7eceb31333ae96e",
+      "sampleFrames": [
+        0,
+        164,
+        4308,
+        8616,
+        8994,
+        12924,
+        17147,
+        17232
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-6",
+      "originalAudioSha1": "78de133629e942f25c7cbee76fb01df833a9362a",
+      "pcmSha256": "883b927700b017ffe8732b9d7a82457325ac307e9286edd0d4ea25ef74249db8",
+      "sampleFrames": [
+        0,
+        93,
+        7328,
+        13258,
+        14656,
+        21984,
+        29157,
+        29311
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-21-7",
+      "originalAudioSha1": "c6d0e4384bb35f5f968d8d547092bb7d0f1522c7",
+      "pcmSha256": "eaf37f3e3c7ccc956c5977f19e66766cb0f1232ca178d36620a423d7ec93ddbf",
+      "sampleFrames": [
+        0,
+        132,
+        4865,
+        9655,
+        9731,
+        14596,
+        19386,
+        19461
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-1",
+      "originalAudioSha1": "4420d9c421bdda10d512a097a0ad4d2e8983c1ec",
+      "pcmSha256": "4aefbec494da0fd874764dc0b3c0949913fe08dfb875299bb82e4081782d930b",
+      "sampleFrames": [
+        0,
+        82,
+        6020,
+        11502,
+        12041,
+        18062,
+        23954,
+        24082
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-2",
+      "originalAudioSha1": "461f19eb3c5901684591da7695ebb772253a1b93",
+      "pcmSha256": "fc85ae580c3c2789db4c4072fab3cb8d997dff13f8a1388dc3bf42c3d1a45d9b",
+      "sampleFrames": [
+        0,
+        116,
+        4917,
+        9811,
+        9835,
+        14753,
+        19610,
+        19670
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-3",
+      "originalAudioSha1": "9427c4be6facdb81a88475f4c09c8aec4711f66d",
+      "pcmSha256": "68ecb01fbc6f60f602eac787e7dcd7ea629f4b97fc64b43fbe8577575b0c0b09",
+      "sampleFrames": [
+        0,
+        101,
+        6093,
+        11384,
+        12187,
+        18281,
+        24282,
+        24374
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-4",
+      "originalAudioSha1": "a9fc03921c040a8c580145497a89eca967ea158a",
+      "pcmSha256": "2b23dd26d0339a6b5a23db3a2037e9640321cbbc7d476b88591567bef6f1a62c",
+      "sampleFrames": [
+        0,
+        195,
+        5141,
+        10283,
+        10585,
+        15425,
+        20474,
+        20566
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-5",
+      "originalAudioSha1": "0e1a6bbe4a5bd8cf3dbfe9f4c6a49ea3afafd09b",
+      "pcmSha256": "68e4e2f474832051260aabf9abad3a8aab9eded7daef6c4ee36585642634075e",
+      "sampleFrames": [
+        0,
+        95,
+        12081,
+        24162,
+        24936,
+        36243,
+        48286,
+        48323
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-6",
+      "originalAudioSha1": "b55ff64b7603ed3deb469699b451789dc514f222",
+      "pcmSha256": "bc2bfed5740e14a51e5760258968e59243f24342069a49a852a437b958b60af9",
+      "sampleFrames": [
+        0,
+        131,
+        5581,
+        11155,
+        11162,
+        16743,
+        22265,
+        22324
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-22-7",
+      "originalAudioSha1": "45ae410a579c45d24f125737f5801afa9d5a4c02",
+      "pcmSha256": "2fdf3fe11d90c16c9f0443a73ebcf996100f65f5749291ae9bd25ba086a7bae7",
+      "sampleFrames": [
+        0,
+        86,
+        7703,
+        14692,
+        15406,
+        23109,
+        30624,
+        30811
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-1",
+      "originalAudioSha1": "cdac57f2cd71cf2ccb7bc6e61bbb22de31f876b8",
+      "pcmSha256": "80097124179eb14664ca58a562a1079ab08cccc73e86501d873c3a2365c46483",
+      "sampleFrames": [
+        0,
+        119,
+        5775,
+        9949,
+        11550,
+        17325,
+        22965,
+        23100
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-2",
+      "originalAudioSha1": "fa37283e6b672476067a6ef4de17f2fe546ea52c",
+      "pcmSha256": "9052cddd975aa9a763c52a4d237f5423dee357174ba73e87934da1eac0645f0a",
+      "sampleFrames": [
+        0,
+        69,
+        8100,
+        16200,
+        16944,
+        24300,
+        32213,
+        32399
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-3",
+      "originalAudioSha1": "c42ea628290beb2efd2ebf9146b2bf7fd5746c39",
+      "pcmSha256": "7abf954bae81c51111b17b20deee3b189d27f3012815655e1d52b159262fb686",
+      "sampleFrames": [
+        0,
+        80,
+        3879,
+        7758,
+        7810,
+        11637,
+        15480,
+        15516
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-4",
+      "originalAudioSha1": "9a8a5ae470b2e844dca65eceda904ef6af15b75d",
+      "pcmSha256": "d201a5af25a2bcea196713d508ce7fc5b36f7076d4ca9d5389c91214e692bc66",
+      "sampleFrames": [
+        0,
+        146,
+        3897,
+        7794,
+        8383,
+        11691,
+        15340,
+        15587
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-5",
+      "originalAudioSha1": "cc438aae85f734b7d784b74be2f62d822c5744dc",
+      "pcmSha256": "ddcc17ff4ea0b7a684a47944ed6676c1f6d25850d613f7a77068be3ddf446436",
+      "sampleFrames": [
+        0,
+        157,
+        4942,
+        9885,
+        10397,
+        14827,
+        19683,
+        19769
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-6",
+      "originalAudioSha1": "7b13f17ba730cbabb5c27ad07b16035c923fe128",
+      "pcmSha256": "bb99bc1147420cf485bae56325cb37b108b8f408d15cfc2a7756a4383fb4eb1c",
+      "sampleFrames": [
+        0,
+        135,
+        3935,
+        7871,
+        7952,
+        11806,
+        15552,
+        15741
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-23-7",
+      "originalAudioSha1": "84fe6a69b13bb54b804411820995061b031906b5",
+      "pcmSha256": "399d24164762340830cefad737cd93a8e59c1b4235feb35f49ae6db0712a6fc9",
+      "sampleFrames": [
+        0,
+        122,
+        3741,
+        7483,
+        7522,
+        11224,
+        14750,
+        14965
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-1",
+      "originalAudioSha1": "250786ea84cc307ab6e93940a434a0e24948b55d",
+      "pcmSha256": "2a54906c807d7ada841ebd5d44c109630f8f6c6b3044ef614c7d640acaa4f138",
+      "sampleFrames": [
+        0,
+        131,
+        4470,
+        8780,
+        8940,
+        13410,
+        17715,
+        17880
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-2",
+      "originalAudioSha1": "1d82590c1aa8e6e3c0329bb9c0891b3df64625cd",
+      "pcmSha256": "c6d71049468c6ee450d53d8da2394ce0c93e259917362855be82ee4d3d848d7d",
+      "sampleFrames": [
+        0,
+        183,
+        3423,
+        4527,
+        6847,
+        10270,
+        13532,
+        13693
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-3",
+      "originalAudioSha1": "d9ccdafa335640a5a33917586a627cb4dc220b57",
+      "pcmSha256": "f9d82f41fae561db9c2153ec01d483fd152b22694d4cf380e7fd2eabc34949f4",
+      "sampleFrames": [
+        0,
+        135,
+        3012,
+        5924,
+        6025,
+        9038,
+        11861,
+        12050
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-4",
+      "originalAudioSha1": "6f7a5597d53eb60bdc4768f71ea15ade4df3b529",
+      "pcmSha256": "8a4d3cfd06cd4b68060ff1450a501f8d8a80c37f32c3b5bc5b36f6b33935885c",
+      "sampleFrames": [
+        0,
+        117,
+        5623,
+        10363,
+        11247,
+        16871,
+        22359,
+        22494
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-5",
+      "originalAudioSha1": "136aaabb8f5fffd048dd9cb360aaecc76f7e092c",
+      "pcmSha256": "300629d8f94017a4b4d964b5fff81001339563039f5795b745f2ce4d91fa4d3d",
+      "sampleFrames": [
+        0,
+        168,
+        9187,
+        18375,
+        20156,
+        27562,
+        36575,
+        36749
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-6",
+      "originalAudioSha1": "9209ccfb5a5fc5f332b76cecd8507101a6b81611",
+      "pcmSha256": "a8c0224bb112ff4d7901085840f74cbc5c0cfa199470753e569231c8a1964a15",
+      "sampleFrames": [
+        0,
+        91,
+        7899,
+        15798,
+        15923,
+        23697,
+        31501,
+        31595
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-24-7",
+      "originalAudioSha1": "9ebf1511a2ba0fbde1fb53324d4f9cad401ee72f",
+      "pcmSha256": "affa43403af909e040aa3984155f90b5d8956c5444c8cbda79c72819d7ee9b61",
+      "sampleFrames": [
+        0,
+        143,
+        6412,
+        12825,
+        14231,
+        19237,
+        25450,
+        25649
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-1",
+      "originalAudioSha1": "74c210d8582dbd51ef5e33318a9e48a135f1dd03",
+      "pcmSha256": "43c295252d0fa754f44c11b6e65e8816a4e6503843a63f4cf37e2b8044d15f2d",
+      "sampleFrames": [
+        0,
+        138,
+        4183,
+        8367,
+        9027,
+        12551,
+        16631,
+        16734
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-2",
+      "originalAudioSha1": "a794cc6390678eb0739064f2b514cdc67cf9e4eb",
+      "pcmSha256": "dfdad023994629ae6a5a25cb14ac303ba4909d1e34cfa30ed036709975b476f0",
+      "sampleFrames": [
+        0,
+        97,
+        6676,
+        12485,
+        13352,
+        20028,
+        26489,
+        26704
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-3",
+      "originalAudioSha1": "d0f99bcf7408473a0fc009611b7e62f802143ae7",
+      "pcmSha256": "7730cd0cbe72f066e3577de526fa7a7f242015c5a154287dc53a0dee792e2c1e",
+      "sampleFrames": [
+        0,
+        179,
+        9804,
+        19609,
+        20720,
+        29413,
+        38971,
+        39217
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-4",
+      "originalAudioSha1": "af79b7b76eb33d1f0b94830bc19b945e04f0ab6f",
+      "pcmSha256": "5c389e04c7b9d0d9f89c18196d920e152c7e8afcd79b82164d6258a79a8263f9",
+      "sampleFrames": [
+        0,
+        189,
+        4129,
+        8259,
+        9475,
+        12388,
+        16334,
+        16517
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-5",
+      "originalAudioSha1": "1523624506d7b7b9cb22138c6c7e03be2beb3469",
+      "pcmSha256": "37a1f4796d39d3aad618ac53b6a949617b341f53c726d7a7e4b6824be49167da",
+      "sampleFrames": [
+        0,
+        70,
+        3289,
+        6578,
+        7217,
+        9867,
+        12918,
+        13155
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-6",
+      "originalAudioSha1": "90b10a9a8cd8ade74750f7f3990b88a8baae6d1a",
+      "pcmSha256": "a2bc1af8034a1ed3b7ba8a8f4e53a7054737a64b3647ee37470288071fa221c5",
+      "sampleFrames": [
+        0,
+        133,
+        4089,
+        7977,
+        8178,
+        12267,
+        16164,
+        16355
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-25-7",
+      "originalAudioSha1": "c29def52a2aad91ed0a40e501f57d01745688407",
+      "pcmSha256": "1c30149ca03494a0e73d62eafbba96a9231a466f646dc00f5e2098c63a874f1a",
+      "sampleFrames": [
+        0,
+        213,
+        3244,
+        6488,
+        7148,
+        9732,
+        12610,
+        12975
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-1",
+      "originalAudioSha1": "b92eeb71813a1ba59d3e21b3864aa07158cab981",
+      "pcmSha256": "a7d7dda223e5addb97848c06970829931e4944bd9609f8836676541a7db65bcb",
+      "sampleFrames": [
+        0,
+        102,
+        6531,
+        12471,
+        13063,
+        19594,
+        25942,
+        26125
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-2",
+      "originalAudioSha1": "f457653683bb51965822cd9ce69217c26f540d49",
+      "pcmSha256": "e039c5ed9637800d098d900b56589bc037a7db94d3038606266933f4ed694a57",
+      "sampleFrames": [
+        0,
+        130,
+        2990,
+        5981,
+        6932,
+        8971,
+        11744,
+        11961
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-3",
+      "originalAudioSha1": "36b7fadd07319fe1d2b36260825938d86c301de8",
+      "pcmSha256": "ad74aeda1f7548d24dcf05ce97b8666a3a2b2fdef6290f1352ad3584858551cb",
+      "sampleFrames": [
+        0,
+        121,
+        5941,
+        11487,
+        11883,
+        17825,
+        23441,
+        23766
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-4",
+      "originalAudioSha1": "cce9cac2a8f4576c9375498fd1c6ed388af31e92",
+      "pcmSha256": "44f398fe80213ebf4af211a049f934c13ad4b5c9e6bb68f2c32b910eb644d4c9",
+      "sampleFrames": [
+        0,
+        221,
+        2715,
+        5431,
+        6166,
+        8146,
+        10566,
+        10861
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-5",
+      "originalAudioSha1": "bc06a58067b628b9301748878cefa2eef8feb674",
+      "pcmSha256": "04ffef242cc403f762199c79b38e42a21bf9a4a78271c5ee7c160735fd5c07c4",
+      "sampleFrames": [
+        0,
+        237,
+        2486,
+        4972,
+        5623,
+        7458,
+        9815,
+        9944
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-6",
+      "originalAudioSha1": "d84f259ee198b7dccc7f04538ca0b2f0df938900",
+      "pcmSha256": "f32afae7d5f9f502c6417a4195d1f7b3500d8f489bcd39adc38cd97fea6af551",
+      "sampleFrames": [
+        0,
+        229,
+        10918,
+        21837,
+        22352,
+        32756,
+        43595,
+        43674
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-26-7",
+      "originalAudioSha1": "630e9b551b5ea46edc13e98c3a856f9ab3120fc7",
+      "pcmSha256": "763969f657ea3b5f43fbc207ecfeda0b10df30a62c6f0d6a34cf8d0f4893ce8e",
+      "sampleFrames": [
+        0,
+        94,
+        5950,
+        10634,
+        11901,
+        17852,
+        23540,
+        23802
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-1",
+      "originalAudioSha1": "60dfee67bae8081e39405d7939eea59d03faf3c8",
+      "pcmSha256": "fe799bbcb1e66c493a778561572e4f52e0062e8f54a1d785f6843a2fb14d44a0",
+      "sampleFrames": [
+        0,
+        139,
+        5123,
+        9870,
+        10247,
+        15370,
+        20372,
+        20493
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-2",
+      "originalAudioSha1": "be03f6252ae95ec2bb04fe62519511d006be4217",
+      "pcmSha256": "1e8931304c876c763100c34d4b9bc63dd8a2dbabefc4e0097fd671060c14e877",
+      "sampleFrames": [
+        0,
+        171,
+        3813,
+        7622,
+        7626,
+        11439,
+        15189,
+        15252
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-3",
+      "originalAudioSha1": "69ca62170240c701b81cadd4ee33e23f3c75b439",
+      "pcmSha256": "08d55f1ee28d387f3f57a60bf37a52ef9b00e9282a9c583cb73db21d08596974",
+      "sampleFrames": [
+        0,
+        123,
+        1898,
+        2963,
+        3796,
+        5694,
+        7420,
+        7591
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-4",
+      "originalAudioSha1": "613f290198f04d9122a3d3c5b27d62affe3d5c12",
+      "pcmSha256": "b20d945859e028a5785f8fffd3ed690f908231746dbc4cd3c3b31444b8c6c34c",
+      "sampleFrames": [
+        0,
+        272,
+        2245,
+        3957,
+        4490,
+        6735,
+        8910,
+        8980
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-5",
+      "originalAudioSha1": "f30d70818fa7e9558d1aa10a411813492c5368e8",
+      "pcmSha256": "bb7d6003742730708cb5189cd6ff42e59917eee9854bbbbda0dee1354f13e829",
+      "sampleFrames": [
+        0,
+        225,
+        4093,
+        8187,
+        8748,
+        12280,
+        16202,
+        16373
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-6",
+      "originalAudioSha1": "de206fa9c2f8c5587c0af8af9bd5e0eb8ab77839",
+      "pcmSha256": "0538b0bd66e6a4a7fb5090f76d87e2d701ae34f6a5828b2424ed293229e6d42e",
+      "sampleFrames": [
+        0,
+        269,
+        4922,
+        9500,
+        9844,
+        14766,
+        19627,
+        19688
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-27-7",
+      "originalAudioSha1": "0e2a74e6a8105267392318d2d12c250b1373972d",
+      "pcmSha256": "8031cbaff966403bfd71aad0a5a2e6027677a4508b623eb9dceb260077702162",
+      "sampleFrames": [
+        0,
+        43,
+        2383,
+        4767,
+        5930,
+        7151,
+        9467,
+        9534
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-1",
+      "originalAudioSha1": "cb83b0a560778dfb205122f0cfe6acfcb71754fe",
+      "pcmSha256": "a06e5d195476af2524d9c60414ae4a42e0bdb0e407622f7c2d3826dc9914d8f0",
+      "sampleFrames": [
+        0,
+        106,
+        5645,
+        11271,
+        11291,
+        16937,
+        22433,
+        22582
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-2",
+      "originalAudioSha1": "e8fe1691cdde3f3605b5ae665b84000d7badbb58",
+      "pcmSha256": "a9526d4548980817385c9f6720d8bcf9bd4726eb3e4a621315b68aee34f76d9c",
+      "sampleFrames": [
+        0,
+        152,
+        3966,
+        7932,
+        8100,
+        11898,
+        15657,
+        15864
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-3",
+      "originalAudioSha1": "eac913fb19f470dd93f7ab7c43bec3ded23d7686",
+      "pcmSha256": "c10ef534792c82e13b537d63e0eb91f7532e4e4016b9fb7939ebb3d6e7ed8de8",
+      "sampleFrames": [
+        0,
+        183,
+        5380,
+        9867,
+        10760,
+        16140,
+        21226,
+        21519
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-4",
+      "originalAudioSha1": "a10a264df10f70ed3e940dc874f11bf0ea55214a",
+      "pcmSha256": "0e361db6bdeb5ccd782613d65262690b3812f6d849230ca69b26dd841df78fad",
+      "sampleFrames": [
+        0,
+        152,
+        8487,
+        15897,
+        16974,
+        25461,
+        33689,
+        33948
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-5",
+      "originalAudioSha1": "2cc92149af52fae778651d16ab2ab962e6c6a64f",
+      "pcmSha256": "be3476cfb12842519849f4e1c9756187a19239cd7c432143fa42cab1b70f80f4",
+      "sampleFrames": [
+        0,
+        194,
+        6559,
+        13119,
+        13239,
+        19678,
+        25927,
+        26237
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-6",
+      "originalAudioSha1": "bc04887b65a7d4636087be0cf5f75f08f67be2ea",
+      "pcmSha256": "458101e1b211f284d2e4a8e22bc1e13fd4495aff5601170aa5a4b92d1b6ba5b6",
+      "sampleFrames": [
+        0,
+        177,
+        5672,
+        11030,
+        11344,
+        17016,
+        22420,
+        22687
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-28-7",
+      "originalAudioSha1": "a81254a46794b0a594ebc37d49065e0db88b856e",
+      "pcmSha256": "2c77b4226e5d349ae65ba8dc173f0b189e04479e18f1c793efd76a7f6a147e02",
+      "sampleFrames": [
+        0,
+        195,
+        2026,
+        4052,
+        4585,
+        6078,
+        7853,
+        8103
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-1",
+      "originalAudioSha1": "ed78f1b9aa3995dca2c8b36fcf62ca2e17e7392e",
+      "pcmSha256": "9210f1f463c60ebd05d4d0b6c4c09493dc824f79c0ca82d200d4869f2b3f0436",
+      "sampleFrames": [
+        0,
+        169,
+        7027,
+        14001,
+        14055,
+        21083,
+        27853,
+        28110
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-2",
+      "originalAudioSha1": "4adb38077ec7bb3ef29a07c995e2ebc8af154d7a",
+      "pcmSha256": "578655da2833b21fef008373549e3dce158fd78fc0771da68abef483df4a830d",
+      "sampleFrames": [
+        0,
+        213,
+        3466,
+        6933,
+        7054,
+        10399,
+        13605,
+        13865
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-3",
+      "originalAudioSha1": "ff26f7300bd8472f3bb06c88094101aa90abc116",
+      "pcmSha256": "f77d429f53b78938c85967db265fe853ed1fba80c1032e5d8dc263df877599d1",
+      "sampleFrames": [
+        0,
+        202,
+        4506,
+        9012,
+        9939,
+        13518,
+        17674,
+        18024
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-4",
+      "originalAudioSha1": "9fbaa95d6876e4ddca6aba14ac7d382d2e4c3f9e",
+      "pcmSha256": "0f525e8e7447906a565e2da2c28bcd084feff63924d29d9c95b88060f37912f6",
+      "sampleFrames": [
+        0,
+        209,
+        3727,
+        6801,
+        7454,
+        11181,
+        14626,
+        14908
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-5",
+      "originalAudioSha1": "33a05ee6c68edcdb6f475180aaec84469ee8610f",
+      "pcmSha256": "eba5cce25384d11ffc3219204a390141353979ce7ac3f3fe9dea49610fd7cf47",
+      "sampleFrames": [
+        0,
+        184,
+        6034,
+        12069,
+        12328,
+        18103,
+        23822,
+        24137
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-6",
+      "originalAudioSha1": "47abe2a626a0b6005d66fc0181a4c403d314d2ab",
+      "pcmSha256": "6817c32aa93697e185f091c128290f3a75896193b83873601053bfd14d15f48a",
+      "sampleFrames": [
+        0,
+        218,
+        4531,
+        9030,
+        9062,
+        13593,
+        17810,
+        18123
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-29-7",
+      "originalAudioSha1": "4f1f4597a14858ea6d0e93ea53d3b8fb911f59d9",
+      "pcmSha256": "3f9ab6586f32f562358cd027eb5d5d44d7dd7dce730f003c8ff1a2dde4058d67",
+      "sampleFrames": [
+        0,
+        191,
+        3265,
+        6531,
+        6728,
+        9796,
+        12770,
+        13061
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-1",
+      "originalAudioSha1": "c5b79da916a4acdcb397c4f46cf4ceedd0ddc19f",
+      "pcmSha256": "0cd00ccda9b9e389cd5d986e9bffba21ae3d3c6214c52f35a5278ab948f17545",
+      "sampleFrames": [
+        0,
+        140,
+        4139,
+        7843,
+        8278,
+        12417,
+        16372,
+        16556
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-2",
+      "originalAudioSha1": "df2f17fc57c866ba76bee549be4cbc5a8234e4ae",
+      "pcmSha256": "aa9b27fe08a57801c211ea6508073266f3e7b2a007b14242a3f2cbc98d68985b",
+      "sampleFrames": [
+        0,
+        97,
+        3670,
+        7340,
+        7613,
+        11010,
+        14513,
+        14680
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-3",
+      "originalAudioSha1": "740ab3129d0bc9b27e836f4ee49327f45ca31e25",
+      "pcmSha256": "0375913f899b1ad3fe33c1de3e81d88d91f4f57aa44d5684ceaa666eb9e853c8",
+      "sampleFrames": [
+        0,
+        81,
+        2651,
+        5063,
+        5303,
+        7954,
+        10540,
+        10605
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-4",
+      "originalAudioSha1": "93b9dc5b889b9efea1f16b6385d265c8da01c910",
+      "pcmSha256": "55634c2bc8bc3c88e03d3c27805fdda2fe923e09b05669a5d655a8aa361c6a57",
+      "sampleFrames": [
+        0,
+        67,
+        1698,
+        3397,
+        5095,
+        6753,
+        6793
+      ],
+      "assigned": 4,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-5",
+      "originalAudioSha1": "8119f4d01c665010d0e277c0e7668848c1f13759",
+      "pcmSha256": "32c59290cf40d34bf09b9f4a9d28bf61f2754b2b48bb605a1dc0815b5bc282cc",
+      "sampleFrames": [
+        0,
+        93,
+        3306,
+        6470,
+        6613,
+        9920,
+        13136,
+        13226
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-6",
+      "originalAudioSha1": "b157522b7a36ce158a9db4b2ee5ed990215d87d4",
+      "pcmSha256": "1c18fe45ca29c2138d2b9575ee17ebb959e380cc7e30fde7ae070015e08870ec",
+      "sampleFrames": [
+        0,
+        99,
+        5849,
+        11698,
+        12367,
+        17547,
+        23197,
+        23396
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-30-7",
+      "originalAudioSha1": "e0e2fcacbfa6e3eb60c9afab4661792a87fc4e45",
+      "pcmSha256": "aba4b619b18e8d45e8d01036fa39f6de66807115b458a3c9c021e99ce67d51eb",
+      "sampleFrames": [
+        0,
+        81,
+        2484,
+        4968,
+        5070,
+        7452,
+        9832,
+        9935
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-1",
+      "originalAudioSha1": "316c753bb8a5d2df50a41675987a4bd777d054a2",
+      "pcmSha256": "eeb2d0e24f7b9685277c6f09e749d374642102166489ff951903c8cfc388dcae",
+      "sampleFrames": [
+        0,
+        200,
+        5017,
+        9558,
+        10035,
+        15052,
+        19958,
+        20069
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-2",
+      "originalAudioSha1": "88fdd867eb51b6b79f4e78ab4e05f41e866e456d",
+      "pcmSha256": "09d87e2beafadf27cf2e7ec610961952131e6e7dfa176716eb58127ada032313",
+      "sampleFrames": [
+        0,
+        283,
+        9278,
+        17768,
+        18556,
+        27834,
+        37055,
+        37112
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-3",
+      "originalAudioSha1": "8dc85ece041e2fc716d327db58f311e287f8e218",
+      "pcmSha256": "604d2510471e8d1017ce2ed7eb7eb4aea11a0782b975c19ea55a80592fdd07ee",
+      "sampleFrames": [
+        0,
+        151,
+        5941,
+        11571,
+        11883,
+        17825,
+        23632,
+        23766
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-4",
+      "originalAudioSha1": "6c0768fec084e0a2de4a3d002e3b1b49205be46f",
+      "pcmSha256": "619ff3cf301b5518bf3085f1de22c99973472f327bb3b9d8df22f6b731368e0c",
+      "sampleFrames": [
+        0,
+        144,
+        9259,
+        18158,
+        18518,
+        27777,
+        36956,
+        37036
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-5",
+      "originalAudioSha1": "3526497ba722436293fc6a999b0d78a4b864100a",
+      "pcmSha256": "2c381ce47666468bf692977b5eaa1cb5570acee9cb9555dce0c4da5e643e4a49",
+      "sampleFrames": [
+        0,
+        142,
+        3498,
+        6456,
+        6996,
+        10494,
+        13928,
+        13991
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-6",
+      "originalAudioSha1": "3ff934b12ef3ca039e16b9548306430e8ca01b0c",
+      "pcmSha256": "50308f8220dcfbd41b4f734faf047c3fd5212a578183bfb39196ae40e17c4c95",
+      "sampleFrames": [
+        0,
+        91,
+        5369,
+        10374,
+        10739,
+        16108,
+        21426,
+        21477
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-31-7",
+      "originalAudioSha1": "ac469d95819ebaf48f62afabda9de6c4e67f698d",
+      "pcmSha256": "2573e1b83784cff536e1bb37167116649465f8c0b5399c0c9dbcb4f333b27c7f",
+      "sampleFrames": [
+        0,
+        120,
+        8347,
+        16498,
+        16694,
+        25041,
+        33298,
+        33387
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-1",
+      "originalAudioSha1": "e4ab4641ae996230dff64cf6a1aaf1609af89306",
+      "pcmSha256": "c4e22d8e327fa7fed6b85faf53fc24c86b4d80f840f387b8c62338c48a8faab5",
+      "sampleFrames": [
+        0,
+        118,
+        4126,
+        7608,
+        8253,
+        12380,
+        16427,
+        16506
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-2",
+      "originalAudioSha1": "b4d38982fad083817e909e139c051e2baf390dd0",
+      "pcmSha256": "f5c406561f5f074a223029ff322eee7349407dfddcc97e5ba5e7c0754f9ccd44",
+      "sampleFrames": [
+        0,
+        106,
+        1514,
+        2919,
+        3029,
+        4543,
+        5988,
+        6057
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-3",
+      "originalAudioSha1": "297360678ec322e5484d162ffe88150b4de36e3d",
+      "pcmSha256": "9a461be84ff2f84a47e3fa3f6eb9b8b7c49c1cbd321d3a277cd8f1e684e238c9",
+      "sampleFrames": [
+        0,
+        88,
+        1748,
+        3469,
+        3496,
+        5244,
+        6892,
+        6992
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-4",
+      "originalAudioSha1": "89f570c1f45188ce3bd32188283df8345635b563",
+      "pcmSha256": "84c5597014b15d8c4dcfdaed2ccd2bdd639aa6eca087cbcaa2b5b26ace73be86",
+      "sampleFrames": [
+        0,
+        72,
+        1467,
+        2812,
+        2935,
+        4402,
+        5815,
+        5869
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-5",
+      "originalAudioSha1": "c73a0f75f63f9576b314d4fcf2e90cc3d713475d",
+      "pcmSha256": "a212a28fe06831dfa3b4005e709bfbed3894c6ae06e60e55bdc61ac72a20e52c",
+      "sampleFrames": [
+        0,
+        120,
+        3628,
+        7114,
+        7256,
+        10884,
+        14456,
+        14511
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-6",
+      "originalAudioSha1": "7dfa4745c05f336e76d0b54ee86c0b68ab30b312",
+      "pcmSha256": "a47bf69ec199439f13ba26f486841d689d89dbe92be2aa561db8231639adfd84",
+      "sampleFrames": [
+        0,
+        41,
+        2368,
+        4737,
+        4824,
+        7106,
+        9447,
+        9474
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-32-7",
+      "originalAudioSha1": "45670c4ec349d114b25fdd15bb717948c5d0052f",
+      "pcmSha256": "2685c411e569ce475a29b946882d160dd6bb8ca729ea37ea3513ccff3a4269f8",
+      "sampleFrames": [
+        0,
+        64,
+        3672,
+        7124,
+        7344,
+        11016,
+        14599,
+        14688
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-1",
+      "originalAudioSha1": "fb9318f683c3f8cb131e9be6e1a5aebf3f7f72ec",
+      "pcmSha256": "fcdf802f2183d6a18e73d62adad816acf45d2bf113a85ffe89cff4c56300d2fd",
+      "sampleFrames": [
+        0,
+        97,
+        825,
+        1535,
+        1651,
+        2476,
+        3206,
+        3301
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-2",
+      "originalAudioSha1": "f4fbee6604016bbc4ae965e39f4650b50621dc59",
+      "pcmSha256": "79342578f08e88dc5171cfff12bf2ffa5a7930b5eba62516edd6321e4effeecf",
+      "sampleFrames": [
+        0,
+        84,
+        1218,
+        2437,
+        2663,
+        3656,
+        4827,
+        4874
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-3",
+      "originalAudioSha1": "17189fd5b101fcc41ee6efa4beebb78078420008",
+      "pcmSha256": "29248b2d5cb29cff85e993bb0cba292fff4e3ac6e33814b01086c5a5a5d09341",
+      "sampleFrames": [
+        0,
+        176,
+        12968,
+        24863,
+        25936,
+        38904,
+        51799,
+        51871
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-4",
+      "originalAudioSha1": "d414266b266037367b236b25fdd2ee390757f235",
+      "pcmSha256": "0e2a922aa1a4478b622993813f8e9a7e9cf1f6260bac7f0b81b31b4436e85293",
+      "sampleFrames": [
+        0,
+        86,
+        5221,
+        10442,
+        10609,
+        15663,
+        20798,
+        20884
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-5",
+      "originalAudioSha1": "92f94c1ca64830a1fcf5a2fcc577f581ae1abb54",
+      "pcmSha256": "d7fe8184796c2c78b53feaf5c904ccf1f336d864db5e5934544dd22c986d0187",
+      "sampleFrames": [
+        0,
+        101,
+        2120,
+        4241,
+        4495,
+        6361,
+        8370,
+        8481
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-6",
+      "originalAudioSha1": "c92c7818569bc63ccd482fc32e7231c3d5e57e8d",
+      "pcmSha256": "2c8eca931fab6952791109c938c27b60e03b549494f012cc5b91d74a00d5d827",
+      "sampleFrames": [
+        0,
+        136,
+        2500,
+        5001,
+        5694,
+        7502,
+        9927,
+        10002
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-33-7",
+      "originalAudioSha1": "443166c96119534a2bb494f7f5d64b09b53e2b34",
+      "pcmSha256": "0bda8b1bce92b92822a9b5f44573fb91c41287ceab7d21052eda4a73e23a36a9",
+      "sampleFrames": [
+        0,
+        107,
+        1942,
+        3884,
+        4161,
+        5826,
+        7637,
+        7768
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-1",
+      "originalAudioSha1": "88c67aa9b40111d28d6c154b236c57b9a59efbab",
+      "pcmSha256": "85ba347905790d36c692c2d34f25acc4796327b3c01294fedbf1c6ca57ef444e",
+      "sampleFrames": [
+        0,
+        106,
+        3782,
+        7205,
+        7565,
+        11348,
+        15028,
+        15130
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-2",
+      "originalAudioSha1": "21ffd6d099fcd84e2a7285b449764430b85e27be",
+      "pcmSha256": "030bf592bfe52ad7c06cc9add1d1fdd1ca2dd4a4b83b2c36df52f502c0e80766",
+      "sampleFrames": [
+        0,
+        105,
+        9526,
+        19052,
+        19751,
+        28578,
+        38004,
+        38104
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-3",
+      "originalAudioSha1": "62c30f19741146f6d7b8e22dda8d4beb206b3810",
+      "pcmSha256": "e693c1ffaf0b88c45e2a7555c8d7666ffb2befcafac87b79478d01f3a70c1cba",
+      "sampleFrames": [
+        0,
+        138,
+        8614,
+        15963,
+        17229,
+        25844,
+        34317,
+        34458
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-4",
+      "originalAudioSha1": "a2a45a7e4ac7b0e2f53445fefb6c446e1821fdb1",
+      "pcmSha256": "5f54004464f098828045e2b4069459fb9dc59248f99982e69c348b28aab72a7f",
+      "sampleFrames": [
+        0,
+        70,
+        4244,
+        8488,
+        8594,
+        12732,
+        16918,
+        16976
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-5",
+      "originalAudioSha1": "e356f5f3a643f8aafa8162b2deac375a59425029",
+      "pcmSha256": "be8641c341fc21bb4705337de352d88f8f458188b6c4b87aac9405acb85d8d5b",
+      "sampleFrames": [
+        0,
+        101,
+        7476,
+        14952,
+        15384,
+        22428,
+        29787,
+        29904
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-6",
+      "originalAudioSha1": "21d21c73350b65c1a4b0625a344ec19cba252a57",
+      "pcmSha256": "08ac069a6955f5f3724d1736dc66386cc14836cbc38c2dc1e7c1b6cd5191a057",
+      "sampleFrames": [
+        0,
+        98,
+        4192,
+        8385,
+        8480,
+        12578,
+        16652,
+        16770
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-34-7",
+      "originalAudioSha1": "0c4fdab2bc14c93cd64ed53580a9800a5a4465ef",
+      "pcmSha256": "d4912e7921b5ebf394a1e97a109b03c1c04924948a58a55e0a448f8cc96a1d42",
+      "sampleFrames": [
+        0,
+        81,
+        7722,
+        15444,
+        16215,
+        23166,
+        30818,
+        30887
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-1",
+      "originalAudioSha1": "daf07ddbb3ba087611a434dcbb95ffb20383f5b8",
+      "pcmSha256": "85ca4b4e03c46c40cab72dbde8e38b3e2ccfdb8a0920bc44a9d0fed9c9559eaa",
+      "sampleFrames": [
+        0,
+        153,
+        5282,
+        10565,
+        10626,
+        15848,
+        21063,
+        21130
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-2",
+      "originalAudioSha1": "426a5ebf867696cef6cd06889952e12be286c7a6",
+      "pcmSha256": "4b0e01ab4846a717019992dbe3f4247484295e21dd9c21be62829b296216a030",
+      "sampleFrames": [
+        0,
+        158,
+        3603,
+        7207,
+        7282,
+        10811,
+        14341,
+        14414
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-3",
+      "originalAudioSha1": "392371d40f637ae0cdb113f3b4e44893ebc21332",
+      "pcmSha256": "7f3e523a4c1ee923acf872dd36818505500ec23b4837cc862510988764bf1b93",
+      "sampleFrames": [
+        0,
+        118,
+        3192,
+        6384,
+        6610,
+        9576,
+        12707,
+        12768
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-4",
+      "originalAudioSha1": "4ce46cee995fd24e230a4ad4103dcceb7579b2c6",
+      "pcmSha256": "056fee81f8b8d322fe54c3684a2dd0bfd10f8df54ffca2ef4ffbc715ce18b5f0",
+      "sampleFrames": [
+        0,
+        98,
+        18015,
+        36031,
+        36750,
+        54046,
+        72032,
+        72061
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-5",
+      "originalAudioSha1": "230a21ddce300a55dd4bd31a3f509595d1842778",
+      "pcmSha256": "603ec6ba0c7b0ad87fbe6d1227f9d9b680f5d0021a6b583f55b8e1ba3a8056dc",
+      "sampleFrames": [
+        0,
+        225,
+        11450,
+        22492,
+        22900,
+        34350,
+        45648,
+        45800
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-6",
+      "originalAudioSha1": "db8c9d8d26ba180a373617e6c0c5e2369580b81c",
+      "pcmSha256": "abd112463b567c3f192015c262ba205f2126db7b2b0bdc2d3d73025903257193",
+      "sampleFrames": [
+        0,
+        101,
+        8486,
+        16943,
+        16973,
+        25460,
+        33837,
+        33946
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-35-7",
+      "originalAudioSha1": "a25effbf2ff5aaae3a214e5fd40d40af116cf56e",
+      "pcmSha256": "5d5590a16e734738983c13d6cd042d31c2f6982731d1a9cf4f7b67e7fac682e9",
+      "sampleFrames": [
+        0,
+        128,
+        6213,
+        12426,
+        12522,
+        18639,
+        24824,
+        24852
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-1",
+      "originalAudioSha1": "1bc33da999b0eab84f3bddd221b398f5d7e4b506",
+      "pcmSha256": "13c0fd802bec0d65d67058cde8eefcdd8e57e686cafc623fba737e15b562503e",
+      "sampleFrames": [
+        0,
+        128,
+        3915,
+        7727,
+        7830,
+        11745,
+        15574,
+        15660
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-2",
+      "originalAudioSha1": "66903d07eca9b6aac2ad4ab0d1aec5bb455c56d8",
+      "pcmSha256": "5c4a5f9dd999d8369d1b5158129e13f66ed6aecbd21ef5f74161cd9cfbdb93b2",
+      "sampleFrames": [
+        0,
+        128,
+        4379,
+        8759,
+        8968,
+        13138,
+        17475,
+        17517
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-3",
+      "originalAudioSha1": "55dbda59ad46884d42930c1ef22a4416e925dcd5",
+      "pcmSha256": "d0d5922e71227c409badc29db7a7d2b4f74084db4bfd503ae5349c12471964ed",
+      "sampleFrames": [
+        0,
+        165,
+        5427,
+        10616,
+        10854,
+        16281,
+        21617,
+        21707
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-4",
+      "originalAudioSha1": "86a62e96aa4f89ff7df058fef31e44c038578e7b",
+      "pcmSha256": "cdc7e0d4dcd5c0f7664eca917d03fe0de1e77989b5a52351de125cdefe4eb36b",
+      "sampleFrames": [
+        0,
+        152,
+        6377,
+        11393,
+        12754,
+        19131,
+        25472,
+        25508
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-5",
+      "originalAudioSha1": "89edcb9d7fe7be6fbcb31b8bb65d2f846f16cd60",
+      "pcmSha256": "e776afdf74306796047c438266e14d5dca606d98fc97b183ade2ef0f06fbcc6b",
+      "sampleFrames": [
+        0,
+        65,
+        5801,
+        11399,
+        11602,
+        17403,
+        23129,
+        23204
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-6",
+      "originalAudioSha1": "0996796ce65fefdc928af2394e2269178e6fac34",
+      "pcmSha256": "aca3712106af7d358b6d395b326f7eb0473ad0f5ef4e1f446e6b6ed8cb943237",
+      "sampleFrames": [
+        0,
+        72,
+        11897,
+        23373,
+        23794,
+        35691,
+        47514,
+        47587
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-36-7",
+      "originalAudioSha1": "b41bd6a95283602318e16434b7e41b69de9708cf",
+      "pcmSha256": "8b136cc183c630a6e613726f8cb43292d29d9aaa8a7e55d68c69d94933b6c8aa",
+      "sampleFrames": [
+        0,
+        88,
+        6857,
+        13657,
+        13714,
+        20571,
+        27372,
+        27428
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-1",
+      "originalAudioSha1": "ece944e07b70bbd9fb4feb543c66ec6fb79ea3b0",
+      "pcmSha256": "b5c86ec0fa651c592addc18a64b137ad0b43985136684db58af8847e4e7aac91",
+      "sampleFrames": [
+        0,
+        16,
+        4252,
+        7965,
+        8505,
+        12758,
+        16963,
+        17010
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-2",
+      "originalAudioSha1": "e965df105a51e26bd7ee9de29a2705a620b34406",
+      "pcmSha256": "d7f3ae0500d38bc6461b0791a22adcea65ff9e87764836f63b5cde245a78581e",
+      "sampleFrames": [
+        0,
+        37,
+        7338,
+        14676,
+        15263,
+        22014,
+        29298,
+        29351
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-3",
+      "originalAudioSha1": "6f04a8947e05de6a15ccab81c4b7e41eaf49d1fe",
+      "pcmSha256": "5599fb8bb49f2cc595bf73cde1beec03befde75169bd30d6ae6be4d81c72ca17",
+      "sampleFrames": [
+        0,
+        35,
+        6861,
+        13715,
+        13723,
+        20585,
+        27408,
+        27446
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-4",
+      "originalAudioSha1": "ddd48013f66634cd61d014e5bee624341cf3cc7a",
+      "pcmSha256": "1d8cd9b7dcf5577db3c858b6b80780a5a5099fbead2a219443c96695e0240764",
+      "sampleFrames": [
+        0,
+        28,
+        8755,
+        17324,
+        17511,
+        26267,
+        34987,
+        35022
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-5",
+      "originalAudioSha1": "ff71f9e8823160ca4ed2c5d556462e76c8c1bd5a",
+      "pcmSha256": "49544a27c7a849945104b9bcd418812379c01750f0725b32785e4c743fb727dd",
+      "sampleFrames": [
+        0,
+        28,
+        2486,
+        4972,
+        5257,
+        7458,
+        9918,
+        9944
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-6",
+      "originalAudioSha1": "ea85e1d11a42e352883bf97b01439398fb49ec36",
+      "pcmSha256": "ee082e5832d519be0a41caea45bbd94bb45109b879f2fd632a94439aee9706bc",
+      "sampleFrames": [
+        0,
+        62,
+        3380,
+        6722,
+        6760,
+        10140,
+        13478,
+        13520
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-37-7",
+      "originalAudioSha1": "eb14e42f55e0357124885d5c3ed376bfdf0fc041",
+      "pcmSha256": "bc31662bbd769029b51964a55362e2f0390881602eb59d8eff4c7cfd35dc37bd",
+      "sampleFrames": [
+        0,
+        51,
+        5077,
+        10155,
+        10622,
+        15233,
+        20297,
+        20310
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-1",
+      "originalAudioSha1": "5c4ed87be19aeceb673662ec65746cc772e7bce8",
+      "pcmSha256": "03055c4a98f57bdbc3fc16e42cf066b29207eeb374dc0186f8a09f764faadac4",
+      "sampleFrames": [
+        0,
+        122,
+        4706,
+        9371,
+        9412,
+        14118,
+        18720,
+        18823
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-2",
+      "originalAudioSha1": "493f4b24d0f50b945c1f22858e95b7ea735b4328",
+      "pcmSha256": "b2ef923c2175d59b53206a166df9cf77decdebdbb4f92d83de52d9c16725bcab",
+      "sampleFrames": [
+        0,
+        92,
+        2517,
+        5006,
+        5034,
+        7551,
+        9982,
+        10067
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-3",
+      "originalAudioSha1": "771f6238f7dfe0b471811f4dddcd3ecce6aec586",
+      "pcmSha256": "51534b07dccac4936f7eb672808d989107542c7044b58dd25787996a100da548",
+      "sampleFrames": [
+        0,
+        149,
+        9758,
+        19339,
+        19517,
+        29276,
+        38966,
+        39034
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-4",
+      "originalAudioSha1": "144b0069ad3c1001ab3bfeb6be66aa9542d74a4b",
+      "pcmSha256": "7893275b80ba4be52250e1d80e58a0f3ae2be4619960bf56dc7da70f2b3e3321",
+      "sampleFrames": [
+        0,
+        88,
+        2703,
+        5406,
+        5428,
+        8109,
+        10740,
+        10812
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-5",
+      "originalAudioSha1": "2d848ff81f01b817e219046dce83614eb5b7d834",
+      "pcmSha256": "77f8f053acc4111fbe2819ac0eb219002bc89fe29c3d97c4e9db9f50d8b59f2f",
+      "sampleFrames": [
+        0,
+        151,
+        4123,
+        8247,
+        8462,
+        12370,
+        16486,
+        16493
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-6",
+      "originalAudioSha1": "510f319e464a57e3d86fa107dc2b703de56df998",
+      "pcmSha256": "a95eee679f88568bb6c46ac77135ff08be8ece5e382cd16306115cfcef742da8",
+      "sampleFrames": [
+        0,
+        85,
+        9819,
+        19639,
+        19818,
+        29458,
+        39254,
+        39277
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-38-7",
+      "originalAudioSha1": "078b52e0815352b200aabb54431b58cc1e5e9177",
+      "pcmSha256": "1fccb80540ef240ceff2407dea372d664daea542dac086af940923333e485461",
+      "sampleFrames": [
+        0,
+        177,
+        4638,
+        9117,
+        9276,
+        13914,
+        18539,
+        18552
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-1",
+      "originalAudioSha1": "f79aff9c694073a11fc7dd7fa9d8fb159a33e804",
+      "pcmSha256": "f660f4a7be0ae30c63dfa1dfec6fd9a45848844baab5520687a7861af1abf47a",
+      "sampleFrames": [
+        0,
+        88,
+        6766,
+        13533,
+        13652,
+        20299,
+        26994,
+        27065
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-2",
+      "originalAudioSha1": "677d22721f6af778fffd9922e697ba1597e818f8",
+      "pcmSha256": "6091f5aca00ad939aac4b449cc140986e113720aff372743baf03e5af334eb00",
+      "sampleFrames": [
+        0,
+        130,
+        4802,
+        9604,
+        9752,
+        14406,
+        19179,
+        19207
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-3",
+      "originalAudioSha1": "2224b73b5ae04414570aca55c3b6716c45b78622",
+      "pcmSha256": "8c617776846454d6f25e55b1228324cc0a2625335731901e0bf4dcecf23e95c0",
+      "sampleFrames": [
+        0,
+        93,
+        3217,
+        6435,
+        6457,
+        9653,
+        12866,
+        12870
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-4",
+      "originalAudioSha1": "2f627a5699f95368fd6dea71a43dd66888b07150",
+      "pcmSha256": "66dbd0ad8586d07ef754874a19d1c125ec568874d49586d790fbb2aa9d7f5960",
+      "sampleFrames": [
+        0,
+        166,
+        3468,
+        6936,
+        7136,
+        10404,
+        13851,
+        13871
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-5",
+      "originalAudioSha1": "674cc449633a2ba65fadd61493bbbb503e8916e4",
+      "pcmSha256": "f131445833b403b14bd857f2ece3cab7b2197bf10d64f6b40cf6ac0c36029269",
+      "sampleFrames": [
+        0,
+        51,
+        7582,
+        14776,
+        15164,
+        22746,
+        30105,
+        30328
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-6",
+      "originalAudioSha1": "594220fc223246df4a5989edf7a7b27a9e5e2f64",
+      "pcmSha256": "a29cb46e49d437ced491b23ebface73bdc35ddd82d9b0efc8a0ea5ecf1ec6db2",
+      "sampleFrames": [
+        0,
+        79,
+        3702,
+        7369,
+        7404,
+        11106,
+        14734,
+        14808
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-39-7",
+      "originalAudioSha1": "707fd1fefa2d21df84906d51a9bdd2c4cb15383c",
+      "pcmSha256": "b82f6099bd236ef00b44a102e09a86b7a1abf6ad5e51ad051551ea46d7ee7653",
+      "sampleFrames": [
+        0,
+        147,
+        6733,
+        13149,
+        13467,
+        20201,
+        26907,
+        26934
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-1",
+      "originalAudioSha1": "02c1aba8b5aeaeb1bba90a975def75c9bf6ede5c",
+      "pcmSha256": "67f8d91f67326bed1d8b3a213eee88b6520a1b8cdccb0c71fa19b3d3f7de51ae",
+      "sampleFrames": [
+        0,
+        85,
+        6818,
+        13234,
+        13636,
+        20454,
+        27234,
+        27271
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-2",
+      "originalAudioSha1": "14c02629961d78bbbefed05588828af820a71304",
+      "pcmSha256": "60b9ec70490c01f071099335d2fe53847e328d23842652538b48cf0111206e45",
+      "sampleFrames": [
+        0,
+        47,
+        3980,
+        7961,
+        8079,
+        11941,
+        15894,
+        15921
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-3",
+      "originalAudioSha1": "0d88aa1f122d240adc9af473d31229a9c607ed5e",
+      "pcmSha256": "de043b6bc036ac3922fde528df2dfec7702a94cff2b77a616850de7882b67673",
+      "sampleFrames": [
+        0,
+        101,
+        10214,
+        20127,
+        20428,
+        30642,
+        40801,
+        40855
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-4",
+      "originalAudioSha1": "5fcb127271c9cb65154d4c86eaa155adcf3b12b6",
+      "pcmSha256": "5b23a1bd18cae41d174a1c5279920489fa25734f92e07fe2d3540a11c0b28846",
+      "sampleFrames": [
+        0,
+        55,
+        5920,
+        11575,
+        11841,
+        17762,
+        23662,
+        23682
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-5",
+      "originalAudioSha1": "a86fb7ef40be4aefe7f99ade3c9c2a201e106c61",
+      "pcmSha256": "cdccd6bc04357871a5257ac5c6754d34cc8f9a47b98595a4b62750efe9fc5e8f",
+      "sampleFrames": [
+        0,
+        71,
+        5268,
+        10344,
+        10536,
+        15804,
+        21043,
+        21072
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-6",
+      "originalAudioSha1": "22d41cacdcf7ef19d85fd17dacbf7adfcdec3518",
+      "pcmSha256": "ddb77888aeb770c02577bd015c09195d5346bfa98a63199554aee530c60b917b",
+      "sampleFrames": [
+        0,
+        60,
+        7016,
+        14032,
+        14281,
+        21048,
+        28038,
+        28063
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-40-7",
+      "originalAudioSha1": "e691cb2c242f667f931124372a7302fea6566d47",
+      "pcmSha256": "9cd4fd0545224bea3abb256b8af10edae7c9d1400aa610924fe22765dc9e337d",
+      "sampleFrames": [
+        0,
+        93,
+        8469,
+        16600,
+        16938,
+        25407,
+        33820,
+        33875
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-1",
+      "originalAudioSha1": "c792a1cf72588a104e7e619825f545eead1acaba",
+      "pcmSha256": "44957fb155e273132a60995455ca48260f73d9f28d7e1323a9575f667622636e",
+      "sampleFrames": [
+        0,
+        86,
+        5566,
+        11132,
+        12077,
+        16698,
+        22205,
+        22264
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-2",
+      "originalAudioSha1": "6e12c30eb27a8ead0103e48ffb8ed32133370a89",
+      "pcmSha256": "79d3d8b046dd6e1e541baffb406d0b190774d02ba48bb9af24c293e0c43d6270",
+      "sampleFrames": [
+        0,
+        93,
+        18786,
+        37573,
+        39488,
+        56360,
+        75087,
+        75146
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-3",
+      "originalAudioSha1": "253cce3bdcd2400d76f1115a78a85126496cb9b1",
+      "pcmSha256": "34145b376cd7dfaa6b5a4965e7d21548e81568b2a5822bedda4534d65b37973c",
+      "sampleFrames": [
+        0,
+        84,
+        9787,
+        19575,
+        20587,
+        29362,
+        39063,
+        39149
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-4",
+      "originalAudioSha1": "f95339c2eec8be8ad704d9bea6814e154d1c0f69",
+      "pcmSha256": "de44d8c9f2fb9752c2fba2a9178c8e48d2d602560f9a79803668efd2a91368a3",
+      "sampleFrames": [
+        0,
+        109,
+        8919,
+        17838,
+        19056,
+        26757,
+        35607,
+        35675
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-5",
+      "originalAudioSha1": "06181da67e43d7c82db6e1fe9ef7d4aab1c655e9",
+      "pcmSha256": "4a2932a51fdc7c6c66f7ac90a5bb631db2ea20afd074bc614af4e0efc27e805b",
+      "sampleFrames": [
+        0,
+        85,
+        7646,
+        15292,
+        16605,
+        22938,
+        30452,
+        30584
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-6",
+      "originalAudioSha1": "ec6416207c04a7d3dbf559d2522385feb2b4ed2f",
+      "pcmSha256": "242aa9bb0dbcf72667f65ddc1c06c24fd3d02cefa427bf47692c1ae553d620d2",
+      "sampleFrames": [
+        0,
+        147,
+        11978,
+        23956,
+        24256,
+        35934,
+        47816,
+        47911
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-41-7",
+      "originalAudioSha1": "fbb143563c6f80facb97842c47427882b86d8ef4",
+      "pcmSha256": "9b981d54639775a107f174fabf6d80219c85298e59d002aabc91e0cc4d08497e",
+      "sampleFrames": [
+        0,
+        251,
+        13351,
+        26702,
+        27884,
+        40053,
+        53291,
+        53404
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-1",
+      "originalAudioSha1": "e42019d19610223da43c83bc4296843538bd021d",
+      "pcmSha256": "b9ab927ff0d02376d3787f6c42f5a7c6406bf4cd98fa54b81f5215bf86239d17",
+      "sampleFrames": [
+        0,
+        128,
+        5898,
+        9187,
+        11797,
+        17695,
+        23363,
+        23593
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-2",
+      "originalAudioSha1": "2aecf6a3bc314cb4a04ce7a4c9fde81f953e9938",
+      "pcmSha256": "0fef6944d247f8efb62d4550761aa0f723d9cc5eea42e26e8dfec81c0a963126",
+      "sampleFrames": [
+        0,
+        236,
+        3694,
+        6588,
+        7389,
+        11083,
+        14558,
+        14777
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-3",
+      "originalAudioSha1": "dc3bcbd81bc591ceeb5b5d073e939e6bdb5e9aed",
+      "pcmSha256": "acfdd571cc1162ba5f295859f8988729d14b8579dd2df30146ab7e769ddf4b13",
+      "sampleFrames": [
+        0,
+        265,
+        3444,
+        6575,
+        6888,
+        10332,
+        13525,
+        13776
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-4",
+      "originalAudioSha1": "427fbb79fbec803e966a5ce4d3b94aa852e9a177",
+      "pcmSha256": "dc9175caeb51effda2be3b496573bbdf217452b550e7c75a85c60245feb8f211",
+      "sampleFrames": [
+        0,
+        75,
+        4341,
+        7612,
+        8682,
+        13023,
+        17176,
+        17363
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-5",
+      "originalAudioSha1": "38dde78f32e3ee4bfb60455f199f94fd680d4519",
+      "pcmSha256": "c51d015531cd770888a349c95041f7e309af6add9dc3fa5c54b24449597e52f1",
+      "sampleFrames": [
+        0,
+        288,
+        3836,
+        7645,
+        7672,
+        11508,
+        15038,
+        15344
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-6",
+      "originalAudioSha1": "0ddd9bf0685d05d061e79f7e89ff89c8372f060c",
+      "pcmSha256": "e84c9a10830bba0969cc4d142be82767551b1a591e013f04c484695df5631896",
+      "sampleFrames": [
+        0,
+        183,
+        6048,
+        12097,
+        13778,
+        18146,
+        23974,
+        24194
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-42-7",
+      "originalAudioSha1": "4453b0cf4eba4a662abd005b4d3f8535b849f216",
+      "pcmSha256": "84f791afbde1ee1b553991a34279bb689191121347b148c17386801b13e8b7e5",
+      "sampleFrames": [
+        0,
+        156,
+        6216,
+        12433,
+        13041,
+        18649,
+        24568,
+        24865
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-1",
+      "originalAudioSha1": "752377ec491aaf5aee486fbf8765df03df6ab355",
+      "pcmSha256": "82c1a084c5b337e78a72d2dc44889c8c489cee4bb84029bf4fdc505e3a5f1840",
+      "sampleFrames": [
+        0,
+        9,
+        2719,
+        5439,
+        5507,
+        8158,
+        10815,
+        10877
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-2",
+      "originalAudioSha1": "06e8d3af6150dd7cd919b9471ad977520052bbf6",
+      "pcmSha256": "cecd2b0dcdd35474a4f38a1c438cfc401a9ec7f584b0102061b5be066a10ccf7",
+      "sampleFrames": [
+        0,
+        93,
+        5528,
+        11056,
+        12148,
+        16584,
+        21918,
+        22112
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-3",
+      "originalAudioSha1": "69c3a5cc91cb3ae7990ecf8fe6eeee4e73b69324",
+      "pcmSha256": "56392c8a4bd177fdb06de4008db43de63e2f5115772bd16cc63dc9d3857318be",
+      "sampleFrames": [
+        0,
+        113,
+        7148,
+        13551,
+        14296,
+        21444,
+        28522,
+        28591
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-4",
+      "originalAudioSha1": "1b175da261407f34ac98ead1748dd0d128f43c44",
+      "pcmSha256": "731df946371cee621ccf82732368155cc1472de985cc142595f76ef012e021ee",
+      "sampleFrames": [
+        0,
+        78,
+        2076,
+        3373,
+        4153,
+        6230,
+        8064,
+        8306
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-5",
+      "originalAudioSha1": "014cd5125340b64eff7b08c4c654ba66f14d37b0",
+      "pcmSha256": "1abe9b2ba9c0cc38b62cd5a6f9260ea88ab49eac0feede9e72335a334b804adc",
+      "sampleFrames": [
+        0,
+        192,
+        3607,
+        6592,
+        7215,
+        10823,
+        14356,
+        14430
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-6",
+      "originalAudioSha1": "48946e02cac020298a43f80dec16f90c759464fa",
+      "pcmSha256": "fb1865a7f74e6441b323f8cfc568d3108c388a77791651fe187690e9179fb7bd",
+      "sampleFrames": [
+        0,
+        330,
+        8013,
+        15747,
+        16027,
+        24041,
+        31989,
+        32054
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-43-7",
+      "originalAudioSha1": "0dbca0c7cddb47599a4b8012c3f6b4aa5e40dfc1",
+      "pcmSha256": "560892c392199785881444898bc4620466e15c788569ea315f4d17c533416e3e",
+      "sampleFrames": [
+        0,
+        135,
+        5587,
+        9208,
+        11175,
+        16763,
+        22254,
+        22350
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-1",
+      "originalAudioSha1": "ab0e6c7238dd11bc4e220019c4b7010dabb636e6",
+      "pcmSha256": "c4edd693ee85da3675c6b13dcda405ec5ab0259f3348858e24517af63c4d4d38",
+      "sampleFrames": [
+        0,
+        327,
+        6127,
+        12255,
+        12520,
+        18383,
+        24444,
+        24510
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-2",
+      "originalAudioSha1": "e8259599d3828aa7a1fb6e6a1bc11f9b250ddfb6",
+      "pcmSha256": "acf0a4783617ecc7ffbeb2aa00c1ae9bb9aedb5cc1417b37d90afc8fa0dc86c0",
+      "sampleFrames": [
+        0,
+        49,
+        6630,
+        13261,
+        13557,
+        19892,
+        26353,
+        26522
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-3",
+      "originalAudioSha1": "6288ceb7a7008ef5374acef67cd40f748eac8a73",
+      "pcmSha256": "929b955fa1e6e5eb5aade1214c804c42d3568566fc0fd9f8ef4c98970fb524af",
+      "sampleFrames": [
+        0,
+        313,
+        9703,
+        19099,
+        19406,
+        29109,
+        38749,
+        38812
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-4",
+      "originalAudioSha1": "e02e7d03aba662401a10f29bf425ad9d8b788c17",
+      "pcmSha256": "806be41650640faf1c65f3fd98d12f7d8c3671533e453c5727d882d0e71bbbc7",
+      "sampleFrames": [
+        0,
+        212,
+        5299,
+        10598,
+        10729,
+        15897,
+        21144,
+        21195
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-5",
+      "originalAudioSha1": "9fc463a76608b745fb141b25fe7b8e7cb24bac1b",
+      "pcmSha256": "7c636aeee2590096d12bce417695ca1ead19b2041676cd3e915e6a0330c7ac3c",
+      "sampleFrames": [
+        0,
+        225,
+        15895,
+        31790,
+        31889,
+        47685,
+        63565,
+        63579
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-6",
+      "originalAudioSha1": "fb6626879fa670fbc8d6e37b4525d4c898bd6d85",
+      "pcmSha256": "24264c45c6612515f3de98305a730b80eb1ed206bc3d7948d09c893ee203771d",
+      "sampleFrames": [
+        0,
+        137,
+        13597,
+        27195,
+        28136,
+        40792,
+        54292,
+        54389
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-44-7",
+      "originalAudioSha1": "59fdaee7693ae073a3736b4678f6fb4d6fd038c8",
+      "pcmSha256": "07782c84b2062fb8ff427b57b2bd8b1a097e857a313cfe322dade9589071aa13",
+      "sampleFrames": [
+        0,
+        277,
+        5798,
+        11596,
+        12026,
+        17394,
+        23087,
+        23191
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-1",
+      "originalAudioSha1": "3877979261e7cc50b7f4cf7d3897c8e500eb1589",
+      "pcmSha256": "300ccef41ea0edfeddec00ac7cd898dc82f3fe8b6202c635633b6b86c99d7cdd",
+      "sampleFrames": [
+        0,
+        186,
+        7190,
+        14380,
+        15335,
+        21570,
+        28720,
+        28760
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-2",
+      "originalAudioSha1": "164223fde023ed595ec85ba1f3bb5d3fb16f95ab",
+      "pcmSha256": "d6e720faff08f26979a712947ba3df786297618e641323d66d21ee3570ffe834",
+      "sampleFrames": [
+        0,
+        72,
+        26808,
+        53616,
+        54925,
+        80424,
+        107192,
+        107232
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-3",
+      "originalAudioSha1": "ffc33c79a0ac12e814e32e2284bddc89ef7ab1dd",
+      "pcmSha256": "ffd2e5ba9357cb8564c160e5883ad986264d609490505c3a6118db514848bc78",
+      "sampleFrames": [
+        0,
+        44,
+        5066,
+        10132,
+        10352,
+        15198,
+        20162,
+        20263
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-4",
+      "originalAudioSha1": "cf1f78d9f0a26c10dd16c053059a372f5bef130e",
+      "pcmSha256": "e4ed3a12a252f92a15a27041dac46305420ba4176204cb5a90bc58ab8a562af7",
+      "sampleFrames": [
+        0,
+        283,
+        7987,
+        15412,
+        15975,
+        23963,
+        31810,
+        31950
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-5",
+      "originalAudioSha1": "9b0cbf225d89a67943dafac2de1c678403f127bf",
+      "pcmSha256": "6f57de864158f682d279ce89efa4ef65b79d345b8d08c2ac25b7e5febab5545c",
+      "sampleFrames": [
+        0,
+        114,
+        11328,
+        22305,
+        22657,
+        33986,
+        45039,
+        45314
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-6",
+      "originalAudioSha1": "cec4b7123459ffad70bba85da194e4590dca4581",
+      "pcmSha256": "ba997f4bf63dc304af5a45d03af7e6185e0d1f36c0a8aab9dcda6bc7263af588",
+      "sampleFrames": [
+        0,
+        125,
+        10291,
+        20533,
+        20582,
+        30873,
+        41061,
+        41163
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-45-7",
+      "originalAudioSha1": "236e4fa505c35cf4adfba89da6ff1676ce3c2111",
+      "pcmSha256": "d7774db16b6578869553ed095301a22c286dbaa64d1998dab07ac1c087cbe81e",
+      "sampleFrames": [
+        0,
+        97,
+        6969,
+        13939,
+        14443,
+        20908,
+        27773,
+        27877
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-1",
+      "originalAudioSha1": "424780b525c25c925337dcc06a5a617563a34071",
+      "pcmSha256": "eee8ce41fb3415b4c12c34de3e6a0b39c179617e460e2ad72dfba147a32fee84",
+      "sampleFrames": [
+        0,
+        137,
+        13518,
+        26532,
+        27037,
+        40555,
+        54012,
+        54073
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-2",
+      "originalAudioSha1": "f8e692bc6a0e22114f06f5d5019c5a41564e6e0d",
+      "pcmSha256": "13921b4469eb6a20095301ed1a0987ecda631e254d171af8c60af2a2350d7fa8",
+      "sampleFrames": [
+        0,
+        166,
+        6588,
+        13177,
+        13512,
+        19766,
+        26268,
+        26354
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-3",
+      "originalAudioSha1": "aefd7330fb79425dffbf060a917c7eed85a8138d",
+      "pcmSha256": "21e4d94d6d2bc12beb1dfbf121d7b74c284c91fe6e7e92227a222b114cf3a221",
+      "sampleFrames": [
+        0,
+        252,
+        16043,
+        31827,
+        32086,
+        48129,
+        64062,
+        64172
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-4",
+      "originalAudioSha1": "d745c4aba8a7b8473e5e9bfad3a7d9294f91f8b7",
+      "pcmSha256": "5f9e2c651129c72909279431e94af59f1e3d27cf005e771eb9ac0c2ac51ac2c6",
+      "sampleFrames": [
+        0,
+        104,
+        6299,
+        12599,
+        12981,
+        18898,
+        25177,
+        25197
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-5",
+      "originalAudioSha1": "075fb339f16602a758498ed347682a581996105d",
+      "pcmSha256": "ddac182e6ac1d43d404ae418d97262af770b1434151cd27ef45aa4b4adfd8b3d",
+      "sampleFrames": [
+        0,
+        83,
+        9715,
+        19294,
+        19430,
+        29145,
+        38774,
+        38859
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-6",
+      "originalAudioSha1": "c141304e4aabb62a4152685fc054375e649d1925",
+      "pcmSha256": "4b18591558e884d7d2b553ce53d8ba40279f9e2692ecd7c17bbb4e1dfb6acdde",
+      "sampleFrames": [
+        0,
+        140,
+        5763,
+        11527,
+        11893,
+        17290,
+        22902,
+        23053
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-46-7",
+      "originalAudioSha1": "9c03b86533ea18bcb5ab00eab21a633ac0ecc896",
+      "pcmSha256": "267c2ba12cc6a5b76443c91d5c4c6e98fd4bf47737d85b1d0c5862fd954a0eea",
+      "sampleFrames": [
+        0,
+        95,
+        2477,
+        4903,
+        4955,
+        7433,
+        9855,
+        9910
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-1",
+      "originalAudioSha1": "1ba32e599ae03be4cf06312bba2318a902b11c3a",
+      "pcmSha256": "64b6e3f8825fc8bc21f8e0334a18a38e5651fe6e8a090b05c3394f273f856730",
+      "sampleFrames": [
+        0,
+        125,
+        9186,
+        18275,
+        18373,
+        27560,
+        36643,
+        36746
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-2",
+      "originalAudioSha1": "007a29baa976c2d080faa5d64544b22546be1d8a",
+      "pcmSha256": "bdb9e105b10f9e36823afa2e6f907fc7326495af4d07fe6c015645b81f5c06ef",
+      "sampleFrames": [
+        0,
+        122,
+        10429,
+        20108,
+        20859,
+        31288,
+        41623,
+        41717
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-3",
+      "originalAudioSha1": "ec00c3a99764ae4307fcf2eacc990c3dc4b5d914",
+      "pcmSha256": "c28d097370b975c10a694b3ea0fe320241065cf7de8a444645c822beae697c83",
+      "sampleFrames": [
+        0,
+        123,
+        12802,
+        25229,
+        25604,
+        38406,
+        51162,
+        51207
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-4",
+      "originalAudioSha1": "b2619f67b6ed12e7c517bea451d6e3d7ed8274b1",
+      "pcmSha256": "0371c11853a704a508971bba597d65ba5ff64fbee8c27c3f32d641ec700a9d8f",
+      "sampleFrames": [
+        0,
+        123,
+        6548,
+        12748,
+        13096,
+        19644,
+        26139,
+        26192
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-5",
+      "originalAudioSha1": "ddf8ba47843329627dc10a07ea583ff44937a058",
+      "pcmSha256": "641aeb9a07df5f4a162b71ca0ea632f5a37464f9d380543390c629b86f97538f",
+      "sampleFrames": [
+        0,
+        267,
+        4676,
+        9352,
+        9712,
+        14028,
+        18630,
+        18703
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-6",
+      "originalAudioSha1": "42e18d4f3e5c3c300d4da1cd5dc19f0b678dc716",
+      "pcmSha256": "496d9a7630eb079e185e6243706d03f4f264b682ff7c2e35e53d03ea7ef6da1c",
+      "sampleFrames": [
+        0,
+        195,
+        9011,
+        18022,
+        18036,
+        27033,
+        35956,
+        36043
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-47-7",
+      "originalAudioSha1": "4f9bbbdb802e6d0fdc6df84a95e85a69a522ee89",
+      "pcmSha256": "f186739ca7b36440cf29ab8d11a99fb467b38c83a6ff2b60bc45162f0a52e3b6",
+      "sampleFrames": [
+        0,
+        75,
+        10361,
+        20691,
+        20722,
+        31083,
+        41350,
+        41443
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-1",
+      "originalAudioSha1": "6932e25e3ecd51c13b5f67d47fa108f50c9ac3c3",
+      "pcmSha256": "ee05e4f286ef62b0c21c9375b568ec318478d32eb6141e1444c06a38584ca549",
+      "sampleFrames": [
+        0,
+        220,
+        9036,
+        18073,
+        18525,
+        27109,
+        36048,
+        36145
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-2",
+      "originalAudioSha1": "229d95bc1aa607582ebf2c5badf8076151a7743d",
+      "pcmSha256": "ac2d7e29f3b2f3958aca4a27615fdd19db3d921721f3ccbca9a736845026abf2",
+      "sampleFrames": [
+        0,
+        140,
+        4141,
+        8282,
+        8596,
+        12423,
+        16475,
+        16564
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-3",
+      "originalAudioSha1": "14ff5a81ac89f065f678c4d8bc76d2b293f36e01",
+      "pcmSha256": "e422e02c426ef2c49cd8da2bd9389a067313705b75d5137aadbd8fefce5ed8fa",
+      "sampleFrames": [
+        0,
+        125,
+        2316,
+        4427,
+        4633,
+        6949,
+        9194,
+        9265
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-4",
+      "originalAudioSha1": "97e3524e036cc803d32cbe77274a49796d902669",
+      "pcmSha256": "8e654838bf6a590c5a18bf47760066e8162eb0388cedf122d7b1d03b10a384fe",
+      "sampleFrames": [
+        0,
+        87,
+        2514,
+        5029,
+        5305,
+        7543,
+        9971,
+        10057
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-5",
+      "originalAudioSha1": "e3313834b7b4e4f30a15405a7ab2b9be703dcbca",
+      "pcmSha256": "83c0a4114512fa1c3c4d9422a51e4553ae460bbf5e5fc52d2da9f51f39a6f775",
+      "sampleFrames": [
+        0,
+        103,
+        10629,
+        20971,
+        21258,
+        31887,
+        42379,
+        42516
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-6",
+      "originalAudioSha1": "be4e4d5a2a086345fae0137fc868e59f74212413",
+      "pcmSha256": "f9a2acfc1aa81150989ba170e8507487a826116172a287d3556561628889d8a8",
+      "sampleFrames": [
+        0,
+        128,
+        7198,
+        14396,
+        14812,
+        21594,
+        28725,
+        28792
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-48-7",
+      "originalAudioSha1": "aefa27e3beefa7a95e7f5a454786e0a6e88548a8",
+      "pcmSha256": "2347bda5e12ace49ee28e72d172d87343cc6d6102bf9c77becaed1ce3b819c08",
+      "sampleFrames": [
+        0,
+        151,
+        9346,
+        18693,
+        19568,
+        28040,
+        37328,
+        37386
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-1",
+      "originalAudioSha1": "b8944cd70f40dfc31f50476dbb962daaca498e9e",
+      "pcmSha256": "c24501e8d5ebdc18ecaca5a09c0b25b497bca3f7d4fdc07550e87689623b2511",
+      "sampleFrames": [
+        0,
+        117,
+        6282,
+        12565,
+        12832,
+        18847,
+        25049,
+        25129
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-2",
+      "originalAudioSha1": "5bc01328e611606f10becdf0b6fc1a5f6152f9e1",
+      "pcmSha256": "cb8638393640ef870072ee6755b8ad8788c304419c4c3a9c65f59c32808f05b0",
+      "sampleFrames": [
+        0,
+        134,
+        5258,
+        10516,
+        10688,
+        15774,
+        20933,
+        21031
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-3",
+      "originalAudioSha1": "3b1531f31513b975923c02efa723e2c2798c04f7",
+      "pcmSha256": "0eef07a401aea22cae0cf963b66098655dbf44fc6c13433d799a72c69bf3216b",
+      "sampleFrames": [
+        0,
+        104,
+        13473,
+        26947,
+        29104,
+        40420,
+        53819,
+        53893
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-4",
+      "originalAudioSha1": "a5cabb5f2f7000eaa9e534e623a8900697a18511",
+      "pcmSha256": "7f3f1d8cb8359e678de84010475b0b5a1e1d28db4853d10005c03d0085934226",
+      "sampleFrames": [
+        0,
+        82,
+        7321,
+        14643,
+        15139,
+        21964,
+        29199,
+        29285
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-5",
+      "originalAudioSha1": "7f4acc6d8c4cb3d86d70d55c49464f8e7874acd0",
+      "pcmSha256": "5b121c232dc082e9612fa24f421f5a5f7bf16ba81c243de43994ba98931d8622",
+      "sampleFrames": [
+        0,
+        117,
+        3844,
+        7688,
+        7895,
+        11532,
+        15282,
+        15375
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-6",
+      "originalAudioSha1": "0ddeb8fce3c8c234209bc7c531fe7a83eba85871",
+      "pcmSha256": "28ef975244d79f77bb671b7433a8b99429e7426fa1d7a27e2c005a73f2694a92",
+      "sampleFrames": [
+        0,
+        115,
+        4379,
+        8758,
+        8868,
+        13137,
+        17443,
+        17515
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-49-7",
+      "originalAudioSha1": "3b654d978ca9d45fa4f5a031ce065ec3f3945755",
+      "pcmSha256": "2a89e0f996a45666a8443e445382e9c165cc32c0a4ab7fc9481e1f6fe9b0a8e9",
+      "sampleFrames": [
+        0,
+        82,
+        13455,
+        26911,
+        28512,
+        40367,
+        53700,
+        53822
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-1",
+      "originalAudioSha1": "6c996d4a2a0013ae3f3f2120c9ae0f494fbe1695",
+      "pcmSha256": "345853423306d83ed05237f5f72eae23773b440baf637cdc05a761c665c1627a",
+      "sampleFrames": [
+        0,
+        105,
+        6227,
+        12454,
+        12771,
+        18681,
+        24767,
+        24907
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-2",
+      "originalAudioSha1": "4b44119f0f2552f8e49a01fed26e07303fc5fa4c",
+      "pcmSha256": "3a0903fae8a4c126944b886a3d303f5dab5c1b479d63bcd55292a097cf742e77",
+      "sampleFrames": [
+        0,
+        143,
+        3690,
+        6729,
+        7380,
+        11070,
+        14655,
+        14759
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-3",
+      "originalAudioSha1": "037f688d6c991b2d7bda468ca6fb964d9c9e1941",
+      "pcmSha256": "cfb9f77eb435751cd4e978e14aa4b90808a6029e6739dccf6b8d9594d617d0e1",
+      "sampleFrames": [
+        0,
+        103,
+        2594,
+        5143,
+        5188,
+        7782,
+        10269,
+        10375
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-4",
+      "originalAudioSha1": "65a52681ffc69f26f31a7f057fa50623784ca47e",
+      "pcmSha256": "df0251cb5cd9757aa3ba6afa3f077c7797678204b3f61eaf155211ce44a6690e",
+      "sampleFrames": [
+        0,
+        160,
+        5921,
+        11843,
+        12835,
+        17764,
+        23635,
+        23685
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-5",
+      "originalAudioSha1": "716da3f5fb74bb86a4f44bc79c115af90419e862",
+      "pcmSha256": "7f0ae04cf925ab85f4c34b232a80d055a7fd02c2812610316bbad4a3c320b54e",
+      "sampleFrames": [
+        0,
+        116,
+        7134,
+        12953,
+        14269,
+        21404,
+        28482,
+        28538
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-6",
+      "originalAudioSha1": "4c49b897a536c59d1074563d34f485896c5f2611",
+      "pcmSha256": "5762e135345d4531b5bb6a44d58de45d4f44d750618e9b12f6e34a52ecfd19b1",
+      "sampleFrames": [
+        0,
+        107,
+        25147,
+        50294,
+        55559,
+        75441,
+        100466,
+        100587
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-50-7",
+      "originalAudioSha1": "5dcd5356877886a211db3a3ff9b8820c1993788a",
+      "pcmSha256": "e7a11e3bb1c176e4e16ea803a8af1485ca5d27b0ad6e6b34cfc9ef6591588710",
+      "sampleFrames": [
+        0,
+        143,
+        3902,
+        7805,
+        8193,
+        11708,
+        15554,
+        15610
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-1",
+      "originalAudioSha1": "e9c22ff9ec4b29a15c9e84be5771f444d078582c",
+      "pcmSha256": "9d5b20d4b0ed380c7daa0907e8e850b04650c55d78693524aeff87f07c5dadeb",
+      "sampleFrames": [
+        0,
+        114,
+        1616,
+        3129,
+        3233,
+        4849,
+        6413,
+        6465
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-2",
+      "originalAudioSha1": "f2c679efecae2a3ceee45226f58457ba57cc245c",
+      "pcmSha256": "a4178241ca8d6070aa2aac2edc52ef9982434fb4707bf9e09ad9437b99b4bac6",
+      "sampleFrames": [
+        0,
+        137,
+        1683,
+        3366,
+        3412,
+        5049,
+        6686,
+        6731
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-3",
+      "originalAudioSha1": "d2bae574c863ada9e70fd08fa17a2cf70ecc993c",
+      "pcmSha256": "7f2bc3568d47d81d84fe47fd660d3e45677d29043c2f1d196e3d7e2e7a134aa9",
+      "sampleFrames": [
+        0,
+        193,
+        8759,
+        17518,
+        17872,
+        26277,
+        35006,
+        35035
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-4",
+      "originalAudioSha1": "d1f1a8787b75dff95c739c139f43a8e896a1c863",
+      "pcmSha256": "377a02a5250edaa47952ecaf54dda0515f57aa480cb2aa4b7749db261ccb9101",
+      "sampleFrames": [
+        0,
+        229,
+        3828,
+        7656,
+        7741,
+        11484,
+        15300,
+        15312
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-5",
+      "originalAudioSha1": "9e5308626a9f137576fc187fff1f160abf7eb3a5",
+      "pcmSha256": "6f848c0abae2b05deed4c3152eef1b6cc1c7069c4cc7291fe4a7bd619b00fd41",
+      "sampleFrames": [
+        0,
+        96,
+        2617,
+        5234,
+        5302,
+        7851,
+        10451,
+        10467
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-6",
+      "originalAudioSha1": "cbc5617e5a7e33b4a45c0111435ae97748fd247e",
+      "pcmSha256": "c89bce46056df907c6a0ab83d20ac379734a58d8d90b82c63c3eef1e84cb1b69",
+      "sampleFrames": [
+        0,
+        85,
+        1839,
+        3679,
+        3907,
+        5519,
+        7281,
+        7358
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-51-7",
+      "originalAudioSha1": "3c0a7ae09d1fdf4ab738a03f57e4088a7568dae9",
+      "pcmSha256": "d0b490bbb1aa79f52b32881213a1eb1844d2ac8544382da2b608d27834be999c",
+      "sampleFrames": [
+        0,
+        154,
+        3918,
+        7837,
+        8197,
+        11755,
+        15639,
+        15673
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-1",
+      "originalAudioSha1": "4bffd3a9dd9fdc14cd4961b7759e69d4c3334707",
+      "pcmSha256": "b9793f5a90f1fea95c538bd0236ccf341764f3d8ad38e73ecb6964cee622b432",
+      "sampleFrames": [
+        0,
+        139,
+        1886,
+        3773,
+        3920,
+        5660,
+        7521,
+        7546
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-2",
+      "originalAudioSha1": "1202c7eaf3eb0677672c5b0615bb5c4d5441255a",
+      "pcmSha256": "5467ebec05e2daea47c15cde9dfe680751158cb0a1caa0bc13a5c293866a1da4",
+      "sampleFrames": [
+        0,
+        129,
+        1501,
+        3003,
+        3241,
+        4504,
+        5951,
+        6005
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-3",
+      "originalAudioSha1": "6ceb428efef71cdd7df0d2efb1668eda5b1a4e51",
+      "pcmSha256": "0a538b260f39fac5f8f4e398572853cf4492d71d48f13bc5179cdf071b580d07",
+      "sampleFrames": [
+        0,
+        115,
+        2223,
+        4446,
+        4529,
+        6669,
+        8839,
+        8892
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-4",
+      "originalAudioSha1": "7469235b9d3677d33fddf99dd73a078fecb7150c",
+      "pcmSha256": "5cfac4efa5ceaaf7d072ca6950671edc260d43f4bff987584aea46d66aff5164",
+      "sampleFrames": [
+        0,
+        130,
+        2549,
+        5098,
+        5490,
+        7647,
+        10140,
+        10195
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-5",
+      "originalAudioSha1": "1af7ba582dd205c7bc8e893d02a9c88e4e81421f",
+      "pcmSha256": "78cb2e5f0735c3bdf236672861147c190bbecdceb9b2ecde6e55aa23f44312ee",
+      "sampleFrames": [
+        0,
+        147,
+        4010,
+        8021,
+        8154,
+        12031,
+        15944,
+        16041
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-6",
+      "originalAudioSha1": "783b006d3f541df68a6c4002399075943ed7029d",
+      "pcmSha256": "a18cee8d4cb347fe077f51b90dce3b1ea82b3cc6a0726da607499291494d6b70",
+      "sampleFrames": [
+        0,
+        145,
+        3427,
+        6682,
+        6855,
+        10282,
+        13660,
+        13709
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-52-7",
+      "originalAudioSha1": "e831b8dd5f764b1c1875e66a2544f93147d3cd80",
+      "pcmSha256": "b79f20b6933f9f202279373d329ca8e6b4d91e9cd641dff68c48dfad9d22ac66",
+      "sampleFrames": [
+        0,
+        159,
+        3294,
+        6588,
+        6620,
+        9882,
+        13145,
+        13176
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-1",
+      "originalAudioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+      "pcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+      "sampleFrames": [
+        0,
+        169,
+        2224,
+        4449,
+        4540,
+        6673,
+        8849,
+        8897
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-2",
+      "originalAudioSha1": "d69b9863ffdbd2a7e642f5184d19b71a1a812331",
+      "pcmSha256": "0a90cab3126bfc93325847807c20407d806bd65d9f4f050842f289c32c492916",
+      "sampleFrames": [
+        0,
+        120,
+        2199,
+        4387,
+        4399,
+        6599,
+        8752,
+        8798
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-3",
+      "originalAudioSha1": "a55eaf56071adf34bd317a096d0c40372f1486ba",
+      "pcmSha256": "f964e47083aa470a77d83c518fa5526ce8cc319471420f4d432f960139857054",
+      "sampleFrames": [
+        0,
+        32,
+        2351,
+        4702,
+        4873,
+        7053,
+        9344,
+        9404
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-4",
+      "originalAudioSha1": "dcb10b5ab7442f37c5d778a1447388d730afb9a4",
+      "pcmSha256": "5d8879a34dffef6989daf4e1c74449cb3535b504a4e30b7e2bc114392fab8d2e",
+      "sampleFrames": [
+        0,
+        117,
+        3602,
+        7205,
+        7309,
+        10807,
+        14374,
+        14409
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-5",
+      "originalAudioSha1": "89adc69e93b25f75c5b6ce4c97c3b9d80582cbfa",
+      "pcmSha256": "f0f1ca8f705ecd614495d16ed1ecf9ef7753ebb7c70835fc7df8983f3022ef4b",
+      "sampleFrames": [
+        0,
+        91,
+        3684,
+        7318,
+        7369,
+        11054,
+        14707,
+        14738
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-6",
+      "originalAudioSha1": "33a11d96e61b8d693598ba4e187ea8183bcbd479",
+      "pcmSha256": "3e89afd197c772562db8b0ed0ba90fe13342c0e26d7d0a71079f725a56c7775e",
+      "sampleFrames": [
+        0,
+        60,
+        1322,
+        2644,
+        2748,
+        3966,
+        5253,
+        5287
+      ],
+      "assigned": 4,
+      "unassigned": 4,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-53-7",
+      "originalAudioSha1": "96b67e357958b7b8da965b298d420efd3d7416eb",
+      "pcmSha256": "aabd208e77795b15a8d030ce69b7eaad344e1d4af3894b92618e7fc2ffa5f433",
+      "sampleFrames": [
+        0,
+        100,
+        4810,
+        9621,
+        9663,
+        14431,
+        19225,
+        19241
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-1",
+      "originalAudioSha1": "4667db6ac6385f4d5f30690bce565b596d0243ef",
+      "pcmSha256": "bafbcf0870ffed0d7c788a392bb1a88cde9098d9e095105276b905c622380611",
+      "sampleFrames": [
+        0,
+        28,
+        2703,
+        5347,
+        5407,
+        8111,
+        10799,
+        10814
+      ],
+      "assigned": 3,
+      "unassigned": 5,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-2",
+      "originalAudioSha1": "ea18454ee06c8d4dfaf5abec520087e4b1116574",
+      "pcmSha256": "61ef54c4db61cb3f3778072edc8ac8466858a7dc9334112da4a5f090c9db286e",
+      "sampleFrames": [
+        0,
+        73,
+        2092,
+        4185,
+        4193,
+        6277,
+        8351,
+        8369
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-3",
+      "originalAudioSha1": "d17313ab0b87a66dc431c42edee2a9f6f2e715a0",
+      "pcmSha256": "176deca03f71a575dab9ce6e34ecd51bcadf52f7ad9b69c1b1d2c5e52f6ddb91",
+      "sampleFrames": [
+        0,
+        126,
+        1869,
+        3739,
+        3926,
+        5609,
+        7437,
+        7478
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-4",
+      "originalAudioSha1": "92513e16b25c43e5fcb9d491e54106e018fc1f38",
+      "pcmSha256": "6f5a5df6efef52618f101714b8afdc24ce2fee1b557c4f0064068d9bba59fb23",
+      "sampleFrames": [
+        0,
+        91,
+        1489,
+        2979,
+        2995,
+        4469,
+        5948,
+        5958
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-5",
+      "originalAudioSha1": "b09cf3f17ffb5be40ede90dcdfdbd41f97db047e",
+      "pcmSha256": "e7a586c730b025ccff57df25e043c4199c35f7ee95d9ef9d0205051d6a9b48c7",
+      "sampleFrames": [
+        0,
+        104,
+        1444,
+        2888,
+        2890,
+        4332,
+        5733,
+        5775
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-6",
+      "originalAudioSha1": "31dd4ced4f8c23158ce0a53a4a18eba8f86bc36d",
+      "pcmSha256": "76d0704df751a63bfac80f4d992f35bb2d73b8afdcadadcce69c8cfd2ef33460",
+      "sampleFrames": [
+        0,
+        153,
+        1502,
+        2930,
+        3004,
+        4506,
+        5965,
+        6008
+      ],
+      "assigned": 6,
+      "unassigned": 2,
+      "status": "direct-difference agreement"
+    },
+    {
+      "id": "pt-portion-54-7",
+      "originalAudioSha1": "dbec923647299bda97d9412ceed3cc02a63706d3",
+      "pcmSha256": "07f30169709c6546280c4d52d9d25b1ac3bece50a280ba625c875f444a369f6e",
+      "sampleFrames": [
+        0,
+        107,
+        6223,
+        12446,
+        12895,
+        18669,
+        24822,
+        24892
+      ],
+      "assigned": 5,
+      "unassigned": 3,
+      "status": "direct-difference agreement"
+    }
+  ]
+}

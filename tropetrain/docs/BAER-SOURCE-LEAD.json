@@ -102,5 +102,32 @@
     "noteCorrespondence": "docs/BAER-NOTE-CORRESPONDENCE.json",
     "scope": "Genesis1:1–5;52words/145notes;one rest/two triplets/six unspecified fermatas. Independent transcription/underlay/cantorial review pending.",
     "distribution": "Only the unretouched2440×1210No939crop and new literal transcription added. Full108MBPDF and OCR remain private research; no OCR-derived pitches."
+  },
+  "subsequentInspection": {
+    "printedPages": [
+      31,
+      33,
+      34,
+      35,
+      36,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "pdfPages": [
+      76,
+      78,
+      79,
+      80,
+      81,
+      83,
+      84,
+      85,
+      86,
+      87
+    ],
+    "finding": "Contextual ordinary-Torah alternatives, rare accent forms, worked examples and explicitly headed deviations/special readings are present. These do not by themselves specify every arbitrary-word recitation pitch or source-to-syllable rule. No additional notes/preset imported. Printed39No117 and40Nos118/120–123 give useful explicit special-reading contexts for later source review."
   }
 }
