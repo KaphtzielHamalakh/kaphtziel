@@ -3,13 +3,13 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "cbc31a87b9172194942a7b9febb645bf7881a89f",
+  "publishedCommit": "81dcb7097fd604d309ec02832d751aa5e1d2b1f4",
   "nextTask": "Continue toward word-aligned independent chanting: inspect Cohen printed p541–548 terminal/cadential families and explicit stress/reciting-note rules against both scans before applying musical figures to Hebrew. Preserve 79,804 pronunciation unit owners per style and exact original Hebrew/accents; 77,775 words/style have written syllable ranges, 179 lack source correspondence and two Deut32:6 words remain combined. Joint source-timed ownership is76,996, with75,058 written ranges;2,811 timing-review words unchanged. Research source-backed phonological/note/audio links and reusable singing evidence; six Kinnor grammars/voices and complete contextual systems remain pending. Printing deferred.",
   "lastPassingTests": {
-    "automated": 214,
-    "ui": "Public v0.25→v0.26 retained Deut1:27word2/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0 and exact Hebrew; both repeat cells show exact reader underlay. Gen8:20word7 shows הַ/בְּ/הֵ/מָ֣ה with shared-next/previous consonant labels; muted repeated recordedPlay follows listeningword, live Sephardic ma/Ash mo switch retains Hebrew/tempo/key. Escape/repeatfalse. New Gen14:17word9 selects כְּ/דָר־, word10 לָ/עֹ֔/מֶר with exact owners; Pointed→Consonantal→Pointed preserves all original study marks. Public standalone restores Gen8:20word7/style/underlay and muted repeatedPlay/listeningword/Escape. Both public root/body fit319 and1280; screenshot outputs/TropeTrain-v0.26-live.jpg viewed. All four gains0/stopped/repeatfalse, viewportreset, existing normal tab deliverable. Local additionally observed newname span9→10→9 in both distributions with two/three owners/underlay; Deut32:6source-only/shared case preserved. Native Save/directfile-origin and independent linguistic/cantorial/acoustic review pending.",
-    "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice.",
-    "releaseTargets": 71
+    "automated": 227,
+    "newRegressionChecks": 13,
+    "ui": "Public v0.26→v0.27 retained Genesis8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair and all four gains0. New Bagdad p541 Yetib muted repeated Play highlights separate rest components4/5; live Sephardic switch changes ma/mo source transcription while exact Hebrew and pattern settings remain fixed. Escape/Stop/repeatfalse. New Europe conditional source spells G-sharp/F-sharp/G-sharp/A; qaton→qaton search26, gadol→qaton0, source image viewer2649px/Escape, joint coverage76996/75058. Public standalone retains passage/style and new source preference; BYetib held tie has five components/one rest/three attacks, FYetib silent rest clock passes. Both public distributions fit319 and1280px (wide standalone checked in visible tab); screenshot outputs/TropeTrain-v0.27-live.jpg viewed. All four gains0/stopped/repeatfalse, viewport reset. Local additionally tests Yetib357/Munah→qaton4347 searches, both unresolved new cells disabled, source JSON viewer, and Gen14:17word9 exact ke/dor ownership with style switch preserving Hebrew/tempo/key/main melody. Native Save/direct-file-origin and independent musical/linguistic/acoustic review pending.",
+    "limits": "Muted playback clock/UI, literal two-scan source transcription and full corpus invariants. Four ambiguous printed cells unavailable; 179 pronunciation words unassigned/two combined,2811 timing-review words. No full contextual tradition, six Kinnor grammar/voice equivalence, new phonemes or singing voice."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -53,7 +53,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "source_references_bounded_Gen22_and_six_printed_Torah_rows_10_figures_50_components_two_cells_refused_full_contextual_systems_pending"
+      "status": "six_printed_Torah_traditions_20_figures_95_components_six_rests_86_attacks_four_cells_withheld_full_contextual_systems_pending"
     },
     {
       "id": "singing",
@@ -103,7 +103,7 @@
     {
       "id": "analysis",
       "description": "Group colors, accent hierarchy, exceptions and rules inspector",
-      "status": "source_sign_inspector_classes_and_adjacent_context_search_tested_full_hierarchy_and_exceptions_pending"
+      "status": "source_sign_and_adjacent_context_search_including_single_Yetib_and_explicit_Zaqef_lookup_candidates_browser_tested_full_hierarchy_pending"
     },
     {
       "id": "curriculum",
@@ -158,11 +158,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "cbc31a87b9172194942a7b9febb645bf7881a89f",
+    "commit": "81dcb7097fd604d309ec02832d751aa5e1d2b1f4",
     "status": "success",
-    "workflowRun": 44935918204,
-    "liveAssets": "All27changed public files match42,743,697tested bytes againstf03ae958. Finalfourrecords follow separately.",
-    "ui": "Public v0.25→v0.26 retained Deut1:27word2/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0 and exact Hebrew; both repeat cells show exact reader underlay. Gen8:20word7 shows הַ/בְּ/הֵ/מָ֣ה with shared-next/previous consonant labels; muted repeated recordedPlay follows listeningword, live Sephardic ma/Ash mo switch retains Hebrew/tempo/key. Escape/repeatfalse. New Gen14:17word9 selects כְּ/דָר־, word10 לָ/עֹ֔/מֶר with exact owners; Pointed→Consonantal→Pointed preserves all original study marks. Public standalone restores Gen8:20word7/style/underlay and muted repeatedPlay/listeningword/Escape. Both public root/body fit319 and1280; screenshot outputs/TropeTrain-v0.26-live.jpg viewed. All four gains0/stopped/repeatfalse, viewportreset, existing normal tab deliverable. Local additionally observed newname span9→10→9 in both distributions with two/three owners/underlay; Deut32:6source-only/shared case preserved. Native Save/directfile-origin and independent linguistic/cantorial/acoustic review pending.",
+    "workflowRun": 44940444941,
+    "liveAssets": "31 changed public files /49,190,325 bytes match tested local0f4603352cf7360e6c0a849faa71a0ad83d7eb30 exactly. Final four records follow separately.",
+    "ui": "Public v0.26→v0.27 retained Genesis8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair and all four gains0. New Bagdad p541 Yetib muted repeated Play highlights separate rest components4/5; live Sephardic switch changes ma/mo source transcription while exact Hebrew and pattern settings remain fixed. Escape/Stop/repeatfalse. New Europe conditional source spells G-sharp/F-sharp/G-sharp/A; qaton→qaton search26, gadol→qaton0, source image viewer2649px/Escape, joint coverage76996/75058. Public standalone retains passage/style and new source preference; BYetib held tie has five components/one rest/three attacks, FYetib silent rest clock passes. Both public distributions fit319 and1280px (wide standalone checked in visible tab); screenshot outputs/TropeTrain-v0.27-live.jpg viewed. All four gains0/stopped/repeatfalse, viewport reset. Local additionally tests Yetib357/Munah→qaton4347 searches, both unresolved new cells disabled, source JSON viewer, and Gen14:17word9 exact ke/dor ownership with style switch preserving Hebrew/tempo/key/main melody. Native Save/direct-file-origin and independent musical/linguistic/acoustic review pending.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -191,9 +191,9 @@
     "version": "0.27.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "eb125ab0b50eb5789130a15d0812188cb96ce12d",
-    "status": "227_checks_and_local_normal_standalone_UI_passed_publication_pending",
+    "status": "published_code_live_assets_and_both_browser_distributions_verified_final_records_pending",
     "record": "docs/VERIFICATION-0.27.md",
-    "next": "Publish tested v0.27 and verify public normal/standalone UI, exact live bytes and Pages jobs; save all progress and resumable artifacts.",
+    "next": "Continue toward word-aligned independent chanting: inspect Cohen printed p541–548 terminal/cadential families and explicit stress/reciting-note rules against both scans before applying musical figures to Hebrew. Preserve 79,804 pronunciation unit owners per style and exact original Hebrew/accents; 77,775 words/style have written syllable ranges, 179 lack source correspondence and two Deut32:6 words remain combined. Joint source-timed ownership is76,996, with75,058 written ranges;2,811 timing-review words unchanged. Research source-backed phonological/note/audio links and reusable singing evidence; six Kinnor grammars/voices and complete contextual systems remain pending. Printing deferred.",
     "newFeatures": "Ten continued Yetib/conditionalZaqef figures with exact rests/ties/source pitch spelling, explicit context choices and four unresolvedcells; joint chanting/pronunciation coverage76996words,75058writtenranges."
   },
   "sourceAnalysisIssue": {
