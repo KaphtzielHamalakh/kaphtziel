@@ -3,12 +3,12 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "fda6d07737eba6d960d2c83670b68aaff9a79cbe",
-  "nextTask": "Finish v0.20 Phonetic MAM source-preserving join audit, normal UI/standalone testing and publish. Independent Sephardic/Ashkenazic source transcription selector; audio voices stay fixed. Continue melody/pronunciation evidence before printing.",
+  "publishedCommit": "b44e741c64d037522ccc7133b539f30cbf4914a2",
+  "nextTask": "Audit remaining Phonetic MAM/UXLC differences using exact source evidence; preserve unassigned regions, all original text and grouped/alternate readings. Research and implement evidence-backed pronunciation rules and reusable contextual melodic/voice material independently; do not turn text styles or fixed recordings into six Kinnor claims. Printing deferred.",
   "lastPassingTests": {
-    "automated": 172,
-    "ui": "Normal/standalone main recorded word/group/repeat/Stop/Escape, exact Hebrew source highlights, cross-fileGen2:3word16→2:4word1 naturalcompletion, explicitmissingaudio load/hash/cache, mode/span/Cohen84/key0/mutes reload, source-study exclusivity and320/1280fit pass; no capturedwarnings/errors. SourcegapExo1:1–17 blocksmainPlay.",
-    "limits": "Source timing structural checks, acoustic review pending; all8gaps remain blocked. No independent melody/pronunciation grammar or singing synthesis; PhoneticMAMcandidate not imported. Actual interrupted download, file/visibility/recovery UI and expert review remain pending."
+    "automated": 179,
+    "ui": "Live v0.19→v0.20 kept Genesis1:1–3 word2, OriginalDemo01,60BPM,key0,recorded main mode/group and all mutes. Source ba·ra→bo·ro switch during muted word repeat retained exact marked Hebrew and playback; Escape/reload kept Ashkenazic and group. Published standalone restored source style, followed listening word2 with audio paused/rate1 at0, and exposes embedded ZIP/audit/NOTICE. Live normal expanded source JSON fits320px; reset returns default319px with root/bodyfit. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.20-live.jpg; playback stopped/gains0.",
+    "limits": "Structural mapping/source preservation and silent-clock checks, not acoustic/linguistic approval. 2,229 pronunciation words unassigned;2,811 chant-timing words blocked. No new voice/phoneme grammar, six-Kinnor equivalence or independent singing. Existing file/dialog/recovery/visibility/expert-review gates pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -37,7 +37,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_preservation_tested_automatic_drafts_unreviewed"
+      "status": "source_preserving_pronunciation_groups_77756_words_2229_unassigned_linguistic_mapping_review_and_phonemes_pending"
     },
     {
       "id": "playback",
@@ -47,7 +47,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "six_Kinnor_grammars_pending_four_fixed_scholarly_Tiberian_comparisons_browser_tested"
+      "status": "two_independent_Phonetic_MAM_text_views_77756_words_source_verified_browser_tested_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "fda6d07737eba6d960d2c83670b68aaff9a79cbe",
+    "commit": "b44e741c64d037522ccc7133b539f30cbf4914a2",
     "status": "success",
-    "workflowRun": 44866031579,
-    "liveAssets": "All19 changed public files match28,526,512 tested bytes.",
-    "ui": "Live v0.18→v0.19 preserved Genesis22:1 word5/Cohen/60BPM/key0, Bard study and all mutes. Main recorded mode explicitly loaded/hash-verified Vayera7; word5 highlighted in pointed/consonantal views while media stayed paused at0%, then naturally completed with highlights cleared. Live Shemot1 gap openedExo1:1–17 and disabled timedPlay. PreparedGenesis1:1–3 word2→Endofgroup; standalone restored recorded mode/span and completed source-timed playback. Final handoff uses pointed view, Original demonstration01 as the separate instrument selection,60/key0, recorded main audio, all gains0 and stopped. No capturedwarnings/errors;320root/bodyfit includingexpandedgaps;viewportreset; screenshot outputs/TropeTrain-v0.19-live.jpg.",
+    "workflowRun": 44915169439,
+    "liveAssets": "All26 changed public files match41,246,550 tested bytes. Final four documentation records follow separately.",
+    "ui": "Live v0.19→v0.20 kept Genesis1:1–3 word2, OriginalDemo01,60BPM,key0,recorded main mode/group and all mutes. Source ba·ra→bo·ro switch during muted word repeat retained exact marked Hebrew and playback; Escape/reload kept Ashkenazic and group. Published standalone restored source style, followed listening word2 with audio paused/rate1 at0, and exposes embedded ZIP/audit/NOTICE. Live normal expanded source JSON fits320px; reset returns default319px with root/bodyfit. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.20-live.jpg; playback stopped/gains0.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -190,14 +190,16 @@
     "version": "0.20.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "1489c978bb68bd0a46625a41e17736338afb5145",
-    "status": "179_tests_and_local_normal_standalone_passed_publication_next",
+    "status": "published_live_verified",
+    "record": "docs/VERIFICATION-0.20.md",
+    "automatedTests": 179,
     "mappedWords": 77756,
     "readerWords": 79985,
     "unassignedWords": 2229,
     "groups": 66578,
-    "record": "docs/PRONUNCIATION-ALIGNMENT.json",
-    "next": "Finish v0.20 Phonetic MAM source-preserving join audit, normal UI/standalone testing and publish. Independent Sephardic/Ashkenazic source transcription selector; audio voices stay fixed. Continue melody/pronunciation evidence before printing.",
-    "automatedTests": 179
+    "newFeatures": "Independent source pronunciation transcription styles and literal original Hebrew/alternate/group correspondence inspector. No new voice or singing.",
+    "next": "Audit remaining Phonetic MAM/UXLC differences using exact source evidence; preserve unassigned regions, all original text and grouped/alternate readings. Research and implement evidence-backed pronunciation rules and reusable contextual melodic/voice material independently; do not turn text styles or fixed recordings into six Kinnor claims. Printing deferred.",
+    "finalDocumentationChecks": 34
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
