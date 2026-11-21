@@ -187,19 +187,13 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.21.0",
+    "version": "0.22.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "18dbcb5e7e08b234586f12ff80b09487fc60d9b8",
-    "status": "published_live_verified",
-    "record": "docs/VERIFICATION-0.21.md",
-    "mappedWords": 79806,
-    "readerWords": 79985,
-    "unassignedWords": 179,
-    "groups": 68354,
-    "next": "Continue evidence-backed phonetic/syllable/stress representation and contextual traditional melody rules/reusable voices before printing. Preserve179unassigned words unless exact source evidence supports a link. Source text styles and fixed recorded voices remain separate; six Kinnor phonetic grammars/voices, all recovered contextual musical systems, singing and full roadmap active/incomplete.",
-    "automatedTests": 182,
-    "newFeatures": "2,050additional source-text word links from1,776forced exact groups between original verse anchors; every66,578v0.20group unchanged.179unassigned. No new voice or melody.",
-    "finalDocumentationChecks": 37
+    "baseCommit": "dc1b05a5c4fc4409d466141e851a44685882948f",
+    "status": "188_checks_normal_standalone_responsive_passed_ready_to_publish",
+    "record": "docs/PRINTED-PATTERN-CATALOG.json",
+    "next": "Validate source pitches/values/ties/mixed tuplets and image hashes; implement independent source-row picker with unsupported-cell refusal, then normal/standalone UI tests and publish. No full tradition or singing claim.",
+    "automatedTests": 188
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

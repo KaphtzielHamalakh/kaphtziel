@@ -1,0 +1,954 @@
+{
+  "schema": "tropetrain-printed-pattern-catalog-v1",
+  "revision": 1,
+  "id": "cohen-1902-torah-columns",
+  "source": {
+    "title": "The Jewish Encyclopedia",
+    "volume": 3,
+    "year": 1902,
+    "author": "Francis L. Cohen",
+    "article": "Cantillation",
+    "page": 540,
+    "url": "https://www.jewishencyclopedia.com/articles/718",
+    "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+    "pdfPage": 578,
+    "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+    "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HC3C54CZ.jpg",
+    "image": "assets/scores/cohen-1902-torah-columns-a-f.png",
+    "imageSha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+    "imageDerivation": "Unretouched Poppler render: PDF page578, scale-to4000, x1880/y300/width769/height1200. Plain Munaḥ/Revia columns for rows A–F; see context image for row labels and keys.",
+    "contextImage": {
+      "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+      "bytes": 754803,
+      "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+      "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+    },
+    "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0."
+  },
+  "rows": [
+    {
+      "id": "cohen-1902-munah-revia",
+      "label": "Ashkenazim, 1902 · row I.A",
+      "recordPath": "docs/PRINTED-PATTERNS.json",
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-B-columns",
+      "label": "Ashkenazim, 1518 · row I.B",
+      "record": {
+        "id": "cohen-1902-I-B-columns",
+        "revision": 1,
+        "name": "Ashkenazim, 1518 · row I.B",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 540,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 578,
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HC3C54CZ.jpg",
+          "image": "assets/scores/cohen-1902-torah-columns-a-f.png",
+          "imageSha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+          "imageDerivation": "Unretouched Poppler render: PDF page578, scale-to4000, x1880/y300/width769/height1200. Plain Munaḥ/Revia columns for rows A–F; see context image for row labels and keys.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
+          "row": "1. Pentateuch / B. Ashkenazim, 1518 · row I.B"
+        },
+        "sourceKey": "One printed sharp (F-sharp). The1518date is Cohen’s table label; this is not an independent edition identification.",
+        "scope": "Untexted instrumental study of supported printed columns only. Contextual melody rules, Hebrew/syllable/phoneme underlay and Kinnor equivalence are not supplied.",
+        "timing": "Printed note values regularized to the selected quarter-note BPM; expressive recitation, intonation and instrument articulation are approximations.",
+        "reviewStatus": "Manual source scan checks; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "matchingQuery": [
+          "munah",
+          "revia"
+        ],
+        "notes": [
+          {
+            "id": "cohen-1902-I-B-columns-munah-1",
+            "cell": "munah",
+            "midi": 71,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, munah column, component1",
+            "slur": {
+              "id": "cohen-1902-I-B-columns-munah-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-columns-munah-2",
+            "cell": "munah",
+            "midi": 69,
+            "quarterBeats": 2.0,
+            "rhythm": {
+              "type": "half",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, munah column, component2",
+            "slur": {
+              "id": "cohen-1902-I-B-columns-munah-slur",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-columns-munah-3",
+            "cell": "munah",
+            "midi": 69,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, munah column, component3"
+          },
+          {
+            "id": "cohen-1902-I-B-columns-revia-1",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, revia column, component1",
+            "slur": {
+              "id": "cohen-1902-I-B-columns-revia-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-columns-revia-2",
+            "cell": "revia",
+            "midi": 66,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, revia column, component2"
+          },
+          {
+            "id": "cohen-1902-I-B-columns-revia-3",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, revia column, component3"
+          },
+          {
+            "id": "cohen-1902-I-B-columns-revia-4",
+            "cell": "revia",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, revia column, component4"
+          },
+          {
+            "id": "cohen-1902-I-B-columns-revia-5",
+            "cell": "revia",
+            "midi": 62,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, revia column, component5",
+            "slur": {
+              "id": "cohen-1902-I-B-columns-revia-slur",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-B-columns-revia-6",
+            "cell": "revia",
+            "midi": 62,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.B, revia column, component6"
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-C-columns",
+      "label": "Sephardim (Europe) · row I.C",
+      "record": {
+        "id": "cohen-1902-I-C-columns",
+        "revision": 1,
+        "name": "Sephardim (Europe) · row I.C",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 540,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 578,
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HC3C54CZ.jpg",
+          "image": "assets/scores/cohen-1902-torah-columns-a-f.png",
+          "imageSha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+          "imageDerivation": "Unretouched Poppler render: PDF page578, scale-to4000, x1880/y300/width769/height1200. Plain Munaḥ/Revia columns for rows A–F; see context image for row labels and keys.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
+          "row": "1. Pentateuch / C. Sephardim (Europe) · row I.C"
+        },
+        "sourceKey": "No printed key-signature accidental; natural F retained.",
+        "scope": "Untexted instrumental study of supported printed columns only. Contextual melody rules, Hebrew/syllable/phoneme underlay and Kinnor equivalence are not supplied.",
+        "timing": "Printed note values regularized to the selected quarter-note BPM; expressive recitation, intonation and instrument articulation are approximations.",
+        "reviewStatus": "Manual source scan checks; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "matchingQuery": [
+          "munah",
+          "revia"
+        ],
+        "notes": [
+          {
+            "id": "cohen-1902-I-C-columns-munah-1",
+            "cell": "munah",
+            "midi": 65,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, munah column, component1",
+            "slur": {
+              "id": "cohen-1902-I-C-columns-munah-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-columns-munah-2",
+            "cell": "munah",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, munah column, component2"
+          },
+          {
+            "id": "cohen-1902-I-C-columns-munah-3",
+            "cell": "munah",
+            "midi": 69,
+            "quarterBeats": 2.0,
+            "rhythm": {
+              "type": "half",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, munah column, component3",
+            "slur": {
+              "id": "cohen-1902-I-C-columns-munah-slur",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-columns-munah-4",
+            "cell": "munah",
+            "midi": 69,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, munah column, component4"
+          },
+          {
+            "id": "cohen-1902-I-C-columns-revia-1",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, revia column, component1",
+            "slur": {
+              "id": "cohen-1902-I-C-columns-revia-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-columns-revia-2",
+            "cell": "revia",
+            "midi": 72,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, revia column, component2"
+          },
+          {
+            "id": "cohen-1902-I-C-columns-revia-3",
+            "cell": "revia",
+            "midi": 69,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, revia column, component3",
+            "slur": {
+              "id": "cohen-1902-I-C-columns-revia-slur",
+              "phase": "stop"
+            },
+            "tie": {
+              "id": "cohen-1902-I-C-columns-revia-tie",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-columns-revia-4",
+            "cell": "revia",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, revia column, component4",
+            "tie": {
+              "id": "cohen-1902-I-C-columns-revia-tie",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-C-columns-revia-5",
+            "cell": "revia",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.C, revia column, component5"
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-D-columns",
+      "label": "Morocco · Munaḥ only · row I.D",
+      "record": {
+        "id": "cohen-1902-I-D-columns",
+        "revision": 1,
+        "name": "Morocco · Munaḥ only · row I.D",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 540,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 578,
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HC3C54CZ.jpg",
+          "image": "assets/scores/cohen-1902-torah-columns-a-f.png",
+          "imageSha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+          "imageDerivation": "Unretouched Poppler render: PDF page578, scale-to4000, x1880/y300/width769/height1200. Plain Munaḥ/Revia columns for rows A–F; see context image for row labels and keys.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
+          "row": "1. Pentateuch / D. Morocco · Munaḥ only · row I.D"
+        },
+        "sourceKey": "No printed key-signature accidental; natural F retained.",
+        "scope": "Untexted instrumental study of supported printed columns only. Contextual melody rules, Hebrew/syllable/phoneme underlay and Kinnor equivalence are not supplied.",
+        "timing": "Printed note values regularized to the selected quarter-note BPM; expressive recitation, intonation and instrument articulation are approximations.",
+        "reviewStatus": "Manual source scan checks; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "matchingQuery": [
+          "munah",
+          "revia"
+        ],
+        "notes": [
+          {
+            "id": "cohen-1902-I-D-columns-munah-1",
+            "cell": "munah",
+            "midi": 65,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.D, munah column, component1",
+            "slur": {
+              "id": "cohen-1902-I-D-columns-munah-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-columns-munah-2",
+            "cell": "munah",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.D, munah column, component2"
+          },
+          {
+            "id": "cohen-1902-I-D-columns-munah-3",
+            "cell": "munah",
+            "midi": 69,
+            "quarterBeats": 2.0,
+            "rhythm": {
+              "type": "half",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.D, munah column, component3",
+            "slur": {
+              "id": "cohen-1902-I-D-columns-munah-slur",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-D-columns-munah-4",
+            "cell": "munah",
+            "midi": 67,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.D, munah column, component4"
+          }
+        ]
+      },
+      "unavailable": [
+        {
+          "cell": "revia",
+          "reason": "Mixed-tuplet span and final flag require a clearer notation reading.",
+          "neededEvidence": "A sharper source or editorial notation explanation, followed by qualified review of the exact rhythm. The figure is not playable here."
+        }
+      ]
+    },
+    {
+      "id": "cohen-1902-I-E-columns",
+      "label": "Egypt & Syria · row I.E",
+      "record": {
+        "id": "cohen-1902-I-E-columns",
+        "revision": 1,
+        "name": "Egypt & Syria · row I.E",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 540,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 578,
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HC3C54CZ.jpg",
+          "image": "assets/scores/cohen-1902-torah-columns-a-f.png",
+          "imageSha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+          "imageDerivation": "Unretouched Poppler render: PDF page578, scale-to4000, x1880/y300/width769/height1200. Plain Munaḥ/Revia columns for rows A–F; see context image for row labels and keys.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
+          "row": "1. Pentateuch / E. Egypt & Syria · row I.E"
+        },
+        "sourceKey": "One printed sharp (F-sharp).",
+        "scope": "Untexted instrumental study of supported printed columns only. Contextual melody rules, Hebrew/syllable/phoneme underlay and Kinnor equivalence are not supplied.",
+        "timing": "Printed note values regularized to the selected quarter-note BPM; expressive recitation, intonation and instrument articulation are approximations.",
+        "reviewStatus": "Manual source scan checks; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "matchingQuery": [
+          "munah",
+          "revia"
+        ],
+        "notes": [
+          {
+            "id": "cohen-1902-I-E-columns-munah-1",
+            "cell": "munah",
+            "midi": 67,
+            "quarterBeats": 1.5,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, munah column, component1",
+            "slur": {
+              "id": "cohen-1902-I-E-columns-munah-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-munah-2",
+            "cell": "munah",
+            "midi": 66,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, munah column, component2"
+          },
+          {
+            "id": "cohen-1902-I-E-columns-munah-3",
+            "cell": "munah",
+            "midi": 67,
+            "quarterBeats": 0.25,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, munah column, component3"
+          },
+          {
+            "id": "cohen-1902-I-E-columns-munah-4",
+            "cell": "munah",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, munah column, component4",
+            "slur": {
+              "id": "cohen-1902-I-E-columns-munah-slur",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-munah-5",
+            "cell": "munah",
+            "midi": 66,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, munah column, component5"
+          },
+          {
+            "id": "cohen-1902-I-E-columns-munah-6",
+            "cell": "munah",
+            "midi": 62,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, munah column, component6"
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-1",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.3333333333333333,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component1",
+            "slur": {
+              "id": "cohen-1902-I-E-columns-revia-slur",
+              "phase": "start"
+            },
+            "tuplet": {
+              "id": "cohen-1902-I-E-columns-revia-triplet",
+              "phase": "start",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-2",
+            "cell": "revia",
+            "midi": 66,
+            "quarterBeats": 0.16666666666666666,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component2",
+            "tuplet": {
+              "id": "cohen-1902-I-E-columns-revia-triplet",
+              "phase": "continue",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-3",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.16666666666666666,
+            "rhythm": {
+              "type": "16th",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component3",
+            "tuplet": {
+              "id": "cohen-1902-I-E-columns-revia-triplet",
+              "phase": "continue",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-4",
+            "cell": "revia",
+            "midi": 69,
+            "quarterBeats": 0.3333333333333333,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component4",
+            "tuplet": {
+              "id": "cohen-1902-I-E-columns-revia-triplet",
+              "phase": "stop",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-5",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component5"
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-6",
+            "cell": "revia",
+            "midi": 64,
+            "quarterBeats": 1.0,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component6",
+            "slur": {
+              "id": "cohen-1902-I-E-columns-revia-slur",
+              "phase": "stop"
+            },
+            "tie": {
+              "id": "cohen-1902-I-E-columns-revia-tie",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-7",
+            "cell": "revia",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component7",
+            "tie": {
+              "id": "cohen-1902-I-E-columns-revia-tie",
+              "phase": "stop"
+            }
+          },
+          {
+            "id": "cohen-1902-I-E-columns-revia-8",
+            "cell": "revia",
+            "midi": 64,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.E, revia column, component8"
+          }
+        ]
+      },
+      "unavailable": []
+    },
+    {
+      "id": "cohen-1902-I-F-columns",
+      "label": "Bagdad · Revia only · row I.F",
+      "record": {
+        "id": "cohen-1902-I-F-columns",
+        "revision": 1,
+        "name": "Bagdad · Revia only · row I.F",
+        "source": {
+          "title": "The Jewish Encyclopedia",
+          "volume": 3,
+          "year": 1902,
+          "author": "Francis L. Cohen",
+          "article": "Cantillation",
+          "page": 540,
+          "url": "https://www.jewishencyclopedia.com/articles/718",
+          "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+          "pdfPage": 578,
+          "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+          "independentPageImage": "https://storage.googleapis.com/jewishencyclopedia/pages/HC3C54CZ.jpg",
+          "image": "assets/scores/cohen-1902-torah-columns-a-f.png",
+          "imageSha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+          "imageDerivation": "Unretouched Poppler render: PDF page578, scale-to4000, x1880/y300/width769/height1200. Plain Munaḥ/Revia columns for rows A–F; see context image for row labels and keys.",
+          "contextImage": {
+            "image": "assets/scores/cohen-1902-torah-rows-a-f.png",
+            "bytes": 754803,
+            "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+            "derivation": "Unretouched Poppler render: PDF page578, scale-to4000, x0/y210/width2649/height1320. Six ordinary Pentateuch rows A–F, header, labels, clefs and keys retained."
+          },
+          "rights": "1902 printed source public domain; new literal transcriptions CC0-1.0.",
+          "row": "1. Pentateuch / F. Bagdad · Revia only · row I.F"
+        },
+        "sourceKey": "One printed sharp (F-sharp).",
+        "scope": "Untexted instrumental study of supported printed columns only. Contextual melody rules, Hebrew/syllable/phoneme underlay and Kinnor equivalence are not supplied.",
+        "timing": "Printed note values regularized to the selected quarter-note BPM; expressive recitation, intonation and instrument articulation are approximations.",
+        "reviewStatus": "Manual source scan checks; independent musical/transcription review pending.",
+        "pronunciation": null,
+        "syllableUnderlay": null,
+        "matchingQuery": [
+          "munah",
+          "revia"
+        ],
+        "notes": [
+          {
+            "id": "cohen-1902-I-F-columns-revia-1",
+            "cell": "revia",
+            "midi": 71,
+            "quarterBeats": 1.5,
+            "rhythm": {
+              "type": "quarter",
+              "dots": 1,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.F, revia column, component1",
+            "slur": {
+              "id": "cohen-1902-I-F-columns-revia-slur",
+              "phase": "start"
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-columns-revia-2",
+            "cell": "revia",
+            "midi": 69,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.F, revia column, component2"
+          },
+          {
+            "id": "cohen-1902-I-F-columns-revia-3",
+            "cell": "revia",
+            "midi": 71,
+            "quarterBeats": 0.3333333333333333,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.F, revia column, component3",
+            "tuplet": {
+              "id": "cohen-1902-I-F-columns-revia-triplet",
+              "phase": "start",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-columns-revia-4",
+            "cell": "revia",
+            "midi": 69,
+            "quarterBeats": 0.3333333333333333,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.F, revia column, component4",
+            "tuplet": {
+              "id": "cohen-1902-I-F-columns-revia-triplet",
+              "phase": "continue",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-columns-revia-5",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.3333333333333333,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 3,
+              "normal": 2
+            },
+            "sourceLocation": "p.540, row I.F, revia column, component5",
+            "slur": {
+              "id": "cohen-1902-I-F-columns-revia-slur",
+              "phase": "stop"
+            },
+            "tuplet": {
+              "id": "cohen-1902-I-F-columns-revia-triplet",
+              "phase": "stop",
+              "baseUnit": "eighth",
+              "actual": 3,
+              "normal": 2
+            }
+          },
+          {
+            "id": "cohen-1902-I-F-columns-revia-6",
+            "cell": "revia",
+            "midi": 67,
+            "quarterBeats": 0.5,
+            "rhythm": {
+              "type": "eighth",
+              "dots": 0,
+              "actual": 1,
+              "normal": 1
+            },
+            "sourceLocation": "p.540, row I.F, revia column, component6"
+          }
+        ]
+      },
+      "unavailable": [
+        {
+          "cell": "munah",
+          "reason": "Compound note/ornament and printed rest require further interpretation.",
+          "neededEvidence": "A clear notation explanation and qualified monophonic realization of this exact printed cell. It is not playable here."
+        }
+      ]
+    }
+  ],
+  "limits": "Six source-labeled Torah rows, ten supported plain Munaḥ/Revia figures, two unresolved cells excluded. No full contextual traditional system, Kinnor identity, Bible-word/syllable/phoneme mapping or singing voice. Independent musical/transcription review pending."
+}

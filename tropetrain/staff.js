@@ -31,7 +31,11 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false}=
       for(let flag=0;flag<flags;flag++){const y=stemEnd+(up?flag*6:-flag*6),direction=up?1:-1;svg+=`<path class="flag" d="M${stemX} ${y} q18 ${10*direction} 4 ${24*direction} q6 ${-12*direction} -4 ${-16*direction} Z"/>`;}
     }
     for(let dot=0;dot<r.dots;dot++)svg+=`<circle class="dot" cx="${e.x+13+dot*5}" cy="${e.y%10===0?e.y-5:e.y}" r="1.7"/>`;
-    if(r.actual!==r.normal)svg+=`<text class="rhythm-ratio" x="${e.x}" y="24">${r.actual}:${r.normal}</text>`;
+    if(r.actual!==r.normal&&!e.sourceTupletId)svg+=`<text class="rhythm-ratio" x="${e.x}" y="24">${r.actual}:${r.normal}</text>`;
+    if(e.sourceTupletPhase==='start'){
+      const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');
+      if(end)svg+=`<path class="tuplet-bracket" aria-label="Printed tuplet: ${r.actual} in the time of ${r.normal}" d="M${e.x-10} 34 v-5 H${end.x+10} v5"/><text class="rhythm-ratio" x="${(e.x+end.x)/2}" y="22">${r.actual}:${r.normal}</text>`;
+    }
     svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(noteName(e.midi))}</text>`;
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.syllable)}</text>`;
     if(!untexted&&(e.continuation||e.continuedFromPrevious))svg+=`<line class="melisma-line" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="206" y2="206"/>`;

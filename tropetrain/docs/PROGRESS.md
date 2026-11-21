@@ -483,3 +483,20 @@ Finalfull182/182checks pass/0fail/0skip after candidatehash audit embedding. Nor
 Code3004de0260872d9d3be3e083cae8473491a0d653/Pages44917407675successful;24publicfiles41,641,180bytes exact against35c3b24. Full182checks pass. Live v0.20→v0.21 kept Gen1:1word2/Ashkenazic/OriginalDemo01/60BPM/key0/recordedgroup/allmutes. Opened Gen8:20word7 הַבְּהֵמָ֣ה, original0.6MBchant loaded/hashchecked/cached while textstyle changed. Muted word7Play followed source text, Sephardic ma→Ashkenazic mo during play retained recording/rate1 and naturally completed. Word8 remained unassigned/empty. Reload and published standalone restored Gen8:20word7/Ashkenazic/recordedEndword and cachedchant, mutedfollowing/Escape passed. Expanded source details fit320 and1280 with equal root/body/viewport; screenshot outputs/TropeTrain-v0.21-live.jpg at1280, viewportreset. No capturedwarnings/errors, all gains0/stopped.
 
 79,806wordlinks/68,354groups,179unassigned; all66,578previousgroups unchanged, all2,162candidateedges independentlyaudited.126partialwindows/144partialsourceverses/151unassignedsourcerows. Full linguistic/mapping/acousticreview, sixKinnor grammars/voices/contextualmelodies/singing and entire roadmap remain unfinished. Next: Continue evidence-backed phonetic/syllable/stress representation and contextual traditional melody rules/reusable voices before printing. Preserve179unassigned words unless exact source evidence supports a link. Source text styles and fixed recorded voices remain separate; six Kinnor phonetic grammars/voices, all recovered contextual musical systems, singing and full roadmap active/incomplete. Finalfourrecords/outputsync/previewteardown next; no runtimechange.
+
+
+## 2026-11-21 · v0.22 primary musical source work
+
+Previous goal turn made progress: v0.21 published/liveverified/saved. Current source audit inspected the complete p540table from verified PDFcbf09fe8 and independently retrieved primaryJEpageimage. Six ordinaryTorahsource rows A–F, literal names kept separate from Kinnorlabels. Candidate catalog10supportedplainMunaḥ/Revia figures,50printedcomponents including original8; C/Eheldties and E/Fmixedtriplets retained. MoroccoRevia andBagdadMunaḥ notation remain ambiguous and are excluded with exact evidence requests. No generic word/phoneme underlay, full contextual system or new voice inferred. New unretouchedcontext/column crops sourcehashed. Runtime/sourcevalidation/browser/publication pending; printingdeferred, fullgoalactive.
+
+
+## 2026-11-21 · v0.22 catalog implementation and tests
+
+Full188/188checks pass/0fail/0skip. Sixnewchecks cover sixclosedsource rows/tensupportedcells/twounavailablecells, literalpitches/keys/values, C/Eheldties versus repeatedattacks, mixedtripletgroups/E14componentstaff, independentaxes/sourceimmutability andfourimage/tworecorddataURLs losslesslyembedded. Original8-noteA record unchanged.
+
+Supportednormalbrowser: Cshows9components/8attacks/oneheldtie withnaturalF, E14/13/one3:2group; sourcechange duringplay clearsoldactiveevents; MoroccoRevia/BagdadMunaḥ refused, explicitsupportedcolumn required. MoroccoMunaḥ F4G4A4G4 confirmed; BagdadRevia repeat reachedLoop2, Escape; Epairnaturallycompleted andall14noteseventsvisible. ReaderGen8:20/markedHebrew/Ashkenazictext/OriginalDemo/key0 unchanged, gain0. Source image/JSONdataURLs and standalone persisted Epair/play/Escape tested. Responsive/finaldocs/releasechecksnext; full musical/phonetic/singinggoal remains active.
+
+
+## 2026-11-21 · v0.22 final release candidate
+
+Finalfull188/188pass/0fail/0skip after horizontal follow and full-clef sourcecontextcrop update. Sourceimageschecked again; contextcrop x0/y210/2649/1320 retains headers/all6rows/completeFclef, no retouching. LastEcomponent14/E4 visiblyfollowed in320pxstaff (scrollLeft1141), root320; Escape/viewportreset. Normal/standalone sources/modes/persistence/Stop/repeat/naturalfinish/refusals/evidence links validated muted; no warnings/errors. No fulltradition/Kinnor/phoneme/voice claim; musicalreviewpending. Only/tropetrain publication with currentmainlease next, then Pages/bytes/livechecks and durable sync.
