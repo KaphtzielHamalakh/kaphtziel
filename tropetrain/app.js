@@ -1,7 +1,9 @@
 import {JOINT_COVERAGE_SUMMARY} from './joint-coverage-summary.js';
 import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js';
 import {PRINTED_SCORE} from './printed-score.js';
-import {beatLabel} from './score-data.js';
+import {BAER_SCORE} from './baer-score.js';
+import {isPrintedScore} from './printed-score-registry.js';
+import {beatLabel,eventPitchName} from './score-data.js';
 import {passage as openingPassage} from './passage.js';
 import {getCorpus,defaultRange} from './library.js';
 import {getRepertoireCorpus,READING_TYPES,booksForReadingType,readingTypeForRanges,validateReadingSections,isTorahReading,reorderReadingSection,createRepertoireAssignment,parseRepertoireAssignment} from './repertoire.js';
@@ -105,7 +107,7 @@ const player=new Player((event,cycle,progress,index)=>{
   setActive(event.wordId,event.id);
   pronunciationTools?.showWord(words[event.wordIndex],{following:true});
   $('progress').style.width=`${progress*100}%`;
-  $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Playing ${label(event.wordIndex)} · ${noteName(event.midi)}`;
+  $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Playing ${label(event.wordIndex)} · ${eventPitchName(event)}`;
 },()=>{
   pronunciationTools?.showWord(words[state.cursor]);
   setActive(null,null);$('progress').style.width='100%';say(`Finished at ${label(playingBounds[1])}.`);transportLabel(false);
@@ -430,12 +432,12 @@ function renderNotes(){
   $('note-ribbon').replaceChildren();$('event-rows').replaceChildren();
   for(const e of plan.slice(from,to)){
     const chip=document.createElement('div');chip.className='note-chip';chip.dataset.event=e.id;
-    const pitch=document.createElement('span');pitch.className='pitch';pitch.textContent=noteName(e.midi);
+    const pitch=document.createElement('span');pitch.className='pitch';pitch.textContent=eventPitchName(e);
     const stem=document.createElement('span');stem.className='note-stem';stem.setAttribute('aria-hidden','true');
     const syllable=document.createElement('span');syllable.className='syllable';syllable.lang='he';syllable.dir='rtl';syllable.textContent=e.syllable;
     const length=document.createElement('span');length.className='length';length.textContent=`${beatLabel(e.beats)} beats`;chip.append(pitch,stem,syllable,length);chip.classList.toggle('active',e.id===activeEventId);$('note-ribbon').append(chip);
     const row=document.createElement('tr');row.dataset.event=e.id;row.classList.toggle('active',e.id===activeEventId);
-    for(const [i,value] of [e.wordId,e.syllable,noteName(e.midi),e.midi,e.startBeat.toFixed(2),beatLabel(e.beats),e.durationSeconds.toFixed(3)].entries()){
+    for(const [i,value] of [e.wordId,e.syllable,eventPitchName(e),e.midi,e.startBeat.toFixed(2),beatLabel(e.beats),e.durationSeconds.toFixed(3)].entries()){
       const cell=document.createElement('td');cell.textContent=value;if(i===1){cell.lang='he';cell.dir='rtl';}row.append(cell);
     }$('event-rows').append(row);
   }
@@ -446,7 +448,7 @@ function renderSequence(){
   try{plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
   for(const id of ['play','compact-play'])$(id).disabled=state.practiceAudio==='recorded'?!chantReady:!!unavailable;
-  $('musical-source-status').textContent=unavailable??(model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
+  $('musical-source-status').textContent=unavailable??(model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
   if(unavailable){
     $('event-count').textContent='No sourced notes for this span';renderNotes();renderStaff();updateExportSummary();
     $('range-report').textContent='Select a covered span to inspect its range.';return false;
@@ -494,7 +496,7 @@ function updateExportSummary(){
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
-    const count=model.profile.id===PRINTED_SCORE.id?`${plan.length} printed components · ${soundingNotes(plan).length} sounding notes`:`${plan.length} notes`;
+    const count=isPrintedScore(model.profile.id)?`${plan.length} printed components · ${soundingNotes(plan).length} sounding notes`:`${plan.length} notes`;
     $('export-summary').textContent=`${count} · ${s.duration.toFixed(2)} seconds · ${state.tempo} BPM · ${state.transpose>0?'+':''}${state.transpose} semitones · volume ${state.volume}% · WAV about ${(s.bytes/1048576).toFixed(2)} MB.${state.volume===0?' The WAV will be silent at 0% volume.':''}`;
   }catch(error){$('export-summary').textContent=error.message;$('prepare-wav').disabled=true;}
 }
@@ -566,13 +568,19 @@ function render(){
   $('range-low').value=state.rangeLow;$('range-high').value=state.rangeHigh;
   $('tempo-value').textContent=`${state.tempo} BPM`;$('transpose-value').textContent=`${state.transpose>0?'+':''}${state.transpose} semitone${Math.abs(state.transpose)!==1?'s':''}`;$('volume-value').textContent=`${state.volume}%`;
   $('passage-title').textContent=passage.title;$('word-count').textContent=`${passage.verses.length} verse${passage.verses.length===1?'':'s'} · ${words.length} words`;
-  const printed=model.profile.id===PRINTED_SCORE.id;
+  const printed=isPrintedScore(model.profile.id),baer=model.profile.id===BAER_SCORE.id;
   $('musical-source').value=state.melodyId;$('melody-name').textContent=model.profile.name;
   $('music-badge').textContent=printed?'Printed score study':'Instrumental demo';
   $('music-notice').textContent=printed?'A bounded transcription of the complete printed Genesis 22:1 example, all 13 words. Musical and Hebrew underlay review is pending. This is an instrumental study; no full tradition or singing voice is claimed.':'This original motif tests the practice workflow. It is not a historical cantillation melody. Syllable divisions are drafts awaiting review.';
   $('score-description').textContent=printed?'The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
   if(state.practiceAudio==='recorded'){$('music-badge').textContent='Recorded chant';$('music-notice').textContent='PocketTorah chant follows the source word timings. The original performance keeps its own melody, pronunciation, pace and pitch. Acoustic timing review is pending.';$('score-description').textContent='Instrument score only; no pitches have been transcribed from the recording. '+$('score-description').textContent;}
   $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
+  if(baer){
+    $('music-notice').textContent=BAER_SCORE.description+' Independent transcription, musical and Hebrew underlay review is pending.';
+    $('score-description').textContent='The staff, note list and exports use the same 145 source notes across Genesis 1:1–5. The two pronunciation text styles remain independent of these notes; differing source syllable divisions stay unlinked.';
+    $('score-help').textContent='Click a note to go to its Hebrew word. '+BAER_SCORE.performanceNote+' Slurs keep distinct attacks; no ties or notes for other verses are inferred.';
+    if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah chant keeps its own original melody and pronunciation. The separate Baer instrumental study is not the recording’s melody.';$('score-description').textContent='Instrument score only; no pitches have been transcribed from the recording. '+$('score-description').textContent;}
+  }
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
   $('scroll-layout').checked=state.scrollLayout;$('scroll-layout').disabled=!scrollLayout||!isTorahReading(passage.ranges);
   $('scroll-layout-status').textContent=isTorahReading(passage.ranges)?scrollMessage:'Sourced scroll layout covers Torah only. Your scroll-layout preference is kept for Torah readings.';
@@ -711,6 +719,12 @@ $('source-study-open').addEventListener('click',()=>libraryAction(()=>{
   state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
   $('reader').focus();$('practice').scrollIntoView();
 }));
+$('baer-study-open').addEventListener('click',()=>libraryAction(()=>{
+  state.melodyId=BAER_SCORE.id;state.practiceAudio='instrument';
+  applyRanges([{id:'baer-study',bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:5},label:'Baer No939 worked example'}]);
+  state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
+  $('reader').focus();$('practice').scrollIntoView();
+}));
 for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
 for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
@@ -799,6 +813,7 @@ getRepertoireCorpus().then(value=>{
   corpus=value;syncReadingForm('torah','gen');$('reading-type').disabled=false;$('book').disabled=false;
   $('library-status').textContent='31 books · 606 chapters · text available offline';$('open-reading').disabled=false;
   $('source-study-open').disabled=false;
+  $('baer-study-open').disabled=false;
   let restoreFailed=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){restoreFailed=true;retainPracticeRecovery(error);$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
   restoringReading=restoreFailed;persist();

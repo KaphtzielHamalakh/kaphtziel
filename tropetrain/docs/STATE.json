@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "4ebe2f585008209ea22a53ea117295c61119ef26",
-  "nextTask": "Continue the full independently styled chanting goal: inspect primary source rules for reciting notes, stressed-syllable allocation, cadences and contextual variants across a complete Torah system, beginning with Baer third edition circa1894 pp30–42 (distinct from Cohen’s cited1877edition) and Cohen’s remaining pp544–548. Keep source tables separate from general musical grammars; no arbitrary prefix pitches. In parallel audit remaining142pronunciation source differences using exact primary edition/variant evidence, retaining all raw forms and refusing approximate spelling substitutions. Source-derived phonological specifications and reusable sung voice material still need provenance, rights and linguistic/cantorial review before independent singing. Preserve all marked Hebrew, stable canonical/occurrence IDs, both existing text styles, original recordings and independent melody/range/transpose/tempo controls. All recovered melody systems, six Kinnor Accent grammars/voices and complete documented roadmap remain active/incomplete; printing deferred.",
+  "nextTask": "Continue a full contextual Torah melody grammar from primary reciting-note, stress-placement and cadence evidence, using the new BaerNo939worked passage as52word/145note source test vectors. Inspect remaining Baer third-edition circa1894pp31–36/38–42, No938table/No939connections, and Cohen544–548; do not infer arbitrary prefix pitches or equate source section labels with Kinnor presets. Preserve source table alternatives, notational accidentals, unspecified fermata durations and all existing source data. Continue exact primary evidence for remaining142pronunciation word correspondences and six historical Kinnor phoneme/voice grammars; acquire reusable sung material with provenance and review before independent singing. All Hebrew/accents/canonical and occurrence IDs, two independent source text styles, original recordings and independent melody/range/key/tempo controls remain intact. Full documented roadmap active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 257,
-    "newRegressionChecks": 6,
-    "ui": "Public v0.30→v0.31 retains Genesis22:1word3/Sephardic/Cohen/60 BPM/key0, reader text enabled and all four gains0. Open Genesis13:3readingword12 אֽ͏ָהֳלוֹ֙: both source qamats columns and Written/read source variant appear; cursor evidence identifies the explicit UXLC pair, with written אהלה and original marked preferred reading preserved. Explicit OriginalDemo/Endofword muted repeated Play plus Sephardic→Ashkenazic changes the second qamats form ’a→’o under the same active word, while all Hebrew text/marks/button IDs/aria-labels and note IDs/pitches/rhythms remain exactly equal; the A4 clock continues and all3notes remain unlinked. Escape/Repeatoff pass. Public Exodus22:4readingword8 אֶת־ has1of1note linked; readingword9 בְּעִיר֔וֹ has0of5linked, with source-only variant evidence. Public standalone restores Genesis13:3word12/Sephardic/OriginalDemo, retains embedded explicit evidence JSON and repeats the muted style/clock/refusal check. Both public distributions root/bodyfit319/1280; wide standalone checked in visible tab. Viewed screenshot outputs/TropeTrain-v0.31-live.jpg shows actual new variant columns; UI invariant snapshot work/audits/ui-live-0.31.json. Local additionally confirms Gen8:20words8/11 stay unassigned and Deut32:6first2words combined. All gains0/stopped/repeatfalse/audio elements paused/viewportreset. Native Save/download/direct-file-origin and independent linguistic/cantorial/transcription/acoustic review remain pending.",
-    "limits": "Thirty explicit written/read source pairs add37word links, not phonological approval, a new voice, a full traditional melody or fabricated written syllable ranges."
+    "automated": 264,
+    "newRegressionChecks": 7,
+    "ui": "Normal preview: new Open Baer Genesis1:1–5study button selects all52words/145notes/147.25beats and the new bounded profile; normal passage picker opens Genesis1:6with Playdisabled and an explicit no-substitution message. Reopen/reload preserves Baer/style/reader text. During muted repeated Gen1:1word2playback, Sephardicba·ra→Ashkenazicbo·ro keeps the same active Hebrew word, note IDs/pitches/rhythms and running G-sharp4clock; all52original Hebrew button texts/IDs/aria-labels and all128visible event rows remain exact. Transpose+2/tempo72 changes both notes toB-flat4and durations0.417/0.833seconds without changing source pronunciation; restoredkey0/60BPM. Gen1:3word5shows1of3exact note-span links and both original wa/j’ components explicitly unlinked. Standalone repeats the muted Ashkenazic→Sephardicclock/style invariant and preserves source image/JSON and exact-span audit as embedded data. Both normal and standalone root/bodyfit319/1280; screenshotwork/audits/ui-preview-0.32.jpg shows actual new source section/image and was viewed. All four gains0/stopped/repeatfalse. NativeSave/download/direct-file-origin and independent cantorial/phonological/transcription/acoustic review remain pending.",
+    "limits": "Source-backed bounded instrumental example and exact text-span links only. Full contextual Torah melody rules, six Kinnor pronunciation grammars/voices and independent singing remain incomplete."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -53,7 +53,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "six_printed_Torah_traditions_32_figures_129_components_120_attacks_six_rests_six_unspecified_fermatas_four_cells_withheld_full_contextual_systems_pending"
+      "status": "Cohen32source_figures_and_bounded_Gen22_plus_BaerNo939_Gen1_1to5_145notes_52words_tested_full_contextual_systems_pending"
     },
     {
       "id": "singing",
@@ -93,7 +93,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "original_demo_and_bounded_Gen22_staff_with_independent_source_pronunciation_text_exact_span_links_shared_consonants_alternatives_and_explicit_boundary_refusals_browser_tested"
+      "status": "demo_and_two_bounded_source_scores_with_independent_source_pronunciation_exact_spans_139of145Baer_notes_six_explicit_refusals_no_inferred_fermata_holds"
     },
     {
       "id": "display",
@@ -188,14 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.31.0",
+    "version": "0.32.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "03adfde04f1651ddedddfa81dfbebbdabfaa568e",
-    "status": "published_and_live_verified_257_checks_passed",
-    "record": "docs/VERIFICATION-0.31.md",
-    "next": "Continue the full independently styled chanting goal: inspect primary source rules for reciting notes, stressed-syllable allocation, cadences and contextual variants across a complete Torah system, beginning with Baer third edition circa1894 pp30–42 (distinct from Cohen’s cited1877edition) and Cohen’s remaining pp544–548. Keep source tables separate from general musical grammars; no arbitrary prefix pitches. In parallel audit remaining142pronunciation source differences using exact primary edition/variant evidence, retaining all raw forms and refusing approximate spelling substitutions. Source-derived phonological specifications and reusable sung voice material still need provenance, rights and linguistic/cantorial review before independent singing. Preserve all marked Hebrew, stable canonical/occurrence IDs, both existing text styles, original recordings and independent melody/range/transpose/tempo controls. All recovered melody systems, six Kinnor Accent grammars/voices and complete documented roadmap remain active/incomplete; printing deferred.",
-    "publishedCommit": "4ebe2f585008209ea22a53ea117295c61119ef26",
-    "workflowRun": 44951491047
+    "baseCommit": "28d8e3ede7a59a2c26aee294c632a5ee624528d0",
+    "status": "local_full_checks_and_normal_standalone_UI_passed_ready_for_app_only_publication",
+    "record": "docs/VERIFICATION-0.32.md",
+    "next": "Publish current tested app under current-main lease, await all Pages jobs, verify all changed live bytes and normal/standalone public UI, then save final records and guarded outputs. Full goal remains active; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -402,9 +400,110 @@
     "review": "Structural correspondence only; source text, stress, alternative columns/repeats and shared consonant references retained. Independent linguistic/musical/cantorial/acoustic review remains pending."
   },
   "baerSourceLead": {
-    "record": "docs/BAER-SOURCE-LEAD.json",
-    "edition": "Third expanded edition [1894], Frankfurt Kauffmann; not the 1877 edition cited by Cohen",
-    "status": "Seven primary page images inspected privately; no Baer media, notes, grammar or voice imported."
+    "schema": "tropetrain-musical-source-lead-v1",
+    "id": "baer-third-edition-1894-frankfurt",
+    "title": "Baal t'fillah oder Der practische Vorbeter",
+    "institution": "Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main",
+    "titleRecord": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "manifest": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/manifest",
+    "manifestSha256": "bb15fd18d776133a481c5388cd5a928ced6b226a79af8eb9e7b95b63b51c50f6",
+    "publication": {
+      "dateLabel": "[1894]",
+      "edition": "3., verm. und verb. Aufl.",
+      "publisher": "Kauffmann, Frankfurt a./M.",
+      "extent": "XL,358S.",
+      "distinction": "This is the expanded third edition, not the1877 edition cited in Cohen. Retained foreword datedSeptember1877 does not date this printing."
+    },
+    "metadataRights": "Institutional digitization policy identifies metadata asCC0-1.0.",
+    "digitizationPolicy": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+    "imageRightsStatus": "General institutional policy permits unrestricted use of public-domain digitizations, with stated exceptions; this IIIF manifest has no separate license/attribution field. No Baer page image is redistributed by this app increment. Original nineteenth-century musical print is a public-domain source; any later recording requires separate rights.",
+    "canvases": 403,
+    "pagesInspected": [
+      {
+        "label": "[3]",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853542",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853542",
+        "bytes": 10615,
+        "sha256": "39f875ec550ac2ffe5b553ea7a1d21f293b3cae3a7b9d97d94f1d95e20c01a3e",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      },
+      {
+        "label": "VII",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853549",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853549",
+        "bytes": 243916,
+        "sha256": "40f961e53b21a6638fbd768ae8631789f2100767343144f711bb6804f0b14f13",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      },
+      {
+        "label": "X",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853552",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853552",
+        "bytes": 66885,
+        "sha256": "34df675530061cbaaf5be6aac6430f330332ba67736405dcc7fc67c835095eb2",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      },
+      {
+        "label": "XIV",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853556",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853556",
+        "bytes": 443062,
+        "sha256": "d3bb5651085d27b0bd049bb5c63d6833bbf5e5dcd171b5745b63fae8d9d11d6e",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      },
+      {
+        "label": "30",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853614",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853614",
+        "bytes": 267509,
+        "sha256": "b5d7e372639f42de17fbb4f1309b66c4dbb251d074646cc7939bee61f2ce8d82",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      },
+      {
+        "label": "31",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853615",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853615",
+        "bytes": 329732,
+        "sha256": "311fb08a2136607e3398b30d3a920e5f580e7e33fdcb52d3779c79b33a270d87",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      },
+      {
+        "label": "32",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853616",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853616",
+        "bytes": 332862,
+        "sha256": "c2536f18ab890e3fec85f92d27a7d422d7ff02b6ba6e18b20a1549a68c35f3e6",
+        "distribution": "Research copy only; no new Baer image or melodic notes imported into the app."
+      }
+    ],
+    "finding": "No105ordinary Torah has1.W/2.W/3.Walternative source rows; these are not inferred Kinnor identities. No938/939provide a Sephardic table and worked passage in the third expanded edition circa1894. Table-to-arbitrary-word grammar, complete reciting/stress/context rules and independent review remain pending; only the full No939worked example is transcribed, with no general melody or voice claimed.",
+    "completePdf": {
+      "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/download/pdf/853537",
+      "bytes": 108872946,
+      "sha256": "cfaf8cedc6d2027f800136f35315d34ce03724eab9744a978a282ae0451bd87f",
+      "pages": 403,
+      "pdfCreationDate": "2017-01-11",
+      "localResearchPath": "work/references/baer-1894/baer-third-edition-1894.pdf",
+      "textExtraction": "No embedded text: pdftotext yields403form feeds only. Visual inspection/OCR needed.",
+      "distribution": "Private research copy; complete108MBPDF not added to the browser bundle."
+    },
+    "additionalPrimaryFinding": "Printed30footnote points to appendixNo938. Printed209No938 is the Sephardic accent table; printed210No939 applies it to Genesis1:1–5. ContentsXL credits937–943 to S.Naumbourg’s Agudas Schirim. No937’s African/Moroccan footnote is not transferred to939. FrontIX explains alternative ways and recitative performance without giving an arbitrary-word prefix/stress allocation algorithm.",
+    "newPagesVisuallyInspected": [
+      "IX (one-based PDF12)",
+      "XL (PDF43), including attribution footer",
+      "32 (PDF77)",
+      "37 (PDF82)",
+      "209 (PDF254)",
+      "210 (PDF255), all six No939 systems at4000px",
+      "349 (PDF394)"
+    ],
+    "importedWorkedExample": {
+      "profile": "baer-1894-gen1-1-5",
+      "record": "docs/BAER-GENESIS-SCORE.json",
+      "noteCorrespondence": "docs/BAER-NOTE-CORRESPONDENCE.json",
+      "scope": "Genesis1:1–5;52words/145notes;one rest/two triplets/six unspecified fermatas. Independent transcription/underlay/cantorial review pending.",
+      "distribution": "Only the unretouched2440×1210No939crop and new literal transcription added. Full108MBPDF and OCR remain private research; no OCR-derived pitches."
+    }
   },
   "readerPronunciation": {
     "version": 1,
@@ -437,5 +536,24 @@
     "baseGroups": 68354,
     "baseGroupsSha256": "e0a84b5a2839e025b2e68e71cf3f65af825d410b2f475ab0cf7f4d80ade56c07",
     "review": "Both old anchors, same source verse, all source Hebrew columns and exact explicit UXLC one-written/one-reading token pairs required. No spelling normalization or inferred syllable ranges."
+  },
+  "baerWorkedExample": {
+    "profile": "baer-1894-gen1-1-5",
+    "status": "local_full_checks_and_muted_normal_standalone_UI_passed_independent_musical_review_pending",
+    "words": 52,
+    "notes": 145,
+    "soundingAttacks": 145,
+    "restBeats": 0.5,
+    "fermatas": 6,
+    "fermataHold": "unspecified; no extra duration added",
+    "triplets": 2,
+    "printedSlurs": 10,
+    "quarterBeats": 147.25,
+    "pronunciationExactNotesPerStyle": 139,
+    "pronunciationUnlinkedNotesPerStyle": 6,
+    "scope": "Complete printed Genesis1:1–5 example, not a full Torah melodic grammar or a Kinnor preset. Independent review pending.",
+    "record": "docs/BAER-GENESIS-SCORE.json",
+    "correspondence": "docs/BAER-NOTE-CORRESPONDENCE.json",
+    "sourceEventsSha256": "eb1b9dde2a3b78b917485d38b9720d4b8624191f3957ec3f57023e994e7571a6"
   }
 }

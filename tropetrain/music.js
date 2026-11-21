@@ -1,7 +1,8 @@
 import { passage as defaultPassage } from './passage.js';
 import { alignedSyllables } from './syllables.js';
 import {analyzeSourceSigns} from './accents.js';
-import {PRINTED_SCORE,printedWord} from './printed-score.js';
+import {PRINTED_SCORE} from './printed-score.js';
+import {PRINTED_SCORE_PROFILES,isPrintedScore,printedSourceWord} from './printed-score-registry.js';
 import {analyzeAccentContext} from './accent-context.js';
 
 const syllableDrafts = [
@@ -22,7 +23,7 @@ export const melody=Object.freeze({id:'original-demo-01',revision:1,name:'Origin
 export const consonantal=text=>text.replace(/[\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u200d\u034f]/gu,'');
 export const frequency=midi=>440*2**((midi-69)/12);
 export const noteName=midi=>['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'][((midi%12)+12)%12]+(Math.floor(midi/12)-1);
-export const melodyProfiles=Object.freeze([melody,PRINTED_SCORE]);
+export const melodyProfiles=Object.freeze([melody,...PRINTED_SCORE_PROFILES]);
 export function createReadingModel(passage,{melodyId=melody.id}={}){
   const profile=melodyProfiles.find(p=>p.id===melodyId);
   if(!profile)throw Error('This musical source is not implemented.');
@@ -31,7 +32,7 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
     verse:v.number,verseKey:v.id??v.reference,verseIndex,reference:v.reference,bookName:w.bookName??v.bookName??'Genesis',
     sectionId:w.sectionId??v.sectionId??'opening',ordinal:w.ordinal??ordinal+1})));
   const words=raw.map((w,index)=>{
-    const fixture=fixtures.get(w.sourceWordId??w.id),printed=melodyId===PRINTED_SCORE.id?printedWord(w):null;
+    const fixture=fixtures.get(w.sourceWordId??w.id),printed=printedSourceWord(w,melodyId);
     const syllables=alignedSyllables(w,{fixture:printed?[printed.lengths,null,printed.stress]:fixture?.text===w.sourceHebrew?fixture.syllables:null});
     const atVerseEnd=index===raw.length-1||raw[index+1].verseKey!==w.verseKey;
     const groupEnd=atVerseEnd||(!w.sourceHebrew.endsWith('־')&&/[\u0591-\u0595]/u.test(w.sourceHebrew));
@@ -41,11 +42,15 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
     if(groupEnd)group++;return word;
   });
   const events=Object.freeze(words.flatMap(w=>w.syllables.flatMap((s,i)=>{
-    if(melodyId===PRINTED_SCORE.id){
-      const row=printedWord(w);if(!row)return [];
-      return row.notes.filter(n=>n.syllableIndex===i).map((n,j)=>Object.freeze({id:`${s.id}-cohen-n${j+1}`,wordId:w.id,wordIndex:w.index,
+    if(isPrintedScore(melodyId)){
+      const row=printedSourceWord(w,melodyId);if(!row)return [];
+      return row.notes.filter(n=>n.syllableIndex===i).map((n,j)=>Object.freeze({id:`${s.id}-${melodyId===PRINTED_SCORE.id?'cohen':'baer'}-n${j+1}`,wordId:w.id,wordIndex:w.index,
         sourceWordId:w.sourceWordId??w.id,syllableId:s.id,syllable:s.sourceHebrew,roman:null,phonemes:null,
-        midi:n.midi,beats:n.quarterBeats,part:j+1,sourceLyric:n.printedLyric,sourceLocation:n.location,sourceBar:n.bar,sourceProfile:PRINTED_SCORE.id,sourceRhythm:n.rhythm,
+        midi:n.midi,beats:n.quarterBeats,part:j+1,sourceLyric:n.printedLyric,sourceLocation:n.location,sourceBar:n.bar,sourceProfile:melodyId,sourceRhythm:n.rhythm,
+        ...(n.pitch?{sourcePitch:n.pitch,sourceTranspose:0,sourceNoteId:n.id,sourceSystem:n.system}:{}),
+        ...(n.fermata?{sourceFermata:n.fermata}:{}),
+        ...(n.slurId?{sourceSlurId:`${w.id}-${n.slurId}`,sourceSlurPhase:n.slurPhase}:{}),
+        ...(n.tupletId?{sourceTupletId:`${w.id}-${n.tupletId}`,sourceTupletPhase:n.tupletPhase}:{}),
         ...(n.restAfterBeats?{sourceRestAfterBeats:n.restAfterBeats}:{}),
         ...(n.tieId?{tieId:`${w.id}-${n.tieId}`,tieStart:n.tiePhase==='start',tieStop:n.tiePhase==='stop'}:{})}));
     }
@@ -67,11 +72,11 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
   function buildPlan(start,end,{tempo=84,transpose=0}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
-    if(melodyId===PRINTED_SCORE.id&&words.slice(start,end+1).some(w=>!printedWord(w)))
-      throw Error('This printed-score study covers only the unchanged words of Genesis 22:1. Open that verse or choose the original demonstration. No notes are substituted.');
+    if(isPrintedScore(melodyId)&&words.slice(start,end+1).some(w=>!printedSourceWord(w,melodyId)))
+      throw Error(`This printed-score study covers only the unchanged words of ${melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5'}. Open that passage or choose the original demonstration. No notes are substituted.`);
     let beat=0;
     return events.filter(e=>e.wordIndex>=start&&e.wordIndex<=end).map(e=>{
-      const event={...e,midi:e.midi+transpose,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
+      const event={...e,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
     });
   }
   return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words)};

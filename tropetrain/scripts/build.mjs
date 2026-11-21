@@ -5,6 +5,7 @@ import path from 'node:path';
 import {gzipSync} from 'node:zlib';
 import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
+import './import-baer-score.mjs';
 import './import-printed-patterns.mjs';
 import './import-pattern-catalog.mjs';
 import './import-calendar-examples.mjs';
@@ -20,6 +21,7 @@ execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py'
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-underlay.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-joint-coverage.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-note-links.mjs')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-baer-note-links.mjs')],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -95,6 +97,9 @@ const voiceStudyEvidence=await readFile(path.join(root,'docs/VOICE-STUDIES.json'
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
 const alternateScan=await readFile(path.join(root,'assets/scores/cohen-1902-alternate-score.png'));
 const printedEvidence=await readFile(path.join(root,'docs/PRINTED-SCORE.json'),'utf8');
+const baerScan=await readFile(path.join(root,'assets/scores/baer-1894-genesis1.png'));
+const baerEvidence=await readFile(path.join(root,'docs/BAER-GENESIS-SCORE.json'),'utf8');
+const baerLinks=await readFile(path.join(root,'docs/BAER-NOTE-CORRESPONDENCE.json'),'utf8');
 const patternScan=await readFile(path.join(root,'assets/scores/cohen-1902-munah-revia.png'));
 const patternRow=await readFile(path.join(root,'assets/scores/cohen-1902-pentateuch-row-a.png'));
 const patternEvidence=await readFile(path.join(root,'docs/PRINTED-PATTERNS.json'),'utf8');
@@ -140,6 +145,10 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./assets/scores/cohen-1902-pentateuch-row-a.png"',()=>`href="data:image/png;base64,${patternRow.toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-PATTERNS.json"',()=>`href="data:application/json;base64,${Buffer.from(patternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
+ .replaceAll('src="./assets/scores/baer-1894-genesis1.png"',()=>`src="data:image/png;base64,${baerScan.toString('base64')}"`)
+ .replaceAll('href="./assets/scores/baer-1894-genesis1.png"',()=>`href="data:image/png;base64,${baerScan.toString('base64')}"`)
+ .replaceAll('href="./docs/BAER-GENESIS-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(baerEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/BAER-NOTE-CORRESPONDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(baerLinks).toString('base64')}"`)
  .replaceAll('href="./docs/CALENDAR-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(calendarEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/CALENDAR-RELATED-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(calendarRelatedAudit).toString('base64')}"`)
  .replaceAll('href="./docs/TORAH-NUMBERING-SOURCES.json"',()=>`href="data:application/json;base64,${Buffer.from(numberingEvidence).toString('base64')}"`)

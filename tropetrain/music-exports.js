@@ -13,17 +13,18 @@ function identity(notes,context){
   return {...context,format:'tropetrain-score-metadata-v1',words:selected,
     events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,midi:e.midi,startBeat:e.startBeat,beats:e.beats,
       ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceBar:e.sourceBar,sourceLyric:e.sourceLyric,sourceRhythm:e.sourceRhythm,
-        sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop}:{})}))};
+        sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop}:{}),
+      ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
 }
 function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
   return `<type>${r.type}</type>${'<dot/>'.repeat(r.dots)}${accidental?`<accidental>${accidental}</accidental>`:''}${r.actual===r.normal?'':`<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
 }
 export function musicXml(plan,words,context){
   const notes=checked(plan,words,context),metadata=identity(notes,context);
-  const printed=context.melody?.id==='cohen-1902-gen22-ending';
+  const cohen=context.melody?.id==='cohen-1902-gen22-ending',baer=context.melody?.id==='baer-1894-gen1-1-5',printed=cohen||baer;
   const creator=printed?context.melody.creator:'TropeTrain original demonstration';
   const rights=printed?'Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda.':'Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.';
-  const direction=printed?'Cohen 1902, p. 539, Genesis 22:1 complete printed verse. Ties sustain without re-attack; source rests preserved. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.';
+  const direction=baer?context.melody.creator+'. '+context.melody.performanceNote:printed?'Cohen 1902, p. 539, Genesis 22:1 complete printed verse. Ties sustain without re-attack; source rests preserved. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.';
   let xml=`<?xml version="1.0" encoding="UTF-8"?>\n<score-partwise version="4.0"><work><work-title>${x(context.title)}</work-title></work><identification><creator type="composer">${x(creator)}</creator><rights>${x(rights)}</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${x(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental study</part-name></score-part></part-list><part id="P1">`;
   let measure=0,verseKey=null,beat=0,previousMeter=null;
   notes.forEach((e,index)=>{
@@ -32,7 +33,7 @@ export function musicXml(plan,words,context){
       if(measure)xml+='</measure>';
       verseKey=key;measure++;
       xml+=`<measure number="${measure}" implicit="yes">`;
-      const meter=printed?(e.sourceBar>=3&&e.sourceBar<=10?3:4):null;
+      const meter=cohen?(e.sourceBar>=3&&e.sourceBar<=10?3:4):null;
       if(measure===1||meter!==previousMeter)xml+=`<attributes>${measure===1?`<divisions>${DIVISIONS}</divisions>`:''}<time>${meter?`<beats>${meter}</beats><beat-type>4</beat-type>`:'<senza-misura/>'}</time>${measure===1?'<clef><sign>G</sign><line>2</line></clef>':''}</attributes>`;
       previousMeter=meter;
       if(measure===1)xml+=`<direction><direction-type><words>${x(direction)}</words></direction-type><sound tempo="${context.tempo}"/></direction>`;
@@ -43,7 +44,8 @@ export function musicXml(plan,words,context){
     const p=e.pitch,accidental=p.alter===1?'sharp':p.alter===-1?'flat':'natural';
     if(p.octave<0)throw Error('MusicXML pitch octaves begin at C0.');
     xml+=`<note id="note-${index+1}"><pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch><duration>${Math.round(e.beats*DIVISIONS)}</duration>${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,e.rhythm)}`;
-    if(e.tieStart||e.tieStop)xml+=`<notations>${e.tieStop?'<tied type="stop"/>':''}${e.tieStart?'<tied type="start"/>':''}</notations>`;
+    const marks=(e.tieStop?'<tied type="stop"/>':'')+(e.tieStart?'<tied type="start"/>':'')+(e.sourceFermata?'<fermata type="upright">normal</fermata>':'')+(['start','stop'].includes(e.sourceSlurPhase)?`<slur type="${e.sourceSlurPhase}" number="1"/>`:'')+(['start','stop'].includes(e.sourceTupletPhase)?`<tuplet type="${e.sourceTupletPhase}" number="1"/>`:'');
+    if(marks)xml+=`<notations>${marks}</notations>`;
     const extension=e.extendsNext?(e.continuation?'continue':'start'):e.continuation?'stop':null;
     xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric></note>`;
     beat=e.startBeat+e.beats;
