@@ -10,7 +10,7 @@ export function inlineSourceText(nodes){
 }
 export class PronunciationLibrary {
  constructor(data){
-  if(data?.format!=='tropetrain-pronunciation-display-v1'||data.revision!==1)throw Error('Unsupported pronunciation source revision.');
+  if(data?.format!=='tropetrain-pronunciation-display-v1'||![1,2].includes(data.revision))throw Error('Unsupported pronunciation source revision.');
   this.sourceCommit=data.sourceCommit;this.groups=data.groups;this.byWord=new Map();
   for(const group of data.groups){
    if(group.readerIds.length!==group.readerHebrew.length||!group.rows.length)throw Error('Invalid pronunciation correspondence.');

@@ -16,7 +16,8 @@ const text=(g,style)=>g.rows.flatMap(r=>r.transcriptions[style].map(inlineSource
 
 test('every mapped row and marked reader word matches the pinned original, with no duplicates or cross-order joins',()=>{
  const result=JSON.parse(execFileSync('python3',[new URL('../scripts/audit-pronunciation.py',import.meta.url).pathname],{encoding:'utf8'}));
- assert.equal(result.sourceBytes,14992105);assert.equal(result.mappedWords,77756);assert.equal(result.unassignedWords,2229);
+ assert.equal(result.sourceBytes,14992105);assert.equal(result.mappedWords,79806);assert.equal(result.unassignedWords,179);
+ assert.equal(result.allCandidateEdges,2162);assert.equal(result.maxExactSourceRows,1);assert.equal(result.maxExactReaderWords,3);
  assert.ok(result.exactOriginalRows>66000);assert.ok(result.manyWordGroups>10000);
 });
 test('independent source styles preserve original stress strings, exact Hebrew, syllables and instrument events',()=>{
@@ -63,7 +64,8 @@ test('source originals, provenance and correspondence survive both distributions
  assert.doesNotMatch(html,/href="\.\/(?:assets\/pronunciation|docs\/PRONUNCIATION-ALIGNMENT)/);
 });
 test('comparison alternatives refuse masculine hu, unexpected spelling and unbounded row partitions',()=>{
- const result=execFileSync('python3',['-c',`import importlib.util
+ const result=execFileSync('python3',['-c',`import importlib.util,sys
+sys.path.insert(0, '${new URL('../scripts/',import.meta.url).pathname}')
 spec=importlib.util.spec_from_file_location('join', '${new URL('../scripts/import-pronunciation.py',import.meta.url).pathname}')
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 assert m.reader_alternatives({'sourceHebrew':'ה֖וּא'})=={'הוא'}
@@ -76,4 +78,28 @@ assert m.join_groups(rows,[{'id':'test','sourceHebrew':'ה֖וּא'}]) is None
 assert m.join_groups(rows,[{'id':'test','sourceHebrew':'הִ֖וא'}]) is not None
 assert m.join_groups([(0,{'hebrew':[['הטהרה']]},'הטהרה',['הטהרה'])],[{'id':'test','sourceHebrew':'הַטְּהוֹרָ֑ה'}]) is None
 print('ok')`],{encoding:'utf8'});assert.equal(result.trim(),'ok');
+});
+test('partial alignments accept only edges shared by all best paths, including repeated words and many-to-many groups',()=>{
+ execFileSync('python3',[new URL('./pronunciation-matching-test.py',import.meta.url).pathname],{encoding:'utf8'});
+});
+test('v0.21 retains every complete v0.20 group exactly while linking only forced groups inside two original anchors',async()=>{
+ const {createHash}=await import('node:crypto');
+ const previous=data.groups.filter(g=>g.match!=='forced-between-verse-anchors');
+ const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,stable(value[k])])):value;
+ assert.equal(previous.length,66578);
+ assert.equal(createHash('sha256').update(JSON.stringify(stable(previous))).digest('hex'),'42555a25020ef99348274c5402bff2816256a9d7efb53c60307a7a9f24c8a9b6');
+ const added=data.groups.filter(g=>g.match==='forced-between-verse-anchors');assert.equal(added.length,1776);
+ assert.equal(added.reduce((n,g)=>n+g.readerIds.length,0),2050);
+ const audit=json('docs/PRONUNCIATION-ALIGNMENT.json');
+ for(const g of added){
+  const block=audit.partialWindows.find(b=>b.id===g.matchWindow.id);assert.ok(block);
+  assert.equal(g.matchWindow.beforeReaderEnd,block.before.readerEnd);assert.equal(g.matchWindow.afterReaderStart,block.after.readerStart);
+  assert.ok(g.readerIds.every(id=>block.readerIds.includes(id)));
+ }
+});
+test('one spelling difference no longer hides other exact words in the same verse, without replacing the differences',()=>{
+ const good=group('gen-8-20-1');assert.equal(good.match,'forced-between-verse-anchors');assert.deepEqual(good.readerHebrew,['וַיִּ֥בֶן']);
+ assert.deepEqual(text(good,'sephardic'),['vay·yi·ven']);
+ assert.equal(group('gen-8-20-8'),null);assert.equal(group('gen-8-20-11'),null);
+ assert.equal(group('gen-8-20-12').match,'forced-between-verse-anchors');
 });

@@ -454,3 +454,25 @@ Final full179/179checks pass/0fail/0skip; git whitespace check clean. Normal and
 Code b44e741c64d037522ccc7133b539f30cbf4914a2/Pages44915169439successful;26publicfiles41,246,550bytes exact against f5eb541. Full179checks pass. Live v0.19→v0.20 kept Genesis1:1–3 word2, OriginalDemo01,60BPM,key0,recorded main mode/group and all mutes. Source ba·ra→bo·ro switch during muted word repeat retained exact marked Hebrew and playback; Escape/reload kept Ashkenazic and group. Published standalone restored source style, followed listening word2 with audio paused/rate1 at0, and exposes embedded ZIP/audit/NOTICE. Live normal expanded source JSON fits320px; reset returns default319px with root/bodyfit. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.20-live.jpg; playback stopped/gains0.
 
 Independent two-style source transcription groups nowfunctional, with all66,578originalrowASTs/77,756markedreaderwords verified,2,229unassigned. SixKinnor grammars/voices, complete contextual melodic systems and singing remain unfinished; linguistic/mapping/acoustic review pending. Next: Audit remaining Phonetic MAM/UXLC differences using exact source evidence; preserve unassigned regions, all original text and grouped/alternate readings. Research and implement evidence-backed pronunciation rules and reusable contextual melodic/voice material independently; do not turn text styles or fixed recordings into six Kinnor claims. Printing deferred. Finalfourrecords/outputsync/ownedpreviewserverteardown follow; no runtime change.
+
+
+## 2026-11-21 · v0.21 exact partial-verse correspondence
+
+Previous goal turn made authoritative progress: v0.20 published/tested/saved. Current work adds exact indivisible groups between two original complete-verse anchors. Only edges shared by every maximum-key-unit monotonic alignment are accepted; all ties/skips counted with exact integers, no spelling substitution. Existing66,578groups have unchanged canonical JSON SHA25642555a25020ef99348274c5402bff2816256a9d7efb53c60307a7a9f24c8a9b6. Added1,776groups/2,050words;79,806/79,985mapped,179unassigned. Source partial-window anchors/method/counts/unmatched rows exposed in revision2audit, UI labels partial-verse matches. Five original data JSONs unchanged; NOTICE/sourceZIP updated with method. Exhaustive small-DAG/repeated/group edge tests and independent literal audit in progress. Full melody/phonetic/singing goal active; printing deferred.
+
+
+## 2026-11-21 · v0.21 data validation and normal UI
+
+Full182/182checks pass/0fail/0skip. Exhaustive225small repeated/missing sequence pairs and128weightedgroup-edge subsets match independent literal path enumeration; invalidwindows/edgesrefused. Independent fullsourceaudit checks68,354originalASTrows,79,806markedreaderwords,allliteralreadingforms and partialanchors/ordering;179unassigned. All66,578v0.20groups retained exacthash. Initial targeted run had9pass/1expectedstaledistributionfailure before rebuild; fullrebuilt182pass.
+
+Normalbrowser v0.21 Gen8:20word1nowshowsoriginal vay·yi·ven and partialverse notice; compareJSON exposes anchors8:19lastword/8:21firstword. MutedinstrumentPlay followsword1/Escape;word8staysunassigned. Newword4sourceAdonay form retains untouched markedUXLC/CGJ andseparate styles. Existingkey/melody/reader unchanged. Explicit0.6MBrecordedsource loading, standalone/responsive/finalbuild/pub stillpending. No new voice or phoneme grammar.
+
+
+## 2026-11-21 · v0.21 independent candidate audit
+
+Independent unbounded candidate enumeration matchesall2,162exact indivisible candidate edges/hashes, actualmaximum1source row/3readerwords; productioncaps omitnone. No join/DPcode imported by audit. Normal recorded0.6MBsource load/hash/cache passed; mutedword4repeatstylechange keptplayback. Standalone restored source/style andword7 hab·bᵉ·hé·mo, followed muted original chant andnaturallyfinished. Source data/runtimemelody/timestamps unchanged; allgains0. Finalbuild/responsive/livepub next.
+
+
+## 2026-11-21 · v0.21 release checks
+
+Finalfull182/182checks pass/0fail/0skip after candidatehash audit embedding. Normal/standalone newlylinked source words, originalchant download/checksum/cache, muted repeat/textstylechange/naturalcompletion/Escape and persistentselection pass. Expandedrawsource evidence fits320 and1280 root/body/viewport; viewportreset, allgains0/stopped, no capturedwarnings/errors. Only/tropetrain changes; publish with currentmain4bf956c4 lease, verifyPages/bytes/liveupgrade next. Fullobjectiveactive; no newvoice/phoneme/melody claim.
