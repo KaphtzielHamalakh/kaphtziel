@@ -7689,6 +7689,104 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text());
   }
 
+  // pronunciation-word-alignment.js
+  var letters = (text) => text.replace(/[^א-ת]/gu, "");
+  function readerLetterForms(text) {
+    const raw = letters(text), forms = /* @__PURE__ */ new Set([raw]);
+    if (/^[ובכלמשה]{0,3}יהוה$/u.test(raw)) for (const name of ["אדני", "אלהים"]) forms.add(raw.slice(0, -4) + name);
+    const clusters = text.match(/[א-ת][^א-ת]*/gu) ?? [];
+    if (raw.endsWith("הוא") && clusters.at(-3)?.includes("ִ")) forms.add(raw.slice(0, -3) + "היא");
+    if (/^[ובכלמשה]{0,3}יששכר$/u.test(raw)) forms.add(raw.replace("יששכר", "ישכר"));
+    return [...forms];
+  }
+  function literalReaderWordPaths(source, forms) {
+    const levels = [/* @__PURE__ */ new Map([[0, 1n]])], edges = [];
+    for (const [word, choices] of forms.entries()) {
+      const next = /* @__PURE__ */ new Map(), row = [];
+      for (const [start, count] of levels[word]) for (const form of new Set(choices)) {
+        if (!form || !source.startsWith(form, start)) continue;
+        const end = start + form.length;
+        row.push({ word, start, end, form });
+        next.set(end, (next.get(end) ?? 0n) + count);
+      }
+      edges.push(row);
+      levels.push(next);
+    }
+    const paths = levels.at(-1).get(source.length) ?? 0n;
+    if (!paths) return { paths: "0", edges: [] };
+    let ends = /* @__PURE__ */ new Set([source.length]);
+    const valid2 = [];
+    for (let word = forms.length - 1; word >= 0; word--) {
+      const row = edges[word].filter((edge) => ends.has(edge.end));
+      valid2.push(...row);
+      ends = new Set(row.map((edge) => edge.start));
+    }
+    return { paths: paths.toString(), edges: valid2 };
+  }
+  function sourceParts(cell, column) {
+    if (cell.text === null) return null;
+    const parts = [...cell.text.matchAll(/[^־\s]+/gu)].map((match) => ({ text: match[0], start: match.index, end: match.index + match[0].length, letters: letters(match[0]) }));
+    if (!parts.length || parts.some((part) => !part.letters)) return { invalid: true };
+    return { column: column + 1, text: cell.text, labels: cell.marks.filter((m) => m.kind === "reading").map((m) => m.label), parts };
+  }
+  function boundaryProof(group, hebrewRows) {
+    const rows2 = hebrewRows.map((cells) => cells.map(sourceParts).filter(Boolean));
+    if (rows2.some((forms) => !forms.length || forms.some((f) => f.invalid))) return { reason: "missing-or-nonlexical-source-Hebrew" };
+    if (rows2.some((forms) => new Set(forms.map((f) => f.parts.length)).size !== 1)) return { reason: "source-Hebrew-boundaries-differ" };
+    const slots = rows2.map((forms) => forms[0].parts.map((_, part) => ({ forms: forms.map((f) => ({ column: f.column, text: f.parts[part].text, start: f.parts[part].start, end: f.parts[part].end, labels: f.labels })), owners: /* @__PURE__ */ new Set() })));
+    const formLists = group.readerHebrew.map(readerLetterForms), variants = [];
+    function visit(row, chosen) {
+      if (row < rows2.length) {
+        for (const form of rows2[row]) visit(row + 1, [...chosen, form]);
+        return;
+      }
+      let position = 0;
+      const spans = chosen.flatMap((form, r) => form.parts.map((part, p) => {
+        const start = position;
+        position += part.letters.length;
+        return { row: r, part: p, start, end: position };
+      }));
+      const source = chosen.map((form) => form.parts.map((part) => part.letters).join("")).join("");
+      const match = literalReaderWordPaths(source, formLists);
+      variants.push({ sourceColumns: chosen.map((f) => f.column), paths: match.paths });
+      if (match.paths === "0") return;
+      for (const span of spans) for (const edge of match.edges) if (edge.start < span.end && edge.end > span.start) slots[span.row][span.part].owners.add(edge.word);
+    }
+    visit(0, []);
+    if (variants.some((v) => v.paths === "0")) return { reason: "source-reading-word-difference", variants };
+    return { reason: null, variants, rows: slots.map((parts) => parts.map((part) => ({ sourceForms: part.forms, readerIds: group.readerIds.filter((_, index) => part.owners.has(index)), readerWordId: part.owners.size === 1 ? group.readerIds[[...part.owners][0]] : null }))) };
+  }
+  function transcriptionWords(cell) {
+    if (cell.status !== "present") return [];
+    return [...cell.text.matchAll(/[^-\s]+/gu)].map((match) => ({ number: 0, text: match[0], start: match.index, end: match.index + match[0].length })).map((part, index) => ({ ...part, number: index + 1, unitIds: cell.units.filter((u) => u.start >= part.start && u.end <= part.end).map((u) => u.id) }));
+  }
+  function alignSourceWordBoundaries(group, rows2, hebrewRows) {
+    const single = group.readerIds.length === 1, proof = single ? null : boundaryProof(group, hebrewRows);
+    const aligned = rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell) => {
+      const parts = transcriptionWords(cell), slots = proof?.rows?.[rowIndex];
+      let reason = single ? null : proof.reason;
+      if (cell.status !== "present") reason = "no-source-transcription";
+      else if (parts.some((part) => !part.unitIds.length)) reason = "empty-transcription-word";
+      else if (!single && !reason && parts.length !== slots.length) reason = "transcription-boundaries-differ";
+      const wordSegments = parts.map((part, index) => ({
+        ...part,
+        readerIds: reason ? [] : single ? [group.readerIds[0]] : slots[index].readerIds,
+        readerWordId: reason ? null : single ? group.readerIds[0] : slots[index].readerWordId,
+        sourceForms: single ? [] : slots?.[index]?.sourceForms ?? []
+      }));
+      const owners = new Map(wordSegments.flatMap((part) => part.unitIds.map((id) => [id, part.readerWordId])));
+      const units = cell.units.map((unit) => ({ ...unit, readerWordId: owners.get(unit.id) ?? null }));
+      const assigned = units.filter((u) => u.readerWordId !== null).length;
+      const status = cell.status !== "present" ? "no-source-transcription" : !units.length ? "group-only" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only";
+      return { ...cell, units, wordSegments, wordAlignment: { status, method: single ? "single-reader-word-group" : "literal-source-boundaries", reason: reason ?? (assigned < units.length ? "source-word-spans-multiple-reader-words" : null) } };
+    })])) }));
+    const styles = Object.fromEntries(["sephardic", "ashkenazic"].map((style) => {
+      const units = aligned.flatMap((row) => row.styles[style].flatMap((cell) => cell.units)), assigned = units.filter((unit) => unit.readerWordId !== null).length;
+      return [style, { status: !units.length ? "no-source-transcription" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only", assignedUnits: assigned, groupOnlyUnits: units.length - assigned }];
+    }));
+    return { rows: aligned, wordAlignment: { revision: 1, styles, proof: single ? { method: "single-reader-word-group" } : { method: "all-literal-source-readings-and-all-exact-reader-form-paths", reason: proof.reason, variants: proof.variants ?? [] } } };
+  }
+
   // pronunciation-structure.js
   function transcriptionStructure(nodes) {
     if (nodes === null) return { status: "missing", text: null, units: [], boundaries: [], marks: [] };
@@ -7750,9 +7848,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const alignment = { readerWordId: singleWord ? group.readerIds[0] : null, phonemes: null, hebrewClusterRanges: null, noteIds: null, audioTimes: null };
       return { id, column: column + 1, ...cell, ...alignment, units: cell.units.map((unit) => ({ id: `${id}-u${unit.number}`, ...unit, ...alignment })) };
     }
+    const rows2 = group.rows.map((row) => ({ number: row.number, styles: Object.fromEntries(["sephardic", "ashkenazic"].map((id) => [id, row.transcriptions[id].map((cell, column) => cellStructure(cell, id, row.number, column))])) }));
+    const aligned = alignSourceWordBoundaries(group, rows2, group.rows.map((row) => row.hebrew.map(transcriptionStructure)));
     return {
       format: "tropetrain-pronunciation-study-v1",
-      revision: 1,
+      revision: 2,
       sourceCommit,
       license: "CC-BY-SA-4.0",
       attribution: "Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.",
@@ -7761,10 +7861,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       groupId: group.id,
       readerIds: [...group.readerIds],
       readerHebrew: [...group.readerHebrew],
-      alignmentScope: singleWord ? "single-reader-word" : "complete-reader-group",
-      rows: group.rows.map((row) => ({ number: row.number, styles: Object.fromEntries(["sephardic", "ashkenazic"].map((id) => [id, row.transcriptions[id].map((cell, column) => cellStructure(cell, id, row.number, column))])) })),
+      alignmentScope: singleWord ? "single-reader-word" : aligned.wordAlignment.styles[style].status === "word-aligned" ? "source-word-boundaries" : aligned.wordAlignment.styles[style].status === "partly-word-aligned" ? "partial-source-word-boundaries" : "complete-reader-group",
+      rows: aligned.rows,
+      wordAlignment: aligned.wordAlignment,
       sourceGroup: group,
-      review: "Source display structure and correspondence only; independent linguistic and correspondence review pending. Dots, joins, primary stress markup, acute/breve and superscript marks stay literal. No per-word split of a shared group, phonemes, Hebrew-cluster mapping, note alignment or audio times inferred."
+      review: "Source display structure and correspondence only; independent linguistic and correspondence review pending. Word IDs require consensus across all literal Hebrew readings and all exact documented reader-form paths, with explicit transcription joins. Combined or conflicting source words remain unsplit. Dots, joins, stress and all source marks stay literal; phonemes, Hebrew-cluster mapping, note alignment and audio times remain unassigned."
     };
   }
 
@@ -7812,6 +7913,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // pronunciation-summary.js
   var PRONUNCIATION_SUMMARY = { "schema": "tropetrain-pronunciation-alignment-v1", "revision": 2, "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b", "mappedWords": 79806, "readerWords": 79985, "groups": 68354, "limits": "Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending." };
+
+  // pronunciation-word-summary.js
+  var PRONUNCIATION_WORD_SUMMARY = { "linkedWords": 79806, "styles": { "sephardic": { "wordsWithUnits": 79792, "sharedWords": 14 }, "ashkenazic": { "wordsWithUnits": 79792, "sharedWords": 14 } } };
 
   // pronunciation-ui.js
   function mountPronunciationStudy() {
@@ -7877,12 +7981,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     function structure() {
       const scope = $2("pronunciation-unit-scope");
-      scope.textContent = study.alignmentScope === "single-reader-word" ? "These source units correspond to the selected Hebrew word. Their individual Hebrew letters and musical notes are not assigned." : "These source units correspond to the complete Hebrew group below. They are not divided among its individual words.";
+      const shared = study.readerIds.length > 1, currentId = study.selection.sourceWordId;
+      scope.textContent = study.alignmentScope === "single-reader-word" ? "These source units correspond to the selected Hebrew word. Their individual Hebrew letters and musical notes are not assigned." : study.alignmentScope === "source-word-boundaries" ? "The source Hebrew boundaries and transcription joins identify individual words. Units labeled “selected” belong to the selected Hebrew word." : study.alignmentScope === "partial-source-word-boundaries" ? "Some source words have clear individual links. Combined source words remain together; their units are labeled “shared” and are not split." : "These source units correspond to the complete Hebrew group below. They are not divided among its individual words.";
       const group = document.createElement("p");
       group.className = "pronunciation-group-hebrew";
       group.lang = "he";
       group.dir = "rtl";
-      group.textContent = study.readerHebrew.join(" ");
+      study.readerHebrew.forEach((text, index) => {
+        if (index) group.append(document.createTextNode(" "));
+        const token = document.createElement("span");
+        token.className = "pronunciation-group-word";
+        token.dataset.readerWordId = study.readerIds[index];
+        const hasUnits = study.rows.some((row) => row.styles[style].some((cell) => cell.units.some((u) => u.readerWordId === currentId)));
+        if (shared && study.readerIds[index] === currentId && hasUnits) token.classList.add("current-word");
+        token.textContent = text;
+        group.append(token);
+      });
       $2("pronunciation-units").append(group);
       for (const row of study.rows) for (const cell of row.styles[style]) {
         const box = document.createElement("div");
@@ -7911,6 +8025,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           for (const unit of cell.units) {
             const li = document.createElement("li");
             li.className = unit.sourceStress ? "source-stressed" : "";
+            if (unit.readerWordId) li.dataset.readerWordId = unit.readerWordId;
+            const selected = shared && unit.readerWordId === currentId;
+            if (selected) li.classList.add("current-word");
             const value = document.createElement("span");
             value.className = "pronunciation-unit-text";
             const supers = unit.sourceMarks.filter((m) => m.kind === "superscript-e");
@@ -7929,8 +8046,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
               stress.textContent = "Primary stress";
               li.append(stress);
             }
+            if (shared) {
+              const owner = document.createElement("small");
+              owner.className = "pronunciation-unit-owner";
+              owner.textContent = unit.readerWordId ? `Group word ${study.readerIds.indexOf(unit.readerWordId) + 1}${selected ? " · selected" : ""}` : "Shared · unsplit";
+              li.append(owner);
+            }
             const cues = [unit.acutePositions.length ? "acute mark" : "", unit.brevePositions.length ? "breve mark" : "", supers.length ? "superscript e" : ""].filter(Boolean);
-            li.setAttribute("aria-label", `Source unit ${unit.number}: ${unit.text}${unit.sourceStress ? ", primary stress" : ""}${cues.length ? ", " + cues.join(", ") : ""}`);
+            li.setAttribute("aria-label", `Source unit ${unit.number}: ${unit.text}${unit.sourceStress ? ", primary stress" : ""}${cues.length ? ", " + cues.join(", ") : ""}${shared ? unit.readerWordId ? `, group word ${study.readerIds.indexOf(unit.readerWordId) + 1}${selected ? ", selected" : ""}` : ", shared and unsplit" : ""}`);
             list.append(li);
           }
           box.append(list);
@@ -7938,7 +8061,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           if (joins.length) {
             const note = document.createElement("p");
             note.className = "muted";
-            note.textContent = `Source joins retained: ${joins.map((b) => b.kind === "space" ? "space" : b.text).join(", ")}. They do not assign units to individual Hebrew words.`;
+            note.textContent = `Source joins retained: ${joins.map((b) => b.kind === "space" ? "space" : b.text).join(", ")}. ${cell.wordAlignment.status === "word-aligned" ? "Word links follow the source Hebrew boundaries." : "Only unambiguous word links are shown; combined forms remain unsplit."}`;
             box.append(note);
           }
         }
@@ -7950,6 +8073,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (current === lastKey) return;
       lastKey = current;
       $2("pronunciation-target").textContent = word ? `${word.reference} · word ${word.ordinal} · ${listening ? "listening word" : "selected word"}` : "Choose a Hebrew word.";
+      const coverage = PRONUNCIATION_WORD_SUMMARY.styles[style];
+      $2("pronunciation-word-coverage").textContent = `${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
       $2("pronunciation-reader-word").textContent = word?.sourceHebrew ?? "";
       $2("pronunciation-rows").replaceChildren();
       $2("pronunciation-source-rows").replaceChildren();
@@ -7981,7 +8106,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         $2("pronunciation-status").textContent = "No checked source correspondence for this word. The selected style is kept; no transcription is substituted.";
         return;
       }
-      $2("pronunciation-status").textContent = `Phonetic MAM display ${group.displayChapter}:${group.displayVerse} · source row${group.rows.length === 1 ? "" : "s"} ${group.rows.map((r) => r.number).join(", ")} · ${group.readerIds.length} reader word${group.readerIds.length === 1 ? "" : "s"}. ${group.match === "forced-between-verse-anchors" ? "Matched within a verse with text differences; unmatched words stay unassigned. " : ""}${group.flags.includes("documented-reading-form") ? "The source uses a documented reading form. " : ""}${group.flags.includes("source-text-difference") ? "Source Hebrew differs; compare the exact forms below. " : ""}${group.flags.includes("source-group") ? "The transcription is for the complete group; syllable-to-word allocation is not inferred." : ""}`;
+      study = library.study(word, style);
+      $2("pronunciation-status").textContent = `Phonetic MAM display ${group.displayChapter}:${group.displayVerse} · source row${group.rows.length === 1 ? "" : "s"} ${group.rows.map((r) => r.number).join(", ")} · ${group.readerIds.length} reader word${group.readerIds.length === 1 ? "" : "s"}. ${group.match === "forced-between-verse-anchors" ? "Matched within a verse with text differences; unmatched words stay unassigned. " : ""}${group.flags.includes("documented-reading-form") ? "The source uses a documented reading form. " : ""}${group.flags.includes("source-text-difference") ? "Source Hebrew differs; compare the exact forms below. " : ""}${group.flags.includes("source-group") ? "The source units below distinguish exact word links from combined forms." : ""}`;
       for (const row of group.rows) {
         const item = document.createElement("div");
         item.className = "pronunciation-row";
@@ -7997,7 +8123,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         columns(source, row.hebrew, true);
         $2("pronunciation-source-rows").append(source);
       }
-      study = library.study(word, style);
       structure();
       $2("pronunciation-export").disabled = false;
       $2("pronunciation-json").textContent = JSON.stringify({ sourceCommit: library.sourceCommit, license: "CC-BY-SA-4.0", group }, null, 2);

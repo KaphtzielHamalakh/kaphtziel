@@ -18,10 +18,10 @@ for(const style of ['sephardic','ashkenazic']){
   digest.update(JSON.stringify([style,group.id,row.number,column+1,structure])+'\n');
  }
 }
-const audit={schema:'tropetrain-pronunciation-structure-audit-v1',revision:1,sourceCommit:data.sourceCommit,license:'CC-BY-SA-4.0',
+const audit={schema:'tropetrain-pronunciation-structure-audit-v1',revision:2,sourceCommit:data.sourceCommit,license:'CC-BY-SA-4.0',wordAlignmentRecord:'docs/PRONUNCIATION-WORD-ALIGNMENT.json',
  input:'data/pronunciation/torah-display.json.gz',inputSha256:createHash('sha256').update(bytes).digest('hex'),
  structureSha256:digest.digest('hex'),groups:data.groups.length,mappedReaderWords:data.groups.reduce((n,g)=>n+g.readerIds.length,0),styles,
- method:'Original source AST traversal; exact text, explicit stressed/reading/superscript-e spans and UTF-16 half-open offsets retained. Units end only at literal middle dots, hyphens or whitespace; each boundary remains explicit. Acute and breve positions remain separate from explicit stress markup. Single-reader-word groups link units to that word ID; shared groups retain all reader IDs with no per-word syllable allocation.',
+ method:'Lossless source AST traversal; exact text, explicit stressed/reading/superscript-e spans and UTF-16 half-open offsets retained. Units end only at literal middle dots, hyphens or whitespace; each boundary remains explicit. Acute and breve positions stay distinct from explicit stress markup. Word-level correspondence is audited separately in PRONUNCIATION-WORD-ALIGNMENT.json.',
  limits:'Source display structure only. Linguistic/correspondence review pending; no phoneme grammar, Hebrew-cluster spans, note IDs, audio times, voice or equivalence to six Kinnor Accent profiles.'};
 writeFileSync(new URL('../docs/PRONUNCIATION-STRUCTURE.json',import.meta.url),JSON.stringify(audit,null,2)+'\n');
 console.log(JSON.stringify({pronunciationStructure:audit.styles,groups:audit.groups}));
