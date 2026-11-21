@@ -8,6 +8,15 @@ export function availablePatternModes(sourceId=PRINTED_PATTERNS.id){
  const cells=new Set(patternSource(sourceId).record.notes.map(n=>n.cell));
  return PATTERN_MODES.filter(m=>m.id==='pair'?cells.has('munah')&&cells.has('revia'):cells.has(m.id));
 }
+export function patternEvidence(sourceId,kind){
+ const row=patternSource(sourceId),record=row.record;let file,url,mime;
+ if(kind==='record'){file=row.recordPath??'docs/PRINTED-PATTERN-CATALOG.json';url=PATTERN_RECORD_DATA[file];mime='application/json';}
+ else if(kind==='columns'||kind==='context'){file=kind==='columns'?record.source.image:record.source.contextImage.image;url=PATTERN_IMAGE_DATA[file];mime='image/png';}
+ else throw Error('Choose a source image or record.');
+ const prefix=`data:${mime};base64,`;if(!url?.startsWith(prefix))throw Error('Source evidence is unavailable.');
+ const bytes=Uint8Array.from(atob(url.slice(prefix.length)),c=>c.charCodeAt(0));
+ return {file,name:file.split('/').at(-1),url,mime,bytes,text:mime==='application/json'?new TextDecoder('utf-8',{fatal:true}).decode(bytes):null};
+}
 export const PATTERN_MODES=Object.freeze([
   {id:'pair',name:'Munaḥ → Revia · both printed columns'},
   {id:'munah',name:'Munaḥ · plain “Resting” column'},

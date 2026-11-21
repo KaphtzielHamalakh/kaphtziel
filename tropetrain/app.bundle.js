@@ -6247,6 +6247,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const cells = new Set(patternSource(sourceId).record.notes.map((n) => n.cell));
     return PATTERN_MODES.filter((m) => m.id === "pair" ? cells.has("munah") && cells.has("revia") : cells.has(m.id));
   }
+  function patternEvidence(sourceId, kind) {
+    const row = patternSource(sourceId), record = row.record;
+    let file, url, mime;
+    if (kind === "record") {
+      file = row.recordPath ?? "docs/PRINTED-PATTERN-CATALOG.json";
+      url = PATTERN_RECORD_DATA[file];
+      mime = "application/json";
+    } else if (kind === "columns" || kind === "context") {
+      file = kind === "columns" ? record.source.image : record.source.contextImage.image;
+      url = PATTERN_IMAGE_DATA[file];
+      mime = "image/png";
+    } else throw Error("Choose a source image or record.");
+    const prefix = `data:${mime};base64,`;
+    if (!url?.startsWith(prefix)) throw Error("Source evidence is unavailable.");
+    const bytes = Uint8Array.from(atob(url.slice(prefix.length)), (c) => c.charCodeAt(0));
+    return { file, name: file.split("/").at(-1), url, mime, bytes, text: mime === "application/json" ? new TextDecoder("utf-8", { fatal: true }).decode(bytes) : null };
+  }
   var PATTERN_MODES = Object.freeze([
     { id: "pair", name: "Munaḥ → Revia · both printed columns" },
     { id: "munah", name: "Munaḥ · plain “Resting” column" },
@@ -6438,6 +6455,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         $2("pattern-status").textContent = `Pattern unavailable: ${error.message}`;
       }
     });
+    const evidenceUrls = /* @__PURE__ */ new Map(), viewer = $2("pattern-source-viewer");
+    for (const [id, kind] of [["pattern-source-link", "columns"], ["pattern-context-link", "context"], ["pattern-record-link", "record"]]) $2(id).addEventListener("click", (event) => {
+      event.preventDefault();
+      const evidence = patternEvidence($2("pattern-source").value, kind);
+      $2("pattern-viewer-title").textContent = kind === "record" ? "Exact source record" : "Full-resolution printed source";
+      $2("pattern-viewer-caption").textContent = patternSource($2("pattern-source").value).label + " · " + evidence.name;
+      $2("pattern-viewer-image").hidden = kind === "record";
+      $2("pattern-viewer-json").hidden = kind !== "record";
+      if (kind === "record") $2("pattern-viewer-json").textContent = evidence.text;
+      else {
+        $2("pattern-viewer-image").src = evidence.url;
+        $2("pattern-viewer-image").alt = $2("pattern-viewer-caption").textContent;
+      }
+      if (!evidenceUrls.has(evidence.file)) evidenceUrls.set(evidence.file, URL.createObjectURL(new Blob([evidence.bytes], { type: evidence.mime })));
+      $2("pattern-viewer-download").href = evidenceUrls.get(evidence.file);
+      $2("pattern-viewer-download").download = evidence.name;
+      $2("pattern-viewer-body").scrollTop = 0;
+      $2("pattern-viewer-body").scrollLeft = 0;
+      viewer.showModal();
+    });
+    $2("pattern-viewer-close").addEventListener("click", () => viewer.close());
     $2("pattern-stop").addEventListener("click", () => {
       stop2();
       $2("pattern-status").textContent = "Printed pattern stopped. Bible-word selection is unchanged.";
