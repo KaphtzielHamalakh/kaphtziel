@@ -6,6 +6,7 @@ import {gzipSync} from 'node:zlib';
 import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
 import './import-printed-patterns.mjs';
+import './import-pattern-catalog.mjs';
 import './import-calendar-examples.mjs';
 import './import-voice-studies.mjs';
 import './audit-chant-coverage.mjs';
