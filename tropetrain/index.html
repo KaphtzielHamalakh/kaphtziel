@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore Torah, Prophets and the five scrolls with an original instrumental demonstration, a full Torah recorded-reference library and a bounded printed-score study, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.18.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.19.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -52,7 +52,9 @@
       </section>
       <aside class="playback" id="playback-controls" aria-label="Playback controls">
         <p class="eyebrow">Listen & repeat</p><h2>Practice a little at a time.</h2>
-        <label for="musical-source">Musical source</label><select id="musical-source"></select><p id="musical-source-status" role="status" class="muted"></p>
+        <label for="practice-audio">Listen with</label><select id="practice-audio"><option value="instrument">Instrument · selected melody</option><option value="recorded">Recorded chant · source word timings</option></select>
+        <div id="chant-practice" hidden><p class="muted">PocketTorah’s original voice, melody, pronunciation, pitch and pace. Instrument melody/key/tempo/range remain separate. This recording does not synthesize the selected instrumental melody or a Kinnor Accent style.</p><p id="chant-readiness" role="status"></p><button id="chant-load" disabled>Load chant audio</button><button id="chant-cancel" hidden>Cancel chant loading</button><div class="control-block"><div class="label-row"><label for="chant-volume">Chant volume</label><output id="chant-volume-value">0%</output></div><input id="chant-volume" type="range" min="0" max="100" value="0"></div><a href="#recorded-reference">Recording source details and timing gaps</a></div>
+        <label for="musical-source">Instrumental musical source</label><select id="musical-source"></select><p id="musical-source-status" role="status" class="muted"></p>
         <label for="scope">Play from cursor to</label><select id="scope"><option value="word">End of word</option><option value="group" selected>End of group</option><option value="verse">End of verse</option><option value="aliyah">End of assigned section</option><option value="selection">End of selected span</option><option value="passage">End of reading</option></select>
         <p class="span-preview" id="span-preview"></p>
         <div class="transport"><button id="play" class="primary"><span aria-hidden="true">▶</span> Play</button><button id="stop">Stop</button></div>
@@ -61,7 +63,7 @@
         <div class="control-block"><div class="label-row"><label for="tempo">Tempo</label><output id="tempo-value" for="tempo">84 BPM</output></div><input id="tempo" type="range" min="40" max="160" step="1" value="84"><div class="scale"><span>Slower</span><span>Faster</span></div></div>
         <div class="control-block"><div class="label-row"><label for="transpose">Transpose</label><output id="transpose-value" for="transpose">0 semitones</output></div><div class="stepper"><button id="pitch-down" aria-label="Transpose down a semitone">−</button><input id="transpose" type="number" min="-12" max="12" value="0" aria-label="Transposition in semitones"><button id="pitch-up" aria-label="Transpose up a semitone">+</button></div></div>
         <div class="control-block"><div class="label-row"><label for="volume">Instrument volume</label><output id="volume-value">70%</output></div><input id="volume" type="range" min="0" max="100" value="70"></div>
-        <dl class="profile"><dt>Melody</dt><dd id="melody-name">Original demonstration 01</dd><dt>Pronunciation</dt><dd>None · no singing voice</dd><dt>Sound</dt><dd>Soft triangle instrument</dd></dl>
+        <dl class="profile"><dt>Instrument melody</dt><dd id="melody-name">Original demonstration 01</dd><dt>Synthesized pronunciation</dt><dd>None · source recordings keep their own pronunciation</dd><dt>Sound</dt><dd>Soft triangle instrument</dd></dl>
         <details><summary>Comfort range guide</summary><p class="muted">A visual guide only; it does not transpose the music.</p><div class="range-inputs"><label>Lowest note<select id="range-low"></select></label><label>Highest note<select id="range-high"></select></label></div><p id="range-report"></p></details>
       </aside>
     </div>
@@ -86,6 +88,7 @@
       <p id="reference-library-status" role="status">Loading the recorded-reference catalog…</p>
       <p>Unmodified chant from <a href="https://archive.org/details/PockettorahAudioFiles">PocketTorah Audio Files</a>, Not-a-Box Media Lab · Russel Neiss & Rabbi Charlie Schwartz. The source describes Avery–Binder style; individual readers are not identified per file. <a href="https://creativecommons.org/licenses/by-sa/3.0/">Audio and derived alignment: CC BY-SA 3.0</a>.</p>
       <p class="muted">Each take retains its recorded key, tempo and pronunciation. Instrument controls affect the selected instrumental source above. Word timings come from the source and await acoustic review; no syllables, pitches or pronunciation grammar have been transcribed.</p>
+      <details><summary>Torah chanting coverage and timing gaps</summary><p id="chant-coverage-summary"></p><ol id="chant-gap-list"></ol><p><a href="./docs/CHANT-COVERAGE.json">Exact coverage audit</a>. Opening a gap does not start playback. Complete takes remain available without timed highlighting.</p></details>
       <div class="reference-picker"><label>Reference portion<select id="reference-portion" disabled></select></label><label>Reference aliyah<select id="reference-aliyah" disabled></select></label><button id="reference-open" disabled>Open selected reading</button></div>
       <h3 id="reference-title"></h3><p id="reference-timing-status"></p>
       <p id="reference-coverage"></p><a href="#playback-controls">Change the selected span or repeat setting</a>
@@ -133,7 +136,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a><p><a href="./docs/REPERTOIRE-SOURCES.json">Prophets and five-scroll text provenance</a> · <a href="./docs/REPERTOIRE-AUDIT.json">Source correspondence audit</a></p></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Optional sourced scroll lines use written UXLC letters, a licensed scribal font and flagged edition differences. Typeset widths remain approximate; scrolls vary.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>PocketTorah recordings and the bounded printed-score study provide source references. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.18.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.19.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -144,6 +147,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.18.0"></script>
+  <script defer src="./app.bundle.js?v=0.19.0"></script>
 </body>
 </html>

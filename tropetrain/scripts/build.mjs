@@ -8,6 +8,7 @@ import './import-printed-score.mjs';
 import './import-printed-patterns.mjs';
 import './import-calendar-examples.mjs';
 import './import-voice-studies.mjs';
+import './audit-chant-coverage.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
@@ -59,6 +60,7 @@ const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
 const voiceStudyAudio=await readFile(path.join(root,'assets/voice-studies/esther-seed.mp3'));
 const voiceStudyNotice=await readFile(path.join(root,'assets/voice-studies/NOTICE.txt'),'utf8');
+const chantEvidence=await readFile(path.join(root,'docs/CHANT-COVERAGE.json'),'utf8');
 const voiceStudyEvidence=await readFile(path.join(root,'docs/VOICE-STUDIES.json'),'utf8');
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
 const alternateScan=await readFile(path.join(root,'assets/scores/cohen-1902-alternate-score.png'));
@@ -87,6 +89,7 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replace('src="./assets/references/Bereshit-1.mp3"',()=>`src="data:audio/mpeg;base64,${referenceAudio.toString('base64')}"`)
  .replace('id="voice-studies"','id="voice-studies" data-audio-base="https://kaphtziel.com/tropetrain/"')
  .replace('src="./assets/voice-studies/esther-seed.mp3"',()=>`src="data:audio/mpeg;base64,${voiceStudyAudio.toString('base64')}"`)
+ .replaceAll('href="./docs/CHANT-COVERAGE.json"',()=>`href="data:application/json;base64,${Buffer.from(chantEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/voice-studies/NOTICE.txt"','href="#voice-study-notices"')
  .replaceAll('href="./docs/VOICE-STUDIES.json"',()=>`href="data:application/json;base64,${Buffer.from(voiceStudyEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/references/NOTICE.txt"','href="#license-notices"')

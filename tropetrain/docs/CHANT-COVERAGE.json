@@ -1,0 +1,236 @@
+{
+  "schema": "tropetrain-chant-coverage-v1",
+  "revision": 1,
+  "words": 79985,
+  "sourceTimedWords": 77174,
+  "reviewWords": 2811,
+  "books": [
+    {
+      "bookId": "gen",
+      "words": 20614,
+      "sourceTimedWords": 20614,
+      "reviewWords": 0,
+      "recordings": 84
+    },
+    {
+      "bookId": "exo",
+      "words": 16714,
+      "sourceTimedWords": 15423,
+      "reviewWords": 1291,
+      "recordings": 77
+    },
+    {
+      "bookId": "lev",
+      "words": 11950,
+      "sourceTimedWords": 11565,
+      "reviewWords": 385,
+      "recordings": 70
+    },
+    {
+      "bookId": "num",
+      "words": 16412,
+      "sourceTimedWords": 15722,
+      "reviewWords": 690,
+      "recordings": 70
+    },
+    {
+      "bookId": "deu",
+      "words": 14295,
+      "sourceTimedWords": 13850,
+      "reviewWords": 445,
+      "recordings": 77
+    }
+  ],
+  "gaps": [
+    {
+      "id": "pt-portion-13-1",
+      "title": "Shemot · aliyah 1",
+      "words": 181,
+      "coverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 1,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 1,
+          "verse": 17
+        }
+      },
+      "issues": [
+        {
+          "kind": "word-count",
+          "sourceWords": 181,
+          "timings": 182
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-13-5",
+      "title": "Shemot · aliyah 5",
+      "words": 382,
+      "coverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 3,
+          "verse": 16
+        },
+        "end": {
+          "chapter": 4,
+          "verse": 17
+        }
+      },
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 53,
+          "before": 67.122439,
+          "after": 67.122439
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-13-7",
+      "title": "Shemot · aliyah 7",
+      "words": 335,
+      "coverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 5,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 6,
+          "verse": 1
+        }
+      },
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 188,
+          "before": 191.070213,
+          "after": 191.070213
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-20-1",
+      "title": "Tetzaveh · aliyah 1",
+      "words": 211,
+      "coverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 27,
+          "verse": 20
+        },
+        "end": {
+          "chapter": 28,
+          "verse": 12
+        }
+      },
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 203,
+          "before": 208.954471,
+          "after": 208.954471
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-20-3",
+      "title": "Tetzaveh · aliyah 3",
+      "words": 182,
+      "coverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 28,
+          "verse": 31
+        },
+        "end": {
+          "chapter": 28,
+          "verse": 43
+        }
+      },
+      "issues": [
+        {
+          "kind": "word-count",
+          "sourceWords": 182,
+          "timings": 181
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-26-6",
+      "title": "Shmini · aliyah 6",
+      "words": 385,
+      "coverage": {
+        "bookId": "lev",
+        "start": {
+          "chapter": 11,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 11,
+          "verse": 32
+        }
+      },
+      "issues": [
+        {
+          "kind": "word-count",
+          "sourceWords": 385,
+          "timings": 386
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-35-4",
+      "title": "Nasso · aliyah 4",
+      "words": 690,
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 5,
+          "verse": 11
+        },
+        "end": {
+          "chapter": 6,
+          "verse": 27
+        }
+      },
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 557,
+          "before": 584.8,
+          "after": 584.32667
+        }
+      ]
+    },
+    {
+      "id": "pt-portion-46-3",
+      "title": "Eikev · aliyah 3",
+      "words": 445,
+      "coverage": {
+        "bookId": "deu",
+        "start": {
+          "chapter": 9,
+          "verse": 4
+        },
+        "end": {
+          "chapter": 9,
+          "verse": 29
+        }
+      },
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 66,
+          "before": 140.1,
+          "after": 105.177339
+        }
+      ]
+    }
+  ],
+  "limits": "Source timing structure only; acoustic review pending. No new timestamps, musical rules, phonemes, pronunciation presets or source text replacements."
+}

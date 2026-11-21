@@ -1,0 +1,110 @@
+{
+  "schema": "tropetrain-pronunciation-source-audit-v1",
+  "revision": 1,
+  "source": "Phonetic MAM public display",
+  "repository": "https://github.com/bdenckla/MAM-basics",
+  "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "status": "candidate_not_imported",
+  "license": "CC-BY-SA-4.0 for Phonetic-MAM/data; implementation GPL3; separate font/image terms. No implementation/fonts/images imported.",
+  "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla. Existing display credits also name Al-Hatorah.",
+  "rightsEvidence": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/DATA-LICENSES.md",
+  "labels": [
+    "sephardic",
+    "ashkenazic"
+  ],
+  "files": [
+    {
+      "path": "Phonetic-MAM/data/A1-Genesis.json",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/data/A1-Genesis.json",
+      "bytes": 3813476,
+      "gitBlob": "b4f9767d1ab0514dbde253da8aad2e116ae4e4a2",
+      "sha256": "f96f3aa2921ea0ab3fa56e7896e752d813ce762809d0040ad3634c227301d367"
+    },
+    {
+      "path": "Phonetic-MAM/data/A2-Exodus.json",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/data/A2-Exodus.json",
+      "bytes": 3139973,
+      "gitBlob": "b4fc91fae6ac186fd97f83ec37dc77be5fb6ffa9",
+      "sha256": "f7354c616ed485faeb86a76de6cc353a19520014053c2968f6b8a07578521839"
+    },
+    {
+      "path": "Phonetic-MAM/data/A3-Levit.json",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/data/A3-Levit.json",
+      "bytes": 2212301,
+      "gitBlob": "b24d29ed78d7bce259a1bed9fe79ac19aa2b3b6b",
+      "sha256": "6c449767f55cc3fc8ee6b8eaac39eea5adbb1bab47ab07114c8a89c1b35c2875"
+    },
+    {
+      "path": "Phonetic-MAM/data/A4-Numbers.json",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/data/A4-Numbers.json",
+      "bytes": 3099493,
+      "gitBlob": "daddfa102abdac98d4fd134a21c937f719aae871",
+      "sha256": "ab73a333de48ba504f7d10ff5cd1fcd970aeddf26c3abddea04d85e6091d17eb"
+    },
+    {
+      "path": "Phonetic-MAM/data/A5-Deuter.json",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/data/A5-Deuter.json",
+      "bytes": 2726862,
+      "gitBlob": "d5b10011122b32318acd0014b9f22b32fbcd4b90",
+      "sha256": "707c151bf96830e50fa128c17f960b03c8770c1a9334cecac40e440075b8c698"
+    },
+    {
+      "path": "Phonetic-MAM/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/LICENSE.md",
+      "bytes": 2226,
+      "gitBlob": "20ba234107b3be09e32be297e90f28061cb7cb6c",
+      "sha256": "58f53919ea291c3e68488133b0e4dc67a047fd52b8ce40d55300fea81af14a69"
+    },
+    {
+      "path": "Phonetic-MAM/README.md",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/README.md",
+      "bytes": 7558,
+      "gitBlob": "d9cef180b89cb8e22bbde6f5446c1fdf7007eb5b",
+      "sha256": "96ee7181ce4b24e79a22fe65e55836e6afa92790f678d1b78453959cf661b0d7"
+    },
+    {
+      "path": "DATA-LICENSES.md",
+      "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/DATA-LICENSES.md",
+      "bytes": 67562,
+      "gitBlob": "1b458a053f64d37fa03706a2abacc1509a6864d0",
+      "sha256": "54815c12068d8fe977a64e61af67c58dfe08ba177d2f8229a45e69b4e259f8b3"
+    }
+  ],
+  "books": [
+    {
+      "book": "Genesis",
+      "chapters": 50,
+      "verses": 1533,
+      "displayRows": 17782
+    },
+    {
+      "book": "Exodus",
+      "chapters": 40,
+      "verses": 1209,
+      "displayRows": 14488
+    },
+    {
+      "book": "Levit",
+      "chapters": 27,
+      "verses": 859,
+      "displayRows": 10180
+    },
+    {
+      "book": "Numbers",
+      "chapters": 36,
+      "verses": 1288,
+      "displayRows": 14308
+    },
+    {
+      "book": "Deuter",
+      "chapters": 34,
+      "verses": 955,
+      "displayRows": 12623
+    }
+  ],
+  "limitations": [
+    "Public display rows, not a source-quality or phoneme judgment layer.",
+    "Perpetual qere, pointing, word groups and verse namespaces differ from UXLC. Explicit reviewed joins needed; never replace reader Hebrew.",
+    "No audio timing, source singing voice or proof of equivalence to six Kinnor Accent labels."
+  ]
+}

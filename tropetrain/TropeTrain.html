@@ -118,7 +118,9 @@
       </section>
       <aside class="playback" id="playback-controls" aria-label="Playback controls">
         <p class="eyebrow">Listen & repeat</p><h2>Practice a little at a time.</h2>
-        <label for="musical-source">Musical source</label><select id="musical-source"></select><p id="musical-source-status" role="status" class="muted"></p>
+        <label for="practice-audio">Listen with</label><select id="practice-audio"><option value="instrument">Instrument · selected melody</option><option value="recorded">Recorded chant · source word timings</option></select>
+        <div id="chant-practice" hidden><p class="muted">PocketTorah’s original voice, melody, pronunciation, pitch and pace. Instrument melody/key/tempo/range remain separate. This recording does not synthesize the selected instrumental melody or a Kinnor Accent style.</p><p id="chant-readiness" role="status"></p><button id="chant-load" disabled>Load chant audio</button><button id="chant-cancel" hidden>Cancel chant loading</button><div class="control-block"><div class="label-row"><label for="chant-volume">Chant volume</label><output id="chant-volume-value">0%</output></div><input id="chant-volume" type="range" min="0" max="100" value="0"></div><a href="#recorded-reference">Recording source details and timing gaps</a></div>
+        <label for="musical-source">Instrumental musical source</label><select id="musical-source"></select><p id="musical-source-status" role="status" class="muted"></p>
         <label for="scope">Play from cursor to</label><select id="scope"><option value="word">End of word</option><option value="group" selected>End of group</option><option value="verse">End of verse</option><option value="aliyah">End of assigned section</option><option value="selection">End of selected span</option><option value="passage">End of reading</option></select>
         <p class="span-preview" id="span-preview"></p>
         <div class="transport"><button id="play" class="primary"><span aria-hidden="true">▶</span> Play</button><button id="stop">Stop</button></div>
@@ -127,7 +129,7 @@
         <div class="control-block"><div class="label-row"><label for="tempo">Tempo</label><output id="tempo-value" for="tempo">84 BPM</output></div><input id="tempo" type="range" min="40" max="160" step="1" value="84"><div class="scale"><span>Slower</span><span>Faster</span></div></div>
         <div class="control-block"><div class="label-row"><label for="transpose">Transpose</label><output id="transpose-value" for="transpose">0 semitones</output></div><div class="stepper"><button id="pitch-down" aria-label="Transpose down a semitone">−</button><input id="transpose" type="number" min="-12" max="12" value="0" aria-label="Transposition in semitones"><button id="pitch-up" aria-label="Transpose up a semitone">+</button></div></div>
         <div class="control-block"><div class="label-row"><label for="volume">Instrument volume</label><output id="volume-value">70%</output></div><input id="volume" type="range" min="0" max="100" value="70"></div>
-        <dl class="profile"><dt>Melody</dt><dd id="melody-name">Original demonstration 01</dd><dt>Pronunciation</dt><dd>None · no singing voice</dd><dt>Sound</dt><dd>Soft triangle instrument</dd></dl>
+        <dl class="profile"><dt>Instrument melody</dt><dd id="melody-name">Original demonstration 01</dd><dt>Synthesized pronunciation</dt><dd>None · source recordings keep their own pronunciation</dd><dt>Sound</dt><dd>Soft triangle instrument</dd></dl>
         <details><summary>Comfort range guide</summary><p class="muted">A visual guide only; it does not transpose the music.</p><div class="range-inputs"><label>Lowest note<select id="range-low"></select></label><label>Highest note<select id="range-high"></select></label></div><p id="range-report"></p></details>
       </aside>
     </div>
@@ -152,6 +154,7 @@
       <p id="reference-library-status" role="status">Loading the recorded-reference catalog…</p>
       <p>Unmodified chant from <a href="https://archive.org/details/PockettorahAudioFiles">PocketTorah Audio Files</a>, Not-a-Box Media Lab · Russel Neiss & Rabbi Charlie Schwartz. The source describes Avery–Binder style; individual readers are not identified per file. <a href="https://creativecommons.org/licenses/by-sa/3.0/">Audio and derived alignment: CC BY-SA 3.0</a>.</p>
       <p class="muted">Each take retains its recorded key, tempo and pronunciation. Instrument controls affect the selected instrumental source above. Word timings come from the source and await acoustic review; no syllables, pitches or pronunciation grammar have been transcribed.</p>
+      <details><summary>Torah chanting coverage and timing gaps</summary><p id="chant-coverage-summary"></p><ol id="chant-gap-list"></ol><p><a href="data:application/json;base64,ewogICJzY2hlbWEiOiAidHJvcGV0cmFpbi1jaGFudC1jb3ZlcmFnZS12MSIsCiAgInJldmlzaW9uIjogMSwKICAid29yZHMiOiA3OTk4NSwKICAic291cmNlVGltZWRXb3JkcyI6IDc3MTc0LAogICJyZXZpZXdXb3JkcyI6IDI4MTEsCiAgImJvb2tzIjogWwogICAgewogICAgICAiYm9va0lkIjogImdlbiIsCiAgICAgICJ3b3JkcyI6IDIwNjE0LAogICAgICAic291cmNlVGltZWRXb3JkcyI6IDIwNjE0LAogICAgICAicmV2aWV3V29yZHMiOiAwLAogICAgICAicmVjb3JkaW5ncyI6IDg0CiAgICB9LAogICAgewogICAgICAiYm9va0lkIjogImV4byIsCiAgICAgICJ3b3JkcyI6IDE2NzE0LAogICAgICAic291cmNlVGltZWRXb3JkcyI6IDE1NDIzLAogICAgICAicmV2aWV3V29yZHMiOiAxMjkxLAogICAgICAicmVjb3JkaW5ncyI6IDc3CiAgICB9LAogICAgewogICAgICAiYm9va0lkIjogImxldiIsCiAgICAgICJ3b3JkcyI6IDExOTUwLAogICAgICAic291cmNlVGltZWRXb3JkcyI6IDExNTY1LAogICAgICAicmV2aWV3V29yZHMiOiAzODUsCiAgICAgICJyZWNvcmRpbmdzIjogNzAKICAgIH0sCiAgICB7CiAgICAgICJib29rSWQiOiAibnVtIiwKICAgICAgIndvcmRzIjogMTY0MTIsCiAgICAgICJzb3VyY2VUaW1lZFdvcmRzIjogMTU3MjIsCiAgICAgICJyZXZpZXdXb3JkcyI6IDY5MCwKICAgICAgInJlY29yZGluZ3MiOiA3MAogICAgfSwKICAgIHsKICAgICAgImJvb2tJZCI6ICJkZXUiLAogICAgICAid29yZHMiOiAxNDI5NSwKICAgICAgInNvdXJjZVRpbWVkV29yZHMiOiAxMzg1MCwKICAgICAgInJldmlld1dvcmRzIjogNDQ1LAogICAgICAicmVjb3JkaW5ncyI6IDc3CiAgICB9CiAgXSwKICAiZ2FwcyI6IFsKICAgIHsKICAgICAgImlkIjogInB0LXBvcnRpb24tMTMtMSIsCiAgICAgICJ0aXRsZSI6ICJTaGVtb3QgwrcgYWxpeWFoIDEiLAogICAgICAid29yZHMiOiAxODEsCiAgICAgICJjb3ZlcmFnZSI6IHsKICAgICAgICAiYm9va0lkIjogImV4byIsCiAgICAgICAgInN0YXJ0IjogewogICAgICAgICAgImNoYXB0ZXIiOiAxLAogICAgICAgICAgInZlcnNlIjogMQogICAgICAgIH0sCiAgICAgICAgImVuZCI6IHsKICAgICAgICAgICJjaGFwdGVyIjogMSwKICAgICAgICAgICJ2ZXJzZSI6IDE3CiAgICAgICAgfQogICAgICB9LAogICAgICAiaXNzdWVzIjogWwogICAgICAgIHsKICAgICAgICAgICJraW5kIjogIndvcmQtY291bnQiLAogICAgICAgICAgInNvdXJjZVdvcmRzIjogMTgxLAogICAgICAgICAgInRpbWluZ3MiOiAxODIKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJpZCI6ICJwdC1wb3J0aW9uLTEzLTUiLAogICAgICAidGl0bGUiOiAiU2hlbW90IMK3IGFsaXlhaCA1IiwKICAgICAgIndvcmRzIjogMzgyLAogICAgICAiY292ZXJhZ2UiOiB7CiAgICAgICAgImJvb2tJZCI6ICJleG8iLAogICAgICAgICJzdGFydCI6IHsKICAgICAgICAgICJjaGFwdGVyIjogMywKICAgICAgICAgICJ2ZXJzZSI6IDE2CiAgICAgICAgfSwKICAgICAgICAiZW5kIjogewogICAgICAgICAgImNoYXB0ZXIiOiA0LAogICAgICAgICAgInZlcnNlIjogMTcKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJpc3N1ZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAibm9uLWluY3JlYXNpbmciLAogICAgICAgICAgInNvdXJjZUluZGV4IjogNTMsCiAgICAgICAgICAiYmVmb3JlIjogNjcuMTIyNDM5LAogICAgICAgICAgImFmdGVyIjogNjcuMTIyNDM5CiAgICAgICAgfQogICAgICBdCiAgICB9LAogICAgewogICAgICAiaWQiOiAicHQtcG9ydGlvbi0xMy03IiwKICAgICAgInRpdGxlIjogIlNoZW1vdCDCtyBhbGl5YWggNyIsCiAgICAgICJ3b3JkcyI6IDMzNSwKICAgICAgImNvdmVyYWdlIjogewogICAgICAgICJib29rSWQiOiAiZXhvIiwKICAgICAgICAic3RhcnQiOiB7CiAgICAgICAgICAiY2hhcHRlciI6IDUsCiAgICAgICAgICAidmVyc2UiOiAxCiAgICAgICAgfSwKICAgICAgICAiZW5kIjogewogICAgICAgICAgImNoYXB0ZXIiOiA2LAogICAgICAgICAgInZlcnNlIjogMQogICAgICAgIH0KICAgICAgfSwKICAgICAgImlzc3VlcyI6IFsKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJub24taW5jcmVhc2luZyIsCiAgICAgICAgICAic291cmNlSW5kZXgiOiAxODgsCiAgICAgICAgICAiYmVmb3JlIjogMTkxLjA3MDIxMywKICAgICAgICAgICJhZnRlciI6IDE5MS4wNzAyMTMKICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJpZCI6ICJwdC1wb3J0aW9uLTIwLTEiLAogICAgICAidGl0bGUiOiAiVGV0emF2ZWggwrcgYWxpeWFoIDEiLAogICAgICAid29yZHMiOiAyMTEsCiAgICAgICJjb3ZlcmFnZSI6IHsKICAgICAgICAiYm9va0lkIjogImV4byIsCiAgICAgICAgInN0YXJ0IjogewogICAgICAgICAgImNoYXB0ZXIiOiAyNywKICAgICAgICAgICJ2ZXJzZSI6IDIwCiAgICAgICAgfSwKICAgICAgICAiZW5kIjogewogICAgICAgICAgImNoYXB0ZXIiOiAyOCwKICAgICAgICAgICJ2ZXJzZSI6IDEyCiAgICAgICAgfQogICAgICB9LAogICAgICAiaXNzdWVzIjogWwogICAgICAgIHsKICAgICAgICAgICJraW5kIjogIm5vbi1pbmNyZWFzaW5nIiwKICAgICAgICAgICJzb3VyY2VJbmRleCI6IDIwMywKICAgICAgICAgICJiZWZvcmUiOiAyMDguOTU0NDcxLAogICAgICAgICAgImFmdGVyIjogMjA4Ljk1NDQ3MQogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgIHsKICAgICAgImlkIjogInB0LXBvcnRpb24tMjAtMyIsCiAgICAgICJ0aXRsZSI6ICJUZXR6YXZlaCDCtyBhbGl5YWggMyIsCiAgICAgICJ3b3JkcyI6IDE4MiwKICAgICAgImNvdmVyYWdlIjogewogICAgICAgICJib29rSWQiOiAiZXhvIiwKICAgICAgICAic3RhcnQiOiB7CiAgICAgICAgICAiY2hhcHRlciI6IDI4LAogICAgICAgICAgInZlcnNlIjogMzEKICAgICAgICB9LAogICAgICAgICJlbmQiOiB7CiAgICAgICAgICAiY2hhcHRlciI6IDI4LAogICAgICAgICAgInZlcnNlIjogNDMKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJpc3N1ZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAid29yZC1jb3VudCIsCiAgICAgICAgICAic291cmNlV29yZHMiOiAxODIsCiAgICAgICAgICAidGltaW5ncyI6IDE4MQogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgIHsKICAgICAgImlkIjogInB0LXBvcnRpb24tMjYtNiIsCiAgICAgICJ0aXRsZSI6ICJTaG1pbmkgwrcgYWxpeWFoIDYiLAogICAgICAid29yZHMiOiAzODUsCiAgICAgICJjb3ZlcmFnZSI6IHsKICAgICAgICAiYm9va0lkIjogImxldiIsCiAgICAgICAgInN0YXJ0IjogewogICAgICAgICAgImNoYXB0ZXIiOiAxMSwKICAgICAgICAgICJ2ZXJzZSI6IDEKICAgICAgICB9LAogICAgICAgICJlbmQiOiB7CiAgICAgICAgICAiY2hhcHRlciI6IDExLAogICAgICAgICAgInZlcnNlIjogMzIKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJpc3N1ZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAid29yZC1jb3VudCIsCiAgICAgICAgICAic291cmNlV29yZHMiOiAzODUsCiAgICAgICAgICAidGltaW5ncyI6IDM4NgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgIHsKICAgICAgImlkIjogInB0LXBvcnRpb24tMzUtNCIsCiAgICAgICJ0aXRsZSI6ICJOYXNzbyDCtyBhbGl5YWggNCIsCiAgICAgICJ3b3JkcyI6IDY5MCwKICAgICAgImNvdmVyYWdlIjogewogICAgICAgICJib29rSWQiOiAibnVtIiwKICAgICAgICAic3RhcnQiOiB7CiAgICAgICAgICAiY2hhcHRlciI6IDUsCiAgICAgICAgICAidmVyc2UiOiAxMQogICAgICAgIH0sCiAgICAgICAgImVuZCI6IHsKICAgICAgICAgICJjaGFwdGVyIjogNiwKICAgICAgICAgICJ2ZXJzZSI6IDI3CiAgICAgICAgfQogICAgICB9LAogICAgICAiaXNzdWVzIjogWwogICAgICAgIHsKICAgICAgICAgICJraW5kIjogIm5vbi1pbmNyZWFzaW5nIiwKICAgICAgICAgICJzb3VyY2VJbmRleCI6IDU1NywKICAgICAgICAgICJiZWZvcmUiOiA1ODQuOCwKICAgICAgICAgICJhZnRlciI6IDU4NC4zMjY2NwogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgIHsKICAgICAgImlkIjogInB0LXBvcnRpb24tNDYtMyIsCiAgICAgICJ0aXRsZSI6ICJFaWtldiDCtyBhbGl5YWggMyIsCiAgICAgICJ3b3JkcyI6IDQ0NSwKICAgICAgImNvdmVyYWdlIjogewogICAgICAgICJib29rSWQiOiAiZGV1IiwKICAgICAgICAic3RhcnQiOiB7CiAgICAgICAgICAiY2hhcHRlciI6IDksCiAgICAgICAgICAidmVyc2UiOiA0CiAgICAgICAgfSwKICAgICAgICAiZW5kIjogewogICAgICAgICAgImNoYXB0ZXIiOiA5LAogICAgICAgICAgInZlcnNlIjogMjkKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJpc3N1ZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAibm9uLWluY3JlYXNpbmciLAogICAgICAgICAgInNvdXJjZUluZGV4IjogNjYsCiAgICAgICAgICAiYmVmb3JlIjogMTQwLjEsCiAgICAgICAgICAiYWZ0ZXIiOiAxMDUuMTc3MzM5CiAgICAgICAgfQogICAgICBdCiAgICB9CiAgXSwKICAibGltaXRzIjogIlNvdXJjZSB0aW1pbmcgc3RydWN0dXJlIG9ubHk7IGFjb3VzdGljIHJldmlldyBwZW5kaW5nLiBObyBuZXcgdGltZXN0YW1wcywgbXVzaWNhbCBydWxlcywgcGhvbmVtZXMsIHByb251bmNpYXRpb24gcHJlc2V0cyBvciBzb3VyY2UgdGV4dCByZXBsYWNlbWVudHMuIgp9Cg==">Exact coverage audit</a>. Opening a gap does not start playback. Complete takes remain available without timed highlighting.</p></details>
       <div class="reference-picker"><label>Reference portion<select id="reference-portion" disabled></select></label><label>Reference aliyah<select id="reference-aliyah" disabled></select></label><button id="reference-open" disabled>Open selected reading</button></div>
       <h3 id="reference-title"></h3><p id="reference-timing-status"></p>
       <p id="reference-coverage"></p><a href="#playback-controls">Change the selected span or repeat setting</a>
@@ -438,6 +441,13 @@ The study player supports user-selected seconds spans, repeat and its own volume
 ## Western Ashkenazi Torah source table · v0.18
 
 Dr. Isabel Bard’s2021 original cantillation-name recording is identified by its [primary InternetArchive item](https://archive.org/details/taamei-ha-mikra-western-ashkenazi-trop-isabel-bard-2021) as Western Ashkenazi Torah, under CC BY-SA4.0. OpenSiddur links that item from its Torah tables page. The unchanged1,234,202byte M4A/AAC matches sourceSHA1; exactbytes/SHA256, rights and review limits are recorded in VOICE-STUDIES.json revision2. Its explicit media type is retained through download/device storage. No new melody rule, phoneme grammar, Bible-word/syllable/audio timing or Kinnor equivalence is inferred. The player retains original pitch/pace/voice and only supports user-selected seconds. Six fixed references now comprise3studies; all recovered contextual musical systems/sixAccentgrammars/voices/singing and fullroadmap remain unfinished.
+
+
+## Main word-aligned chant practice · v0.19
+
+Main Play now has an explicit source-recording mode, independent of the selected instrumental melody. It loads only the selected span’s original files, verifies their hashes, highlights source-linked Hebrew occurrences across files/repeated sections, and preserves original pitch/pace/voice. Chant volume is separate; at0% a monotonic clock avoids media.play. CHANT-COVERAGE.json reports77,174of79,985Torah words with structurally consistent source timings. All2,811words in8problematic takes remain blocked; no time repairs are guessed. This is existing-source playback, not a new traditional grammar or singing synthesizer.
+
+A new primary [Phonetic MAM](https://github.com/bdenckla/MAM-basics/tree/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM) candidate provides public Ashkenazic/Sephardic display rows. Five TorahJSONs and three rights/documentation files match pinned Gitblobs. Its data-path CC BY-SA4 grant is distinct from GPL3 implementation and separately licensed images/fonts; none of that implementation or media is imported. Perpetual qere, pointing, grouping and verse differences require explicit UXLC correspondence. This display supplies neither complete quality/phoneme judgments, audio timing nor proof of six Kinnor Accent realizations. PRONUNCIATION-SOURCES.json records the private comparison candidate. Technion/ShemTov’s2025 ASR project is another research lead, with no cleared recording/model/data import established here. Full independent melodic/phonetic systems and the complete roadmap remain active; printing stays deferred.
 </pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">Copyright 2022 The Noto Project Authors (https://github.com/notofonts/hebrew)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -4917,7 +4927,7 @@ SOFTWARE.
     "comparison": "The small ring between pickup notes in the first scan is absent from this independent copy. It is not treated as a pitched note. Pitches, rests, ties and note durations compared between both copies."
   }
 }
-</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.18.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.19.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -10594,7 +10604,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }, onError = () => {
     }, onLoading = () => {
     }, onRecording = () => {
-    }, resolveSource = null, frame: queueFrame = (callback) => requestAnimationFrame(callback), cancelFrame = (handle) => cancelAnimationFrame(handle) } = {}) {
+    }, resolveSource = null, clock = () => performance.now() / 1e3, frame: queueFrame = (callback) => requestAnimationFrame(callback), cancelFrame = (handle) => cancelAnimationFrame(handle) } = {}) {
       this.media = media;
       this.onWord = onWord;
       this.onEnd = onEnd;
@@ -10607,8 +10617,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.generation = 0;
       this.running = false;
       this.starting = false;
+      this.clock = clock;
+      this.volume = Number.isFinite(media.volume) ? media.volume : 1;
       media.addEventListener("ended", () => {
-        if (this.running && media.currentTime >= this.currentSegment.end) this.advance();
+        if (this.running && this.mode === "audio" && media.currentTime >= this.currentSegment.end) this.advance();
       });
       media.addEventListener("error", () => {
         if (this.running) {
@@ -10623,9 +10635,45 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.starting = false;
       this.pending?.abort();
       this.pending = null;
+      this.enabling = null;
       this.media.pause();
       this.cancelFrame(this.raf);
       this.onWord(null);
+    }
+    now() {
+      return this.mode === "muted" ? this.anchorPosition + Math.max(0, this.clock() - this.anchorClock) : this.media.currentTime;
+    }
+    async setVolume(value) {
+      this.volume = Number.isFinite(value) ? Math.min(1, Math.max(0, value)) : 0;
+      this.media.volume = this.volume;
+      if (!this.running) return;
+      if (this.volume === 0 && this.mode === "audio") {
+        this.anchorPosition = this.media.currentTime;
+        this.anchorClock = this.clock();
+        this.mode = "muted";
+        this.media.pause();
+      } else if (this.volume > 0 && this.mode === "muted" && !this.enabling) {
+        const generation = this.generation, transition = { generation };
+        this.media.currentTime = this.now();
+        this.mode = "audio";
+        this.enabling = transition;
+        try {
+          await this.media.play();
+          if (generation === this.generation && this.running && this.volume === 0) {
+            this.anchorPosition = this.media.currentTime;
+            this.anchorClock = this.clock();
+            this.mode = "muted";
+            this.media.pause();
+          }
+        } catch (error) {
+          if (generation === this.generation) {
+            this.stop();
+            this.onError(error);
+          }
+        } finally {
+          if (this.enabling === transition) this.enabling = null;
+        }
+      }
     }
     async play(selection, repeat = false) {
       let segments;
@@ -10693,18 +10741,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (!Number.isFinite(duration) || definition.start < 0 || definition.start >= end || end > duration) throw Error("A reference boundary lies outside the decoded recording.");
         this.currentSegment = { ...definition, end };
         this.media.currentTime = definition.start;
+        this.media.playbackRate = 1;
+        this.media.volume = this.volume;
+        this.mode = this.volume === 0 ? "muted" : "audio";
+        this.anchorPosition = definition.start;
+        this.anchorClock = this.clock();
         this.onRecording(definition.recordingId);
         this.starting = false;
         this.running = true;
-        await this.media.play();
+        if (this.mode === "audio") await this.media.play();
         if (generation !== this.generation || !this.running) return;
         const tick = () => {
           if (generation !== this.generation || !this.running) return;
-          if (this.media.currentTime >= this.currentSegment.end) {
+          const time = this.now();
+          if (time >= this.currentSegment.end) {
             this.advance();
             return;
           }
-          this.onWord(referenceWordAt(this.currentSegment, this.media.currentTime));
+          this.onWord(referenceWordAt(this.currentSegment, time));
           this.raf = this.frame(tick);
         };
         tick();
@@ -10729,7 +10783,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           return;
         }
       }
-      this.startSegment(this.generation);
+      this.enabling = null;
+      this.startSegment(++this.generation);
     }
   };
 
@@ -12431,6 +12486,43 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } };
   }
 
+  // recorded-practice.js
+  function practiceAudioMode(value) {
+    return value === "recorded" ? "recorded" : "instrument";
+  }
+  function chantPracticePlan(library, words3, start, end) {
+    if (!library) throw Error("The recorded-chant catalog is loading.");
+    const rows2 = library.selection(words3, start, end), records = library.recordsFor(rows2);
+    return { rows: rows2, records, words: rows2.length, bytes: records.reduce((n, r) => n + r.audio.bytes, 0) };
+  }
+  function chantCoverage(library) {
+    const books = /* @__PURE__ */ new Map(), gaps = [];
+    for (const recording of library.recordings) {
+      let book = books.get(recording.bookId);
+      if (!book) {
+        book = { bookId: recording.bookId, words: 0, sourceTimedWords: 0, reviewWords: 0, recordings: 0 };
+        books.set(recording.bookId, book);
+      }
+      book.recordings++;
+      book.words += recording.words.length;
+      if (recording.status === "aligned") book.sourceTimedWords += recording.words.length;
+      else {
+        book.reviewWords += recording.words.length;
+        gaps.push({ id: recording.id, title: recording.title, words: recording.words.length, coverage: recording.coverage, issues: recording.issues });
+      }
+    }
+    return {
+      schema: "tropetrain-chant-coverage-v1",
+      revision: 1,
+      words: library.byWord.size,
+      sourceTimedWords: [...books.values()].reduce((n, b) => n + b.sourceTimedWords, 0),
+      reviewWords: [...books.values()].reduce((n, b) => n + b.reviewWords, 0),
+      books: [...books.values()],
+      gaps,
+      limits: "Source timing structure only; acoustic review pending. No new timestamps, musical rules, phonemes, pronunciation presets or source text replacements."
+    };
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -12458,6 +12550,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     followPlayback: true,
     ranges: null,
     melodyId: "original-demo-01",
+    practiceAudio: "instrument",
     readingType: "torah"
   };
   var restoredReadingType;
@@ -12466,6 +12559,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     originalPracticeText = localStorage.getItem("tropetrain-practice-v1");
     const saved = JSON.parse(originalPracticeText);
     if (saved) {
+      state.practiceAudio = practiceAudioMode(saved.practiceAudio);
       for (const [key, min, max] of [["cursor", 0, 1e6], ["anchor", 0, 1e6], ["tempo", 40, 160], ["transpose", -12, 12], ["volume", 0, 100], ["referenceVolume", 0, 100], ["rangeLow", 36, 84], ["rangeHigh", 36, 84], ["readerPage", 0, 1e5]])
         if (Number.isInteger(saved[key]) && saved[key] >= min && saved[key] <= max) state[key] = saved[key];
       if (["pointed", "consonantal", "parallel"].includes(saved.view)) state.view = saved.view;
@@ -12521,6 +12615,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var referenceReady = false;
   var referenceUiGeneration = 0;
   var referenceLoadJob = null;
+  var chantPlan = null;
+  var chantReady = false;
+  var chantGeneration = 0;
+  var chantPlayRequest = 0;
+  var recordedPracticeRunning = false;
   var referenceStore = new ReferenceAudioStore({ openingUrl: $("reference-audio").getAttribute("src") });
   var referencePlayer = new RecordingPlayer($("reference-audio"), {
     onWord: (word) => {
@@ -12534,14 +12633,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("reference-active", marksWord(el3, referenceActiveId)));
       if (word) renderRecordedWord(word);
+      if (word && recordedPracticeRunning) {
+        $("status").textContent = `Recorded chant · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
+        $("progress").style.width = `${100 * (word.wordIndex - playingBounds[0] + 1) / (playingBounds[1] - playingBounds[0] + 1)}%`;
+      }
     },
     onEnd: () => {
       $("reference-status").textContent = "Reference playback finished. Your selection is kept.";
       say("Recorded reference finished. Your selection is kept.");
+      recordedPracticeRunning = false;
+      transportLabel(false);
     },
     onError: (error) => {
       $("reference-status").textContent = `Reference unavailable: ${error.message}`;
+      recordedPracticeRunning = false;
+      transportLabel(false);
+      say(`Recorded chant unavailable: ${error.message}`);
       renderReference({ keepChoice: true });
+      renderChantPractice();
     },
     onLoading: (id) => {
       $("reference-status").textContent = `Opening ${referenceLibrary?.byId.get(id)?.title ?? "reference"}…`;
@@ -12623,6 +12732,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   }
   function stop(message = "Stopped. Your selection is kept.", { preservePattern = false, preserveVoiceStudy = false } = {}) {
+    recordedPracticeRunning = false;
+    chantPlayRequest++;
     if (!preservePattern) patternTools?.stop();
     if (!preserveVoiceStudy) voiceStudyTools?.stop();
     referenceLoadJob?.abort();
@@ -12636,6 +12747,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     transportLabel(false);
   }
   async function play() {
+    if (state.practiceAudio === "recorded") return playChantPractice();
     patternTools?.stop();
     voiceStudyTools?.stop();
     referencePlayer.stop();
@@ -12935,7 +13047,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const generation = ++referenceUiGeneration;
     $("reference-volume").value = state.referenceVolume;
     $("reference-volume-value").textContent = `${state.referenceVolume}%`;
-    $("reference-audio").volume = state.referenceVolume / 100;
+    referencePlayer.setVolume(state.referenceVolume / 100);
     if (!referenceLibrary) return;
     const atCursor = referenceLibrary.at(words2[state.cursor]);
     if (!keepChoice && !referencePlayer.running && !referencePlayer.starting) selectedReferenceId = atCursor?.recording.id ?? selectedReferenceId;
@@ -12984,6 +13096,80 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       $("reference-storage").textContent = error.message;
     });
   }
+  function renderChantPractice() {
+    const generation = ++chantGeneration;
+    $("chant-volume").value = state.referenceVolume;
+    $("chant-volume-value").textContent = `${state.referenceVolume}%`;
+    if (state.practiceAudio !== "recorded") return;
+    chantPlan = null;
+    chantReady = false;
+    for (const id of ["play", "compact-play", "chant-load"]) $(id).disabled = true;
+    $("chant-cancel").hidden = !referenceLoadJob;
+    try {
+      chantPlan = chantPracticePlan(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
+    } catch (error) {
+      $("chant-readiness").textContent = error.message;
+      return;
+    }
+    const selected = chantPlan;
+    $("chant-readiness").textContent = "Checking saved chant audio…";
+    Promise.all(selected.records.map((record) => referenceStore.has(record))).then((available) => {
+      if (generation !== chantGeneration || state.practiceAudio !== "recorded") return;
+      const missing = selected.records.filter((_, i) => !available[i]), bytes = missing.reduce((n, r) => n + r.audio.bytes, 0);
+      chantReady = !missing.length;
+      for (const id of ["play", "compact-play"]) $(id).disabled = !chantReady;
+      $("chant-load").disabled = chantReady || !!referenceLoadJob;
+      $("chant-load").textContent = missing.length ? `Load chant audio · ${(bytes / 1048576).toFixed(1)} MB` : "Chant audio ready";
+      $("chant-readiness").textContent = `${selected.words} source-timed word${selected.words === 1 ? "" : "s"} · ${selected.records.length} recording${selected.records.length === 1 ? "" : "s"}. ${referenceLoadJob ? "Loading and verifying…" : chantReady ? "Ready for Play." : `${missing.length} recording${missing.length === 1 ? "" : "s"} to load.`} Acoustic review pending.`;
+    }).catch((error) => {
+      if (generation === chantGeneration) $("chant-readiness").textContent = error.message;
+    });
+  }
+  async function playChantPractice() {
+    stop("Preparing the selected recorded chant.");
+    const request = ++chantPlayRequest;
+    let selected;
+    try {
+      selected = chantPracticePlan(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
+      if (!(await Promise.all(selected.records.map((r) => referenceStore.has(r)))).every(Boolean)) throw Error("Load chant audio for this span first.");
+    } catch (error) {
+      if (request === chantPlayRequest) {
+        say(error.message);
+        renderChantPractice();
+      }
+      return;
+    }
+    if (request !== chantPlayRequest) return;
+    playingBounds = bounds2(state.cursor, state.anchor, state.scope);
+    recordedPracticeRunning = true;
+    referencePlayer.setVolume(state.referenceVolume / 100);
+    transportLabel(true);
+    await referencePlayer.play(selected.rows, state.repeat);
+  }
+  function renderChantCoverage() {
+    const coverage = chantCoverage(referenceLibrary);
+    $("chant-coverage-summary").textContent = `${coverage.sourceTimedWords.toLocaleString()} of ${coverage.words.toLocaleString()} Torah words have structurally consistent source timings; ${coverage.reviewWords.toLocaleString()} words in ${coverage.gaps.length} takes await timing review. No missing times are guessed.`;
+    $("chant-gap-list").replaceChildren();
+    for (const gap of coverage.gaps) {
+      const item = document.createElement("li"), button = document.createElement("button");
+      button.textContent = `Open ${gap.title} · ${gap.words} words needing timing review`;
+      button.addEventListener("click", () => libraryAction(() => applyRanges([{ id: "timing-review", ...gap.coverage, label: gap.title }])));
+      item.append(button);
+      $("chant-gap-list").append(item);
+    }
+  }
+  $("practice-audio").addEventListener("change", (e) => {
+    stop("Practice audio changed.");
+    state.practiceAudio = practiceAudioMode(e.target.value);
+    render();
+  });
+  $("chant-load").addEventListener("click", () => {
+    if (chantPlan) {
+      stop("Loading chant audio.");
+      loadReferenceRecords(chantPlan.records);
+    }
+  });
+  $("chant-cancel").addEventListener("click", () => referenceLoadJob?.abort());
   function renderSourceSigns(word) {
     combinationTools?.showWord(word.index);
     const analysis = word.signAnalysis;
@@ -13130,7 +13316,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       plan = [];
       unavailable = error.message;
     }
-    for (const id of ["play", "compact-play", "download", "prepare-musicxml", "prepare-midi"]) $(id).disabled = !!unavailable;
+    for (const id of ["download", "prepare-musicxml", "prepare-midi"]) $(id).disabled = !!unavailable;
+    for (const id of ["play", "compact-play"]) $(id).disabled = state.practiceAudio === "recorded" ? !chantReady : !!unavailable;
     $("musical-source-status").textContent = unavailable ?? (model.profile.id === PRINTED_SCORE.id ? "Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda." : "Original demonstration · newly composed pitches; syllables unreviewed.");
     if (unavailable) {
       $("event-count").textContent = "No sourced notes for this span";
@@ -13304,16 +13491,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     selectedReferenceId = e.target.value;
     renderReference({ keepChoice: true });
   });
-  $("reference-load").addEventListener("click", async () => {
+  async function loadReferenceRecords(required) {
     if (referenceLoadJob) return;
     const job = new AbortController();
     referenceLoadJob = job;
+    renderChantPractice();
     $("reference-cancel-load").hidden = false;
     $("reference-load").disabled = true;
     try {
       await referenceStore.ready;
       const missing = [];
-      for (const record of referenceRequired) if (!await referenceStore.has(record)) missing.push(record);
+      for (const record of required) if (!await referenceStore.has(record)) missing.push(record);
       if (!referenceStore.storageAvailable && missing.length > 3) throw Error("Device storage is unavailable. Load a smaller span of at most three recordings for this session.");
       for (const [i, record] of missing.entries()) {
         $("reference-status").textContent = `Loading ${i + 1} of ${missing.length}: ${record.title}…`;
@@ -13328,9 +13516,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         referenceLoadJob = null;
         $("reference-cancel-load").hidden = true;
         renderReference({ keepChoice: true });
+        renderChantPractice();
+        if (state.practiceAudio === "recorded") say($("reference-status").textContent);
       }
     }
-  });
+  }
+  $("reference-load").addEventListener("click", () => loadReferenceRecords(referenceRequired));
   $("reference-cancel-load").addEventListener("click", () => referenceLoadJob?.abort());
   $("reference-remove").addEventListener("click", async () => {
     const record = referenceLibrary.byId.get(selectedReferenceId);
@@ -13338,11 +13529,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     await referenceStore.remove(record);
     $("reference-status").textContent = `Removed the saved copy of ${record.title}. You can load it again.`;
     renderReference({ keepChoice: true });
+    renderChantPractice();
   });
-  $("reference-volume").addEventListener("input", (e) => {
+  for (const id of ["reference-volume", "chant-volume"]) $(id).addEventListener("input", (e) => {
     state.referenceVolume = Number(e.target.value);
-    $("reference-audio").volume = state.referenceVolume / 100;
-    $("reference-volume-value").textContent = `${state.referenceVolume}%`;
+    referencePlayer.setVolume(state.referenceVolume / 100);
+    for (const control of ["reference-volume", "chant-volume"]) $(control).value = state.referenceVolume;
+    for (const output of ["reference-volume-value", "chant-volume-value"]) $(output).textContent = `${state.referenceVolume}%`;
     persist();
   });
   function render() {
@@ -13362,6 +13555,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("music-badge").textContent = printed ? "Printed score study" : "Instrumental demo";
     $("music-notice").textContent = printed ? "A bounded transcription of the complete printed Genesis 22:1 example, all 13 words. Musical and Hebrew underlay review is pending. This is an instrumental study; no full tradition or singing voice is claimed." : "This original motif tests the practice workflow. It is not a historical cantillation melody. Syllable divisions are drafts awaiting review.";
     $("score-description").textContent = printed ? "The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft." : "The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.";
+    if (state.practiceAudio === "recorded") {
+      $("music-badge").textContent = "Recorded chant";
+      $("music-notice").textContent = "PocketTorah chant follows the source word timings. The original performance keeps its own melody, pronunciation, pace and pitch. Acoustic timing review is pending.";
+      $("score-description").textContent = "Instrument score only; no pitches have been transcribed from the recording. " + $("score-description").textContent;
+    }
     $("score-help").textContent = printed ? "Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted." : "Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.";
     document.querySelectorAll("[data-view]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === state.view)));
     $("scroll-layout").checked = state.scrollLayout;
@@ -13369,8 +13567,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("scroll-layout-status").textContent = isTorahReading(passage2.ranges) ? scrollMessage : "Sourced scroll layout covers Torah only. Your scroll-layout preference is kept for Torah readings.";
     $("reading-type-label").textContent = `${READING_TYPES.find((type) => type.id === state.readingType).label} · practice reader`;
     $("scope").querySelector('option[value="verse"]').textContent = passage2.ranges.some((range) => range.divisionSource?.referenceMapping) ? "End of UXLC verse record" : "End of verse";
+    $("practice-audio").value = state.practiceAudio;
+    $("chant-practice").hidden = state.practiceAudio !== "recorded";
     renderReader();
     renderSequence();
+    renderChantPractice();
     persist();
     if (findWords !== words2 && state.findScope === "reading") refreshSignSearch({ reset: true });
     combinationTools?.readingChanged();
@@ -13913,6 +14114,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reference-portion").disabled = false;
     $("reference-aliyah").disabled = false;
     renderReference();
+    renderChantCoverage();
+    renderChantPractice();
   }).catch((error) => {
     $("reference-library-status").textContent = error.message;
   });
