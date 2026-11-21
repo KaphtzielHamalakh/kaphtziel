@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-pronunciation-alignment-v1",
-  "revision": 1,
+  "revision": 2,
   "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
   "license": "CC-BY-SA-4.0",
   "sourceFiles": [
@@ -44,15 +44,1433 @@
     {
       "bookId": "gen",
       "readerWords": 20614,
-      "mappedWords": 20351,
-      "unmappedWords": 263,
+      "mappedWords": 20592,
+      "unmappedWords": 22,
       "acceptedDisplayVerses": 1513,
       "unmatchedDisplayVerses": 20,
-      "mappedDisplayRows": 17431,
+      "partiallyMatchedDisplayVerses": 20,
+      "mappedDisplayRows": 17640,
       "nonlexicalRows": 120,
       "anchoredRepeatedVerses": 0,
       "readerSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
       "unmappedReaderIds": [
+        "gen-4-18-9",
+        "gen-8-20-8",
+        "gen-8-20-11",
+        "gen-13-3-13",
+        "gen-13-8-10",
+        "gen-14-2-17",
+        "gen-14-22-6",
+        "gen-19-16-2",
+        "gen-25-3-11",
+        "gen-27-31-14",
+        "gen-35-5-8",
+        "gen-35-23-10",
+        "gen-41-35-6",
+        "gen-45-15-5",
+        "gen-46-9-5",
+        "gen-46-12-16",
+        "gen-46-13-6",
+        "gen-46-14-2",
+        "gen-49-10-12",
+        "gen-49-11-4",
+        "gen-49-11-14",
+        "gen-49-13-7"
+      ]
+    },
+    {
+      "bookId": "exo",
+      "readerWords": 16714,
+      "mappedWords": 16678,
+      "unmappedWords": 36,
+      "acceptedDisplayVerses": 1180,
+      "unmatchedDisplayVerses": 29,
+      "partiallyMatchedDisplayVerses": 29,
+      "mappedDisplayRows": 14237,
+      "nonlexicalRows": 221,
+      "anchoredRepeatedVerses": 6,
+      "readerSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+      "unmappedReaderIds": [
+        "exo-4-3-4",
+        "exo-6-14-11",
+        "exo-8-15-2",
+        "exo-10-25-8",
+        "exo-12-4-4",
+        "exo-14-13-23",
+        "exo-14-14-5",
+        "exo-14-22-9",
+        "exo-19-11-7",
+        "exo-19-19-3",
+        "exo-22-4-8",
+        "exo-22-4-10",
+        "exo-22-26-4",
+        "exo-23-22-2",
+        "exo-23-22-3",
+        "exo-25-22-12",
+        "exo-25-22-13",
+        "exo-26-24-2",
+        "exo-27-11-9",
+        "exo-28-28-5",
+        "exo-28-28-8",
+        "exo-29-22-20",
+        "exo-29-40-9",
+        "exo-32-19-15",
+        "exo-32-34-17",
+        "exo-34-24-6",
+        "exo-34-24-7",
+        "exo-36-13-6",
+        "exo-36-13-7",
+        "exo-36-19-5",
+        "exo-37-3-15",
+        "exo-38-10-7",
+        "exo-39-13-7",
+        "exo-39-33-14",
+        "exo-39-35-1",
+        "exo-39-35-2"
+      ]
+    },
+    {
+      "bookId": "lev",
+      "readerWords": 11950,
+      "mappedWords": 11934,
+      "unmappedWords": 16,
+      "acceptedDisplayVerses": 846,
+      "unmatchedDisplayVerses": 13,
+      "partiallyMatchedDisplayVerses": 13,
+      "mappedDisplayRows": 10060,
+      "nonlexicalRows": 107,
+      "anchoredRepeatedVerses": 31,
+      "readerSha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492",
+      "unmappedReaderIds": [
+        "lev-9-22-3",
+        "lev-9-22-5",
+        "lev-10-1-14",
+        "lev-10-13-4",
+        "lev-11-4-8",
+        "lev-14-10-6",
+        "lev-16-8-6",
+        "lev-16-21-6",
+        "lev-18-29-6",
+        "lev-19-4-3",
+        "lev-19-4-4",
+        "lev-20-6-8",
+        "lev-23-20-6",
+        "lev-23-38-10",
+        "lev-23-38-11",
+        "lev-26-45-12"
+      ]
+    },
+    {
+      "bookId": "num",
+      "readerWords": 16412,
+      "mappedWords": 16374,
+      "unmappedWords": 38,
+      "acceptedDisplayVerses": 1257,
+      "unmatchedDisplayVerses": 31,
+      "partiallyMatchedDisplayVerses": 31,
+      "mappedDisplayRows": 14096,
+      "nonlexicalRows": 181,
+      "anchoredRepeatedVerses": 92,
+      "readerSha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452",
+      "unmappedReaderIds": [
+        "num-1-17-9",
+        "num-3-2-5",
+        "num-3-42-7",
+        "num-3-42-8",
+        "num-3-42-9",
+        "num-3-43-6",
+        "num-7-7-3",
+        "num-7-23-7",
+        "num-9-3-10",
+        "num-9-7-12",
+        "num-9-17-2",
+        "num-10-9-10",
+        "num-10-16-7",
+        "num-10-16-8",
+        "num-11-26-12",
+        "num-12-3-4",
+        "num-13-26-17",
+        "num-13-29-11",
+        "num-13-32-1",
+        "num-15-39-13",
+        "num-15-39-14",
+        "num-19-7-8",
+        "num-20-17-22",
+        "num-21-13-9",
+        "num-21-30-4",
+        "num-21-30-5",
+        "num-22-5-5",
+        "num-22-5-6",
+        "num-22-38-9",
+        "num-23-29-16",
+        "num-26-24-3",
+        "num-32-22-8",
+        "num-33-35-4",
+        "num-33-36-2",
+        "num-33-52-17",
+        "num-33-52-18",
+        "num-34-11-8",
+        "num-35-19-10"
+      ]
+    },
+    {
+      "bookId": "deu",
+      "readerWords": 14295,
+      "mappedWords": 14228,
+      "unmappedWords": 67,
+      "acceptedDisplayVerses": 904,
+      "unmatchedDisplayVerses": 51,
+      "partiallyMatchedDisplayVerses": 51,
+      "mappedDisplayRows": 12321,
+      "nonlexicalRows": 247,
+      "anchoredRepeatedVerses": 0,
+      "readerSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
+      "unmappedReaderIds": [
+        "deu-1-15-9",
+        "deu-2-23-8",
+        "deu-2-33-7",
+        "deu-2-33-9",
+        "deu-3-5-4",
+        "deu-3-25-13",
+        "deu-4-3-2",
+        "deu-4-42-14",
+        "deu-4-42-15",
+        "deu-6-9-2",
+        "deu-6-9-3",
+        "deu-6-21-7",
+        "deu-7-9-15",
+        "deu-7-16-10",
+        "deu-7-16-11",
+        "deu-8-2-6",
+        "deu-8-2-22",
+        "deu-8-3-13",
+        "deu-8-12-5",
+        "deu-9-15-9",
+        "deu-10-11-10",
+        "deu-12-20-5",
+        "deu-12-20-6",
+        "deu-18-22-10",
+        "deu-20-1-4",
+        "deu-20-1-5",
+        "deu-21-15-17",
+        "deu-22-14-5",
+        "deu-22-15-4",
+        "deu-22-15-10",
+        "deu-22-16-4",
+        "deu-22-20-10",
+        "deu-22-21-2",
+        "deu-22-21-4",
+        "deu-22-23-4",
+        "deu-22-24-12",
+        "deu-22-24-14",
+        "deu-22-25-5",
+        "deu-22-25-7",
+        "deu-22-26-2",
+        "deu-22-26-8",
+        "deu-22-27-6",
+        "deu-22-28-5",
+        "deu-22-29-7",
+        "deu-24-13-6",
+        "deu-25-7-14",
+        "deu-28-18-8",
+        "deu-28-49-5",
+        "deu-28-52-8",
+        "deu-28-58-10",
+        "deu-28-59-9",
+        "deu-30-9-13",
+        "deu-30-18-17",
+        "deu-30-19-1",
+        "deu-32-7-6",
+        "deu-32-7-7",
+        "deu-32-24-7",
+        "deu-32-24-8",
+        "deu-32-27-10",
+        "deu-32-34-5",
+        "deu-33-9-10",
+        "deu-33-9-12",
+        "deu-33-12-13",
+        "deu-33-19-12",
+        "deu-33-25-3",
+        "deu-34-11-1",
+        "deu-34-11-2"
+      ]
+    }
+  ],
+  "mappedWords": 79806,
+  "readerWords": 79985,
+  "groups": 68354,
+  "unmatchedDisplayVerses": [
+    {
+      "bookId": "gen",
+      "displayChapter": 4,
+      "displayVerse": 18,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 8,
+      "displayVerse": 20,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 13,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 13,
+      "displayVerse": 8,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 14,
+      "displayVerse": 2,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 14,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 19,
+      "displayVerse": 16,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 25,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 27,
+      "displayVerse": 31,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 35,
+      "displayVerse": 5,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 35,
+      "displayVerse": 23,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 41,
+      "displayVerse": 35,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 45,
+      "displayVerse": 15,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 46,
+      "displayVerse": 9,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 5
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 46,
+      "displayVerse": 12,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 46,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 5
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 46,
+      "displayVerse": 14,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 4
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 49,
+      "displayVerse": 10,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 49,
+      "displayVerse": 11,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "gen",
+      "displayChapter": 49,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 4,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 6,
+      "displayVerse": 14,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 8,
+      "displayVerse": 15,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 10,
+      "displayVerse": 25,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 12,
+      "displayVerse": 4,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 14,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 20
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 14,
+      "displayVerse": 14,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 4
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 14,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 19,
+      "displayVerse": 11,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 19,
+      "displayVerse": 19,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 22,
+      "displayVerse": 4,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 22,
+      "displayVerse": 26,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 23,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 25,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 18
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 26,
+      "displayVerse": 24,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 27,
+      "displayVerse": 11,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 28,
+      "displayVerse": 28,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 29,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 22
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 29,
+      "displayVerse": 40,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 32,
+      "displayVerse": 19,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 32,
+      "displayVerse": 34,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 34,
+      "displayVerse": 24,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 36,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 36,
+      "displayVerse": 19,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 37,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 38,
+      "displayVerse": 10,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 39,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 39,
+      "displayVerse": 33,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "exo",
+      "displayChapter": 39,
+      "displayVerse": 35,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 4
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 9,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 10,
+      "displayVerse": 1,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 20
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 10,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 11,
+      "displayVerse": 4,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 14,
+      "displayVerse": 10,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 16,
+      "displayVerse": 8,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 16,
+      "displayVerse": 21,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 22
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 18,
+      "displayVerse": 29,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 19,
+      "displayVerse": 4,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 20,
+      "displayVerse": 6,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 23,
+      "displayVerse": 20,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 23,
+      "displayVerse": 38,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "lev",
+      "displayChapter": 26,
+      "displayVerse": 45,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 1,
+      "displayVerse": 17,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 3,
+      "displayVerse": 2,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 7
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 3,
+      "displayVerse": 42,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 3,
+      "displayVerse": 43,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 7,
+      "displayVerse": 7,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 7,
+      "displayVerse": 23,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 9,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 9,
+      "displayVerse": 7,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 9,
+      "displayVerse": 17,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 10,
+      "displayVerse": 9,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 10,
+      "displayVerse": 16,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 5
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 11,
+      "displayVerse": 26,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 18
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 12,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 13,
+      "displayVerse": 26,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 13,
+      "displayVerse": 29,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 13,
+      "displayVerse": 32,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 23
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 15,
+      "displayVerse": 39,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 19,
+      "displayVerse": 7,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 20,
+      "displayVerse": 17,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 19
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 21,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 21,
+      "displayVerse": 30,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 7
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 22,
+      "displayVerse": 5,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 21
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 22,
+      "displayVerse": 38,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 23,
+      "displayVerse": 29,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 26,
+      "displayVerse": 24,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 5
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 32,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 33,
+      "displayVerse": 35,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 4
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 33,
+      "displayVerse": 36,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 6
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 33,
+      "displayVerse": 52,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 34,
+      "displayVerse": 11,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "num",
+      "displayChapter": 35,
+      "displayVerse": 19,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 7
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 1,
+      "displayVerse": 15,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 19
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 2,
+      "displayVerse": 23,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 2,
+      "displayVerse": 33,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 7
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 3,
+      "displayVerse": 5,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 3,
+      "displayVerse": 25,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 4,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 4,
+      "displayVerse": 42,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 6,
+      "displayVerse": 9,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 3
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 6,
+      "displayVerse": 21,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 7,
+      "displayVerse": 9,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 7,
+      "displayVerse": 16,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 8,
+      "displayVerse": 2,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 8,
+      "displayVerse": 3,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 21
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 8,
+      "displayVerse": 12,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 5
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 9,
+      "displayVerse": 15,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 10,
+      "displayVerse": 11,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 12,
+      "displayVerse": 20,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 18,
+      "displayVerse": 22,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 19
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 20,
+      "displayVerse": 1,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 21,
+      "displayVerse": 15,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 14,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 15,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 16,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 20,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 6
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 21,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 17
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 23,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 24,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 21
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 25,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 26,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 27,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 8
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 28,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 9
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 22,
+      "displayVerse": 29,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 24,
+      "displayVerse": 13,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 14
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 25,
+      "displayVerse": 7,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 18
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 28,
+      "displayVerse": 18,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 7
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 28,
+      "displayVerse": 49,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 13
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 28,
+      "displayVerse": 52,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 21
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 28,
+      "displayVerse": 58,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 28,
+      "displayVerse": 59,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 30,
+      "displayVerse": 9,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 20
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 30,
+      "displayVerse": 18,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 30,
+      "displayVerse": 19,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 16
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 32,
+      "displayVerse": 7,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 32,
+      "displayVerse": 24,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 32,
+      "displayVerse": 27,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 32,
+      "displayVerse": 34,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 4
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 33,
+      "displayVerse": 9,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 15
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 33,
+      "displayVerse": 12,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 12
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 33,
+      "displayVerse": 19,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 11
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 33,
+      "displayVerse": 25,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 4
+    },
+    {
+      "bookId": "deu",
+      "displayChapter": 34,
+      "displayVerse": 11,
+      "reason": "no-complete-verse-match",
+      "candidates": 0,
+      "partialGroups": 10
+    }
+  ],
+  "packetSha256": "eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13",
+  "method": "Complete display-verse letter correspondence to one to six contiguous UXLC verse records in nearby chapters. Unique matches must be ordered and disjoint; repeats require two surrounding accepted anchors. Only documented implicit-qere name/hi/Yissakhar forms permitted; original strings unchanged. Common row/word boundaries define many-to-many groups; all source columns/readings retained.",
+  "limits": "Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending.",
+  "partialWindows": [
+    {
+      "id": "pmam-gap-gen-97-97",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 4,
+        "displayVerse": 17,
+        "readerEnd": "gen-4-17-17"
+      },
+      "after": {
+        "displayChapter": 4,
+        "displayVerse": 19,
+        "readerStart": "gen-4-19-1"
+      },
+      "readerIds": [
         "gen-4-18-1",
         "gen-4-18-2",
         "gen-4-18-3",
@@ -68,7 +1486,39 @@
         "gen-4-18-13",
         "gen-4-18-14",
         "gen-4-18-15",
-        "gen-4-18-16",
+        "gen-4-18-16"
+      ],
+      "sourceRows": 12,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "995e1d85c6a0877f17d63e390e950fda54665c40640d559c41d60f234923d910",
+      "optimalKeyUnits": 58,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 4,
+          "displayVerse": 18,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-203-203",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 8,
+        "displayVerse": 19,
+        "readerEnd": "gen-8-19-14"
+      },
+      "after": {
+        "displayChapter": 8,
+        "displayVerse": 21,
+        "readerStart": "gen-8-21-1"
+      },
+      "readerIds": [
         "gen-8-20-1",
         "gen-8-20-2",
         "gen-8-20-3",
@@ -82,7 +1532,44 @@
         "gen-8-20-11",
         "gen-8-20-12",
         "gen-8-20-13",
-        "gen-8-20-14",
+        "gen-8-20-14"
+      ],
+      "sourceRows": 14,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 12,
+      "candidateSha256": "21b5643f9384deb7c4ae7a91e9e536d3f01d43af2e47a4e08217c06f8592f9ef",
+      "optimalKeyUnits": 44,
+      "optimalPaths": "4",
+      "forcedGroups": 12,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 8,
+          "displayVerse": 20,
+          "rowNumber": 8
+        },
+        {
+          "displayChapter": 8,
+          "displayVerse": 20,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-321-321",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 13,
+        "displayVerse": 2,
+        "readerEnd": "gen-13-2-6"
+      },
+      "after": {
+        "displayChapter": 13,
+        "displayVerse": 4,
+        "readerStart": "gen-13-4-1"
+      },
+      "readerIds": [
         "gen-13-3-1",
         "gen-13-3-2",
         "gen-13-3-3",
@@ -100,7 +1587,39 @@
         "gen-13-3-16",
         "gen-13-3-17",
         "gen-13-3-18",
-        "gen-13-3-19",
+        "gen-13-3-19"
+      ],
+      "sourceRows": 13,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "04118ca2f0d55d2a8015dddba8697307fd5b7d71ffd8d484153aa538c133fe5c",
+      "optimalKeyUnits": 57,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 13,
+          "displayVerse": 3,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-326-326",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 13,
+        "displayVerse": 7,
+        "readerEnd": "gen-13-7-15"
+      },
+      "after": {
+        "displayChapter": 13,
+        "displayVerse": 9,
+        "readerStart": "gen-13-9-1"
+      },
+      "readerIds": [
         "gen-13-8-1",
         "gen-13-8-2",
         "gen-13-8-3",
@@ -118,7 +1637,39 @@
         "gen-13-8-15",
         "gen-13-8-16",
         "gen-13-8-17",
-        "gen-13-8-18",
+        "gen-13-8-18"
+      ],
+      "sourceRows": 15,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "bdbeba727553074587968ee8e891c383fab1636fedf22db561eb4fb31e9d8ef6",
+      "optimalKeyUnits": 61,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 13,
+          "displayVerse": 8,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-338-338",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 14,
+        "displayVerse": 1,
+        "readerEnd": "gen-14-1-14"
+      },
+      "after": {
+        "displayChapter": 14,
+        "displayVerse": 3,
+        "readerStart": "gen-14-3-1"
+      },
+      "readerIds": [
         "gen-14-2-1",
         "gen-14-2-2",
         "gen-14-2-3",
@@ -138,7 +1689,39 @@
         "gen-14-2-18",
         "gen-14-2-19",
         "gen-14-2-20",
-        "gen-14-2-21",
+        "gen-14-2-21"
+      ],
+      "sourceRows": 17,
+      "targetWords": 20,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 28,
+      "candidateSha256": "c8ab607e46215fc71eee3aac642d770cd267aa72474daf5f097c3b8d7debec58",
+      "optimalKeyUnits": 66,
+      "optimalPaths": "2",
+      "forcedGroups": 16,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 14,
+          "displayVerse": 2,
+          "rowNumber": 14
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-358-358",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 14,
+        "displayVerse": 21,
+        "readerEnd": "gen-14-21-11"
+      },
+      "after": {
+        "displayChapter": 14,
+        "displayVerse": 23,
+        "readerStart": "gen-14-23-1"
+      },
+      "readerIds": [
         "gen-14-22-1",
         "gen-14-22-2",
         "gen-14-22-3",
@@ -152,7 +1735,39 @@
         "gen-14-22-11",
         "gen-14-22-12",
         "gen-14-22-13",
-        "gen-14-22-14",
+        "gen-14-22-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "314329a244fa857ff5b5a8b88d683aa8a2a7eb26dc0c2a6998376f260a24c121",
+      "optimalKeyUnits": 41,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 14,
+          "displayVerse": 22,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-473-473",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 19,
+        "displayVerse": 15,
+        "readerEnd": "gen-19-15-19"
+      },
+      "after": {
+        "displayChapter": 19,
+        "displayVerse": 17,
+        "readerStart": "gen-19-17-1"
+      },
+      "readerIds": [
         "gen-19-16-1",
         "gen-19-16-2",
         "gen-19-16-3",
@@ -168,7 +1783,39 @@
         "gen-19-16-13",
         "gen-19-16-14",
         "gen-19-16-15",
-        "gen-19-16-16",
+        "gen-19-16-16"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "222b6bbf3c57db2b1b645e786d6cb8f4f6ec1c2817b58c21649ac1ae68021038",
+      "optimalKeyUnits": 67,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 19,
+          "displayVerse": 16,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-661-661",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 25,
+        "displayVerse": 2,
+        "readerEnd": "gen-25-2-14"
+      },
+      "after": {
+        "displayChapter": 25,
+        "displayVerse": 4,
+        "readerStart": "gen-25-4-1"
+      },
+      "readerIds": [
         "gen-25-3-1",
         "gen-25-3-2",
         "gen-25-3-3",
@@ -180,7 +1827,39 @@
         "gen-25-3-9",
         "gen-25-3-10",
         "gen-25-3-11",
-        "gen-25-3-12",
+        "gen-25-3-12"
+      ],
+      "sourceRows": 10,
+      "targetWords": 12,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "4e532a6d8eb8051cdb30c1b35aee14ac567283655c04ea8157d214aaaa2c75d4",
+      "optimalKeyUnits": 40,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 11,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 25,
+          "displayVerse": 3,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-758-758",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 27,
+        "displayVerse": 30,
+        "readerEnd": "gen-27-30-20"
+      },
+      "after": {
+        "displayChapter": 27,
+        "displayVerse": 32,
+        "readerStart": "gen-27-32-1"
+      },
+      "readerIds": [
         "gen-27-31-1",
         "gen-27-31-2",
         "gen-27-31-3",
@@ -196,7 +1875,39 @@
         "gen-27-31-13",
         "gen-27-31-14",
         "gen-27-31-15",
-        "gen-27-31-16",
+        "gen-27-31-16"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "f7e4ef3e3743e84570f0b64df55d71c48274df40d574a26671bbb5052321a9ac",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 27,
+          "displayVerse": 31,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1016-1016",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 35,
+        "displayVerse": 4,
+        "readerEnd": "gen-35-4-21"
+      },
+      "after": {
+        "displayChapter": 35,
+        "displayVerse": 6,
+        "readerStart": "gen-35-6-1"
+      },
+      "readerIds": [
         "gen-35-5-1",
         "gen-35-5-2",
         "gen-35-5-3",
@@ -209,7 +1920,39 @@
         "gen-35-5-10",
         "gen-35-5-11",
         "gen-35-5-12",
-        "gen-35-5-13",
+        "gen-35-5-13"
+      ],
+      "sourceRows": 12,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "3f0edf16d641133fbd68625a245690ed9a3e43cb865db299889c820792bd98bf",
+      "optimalKeyUnits": 41,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 35,
+          "displayVerse": 5,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1034-1034",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 35,
+        "displayVerse": 22,
+        "readerEnd": "gen-35-22-19"
+      },
+      "after": {
+        "displayChapter": 35,
+        "displayVerse": 24,
+        "readerStart": "gen-35-24-1"
+      },
+      "readerIds": [
         "gen-35-23-1",
         "gen-35-23-2",
         "gen-35-23-3",
@@ -219,7 +1962,39 @@
         "gen-35-23-7",
         "gen-35-23-8",
         "gen-35-23-9",
-        "gen-35-23-10",
+        "gen-35-23-10"
+      ],
+      "sourceRows": 10,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "8f652f496d7484678fae0976aced3d87ca8d747d0723d8e96101a2172d616ba6",
+      "optimalKeyUnits": 40,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 35,
+          "displayVerse": 23,
+          "rowNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1230-1230",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 41,
+        "displayVerse": 34,
+        "readerEnd": "gen-41-34-13"
+      },
+      "after": {
+        "displayChapter": 41,
+        "displayVerse": 36,
+        "readerStart": "gen-41-36-1"
+      },
+      "readerIds": [
         "gen-41-35-1",
         "gen-41-35-2",
         "gen-41-35-3",
@@ -235,7 +2010,39 @@
         "gen-41-35-13",
         "gen-41-35-14",
         "gen-41-35-15",
-        "gen-41-35-16",
+        "gen-41-35-16"
+      ],
+      "sourceRows": 12,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 12,
+      "candidateSha256": "8c1035bbb74be83d74a437e2a89101bbb926b105ca7e698bc9811c6b7c10b6e9",
+      "optimalKeyUnits": 56,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 41,
+          "displayVerse": 35,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1373-1373",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 45,
+        "displayVerse": 14,
+        "readerEnd": "gen-45-14-10"
+      },
+      "after": {
+        "displayChapter": 45,
+        "displayVerse": 16,
+        "readerStart": "gen-45-16-1"
+      },
+      "readerIds": [
         "gen-45-15-1",
         "gen-45-15-2",
         "gen-45-15-3",
@@ -245,13 +2052,77 @@
         "gen-45-15-7",
         "gen-45-15-8",
         "gen-45-15-9",
-        "gen-45-15-10",
+        "gen-45-15-10"
+      ],
+      "sourceRows": 9,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "9a54b0b264f72ebd3971e7cd24339821e4e4c14ddd18f43328544e2d2b53d6e8",
+      "optimalKeyUnits": 34,
+      "optimalPaths": "2",
+      "forcedGroups": 8,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 45,
+          "displayVerse": 15,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1395-1395",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 46,
+        "displayVerse": 8,
+        "readerEnd": "gen-46-8-11"
+      },
+      "after": {
+        "displayChapter": 46,
+        "displayVerse": 10,
+        "readerStart": "gen-46-10-1"
+      },
+      "readerIds": [
         "gen-46-9-1",
         "gen-46-9-2",
         "gen-46-9-3",
         "gen-46-9-4",
         "gen-46-9-5",
-        "gen-46-9-6",
+        "gen-46-9-6"
+      ],
+      "sourceRows": 6,
+      "targetWords": 6,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 5,
+      "candidateSha256": "9f6d2b6d6c06e4676aeb2384574ba16e320ec2b5cf3ffa33278fe02ea59fcc85",
+      "optimalKeyUnits": 23,
+      "optimalPaths": "2",
+      "forcedGroups": 5,
+      "mappedWords": 5,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 46,
+          "displayVerse": 9,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1398-1400",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 46,
+        "displayVerse": 11,
+        "readerEnd": "gen-46-11-5"
+      },
+      "after": {
+        "displayChapter": 46,
+        "displayVerse": 15,
+        "readerStart": "gen-46-15-1"
+      },
+      "readerIds": [
         "gen-46-12-1",
         "gen-46-12-2",
         "gen-46-12-3",
@@ -279,7 +2150,49 @@
         "gen-46-14-2",
         "gen-46-14-3",
         "gen-46-14-4",
-        "gen-46-14-5",
+        "gen-46-14-5"
+      ],
+      "sourceRows": 27,
+      "targetWords": 28,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 34,
+      "candidateSha256": "ed5e9802f32fcbac8eff7bd87e59a4e398248af0d1e00d1de16a5b933dc346ae",
+      "optimalKeyUnits": 101,
+      "optimalPaths": "8",
+      "forcedGroups": 24,
+      "mappedWords": 25,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 46,
+          "displayVerse": 12,
+          "rowNumber": 15
+        },
+        {
+          "displayChapter": 46,
+          "displayVerse": 13,
+          "rowNumber": 6
+        },
+        {
+          "displayChapter": 46,
+          "displayVerse": 14,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1483-1484",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 49,
+        "displayVerse": 9,
+        "readerEnd": "gen-49-9-12"
+      },
+      "after": {
+        "displayChapter": 49,
+        "displayVerse": 12,
+        "readerStart": "gen-49-12-1"
+      },
+      "readerIds": [
         "gen-49-10-1",
         "gen-49-10-2",
         "gen-49-10-3",
@@ -305,7 +2218,49 @@
         "gen-49-11-10",
         "gen-49-11-11",
         "gen-49-11-12",
-        "gen-49-11-14",
+        "gen-49-11-14"
+      ],
+      "sourceRows": 23,
+      "targetWords": 26,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 20,
+      "candidateSha256": "3264df714608e2bad0f5aaa4985b2ef8c0d1071f4cac2ce83b01b250c04d9c3d",
+      "optimalKeyUnits": 88,
+      "optimalPaths": "8",
+      "forcedGroups": 20,
+      "mappedWords": 23,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 49,
+          "displayVerse": 10,
+          "rowNumber": 9
+        },
+        {
+          "displayChapter": 49,
+          "displayVerse": 11,
+          "rowNumber": 3
+        },
+        {
+          "displayChapter": 49,
+          "displayVerse": 11,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-gen-1486-1486",
+      "bookId": "gen",
+      "before": {
+        "displayChapter": 49,
+        "displayVerse": 12,
+        "readerEnd": "gen-49-12-6"
+      },
+      "after": {
+        "displayChapter": 49,
+        "displayVerse": 14,
+        "readerStart": "gen-49-14-1"
+      },
+      "readerIds": [
         "gen-49-13-1",
         "gen-49-13-2",
         "gen-49-13-3",
@@ -316,20 +2271,38 @@
         "gen-49-13-8",
         "gen-49-13-9",
         "gen-49-13-10"
+      ],
+      "sourceRows": 9,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "a5dd8ac545b349d62561d50bb966c3d7294c27f454da42df2584a81cede3741a",
+      "optimalKeyUnits": 37,
+      "optimalPaths": "2",
+      "forcedGroups": 8,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 49,
+          "displayVerse": 13,
+          "rowNumber": 8
+        }
       ]
     },
     {
+      "id": "pmam-gap-exo-71-71",
       "bookId": "exo",
-      "readerWords": 16714,
-      "mappedWords": 16271,
-      "unmappedWords": 443,
-      "acceptedDisplayVerses": 1180,
-      "unmatchedDisplayVerses": 29,
-      "mappedDisplayRows": 13884,
-      "nonlexicalRows": 221,
-      "anchoredRepeatedVerses": 6,
-      "readerSha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
-      "unmappedReaderIds": [
+      "before": {
+        "displayChapter": 4,
+        "displayVerse": 2,
+        "readerEnd": "exo-4-2-9"
+      },
+      "after": {
+        "displayChapter": 4,
+        "displayVerse": 4,
+        "readerStart": "exo-4-4-1"
+      },
+      "readerIds": [
         "exo-4-3-1",
         "exo-4-3-2",
         "exo-4-3-3",
@@ -339,7 +2312,39 @@
         "exo-4-3-7",
         "exo-4-3-8",
         "exo-4-3-9",
-        "exo-4-3-10",
+        "exo-4-3-10"
+      ],
+      "sourceRows": 10,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "99ced740784a899ff107b742f7de5efbef69ce3209fa8e8626963ee01dbd383b",
+      "optimalKeyUnits": 40,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 4,
+          "displayVerse": 3,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-136-136",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 6,
+        "displayVerse": 13,
+        "readerEnd": "exo-6-13-20"
+      },
+      "after": {
+        "displayChapter": 6,
+        "displayVerse": 15,
+        "readerStart": "exo-6-15-1"
+      },
+      "readerIds": [
         "exo-6-14-1",
         "exo-6-14-2",
         "exo-6-14-3",
@@ -354,7 +2359,39 @@
         "exo-6-14-12",
         "exo-6-14-13",
         "exo-6-14-14",
-        "exo-6-14-15",
+        "exo-6-14-15"
+      ],
+      "sourceRows": 14,
+      "targetWords": 15,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "2b6363f5cd9cf003e719bd39829a2b3fd530f7dc5bfe444643d41ea94cbf64cc",
+      "optimalKeyUnits": 57,
+      "optimalPaths": "2",
+      "forcedGroups": 13,
+      "mappedWords": 14,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 6,
+          "displayVerse": 14,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-196-196",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 8,
+        "displayVerse": 14,
+        "readerEnd": "exo-8-14-13"
+      },
+      "after": {
+        "displayChapter": 8,
+        "displayVerse": 16,
+        "readerStart": "exo-8-16-1"
+      },
+      "readerIds": [
         "exo-8-15-1",
         "exo-8-15-2",
         "exo-8-15-3",
@@ -370,7 +2407,39 @@
         "exo-8-15-13",
         "exo-8-15-14",
         "exo-8-15-15",
-        "exo-8-15-16",
+        "exo-8-15-16"
+      ],
+      "sourceRows": 13,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "8754912a305ad5fe7f01532196e6dfd5f17c68741dacdb9ad4e83175bde101fd",
+      "optimalKeyUnits": 49,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 8,
+          "displayVerse": 15,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-269-269",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 10,
+        "displayVerse": 24,
+        "readerEnd": "exo-10-24-17"
+      },
+      "after": {
+        "displayChapter": 10,
+        "displayVerse": 26,
+        "readerStart": "exo-10-26-1"
+      },
+      "readerIds": [
         "exo-10-25-1",
         "exo-10-25-2",
         "exo-10-25-3",
@@ -381,7 +2450,39 @@
         "exo-10-25-8",
         "exo-10-25-9",
         "exo-10-25-10",
-        "exo-10-25-11",
+        "exo-10-25-11"
+      ],
+      "sourceRows": 10,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "4d8407040a2ef0c7803fd007f84b3665bff35f8036cff26cec86e97aef276abf",
+      "optimalKeyUnits": 40,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 10,
+          "displayVerse": 25,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-287-287",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 12,
+        "displayVerse": 3,
+        "readerEnd": "exo-12-3-17"
+      },
+      "after": {
+        "displayChapter": 12,
+        "displayVerse": 5,
+        "readerStart": "exo-12-5-1"
+      },
+      "readerIds": [
         "exo-12-4-1",
         "exo-12-4-2",
         "exo-12-4-3",
@@ -400,7 +2501,39 @@
         "exo-12-4-16",
         "exo-12-4-17",
         "exo-12-4-18",
-        "exo-12-4-19",
+        "exo-12-4-19"
+      ],
+      "sourceRows": 16,
+      "targetWords": 19,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "37690d41c9444a304b23febe5be5d2b33b457502772fd8d2e82c2eb67a9b00c9",
+      "optimalKeyUnits": 64,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 18,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 12,
+          "displayVerse": 4,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-369-370",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 14,
+        "displayVerse": 12,
+        "readerEnd": "exo-14-12-21"
+      },
+      "after": {
+        "displayChapter": 14,
+        "displayVerse": 15,
+        "readerStart": "exo-14-15-1"
+      },
+      "readerIds": [
         "exo-14-13-1",
         "exo-14-13-2",
         "exo-14-13-3",
@@ -432,7 +2565,44 @@
         "exo-14-14-2",
         "exo-14-14-3",
         "exo-14-14-4",
-        "exo-14-14-5",
+        "exo-14-14-5"
+      ],
+      "sourceRows": 26,
+      "targetWords": 32,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 31,
+      "candidateSha256": "c58c31b1ccdf1e592690693bef27411d9a4757ef4c91eaa693d8d0684d35ab7b",
+      "optimalKeyUnits": 101,
+      "optimalPaths": "4",
+      "forcedGroups": 24,
+      "mappedWords": 30,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 14,
+          "displayVerse": 13,
+          "rowNumber": 18
+        },
+        {
+          "displayChapter": 14,
+          "displayVerse": 14,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-378-378",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 14,
+        "displayVerse": 21,
+        "readerEnd": "exo-14-21-21"
+      },
+      "after": {
+        "displayChapter": 14,
+        "displayVerse": 23,
+        "readerStart": "exo-14-23-1"
+      },
+      "readerIds": [
         "exo-14-22-1",
         "exo-14-22-2",
         "exo-14-22-3",
@@ -443,7 +2613,39 @@
         "exo-14-22-8",
         "exo-14-22-9",
         "exo-14-22-10",
-        "exo-14-22-11",
+        "exo-14-22-11"
+      ],
+      "sourceRows": 10,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "ab2b487e3517cefd50e743282818ba8e889a14d6e38e4faaabe989f4d3dd9750",
+      "optimalKeyUnits": 46,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 14,
+          "displayVerse": 22,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-504-504",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 19,
+        "displayVerse": 10,
+        "readerEnd": "exo-19-10-12"
+      },
+      "after": {
+        "displayChapter": 19,
+        "displayVerse": 12,
+        "readerStart": "exo-19-12-1"
+      },
+      "readerIds": [
         "exo-19-11-1",
         "exo-19-11-2",
         "exo-19-11-3",
@@ -458,7 +2660,39 @@
         "exo-19-11-12",
         "exo-19-11-13",
         "exo-19-11-14",
-        "exo-19-11-15",
+        "exo-19-11-15"
+      ],
+      "sourceRows": 13,
+      "targetWords": 15,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "75766da901a0eb22415a9d0a427d7bb7b7b32c2b99365035f4270b5f8a8c6741",
+      "optimalKeyUnits": 47,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 14,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 19,
+          "displayVerse": 11,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-512-512",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 19,
+        "displayVerse": 18,
+        "readerEnd": "exo-19-18-18"
+      },
+      "after": {
+        "displayChapter": 19,
+        "displayVerse": 20,
+        "readerStart": "exo-19-20-1"
+      },
+      "readerIds": [
         "exo-19-19-1",
         "exo-19-19-2",
         "exo-19-19-3",
@@ -469,7 +2703,39 @@
         "exo-19-19-8",
         "exo-19-19-9",
         "exo-19-19-10",
-        "exo-19-19-11",
+        "exo-19-19-11"
+      ],
+      "sourceRows": 11,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "3451b292040e81af09d31974855059a057521ea5af79f9cea09231a097442f28",
+      "optimalKeyUnits": 37,
+      "optimalPaths": "2",
+      "forcedGroups": 10,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 19,
+          "displayVerse": 19,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-581-581",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 3,
+        "readerEnd": "exo-22-3-13"
+      },
+      "after": {
+        "displayChapter": 22,
+        "displayVerse": 5,
+        "readerStart": "exo-22-5-1"
+      },
+      "readerIds": [
         "exo-22-4-1",
         "exo-22-4-2",
         "exo-22-4-3",
@@ -486,7 +2752,39 @@
         "exo-22-4-15",
         "exo-22-4-16",
         "exo-22-4-17",
-        "exo-22-4-18",
+        "exo-22-4-18"
+      ],
+      "sourceRows": 14,
+      "targetWords": 17,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "763fb311c6076a31ed7aa9d5f83a1b0aaaaa21465198d66a053eb444b219be20",
+      "optimalKeyUnits": 53,
+      "optimalPaths": "3",
+      "forcedGroups": 13,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 4,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-603-603",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 25,
+        "readerEnd": "exo-22-25-10"
+      },
+      "after": {
+        "displayChapter": 22,
+        "displayVerse": 27,
+        "readerStart": "exo-22-27-1"
+      },
+      "readerIds": [
         "exo-22-26-1",
         "exo-22-26-2",
         "exo-22-26-4",
@@ -503,7 +2801,39 @@
         "exo-22-26-15",
         "exo-22-26-16",
         "exo-22-26-17",
-        "exo-22-26-18",
+        "exo-22-26-18"
+      ],
+      "sourceRows": 15,
+      "targetWords": 17,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 18,
+      "candidateSha256": "dfdc530047aac488888d7c983e5ab217d1214a241b50296fcb81ac5070c31946",
+      "optimalKeyUnits": 56,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 26,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-629-629",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 23,
+        "displayVerse": 21,
+        "readerEnd": "exo-23-21-14"
+      },
+      "after": {
+        "displayChapter": 23,
+        "displayVerse": 23,
+        "readerStart": "exo-23-23-1"
+      },
+      "readerIds": [
         "exo-23-22-1",
         "exo-23-22-2",
         "exo-23-22-3",
@@ -518,7 +2848,39 @@
         "exo-23-22-12",
         "exo-23-22-13",
         "exo-23-22-14",
-        "exo-23-22-15",
+        "exo-23-22-15"
+      ],
+      "sourceRows": 12,
+      "targetWords": 15,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "8eaf0cdd070202a3c7453c397d3c96e7f7f0b842a6a579a943026d4758c50dda",
+      "optimalKeyUnits": 49,
+      "optimalPaths": "3",
+      "forcedGroups": 11,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 23,
+          "displayVerse": 22,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-680-680",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 25,
+        "displayVerse": 21,
+        "readerEnd": "exo-25-21-14"
+      },
+      "after": {
+        "displayChapter": 25,
+        "displayVerse": 23,
+        "readerStart": "exo-25-23-1"
+      },
+      "readerIds": [
         "exo-25-22-1",
         "exo-25-22-2",
         "exo-25-22-3",
@@ -540,7 +2902,39 @@
         "exo-25-22-19",
         "exo-25-22-20",
         "exo-25-22-21",
-        "exo-25-22-22",
+        "exo-25-22-22"
+      ],
+      "sourceRows": 19,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 19,
+      "candidateSha256": "b694f0188c0456b8b19f17ce9518eff589f0f394f6a5f707c8750bba0c81a626",
+      "optimalKeyUnits": 73,
+      "optimalPaths": "3",
+      "forcedGroups": 18,
+      "mappedWords": 20,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 25,
+          "displayVerse": 22,
+          "rowNumber": 12
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-722-722",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 26,
+        "displayVerse": 23,
+        "readerEnd": "exo-26-23-6"
+      },
+      "after": {
+        "displayChapter": 26,
+        "displayVerse": 25,
+        "readerStart": "exo-26-25-1"
+      },
+      "readerIds": [
         "exo-26-24-1",
         "exo-26-24-2",
         "exo-26-24-3",
@@ -557,7 +2951,39 @@
         "exo-26-24-14",
         "exo-26-24-15",
         "exo-26-24-16",
-        "exo-26-24-17",
+        "exo-26-24-17"
+      ],
+      "sourceRows": 15,
+      "targetWords": 17,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "067838c70ff5c78d8bf94eee15fe9ed1c5eaf39e4c77ab8e171a55ce6956ca7c",
+      "optimalKeyUnits": 66,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 26,
+          "displayVerse": 24,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-746-746",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 27,
+        "displayVerse": 10,
+        "readerEnd": "exo-27-10-9"
+      },
+      "after": {
+        "displayChapter": 27,
+        "displayVerse": 12,
+        "readerStart": "exo-27-12-1"
+      },
+      "readerIds": [
         "exo-27-11-1",
         "exo-27-11-2",
         "exo-27-11-3",
@@ -573,7 +2999,39 @@
         "exo-27-11-14",
         "exo-27-11-15",
         "exo-27-11-16",
-        "exo-27-11-17",
+        "exo-27-11-17"
+      ],
+      "sourceRows": 16,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "210da7d0a3fe0698ef90ef462c1f781a8050eb1d888d2d9d0ae1d46fa4413196",
+      "optimalKeyUnits": 66,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 27,
+          "displayVerse": 11,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-784-784",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 28,
+        "displayVerse": 27,
+        "readerEnd": "exo-28-27-18"
+      },
+      "after": {
+        "displayChapter": 28,
+        "displayVerse": 29,
+        "readerStart": "exo-28-29-1"
+      },
+      "readerIds": [
         "exo-28-28-1",
         "exo-28-28-2",
         "exo-28-28-3",
@@ -591,7 +3049,44 @@
         "exo-28-28-16",
         "exo-28-28-17",
         "exo-28-28-18",
-        "exo-28-28-19",
+        "exo-28-28-19"
+      ],
+      "sourceRows": 14,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "b676ecfc8d550fabea726654a98931506678385487f53bf62d2bfdbeaff58f38",
+      "optimalKeyUnits": 60,
+      "optimalPaths": "4",
+      "forcedGroups": 12,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 28,
+          "displayVerse": 28,
+          "rowNumber": 3
+        },
+        {
+          "displayChapter": 28,
+          "displayVerse": 28,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-821-821",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 29,
+        "displayVerse": 21,
+        "readerEnd": "exo-29-21-26"
+      },
+      "after": {
+        "displayChapter": 29,
+        "displayVerse": 23,
+        "readerStart": "exo-29-23-1"
+      },
+      "readerIds": [
         "exo-29-22-1",
         "exo-29-22-2",
         "exo-29-22-3",
@@ -618,7 +3113,39 @@
         "exo-29-22-24",
         "exo-29-22-25",
         "exo-29-22-26",
-        "exo-29-22-27",
+        "exo-29-22-27"
+      ],
+      "sourceRows": 23,
+      "targetWords": 27,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 38,
+      "candidateSha256": "6e807799dde62b56783a314c27c78b5c6e2f6389b50c00c7a7fa8de25f362f79",
+      "optimalKeyUnits": 95,
+      "optimalPaths": "2",
+      "forcedGroups": 22,
+      "mappedWords": 26,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 29,
+          "displayVerse": 22,
+          "rowNumber": 16
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-839-839",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 29,
+        "displayVerse": 39,
+        "readerEnd": "exo-29-39-11"
+      },
+      "after": {
+        "displayChapter": 29,
+        "displayVerse": 41,
+        "readerStart": "exo-29-41-1"
+      },
+      "readerIds": [
         "exo-29-40-1",
         "exo-29-40-2",
         "exo-29-40-3",
@@ -631,7 +3158,39 @@
         "exo-29-40-10",
         "exo-29-40-11",
         "exo-29-40-12",
-        "exo-29-40-13",
+        "exo-29-40-13"
+      ],
+      "sourceRows": 13,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "2df9aceeab36eba7d403d2d98d2dfcb76311f109e789bb2b70f8540eebbaa995",
+      "optimalKeyUnits": 46,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 29,
+          "displayVerse": 40,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-920-920",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 18,
+        "readerEnd": "exo-32-18-13"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 20,
+        "readerStart": "exo-32-20-1"
+      },
+      "readerIds": [
         "exo-32-19-1",
         "exo-32-19-2",
         "exo-32-19-3",
@@ -651,7 +3210,39 @@
         "exo-32-19-18",
         "exo-32-19-19",
         "exo-32-19-20",
-        "exo-32-19-21",
+        "exo-32-19-21"
+      ],
+      "sourceRows": 16,
+      "targetWords": 20,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "a18d2b9294ed92f6bf5e9822906e1e44db802aeff1e3cf06c0c468693dffd39f",
+      "optimalKeyUnits": 67,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 19,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-935-935",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 33,
+        "readerEnd": "exo-32-33-10"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 35,
+        "readerStart": "exo-32-35-1"
+      },
+      "readerIds": [
         "exo-32-34-1",
         "exo-32-34-2",
         "exo-32-34-3",
@@ -669,7 +3260,39 @@
         "exo-32-34-15",
         "exo-32-34-16",
         "exo-32-34-17",
-        "exo-32-34-18",
+        "exo-32-34-18"
+      ],
+      "sourceRows": 16,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "930403e0d89209f690afc25f83c38f586502bc109afa634451fd619e07343c18",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 34,
+          "rowNumber": 15
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-983-983",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 34,
+        "displayVerse": 23,
+        "readerEnd": "exo-34-23-12"
+      },
+      "after": {
+        "displayChapter": 34,
+        "displayVerse": 25,
+        "readerStart": "exo-34-25-1"
+      },
+      "readerIds": [
         "exo-34-24-1",
         "exo-34-24-2",
         "exo-34-24-3",
@@ -690,7 +3313,39 @@
         "exo-34-24-18",
         "exo-34-24-19",
         "exo-34-24-20",
-        "exo-34-24-21",
+        "exo-34-24-21"
+      ],
+      "sourceRows": 16,
+      "targetWords": 21,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "f161eabcd874ce344ef4a43b12e5059bd8a7512d36fef34eba480e4d67740cfe",
+      "optimalKeyUnits": 72,
+      "optimalPaths": "3",
+      "forcedGroups": 15,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 34,
+          "displayVerse": 24,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1042-1042",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 36,
+        "displayVerse": 12,
+        "readerEnd": "exo-36-12-18"
+      },
+      "after": {
+        "displayChapter": 36,
+        "displayVerse": 14,
+        "readerStart": "exo-36-14-1"
+      },
+      "readerIds": [
         "exo-36-13-1",
         "exo-36-13-2",
         "exo-36-13-3",
@@ -704,7 +3359,39 @@
         "exo-36-13-11",
         "exo-36-13-12",
         "exo-36-13-13",
-        "exo-36-13-14",
+        "exo-36-13-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 12,
+      "candidateSha256": "76c2154d369140132eb740791a1f4a5e7ffaaa3157388717e33c1d232f5c7ea0",
+      "optimalKeyUnits": 47,
+      "optimalPaths": "3",
+      "forcedGroups": 11,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 36,
+          "displayVerse": 13,
+          "rowNumber": 6
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1048-1048",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 36,
+        "displayVerse": 18,
+        "readerEnd": "exo-36-18-9"
+      },
+      "after": {
+        "displayChapter": 36,
+        "displayVerse": 20,
+        "readerStart": "exo-36-20-1"
+      },
+      "readerIds": [
         "exo-36-19-1",
         "exo-36-19-2",
         "exo-36-19-3",
@@ -714,7 +3401,39 @@
         "exo-36-19-7",
         "exo-36-19-8",
         "exo-36-19-9",
-        "exo-36-19-10",
+        "exo-36-19-10"
+      ],
+      "sourceRows": 10,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "a41a7891874c20587f068c735293e81cba3697b9eb7e7d332cf9716c3c78bdb4",
+      "optimalKeyUnits": 40,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 36,
+          "displayVerse": 19,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1070-1070",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 37,
+        "displayVerse": 2,
+        "readerEnd": "exo-37-2-10"
+      },
+      "after": {
+        "displayChapter": 37,
+        "displayVerse": 4,
+        "readerStart": "exo-37-4-1"
+      },
+      "readerIds": [
         "exo-37-3-1",
         "exo-37-3-2",
         "exo-37-3-3",
@@ -732,7 +3451,39 @@
         "exo-37-3-15",
         "exo-37-3-16",
         "exo-37-3-17",
-        "exo-37-3-18",
+        "exo-37-3-18"
+      ],
+      "sourceRows": 16,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 27,
+      "candidateSha256": "fa981669327dddb9976feb1eb2d6390d985bdd72020a7ab9276dab214c2c2742",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 37,
+          "displayVerse": 3,
+          "rowNumber": 14
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1106-1106",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 38,
+        "displayVerse": 9,
+        "readerEnd": "exo-38-9-12"
+      },
+      "after": {
+        "displayChapter": 38,
+        "displayVerse": 11,
+        "readerStart": "exo-38-11-1"
+      },
+      "readerIds": [
         "exo-38-10-1",
         "exo-38-10-2",
         "exo-38-10-3",
@@ -741,7 +3492,39 @@
         "exo-38-10-6",
         "exo-38-10-7",
         "exo-38-10-8",
-        "exo-38-10-9",
+        "exo-38-10-9"
+      ],
+      "sourceRows": 9,
+      "targetWords": 9,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "b64f08adddaa46cd090130c3266b2193c78cebfaf90a92411daa0c4b7f699ad2",
+      "optimalKeyUnits": 41,
+      "optimalPaths": "2",
+      "forcedGroups": 8,
+      "mappedWords": 8,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 38,
+          "displayVerse": 10,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1140-1140",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 39,
+        "displayVerse": 12,
+        "readerEnd": "exo-39-12-5"
+      },
+      "after": {
+        "displayChapter": 39,
+        "displayVerse": 14,
+        "readerStart": "exo-39-14-1"
+      },
+      "readerIds": [
         "exo-39-13-1",
         "exo-39-13-2",
         "exo-39-13-3",
@@ -750,7 +3533,39 @@
         "exo-39-13-6",
         "exo-39-13-7",
         "exo-39-13-8",
-        "exo-39-13-9",
+        "exo-39-13-9"
+      ],
+      "sourceRows": 9,
+      "targetWords": 9,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 8,
+      "candidateSha256": "02afa898af83f760906fe42644cb314e2fa1ed709407ce7c998858f84da3db5d",
+      "optimalKeyUnits": 38,
+      "optimalPaths": "2",
+      "forcedGroups": 8,
+      "mappedWords": 8,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 39,
+          "displayVerse": 13,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1160-1160",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 39,
+        "displayVerse": 32,
+        "readerEnd": "exo-39-32-17"
+      },
+      "after": {
+        "displayChapter": 39,
+        "displayVerse": 34,
+        "readerStart": "exo-39-34-1"
+      },
+      "readerIds": [
         "exo-39-33-1",
         "exo-39-33-2",
         "exo-39-33-3",
@@ -765,7 +3580,39 @@
         "exo-39-33-12",
         "exo-39-33-14",
         "exo-39-33-15",
-        "exo-39-33-16",
+        "exo-39-33-16"
+      ],
+      "sourceRows": 10,
+      "targetWords": 15,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "6aa556c3c87a8b01682b6636ba186b257343936734954bda4c9f66a4a0c91f64",
+      "optimalKeyUnits": 55,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 14,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 39,
+          "displayVerse": 33,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-exo-1162-1162",
+      "bookId": "exo",
+      "before": {
+        "displayChapter": 39,
+        "displayVerse": 34,
+        "readerEnd": "exo-39-34-12"
+      },
+      "after": {
+        "displayChapter": 39,
+        "displayVerse": 36,
+        "readerStart": "exo-39-36-1"
+      },
+      "readerIds": [
         "exo-39-35-1",
         "exo-39-35-2",
         "exo-39-35-3",
@@ -773,20 +3620,38 @@
         "exo-39-35-5",
         "exo-39-35-6",
         "exo-39-35-7"
+      ],
+      "sourceRows": 5,
+      "targetWords": 7,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 5,
+      "candidateSha256": "b5cf662e522ca68e8a4147b512dc8e69e2320774624f712a4471e86e26e0365b",
+      "optimalKeyUnits": 19,
+      "optimalPaths": "3",
+      "forcedGroups": 4,
+      "mappedWords": 5,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 39,
+          "displayVerse": 35,
+          "rowNumber": 1
+        }
       ]
     },
     {
+      "id": "pmam-gap-lev-229-229",
       "bookId": "lev",
-      "readerWords": 11950,
-      "mappedWords": 11730,
-      "unmappedWords": 220,
-      "acceptedDisplayVerses": 846,
-      "unmatchedDisplayVerses": 13,
-      "mappedDisplayRows": 9882,
-      "nonlexicalRows": 107,
-      "anchoredRepeatedVerses": 31,
-      "readerSha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492",
-      "unmappedReaderIds": [
+      "before": {
+        "displayChapter": 9,
+        "displayVerse": 21,
+        "readerEnd": "lev-9-21-13"
+      },
+      "after": {
+        "displayChapter": 9,
+        "displayVerse": 23,
+        "readerStart": "lev-9-23-1"
+      },
+      "readerIds": [
         "lev-9-22-1",
         "lev-9-22-2",
         "lev-9-22-3",
@@ -798,7 +3663,39 @@
         "lev-9-22-10",
         "lev-9-22-11",
         "lev-9-22-12",
-        "lev-9-22-13",
+        "lev-9-22-13"
+      ],
+      "sourceRows": 10,
+      "targetWords": 12,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "c8f7bd755f6daa2a589b9abda3427fe222fbec36c458a0fecb98a0720dfe7f5c",
+      "optimalKeyUnits": 44,
+      "optimalPaths": "3",
+      "forcedGroups": 9,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 9,
+          "displayVerse": 22,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-232-232",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 9,
+        "displayVerse": 24,
+        "readerEnd": "lev-9-24-18"
+      },
+      "after": {
+        "displayChapter": 10,
+        "displayVerse": 2,
+        "readerStart": "lev-10-2-1"
+      },
+      "readerIds": [
         "lev-10-1-1",
         "lev-10-1-2",
         "lev-10-1-3",
@@ -820,7 +3717,39 @@
         "lev-10-1-19",
         "lev-10-1-20",
         "lev-10-1-21",
-        "lev-10-1-22",
+        "lev-10-1-22"
+      ],
+      "sourceRows": 21,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 22,
+      "candidateSha256": "1174e9d154e724c967f2739d09ace8cbb27e868724e984c123a0b1c239ab1eb7",
+      "optimalKeyUnits": 75,
+      "optimalPaths": "2",
+      "forcedGroups": 20,
+      "mappedWords": 21,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 10,
+          "displayVerse": 1,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-244-244",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 10,
+        "displayVerse": 12,
+        "readerEnd": "lev-10-12-24"
+      },
+      "after": {
+        "displayChapter": 10,
+        "displayVerse": 14,
+        "readerStart": "lev-10-14-1"
+      },
+      "readerIds": [
         "lev-10-13-1",
         "lev-10-13-2",
         "lev-10-13-3",
@@ -834,7 +3763,39 @@
         "lev-10-13-11",
         "lev-10-13-12",
         "lev-10-13-13",
-        "lev-10-13-14",
+        "lev-10-13-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 12,
+      "candidateSha256": "fc7df24e902ca14886da7075c5f04295436e7f355b02af2022d2d45f186614ae",
+      "optimalKeyUnits": 43,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 10,
+          "displayVerse": 13,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-255-255",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 11,
+        "displayVerse": 3,
+        "readerEnd": "lev-11-3-11"
+      },
+      "after": {
+        "displayChapter": 11,
+        "displayVerse": 5,
+        "readerStart": "lev-11-5-1"
+      },
+      "readerIds": [
         "lev-11-4-1",
         "lev-11-4-2",
         "lev-11-4-3",
@@ -855,7 +3816,39 @@
         "lev-11-4-18",
         "lev-11-4-19",
         "lev-11-4-20",
-        "lev-11-4-21",
+        "lev-11-4-21"
+      ],
+      "sourceRows": 18,
+      "targetWords": 21,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 19,
+      "candidateSha256": "f2129250dafc82588bc1d482ad4b73f15aca48ac891bd3b1126aeecbbdaa95cb",
+      "optimalKeyUnits": 69,
+      "optimalPaths": "2",
+      "forcedGroups": 17,
+      "mappedWords": 20,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 11,
+          "displayVerse": 4,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-375-375",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 14,
+        "displayVerse": 9,
+        "readerEnd": "lev-14-9-26"
+      },
+      "after": {
+        "displayChapter": 14,
+        "displayVerse": 11,
+        "readerStart": "lev-14-11-1"
+      },
+      "readerIds": [
         "lev-14-10-1",
         "lev-14-10-2",
         "lev-14-10-3",
@@ -875,7 +3868,39 @@
         "lev-14-10-17",
         "lev-14-10-18",
         "lev-14-10-19",
-        "lev-14-10-20",
+        "lev-14-10-20"
+      ],
+      "sourceRows": 18,
+      "targetWords": 20,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "4513b5074baa8e353c53b7ec2558224bcc71f9d0b59ac9bf677985b20063726c",
+      "optimalKeyUnits": 77,
+      "optimalPaths": "2",
+      "forcedGroups": 17,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 14,
+          "displayVerse": 10,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-463-463",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 16,
+        "displayVerse": 7,
+        "readerEnd": "lev-16-7-11"
+      },
+      "after": {
+        "displayChapter": 16,
+        "displayVerse": 9,
+        "readerStart": "lev-16-9-1"
+      },
+      "readerIds": [
         "lev-16-8-1",
         "lev-16-8-2",
         "lev-16-8-3",
@@ -887,7 +3912,39 @@
         "lev-16-8-9",
         "lev-16-8-10",
         "lev-16-8-11",
-        "lev-16-8-12",
+        "lev-16-8-12"
+      ],
+      "sourceRows": 11,
+      "targetWords": 12,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 12,
+      "candidateSha256": "78fbfa8964a6687d9ccf329f3b0d9cf5fd01e83466cda0f7394b987df1b822d5",
+      "optimalKeyUnits": 42,
+      "optimalPaths": "2",
+      "forcedGroups": 10,
+      "mappedWords": 11,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 16,
+          "displayVerse": 8,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-476-476",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 16,
+        "displayVerse": 20,
+        "readerEnd": "lev-16-20-13"
+      },
+      "after": {
+        "displayChapter": 16,
+        "displayVerse": 22,
+        "readerStart": "lev-16-22-1"
+      },
+      "readerIds": [
         "lev-16-21-1",
         "lev-16-21-2",
         "lev-16-21-3",
@@ -918,7 +3975,39 @@
         "lev-16-21-29",
         "lev-16-21-30",
         "lev-16-21-31",
-        "lev-16-21-32",
+        "lev-16-21-32"
+      ],
+      "sourceRows": 23,
+      "targetWords": 31,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 27,
+      "candidateSha256": "7a208898a9ff4e0cede5a44cd68e28e5abcba6be3c7b751f28d2e65bb04e83be",
+      "optimalKeyUnits": 107,
+      "optimalPaths": "2",
+      "forcedGroups": 22,
+      "mappedWords": 30,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 16,
+          "displayVerse": 21,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-534-534",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 18,
+        "displayVerse": 28,
+        "readerEnd": "lev-18-28-12"
+      },
+      "after": {
+        "displayChapter": 18,
+        "displayVerse": 30,
+        "readerStart": "lev-18-30-1"
+      },
+      "readerIds": [
         "lev-18-29-1",
         "lev-18-29-2",
         "lev-18-29-3",
@@ -930,7 +4019,39 @@
         "lev-18-29-9",
         "lev-18-29-10",
         "lev-18-29-11",
-        "lev-18-29-12",
+        "lev-18-29-12"
+      ],
+      "sourceRows": 11,
+      "targetWords": 12,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "c0a55d879505348a02fe9eb30770065a49e351f07558bd005be91ef60bee1563",
+      "optimalKeyUnits": 41,
+      "optimalPaths": "2",
+      "forcedGroups": 10,
+      "mappedWords": 11,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 18,
+          "displayVerse": 29,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-539-539",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 19,
+        "displayVerse": 3,
+        "readerEnd": "lev-19-3-10"
+      },
+      "after": {
+        "displayChapter": 19,
+        "displayVerse": 5,
+        "readerStart": "lev-19-5-1"
+      },
+      "readerIds": [
         "lev-19-4-1",
         "lev-19-4-2",
         "lev-19-4-3",
@@ -942,7 +4063,39 @@
         "lev-19-4-9",
         "lev-19-4-10",
         "lev-19-4-11",
-        "lev-19-4-12",
+        "lev-19-4-12"
+      ],
+      "sourceRows": 10,
+      "targetWords": 12,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "320385b12ea04e5ac6dc1fb6f0572898fc925b9be065543e74bd17adfb16af67",
+      "optimalKeyUnits": 34,
+      "optimalPaths": "3",
+      "forcedGroups": 9,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 19,
+          "displayVerse": 4,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-578-578",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 20,
+        "displayVerse": 5,
+        "readerEnd": "lev-20-5-18"
+      },
+      "after": {
+        "displayChapter": 20,
+        "displayVerse": 7,
+        "readerStart": "lev-20-7-1"
+      },
+      "readerIds": [
         "lev-20-6-1",
         "lev-20-6-2",
         "lev-20-6-3",
@@ -960,7 +4113,39 @@
         "lev-20-6-15",
         "lev-20-6-16",
         "lev-20-6-17",
-        "lev-20-6-18",
+        "lev-20-6-18"
+      ],
+      "sourceRows": 15,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "b8a8db468226456df43a9c3302c9d6954aa1582c48111bbf61246e77db9a65c1",
+      "optimalKeyUnits": 68,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 20,
+          "displayVerse": 6,
+          "rowNumber": 6
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-676-676",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 23,
+        "displayVerse": 19,
+        "readerEnd": "lev-23-19-11"
+      },
+      "after": {
+        "displayChapter": 23,
+        "displayVerse": 21,
+        "readerStart": "lev-23-21-1"
+      },
+      "readerIds": [
         "lev-23-20-1",
         "lev-23-20-2",
         "lev-23-20-3",
@@ -976,7 +4161,39 @@
         "lev-23-20-13",
         "lev-23-20-14",
         "lev-23-20-15",
-        "lev-23-20-16",
+        "lev-23-20-16"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "9064b5da94818464b0af5a95f8c4e25d9f3cf98f37c59c00a46523c765b398cd",
+      "optimalKeyUnits": 50,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 23,
+          "displayVerse": 20,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-694-694",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 23,
+        "displayVerse": 37,
+        "readerEnd": "lev-23-37-18"
+      },
+      "after": {
+        "displayChapter": 23,
+        "displayVerse": 39,
+        "readerStart": "lev-23-39-1"
+      },
+      "readerIds": [
         "lev-23-38-1",
         "lev-23-38-2",
         "lev-23-38-3",
@@ -990,7 +4207,39 @@
         "lev-23-38-11",
         "lev-23-38-12",
         "lev-23-38-13",
-        "lev-23-38-14",
+        "lev-23-38-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "8050ca0a161caacbbe27d1a07f10c5c372d61759655e3f57466e77f4dfb65ba7",
+      "optimalKeyUnits": 49,
+      "optimalPaths": "3",
+      "forcedGroups": 11,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 23,
+          "displayVerse": 38,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-lev-823-823",
+      "bookId": "lev",
+      "before": {
+        "displayChapter": 26,
+        "displayVerse": 44,
+        "readerEnd": "lev-26-44-18"
+      },
+      "after": {
+        "displayChapter": 26,
+        "displayVerse": 46,
+        "readerStart": "lev-26-46-1"
+      },
+      "readerIds": [
         "lev-26-45-1",
         "lev-26-45-2",
         "lev-26-45-3",
@@ -1007,20 +4256,38 @@
         "lev-26-45-14",
         "lev-26-45-15",
         "lev-26-45-16"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "13ce4149dd0491ed93ba50900695f1a1028eb4a826ab51409615a9256885badd",
+      "optimalKeyUnits": 59,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 26,
+          "displayVerse": 45,
+          "rowNumber": 11
+        }
       ]
     },
     {
+      "id": "pmam-gap-num-16-16",
       "bookId": "num",
-      "readerWords": 16412,
-      "mappedWords": 15934,
-      "unmappedWords": 478,
-      "acceptedDisplayVerses": 1257,
-      "unmatchedDisplayVerses": 31,
-      "mappedDisplayRows": 13711,
-      "nonlexicalRows": 181,
-      "anchoredRepeatedVerses": 92,
-      "readerSha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452",
-      "unmappedReaderIds": [
+      "before": {
+        "displayChapter": 1,
+        "displayVerse": 16,
+        "readerEnd": "num-1-16-11"
+      },
+      "after": {
+        "displayChapter": 1,
+        "displayVerse": 18,
+        "readerStart": "num-1-18-1"
+      },
+      "readerIds": [
         "num-1-17-1",
         "num-1-17-2",
         "num-1-17-3",
@@ -1029,7 +4296,39 @@
         "num-1-17-6",
         "num-1-17-7",
         "num-1-17-8",
-        "num-1-17-9",
+        "num-1-17-9"
+      ],
+      "sourceRows": 9,
+      "targetWords": 9,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 8,
+      "candidateSha256": "5ff800989f0dce8520a134348b178feb00f2a9b5dc5a55252dd2c725289cdaa9",
+      "optimalKeyUnits": 31,
+      "optimalPaths": "2",
+      "forcedGroups": 8,
+      "mappedWords": 8,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 1,
+          "displayVerse": 17,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-89-89",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 3,
+        "displayVerse": 1,
+        "readerEnd": "num-3-1-11"
+      },
+      "after": {
+        "displayChapter": 3,
+        "displayVerse": 3,
+        "readerStart": "num-3-3-1"
+      },
+      "readerIds": [
         "num-3-2-1",
         "num-3-2-2",
         "num-3-2-3",
@@ -1038,7 +4337,39 @@
         "num-3-2-6",
         "num-3-2-7",
         "num-3-2-8",
-        "num-3-2-9",
+        "num-3-2-9"
+      ],
+      "sourceRows": 8,
+      "targetWords": 9,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 7,
+      "candidateSha256": "1d991b00553ce18510d37dbabaa7e9e63174b2ad90ffc34cf1708068423bf07f",
+      "optimalKeyUnits": 36,
+      "optimalPaths": "2",
+      "forcedGroups": 7,
+      "mappedWords": 8,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 3,
+          "displayVerse": 2,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-129-130",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 3,
+        "displayVerse": 41,
+        "readerEnd": "num-3-41-20"
+      },
+      "after": {
+        "displayChapter": 3,
+        "displayVerse": 44,
+        "readerStart": "num-3-44-1"
+      },
+      "readerIds": [
         "num-3-42-1",
         "num-3-42-2",
         "num-3-42-3",
@@ -1065,7 +4396,44 @@
         "num-3-43-13",
         "num-3-43-14",
         "num-3-43-15",
-        "num-3-43-16",
+        "num-3-43-16"
+      ],
+      "sourceRows": 23,
+      "targetWords": 27,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 21,
+      "candidateSha256": "17a7fb3fcf3dc9d117d90f8aa567daf8c097cf2e521783d4ead9b4335b5030d8",
+      "optimalKeyUnits": 93,
+      "optimalPaths": "8",
+      "forcedGroups": 21,
+      "mappedWords": 23,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 3,
+          "displayVerse": 42,
+          "rowNumber": 7
+        },
+        {
+          "displayChapter": 3,
+          "displayVerse": 43,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-252-252",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 7,
+        "displayVerse": 6,
+        "readerEnd": "num-7-6-10"
+      },
+      "after": {
+        "displayChapter": 7,
+        "displayVerse": 8,
+        "readerStart": "num-7-8-1"
+      },
+      "readerIds": [
         "num-7-7-1",
         "num-7-7-2",
         "num-7-7-3",
@@ -1076,7 +4444,39 @@
         "num-7-7-8",
         "num-7-7-9",
         "num-7-7-10",
-        "num-7-7-11",
+        "num-7-7-11"
+      ],
+      "sourceRows": 11,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "f8ce1aa831d11d6ff693cfebfdbfa97ec72c61588d8352d8bbe643c658f1410b",
+      "optimalKeyUnits": 37,
+      "optimalPaths": "2",
+      "forcedGroups": 10,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 7,
+          "displayVerse": 7,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-268-268",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 7,
+        "displayVerse": 22,
+        "readerEnd": "num-7-22-4"
+      },
+      "after": {
+        "displayChapter": 7,
+        "displayVerse": 24,
+        "readerStart": "num-7-24-1"
+      },
+      "readerIds": [
         "num-7-23-1",
         "num-7-23-2",
         "num-7-23-3",
@@ -1093,7 +4493,39 @@
         "num-7-23-14",
         "num-7-23-15",
         "num-7-23-16",
-        "num-7-23-17",
+        "num-7-23-17"
+      ],
+      "sourceRows": 15,
+      "targetWords": 17,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 20,
+      "candidateSha256": "f15279910fea8eb01ae39f070cd8ae51cd67fbbbbb16928ee4bbaa066dc236ae",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 7,
+          "displayVerse": 23,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-363-363",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 9,
+        "displayVerse": 2,
+        "readerEnd": "num-9-2-6"
+      },
+      "after": {
+        "displayChapter": 9,
+        "displayVerse": 4,
+        "readerStart": "num-9-4-1"
+      },
+      "readerIds": [
         "num-9-3-1",
         "num-9-3-2",
         "num-9-3-3",
@@ -1109,7 +4541,39 @@
         "num-9-3-13",
         "num-9-3-14",
         "num-9-3-15",
-        "num-9-3-16",
+        "num-9-3-16"
+      ],
+      "sourceRows": 13,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "2092608ef7474135f9d5d090c9c89d6b532772fe4cf74110d72dfe82f2f5105c",
+      "optimalKeyUnits": 60,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 9,
+          "displayVerse": 3,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-367-367",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 9,
+        "displayVerse": 6,
+        "readerEnd": "num-9-6-20"
+      },
+      "after": {
+        "displayChapter": 9,
+        "displayVerse": 8,
+        "readerStart": "num-9-8-1"
+      },
+      "readerIds": [
         "num-9-7-1",
         "num-9-7-2",
         "num-9-7-3",
@@ -1128,7 +4592,39 @@
         "num-9-7-16",
         "num-9-7-17",
         "num-9-7-18",
-        "num-9-7-19",
+        "num-9-7-19"
+      ],
+      "sourceRows": 18,
+      "targetWords": 19,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "6a4915cd1a4705217f9ecbdbab12e526a2464df998ea07cd51c255a5241504d9",
+      "optimalKeyUnits": 73,
+      "optimalPaths": "2",
+      "forcedGroups": 17,
+      "mappedWords": 18,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 9,
+          "displayVerse": 7,
+          "rowNumber": 12
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-377-377",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 9,
+        "displayVerse": 16,
+        "readerEnd": "num-9-16-8"
+      },
+      "after": {
+        "displayChapter": 9,
+        "displayVerse": 18,
+        "readerStart": "num-9-18-1"
+      },
+      "readerIds": [
         "num-9-17-1",
         "num-9-17-2",
         "num-9-17-3",
@@ -1147,7 +4643,39 @@
         "num-9-17-16",
         "num-9-17-17",
         "num-9-17-18",
-        "num-9-17-19",
+        "num-9-17-19"
+      ],
+      "sourceRows": 18,
+      "targetWords": 19,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 24,
+      "candidateSha256": "485af5b76f628e7740c39c2036ce117edd35eccb3431c53a02137624e5d22493",
+      "optimalKeyUnits": 67,
+      "optimalPaths": "2",
+      "forcedGroups": 17,
+      "mappedWords": 18,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 9,
+          "displayVerse": 17,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-392-392",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 10,
+        "displayVerse": 8,
+        "readerEnd": "num-10-8-10"
+      },
+      "after": {
+        "displayChapter": 10,
+        "displayVerse": 10,
+        "readerStart": "num-10-10-1"
+      },
+      "readerIds": [
         "num-10-9-1",
         "num-10-9-2",
         "num-10-9-3",
@@ -1163,7 +4691,39 @@
         "num-10-9-13",
         "num-10-9-14",
         "num-10-9-15",
-        "num-10-9-16",
+        "num-10-9-16"
+      ],
+      "sourceRows": 14,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "da5078f6337d8152e3f5205943f6294ad6e6a92f974d0585e10ccb1b9d13c5fd",
+      "optimalKeyUnits": 69,
+      "optimalPaths": "2",
+      "forcedGroups": 13,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 10,
+          "displayVerse": 9,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-399-399",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 10,
+        "displayVerse": 15,
+        "readerEnd": "num-10-15-8"
+      },
+      "after": {
+        "displayChapter": 10,
+        "displayVerse": 17,
+        "readerStart": "num-10-17-1"
+      },
+      "readerIds": [
         "num-10-16-1",
         "num-10-16-2",
         "num-10-16-3",
@@ -1171,7 +4731,39 @@
         "num-10-16-5",
         "num-10-16-6",
         "num-10-16-7",
-        "num-10-16-8",
+        "num-10-16-8"
+      ],
+      "sourceRows": 6,
+      "targetWords": 8,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 5,
+      "candidateSha256": "a5853ccb77fdee97c070b9acd580c04f20bf71158e024a4450752b3d9326db9c",
+      "optimalKeyUnits": 22,
+      "optimalPaths": "3",
+      "forcedGroups": 5,
+      "mappedWords": 6,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 10,
+          "displayVerse": 16,
+          "rowNumber": 6
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-445-445",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 11,
+        "displayVerse": 25,
+        "readerEnd": "num-11-25-22"
+      },
+      "after": {
+        "displayChapter": 11,
+        "displayVerse": 27,
+        "readerStart": "num-11-27-1"
+      },
+      "readerIds": [
         "num-11-26-1",
         "num-11-26-2",
         "num-11-26-3",
@@ -1191,7 +4783,39 @@
         "num-11-26-17",
         "num-11-26-18",
         "num-11-26-19",
-        "num-11-26-20",
+        "num-11-26-20"
+      ],
+      "sourceRows": 19,
+      "targetWords": 20,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 20,
+      "candidateSha256": "0fd13064fb96f6e30f33beb005de5839a23440e68ff7af93eee882a6553c5a76",
+      "optimalKeyUnits": 82,
+      "optimalPaths": "2",
+      "forcedGroups": 18,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 11,
+          "displayVerse": 26,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-457-457",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 12,
+        "displayVerse": 2,
+        "readerEnd": "num-12-2-12"
+      },
+      "after": {
+        "displayChapter": 12,
+        "displayVerse": 4,
+        "readerStart": "num-12-4-1"
+      },
+      "readerIds": [
         "num-12-3-1",
         "num-12-3-2",
         "num-12-3-4",
@@ -1201,7 +4825,39 @@
         "num-12-3-8",
         "num-12-3-9",
         "num-12-3-10",
-        "num-12-3-11",
+        "num-12-3-11"
+      ],
+      "sourceRows": 9,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 8,
+      "candidateSha256": "769a274f9fcb61020cc416e28d0eed4d9f6865385be5374e452fff9a4257584f",
+      "optimalKeyUnits": 31,
+      "optimalPaths": "2",
+      "forcedGroups": 8,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 12,
+          "displayVerse": 3,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-496-496",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 13,
+        "displayVerse": 25,
+        "readerEnd": "num-13-25-6"
+      },
+      "after": {
+        "displayChapter": 13,
+        "displayVerse": 27,
+        "readerStart": "num-13-27-1"
+      },
+      "readerIds": [
         "num-13-26-1",
         "num-13-26-2",
         "num-13-26-3",
@@ -1226,7 +4882,39 @@
         "num-13-26-22",
         "num-13-26-23",
         "num-13-26-24",
-        "num-13-26-25",
+        "num-13-26-25"
+      ],
+      "sourceRows": 16,
+      "targetWords": 25,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "9df2531a9bb3e683ab479e9a15c34af436a79c2b3a281b99dc58d34bbe7e476c",
+      "optimalKeyUnits": 85,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 24,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 13,
+          "displayVerse": 26,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-499-499",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 13,
+        "displayVerse": 28,
+        "readerEnd": "num-13-28-15"
+      },
+      "after": {
+        "displayChapter": 13,
+        "displayVerse": 30,
+        "readerStart": "num-13-30-1"
+      },
+      "readerIds": [
         "num-13-29-1",
         "num-13-29-2",
         "num-13-29-3",
@@ -1242,7 +4930,39 @@
         "num-13-29-13",
         "num-13-29-14",
         "num-13-29-15",
-        "num-13-29-16",
+        "num-13-29-16"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 18,
+      "candidateSha256": "adbb12ef75d2bcb8f8e3803c03dfaa9782b78a50bbbe0601e969435e4bc72694",
+      "optimalKeyUnits": 63,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 13,
+          "displayVerse": 29,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-502-502",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 13,
+        "displayVerse": 31,
+        "readerEnd": "num-13-31-14"
+      },
+      "after": {
+        "displayChapter": 13,
+        "displayVerse": 33,
+        "readerStart": "num-13-33-1"
+      },
+      "readerIds": [
         "num-13-32-1",
         "num-13-32-2",
         "num-13-32-3",
@@ -1269,7 +4989,39 @@
         "num-13-32-24",
         "num-13-32-25",
         "num-13-32-26",
-        "num-13-32-27",
+        "num-13-32-27"
+      ],
+      "sourceRows": 24,
+      "targetWords": 27,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 31,
+      "candidateSha256": "cc24168600f8a6f9d6dcd755de2218534fe5425f2b208b3f883cdaeb17d0a844",
+      "optimalKeyUnits": 94,
+      "optimalPaths": "2",
+      "forcedGroups": 23,
+      "mappedWords": 26,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 13,
+          "displayVerse": 32,
+          "rowNumber": 1
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-587-587",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 15,
+        "displayVerse": 38,
+        "readerEnd": "num-15-38-19"
+      },
+      "after": {
+        "displayChapter": 15,
+        "displayVerse": 40,
+        "readerStart": "num-15-40-1"
+      },
+      "readerIds": [
         "num-15-39-1",
         "num-15-39-2",
         "num-15-39-3",
@@ -1291,7 +5043,39 @@
         "num-15-39-19",
         "num-15-39-20",
         "num-15-39-21",
-        "num-15-39-22",
+        "num-15-39-22"
+      ],
+      "sourceRows": 18,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 18,
+      "candidateSha256": "4e2ccf93ce85fee8baa6146275ee700cfa7f5c5b019c125eeb2e873750b6699c",
+      "optimalKeyUnits": 81,
+      "optimalPaths": "3",
+      "forcedGroups": 17,
+      "mappedWords": 20,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 15,
+          "displayVerse": 39,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-691-691",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 19,
+        "displayVerse": 6,
+        "readerEnd": "num-19-6-12"
+      },
+      "after": {
+        "displayChapter": 19,
+        "displayVerse": 8,
+        "readerStart": "num-19-8-1"
+      },
+      "readerIds": [
         "num-19-7-1",
         "num-19-7-2",
         "num-19-7-3",
@@ -1305,7 +5089,39 @@
         "num-19-7-11",
         "num-19-7-12",
         "num-19-7-13",
-        "num-19-7-14",
+        "num-19-7-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 13,
+      "candidateSha256": "1863872b6dc7e372dfa367d7eb65b65d99ac67e7d8b3b9370a26324f1dd23bbd",
+      "optimalKeyUnits": 50,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 19,
+          "displayVerse": 7,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-723-723",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 20,
+        "displayVerse": 16,
+        "readerEnd": "num-20-16-15"
+      },
+      "after": {
+        "displayChapter": 20,
+        "displayVerse": 18,
+        "readerStart": "num-20-18-1"
+      },
+      "readerIds": [
         "num-20-17-1",
         "num-20-17-2",
         "num-20-17-3",
@@ -1327,7 +5143,39 @@
         "num-20-17-19",
         "num-20-17-20",
         "num-20-17-21",
-        "num-20-17-22",
+        "num-20-17-22"
+      ],
+      "sourceRows": 20,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 22,
+      "candidateSha256": "a8254cb788f06fcb3f6e3ce0c491eb963d86d484c47bd89acaa9f6a1b37662aa",
+      "optimalKeyUnits": 73,
+      "optimalPaths": "2",
+      "forcedGroups": 19,
+      "mappedWords": 21,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 20,
+          "displayVerse": 17,
+          "rowNumber": 20
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-748-748",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 21,
+        "displayVerse": 12,
+        "readerEnd": "num-21-12-5"
+      },
+      "after": {
+        "displayChapter": 21,
+        "displayVerse": 14,
+        "readerStart": "num-21-14-1"
+      },
+      "readerIds": [
         "num-21-13-1",
         "num-21-13-2",
         "num-21-13-3",
@@ -1345,7 +5193,39 @@
         "num-21-13-15",
         "num-21-13-16",
         "num-21-13-17",
-        "num-21-13-18",
+        "num-21-13-18"
+      ],
+      "sourceRows": 18,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 23,
+      "candidateSha256": "58b42001e15ddde904c4bfd316adc466798858f14bce9c46d3b9010e858cf348",
+      "optimalKeyUnits": 69,
+      "optimalPaths": "2",
+      "forcedGroups": 17,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 21,
+          "displayVerse": 13,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-765-765",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 21,
+        "displayVerse": 29,
+        "readerEnd": "num-21-29-14"
+      },
+      "after": {
+        "displayChapter": 21,
+        "displayVerse": 31,
+        "readerStart": "num-21-31-1"
+      },
+      "readerIds": [
         "num-21-30-1",
         "num-21-30-2",
         "num-21-30-3",
@@ -1356,7 +5236,39 @@
         "num-21-30-8",
         "num-21-30-9",
         "num-21-30-10",
-        "num-21-30-11",
+        "num-21-30-11"
+      ],
+      "sourceRows": 8,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 7,
+      "candidateSha256": "b61aafc12663339a937ab1f079801b856b1f5acc7e7b2a1459ad16a06637a299",
+      "optimalKeyUnits": 33,
+      "optimalPaths": "3",
+      "forcedGroups": 7,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 21,
+          "displayVerse": 30,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-775-775",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 4,
+        "readerEnd": "num-22-4-23"
+      },
+      "after": {
+        "displayChapter": 22,
+        "displayVerse": 6,
+        "readerStart": "num-22-6-1"
+      },
+      "readerIds": [
         "num-22-5-1",
         "num-22-5-2",
         "num-22-5-3",
@@ -1384,7 +5296,39 @@
         "num-22-5-25",
         "num-22-5-26",
         "num-22-5-27",
-        "num-22-5-28",
+        "num-22-5-28"
+      ],
+      "sourceRows": 22,
+      "targetWords": 28,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 23,
+      "candidateSha256": "f98eccf24cd260b211ccc346111554f280ba291f8df3b59ca8983292f5cb35fd",
+      "optimalKeyUnits": 90,
+      "optimalPaths": "3",
+      "forcedGroups": 21,
+      "mappedWords": 26,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 5,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-808-808",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 37,
+        "readerEnd": "num-22-37-18"
+      },
+      "after": {
+        "displayChapter": 22,
+        "displayVerse": 39,
+        "readerStart": "num-22-39-1"
+      },
+      "readerIds": [
         "num-22-38-1",
         "num-22-38-2",
         "num-22-38-3",
@@ -1403,7 +5347,39 @@
         "num-22-38-16",
         "num-22-38-17",
         "num-22-38-18",
-        "num-22-38-19",
+        "num-22-38-19"
+      ],
+      "sourceRows": 17,
+      "targetWords": 19,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "57b787895cb78e697dc42fdd211bc32c3ba3a43b3452f48cf9f4604505eb8296",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "2",
+      "forcedGroups": 16,
+      "mappedWords": 18,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 38,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-840-840",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 23,
+        "displayVerse": 28,
+        "readerEnd": "num-23-28-10"
+      },
+      "after": {
+        "displayChapter": 23,
+        "displayVerse": 30,
+        "readerStart": "num-23-30-1"
+      },
+      "readerIds": [
         "num-23-29-1",
         "num-23-29-2",
         "num-23-29-3",
@@ -1419,13 +5395,77 @@
         "num-23-29-13",
         "num-23-29-14",
         "num-23-29-15",
-        "num-23-29-16",
+        "num-23-29-16"
+      ],
+      "sourceRows": 14,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 18,
+      "candidateSha256": "e341a2ce01368e2b67d7be70cb140728c0c700e6381387dd17618e8a4bc3c0d9",
+      "optimalKeyUnits": 53,
+      "optimalPaths": "2",
+      "forcedGroups": 13,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 23,
+          "displayVerse": 29,
+          "rowNumber": 14
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-908-908",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 26,
+        "displayVerse": 23,
+        "readerEnd": "num-26-23-9"
+      },
+      "after": {
+        "displayChapter": 26,
+        "displayVerse": 25,
+        "readerStart": "num-26-25-1"
+      },
+      "readerIds": [
         "num-26-24-1",
         "num-26-24-2",
         "num-26-24-3",
         "num-26-24-4",
         "num-26-24-5",
-        "num-26-24-6",
+        "num-26-24-6"
+      ],
+      "sourceRows": 6,
+      "targetWords": 6,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 7,
+      "candidateSha256": "f4135f21ed881e1e8addaee17e095728293ebc84417b2e49fce975b14d4f6a40",
+      "optimalKeyUnits": 26,
+      "optimalPaths": "2",
+      "forcedGroups": 5,
+      "mappedWords": 5,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 26,
+          "displayVerse": 24,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-1135-1135",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 21,
+        "readerEnd": "num-32-21-13"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 23,
+        "readerStart": "num-32-23-1"
+      },
+      "readerIds": [
         "num-32-22-1",
         "num-32-22-2",
         "num-32-22-3",
@@ -1442,7 +5482,39 @@
         "num-32-22-14",
         "num-32-22-15",
         "num-32-22-16",
-        "num-32-22-17",
+        "num-32-22-17"
+      ],
+      "sourceRows": 17,
+      "targetWords": 17,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 22,
+      "candidateSha256": "fa30206289b210e86fac1527fb730c56026bc76f4e7bb7a6296036586f999c55",
+      "optimalKeyUnits": 64,
+      "optimalPaths": "2",
+      "forcedGroups": 16,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 22,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-1190-1191",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 33,
+        "displayVerse": 34,
+        "readerEnd": "num-33-34-4"
+      },
+      "after": {
+        "displayChapter": 33,
+        "displayVerse": 37,
+        "readerStart": "num-33-37-1"
+      },
+      "readerIds": [
         "num-33-35-1",
         "num-33-35-2",
         "num-33-35-3",
@@ -1455,7 +5527,44 @@
         "num-33-36-5",
         "num-33-36-6",
         "num-33-36-7",
-        "num-33-36-8",
+        "num-33-36-8"
+      ],
+      "sourceRows": 12,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "36f66b7e17f19bcd135b233d7d441c3ca0d9c96f4154f86592ed8db580ca036e",
+      "optimalKeyUnits": 45,
+      "optimalPaths": "4",
+      "forcedGroups": 10,
+      "mappedWords": 11,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 33,
+          "displayVerse": 35,
+          "rowNumber": 4
+        },
+        {
+          "displayChapter": 33,
+          "displayVerse": 36,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-1207-1207",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 33,
+        "displayVerse": 51,
+        "readerEnd": "num-33-51-14"
+      },
+      "after": {
+        "displayChapter": 33,
+        "displayVerse": 53,
+        "readerStart": "num-33-53-1"
+      },
+      "readerIds": [
         "num-33-52-1",
         "num-33-52-2",
         "num-33-52-3",
@@ -1474,7 +5583,39 @@
         "num-33-52-16",
         "num-33-52-17",
         "num-33-52-18",
-        "num-33-52-19",
+        "num-33-52-19"
+      ],
+      "sourceRows": 14,
+      "targetWords": 19,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 16,
+      "candidateSha256": "c2248172de94ff037ff3184d75523c033033583018e8312c3fb5173e15330328",
+      "optimalKeyUnits": 69,
+      "optimalPaths": "3",
+      "forcedGroups": 13,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 33,
+          "displayVerse": 52,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-1222-1222",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 34,
+        "displayVerse": 10,
+        "readerEnd": "num-34-10-7"
+      },
+      "after": {
+        "displayChapter": 34,
+        "displayVerse": 12,
+        "readerStart": "num-34-12-1"
+      },
+      "readerIds": [
         "num-34-11-1",
         "num-34-11-2",
         "num-34-11-3",
@@ -1488,7 +5629,39 @@
         "num-34-11-11",
         "num-34-11-12",
         "num-34-11-13",
-        "num-34-11-14",
+        "num-34-11-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "426cdb92630c86dc89467de4b3a70a4b77b7af6b56fdfb3754a43b6dabbf7684",
+      "optimalKeyUnits": 48,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 34,
+          "displayVerse": 11,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-num-1259-1259",
+      "bookId": "num",
+      "before": {
+        "displayChapter": 35,
+        "displayVerse": 18,
+        "readerEnd": "num-35-18-14"
+      },
+      "after": {
+        "displayChapter": 35,
+        "displayVerse": 20,
+        "readerStart": "num-35-20-1"
+      },
+      "readerIds": [
         "num-35-19-1",
         "num-35-19-2",
         "num-35-19-3",
@@ -1499,20 +5672,38 @@
         "num-35-19-8",
         "num-35-19-9",
         "num-35-19-10"
+      ],
+      "sourceRows": 8,
+      "targetWords": 10,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "81c287f655a1198cff3f4ebf603c56f0d34f475e37c9091c5953e8a968b32a2d",
+      "optimalKeyUnits": 29,
+      "optimalPaths": "2",
+      "forcedGroups": 7,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 35,
+          "displayVerse": 19,
+          "rowNumber": 8
+        }
       ]
     },
     {
+      "id": "pmam-gap-deu-14-14",
       "bookId": "deu",
-      "readerWords": 14295,
-      "mappedWords": 13470,
-      "unmappedWords": 825,
-      "acceptedDisplayVerses": 904,
-      "unmatchedDisplayVerses": 51,
-      "mappedDisplayRows": 11670,
-      "nonlexicalRows": 247,
-      "anchoredRepeatedVerses": 0,
-      "readerSha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0",
-      "unmappedReaderIds": [
+      "before": {
+        "displayChapter": 1,
+        "displayVerse": 14,
+        "readerEnd": "deu-1-14-8"
+      },
+      "after": {
+        "displayChapter": 1,
+        "displayVerse": 16,
+        "readerStart": "deu-1-16-1"
+      },
+      "readerIds": [
         "deu-1-15-1",
         "deu-1-15-2",
         "deu-1-15-3",
@@ -1533,7 +5724,39 @@
         "deu-1-15-18",
         "deu-1-15-19",
         "deu-1-15-20",
-        "deu-1-15-21",
+        "deu-1-15-21"
+      ],
+      "sourceRows": 20,
+      "targetWords": 21,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 25,
+      "candidateSha256": "34e3acf108691b27d1fe2955b45ba9b372f9cab1a4a0229892dc2c0496aeaf2a",
+      "optimalKeyUnits": 92,
+      "optimalPaths": "2",
+      "forcedGroups": 19,
+      "mappedWords": 20,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 1,
+          "displayVerse": 15,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-68-68",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 2,
+        "displayVerse": 22,
+        "readerEnd": "deu-2-22-17"
+      },
+      "after": {
+        "displayChapter": 2,
+        "displayVerse": 24,
+        "readerStart": "deu-2-24-1"
+      },
+      "readerIds": [
         "deu-2-23-1",
         "deu-2-23-2",
         "deu-2-23-3",
@@ -1544,7 +5767,39 @@
         "deu-2-23-8",
         "deu-2-23-9",
         "deu-2-23-10",
-        "deu-2-23-11",
+        "deu-2-23-11"
+      ],
+      "sourceRows": 10,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 9,
+      "candidateSha256": "51ef4d9d124c00e83c4a03d038d0aa47fb15822e8c1dabe2812332f72b06748f",
+      "optimalKeyUnits": 50,
+      "optimalPaths": "2",
+      "forcedGroups": 9,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 2,
+          "displayVerse": 23,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-78-78",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 2,
+        "displayVerse": 32,
+        "readerEnd": "deu-2-32-8"
+      },
+      "after": {
+        "displayChapter": 2,
+        "displayVerse": 34,
+        "readerStart": "deu-2-34-1"
+      },
+      "readerIds": [
         "deu-2-33-1",
         "deu-2-33-2",
         "deu-2-33-3",
@@ -1555,7 +5810,39 @@
         "deu-2-33-9",
         "deu-2-33-10",
         "deu-2-33-11",
-        "deu-2-33-12",
+        "deu-2-33-12"
+      ],
+      "sourceRows": 8,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 7,
+      "candidateSha256": "83bd17bdfbf3554a0133789ad1f1caa4c2ddc073b6f753f63eb06e9349944656",
+      "optimalKeyUnits": 33,
+      "optimalPaths": "3",
+      "forcedGroups": 7,
+      "mappedWords": 9,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 2,
+          "displayVerse": 33,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-87-87",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 3,
+        "displayVerse": 4,
+        "readerEnd": "deu-3-4-21"
+      },
+      "after": {
+        "displayChapter": 3,
+        "displayVerse": 6,
+        "readerStart": "deu-3-6-1"
+      },
+      "readerIds": [
         "deu-3-5-1",
         "deu-3-5-2",
         "deu-3-5-3",
@@ -1568,7 +5855,39 @@
         "deu-3-5-10",
         "deu-3-5-11",
         "deu-3-5-12",
-        "deu-3-5-13",
+        "deu-3-5-13"
+      ],
+      "sourceRows": 12,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "069718887383b3801b594c75c277f435796b8916ae003dc82c18e9b9819dfe30",
+      "optimalKeyUnits": 46,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 3,
+          "displayVerse": 5,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-107-107",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 3,
+        "displayVerse": 24,
+        "readerEnd": "deu-3-24-21"
+      },
+      "after": {
+        "displayChapter": 3,
+        "displayVerse": 26,
+        "readerStart": "deu-3-26-1"
+      },
+      "readerIds": [
         "deu-3-25-1",
         "deu-3-25-2",
         "deu-3-25-3",
@@ -1581,7 +5900,39 @@
         "deu-3-25-10",
         "deu-3-25-11",
         "deu-3-25-12",
-        "deu-3-25-13",
+        "deu-3-25-13"
+      ],
+      "sourceRows": 11,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "8d28f4d086b2817d771930133502e14d2ef649ee71dfe2bae5195556da947e86",
+      "optimalKeyUnits": 45,
+      "optimalPaths": "2",
+      "forcedGroups": 10,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 3,
+          "displayVerse": 25,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-114-114",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 4,
+        "displayVerse": 2,
+        "readerEnd": "deu-4-2-20"
+      },
+      "after": {
+        "displayChapter": 4,
+        "displayVerse": 4,
+        "readerStart": "deu-4-4-1"
+      },
+      "readerIds": [
         "deu-4-3-1",
         "deu-4-3-2",
         "deu-4-3-3",
@@ -1601,7 +5952,39 @@
         "deu-4-3-17",
         "deu-4-3-18",
         "deu-4-3-19",
-        "deu-4-3-20",
+        "deu-4-3-20"
+      ],
+      "sourceRows": 17,
+      "targetWords": 20,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 20,
+      "candidateSha256": "a25fb35dfe0dc9572ff040891949a7df25c8c994313ac42aa160750801831647",
+      "optimalKeyUnits": 65,
+      "optimalPaths": "2",
+      "forcedGroups": 16,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 4,
+          "displayVerse": 3,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-153-153",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 4,
+        "displayVerse": 41,
+        "readerEnd": "deu-4-41-9"
+      },
+      "after": {
+        "displayChapter": 4,
+        "displayVerse": 43,
+        "readerStart": "deu-4-43-1"
+      },
+      "readerIds": [
         "deu-4-42-1",
         "deu-4-42-2",
         "deu-4-42-3",
@@ -1623,12 +6006,81 @@
         "deu-4-42-19",
         "deu-4-42-20",
         "deu-4-42-21",
-        "deu-4-42-22",
+        "deu-4-42-22"
+      ],
+      "sourceRows": 17,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "f03d80f7b2b80b6c519504e30786c1509b570fa9965bda4f41d17eaa1191a8f2",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "6",
+      "forcedGroups": 15,
+      "mappedWords": 20,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 4,
+          "displayVerse": 42,
+          "rowNumber": 11
+        },
+        {
+          "displayChapter": 4,
+          "displayVerse": 42,
+          "rowNumber": 12
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-198-198",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 6,
+        "displayVerse": 8,
+        "readerEnd": "deu-6-8-8"
+      },
+      "after": {
+        "displayChapter": 6,
+        "displayVerse": 10,
+        "readerStart": "deu-6-10-1"
+      },
+      "readerIds": [
         "deu-6-9-1",
         "deu-6-9-2",
         "deu-6-9-3",
         "deu-6-9-4",
-        "deu-6-9-5",
+        "deu-6-9-5"
+      ],
+      "sourceRows": 4,
+      "targetWords": 5,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 3,
+      "candidateSha256": "432d4d2f940bd536a8378dc8b7f4df4411c898421891f65bb427cdfc807d5dc9",
+      "optimalKeyUnits": 17,
+      "optimalPaths": "3",
+      "forcedGroups": 3,
+      "mappedWords": 3,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 6,
+          "displayVerse": 9,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-210-210",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 6,
+        "displayVerse": 20,
+        "readerEnd": "deu-6-20-14"
+      },
+      "after": {
+        "displayChapter": 6,
+        "displayVerse": 22,
+        "readerStart": "deu-6-22-1"
+      },
+      "readerIds": [
         "deu-6-21-1",
         "deu-6-21-2",
         "deu-6-21-3",
@@ -1639,7 +6091,39 @@
         "deu-6-21-8",
         "deu-6-21-9",
         "deu-6-21-10",
-        "deu-6-21-11",
+        "deu-6-21-11"
+      ],
+      "sourceRows": 11,
+      "targetWords": 11,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "fe1052e6d81675c991a2446866bb68cec77ef2ffef3383f1c6f2eded61d06362",
+      "optimalKeyUnits": 44,
+      "optimalPaths": "2",
+      "forcedGroups": 10,
+      "mappedWords": 10,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 6,
+          "displayVerse": 21,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-223-223",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 7,
+        "displayVerse": 8,
+        "readerEnd": "deu-7-8-22"
+      },
+      "after": {
+        "displayChapter": 7,
+        "displayVerse": 10,
+        "readerStart": "deu-7-10-1"
+      },
+      "readerIds": [
         "deu-7-9-1",
         "deu-7-9-2",
         "deu-7-9-3",
@@ -1655,7 +6139,39 @@
         "deu-7-9-13",
         "deu-7-9-15",
         "deu-7-9-16",
-        "deu-7-9-17",
+        "deu-7-9-17"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "481efc947f4128cc976721c631cfc8b54615f32ee2a289daba316348675fb84a",
+      "optimalKeyUnits": 58,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 7,
+          "displayVerse": 9,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-230-230",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 7,
+        "displayVerse": 15,
+        "readerEnd": "deu-7-15-17"
+      },
+      "after": {
+        "displayChapter": 7,
+        "displayVerse": 17,
+        "readerStart": "deu-7-17-1"
+      },
+      "readerIds": [
         "deu-7-16-1",
         "deu-7-16-2",
         "deu-7-16-3",
@@ -1676,7 +6192,39 @@
         "deu-7-16-18",
         "deu-7-16-19",
         "deu-7-16-20",
-        "deu-7-16-21",
+        "deu-7-16-21"
+      ],
+      "sourceRows": 16,
+      "targetWords": 21,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "bd0b14d8db9d2160858c04a282ad645042fc35b1d720caa8d7734e9301a56235",
+      "optimalKeyUnits": 63,
+      "optimalPaths": "3",
+      "forcedGroups": 15,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 7,
+          "displayVerse": 16,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-242-243",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 8,
+        "displayVerse": 1,
+        "readerEnd": "deu-8-1-19"
+      },
+      "after": {
+        "displayChapter": 8,
+        "displayVerse": 4,
+        "readerStart": "deu-8-4-1"
+      },
+      "readerIds": [
         "deu-8-2-1",
         "deu-8-2-2",
         "deu-8-2-3",
@@ -1727,14 +6275,88 @@
         "deu-8-3-25",
         "deu-8-3-26",
         "deu-8-3-27",
-        "deu-8-3-28",
+        "deu-8-3-28"
+      ],
+      "sourceRows": 41,
+      "targetWords": 51,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 53,
+      "candidateSha256": "3bf858856359f35811238c755dbd80d73801e0a96abfc52dc5e1a67b88525c68",
+      "optimalKeyUnits": 165,
+      "optimalPaths": "8",
+      "forcedGroups": 38,
+      "mappedWords": 48,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 8,
+          "displayVerse": 2,
+          "rowNumber": 4
+        },
+        {
+          "displayChapter": 8,
+          "displayVerse": 2,
+          "rowNumber": 18
+        },
+        {
+          "displayChapter": 8,
+          "displayVerse": 3,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-252-252",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 8,
+        "displayVerse": 11,
+        "readerEnd": "deu-8-11-16"
+      },
+      "after": {
+        "displayChapter": 8,
+        "displayVerse": 13,
+        "readerStart": "deu-8-13-1"
+      },
+      "readerIds": [
         "deu-8-12-1",
         "deu-8-12-2",
         "deu-8-12-3",
         "deu-8-12-4",
         "deu-8-12-5",
         "deu-8-12-6",
-        "deu-8-12-7",
+        "deu-8-12-7"
+      ],
+      "sourceRows": 6,
+      "targetWords": 7,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 5,
+      "candidateSha256": "b1ab061befc708399372759c9a81643595acfcdabac66df3e48920f607330d88",
+      "optimalKeyUnits": 25,
+      "optimalPaths": "2",
+      "forcedGroups": 5,
+      "mappedWords": 6,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 8,
+          "displayVerse": 12,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-275-275",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 9,
+        "displayVerse": 14,
+        "readerEnd": "deu-9-14-14"
+      },
+      "after": {
+        "displayChapter": 9,
+        "displayVerse": 16,
+        "readerStart": "deu-9-16-1"
+      },
+      "readerIds": [
         "deu-9-15-1",
         "deu-9-15-2",
         "deu-9-15-3",
@@ -1747,7 +6369,39 @@
         "deu-9-15-10",
         "deu-9-15-11",
         "deu-9-15-12",
-        "deu-9-15-13",
+        "deu-9-15-13"
+      ],
+      "sourceRows": 12,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "42fadd0f1748ff1dc079708fe22b65d5abc09dbcae98b1793e6aa5835085dcc0",
+      "optimalKeyUnits": 40,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 9,
+          "displayVerse": 15,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-300-300",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 10,
+        "displayVerse": 10,
+        "readerEnd": "deu-10-10-19"
+      },
+      "after": {
+        "displayChapter": 10,
+        "displayVerse": 12,
+        "readerStart": "deu-10-12-1"
+      },
+      "readerIds": [
         "deu-10-11-1",
         "deu-10-11-2",
         "deu-10-11-3",
@@ -1764,7 +6418,39 @@
         "deu-10-11-14",
         "deu-10-11-15",
         "deu-10-11-16",
-        "deu-10-11-17",
+        "deu-10-11-17"
+      ],
+      "sourceRows": 15,
+      "targetWords": 17,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "95d2be713e38a20088f6cdfb9ad9f7402fda852737130ab019e13482106bc8cb",
+      "optimalKeyUnits": 56,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 10,
+          "displayVerse": 11,
+          "rowNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-363-363",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 12,
+        "displayVerse": 19,
+        "readerEnd": "deu-12-19-10"
+      },
+      "after": {
+        "displayChapter": 12,
+        "displayVerse": 21,
+        "readerStart": "deu-12-21-1"
+      },
+      "readerIds": [
         "deu-12-20-1",
         "deu-12-20-2",
         "deu-12-20-3",
@@ -1786,7 +6472,39 @@
         "deu-12-20-19",
         "deu-12-20-20",
         "deu-12-20-21",
-        "deu-12-20-22",
+        "deu-12-20-22"
+      ],
+      "sourceRows": 17,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 24,
+      "candidateSha256": "17ae828754fe59c0851815952e2f73f7631540a09d3abe6862652ee57898e344",
+      "optimalKeyUnits": 68,
+      "optimalPaths": "3",
+      "forcedGroups": 16,
+      "mappedWords": 20,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 12,
+          "displayVerse": 20,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-509-509",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 18,
+        "displayVerse": 21,
+        "readerEnd": "deu-18-21-11"
+      },
+      "after": {
+        "displayChapter": 19,
+        "displayVerse": 1,
+        "readerStart": "deu-19-1-1"
+      },
+      "readerIds": [
         "deu-18-22-1",
         "deu-18-22-2",
         "deu-18-22-3",
@@ -1808,7 +6526,39 @@
         "deu-18-22-19",
         "deu-18-22-20",
         "deu-18-22-21",
-        "deu-18-22-22",
+        "deu-18-22-22"
+      ],
+      "sourceRows": 20,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 30,
+      "candidateSha256": "197125e03b0d7bf3b15c35f3d8c2bf733998c7ca79fbe0f3c0d460d2b9153fdf",
+      "optimalKeyUnits": 71,
+      "optimalPaths": "2",
+      "forcedGroups": 19,
+      "mappedWords": 21,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 18,
+          "displayVerse": 22,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-531-531",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 19,
+        "displayVerse": 21,
+        "readerEnd": "deu-19-21-13"
+      },
+      "after": {
+        "displayChapter": 20,
+        "displayVerse": 2,
+        "readerStart": "deu-20-2-1"
+      },
+      "readerIds": [
         "deu-20-1-1",
         "deu-20-1-2",
         "deu-20-1-3",
@@ -1829,7 +6579,39 @@
         "deu-20-1-18",
         "deu-20-1-19",
         "deu-20-1-20",
-        "deu-20-1-21",
+        "deu-20-1-21"
+      ],
+      "sourceRows": 18,
+      "targetWords": 21,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 17,
+      "candidateSha256": "e0c316ae9e881eff93386e59ac9e34eefbec5faad36583ef062f02b8ccae2199",
+      "optimalKeyUnits": 64,
+      "optimalPaths": "3",
+      "forcedGroups": 17,
+      "mappedWords": 19,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 20,
+          "displayVerse": 1,
+          "rowNumber": 4
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-565-565",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 21,
+        "displayVerse": 14,
+        "readerEnd": "deu-21-14-17"
+      },
+      "after": {
+        "displayChapter": 21,
+        "displayVerse": 16,
+        "readerStart": "deu-21-16-1"
+      },
+      "readerIds": [
         "deu-21-15-1",
         "deu-21-15-2",
         "deu-21-15-3",
@@ -1847,7 +6629,39 @@
         "deu-21-15-15",
         "deu-21-15-16",
         "deu-21-15-17",
-        "deu-21-15-18",
+        "deu-21-15-18"
+      ],
+      "sourceRows": 16,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "8f79dbdff868f9a87bc4f2c83deb955114b9aa53499c39ef282ac181f371b18b",
+      "optimalKeyUnits": 74,
+      "optimalPaths": "2",
+      "forcedGroups": 15,
+      "mappedWords": 17,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 21,
+          "displayVerse": 15,
+          "rowNumber": 16
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-587-589",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 13,
+        "readerEnd": "deu-22-13-7"
+      },
+      "after": {
+        "displayChapter": 22,
+        "displayVerse": 17,
+        "readerStart": "deu-22-17-1"
+      },
+      "readerIds": [
         "deu-22-14-1",
         "deu-22-14-2",
         "deu-22-14-3",
@@ -1890,7 +6704,54 @@
         "deu-22-16-10",
         "deu-22-16-11",
         "deu-22-16-12",
-        "deu-22-16-13",
+        "deu-22-16-13"
+      ],
+      "sourceRows": 37,
+      "targetWords": 43,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 39,
+      "candidateSha256": "e1fe510b639a7eec9cd9d648a3c6647e99e4ff140725d24840b2da9b7c799e1b",
+      "optimalKeyUnits": 148,
+      "optimalPaths": "16",
+      "forcedGroups": 33,
+      "mappedWords": 39,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 14,
+          "rowNumber": 5
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 15,
+          "rowNumber": 3
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 15,
+          "rowNumber": 7
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 16,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-593-594",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 19,
+        "readerEnd": "deu-22-19-22"
+      },
+      "after": {
+        "displayChapter": 22,
+        "displayVerse": 22,
+        "readerStart": "deu-22-22-1"
+      },
+      "readerIds": [
         "deu-22-20-1",
         "deu-22-20-2",
         "deu-22-20-3",
@@ -1921,7 +6782,44 @@
         "deu-22-21-20",
         "deu-22-21-21",
         "deu-22-21-22",
-        "deu-22-21-23",
+        "deu-22-21-23"
+      ],
+      "sourceRows": 25,
+      "targetWords": 31,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 26,
+      "candidateSha256": "db5a649b449cf65037556224774e23c7a58b5bec942a5a3cade228a99306ed95",
+      "optimalKeyUnits": 113,
+      "optimalPaths": "6",
+      "forcedGroups": 23,
+      "mappedWords": 28,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 20,
+          "rowNumber": 8
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 21,
+          "rowNumber": 2
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-596-602",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 22,
+        "displayVerse": 22,
+        "readerEnd": "deu-22-22-19"
+      },
+      "after": {
+        "displayChapter": 23,
+        "displayVerse": 1,
+        "readerStart": "deu-23-1-1"
+      },
+      "readerIds": [
         "deu-22-23-1",
         "deu-22-23-2",
         "deu-22-23-4",
@@ -2040,7 +6938,74 @@
         "deu-22-29-17",
         "deu-22-29-18",
         "deu-22-29-19",
-        "deu-22-29-20",
+        "deu-22-29-20"
+      ],
+      "sourceRows": 99,
+      "targetWords": 119,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 176,
+      "candidateSha256": "297646a309283b0bfd3c988823fda1483698df70549c6fb902407a8f14e4827b",
+      "optimalKeyUnits": 392,
+      "optimalPaths": "576",
+      "forcedGroups": 91,
+      "mappedWords": 109,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 22,
+          "displayVerse": 23,
+          "rowNumber": 4
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 24,
+          "rowNumber": 10
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 25,
+          "rowNumber": 5
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 26,
+          "rowNumber": 1
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 26,
+          "rowNumber": 5
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 27,
+          "rowNumber": 5
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 28,
+          "rowNumber": 4
+        },
+        {
+          "displayChapter": 22,
+          "displayVerse": 29,
+          "rowNumber": 6
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-641-641",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 24,
+        "displayVerse": 12,
+        "readerEnd": "deu-24-12-7"
+      },
+      "after": {
+        "displayChapter": 24,
+        "displayVerse": 14,
+        "readerStart": "deu-24-14-1"
+      },
+      "readerIds": [
         "deu-24-13-1",
         "deu-24-13-2",
         "deu-24-13-3",
@@ -2056,7 +7021,39 @@
         "deu-24-13-13",
         "deu-24-13-14",
         "deu-24-13-15",
-        "deu-24-13-16",
+        "deu-24-13-16"
+      ],
+      "sourceRows": 15,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "4ff176ecb0f3f06ed386058420f6fdd53a05100271b133b0544aeb5e207ce5a4",
+      "optimalKeyUnits": 56,
+      "optimalPaths": "2",
+      "forcedGroups": 14,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 24,
+          "displayVerse": 13,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-657-657",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 25,
+        "displayVerse": 6,
+        "readerEnd": "deu-25-6-13"
+      },
+      "after": {
+        "displayChapter": 25,
+        "displayVerse": 8,
+        "readerStart": "deu-25-8-1"
+      },
+      "readerIds": [
         "deu-25-7-1",
         "deu-25-7-2",
         "deu-25-7-3",
@@ -2078,7 +7075,39 @@
         "deu-25-7-19",
         "deu-25-7-20",
         "deu-25-7-21",
-        "deu-25-7-22",
+        "deu-25-7-22"
+      ],
+      "sourceRows": 19,
+      "targetWords": 22,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 22,
+      "candidateSha256": "d2e3e1b9b6bc2c54bfc7071fb42777ed6c7c48294cb73585d9ae64e576797130",
+      "optimalKeyUnits": 83,
+      "optimalPaths": "2",
+      "forcedGroups": 18,
+      "mappedWords": 21,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 25,
+          "displayVerse": 7,
+          "rowNumber": 11
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-732-732",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 28,
+        "displayVerse": 17,
+        "readerEnd": "deu-28-17-3"
+      },
+      "after": {
+        "displayChapter": 28,
+        "displayVerse": 19,
+        "readerStart": "deu-28-19-1"
+      },
+      "readerIds": [
         "deu-28-18-1",
         "deu-28-18-2",
         "deu-28-18-3",
@@ -2087,7 +7116,39 @@
         "deu-28-18-6",
         "deu-28-18-7",
         "deu-28-18-8",
-        "deu-28-18-9",
+        "deu-28-18-9"
+      ],
+      "sourceRows": 8,
+      "targetWords": 9,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 7,
+      "candidateSha256": "99130860c88a818845d7273153bab6514d488b6b7522cc74bb35a876e910d2b2",
+      "optimalKeyUnits": 32,
+      "optimalPaths": "2",
+      "forcedGroups": 7,
+      "mappedWords": 8,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 28,
+          "displayVerse": 18,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-763-763",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 28,
+        "displayVerse": 48,
+        "readerEnd": "deu-28-48-20"
+      },
+      "after": {
+        "displayChapter": 28,
+        "displayVerse": 50,
+        "readerStart": "deu-28-50-1"
+      },
+      "readerIds": [
         "deu-28-49-1",
         "deu-28-49-2",
         "deu-28-49-3",
@@ -2102,7 +7163,39 @@
         "deu-28-49-12",
         "deu-28-49-13",
         "deu-28-49-14",
-        "deu-28-49-15",
+        "deu-28-49-15"
+      ],
+      "sourceRows": 14,
+      "targetWords": 15,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 15,
+      "candidateSha256": "d58c5ac28f1514c47b440be728505becf50cf9888daa3ee69f0ecd7a11be6674",
+      "optimalKeyUnits": 47,
+      "optimalPaths": "2",
+      "forcedGroups": 13,
+      "mappedWords": 14,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 28,
+          "displayVerse": 49,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-766-766",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 28,
+        "displayVerse": 51,
+        "readerEnd": "deu-28-51-21"
+      },
+      "after": {
+        "displayChapter": 28,
+        "displayVerse": 53,
+        "readerStart": "deu-28-53-1"
+      },
+      "readerIds": [
         "deu-28-52-1",
         "deu-28-52-2",
         "deu-28-52-3",
@@ -2128,7 +7221,39 @@
         "deu-28-52-23",
         "deu-28-52-24",
         "deu-28-52-25",
-        "deu-28-52-26",
+        "deu-28-52-26"
+      ],
+      "sourceRows": 22,
+      "targetWords": 26,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 35,
+      "candidateSha256": "154f7cebd8904de6696a7c61a03a478ec99e1d11d052ba61b6d26dc9af8e82ba",
+      "optimalKeyUnits": 85,
+      "optimalPaths": "2",
+      "forcedGroups": 21,
+      "mappedWords": 25,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 28,
+          "displayVerse": 52,
+          "rowNumber": 7
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-772-773",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 28,
+        "displayVerse": 57,
+        "readerEnd": "deu-28-57-19"
+      },
+      "after": {
+        "displayChapter": 28,
+        "displayVerse": 60,
+        "readerStart": "deu-28-60-1"
+      },
+      "readerIds": [
         "deu-28-58-1",
         "deu-28-58-2",
         "deu-28-58-3",
@@ -2162,7 +7287,44 @@
         "deu-28-59-10",
         "deu-28-59-11",
         "deu-28-59-12",
-        "deu-28-59-13",
+        "deu-28-59-13"
+      ],
+      "sourceRows": 29,
+      "targetWords": 34,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 36,
+      "candidateSha256": "c3a3945a91150c26c2a5541739ab77ec956ba67128c4b82f6d7e50e195cdbad1",
+      "optimalKeyUnits": 119,
+      "optimalPaths": "4",
+      "forcedGroups": 27,
+      "mappedWords": 32,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 28,
+          "displayVerse": 58,
+          "rowNumber": 7
+        },
+        {
+          "displayChapter": 28,
+          "displayVerse": 59,
+          "rowNumber": 8
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-820-820",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 30,
+        "displayVerse": 8,
+        "readerEnd": "deu-30-8-13"
+      },
+      "after": {
+        "displayChapter": 30,
+        "displayVerse": 10,
+        "readerStart": "deu-30-10-1"
+      },
+      "readerIds": [
         "deu-30-9-1",
         "deu-30-9-2",
         "deu-30-9-3",
@@ -2185,7 +7347,39 @@
         "deu-30-9-20",
         "deu-30-9-21",
         "deu-30-9-22",
-        "deu-30-9-23",
+        "deu-30-9-23"
+      ],
+      "sourceRows": 21,
+      "targetWords": 23,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 24,
+      "candidateSha256": "14a255ccd491663b3045d143fabe699b033e9b4afd2266c6d67f9505a566fa96",
+      "optimalKeyUnits": 83,
+      "optimalPaths": "2",
+      "forcedGroups": 20,
+      "mappedWords": 22,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 30,
+          "displayVerse": 9,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-829-830",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 30,
+        "displayVerse": 17,
+        "readerEnd": "deu-30-17-10"
+      },
+      "after": {
+        "displayChapter": 30,
+        "displayVerse": 20,
+        "readerStart": "deu-30-20-1"
+      },
+      "readerIds": [
         "deu-30-18-1",
         "deu-30-18-2",
         "deu-30-18-3",
@@ -2223,7 +7417,44 @@
         "deu-30-19-16",
         "deu-30-19-17",
         "deu-30-19-18",
-        "deu-30-19-19",
+        "deu-30-19-19"
+      ],
+      "sourceRows": 33,
+      "targetWords": 38,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 35,
+      "candidateSha256": "14c69d2960d3ee73da1177eaa97ce24af3191aaab107e3d6ca77dc84a42a577f",
+      "optimalKeyUnits": 143,
+      "optimalPaths": "4",
+      "forcedGroups": 31,
+      "mappedWords": 36,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 30,
+          "displayVerse": 18,
+          "rowNumber": 14
+        },
+        {
+          "displayChapter": 30,
+          "displayVerse": 19,
+          "rowNumber": 1
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-868-868",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 6,
+        "readerEnd": "deu-32-6-15"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 8,
+        "readerStart": "deu-32-8-1"
+      },
+      "readerIds": [
         "deu-32-7-1",
         "deu-32-7-2",
         "deu-32-7-3",
@@ -2236,7 +7467,39 @@
         "deu-32-7-10",
         "deu-32-7-11",
         "deu-32-7-12",
-        "deu-32-7-13",
+        "deu-32-7-13"
+      ],
+      "sourceRows": 12,
+      "targetWords": 13,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "47180e7cbee482f261376b88138b684b6b5cff7ce68fb8c6f29713898e615310",
+      "optimalKeyUnits": 44,
+      "optimalPaths": "3",
+      "forcedGroups": 11,
+      "mappedWords": 11,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 7,
+          "rowNumber": 6
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-885-885",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 23,
+        "readerEnd": "deu-32-23-6"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 25,
+        "readerStart": "deu-32-25-1"
+      },
+      "readerIds": [
         "deu-32-24-1",
         "deu-32-24-2",
         "deu-32-24-3",
@@ -2250,7 +7513,39 @@
         "deu-32-24-11",
         "deu-32-24-12",
         "deu-32-24-13",
-        "deu-32-24-14",
+        "deu-32-24-14"
+      ],
+      "sourceRows": 11,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "2cde8fc222359c9f7eaa242fc1449e30290557eb50296b4ee74413e3d74d1a74",
+      "optimalKeyUnits": 41,
+      "optimalPaths": "3",
+      "forcedGroups": 10,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 24,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-888-888",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 26,
+        "readerEnd": "deu-32-26-5"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 28,
+        "readerStart": "deu-32-28-1"
+      },
+      "readerIds": [
         "deu-32-27-1",
         "deu-32-27-2",
         "deu-32-27-3",
@@ -2266,13 +7561,77 @@
         "deu-32-27-13",
         "deu-32-27-14",
         "deu-32-27-15",
-        "deu-32-27-16",
+        "deu-32-27-16"
+      ],
+      "sourceRows": 13,
+      "targetWords": 16,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 12,
+      "candidateSha256": "bf33ed738a2c42319510b9e534cd81e1e8d1103ae61006539496d88548fbcee2",
+      "optimalKeyUnits": 49,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 15,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 27,
+          "rowNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-895-895",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 32,
+        "displayVerse": 33,
+        "readerEnd": "deu-32-33-6"
+      },
+      "after": {
+        "displayChapter": 32,
+        "displayVerse": 35,
+        "readerStart": "deu-32-35-1"
+      },
+      "readerIds": [
         "deu-32-34-1",
         "deu-32-34-2",
         "deu-32-34-3",
         "deu-32-34-4",
         "deu-32-34-5",
-        "deu-32-34-6",
+        "deu-32-34-6"
+      ],
+      "sourceRows": 5,
+      "targetWords": 6,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 4,
+      "candidateSha256": "b036be5b8c010443d1f150350e699bd7c27e1ed44a9feaa57d5328eab11e2bc7",
+      "optimalKeyUnits": 20,
+      "optimalPaths": "2",
+      "forcedGroups": 4,
+      "mappedWords": 5,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 32,
+          "displayVerse": 34,
+          "rowNumber": 5
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-922-922",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 33,
+        "displayVerse": 8,
+        "readerEnd": "deu-33-8-13"
+      },
+      "after": {
+        "displayChapter": 33,
+        "displayVerse": 10,
+        "readerStart": "deu-33-10-1"
+      },
+      "readerIds": [
         "deu-33-9-1",
         "deu-33-9-2",
         "deu-33-9-3",
@@ -2290,7 +7649,39 @@
         "deu-33-9-16",
         "deu-33-9-17",
         "deu-33-9-18",
-        "deu-33-9-19",
+        "deu-33-9-19"
+      ],
+      "sourceRows": 16,
+      "targetWords": 18,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 21,
+      "candidateSha256": "1b04922cb4e577119dcb12c5d632fbf2fd7fe17a2a679e412e6d4ece4d6a3d30",
+      "optimalKeyUnits": 62,
+      "optimalPaths": "3",
+      "forcedGroups": 15,
+      "mappedWords": 16,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 33,
+          "displayVerse": 9,
+          "rowNumber": 9
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-925-925",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 33,
+        "displayVerse": 11,
+        "readerEnd": "deu-33-11-12"
+      },
+      "after": {
+        "displayChapter": 33,
+        "displayVerse": 13,
+        "readerStart": "deu-33-13-1"
+      },
+      "readerIds": [
         "deu-33-12-1",
         "deu-33-12-2",
         "deu-33-12-3",
@@ -2304,7 +7695,39 @@
         "deu-33-12-11",
         "deu-33-12-12",
         "deu-33-12-13",
-        "deu-33-12-14",
+        "deu-33-12-14"
+      ],
+      "sourceRows": 13,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 14,
+      "candidateSha256": "5a2ac5a9b83948138929bd4a278eb0a73a4f3c55f0d1aac7378b793280d1510f",
+      "optimalKeyUnits": 46,
+      "optimalPaths": "2",
+      "forcedGroups": 12,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 33,
+          "displayVerse": 12,
+          "rowNumber": 13
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-932-932",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 33,
+        "displayVerse": 18,
+        "readerEnd": "deu-33-18-7"
+      },
+      "after": {
+        "displayChapter": 33,
+        "displayVerse": 20,
+        "readerStart": "deu-33-20-1"
+      },
+      "readerIds": [
         "deu-33-19-1",
         "deu-33-19-2",
         "deu-33-19-3",
@@ -2318,12 +7741,76 @@
         "deu-33-19-11",
         "deu-33-19-12",
         "deu-33-19-13",
-        "deu-33-19-14",
+        "deu-33-19-14"
+      ],
+      "sourceRows": 12,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 11,
+      "candidateSha256": "a7cc2773c02be21a177492ab76f7b8a82672f936d40664471214a49913714e62",
+      "optimalKeyUnits": 47,
+      "optimalPaths": "2",
+      "forcedGroups": 11,
+      "mappedWords": 13,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 33,
+          "displayVerse": 19,
+          "rowNumber": 10
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-938-938",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 33,
+        "displayVerse": 24,
+        "readerEnd": "deu-33-24-11"
+      },
+      "after": {
+        "displayChapter": 33,
+        "displayVerse": 26,
+        "readerStart": "deu-33-26-1"
+      },
+      "readerIds": [
         "deu-33-25-1",
         "deu-33-25-2",
         "deu-33-25-3",
         "deu-33-25-4",
-        "deu-33-25-5",
+        "deu-33-25-5"
+      ],
+      "sourceRows": 5,
+      "targetWords": 5,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 4,
+      "candidateSha256": "b61cc7a25c2735dc58981ace894af27201d68390d69e8f238cdd0e6d9b372905",
+      "optimalKeyUnits": 19,
+      "optimalPaths": "2",
+      "forcedGroups": 4,
+      "mappedWords": 4,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 33,
+          "displayVerse": 25,
+          "rowNumber": 3
+        }
+      ]
+    },
+    {
+      "id": "pmam-gap-deu-953-953",
+      "bookId": "deu",
+      "before": {
+        "displayChapter": 34,
+        "displayVerse": 10,
+        "readerEnd": "deu-34-10-12"
+      },
+      "after": {
+        "displayChapter": 34,
+        "displayVerse": 12,
+        "readerStart": "deu-34-12-1"
+      },
+      "readerIds": [
         "deu-34-11-1",
         "deu-34-11-2",
         "deu-34-11-3",
@@ -2338,1023 +7825,24 @@
         "deu-34-11-12",
         "deu-34-11-13",
         "deu-34-11-14"
+      ],
+      "sourceRows": 11,
+      "targetWords": 14,
+      "status": "exact-forced-groups-only",
+      "candidateEdges": 10,
+      "candidateSha256": "227e873e9cdb74a07853a27396db05ee2fd9c1a0124cd1fb2b469494696e7d8c",
+      "optimalKeyUnits": 52,
+      "optimalPaths": "3",
+      "forcedGroups": 10,
+      "mappedWords": 12,
+      "unassignedSourceRows": [
+        {
+          "displayChapter": 34,
+          "displayVerse": 11,
+          "rowNumber": 1
+        }
       ]
     }
   ],
-  "mappedWords": 77756,
-  "readerWords": 79985,
-  "groups": 66578,
-  "unmatchedDisplayVerses": [
-    {
-      "bookId": "gen",
-      "displayChapter": 4,
-      "displayVerse": 18,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 8,
-      "displayVerse": 20,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 13,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 13,
-      "displayVerse": 8,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 14,
-      "displayVerse": 2,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 14,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 19,
-      "displayVerse": 16,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 25,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 27,
-      "displayVerse": 31,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 35,
-      "displayVerse": 5,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 35,
-      "displayVerse": 23,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 41,
-      "displayVerse": 35,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 45,
-      "displayVerse": 15,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 46,
-      "displayVerse": 9,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 46,
-      "displayVerse": 12,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 46,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 46,
-      "displayVerse": 14,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 49,
-      "displayVerse": 10,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 49,
-      "displayVerse": 11,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "gen",
-      "displayChapter": 49,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 4,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 6,
-      "displayVerse": 14,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 8,
-      "displayVerse": 15,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 10,
-      "displayVerse": 25,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 12,
-      "displayVerse": 4,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 14,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 14,
-      "displayVerse": 14,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 14,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 19,
-      "displayVerse": 11,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 19,
-      "displayVerse": 19,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 22,
-      "displayVerse": 4,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 22,
-      "displayVerse": 26,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 23,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 25,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 26,
-      "displayVerse": 24,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 27,
-      "displayVerse": 11,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 28,
-      "displayVerse": 28,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 29,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 29,
-      "displayVerse": 40,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 32,
-      "displayVerse": 19,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 32,
-      "displayVerse": 34,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 34,
-      "displayVerse": 24,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 36,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 36,
-      "displayVerse": 19,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 37,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 38,
-      "displayVerse": 10,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 39,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 39,
-      "displayVerse": 33,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "exo",
-      "displayChapter": 39,
-      "displayVerse": 35,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 9,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 10,
-      "displayVerse": 1,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 10,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 11,
-      "displayVerse": 4,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 14,
-      "displayVerse": 10,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 16,
-      "displayVerse": 8,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 16,
-      "displayVerse": 21,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 18,
-      "displayVerse": 29,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 19,
-      "displayVerse": 4,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 20,
-      "displayVerse": 6,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 23,
-      "displayVerse": 20,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 23,
-      "displayVerse": 38,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "lev",
-      "displayChapter": 26,
-      "displayVerse": 45,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 1,
-      "displayVerse": 17,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 3,
-      "displayVerse": 2,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 3,
-      "displayVerse": 42,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 3,
-      "displayVerse": 43,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 7,
-      "displayVerse": 7,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 7,
-      "displayVerse": 23,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 9,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 9,
-      "displayVerse": 7,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 9,
-      "displayVerse": 17,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 10,
-      "displayVerse": 9,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 10,
-      "displayVerse": 16,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 11,
-      "displayVerse": 26,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 12,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 13,
-      "displayVerse": 26,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 13,
-      "displayVerse": 29,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 13,
-      "displayVerse": 32,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 15,
-      "displayVerse": 39,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 19,
-      "displayVerse": 7,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 20,
-      "displayVerse": 17,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 21,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 21,
-      "displayVerse": 30,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 22,
-      "displayVerse": 5,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 22,
-      "displayVerse": 38,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 23,
-      "displayVerse": 29,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 26,
-      "displayVerse": 24,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 32,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 33,
-      "displayVerse": 35,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 33,
-      "displayVerse": 36,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 33,
-      "displayVerse": 52,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 34,
-      "displayVerse": 11,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "num",
-      "displayChapter": 35,
-      "displayVerse": 19,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 1,
-      "displayVerse": 15,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 2,
-      "displayVerse": 23,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 2,
-      "displayVerse": 33,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 3,
-      "displayVerse": 5,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 3,
-      "displayVerse": 25,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 4,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 4,
-      "displayVerse": 42,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 6,
-      "displayVerse": 9,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 6,
-      "displayVerse": 21,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 7,
-      "displayVerse": 9,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 7,
-      "displayVerse": 16,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 8,
-      "displayVerse": 2,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 8,
-      "displayVerse": 3,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 8,
-      "displayVerse": 12,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 9,
-      "displayVerse": 15,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 10,
-      "displayVerse": 11,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 12,
-      "displayVerse": 20,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 18,
-      "displayVerse": 22,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 20,
-      "displayVerse": 1,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 21,
-      "displayVerse": 15,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 14,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 15,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 16,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 20,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 21,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 23,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 24,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 25,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 26,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 27,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 28,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 22,
-      "displayVerse": 29,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 24,
-      "displayVerse": 13,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 25,
-      "displayVerse": 7,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 28,
-      "displayVerse": 18,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 28,
-      "displayVerse": 49,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 28,
-      "displayVerse": 52,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 28,
-      "displayVerse": 58,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 28,
-      "displayVerse": 59,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 30,
-      "displayVerse": 9,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 30,
-      "displayVerse": 18,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 30,
-      "displayVerse": 19,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 32,
-      "displayVerse": 7,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 32,
-      "displayVerse": 24,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 32,
-      "displayVerse": 27,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 32,
-      "displayVerse": 34,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 33,
-      "displayVerse": 9,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 33,
-      "displayVerse": 12,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 33,
-      "displayVerse": 19,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 33,
-      "displayVerse": 25,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    },
-    {
-      "bookId": "deu",
-      "displayChapter": 34,
-      "displayVerse": 11,
-      "reason": "no-complete-verse-match",
-      "candidates": 0
-    }
-  ],
-  "packetSha256": "254c303e4778d732d4b6637701d76341ba9c51606c2b0d48dad5d5aa88762d49",
-  "method": "Complete display-verse letter correspondence to one to six contiguous UXLC verse records in nearby chapters. Unique matches must be ordered and disjoint; repeats require two surrounding accepted anchors. Only documented implicit-qere name/hi/Yissakhar forms permitted; original strings unchanged. Common row/word boundaries define many-to-many groups; all source columns/readings retained.",
-  "limits": "Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending."
+  "partialMethod": "Remaining regions require two complete-verse anchors. Within bounded windows, candidate indivisible groups require exact comparison keys and all literal source reading alternatives. Only edges on every maximum-key-unit monotonic alignment are accepted; no substitutions, tie breaks, or inferred syllables. Maximum4source rows/8reader words per candidate;256rows/384words per window."
 }

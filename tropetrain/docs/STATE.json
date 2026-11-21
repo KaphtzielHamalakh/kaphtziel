@@ -187,19 +187,17 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.20.0",
+    "version": "0.21.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "1489c978bb68bd0a46625a41e17736338afb5145",
-    "status": "published_live_verified",
-    "record": "docs/VERIFICATION-0.20.md",
-    "automatedTests": 179,
-    "mappedWords": 77756,
+    "baseCommit": "18dbcb5e7e08b234586f12ff80b09487fc60d9b8",
+    "status": "182_checks_and_normal_standalone_passed_ready_for_publication",
+    "record": "docs/PRONUNCIATION-ALIGNMENT.json",
+    "mappedWords": 79806,
     "readerWords": 79985,
-    "unassignedWords": 2229,
-    "groups": 66578,
-    "newFeatures": "Independent source pronunciation transcription styles and literal original Hebrew/alternate/group correspondence inspector. No new voice or singing.",
-    "next": "Audit remaining Phonetic MAM/UXLC differences using exact source evidence; preserve unassigned regions, all original text and grouped/alternate readings. Research and implement evidence-backed pronunciation rules and reusable contextual melodic/voice material independently; do not turn text styles or fixed recordings into six Kinnor claims. Printing deferred.",
-    "finalDocumentationChecks": 34
+    "unassignedWords": 179,
+    "groups": 68354,
+    "next": "Validate exhaustive forced-path cases, retained v0.20 mappings, literal source/reader correspondence and normal/standalone UI; publish after checks. No new voice/phoneme grammar claim.",
+    "automatedTests": 182
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

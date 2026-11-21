@@ -1,10 +1,10 @@
 {
   "schema": "tropetrain-pronunciation-source-audit-v1",
-  "revision": 2,
+  "revision": 3,
   "source": "Phonetic MAM public display",
   "repository": "https://github.com/bdenckla/MAM-basics",
   "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
-  "status": "source_preserving_text_views_imported_v0.20_independent_review_pending",
+  "status": "source_preserving_text_views_partial_exact_alignment_v0.21_independent_review_pending",
   "license": "CC-BY-SA-4.0 for Phonetic-MAM/data; implementation GPL3; separate font/image terms. No implementation/fonts/images imported.",
   "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla. Existing display credits also name Al-Hatorah.",
   "rightsEvidence": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/DATA-LICENSES.md",
@@ -104,11 +104,12 @@
   ],
   "limitations": [
     "Public display rows, not a source-quality or phoneme judgment layer.",
-    "Comparison-only implicit-qere keys, complete display-verse matching and ordered anchors join groups to unchanged UXLC IDs. 77,756 words linked; 2,229 unassigned. All source readings/columns retained; linguistic and correspondence review pending.",
+    "Source-preserving complete display-verse joins plus forced exact groups between two original verse anchors. 79,806 words linked;179 unassigned. All original text/readings/columns retained; linguistic and correspondence review pending.",
     "No audio timing, source singing voice or proof of equivalence to six Kinnor Accent labels."
   ],
   "alignmentRecord": "docs/PRONUNCIATION-ALIGNMENT.json",
   "sourceArchive": "assets/pronunciation/phonetic-mam-torah-sources.zip",
   "readingFormEvidence": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/core/qere_from_implicit_kq.py",
-  "implementationReuse": "No source implementation copied/executed. Original correspondence code uses documented reading forms only as comparison alternatives; source text and target text remain literal."
+  "implementationReuse": "No source implementation copied/executed. Original correspondence code uses documented reading forms only as comparison alternatives; source text and target text remain literal.",
+  "alignmentRevision": 2
 }
