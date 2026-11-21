@@ -2,10 +2,20 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {getCorpus} from '../library.js';
 import {createReadingModel} from '../music.js';
-import {analyzeAccentContext,findCombinationsInReading,findCombinationsInCorpus,getCombinationCatalogue,visitCorpusContext} from '../accent-context.js';
+import {analyzeAccentContext,findCombinationsInReading,findCombinationsInCorpus,getCombinationCatalogue,visitCorpusContext,sourceLookupPattern} from '../accent-context.js';
 const corpus=await getCorpus();
 const reading=(bookId,chapter,verse)=>corpus.passage([{id:'example',bookId,start:{chapter,verse},end:{chapter,verse}}]);
 const fixture=texts=>texts.map((sourceHebrew,i)=>({id:`word-${i+1}`,sourceWordId:`source-${i+1}`,sourceHebrew,verseKey:'v1',ordinal:i+1}));
+
+test('printed-source lookup accepts Yetib and adjacent disjunctives without changing the C*→D catalogue',()=>{
+ for(const ids of [['yetiv'],['zakef-katon','zakef-katon'],['zakef-gadol','zakef-katon']])assert.deepEqual(sourceLookupPattern(ids.join('>')),{id:ids.join('>'),ids});
+ const words=fixture(['א֚','ב֔','ג֕','ד֔','ה֔']),before=structuredClone(words);
+ assert.deepEqual(findCombinationsInReading(words,'yetiv').map(h=>h.sourceWordIds),[['source-1']]);
+ assert.deepEqual(findCombinationsInReading(words,'zakef-gadol>zakef-katon').map(h=>h.sourceWordIds),[['source-3','source-4']]);
+ assert.deepEqual(findCombinationsInReading(words,'zakef-katon>zakef-katon').map(h=>h.sourceWordIds),[['source-4','source-5']]);
+ for(const bad of ['', 'invented', 'yetiv>',Array(33).fill('yetiv')])assert.throws(()=>sourceLookupPattern(bad),/Choose a source combination/);
+ assert.deepEqual(words,before);
+});
 
 test('maqaf units preserve every source word and all encoded positions',()=>{
   const words=fixture(['כָּל־','בְּנֵ֣י','יִשְׂרָאֵ֑ל׃']),before=structuredClone(words),context=analyzeAccentContext(words);

@@ -1,4 +1,4 @@
-import {FEATURED_COMBINATIONS,combinationName,combinationGlyphs,findCombinationsInReading,findCombinationsInCorpus,getCombinationCatalogue} from './accent-context.js';
+import {FEATURED_COMBINATIONS,combinationName,combinationGlyphs,findCombinationsInReading,findCombinationsInCorpus,getCombinationCatalogue,sourceLookupPattern} from './accent-context.js';
 
 const issueNames={
   'poetic-or-unclassified-sign':'poetic or unclassified sign','unresolved-repeated-sign':'repeated sign needs interpretation',
@@ -67,7 +67,8 @@ export function mountCombinationTools({getModel,getCorpus,selectHit}){
   updateOptions();refresh();
   return {
     findPattern(id){
-      if(!options.has(id))throw Error('This source pattern is not in the search catalogue.');
+      const pattern=sourceLookupPattern(id);
+      if(!options.has(pattern.id)){options.set(pattern.id,pattern);updateOptions();}
       $('find-combinations').open=true;$('combination-query').value=id;$('combination-scope').value='torah';refresh({reset:true});
       $('combination-query').focus();$('find-combinations').scrollIntoView({block:'start'});
     },

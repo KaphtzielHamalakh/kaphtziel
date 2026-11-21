@@ -10,6 +10,16 @@ export function pitchSpelling(midi){
   const octave=Math.floor(midi/12)-1,position=octave*7+'CDEFGAB'.indexOf(step);
   return {step,alter,octave,position};
 }
+// Preserve a checked printed accidental spelling at the original source key.
+export function eventPitchSpelling(event){
+ const p=event.sourcePitch;
+ if(!p||event.sourceTranspose!==0)return pitchSpelling(event.midi);
+ if(!'CDEFGAB'.includes(p.step)||p.step.length!==1||![-1,0,1].includes(p.alter)||!Number.isInteger(p.octave))throw Error('Invalid printed pitch spelling.');
+ const expected=(p.octave+1)*12+{C:0,D:2,E:4,F:5,G:7,A:9,B:11}[p.step]+p.alter;
+ if(expected!==event.midi)throw Error('Printed pitch spelling and sounding MIDI disagree.');
+ return {...p,position:p.octave*7+'CDEFGAB'.indexOf(p.step)};
+}
+export function eventPitchName(event){const p=eventPitchSpelling(event);return p.step+(p.alter===1?'♯':p.alter===-1?'♭':'')+p.octave;}
 export function rhythmSpelling(beats){
   if(!Number.isFinite(beats)||beats<=0)throw Error('Invalid score duration.');
   for(const [type,value] of [['whole',4],['half',2],['quarter',1],['eighth',.5],['16th',.25],['32nd',.125]]){
@@ -43,7 +53,7 @@ export function scoreData(plan,words){
     if(syllableIndex<0||word.syllables[syllableIndex].sourceHebrew!==event.syllable)throw Error('Score syllables no longer match the source.');
     const syllabic=word.syllables.length===1?'single':syllableIndex===0?'begin':syllableIndex===word.syllables.length-1?'end':'middle';
     const gapAfterBeats=next?next.startBeat-event.startBeat-event.beats:0;
-    return {...event,word,pitch:pitchSpelling(event.midi),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
+    return {...event,word,pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
   });
 }
 // Printed pattern tables may label an accent without specifying a syllable
@@ -54,6 +64,6 @@ export function untextedScoreData(plan){
     if(event.wordId!==null||event.sourceWordId!==null||event.syllableId!==null||event.syllable!==null||event.phonemes!==null)
       throw Error('An untexted source pattern must not claim word, syllable or phoneme alignment.');
     const next=plan[index+1],gap=next?next.startBeat-event.startBeat-event.beats:0;
-    return {...event,syllable:'',untexted:true,pitch:pitchSpelling(event.midi),rhythm:eventRhythm(event),gapAfterBeats:gap>1e-8?gap:0};
+    return {...event,syllable:'',untexted:true,pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gap>1e-8?gap:0};
   });
 }

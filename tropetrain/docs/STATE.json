@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "cbc31a87b9172194942a7b9febb645bf7881a89f",
-  "nextTask": "Audit joint coverage of79,804pronunciation unit-word owners and77,174source-timed chanting words using exact stable IDs, then address provable source correspondence gaps and source-backed phonological/note/audio links. Preserve computed source slices, shared consonants, all original Hebrew/marks and both source styles; differing written forms stay explicit, tentative IPA is not a reviewed dialect. Continue primary Cohen p540/p541–548 contextual melody rules/transcriptions with exact source notation before claiming full musical systems. Two Deut32:6words remain combined,179source correspondence words/2,811chanttiming words unresolved. Six Kinnor grammars/voices, complete contextual melodies, independent singing and full feature inventory remain active; printing deferred.",
+  "nextTask": "Continue toward word-aligned independent chanting: inspect Cohen printed p541–548 terminal/cadential families and explicit stress/reciting-note rules against both scans before applying musical figures to Hebrew. Preserve 79,804 pronunciation unit owners per style and exact original Hebrew/accents; 77,775 words/style have written syllable ranges, 179 lack source correspondence and two Deut32:6 words remain combined. Joint source-timed ownership is76,996, with75,058 written ranges;2,811 timing-review words unchanged. Research source-backed phonological/note/audio links and reusable singing evidence; six Kinnor grammars/voices and complete contextual systems remain pending. Printing deferred.",
   "lastPassingTests": {
     "automated": 214,
     "ui": "Public v0.25→v0.26 retained Deut1:27word2/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0 and exact Hebrew; both repeat cells show exact reader underlay. Gen8:20word7 shows הַ/בְּ/הֵ/מָ֣ה with shared-next/previous consonant labels; muted repeated recordedPlay follows listeningword, live Sephardic ma/Ash mo switch retains Hebrew/tempo/key. Escape/repeatfalse. New Gen14:17word9 selects כְּ/דָר־, word10 לָ/עֹ֔/מֶר with exact owners; Pointed→Consonantal→Pointed preserves all original study marks. Public standalone restores Gen8:20word7/style/underlay and muted repeatedPlay/listeningword/Escape. Both public root/body fit319 and1280; screenshot outputs/TropeTrain-v0.26-live.jpg viewed. All four gains0/stopped/repeatfalse, viewportreset, existing normal tab deliverable. Local additionally observed newname span9→10→9 in both distributions with two/three owners/underlay; Deut32:6source-only/shared case preserved. Native Save/directfile-origin and independent linguistic/cantorial/acoustic review pending.",
@@ -188,13 +188,13 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.26.0",
+    "version": "0.27.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "17b5b66ee4f3935eda7268e4861407c6c53fdfbe",
-    "status": "published_v26_pages_livebytes_normal_standalone_verified",
-    "record": "docs/VERIFICATION-0.26.md",
-    "next": "Audit joint coverage of79,804pronunciation unit-word owners and77,174source-timed chanting words using exact stable IDs, then address provable source correspondence gaps and source-backed phonological/note/audio links. Preserve computed source slices, shared consonants, all original Hebrew/marks and both source styles; differing written forms stay explicit, tentative IPA is not a reviewed dialect. Continue primary Cohen p540/p541–548 contextual melody rules/transcriptions with exact source notation before claiming full musical systems. Two Deut32:6words remain combined,179source correspondence words/2,811chanttiming words unresolved. Six Kinnor grammars/voices, complete contextual melodies, independent singing and full feature inventory remain active; printing deferred.",
-    "newFeatures": "Both source styles now have computed Hebrew syllable underlay, exact original written ranges/shared-consonant references;12newly resolved word owners,79,804individual links/style,2combined179unassigned;77,775words/style with written ranges. Source-only forms preserved."
+    "baseCommit": "eb125ab0b50eb5789130a15d0812188cb96ce12d",
+    "status": "227_checks_and_local_normal_standalone_UI_passed_publication_pending",
+    "record": "docs/VERIFICATION-0.27.md",
+    "next": "Publish tested v0.27 and verify public normal/standalone UI, exact live bytes and Pages jobs; save all progress and resumable artifacts.",
+    "newFeatures": "Ten continued Yetib/conditionalZaqef figures with exact rests/ties/source pitch spelling, explicit context choices and four unresolvedcells; joint chanting/pronunciation coverage76996words,75058writtenranges."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -230,17 +230,19 @@
     "id": "cohen-1902-munah-revia",
     "revision": 1,
     "record": "docs/PRINTED-PATTERNS.json",
-    "coverage": "Plain Munaḥ/Revia comparison only:10supported figures in6ordinaryTorah source rows,50components/48attacks. Original8componentArecord unchanged; no word/syllable/phoneme mapping or fullcontextualsystem.",
-    "review": "Manual two-scan source/keys/values/ties/tuplets checks; two ambiguous cells excluded, independent musical/transcription review pending.",
+    "coverage": "Six ordinary Torah source traditions across 12 page-specific records; 20 checked untexted figures / 95 components including six rests / 86 attacks. Plain Munah/Revia legacy data unchanged; ten p541 Yetib/conditional Zaqef figures added. No full contextual system or pronunciation underlay.",
+    "review": "Manual two-scan notation/key/rhythm/rest/tie checks; four unresolved cells excluded. Independent musical/transcription review pending. Printed predecessor Zaqef subtype unspecified; qaton/gadol searches are lookup candidates only.",
     "catalogRecord": "docs/PRINTED-PATTERN-CATALOG.json",
-    "catalogRevision": 1,
-    "rows": 6,
-    "supportedFigures": 10,
-    "printedComponents": 50,
-    "soundingAttacks": 48,
+    "catalogRevision": 2,
+    "rows": 12,
+    "supportedFigures": 20,
+    "printedComponents": 95,
+    "soundingAttacks": 86,
     "unavailable": [
       "I.D Morocco Revia",
-      "I.F Bagdad plain Munaḥ"
+      "I.F Bagdad plain Munah",
+      "p541 I.D Morocco Yetib",
+      "p541 I.E Egypt & Syria conditional Zaqef"
     ]
   },
   "scrollSource": {
@@ -362,5 +364,14 @@
     "underlayAlignment": "docs/PRONUNCIATION-UNDERLAY-ALIGNMENT.json",
     "writtenRangeWords": 77775,
     "sourceOnlyUnitsPerStyle": 5778
+  },
+  "jointCoverage": {
+    "record": "docs/JOINT-CHANT-PRONUNCIATION.json",
+    "words": 79985,
+    "chantWithIndividualPronunciation": 76996,
+    "chantWithWrittenRanges": 75058,
+    "timedWithoutOwner": 178,
+    "timingReviewWords": 2811,
+    "review": "Exact source IDs and marked Hebrew, both text styles agree. Structural correspondence, not phoneme/note/acoustic approval; recordings keep their own pronunciation."
   }
 }

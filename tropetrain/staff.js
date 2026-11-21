@@ -1,12 +1,11 @@
-import {scoreData,untextedScoreData,escapeXml as x,beatLabel} from './score-data.js';
-import {noteName} from './music.js';
+import {scoreData,untextedScoreData,escapeXml as x,beatLabel,eventPitchName} from './score-data.js';
 
 export const STAFF_PAGE=12;
 export function staffNotes(plan,words,from=0,count=STAFF_PAGE,{untexted=false}={}){
   const slice=plan.slice(from,from+count+1),notes=(untexted?untextedScoreData(slice):scoreData(slice,words)).slice(0,count);let position=84;
   return notes.map((e,index)=>{
     const width=Math.max(90,Math.min(220,[...e.syllable].length*7+40));
-    const gapWidth=e.gapAfterBeats?55:0;
+    const gapWidth=e.gapAfterBeats?55*(e.sourceRestsAfter?.length??1):0;
     const cx=position+width/2,y=100-(e.pitch.position-30)*5,ledgers=[];position+=width+gapWidth;
     if(y>=110)for(let line=110;line<=y;line+=10)ledgers.push(line);
     if(y<=50)for(let line=50;line>=y;line-=10)ledgers.push(line);
@@ -21,7 +20,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false}=
   svg+='<text class="music-symbol clef" x="24" y="90">\ue050</text>';
   for(const e of notes){
     const up=e.y>=80,stemX=e.x+(up?5:-5),stemEnd=e.y+(up?-32:32),r=e.rhythm;
-    const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=untexted?`Inspect ${e.sourceLabel}; ${noteName(e.midi)}; ${beatLabel(e.beats)} beats`:`Go to ${word}; ${noteName(e.midi)}; ${beatLabel(e.beats)} beats; ${e.syllable}`;
+    const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`;
     svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${untexted?'':` data-word-index="${e.wordIndex}"`} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="235" rx="5"/>`;
     for(const y of e.ledgers)svg+=`<line class="ledger" x1="${e.x-10}" x2="${e.x+10}" y1="${y}" y2="${y}"/>`;
     svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
@@ -36,13 +35,17 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false}=
       const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');
       if(end)svg+=`<path class="tuplet-bracket" aria-label="Printed tuplet: ${r.actual} in the time of ${r.normal}" d="M${e.x-10} 34 v-5 H${end.x+10} v5"/><text class="rhythm-ratio" x="${(e.x+end.x)/2}" y="22">${r.actual}:${r.normal}</text>`;
     }
-    svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(noteName(e.midi))}</text>`;
+    svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(eventPitchName(e))}</text>`;
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.syllable)}</text>`;
     if(!untexted&&(e.continuation||e.continuedFromPrevious))svg+=`<line class="melisma-line" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="206" y2="206"/>`;
     svg+=`<text class="staff-beats" x="${e.x}" y="230">${beatLabel(e.beats)} beats</text></g>`;
     if(e.gapAfterBeats){
-      const r=Math.abs(e.gapAfterBeats-.5)<1e-8?'\ue4e6':'\ue4e5';
-      svg+=`<g class="staff-rest" role="img" aria-label="Rest; ${beatLabel(e.gapAfterBeats)} beats"><text class="music-symbol" x="${e.restX}" y="80">${r}</text><text class="staff-beats" x="${e.restX}" y="230">${beatLabel(e.gapAfterBeats)} rest</text></g>`;
+      const rests=e.sourceRestsAfter??[{beats:e.gapAfterBeats}];
+      if(Math.abs(rests.reduce((n,r)=>n+r.beats,0)-e.gapAfterBeats)>1e-8)throw Error('Printed rest values and score gap disagree.');
+      rests.forEach((rest,index)=>{
+       const glyph=Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5',cx=e.x+e.width/2+e.gapWidth*(index+.5)/rests.length;
+       svg+=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="235" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text><text class="staff-beats" x="${cx}" y="230">${beatLabel(rest.beats)} rest</text></g>`;
+      });
     }
     if(e.tieStart){
       const next=notes.find(n=>n.index===e.index+1),toX=next?next.x-8:e.endX-5,toY=next?next.y+9:e.y+9;
