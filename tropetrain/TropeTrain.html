@@ -81,6 +81,8 @@
 .pronunciation-group-hebrew{font:25px/1.8 'Noto Hebrew',serif}.pronunciation-unit-cell{border-top:1px solid var(--line);padding:10px 0}.pronunciation-unit-list{display:flex;flex-wrap:wrap;gap:12px;padding-left:28px;margin:12px 0}.pronunciation-unit-list li{min-width:60px;max-width:100%;padding:6px 10px;border:1px solid var(--line);background:var(--inset);overflow-wrap:anywhere}.pronunciation-unit-text{font:23px/1.8 Georgia,serif}.pronunciation-unit-list li small{display:block;font:11px/1.5 system-ui,sans-serif}.pronunciation-unit-list .source-stressed{border-color:var(--seal);color:var(--seal);font-weight:700}
 
 .pronunciation-group-word{display:inline-block;padding:2px 5px;border:1px solid transparent}.pronunciation-group-word.current-word,.pronunciation-unit-list li.current-word{background:var(--pale);outline:2px solid var(--seal);outline-offset:1px}.pronunciation-unit-owner{color:var(--ink);font-weight:400}
+
+.pronunciation-repeat{font:13px/1.6 system-ui,sans-serif;padding:8px;border-inline-start:2px solid var(--line);background:var(--inset)}
 </style>
 </head>
 <body>
@@ -539,6 +541,15 @@ Original source Hebrew maqaf/space boundaries and Latin hyphen/space joins now p
 11,044sharedgroups have complete structural word links; six further groups retain their explicit first word while the combined personal name spans two reader words and stays unsplit. Deut32:6 has one source form for two reader words and remains wholly shared. Both styles have79,792words with individually linked units;14linkedwords remain in combined forms (26units perstyle), plus179reader words still have no checked source-group correspondence. Source unit counts include alternate readings, not a phonological accuracy score. PRONUNCIATION-WORD-ALIGNMENT.json records per-style hashes/counts/exceptions; an independent Python enumeration imports no production join/DAG code and reproduces every unit-word assignment. Seven new tests also enumerate750small literal path cases, preserve partial/refused/alternate cells, check occurrences/musical independence and closed reading-form guards.
 
 The inspector labels group-relative word ownership and selected/listening units while retaining full source groups. Study export revision2 carries both styles, source Hebrew spans/comparison evidence and exact existing IDs. Individual target Hebrew-letter ranges, phonemes, note links and audio times remain null. These are structural source links pending independent linguistic/cantorial review, not six Kinnor grammars/voices or independent singing. Contextual musical systems and the complete roadmap remain active; printing deferred.
+
+
+## Repeated transcription correction and phonetic computation audit · v0.25
+
+Primary pinned [display_projection.py](https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/display_projection.py), Gitblob737dc0c4330dca9984baf1ab3fe7e17a78bb2c70, projects an em dash for a second qamats transcription when its content equals the first in that pronunciation style. The app had incorrectly classified these88Ashkenazic cells as unavailable. The literal AST/dash is now retained with an explicit reference to column1;348additional reference units are exposed in the alternate-reading views. This corrects interpretation, not the source data.76single-word/two-Hebrew-column,10joined-word/two-column and2single-word/four-column cases are all verified. Qamats-sam labels come from original Hebrew alternatives; copied stress/superscript paths explicitly cite the first source column. Old literal unit-word assignment hashes stay exact. Unknown contexts remain unresolved without borrowing another style. Study revision3 preserves the raw source group and reference provenance. Individual coverage remains79,792words perstyle,14combined/179unassigned; no new phonemes/audio times/voices. Earlier missing-style/dash descriptions in prior verification records reflect the corrected interpretation error.
+
+The pinned [public computation interface](https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/doc/phonetic-mam-compute.md) is a transient, read-only NDJSON protocol over source-independent GPL3 core algorithms; only the exporter needs a private adapter. analysis_reader.Reading.syllables derives generic Hebrew syllable records after unique decoding against the public Sephardic transcription. Geminated consonants have explicit shared-consonant metadata. This is a promising build-time path for source-preserving underlay; source generic Hebrew/UXLC differences and exact alternate-reading pairing still need an adapter and tests. Raw intermediate calculations are distinct from the public display format and do not supply an extra source-quality verdict. The IPA table contains explicitly tentative realizations, so it does not establish reviewed dialect phonemes/voices or Kinnor equivalence.15inspected files including originalGPL3license are pinned privately for continuation,10Gitdirectory hashes verified; no source code has been executed or included in the runtime. Original repetition resolution code uses the public format convention; no GPLimplementation was ported into the browser. Data attribution/CC BY-SA4unchanged.
+
+The existing p541Cohen overview was inspected: its continued table includes contextual Pashta/Mahpak/ZakefQaton/Yetib variants, with separate header conditions. It is a next musical-source lead; no additional pitches, rhythms or complete tradition have been inferred. Full independent melody/phonetic/singing systems and all roadmap requirements remain active, printing deferred.
 </pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">Copyright 2022 The Noto Project Authors (https://github.com/notofonts/hebrew)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -5018,7 +5029,7 @@ SOFTWARE.
     "comparison": "The small ring between pickup notes in the first scan is absent from this independent copy. It is not treated as a pitched note. Pitches, rests, ties and note durations compared between both copies."
   }
 }
-</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.24.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.25.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -12720,6 +12731,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text());
   }
 
+  // pronunciation-repeats.js
+  var PRONUNCIATION_REPEAT_EVIDENCE = Object.freeze({
+    commit: "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    file: "py/phonetic_mam/display_projection.py",
+    gitBlob: "737dc0c4330dca9984baf1ab3fe7e17a78bb2c70",
+    url: "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/display_projection.py",
+    rule: "The second qamats transcription is displayed as an em dash when its content equals the first qamats transcription in the same pronunciation style."
+  });
+  var SECOND_LABELS = /* @__PURE__ */ new Set(["קמץ-ס", "טעם תחתון, קמץ-ס", "טעם עליון, קמץ-ס"]);
+  var hasTranscription = (cell) => cell.status === "present" || cell.status === "repeated";
+  function resolvePronunciationRepeats(group, rows2) {
+    return rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell, index) => {
+      if (cell.status !== "repeat-mark") return cell;
+      const original = group.rows[rowIndex], firstNodes = original.transcriptions[style][0];
+      const alternativeLabels = [...new Set(original.hebrew.flatMap((nodes) => nodes ?? []).filter((n) => n && typeof n === "object" && n.kind === "reading" && SECOND_LABELS.has(n.label)).map((n) => n.label))];
+      const base = cells[0];
+      const valid2 = index === 1 && original.transcriptions[style][index]?.length === 1 && original.transcriptions[style][index][0] === "—" && firstNodes?.length === 1 && firstNodes[0]?.kind === "reading" && firstNodes[0].label === "קמץ-ד" && base.status === "present" && base.units.length > 0 && alternativeLabels.length > 0;
+      if (!valid2) return { ...cell, status: "unresolved-repeat", literalStatus: "repeat-mark", literalText: "—", sourceReference: null };
+      const reference = { cellId: base.id, row: row.number, column: 1, style, kind: "equal-qamats-transcription", alternativeLabels };
+      const mark = (m) => ({ ...m, sourceColumn: 1 });
+      return {
+        ...cell,
+        status: "repeated",
+        literalStatus: "repeat-mark",
+        literalText: "—",
+        sourceReference: reference,
+        text: base.text,
+        boundaries: base.boundaries.map((b) => ({ ...b })),
+        marks: base.marks.map(mark),
+        units: base.units.map((unit) => ({ ...unit, id: `${cell.id}-u${unit.number}`, readerWordId: cell.readerWordId, sourceMarks: unit.sourceMarks.map(mark), sourceReference: { cellId: base.id, column: 1 } }))
+      };
+    })])) }));
+  }
+
   // pronunciation-word-alignment.js
   var letters = (text) => text.replace(/[^א-ת]/gu, "");
   function readerLetterForms(text) {
@@ -12788,7 +12833,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { reason: null, variants, rows: slots.map((parts) => parts.map((part) => ({ sourceForms: part.forms, readerIds: group.readerIds.filter((_, index) => part.owners.has(index)), readerWordId: part.owners.size === 1 ? group.readerIds[[...part.owners][0]] : null }))) };
   }
   function transcriptionWords(cell) {
-    if (cell.status !== "present") return [];
+    if (!hasTranscription(cell)) return [];
     return [...cell.text.matchAll(/[^-\s]+/gu)].map((match) => ({ number: 0, text: match[0], start: match.index, end: match.index + match[0].length })).map((part, index) => ({ ...part, number: index + 1, unitIds: cell.units.filter((u) => u.start >= part.start && u.end <= part.end).map((u) => u.id) }));
   }
   function alignSourceWordBoundaries(group, rows2, hebrewRows) {
@@ -12796,7 +12841,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const aligned = rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell) => {
       const parts = transcriptionWords(cell), slots = proof?.rows?.[rowIndex];
       let reason = single ? null : proof.reason;
-      if (cell.status !== "present") reason = "no-source-transcription";
+      if (!hasTranscription(cell)) reason = "no-source-transcription";
       else if (parts.some((part) => !part.unitIds.length)) reason = "empty-transcription-word";
       else if (!single && !reason && parts.length !== slots.length) reason = "transcription-boundaries-differ";
       const wordSegments = parts.map((part, index) => ({
@@ -12808,7 +12853,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const owners = new Map(wordSegments.flatMap((part) => part.unitIds.map((id) => [id, part.readerWordId])));
       const units = cell.units.map((unit) => ({ ...unit, readerWordId: owners.get(unit.id) ?? null }));
       const assigned = units.filter((u) => u.readerWordId !== null).length;
-      const status = cell.status !== "present" ? "no-source-transcription" : !units.length ? "group-only" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only";
+      const status = !hasTranscription(cell) ? "no-source-transcription" : !units.length ? "group-only" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only";
       return { ...cell, units, wordSegments, wordAlignment: { status, method: single ? "single-reader-word-group" : "literal-source-boundaries", reason: reason ?? (assigned < units.length ? "source-word-spans-multiple-reader-words" : null) } };
     })])) }));
     const styles = Object.fromEntries(["sephardic", "ashkenazic"].map((style) => {
@@ -12842,7 +12887,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       });
     }
     visit(nodes);
-    const status = text === "" ? "empty" : text === "—" ? "unavailable" : "present";
+    const status = text === "" ? "empty" : text === "—" ? "repeat-mark" : "present";
     if (status !== "present") return { status, text, units: [], boundaries: [], marks };
     const units = [], boundaries = [];
     function unit(start2, end) {
@@ -12880,10 +12925,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       return { id, column: column + 1, ...cell, ...alignment, units: cell.units.map((unit) => ({ id: `${id}-u${unit.number}`, ...unit, ...alignment })) };
     }
     const rows2 = group.rows.map((row) => ({ number: row.number, styles: Object.fromEntries(["sephardic", "ashkenazic"].map((id) => [id, row.transcriptions[id].map((cell, column) => cellStructure(cell, id, row.number, column))])) }));
-    const aligned = alignSourceWordBoundaries(group, rows2, group.rows.map((row) => row.hebrew.map(transcriptionStructure)));
+    const resolved = resolvePronunciationRepeats(group, rows2);
+    const aligned = alignSourceWordBoundaries(group, resolved, group.rows.map((row) => row.hebrew.map(transcriptionStructure)));
     return {
       format: "tropetrain-pronunciation-study-v1",
-      revision: 2,
+      revision: 3,
       sourceCommit,
       license: "CC-BY-SA-4.0",
       attribution: "Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.",
@@ -12895,6 +12941,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       alignmentScope: singleWord ? "single-reader-word" : aligned.wordAlignment.styles[style].status === "word-aligned" ? "source-word-boundaries" : aligned.wordAlignment.styles[style].status === "partly-word-aligned" ? "partial-source-word-boundaries" : "complete-reader-group",
       rows: aligned.rows,
       wordAlignment: aligned.wordAlignment,
+      repeatEvidence: PRONUNCIATION_REPEAT_EVIDENCE,
       sourceGroup: group,
       review: "Source display structure and correspondence only; independent linguistic and correspondence review pending. Word IDs require consensus across all literal Hebrew readings and all exact documented reader-form paths, with explicit transcription joins. Combined or conflicting source words remain unsplit. Dots, joins, stress and all source marks stay literal; phonemes, Hebrew-cluster mapping, note alignment and audio times remain unassigned."
     };
@@ -12907,10 +12954,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   ]);
   function pronunciationStyle(value) {
     return PRONUNCIATION_STYLES.some((s) => s.id === value) ? value : "sephardic";
-  }
-  function inlineSourceText(nodes) {
-    if (nodes === null) return "";
-    return nodes.map((node) => typeof node === "string" ? node : node.kind === "superscript-e" ? "ᵉ" : inlineSourceText(node.content)).join("");
   }
   var PronunciationLibrary = class {
     constructor(data) {
@@ -12992,7 +13035,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         parent.append(span);
       }
     }
-    function columns(parent, cells, hebrew) {
+    function columns(parent, cells, hebrew, derivedCells) {
       for (const [index, cell] of cells.entries()) {
         if (cell === null) continue;
         const box = document.createElement("div");
@@ -13008,6 +13051,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         appendInline(text, cell);
         box.append(text);
         parent.append(box);
+        if (derivedCells?.[index]?.sourceReference) {
+          const reference = document.createElement("small");
+          reference.textContent = "Same transcription as source column 1.";
+          box.append(reference);
+        }
       }
     }
     function structure() {
@@ -13036,7 +13084,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         title.className = "muted";
         title.textContent = `Source row ${row.number} · column ${cell.column}`;
         box.append(title);
-        const labels = [...new Set(cell.marks.filter((m) => m.kind === "reading").map((m) => m.label))];
+        if (cell.sourceReference) {
+          const reference = document.createElement("p");
+          reference.className = "pronunciation-repeat";
+          reference.textContent = "Source mark — · same transcription as column 1.";
+          box.append(reference);
+        }
+        const labels = cell.sourceReference?.alternativeLabels ?? [...new Set(cell.marks.filter((m) => m.kind === "reading").map((m) => m.label))];
         if (labels.length) {
           const label2 = document.createElement("p");
           label2.lang = "he";
@@ -13044,9 +13098,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           label2.textContent = labels.join(" · ");
           box.append(label2);
         }
-        if (cell.status !== "present") {
+        if (!hasTranscription(cell)) {
           const message = document.createElement("p");
-          message.textContent = cell.status === "missing" ? "No source cell in this column." : cell.status === "unavailable" ? "The source gives — for this style." : "The source cell is empty.";
+          message.textContent = cell.status === "missing" ? "No source cell in this column." : cell.status === "unresolved-repeat" ? "The source uses a repeat mark here; its reference is unresolved." : "The source cell is empty.";
           box.append(message);
         } else {
           const list = document.createElement("ol");
@@ -13139,13 +13193,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       study = library.study(word, style);
       $2("pronunciation-status").textContent = `Phonetic MAM display ${group.displayChapter}:${group.displayVerse} · source row${group.rows.length === 1 ? "" : "s"} ${group.rows.map((r) => r.number).join(", ")} · ${group.readerIds.length} reader word${group.readerIds.length === 1 ? "" : "s"}. ${group.match === "forced-between-verse-anchors" ? "Matched within a verse with text differences; unmatched words stay unassigned. " : ""}${group.flags.includes("documented-reading-form") ? "The source uses a documented reading form. " : ""}${group.flags.includes("source-text-difference") ? "Source Hebrew differs; compare the exact forms below. " : ""}${group.flags.includes("source-group") ? "The source units below distinguish exact word links from combined forms." : ""}`;
-      for (const row of group.rows) {
+      for (const [rowIndex, row] of group.rows.entries()) {
+        const derived = study.rows[rowIndex].styles[style];
         const item = document.createElement("div");
         item.className = "pronunciation-row";
-        columns(item, row.transcriptions[style], false);
-        if (!row.transcriptions[style].some((cell) => cell !== null && inlineSourceText(cell).trim() && inlineSourceText(cell).trim() !== "—")) {
+        columns(item, row.transcriptions[style], false, derived);
+        if (!derived.some(hasTranscription)) {
           const note = document.createElement("small");
-          note.textContent = "This source row supplies no transcription for the selected style. Source cells are retained above.";
+          note.textContent = "This source row has no resolved transcription for the selected style. Source cells are retained above.";
           item.append(note);
         }
         $2("pronunciation-rows").append(item);

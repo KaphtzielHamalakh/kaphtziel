@@ -1,0 +1,1876 @@
+{
+  "schema": "tropetrain-pronunciation-repeats-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "license": "CC-BY-SA-4.0",
+  "evidence": {
+    "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "file": "py/phonetic_mam/display_projection.py",
+    "gitBlob": "737dc0c4330dca9984baf1ab3fe7e17a78bb2c70",
+    "url": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/display_projection.py",
+    "rule": "The second qamats transcription is displayed as an em dash when its content equals the first qamats transcription in the same pronunciation style."
+  },
+  "repetitions": [
+    {
+      "groupId": "pmam-gen-9-21-6",
+      "readerIds": [
+        "gen-9-21-7"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-9-21-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-gen-9-27-5",
+      "readerIds": [
+        "gen-9-27-5",
+        "gen-9-27-6"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-9-27-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-gen-12-8-7",
+      "readerIds": [
+        "gen-12-8-8"
+      ],
+      "row": 7,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-12-8-7-ashkenazic-r7-c1",
+        "row": 7,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-gen-19-34-2",
+      "readerIds": [
+        "gen-19-34-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-19-34-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-gen-26-25-8",
+      "readerIds": [
+        "gen-26-25-9"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-26-25-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-gen-31-25-6",
+      "readerIds": [
+        "gen-31-25-7",
+        "gen-31-25-8"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-31-25-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-gen-33-19-6",
+      "readerIds": [
+        "gen-33-19-8"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-33-19-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-gen-35-21-4",
+      "readerIds": [
+        "gen-35-21-4"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-35-21-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-gen-36-2-9",
+      "readerIds": [
+        "gen-36-2-12",
+        "gen-36-2-13"
+      ],
+      "row": 9,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-2-9-ashkenazic-r9-c1",
+        "row": 9,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 7
+    },
+    {
+      "groupId": "pmam-gen-36-5-1",
+      "readerIds": [
+        "gen-36-5-1"
+      ],
+      "row": 1,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-5-1-ashkenazic-r1-c1",
+        "row": 1,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 6
+    },
+    {
+      "groupId": "pmam-gen-36-14-4",
+      "readerIds": [
+        "gen-36-14-4"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-14-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-gen-36-18-3",
+      "readerIds": [
+        "gen-36-18-3"
+      ],
+      "row": 3,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-18-3-ashkenazic-r3-c1",
+        "row": 3,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-gen-36-18-14",
+      "readerIds": [
+        "gen-36-18-14"
+      ],
+      "row": 14,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-18-14-ashkenazic-r14-c1",
+        "row": 14,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-gen-36-25-4",
+      "readerIds": [
+        "gen-36-25-5"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-25-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 6
+    },
+    {
+      "groupId": "pmam-gen-36-41-2",
+      "readerIds": [
+        "gen-36-41-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-36-41-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-gen-43-16-18",
+      "readerIds": [
+        "gen-43-16-21"
+      ],
+      "row": 18,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-43-16-18-ashkenazic-r18-c1",
+        "row": 18,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-gen-43-25-5",
+      "readerIds": [
+        "gen-43-25-7"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-gen-43-25-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-exo-9-6-5",
+      "readerIds": [
+        "exo-9-6-6"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-9-6-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-11-8-15",
+      "readerIds": [
+        "exo-11-8-21",
+        "exo-11-8-22"
+      ],
+      "row": 15,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-11-8-15-ashkenazic-r15-c1",
+        "row": 15,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-16-16-17",
+      "readerIds": [
+        "exo-16-16-17"
+      ],
+      "row": 17,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-16-16-17-ashkenazic-r17-c1",
+        "row": 17,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-18-13-2",
+      "readerIds": [
+        "exo-18-13-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-18-13-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-20-4-4",
+      "readerIds": [
+        "exo-20-5-5"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-20-4-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "טעם תחתון, קמץ-ס",
+          "טעם עליון, קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-22-19-4",
+      "readerIds": [
+        "exo-22-19-3"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-22-19-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-23-24-4",
+      "readerIds": [
+        "exo-23-24-5"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-23-24-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-29-37-10",
+      "readerIds": [
+        "exo-29-37-11"
+      ],
+      "row": 10,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-29-37-10-ashkenazic-r10-c1",
+        "row": 10,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-30-10-14",
+      "readerIds": [
+        "exo-30-10-15",
+        "exo-30-10-16"
+      ],
+      "row": 14,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-30-10-14-ashkenazic-r14-c1",
+        "row": 14,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-exo-30-29-5",
+      "readerIds": [
+        "exo-30-29-5"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-30-29-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-30-36-15",
+      "readerIds": [
+        "exo-30-36-15"
+      ],
+      "row": 15,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-30-36-15-ashkenazic-r15-c1",
+        "row": 15,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-31-6-6",
+      "readerIds": [
+        "exo-31-6-6"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-31-6-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-32-6-2",
+      "readerIds": [
+        "exo-32-6-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-32-6-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-32-30-2",
+      "readerIds": [
+        "exo-32-30-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-32-30-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-33-8-10",
+      "readerIds": [
+        "exo-33-8-12"
+      ],
+      "row": 10,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-33-8-10-ashkenazic-r10-c1",
+        "row": 10,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-33-10-13",
+      "readerIds": [
+        "exo-33-10-16"
+      ],
+      "row": 13,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-33-10-13-ashkenazic-r13-c1",
+        "row": 13,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-exo-35-11-2",
+      "readerIds": [
+        "exo-35-11-3",
+        "exo-35-11-4"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-35-11-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-35-34-5",
+      "readerIds": [
+        "exo-35-34-5"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-35-34-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-exo-36-1-3",
+      "readerIds": [
+        "exo-36-1-3"
+      ],
+      "row": 3,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-36-1-3-ashkenazic-r3-c1",
+        "row": 3,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-exo-36-2-4",
+      "readerIds": [
+        "exo-36-2-5",
+        "exo-36-2-6"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-36-2-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 6
+    },
+    {
+      "groupId": "pmam-exo-38-23-2",
+      "readerIds": [
+        "exo-38-23-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-38-23-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-exo-40-10-10",
+      "readerIds": [
+        "exo-40-10-14"
+      ],
+      "row": 10,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-exo-40-10-10-ashkenazic-r10-c1",
+        "row": 10,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-2-3-6",
+      "readerIds": [
+        "lev-2-3-7"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-2-3-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-2-10-6",
+      "readerIds": [
+        "lev-2-10-7"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-2-10-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-6-10-9",
+      "readerIds": [
+        "lev-6-10-9"
+      ],
+      "row": 9,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-6-10-9-ashkenazic-r9-c1",
+        "row": 9,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-6-18-17",
+      "readerIds": [
+        "lev-6-18-19"
+      ],
+      "row": 17,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-6-18-17-ashkenazic-r17-c1",
+        "row": 17,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-6-22-6",
+      "readerIds": [
+        "lev-6-22-7"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-6-22-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-7-1-6",
+      "readerIds": [
+        "lev-7-1-5"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-7-1-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-7-6-8",
+      "readerIds": [
+        "lev-7-6-9"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-7-6-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-7-16-10",
+      "readerIds": [
+        "lev-7-16-12"
+      ],
+      "row": 10,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-7-16-10-ashkenazic-r10-c1",
+        "row": 10,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-10-12-22",
+      "readerIds": [
+        "lev-10-12-23"
+      ],
+      "row": 22,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-10-12-22-ashkenazic-r22-c1",
+        "row": 22,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-10-17-8",
+      "readerIds": [
+        "lev-10-17-10"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-10-17-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-12-4-7",
+      "readerIds": [
+        "lev-12-4-7"
+      ],
+      "row": 7,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-12-4-7-ashkenazic-r7-c1",
+        "row": 7,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-12-4-15",
+      "readerIds": [
+        "lev-12-4-19"
+      ],
+      "row": 15,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-12-4-15-ashkenazic-r15-c1",
+        "row": 15,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-12-5-12",
+      "readerIds": [
+        "lev-12-5-14"
+      ],
+      "row": 12,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-12-5-12-ashkenazic-r12-c1",
+        "row": 12,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-12-6-3",
+      "readerIds": [
+        "lev-12-6-3"
+      ],
+      "row": 3,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-12-6-3-ashkenazic-r3-c1",
+        "row": 3,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-13-7-8",
+      "readerIds": [
+        "lev-13-7-10"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-13-7-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-13-35-6",
+      "readerIds": [
+        "lev-13-35-7"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-13-35-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-14-2-6",
+      "readerIds": [
+        "lev-14-2-6"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-14-2-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-14-8-14",
+      "readerIds": [
+        "lev-14-8-18"
+      ],
+      "row": 14,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-14-8-14-ashkenazic-r14-c1",
+        "row": 14,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-14-13-16",
+      "readerIds": [
+        "lev-14-13-19"
+      ],
+      "row": 16,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-14-13-16-ashkenazic-r16-c1",
+        "row": 16,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-14-23-5",
+      "readerIds": [
+        "lev-14-23-5"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-14-23-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-14-32-9",
+      "readerIds": [
+        "lev-14-32-11"
+      ],
+      "row": 9,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-14-32-9-ashkenazic-r9-c1",
+        "row": 9,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-15-13-8",
+      "readerIds": [
+        "lev-15-13-9"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-15-13-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-16-10-7",
+      "readerIds": [
+        "lev-16-10-7",
+        "lev-16-10-8"
+      ],
+      "row": 7,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-16-10-7-ashkenazic-r7-c1",
+        "row": 7,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-19-6-4",
+      "readerIds": [
+        "lev-19-6-4"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-19-6-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-23-11-6",
+      "readerIds": [
+        "lev-23-11-7"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-23-11-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-23-15-4",
+      "readerIds": [
+        "lev-23-15-3"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-23-15-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-23-16-2",
+      "readerIds": [
+        "lev-23-16-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-23-16-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-lev-24-9-9",
+      "readerIds": [
+        "lev-24-9-9"
+      ],
+      "row": 9,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-24-9-9-ashkenazic-r9-c1",
+        "row": 9,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-lev-27-28-16",
+      "readerIds": [
+        "lev-27-28-21",
+        "lev-27-28-22"
+      ],
+      "row": 16,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-27-28-16-ashkenazic-r16-c1",
+        "row": 16,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-lev-27-29-3",
+      "readerIds": [
+        "lev-27-29-4"
+      ],
+      "row": 3,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-lev-27-29-3-ashkenazic-r3-c1",
+        "row": 3,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-num-6-9-12",
+      "readerIds": [
+        "num-6-9-13"
+      ],
+      "row": 12,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-6-9-12-ashkenazic-r12-c1",
+        "row": 12,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-num-11-10-8",
+      "readerIds": [
+        "num-11-10-9"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-11-10-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-num-11-32-8",
+      "readerIds": [
+        "num-11-32-10"
+      ],
+      "row": 8,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-11-32-8-ashkenazic-r8-c1",
+        "row": 8,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-num-16-26-7",
+      "readerIds": [
+        "num-16-26-8"
+      ],
+      "row": 7,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-16-26-7-ashkenazic-r7-c1",
+        "row": 7,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-num-16-27-12",
+      "readerIds": [
+        "num-16-27-13"
+      ],
+      "row": 12,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-16-27-12-ashkenazic-r12-c1",
+        "row": 12,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-num-17-6-5",
+      "readerIds": [
+        "num-17-6-6"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-17-6-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-num-17-23-2",
+      "readerIds": [
+        "num-17-23-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-17-23-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-num-18-9-14",
+      "readerIds": [
+        "num-18-9-20"
+      ],
+      "row": 14,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-18-9-14-ashkenazic-r14-c1",
+        "row": 14,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-num-33-3-10",
+      "readerIds": [
+        "num-33-3-10"
+      ],
+      "row": 10,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-num-33-3-10-ashkenazic-r10-c1",
+        "row": 10,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-deu-1-27-2",
+      "readerIds": [
+        "deu-1-27-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-1-27-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-deu-5-8-4",
+      "readerIds": [
+        "deu-5-9-5"
+      ],
+      "row": 4,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-5-8-4-ashkenazic-r4-c1",
+        "row": 4,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "טעם תחתון, קמץ-ס",
+          "טעם עליון, קמץ-ס"
+        ]
+      },
+      "units": 3
+    },
+    {
+      "groupId": "pmam-deu-5-26-6",
+      "readerIds": [
+        "deu-5-30-6"
+      ],
+      "row": 6,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-5-26-6-ashkenazic-r6-c1",
+        "row": 6,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-deu-11-6-14",
+      "readerIds": [
+        "deu-11-6-17",
+        "deu-11-6-18"
+      ],
+      "row": 14,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-11-6-14-ashkenazic-r14-c1",
+        "row": 14,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 6
+    },
+    {
+      "groupId": "pmam-deu-12-26-2",
+      "readerIds": [
+        "deu-12-26-2"
+      ],
+      "row": 2,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-12-26-2-ashkenazic-r2-c1",
+        "row": 2,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-deu-13-3-13",
+      "readerIds": [
+        "deu-13-3-15"
+      ],
+      "row": 13,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-13-3-13-ashkenazic-r13-c1",
+        "row": 13,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-deu-28-29-3",
+      "readerIds": [
+        "deu-28-29-3"
+      ],
+      "row": 3,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-28-29-3-ashkenazic-r3-c1",
+        "row": 3,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 5
+    },
+    {
+      "groupId": "pmam-deu-28-59-10",
+      "readerIds": [
+        "deu-28-59-11"
+      ],
+      "row": 10,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-28-59-10-ashkenazic-r10-c1",
+        "row": 10,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-deu-28-68-5",
+      "readerIds": [
+        "deu-28-68-4"
+      ],
+      "row": 5,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-28-68-5-ashkenazic-r5-c1",
+        "row": 5,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 4
+    },
+    {
+      "groupId": "pmam-deu-32-4-3",
+      "readerIds": [
+        "deu-32-4-3"
+      ],
+      "row": 3,
+      "style": "ashkenazic",
+      "column": 2,
+      "literalText": "—",
+      "reference": {
+        "cellId": "pmam-deu-32-4-3-ashkenazic-r3-c1",
+        "row": 3,
+        "column": 1,
+        "style": "ashkenazic",
+        "kind": "equal-qamats-transcription",
+        "alternativeLabels": [
+          "קמץ-ס"
+        ]
+      },
+      "units": 3
+    }
+  ],
+  "unresolvedRepeats": []
+}

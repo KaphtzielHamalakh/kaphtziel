@@ -20,7 +20,7 @@ function fixture({hebrew=[['אב־גד']],sephardic=[['a-b']],ashkenazic=[['a-b'
 
 test('joined source syllables link to exact reader words in both styles without renaming units or losing source marks',()=>{
  const a=study('gen-1-2-6'),b=study('gen-1-2-7','ashkenazic');
- assert.equal(a.revision,2);assert.equal(a.alignmentScope,'source-word-boundaries');
+ assert.equal(a.revision,3);assert.equal(a.alignmentScope,'source-word-boundaries');
  assert.deepEqual(cell(a).units.map(u=>[u.text,u.readerWordId]),[['‘al','gen-1-2-6'],['pᵉ','gen-1-2-7'],['né','gen-1-2-7']]);
  assert.equal(cell(a).units[1].id,'pmam-gen-1-2-6-sephardic-r6-c1-u2');
  assert.deepEqual(a.rows,b.rows);assert.deepEqual(a.sourceGroup,b.sourceGroup);
@@ -53,7 +53,7 @@ test('conflicting readings, missing joins and letter mismatches refuse guesses w
  const mismatch=fixture({hebrew:[['אב־גה']]});assert.equal(cell(mismatch).wordAlignment.reason,'source-reading-word-difference');
  const alternatives=fixture({hebrew:[['אב־גד'],['אבג־ד']]});
  assert.equal(cell(alternatives).units[0].readerWordId,null);assert.equal(cell(alternatives).units[1].readerWordId,'test-1');
- const missing=fixture({ashkenazic:[null,['—']]});assert.equal(missing.rows[0].styles.ashkenazic[0].status,'missing');assert.equal(missing.rows[0].styles.ashkenazic[1].status,'unavailable');
+ const missing=fixture({ashkenazic:[null,['—']]});assert.equal(missing.rows[0].styles.ashkenazic[0].status,'missing');assert.equal(missing.rows[0].styles.ashkenazic[1].status,'unresolved-repeat');
  const rows=[{number:1,hebrew:[['אב']],transcriptions:{sephardic:[['a']],ashkenazic:[['a']]}},{number:2,hebrew:[['גד']],transcriptions:{sephardic:[['b']],ashkenazic:[['b']]}}];
  const multi=fixture({rows});assert.deepEqual(multi.rows.map(r=>r.styles.sephardic[0].units[0].readerWordId),['test-0','test-1']);
 });

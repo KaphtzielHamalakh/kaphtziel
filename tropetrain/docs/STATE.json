@@ -188,16 +188,13 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.24.0",
+    "version": "0.25.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "f9e218014f861743deef9c48aabd69129549bbe8",
-    "status": "published_live_verified_202_checks_final_records_sync_next",
-    "record": "docs/VERIFICATION-0.24.md",
-    "next": "Continue primary contextual musical rules/transcriptions (remaining Cohenp540columns and p541–548) alongside source-backed Hebrew-syllable/phoneme/note alignment. Assess the pinned PhoneticMAM public computation interface and GPL3 implementation/data terms for compatible reuse that can supply further source structure. Keep14combined pronunciation words/179unassigned and2,811chanttiming words unresolved until adequate evidence. Independent review, six Kinnor pronunciation grammars/voices, complete contextual melody systems, independent singing and full roadmap remain active; printing deferred.",
-    "newFeatures": "Exact source word-boundary links for11,044sharedgroups plus6partial groups; stable unit IDs/current-word inspector/exportrevision2;14linkedwords remain combined and179unassigned.",
-    "automatedTests": 202,
-    "ui": "Published v0.23→v0.24 retained Gen8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0. Opened Gen1:2span6–7: normal repeated muted recorded Play observed7→6→7→6→7 with exact one/two selected unit-word IDs, including live Sephardic text change; Escape stopped, repeatfalse/Ashkenazic restored. Pointed→sourcedConsonantal→Pointed preserved marked פְּנֵ֣י, span6–7 and source unit owners. Published standalone restored span/cursor/style; muted loop observed7→6→7 with correct ownership/Escape/repeatfalse. Expanded root/body fit319 and1280; screenshot outputs/TropeTrain-v0.24-live.jpg checked, viewportreset, normal tab deliverable. No captured warnings/errors, allgains0/stopped. Local preview additionally proved partialGen14:17word8 vs combined9/10, Deut32:6allshared, ’es↔’et independentstyles and printedEpair regression. Native Save/directfile-origin and independent linguistic/musical/acoustic review pending.",
-    "codeCommit": "d139f7f0dd592ccbcd87299f48defa530ee16336"
+    "baseCommit": "63d36f45e6ea9a82867b2182f8dddfcccd023d5d",
+    "status": "206_checks_passed_local_normal_standalone_ui_passed_publication_pending",
+    "record": "docs/VERIFICATION-0.25.md",
+    "next": "Finish normal/standalone repeat-marker UI, publish only/tropetrain, verify Pages/live bytes, save release records; then build source-backed Hebrew syllable underlay using inspected public computation interface with GPL3 provenance and strict original Hebrew/mark preservation. Continue contextual musical sources before printing.",
+    "newFeatures": "88literal source repeats corrected with348referenced units, same-style provenance and original AST retained; old unit-word links unchanged. Public computation/underlay source researched."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -357,6 +354,7 @@
     "wordAlignment": "docs/PRONUNCIATION-WORD-ALIGNMENT.json",
     "individualUnitWords": 79792,
     "sharedUnitWords": 14,
-    "wordAlignmentReview": "Independent full-corpus enumeration matches both style assignment hashes; independent linguistic/phoneme/note/audio review pending."
+    "wordAlignmentReview": "Independent full-corpus enumeration matches both style assignment hashes; independent linguistic/phoneme/note/audio review pending.",
+    "repeats": "docs/PRONUNCIATION-REPEATS.json"
   }
 }

@@ -1,5 +1,6 @@
 // Source display structure only: no phoneme, Hebrew-cluster or musical inference.
 import {alignSourceWordBoundaries} from './pronunciation-word-alignment.js';
+import {resolvePronunciationRepeats,PRONUNCIATION_REPEAT_EVIDENCE} from './pronunciation-repeats.js';
 export function transcriptionStructure(nodes){
  if(nodes===null)return {status:'missing',text:null,units:[],boundaries:[],marks:[]};
  if(!Array.isArray(nodes))throw Error('Invalid pronunciation source cell.');
@@ -19,7 +20,7 @@ export function transcriptionStructure(nodes){
   });
  }
  visit(nodes);
- const status=text===''?'empty':text==='—'?'unavailable':'present';
+ const status=text===''?'empty':text==='—'?'repeat-mark':'present';
  if(status!=='present')return {status,text,units:[],boundaries:[],marks};
  const units=[],boundaries=[];
  function unit(start,end){
@@ -53,14 +54,15 @@ export function sourcePronunciationStudy(group,{sourceCommit,word,style}){
   return {id,column:column+1,...cell,...alignment,units:cell.units.map(unit=>({id:`${id}-u${unit.number}`,...unit,...alignment}))};
  }
  const rows=group.rows.map(row=>({number:row.number,styles:Object.fromEntries(['sephardic','ashkenazic'].map(id=>[id,row.transcriptions[id].map((cell,column)=>cellStructure(cell,id,row.number,column))]))}));
- const aligned=alignSourceWordBoundaries(group,rows,group.rows.map(row=>row.hebrew.map(transcriptionStructure)));
+ const resolved=resolvePronunciationRepeats(group,rows);
+ const aligned=alignSourceWordBoundaries(group,resolved,group.rows.map(row=>row.hebrew.map(transcriptionStructure)));
  return {
-  format:'tropetrain-pronunciation-study-v1',revision:2,sourceCommit,license:'CC-BY-SA-4.0',
+  format:'tropetrain-pronunciation-study-v1',revision:3,sourceCommit,license:'CC-BY-SA-4.0',
   attribution:'Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.',
   selectedStyle:style,selection:{sourceWordId,occurrenceId:word.id,sourceHebrew:word.sourceHebrew},
   groupId:group.id,readerIds:[...group.readerIds],readerHebrew:[...group.readerHebrew],
   alignmentScope:singleWord?'single-reader-word':aligned.wordAlignment.styles[style].status==='word-aligned'?'source-word-boundaries':aligned.wordAlignment.styles[style].status==='partly-word-aligned'?'partial-source-word-boundaries':'complete-reader-group',
-  rows:aligned.rows,wordAlignment:aligned.wordAlignment,
+  rows:aligned.rows,wordAlignment:aligned.wordAlignment,repeatEvidence:PRONUNCIATION_REPEAT_EVIDENCE,
   sourceGroup:group,
   review:'Source display structure and correspondence only; independent linguistic and correspondence review pending. Word IDs require consensus across all literal Hebrew readings and all exact documented reader-form paths, with explicit transcription joins. Combined or conflicting source words remain unsplit. Dots, joins, stress and all source marks stay literal; phonemes, Hebrew-cluster mapping, note alignment and audio times remain unassigned.'
  };

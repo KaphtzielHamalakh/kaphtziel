@@ -14,7 +14,7 @@ def forms(text):
  if raw.endswith('הוא') and '\u05b4' in clusters[-3]:values.add(raw[:-3]+'היא')
  if re.fullmatch('[ובכלמשה]{0,3}יששכר',raw):values.add(raw.replace('יששכר','ישכר'))
  return sorted(values)
-styles={s:collections.Counter({k:0 for k in ['singleWordGroups','joinedGroupsAligned','joinedGroupsPartial','joinedGroupsUnsplit','wordsWithUnits','assignedUnits','groupOnlyUnits','missingCells','unavailableCells']}) for s in ['sephardic','ashkenazic']};hashes={s:hashlib.sha256() for s in styles};words={s:set() for s in styles};enumerated=0;maximum=0
+styles={s:collections.Counter({k:0 for k in ['singleWordGroups','joinedGroupsAligned','joinedGroupsPartial','joinedGroupsUnsplit','wordsWithUnits','assignedUnits','groupOnlyUnits','missingCells','repeatCells','unresolvedRepeats','resolvedRepeatUnits']}) for s in ['sephardic','ashkenazic']};hashes={s:hashlib.sha256() for s in styles};literal_hashes={s:hashlib.sha256() for s in styles};words={s:set() for s in styles};enumerated=0;maximum=0
 for group in data['groups']:
  single=len(group['readerIds'])==1;proof=None
  if not single:
@@ -48,11 +48,18 @@ for group in data['groups']:
   group_units=[]
   for row_index,row in enumerate(group['rows']):
    for column,cell in enumerate(row['transcriptions'][style],1):
-    text=inline(cell)
+    text=inline(cell);is_repeat=False
     if text is None:count['missingCells']+=1;continue
-    if text=='—':count['unavailableCells']+=1;continue
+    if text=='—':
+     count['repeatCells']+=1
+     first=row['transcriptions'][style][0]
+     labels=[n.get('label') for h in row['hebrew'] if h is not None for n in h if isinstance(n,dict) and n.get('kind')=='reading']
+     if column!=2 or first is None or len(first)!=1 or not isinstance(first[0],dict) or first[0].get('kind')!='reading' or first[0].get('label')!='קמץ-ד' or not any(x in ['קמץ-ס','טעם תחתון, קמץ-ס','טעם עליון, קמץ-ס'] for x in labels):
+      count['unresolvedRepeats']+=1;continue
+     text=inline(first);is_repeat=True
     assert all(ord(c)<=0xffff for c in text),'UTF16 offset audit needs an astral-character update'
     parts=list(re.finditer('[^-\\s]+',text));units=list(re.finditer('[^·\\-\\s]+',text))
+    if is_repeat:count['resolvedRepeatUnits']+=len(units)
     valid=single or len(parts)==len(proof[row_index])
     for unit_number,unit in enumerate(units,1):
      owner=None
@@ -65,9 +72,10 @@ for group in data['groups']:
      if owner is None:count['groupOnlyUnits']+=1
      else:count['assignedUnits']+=1;words[style].add(owner)
      record=[style,group['id'],row['number'],column,unit_number,owner]
-     hashes[style].update((json.dumps(record,separators=(',',':'))+'\n').encode())
+     line=(json.dumps(record,separators=(',',':'))+'\n').encode();hashes[style].update(line)
+     if not is_repeat:literal_hashes[style].update(line)
   assigned=sum(owner is not None for owner in group_units)
   key='singleWordGroups' if single else 'joinedGroupsAligned' if group_units and assigned==len(group_units) else 'joinedGroupsPartial' if assigned else 'joinedGroupsUnsplit'
   count[key]+=1
-for style,count in styles.items():count['wordsWithUnits']=len(words[style]);count['assignmentSha256']=hashes[style].hexdigest()
+for style,count in styles.items():count['wordsWithUnits']=len(words[style]);count['assignmentSha256']=hashes[style].hexdigest();count['literalAssignmentSha256']=literal_hashes[style].hexdigest()
 print(json.dumps({'styles':styles,'enumeratedReaderChoices':enumerated,'maximumReaderChoices':maximum}))

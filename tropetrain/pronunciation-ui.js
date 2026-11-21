@@ -1,6 +1,7 @@
-import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle,inlineSourceText} from './pronunciation.js';
+import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle} from './pronunciation.js';
 import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
 import {PRONUNCIATION_WORD_SUMMARY} from './pronunciation-word-summary.js';
+import {hasTranscription} from './pronunciation-repeats.js';
 export function mountPronunciationStudy(){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
@@ -20,12 +21,13 @@ export function mountPronunciationStudy(){
    appendInline(span,node.content);parent.append(span);
   }
  }
- function columns(parent,cells,hebrew){
+ function columns(parent,cells,hebrew,derivedCells){
   for(const [index,cell] of cells.entries()){
    if(cell===null)continue;
    const box=document.createElement('div');box.className='pronunciation-cell';box.lang=hebrew?'he':'en';box.dir=hebrew?'rtl':'ltr';
    const label=document.createElement('small');label.textContent=`Source column ${index+1}`;label.lang='en';label.dir='ltr';box.append(label);
    const text=document.createElement('div');appendInline(text,cell);box.append(text);parent.append(box);
+   if(derivedCells?.[index]?.sourceReference){const reference=document.createElement('small');reference.textContent='Same transcription as source column 1.';box.append(reference);}
   }
  }
  function structure(){
@@ -43,10 +45,11 @@ export function mountPronunciationStudy(){
   for(const row of study.rows)for(const cell of row.styles[style]){
    const box=document.createElement('div');box.className='pronunciation-unit-cell';
    const title=document.createElement('p');title.className='muted';title.textContent=`Source row ${row.number} · column ${cell.column}`;box.append(title);
-   const labels=[...new Set(cell.marks.filter(m=>m.kind==='reading').map(m=>m.label))];
+   if(cell.sourceReference){const reference=document.createElement('p');reference.className='pronunciation-repeat';reference.textContent='Source mark — · same transcription as column 1.';box.append(reference);}
+   const labels=cell.sourceReference?.alternativeLabels??[...new Set(cell.marks.filter(m=>m.kind==='reading').map(m=>m.label))];
    if(labels.length){const label=document.createElement('p');label.lang='he';label.dir='rtl';label.textContent=labels.join(' · ');box.append(label);}
-   if(cell.status!=='present'){
-    const message=document.createElement('p');message.textContent=cell.status==='missing'?'No source cell in this column.':cell.status==='unavailable'?'The source gives — for this style.':'The source cell is empty.';box.append(message);
+   if(!hasTranscription(cell)){
+    const message=document.createElement('p');message.textContent=cell.status==='missing'?'No source cell in this column.':cell.status==='unresolved-repeat'?'The source uses a repeat mark here; its reference is unresolved.':'The source cell is empty.';box.append(message);
    }else{
     const list=document.createElement('ol');list.className='pronunciation-unit-list';list.lang='en';list.dir='ltr';
     for(const unit of cell.units){
@@ -87,9 +90,10 @@ export function mountPronunciationStudy(){
   if(!group){$('pronunciation-status').textContent='No checked source correspondence for this word. The selected style is kept; no transcription is substituted.';return;}
   study=library.study(word,style);
   $('pronunciation-status').textContent=`Phonetic MAM display ${group.displayChapter}:${group.displayVerse} · source row${group.rows.length===1?'':'s'} ${group.rows.map(r=>r.number).join(', ')} · ${group.readerIds.length} reader word${group.readerIds.length===1?'':'s'}. ${group.match==='forced-between-verse-anchors'?'Matched within a verse with text differences; unmatched words stay unassigned. ':''}${group.flags.includes('documented-reading-form')?'The source uses a documented reading form. ':''}${group.flags.includes('source-text-difference')?'Source Hebrew differs; compare the exact forms below. ':''}${group.flags.includes('source-group')?'The source units below distinguish exact word links from combined forms.':''}`;
-  for(const row of group.rows){
-   const item=document.createElement('div');item.className='pronunciation-row';columns(item,row.transcriptions[style],false);
-   if(!row.transcriptions[style].some(cell=>cell!==null&&inlineSourceText(cell).trim()&&inlineSourceText(cell).trim()!=='—')){const note=document.createElement('small');note.textContent='This source row supplies no transcription for the selected style. Source cells are retained above.';item.append(note);}
+  for(const [rowIndex,row] of group.rows.entries()){
+   const derived=study.rows[rowIndex].styles[style];
+   const item=document.createElement('div');item.className='pronunciation-row';columns(item,row.transcriptions[style],false,derived);
+   if(!derived.some(hasTranscription)){const note=document.createElement('small');note.textContent='This source row has no resolved transcription for the selected style. Source cells are retained above.';item.append(note);}
    $('pronunciation-rows').append(item);
    const source=document.createElement('div');source.className='pronunciation-row';columns(source,row.hebrew,true);$('pronunciation-source-rows').append(source);
   }
