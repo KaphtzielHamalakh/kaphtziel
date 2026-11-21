@@ -3,12 +3,13 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "08ae7b3421e393acf31845fb02673bc0df913709",
-  "nextTask": "Continue remaining printed-source columns and contextual melody rules, resolving two unavailable figures only with adequate notation evidence/review. Develop source-backed word/syllable/stress/phoneme alignment independently of melody and cleared voice material. Historical labels are separate from complete musical realizations; all six Kinnor grammars/voices, full recovered contextual systems/singing and roadmap remain active. Printing deferred.",
+  "publishedCommit": "d4cc829cf79cbbad8ed48ea514658e89437b25a9",
+  "nextTask": "Prioritize source-backed pronunciation syllable/stress/phoneme representation and word/group correspondence independently of melody. Preserve all79,806source-linked words and179unassigned unless exact evidence supports more links. Continue reusable voice research and remaining printed-source columns/contextual musical rules; resolve two ambiguous cells only with adequate evidence/review. Six Kinnor grammars/voices, complete contextual systems/singing and full roadmap remain active; printing deferred.",
   "lastPassingTests": {
-    "automated": 188,
-    "ui": "Live v0.21→v0.22 retained Gen8:20word7/Ashkenazic text/OriginalDemo01/recordedEndword/60BPM/key0/allmutes; defaultlegacyA8components remained. Epair14components13attacks/heldtie/grouped3:2 playedmuted; DRevia/FMunaḥ stayed unavailable until explicit supported selection. BagdadRevia played6components; reload and publishedstandalone retained Epair and mutedPlay/Escape passed. Source images769/2649 and exact JSONdata links decode in both distributions. At320px Ecomponent14/E4 stayed visible after horizontalstaffscroll1141 and naturallyfinished; expandedsourceimages/root/body fit320 and1280. Reader text/music/pronunciation unchanged. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.22-live.jpg, viewportreset, allgains0/stopped.",
-    "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice."
+    "automated": 189,
+    "ui": "Published normal and standalone v0.22.1: original PNG/UTF-8 JSON dialogs open; Close/Escape return to study; full context image is 2649px and column image 769px, scroll within actual 319px viewport/dialog281. Muted Play/Escape leaves no active events or open dialog. Normal Genesis8:20word7 הַבְּהֵמָ֣ה changed Sephardic hab·be·hé·ma to Ashkenazic hab·be·hé·mo while marked Hebrew and Egypt&Syria/pair selection stayed identical. Earlier full musical comparison checks retain E14components13attacks/tie/3:2, D/F unavailable-cell refusal, FRevia repeat, natural completion and horizontal staff following at320px. No captured warnings/errors; all four gains0, playback stopped. Native Save dialog and direct file-origin UI remain unverified.",
+    "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice.",
+    "releaseTargets": 49
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -157,11 +158,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "08ae7b3421e393acf31845fb02673bc0df913709",
+    "commit": "d4cc829cf79cbbad8ed48ea514658e89437b25a9",
     "status": "success",
-    "workflowRun": 44921195197,
-    "liveAssets": "All22changed public files match44,132,098tested bytes. Final four records follow separately.",
-    "ui": "Live v0.21→v0.22 retained Gen8:20word7/Ashkenazic text/OriginalDemo01/recordedEndword/60BPM/key0/allmutes; defaultlegacyA8components remained. Epair14components13attacks/heldtie/grouped3:2 playedmuted; DRevia/FMunaḥ stayed unavailable until explicit supported selection. BagdadRevia played6components; reload and publishedstandalone retained Epair and mutedPlay/Escape passed. Source images769/2649 and exact JSONdata links decode in both distributions. At320px Ecomponent14/E4 stayed visible after horizontalstaffscroll1141 and naturallyfinished; expandedsourceimages/root/body fit320 and1280. Reader text/music/pronunciation unchanged. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.22-live.jpg, viewportreset, allgains0/stopped.",
+    "workflowRun": 44923461682,
+    "liveAssets": "All23changed public files match44,151,914tested bytes against local5ea3bff6; four final release records follow in a documentation-only commit.",
+    "ui": "Published normal and standalone v0.22.1: original PNG/UTF-8 JSON dialogs open; Close/Escape return to study; full context image is 2649px and column image 769px, scroll within actual 319px viewport/dialog281. Muted Play/Escape leaves no active events or open dialog. Normal Genesis8:20word7 הַבְּהֵמָ֣ה changed Sephardic hab·be·hé·ma to Ashkenazic hab·be·hé·mo while marked Hebrew and Egypt&Syria/pair selection stayed identical. Earlier full musical comparison checks retain E14components13attacks/tie/3:2, D/F unavailable-cell refusal, FRevia repeat, natural completion and horizontal staff following at320px. No captured warnings/errors; all four gains0, playback stopped. Native Save dialog and direct file-origin UI remain unverified.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -189,12 +190,12 @@
   "workingIteration": {
     "version": "0.22.1",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "2678f936ade7faf1a2077215ba3cb4a230ce731b",
-    "status": "189_checks_normal_standalone_viewer_passed_final_build_and_publish_next",
+    "baseCommit": "dc1b05a5c4fc4409d466141e851a44685882948f",
+    "status": "published_live_verified_189_checks_final_records_and_output_sync",
     "record": "docs/VERIFICATION-0.22.1.md",
-    "next": "Continue remaining printed-source columns and contextual melody rules, resolving two unavailable figures only with adequate notation evidence/review. Develop source-backed word/syllable/stress/phoneme alignment independently of melody and cleared voice material. Historical labels are separate from complete musical realizations; all six Kinnor grammars/voices, full recovered contextual systems/singing and roadmap remain active. Printing deferred.",
+    "next": "Prioritize source-backed pronunciation syllable/stress/phoneme representation and word/group correspondence independently of melody. Preserve all79,806source-linked words and179unassigned unless exact evidence supports more links. Continue reusable voice research and remaining printed-source columns/contextual musical rules; resolve two ambiguous cells only with adequate evidence/review. Six Kinnor grammars/voices, complete contextual systems/singing and full roadmap remain active; printing deferred.",
     "automatedTests": 189,
-    "codeCommit": "08ae7b3421e393acf31845fb02673bc0df913709",
+    "codeCommit": "d4cc829cf79cbbad8ed48ea514658e89437b25a9",
     "newFeatures": "Six source-labeled printed Torah rows, ten supported figures/50components48attacks, ties/mixedtuplets/independentpicker/persistence/portableevidence. Two unclear cells refused; main text/melody/pronunciation unchanged."
   },
   "sourceAnalysisIssue": {
