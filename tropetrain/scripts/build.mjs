@@ -16,6 +16,8 @@ execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdi
 execFileSync('python3',[path.join(root,'scripts/import-pronunciation.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-structure.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-word-alignment.mjs')],{stdio:'inherit'});
+execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-pronunciation-underlay.mjs')],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -25,10 +27,17 @@ const encoded=gzipSync(corpus,{level:9}).toString('base64');
 const repertoireManifest=JSON.parse(await readFile(path.join(root,'data/repertoire/manifest.json'),'utf8'));
 const repertoireBooks=await Promise.all(repertoireManifest.books.map(b=>readFile(path.join(root,'data/repertoire',b.file),'utf8').then(JSON.parse)));
 const repertoireEncoded=gzipSync(JSON.stringify({manifest:repertoireManifest,books:repertoireBooks}),{level:9}).toString('base64');
+const underlayEncoded=(await readFile(path.join(root,'data/pronunciation/torah-underlay.json.gz'))).toString('base64');
 const pronunciationEncoded=(await readFile(path.join(root,'data/pronunciation/torah-display.json.gz'))).toString('base64');
 const referenceEncoded=(await readFile(path.join(root,'data/references/torah-library.json.gz'))).toString('base64');
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
-  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-data\.js$/},()=>({loader:'js',contents:`
+  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-underlay-data\.js$/},()=>({loader:'js',contents:`
+    const encoded=${JSON.stringify(underlayEncoded)};
+    export async function loadPronunciationUnderlayData(){
+      if(typeof DecompressionStream==='undefined')throw Error('Hebrew underlay needs a current browser with gzip support.');
+      const bytes=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
+      return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+    }`}));builder.onLoad({filter:/pronunciation-data\.js$/},()=>({loader:'js',contents:`
     const pronunciationEncoded=${JSON.stringify(pronunciationEncoded)};
     export async function loadPronunciationData(){
       if(typeof DecompressionStream==='undefined')throw Error('Pronunciation text needs a current browser with gzip support.');
@@ -70,6 +79,8 @@ const layoutPack=await readFile(path.join(root,'assets/layout/tikkun-torah-sourc
 const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1.mp3'));
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
 const voiceStudyAudio=await readFile(path.join(root,'assets/voice-studies/esther-seed.mp3'));
+const underlayEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-UNDERLAY.json'),'utf8');
+const computationSources=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-computation-sources.zip'));
 const pronunciationNotice=await readFile(path.join(root,'assets/pronunciation/NOTICE.txt'),'utf8');
 const pronunciationEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-ALIGNMENT.json'),'utf8');
 const pronunciationPack=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-torah-sources.zip'));
@@ -104,6 +115,8 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replace('id="voice-studies"','id="voice-studies" data-audio-base="https://kaphtziel.com/tropetrain/"')
  .replace('src="./assets/voice-studies/esther-seed.mp3"',()=>`src="data:audio/mpeg;base64,${voiceStudyAudio.toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/NOTICE.txt"','href="#pronunciation-notices"')
+ .replaceAll('href="./docs/PRONUNCIATION-UNDERLAY.json"',()=>`href="data:application/json;base64,${Buffer.from(underlayEvidence).toString('base64')}"`)
+ .replaceAll('href="./assets/pronunciation/phonetic-mam-computation-sources.zip"',()=>`href="data:application/zip;base64,${computationSources.toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-ALIGNMENT.json"',()=>`href="data:application/json;base64,${Buffer.from(pronunciationEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/phonetic-mam-torah-sources.zip"',()=>`href="data:application/zip;base64,${pronunciationPack.toString('base64')}"`)
  .replaceAll('href="./docs/CHANT-COVERAGE.json"',()=>`href="data:application/json;base64,${Buffer.from(chantEvidence).toString('base64')}"`)

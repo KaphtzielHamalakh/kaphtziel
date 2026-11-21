@@ -1,0 +1,20 @@
+{
+  "schema": "tropetrain-pronunciation-underlay-audit-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "inputSha256": "eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13",
+  "computationSourceSha256": "357314571720309945b3c7e1a2b33582a34dfbc6a497a02309af8c8572fcafaf",
+  "groups": 68354,
+  "counts": {
+    "sephardicVariantUnits": 193763,
+    "ashkenazicVariantUnits": 193763,
+    "variants": 68567,
+    "variantUnits": 193763,
+    "sharedConsonants": 18203
+  },
+  "unresolved": [],
+  "method": "Pinned GPL3 Reading.syllables unique decoding against published Sephardic transcription, factored over independent maqaf atoms. Both complete style projections and explicit joins match original cells exactly, excluding literal stress markers only. Preserve original Hebrew-letter ranges and shared-consonant metadata; browser aligns exact written clusters separately.",
+  "limits": "Source computation, not independent linguistic review or Kinnor grammar equivalence. Original source AST/stress/source packet unchanged. No IPA, phonemes, music, singing, syllable audio times or inferred pronunciation generated.",
+  "outputBytes": 288690,
+  "outputSha256": "c04d2894420d19bc6daaa4a1165bae02f0135a039be8433f3b5734940acfb829"
+}
