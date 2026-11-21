@@ -17,3 +17,12 @@ Supported in-app accessibility client and read-only DOM. Preview normal app show
 ## Release gate and remaining evidence
 
 Publish only/tropetrain through connected GitHub with current-main lease, after full checks and normal/standalone QA. Verify Pages success and every changed public byte, then live upgrade/style independence/reader preservation/persistence/playback and standalone. Roll back on startup, source mismatch, wrong word following or accidental audio/melody coupling by republishing the previous app tree418bb0d66ca80f36d8857b1bf05d28e4fb30bb27; preserve practice/audio cache. No independent review or CI test gate is invented. Full six Kinnor phonetic grammars/voices, contextual melody systems, reviewed singing, remaining roadmap/print/file-dialog gates are unfinished.
+
+
+## Published and live verified
+
+Code `b44e741c64d037522ccc7133b539f30cbf4914a2`, Pages `44915169439`: completed successful build/deployment/report. Tested local source `f5eb54196cce1a3686cb2eb73f68c7cc78dab88c`, root tree29824333c43718c8d9ea99950d6f5209e2e78b19, app subtree005a46d03c2e07f3104d86f9db1b1ef785dd71bf. Only/tropetrain changed. Every26changed public file matches41,246,550tested bytes, with exact per-file SHA256 in work/audits/live-0.20.json. Full179/179passed,0fail/0skip; 34final documentation/distribution targets passed,0fail/0skip.
+
+Live v0.19→v0.20 kept Genesis1:1–3 word2, OriginalDemo01,60BPM,key0,recorded main mode/group and all mutes. Source ba·ra→bo·ro switch during muted word repeat retained exact marked Hebrew and playback; Escape/reload kept Ashkenazic and group. Published standalone restored source style, followed listening word2 with audio paused/rate1 at0, and exposes embedded ZIP/audit/NOTICE. Live normal expanded source JSON fits320px; reset returns default319px with root/bodyfit. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.20-live.jpg; playback stopped/gains0.
+
+Qualified linguistic/correspondence and acoustic review remain pending. Source text labels and exact data are verified; pronunciation quality, musical realization of historical presets and independently controlled chanting are not thereby verified. Full recovered melody/Accent roster/voices/singing and full roadmap remain unfinished, goal active. No printing work added. Final documentation-only publication and output/resume sync follow without changing runtime assets.
