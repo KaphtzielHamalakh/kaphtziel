@@ -3,12 +3,12 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "b44e741c64d037522ccc7133b539f30cbf4914a2",
-  "nextTask": "Audit remaining Phonetic MAM/UXLC differences using exact source evidence; preserve unassigned regions, all original text and grouped/alternate readings. Research and implement evidence-backed pronunciation rules and reusable contextual melodic/voice material independently; do not turn text styles or fixed recordings into six Kinnor claims. Printing deferred.",
+  "publishedCommit": "3004de0260872d9d3be3e083cae8473491a0d653",
+  "nextTask": "Continue evidence-backed phonetic/syllable/stress representation and contextual traditional melody rules/reusable voices before printing. Preserve179unassigned words unless exact source evidence supports a link. Source text styles and fixed recorded voices remain separate; six Kinnor phonetic grammars/voices, all recovered contextual musical systems, singing and full roadmap active/incomplete.",
   "lastPassingTests": {
-    "automated": 179,
-    "ui": "Live v0.19→v0.20 kept Genesis1:1–3 word2, OriginalDemo01,60BPM,key0,recorded main mode/group and all mutes. Source ba·ra→bo·ro switch during muted word repeat retained exact marked Hebrew and playback; Escape/reload kept Ashkenazic and group. Published standalone restored source style, followed listening word2 with audio paused/rate1 at0, and exposes embedded ZIP/audit/NOTICE. Live normal expanded source JSON fits320px; reset returns default319px with root/bodyfit. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.20-live.jpg; playback stopped/gains0.",
-    "limits": "Structural mapping/source preservation and silent-clock checks, not acoustic/linguistic approval. 2,229 pronunciation words unassigned;2,811 chant-timing words blocked. No new voice/phoneme grammar, six-Kinnor equivalence or independent singing. Existing file/dialog/recovery/visibility/expert-review gates pending."
+    "automated": 182,
+    "ui": "Live v0.20→v0.21 kept Gen1:1word2/Ashkenazic/OriginalDemo01/60BPM/key0/recordedgroup/allmutes. Opened Gen8:20word7 הַבְּהֵמָ֣ה, original0.6MBchant loaded/hashchecked/cached while textstyle changed. Muted word7Play followed source text, Sephardic ma→Ashkenazic mo during play retained recording/rate1 and naturally completed. Word8 remained unassigned/empty. Reload and published standalone restored Gen8:20word7/Ashkenazic/recordedEndword and cachedchant, mutedfollowing/Escape passed. Expanded source details fit320 and1280 with equal root/body/viewport; screenshot outputs/TropeTrain-v0.21-live.jpg at1280, viewportreset. No capturedwarnings/errors, all gains0/stopped.",
+    "limits": "Structural exact correspondence, source preservation and silent-clock playback checks; independent linguistic/mapping/acoustic review pending.179pronunciation words unassigned,2,811chanttiming words blocked. No new voice/phoneme grammar/singing or six-Kinnor equivalence. File/dialog/recovery/visibility/expert review gates remain."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -37,7 +37,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_preserving_pronunciation_groups_77756_words_2229_unassigned_linguistic_mapping_review_and_phonemes_pending"
+      "status": "source_preserving_exact_pronunciation_groups_79806_words_179_unassigned_linguistic_mapping_review_and_phonemes_pending"
     },
     {
       "id": "playback",
@@ -47,7 +47,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_Phonetic_MAM_text_views_77756_words_source_verified_browser_tested_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_Phonetic_MAM_text_views_79806_words_source_verified_browser_tested_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "b44e741c64d037522ccc7133b539f30cbf4914a2",
+    "commit": "3004de0260872d9d3be3e083cae8473491a0d653",
     "status": "success",
-    "workflowRun": 44915169439,
-    "liveAssets": "All26 changed public files match41,246,550 tested bytes. Final four documentation records follow separately.",
-    "ui": "Live v0.19→v0.20 kept Genesis1:1–3 word2, OriginalDemo01,60BPM,key0,recorded main mode/group and all mutes. Source ba·ra→bo·ro switch during muted word repeat retained exact marked Hebrew and playback; Escape/reload kept Ashkenazic and group. Published standalone restored source style, followed listening word2 with audio paused/rate1 at0, and exposes embedded ZIP/audit/NOTICE. Live normal expanded source JSON fits320px; reset returns default319px with root/bodyfit. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.20-live.jpg; playback stopped/gains0.",
+    "workflowRun": 44917407675,
+    "liveAssets": "All24changed public files match41,641,180tested bytes. Final four documentation records follow separately.",
+    "ui": "Live v0.20→v0.21 kept Gen1:1word2/Ashkenazic/OriginalDemo01/60BPM/key0/recordedgroup/allmutes. Opened Gen8:20word7 הַבְּהֵמָ֣ה, original0.6MBchant loaded/hashchecked/cached while textstyle changed. Muted word7Play followed source text, Sephardic ma→Ashkenazic mo during play retained recording/rate1 and naturally completed. Word8 remained unassigned/empty. Reload and published standalone restored Gen8:20word7/Ashkenazic/recordedEndword and cachedchant, mutedfollowing/Escape passed. Expanded source details fit320 and1280 with equal root/body/viewport; screenshot outputs/TropeTrain-v0.21-live.jpg at1280, viewportreset. No capturedwarnings/errors, all gains0/stopped.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -190,14 +190,16 @@
     "version": "0.21.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "18dbcb5e7e08b234586f12ff80b09487fc60d9b8",
-    "status": "182_checks_and_normal_standalone_passed_ready_for_publication",
-    "record": "docs/PRONUNCIATION-ALIGNMENT.json",
+    "status": "published_live_verified",
+    "record": "docs/VERIFICATION-0.21.md",
     "mappedWords": 79806,
     "readerWords": 79985,
     "unassignedWords": 179,
     "groups": 68354,
-    "next": "Validate exhaustive forced-path cases, retained v0.20 mappings, literal source/reader correspondence and normal/standalone UI; publish after checks. No new voice/phoneme grammar claim.",
-    "automatedTests": 182
+    "next": "Continue evidence-backed phonetic/syllable/stress representation and contextual traditional melody rules/reusable voices before printing. Preserve179unassigned words unless exact source evidence supports a link. Source text styles and fixed recorded voices remain separate; six Kinnor phonetic grammars/voices, all recovered contextual musical systems, singing and full roadmap active/incomplete.",
+    "automatedTests": 182,
+    "newFeatures": "2,050additional source-text word links from1,776forced exact groups between original verse anchors; every66,578v0.20group unchanged.179unassigned. No new voice or melody.",
+    "finalDocumentationChecks": 37
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -326,18 +328,21 @@
     "license": "CC-BY-SA-4.0, path-specific data declaration; implementation GPL3 and third-party crops not imported.",
     "privateFiles": 8,
     "privateBytes": 15069451,
-    "status": "v0.20 imported original data and conservative source-preserving correspondence. 77,756/79,985 words in66,578groups;2,229 unassigned; two independent source text styles, not new voices. Independent linguistic/mapping review pending."
+    "status": "v0.21 original data and complete-verse plus forced partial-group correspondence.79,806/79,985words in68,354groups;179unassigned. Independent source text views, no new voice; independent review pending."
   },
   "pronunciationSource": {
     "record": "docs/PRONUNCIATION-SOURCES.json",
     "alignment": "docs/PRONUNCIATION-ALIGNMENT.json",
-    "mappedWords": 77756,
-    "unassignedWords": 2229,
-    "groups": 66578,
+    "mappedWords": 79806,
+    "unassignedWords": 179,
+    "groups": 68354,
     "styles": [
       "sephardic",
       "ashkenazic"
     ],
-    "review": "Structural/source-preservation checks passed; independent linguistic and correspondence review pending. No new phoneme grammar or voice."
+    "review": "Structural/source-preservation checks passed; independent linguistic and correspondence review pending. No new phoneme grammar or voice.",
+    "alignmentRevision": 2,
+    "exactCandidateEdges": 2162,
+    "partialWindows": 126
   }
 }

@@ -20,3 +20,12 @@ Full final build/test plus normal/standalone checks, only/tropetrain connected G
 
 
 The independent verifier enumerates every candidate without production span caps. All2,162literal indivisible edges have identical sorted-edge hashes per window; actual largest candidate1source row/3readerwords. No candidate was omitted by the4/8caps in this pinned dataset. Audit source/DP code is not imported into this verifier.
+
+
+## Published and live verified
+
+Code3004de0260872d9d3be3e083cae8473491a0d653, Pages44917407675:successful build/deploy/report. Tested local35c3b24926727a533d112afa9f34b8a350451cf8, rootddf32e194544a0fcd4803730aa156690dc34cae2, appff673338e9775e1a3200571b8108a38aea40dfdd. Only/tropetrain changed. All24public changed files match41,641,180bytes, per-file hashes in work/audits/live-0.21.json. Full182/182pass,0fail/0skip; 37final documentation/distribution targets pass,0fail/0skip.
+
+Live v0.20→v0.21 kept Gen1:1word2/Ashkenazic/OriginalDemo01/60BPM/key0/recordedgroup/allmutes. Opened Gen8:20word7 הַבְּהֵמָ֣ה, original0.6MBchant loaded/hashchecked/cached while textstyle changed. Muted word7Play followed source text, Sephardic ma→Ashkenazic mo during play retained recording/rate1 and naturally completed. Word8 remained unassigned/empty. Reload and published standalone restored Gen8:20word7/Ashkenazic/recordedEndword and cachedchant, mutedfollowing/Escape passed. Expanded source details fit320 and1280 with equal root/body/viewport; screenshot outputs/TropeTrain-v0.21-live.jpg at1280, viewportreset. No capturedwarnings/errors, all gains0/stopped.
+
+Additional alignment evidence:126partial windows,144partially matched source display verses,151unassigned source rows corresponding to179unassigned reader words. Those do not receive invented transcriptions. Grouped source words remain grouped. No independent linguistic/cantorial review or new phonetic/singing/melodic realization inferred. Full objective active, printing deferred. Final documentation-only publication and output sync follow without runtime changes.
