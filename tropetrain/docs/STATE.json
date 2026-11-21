@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "81dcb7097fd604d309ec02832d751aa5e1d2b1f4",
-  "nextTask": "Continue toward word-aligned independent chanting: inspect Cohen printed p541–548 terminal/cadential families and explicit stress/reciting-note rules against both scans before applying musical figures to Hebrew. Preserve 79,804 pronunciation unit owners per style and exact original Hebrew/accents; 77,775 words/style have written syllable ranges, 179 lack source correspondence and two Deut32:6 words remain combined. Joint source-timed ownership is76,996, with75,058 written ranges;2,811 timing-review words unchanged. Research source-backed phonological/note/audio links and reusable singing evidence; six Kinnor grammars/voices and complete contextual systems remain pending. Printing deferred.",
+  "nextTask": "Continue full word-aligned independent chanting: source explicit reciting-note, stress, cadence and contextual choices from primary Cohen p540–548 and Baer pp30–42 or other reusable named traditions before generating new pitches for Torah words. The note-text bridge now preserves exact matching spans in both styles and refuses differing boundaries; keep the two opening Gen22 printed syllables unlinked from source vay until evidence supports a separate realization. Preserve all original Hebrew/accents, canonical/occurrence IDs, source packets, musical notes, tempos and timing records. Research source-backed phonological/phoneme/note/audio links and reusable sung voice material; six Kinnor grammars/voices, full contextual melody systems and all roadmap features remain active. Printing deferred.",
   "lastPassingTests": {
     "automated": 227,
     "newRegressionChecks": 13,
@@ -188,13 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.27.0",
+    "version": "0.28.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "eb125ab0b50eb5789130a15d0812188cb96ce12d",
-    "status": "published_code_live_assets_and_both_browser_distributions_verified_final_records_pending",
-    "record": "docs/VERIFICATION-0.27.md",
-    "next": "Continue toward word-aligned independent chanting: inspect Cohen printed p541–548 terminal/cadential families and explicit stress/reciting-note rules against both scans before applying musical figures to Hebrew. Preserve 79,804 pronunciation unit owners per style and exact original Hebrew/accents; 77,775 words/style have written syllable ranges, 179 lack source correspondence and two Deut32:6 words remain combined. Joint source-timed ownership is76,996, with75,058 written ranges;2,811 timing-review words unchanged. Research source-backed phonological/note/audio links and reusable singing evidence; six Kinnor grammars/voices and complete contextual systems remain pending. Printing deferred.",
-    "newFeatures": "Ten continued Yetib/conditionalZaqef figures with exact rests/ties/source pitch spelling, explicit context choices and four unresolvedcells; joint chanting/pronunciation coverage76996words,75058writtenranges."
+    "baseCommit": "3bdd15f7db2069770b43bcfef84fa4cfa3536c19",
+    "status": "236_checks_and_local_normal_standalone_UI_passed_publication_pending",
+    "record": "docs/VERIFICATION-0.28.md",
+    "next": "Publish tested v0.28, verify public browser behavior and exact live assets, then save guarded copies and the next source-research task."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -373,5 +372,29 @@
     "timedWithoutOwner": 178,
     "timingReviewWords": 2811,
     "review": "Exact source IDs and marked Hebrew, both text styles agree. Structural correspondence, not phoneme/note/acoustic approval; recordings keep their own pronunciation."
+  },
+  "pronunciationNoteLinks": {
+    "record": "docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json",
+    "format": "tropetrain-pronunciation-note-links-v1",
+    "styles": [
+      "sephardic",
+      "ashkenazic"
+    ],
+    "scope": "Exact original written spans linking source text units to existing score syllables; no audio/phoneme allocation. Full-Torah counts below are original-demo notes, not a traditional melody.",
+    "originalDemo": {
+      "notesPerStyle": 231178,
+      "linkedNotesPerStyle": 220493,
+      "unlinkedNotesPerStyle": 10685,
+      "fullyLinkedWordsPerStyle": 74756,
+      "partlyLinkedWordsPerStyle": 2717,
+      "unlinkedWordsPerStyle": 2512
+    },
+    "boundedPrintedGenesis22": {
+      "notes": 52,
+      "linkedPerStyle": 50,
+      "unlinkedPerStyle": 2,
+      "reason": "Printed Wa/ye versus source vay; source syllables and original printed note underlay unchanged."
+    },
+    "review": "Structural correspondence only; source text, stress, alternative columns/repeats and shared consonant references retained. Independent linguistic/musical/cantorial/acoustic review remains pending."
   }
 }

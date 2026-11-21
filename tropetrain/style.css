@@ -80,5 +80,6 @@
 .pronunciation-hebrew-underlay{display:block;font:21px/1.8 'Noto Hebrew',serif;white-space:pre-wrap;color:var(--ink);font-weight:400}.pronunciation-geminate{max-width:130px;color:var(--ink);font-weight:400}
 
 .staff-rest.active .music-symbol,.staff-rest.active .staff-beats{fill:var(--seal)}.staff-rest.active .staff-hit,.staff-rest:focus .staff-hit{fill:var(--pale)}
+.score-pronunciation-controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:16px 0}.score-pronunciation-controls label{display:flex;align-items:center;gap:8px;font:14px system-ui,sans-serif}.score-pronunciation-controls button{max-width:100%}.staff-pronunciation{font:16px Georgia,serif;text-anchor:middle;fill:var(--ink)}.staff-pronunciation.source-stressed{font-weight:700;fill:var(--seal)}.staff-pronunciation.unlinked{font:11px system-ui,sans-serif;fill:var(--soft)}.score-pronunciation-limit{font-size:13px;line-height:1.6}#score-pronunciation-detail{min-height:1.8em;overflow-wrap:anywhere}
 
 #pattern-context-query-label[hidden]{display:none}

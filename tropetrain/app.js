@@ -26,6 +26,7 @@ import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
 import {mountCalendar} from './calendar-ui.js';
 import {mountVoiceStudies} from './voice-study-ui.js';
 import {mountPronunciationStudy} from './pronunciation-ui.js';
+import {NOTE_LINK_REASONS} from './pronunciation-note-links.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
@@ -61,6 +62,9 @@ let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
 let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null;
+let scorePronunciation=true,scorePronunciationReport=null,inspectedScoreEventId=null;
+try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
+$('score-pronunciation').checked=scorePronunciation;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 let chantPlan=null,chantReady=false,chantGeneration=0,chantPlayRequest=0,recordedPracticeRunning=false;
@@ -424,12 +428,20 @@ function renderSequence(){
 function renderStaff(){
   state.staffPage=Math.min(state.staffPage,Math.max(0,Math.ceil(plan.length/STAFF_PAGE)-1));
   const from=state.staffPage*STAFF_PAGE,to=Math.min(from+STAFF_PAGE,plan.length);
-  $('pitch-staff').innerHTML=staffMarkup(plan,words,from);
+  let linkError=null;scorePronunciationReport=null;
+  if(scorePronunciation)try{scorePronunciationReport=pronunciationTools?.linkNotes(plan.slice(from,to),words)??null;}catch(error){linkError=error.message;}
+  const linkMap=scorePronunciationReport?new Map(scorePronunciationReport.links.map(l=>[l.eventId,l])):null;
+  $('pitch-staff').innerHTML=staffMarkup(plan,words,from,STAFF_PAGE,{pronunciationLinks:linkMap});
+  const source=pronunciationTools?.scoreStatus();
+  $('score-pronunciation-summary').textContent=!scorePronunciation?'Pronunciation text on the score is hidden. Hebrew and musical settings are kept.':linkError?`Score text links unavailable: ${linkError}`:source?.error?source.error:!scorePronunciationReport?'Loading pronunciation text for the score…':`${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
+  $('score-pronunciation-download').disabled=!scorePronunciationReport?.links.length;
+  const inspected=scorePronunciationReport?.links.find(l=>l.eventId===inspectedScoreEventId)??scorePronunciationReport?.links[0];
+  $('score-pronunciation-detail').textContent=!inspected?'':inspected.status==='unlinked'?`${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}`:`${inspected.hebrew} · ${inspected.units.map(u=>`${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length?', '+u.labels.join('/') :''}${u.sharesNextConsonant?', shared consonant with next unit':''}${u.sharesPreviousConsonant?', shared consonant with previous unit':''})`).join(' / ')}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
   $('staff-page-label').textContent=plan.length?`Score notes ${from+1}–${to} of ${plan.length}`:'No score notes in this span';
   $('staff-previous').disabled=from===0;$('staff-next').disabled=to===plan.length;
   $('pitch-staff').querySelectorAll('[data-word-index]').forEach(el=>{
     el.classList.toggle('active',el.dataset.event===activeEventId);
-    const activate=()=>selectWord(Number(el.dataset.wordIndex));el.addEventListener('click',activate);
+    const activate=()=>{inspectedScoreEventId=el.dataset.event;selectWord(Number(el.dataset.wordIndex));};el.addEventListener('click',activate);
     el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
   });
 }
@@ -688,6 +700,12 @@ $('volume').addEventListener('input',e=>{state.volume=Number(e.target.value);pla
 $('volume').addEventListener('input',updateExportSummary);
 for(const [id,delta] of [['reader-previous',-1],['reader-next',1]])$(id).addEventListener('click',()=>{state.readerPage+=delta;state.followPlayback=false;$('follow-playback').checked=false;renderReader();persist();});
 for(const [id,delta] of [['notes-previous',-1],['notes-next',1]])$(id).addEventListener('click',()=>{state.notePage+=delta;renderNotes();});
+$('score-pronunciation').addEventListener('change',()=>{scorePronunciation=$('score-pronunciation').checked;try{localStorage.setItem('tropetrain-score-pronunciation-v1',JSON.stringify({enabled:scorePronunciation}));}catch{}renderStaff();});
+$('score-pronunciation-download').addEventListener('click',()=>{
+  if(!scorePronunciationReport?.links.length)return;
+  const from=state.staffPage*STAFF_PAGE;
+  download('tropetrain-score-page-text-links.json',{...scorePronunciationReport,musicalSource:{id:model.profile.id,revision:model.profile.revision},scope:{kind:'score-page',from:from+1,to:from+scorePronunciationReport.links.length,totalNotes:plan.length}});
+});
 for(const [id,delta] of [['staff-previous',-1],['staff-next',1]])$(id).addEventListener('click',()=>{state.staffPage+=delta;renderStaff();});
 $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
@@ -739,7 +757,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy();
+pronunciationTools=mountPronunciationStudy({onChange:()=>renderStaff()});
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
 mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});
