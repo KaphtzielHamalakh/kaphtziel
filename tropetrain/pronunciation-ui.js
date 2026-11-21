@@ -1,6 +1,6 @@
 import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle} from './pronunciation.js';
 import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
-import {PRONUNCIATION_WORD_SUMMARY} from './pronunciation-word-summary.js';
+import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
 import {hasTranscription} from './pronunciation-repeats.js';
 export function mountPronunciationStudy(){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
@@ -33,7 +33,7 @@ export function mountPronunciationStudy(){
  function structure(){
   const scope=$('pronunciation-unit-scope');
   const shared=study.readerIds.length>1,currentId=study.selection.sourceWordId;
-  scope.textContent=study.alignmentScope==='single-reader-word'?'These source units correspond to the selected Hebrew word. Their individual Hebrew letters and musical notes are not assigned.':study.alignmentScope==='source-word-boundaries'?'The source Hebrew boundaries and transcription joins identify individual words. Units labeled “selected” belong to the selected Hebrew word.':study.alignmentScope==='partial-source-word-boundaries'?'Some source words have clear individual links. Combined source words remain together; their units are labeled “shared” and are not split.':'These source units correspond to the complete Hebrew group below. They are not divided among its individual words.';
+  scope.textContent=study.alignmentScope==='single-reader-word'?'These source units correspond to the selected Hebrew word. Computed source syllables and exact written ranges are labeled below; musical notes are not assigned.':study.alignmentScope==='source-word-boundaries'?'Source boundaries and computed Hebrew ranges identify individual words. Units labeled “selected” belong to the selected Hebrew word.':study.alignmentScope==='partial-source-word-boundaries'?'Some source words have clear individual links. Combined source words remain together; their units are labeled “shared” and are not split.':'These source units correspond to the complete Hebrew group below. They are not divided among its individual words.';
   const group=document.createElement('p');group.className='pronunciation-group-hebrew';group.lang='he';group.dir='rtl';
   study.readerHebrew.forEach((text,index)=>{
    if(index)group.append(document.createTextNode(' '));
@@ -64,10 +64,18 @@ export function mountPronunciationStudy(){
       value.append(document.createTextNode(cell.text.slice(position,mark.start)));const sup=document.createElement('sup');sup.textContent='e';value.append(sup);position=mark.end;
      }
      value.append(document.createTextNode(cell.text.slice(position,unit.end)));li.append(value);
+     if(unit.hebrewUnderlay){
+      const exact=unit.hebrewClusterRanges!==null,underlay=document.createElement('span');underlay.className='pronunciation-hebrew-underlay';underlay.lang='he';underlay.dir='rtl';
+      const values=exact?[unit.hebrewClusterRanges.filter(r=>r.role==='written').map(r=>r.text).join(' ')]:[...new Set(unit.hebrewUnderlay.variants.map(v=>v.source.text))];
+      underlay.textContent=values.join(' / ');li.append(underlay);
+      const label=document.createElement('small');label.textContent=exact?'Written Hebrew':'Source Hebrew · target range unresolved';li.append(label);
+      if(unit.hebrewUnderlay.variants.some(v=>v.sharesNextConsonant)){const note=document.createElement('small');note.className='pronunciation-geminate';note.textContent='Shares consonant with next unit';li.append(note);}
+      if(unit.hebrewUnderlay.variants.some(v=>v.sharesPreviousConsonant)){const note=document.createElement('small');note.className='pronunciation-geminate';note.textContent='Shares consonant with previous unit';li.append(note);}
+     }
      if(unit.sourceStress){const stress=document.createElement('small');stress.textContent='Primary stress';li.append(stress);}
      if(shared){const owner=document.createElement('small');owner.className='pronunciation-unit-owner';owner.textContent=unit.readerWordId?`Group word ${study.readerIds.indexOf(unit.readerWordId)+1}${selected?' · selected':''}`:'Shared · unsplit';li.append(owner);}
      const cues=[unit.acutePositions.length?'acute mark':'',unit.brevePositions.length?'breve mark':'',supers.length?'superscript e':''].filter(Boolean);
-     li.setAttribute('aria-label',`Source unit ${unit.number}: ${unit.text}${unit.sourceStress?', primary stress':''}${cues.length?', '+cues.join(', '):''}${shared?unit.readerWordId?`, group word ${study.readerIds.indexOf(unit.readerWordId)+1}${selected?', selected':''}`:', shared and unsplit':''}`);list.append(li);
+     li.setAttribute('aria-label',`Source unit ${unit.number}: ${unit.text}${unit.sourceStress?', primary stress':''}${cues.length?', '+cues.join(', '):''}${shared?unit.readerWordId?`, group word ${study.readerIds.indexOf(unit.readerWordId)+1}${selected?', selected':''}`:', shared and unsplit':''}${unit.hebrewUnderlay?`, ${unit.hebrewClusterRanges?'written Hebrew: '+unit.hebrewClusterRanges.filter(r=>r.role==='written').map(r=>r.text).join(' '):'source Hebrew; target range unresolved'}${unit.hebrewUnderlay.variants.some(v=>v.sharesNextConsonant)?', shares consonant with next unit':''}`:''}`);list.append(li);
     }
     box.append(list);
     const joins=cell.boundaries.filter(b=>b.kind!=='syllable-dot');
@@ -79,7 +87,7 @@ export function mountPronunciationStudy(){
  function render(){
   const current=JSON.stringify([style,word?.id,word?.sourceHebrew,word?.reference,listening,!!library,error]);if(current===lastKey)return;lastKey=current;
   $('pronunciation-target').textContent=word?`${word.reference} · word ${word.ordinal} · ${listening?'listening word':'selected word'}`:'Choose a Hebrew word.';
-  const coverage=PRONUNCIATION_WORD_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
+  const coverage=PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
   $('pronunciation-reader-word').textContent=word?.sourceHebrew??'';
   $('pronunciation-rows').replaceChildren();$('pronunciation-source-rows').replaceChildren();$('pronunciation-json').textContent='';
   $('pronunciation-units').replaceChildren();$('pronunciation-unit-scope').textContent='Choose a word with source correspondence.';$('pronunciation-export').disabled=true;study=null;

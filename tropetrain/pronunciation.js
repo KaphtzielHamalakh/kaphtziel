@@ -1,4 +1,6 @@
 import {loadPronunciationData} from './pronunciation-data.js';
+import {loadPronunciationUnderlayData} from './pronunciation-underlay-data.js';
+import {PronunciationUnderlay} from './pronunciation-underlay.js';
 import {sourcePronunciationStudy} from './pronunciation-structure.js';
 export const PRONUNCIATION_STYLES=Object.freeze([
  {id:'sephardic',name:'Sephardic · Phonetic MAM text'},
@@ -10,9 +12,10 @@ export function inlineSourceText(nodes){
  return nodes.map(node=>typeof node==='string'?node:node.kind==='superscript-e'?'ᵉ':inlineSourceText(node.content)).join('');
 }
 export class PronunciationLibrary {
- constructor(data){
+ constructor(data,{underlay=null}={}){
   if(data?.format!=='tropetrain-pronunciation-display-v1'||![1,2].includes(data.revision))throw Error('Unsupported pronunciation source revision.');
   this.sourceCommit=data.sourceCommit;this.groups=data.groups;this.byWord=new Map();
+  this.underlay=underlay?new PronunciationUnderlay(underlay,data.sourceCommit):null;
   for(const group of data.groups){
    if(group.readerIds.length!==group.readerHebrew.length||!group.rows.length)throw Error('Invalid pronunciation correspondence.');
    group.readerIds.forEach((id,index)=>{
@@ -29,8 +32,10 @@ export class PronunciationLibrary {
  }
  study(word,style){
   const group=this.at(word);
-  return group?sourcePronunciationStudy(group,{sourceCommit:this.sourceCommit,word,style}):null;
+  if(!group)return null;
+  const study=sourcePronunciationStudy(group,{sourceCommit:this.sourceCommit,word,style});
+  return this.underlay?this.underlay.apply(study):study;
  }
 }
 let promise;
-export function getPronunciationLibrary(){return promise??=loadPronunciationData().then(data=>new PronunciationLibrary(data));}
+export function getPronunciationLibrary(){return promise??=Promise.all([loadPronunciationData(),loadPronunciationUnderlayData()]).then(([data,underlay])=>new PronunciationLibrary(data,{underlay}));}

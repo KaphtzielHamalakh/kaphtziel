@@ -188,13 +188,13 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.25.0",
+    "version": "0.26.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "63d36f45e6ea9a82867b2182f8dddfcccd023d5d",
-    "status": "published_v25_pages_livebytes_normal_standalone_verified",
-    "record": "docs/VERIFICATION-0.25.md",
-    "next": "Build a strict source-backed Hebrew-syllable underlay adapter after auditing the dependency closure of pinned PhoneticMAM analysis_reader/core/mb_cmn (GPL3 code/CC BY-SA4 public data). Inspect before executing, retain license/source provenance, compare derived syllables to exact published transcriptions, preserve original Hebrew/marks/IDs, and handle shared geminate consonants explicitly. Tentative IPA is not a reviewed dialect. In parallel transcribe remaining primary Cohen p540/p541–548 contextual melody evidence; p541 overview inspected, no new notes. Keep14combined/179unassigned pronunciation words and2,811chanttiming words unresolved. Six Kinnor pronunciation grammars/voices, complete contextual melodies, independent singing and full roadmap remain active; printing deferred.",
-    "newFeatures": "88literal source repeats corrected with348referenced units, same-style provenance and original AST retained; old unit-word links unchanged. Public computation/underlay source researched."
+    "baseCommit": "17b5b66ee4f3935eda7268e4861407c6c53fdfbe",
+    "status": "214_checks_passed_local_normal_standalone_ui_verified_publication_pending",
+    "record": "docs/VERIFICATION-0.26.md",
+    "next": "Publish tested v0.26 only/tropetrain, verify Pages/allchangedbytes/publicnormal+standalone, final release records/sync; then continue source-backed phoneme/note/audio alignment and contextual musical systems.",
+    "newFeatures": "Both source styles now have computed Hebrew syllable underlay, exact original written ranges/shared-consonant references;12newly resolved word owners,79,804individual links/style,2combined179unassigned;77,775words/style with written ranges. Source-only forms preserved."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

@@ -76,3 +76,5 @@
 .pronunciation-group-word{display:inline-block;padding:2px 5px;border:1px solid transparent}.pronunciation-group-word.current-word,.pronunciation-unit-list li.current-word{background:var(--pale);outline:2px solid var(--seal);outline-offset:1px}.pronunciation-unit-owner{color:var(--ink);font-weight:400}
 
 .pronunciation-repeat{font:13px/1.6 system-ui,sans-serif;padding:8px;border-inline-start:2px solid var(--line);background:var(--inset)}
+
+.pronunciation-hebrew-underlay{display:block;font:21px/1.8 'Noto Hebrew',serif;white-space:pre-wrap;color:var(--ink);font-weight:400}.pronunciation-geminate{max-width:130px;color:var(--ink);font-weight:400}
