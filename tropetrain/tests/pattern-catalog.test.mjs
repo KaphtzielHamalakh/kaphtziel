@@ -75,3 +75,12 @@ test('all four original source images and both source records are exact and port
  assert.equal(createHash('sha256').update(bytes(original.source.image)).digest('hex'),original.source.imageSha256);
  assert.equal(createHash('sha256').update(bytes(original.source.contextImage.image)).digest('hex'),original.source.contextImage.sha256);
 });
+test('source viewer evidence preserves original image bytes and UTF-8 musical labels without navigation',async()=>{
+ const {patternEvidence}=await import('../printed-patterns.js');
+ for(const row of rows)for(const kind of ['columns','context','record']){
+  const evidence=patternEvidence(row.id,kind);assert.deepEqual(Buffer.from(evidence.bytes),bytes(evidence.file));
+  assert.equal(evidence.name,evidence.file.split('/').at(-1));
+  if(kind==='record'){assert.equal(evidence.text,bytes(evidence.file).toString('utf8'));assert.match(evidence.text,/Munaḥ/);assert.doesNotMatch(evidence.text,/MunaÃ/);}else assert.equal(evidence.text,null);
+ }
+ assert.throws(()=>patternEvidence(rows[0].id,'invented'),/source image or record/);
+});

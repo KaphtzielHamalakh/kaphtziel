@@ -500,3 +500,25 @@ Supportednormalbrowser: Cshows9components/8attacks/oneheldtie withnaturalF, E14/
 ## 2026-11-21 · v0.22 final release candidate
 
 Finalfull188/188pass/0fail/0skip after horizontal follow and full-clef sourcecontextcrop update. Sourceimageschecked again; contextcrop x0/y210/2649/1320 retains headers/all6rows/completeFclef, no retouching. LastEcomponent14/E4 visiblyfollowed in320pxstaff (scrollLeft1141), root320; Escape/viewportreset. Normal/standalone sources/modes/persistence/Stop/repeat/naturalfinish/refusals/evidence links validated muted; no warnings/errors. No fulltradition/Kinnor/phoneme/voice claim; musicalreviewpending. Only/tropetrain publication with currentmainlease next, then Pages/bytes/livechecks and durable sync.
+
+
+## 2026-11-21 · v0.22 code publication
+
+ConnectedGitHub publishedcode08ae7b3421e393acf31845fb02673bc0df913709, testedlocal2678f936/app7a84bc3456611cdad5cc820339ecd2c112783352/root7e4167c6. Mainleasec953482b preservedunrelatedsite. Pages/liveasset/UIverification next; no claim live until confirmed.188fullchecks pass; allruntimechanges committed.
+
+
+## 2026-11-21 · v0.22 published and live verified
+
+Code08ae7b3421e393acf31845fb02673bc0df913709/Pages44921195197successful;22publicfiles44,132,098bytes exact against2678f93. Full188checks pass. Live v0.21→v0.22 retained Gen8:20word7/Ashkenazic text/OriginalDemo01/recordedEndword/60BPM/key0/allmutes; defaultlegacyA8components remained. Epair14components13attacks/heldtie/grouped3:2 playedmuted; DRevia/FMunaḥ stayed unavailable until explicit supported selection. BagdadRevia played6components; reload and publishedstandalone retained Epair and mutedPlay/Escape passed. Source images769/2649 and exact JSONdata links decode in both distributions. At320px Ecomponent14/E4 stayed visible after horizontalstaffscroll1141 and naturallyfinished; expandedsourceimages/root/body fit320 and1280. Reader text/music/pronunciation unchanged. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.22-live.jpg, viewportreset, allgains0/stopped.
+
+Sourcecatalog:6rows/10figures/50components48attacks; originalA8record unchanged, twoambiguouscells refusedwithexactevidencerequests. Thisis notation-based instrumentalstudy, notfulltradition/Kinnor/voice claim. SourceHebrew/79,806pronunciationlinks/179unassigned/sourcechanttimings unchanged. Fullscopeactive. Next: Continue remaining printed-source columns and contextual melody rules, resolving two unavailable figures only with adequate notation evidence/review. Develop source-backed word/syllable/stress/phoneme alignment independently of melody and cleared voice material. Historical labels are separate from complete musical realizations; all six Kinnor grammars/voices, full recovered contextual systems/singing and roadmap remain active. Printing deferred. Finalfourrecords/outputsync/ownedpreviewteardown next; no runtimechange.
+
+
+## 2026-11-21 · v0.22.1 source-viewer correction
+
+Additional normalUI source-link check found the data-image fullresolution link produced no newpage/view/tab in supportedbrowser. Source bytes were embedded/decoded but navigation did not expose a view. Adding nativein-app dialog for exactPNG/JSON, explicitClose/Escape and original-byteBlobdownload; sourceUTF8decoded withTextDecoder. Musical figures unchanged. Newruntimeversion0.22.1, test/browser/publication needed before finalhandoff; prior0.22code08ae7 remains live. Fullgoalactive.
+
+
+## 2026-11-21 · v0.22.1 viewer checks
+
+Full189/189pass/0fail/0skip. Browsernormal originalPNG769 opensinsideapp/Escapecloses, JSONUnicodeMunaḥ/exactneededEvidence and originalfilenamecorrect/Closeworks, contextPNG2649scrollsinside319pxroot/dialog281. StandaloneexactJSONviewer/Escape/sourceEpair persistspass, no warnings/errors/gains0. Sourcefigures/notes unchanged. Finaldocbuild/releasepipeline/liveviewer checksnext. Source originalfilesave-dialog unverified; no unsupportedclaim.

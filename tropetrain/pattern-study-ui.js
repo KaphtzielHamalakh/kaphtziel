@@ -1,4 +1,4 @@
-import {PRINTED_PATTERNS,PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA,patternSource,availablePatternModes,printedPatternPlan} from './printed-patterns.js';
+import {PRINTED_PATTERNS,PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA,patternSource,availablePatternModes,printedPatternPlan,patternEvidence} from './printed-patterns.js';
 import {Player} from './audio.js';
 import {staffMarkup} from './staff.js';
 import {noteName} from './music.js';
@@ -69,6 +69,18 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
       if($('pattern-status').textContent==='Starting the printed pattern…')$('pattern-status').textContent=player.running?'Playing the printed pattern.':'Pattern playback was cancelled before it began.';
     }catch(error){if(current!==request)return;stop();$('pattern-status').textContent=`Pattern unavailable: ${error.message}`;}
   });
+  const evidenceUrls=new Map(),viewer=$('pattern-source-viewer');
+  for(const [id,kind] of [['pattern-source-link','columns'],['pattern-context-link','context'],['pattern-record-link','record']])$(id).addEventListener('click',event=>{
+    event.preventDefault();const evidence=patternEvidence($('pattern-source').value,kind);
+    $('pattern-viewer-title').textContent=kind==='record'?'Exact source record':'Full-resolution printed source';
+    $('pattern-viewer-caption').textContent=patternSource($('pattern-source').value).label+' · '+evidence.name;
+    $('pattern-viewer-image').hidden=kind==='record';$('pattern-viewer-json').hidden=kind!=='record';
+    if(kind==='record')$('pattern-viewer-json').textContent=evidence.text;else{$('pattern-viewer-image').src=evidence.url;$('pattern-viewer-image').alt=$('pattern-viewer-caption').textContent;}
+    if(!evidenceUrls.has(evidence.file))evidenceUrls.set(evidence.file,URL.createObjectURL(new Blob([evidence.bytes],{type:evidence.mime})));
+    $('pattern-viewer-download').href=evidenceUrls.get(evidence.file);$('pattern-viewer-download').download=evidence.name;
+    $('pattern-viewer-body').scrollTop=0;$('pattern-viewer-body').scrollLeft=0;viewer.showModal();
+  });
+  $('pattern-viewer-close').addEventListener('click',()=>viewer.close());
   $('pattern-stop').addEventListener('click',()=>{stop();$('pattern-status').textContent='Printed pattern stopped. Bible-word selection is unchanged.';});
   $('pattern-find').addEventListener('click',()=>findPattern(patternSource($('pattern-source').value).record.matchingQuery.join('>')));
   $('pattern-download').addEventListener('click',()=>{

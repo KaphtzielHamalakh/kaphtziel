@@ -17,3 +17,17 @@ Supported in-app AX/read-onlyDOM. DefaultA restored8components7.5beats. C source
 ## Release gate
 
 Final fullcheck and normal/standalone horizontal follow/Stop, connected GitHub only/tropetrain publication with current-main lease, successful Pages/exact changedpublicbytes and live upgrade/source/refusal/persistence checks required. Rollback on wrongsource/musicalduration/textcoupling/startup byrepublishing v0.21apptreee1ef53c90328994ff3ef2ea2a1b833c3649228fc. Preserve personalpractice/cache. Full contextualmelodies/sixKinnorphoneticgrammars/voices/singing and roadmap unfinished; printingdeferred.
+
+
+## Published and live verified
+
+Code08ae7b3421e393acf31845fb02673bc0df913709/Pages44921195197:successful build/deploy/report. Testedlocal2678f936ade7faf1a2077215ba3cb4a230ce731b, root7e4167c6ea335a4f7cc4bcd9bfac890beb9a876d, app7a84bc3456611cdad5cc820339ecd2c112783352. Only/tropetrain changed. All22public changed resources match44,132,098tested bytes, per-file hashes in work/audits/live-0.22.json. Full188/188pass/0fail/0skip; final documentation/distribution targets follow.
+
+Live v0.21→v0.22 retained Gen8:20word7/Ashkenazic text/OriginalDemo01/recordedEndword/60BPM/key0/allmutes; defaultlegacyA8components remained. Epair14components13attacks/heldtie/grouped3:2 playedmuted; DRevia/FMunaḥ stayed unavailable until explicit supported selection. BagdadRevia played6components; reload and publishedstandalone retained Epair and mutedPlay/Escape passed. Source images769/2649 and exact JSONdata links decode in both distributions. At320px Ecomponent14/E4 stayed visible after horizontalstaffscroll1141 and naturallyfinished; expandedsourceimages/root/body fit320 and1280. Reader text/music/pronunciation unchanged. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.22-live.jpg, viewportreset, allgains0/stopped.
+
+Verified historical document:1902publication/tablelabels/source bytes and hashes. Note transcription manuallychecked; independent musical review pending. Approximate: regularized pacing, modern12-tone instrument tuning/articulation. Pending: two ambiguouscellreadings, qualified musical/transcription review, contextual variants/wordunderlay, independent singing voices and sixKinnor phoneticgrammars/fullmusicalroster. No ordinaryspeech supplied as chant. Fullobjectiveactive; printingdeferred. Finalrecord-only publication/outputsync follows without runtimechanges.
+
+
+## Source-link correction
+
+Additional finalUI click on a data-image fullresolution link produced no newpage/view/tab. Exact embedded-data/decoding claims remain valid; successful top-level source navigation was not proved. v0.22.1 adds an in-appPNG/UTF8JSON viewer and original-byteBlob save links. See VERIFICATION-0.22.1.md. Originalmusicalfigures unchanged.

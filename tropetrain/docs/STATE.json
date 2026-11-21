@@ -3,12 +3,12 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "3004de0260872d9d3be3e083cae8473491a0d653",
-  "nextTask": "Continue evidence-backed phonetic/syllable/stress representation and contextual traditional melody rules/reusable voices before printing. Preserve179unassigned words unless exact source evidence supports a link. Source text styles and fixed recorded voices remain separate; six Kinnor phonetic grammars/voices, all recovered contextual musical systems, singing and full roadmap active/incomplete.",
+  "publishedCommit": "08ae7b3421e393acf31845fb02673bc0df913709",
+  "nextTask": "Continue remaining printed-source columns and contextual melody rules, resolving two unavailable figures only with adequate notation evidence/review. Develop source-backed word/syllable/stress/phoneme alignment independently of melody and cleared voice material. Historical labels are separate from complete musical realizations; all six Kinnor grammars/voices, full recovered contextual systems/singing and roadmap remain active. Printing deferred.",
   "lastPassingTests": {
-    "automated": 182,
-    "ui": "Live v0.20→v0.21 kept Gen1:1word2/Ashkenazic/OriginalDemo01/60BPM/key0/recordedgroup/allmutes. Opened Gen8:20word7 הַבְּהֵמָ֣ה, original0.6MBchant loaded/hashchecked/cached while textstyle changed. Muted word7Play followed source text, Sephardic ma→Ashkenazic mo during play retained recording/rate1 and naturally completed. Word8 remained unassigned/empty. Reload and published standalone restored Gen8:20word7/Ashkenazic/recordedEndword and cachedchant, mutedfollowing/Escape passed. Expanded source details fit320 and1280 with equal root/body/viewport; screenshot outputs/TropeTrain-v0.21-live.jpg at1280, viewportreset. No capturedwarnings/errors, all gains0/stopped.",
-    "limits": "Structural exact correspondence, source preservation and silent-clock playback checks; independent linguistic/mapping/acoustic review pending.179pronunciation words unassigned,2,811chanttiming words blocked. No new voice/phoneme grammar/singing or six-Kinnor equivalence. File/dialog/recovery/visibility/expert review gates remain."
+    "automated": 188,
+    "ui": "Live v0.21→v0.22 retained Gen8:20word7/Ashkenazic text/OriginalDemo01/recordedEndword/60BPM/key0/allmutes; defaultlegacyA8components remained. Epair14components13attacks/heldtie/grouped3:2 playedmuted; DRevia/FMunaḥ stayed unavailable until explicit supported selection. BagdadRevia played6components; reload and publishedstandalone retained Epair and mutedPlay/Escape passed. Source images769/2649 and exact JSONdata links decode in both distributions. At320px Ecomponent14/E4 stayed visible after horizontalstaffscroll1141 and naturallyfinished; expandedsourceimages/root/body fit320 and1280. Reader text/music/pronunciation unchanged. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.22-live.jpg, viewportreset, allgains0/stopped.",
+    "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -52,7 +52,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "historical_catalog_Torah_references_bounded_printed_studies_Western_Ashkenazi_Torah_and_Esther_tables_two_Tiberian_melodic_takes_full_contextual_systems_pending"
+      "status": "source_references_bounded_Gen22_and_six_printed_Torah_rows_10_figures_50_components_two_cells_refused_full_contextual_systems_pending"
     },
     {
       "id": "singing",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "3004de0260872d9d3be3e083cae8473491a0d653",
+    "commit": "08ae7b3421e393acf31845fb02673bc0df913709",
     "status": "success",
-    "workflowRun": 44917407675,
-    "liveAssets": "All24changed public files match41,641,180tested bytes. Final four documentation records follow separately.",
-    "ui": "Live v0.20→v0.21 kept Gen1:1word2/Ashkenazic/OriginalDemo01/60BPM/key0/recordedgroup/allmutes. Opened Gen8:20word7 הַבְּהֵמָ֣ה, original0.6MBchant loaded/hashchecked/cached while textstyle changed. Muted word7Play followed source text, Sephardic ma→Ashkenazic mo during play retained recording/rate1 and naturally completed. Word8 remained unassigned/empty. Reload and published standalone restored Gen8:20word7/Ashkenazic/recordedEndword and cachedchant, mutedfollowing/Escape passed. Expanded source details fit320 and1280 with equal root/body/viewport; screenshot outputs/TropeTrain-v0.21-live.jpg at1280, viewportreset. No capturedwarnings/errors, all gains0/stopped.",
+    "workflowRun": 44921195197,
+    "liveAssets": "All22changed public files match44,132,098tested bytes. Final four records follow separately.",
+    "ui": "Live v0.21→v0.22 retained Gen8:20word7/Ashkenazic text/OriginalDemo01/recordedEndword/60BPM/key0/allmutes; defaultlegacyA8components remained. Epair14components13attacks/heldtie/grouped3:2 playedmuted; DRevia/FMunaḥ stayed unavailable until explicit supported selection. BagdadRevia played6components; reload and publishedstandalone retained Epair and mutedPlay/Escape passed. Source images769/2649 and exact JSONdata links decode in both distributions. At320px Ecomponent14/E4 stayed visible after horizontalstaffscroll1141 and naturallyfinished; expandedsourceimages/root/body fit320 and1280. Reader text/music/pronunciation unchanged. No capturedwarnings/errors; screenshot outputs/TropeTrain-v0.22-live.jpg, viewportreset, allgains0/stopped.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -187,13 +187,15 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.22.0",
+    "version": "0.22.1",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "dc1b05a5c4fc4409d466141e851a44685882948f",
-    "status": "188_checks_normal_standalone_responsive_passed_ready_to_publish",
-    "record": "docs/PRINTED-PATTERN-CATALOG.json",
-    "next": "Validate source pitches/values/ties/mixed tuplets and image hashes; implement independent source-row picker with unsupported-cell refusal, then normal/standalone UI tests and publish. No full tradition or singing claim.",
-    "automatedTests": 188
+    "baseCommit": "2678f936ade7faf1a2077215ba3cb4a230ce731b",
+    "status": "189_checks_normal_standalone_viewer_passed_final_build_and_publish_next",
+    "record": "docs/VERIFICATION-0.22.1.md",
+    "next": "Continue remaining printed-source columns and contextual melody rules, resolving two unavailable figures only with adequate notation evidence/review. Develop source-backed word/syllable/stress/phoneme alignment independently of melody and cleared voice material. Historical labels are separate from complete musical realizations; all six Kinnor grammars/voices, full recovered contextual systems/singing and roadmap remain active. Printing deferred.",
+    "automatedTests": 189,
+    "codeCommit": "08ae7b3421e393acf31845fb02673bc0df913709",
+    "newFeatures": "Six source-labeled printed Torah rows, ten supported figures/50components48attacks, ties/mixedtuplets/independentpicker/persistence/portableevidence. Two unclear cells refused; main text/melody/pronunciation unchanged."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -229,8 +231,18 @@
     "id": "cohen-1902-munah-revia",
     "revision": 1,
     "record": "docs/PRINTED-PATTERNS.json",
-    "coverage": "Plain Munaḥ and Revia columns only, 8 untexted notes / 7.5 quarter beats; source slurs remain separate attacks.",
-    "review": "Manual transcription/source checks; independent musical/transcription review pending. No word/syllable/phoneme allocation or full tradition asserted."
+    "coverage": "Plain Munaḥ/Revia comparison only:10supported figures in6ordinaryTorah source rows,50components/48attacks. Original8componentArecord unchanged; no word/syllable/phoneme mapping or fullcontextualsystem.",
+    "review": "Manual two-scan source/keys/values/ties/tuplets checks; two ambiguous cells excluded, independent musical/transcription review pending.",
+    "catalogRecord": "docs/PRINTED-PATTERN-CATALOG.json",
+    "catalogRevision": 1,
+    "rows": 6,
+    "supportedFigures": 10,
+    "printedComponents": 50,
+    "soundingAttacks": 48,
+    "unavailable": [
+      "I.D Morocco Revia",
+      "I.F Bagdad plain Munaḥ"
+    ]
   },
   "scrollSource": {
     "record": "docs/SCROLL-SOURCES.json",
