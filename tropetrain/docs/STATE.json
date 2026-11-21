@@ -3,13 +3,13 @@
   "updated": "2026-11-21",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "d139f7f0dd592ccbcd87299f48defa530ee16336",
-  "nextTask": "Continue primary contextual musical rules/transcriptions (remaining Cohenp540columns and p541–548) alongside source-backed Hebrew-syllable/phoneme/note alignment. Assess the pinned PhoneticMAM public computation interface and GPL3 implementation/data terms for compatible reuse that can supply further source structure. Keep14combined pronunciation words/179unassigned and2,811chanttiming words unresolved until adequate evidence. Independent review, six Kinnor pronunciation grammars/voices, complete contextual melody systems, independent singing and full roadmap remain active; printing deferred.",
+  "publishedCommit": "41f5890b443bd82cd2311666d634cb216f95d73a",
+  "nextTask": "Build a strict source-backed Hebrew-syllable underlay adapter after auditing the dependency closure of pinned PhoneticMAM analysis_reader/core/mb_cmn (GPL3 code/CC BY-SA4 public data). Inspect before executing, retain license/source provenance, compare derived syllables to exact published transcriptions, preserve original Hebrew/marks/IDs, and handle shared geminate consonants explicitly. Tentative IPA is not a reviewed dialect. In parallel transcribe remaining primary Cohen p540/p541–548 contextual melody evidence; p541 overview inspected, no new notes. Keep14combined/179unassigned pronunciation words and2,811chanttiming words unresolved. Six Kinnor pronunciation grammars/voices, complete contextual melodies, independent singing and full roadmap remain active; printing deferred.",
   "lastPassingTests": {
-    "automated": 202,
-    "ui": "Published v0.23→v0.24 retained Gen8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0. Opened Gen1:2span6–7: normal repeated muted recorded Play observed7→6→7→6→7 with exact one/two selected unit-word IDs, including live Sephardic text change; Escape stopped, repeatfalse/Ashkenazic restored. Pointed→sourcedConsonantal→Pointed preserved marked פְּנֵ֣י, span6–7 and source unit owners. Published standalone restored span/cursor/style; muted loop observed7→6→7 with correct ownership/Escape/repeatfalse. Expanded root/body fit319 and1280; screenshot outputs/TropeTrain-v0.24-live.jpg checked, viewportreset, normal tab deliverable. No captured warnings/errors, allgains0/stopped. Local preview additionally proved partialGen14:17word8 vs combined9/10, Deut32:6allshared, ’es↔’et independentstyles and printedEpair regression. Native Save/directfile-origin and independent linguistic/musical/acoustic review pending.",
+    "automated": 206,
+    "ui": "Published upgrade v0.24→v0.25 retained Gen1:2word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedspan/allgains0. Initial browser HTTP cache showed0.24, versioned URL loaded0.25, later canonical root also0.25; canonical HTTP bytes exact. Deut1:27word2 בְאָהֳלֵיכֶם֙: original dash/reference note, both five-unit Ash readings/qamats-sam label; Sephardic retains distinct ’o/’a readings. Muted repeated recorded Play follows listeningword; style change during playback retains text/settings, Escape stops/repeatfalse/Ash restored. Public standalone reload retained same passage/word/style, both reference cells and muted repeatedPlay/listeningword/Escape. Normal and standalone root/body fit319 and1280; screenshot outputs/TropeTrain-v0.25-live.jpg viewed. All four gains0/stopped/repeatfalse, viewportreset, existing normal tab deliverable. Local preview additionally checked Gen9:27word5 firstfour/finalword6one unit in both cells and Exodus20:5word5 lower/upper qamats-sam labels/exact marks. Native Save/directfile-origin and independent linguistic/musical/acoustic review pending.",
     "limits": "Manual source notation checks and silent-clock/UI/structural checks; independent musical/transcription/linguistic/acoustic review pending. Two printed cells unavailable,179pronunciation words unassigned,2,811chanttiming words blocked. No full contextual traditions/Kinnor equivalence/new singing voice.",
-    "releaseTargets": 62
+    "releaseTargets": 63
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -48,7 +48,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_source_styles_79792_word_unit_links_selected_listening_highlights_revision2_export_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_source_text_styles_79792_word_unit_links_88_same_style_repeat_references_study_revision3_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -158,11 +158,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "d139f7f0dd592ccbcd87299f48defa530ee16336",
+    "commit": "41f5890b443bd82cd2311666d634cb216f95d73a",
     "status": "success",
-    "workflowRun": 44929322944,
-    "liveAssets": "All23changed public files match41,368,229tested bytes against1b1866a; final four release records follow separately.",
-    "ui": "Published v0.23→v0.24 retained Gen8:20word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedEndword/allgains0. Opened Gen1:2span6–7: normal repeated muted recorded Play observed7→6→7→6→7 with exact one/two selected unit-word IDs, including live Sephardic text change; Escape stopped, repeatfalse/Ashkenazic restored. Pointed→sourcedConsonantal→Pointed preserved marked פְּנֵ֣י, span6–7 and source unit owners. Published standalone restored span/cursor/style; muted loop observed7→6→7 with correct ownership/Escape/repeatfalse. Expanded root/body fit319 and1280; screenshot outputs/TropeTrain-v0.24-live.jpg checked, viewportreset, normal tab deliverable. No captured warnings/errors, allgains0/stopped. Local preview additionally proved partialGen14:17word8 vs combined9/10, Deut32:6allshared, ’es↔’et independentstyles and printedEpair regression. Native Save/directfile-origin and independent linguistic/musical/acoustic review pending.",
+    "workflowRun": 44932984180,
+    "liveAssets": "All26changed public files match41,437,618tested bytes againstea77fa4; canonicalindex also exact. Finalfourrelease records follow separately.",
+    "ui": "Published upgrade v0.24→v0.25 retained Gen1:2word7/Ashkenazic/OriginalDemo/60BPM/key0/Epair/recordedspan/allgains0. Initial browser HTTP cache showed0.24, versioned URL loaded0.25, later canonical root also0.25; canonical HTTP bytes exact. Deut1:27word2 בְאָהֳלֵיכֶם֙: original dash/reference note, both five-unit Ash readings/qamats-sam label; Sephardic retains distinct ’o/’a readings. Muted repeated recorded Play follows listeningword; style change during playback retains text/settings, Escape stops/repeatfalse/Ash restored. Public standalone reload retained same passage/word/style, both reference cells and muted repeatedPlay/listeningword/Escape. Normal and standalone root/body fit319 and1280; screenshot outputs/TropeTrain-v0.25-live.jpg viewed. All four gains0/stopped/repeatfalse, viewportreset, existing normal tab deliverable. Local preview additionally checked Gen9:27word5 firstfour/finalword6one unit in both cells and Exodus20:5word5 lower/upper qamats-sam labels/exact marks. Native Save/directfile-origin and independent linguistic/musical/acoustic review pending.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -191,9 +191,9 @@
     "version": "0.25.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "63d36f45e6ea9a82867b2182f8dddfcccd023d5d",
-    "status": "206_checks_passed_local_normal_standalone_ui_passed_publication_pending",
+    "status": "published_v25_pages_livebytes_normal_standalone_verified",
     "record": "docs/VERIFICATION-0.25.md",
-    "next": "Finish normal/standalone repeat-marker UI, publish only/tropetrain, verify Pages/live bytes, save release records; then build source-backed Hebrew syllable underlay using inspected public computation interface with GPL3 provenance and strict original Hebrew/mark preservation. Continue contextual musical sources before printing.",
+    "next": "Build a strict source-backed Hebrew-syllable underlay adapter after auditing the dependency closure of pinned PhoneticMAM analysis_reader/core/mb_cmn (GPL3 code/CC BY-SA4 public data). Inspect before executing, retain license/source provenance, compare derived syllables to exact published transcriptions, preserve original Hebrew/marks/IDs, and handle shared geminate consonants explicitly. Tentative IPA is not a reviewed dialect. In parallel transcribe remaining primary Cohen p540/p541–548 contextual melody evidence; p541 overview inspected, no new notes. Keep14combined/179unassigned pronunciation words and2,811chanttiming words unresolved. Six Kinnor pronunciation grammars/voices, complete contextual melodies, independent singing and full roadmap remain active; printing deferred.",
     "newFeatures": "88literal source repeats corrected with348referenced units, same-style provenance and original AST retained; old unit-word links unchanged. Public computation/underlay source researched."
   },
   "sourceAnalysisIssue": {
@@ -330,7 +330,7 @@
     "repository": "https://github.com/bdenckla/MAM-basics",
     "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
     "path": "Phonetic-MAM/data",
-    "license": "CC-BY-SA-4.0, path-specific data declaration; implementation GPL3 and third-party crops not imported.",
+    "license": "Public data CC-BY-SA-4.0; implementation GPL3.15source references inspected/pinned privately, none executed or bundled; third-party crops not imported.",
     "privateFiles": 8,
     "privateBytes": 15069451,
     "status": "v0.21 original data and complete-verse plus forced partial-group correspondence.79,806/79,985words in68,354groups;179unassigned. Independent source text views, no new voice; independent review pending."
@@ -350,11 +350,13 @@
     "exactCandidateEdges": 2162,
     "partialWindows": 126,
     "structure": "docs/PRONUNCIATION-STRUCTURE.json",
-    "structureReview": "139,196source cells losslessly reconstructed with explicit stress/reading/superscript marks and exact boundaries; single-word IDs or complete group only. Linguistic, Hebrew-letter, phoneme/note/audio alignment pending.",
+    "structureReview": "139,196literal cells/AST retained;88same-style qamats repeat references expose348additional alternate-reading units. Original literal assignment hashes unchanged. Individual word ownership structurally audited; Hebrew-letter/phoneme/note/audio and independent linguistic review pending.",
     "wordAlignment": "docs/PRONUNCIATION-WORD-ALIGNMENT.json",
     "individualUnitWords": 79792,
     "sharedUnitWords": 14,
     "wordAlignmentReview": "Independent full-corpus enumeration matches both style assignment hashes; independent linguistic/phoneme/note/audio review pending.",
-    "repeats": "docs/PRONUNCIATION-REPEATS.json"
+    "repeats": "docs/PRONUNCIATION-REPEATS.json",
+    "repeatReferences": 88,
+    "referenceUnits": 348
   }
 }
