@@ -30,3 +30,12 @@ Hidden-tab stop is implemented and transport cancellation unit-tested, but no ac
 Only /tropetrain changes. Publish tested subtree using connected GitHub tools with an expected-main lease; verify Pages build/deploy and exact public asset bytes. Test returning live state, new source selection/load/muted playback, then standalone optional first-load. Roll back on failed startup, failed original checksum/decoding or broken existing playback by publishing the prior v0.16 tree (main3722c3a7f3c3139402622b8fec27ca1ba4ec1dc6) through a new leased commit. Preserve practice/cache state.
 
 Deployment and live verification pending at this local checkpoint. The full reconstruction remains active and incomplete: all recovered contextual melody systems, six reviewed Kinnor pronunciation grammars/voices, singing and the remaining roadmap are unfinished.
+
+
+## Published and live verified
+
+Code commit865e09047f5ad6ea07690a8417e8dab53340e063; Pages44859903006 build/deploy/report successful. All29 changed public files match64,080,830 bytes of tested local43ac8ed5, exact root tree63bb085fa14f04c36f59cf2aef6d034f5483c41d/app subtreebc9f67cbda0bfdd76c3ad4555273d7089a5b258f. Full165checks plus21 final documentation/distribution/source targets pass. Only/tropetrain changed.
+
+Live v0.16→v0.17 retained Genesis22:1 word5/Cohen/60BPM/key0 and all gains0. Included Esther muted span completed. Fresh normal Foreman forte/lene melodic11.4MB and standalone extended melodic12.1MB loads checksum-verified, cached, decoded and completed muted1s spans. Reload retained extended reading/Sefardi delivery and all original reader settings. Reset final study to forte/lene melodic, whole recording, repeatoff/volume0. No captured warnings/errors; no active word highlight, media paused. Published tab retained; screenshot outputs/TropeTrain-v0.17-live.jpg. No acoustic/expert review claimed.
+
+Next source candidate located: Dr. Isabel Bard’s2021 Western Ashkenazi Torah cantillation-name table, linked by OpenSiddur and Archive CC BY-SA4.0. Original1,234,202byteM4A matches ArchiveSHA1a3d2723f845ab5a4118f3d9d83fa927a734ad839; private research copy only, not installed. Browser decoding, transcription/alignment and acoustic/qualified review pending. Source metadata does not establish Kinnor preset identity.

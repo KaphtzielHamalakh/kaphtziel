@@ -1,6 +1,6 @@
 # TropeTrain · reconstruction in progress
 
-Development increment **v0.17.0** adds five attributed original melody/pronunciation recordings and independent source-study controls. All 165 automated checks pass; normal and portable HTTP UI checks are recorded in [v0.17 verification](docs/VERIFICATION-0.17.md). The previous verified live release is v0.16. Full historical melody grammars, six Kinnor Accent realizations and synthesized singing remain pending.
+Published increment **v0.17.0** adds five attributed original melody/pronunciation recordings and independent source-study controls. All 165 automated checks pass; normal and portable HTTP UI checks are recorded in [v0.17 verification](docs/VERIFICATION-0.17.md). GitHub Pages deployment and all29 changed public assets are verified. Full historical melody grammars, six Kinnor Accent realizations and synthesized singing remain pending.
 
 Independent reconstruction of the teaching workflow of Kinnor’s desktop TropeTrainer. The candidate includes all five Torah books, 21 Prophets books and five Megillot for reading and original instrumental demonstration playback. Independent historical melody/phonetic profiles and synthesized singing remain pending. A separate licensed PocketTorah recording library covers all Torah portions. A bounded instrumental study transcribes all of printed Genesis 22:1 from a public-domain score; independent musical/underlay review remains pending.
 
