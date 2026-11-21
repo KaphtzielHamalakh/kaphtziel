@@ -1,4 +1,5 @@
 // Literal display-boundary correspondence. This does not derive phonemes.
+import {hasTranscription} from './pronunciation-repeats.js';
 const letters=text=>text.replace(/[^א-ת]/gu,'');
 export function readerLetterForms(text){
  const raw=letters(text),forms=new Set([raw]);
@@ -54,7 +55,7 @@ function boundaryProof(group,hebrewRows){
  return {reason:null,variants,rows:slots.map(parts=>parts.map(part=>({sourceForms:part.forms,readerIds:group.readerIds.filter((_,index)=>part.owners.has(index)),readerWordId:part.owners.size===1?group.readerIds[[...part.owners][0]]:null})))};
 }
 function transcriptionWords(cell){
- if(cell.status!=='present')return [];
+ if(!hasTranscription(cell))return [];
  return [...cell.text.matchAll(/[^-\s]+/gu)].map(match=>({number:0,text:match[0],start:match.index,end:match.index+match[0].length})).map((part,index)=>({...part,number:index+1,unitIds:cell.units.filter(u=>u.start>=part.start&&u.end<=part.end).map(u=>u.id)}));
 }
 
@@ -63,7 +64,7 @@ export function alignSourceWordBoundaries(group,rows,hebrewRows){
  const aligned=rows.map((row,rowIndex)=>({...row,styles:Object.fromEntries(Object.entries(row.styles).map(([style,cells])=>[style,cells.map(cell=>{
   const parts=transcriptionWords(cell),slots=proof?.rows?.[rowIndex];
   let reason=single?null:proof.reason;
-  if(cell.status!=='present')reason='no-source-transcription';
+  if(!hasTranscription(cell))reason='no-source-transcription';
   else if(parts.some(part=>!part.unitIds.length))reason='empty-transcription-word';
   else if(!single&&!reason&&parts.length!==slots.length)reason='transcription-boundaries-differ';
   const wordSegments=parts.map((part,index)=>({...part,
@@ -73,7 +74,7 @@ export function alignSourceWordBoundaries(group,rows,hebrewRows){
   const owners=new Map(wordSegments.flatMap(part=>part.unitIds.map(id=>[id,part.readerWordId])));
   const units=cell.units.map(unit=>({...unit,readerWordId:owners.get(unit.id)??null}));
   const assigned=units.filter(u=>u.readerWordId!==null).length;
-  const status=cell.status!=='present'?'no-source-transcription':!units.length?'group-only':assigned===units.length?'word-aligned':assigned?'partly-word-aligned':'group-only';
+  const status=!hasTranscription(cell)?'no-source-transcription':!units.length?'group-only':assigned===units.length?'word-aligned':assigned?'partly-word-aligned':'group-only';
   return {...cell,units,wordSegments,wordAlignment:{status,method:single?'single-reader-word-group':'literal-source-boundaries',reason:reason??(assigned<units.length?'source-word-spans-multiple-reader-words':null)}};
  })]))}));
  const styles=Object.fromEntries(['sephardic','ashkenazic'].map(style=>{

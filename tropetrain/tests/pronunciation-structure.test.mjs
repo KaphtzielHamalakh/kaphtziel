@@ -30,7 +30,7 @@ test('reading labels, decomposed breve, literal missing cells and column indices
  assert.deepEqual(rows.sephardic.map(c=>c.column),[1,2]);
  assert.deepEqual(rows.sephardic.map(c=>c.marks.find(m=>m.kind==='reading').label),['קמץ-ד','קמץ-ס']);
  assert.ok(rows.sephardic[0].units.some(u=>u.brevePositions.length));
- assert.equal(rows.ashkenazic[1].status,'unavailable');assert.equal(rows.ashkenazic[1].text,'—');assert.deepEqual(rows.ashkenazic[1].units,[]);
+ assert.equal(rows.ashkenazic[1].status,'repeated');assert.equal(rows.ashkenazic[1].literalText,'—');assert.equal(rows.ashkenazic[1].sourceReference.column,1);assert.equal(rows.ashkenazic[1].text,rows.ashkenazic[0].text);
  assert.equal(transcriptionStructure(null).status,'missing');assert.equal(transcriptionStructure(['']).status,'empty');
 });
 test('shared groups and internal joins never acquire an invented per-word or Hebrew-letter split',()=>{
@@ -44,7 +44,7 @@ test('shared groups and internal joins never acquire an invented per-word or Heb
  assert.equal(c.boundaries.find(b=>b.kind==='source-join').text,'-');assert.equal(c.readerWordId,n.id);assert.equal(c.hebrewClusterRanges,null);
 });
 test('source units losslessly reconstruct all cells, including joins, spaces and nested readings',()=>{
- let count=0,missing=0,unavailable=0,stress=0,readings=0,supers=0;
+ let count=0,missing=0,repeatMarks=0,stress=0,readings=0,supers=0;
  const visit=(nodes,counts)=>{for(const n of nodes??[])if(typeof n!=='string'){counts[n.kind]=(counts[n.kind]??0)+1;if(n.content)visit(n.content,counts);}};
  for(const g of data.groups)for(const r of g.rows)for(const cells of Object.values(r.transcriptions))for(const cell of cells){
   const s=transcriptionStructure(cell),counts={};visit(cell,counts);count++;
@@ -58,9 +58,9 @@ test('source units losslessly reconstruct all cells, including joins, spaces and
    for(const p of parts){assert.equal(p.start,end);assert.equal(s.text.slice(p.start,p.end),p.text);end=p.end;}
    assert.equal(end,s.text.length);
   }
-  missing+=s.status==='missing';unavailable+=s.status==='unavailable';stress+=counts.stressed??0;readings+=counts.reading??0;supers+=counts['superscript-e']??0;
+  missing+=s.status==='missing';repeatMarks+=s.status==='repeat-mark';stress+=counts.stressed??0;readings+=counts.reading??0;supers+=counts['superscript-e']??0;
  }
- assert.deepEqual({count,missing,unavailable,stress,readings,supers},{count:139196,missing:2282,unavailable:88,stress:136848,readings:324,supers:38921});
+ assert.deepEqual({count,missing,repeatMarks,stress,readings,supers},{count:139196,missing:2282,repeatMarks:88,stress:136848,readings:324,supers:38921});
  const audit=JSON.parse(read('docs/PRONUNCIATION-STRUCTURE.json'));assert.equal(audit.inputSha256,createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'));assert.equal(audit.groups,68354);assert.equal(audit.mappedReaderWords,79806);
 });
 test('source study follows occurrence IDs while reader text, syllable drafts, melody, range, tempo and pitches remain independent',()=>{

@@ -1,7 +1,7 @@
 {
   "schema": "tropetrain-pronunciation-word-alignment-v1",
-  "revision": 1,
-  "studyRevision": 2,
+  "revision": 2,
+  "studyRevision": 3,
   "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
   "license": "CC-BY-SA-4.0",
   "inputSha256": "eefb6c4bf08140eccca1b50b0686020ed884f4af25593c9796634c0313570e13",
@@ -17,8 +17,11 @@
       "assignedUnits": 193401,
       "groupOnlyUnits": 26,
       "missingCells": 1136,
-      "unavailableCells": 0,
-      "assignmentSha256": "2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443"
+      "repeatCells": 0,
+      "unresolvedRepeats": 0,
+      "resolvedRepeatUnits": 0,
+      "assignmentSha256": "2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443",
+      "literalAssignmentSha256": "2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443"
     },
     "ashkenazic": {
       "singleWordGroups": 57303,
@@ -26,11 +29,14 @@
       "joinedGroupsPartial": 6,
       "joinedGroupsUnsplit": 1,
       "wordsWithUnits": 79792,
-      "assignedUnits": 193077,
+      "assignedUnits": 193425,
       "groupOnlyUnits": 26,
       "missingCells": 1146,
-      "unavailableCells": 88,
-      "assignmentSha256": "ebf77ef1f99acc56b158c376582cc98820542223db7983901eabaad6a88c90af"
+      "repeatCells": 88,
+      "unresolvedRepeats": 0,
+      "resolvedRepeatUnits": 348,
+      "assignmentSha256": "361c7110e9729970f4c7c5cd4f829de849c006ccb28c21f4a2d451aa52124773",
+      "literalAssignmentSha256": "ebf77ef1f99acc56b158c376582cc98820542223db7983901eabaad6a88c90af"
     }
   },
   "exceptions": [
@@ -208,6 +214,7 @@
       }
     }
   ],
+  "repeatRecord": "docs/PRONUNCIATION-REPEATS.json",
   "method": "Single-reader-word groups retain their existing whole-word links. Shared groups require consensus across every literal source Hebrew reading and every exact path through documented reader letter forms. An explicit Hebrew maqaf/space part and transcription hyphen/space part correspond by source order. A unit gets one reader word ID only if the complete source part belongs to that same word on all matching paths. Combined source words retain group scope; alternate/missing cells and all text/IDs stay literal. No cap or approximate spelling distance.",
   "limits": "Structural source correspondence, not independent linguistic/acoustic approval. No phonemes, individual Hebrew-letter ranges, note links, audio times, new voice or Kinnor profile equivalence. All original groups and179unassigned words unchanged."
 }
