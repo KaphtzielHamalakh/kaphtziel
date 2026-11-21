@@ -1,10 +1,10 @@
 # TropeTrain · reconstruction in progress
 
-Development candidate **v0.16.0**, unpublished. All 154 code/data checks pass; normal browser UI checks are pending because CUA controls are unavailable. The last verified published release is v0.13. See [candidate verification and exact UI gates](docs/VERIFICATION-0.16.md).
+Development increment **v0.17.0** adds five attributed original melody/pronunciation recordings and independent source-study controls. All 165 automated checks pass; normal and portable HTTP UI checks are recorded in [v0.17 verification](docs/VERIFICATION-0.17.md). The previous verified live release is v0.16. Full historical melody grammars, six Kinnor Accent realizations and synthesized singing remain pending.
 
 Independent reconstruction of the teaching workflow of Kinnor’s desktop TropeTrainer. The candidate includes all five Torah books, 21 Prophets books and five Megillot for reading and original instrumental demonstration playback. Independent historical melody/phonetic profiles and synthesized singing remain pending. A separate licensed PocketTorah recording library covers all Torah portions. A bounded instrumental study transcribes all of printed Genesis 22:1 from a public-domain score; independent musical/underlay review remains pending.
 
-**TropeTrain.html** embeds the reader, audio code, Hebrew and fonts. Direct file-origin UI verification is still pending. `index.html` also uses a classic bundle to avoid file-origin module restrictions. The last verified published app is <https://kaphtziel.com/tropetrain/>; it does not yet include this candidate.
+**TropeTrain.html** embeds the reader, audio code, Hebrew and fonts. Direct file-origin UI verification is still pending. `index.html` also uses a classic bundle to avoid file-origin module restrictions. The published app is <https://kaphtziel.com/tropetrain/>. Check its footer for the deployed version; publication evidence is retained in the verification record.
 
 For development, from the repository root:
 
@@ -36,6 +36,13 @@ To loop across the first group boundary, click word 2, then Shift-click **אֵ֥
 
 The staff, note ribbon and expandable event table show the same events that drive audio and highlighting. **Download note sequence** exports the marked words, draft Hebrew syllables, stable IDs, current pitches, beats and durations as JSON. Draft roman labels are internal editorial aids; phonemes remain null until reviewed. There is no speech substitution.
 
+
+
+Use **Voice studies** for the new original recordings. **Source study → Tiberian pronunciation · Genesis 1:1–13** offers two published dagesh readings, each **with Sefardi melody** or **without melody · spoken study**. Changing either source criterion keeps the other selected. The titles follow Geoffrey Khan’s publication and Alex Foreman’s performances; they do not identify any of Kinnor’s six Accent profiles. **Esther cantillation table · Gabriel Kretzmer Seed** is a separate Nusaḥ Ashkenaz recorded table, with no Bible-word mapping.
+
+Choose **Load recording**, then a **Recording start / end** in seconds. An empty end means the complete take. **Repeat recording span**, **Stop study recording** and Escape work without changing reader words or main instrument settings. **Study recording volume** starts at zero. At zero it uses a silent clock without calling the audio device; raise it yourself when ready to hear the original voice. Each take keeps its original pitch, timing and pronunciation. **Open Genesis 1:1–13 text** selects unchanged UXLC text but adds no audio word highlighting, syllable timing or phoneme synthesis.
+
+All five original MP3s retain pinned bytes/checksums and attribution. Esther is included in the standalone file. The four larger Tiberian originals load explicitly, verify their checksums and save on this device when available. A standalone moved by itself loads those optional originals from the published trainer; previously saved copies remain usable offline. Sources, rights, original URLs and missing review are in [VOICE-STUDIES.json](docs/VOICE-STUDIES.json) and [the recording notice](assets/voice-studies/NOTICE.txt).
 
 Use **Recording** in the navigation for PocketTorah references across the entire Torah: **54 portions, 378 takes**. Choose **Reference portion** and **Reference aliyah**, then **Open selected reading**. Choose a cursor/span with the usual boundary controls. **Load recordings** shows the count and download size; it verifies each original file before saving it on this device. Then raise **Reference volume** when ready and use **Play reference span**. Reference volume starts at zero and remains independent of instrument volume. **Play complete recording** plays the selected unmodified take, including its opening/closing sound, without timed highlights.
 

@@ -93,6 +93,27 @@
       "readmeBlob": "24e04ac45d72a36c37d91545e1b0bc1eff05c4de",
       "finding": "README explicitly describes parsers for original-installer XML; general public-domain assertion does not establish rights for individual proprietary-origin files. No music/code/assets imported.",
       "status": "not a cleared replacement for original musical definitions"
+    },
+    {
+      "id": "seed-esther-2011",
+      "creator": "Gabriel Kretzmer Seed",
+      "url": "https://opensiddur.org/?p=2622",
+      "primaryPost": "https://opensiddur.org/readings-and-sourcetexts/cantillation/taamei-hamiqra-cantillation-for-megillat-esther/",
+      "license": "CC-BY-SA-4.0, post-specific notice",
+      "musicalCoverage": "Unchanged recorded Esther zarqa/cantillation-name table, source identifies Nusaḥ Ashkenaz. No Bible-word, syllable or note transcription.",
+      "record": "docs/VOICE-STUDIES.json",
+      "review": "Primary source/rights and original bytes checked; acoustic/linguistic/contextual review pending. Fixed reference, no Kinnor preset equivalence."
+    },
+    {
+      "id": "foreman-khan-2020",
+      "creator": "Alex Foreman (recordings); Geoffrey Khan (book/reconstruction)",
+      "url": "https://doi.org/10.11647/OBP.0163",
+      "primaryCopyright": "https://books.openbookpublishers.com/10.11647/obp.0163.pdf",
+      "sourceResourceList": "https://books.openbookpublishers.com/10.11647/obp.0163.05.pdf",
+      "license": "Recorded material explicitly credited to Alex Foreman under CC BY; book CC-BY-4.0.",
+      "musicalCoverage": "Four source performances of Genesis1:1–13: dagesh forte/lene and extended-forte, each without melody or with source-labeled Sefardi melody.",
+      "record": "docs/VOICE-STUDIES.json",
+      "review": "Primary metadata/rights, exact original bytes and browser decoding checked. No word/syllable/audio alignment, note transcription, six-Kinnor-profile identification or acoustic/qualified review supplied."
     }
   ]
 }

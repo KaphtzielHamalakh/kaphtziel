@@ -7038,6 +7038,469 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } });
   }
 
+  // voice-study-data.js
+  var VOICE_STUDIES = { "format": "tropetrain-voice-studies-v1", "revision": 1, "retrieved": "2026-11-20", "scope": "Five exact original source performances. Source pronunciation/delivery criteria are separate; no word-aligned or synthesized voice presets. Full Kinnor repertoire/pronunciation reconstruction remains pending.", "studies": [{ "id": "foreman-genesis", "name": "Tiberian pronunciation · Genesis 1:1–13", "sourceTitle": "Geoffrey Khan, The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I (2020), §I.5.4.1, pp. 614–618", "sourceUrl": "https://doi.org/10.11647/OBP.0163", "coverage": { "bookId": "gen", "start": { "chapter": 1, "verse": 1 }, "end": { "chapter": 1, "verse": 13 } }, "coverageStatus": "Publication identifies passage. No source-edition comparison or word/syllable/audio alignment is supplied by this app. Opening the text displays unchanged UXLC.", "pronunciations": [{ "id": "forte-lene", "name": "Dagesh forte–dagesh lene reading" }, { "id": "extended-forte", "name": "Extended dagesh forte reading" }], "deliveries": [{ "id": "sefardi-melody", "name": "With Sefardi melody · source label", "kind": "chanted" }, { "id": "spoken", "name": "Without melody · spoken study", "kind": "spoken" }], "description": "A scholarly reconstruction of Tiberian pronunciation, performed by Alex Foreman in two dagesh readings and with or without a source-labeled Sefardi melody. These are fixed performances, with their original pronunciation, pitch and timing.", "limits": "This study is separate from the six historical Kinnor Accent labels and from a complete communal melody grammar. The recordings do not provide independently controllable singing synthesis.", "rightsEvidence": { "url": "https://books.openbookpublishers.com/10.11647/obp.0163.pdf", "location": "Volume I copyright page; recorded material credited to Alex Foreman, CC BY; book CC BY 4.0.", "resourceList": "https://books.openbookpublishers.com/10.11647/obp.0163.05.pdf", "resourceListLocation": "§I.5.4.1, printed p. 614; four Genesis 1:1–13 audio DOIs.", "retrieval": "Official pages/PDF text read through web tool. Direct PDF download returned405; publisher page direct curl returned429. No PDF bytes or visual transcription claimed." } }, { "id": "seed-esther", "name": "Esther cantillation table · Gabriel Kretzmer Seed", "sourceTitle": "Ta’amei Hamiqra for Megillat Esther, Open Siddur Project (2011)", "sourceUrl": "https://opensiddur.org/?p=2622", "coverage": null, "coverageStatus": "A zarqa/cantillation-name table; no Bible-word or syllable mapping is inferred.", "pronunciations": [{ "id": "as-recorded", "name": "As recorded · pronunciation not separately identified" }], "deliveries": [{ "id": "esther-table", "name": "Esther chant table · Nusaḥ Ashkenaz", "kind": "chanted" }], "description": "Gabriel Kretzmer Seed’s recorded Esther cantillation table. Open Siddur identifies the style as Nusaḥ Ashkenaz.", "limits": "A recorded table is not a full Esther text reading, contextual melody grammar or Kinnor preset. No new note or syllable transcription is supplied.", "rightsEvidence": { "url": "https://opensiddur.org/readings-and-sourcetexts/cantillation/taamei-hamiqra-cantillation-for-megillat-esther/", "pageSha256": "ac91386b6d9cdd29e8de908a751441daa11bd7b9844f1b9cf404b8b81e435858", "license": "Post-specific Creative Commons Attribution-ShareAlike4.0 notice, with direct MP3/OGG links. Body also states free redistribution/remix under CC BY-SA.", "retrieved": "2026-11-20" } }], "recordings": [{ "id": "seed-esther-2011", "studyId": "seed-esther", "pronunciationId": "as-recorded", "deliveryId": "esther-table", "performer": "Gabriel Kretzmer Seed", "year": 2011, "sourceUrl": "https://opensiddur.org/wp-content/uploads/2011/03/Megillat-Esther-Trope.mp3", "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2011/03/Megillat-Esther-Trope.mp3", "audio": { "filename": "esther-seed.mp3", "file": "assets/voice-studies/esther-seed.mp3", "bytes": 1136250, "sha1": "000d8904534ef3fa3760844ea82ff7a386273f39", "sha256": "cac62358d81f509cadeeaf016da88cd8da1cc843f3fbe4400ace9b80c4e458a3", "estimatedDurationSeconds": 70.844063, "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds." }, "license": { "id": "CC-BY-SA-4.0", "url": "https://creativecommons.org/licenses/by-sa/4.0/" }, "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.", "timedWords": null, "syllableAlignment": null, "phonemes": null, "musicalNotes": null, "independentReview": null }, { "id": "foreman-gen-lene-spoken", "studyId": "foreman-genesis", "pronunciationId": "forte-lene", "deliveryId": "spoken", "performer": "Alex Foreman", "year": 2020, "sourceUrl": "https://doi.org/10.11647/OBP.0163.06", "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.06_Gen_1-13_forte_lene.mp3", "audio": { "filename": "foreman-gen-forte-lene-spoken.mp3", "file": "assets/voice-studies/foreman-gen-forte-lene-spoken.mp3", "bytes": 3295259, "sha1": "dacdff7c41eb3996c9bae15d623d6157e17b552a", "sha256": "de4732cf81c83a98329207f414eba384d7ea8bfdc778505ead37dcafb258a17c", "estimatedDurationSeconds": 173.113469, "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds." }, "license": { "id": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.", "timedWords": null, "syllableAlignment": null, "phonemes": null, "musicalNotes": null, "independentReview": null }, { "id": "foreman-gen-lene-melodic", "studyId": "foreman-genesis", "pronunciationId": "forte-lene", "deliveryId": "sefardi-melody", "performer": "Alex Foreman", "year": 2020, "sourceUrl": "https://doi.org/10.11647/OBP.0163.07", "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.07_Gen_1-13_forte_lene_melodic.mp3", "audio": { "filename": "foreman-gen-forte-lene-melodic.mp3", "file": "assets/voice-studies/foreman-gen-forte-lene-melodic.mp3", "bytes": 11989494, "sha1": "4575d3fbb6517611c1edfda815e94f4d6df3efd3", "sha256": "1d9667de1cf1bf242028c1d403994ce1f3899869ccd515de6c98ae4600731475", "estimatedDurationSeconds": 374.543687, "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds." }, "license": { "id": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.", "timedWords": null, "syllableAlignment": null, "phonemes": null, "musicalNotes": null, "independentReview": null }, { "id": "foreman-gen-extended-spoken", "studyId": "foreman-genesis", "pronunciationId": "extended-forte", "deliveryId": "spoken", "performer": "Alex Foreman", "year": 2020, "sourceUrl": "https://doi.org/10.11647/OBP.0163.08", "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.08_Gen_1-13_extended_dagesh_forte.mp3", "audio": { "filename": "foreman-gen-extended-spoken.mp3", "file": "assets/voice-studies/foreman-gen-extended-spoken.mp3", "bytes": 6425622, "sha1": "95872a1dcd83b42feb32a353033a32264671eeee", "sha256": "0246bdb75507b7518ed80de9cf7e7323f61e01a0bd060667081bc494a2e55f9c", "estimatedDurationSeconds": 200.672687, "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds." }, "license": { "id": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.", "timedWords": null, "syllableAlignment": null, "phonemes": null, "musicalNotes": null, "independentReview": null }, { "id": "foreman-gen-extended-melodic", "studyId": "foreman-genesis", "pronunciationId": "extended-forte", "deliveryId": "sefardi-melody", "performer": "Alex Foreman", "year": 2020, "sourceUrl": "https://doi.org/10.11647/OBP.0163.09", "resolvedSourceUrl": "https://cdn.openbookpublishers.com/resources/10.11647/obp.0163/OBP.0163.09_Gen_1-13_extended_dagesh_forte_melodic.mp3", "audio": { "filename": "foreman-gen-extended-melodic.mp3", "file": "assets/voice-studies/foreman-gen-extended-melodic.mp3", "bytes": 12703369, "sha1": "eeccd4b39b053376130c58843dd32dd1a21e21ab", "sha256": "d7ed2073b9b9dc09d5bee972f59dcc5d3266416506649730c544d03b78a5bfe5", "estimatedDurationSeconds": 396.852281, "durationMethod": "macOS afinfo estimated duration; browser-decoded duration governs playback bounds." }, "license": { "id": "CC-BY-4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "modifications": "None. Original MP3 bytes; playback spans are user-selected seconds, without a word or syllable timing claim.", "timedWords": null, "syllableAlignment": null, "phonemes": null, "musicalNotes": null, "independentReview": null }] };
+
+  // voice-studies.js
+  function voiceStudy(id) {
+    const study = VOICE_STUDIES.studies.find((s) => s.id === id);
+    if (!study) throw Error("Choose an available source study.");
+    return study;
+  }
+  function voiceRecording(studyId, pronunciationId, deliveryId) {
+    const study = voiceStudy(studyId);
+    if (!study.pronunciations.some((p) => p.id === pronunciationId) || !study.deliveries.some((d) => d.id === deliveryId))
+      throw Error("This source does not provide that pronunciation and delivery.");
+    const recording = VOICE_STUDIES.recordings.find((r) => r.studyId === studyId && r.pronunciationId === pronunciationId && r.deliveryId === deliveryId);
+    if (!recording) throw Error("This source performance is unavailable.");
+    return recording;
+  }
+  function voiceAudioRecord(recording, base) {
+    return { ...recording, title: `${voiceStudy(recording.studyId).name} · ${recording.deliveryId}`, audio: {
+      ...recording.audio,
+      url: new URL(recording.audio.file, base).href,
+      localFile: recording.id === "seed-esther-2011" ? recording.audio.filename : null
+    } };
+  }
+  function voiceSpan(start, end, duration) {
+    if (!Number.isFinite(duration) || duration <= 0 || !Number.isFinite(start) || start < 0 || start >= duration)
+      throw Error("Choose a start time inside this recording.");
+    const last = end === null || end === "" ? duration : end;
+    if (!Number.isFinite(last) || last <= start || last > duration + 1e-3)
+      throw Error("Choose an end time after the start and within this recording.");
+    return { start, end: Math.min(last, duration) };
+  }
+  function restoreVoicePreferences(saved) {
+    const defaults = { studyId: "seed-esther", pronunciationId: "as-recorded", deliveryId: "esther-table", volume: 0, repeat: false, spans: {} };
+    if (!saved || typeof saved !== "object") return defaults;
+    let record;
+    try {
+      record = voiceRecording(saved.studyId, saved.pronunciationId, saved.deliveryId);
+    } catch {
+      return defaults;
+    }
+    const spans = {};
+    for (const candidate of VOICE_STUDIES.recordings) {
+      const span = saved.spans?.[candidate.id];
+      if (!span) continue;
+      try {
+        const checked2 = voiceSpan(span.start, span.end, candidate.audio.estimatedDurationSeconds);
+        spans[candidate.id] = { start: checked2.start, end: span.end === null ? null : checked2.end };
+      } catch {
+      }
+    }
+    return {
+      ...defaults,
+      studyId: record.studyId,
+      pronunciationId: record.pronunciationId,
+      deliveryId: record.deliveryId,
+      volume: Number.isInteger(saved.volume) && saved.volume >= 0 && saved.volume <= 100 ? saved.volume : 0,
+      repeat: typeof saved.repeat === "boolean" ? saved.repeat : false,
+      spans
+    };
+  }
+
+  // voice-study-player.js
+  var VoiceStudyPlayer = class {
+    constructor(media, {
+      clock = () => performance.now() / 1e3,
+      frame = (fn) => requestAnimationFrame(fn),
+      cancelFrame = (id) => cancelAnimationFrame(id),
+      onPosition = () => {
+      },
+      onEnd = () => {
+      },
+      onError = () => {
+      }
+    } = {}) {
+      Object.assign(this, { media, clock, frame, cancelFrame, onPosition, onEnd, onError });
+      this.volume = 0;
+      this.generation = 0;
+      this.running = false;
+      this.starting = false;
+      this.position = 0;
+      media.addEventListener("ended", () => {
+        if (this.running && this.mode === "audio") this.boundary();
+      });
+      media.addEventListener("error", () => {
+        if (this.running) this.fail(Error("The source recording could not be decoded."));
+      });
+    }
+    now() {
+      return this.mode === "muted" ? this.anchorPosition + Math.max(0, this.clock() - this.anchorClock) : this.media.currentTime;
+    }
+    stop() {
+      if (this.running) this.position = Math.min(this.end, this.now());
+      this.generation++;
+      this.running = false;
+      this.starting = false;
+      this.pending?.abort();
+      this.pending = null;
+      this.enabling = null;
+      this.cancelFrame(this.raf);
+      this.media.pause();
+    }
+    fail(error) {
+      this.stop();
+      this.onError(error);
+    }
+    async metadata(signal) {
+      if (this.media.readyState >= 1) return;
+      await new Promise((resolve, reject) => {
+        const cleanup = () => {
+          this.media.removeEventListener("loadedmetadata", ready);
+          this.media.removeEventListener("error", failed);
+          signal.removeEventListener("abort", aborted2);
+        };
+        const ready = () => {
+          cleanup();
+          resolve();
+        }, failed = () => {
+          cleanup();
+          reject(Error("The source recording could not be loaded."));
+        }, aborted2 = () => {
+          cleanup();
+          reject(new DOMException("Stopped", "AbortError"));
+        };
+        this.media.addEventListener("loadedmetadata", ready, { once: true });
+        this.media.addEventListener("error", failed, { once: true });
+        signal.addEventListener("abort", aborted2, { once: true });
+        this.media.load();
+      });
+    }
+    async play(url, { start = 0, end = null, repeat = false, expectedDuration = null } = {}) {
+      this.stop();
+      const generation = this.generation, pending = new AbortController();
+      this.pending = pending;
+      this.starting = true;
+      try {
+        if (this.media.getAttribute("src") !== url) this.media.src = url;
+        await this.metadata(pending.signal);
+        if (generation !== this.generation) return;
+        const duration = this.media.duration;
+        if (expectedDuration !== null && (!Number.isFinite(duration) || Math.abs(duration - expectedDuration) > 0.5)) throw Error("Decoded duration differs from this source recording.");
+        const span = voiceSpan(start, end, duration);
+        Object.assign(this, span);
+        this.repeat = repeat;
+        this.cycle = 0;
+        this.position = span.start;
+        this.media.playbackRate = 1;
+        this.media.volume = this.volume;
+        this.media.currentTime = span.start;
+        this.mode = this.volume === 0 ? "muted" : "audio";
+        this.anchorClock = this.clock();
+        this.anchorPosition = span.start;
+        this.running = true;
+        this.starting = false;
+        if (this.mode === "audio") await this.media.play();
+        if (generation !== this.generation || !this.running) return;
+        this.tick(generation);
+      } catch (error) {
+        if (generation === this.generation) {
+          this.stop();
+          if (error.name !== "AbortError") this.onError(error);
+        }
+      }
+    }
+    tick(generation) {
+      if (generation !== this.generation || !this.running) return;
+      this.position = this.now();
+      if (this.position >= this.end) {
+        this.boundary();
+        return;
+      }
+      this.onPosition(this.position, this.cycle, this.mode);
+      this.raf = this.frame(() => this.tick(generation));
+    }
+    boundary() {
+      if (!this.running) return;
+      this.cancelFrame(this.raf);
+      if (!this.repeat) {
+        this.position = this.end;
+        this.stop();
+        this.position = this.end;
+        this.onPosition(this.position, this.cycle, this.mode);
+        this.onEnd();
+        return;
+      }
+      const elapsed = Math.max(0, this.now() - this.start), length = this.end - this.start;
+      this.cycle += Math.max(1, Math.floor(elapsed / length));
+      this.position = this.start + elapsed % length;
+      this.anchorPosition = this.position;
+      this.anchorClock = this.clock();
+      this.media.currentTime = this.position;
+      const generation = this.generation;
+      if (this.mode === "audio" && this.media.paused) {
+        this.media.play().then(() => {
+          if (generation === this.generation && this.running) this.tick(generation);
+        }).catch((error) => {
+          if (generation === this.generation) this.fail(error);
+        });
+      } else this.tick(generation);
+    }
+    async setVolume(value) {
+      this.volume = Number.isFinite(value) ? Math.min(1, Math.max(0, value)) : 0;
+      this.media.volume = this.volume;
+      if (!this.running) return;
+      if (this.volume === 0 && this.mode === "audio") {
+        this.position = this.media.currentTime;
+        this.anchorPosition = this.position;
+        this.anchorClock = this.clock();
+        this.mode = "muted";
+        this.media.pause();
+      } else if (this.volume > 0 && this.mode === "muted" && !this.enabling) {
+        const generation = this.generation;
+        this.position = this.now();
+        this.media.currentTime = this.position;
+        const transition = { generation };
+        this.mode = "audio";
+        this.enabling = transition;
+        try {
+          await this.media.play();
+          if (generation === this.generation && this.running && this.volume === 0) {
+            this.anchorPosition = this.media.currentTime;
+            this.anchorClock = this.clock();
+            this.mode = "muted";
+            this.media.pause();
+          }
+        } catch (error) {
+          if (generation === this.generation) this.fail(error);
+        } finally {
+          if (this.enabling === transition) this.enabling = null;
+        }
+      }
+    }
+  };
+
+  // voice-study-ui.js
+  function mountVoiceStudies({ beforePlay, onOpenText }) {
+    const $2 = (id) => document.getElementById(id), key = "tropetrain-voice-studies-v1";
+    let saved;
+    try {
+      saved = JSON.parse(localStorage.getItem(key));
+    } catch {
+    }
+    const prefs = restoreVoicePreferences(saved);
+    let record, study, runtimeRecord, loading = null, opening = false, request = 0;
+    const media = $2("voice-study-audio"), audioBase = $2("voice-studies").dataset.audioBase || location.href;
+    const store2 = new ReferenceAudioStore({ openingUrl: media.getAttribute("src") });
+    const persist2 = () => {
+      try {
+        localStorage.setItem(key, JSON.stringify(prefs));
+      } catch {
+      }
+    };
+    const time = (n) => `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, "0")}`;
+    const player2 = new VoiceStudyPlayer(media, {
+      onPosition: (position, cycle, mode) => {
+        $2("voice-study-position").textContent = `${prefs.repeat ? `Loop ${cycle + 1} · ` : ""}${time(position)} / ${time(player2.end)}${mode === "muted" ? " · muted clock, audio device unused" : ""}`;
+      },
+      onEnd: () => {
+        $2("voice-study-status").textContent = "Recording span finished. Reader word selection is unchanged.";
+      },
+      onError: (error) => {
+        opening = false;
+        $2("voice-study-status").textContent = `Recording unavailable: ${error.message}`;
+        readiness();
+      }
+    });
+    function stop2() {
+      const active = opening || player2.running || player2.starting || loading;
+      request++;
+      loading?.abort();
+      loading = null;
+      opening = false;
+      player2.stop();
+      $2("voice-study-cancel").hidden = true;
+      if (record) readiness();
+      if (active) $2("voice-study-status").textContent = "Recording stopped. Reader word selection is unchanged.";
+    }
+    function options(id, items, value) {
+      $2(id).replaceChildren();
+      for (const item of items) {
+        const option = document.createElement("option");
+        option.value = item.id;
+        option.textContent = item.name;
+        $2(id).append(option);
+      }
+      $2(id).value = value;
+    }
+    async function readiness() {
+      const selected = record.id, current = ++request;
+      try {
+        const available = await store2.has(runtimeRecord);
+        if (current !== request || record.id !== selected) return;
+        $2("voice-study-play").disabled = !available;
+        $2("voice-study-load").disabled = available || !!loading;
+        $2("voice-study-load").textContent = available ? "Recording available" : `Load recording · ${(record.audio.bytes / 1048576).toFixed(1)} MB`;
+        $2("voice-study-remove").disabled = !!runtimeRecord.audio.localFile || !available;
+        $2("voice-study-storage").textContent = runtimeRecord.audio.localFile ? "This original recording is included with the app." : available ? store2.saved.has(record.audio.sha1) ? "Original checksum verified on playback; saved on this device." : "Original recording loaded for this session." : "Load this original when ready. Its checksum is verified before playback; device storage keeps it offline when available.";
+      } catch (error) {
+        $2("voice-study-storage").textContent = error.message;
+      }
+    }
+    function showSpan() {
+      const span = prefs.spans[record.id] ?? { start: 0, end: null };
+      $2("voice-study-start").value = span.start;
+      $2("voice-study-end").value = span.end ?? "";
+      for (const id of ["voice-study-start", "voice-study-end"]) $2(id).max = record.audio.estimatedDurationSeconds.toFixed(3);
+      $2("voice-study-position").textContent = `Source duration about ${time(record.audio.estimatedDurationSeconds)}. No word or syllable timing is assigned.`;
+    }
+    function render2() {
+      stop2();
+      study = voiceStudy(prefs.studyId);
+      record = voiceRecording(prefs.studyId, prefs.pronunciationId, prefs.deliveryId);
+      runtimeRecord = voiceAudioRecord(record, audioBase);
+      const delivery = study.deliveries.find((d) => d.id === prefs.deliveryId);
+      $2("voice-study-kind").textContent = delivery.kind === "spoken" ? "Spoken pronunciation study · without melody" : "Chanted reference · recorded voice";
+      $2("voice-study-description").textContent = study.description;
+      $2("voice-study-limits").textContent = study.limits;
+      $2("voice-study-coverage").textContent = study.coverageStatus;
+      $2("voice-study-creator").textContent = `${record.performer} · ${record.year}`;
+      $2("voice-study-source").href = record.sourceUrl;
+      $2("voice-study-source").textContent = "Original performance source";
+      $2("voice-study-book").href = study.sourceUrl;
+      $2("voice-study-book").textContent = study.sourceTitle;
+      $2("voice-study-license").href = record.license.url;
+      $2("voice-study-license").textContent = record.license.id;
+      $2("voice-study-hash").textContent = record.audio.sha256;
+      $2("voice-study-open").disabled = !study.coverage;
+      $2("voice-study-open").textContent = study.coverage ? "Open Genesis 1:1–13 text" : "Table names · no Bible passage mapping";
+      $2("voice-study-volume").value = prefs.volume;
+      $2("voice-study-volume-value").textContent = `${prefs.volume}%`;
+      $2("voice-study-repeat").checked = prefs.repeat;
+      player2.setVolume(prefs.volume / 100);
+      $2("voice-study-status").textContent = "Choose a span in seconds, then Play. The reader’s musical settings and Hebrew selection stay separate.";
+      showSpan();
+      readiness();
+      persist2();
+    }
+    function readSpan() {
+      const start = $2("voice-study-start").value === "" ? NaN : Number($2("voice-study-start").value), end = $2("voice-study-end").value === "" ? null : Number($2("voice-study-end").value);
+      voiceSpan(start, end, record.audio.estimatedDurationSeconds);
+      return { start, end };
+    }
+    function saveSpan() {
+      stop2();
+      try {
+        prefs.spans[record.id] = readSpan();
+        persist2();
+        $2("voice-study-status").textContent = "Seconds span kept. Press Play when ready.";
+      } catch (error) {
+        $2("voice-study-status").textContent = error.message;
+      }
+      readiness();
+    }
+    options("voice-study-choice", VOICE_STUDIES.studies, prefs.studyId);
+    const populate = () => {
+      const s = voiceStudy(prefs.studyId);
+      options("voice-study-pronunciation", s.pronunciations, prefs.pronunciationId);
+      options("voice-study-delivery", s.deliveries, prefs.deliveryId);
+    };
+    populate();
+    render2();
+    $2("voice-study-choice").addEventListener("change", () => {
+      prefs.studyId = $2("voice-study-choice").value;
+      const s = voiceStudy(prefs.studyId);
+      prefs.pronunciationId = s.pronunciations[0].id;
+      prefs.deliveryId = s.deliveries[0].id;
+      populate();
+      render2();
+    });
+    for (const [id, field] of [["voice-study-pronunciation", "pronunciationId"], ["voice-study-delivery", "deliveryId"]])
+      $2(id).addEventListener("change", () => {
+        prefs[field] = $2(id).value;
+        render2();
+      });
+    for (const id of ["voice-study-start", "voice-study-end"]) $2(id).addEventListener("change", saveSpan);
+    $2("voice-study-whole").addEventListener("click", () => {
+      prefs.spans[record.id] = { start: 0, end: null };
+      render2();
+    });
+    $2("voice-study-repeat").addEventListener("change", () => {
+      prefs.repeat = $2("voice-study-repeat").checked;
+      player2.repeat = prefs.repeat;
+      persist2();
+    });
+    $2("voice-study-volume").addEventListener("input", () => {
+      prefs.volume = Number($2("voice-study-volume").value);
+      $2("voice-study-volume-value").textContent = `${prefs.volume}%`;
+      player2.setVolume(prefs.volume / 100);
+      persist2();
+    });
+    $2("voice-study-load").addEventListener("click", async () => {
+      if (loading) return;
+      const selected = runtimeRecord, job = new AbortController();
+      loading = job;
+      $2("voice-study-load").disabled = true;
+      $2("voice-study-cancel").hidden = false;
+      $2("voice-study-status").textContent = "Loading and verifying the original source recording…";
+      try {
+        await store2.load(selected, { signal: job.signal });
+        if (loading === job) $2("voice-study-status").textContent = "Original recording loaded and checksum verified. Press Play when ready.";
+      } catch (error) {
+        if (loading === job) $2("voice-study-status").textContent = job.signal.aborted ? "Recording load cancelled." : error.message;
+      } finally {
+        if (loading === job) {
+          loading = null;
+          $2("voice-study-cancel").hidden = true;
+          readiness();
+        }
+      }
+    });
+    $2("voice-study-cancel").addEventListener("click", () => {
+      loading?.abort();
+    });
+    $2("voice-study-play").addEventListener("click", async () => {
+      let span;
+      try {
+        span = readSpan();
+      } catch (error) {
+        $2("voice-study-status").textContent = error.message;
+        return;
+      }
+      beforePlay();
+      const selected = runtimeRecord, current = ++request;
+      opening = true;
+      $2("voice-study-status").textContent = "Opening the selected recording span…";
+      try {
+        const url = await store2.url(selected);
+        if (current !== request) return;
+        const kind = study.deliveries.find((d) => d.id === prefs.deliveryId).kind;
+        $2("voice-study-status").textContent = `${kind === "spoken" ? "Spoken study, without melody" : "Chanted source recording"} · original recorded pitch and timing${prefs.volume === 0 ? " · muted at 0%" : ""}.`;
+        await player2.play(url, { ...span, repeat: prefs.repeat, expectedDuration: selected.audio.estimatedDurationSeconds });
+      } catch (error) {
+        if (current === request) {
+          stop2();
+          $2("voice-study-status").textContent = error.message;
+          readiness();
+        }
+      } finally {
+        if (current === request) opening = false;
+      }
+    });
+    $2("voice-study-stop").addEventListener("click", () => {
+      stop2();
+      $2("voice-study-status").textContent = "Recording stopped. Reader word selection is unchanged.";
+      readiness();
+    });
+    $2("voice-study-remove").addEventListener("click", async () => {
+      const selected = runtimeRecord;
+      stop2();
+      await store2.remove(selected);
+      $2("voice-study-status").textContent = "Saved copy removed. Load it again when needed.";
+      readiness();
+    });
+    $2("voice-study-open").addEventListener("click", () => {
+      if (study.coverage) onOpenText(structuredClone(study.coverage));
+    });
+    return { stop: stop2, get running() {
+      return opening || player2.running || player2.starting;
+    }, get loading() {
+      return !!loading;
+    } };
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -7117,6 +7580,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var findWords = null;
   var combinationTools = null;
   var patternTools = null;
+  var voiceStudyTools = null;
   var scrollLayout = null;
   var scrollMessage = "Sourced scroll lines are loading.";
   var referenceLibrary = null;
@@ -7228,8 +7692,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       document.querySelectorAll("[data-event]").forEach((el3) => el3.classList.toggle("active", el3.dataset.event === eventId));
     }
   }
-  function stop(message = "Stopped. Your selection is kept.", { preservePattern = false } = {}) {
+  function stop(message = "Stopped. Your selection is kept.", { preservePattern = false, preserveVoiceStudy = false } = {}) {
     if (!preservePattern) patternTools?.stop();
+    if (!preserveVoiceStudy) voiceStudyTools?.stop();
     referenceLoadJob?.abort();
     player.stop();
     if (referencePlayer.running || referencePlayer.starting) $("reference-status").textContent = "Reference stopped. Your selection is kept.";
@@ -7242,6 +7707,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   async function play() {
     patternTools?.stop();
+    voiceStudyTools?.stop();
     referencePlayer.stop();
     $("reference-status").textContent = "";
     $("wav-preview").pause();
@@ -7871,6 +8337,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   });
   $("cancel-wav").addEventListener("click", () => wavJob?.abort());
   $("wav-preview").addEventListener("play", () => {
+    voiceStudyTools?.stop();
     patternTools?.stop();
     player.stop();
     if (referencePlayer.running || referencePlayer.starting) $("reference-status").textContent = "Reference stopped.";
@@ -8438,7 +8905,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   });
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) patternTools?.stop();
-    if (document.hidden && (player.running || referencePlayer.running || referencePlayer.starting || !$("wav-preview").paused)) stop("Paused because this tab is hidden. Press Play to restart the span.");
+    if (document.hidden && (player.running || referencePlayer.running || referencePlayer.starting || voiceStudyTools?.running || voiceStudyTools?.loading || !$("wav-preview").paused)) stop("Paused because this tab is hidden. Press Play to restart the span.");
   });
   if (matchMedia("(min-width: 761px)").matches) $("library-options").open = true;
   combinationTools = mountCombinationTools({ getModel: () => model, getCorpus, selectHit: (hit, wholeTorah) => {
@@ -8462,6 +8929,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reader").scrollIntoView({ block: "start" });
   } });
   patternTools = mountPatternStudy({ getSettings: () => state, beforePlay: () => stop("Listening to the printed pattern. Bible-word selection is kept.", { preservePattern: true }), findPattern: (id) => combinationTools.findPattern(id) });
+  voiceStudyTools = mountVoiceStudies({
+    beforePlay: () => stop("Listening to a source voice study. Bible-word selection is kept.", { preserveVoiceStudy: true }),
+    onOpenText: (range) => libraryAction(() => applyRanges([{ id: "voice-study-text", ...range, label: "Source voice-study passage" }], { readingType: "torah" }))
+  });
   mountCalendar({ getCorpus, getReadingCorpus: getRepertoireCorpus, onOpen: (ranges, title, options) => {
     applyRanges(ranges, options);
     $("assignment-title").value = title;

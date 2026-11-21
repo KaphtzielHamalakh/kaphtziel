@@ -5,13 +5,13 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore Torah, Prophets and the five scrolls with an original instrumental demonstration, a full Torah recorded-reference library and a bounded printed-score study, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.16.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.17.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
   <noscript><p class="startup-status">JavaScript is needed for playback. Enable it, then reload this page.</p></noscript>
   <a class="skip" href="#reader">Skip to Hebrew reader</a>
-  <header><a class="studio" href="/">KAPHTZIEL <span>STUDIOS</span></a><nav aria-label="Page"><a href="#practice">Practice</a><a href="#recorded-reference">Recording</a><a href="#printed-study">Printed study</a><a href="#sequence-heading">Score</a><a href="#evidence">Sources & roadmap</a></nav></header>
+  <header><a class="studio" href="/">KAPHTZIEL <span>STUDIOS</span></a><nav aria-label="Page"><a href="#practice">Practice</a><a href="#voice-studies">Voice studies</a><a href="#recorded-reference">Recording</a><a href="#printed-study">Printed study</a><a href="#sequence-heading">Score</a><a href="#evidence">Sources & roadmap</a></nav></header>
   <main>
     <div class="intro" id="practice"><div><p class="eyebrow">A study in text & sound</p><h1>TropeTrain<span class="title-dot">.</span></h1><p class="subtitle">Hear a phrase. Find your place. Make it your own.</p></div><div class="edition"><span lang="he" dir="rtl">בְּרֵאשִׁית</span><p>TORAH · HAFTARAH · MEGILLOT<br>RECONSTRUCTION IN PROGRESS</p></div></div>
     <section class="library-panel" aria-label="Reading library"><div class="section-heading"><div><p class="eyebrow">Torah, Prophets &amp; five scrolls</p><h2>Open a reading</h2></div><span id="library-status" role="status">Loading the library…</span></div>
@@ -65,6 +65,22 @@
         <details><summary>Comfort range guide</summary><p class="muted">A visual guide only; it does not transpose the music.</p><div class="range-inputs"><label>Lowest note<select id="range-low"></select></label><label>Highest note<select id="range-high"></select></label></div><p id="range-report"></p></details>
       </aside>
     </div>
+    <section class="recorded-reference" id="voice-studies" aria-labelledby="voice-study-heading">
+      <div class="section-heading"><div><p class="eyebrow">Named readers · reusable sources</p><h2 id="voice-study-heading">Compare melody and pronunciation recordings</h2></div><span class="badge" id="voice-study-kind">Source voice studies</span></div>
+      <p>Five original performances: an Esther cantillation table and four paired Tiberian pronunciation studies of Genesis 1:1–13. Select the published pronunciation reading and recorded delivery separately. Each take keeps its own pitch, pace and voice.</p>
+      <div class="voice-study-picker"><label>Source study<select id="voice-study-choice"></select></label><label>Source pronunciation reading<select id="voice-study-pronunciation"></select></label><label>Recorded delivery<select id="voice-study-delivery"></select></label></div>
+      <p id="voice-study-description"></p><p id="voice-study-limits" class="muted"></p><p id="voice-study-coverage" class="muted"></p>
+      <p><b id="voice-study-creator"></b> · <a id="voice-study-license"></a> · <a id="voice-study-source">Original performance source</a></p>
+      <p><a id="voice-study-book"></a></p>
+      <button id="voice-study-open" disabled>Open source passage text</button>
+      <div class="voice-study-span"><label>Recording start · seconds<input id="voice-study-start" type="number" min="0" step="0.001" value="0" required></label><label>Recording end · seconds<input id="voice-study-end" type="number" min="0" step="0.001" placeholder="End of recording"></label><button id="voice-study-whole">Use whole recording</button><label class="voice-study-repeat"><input id="voice-study-repeat" type="checkbox">Repeat recording span</label></div>
+      <p class="muted">The seconds span is your listening selection. These recordings have no reviewed word or syllable timings here. Spoken studies are labeled without melody; the recorded chant is a separate delivery.</p>
+      <div class="reference-actions"><button id="voice-study-load" disabled>Load recording</button><button id="voice-study-cancel" hidden>Cancel recording load</button><button id="voice-study-play" class="primary" disabled>Play recording span</button><button id="voice-study-stop">Stop study recording</button><button id="voice-study-remove" disabled>Remove saved study recording</button></div>
+      <p id="voice-study-storage" class="muted"></p><p id="voice-study-status" role="status"></p><p id="voice-study-position" aria-live="off" class="muted"></p>
+      <div class="reference-volume"><div class="label-row"><label for="voice-study-volume">Study recording volume</label><output id="voice-study-volume-value">0%</output></div><input id="voice-study-volume" type="range" min="0" max="100" step="1" value="0"></div>
+      <details><summary>Voice-study sources and limits</summary><p>The Tiberian recordings are Alex Foreman’s performances published with Geoffrey Khan’s 2020 study, §I.5.4.1. They illustrate two reconstructed dagesh readings, each with and without the source’s “Sefardi melody.” They are not identified as Kinnor Accent realizations. Gabriel Kretzmer Seed’s 2011 Esther table is shared by the Open Siddur Project as Nusaḥ Ashkenaz.</p><p>Original MP3s are unchanged. No pitches, phoneme rules, syllable alignment or Bible-word timing are inferred. An independent transcription and qualified review are needed before these performances can become word-aligned or synthesized presets.</p><p>The Esther table is included. Other originals load only on request and are verified before playback. Saved copies work offline when device storage is available. The standalone file loads optional recordings from the published trainer.</p><p><a href="./docs/VOICE-STUDIES.json">Source catalog, rights and review record</a> · <a href="./assets/voice-studies/NOTICE.txt">Full recording attribution</a></p><p class="source-checksum">Selected original SHA-256: <code id="voice-study-hash"></code></p></details>
+      <audio id="voice-study-audio" src="./assets/voice-studies/esther-seed.mp3" preload="none" hidden></audio>
+    </section>
     <section class="recorded-reference" id="recorded-reference" aria-labelledby="reference-heading">
       <div class="section-heading"><div><p class="eyebrow">Sourced recordings</p><h2 id="reference-heading">Listen to a recorded reference</h2></div><span class="badge">PocketTorah · Torah library</span></div>
       <p id="reference-library-status" role="status">Loading the recorded-reference catalog…</p>
@@ -117,7 +133,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a><p><a href="./docs/REPERTOIRE-SOURCES.json">Prophets and five-scroll text provenance</a> · <a href="./docs/REPERTOIRE-AUDIT.json">Source correspondence audit</a></p></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Optional sourced scroll lines use written UXLC letters, a licensed scribal font and flagged edition differences. Typeset widths remain approximate; scrolls vary.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>PocketTorah recordings and the bounded printed-score study provide source references. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.16.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.17.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -128,6 +144,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.16.0"></script>
+  <script defer src="./app.bundle.js?v=0.17.0"></script>
 </body>
 </html>

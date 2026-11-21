@@ -10,9 +10,9 @@ All six Accent labels in the brief are present: Ashkenazi Traditional, Ashkenazi
 
 The source distinctions and further historical claims below follow the supplied brief; those other references have not all been independently audited in this milestone. A modern product’s recordings or menus are not evidence of Kinnor V6.
 
-## Last verified live behavior (v0.13)
+## Earlier verified live behavior (v0.13 checkpoint)
 
-The following table describes the last verified published release. The v0.15 candidate below adds software features but still awaits normal browser UI verification and publication.
+The table retains the v0.13 checkpoint for historical comparison. Later sections record the published v0.16 browser verification and the v0.17 source-recording increment.
 
 | Behavior | Implemented now | Fidelity or evidence still needed |
 | --- | --- | --- |
@@ -213,3 +213,12 @@ The candidate adds structured calendar haftarah/Megillah text, complete source s
 ## Browser-tested repertoire/calendar release · v0.16
 
 The November20 normal in-app browser session verified the pending31-book reading controls, written/read alternatives, named/reordered/hidden cross-book sections, sourced related selections and complete five-scroll text, Hebrew-date navigation, explicit Torah coordinate maps, saved-state/recent-reading restoration and muted playback. All154 automated checks pass; responsive root/body widths match320/390/1280. The browser file chooser stalled, so import/export dialogs and legacy saved-practice recovery UI remain pending; no acoustic or expert-review result is inferred. VERIFICATION-0.16.md records tested examples and limits. All32Torah and other historical musical realizations, six pronunciation grammars/voices, singing and the complete roadmap remain unfinished.
+
+
+## Melody and pronunciation sources first · v0.17
+
+The user reprioritized melody/pronunciation before printing. Five unchanged original recordings now support source comparison: Gabriel Kretzmer Seed’s 2011 Esther cantillation table (Open Siddur, post-specific CC BY-SA4.0), and Alex Foreman’s four Genesis1:1–13 performances published with Geoffrey Khan (2020, CC BY4.0). The book’s copyright page explicitly licenses Foreman’s recorded material. §I.5.4.1, printed p.614 lists two Tiberian dagesh readings, each with and without a source-labeled Sefardi melody. Source criteria are separate; a fixed recording still couples its original performance timing/pitch/voice. Source pronunciation and melody labels do not establish equivalence to Kinnor Accent or musical presets.
+
+VOICE-STUDIES.json pins35,549,994 original MP3 bytes, SHA1/SHA256, creator/year, license, original/redirected URLs, duration measurements and review limits. No site HTML, book cover, third-party image, installer asset or new unlicensed voice is distributed. Book/PDF content was available via the web tool; direct PDF retrieval returned405 and a mirror DNS lookup failed. Those failures were not bypassed. The seven Lavery-Yisraeli lessons are embedded YouTube links on the source page, not discovered licensed downloadable audio; no video was extracted. Kantor’s2023 classification is CC BY-NC4.0 and remains a research reference; none of its text/audio is imported. Existing Idelsohn, Gaster/Jessurun and Cohen leads remain active.
+
+The study player supports user-selected seconds spans, repeat and its own volume; a silent clock at0% does not call media.play. Main Hebrew/source IDs, syllables, musical events, tempo/key/range and assignment state remain independent. These five takes have no app-provided word/syllable timing, phoneme grammar, note transcription or qualified app review. Spoken studies are explicitly labeled without melody. All32Torah/other recovered melodic grammars, six Kinnor pronunciation realizations and singing synthesis remain unfinished. A reviewed word/syllable/note transcription and contextual practitioner review are needed to turn recorded examples into independently controlled singing or full melodic rules.
