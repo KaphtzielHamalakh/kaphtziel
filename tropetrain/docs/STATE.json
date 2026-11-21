@@ -3,8 +3,8 @@
   "updated": "2026-11-20",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "d3e62531af54245cb1ee1fc26a15f0d3e40c01ae",
-  "nextTask": "Finish v0.19 main recorded-chant browser gates, publish and live-verify. Next align pinned CC BY-SA4 Phonetic MAM Torah display to unchanged UXLC for independent source pronunciation study; preserve source differences and do not claim Kinnor equivalence.",
+  "publishedCommit": "fda6d07737eba6d960d2c83670b68aaff9a79cbe",
+  "nextTask": "Build and independently audit explicit Phonetic MAM display-row ↔ UXLC word correspondence from the five pinned Torah files, retaining qere/marks/grouping/reading/namespace differences and original IDs. Then add source-labeled pronunciation study separately from melody and audio. No six-Kinnor equivalence or singing claim. Continue reusable melodic/voice evidence; printing deferred.",
   "lastPassingTests": {
     "automated": 172,
     "ui": "Normal/standalone main recorded word/group/repeat/Stop/Escape, exact Hebrew source highlights, cross-fileGen2:3word16→2:4word1 naturalcompletion, explicitmissingaudio load/hash/cache, mode/span/Cohen84/key0/mutes reload, source-study exclusivity and320/1280fit pass; no capturedwarnings/errors. SourcegapExo1:1–17 blocksmainPlay.",
@@ -42,7 +42,7 @@
     {
       "id": "playback",
       "description": "Word/group/verse/aliyah/reading/span and repeat",
-      "status": "full_torah_demo_scopes_bounded_queue_and_source_specific_rests_held_ties_tested"
+      "status": "main_source_timed_chant_and_instrument_modes_word_group_verse_span_repeat_cross_file_stop_clock_browser_tested"
     },
     {
       "id": "pronunciations",
@@ -57,7 +57,7 @@
     {
       "id": "singing",
       "description": "Reusable singing voice and accompaniment, independently controlled",
-      "status": "full_torah_original_recorded_references_no_singing_synthesis"
+      "status": "main_word_linked_fixed_Torah_recordings_77174_source_timed_words_2811_blocked_no_independent_singing_synthesis"
     },
     {
       "id": "voice_range",
@@ -157,11 +157,11 @@
     }
   },
   "lastDeployment": {
-    "commit": "d3e62531af54245cb1ee1fc26a15f0d3e40c01ae",
+    "commit": "fda6d07737eba6d960d2c83670b68aaff9a79cbe",
     "status": "success",
-    "workflowRun": 44861108282,
-    "liveAssets": "All20 changed public files match29,665,543 tested bytes, including unchanged1,234,202byteBardoriginal.",
-    "ui": "Live v0.17→v0.18 retained Genesis22:1 word5/Cohen/60BPM/key0 and Tiberian forte/lene/Sefardi study selection, all gains0. New Bard original loaded/checksummed/cached from normal live app, decoded73.584036s/rate1 and naturally finished a muted1s span. Removed cachedBard, then published standalone freshly loaded/checksummed/cached it and mutedplay completed. Reload preserved Bard/span and original reader settings. No captured browser warnings/errors. No acoustic review claimed; final playback stopped/volume0/whole-recording/repeatoff, viewportreset, publishedtabretained.",
+    "workflowRun": 44866031579,
+    "liveAssets": "All19 changed public files match28,526,512 tested bytes.",
+    "ui": "Live v0.18→v0.19 preserved Genesis22:1 word5/Cohen/60BPM/key0, Bard study and all mutes. Main recorded mode explicitly loaded/hash-verified Vayera7; word5 highlighted in pointed/consonantal views while media stayed paused at0%, then naturally completed with highlights cleared. Live Shemot1 gap openedExo1:1–17 and disabled timedPlay. PreparedGenesis1:1–3 word2→Endofgroup; standalone restored recorded mode/span and completed source-timed playback. Final handoff uses pointed view, Original demonstration01 as the separate instrument selection,60/key0, recorded main audio, all gains0 and stopped. No capturedwarnings/errors;320root/bodyfit includingexpandedgaps;viewportreset; screenshot outputs/TropeTrain-v0.19-live.jpg.",
     "url": "https://kaphtziel.com/tropetrain/"
   },
   "corpusImport": {
@@ -190,11 +190,11 @@
     "version": "0.19.0",
     "branch": "codex/tropetrain-repertoire",
     "baseCommit": "f6c30f840d53db3f6fc0baa1bcde5ee0c0ccba9e",
-    "status": "local_release_gates_passed_unpublished",
+    "status": "published_live_verified",
     "record": "docs/VERIFICATION-0.19.md",
     "automatedTests": 172,
     "newFeatures": "Main Play routes explicitly to source word-timed chant; separate load/volume, zero-volume clock, exact per-book coverage and eight inspectable blocked timing gaps. No timestamp repairs or new musical/phonetic realization.",
-    "next": "Finish v0.19 main recorded-chant browser gates, publish and live-verify. Next align pinned CC BY-SA4 Phonetic MAM Torah display to unchanged UXLC for independent source pronunciation study; preserve source differences and do not claim Kinnor equivalence.",
+    "next": "Build and independently audit explicit Phonetic MAM display-row ↔ UXLC word correspondence from the five pinned Torah files, retaining qere/marks/grouping/reading/namespace differences and original IDs. Then add source-labeled pronunciation study separately from melody and audio. No six-Kinnor equivalence or singing claim. Continue reusable melodic/voice evidence; printing deferred.",
     "finalDocumentationChecks": 28
   },
   "sourceAnalysisIssue": {
