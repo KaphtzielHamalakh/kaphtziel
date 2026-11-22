@@ -14,6 +14,7 @@ import './import-baer-patterns.mjs';
 import './import-calendar-examples.mjs';
 import './import-voice-studies.mjs';
 import './audit-chant-coverage.mjs';
+import './audit-source-word-windows.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
@@ -158,6 +159,7 @@ const editionEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-EDITION-
 const editionPack=await readFile(path.join(root,'assets/pronunciation/mam-simple-torah-sources.zip'));
 const pronunciationPack=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-torah-sources.zip'));
 const voiceStudyNotice=await readFile(path.join(root,'assets/voice-studies/NOTICE.txt'),'utf8');
+const sourceWindowsEvidence=await readFile(path.join(root,'docs/SOURCE-WORD-WINDOWS.json'),'utf8');
 const chantEvidence=await readFile(path.join(root,'docs/CHANT-COVERAGE.json'),'utf8');
 const voiceStudyEvidence=await readFile(path.join(root,'docs/VOICE-STUDIES.json'),'utf8');
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
@@ -216,6 +218,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
  .replaceAll('href="./assets/pronunciation/phonetic-mam-torah-sources.zip"',()=>`href="data:application/zip;base64,${pronunciationPack.toString('base64')}"`)
  .replaceAll('href="./docs/JOINT-CHANT-PRONUNCIATION.json"',()=>`href="data:application/json;base64,${Buffer.from(jointEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(noteCorrespondenceEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/SOURCE-WORD-WINDOWS.json"',()=>`href="data:application/json;base64,${Buffer.from(sourceWindowsEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/CHANT-COVERAGE.json"',()=>`href="data:application/json;base64,${Buffer.from(chantEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/voice-studies/NOTICE.txt"','href="#voice-study-notices"')
  .replaceAll('href="./docs/VOICE-STUDIES.json"',()=>`href="data:application/json;base64,${Buffer.from(voiceStudyEvidence).toString('base64')}"`)

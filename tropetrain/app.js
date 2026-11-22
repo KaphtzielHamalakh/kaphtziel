@@ -346,12 +346,13 @@ function syncReferencePickers(){
   $('reference-portion').value=selected.partId;
   if($('reference-aliyah').dataset.part!==selected.partId){
     $('reference-aliyah').replaceChildren();
-    for(const id of referenceLibrary.parts.find(p=>p.id===selected.partId).recordingIds){const record=referenceLibrary.byId.get(id),option=document.createElement('option');option.value=id;option.textContent=`Aliyah ${record.number}${record.status!=='aligned'?' · timing review':''}`;$('reference-aliyah').append(option);}
+    for(const id of referenceLibrary.parts.find(p=>p.id===selected.partId).recordingIds){const record=referenceLibrary.byId.get(id),option=document.createElement('option');option.value=id;option.textContent=`Aliyah ${record.number}${referenceLibrary.timingPolicy(record).kind==='partial-original-windows'?' · partial word timings':record.status!=='aligned'?' · complete take only':''}`;$('reference-aliyah').append(option);}
     $('reference-aliyah').dataset.part=selected.partId;
   }
   $('reference-aliyah').value=selected.id;
   $('reference-title').textContent=selected.title;
-  $('reference-timing-status').textContent=selected.status==='aligned'?'Source word timings available · acoustic review pending':`Word timing needs review: ${selected.issues.map(i=>i.kind==='word-count'?`${i.sourceWords} source words / ${i.timings} timestamps`:'non-increasing timestamps').join('; ')}. Complete-recording playback is available without timed highlights.`;
+  const timing=referenceLibrary.timingPolicy(selected);
+  $('reference-timing-status').textContent=timing.kind==='partial-original-windows'?`${timing.eligibleWords} original word intervals available; ${timing.withheldWords} words touching ambiguous timestamps withheld. Selections crossing a withheld word cannot play. Raw timings/status are unchanged; acoustic review pending.`:selected.status==='aligned'?'Source word timings available · acoustic review pending':`Word timing needs review: ${selected.issues.map(i=>i.kind==='word-count'?`${i.sourceWords} source words / ${i.timings} timestamps`:'non-increasing timestamps').join('; ')}. Complete-recording playback is available without timed highlights.`;
 }
 function renderRecordedWord(word){
   const record=referenceLibrary?.byId.get(word.recordingId),names={gen:'Genesis',exo:'Exodus',lev:'Leviticus',num:'Numbers',deu:'Deuteronomy'},book=names[record?.bookId]??'Genesis';
@@ -440,13 +441,16 @@ async function playChantPractice(){
 }
 function renderChantCoverage(){
   const coverage=chantCoverage(referenceLibrary);
-  $('chant-coverage-summary').textContent=`${coverage.sourceTimedWords.toLocaleString()} of ${coverage.words.toLocaleString()} Torah words have structurally consistent source timings; ${coverage.reviewWords.toLocaleString()} words in ${coverage.gaps.length} takes await timing review. No missing times are guessed.`;
+  $('chant-coverage-summary').textContent=`${coverage.sourceTimedWords.toLocaleString()} of ${coverage.words.toLocaleString()} Torah words have structurally consistent source timings; ${coverage.reviewWords.toLocaleString()} words in ${coverage.gaps.length} takes await timing review. Five takes now expose ${coverage.gaps.reduce((n,g)=>n+g.sourceTimedWords,0).toLocaleString()} unchanged intervals outside ambiguous regions. No missing times are guessed.`;
   $('chant-coverage-summary').append(document.createTextNode(' An independent source-duration check withholds all16Genesis28:4words in both main source-audio modes; original source metadata is retained.'));
   $('joint-coverage-summary').textContent=`${JOINT_COVERAGE_SUMMARY.withChantAndPronunciation.toLocaleString()} words have both source-timed chanting and individual pronunciation units; ${JOINT_COVERAGE_SUMMARY.withChantAndWrittenRanges.toLocaleString()} also have exact written Hebrew ranges. Text styles keep their own evidence; the recording retains its original pronunciation. Independent review is pending.`;
   $('chant-gap-list').replaceChildren();
   for(const gap of coverage.gaps){
-    const item=document.createElement('li'),button=document.createElement('button');button.textContent=`Open ${gap.title} · ${gap.words} words needing timing review`;
-    button.addEventListener('click',()=>libraryAction(()=>applyRanges([{id:'timing-review',...gap.coverage,label:gap.title}])));item.append(button);$('chant-gap-list').append(item);
+    const item=document.createElement('li'),button=document.createElement('button');button.textContent=`Open ${gap.title} · ${gap.reviewWords} withheld${gap.sourceTimedWords?` / ${gap.sourceTimedWords} original intervals available`:''}`;
+    const openWord=id=>libraryAction(()=>{applyRanges([{id:'timing-review',...gap.coverage,label:gap.title}]);state.scope='word';state.cursor=words.findIndex(w=>(w.sourceWordId??w.id)===id);if(state.cursor<0)throw Error('The source word is outside this reading.');state.anchor=state.cursor;state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);render();});
+    button.addEventListener('click',()=>libraryAction(()=>applyRanges([{id:'timing-review',...gap.coverage,label:gap.title}])));item.append(button);
+    if(gap.firstAvailableWordId){const first=document.createElement('button');first.textContent=`Try first available word · ${gap.title}`;first.addEventListener('click',()=>openWord(gap.firstAvailableWordId));item.append(' ',first);}
+    const blocked=document.createElement('button');blocked.textContent=`Inspect first withheld word · ${gap.title}`;blocked.addEventListener('click',()=>openWord(gap.firstWithheldWordId));item.append(' ',blocked);$('chant-gap-list').append(item);
   }
 }
 $('practice-audio').addEventListener('change',e=>{stop('Practice audio changed.');state.practiceAudio=practiceAudioMode(e.target.value);render();});
@@ -977,7 +981,7 @@ getRepertoireCorpus().then(value=>{
 getReferenceLibrary().then(value=>{
   referenceLibrary=value;$('reference-portion').replaceChildren();
   for(const part of value.parts){const option=document.createElement('option');option.value=part.id;option.textContent=part.name;$('reference-portion').append(option);}
-  $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${value.source.audit.timingReviewRecordings.length} complete-take only`;
+  $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${[...value.timingPolicies.values()].filter(p=>p.kind==='partial-original-windows').length} with partial original intervals · ${[...value.timingPolicies.values()].filter(p=>p.kind==='withheld').length} complete-take only`;
   $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});

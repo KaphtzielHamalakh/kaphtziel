@@ -41,7 +41,7 @@ export function mountSyllableTiming({getWord,getPronunciation,getReferences,posi
    if(!choices.length)throw Error('No individually owned source syllables; combined source words remain unsplit.');
    for(const choice of choices){const option=document.createElement('option');option.value=choice.id;option.textContent=choice.label;$('syllable-timing-variant').append(option);}
    choose(choices[0].id);record=refs.byId.get(draft.source.recordingId);
-   $('syllable-timing-window').textContent=`${word.reference} · canonical ${draft.word.id} · occurrence ${draft.word.occurrenceId}. ${draft.word.startSeconds.toFixed(6)}–${draft.word.endSeconds.toFixed(6)} source seconds in ${record.title}. Recording Hebrew: ${draft.word.recordingHebrew} (${draft.word.sourceComparison}). Selected style labels source text only; the recorded pronunciation stays unchanged.`;
+   $('syllable-timing-window').textContent=`${word.reference} · canonical ${draft.word.id} · occurrence ${draft.word.occurrenceId}. ${draft.word.startSeconds.toFixed(6)}–${draft.word.endSeconds.toFixed(6)} source seconds in ${record.title}.${draft.word.timingPolicy?' Original interval outside ambiguous timestamps; no corrected or acoustically approved boundary.':''} Recording Hebrew: ${draft.word.recordingHebrew} (${draft.word.sourceComparison}). Selected style labels source text only; the recorded pronunciation stays unchanged.`;
    const ready=await hasSource(record);if(current!==generation)return;available=ready;draw();
   }catch(error){if(current===generation){draft=expected=null;draw();message(error.message);}}
  }

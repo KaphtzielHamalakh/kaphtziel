@@ -1,16 +1,18 @@
 {
   "schema": "tropetrain-measured-tone-coverage-v1",
-  "revision": 1,
+  "revision": 2,
   "inputs": {
     "referencePacketSha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9",
     "pitchManifestSha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf",
     "measurementImplementationSha256": "740102a4e31a6c8a936ec87f24e4533e92bd681e700540944c7a8f68386899cd"
   },
   "recordings": 378,
-  "sourceTimedRecordings": 370,
-  "withheldRecordings": 8,
-  "sourceTimedWords": 77174,
-  "measuredTimeWords": 77158,
+  "sourceTimedRecordings": 375,
+  "partiallyTimedRecordings": 5,
+  "withheldRecordings": 3,
+  "takesWithTimingGaps": 8,
+  "sourceTimedWords": 79194,
+  "measuredTimeWords": 79178,
   "durationReviewWords": [
     {
       "recordingId": "pt-portion-06-6",
@@ -141,16 +143,16 @@
       "measurementDurationSeconds": 324.884875
     }
   ],
-  "wordsWithMeasuredFrameOnsets": 74076,
-  "wordsWithoutMeasuredFrameOnsets": 3082,
-  "sourceTimedMeasuredFrames": 3474389,
-  "sourceTimedUnassignedFrames": 5361199,
-  "withheldWords": 2811,
+  "wordsWithMeasuredFrameOnsets": 75987,
+  "wordsWithoutMeasuredFrameOnsets": 3191,
+  "sourceTimedMeasuredFrames": 3571378,
+  "sourceTimedUnassignedFrames": 5498779,
+  "withheldWords": 791,
   "maxDurationSeconds": 1072.3265,
   "review": {
     "acoustic": null,
     "musical": null,
     "phonological": null
   },
-  "limits": "Exact source structure only. Per-word counts count frame onsets; a held10ms cell can overlap a word boundary. Missing measurements are muted, not identified rests/silence. No phoneme/syllable times, traditional grammar, reviewed musical notes or singing voice."
+  "limits": "Exact source structure only. Five defective equal-count takes expose original intervals outside closed ambiguity ranges; three count-mismatch takes stay wholly withheld. Source-timed frame totals count whole measurement packets for the375eligible takes, including their withheld regions; word counts exclude those regions. Per-word counts count frame onsets; a held10ms cell can overlap a word boundary. Missing measurements are muted, not identified rests/silence. No phoneme/syllable times, traditional grammar, reviewed musical notes or singing voice."
 }

@@ -1,4 +1,5 @@
 // Original software CC0-1.0; generated source-measurement adaptations CC BY-SA3.0.
+import {sourceTimingPolicy} from './source-word-windows.js';
 import {SourcePitchStore,pitchManifest,pitchWordWindow} from './source-pitch.js';
 import {CONTOUR_RENDERING,contourSemitones} from './source-contour.js';
 import {SOURCE_CONTOUR_WORKER_SOURCE} from './source-contour-worker-data.js';
@@ -30,7 +31,7 @@ export class SourceContourStore {
  }
  async url(record,{signal,semitones=0}={}){
   check(signal);contourSemitones(semitones);const entry=pitchManifest.records.find(r=>r.id===record?.id);
-  if(record?.status!=='aligned'||entry?.wordTiming!=='aligned'||record.audio?.sha1!==entry.sourceAudio.sha1||record.audio.bytes!==entry.sourceAudio.bytes)throw Error('Measured-tone source or word timings need review; no audio is substituted.');
+  if(!sourceTimingPolicy(record).eligibleWords||entry?.wordTiming!==record?.status||record.audio?.sha1!==entry.sourceAudio.sha1||record.audio.bytes!==entry.sourceAudio.bytes)throw Error('Measured-tone source or word timings need review; no audio is substituted.');
   const key=JSON.stringify([record.id,entry.sha256,CONTOUR_RENDERING.revision,semitones]);
   if(this.cache.has(key)){const hit=this.cache.get(key);this.cache.delete(key);this.cache.set(key,hit);this.onReady(hit.metadata);return hit.url;}
   this.onProgress(0,'Reading and verifying source measurements');const data=await this.pitchStore.get(record.id);check(signal);

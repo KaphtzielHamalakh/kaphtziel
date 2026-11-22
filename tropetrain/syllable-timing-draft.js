@@ -34,7 +34,7 @@ export function createSyllableTimingDraft({library,word,study,style,choiceId}){
   source:{recordingId:record.id,audioSha1:record.audio.sha1,audioBytes:record.audio.bytes,measuredPcmSha256:measured.pcmSha256,
    measuredDurationSeconds:measured.durationSeconds,measurementPacketSha256:measured.sha256},
   word:{id:word.sourceWordId??word.id,occurrenceId:word.id,hebrew:word.sourceHebrew,recordingHebrew:row.sourceHebrew,
-   sourceComparison:row.comparison,startSeconds:row.startSeconds,endSeconds:row.endSeconds??measured.durationSeconds},
+   sourceComparison:row.comparison,startSeconds:row.startSeconds,endSeconds:row.endSeconds??measured.durationSeconds,...(row.timingPolicy?{timingPolicy:row.timingPolicy}:{})},
   pronunciation:{sourceCommit:study.sourceCommit,style,row:choice.row,column:choice.column,choiceId:choice.id,
    sourceGroupId:study.groupId,sourceUrl:'https://github.com/bdenckla/MAM-basics/tree/'+study.sourceCommit+'/Phonetic-MAM',
    license:structuredClone(study.license),attribution:structuredClone(study.attribution),

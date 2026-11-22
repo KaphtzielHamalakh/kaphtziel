@@ -1,9 +1,9 @@
 {
   "schema": "tropetrain-chant-coverage-v1",
-  "revision": 1,
+  "revision": 2,
   "words": 79985,
-  "sourceTimedWords": 77174,
-  "reviewWords": 2811,
+  "sourceTimedWords": 79194,
+  "reviewWords": 791,
   "books": [
     {
       "bookId": "gen",
@@ -15,8 +15,8 @@
     {
       "bookId": "exo",
       "words": 16714,
-      "sourceTimedWords": 15423,
-      "reviewWords": 1291,
+      "sourceTimedWords": 16342,
+      "reviewWords": 372,
       "recordings": 77
     },
     {
@@ -29,15 +29,15 @@
     {
       "bookId": "num",
       "words": 16412,
-      "sourceTimedWords": 15722,
-      "reviewWords": 690,
+      "sourceTimedWords": 16409,
+      "reviewWords": 3,
       "recordings": 70
     },
     {
       "bookId": "deu",
       "words": 14295,
-      "sourceTimedWords": 13850,
-      "reviewWords": 445,
+      "sourceTimedWords": 14264,
+      "reviewWords": 31,
       "recordings": 77
     }
   ],
@@ -46,6 +46,12 @@
       "id": "pt-portion-13-1",
       "title": "Shemot · aliyah 1",
       "words": 181,
+      "sourceTimedWords": 0,
+      "reviewWords": 181,
+      "policy": "withheld",
+      "firstAvailableWordId": null,
+      "firstWithheldWordId": "exo-1-1-1",
+      "ambiguities": [],
       "coverage": {
         "bookId": "exo",
         "start": {
@@ -69,6 +75,21 @@
       "id": "pt-portion-13-5",
       "title": "Shemot · aliyah 5",
       "words": 382,
+      "sourceTimedWords": 379,
+      "reviewWords": 3,
+      "policy": "partial-original-windows",
+      "firstAvailableWordId": "exo-3-16-1",
+      "firstWithheldWordId": "exo-3-18-11",
+      "ambiguities": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 53,
+          "before": 67.122439,
+          "after": 67.122439,
+          "lowSeconds": 67.122439,
+          "highSeconds": 67.122439
+        }
+      ],
       "coverage": {
         "bookId": "exo",
         "start": {
@@ -93,6 +114,21 @@
       "id": "pt-portion-13-7",
       "title": "Shemot · aliyah 7",
       "words": 335,
+      "sourceTimedWords": 332,
+      "reviewWords": 3,
+      "policy": "partial-original-windows",
+      "firstAvailableWordId": "exo-5-1-1",
+      "firstWithheldWordId": "exo-5-14-5",
+      "ambiguities": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 188,
+          "before": 191.070213,
+          "after": 191.070213,
+          "lowSeconds": 191.070213,
+          "highSeconds": 191.070213
+        }
+      ],
       "coverage": {
         "bookId": "exo",
         "start": {
@@ -117,6 +153,21 @@
       "id": "pt-portion-20-1",
       "title": "Tetzaveh · aliyah 1",
       "words": 211,
+      "sourceTimedWords": 208,
+      "reviewWords": 3,
+      "policy": "partial-original-windows",
+      "firstAvailableWordId": "exo-27-20-1",
+      "firstWithheldWordId": "exo-28-12-13",
+      "ambiguities": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 203,
+          "before": 208.954471,
+          "after": 208.954471,
+          "lowSeconds": 208.954471,
+          "highSeconds": 208.954471
+        }
+      ],
       "coverage": {
         "bookId": "exo",
         "start": {
@@ -141,6 +192,12 @@
       "id": "pt-portion-20-3",
       "title": "Tetzaveh · aliyah 3",
       "words": 182,
+      "sourceTimedWords": 0,
+      "reviewWords": 182,
+      "policy": "withheld",
+      "firstAvailableWordId": null,
+      "firstWithheldWordId": "exo-28-31-1",
+      "ambiguities": [],
       "coverage": {
         "bookId": "exo",
         "start": {
@@ -164,6 +221,12 @@
       "id": "pt-portion-26-6",
       "title": "Shmini · aliyah 6",
       "words": 385,
+      "sourceTimedWords": 0,
+      "reviewWords": 385,
+      "policy": "withheld",
+      "firstAvailableWordId": null,
+      "firstWithheldWordId": "lev-11-1-1",
+      "ambiguities": [],
       "coverage": {
         "bookId": "lev",
         "start": {
@@ -187,6 +250,21 @@
       "id": "pt-portion-35-4",
       "title": "Nasso · aliyah 4",
       "words": 690,
+      "sourceTimedWords": 687,
+      "reviewWords": 3,
+      "policy": "partial-original-windows",
+      "firstAvailableWordId": "num-5-11-1",
+      "firstWithheldWordId": "num-6-17-7",
+      "ambiguities": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 557,
+          "before": 584.8,
+          "after": 584.32667,
+          "lowSeconds": 584.32667,
+          "highSeconds": 584.8
+        }
+      ],
       "coverage": {
         "bookId": "num",
         "start": {
@@ -211,6 +289,21 @@
       "id": "pt-portion-46-3",
       "title": "Eikev · aliyah 3",
       "words": 445,
+      "sourceTimedWords": 414,
+      "reviewWords": 31,
+      "policy": "partial-original-windows",
+      "firstAvailableWordId": "deu-9-4-1",
+      "firstWithheldWordId": "deu-9-6-16",
+      "ambiguities": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 66,
+          "before": 140.1,
+          "after": 105.177339,
+          "lowSeconds": 105.177339,
+          "highSeconds": 140.1
+        }
+      ],
       "coverage": {
         "bookId": "deu",
         "start": {
@@ -232,5 +325,5 @@
       ]
     }
   ],
-  "limits": "Source timing structure only; acoustic review pending. No new timestamps, musical rules, phonemes, pronunciation presets or source text replacements."
+  "limits": "Source timing structure only; acoustic review pending. Equal-count defective takes expose only original intervals outside every closed ambiguity range; intersecting words and selections crossing them stay withheld. Source packet/status/timestamps remain unchanged. No new timestamps, musical rules, phonemes, pronunciation presets or source text replacements."
 }
