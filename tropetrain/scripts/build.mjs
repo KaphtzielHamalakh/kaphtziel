@@ -47,8 +47,10 @@ const pitchManifest=JSON.parse(await readFile(path.join(root,'data/pitch/manifes
 const pitchPackets=Object.fromEntries(await Promise.all(pitchManifest.records.map(async r=>[r.id,(await readFile(path.join(root,'data/pitch',r.file))).toString('base64')])));
 const pitchEvidence=await readFile(path.join(root,'docs/SOURCE-PITCH-EVIDENCE.json'),'utf8');
 const pitchSampleAudit=await readFile(path.join(root,'docs/SOURCE-PITCH-SAMPLE-AUDIT.json'),'utf8');
+const pitchWorker=await build({absWorkingDir:root,entryPoints:['recorded-pitch-worker.js'],bundle:true,format:'iife',platform:'browser',target:['es2022'],write:false,legalComments:'eof',charset:'utf8'});
+const pitchWorkerSource=pitchWorker.outputFiles[0].text;
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
-  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-segment-data\.js$/},()=>({loader:'js',contents:`
+  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/recorded-pitch-worker-data\.js$/},()=>({loader:'js',contents:`export const RECORDED_PITCH_WORKER_SOURCE=${JSON.stringify(pitchWorkerSource)};`}));builder.onLoad({filter:/pronunciation-segment-data\.js$/},()=>({loader:'js',contents:`
     const segmentsEncoded=${JSON.stringify(segmentsEncoded)};
     export async function loadPronunciationSegmentData(){
       if(typeof DecompressionStream==='undefined')throw Error('Pronunciation source rules need a current browser with gzip support.');
@@ -202,7 +204,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
  .replace('<footer>',()=>`<details id="pronunciation-notices"><summary>Pronunciation source attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(pronunciationNotice)}</pre></details><details id="voice-study-notices"><summary>Voice-study recording attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(voiceStudyNotice)}</pre></details><details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 for(const scan of highHolidayScans)standalone=standalone.replaceAll(`src="./${scan.file}"`,()=>`src="data:image/png;base64,${scan.raw.toString('base64')}"`);
 standalone=standalone.replaceAll('href="./docs/BAER-HIGH-HOLIDAY-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(highHolidayEvidence).toString('base64')}"`);
-for(const [relative,mime] of [['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']]){
+for(const [relative,mime] of [['docs/RECORDED-PITCH-PROCESSING.json','application/json'],['vendor/signalsmith-stretch/NOTICE.txt','text/plain'],['vendor/signalsmith-stretch/LICENSE.txt','text/plain'],['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']]){
  const bytes=await readFile(path.join(root,relative));standalone=standalone.replaceAll(`href="./${relative}"`,()=>`href="data:${mime};base64,${bytes.toString('base64')}"`);
 }
 await writeFile(path.join(root,'TropeTrain.html'),standalone);

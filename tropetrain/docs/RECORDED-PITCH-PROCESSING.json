@@ -1,0 +1,762 @@
+{
+  "schema": "tropetrain-recorded-pitch-processing-v1",
+  "revision": 1,
+  "status": "signal_measurements_recorded_qualified_review_pending",
+  "engine": {
+    "name": "Signalsmith Stretch",
+    "webRelease": "1.3.2",
+    "sourceRevision": "222093b4cc13ddb4d07c826bc3c1559326091731",
+    "license": "MIT",
+    "sourceUrl": "https://github.com/Signalsmith-Audio/signalsmith-stretch/tree/222093b4cc13ddb4d07c826bc3c1559326091731",
+    "compiledLoaderGitBlob": "a12633353a0b2422c2a00835e6239ea6dfe4abaa",
+    "compiledLoaderBytes": 98451,
+    "officialNpmMjsGitBlob": "7d5cae72e77a84143ed91ba12fc91b806dc4d9d1",
+    "officialNpmMjsSha256": "97530b11d5bc01015af4cde40d6aa55ff10c40aa1294ca4c8c5762027d517a46",
+    "packaging": "MIT notice, empty local CommonJS bindings and ESM export surround the unchanged pinned loader/WASM",
+    "vendoredFileSha256": "280cb20aef1fb6d6fe2aff7efc6f76fe715c6f37db4c9b5f35cb79a6d6f9eac7",
+    "deterministicRebuildVerified": false
+  },
+  "method": {
+    "semitones": [
+      -12,
+      12
+    ],
+    "timeRatio": 1,
+    "latency": "Query inputLatency+outputLatency, feed zero tail, trim total pre-roll and retain exactly the input frame count.",
+    "formants": "setFormantSemitones(0,true); setFormantBase(0) requests engine estimate; no reviewed phonemes inferred.",
+    "originalPitch": "Bypass all transformation and use the original verified source URL.",
+    "durationGuard": "Refuse native-versus-decoded duration difference over20ms; record smaller tail-frame adjustments without moving source word onsets.",
+    "audioEncoding": "PCM16 WAV, original native duration rounded to the decoded sample grid; attenuate only if the processed peak exceeds0.98. Session-only derivative, never stored as the original.",
+    "sourceText": "No Hebrew, accent, source-unit, canonical/occurrence ID, original recording or source timing edit."
+  },
+  "measurements": {
+    "originalMaterial": "Original generated sinusoidal bursts and synthetic source/filter vowel-like signal, not Hebrew speech or a source performer.",
+    "engine": "Signalsmith Stretch official WASM from222093b4cc13ddb4d07c826bc3c1559326091731",
+    "sampleRate": 44100,
+    "inputFrames": 176400,
+    "inputRuns": [
+      {
+        "start": 0.4988662131519274,
+        "end": 1.5015873015873016
+      },
+      {
+        "start": 1.9954648526077097,
+        "end": 2.504308390022676
+      },
+      {
+        "start": 3.796371882086168,
+        "end": 3.951020408163265
+      }
+    ],
+    "toneResults": [
+      {
+        "semitones": -12,
+        "ms": 28.041708000000003,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 110.9228709077602,
+        "expectedHz": 110,
+        "runs": [
+          {
+            "start": 0.49387755102040815,
+            "end": 1.5115646258503401
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.7913832199546484,
+            "end": 3.9560090702947845
+          }
+        ]
+      },
+      {
+        "semitones": -6,
+        "ms": 17.62458300000001,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 155.44174563824603,
+        "expectedHz": 155.56349186104043,
+        "runs": [
+          {
+            "start": 0.4988662131519274,
+            "end": 1.5015873015873016
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.796371882086168,
+            "end": 3.9560090702947845
+          }
+        ]
+      },
+      {
+        "semitones": -3,
+        "ms": 16.909750000000003,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 184.91904978151067,
+        "expectedHz": 184.99721135581723,
+        "runs": [
+          {
+            "start": 0.4988662131519274,
+            "end": 1.5015873015873016
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.796371882086168,
+            "end": 3.9560090702947845
+          }
+        ]
+      },
+      {
+        "semitones": 0,
+        "ms": 10.897874999999999,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 220.00000008539723,
+        "expectedHz": 220,
+        "runs": [
+          {
+            "start": 0.4988662131519274,
+            "end": 1.5015873015873016
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.796371882086168,
+            "end": 3.951020408163265
+          }
+        ]
+      },
+      {
+        "semitones": 3,
+        "ms": 16.824416999999997,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 262.5032781457668,
+        "expectedHz": 261.6255653005986,
+        "runs": [
+          {
+            "start": 0.4988662131519274,
+            "end": 1.506575963718821
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.796371882086168,
+            "end": 3.951020408163265
+          }
+        ]
+      },
+      {
+        "semitones": 6,
+        "ms": 16.775499999999994,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 312.33126375172657,
+        "expectedHz": 311.1269837220809,
+        "runs": [
+          {
+            "start": 0.4988662131519274,
+            "end": 1.5015873015873016
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.796371882086168,
+            "end": 3.951020408163265
+          }
+        ]
+      },
+      {
+        "semitones": 12,
+        "ms": 16.96520799999999,
+        "frames": 176400,
+        "latencyTrimmedFrames": 5292,
+        "pitchHz": 441.74620954572265,
+        "expectedHz": 440,
+        "runs": [
+          {
+            "start": 0.4988662131519274,
+            "end": 1.5015873015873016
+          },
+          {
+            "start": 1.9954648526077097,
+            "end": 2.504308390022676
+          },
+          {
+            "start": 3.796371882086168,
+            "end": 3.951020408163265
+          }
+        ]
+      }
+    ],
+    "originalVowelPeaks": [
+      {
+        "frequency": 600,
+        "magnitude": 1360.5447689622654
+      },
+      {
+        "frequency": 1800,
+        "magnitude": 553.3401128692698
+      },
+      {
+        "frequency": 3000,
+        "magnitude": 248.77675864742332
+      }
+    ],
+    "vowels": [
+      {
+        "semitones": -6,
+        "compensate": false,
+        "ms": 58.52616699999999,
+        "peaks": [
+          {
+            "frequency": 424.2640687119284,
+            "magnitude": 1153.3342666185588
+          },
+          {
+            "frequency": 1272.7922061357854,
+            "magnitude": 450.4975848243788
+          },
+          {
+            "frequency": 3181.980515339463,
+            "magnitude": 7.166819003645474
+          }
+        ]
+      },
+      {
+        "semitones": -6,
+        "compensate": true,
+        "ms": 62.18954200000002,
+        "peaks": [
+          {
+            "frequency": 494.9747468305832,
+            "magnitude": 705.6604391753865
+          },
+          {
+            "frequency": 1767.7669529663685,
+            "magnitude": 302.19103225575253
+          },
+          {
+            "frequency": 2899.137802864844,
+            "magnitude": 187.045579730075
+          }
+        ]
+      },
+      {
+        "semitones": 6,
+        "compensate": false,
+        "ms": 39.32512500000007,
+        "peaks": [
+          {
+            "frequency": 848.5281374238571,
+            "magnitude": 825.6287782150193
+          },
+          {
+            "frequency": 2545.584412271571,
+            "magnitude": 478.742595703169
+          },
+          {
+            "frequency": 2828.42712474619,
+            "magnitude": 131.81468708319233
+          }
+        ]
+      },
+      {
+        "semitones": 6,
+        "compensate": true,
+        "ms": 44.14575000000002,
+        "peaks": [
+          {
+            "frequency": 707.1067811865476,
+            "magnitude": 573.415134781248
+          },
+          {
+            "frequency": 1697.0562748477141,
+            "magnitude": 79.73062664124272
+          },
+          {
+            "frequency": 2969.8484809835,
+            "magnitude": 104.54331692445844
+          }
+        ]
+      }
+    ],
+    "limits": "Signal measurements only; no pronunciation or musical review."
+  },
+  "tuningProbes": [
+    {
+      "block": 5292,
+      "compensate": false,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 184.91372622687615,
+      "cents": -0.781443777856311
+    },
+    {
+      "block": 5292,
+      "compensate": false,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.4743494086881,
+      "cents": 5.607500370373442
+    },
+    {
+      "block": 5292,
+      "compensate": true,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 184.91755286836298,
+      "cents": -0.7456176462644379
+    },
+    {
+      "block": 5292,
+      "compensate": true,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.5028086651902,
+      "cents": 5.795202380481937
+    },
+    {
+      "block": 8192,
+      "compensate": false,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 185.68519591752346,
+      "cents": 6.4263296164820245
+    },
+    {
+      "block": 8192,
+      "compensate": false,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.57393085169974,
+      "cents": 6.264197262242536
+    },
+    {
+      "block": 8192,
+      "compensate": true,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 185.69507282956388,
+      "cents": 6.51841445709966
+    },
+    {
+      "block": 8192,
+      "compensate": true,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.60514225608597,
+      "cents": 6.469971821142826
+    },
+    {
+      "block": 8820,
+      "compensate": false,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 185.37361122150853,
+      "cents": 3.5188327382587548
+    },
+    {
+      "block": 8820,
+      "compensate": false,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.2405298102036,
+      "cents": 4.064580613145872
+    },
+    {
+      "block": 8820,
+      "compensate": true,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 185.3712293279183,
+      "cents": 3.496587706993562
+    },
+    {
+      "block": 8820,
+      "compensate": true,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.27715548070364,
+      "cents": 4.306355522632144
+    },
+    {
+      "block": 16384,
+      "compensate": false,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 185.0025686815067,
+      "cents": 0.05013400086460652
+    },
+    {
+      "block": 16384,
+      "compensate": false,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.04683961166666,
+      "cents": 2.785423030911139
+    },
+    {
+      "block": 16384,
+      "compensate": true,
+      "semitones": -3,
+      "target": 184.99721135581723,
+      "observed": 185.0026407962847,
+      "cents": 0.05080884303430068
+    },
+    {
+      "block": 16384,
+      "compensate": true,
+      "semitones": 3,
+      "target": 261.6255653005986,
+      "observed": 262.0752172764436,
+      "cents": 2.972892262160576
+    }
+  ],
+  "alternativeInvestigated": {
+    "engine": "SoundTouchJS2.1.1",
+    "sourceRevision": "d9e39a7ddcf74c7a145bbba45856f30068c82b79",
+    "runtimeImported": false,
+    "measurements": {
+      "originalMaterial": "Original generated sinusoidal bursts, no Hebrew speech or source performance.",
+      "sampleRate": 44100,
+      "inputFrames": 176400,
+      "inputRuns": [
+        {
+          "start": 0.4988662131519274,
+          "end": 1.5015873015873016
+        },
+        {
+          "start": 1.9954648526077097,
+          "end": 2.504308390022676
+        },
+        {
+          "start": 3.796371882086168,
+          "end": 3.951020408163265
+        }
+      ],
+      "engine": "@soundtouchjs/core@2.1.1",
+      "results": [
+        {
+          "semitones": -6,
+          "ms": 78.90825,
+          "frames": 194862,
+          "pitchHz": 155.51568182723437,
+          "expectedHz": 155.56349186104043,
+          "runs": [
+            {
+              "start": 0.5038548752834467,
+              "end": 1.5115646258503401
+            },
+            {
+              "start": 2.000453514739229,
+              "end": 2.509297052154195
+            },
+            {
+              "start": 3.806349206349206,
+              "end": 3.9560090702947845
+            }
+          ]
+        },
+        {
+          "semitones": -3,
+          "ms": 61.939042000000015,
+          "frames": 194490,
+          "pitchHz": 185.01334355523812,
+          "expectedHz": 184.99721135581723,
+          "runs": [
+            {
+              "start": 0.49387755102040815,
+              "end": 1.491609977324263
+            },
+            {
+              "start": 1.9954648526077097,
+              "end": 2.4993197278911565
+            },
+            {
+              "start": 3.806349206349206,
+              "end": 3.931065759637188
+            }
+          ]
+        },
+        {
+          "semitones": 0,
+          "ms": 39.88570900000002,
+          "frames": 193457,
+          "pitchHz": 220.10806449290442,
+          "expectedHz": 220,
+          "runs": [
+            {
+              "start": 0.4888888888888889,
+              "end": 1.476643990929705
+            },
+            {
+              "start": 1.9904761904761905,
+              "end": 2.494331065759637
+            },
+            {
+              "start": 3.7913832199546484,
+              "end": 3.9460317460317462
+            }
+          ]
+        },
+        {
+          "semitones": 3,
+          "ms": 99.6265,
+          "frames": 194710,
+          "pitchHz": 261.63011851941593,
+          "expectedHz": 261.6255653005986,
+          "runs": [
+            {
+              "start": 0.4839002267573696,
+              "end": 1.4816326530612245
+            },
+            {
+              "start": 1.980498866213152,
+              "end": 2.4643990929705217
+            },
+            {
+              "start": 2.47437641723356,
+              "end": 2.4893424036281178
+            },
+            {
+              "start": 3.7764172335600907,
+              "end": 3.9160997732426304
+            }
+          ]
+        },
+        {
+          "semitones": 6,
+          "ms": 48.42029200000002,
+          "frames": 195342,
+          "pitchHz": 311.20525678205473,
+          "expectedHz": 311.1269837220809,
+          "runs": [
+            {
+              "start": 0.45895691609977324,
+              "end": 0.4639455782312925
+            },
+            {
+              "start": 0.47891156462585033,
+              "end": 1.4467120181405895
+            },
+            {
+              "start": 1.4517006802721089,
+              "end": 1.4816326530612245
+            },
+            {
+              "start": 1.965532879818594,
+              "end": 2.4643990929705217
+            },
+            {
+              "start": 3.7764172335600907,
+              "end": 3.911111111111111
+            }
+          ]
+        }
+      ],
+      "limits": "Signal measurements only; no pronunciation or musical review."
+    },
+    "formantInverseCheck": {
+      "pinnedCommit": "d9e39a7ddcf74c7a145bbba45856f30068c82b79",
+      "engine": "SoundTouchJS2.1.1 formant correction",
+      "method": "Same LPC coefficients for sequential analysis and synthesis, as in the pinned processor. Original generated 220Hz+713Hz tones.",
+      "maxError": 0,
+      "rmsError": 0,
+      "finding": "The paired filters reconstruct the raw shifted input; this does not demonstrate restoring an original spectral envelope. Do not claim formant preservation from this implementation."
+    },
+    "finding": "Raw pitch accuracy is useful but WSOLA onset/end offsets vary; the checked formant wrapper applies mutually inverse filters with the same coefficients and did not demonstrate original-formant restoration."
+  },
+  "qualifiedReview": {
+    "acousticPitch": null,
+    "processedWordBoundaries": null,
+    "HebrewPronunciation": null,
+    "cantorial": null
+  },
+  "limits": [
+    "Signal measurements are not linguistic or tradition evidence.",
+    "Formant compensation improves the synthetic proxy but does not keep its resonances exact.",
+    "Source-guided word highlights do not certify processed acoustic or syllable boundaries.",
+    "Digital transposition tuning is approximate; the documented220Hz tests have small cent deviations, including an octave-down probe near15cents.",
+    "No new musical system, six historical pronunciation voices or full contextual grammar implemented by this engine.",
+    "Hard-gated synthetic tones can have small edge fragments and level changes, especially at octave shifts; source-guide highlighting is not a reviewed acoustic boundary."
+  ],
+  "additionalTransientProbe": {
+    "checks": 36,
+    "exceptions": [
+      {
+        "repeat": 0,
+        "semitones": -12,
+        "runs": [
+          {
+            "start": 0.49612244897959185,
+            "open": false,
+            "end": 1.513424036281179
+          },
+          {
+            "start": 1.9945124716553289,
+            "open": false,
+            "end": 2.500657596371882
+          },
+          {
+            "start": 2.505668934240363,
+            "open": false,
+            "end": 2.515691609977324
+          },
+          {
+            "start": 3.793582766439909,
+            "open": false,
+            "end": 3.963968253968254
+          }
+        ]
+      },
+      {
+        "repeat": 1,
+        "semitones": -12,
+        "runs": [
+          {
+            "start": 0.49612244897959185,
+            "open": false,
+            "end": 1.513424036281179
+          },
+          {
+            "start": 1.9945124716553289,
+            "open": false,
+            "end": 2.500657596371882
+          },
+          {
+            "start": 2.505668934240363,
+            "open": false,
+            "end": 2.515691609977324
+          },
+          {
+            "start": 3.793582766439909,
+            "open": false,
+            "end": 3.963968253968254
+          }
+        ]
+      },
+      {
+        "repeat": 2,
+        "semitones": -12,
+        "runs": [
+          {
+            "start": 0.49612244897959185,
+            "open": false,
+            "end": 1.513424036281179
+          },
+          {
+            "start": 1.9945124716553289,
+            "open": false,
+            "end": 2.500657596371882
+          },
+          {
+            "start": 2.505668934240363,
+            "open": false,
+            "end": 2.515691609977324
+          },
+          {
+            "start": 3.793582766439909,
+            "open": false,
+            "end": 3.963968253968254
+          }
+        ]
+      },
+      {
+        "repeat": 3,
+        "semitones": -12,
+        "runs": [
+          {
+            "start": 0.49612244897959185,
+            "open": false,
+            "end": 1.513424036281179
+          },
+          {
+            "start": 1.9945124716553289,
+            "open": false,
+            "end": 2.500657596371882
+          },
+          {
+            "start": 2.505668934240363,
+            "open": false,
+            "end": 2.515691609977324
+          },
+          {
+            "start": 3.793582766439909,
+            "open": false,
+            "end": 3.963968253968254
+          }
+        ]
+      },
+      {
+        "repeat": 4,
+        "semitones": -12,
+        "runs": [
+          {
+            "start": 0.49612244897959185,
+            "open": false,
+            "end": 1.513424036281179
+          },
+          {
+            "start": 1.9945124716553289,
+            "open": false,
+            "end": 2.500657596371882
+          },
+          {
+            "start": 2.505668934240363,
+            "open": false,
+            "end": 2.515691609977324
+          },
+          {
+            "start": 3.793582766439909,
+            "open": false,
+            "end": 3.963968253968254
+          }
+        ]
+      },
+      {
+        "repeat": 5,
+        "semitones": -12,
+        "runs": [
+          {
+            "start": 0.49612244897959185,
+            "open": false,
+            "end": 1.513424036281179
+          },
+          {
+            "start": 1.9945124716553289,
+            "open": false,
+            "end": 2.500657596371882
+          },
+          {
+            "start": 2.505668934240363,
+            "open": false,
+            "end": 2.515691609977324
+          },
+          {
+            "start": 3.793582766439909,
+            "open": false,
+            "end": 3.963968253968254
+          }
+        ]
+      }
+    ],
+    "method": "36checks over six repeats,5ms RMS windows/0.03threshold. A repeated octave-down low-level end fragment follows a5ms hole; its final extent remains within20ms of the source burst end. Group<=10ms holes for burst-extent regression checks without moving either outer boundary. Exact acoustic word/syllable boundaries remain unreviewed."
+  },
+  "automatedDSPAndStorageChecks": 20
+}
