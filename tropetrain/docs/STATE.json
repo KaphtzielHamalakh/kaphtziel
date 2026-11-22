@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "83ac2e4f8b70ae252b15e99e4cd198aeafeee19d",
+  "publishedCommit": "d71f84108b5d34c24e89efd7dc2ae85401dd3437",
   "nextTask": "Continue the complete word-aligned chanting objective across all Torah, all six historical pronunciation grammars/voices, every contextual cantorial system and the retained tutor/learning inventory; printing deferred. v0.60 ran actual offline acoustic analysis of the two licensed Asael Genesis1:1–2:3 originals using the explicitly Apache2 pinned53Hebrew speech model.938word-support proposals keep469unchanged marked words per recording and separate clocks, with no manual/approved boundaries filled. Speech-model errors are substantial (45.56%/22.70% character error;24/7words without directly supported letters). Next compare source edition and listen to onset/tail boundaries against the originals, retaining explicit disagreements; validate whole-word then syllable/consonant/vowel timing with source-grounded phonology and qualified review before any aligned-chant playback uses these estimates. Do not tune thresholds or interpolate gaps to promote forced paths into evidence. Preserve the pinned source/model hashes, source-letter cluster projection, original recordings and null review/accepted fields. The default300mcheckpoint lacks explicit card license and was not used. The full820original archive has documentary coverage, not reviewed complete verse/word alignment; extend only with explicit range/variant evidence. Resolve the two Katz phonemic proposal gaps, all six complete Kinnor pronunciation grammars/voices, reusable sustained singing material, missing Baer/Cohen figures and all contextual musical fitting. Preserve all prior recordings/times/gaps/shared consonants/marks/IDs and the complete roadmap. Keep private0.55clock/curve diagnostic frozen. Full goal active/incomplete.",
   "lastPassingTests": {
     "automated": 502,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 7,
     "log": "/private/tmp/tropetrain-check-v60-initial.log",
-    "ui": "Local normal94 and portable95 pass the optional source-specific model study and context audition for Genesis1:1–2:3. Both keep469exact marked words/IDs and blank manual times. Exported manual drafts remain byte-identical before/after support loading; loading never saves or fills boundaries. Source pronunciation switching retains gen-1-1-2 / בָּרָ֣א and the open review panels, with separate support caches and clocks. Importing the Ashkenazic draft into Israeli is refused as a different source recording. Ashkenazic word2 has0/3directly supported letters and an explicit uncertainty warning; Israeli has2/3. Context audition starts at0.482499s/0.522499s, original native durations317.230794s/371.848707s, media paused at volume0 with the muted clock/audio device unused. Listening spans are unchanged. The last469thword remains gen-2-3-16 / לַעֲשֽׂוֹת׃ with separate unreviewed support. Changing independent MAM text style preserves90marked reader strings/IDs/aria labels,469draft options and instrument tempo/key/range. Choosing an untexted table hides model support; returning restores the same word and correct source cache, with no accepted times. Portable embeds both evidence documents and loads both compressed packets without model weights. Portable319px root/scroll319 and0overflowing review controls; desktop/mobile screenshots inspected. Normal/portable consoles have0warnings/errors. All source clocks stopped. No speaker listening, qualified acoustic review or approved word/syllable/phoneme/note timing is claimed.",
+    "ui": "Local normal94 and portable95 pass the optional source-specific model study and context audition for Genesis1:1–2:3. Both keep469exact marked words/IDs and blank manual times. Exported manual drafts remain byte-identical before/after support loading; loading never saves or fills boundaries. Source pronunciation switching retains gen-1-1-2 / בָּרָ֣א and the open review panels, with separate support caches and clocks. Importing the Ashkenazic draft into Israeli is refused as a different source recording. Ashkenazic word2 has0/3directly supported letters and an explicit uncertainty warning; Israeli has2/3. Context audition starts at0.482499s/0.522499s, original native durations317.230794s/371.848707s, media paused at volume0 with the muted clock/audio device unused. Listening spans are unchanged. The last469thword remains gen-2-3-16 / לַעֲשֽׂוֹת׃ with separate unreviewed support. Changing independent MAM text style preserves90marked reader strings/IDs/aria labels,469draft options and instrument tempo/key/range. Choosing an untexted table hides model support; returning restores the same word and correct source cache, with no accepted times. Portable embeds both evidence documents and loads both compressed packets without model weights. Portable319px root/scroll319 and0overflowing review controls; desktop/mobile screenshots inspected. Normal/portable consoles have0warnings/errors. All source clocks stopped. No speaker listening, qualified acoustic review or approved word/syllable/phoneme/note timing is claimed. Public normal80 and portable81 pass v0.60 source-specific acoustic support and context audition. Both retain469exact marked words/IDs and byte-identical unfilled manual drafts after loading model support. Switching Ashkenazic/Israeli keeps selected word2 בָּרָ֣א / gen-1-1-2 and separate clocks. Model support is1.482–1.782s with0/3direct letters and the explicit uncertainty warning in Ashkenazic,1.522–1.802s with2/3 in Israeli. Native original durations317.230794s/371.848707s and context seeks0.482499s/0.522499s match local QA; every check uses volume0, paused native media and the muted clock/audio device unused. Cross-record draft import is refused. Source switching preserves the observed reader words/IDs/accents and instrument/text settings. Both new evidence documents are embedded in portable. Portable319px root/scroll319 with0overflowing review controls; public desktop/mobile screenshots inspected. Normal/portable consoles have0warnings/errors. All clocks stopped and source media paused at0volume. Private94/95closed, server50384/8768stopped, viewport reset and user8765/8767untouched. No speaker listening, reviewed word boundaries, musical/phonological approval, six historical voices, full contextual melody grammar or file-origin/nativeSave claim.",
     "separateResearchAlgorithmChecks": 7
   },
   "completionRequires": [
@@ -161,12 +161,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "83ac2e4f8b70ae252b15e99e4cd198aeafeee19d",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45056006205",
+    "commit": "d71f84108b5d34c24e89efd7dc2ae85401dd3437",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45063193266",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 22,
-    "publicChangedBytesExact": 138644509
+    "publicChangedFilesExact": 23,
+    "publicChangedBytesExact": 133528379
   },
   "corpusImport": {
     "books": 5,
@@ -192,7 +192,7 @@
   },
   "workingIteration": {
     "version": "0.60.0",
-    "status": "502_checks_local_normal_portable_verified_publication_pending",
+    "status": "502_checks_public_normal_portable_verified_final_records_saved_goal_active",
     "baseline": "2c0fcb483da65a8ca63ae70dac3ab2d765b46b44",
     "previousGoalTurn": "progress: v0.59 published and saved source archive,495checks,public normal/portable UI,1005exact output files. Full reconstruction remains incomplete.",
     "newPublicVoice": null,
@@ -1672,7 +1672,7 @@
       "ashkenazic": 24,
       "israeli": 7
     },
-    "status": "502_checks_local_normal_portable_verified_publication_pending",
+    "status": "published_optional_model_support_502_checks_public_normal_portable_verified_listening_and_source_edition_review_pending",
     "wordSupportProposals": 938,
     "sourcePack": "assets/voice-studies/asael-word-support-sources.zip",
     "sourcePackSha256": "e3657e20729abae95d6499d881ec5663a6f27280346547dd5155b8a157cda59f",
