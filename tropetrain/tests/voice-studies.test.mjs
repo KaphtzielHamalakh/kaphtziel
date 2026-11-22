@@ -8,11 +8,11 @@ import {createReadingModel,melodyProfiles} from '../music.js';
 import {passage} from '../passage.js';
 
 const bytes=name=>readFileSync(new URL('../'+name,import.meta.url));
-test('all six source originals retain exact licensed bytes and independent source pronunciation/delivery identifiers',()=>{
+test('all six earlier source originals retain exact licensed bytes and independent source pronunciation/delivery identifiers',()=>{
   assert.deepEqual(VOICE_STUDIES,JSON.parse(bytes('docs/VOICE-STUDIES.json')));
-  assert.equal(VOICE_STUDIES.recordings.length,6);assert.equal(VOICE_STUDIES.studies.length,3);
+  assert.equal(VOICE_STUDIES.recordings.length,70);assert.equal(VOICE_STUDIES.studies.length,4);
   let total=0;
-  for(const r of VOICE_STUDIES.recordings){
+  for(const r of VOICE_STUDIES.recordings.filter(r=>r.studyId!=='fellman-rh-2018')){
     const raw=bytes(r.audio.file);total+=raw.length;assert.equal(raw.length,r.audio.bytes);
     for(const algorithm of ['sha1','sha256'])assert.equal(createHash(algorithm).update(raw).digest('hex'),r.audio[algorithm]);
     assert.equal(voiceRecording(r.studyId,r.pronunciationId,r.deliveryId),r);

@@ -8,3 +8,19 @@ Gabriel Kretzmer Seed, Esther cantillation table, shared March3,2011 by the Open
 Dr. Isabel Bard, Taamei haMiḳra — Western Ashkenazi Trōp (2021), original M4A/AAC recording shared by Open Siddur on Internet Archive. https://archive.org/details/taamei-ha-mikra-western-ashkenazi-trop-isabel-bard-2021 . CC BY-SA4.0: https://creativecommons.org/licenses/by-sa/4.0/ .
 
 All six audio files (five MP3s and one M4A) are unchanged originals. No speaker, phoneme, word timing, pitch, pronunciation or musical review is attributed to the app. Optional user-selected seconds spans do not imply word/syllable alignment. No endorsement by the creators or publishers is implied. Full source URLs, exact bytes/SHA1/SHA256 and limits are in docs/VOICE-STUDIES.json.
+
+
+2018 Rosh Hashanah Hebrew verse recordings — original embedded MP3 payloads.
+Source document by Len Fellman, Torah readings for the first and second days of Rosh Hashanah.
+Attribution: the Mesorah (TaNaKh), Len Fellman (document/translation), Open Siddur Project.
+Performer of the 2018 embedded Hebrew recordings is not separately credited.
+Do not identify these as the separate 2019 Len Fellman performances or assume identical takes.
+Source: https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf
+Stable resource and license evidence: https://opensiddur.org/?p=21190
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+Accessed November 21, 2026. 64 Hebrew MP3 payloads extracted without audio modifications.
+Source PDF SHA-256: 18488d9dbbe4e2e2bb096338d46a4140a8c626bf60bf6e01b523c8845d3bec78.
+Exact native asset names, source page/annotation/rectangle, verse scope and byte/hash records: docs/FELLMAN-RH-2018.json.
+Only Hebrew audio is redistributed. No English translation/audio, scanned Hebrew, modern musical chart or embedded Flash/SWF is imported or executed.
+The source document credits Joshua R. Jacobson’s book for melodies; no complete musical grammar or specific community label inferred.
+Verse names are documentary scope; source edition, phonemes, syllable/note alignment and independent review remain pending.

@@ -101,6 +101,7 @@ const referenceAudio=await readFile(path.join(root,'assets/references/Bereshit-1
 const jointEvidence=await readFile(path.join(root,'docs/JOINT-CHANT-PRONUNCIATION.json'),'utf8');
 const noteCorrespondenceEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json'),'utf8');
 const referenceNotice=await readFile(path.join(root,'assets/references/NOTICE.txt'),'utf8');
+const includedVerseAudio=await readFile(path.join(root,'assets/voice-studies/fellman-rh-2018/RH2-22-01H.mp3'));
 const voiceStudyAudio=await readFile(path.join(root,'assets/voice-studies/esther-seed.mp3'));
 const underlayEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-UNDERLAY.json'),'utf8');
 const segmentsEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-SEGMENTS.json'),'utf8');
@@ -156,6 +157,7 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./assets/layout/tikkun-torah-sources.zip"',()=>`href="data:application/zip;base64,${layoutPack.toString('base64')}"`)
  .replace('src="./assets/references/Bereshit-1.mp3"',()=>`src="data:audio/mpeg;base64,${referenceAudio.toString('base64')}"`)
  .replace('id="voice-studies"','id="voice-studies" data-audio-base="https://kaphtziel.com/tropetrain/"')
+ .replace('data-included-verse="./assets/voice-studies/fellman-rh-2018/RH2-22-01H.mp3"',()=>`data-included-verse="data:audio/mpeg;base64,${includedVerseAudio.toString('base64')}"`)
  .replace('src="./assets/voice-studies/esther-seed.mp3"',()=>`src="data:audio/mpeg;base64,${voiceStudyAudio.toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/NOTICE.txt"','href="#pronunciation-notices"')
  .replaceAll('href="./docs/PRONUNCIATION-UNDERLAY.json"',()=>`href="data:application/json;base64,${Buffer.from(underlayEvidence).toString('base64')}"`)

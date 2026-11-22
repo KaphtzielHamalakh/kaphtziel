@@ -14,12 +14,14 @@ export class DeviceRecordingCache {
   async delete(key){const db=await this.db();return new Promise((resolve,reject)=>{const tx=db.transaction('recordings','readwrite');tx.objectStore('recordings').delete(key);tx.oncomplete=()=>resolve();tx.onabort=()=>reject(tx.error);});}
 }
 export class ReferenceAudioStore {
-  constructor({openingUrl,cache=new DeviceRecordingCache(),fetchFile=(...args)=>fetch(...args),digest=(...args)=>crypto.subtle.digest(...args),makeUrl=blob=>URL.createObjectURL(blob),revokeUrl=url=>URL.revokeObjectURL(url)}={}){
+  constructor({openingUrl,includedUrls={},cache=new DeviceRecordingCache(),fetchFile=(...args)=>fetch(...args),digest=(...args)=>crypto.subtle.digest(...args),makeUrl=blob=>URL.createObjectURL(blob),revokeUrl=url=>URL.revokeObjectURL(url)}={}){
+    this.includedUrls=new Map(Object.entries(includedUrls));
     this.openingUrl=openingUrl;this.cache=cache;this.fetchFile=fetchFile;this.digest=digest;this.makeUrl=makeUrl;this.revokeUrl=revokeUrl;this.urls=new Map();this.memory=new Map();this.saved=new Set();this.storageAvailable=true;
     this.ready=cache.keys().then(keys=>{this.saved=new Set(keys);}).catch(()=>{this.storageAvailable=false;});
   }
   key(record){return record.audio.sha1;}
-  async has(record){await this.ready;return !!record.audio.localFile||this.saved.has(this.key(record))||this.memory.has(this.key(record))||this.urls.has(this.key(record));}
+  included(record){return this.includedUrls.get(this.key(record))||(record.audio.localFile?this.openingUrl:null);}
+  async has(record){await this.ready;return !!this.included(record)||this.saved.has(this.key(record))||this.memory.has(this.key(record))||this.urls.has(this.key(record));}
   async verify(record,blob){
     if(!(blob instanceof Blob)||blob.size!==record.audio.bytes)throw Error(`Recording size differs from the source: ${record.title}.`);
     const hash=Array.from(new Uint8Array(await this.digest('SHA-1',await blob.arrayBuffer())),b=>b.toString(16).padStart(2,'0')).join('');
@@ -32,7 +34,7 @@ export class ReferenceAudioStore {
     return url;
   }
   async url(record,{signal}={}){
-    await this.ready;aborted(signal);if(record.audio.localFile)return this.openingUrl;
+    await this.ready;aborted(signal);if(this.included(record))return this.included(record);
     const key=this.key(record);if(this.urls.has(key))return this.urls.get(key);
     const blob=this.memory.get(key)??(await this.cache.get(key).catch(()=>null))?.blob;aborted(signal);
     if(!blob)throw Error(`${record.title} is not loaded. Use Load recordings first.`);
