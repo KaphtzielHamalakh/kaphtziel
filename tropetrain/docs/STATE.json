@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "8b0396ef84c80ff050086f3e304f30a503b459a4",
+  "publishedCommit": "0f45930aabb4be9584f6bfb2748ccf474489f699",
   "nextTask": "Continue the full independent pronunciation/melody/range/key reconstruction; printing deferred. Prioritize reusable reviewed sung-phone material, complete historical phonological specifications and contextual melodic grammars. New personal source-syllable drafts are only annotations: never promote them, a muted playhead, source IPA proposals, ASR scores or F0 estimates into reviewed pronunciation or musical evidence. Preserve all original marked Hebrew, source units/stress/shared consonants, word times, notes and audio. Each style, variant and occurrence keeps a separate draft; combined words remain unsplit, source-only ranges stay null, all sixteen Genesis28:4 overflow words and eight older timing-gap takes remain withheld. Investigate the primary CIM14 sung-Hebrew annotation corpus and Technion Torah ASR project only with explicit reusable rights and matching expert-reviewed data. No voice, corpus, model or ordinary speech has been imported. All six Kinnor historical Accent singing grammars/voices and every full recovered musical system plus the entire learning/tutor roadmap remain required; full objective active/incomplete.",
   "lastPassingTests": {
     "automated": 405,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 11,
     "log": "/private/tmp/tropetrain-check-v46-final.log",
-    "ui": "Local normal52/portable53 verify typed and captured source-syllable drafts, exact JSON export/import, changed-Hebrew rejection, overlapping-time rejection, separate Sephardic2.1–2.3/Ashkenazic2.15–2.4drafts and reload restoration. All27marked words/IDs/aria-labels exact. Original-source preview uses native rate1 and original audio while main measured preferences remain+3/75%. Both capture boundaries retain muted-clock basis and neighbors remain null; early pre-ready capture correctly left a blank boundary, then ready-state capture succeeded. Portable embedded original1798060bytes/SHA1verified in artifact; DOMsourceURL2397439characters. Browser bridge string truncation is not a source mismatch. Portable319root/body319/panel253/textarea251, viewport reset. Genesis28:4editor refuses timing overflow. Test annotations cleared through UI; four gains0/media paused, no appconsolewarnings/errors. NativeSave/file-origin and acoustic/phonological/cantorial review unclaimed. Public verification pending. Final reloaded normal/portable exports additionally retain exact source credits/licenses and match; test times blank."
+    "ui": "Public normal54 and portable55 verify personal source-syllable drafts for Genesis1:1word1. Sephardic typed2.1–2.3andAshkenazic2.15–2.4remain separate, normal/portable JSON matches, and all27marked Hebrew strings/canonical IDs/aria-labels remain exact. Prepared data-URI export equals displayed JSON and retains exact Phonetic MAM credits/license plus PocketTorah creator/project/audio/timing/alignment licenses. Changing style clears stale export and restores only that style’s draft. Original word preview uses unchanged Bereshit-1.mp3/native rate1, while main measured0/75%preferences remain unchanged; all tests muted. Portable319root/body319/panel253/textarea251, viewport reset. Public Genesis28:4editor hides its fields and reports source-duration review without shifting any boundary. Local tests additionally cover changed-mark import refusal, exact valid roundtrip, overlap refusal, reload persistence, both explicit muted-clock captures and source-only/shared-word guards. An early capture during preparation left its missing boundary blank; ready-state capture succeeded. All artificial test annotations cleared through UI in both origins/styles. Both public tabs left Genesis1:1–3,word1,sourceSephardic,Measuredtones0/75%,repeatfalse, four volumes zero and allthree media paused. No appconsolewarnings/errors. Screenshot outputs/TropeTrain-v0.46-live.jpg saved/viewed. NativeSave/directfileorigin and acoustic/phonological/cantorial review unclaimed. Personal annotations do not certify sung syllables, phonemes, notes, new voices or historical grammars."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "codeCommit": "8b0396ef84c80ff050086f3e304f30a503b459a4",
-    "pagesRun": 44999107953,
+    "codeCommit": "0f45930aabb4be9584f6bfb2748ccf474489f699",
+    "pagesRun": 45001449531,
     "status": "success",
     "jobs": 3,
-    "publicFilesExact": 27,
-    "publicBytesExact": 88724916
+    "publicFilesExact": 20,
+    "publicBytesExact": 88731277
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,10 @@
   },
   "workingIteration": {
     "version": "0.46.0",
-    "status": "405_checks_and_local_UI_passed_publication_pending"
+    "status": "published_verified",
+    "codeCommit": "0f45930aabb4be9584f6bfb2748ccf474489f699",
+    "pagesRun": 45001449531,
+    "summary": "Added explicit personal source-syllable timing drafts for individually owned Phonetic MAM units inside unchanged PocketTorah word windows. Text styles, source variants and reading occurrences have separate identities; no boundaries are estimated. Capture retains typed/audio-clock/muted-clock basis, preview uses original audio at original pitch/speed independently of main musical preferences, and source credits/licenses travel in exported JSON. This is an annotation workflow, not reviewed phonemes, new singing voices or historical grammars.405 checks/11new; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",

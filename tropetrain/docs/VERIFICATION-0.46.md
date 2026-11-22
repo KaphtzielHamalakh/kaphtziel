@@ -1,4 +1,4 @@
-# v0.46 verification · in progress
+# v0.46 verification · published and verified
 
 
 ## Source-syllable timing annotations · v0.46
@@ -20,3 +20,16 @@ Preparation notes: direct Node sample helpers initially used browser-only fetch 
 
 
 Before publication, export credits were added to the draft identity: exact existing Phonetic MAM attribution/license and PocketTorah creator/project credits/audio/timing/alignment licenses. Final rebuild and full suite405pass/0fail/0skip; both local browser builds reloaded and verified these exact credits, matching normal/portable exports and blank test times. No runtime changes after this final passing suite. The earlier code commit e6cc5b9 is superseded by the following tested attribution correction.
+
+
+Code 0f45930aabb4be9584f6bfb2748ccf474489f699; tested local1e39d28b6d83594d378be667c1d3db669c03c753, app4be380d8f8a51bdb35624d925090a4d490c152c3/rootf47e48e4a7f3d3d288f7ba19fcba46df8148414b. Pages45001449531 completed/success/all3jobs successful. All20changed publicfiles/88,731,277bytes exact. Final405checks/11new; no runtime or embedded research change after final suite.
+
+Public normal54 and portable55 verify personal source-syllable drafts for Genesis1:1word1. Sephardic typed2.1–2.3andAshkenazic2.15–2.4remain separate, normal/portable JSON matches, and all27marked Hebrew strings/canonical IDs/aria-labels remain exact. Prepared data-URI export equals displayed JSON and retains exact Phonetic MAM credits/license plus PocketTorah creator/project/audio/timing/alignment licenses. Changing style clears stale export and restores only that style’s draft. Original word preview uses unchanged Bereshit-1.mp3/native rate1, while main measured0/75%preferences remain unchanged; all tests muted. Portable319root/body319/panel253/textarea251, viewport reset. Public Genesis28:4editor hides its fields and reports source-duration review without shifting any boundary. Local tests additionally cover changed-mark import refusal, exact valid roundtrip, overlap refusal, reload persistence, both explicit muted-clock captures and source-only/shared-word guards. An early capture during preparation left its missing boundary blank; ready-state capture succeeded. All artificial test annotations cleared through UI in both origins/styles. Both public tabs left Genesis1:1–3,word1,sourceSephardic,Measuredtones0/75%,repeatfalse, four volumes zero and allthree media paused. No appconsolewarnings/errors. Screenshot outputs/TropeTrain-v0.46-live.jpg saved/viewed. NativeSave/directfileorigin and acoustic/phonological/cantorial review unclaimed. Personal annotations do not certify sung syllables, phonemes, notes, new voices or historical grammars.
+
+Owned8767preview session16042 stopped by Ctrl-C/exit0; user8765untouched. Private52/53andoldpublic50/51closed; public54/55marked deliverables/stopped/muted. Temporary viewport override reset; both style test drafts cleared throughUI.
+
+The first generated-copy guard stopped because the two earlier generated artifacts had already been copied into the working tree. Their exact first-pass hashes were verified; only those expected metadata guards were refreshed, and both final tested artifacts copied byte-exact. No concurrent source edits were overwritten.
+
+Final four records and guarded output/resume copies follow. Full reconstruction active/incomplete; printing deferred.
+
+Next: Continue the full independent pronunciation/melody/range/key reconstruction; printing deferred. Prioritize reusable reviewed sung-phone material, complete historical phonological specifications and contextual melodic grammars. New personal source-syllable drafts are only annotations: never promote them, a muted playhead, source IPA proposals, ASR scores or F0 estimates into reviewed pronunciation or musical evidence. Preserve all original marked Hebrew, source units/stress/shared consonants, word times, notes and audio. Each style, variant and occurrence keeps a separate draft; combined words remain unsplit, source-only ranges stay null, all sixteen Genesis28:4 overflow words and eight older timing-gap takes remain withheld. Investigate the primary CIM14 sung-Hebrew annotation corpus and Technion Torah ASR project only with explicit reusable rights and matching expert-reviewed data. No voice, corpus, model or ordinary speech has been imported. All six Kinnor historical Accent singing grammars/voices and every full recovered musical system plus the entire learning/tutor roadmap remain required; full objective active/incomplete.
