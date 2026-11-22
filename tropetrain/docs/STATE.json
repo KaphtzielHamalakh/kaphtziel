@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-  "nextTask": "Continue primary-source specifications for the actual six historical KinnorAccentlabels and permission-cleared duration/F0-controlled Hebrew singing material, then full independent pronunciation/voice and contextual melody systems across the entire Torah, followed by the retained tutor/learning roadmap. Printing deferred. Inspect originalV6HelpAccentdescriptions and public phonology scholarship; the twoMAMtext projections differ onlyQAMATS_G/TAV_0DAGandare not sixhistoricalphonologies. Preserve v0.52exactcategory-to-letterclusterannotations, source-onlynulls, variant-specificproof, firstsharedreference/secondwrittenroles, letterlesscategorysyllablescope, everyoriginalmarkedHebrew/ID/stress/underlay/IPAproposal/music/audiofact and all605asset/datafiles. Allv0.51studyfieldsreconstructexactlyafterremovingonlynewannotations. No phonemes, individualvowel-point ranges, acoustic segmenttimes, newvoice orcomplete melodygrammar inferred. v0.51sourcepracticeguardsretain791structuralgaps/16Gen28:4durationgaps. All priorBaer/Cohen/Haftarahcontext/gapsstayintact. Fullobjectiveactive/incomplete.",
+  "nextTask": "Inspect the e diphone voicing issue without suppressing source evidence; continue primary historical phonology specifications and permission-cleared material, then reviewed independent sound bindings to the unchanged source syllables. Preserve all six pronunciation systems and full contextual musical systems in the active roadmap; printing deferred. Private lab run commands and exact source/build/diagnostic records: work/audits/voice-engine-0.53/README.md. Public runtime remains v0.52.0/466 checks; no reviewed historical voice, new phoneme-word mapping or complete melodic grammar is claimed. Retain all v0.52 letter-cluster/variant/shared-consonant bindings and every earlier data/source/playback invariant.",
   "lastPassingTests": {
     "automated": 466,
     "failures": 0,
@@ -190,31 +190,18 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.52.0",
-    "status": "published_verified",
-    "baseline": "e66b85c2beb386a6df3459a627673ed507aef1c8",
-    "sourceGroups": 68504,
-    "styles": 2,
-    "exactClusterReferencesPerStyle": 315024,
-    "sourceOnlyLetterReferencesPerStyle": 9071,
-    "uniqueReaderClustersPerStyle": 295795,
-    "previousStudySha256": "4d6f82686325da4d72d6808ade8519d52da0376c1f4edb85936512de26d2b172",
+    "version": "0.53-research",
+    "status": "private_lab_verified_public_runtime_unchanged",
+    "publicRuntimeVersion": "0.52.0",
+    "baseline": "cff2ff6eca3f93df22610d6807cd174060772527",
+    "record": "docs/VOICE-ENGINE-LAB.json",
+    "nativeRenders": 16,
+    "wasmRenders": 16,
+    "negativeChecks": 24,
+    "acceptedForPublicVoice": false,
     "newVoice": null,
     "newFullMelodyGrammar": null,
-    "review": null,
-    "localUi": "Normal78Gen1:1word1t/sbothstylesbindsameתUTF16range11–12;27visiblemarkedHebrew/IDs/labelsunchanged. Mutedrecordedchant100%survivesstylechange(activegen-1-1-1). Gen8:20word7sharedbetfirst/secondbothבְּ2–5, onlysecondwritten. Gen13:3canonicalgen-13-3-13isdisplayword12andkeepsאֽ͏ָהֳלוֹ֙/source-only/noletterbindings. Gen1:5word2retainspaseq;finalmemsource/readerpunctuationdifferenceexplicit. CorrectNotoHebrewfontverified. Responsive319root/body319; tablewhiteSpace normal/positionstatic; alltablewidth/scroll231afterlocaloverride. Allaudio0/stopped; portable/publicpending.",
-    "artifacts": {
-      "app.bundle.js": {
-        "bytes": 29305482,
-        "sha256": "54525ae251eb7e1c417d67b30aea2d55bb569acd2a6a64d96044fb2e3a9785ff"
-      },
-      "TropeTrain.html": {
-        "bytes": 91880825,
-        "sha256": "2db68d9236e24ea1132a09ba5d3a5e65ad39628d3b82dc0c45c6e9b63f2f1d98"
-      }
-    },
-    "codeCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-    "pagesRun": 45021855264
+    "independentReview": null
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1073,5 +1060,82 @@
     "acousticTimes": null,
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
+  },
+  "lastPublishedIteration": {
+    "version": "0.52.0",
+    "status": "published_verified",
+    "baseline": "e66b85c2beb386a6df3459a627673ed507aef1c8",
+    "sourceGroups": 68504,
+    "styles": 2,
+    "exactClusterReferencesPerStyle": 315024,
+    "sourceOnlyLetterReferencesPerStyle": 9071,
+    "uniqueReaderClustersPerStyle": 295795,
+    "previousStudySha256": "4d6f82686325da4d72d6808ade8519d52da0376c1f4edb85936512de26d2b172",
+    "newVoice": null,
+    "newFullMelodyGrammar": null,
+    "review": null,
+    "localUi": "Normal78Gen1:1word1t/sbothstylesbindsameתUTF16range11–12;27visiblemarkedHebrew/IDs/labelsunchanged. Mutedrecordedchant100%survivesstylechange(activegen-1-1-1). Gen8:20word7sharedbetfirst/secondbothבְּ2–5, onlysecondwritten. Gen13:3canonicalgen-13-3-13isdisplayword12andkeepsאֽ͏ָהֳלוֹ֙/source-only/noletterbindings. Gen1:5word2retainspaseq;finalmemsource/readerpunctuationdifferenceexplicit. CorrectNotoHebrewfontverified. Responsive319root/body319; tablewhiteSpace normal/positionstatic; alltablewidth/scroll231afterlocaloverride. Allaudio0/stopped; portable/publicpending.",
+    "artifacts": {
+      "app.bundle.js": {
+        "bytes": 29305482,
+        "sha256": "54525ae251eb7e1c417d67b30aea2d55bb569acd2a6a64d96044fb2e3a9785ff"
+      },
+      "TropeTrain.html": {
+        "bytes": 91880825,
+        "sha256": "2db68d9236e24ea1132a09ba5d3a5e65ad39628d3b82dc0c45c6e9b63f2f1d98"
+      }
+    },
+    "codeCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
+    "pagesRun": 45021855264
+  },
+  "voiceEngineLab": {
+    "status": "private_engineering_prototype_not_a_public_voice",
+    "publicRuntimeVersion": "0.52.0",
+    "engine": {
+      "repository": "https://github.com/numediart/MBROLA",
+      "commit": "274dead162f2826dc38c208fba92efeddb724c33",
+      "license": "AGPL-3.0-or-later",
+      "verifiedSourceFiles": 100,
+      "sourceUnchanged": true
+    },
+    "voice": {
+      "repository": "https://github.com/numediart/MBROLA-voices",
+      "commit": "fe05a0ccef6a941207fd6aaad0b31294a1f93a51",
+      "path": "data/hb2/hb2",
+      "gitBlob": "98dcebe914fedae3279bfe4d8bf0e9cde60e5157",
+      "sha256": "57b157d6baca885e234c0e58e3ffa4341d35a58406bb8ba03c706b3cfb591886",
+      "bytes": 6823814,
+      "creator": "Esther Raizen",
+      "sourceDescription": "Female Hebrew voice, Israeli accent",
+      "licenseBlob": "7746f8c927c04c84644e49834246b5b9fda551b6",
+      "rights": "Separate voice terms: synthesis only with MBROLA; no-charge copying/distribution with notice. Sale or incorporation in a sold product requires owner permission.",
+      "publicBinaryDistributed": false,
+      "publicAudioDistributed": false,
+      "acceptedAsHistoricalSingingVoice": false
+    },
+    "periodPatch": {
+      "record": "VOICE-ENGINE-PERIOD-PATCH.diff",
+      "license": "AGPL-3.0-or-later",
+      "sha256": "884e5a748f7a790e4cf47eaacec23db4ebdbcec16aaf2a01886fec59370614e7",
+      "derivedSourceFiles": 3,
+      "method": "Accumulate fractional synthesis periods; retain integer output frame positions. Original source tree retained.",
+      "independentReview": null,
+      "format": "Unified zero-context diff; apply with git apply --unidiff-zero or patch -p1 against the pinned source."
+    },
+    "invariants": {
+      "publicRuntimeChanged": false,
+      "readerHebrewChanged": false,
+      "accentsChanged": false,
+      "idsChanged": false,
+      "syllableAlignmentChanged": false,
+      "sourceAudioChanged": false,
+      "sourceTimingChanged": false,
+      "newPhonemeWordBindings": null,
+      "publicNewVoice": null,
+      "newFullMelodicGrammar": null,
+      "all605PriorAssetDataBlobsRetained": true
+    },
+    "next": "Inspect the e diphone voicing issue without suppressing source evidence; continue primary historical phonology specifications and permission-cleared material, then reviewed independent sound bindings to the unchanged source syllables. Preserve all six pronunciation systems and full contextual musical systems in the active roadmap; printing deferred.",
+    "record": "docs/VOICE-ENGINE-LAB.json"
   }
 }

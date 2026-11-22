@@ -1,0 +1,21 @@
+--- a/Engine/diphone.h
++++ b/Engine/diphone.h
+@@ -111 +111 @@
+-int GetPitchPeriod(DiphoneSynthesis *dp, int cur_sample,int Freq);
++double GetPitchPeriod(DiphoneSynthesis *dp, double cur_sample,int Freq);
+--- a/Engine/diphone.c
++++ b/Engine/diphone.c
+@@ -91 +91 @@
+-int GetPitchPeriod(DiphoneSynthesis *dp, int cur_sample,int Freq)
++double GetPitchPeriod(DiphoneSynthesis *dp, double cur_sample,int Freq)
+@@ -117 +117 @@
+-			return (int) ((float)Freq/freq_Pitch(tail_PitchPattern(phon)));
++			return (double)Freq/freq_Pitch(tail_PitchPattern(phon));
+@@ -143 +143 @@
+-	return( (int)((float)Freq / return_val) );
++	return (double)Freq / return_val;
+--- a/Engine/mbrola.c
++++ b/Engine/mbrola.c
+@@ -368 +368 @@
+-	int cur_sample;           /* sample offset in synthesis window           */
++	double cur_sample;        /* Preserve fractional pitch-period accumulation. */
