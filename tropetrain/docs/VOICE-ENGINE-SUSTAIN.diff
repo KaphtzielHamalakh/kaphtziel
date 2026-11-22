@@ -1,0 +1,107 @@
+--- a/Engine/mbrola.c
++++ b/Engine/mbrola.c
+@@ -62,0 +63,68 @@
++/* Experimental stationary-core duration warp for explicit held vowels.
++ * SPDX-License-Identifier: AGPL-3.0-or-later
++ * No database mark, phoneme, source waveform or pitch target is changed.
++ * Included only in the separate private MBROLA experiment.
++ */
++typedef struct {
++  double start, end, core_start, core_end, target, fixed_scale, core_scale;
++  bool active;
++} TTHalfWarp;
++
++static bool tt_is_monophthong(Phone *phone) {
++  const char *name = name_Phone(phone);
++  return strcmp(name, "a") == 0 || strcmp(name, "e") == 0 ||
++         strcmp(name, "i") == 0 || strcmp(name, "o") == 0 || strcmp(name, "u") == 0;
++}
++
++static TTHalfWarp tt_half_warp(DiphoneSynthesis *diph, int period,
++                               double start, double end, double target, Phone *phone) {
++  TTHalfWarp warp;
++  double low, high, run_start = 0, run_end = 0, last_start = 0, last_end = 0;
++  int frame;
++  bool in_run = False;
++  warp.start = start; warp.end = end; warp.target = target;
++  warp.core_start = start; warp.core_end = end; warp.active = False;
++  warp.fixed_scale = end > start ? target / (end - start) : 0;
++  warp.core_scale = warp.fixed_scale;
++  if (target <= end - start || !tt_is_monophthong(phone)) return warp;
++  for (frame = 1; frame <= nb_frame_diphone(diph); frame++) {
++    low = (frame - 1) * period;
++    high = frame * period;
++    if (low < start) low = start;
++    if (high > end) high = end;
++    if (high <= low) continue;
++    if (pmrk_DiphoneSynthesis(diph, frame) == V_REG) {
++      if (!in_run) run_start = low;
++      run_end = high; in_run = True;
++      last_start = run_start; last_end = run_end;
++    } else in_run = False;
++  }
++  /* Refuse to designate a one-frame region as a sustained core. */
++  if (last_end - last_start < 2 * period) return warp;
++  warp.core_start = last_start; warp.core_end = last_end;
++  warp.fixed_scale = 1;
++  warp.core_scale = (target - ((end - start) - (last_end - last_start))) /
++                    (last_end - last_start);
++  warp.active = True;
++  return warp;
++}
++
++static double tt_half_position(TTHalfWarp warp, double source_position) {
++  double before, inside, after;
++  if (source_position <= warp.start) return 0;
++  if (source_position >= warp.end) return warp.target;
++  if (!warp.active) return (source_position - warp.start) * warp.fixed_scale;
++  before = source_position < warp.core_start ? source_position - warp.start : warp.core_start - warp.start;
++  inside = source_position > warp.core_start ?
++           ((source_position < warp.core_end ? source_position : warp.core_end) - warp.core_start) : 0;
++  after = source_position > warp.core_end ? source_position - warp.core_end : 0;
++  return before * warp.fixed_scale + inside * warp.core_scale + after * warp.fixed_scale;
++}
++
++static bool tt_protected_interval(TTHalfWarp warp, double low, double high) {
++  if (!warp.active) return False;
++  if (low < warp.start) low = warp.start;
++  if (high > warp.end) high = warp.end;
++  return high > low && (low < warp.core_start || high > warp.core_end);
++}
++
+@@ -368,0 +437 @@
++	TTHalfWarp tt_left, tt_right;
+@@ -415,0 +485,9 @@
++    tt_left = tt_half_warp(prev_diph(mb), MBRPeriod(diph_dba(mb)), 0, halfseg,
++                            Length1(prev_diph(mb)), LeftPhone(prev_diph(mb)));
++    tt_right = tt_half_warp(prev_diph(mb), MBRPeriod(diph_dba(mb)), halfseg, len_anal,
++                             Length2(prev_diph(mb)), RightPhone(prev_diph(mb)));
++    if (tt_left.active || tt_right.active)
++      fprintf(stderr, "TTWARP\t%s\t%s\t%d\t%.9f\t%.9f\t%.9f\t%d\t%.9f\t%.9f\t%.9f\n",
++        name_Phone(LeftPhone(prev_diph(mb))), name_Phone(RightPhone(prev_diph(mb))),
++        tt_left.active, tt_left.core_start, tt_left.core_end, tt_left.core_scale,
++        tt_right.active, tt_right.core_start, tt_right.core_end, tt_right.core_scale);
+@@ -438,0 +517,14 @@
++        if (tt_left.active || tt_right.active)
++          limit = (int)(tt_half_position(tt_left, t) + tt_half_position(tt_right, t));
++
++        /* A low pitch pulse may otherwise skip a short protected source
++         * interval entirely. Restart phase at its endpoint; record the change. */
++        if (cur_sample > limit && limit > frame_pos(mb)[k-1] &&
++            (tt_protected_interval(tt_left, t - MBRPeriod(diph_dba(mb)), t) ||
++             tt_protected_interval(tt_right, t - MBRPeriod(diph_dba(mb)), t))) {
++          fprintf(stderr, "TTKEEP\t%s\t%s\t%d\t%.9f\t%d\n",
++            name_Phone(LeftPhone(prev_diph(mb))), name_Phone(RightPhone(prev_diph(mb))),
++            i, cur_sample, limit);
++          cur_sample = limit;
++        }
++
+@@ -516 +608,7 @@
+-		first= (int) ceil((double)cur_sample / MBRPeriod(diph_dba(mb)) / theta);
++        TTHalfWarp tt_first = tt_half_warp(cur_diph(mb), MBRPeriod(diph_dba(mb)), 0,
++            halfseg_diphone(cur_diph(mb)), Length1(cur_diph(mb)), LeftPhone(cur_diph(mb)));
++        first= (int) ceil((double)cur_sample / MBRPeriod(diph_dba(mb)) / theta);
++        if (tt_first.active && cur_sample <= Length1(cur_diph(mb))) {
++          for (first=1; first <= nb_frame_diphone(cur_diph(mb)); first++)
++            if (tt_half_position(tt_first, first * MBRPeriod(diph_dba(mb))) >= cur_sample) break;
++        }

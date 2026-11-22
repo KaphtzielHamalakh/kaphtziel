@@ -1,0 +1,16 @@
+--- a/Engine/mbrola.c
++++ b/Engine/mbrola.c
+@@ -715,0 +716,13 @@
++
++#ifndef LIBRARY
++    /* Private diagnostic: conservative support of the new OLA window, not
++     * exclusive audio ownership or an inferred phoneme/word boundary. */
++    fprintf(stderr, "TTFRAME\t%s\t%s\t%ld\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%ld\n",
++      name_Phone(LeftPhone(prev_diph(mb))), name_Phone(RightPhone(prev_diph(mb))),
++      (long)audio_length(mb), 2 * MBRPeriod(diph_dba(mb)),
++      frame_number(mb)[frame], real_frame(prev_diph(mb))[frame_number(mb)[frame]],
++      type, Length1(prev_diph(mb)), Length2(prev_diph(mb)),
++      frame_pos(mb)[frame], halfseg_diphone(prev_diph(mb)),
++      (long)pos_wave_diphone(prev_diph(mb)));
++#endif
++
