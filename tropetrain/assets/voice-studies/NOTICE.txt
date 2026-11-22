@@ -24,3 +24,12 @@ Exact native asset names, source page/annotation/rectangle, verse scope and byte
 Only Hebrew audio is redistributed. No English translation/audio, scanned Hebrew, modern musical chart or embedded Flash/SWF is imported or executed.
 The source document credits Joshua R. Jacobson’s book for melodies; no complete musical grammar or specific community label inferred.
 Verse names are documentary scope; source edition, phonemes, syllable/note alignment and independent review remain pending.
+
+
+Asael(עשהאל),2005: two original chanted readings of Genesis1:1–2:3.
+Catalog: https://he.wikisource.org/wiki/מקרא_על_פי_המסורה/ויבינו_במקרא/פרשת_בראשית (revision2898373).
+Reader: https://he.wikisource.org/wiki/משתמש:עשהאל (revision229763).
+File:Aa_Genesis_Bereshit-1_Asael_Ashkenaz.oga (revision779161946) and File:Aa_Genesis_Bereshit-1_Asael.oga (revision779161931), Wikimedia Commons.
+License: Creative Commons Attribution-ShareAlike3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/ (GFDL migration=relicense; explicit Commons per-file license metadata).
+Modifications: none. Original Ogg Vorbis bytes, verified against source byte counts/SHA1 and additionally pinned SHA256. Complete pins in docs/ASAEL-PAIRED-CHANT.json.
+The catalog identifies an Ashkenazic melody with separately labeled Ashkenazic or Israeli pronunciation. These are distinct fixed performances and clocks, not Kinnor presets or an independently controllable singing bank. Source text edition, word/syllable/phoneme times, musical transcription and qualified review remain pending. No endorsement is implied.

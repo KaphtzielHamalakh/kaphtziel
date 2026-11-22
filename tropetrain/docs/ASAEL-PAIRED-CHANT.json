@@ -1,0 +1,153 @@
+{
+  "schema": "tropetrain-asael-paired-chant-v1",
+  "revision": 1,
+  "retrieved": "2026-11-22",
+  "study": {
+    "id": "asael-bereshit",
+    "name": "Asael · paired pronunciations · Genesis 1:1–2:3",
+    "sourceTitle": "Vayavinu Bamikra · Parashat Bereshit, first aliyah · Asael",
+    "sourceUrl": "https://he.wikisource.org/wiki/מקרא_על_פי_המסורה/ויבינו_במקרא/פרשת_בראשית",
+    "coverage": {
+      "bookId": "gen",
+      "start": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 2,
+        "verse": 3
+      }
+    },
+    "coverageStatus": "The primary catalog identifies Genesis1:1–2:3 for both performances. Opening the text keeps unchanged UXLC words/accents. Source-edition comparison and word/syllable times remain unreviewed.",
+    "pronunciations": [
+      {
+        "id": "ashkenazic-as-recorded",
+        "name": "Ashkenazic · source label"
+      },
+      {
+        "id": "israeli-as-recorded",
+        "name": "Israeli · source label"
+      }
+    ],
+    "deliveries": [
+      {
+        "id": "ashkenazic-melody",
+        "name": "Ashkenazic melody · source label",
+        "kind": "chanted"
+      }
+    ],
+    "description": "Two original chanted performances by Asael(עשהאל), cataloged with an Ashkenazic melody and separately identified Ashkenazic or Israeli pronunciation. Each retains its own voice, notes, pitch, timing and complete take. Select a pronunciation to compare the original performances.",
+    "limits": "Fixed source performances, separate from all six Kinnor Accent labels and the two Katz research proposals. No complete communal phonology, melody grammar, phoneme bank or independently synthesized singing is established. Timing drafts are specific to one recording; they cannot be transferred between the pair.",
+    "rightsEvidence": {
+      "license": "CC-BY-SA-3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "catalogUrl": "https://he.wikisource.org/wiki/מקרא_על_פי_המסורה/ויבינו_במקרא/פרשת_בראשית",
+      "catalogRevision": 2898373,
+      "performerUrl": "https://he.wikisource.org/wiki/משתמש:עשהאל",
+      "performerRevision": 229763,
+      "fileRevisions": {
+        "File:Aa Genesis Bereshit-1 Asael.oga": 779161931,
+        "File:Aa Genesis Bereshit-1 Asael Ashkenaz.oga": 779161946
+      },
+      "finding": "Each file uses GFDL migration=relicense, and Commons imageinfo explicitly identifies CC BY-SA3.0 as the reusable license. The catalog separately names the reader, melody, pronunciation and exact passage. Source Ogg Vorbis payloads match Commons byte counts and SHA1; SHA256 additionally pinned.",
+      "retrieved": "2026-11-22"
+    }
+  },
+  "recordings": [
+    {
+      "id": "asael-2005-gen-opening-ashkenazic",
+      "studyId": "asael-bereshit",
+      "pronunciationId": "ashkenazic-as-recorded",
+      "deliveryId": "ashkenazic-melody",
+      "performer": "Asael (עשהאל)",
+      "year": 2005,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aa_Genesis_Bereshit-1_Asael_Ashkenaz.oga",
+      "resolvedSourceUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Aa_Genesis_Bereshit-1_Asael_Ashkenaz.oga",
+      "sourceFileRevision": 779161946,
+      "sourceCatalogRevision": 2898373,
+      "sourcePronunciationLabel": "Ashkenazic",
+      "sourceMelodyLabel": "Ashkenazic",
+      "audio": {
+        "filename": "gen-1-1-to-2-3-ashkenazic.oga",
+        "file": "assets/voice-studies/asael-2005/gen-1-1-to-2-3-ashkenazic.oga",
+        "bytes": 3696666,
+        "sha1": "e5ce96fb59ff46c5966cfe8534cd91ea553c6983",
+        "sha256": "65bd2c69abaf1a8102e3e6bef5444ba4d7a2b25a5c51829a2f75579da0213cb0",
+        "estimatedDurationSeconds": 317.227891,
+        "durationMethod": "macOS afinfo valid-frame duration of unchanged original Ogg Vorbis; browser metadata governs playback bounds.",
+        "mimeType": "audio/ogg",
+        "sourceMimeType": "application/ogg",
+        "channels": 1,
+        "sampleRate": 44100
+      },
+      "license": {
+        "id": "CC-BY-SA-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "modifications": "None. Unchanged original Ogg Vorbis bytes. No inferred source word times, phonemes or musical notes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "asael-2005-gen-opening-israeli",
+      "studyId": "asael-bereshit",
+      "pronunciationId": "israeli-as-recorded",
+      "deliveryId": "ashkenazic-melody",
+      "performer": "Asael (עשהאל)",
+      "year": 2005,
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aa_Genesis_Bereshit-1_Asael.oga",
+      "resolvedSourceUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/Aa_Genesis_Bereshit-1_Asael.oga",
+      "sourceFileRevision": 779161931,
+      "sourceCatalogRevision": 2898373,
+      "sourcePronunciationLabel": "Israeli",
+      "sourceMelodyLabel": "Ashkenazic",
+      "audio": {
+        "filename": "gen-1-1-to-2-3-israeli.oga",
+        "file": "assets/voice-studies/asael-2005/gen-1-1-to-2-3-israeli.oga",
+        "bytes": 3821034,
+        "sha1": "117753117444986758acb6c2fff8d13f858538b3",
+        "sha256": "30bc957d282d0484dcccb5a4896c270b0eaf4773d21f9b1640f3fc96baccac97",
+        "estimatedDurationSeconds": 371.845805,
+        "durationMethod": "macOS afinfo valid-frame duration of unchanged original Ogg Vorbis; browser metadata governs playback bounds.",
+        "mimeType": "audio/ogg",
+        "sourceMimeType": "application/ogg",
+        "channels": 1,
+        "sampleRate": 44100
+      },
+      "license": {
+        "id": "CC-BY-SA-3.0",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      "modifications": "None. Unchanged original Ogg Vorbis bytes. No inferred source word times, phonemes or musical notes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    }
+  ],
+  "corpusLead": {
+    "category": "https://commons.wikimedia.org/wiki/Category:Torah_and_Haftarah_cantillation_by_Asael",
+    "indexedFiles": 1124,
+    "filenamePairs": 214,
+    "scope": "1124category entries resolve to1018unique files; all reportCC-BY-SA3.0.107entries are redirects, and214filename pairs are structural leads only. Actual media byte validation, coverage, pronunciation and melody adaptation remain pending outside the two explicitly cataloged opening performances.",
+    "recordingsImported": 2,
+    "canonicalFiles": 1018,
+    "licenseMetadataChecked": 1018,
+    "sourceBytesVerifiedLocally": 2,
+    "indexRecord": "docs/ASAEL-CORPUS-SOURCE-INDEX.json"
+  },
+  "invariants": {
+    "prior70RecordsUnchanged": true,
+    "originalAudioUnchanged": true,
+    "hebrewTextAndAccentsUnchanged": true,
+    "wordTimesInferred": false,
+    "timingDraftsSharedAcrossPronunciations": false,
+    "kinnorEquivalence": null,
+    "newSingingSynthesis": null,
+    "qualifiedReview": null
+  }
+}
