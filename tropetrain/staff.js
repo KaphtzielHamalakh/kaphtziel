@@ -44,8 +44,9 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     for(let dot=0;dot<r.dots;dot++)svg+=`<circle class="dot" cx="${e.x+13+dot*5}" cy="${e.y%10===0?e.y-5:e.y}" r="1.7"/>`;
     if(r.actual!==r.normal&&!e.sourceTupletId)svg+=`<text class="rhythm-ratio" x="${e.x}" y="24">${r.actual}:${r.normal}</text>`;
     if(e.sourceFermata){
-      if(e.sourceFermata.shape!=='normal'||e.sourceFermata.placement!=='above'||e.sourceFermata.duration!=='unspecified')throw Error('Unsupported printed fermata.');
-      svg+=`<g class="staff-fermata" role="img" aria-label="Printed fermata; hold length unspecified"><path d="M${e.x-11} 36 Q${e.x} 12 ${e.x+11} 36"/><circle cx="${e.x}" cy="31" r="2.2"/></g>`;
+      if(e.sourceFermata.shape!=='normal'||!['above','below'].includes(e.sourceFermata.placement)||e.sourceFermata.duration!=='unspecified')throw Error('Unsupported printed fermata.');
+      if(e.sourceFermata.placement==='above')svg+=`<g class="staff-fermata" role="img" aria-label="Printed fermata; hold length unspecified"><path d="M${e.x-11} 36 Q${e.x} 12 ${e.x+11} 36"/><circle cx="${e.x}" cy="31" r="2.2"/></g>`;
+      else{const y=Math.max(125,e.y+30);svg+=`<g class="staff-fermata below" role="img" aria-label="Printed inverted fermata below the staff; hold length unspecified"><path d="M${e.x-11} ${y} Q${e.x} ${y+24} ${e.x+11} ${y}"/><circle cx="${e.x}" cy="${y+5}" r="2.2"/></g>`;}
     }
     if(e.sourceTupletPhase==='start'){
       const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');

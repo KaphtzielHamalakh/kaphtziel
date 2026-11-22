@@ -806,7 +806,7 @@ function download(filename,data){
 }
 for(const [id,key] of [['range-low','rangeLow'],['range-high','rangeHigh']]){
   for(let midi=36;midi<=84;midi++){const o=document.createElement('option');o.value=midi;o.textContent=noteName(midi);$(id).append(o);}
-  $(id).addEventListener('change',e=>{state[key]=Number(e.target.value);renderSequence();persist();});
+  $(id).addEventListener('change',e=>{state[key]=Number(e.target.value);renderSequence();patternTools?.rangeChanged();persist();});
 }
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{state.view=b.dataset.view;render();}));
 $('groups').addEventListener('change',e=>{state.groups=e.target.checked;render();});
