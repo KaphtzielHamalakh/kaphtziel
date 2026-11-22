@@ -12,11 +12,11 @@ import {renderWav} from '../wav.js';
 const data=BAER_PATTERN_ROW.record,read=p=>readFileSync(new URL('../'+p,import.meta.url));
 const plan=(mode,options={})=>printedPatternPlan(mode,{sourceId:BAER_PATTERN_ID,tempo:60,transpose:0,...options});
 
-test('Baer source inventory keeps32cells, eleven literal figures and21explicit unfinished cells apart from the existing Cohen catalogue',()=>{
- assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,11);assert.equal(BAER_PATTERN_ROW.unavailable.length,21);
+test('Baer source inventory keeps32cells, nineteen literal figures and13explicit unfinished cells apart from the existing Cohen catalogue',()=>{
+ assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,19);assert.equal(BAER_PATTERN_ROW.unavailable.length,13);
  assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.length,19);
- assert.equal(allPatternModes(BAER_PATTERN_ID).length,33);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,12); // one adjacent-column pair
- assert.equal(data.notes.length,60);assert.equal(data.notes.filter(n=>n.kind==='note').length,54);assert.equal(data.notes.filter(n=>n.kind==='rest').length,6);
+ assert.equal(allPatternModes(BAER_PATTERN_ID).length,33);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,20); // one adjacent-column pair
+ assert.equal(data.notes.length,123);assert.equal(data.notes.filter(n=>n.kind==='note').length,115);assert.equal(data.notes.filter(n=>n.kind==='rest').length,8);
  for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);assert.equal(data.notes.some(n=>n.cell===f.id),false);assert.throws(()=>plan(f.id),/awaits literal notation or application review/);}
 });
 

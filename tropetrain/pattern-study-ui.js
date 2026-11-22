@@ -4,11 +4,13 @@ import {Player} from './audio.js';
 import {staffMarkup} from './staff.js';
 import {beatLabel,eventPitchName} from './score-data.js';
 import {soundingNotes} from './synthesis.js';
+import {printedPatternRange} from './pattern-range.js';
 
 export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   const $=id=>document.getElementById(id),preferenceKey='tropetrain-pattern-study-v1';
   let plan=[],settingsKey=null,selectedId=null,starting=false,request=0,saved,activeId=null;
   try{saved=JSON.parse(localStorage.getItem(preferenceKey));}catch{}
+  function rangeChanged(){const s=getSettings();$('pattern-range').textContent=printedPatternRange(plan,s.rangeLow,s.rangeHigh).text;}
   const setActive=id=>{
     if(activeId===id)return;activeId=id;const container=$('pattern-staff');let current;
     container.querySelectorAll('[data-event],[data-rest]').forEach(el=>{const active=(el.dataset.event??el.dataset.rest)===id;el.classList.toggle('active',active);if(active)current=el;});
@@ -62,14 +64,14 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     $('pattern-primary-link').href=record.source.url;$('pattern-rights').textContent=record.source.rights??'Original printed source public domain; new literal transcription CC0. Independent review pending.';
     const supported=availablePatternModes(sourceId).some(m=>m.id===mode);
     $('pattern-play').disabled=!supported;$('pattern-download').disabled=!supported;
-    if(!supported){plan=[];$('pattern-staff').replaceChildren();$('pattern-summary').textContent='Choose a transcribed printed figure. Pending cells supply no replacement music.';$('pattern-note-detail').textContent='';$('pattern-status').textContent='Choose supported columns for this source row.';return;}
+    if(!supported){plan=[];rangeChanged();$('pattern-staff').replaceChildren();$('pattern-summary').textContent='Choose a transcribed printed figure. Pending cells supply no replacement music.';$('pattern-note-detail').textContent='';$('pattern-status').textContent='Choose supported columns for this source row.';return;}
     plan=printedPatternPlan(mode,{...state,sourceId});$('pattern-staff').innerHTML=staffMarkup(plan,[],0,plan.length,{untexted:true});
     $('pattern-summary').textContent=`${plan[0].sourceComponentCount??plan.length} printed components · ${printedPatternRests(plan).length} rests · ${soundingNotes(plan).length} sounding attacks · ${beatLabel(printedPatternBeats(plan))} quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds.${plan.some(e=>e.sourceFermata)?' Printed fermata hold length is unspecified; playback uses the written duration.':''} Ties hold pitches; slurs keep distinct attacks.`;
     for(const el of $('pattern-staff').querySelectorAll('[data-event],[data-rest]')){
       const event=plan.find(e=>e.id===el.dataset.event)??printedPatternRests(plan).find(r=>r.id===el.dataset.rest);el.addEventListener('click',()=>inspect(event));
       el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(event);}});
     }
-    inspect(plan.find(e=>e.id===selectedId)??printedPatternRests(plan).find(r=>r.id===selectedId)??plan[0]);$('pattern-status').textContent='Ready to compare these printed figures.';
+    rangeChanged();inspect(plan.find(e=>e.id===selectedId)??printedPatternRests(plan).find(r=>r.id===selectedId)??plan[0]);$('pattern-status').textContent='Ready to compare these printed figures.';
   }
   for(const row of PRINTED_PATTERN_SOURCES){const option=document.createElement('option');option.value=row.id;option.textContent=row.label;$('pattern-source').append(option);}
   $('pattern-source').value=PRINTED_PATTERN_SOURCES.some(r=>r.id===saved?.sourceId)?saved.sourceId:PRINTED_PATTERNS.id;
@@ -107,5 +109,5 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   });
   for(const id of ['pattern-source','pattern-mode','pattern-stop','pattern-find'])$(id).disabled=false;
   refresh();
-  return {stop,refresh,setRepeat:value=>{player.repeat=value;},volumeChanged:()=>refresh()};
+  return {stop,refresh,rangeChanged,setRepeat:value=>{player.repeat=value;},volumeChanged:()=>refresh()};
 }

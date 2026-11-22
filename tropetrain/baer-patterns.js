@@ -5,7 +5,7 @@ const pair={id:'munah-revia-pair',name:'Munaḥ → Revia · adjacent source col
 export function baerPatternModes(){return [...BAER_PATTERN_ROW.record.figures,pair].map(f=>({...f,cells:f.cells??[f.id],name:f.name+(f.status==='transcribed'?'':' · pending')}));}
 export function baerPatternSource(mode){
  const figure=baerPatternModes().find(f=>f.id===mode),page=figure?.page??30,record=BAER_PATTERN_ROW.record,scan=record.source.pages[String(page)];
- return {...BAER_PATTERN_ROW,record:{...record,source:{...record.source,page,image:scan.image,caption:`Printed p.${page}, first setting. ${figure?.name??record.name}. `+(figure?.pending??figure?.contextPending??'Literal notes/rests only; no Bible-word fitting or complete grammar is asserted.')},selectedFigure:figure??null}};
+ return {...BAER_PATTERN_ROW,record:{...record,source:{...record.source,page,image:scan.image,caption:`Printed p.${page}, first setting. ${figure?.name??record.name}. `+(figure?.pending??figure?.contextPending??'Literal notes/rests only; no Bible-word fitting or complete grammar is asserted.')+(figure?.sourceCondition?` Printed condition: ${figure.sourceCondition.literal} (${figure.sourceCondition.english}); modern application remains unassigned.`:'')},selectedFigure:figure??null}};
 }
 export function baerPatternPlan(mode,{tempo=84,transpose=0}={}){
  const row=baerPatternSource(mode),record=row.record,figure=record.selectedFigure;
@@ -21,7 +21,9 @@ export function baerPatternPlan(mode,{tempo=84,transpose=0}={}){
    if(plan.length)(plan.at(-1).sourceRestsAfter??=[]).push(rest);else before.push(rest);
   }else{
    const event={...common,midi:c.midi+transpose,sourcePitch:{...c.sourcePitch},sourceTranspose:transpose,sourceRhythm:{...c.rhythm},wordId:null,sourceWordId:null,syllableId:null,syllable:null,phonemes:null,
-    ...(c.slur?{sourceSlurId:c.slur.id,sourceSlurPhase:c.slur.phase}:{}),...(c.tuplet?{sourceTupletId:c.tuplet.id,sourceTupletPhase:c.tuplet.phase}:{})};
+    ...(c.slur?{sourceSlurId:c.slur.id,sourceSlurPhase:c.slur.phase}:{}),...(c.tuplet?{sourceTupletId:c.tuplet.id,sourceTupletPhase:c.tuplet.phase}:{}),
+    ...(c.fermata?{sourceFermata:{...c.fermata}}:{}),...(c.accidentalEvidence?{sourceAccidentalEvidence:c.accidentalEvidence}:{}),
+    ...(record.figures.find(f=>f.id===c.cell).sourceCondition?{sourceCondition:{...record.figures.find(f=>f.id===c.cell).sourceCondition}}:{})};
    if(!plan.length&&before.length)event.sourceRestsBefore=before;
    plan.push(event);
   }
@@ -30,7 +32,7 @@ export function baerPatternPlan(mode,{tempo=84,transpose=0}={}){
  if(!plan.length)throw Error('A source figure requires a transcribed pitched component.');
  const last=plan.at(-1),tail=beat-last.startBeat-last.beats;
  if(tail>1e-8){last.endingRestBeats=tail;last.endingRestSeconds=tail*60/tempo;}
- return plan.map(e=>Object.freeze({...e,sourcePitch:Object.freeze(e.sourcePitch),sourceRhythm:Object.freeze(e.sourceRhythm),...Object.fromEntries(['sourceRestsBefore','sourceRestsAfter'].filter(k=>e[k]).map(k=>[k,Object.freeze(e[k].map(r=>Object.freeze({...r,rhythm:Object.freeze(r.rhythm)})))]))}));
+ return plan.map(e=>Object.freeze({...e,sourcePitch:Object.freeze(e.sourcePitch),sourceRhythm:Object.freeze(e.sourceRhythm),...(e.sourceFermata?{sourceFermata:Object.freeze(e.sourceFermata)}:{}),...(e.sourceCondition?{sourceCondition:Object.freeze(e.sourceCondition)}:{}),...Object.fromEntries(['sourceRestsBefore','sourceRestsAfter'].filter(k=>e[k]).map(k=>[k,Object.freeze(e[k].map(r=>Object.freeze({...r,rhythm:Object.freeze(r.rhythm)})))]))}));
 }
 // Rest positions are explicit source components, including before the first
 // pitched event and after the last. This does not identify acoustic silence.
