@@ -1,0 +1,31 @@
+Signalsmith Stretch · reusable audio-processing software, not musical content
+
+Copyright (c) 2022 Geraint Luff / Signalsmith Audio Ltd. MIT license below.
+Official Signalsmith Stretch Web release1.3.2; NPM integrity sha512-tJqRbwPCoWLSHXwO29UQ75u72IwPsHns3RG+TKzuOAp7OduJiJMzEtz32JEFbPFQcTR7aiKCIVc+/Kzw8bMZUw==.
+Pinned source https://github.com/Signalsmith-Audio/signalsmith-stretch/tree/222093b4cc13ddb4d07c826bc3c1559326091731
+Compiled WASM loader web/emscripten/main.js: Gitbloba12633353a0b2422c2a00835e6239ea6dfe4abaa,98451bytes.
+Official NPM SignalsmithStretch.mjs:113867bytes, Gitblob7d5cae72e77a84143ed91ba12fc91b806dc4d9d1, SHA25697530b11d5bc01015af4cde40d6aa55ff10c40aa1294ca4c8c5762027d517a46; matches the pinned official release exactly.
+TropeTrain packaging: prepend the MIT notice, empty local CommonJS bindings and packaging comments; append export default SignalsmithStretch. The compiled loader/WASM bytes between them are unchanged. No CDN or extra runtime download is used. Original C++/WASM adapter remains available at the pinned source link; a deterministic rebuild has not been independently verified.
+TropeTrain uses the reported input+output latency and zero padding to retain the original sample count. Formant compensation is requested; pitch, transient behavior and vocal timbre are approximate. Original source recordings and word times remain unchanged. No communal tradition, historical Kinnor preset, pronunciation equivalence, new voice or reviewed cantillation grammar is inferred. Derived audio is session-only; original recording/timing licenses and attribution remain in assets/references/NOTICE.txt. Independent acoustic, phonological and cantorial review pending.
+
+MIT License
+
+Copyright (c) 2022 Geraint Luff / Signalsmith Audio Ltd.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
