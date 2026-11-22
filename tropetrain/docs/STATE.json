@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "bda6b34342dedd6742faaf309def7eb1b23b9a4c",
+  "publishedCommit": "13bc6bd36458634f798e4a25bcade68572966441",
   "nextTask": "Continue complete independent melody/pronunciation/range/key reconstruction, prioritizing reusable reviewed sung-phone material, full source-based historical phonologies, contextual melody grammars and qualified review; printing deferred. All79985Torah source word links, existing underlay/category/IPA proposals and original musical/audio data remain unchanged. New26book text libraries map150620/151630additional words with1010explicit gaps; literal source units retain stress/joins/styles, but have no computed Hebrew ranges, category/IPA plans, phonemes, note allocation or sound times. Do not infer those from source correspondence or fixed PocketTorah performances. Preserve54Haftarah take identities and exact ordered sections; Vayera/Tazria/Masei remain whole-take-only, ezk43:15word4unmapped. OriginalTorah16Gen28:4overflow words and8older timing-gap takes remain withheld. AllsixKinnor singing grammars/voices, every full historical melody system and the entire learning/tutor roadmap remain required. Full objective active/incomplete.",
   "lastPassingTests": {
     "automated": 429,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 10,
     "log": "/private/tmp/tropetrain-check-v48-final2.log",
-    "ui": "Local normal60 and portable61 verify Isaiah42:5word2: Sephardic ’a·mar and Ashkenazic ’o·mar under unchanged אָמַ֞ר, with the complete maqaf source group and stress/ownership retained. All89visible marked Hebrew strings, canonical IDs and aria-labels remain exact across styles and both distributions. Normal +3semitones/75% repeating Haftarah source playback continues with identical source URL/processing settings when text style changes; original recorded pronunciation is retained. New-book IPA actions stay disabled and no Hebrew ranges/categories/phonemes/notes/times are inferred. Esther source data loads in both builds; Genesis1:1word2 still has the earlier computed category/IPA evidence. Isaiah1:1word1 stays unassigned in both styles, with blank rows and disabled exports. Normal/portable raw source-group JSON matches; portable reload retains the selected word and Sephardic style. Portable319root/body319/panel261; viewport reset. No appconsolewarnings/errors. Playback tests used muted clocks; acoustic/cantorial/phonological review and nativeSave/file-origin checks remain unclaimed."
+    "ui": "Public normal62 and portable63 verify Isaiah 42:5 word2: Sephardic ’a·mar / Ashkenazic ’o·mar stays under unchanged אָמַ֞ר, with source stress and maqaf-group identity retained. All89visible marked Hebrew strings/canonical IDs/aria-labels match local data across both builds and style changes; raw source-group JSON matches. New-book IPA export stays disabled, with no inferred category or Hebrew syllable ranges. Normal repeating +3semitones/75% Haftarah playback continues with identical source URL when text style changes; processed sound review remains null. Portable Isaiah1:1word1 has no substituted source text; Esther1:1source loads successfully. Portable reload retains word2/Sephardic; 319px root/body319/panel261, viewport reset. Local checks also exercise the gap in both styles, preserve Genesis computed IPA evidence, validate load failures/retry/wrong-source refusal and all26book/source links. No appconsolewarnings/errors. Both public tabs are left Isaiah42:5–43:10 word2, sourceSephardic, Haftarahpitch0/speed100/repeatfalse, allfivegains0 and allfourmedia paused. All playback QA used muted clocks; nativeSave/file-origin and qualified acoustic/phonological/cantorial review remain unclaimed. Screenshot outputs/TropeTrain-v0.48-live.jpg saved. These are independent source text styles, not new singing voices or full melody grammars."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "codeCommit": "bda6b34342dedd6742faaf309def7eb1b23b9a4c",
-    "pagesRun": 45004909155,
+    "codeCommit": "13bc6bd36458634f798e4a25bcade68572966441",
+    "pagesRun": 45007234344,
     "status": "success",
     "jobs": 3,
-    "publicFilesExact": 24,
-    "publicBytesExact": 97026283
+    "publicFilesExact": 47,
+    "publicBytesExact": 122763638
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.48.0",
-    "status": "local_verified_publication_pending",
+    "status": "published_verified",
     "artifacts": {
       "app.bundle.js": {
         "bytes": 25332051,
@@ -201,7 +201,10 @@
         "bytes": 87369490,
         "sha256": "442bb85341512b7753cc31d78b502c1b1d5944a17376c5e4fd02cc047742b41e"
       }
-    }
+    },
+    "codeCommit": "13bc6bd36458634f798e4a25bcade68572966441",
+    "pagesRun": 45007234344,
+    "summary": "Extended the two independently selected Phonetic MAM text styles to all 26 Prophets and five-scroll reader books. Conservative source-group correspondence links 150,620 of 151,630 additional words; 1,010 explicit gaps remain. Each book loads lazily. Original source columns, stress, joins, variants, marked Hebrew and all existing Torah/music/audio data are retained. New books have no computed Hebrew syllable ranges, category/IPA proposals, acoustic intervals or singing voice. 429 checks pass, including 10 new checks. Printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
