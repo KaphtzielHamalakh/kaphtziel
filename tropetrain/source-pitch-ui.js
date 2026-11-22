@@ -17,8 +17,7 @@ export function mountSourcePitch({getWord,getReferences}){
   const word=getWord(),refs=getReferences(),key=JSON.stringify([word?.id,word?.sourceHebrew,!!refs]);if(key===currentKey)return;currentKey=key;const request=++generation;clear();
   set('source-pitch-status','Loading pitch evidence for the selected Hebrew word…');
   try{
-   if(!refs)throw Error('The recorded-reference catalog is still loading.');const entry=refs.at(word);if(!entry)throw Error('This word has no PocketTorah reference. Pitch evidence covers Torah recordings only.');
-   if(entry.recording.status!=='aligned')throw Error('Source word timings need review. Use the complete recording; no word pitch window is assigned.');
+   if(!refs)throw Error('The recorded-reference catalog is still loading.');const entry=refs.timedAt(word);if(!entry)throw Error('This word has no PocketTorah reference. Pitch evidence covers Torah recordings only.');
    const loaded=await store.get(entry.recording.id);if(request!==generation)return;
    const selected=pitchWordWindow(loaded,entry,word);data=loaded;window=selected;recording=entry.recording;
    set('source-pitch-word',`${word.sourceHebrew}`);set('source-pitch-status',`${recording.title} · ${word.reference}, word ${word.ordinal} · ${selected.series.length} measured / ${selected.frames} source-time frames · ${selected.frames-selected.series.length} unassigned.`);

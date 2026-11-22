@@ -1,5 +1,5 @@
 {
-  "revision": 1,
+  "revision": 2,
   "inputs": [
     {
       "path": "docs/PRONUNCIATION-EDITION-WORDS.json",
@@ -24,12 +24,12 @@
   ],
   "schema": "tropetrain-joint-chant-pronunciation-coverage-v1",
   "words": 79985,
-  "terminalOnsets": 370,
+  "terminalOnsets": 375,
   "matrix": {
-    "timed/word-owned/written-range": 75085,
-    "timed/word-owned/source-only": 2087,
-    "timing-review/word-owned/written-range": 2717,
-    "timing-review/word-owned/source-only": 94,
+    "timed/word-owned/written-range": 77023,
+    "timed/word-owned/source-only": 2169,
+    "timing-review/word-owned/written-range": 779,
+    "timing-review/word-owned/source-only": 12,
     "timed/group-only/source-only": 2
   },
   "timedWithoutPronunciationOwner": [
@@ -46,5 +46,5 @@
       "pronunciation": "combined-source-form"
     }
   ],
-  "limits": "Exact source-ID/text and source timing structure only; acoustic/linguistic/musical review pending. Written range, pronunciation unit ownership and original recording pronunciation are independent. Final370source-onset words end at verified decoded media duration, never an invented endpoint. No new timing/phoneme/note/voice or source-text rewrite."
+  "limits": "Exact source-ID/text and source timing structure only; acoustic/linguistic/musical review pending. Written range, pronunciation unit ownership and original recording pronunciation are independent. Final375source-onset words end at verified decoded media duration, never an invented endpoint. No new timing/phoneme/note/voice or source-text rewrite."
 }

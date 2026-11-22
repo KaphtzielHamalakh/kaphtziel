@@ -1,9 +1,10 @@
 // Reference adaptation: CC BY-SA 3.0; assets/references/NOTICE.txt.
+import {sourceTimingPolicy,originalWordWindow} from './source-word-windows.js';
 import {loadReferenceData} from './reference-library-data.js';
 export class ReferenceLibrary {
   constructor(data){
     if(data?.format!=='tropetrain-reference-library-packed-v1')throw Error('Unsupported reference library.');
-    this.source={...data,recordings:undefined};this.parts=data.parts;this.recordings=[];this.byId=new Map();this.byWord=new Map();
+    this.source={...data,recordings:undefined};this.parts=data.parts;this.recordings=[];this.byId=new Map();this.byWord=new Map();this.timingPolicies=new Map();
     for(const packed of data.recordings){
       const recording={...packed,words:packed.words.map((row,index)=>{
         const [id,uxlcHebrew,source,startSeconds,endSeconds,readerOrdinal]=row;
@@ -12,17 +13,24 @@ export class ReferenceLibrary {
         const comparison=sourceWords.length>1?'source-boundaries':sourceHebrew===uxlcHebrew?'exact':sourceHebrew.replaceAll('\u034f','')===uxlcHebrew.replaceAll('\u034f','')?'joiner-only':'source-difference';
         return {id,recordingId:packed.id,referenceIndex:index,uxlcHebrew,sourceWords,sourceHebrew,sourceToken:sourceWords.length===1?first.sourceToken:null,comparison,startSeconds,endSeconds,chapter:first.chapter,verse:first.verse,ordinal:first.ordinal,readerChapter:Number(readerChapter),readerVerse:Number(readerVerse),readerOrdinal};
       })};
+      this.timingPolicies.set(recording.id,sourceTimingPolicy(recording));
       this.recordings.push(recording);this.byId.set(recording.id,recording);
       for(const word of recording.words){if(this.byWord.has(word.id))throw Error('Reference coverage overlaps.');this.byWord.set(word.id,{recording,word});}
     }
   }
   at(word){return this.byWord.get(word.sourceWordId??word.id);}
+  timingPolicy(recording){return this.timingPolicies.get(typeof recording==='string'?recording:recording?.id);}
+  timedAt(word){
+    const entry=this.at(word);if(!entry)throw Error('No recorded reference is mapped to this source word.');
+    if(entry.word.uxlcHebrew!==word.sourceHebrew)throw Error('The reader source changed; reference alignment needs review.');
+    const window=originalWordWindow(entry.recording,entry.word,this.timingPolicy(entry.recording));
+    if(!window)throw Error(`${entry.recording.title} has unreliable source timings at ${entry.word.id}. This word is withheld; selections crossing it cannot play. Use the complete recording without timed highlights.`);
+    return {...entry,word:{...entry.word,...window}};
+  }
   selection(words,start,end){
     if(!Number.isInteger(start)||!Number.isInteger(end)||start<0||end<start||end>=words.length)throw Error('Choose a valid reference span.');
     return words.slice(start,end+1).map(word=>{
-      const entry=this.at(word);if(!entry)throw Error('No recorded reference is mapped to this source word.');
-      if(entry.word.uxlcHebrew!==word.sourceHebrew)throw Error('The reader source changed; reference alignment needs review.');
-      if(entry.recording.status!=='aligned')throw Error(`${entry.recording.title} has unreliable source timings. Use its complete recording; word playback needs review.`);
+      const entry=this.timedAt(word);
       return {...entry.word,occurrenceId:word.id,wordIndex:word.index};
     });
   }

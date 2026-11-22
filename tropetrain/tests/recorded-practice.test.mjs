@@ -11,7 +11,7 @@ const library=new ReferenceLibrary(JSON.parse(gunzipSync(read('data/references/t
 test('every Torah word stays mapped; exact source-timed coverage and all eight gaps are inspectable without inventing timestamps',()=>{
  const coverage=chantCoverage(library);assert.deepEqual(coverage,JSON.parse(read('docs/CHANT-COVERAGE.json')));
  assert.ok(read('TropeTrain.html').toString().includes(read('docs/CHANT-COVERAGE.json').toString('base64')));
- assert.equal(coverage.words,79985);assert.equal(coverage.sourceTimedWords,77174);assert.equal(coverage.reviewWords,2811);assert.equal(coverage.gaps.length,8);
+ assert.equal(coverage.words,79985);assert.equal(coverage.sourceTimedWords,79194);assert.equal(coverage.reviewWords,791);assert.equal(coverage.gaps.length,8);
  assert.equal(coverage.books.length,5);assert.equal(coverage.books[0].sourceTimedWords,20614);
  assert.equal(coverage.sourceTimedWords+coverage.reviewWords,coverage.words);
  for(const record of library.recordings){
@@ -19,7 +19,8 @@ test('every Torah word stays mapped; exact source-timed coverage and all eight g
   if(record.status==='aligned'){
    const plan=chantPracticePlan(library,words,0,words.length-1);assert.equal(plan.words,words.length);assert.deepEqual(plan.records,[record]);assert.equal(plan.bytes,record.audio.bytes);
    assert.equal(plan.rows[0].occurrenceId,words[0].id);
-  }else assert.throws(()=>chantPracticePlan(library,words,0,0),/unreliable source timings/);
+  }else if(library.timingPolicy(record).eligibleWords){assert(chantPracticePlan(library,words,0,0));assert.throws(()=>chantPracticePlan(library,words,0,words.length-1),/unreliable source timings/);}
+  else assert.throws(()=>chantPracticePlan(library,words,0,0),/unreliable source timings/);
   assert.equal(JSON.stringify(words),before);
  }
 });

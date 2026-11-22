@@ -1,4 +1,5 @@
 // Measurement adaptation: CC BY-SA 3.0. This is evidence, not a musical score.
+import {originalWordWindow} from './source-word-windows.js';
 import {SOURCE_PITCH_MANIFEST} from './source-pitch-manifest.js';
 export const pitchManifest=SOURCE_PITCH_MANIFEST;
 export function validatePitchRecord(data,entry){
@@ -14,11 +15,11 @@ export function validatePitchRecord(data,entry){
 export function pitchWordWindow(data,entry,readerWord){
  if(!entry||entry.recording.id!==data.id||entry.recording.audio.sha1!==data.sourceAudio.sha1)throw Error('The pitch and recording sources differ.');
  if(entry.word.uxlcHebrew!==readerWord.sourceHebrew||(readerWord.sourceWordId??readerWord.id)!==entry.word.id)throw Error('The marked Hebrew changed; correspondence needs review.');
- if(entry.recording.status!=='aligned')throw Error('Source word timings need review. Use the complete recording; no word pitch window is assigned.');
- const word=entry.word,start=word.startSeconds,end=word.endSeconds??data.decodedPcm.durationSeconds;
+ const original=originalWordWindow(entry.recording,entry.word);if(!original)throw Error('Source word timings need review. Use the complete recording; no word pitch window is assigned.');
+ const word={...entry.word,...original},start=word.startSeconds,end=word.endSeconds??data.decodedPcm.durationSeconds;
  if(!Number.isFinite(start)||!Number.isFinite(end)||start<0||end<=start||end>data.decodedPcm.durationSeconds+.1)throw Error('Source word bounds need review.');
  const hop=data.parameters.hop/data.parameters.sampleRate,first=Math.ceil(start/hop),last=Math.min(data.counts.frames,Math.ceil(end/hop));
- return {wordId:word.id,occurrenceId:readerWord.id,hebrew:readerWord.sourceHebrew,sourceHebrew:word.sourceHebrew,comparison:word.comparison,startSeconds:start,endSeconds:end,endKind:word.endSeconds===null?'recording end; not a reviewed word offset':'source word boundary',frames:Math.max(0,last-first),series:data.series.filter(row=>row[0]>=first&&row[0]<last),syllableTimes:null,phonemes:null,musicalNotes:null};
+ return {wordId:word.id,occurrenceId:readerWord.id,hebrew:readerWord.sourceHebrew,sourceHebrew:word.sourceHebrew,comparison:word.comparison,startSeconds:start,endSeconds:end,timingPolicy:original.timingPolicy??'original-aligned',endKind:word.endSeconds===null?'recording end; not a reviewed word offset':'source word boundary',frames:Math.max(0,last-first),series:data.series.filter(row=>row[0]>=first&&row[0]<last),syllableTimes:null,phonemes:null,musicalNotes:null};
 }
 export function pitchFrame(row){
  if(!row)return null;
