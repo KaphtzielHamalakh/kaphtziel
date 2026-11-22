@@ -140,3 +140,5 @@
 
 .phonetic-model-context{overflow-wrap:anywhere;line-height:1.8;font-size:1.15rem}.phonetic-model-glyph{font-size:1.2em}.phonetic-model-context mark{padding:.1em .05em}
 .phonetic-selected-word{font-size:2rem;line-height:1.7}.phonetic-source-cluster{font-size:1.45em;line-height:1.8}
+.vowel-observation-table{width:100%;table-layout:fixed;border-collapse:collapse}.vowel-observation-table caption{text-align:left;font-size:.9rem;margin:.75rem 0}.vowel-observation-table th,.vowel-observation-table td{text-align:left;vertical-align:top;white-space:normal;overflow-wrap:anywhere;padding:.65rem;border-bottom:1px solid var(--line)}.vowel-observation-table small{display:block;margin-top:.25rem}.vowel-source-hebrew,#vowel-anchor-hebrew{font:1.6rem/1.8 'Noto Hebrew',serif}#vowel-anchor-caption-hebrew{font:1.35rem/1.8 'Noto Hebrew',serif}.vowel-model-observation{display:block;white-space:pre-wrap;font-size:1.25rem;line-height:1.8}
+@media(max-width:480px){.vowel-observation-table th,.vowel-observation-table td{padding:.45rem .3rem}.vowel-observation-table small{font-size:.78rem}}
