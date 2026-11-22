@@ -7,6 +7,8 @@ source=json.loads((root/'docs/PRONUNCIATION-SOURCES.json').read_text())
 packed=(root/'data/pronunciation/torah-display.json.gz').read_bytes()
 data=json.loads(gzip.decompress(packed))
 subprocess.run([sys.executable,str(root/'scripts/audit-pronunciation-editions.py')],check=True,capture_output=True)
+subprocess.run([sys.executable,str(root/'scripts/audit-pronunciation-implicit-reading.py')],check=True,capture_output=True)
+implicit=json.loads((root/'docs/PRONUNCIATION-IMPLICIT-READING.json').read_text())
 assert data['sourceCommit']==audit['sourceCommit']==source['commit']=='6f0612ed2109d32e288d7c0ca41ae3dbfaad702b'
 assert hashlib.sha256(packed).hexdigest()==audit['packetSha256']
 raw_rows={};readers={};orders={};source_bytes=0;written_pairs={}
@@ -118,6 +120,9 @@ for g in data['groups']:
  # Independently verify every literal Hebrew reading, without join-code imports.
  choices=[reading_forms(w) for w in g['readerHebrew']]
  for link in g.get('editionWordLinks',[]):choices[g['readerIds'].index(link['readerWordId'])].add(letters(link['primaryHebrew']))
+ for link in g.get('implicitReadingLinks',[]):
+  assert g['id']==implicit['groupId'] and link==implicit['link']
+  choices[g['readerIds'].index(link['readerWordId'])].add(letters(link['sourceReadingHebrew']))
  if 'writtenReadVariants' in g:
   assert g['match']=='explicit-written-read-variants-between-anchors' and 'explicit-written-read-variant' in g['flags']
   assert len(g['rows'])==1 and 1<=len(g['readerIds'])<=2
@@ -147,11 +152,11 @@ for g in data['groups']:
    styles[style]+=1
    alternates+=sum(cell is not None and len(cells)>1 for cell in cells)
  if len(g['readerIds'])>1:groups+=1
-base=[g for g in data['groups'] if 'writtenReadVariants' not in g and 'editionWordLinks' not in g]
+base=[g for g in data['groups'] if 'writtenReadVariants' not in g and 'editionWordLinks' not in g and 'implicitReadingLinks' not in g]
 base_hash=hashlib.sha256(json.dumps(base,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
 assert len(base)==68354 and base_hash=='e0a84b5a2839e025b2e68e71cf3f65af825d410b2f475ab0cf7f4d80ade56c07'
-assert len(data['groups'])-len(base)==30+119
-assert len(seen)==audit['mappedWords']==79984
+assert len(data['groups'])-len(base)==30+119+1
+assert len(seen)==audit['mappedWords']==79985
 assert len(readers)==79985
 for b in audit['books']:
  assert set(b['unmappedReaderIds'])=={rid for rid in readers if rid.startswith(b['bookId']+'-') and rid not in seen}

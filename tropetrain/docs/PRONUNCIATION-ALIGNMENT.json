@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-pronunciation-alignment-v1",
-  "revision": 4,
+  "revision": 5,
   "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
   "license": "CC-BY-SA-4.0",
   "sourceFiles": [
@@ -44,18 +44,16 @@
     {
       "bookId": "gen",
       "readerWords": 20614,
-      "mappedWords": 20613,
-      "unmappedWords": 1,
+      "mappedWords": 20614,
+      "unmappedWords": 0,
       "acceptedDisplayVerses": 1513,
       "unmatchedDisplayVerses": 20,
       "partiallyMatchedDisplayVerses": 20,
-      "mappedDisplayRows": 17661,
+      "mappedDisplayRows": 17662,
       "nonlexicalRows": 120,
       "anchoredRepeatedVerses": 0,
       "readerSha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba",
-      "unmappedReaderIds": [
-        "gen-4-18-9"
-      ]
+      "unmappedReaderIds": []
     },
     {
       "bookId": "exo",
@@ -114,9 +112,9 @@
       "unmappedReaderIds": []
     }
   ],
-  "mappedWords": 79984,
+  "mappedWords": 79985,
   "readerWords": 79985,
-  "groups": 68503,
+  "groups": 68504,
   "unmatchedDisplayVerses": [
     {
       "bookId": "gen",
@@ -1271,7 +1269,7 @@
       "partialGroups": 10
     }
   ],
-  "packetSha256": "0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7",
+  "packetSha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2",
   "method": "Complete display-verse letter correspondence to one to six contiguous UXLC verse records in nearby chapters. Unique matches must be ordered and disjoint; repeats require two surrounding accepted anchors. Documented implicit-qere name/hi/Yissakhar forms and separately audited explicit one-written/one-reading UXLC pairs are permitted; original strings unchanged. Common row/word boundaries define many-to-many groups; all source columns/readings retained.",
   "limits": "Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending.",
   "partialWindows": [
@@ -7669,5 +7667,7 @@
   "stageNote": "Partial-window fields retain the exact-match stage before explicit written/read links; final unassigned reader IDs are listed per book.",
   "editionWordRecord": "docs/PRONUNCIATION-EDITION-WORDS.json",
   "editionWordGroups": 119,
-  "editionWords": 141
+  "editionWords": 141,
+  "implicitReadingRecord": "docs/PRONUNCIATION-IMPLICIT-READING.json",
+  "implicitReadingWords": 1
 }

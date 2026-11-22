@@ -1,5 +1,6 @@
 // Literal display-boundary correspondence. This does not derive phonemes.
 import {hasTranscription} from './pronunciation-repeats.js';
+import {implicitReadingWordForm,isImplicitReadingGroup} from './pronunciation-implicit-reading.js';
 const letters=text=>text.replace(/[^א-ת]/gu,'');
 export function readerLetterForms(text){
  const raw=letters(text),forms=new Set([raw]);
@@ -27,6 +28,7 @@ export function groupReaderLetterForms(group,index){
   if(link.kind!=='mam-primary-edition-word'||link.readerHebrew!==text||typeof link.primaryHebrew!=='string'||!letters(link.primaryHebrew)||!Number.isInteger(link.primaryAtom)||link.primaryAtom<1||link.primaryVerse!==`${osis}.${group.displayChapter}.${group.displayVerse}`||!/^[a-f0-9]{64}$/u.test(link.sourceFileSha256??''))throw Error('Primary edition word evidence needs review.');
   forms.push(letters(link.primaryHebrew));
  }
+ if(isImplicitReadingGroup(group))forms.push(implicitReadingWordForm(group,index));
  return [...new Set(forms)];
 }
 

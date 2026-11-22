@@ -1,10 +1,10 @@
 {
   "schema": "tropetrain-pronunciation-source-audit-v1",
-  "revision": 6,
+  "revision": 7,
   "source": "Phonetic MAM public display",
   "repository": "https://github.com/bdenckla/MAM-basics",
   "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
-  "status": "source_preserving_text_styles_with_explicit_UXLC_written_read_variants_v0.31_review_pending",
+  "status": "source_preserving_text_styles_all_Torah_words_group_linked_v0.40_review_pending",
   "license": "CC-BY-SA-4.0 for Phonetic-MAM/data; implementation GPL3; separate font/image terms. No implementation/fonts/images imported.",
   "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla. Existing display credits also name Al-Hatorah.",
   "rightsEvidence": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/DATA-LICENSES.md",
@@ -103,15 +103,16 @@
     }
   ],
   "limitations": [
-    "Public display rows, not a source-quality or phoneme judgment layer.",
-    "Source-preserving complete display-verse joins plus forced exact groups between two original verse anchors. 79,843 words linked;142 unassigned. Thirty added source groups match explicit one-ketiv/one-qere UXLC pairs between old anchors. All original text/readings/columns retained; linguistic and correspondence review pending.",
-    "No audio timing, source singing voice or proof of equivalence to six Kinnor Accent labels."
+    "Source text and contextual word correspondence only; independent linguistic, phonological and cantorial review pending.",
+    "79,985 Torah words have source-group correspondence;79,983 have individual source-unit owners in each style and two remain combined.77,802 words/style have exact written ranges;2,181word-owned source forms/style retain null written syllable ranges.",
+    "The explicit MAM reading form in Genesis4:18 is a source rule, not an added UXLC qere annotation or a global yod-deletion rule. Every original edition retains its own letters and accents.",
+    "No new IPA, reviewed acoustic phonemes, singing voice, syllable audio timing or equivalence to six Kinnor Accent labels."
   ],
   "alignmentRecord": "docs/PRONUNCIATION-ALIGNMENT.json",
   "sourceArchive": "assets/pronunciation/phonetic-mam-torah-sources.zip",
   "readingFormEvidence": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/core/qere_from_implicit_kq.py",
   "implementationReuse": "Pinned unmodified GPL3 Reading.syllables dependency closure is redistributed with original LICENSE and per-file hashes in a separate computation source archive; GPL3 build-time adapter reproduces both source transcriptions and emits factual Hebrew ranges. Browser mapping/UI code remains original and does not execute upstream Python. Data CC BY-SA4/source packet unchanged; no IPA, new phoneme grammar or voice.",
-  "alignmentRevision": 3,
+  "alignmentRevision": 5,
   "repeatRecord": "docs/PRONUNCIATION-REPEATS.json",
   "repeatEvidence": {
     "file": "py/phonetic_mam/display_projection.py",
@@ -130,5 +131,12 @@
     "license": "CC-BY-SA-4.0",
     "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla.",
     "method": "Unmodified native MAM Torah JSON and original license, independently Git-blob/hash checked. Explicit primary Scripture roles, exact complete-verse comparison letters and both unchanged source/reader anchors. Different spellings stay source-only; no equivalence inferred."
+  },
+  "implicitReadingRecord": "docs/PRONUNCIATION-IMPLICIT-READING.json",
+  "implicitReadingSource": {
+    "archive": "assets/pronunciation/implicit-reading-source.zip",
+    "sha256": "cf2aef1d9df85e4ead6f7ef9cfcb15001d777104a0c29b2dcbaddc7133292d0e",
+    "upstreamCodeLicense": "GPL-3.0-only",
+    "use": "Unmodified source reference; syntax parsed as evidence only. The upstream module is not imported or executed by the browser."
   }
 }

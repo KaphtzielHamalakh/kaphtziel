@@ -71,7 +71,7 @@ test('independent full-corpus enumeration reproduces every unit-word assignment 
  const independent=JSON.parse(execFileSync('python3',[new URL('../scripts/audit-pronunciation-word-alignment.py',import.meta.url).pathname],{encoding:'utf8'}));
  const audit=JSON.parse(read('docs/PRONUNCIATION-WORD-ALIGNMENT.json'));
  assert.deepEqual(independent.styles,audit.styles);assert.equal(audit.exceptions.length,7);
- for(const s of Object.values(audit.styles)){assert.equal(s.joinedGroupsAligned,11072);assert.equal(s.joinedGroupsPartial,6);assert.equal(s.joinedGroupsUnsplit,1);assert.equal(s.wordsWithUnits,79970);assert.equal(s.groupOnlyUnits,26);}
+ for(const s of Object.values(audit.styles)){assert.equal(s.joinedGroupsAligned,11072);assert.equal(s.joinedGroupsPartial,6);assert.equal(s.joinedGroupsUnsplit,1);assert.equal(s.wordsWithUnits,79971);assert.equal(s.groupOnlyUnits,26);}
  assert.ok(independent.enumeratedReaderChoices>11051);assert.ok(independent.maximumReaderChoices>=3);
 });
 test('word ownership follows source IDs in repeated assignments while Hebrew, events and controls stay untouched',()=>{

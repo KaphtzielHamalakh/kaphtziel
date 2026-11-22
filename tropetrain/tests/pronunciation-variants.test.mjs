@@ -6,7 +6,7 @@ const study=(id,style='sephardic')=>lib.study(word(id),style);
 const stable=value=>JSON.stringify(value,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a<b?-1:a>b?1:0)):v);
 
 test('all thirty variant groups retain original source rows and explicit UXLC pairs between two unchanged anchors',()=>{
- assert.equal(data.revision,4);assert.equal(record.addedGroups,30);assert.equal(record.addedWords,37);assert.equal(record.baseGroups,68354);
+ assert.equal(data.revision,5);assert.equal(record.addedGroups,30);assert.equal(record.addedWords,37);assert.equal(record.baseGroups,68354);
  const byId=new Map(data.groups.map(g=>[g.id,g]));let pairs=0;
  for(const entry of record.entries){
   const group=byId.get(entry.groupId);assert.deepEqual(group.readerHebrew,entry.readerHebrew);assert.deepEqual(group.writtenReadVariants,entry.writtenReadVariants);assert.deepEqual(group.rows[0].hebrew,entry.sourceHebrew);
@@ -20,7 +20,7 @@ test('all thirty variant groups retain original source rows and explicit UXLC pa
  assert.equal(pairs,30);
  // The independent audit checks every source byte/column, explicit token pair,
  // old group digest, all anchors and all142remaining unassigned words.
- const result=JSON.parse(execFileSync('python3',[new URL('../scripts/audit-pronunciation.py',import.meta.url).pathname],{encoding:'utf8'}));assert.equal(result.mappedWords,79984);assert.equal(result.unassignedWords,1);
+ const result=JSON.parse(execFileSync('python3',[new URL('../scripts/audit-pronunciation.py',import.meta.url).pathname],{encoding:'utf8'}));assert.equal(result.mappedWords,79985);assert.equal(result.unassignedWords,0);
 });
 test('written qere forms retain both pronunciation styles and qamats repeat evidence without a false written syllable range',()=>{
  const w=word('gen-13-3-13');assert.equal(w.sourceHebrew,'אֽ͏ָהֳלוֹ֙');
@@ -47,11 +47,11 @@ test('malformed or unanchored written/read evidence cannot create a pronunciatio
  for(const mutate of [g=>g.writtenReadVariants[0].readerHebrew+='א',g=>g.writtenReadVariants[0].kind='approximate-spelling',g=>g.variantWindow.beforeGroup=null,g=>g.writtenReadVariants.push({...g.writtenReadVariants[0]}),g=>g.writtenReadVariants[0].readerWordId='different-word']){
   const bad=structuredClone(group);mutate(bad);assert.throws(()=>sourcePronunciationStudy(bad,{sourceCommit:lib.sourceCommit,word:w,style:'sephardic'}),/written\/read/);
  }
- const unrelated=word('gen-8-20-7');assert.equal(groupReaderLetterForms(lib.at(unrelated),0).includes('הטהרה'),false);assert.equal(lib.at({id:'gen-4-18-9',sourceHebrew:'וּמְחִיּיָאֵ֗ל'}),null);
+ const unrelated=word('gen-8-20-7');assert.equal(groupReaderLetterForms(lib.at(unrelated),0).includes('הטהרה'),false);assert.equal(lib.at({id:'gen-4-18-9',sourceHebrew:'וּמְחִיּיָאֵ֗ל'}).implicitReadingLinks[0].ruleId,'mam-umexiyael-gen4-18');assert.equal(lib.at({id:'unknown',sourceHebrew:'וּמְחִיּיָאֵ֗ל'}),null);
 });
 test('all old source groups keep their exact digest and prior literal/resolved word-ownership hashes',()=>{
  // Python sorted keys supply a language-independent canonical JSON proof.
- const base=data.groups.filter(g=>!g.writtenReadVariants&&!g.editionWordLinks);assert.equal(base.length,68354);
+ const base=data.groups.filter(g=>!g.writtenReadVariants&&!g.editionWordLinks&&!g.implicitReadingLinks);assert.equal(base.length,68354);
  const hash=createHash('sha256').update(stable(base)).digest('hex');assert.equal(hash,'e0a84b5a2839e025b2e68e71cf3f65af825d410b2f475ab0cf7f4d80ade56c07');assert.equal(hash,record.baseGroupsSha256);
  const audit=json('docs/PRONUNCIATION-WORD-ALIGNMENT.json');assert.equal(audit.styles.sephardic.baseLiteralAssignmentSha256,'2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443');assert.equal(audit.styles.ashkenazic.baseAssignmentSha256,'361c7110e9729970f4c7c5cd4f829de849c006ccb28c21f4a2d451aa52124773');
 });

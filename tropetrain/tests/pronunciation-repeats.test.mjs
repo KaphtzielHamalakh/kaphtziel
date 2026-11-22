@@ -42,7 +42,7 @@ test('all89source repeat marks resolve, including joined words and four Hebrew a
  assert.equal(refs.repetitions.length,89);assert.deepEqual(refs.unresolvedRepeats,[]);
  assert.equal(audit.styles.sephardic.baseLiteralAssignmentSha256,'2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443');
  assert.equal(audit.styles.ashkenazic.baseLiteralAssignmentSha256,'ebf77ef1f99acc56b158c376582cc98820542223db7983901eabaad6a88c90af');
- assert.equal(createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'),'0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7');
+ assert.equal(createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'),'a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2');
 });
 test('unqualified, missing, cyclic, other-column and other-style references stay unresolved',()=>{
  const good=fixture([reading('קמץ-ד','bo'),['—']]);assert.equal(good[1].text,'bo');

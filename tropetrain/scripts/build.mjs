@@ -18,6 +18,7 @@ const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/import-pronunciation.py')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/audit-pronunciation-editions.py')],{stdio:'inherit'});
+execFileSync('python3',[path.join(root,'scripts/audit-pronunciation-implicit-reading.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-structure.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-word-alignment.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py')],{stdio:'inherit'});
@@ -201,5 +202,8 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
  .replace('<footer>',()=>`<details id="pronunciation-notices"><summary>Pronunciation source attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(pronunciationNotice)}</pre></details><details id="voice-study-notices"><summary>Voice-study recording attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(voiceStudyNotice)}</pre></details><details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 for(const scan of highHolidayScans)standalone=standalone.replaceAll(`src="./${scan.file}"`,()=>`src="data:image/png;base64,${scan.raw.toString('base64')}"`);
 standalone=standalone.replaceAll('href="./docs/BAER-HIGH-HOLIDAY-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(highHolidayEvidence).toString('base64')}"`);
+for(const [relative,mime] of [['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']]){
+ const bytes=await readFile(path.join(root,relative));standalone=standalone.replaceAll(`href="./${relative}"`,()=>`href="data:${mime};base64,${bytes.toString('base64')}"`);
+}
 await writeFile(path.join(root,'TropeTrain.html'),standalone);
 console.log('Built classic-script app.bundle.js and self-contained TropeTrain.html.');

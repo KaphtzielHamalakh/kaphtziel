@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "328531805d9030d6beb85e4426d22c3bfa2f2d15",
-  "nextTask": "Continue word-aligned chanting across the entire Torah with independent sourced/reviewed pronunciation and melody systems. Preserve all exact marked Hebrew/canonical and occurrence IDs,79,985 words, prior scores/demo events, recordings/times and pronunciation packets. The two MAM source text styles remain independent projections, not six Kinnor singing voices. One MAM word gen-4-18-9 is unassigned, two source forms combined and2,180 word forms/style lack exact written ranges;2,811 earlier recording-timing words need review. Establish actual verse/word/syllable correspondence and performer/edition evidence for64 distinct2018 verse clips and11 distinct2019 LenFellman takes without guessing times or phonemes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules; No113 first setting Gen21:12 lyric fragments under rests and Cohen p547 penitential ornament remain unresolved. All six historical Accent grammars/voices and every remaining roadmap feature stay required; printing deferred. Do not infer Kinnor preset identity from the bounded printed examples.",
+  "nextTask": "Publish/save the verified v0.40 source-reading update, then continue the full independently pronounced word-aligned chanting reconstruction. All79,985Torah words now have source-group correspondence;79,983individual unit owners/style and two combined words remain. Preserve every original marked Hebrew/canonical and occurrence ID,68503prior source groups, source cells/stress/categories, score/demo notes, fixed recordings and timing.77,802words/style have exact written ranges;2,181source-only word forms/style and two combined words still need qualified phonological/underlay review. Source word correspondence and the explicit _UMEXIYAEL source rule do not allocate the extra written yod or prove identical pronunciation.2,811older recording-timing words need review. Establish actual verse/word/syllable/phoneme/performer/edition evidence for64distinct2018source clips and11distinct2019LenFellman full takes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules, unresolved BaerNo113first-setting lyric-under-rest questions and Cohenp547penitential ornament without arbitrary pitches. All six historical Kinnor Accent grammars/voices, all recovered melody systems, qualified musical/cantorial review and the entire remaining roadmap stay required. No unsupported preset or ordinary speech substitution; printing deferred.",
   "lastPassingTests": {
-    "automated": 324,
+    "automated": 333,
     "newRegressionChecks": 9,
-    "ui": "Public normal24 and portable25 open all14 exact marked Genesis22:19 words and46 Baer No113/II source notes/32.00seconds. Independent Sephardic/Ashkenazic text switches preserve every reader string/canonical ID/aria-label and actual note event ID/pitch/beats. Normal muted playback advances0.513437→0.595313% across the style switch; portable advances0.522813→0.610937%, remaining on word1/G4. Initial live AX Play samples both0% did not prove playback; the subsequent supported Playwright Play control and advancing snapshots complete that check. Both actual roots/bodies fit319/1280widths; viewport reset. Normal AX is primary; portable uses observed supported Playwright UI following the local full-AX native-pipe frame limit. No application console warnings/errors. Both builds left Genesis22:19/all14words/46events/32.00s, source Baer No113/II, instrument/Sephardic/key0/60BPM, rangeC4–C5 unchanged; all four gains0, repeatfalse, three media elements paused. Live screenshot outputs/TropeTrain-v0.39-live.jpg viewed; it captures word12 and its source text before the full verse was restored. Public tabs24/25 marked deliverables; previews22/23 and old public20/21 closed. Owned8767session85635 stopped/exit0; user8765 untouched. NativeSave/directfileorigin, actual auditory and qualified cantorial/Hebrew-underlay/phonological review remain pending.",
-    "limits": "Bounded Baer No113/II instrumental transcription plus independent existing pronunciation text styles; musical/Hebrew-underlay/phonological review and six singing grammars/voices remain pending."
+    "ui": "Local normal26 and portable27 open the unchanged16marked Genesis4:18 words, selecting word9. Normal example navigation preserves BaerNo113/II, instrument mode, Ashkenazic text,73BPM/+2 and rangeC4–C5; the bounded score correctly refuses unavailable Genesis4:18 notes and disables Play. Explicitly choosing OriginalDemo gives its original six word9events/3.21seconds. All16reader strings/canonical IDs/aria-labels and actual event IDs/pitches/beats stay exact across the style change; muted progress advances5.17551→5.96791%, remaining word9/E4. Portable at60BPM/key0 similarly preserves all16marked words and actual six notes, advancing4.30513→5.12051% on word9/D4. Source texts change um·ḥiy·ya·’él / um·ḥiy·yo·’él independently. Both source comparisons show literal UXLC וּמְחִיּיָאֵ֗ל, primary MAM וּמְחִיָּיאֵ֗ל and source reading וּמְחִיָּאֵ֗ל. Unit scope explicitly leaves the extra written yod without a syllable/note/acoustic time. Coverage displays79,983individual owners/style and two combined words. Both actual roots/bodies fit319/1280 with the comparison open; viewportreset. No app console warnings/errors. Normal AX is primary; portable fullAX hits the known native-pipe frame limit and uses supported observed Playwright UI/read-only DOM. Both left stopped/allfour gains0, Sephardic/key0/60BPM/rangeunchanged. No acoustic, nativeSave or direct-file-origin review claimed.",
+    "limits": "Whole-Torah source-word correspondence, not reviewed pronunciation/acoustic alignment or six independent Kinnor singing grammars/voices."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "primary_edition_word_correspondence_79984_source_linked_words_77802_exact_written_ranges_source_only_forms_explicit_no_new_phonemes"
+      "status": "all79985_Torah_words_source_group_linked_79983individual_2combined_77802exact_written_ranges_2181source_only_forms_per_style_review_pending"
     },
     {
       "id": "playback",
@@ -48,7 +48,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_source_text_styles_79982_individual_owners_87_categories_1_unassigned_2_combined_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_source_text_styles_all_Torah_words_linked_0unassigned_2combined_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.39.0",
+    "version": "0.40.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "b428e42ecde43e5e07ed82ef359b70d06a16032f",
-    "status": "published_324pass_36files_exact_normal_portable_verified_final_records_and_save_follow",
-    "record": "docs/VERIFICATION-0.39.md",
-    "next": "Continue word-aligned chanting across the entire Torah with independent sourced/reviewed pronunciation and melody systems. Preserve all exact marked Hebrew/canonical and occurrence IDs,79,985 words, prior scores/demo events, recordings/times and pronunciation packets. The two MAM source text styles remain independent projections, not six Kinnor singing voices. One MAM word gen-4-18-9 is unassigned, two source forms combined and2,180 word forms/style lack exact written ranges;2,811 earlier recording-timing words need review. Establish actual verse/word/syllable correspondence and performer/edition evidence for64 distinct2018 verse clips and11 distinct2019 LenFellman takes without guessing times or phonemes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules; No113 first setting Gen21:12 lyric fragments under rests and Cohen p547 penitential ornament remain unresolved. All six historical Accent grammars/voices and every remaining roadmap feature stay required; printing deferred. Do not infer Kinnor preset identity from the bounded printed examples."
+    "baseCommit": "2e24d1690350c1341b07977bcb0d936bca2a0d39",
+    "status": "333pass_old_fields_preserved_normal_portable_QA_passed_ready_publication",
+    "record": "docs/VERIFICATION-0.40.md",
+    "next": "Publish/save the verified v0.40 source-reading update, then continue the full independently pronounced word-aligned chanting reconstruction. All79,985Torah words now have source-group correspondence;79,983individual unit owners/style and two combined words remain. Preserve every original marked Hebrew/canonical and occurrence ID,68503prior source groups, source cells/stress/categories, score/demo notes, fixed recordings and timing.77,802words/style have exact written ranges;2,181source-only word forms/style and two combined words still need qualified phonological/underlay review. Source word correspondence and the explicit _UMEXIYAEL source rule do not allocate the extra written yod or prove identical pronunciation.2,811older recording-timing words need review. Establish actual verse/word/syllable/phoneme/performer/edition evidence for64distinct2018source clips and11distinct2019LenFellman full takes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules, unresolved BaerNo113first-setting lyric-under-rest questions and Cohenp547penitential ornament without arbitrary pitches. All six historical Kinnor Accent grammars/voices, all recovered melody systems, qualified musical/cantorial review and the entire remaining roadmap stay required. No unsupported preset or ordinary speech substitution; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -340,21 +340,21 @@
   "pronunciationSource": {
     "record": "docs/PRONUNCIATION-SOURCES.json",
     "alignment": "docs/PRONUNCIATION-ALIGNMENT.json",
-    "mappedWords": 79984,
-    "unassignedWords": 1,
-    "groups": 68503,
+    "mappedWords": 79985,
+    "unassignedWords": 0,
+    "groups": 68504,
     "styles": [
       "sephardic",
       "ashkenazic"
     ],
     "review": "Structural/source-preservation checks passed; independent linguistic and correspondence review pending. No new phoneme grammar or voice.",
-    "alignmentRevision": 4,
+    "alignmentRevision": 5,
     "exactCandidateEdges": 2162,
     "partialWindows": 126,
     "structure": "docs/PRONUNCIATION-STRUCTURE.json",
     "structureReview": "139,500literal cells/AST retained;89same-style repeat references/351units unchanged. Existing groups and owner hashes conserved; new different-edition words retain source-only ranges.",
     "wordAlignment": "docs/PRONUNCIATION-WORD-ALIGNMENT.json",
-    "individualUnitWords": 79982,
+    "individualUnitWords": 79983,
     "sharedUnitWords": 2,
     "wordAlignmentReview": "Prior boundary proofs/non-null unit-word IDs preserved;12formerly combined-name words resolved by exact computed written cluster ranges. Every original slice/mark checked, independent linguistic/cantorial/acoustic review pending.",
     "repeats": "docs/PRONUNCIATION-REPEATS.json",
@@ -363,11 +363,12 @@
     "underlay": "docs/PRONUNCIATION-UNDERLAY.json",
     "underlayAlignment": "docs/PRONUNCIATION-UNDERLAY-ALIGNMENT.json",
     "writtenRangeWords": 77802,
-    "sourceOnlyUnitsPerStyle": 6251,
+    "sourceOnlyUnitsPerStyle": 6255,
     "writtenReadVariants": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json",
     "sourceSegments": "docs/PRONUNCIATION-SEGMENTS.json",
     "segmentAlignment": "docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json",
-    "editionWords": "docs/PRONUNCIATION-EDITION-WORDS.json"
+    "editionWords": "docs/PRONUNCIATION-EDITION-WORDS.json",
+    "implicitReadingRecord": "docs/PRONUNCIATION-IMPLICIT-READING.json"
   },
   "jointCoverage": {
     "record": "docs/JOINT-CHANT-PRONUNCIATION.json",
@@ -514,18 +515,18 @@
     "display": "Optional source text under unchanged preferred-reading buttons. Explicit written/read and primary MAM edition forms are labeled; different spellings have no assigned written syllable ranges. Exact prefixes retain independent links. Original Hebrew, notes and recording voice/times remain unchanged.",
     "styles": {
       "sephardic": {
-        "individuallyLinkedWords": 79982,
-        "ownedUnits": 193928,
-        "sourceReadingFormWords": 2180,
+        "individuallyLinkedWords": 79983,
+        "ownedUnits": 193932,
+        "sourceReadingFormWords": 2181,
         "combinedWords": 2,
-        "unassignedWords": 1
+        "unassignedWords": 0
       },
       "ashkenazic": {
-        "individuallyLinkedWords": 79982,
-        "ownedUnits": 193952,
-        "sourceReadingFormWords": 2180,
+        "individuallyLinkedWords": 79983,
+        "ownedUnits": 193956,
+        "sourceReadingFormWords": 2181,
         "combinedWords": 2,
-        "unassignedWords": 1
+        "unassignedWords": 0
       }
     },
     "limits": "Source correspondence and transcription only; linguistic review pending. Original Hebrew/accents, source packets, source pronunciation units, score syllables, musical notes, source recording timings and voices unchanged."
@@ -663,13 +664,15 @@
       "sourceSegments.inputSha256",
       "sourceSegments.underlaySha256"
     ],
-    "remainingUnassigned": [
-      "gen-4-18-9"
-    ],
+    "remainingUnassigned": [],
     "review": "Primary context/word correspondence only; different spellings retain source-only syllables. No phonological equivalence, notes, audio timing or voice inferred. Independent review pending.",
     "runtimeSha256": "2c97922de56fb73868f38df0e01746b99847946996ab6996e7a1f09137ce0781",
     "standaloneBytes": 68687061,
-    "standaloneSha256": "1d1c390989841e85763152bc69e51a277dc02afaf0f72ed9b0f6a2e663d7f2b3"
+    "standaloneSha256": "1d1c390989841e85763152bc69e51a277dc02afaf0f72ed9b0f6a2e663d7f2b3",
+    "literalEditionStageRefusedWords": [
+      "gen-4-18-9"
+    ],
+    "subsequentResolutionRecord": "docs/PRONUNCIATION-IMPLICIT-READING.json"
   },
   "recordedVerseEvidence": {
     "edition": 2018,
@@ -721,5 +724,28 @@
       "allReviewFieldsNull": true,
       "reviewSha256": "d101c1d123388f251d345677dd980b6f5c4509a11337ec53d413b512be6e969d"
     }
+  },
+  "implicitReadingEvidence": {
+    "record": "docs/PRONUNCIATION-IMPLICIT-READING.json",
+    "wordId": "gen-4-18-9",
+    "markedReader": "וּמְחִיּיָאֵ֗ל",
+    "markedPrimary": "וּמְחִיָּיאֵ֗ל",
+    "markedSourceReading": "וּמְחִיָּאֵ֗ל",
+    "sourceRuleGitBlob": "5dcf34bd2e1fd4ad6de30c900366128b3dca7abd",
+    "fullMarkedVerseExact": true,
+    "mappedWords": 79985,
+    "individualOwnersPerStyle": 79983,
+    "combinedWords": 2,
+    "sourceOnlyFormsPerStyle": 2181,
+    "writtenRangeWordsPerStyle": 77802,
+    "priorGroupsPreserved": 68503,
+    "priorUnitsPreserved": 387888,
+    "priorCategoryReferencesPreserved": 1037430,
+    "packetPins": {
+      "display": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2",
+      "underlay": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153",
+      "segments": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+    },
+    "limits": "Exact source-word correspondence only. No extra written-yod syllable/note/time allocation, acoustic phonemes, singing voice or Kinnor equivalence. Qualified review pending."
   }
 }

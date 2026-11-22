@@ -50,12 +50,12 @@ test('every mapped Torah word retains every owned source unit in both styles and
    }
    assert.equal(JSON.stringify(study),before);
   }
-  assert.equal(tally.linked,79982);assert.equal(tally.combined,2);assert.equal(tally.sourceForm,2180);
+  assert.equal(tally.linked,79983);assert.equal(tally.combined,2);assert.equal(tally.sourceForm,2181);
  }
  // The sources have different syllable counts. Conserve each style instead of
  // forcing their units onto one common segmentation. Four combined units/style
  // remain unallocated, matching the existing independent source audit.
  const audit=JSON.parse(readFileSync(new URL('../docs/PRONUNCIATION-UNDERLAY-ALIGNMENT.json',import.meta.url)));
  for(const style of ['sephardic','ashkenazic'])assert.equal(counts[style].units,audit.counts[style].units-4);
- assert.equal(counts.sephardic.units,193928);assert.equal(counts.ashkenazic.units,193952);
+ assert.equal(counts.sephardic.units,193932);assert.equal(counts.ashkenazic.units,193956);
 });

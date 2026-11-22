@@ -96,7 +96,7 @@ for e in record['entries']:
     raw_forms=[{letter_text(inline(h)) for h in r['hebrew'] if h is not None} for r in g['rows']]
     assert {''.join(parts) for parts in itertools.product(*raw_forms)}=={''.join(letter_text(l['primaryHebrew']) for l in links)}
 
-old=[g for g in packet['groups'] if 'editionWordLinks' not in g]
+old=[g for g in packet['groups'] if 'editionWordLinks' not in g and 'implicitReadingLinks' not in g]
 assert len(old)==record['baseGroups']==68384
 assert hashlib.sha256(json.dumps(old,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()==record['baseGroupsSha256']=='779e9ce9376665b3cf04d553d5d51de4c6db37da9d4188ac63dd13339e8ba862'
 assert len(record['entries'])==119 and len(seen)==record['addedWords']==141

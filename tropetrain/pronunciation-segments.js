@@ -4,7 +4,7 @@ const STYLES=['sephardic','ashkenazic'];
 const letters=text=>text.replace(/[^א-ת]/gu,'');
 export class PronunciationSegments {
  constructor(data,sourceCommit){
-  if(data?.format!=='tropetrain-pronunciation-segments-v1'||data.revision!==1||data.sourceCommit!==sourceCommit||data.inputSha256!=='0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7'||data.underlaySha256!=='abaa42ef22f710638b4ac7a38e1d94687bda2ae537c2beb5a78dd286a79ff877'||data.computationSourceSha256!=='357314571720309945b3c7e1a2b33582a34dfbc6a497a02309af8c8572fcafaf'||data.license!=='CC-BY-SA-4.0'||!Array.isArray(data.catalog)||!data.groups)throw Error('The pronunciation source rules need review.');
+  if(data?.format!=='tropetrain-pronunciation-segments-v1'||data.revision!==1||data.sourceCommit!==sourceCommit||data.inputSha256!=='a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2'||data.underlaySha256!=='03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153'||data.computationSourceSha256!=='357314571720309945b3c7e1a2b33582a34dfbc6a497a02309af8c8572fcafaf'||data.license!=='CC-BY-SA-4.0'||!Array.isArray(data.catalog)||!data.groups)throw Error('The pronunciation source rules need review.');
   const ids=new Set();
   for(const c of data.catalog){
    if(typeof c.id!=='string'||ids.has(c.id)||typeof c.label!=='string'||typeof c.hebrewLetters!=='string'||!['consonant','vowel','diphthong-part','vowel-consonant-pair','silent-letter','silent-vowel-sign'].includes(c.kind)||typeof c.geminate!=='boolean')throw Error('Invalid pronunciation source category.');ids.add(c.id);
