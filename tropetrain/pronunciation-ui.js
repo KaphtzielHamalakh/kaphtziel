@@ -3,6 +3,7 @@ import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
 import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
 import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
+import {linkPronunciationScoreGroups} from './pronunciation-score-groups.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
 import {renderPronunciationRules} from './pronunciation-segment-ui.js';
 export function mountPronunciationStudy({onChange=()=>{}}={}){
@@ -132,6 +133,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    }
    return {...readerCache.get(cacheKey),wordId:value.id};
   },
+  groupNotes(events,words){return library?linkPronunciationScoreGroups(events,words,library,style):null;},
   linkNotes(events,words){return library?linkPronunciationToNotes(events,words,library,style):null;},
   scoreStatus(){return {style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};}};
 }

@@ -112,6 +112,13 @@
 .pronunciation-rule-table th{font-weight:500}.pronunciation-rule-table th:first-child{width:46%}
 .pronunciation-rule-table small{display:block;font-size:11px;color:var(--soft)}
 .pronunciation-rule-difference{background:var(--pale)}.selected-source-style{font-weight:700}
+
+.pronunciation-score-groups{table-layout:fixed;width:100%;border-collapse:collapse;font:13px/1.6 system-ui,sans-serif}
+.pronunciation-score-groups th,.pronunciation-score-groups td{border:1px solid var(--line);padding:.6rem .4rem;vertical-align:top;overflow-wrap:anywhere;white-space:normal;text-align:start}
+.pronunciation-score-groups td:first-child{font:24px/1.9 "Noto Hebrew",serif}
+.pronunciation-score-groups small{display:block;color:var(--soft);font-size:11px}
+.pronunciation-score-groups [data-relation="different-syllable-divisions"]{background:var(--pale)}
+#score-word-alignment{margin-block:1rem;min-width:0}#score-word-alignment-content{min-width:0}
 </style>
 </head>
 <body>
@@ -247,8 +254,9 @@
       <div class="score-toolbar"><h3>Playback score</h3><span>Treble clef · quarter-note beat · source details below</span></div>
       <p id="score-help" class="score-help muted">Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.</p>
       <div class="score-pronunciation-controls"><label><input type="checkbox" id="score-pronunciation" checked> Show pronunciation text on score</label><a href="#pronunciation-study">Change pronunciation text style</a><button id="score-pronunciation-download" disabled>Download score-page text links</button></div>
-      <p id="score-pronunciation-summary" class="muted"></p><p class="score-pronunciation-limit muted">Text appears where the pronunciation unit matches the score’s Hebrew syllable exactly. Different syllable divisions stay unlinked. Bold text marks the pronunciation source’s explicit stress; shared consonants and alternatives remain explicit. Notes, Hebrew syllables and recordings keep their own settings; no singing voice is generated. <a href="data:application/json;base64,ewogICJzY2hlbWEiOiAidHJvcGV0cmFpbi1wcm9udW5jaWF0aW9uLW5vdGUtY29ycmVzcG9uZGVuY2UtYXVkaXQtdjEiLAogICJyZXZpc2lvbiI6IDEsCiAgInNvdXJjZUNvbW1pdCI6ICI2ZjA2MTJlZDIxMDlkMzJlMjg4ZDdjMGNhNDFhZTNkYmZhYWQ3MDJiIiwKICAid29yZHMiOiA3OTk4NSwKICAidmVyc2VzIjogNTg1MywKICAibWFya2VkV29yZFNoYTI1NiI6ICJlNzQ5MWY1ZDdmODljYzk0YmI0ZTM5YjYzZTQyZDUzYjgyMTlkMTk3MDg0NjgzOWY0ODIyZGY0YzNiYzE3MjhjIiwKICAib3JpZ2luYWxEZW1vRXZlbnRTaGEyNTYiOiAiNjg3MDkyOTAyNGQwYzIyODlmN2Q5ZWYxODc5YTc5MDhhYzBlZTA0MjgwYzUyOGQ2NGM4OWQ4NTk1NmY0YmEzZCIsCiAgIm9yaWdpbmFsRGVtbyI6IHsKICAgICJzZXBoYXJkaWMiOiB7CiAgICAgICJub3RlcyI6IDIzMTE3OCwKICAgICAgImxpbmtlZE5vdGVzIjogMjIwNTAyLAogICAgICAidW5saW5rZWROb3RlcyI6IDEwNjc2LAogICAgICAid29yZHNGdWxseUxpbmtlZCI6IDc0NzYzLAogICAgICAid29yZHNQYXJ0bHlMaW5rZWQiOiAyNzE3LAogICAgICAid29yZHNVbmxpbmtlZCI6IDI1MDUsCiAgICAgICJyZWFzb25zIjogewogICAgICAgICJkaWZmZXJlbnQtc3lsbGFibGUtYm91bmRhcmllcyI6IDU3MDMsCiAgICAgICAgInNvdXJjZS1vbmx5LXdyaXR0ZW4tZm9ybSI6IDQ0ODUsCiAgICAgICAgIm5vLXNvdXJjZS1jb3JyZXNwb25kZW5jZSI6IDQ4NCwKICAgICAgICAiY29tYmluZWQtc291cmNlLWZvcm0iOiA0CiAgICAgIH0KICAgIH0sCiAgICAiYXNoa2VuYXppYyI6IHsKICAgICAgIm5vdGVzIjogMjMxMTc4LAogICAgICAibGlua2VkTm90ZXMiOiAyMjA1MDIsCiAgICAgICJ1bmxpbmtlZE5vdGVzIjogMTA2NzYsCiAgICAgICJ3b3Jkc0Z1bGx5TGlua2VkIjogNzQ3NjMsCiAgICAgICJ3b3Jkc1BhcnRseUxpbmtlZCI6IDI3MTcsCiAgICAgICJ3b3Jkc1VubGlua2VkIjogMjUwNSwKICAgICAgInJlYXNvbnMiOiB7CiAgICAgICAgImRpZmZlcmVudC1zeWxsYWJsZS1ib3VuZGFyaWVzIjogNTcwMywKICAgICAgICAic291cmNlLW9ubHktd3JpdHRlbi1mb3JtIjogNDQ4NSwKICAgICAgICAibm8tc291cmNlLWNvcnJlc3BvbmRlbmNlIjogNDg0LAogICAgICAgICJjb21iaW5lZC1zb3VyY2UtZm9ybSI6IDQKICAgICAgfQogICAgfQogIH0sCiAgImJvdW5kZWRQcmludGVkR2VuZXNpczIyIjogewogICAgInNlcGhhcmRpYyI6IHsKICAgICAgIm5vdGVzIjogNTIsCiAgICAgICJsaW5rZWROb3RlcyI6IDUwLAogICAgICAidW5saW5rZWROb3RlcyI6IDIsCiAgICAgICJ1bmxpbmtlZCI6IFsKICAgICAgICB7CiAgICAgICAgICAiZXZlbnRJZCI6ICJnZW4tMjItMS0xLXMxLWNvaGVuLW4xIiwKICAgICAgICAgICJzb3VyY2VXb3JkSWQiOiAiZ2VuLTIyLTEtMSIsCiAgICAgICAgICAiaGVicmV3IjogIteV1rciLAogICAgICAgICAgInJlYXNvbiI6ICJkaWZmZXJlbnQtc3lsbGFibGUtYm91bmRhcmllcyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJldmVudElkIjogImdlbi0yMi0xLTEtczItY29oZW4tbjEiLAogICAgICAgICAgInNvdXJjZVdvcmRJZCI6ICJnZW4tMjItMS0xIiwKICAgICAgICAgICJoZWJyZXciOiAi15nWsCIsCiAgICAgICAgICAicmVhc29uIjogImRpZmZlcmVudC1zeWxsYWJsZS1ib3VuZGFyaWVzIgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJhc2hrZW5hemljIjogewogICAgICAibm90ZXMiOiA1MiwKICAgICAgImxpbmtlZE5vdGVzIjogNTAsCiAgICAgICJ1bmxpbmtlZE5vdGVzIjogMiwKICAgICAgInVubGlua2VkIjogWwogICAgICAgIHsKICAgICAgICAgICJldmVudElkIjogImdlbi0yMi0xLTEtczEtY29oZW4tbjEiLAogICAgICAgICAgInNvdXJjZVdvcmRJZCI6ICJnZW4tMjItMS0xIiwKICAgICAgICAgICJoZWJyZXciOiAi15XWtyIsCiAgICAgICAgICAicmVhc29uIjogImRpZmZlcmVudC1zeWxsYWJsZS1ib3VuZGFyaWVzIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImV2ZW50SWQiOiAiZ2VuLTIyLTEtMS1zMi1jb2hlbi1uMSIsCiAgICAgICAgICAic291cmNlV29yZElkIjogImdlbi0yMi0xLTEiLAogICAgICAgICAgImhlYnJldyI6ICLXmdawIiwKICAgICAgICAgICJyZWFzb24iOiAiZGlmZmVyZW50LXN5bGxhYmxlLWJvdW5kYXJpZXMiCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgfSwKICAic3lsbGFibGVBbmFseXplciI6ICJoYXZhcm90anMwLjI1LjU7IGV4aXN0aW5nIG1hbnVhbC9zb3VyY2UgZml4dHVyZXMgcmV0YWluZWQiLAogICJpbnB1dHMiOiBbCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvcHJvbnVuY2lhdGlvbi90b3JhaC1kaXNwbGF5Lmpzb24uZ3oiLAogICAgICAic2hhMjU2IjogIjgxNzJiODVmNzg2YzEyN2IzM2FhOTk5YzY0YTY5ZjU4ODYwMWMwODllMjVjYWViYWE3MmIzYWQyOTQ2NjM3NDEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3Byb251bmNpYXRpb24vdG9yYWgtdW5kZXJsYXkuanNvbi5neiIsCiAgICAgICJzaGEyNTYiOiAiMjdjMTE1Mzc3NTJkMzlkYWZiYTIyZmVhOWY0YjgyNzIxMDBlMGM5YWUyYmYzZjBhN2NmMDRjMjg3M2Q4NjdlMCIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInByb251bmNpYXRpb24uanMiLAogICAgICAic2hhMjU2IjogIjQwZTliMGM5Nzg0NTgwM2RmZDQ5NGI4ZmRiMWYzMGQ0Yjc0ODM4ZjAzMTNkYWVlOTk5YWE4MTQwYzdjNGRjMzIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcm9udW5jaWF0aW9uLW5vdGUtbGlua3MuanMiLAogICAgICAic2hhMjU2IjogImNjZWNlYzM4M2RiODMwNjU5MDQ2NWE1OTNlYzNmODNkNzM3ZGIyYjFjMWY3Y2I4YzY0MTdkNzZkOTQ4ODk2NzIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcm9udW5jaWF0aW9uLXVuZGVybGF5LmpzIiwKICAgICAgInNoYTI1NiI6ICJjMzQ5MTczNDk3NGFhN2QyZDg1ZTZlZjUwMTNkNTNlMDk5NGM3OWEwYWZlMzY2YjU2ODNiOWE1ZWEyMTY4ZWQ0IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAicHJvbnVuY2lhdGlvbi1zdHJ1Y3R1cmUuanMiLAogICAgICAic2hhMjU2IjogIjUyZDExNGRiY2RhMjViYWU2Y2FiZmI5MDAwZDRkMzQ1MmRhNDAzODdhNmNhMDRjOTQ2YTVmNDIzMjg3ZGI5NGEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcm9udW5jaWF0aW9uLXdvcmQtYWxpZ25tZW50LmpzIiwKICAgICAgInNoYTI1NiI6ICJkMTEwNTk1MGIzMDg5YmNmZTgwMzVhNzIwNDA5NmI5OGJiMDI4YzM4MmIxZTQ2NTkxMjA2MTEyYzc5ZmI2NDlhIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAicHJvbnVuY2lhdGlvbi1yZXBlYXRzLmpzIiwKICAgICAgInNoYTI1NiI6ICI5OTRlMDFiODczNmRlODQ4YTVjNzU1Nzc0YTQ0ZGM1OWYwY2RhOTVkYzllNmU5NGZjOTk4NmEwYzNhY2ZmMDM5IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic3lsbGFibGVzLmpzIiwKICAgICAgInNoYTI1NiI6ICIxZjNkMDc1NThkMjYzYWNiYjdiOGMyMzVmZDIxZDU2YTA2YTgwY2I1ZGRlMzI2ZDUzMDc2Y2VlZTEzNjM4YmJjIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibXVzaWMuanMiLAogICAgICAic2hhMjU2IjogImY5ZTIzOThhOTU1ODNhODIyYWYyNzk4ZjZjMTFlYTFhMmE1ZTY2ZGMwMWEwMWU3YmQ5ZWNhNTdhMDVjNDFkNGYiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcmludGVkLXNjb3JlLWRhdGEuanMiLAogICAgICAic2hhMjU2IjogIjg5OTRhMDU4ZWYwYmQ4NTcyOGEzMTRjNzAyNmJlM2M3YmIxODMyMmQ2NDdmOThiYjJiMWY2ODFmZmIxMTU4ZTgiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL21hbmlmZXN0Lmpzb24iLAogICAgICAic2hhMjU2IjogImQ4Nzk3ZjMwNTFmNGQ5NmY5MTc1MTMyZGNmMjBlNGMzNDJiMjdiODg0MjExMDU2YzM0NjUyYWI4NDE1MTZlZmUiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL2dlbi5qc29uIiwKICAgICAgInNoYTI1NiI6ICI4NmViMjY1NDkxZjhhNzBjMDMxZjhmZmM4ODhjZjJjNTM5ZjI5YWQ2NGM1YjY2ZTdkOGNiYTVjM2UzYjFlYWJhIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS90b3JhaC9leG8uanNvbiIsCiAgICAgICJzaGEyNTYiOiAiMTExYzRmOTE4ZTFiZTI4YzhhMWIxZDQyYjc2NTQ1Mjg1YWM4MmU4YjgyNTgyYjgwMjUxYmMwMTllMTNlNmEyMSIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvdG9yYWgvbGV2Lmpzb24iLAogICAgICAic2hhMjU2IjogIjUzMDU0NTk0MjM2MDBlZGU3OGU2NDM1ZjZjY2UzMjhmYjlkODUyYWVkZDc3OGY5YWQzZDAzMDFjZDBkZmI0OTIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL251bS5qc29uIiwKICAgICAgInNoYTI1NiI6ICI3ODlmN2E1OWM0OGE1ZWU3YmQ5MDIwMzhlOTVhODBmNTBjNzk5MGMxY2M0N2FjNWVmZmQ2NjhhNzNhNmUwNDUyIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS90b3JhaC9kZXUuanNvbiIsCiAgICAgICJzaGEyNTYiOiAiOTdlZmRmMGY1NzQ5NjlhYWE3NmU0YjgxZjE3MjM2OGY1ZTViOGFlODdkZTRkNTVhOTJjNTljOGVlMjVkY2VhMCIKICAgIH0KICBdLAogICJsaW1pdHMiOiAiRnVsbCBUb3JhaCBzdHJ1Y3R1cmFsIHRleHQtc3BhbiBhdWRpdCBhZ2FpbnN0IGV4aXN0aW5nIG9yaWdpbmFsLWRlbW8gc3lsbGFibGVzLCBub3QgYSB0cmFkaXRpb25hbCBtZWxvZHksIHBob25vbG9naWNhbCBhcHByb3ZhbCBvciByZWNvcmRpbmcvYWNvdXN0aWMgdGltaW5nLiBUaGUgYm91bmRlZCBoaXN0b3JpY2FsIEdlbjIyIHNjb3JlIGlzIHNlcGFyYXRlbHkgY2hlY2tlZDsgaXRzIGZpcnN0IHR3byBwcmludGVkIHN5bGxhYmxlcyBkaWZmZXIgZnJvbSB0aGUgc291cmNlIHByb251bmNpYXRpb24gZGl2aXNpb24gYW5kIHJlbWFpbiB1bmxpbmtlZC4gU2hhcmVkIGNvbnNvbmFudHMgYW5kIHNvdXJjZSBhbHRlcm5hdGl2ZXMgcmV0YWluZWQuIE5vIG9yaWdpbmFsIEhlYnJldy9hY2NlbnRzL25vdGVzL3N5bGxhYmxlcy90aW1lcyByZXdyaXR0ZW47IG5vIG5ldyBwaG9uZW1lcyBvciB2b2ljZS4iCn0K">Pronunciation-to-score correspondence audit</a></p>
+      <p id="score-pronunciation-summary" class="muted"></p><p class="score-pronunciation-limit muted">Text appears where the pronunciation unit matches the score’s Hebrew syllable exactly. Different syllable divisions stay unlinked on individual notes; compare their common Hebrew spans below. Bold text marks the pronunciation source’s explicit stress; shared consonants and alternatives remain explicit. Notes, Hebrew syllables and recordings keep their own settings; no singing voice is generated. <a href="data:application/json;base64,ewogICJzY2hlbWEiOiAidHJvcGV0cmFpbi1wcm9udW5jaWF0aW9uLW5vdGUtY29ycmVzcG9uZGVuY2UtYXVkaXQtdjEiLAogICJyZXZpc2lvbiI6IDEsCiAgInNvdXJjZUNvbW1pdCI6ICI2ZjA2MTJlZDIxMDlkMzJlMjg4ZDdjMGNhNDFhZTNkYmZhYWQ3MDJiIiwKICAid29yZHMiOiA3OTk4NSwKICAidmVyc2VzIjogNTg1MywKICAibWFya2VkV29yZFNoYTI1NiI6ICJlNzQ5MWY1ZDdmODljYzk0YmI0ZTM5YjYzZTQyZDUzYjgyMTlkMTk3MDg0NjgzOWY0ODIyZGY0YzNiYzE3MjhjIiwKICAib3JpZ2luYWxEZW1vRXZlbnRTaGEyNTYiOiAiNjg3MDkyOTAyNGQwYzIyODlmN2Q5ZWYxODc5YTc5MDhhYzBlZTA0MjgwYzUyOGQ2NGM4OWQ4NTk1NmY0YmEzZCIsCiAgIm9yaWdpbmFsRGVtbyI6IHsKICAgICJzZXBoYXJkaWMiOiB7CiAgICAgICJub3RlcyI6IDIzMTE3OCwKICAgICAgImxpbmtlZE5vdGVzIjogMjIwNTAyLAogICAgICAidW5saW5rZWROb3RlcyI6IDEwNjc2LAogICAgICAid29yZHNGdWxseUxpbmtlZCI6IDc0NzYzLAogICAgICAid29yZHNQYXJ0bHlMaW5rZWQiOiAyNzE3LAogICAgICAid29yZHNVbmxpbmtlZCI6IDI1MDUsCiAgICAgICJyZWFzb25zIjogewogICAgICAgICJkaWZmZXJlbnQtc3lsbGFibGUtYm91bmRhcmllcyI6IDU3MDMsCiAgICAgICAgInNvdXJjZS1vbmx5LXdyaXR0ZW4tZm9ybSI6IDQ0ODUsCiAgICAgICAgIm5vLXNvdXJjZS1jb3JyZXNwb25kZW5jZSI6IDQ4NCwKICAgICAgICAiY29tYmluZWQtc291cmNlLWZvcm0iOiA0CiAgICAgIH0KICAgIH0sCiAgICAiYXNoa2VuYXppYyI6IHsKICAgICAgIm5vdGVzIjogMjMxMTc4LAogICAgICAibGlua2VkTm90ZXMiOiAyMjA1MDIsCiAgICAgICJ1bmxpbmtlZE5vdGVzIjogMTA2NzYsCiAgICAgICJ3b3Jkc0Z1bGx5TGlua2VkIjogNzQ3NjMsCiAgICAgICJ3b3Jkc1BhcnRseUxpbmtlZCI6IDI3MTcsCiAgICAgICJ3b3Jkc1VubGlua2VkIjogMjUwNSwKICAgICAgInJlYXNvbnMiOiB7CiAgICAgICAgImRpZmZlcmVudC1zeWxsYWJsZS1ib3VuZGFyaWVzIjogNTcwMywKICAgICAgICAic291cmNlLW9ubHktd3JpdHRlbi1mb3JtIjogNDQ4NSwKICAgICAgICAibm8tc291cmNlLWNvcnJlc3BvbmRlbmNlIjogNDg0LAogICAgICAgICJjb21iaW5lZC1zb3VyY2UtZm9ybSI6IDQKICAgICAgfQogICAgfQogIH0sCiAgImJvdW5kZWRQcmludGVkR2VuZXNpczIyIjogewogICAgInNlcGhhcmRpYyI6IHsKICAgICAgIm5vdGVzIjogNTIsCiAgICAgICJsaW5rZWROb3RlcyI6IDUwLAogICAgICAidW5saW5rZWROb3RlcyI6IDIsCiAgICAgICJ1bmxpbmtlZCI6IFsKICAgICAgICB7CiAgICAgICAgICAiZXZlbnRJZCI6ICJnZW4tMjItMS0xLXMxLWNvaGVuLW4xIiwKICAgICAgICAgICJzb3VyY2VXb3JkSWQiOiAiZ2VuLTIyLTEtMSIsCiAgICAgICAgICAiaGVicmV3IjogIteV1rciLAogICAgICAgICAgInJlYXNvbiI6ICJkaWZmZXJlbnQtc3lsbGFibGUtYm91bmRhcmllcyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJldmVudElkIjogImdlbi0yMi0xLTEtczItY29oZW4tbjEiLAogICAgICAgICAgInNvdXJjZVdvcmRJZCI6ICJnZW4tMjItMS0xIiwKICAgICAgICAgICJoZWJyZXciOiAi15nWsCIsCiAgICAgICAgICAicmVhc29uIjogImRpZmZlcmVudC1zeWxsYWJsZS1ib3VuZGFyaWVzIgogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJhc2hrZW5hemljIjogewogICAgICAibm90ZXMiOiA1MiwKICAgICAgImxpbmtlZE5vdGVzIjogNTAsCiAgICAgICJ1bmxpbmtlZE5vdGVzIjogMiwKICAgICAgInVubGlua2VkIjogWwogICAgICAgIHsKICAgICAgICAgICJldmVudElkIjogImdlbi0yMi0xLTEtczEtY29oZW4tbjEiLAogICAgICAgICAgInNvdXJjZVdvcmRJZCI6ICJnZW4tMjItMS0xIiwKICAgICAgICAgICJoZWJyZXciOiAi15XWtyIsCiAgICAgICAgICAicmVhc29uIjogImRpZmZlcmVudC1zeWxsYWJsZS1ib3VuZGFyaWVzIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImV2ZW50SWQiOiAiZ2VuLTIyLTEtMS1zMi1jb2hlbi1uMSIsCiAgICAgICAgICAic291cmNlV29yZElkIjogImdlbi0yMi0xLTEiLAogICAgICAgICAgImhlYnJldyI6ICLXmdawIiwKICAgICAgICAgICJyZWFzb24iOiAiZGlmZmVyZW50LXN5bGxhYmxlLWJvdW5kYXJpZXMiCiAgICAgICAgfQogICAgICBdCiAgICB9CiAgfSwKICAic3lsbGFibGVBbmFseXplciI6ICJoYXZhcm90anMwLjI1LjU7IGV4aXN0aW5nIG1hbnVhbC9zb3VyY2UgZml4dHVyZXMgcmV0YWluZWQiLAogICJpbnB1dHMiOiBbCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvcHJvbnVuY2lhdGlvbi90b3JhaC1kaXNwbGF5Lmpzb24uZ3oiLAogICAgICAic2hhMjU2IjogIjgxNzJiODVmNzg2YzEyN2IzM2FhOTk5YzY0YTY5ZjU4ODYwMWMwODllMjVjYWViYWE3MmIzYWQyOTQ2NjM3NDEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3Byb251bmNpYXRpb24vdG9yYWgtdW5kZXJsYXkuanNvbi5neiIsCiAgICAgICJzaGEyNTYiOiAiMjdjMTE1Mzc3NTJkMzlkYWZiYTIyZmVhOWY0YjgyNzIxMDBlMGM5YWUyYmYzZjBhN2NmMDRjMjg3M2Q4NjdlMCIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInByb251bmNpYXRpb24uanMiLAogICAgICAic2hhMjU2IjogIjQwZTliMGM5Nzg0NTgwM2RmZDQ5NGI4ZmRiMWYzMGQ0Yjc0ODM4ZjAzMTNkYWVlOTk5YWE4MTQwYzdjNGRjMzIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcm9udW5jaWF0aW9uLW5vdGUtbGlua3MuanMiLAogICAgICAic2hhMjU2IjogImNjZWNlYzM4M2RiODMwNjU5MDQ2NWE1OTNlYzNmODNkNzM3ZGIyYjFjMWY3Y2I4YzY0MTdkNzZkOTQ4ODk2NzIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcm9udW5jaWF0aW9uLXVuZGVybGF5LmpzIiwKICAgICAgInNoYTI1NiI6ICJjMzQ5MTczNDk3NGFhN2QyZDg1ZTZlZjUwMTNkNTNlMDk5NGM3OWEwYWZlMzY2YjU2ODNiOWE1ZWEyMTY4ZWQ0IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAicHJvbnVuY2lhdGlvbi1zdHJ1Y3R1cmUuanMiLAogICAgICAic2hhMjU2IjogIjUyZDExNGRiY2RhMjViYWU2Y2FiZmI5MDAwZDRkMzQ1MmRhNDAzODdhNmNhMDRjOTQ2YTVmNDIzMjg3ZGI5NGEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcm9udW5jaWF0aW9uLXdvcmQtYWxpZ25tZW50LmpzIiwKICAgICAgInNoYTI1NiI6ICJkMTEwNTk1MGIzMDg5YmNmZTgwMzVhNzIwNDA5NmI5OGJiMDI4YzM4MmIxZTQ2NTkxMjA2MTEyYzc5ZmI2NDlhIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAicHJvbnVuY2lhdGlvbi1yZXBlYXRzLmpzIiwKICAgICAgInNoYTI1NiI6ICI5OTRlMDFiODczNmRlODQ4YTVjNzU1Nzc0YTQ0ZGM1OWYwY2RhOTVkYzllNmU5NGZjOTk4NmEwYzNhY2ZmMDM5IgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAic3lsbGFibGVzLmpzIiwKICAgICAgInNoYTI1NiI6ICIxZjNkMDc1NThkMjYzYWNiYjdiOGMyMzVmZDIxZDU2YTA2YTgwY2I1ZGRlMzI2ZDUzMDc2Y2VlZTEzNjM4YmJjIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAibXVzaWMuanMiLAogICAgICAic2hhMjU2IjogImY5ZTIzOThhOTU1ODNhODIyYWYyNzk4ZjZjMTFlYTFhMmE1ZTY2ZGMwMWEwMWU3YmQ5ZWNhNTdhMDVjNDFkNGYiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJwcmludGVkLXNjb3JlLWRhdGEuanMiLAogICAgICAic2hhMjU2IjogIjg5OTRhMDU4ZWYwYmQ4NTcyOGEzMTRjNzAyNmJlM2M3YmIxODMyMmQ2NDdmOThiYjJiMWY2ODFmZmIxMTU4ZTgiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL21hbmlmZXN0Lmpzb24iLAogICAgICAic2hhMjU2IjogImQ4Nzk3ZjMwNTFmNGQ5NmY5MTc1MTMyZGNmMjBlNGMzNDJiMjdiODg0MjExMDU2YzM0NjUyYWI4NDE1MTZlZmUiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL2dlbi5qc29uIiwKICAgICAgInNoYTI1NiI6ICI4NmViMjY1NDkxZjhhNzBjMDMxZjhmZmM4ODhjZjJjNTM5ZjI5YWQ2NGM1YjY2ZTdkOGNiYTVjM2UzYjFlYWJhIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS90b3JhaC9leG8uanNvbiIsCiAgICAgICJzaGEyNTYiOiAiMTExYzRmOTE4ZTFiZTI4YzhhMWIxZDQyYjc2NTQ1Mjg1YWM4MmU4YjgyNTgyYjgwMjUxYmMwMTllMTNlNmEyMSIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvdG9yYWgvbGV2Lmpzb24iLAogICAgICAic2hhMjU2IjogIjUzMDU0NTk0MjM2MDBlZGU3OGU2NDM1ZjZjY2UzMjhmYjlkODUyYWVkZDc3OGY5YWQzZDAzMDFjZDBkZmI0OTIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL251bS5qc29uIiwKICAgICAgInNoYTI1NiI6ICI3ODlmN2E1OWM0OGE1ZWU3YmQ5MDIwMzhlOTVhODBmNTBjNzk5MGMxY2M0N2FjNWVmZmQ2NjhhNzNhNmUwNDUyIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS90b3JhaC9kZXUuanNvbiIsCiAgICAgICJzaGEyNTYiOiAiOTdlZmRmMGY1NzQ5NjlhYWE3NmU0YjgxZjE3MjM2OGY1ZTViOGFlODdkZTRkNTVhOTJjNTljOGVlMjVkY2VhMCIKICAgIH0KICBdLAogICJsaW1pdHMiOiAiRnVsbCBUb3JhaCBzdHJ1Y3R1cmFsIHRleHQtc3BhbiBhdWRpdCBhZ2FpbnN0IGV4aXN0aW5nIG9yaWdpbmFsLWRlbW8gc3lsbGFibGVzLCBub3QgYSB0cmFkaXRpb25hbCBtZWxvZHksIHBob25vbG9naWNhbCBhcHByb3ZhbCBvciByZWNvcmRpbmcvYWNvdXN0aWMgdGltaW5nLiBUaGUgYm91bmRlZCBoaXN0b3JpY2FsIEdlbjIyIHNjb3JlIGlzIHNlcGFyYXRlbHkgY2hlY2tlZDsgaXRzIGZpcnN0IHR3byBwcmludGVkIHN5bGxhYmxlcyBkaWZmZXIgZnJvbSB0aGUgc291cmNlIHByb251bmNpYXRpb24gZGl2aXNpb24gYW5kIHJlbWFpbiB1bmxpbmtlZC4gU2hhcmVkIGNvbnNvbmFudHMgYW5kIHNvdXJjZSBhbHRlcm5hdGl2ZXMgcmV0YWluZWQuIE5vIG9yaWdpbmFsIEhlYnJldy9hY2NlbnRzL25vdGVzL3N5bGxhYmxlcy90aW1lcyByZXdyaXR0ZW47IG5vIG5ldyBwaG9uZW1lcyBvciB2b2ljZS4iCn0K">Pronunciation-to-score correspondence audit</a></p>
       <div id="pitch-staff" class="staff-scroll" tabindex="0" aria-label="Scrollable playback score"></div>
+      <details id="score-word-alignment" open><summary>How this word fits the score</summary><div id="score-word-alignment-content"></div><button id="score-word-alignment-download" disabled>Download word alignment</button><p class="muted">Pronunciation style is independent of melody, range, key and tempo. Shared Hebrew spans preserve both sets of syllables, accents and original source alternatives. This comparison assigns no phonemes or singing times. <a href="data:application/json;base64,ewogICJmb3JtYXQiOiAidHJvcGV0cmFpbi1wcm9udW5jaWF0aW9uLXNjb3JlLWdyb3Vwcy1hdWRpdC12MSIsCiAgInJldmlzaW9uIjogMSwKICAid29yZHMiOiA3OTk4NSwKICAidmVyc2VzIjogNTg1MywKICAibWFya2VkV29yZFNoYTI1NiI6ICJlNzQ5MWY1ZDdmODljYzk0YmI0ZTM5YjYzZTQyZDUzYjgyMTlkMTk3MDg0NjgzOWY0ODIyZGY0YzNiYzE3MjhjIiwKICAib3JpZ2luYWxEZW1vRXZlbnRTaGEyNTYiOiAiNjg3MDkyOTAyNGQwYzIyODlmN2Q5ZWYxODc5YTc5MDhhYzBlZTA0MjgwYzUyOGQ2NGM4OWQ4NTk1NmY0YmEzZCIsCiAgIm9yaWdpbmFsRGVtbyI6IHsKICAgICJzZXBoYXJkaWMiOiB7CiAgICAgICJldmVudHMiOiAyMzExNzgsCiAgICAgICJldmVudHNJbkNvbW1vblNwYW5zIjogMjI2MjA1LAogICAgICAiZXZlbnRzSW5EaWZmZXJlbnREaXZpc2lvbnMiOiA1NzA1LAogICAgICAiZXZlbnRzV2l0aG91dENvbW1vblNwYW4iOiA0OTczLAogICAgICAiZ3JvdXBzIjogMTg2OTM2LAogICAgICAid29yZHNXaXRoQ29tbW9uU3BhbnMiOiA3Nzc4MiwKICAgICAgIndvcmRzRnVsbHlDb3ZlcmVkIjogNzc3ODIsCiAgICAgICJ3b3Jkc1dpdGhvdXRDb21tb25TcGFucyI6IDIyMDMsCiAgICAgICJyZWFzb25zIjogewogICAgICAgICJzb3VyY2Utb25seS13cml0dGVuLWZvcm0iOiAyMDU5LAogICAgICAgICJuby1zb3VyY2UtY29ycmVzcG9uZGVuY2UiOiAxNDIsCiAgICAgICAgIm5vLWluZGl2aWR1YWwtd29yZC11bml0cyI6IDIKICAgICAgfQogICAgfSwKICAgICJhc2hrZW5hemljIjogewogICAgICAiZXZlbnRzIjogMjMxMTc4LAogICAgICAiZXZlbnRzSW5Db21tb25TcGFucyI6IDIyNjIwNSwKICAgICAgImV2ZW50c0luRGlmZmVyZW50RGl2aXNpb25zIjogNTcwNSwKICAgICAgImV2ZW50c1dpdGhvdXRDb21tb25TcGFuIjogNDk3MywKICAgICAgImdyb3VwcyI6IDE4Njk2MCwKICAgICAgIndvcmRzV2l0aENvbW1vblNwYW5zIjogNzc3ODIsCiAgICAgICJ3b3Jkc0Z1bGx5Q292ZXJlZCI6IDc3NzgyLAogICAgICAid29yZHNXaXRob3V0Q29tbW9uU3BhbnMiOiAyMjAzLAogICAgICAicmVhc29ucyI6IHsKICAgICAgICAic291cmNlLW9ubHktd3JpdHRlbi1mb3JtIjogMjA1OSwKICAgICAgICAibm8tc291cmNlLWNvcnJlc3BvbmRlbmNlIjogMTQyLAogICAgICAgICJuby1pbmRpdmlkdWFsLXdvcmQtdW5pdHMiOiAyCiAgICAgIH0KICAgIH0KICB9LAogICJib3VuZGVkUHJpbnRlZCI6IHsKICAgICJjb2hlbi0xOTAyLWdlbjIyLWVuZGluZyI6IHsKICAgICAgInNlcGhhcmRpYyI6IHsKICAgICAgICAiZXZlbnRzIjogNTIsCiAgICAgICAgImV2ZW50c0luQ29tbW9uU3BhbnMiOiA1MiwKICAgICAgICAiZXZlbnRzSW5EaWZmZXJlbnREaXZpc2lvbnMiOiAyLAogICAgICAgICJldmVudHNXaXRob3V0Q29tbW9uU3BhbiI6IDAsCiAgICAgICAgImdyb3VwcyI6IDM2LAogICAgICAgICJkaWZmZXJlbnREaXZpc2lvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJ3b3JkSWQiOiAiZ2VuLTIyLTEtMSIsCiAgICAgICAgICAgICJoZWJyZXciOiAi15XWt9eZ1rAiLAogICAgICAgICAgICAic2NvcmUiOiBbCiAgICAgICAgICAgICAgIteV1rciLAogICAgICAgICAgICAgICLXmdawIgogICAgICAgICAgICBdLAogICAgICAgICAgICAic291cmNlIjogWwogICAgICAgICAgICAgICJ2YXkiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJldmVudHMiOiAyLAogICAgICAgICAgICAiaW5kaXZpZHVhbE5vdGVBbGxvY2F0aW9uIjogbnVsbAogICAgICAgICAgfQogICAgICAgIF0KICAgICAgfSwKICAgICAgImFzaGtlbmF6aWMiOiB7CiAgICAgICAgImV2ZW50cyI6IDUyLAogICAgICAgICJldmVudHNJbkNvbW1vblNwYW5zIjogNTIsCiAgICAgICAgImV2ZW50c0luRGlmZmVyZW50RGl2aXNpb25zIjogMiwKICAgICAgICAiZXZlbnRzV2l0aG91dENvbW1vblNwYW4iOiAwLAogICAgICAgICJncm91cHMiOiAzNiwKICAgICAgICAiZGlmZmVyZW50RGl2aXNpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAid29yZElkIjogImdlbi0yMi0xLTEiLAogICAgICAgICAgICAiaGVicmV3IjogIteV1rfXmdawIiwKICAgICAgICAgICAgInNjb3JlIjogWwogICAgICAgICAgICAgICLXlda3IiwKICAgICAgICAgICAgICAi15nWsCIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInNvdXJjZSI6IFsKICAgICAgICAgICAgICAidmF5IgogICAgICAgICAgICBdLAogICAgICAgICAgICAiZXZlbnRzIjogMiwKICAgICAgICAgICAgImluZGl2aWR1YWxOb3RlQWxsb2NhdGlvbiI6IG51bGwKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0KICAgIH0sCiAgICAiYmFlci0xODk0LWdlbjEtMS01IjogewogICAgICAic2VwaGFyZGljIjogewogICAgICAgICJldmVudHMiOiAxNDUsCiAgICAgICAgImV2ZW50c0luQ29tbW9uU3BhbnMiOiAxNDUsCiAgICAgICAgImV2ZW50c0luRGlmZmVyZW50RGl2aXNpb25zIjogNiwKICAgICAgICAiZXZlbnRzV2l0aG91dENvbW1vblNwYW4iOiAwLAogICAgICAgICJncm91cHMiOiAxMTgsCiAgICAgICAgImRpZmZlcmVudERpdmlzaW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgIndvcmRJZCI6ICJnZW4tMS0zLTUiLAogICAgICAgICAgICAiaGVicmV3IjogIteV1rfWvdeZ1rAiLAogICAgICAgICAgICAic2NvcmUiOiBbCiAgICAgICAgICAgICAgIteV1rfWvSIsCiAgICAgICAgICAgICAgIteZ1rAiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJzb3VyY2UiOiBbCiAgICAgICAgICAgICAgInZheSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgImV2ZW50cyI6IDIsCiAgICAgICAgICAgICJpbmRpdmlkdWFsTm90ZUFsbG9jYXRpb24iOiBudWxsCiAgICAgICAgICB9LAogICAgICAgICAgewogICAgICAgICAgICAid29yZElkIjogImdlbi0xLTUtOCIsCiAgICAgICAgICAgICJoZWJyZXciOiAi15XWt9a915nWsCIsCiAgICAgICAgICAgICJzY29yZSI6IFsKICAgICAgICAgICAgICAi15XWt9a9IiwKICAgICAgICAgICAgICAi15nWsCIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInNvdXJjZSI6IFsKICAgICAgICAgICAgICAidmF5IgogICAgICAgICAgICBdLAogICAgICAgICAgICAiZXZlbnRzIjogMiwKICAgICAgICAgICAgImluZGl2aWR1YWxOb3RlQWxsb2NhdGlvbiI6IG51bGwKICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgICJ3b3JkSWQiOiAiZ2VuLTEtNS0xMCIsCiAgICAgICAgICAgICJoZWJyZXciOiAi15XWt9a915nWsCIsCiAgICAgICAgICAgICJzY29yZSI6IFsKICAgICAgICAgICAgICAi15XWt9a9IiwKICAgICAgICAgICAgICAi15nWsCIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInNvdXJjZSI6IFsKICAgICAgICAgICAgICAidmF5IgogICAgICAgICAgICBdLAogICAgICAgICAgICAiZXZlbnRzIjogMiwKICAgICAgICAgICAgImluZGl2aWR1YWxOb3RlQWxsb2NhdGlvbiI6IG51bGwKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0sCiAgICAgICJhc2hrZW5hemljIjogewogICAgICAgICJldmVudHMiOiAxNDUsCiAgICAgICAgImV2ZW50c0luQ29tbW9uU3BhbnMiOiAxNDUsCiAgICAgICAgImV2ZW50c0luRGlmZmVyZW50RGl2aXNpb25zIjogNiwKICAgICAgICAiZXZlbnRzV2l0aG91dENvbW1vblNwYW4iOiAwLAogICAgICAgICJncm91cHMiOiAxMTgsCiAgICAgICAgImRpZmZlcmVudERpdmlzaW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgIndvcmRJZCI6ICJnZW4tMS0zLTUiLAogICAgICAgICAgICAiaGVicmV3IjogIteV1rfWvdeZ1rAiLAogICAgICAgICAgICAic2NvcmUiOiBbCiAgICAgICAgICAgICAgIteV1rfWvSIsCiAgICAgICAgICAgICAgIteZ1rAiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJzb3VyY2UiOiBbCiAgICAgICAgICAgICAgInZheSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgImV2ZW50cyI6IDIsCiAgICAgICAgICAgICJpbmRpdmlkdWFsTm90ZUFsbG9jYXRpb24iOiBudWxsCiAgICAgICAgICB9LAogICAgICAgICAgewogICAgICAgICAgICAid29yZElkIjogImdlbi0xLTUtOCIsCiAgICAgICAgICAgICJoZWJyZXciOiAi15XWt9a915nWsCIsCiAgICAgICAgICAgICJzY29yZSI6IFsKICAgICAgICAgICAgICAi15XWt9a9IiwKICAgICAgICAgICAgICAi15nWsCIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInNvdXJjZSI6IFsKICAgICAgICAgICAgICAidmF5IgogICAgICAgICAgICBdLAogICAgICAgICAgICAiZXZlbnRzIjogMiwKICAgICAgICAgICAgImluZGl2aWR1YWxOb3RlQWxsb2NhdGlvbiI6IG51bGwKICAgICAgICAgIH0sCiAgICAgICAgICB7CiAgICAgICAgICAgICJ3b3JkSWQiOiAiZ2VuLTEtNS0xMCIsCiAgICAgICAgICAgICJoZWJyZXciOiAi15XWt9a915nWsCIsCiAgICAgICAgICAgICJzY29yZSI6IFsKICAgICAgICAgICAgICAi15XWt9a9IiwKICAgICAgICAgICAgICAi15nWsCIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInNvdXJjZSI6IFsKICAgICAgICAgICAgICAidmF5IgogICAgICAgICAgICBdLAogICAgICAgICAgICAiZXZlbnRzIjogMiwKICAgICAgICAgICAgImluZGl2aWR1YWxOb3RlQWxsb2NhdGlvbiI6IG51bGwKICAgICAgICAgIH0KICAgICAgICBdCiAgICAgIH0KICAgIH0KICB9LAogICJpbnB1dHMiOiBbCiAgICB7CiAgICAgICJwYXRoIjogInByb251bmNpYXRpb24tc2NvcmUtZ3JvdXBzLmpzIiwKICAgICAgInNoYTI1NiI6ICI2NzY2ZTQ1N2I2MTdmMDdlOWQwYjBlOTAyMjg2YmIzYjhlM2M1ZGQyYmVmNjRjYTE5NzhjZTlmYjdjZjQ2MzhlIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS9wcm9udW5jaWF0aW9uL3RvcmFoLWRpc3BsYXkuanNvbi5neiIsCiAgICAgICJzaGEyNTYiOiAiODE3MmI4NWY3ODZjMTI3YjMzYWE5OTljNjRhNjlmNTg4NjAxYzA4OWUyNWNhZWJhYTcyYjNhZDI5NDY2Mzc0MSIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvcHJvbnVuY2lhdGlvbi90b3JhaC11bmRlcmxheS5qc29uLmd6IiwKICAgICAgInNoYTI1NiI6ICIyN2MxMTUzNzc1MmQzOWRhZmJhMjJmZWE5ZjRiODI3MjEwMGUwYzlhZTJiZjNmMGE3Y2YwNGMyODczZDg2N2UwIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS9wcm9udW5jaWF0aW9uL3RvcmFoLXNlZ21lbnRzLmpzb24uZ3oiLAogICAgICAic2hhMjU2IjogImMyYzBlNmUyY2I2NWE1YWNhODU3ZmE5ZjMwNjY3M2MwOTQ1NjRlNzMyZGJmNzU3NTY3MmNiNjNiZjcwNjRkZjQiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJzeWxsYWJsZXMuanMiLAogICAgICAic2hhMjU2IjogIjFmM2QwNzU1OGQyNjNhY2JiN2I4YzIzNWZkMjFkNTZhMDZhODBjYjVkZGUzMjZkNTMwNzZjZWVlMTM2MzhiYmMiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJtdXNpYy5qcyIsCiAgICAgICJzaGEyNTYiOiAiZjllMjM5OGE5NTU4M2E4MjJhZjI3OThmNmMxMWVhMWEyYTVlNjZkYzAxYTAxZTdiZDllY2E1N2EwNWM0MWQ0ZiIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogInByaW50ZWQtc2NvcmUtZGF0YS5qcyIsCiAgICAgICJzaGEyNTYiOiAiODk5NGEwNThlZjBiZDg1NzI4YTMxNGM3MDI2YmUzYzdiYjE4MzIyZDY0N2Y5OGJiMmIxZjY4MWZmYjExNThlOCIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImJhZXItc2NvcmUtZGF0YS5qcyIsCiAgICAgICJzaGEyNTYiOiAiMjIyNWNmNWQyMTAyMmJhZWY3NjAwY2UzMTQwMDUzMWQyZDlmZTExNDJkNGVkZTcxZTk5MTRjNmUwZjYzNGE2MCIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvdG9yYWgvZ2VuLmpzb24iLAogICAgICAic2hhMjU2IjogIjg2ZWIyNjU0OTFmOGE3MGMwMzFmOGZmYzg4OGNmMmM1MzlmMjlhZDY0YzViNjZlN2Q4Y2JhNWMzZTNiMWVhYmEiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL2V4by5qc29uIiwKICAgICAgInNoYTI1NiI6ICIxMTFjNGY5MThlMWJlMjhjOGExYjFkNDJiNzY1NDUyODVhYzgyZThiODI1ODJiODAyNTFiYzAxOWUxM2U2YTIxIgogICAgfSwKICAgIHsKICAgICAgInBhdGgiOiAiZGF0YS90b3JhaC9sZXYuanNvbiIsCiAgICAgICJzaGEyNTYiOiAiNTMwNTQ1OTQyMzYwMGVkZTc4ZTY0MzVmNmNjZTMyOGZiOWQ4NTJhZWRkNzc4ZjlhZDNkMDMwMWNkMGRmYjQ5MiIKICAgIH0sCiAgICB7CiAgICAgICJwYXRoIjogImRhdGEvdG9yYWgvbnVtLmpzb24iLAogICAgICAic2hhMjU2IjogIjc4OWY3YTU5YzQ4YTVlZTdiZDkwMjAzOGU5NWE4MGY1MGM3OTkwYzFjYzQ3YWM1ZWZmZDY2OGE3M2E2ZTA0NTIiCiAgICB9LAogICAgewogICAgICAicGF0aCI6ICJkYXRhL3RvcmFoL2RldS5qc29uIiwKICAgICAgInNoYTI1NiI6ICI5N2VmZGYwZjU3NDk2OWFhYTc2ZTRiODFmMTcyMzY4ZjVlNWI4YWU4N2RlNGQ1NWE5MmM1OWM4ZWUyNWRjZWEwIgogICAgfQogIF0sCiAgImxpbWl0cyI6ICJFeGFjdCBjb21tb24gd3JpdHRlbiBzcGFucyBwcmVzZXJ2ZSBpbmRlcGVuZGVudCBzY29yZSBhbmQgcHJvbnVuY2lhdGlvbiBzeWxsYWJsZXMuIERpZmZlcmVudCBkaXZpc2lvbnMgZG8gbm90IHN1cHBseSBhbiBpbmRpdmlkdWFsIHN5bGxhYmxlLXRvLW5vdGUgb3IgYWNvdXN0aWMgbWFwcGluZy4gU291cmNlLW9ubHkvY29tYmluZWQvbWlzc2luZyBmb3JtcyBhcmUgbm90IHJlcGFpcmVkLiBPcmlnaW5hbCBkZW1vIGlzIG5ld2x5IGNvbXBvc2VkLCBub3QgYSB0cmFkaXRpb25hbCBtZWxvZHkuIEJvdGggZXhpc3RpbmcgcHJpbnRlZCBleGFtcGxlcyByZW1haW4gYm91bmRlZCBpbnN0cnVtZW50YWwgdHJhbnNjcmlwdGlvbnM7IHNpeCBLaW5ub3IgcHJvbnVuY2lhdGlvbiBncmFtbWFycy92b2ljZXMgYW5kIGNvbXBsZXRlIG11c2ljYWwgc3lzdGVtcyBzdGlsbCBuZWVkIGV2aWRlbmNlIGFuZCByZXZpZXcuIgp9Cg==">Full Torah structural audit</a></p></details>
       <p id="score-pronunciation-detail" class="muted"></p>
       <div class="note-pagination"><button id="staff-previous">Previous score notes</button><span id="staff-page-label"></span><button id="staff-next">Next score notes</button></div>
       <details id="music-exports"><summary>Save music and audio</summary>
@@ -701,6 +709,17 @@ The pinned Phonetic MAM computation closure explicitly distinguishes87 consonant
 The closed output carries517,703 source segment references before the two style projections, including18,218 explicit shared-consonant pairs. First and second halves retain their cross-syllable references; silent signs and matres retain empty transcription values rather than invented sounds. A separate whole-corpus comparison reconstructs every existing revision4 study field exactly after removing the new category annotations: source cells, stress, word owners, all marked Hebrew ranges and previous shared-consonant links are unchanged. Across both styles this checks387,096 source units and1,035,406 category references. The11,756 source-only units and8 unowned units (both style projections) remain explicit. Source alternatives that share a displayed cell are preserved separately, including coincident Ashkenazic qamats readings.
 
 The learner-facing “Why the pronunciation text changes” view compares both source mappings for the selected word and current style, with source-only/shared forms labeled. Export revision5 retains both style category plans and every previous field. Segment ownership is at the existing syllable level; individual segment-letter ranges, acoustic phonemes, IPA, note/audio timing and independently styled singing remain unassigned. This supplies a source-supported pronunciation representation for later reviewed phoneme and singing work; it does not replace the six historical grammar/voice requirements or complete cantillation systems. All original Hebrew/accents/IDs, syllable alignments, source recordings, printed scores/demo events and independent melody/range/key/tempo controls remain intact. Printing deferred.
+
+
+## v0.35 · preserve different syllable divisions through common Hebrew spans
+
+The two unchanged text underlays can share an exact marked-Hebrew span while dividing it differently: Cohen’s printed Wa/ye corresponds structurally to the source’s vay over וַיְ. A new original bridge partitions at boundaries present in both underlays. Each source row and column stays a separate path; no alternative readings are concatenated. Each group retains all score syllables, original printed lyric labels, source units/stress/category plans, canonical and occurrence IDs and included event IDs. Written ownership excludes separately referenced shared consonants. Source-only word forms, combined words, holes, overlaps and missing correspondence remain unassigned. Different divisions never receive individual syllable-to-note or acoustic allocations; the old individual exact-span links remain byte-for-byte unchanged.
+
+The full Torah original-demo audit checks 79,985 words/5,853 source records in both styles. All77,782 words with exact written source ranges are completely covered by common spans:226,205of231,178events/style, including5,705events in different divisions. The remaining4,973events have no common span;2,059source-only word forms,142missing words and2combined words remain explicit. The original demo remains newly composed music, not traditional Torah melody coverage. The exact marked-word and original-event digests are unchanged. Both printed examples now have structural common spans for every existing component:52Cohen/145Baer, including the previously unlinked2/6different opening components. Those individual components remain unlinked in the existing exact-syllable layer; the common-span comparison is additional evidence, not a phonological equivalence claim.
+
+The learner’s “How this word fits the score” comparison shows both divisions, source alternatives and stress, with a separate reusable word alignment export. Selecting either existing pronunciation text style changes source text independently of melody/range/key/tempo. No additional historical pronunciation style or singing voice is exposed. The pinned upstream primary README was rechecked through connected GitHub: its explicit perpetual-qere, combined Deut32:6 and ketiv/qere differences confirm why written ranges cannot be assumed. Source https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM/README.md . Web fetching of that GitHub/raw URL returned cache misses; connected source access succeeded. No new upstream material or license terms were substituted.
+
+Cohen printed544–547 from the pinned alternate scan were visually inspected this iteration. The reciting/stress prose and contextual figures still leave choices unspecified for arbitrary words. The two remaining p547Gen22:1settings have not yet been transcribed; the prophetical setting is expressly hypothetical for the same Torah verse. They must not be advertised as full Haftarah/HighHoliday systems. Continue that musical work alongside six sourced/reviewed Kinnor pronunciation grammars and independent singing. Full feature inventory remains active/incomplete; printing deferred.
 </pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">Copyright 2022 The Noto Project Authors (https://github.com/notofonts/hebrew)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -5180,7 +5199,7 @@ SOFTWARE.
     "comparison": "The small ring between pickup notes in the first scan is absent from this independent copy. It is not treated as a pitched note. Pitches, rests, ties and note durations compared between both copies."
   }
 }
-</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.34.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.35.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -13559,6 +13578,105 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // pronunciation-underlay-summary.js
   var PRONUNCIATION_UNDERLAY_SUMMARY = { "styles": { "sephardic": { "wordsWithUnits": 79841, "sharedWords": 2, "readerWordsWithRanges": 77782 }, "ashkenazic": { "wordsWithUnits": 79841, "sharedWords": 2, "readerWordsWithRanges": 77782 } } };
 
+  // pronunciation-score-groups.js
+  var canonical = (w) => w.sourceWordId ?? w.id;
+  function scoreRanges(word) {
+    let end = 0;
+    const ranges = word.syllables.map((s) => {
+      const start = end;
+      end += s.sourceHebrew.length;
+      return { syllableId: s.id, hebrew: s.sourceHebrew, start, end };
+    });
+    if (ranges.map((r) => r.hebrew).join("") !== word.sourceHebrew) throw Error("Score syllables do not reproduce the original marked Hebrew.");
+    return ranges;
+  }
+  function sourceSpan(unit, word) {
+    if (unit.hebrewClusterRanges == null) return null;
+    const written = [];
+    for (const r of unit.hebrewClusterRanges) {
+      if (r.readerWordId !== canonical(word) || !["written", "shared-consonant"].includes(r.role) || !Number.isInteger(r.start) || !Number.isInteger(r.end) || r.start < 0 || r.start >= r.end || r.end > word.sourceHebrew.length || word.sourceHebrew.slice(r.start, r.end) !== r.text) throw Error("Pronunciation ranges do not match the original marked Hebrew.");
+      if (r.role === "written") written.push(r);
+    }
+    if (!written.length || written.some((r, i) => i && written[i - 1].end !== r.start)) throw Error("Pronunciation written ranges are not contiguous.");
+    return { start: written[0].start, end: written.at(-1).end };
+  }
+  function linkPronunciationScoreGroups(events2, words3, library, style) {
+    if (!PRONUNCIATION_STYLES.some((s) => s.id === style)) throw Error("Unsupported pronunciation text style.");
+    const prepared = /* @__PURE__ */ new Map(), seen = /* @__PURE__ */ new Set();
+    for (const event of events2) {
+      if (seen.has(event.id)) throw Error("Duplicate score event ID.");
+      seen.add(event.id);
+      const word = words3[event.wordIndex];
+      if (!word || word.id !== event.wordId || (event.sourceWordId ?? event.wordId) !== canonical(word)) throw Error("Score notes do not match their Hebrew word occurrences.");
+      if (!prepared.has(word.id)) prepared.set(word.id, { word, ranges: scoreRanges(word), events: [] });
+      const item = prepared.get(word.id), range = item.ranges.find((r) => r.syllableId === event.syllableId);
+      if (!range || range.hebrew !== event.syllable) throw Error("Score event syllable no longer matches its original Hebrew.");
+      item.events.push(event);
+    }
+    const results = [...prepared.values()].map(({ word, ranges, events: notes }) => {
+      const study = library.study(word, style), groups2 = [], paths = [];
+      if (study) for (const row of study.rows) for (const cell of row.styles[style]) {
+        const owned = cell.units.filter((u) => u.readerWordId === canonical(word));
+        if (!owned.length) continue;
+        const units = owned.map((unit) => ({ unit, span: sourceSpan(unit, word) }));
+        if (units.some((u) => !u.span)) {
+          paths.push({ row: row.number, column: cell.column, status: "source-only-written-form" });
+          continue;
+        }
+        if (units.some((u, i) => i && units[i - 1].span.end !== u.span.start)) {
+          paths.push({ row: row.number, column: cell.column, status: "noncontiguous-source-path" });
+          continue;
+        }
+        const first = units[0].span.start, last = units.at(-1).span.end;
+        const boundaries = new Set(ranges.flatMap((r) => [r.start, r.end]));
+        const common = [...new Set([first, ...units.map((u) => u.span.end)].filter((b) => boundaries.has(b)))].sort((a, b) => a - b);
+        if (common[0] !== first || common.at(-1) !== last) {
+          paths.push({ row: row.number, column: cell.column, status: "incomplete-common-span" });
+          continue;
+        }
+        for (let i = 1; i < common.length; i++) {
+          const start = common[i - 1], end = common[i], score = ranges.filter((r) => r.start >= start && r.end <= end), source = units.filter((u) => u.span.start >= start && u.span.end <= end);
+          if (!score.length || !source.length || score[0].start !== start || score.at(-1).end !== end || source[0].span.start !== start || source.at(-1).span.end !== end) throw Error("Common Hebrew span is incomplete.");
+          const groupNotes = notes.filter((e) => score.some((r) => r.syllableId === e.syllableId));
+          if (!groupNotes.length) continue;
+          groups2.push({
+            id: `${word.id}-r${row.number}-c${cell.column}-${start}-${end}`,
+            wordId: word.id,
+            sourceWordId: canonical(word),
+            hebrew: word.sourceHebrew.slice(start, end),
+            hebrewRange: { start, end },
+            relation: score.length === 1 && source.length === 1 ? "same-written-syllable" : "different-syllable-divisions",
+            sourceRow: row.number,
+            sourceColumn: cell.column,
+            sourceReference: structuredClone(cell.sourceReference ?? null),
+            scoreSyllables: score.map((r) => ({ ...r, eventIds: groupNotes.filter((e) => e.syllableId === r.syllableId).map((e) => e.id), printedLyrics: [...new Set(groupNotes.filter((e) => e.syllableId === r.syllableId).map((e) => e.sourceLyric).filter(Boolean))] })),
+            sourceUnits: source.map(({ unit, span }) => ({ ...structuredClone(unit), writtenSpan: { ...span } })),
+            eventIds: groupNotes.map((e) => e.id),
+            individualNoteAllocation: score.length === 1 && source.length === 1 ? "equal-written-span" : null,
+            phonemes: null,
+            audioTimes: null
+          });
+        }
+        paths.push({ row: row.number, column: cell.column, status: "checked-common-spans" });
+      }
+      return { wordId: word.id, sourceWordId: canonical(word), hebrew: word.sourceHebrew, groups: groups2, paths, reason: groups2.length ? null : !study ? "no-source-correspondence" : paths.some((p) => p.status === "source-only-written-form") ? "source-only-written-form" : paths.length ? "incomplete-source-path" : "no-individual-word-units", eventIds: notes.map((e) => e.id) };
+    });
+    const groups = results.flatMap((w) => w.groups), covered = new Set(groups.flatMap((g) => g.eventIds)), different = new Set(groups.filter((g) => g.relation === "different-syllable-divisions").flatMap((g) => g.eventIds));
+    return {
+      format: "tropetrain-pronunciation-score-groups-v1",
+      revision: 1,
+      style,
+      sourceCommit: library.sourceCommit,
+      dataLicense: "CC-BY-SA-4.0",
+      method: "Minimal common spans at boundaries shared by both unchanged marked-Hebrew underlays. Each source row/column remains a separate path. Shared consonants do not own the written letter twice. Different divisions retain all original syllables and do not allocate an individual source unit to a note.",
+      review: "Structural text correspondence only; independent linguistic, cantorial and acoustic review pending. No pronunciation is synthesized or retimed.",
+      phonemes: null,
+      audioTimes: null,
+      counts: { events: events2.length, eventsInCommonSpans: covered.size, eventsInDifferentDivisions: different.size, eventsWithoutCommonSpan: events2.length - covered.size, groups: groups.length },
+      words: results
+    };
+  }
+
   // pronunciation-reader.js
   var READER_PRONUNCIATION_MESSAGES = Object.freeze({
     "no-source-correspondence": "No source text",
@@ -14023,6 +14141,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         return { ...readerCache.get(cacheKey), wordId: value.id };
       },
+      groupNotes(events2, words3) {
+        return library ? linkPronunciationScoreGroups(events2, words3, library, style) : null;
+      },
       linkNotes(events2, words3) {
         return library ? linkPronunciationToNotes(events2, words3, library, style) : null;
       },
@@ -14030,6 +14151,97 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return { style, name: PRONUNCIATION_STYLES.find((s) => s.id === style).name, error };
       }
     };
+  }
+
+  // pronunciation-score-groups-ui.js
+  var REASONS = { "no-source-correspondence": "No checked pronunciation correspondence for this word.", "source-only-written-form": "The pronunciation source has no exact written range for this word form.", "incomplete-source-path": "A complete shared Hebrew span is unavailable.", "no-individual-word-units": "The source form is combined or has no individually owned units." };
+  function renderPronunciationScoreGroups(target, report, word) {
+    target.replaceChildren();
+    const item = report?.words?.find((w) => w.wordId === word?.id), message = document.createElement("p");
+    message.className = "muted";
+    if (!item) {
+      message.textContent = report?.error ?? "Select a word included in the current score span.";
+      target.append(message);
+      return;
+    }
+    const hebrew = document.createElement("p");
+    hebrew.lang = "he";
+    hebrew.dir = "rtl";
+    hebrew.className = "pronunciation-group-hebrew";
+    hebrew.textContent = item.hebrew;
+    target.append(hebrew);
+    if (!item.groups.length) {
+      message.textContent = REASONS[item.reason] ?? "No checked common span.";
+      target.append(message);
+      return;
+    }
+    message.textContent = "Each row relates the same marked Hebrew span. Different syllable divisions stay separate; a common span does not assign a pronunciation syllable to each note.";
+    target.append(message);
+    const table = document.createElement("table");
+    table.className = "pronunciation-score-groups";
+    const head = document.createElement("thead"), hr = document.createElement("tr");
+    for (const text of ["Marked Hebrew", "Score syllables", "Pronunciation source", "Correspondence"]) {
+      const th = document.createElement("th");
+      th.scope = "col";
+      th.textContent = text;
+      hr.append(th);
+    }
+    head.append(hr);
+    table.append(head);
+    const body = document.createElement("tbody");
+    for (const group of item.groups) {
+      const row = document.createElement("tr");
+      row.dataset.groupId = group.id;
+      row.dataset.relation = group.relation;
+      const h = document.createElement("td");
+      h.lang = "he";
+      h.dir = "rtl";
+      h.textContent = group.hebrew;
+      row.append(h);
+      const score = document.createElement("td");
+      group.scoreSyllables.forEach((s, i) => {
+        if (i) score.append(document.createTextNode(" | "));
+        const span = document.createElement("span");
+        span.lang = "he";
+        span.dir = "rtl";
+        span.textContent = s.hebrew;
+        score.append(span);
+        if (s.printedLyrics.length) {
+          const lyric = document.createElement("small");
+          lyric.dir = "ltr";
+          lyric.textContent = " (" + s.printedLyrics.join(" / ") + ")";
+          score.append(lyric);
+        }
+      });
+      row.append(score);
+      const source = document.createElement("td");
+      source.dir = "ltr";
+      group.sourceUnits.forEach((u, i) => {
+        if (i) source.append(document.createTextNode(" · "));
+        const span = document.createElement(u.sourceStress ? "strong" : "span");
+        span.textContent = u.text;
+        source.append(span);
+        const cues = [u.sourceStress ? "Primary stress" : "", u.hebrewUnderlay?.variants.some((v) => v.sharesNextConsonant) ? "Shares consonant with next source unit" : "", u.hebrewUnderlay?.variants.some((v) => v.sharesPreviousConsonant) ? "Shares consonant with previous source unit" : ""].filter(Boolean);
+        if (cues.length) {
+          const cue = document.createElement("small");
+          cue.textContent = cues.join(" · ");
+          source.append(cue);
+        }
+      });
+      const provenance = document.createElement("small");
+      provenance.textContent = `Row ${group.sourceRow}, column ${group.sourceColumn}${group.sourceReference ? " · original repeat reference retained" : ""}`;
+      source.append(provenance);
+      row.append(source);
+      const relation = document.createElement("td");
+      relation.textContent = group.relation === "different-syllable-divisions" ? `${group.scoreSyllables.length} score / ${group.sourceUnits.length} source syllables · shared span only` : "Same written syllable";
+      row.append(relation);
+      body.append(row);
+    }
+    table.append(body);
+    const scroll = document.createElement("div");
+    scroll.className = "table-scroll";
+    scroll.append(table);
+    target.append(scroll);
   }
 
   // recorded-practice.js
@@ -14352,6 +14564,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var sourcePitchTools = null;
   var scorePronunciation = true;
   var scorePronunciationReport = null;
+  var scoreGroupReport = null;
   var inspectedScoreEventId = null;
   try {
     const saved = JSON.parse(localStorage.getItem("tropetrain-score-pronunciation-v1"));
@@ -15175,6 +15388,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("score-pronunciation-download").disabled = !scorePronunciationReport?.links.length;
     const inspected = scorePronunciationReport?.links.find((l) => l.eventId === inspectedScoreEventId) ?? scorePronunciationReport?.links[0];
     $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
+    scoreGroupReport = null;
+    try {
+      scoreGroupReport = pronunciationTools?.groupNotes(plan.filter((e) => e.wordId === words2[state.cursor]?.id), words2) ?? null;
+    } catch (error) {
+      scoreGroupReport = { error: error.message, words: [] };
+    }
+    renderPronunciationScoreGroups($("score-word-alignment-content"), scoreGroupReport, words2[state.cursor]);
+    $("score-word-alignment-download").disabled = !scoreGroupReport?.words.length;
     $("staff-page-label").textContent = plan.length ? `Score notes ${from + 1}–${to} of ${plan.length}` : "No score notes in this span";
     $("staff-previous").disabled = from === 0;
     $("staff-next").disabled = to === plan.length;
@@ -15811,6 +16032,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } catch {
     }
     renderStaff();
+  });
+  $("score-word-alignment-download").addEventListener("click", () => {
+    if (scoreGroupReport?.words.length) download("tropetrain-word-score-alignment.json", { ...scoreGroupReport, musicalSource: { id: model.profile.id, revision: model.profile.revision } });
   });
   $("score-pronunciation-download").addEventListener("click", () => {
     if (!scorePronunciationReport?.links.length) return;

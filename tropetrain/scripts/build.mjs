@@ -25,6 +25,7 @@ execFileSync('node',[path.join(root,'scripts/audit-joint-coverage.mjs')],{stdio:
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-note-links.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-baer-note-links.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-source-pitches.mjs')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-pronunciation-score-groups.mjs')],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -112,6 +113,7 @@ const chantEvidence=await readFile(path.join(root,'docs/CHANT-COVERAGE.json'),'u
 const voiceStudyEvidence=await readFile(path.join(root,'docs/VOICE-STUDIES.json'),'utf8');
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
 const alternateScan=await readFile(path.join(root,'assets/scores/cohen-1902-alternate-score.png'));
+const scoreGroupsEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-SCORE-GROUPS.json'),'utf8');
 const printedEvidence=await readFile(path.join(root,'docs/PRINTED-SCORE.json'),'utf8');
 const baerScan=await readFile(path.join(root,'assets/scores/baer-1894-genesis1.png'));
 const baerEvidence=await readFile(path.join(root,'docs/BAER-GENESIS-SCORE.json'),'utf8');
@@ -132,6 +134,7 @@ const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAl
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
 const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
  .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script><script>${script.replaceAll('</script','<\\/script')}</script>`)
+ .replaceAll('href="./docs/PRONUNCIATION-SCORE-GROUPS.json"',()=>`href="data:application/json;base64,${Buffer.from(scoreGroupsEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/SOURCE-PITCH-EVIDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(pitchEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/SOURCE-PITCH-SAMPLE-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(pitchSampleAudit).toString('base64')}"`)
  .replaceAll('href="./assets/OFL.txt"','href="#license-notices"').replaceAll('href="./assets/havarotjs-LICENSE.txt"','href="#license-notices"')

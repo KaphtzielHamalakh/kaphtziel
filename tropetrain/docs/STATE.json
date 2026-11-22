@@ -4,10 +4,10 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "496ce8937c51f8130f039161d043a005fb2fb0cd",
-  "nextTask": "Continue the full independently pronounced chanting reconstruction. Use v0.34 source-category plans as the stable pronunciation representation:87 named categories, exact two-style text reconstruction, linked geminate halves and explicit source-only/shared cases. Source and verify the six Kinnor Accent phonological targets and contextual rules; the two PhoneticMAM projections differ only in qamats gadol/tav and are not those six grammars. No tentative IPA or unreviewed acoustic realization should become a playable preset. Obtain/research reusable reviewed singing material and exact syllable/phoneme audio alignment. Continue complete contextual melody grammars from primary Cohen544–548 and BaerNo105/938/939 reciting-note/stress/cadence evidence with literal worked examples; refuse arbitrary prefix pitches or extrapolation from raw F0. Preserve remaining142 pronunciation gaps, two combined words,2,059 word-owned forms/style without exact written ranges,2,811 timing-review words and all unknown source cells. All Hebrew/accents/canonical and occurrence IDs, source styles, recordings, source scores/demo events and independent melody/range/key/tempo remain unchanged. Full inventory active/incomplete; printing deferred.",
+  "nextTask": "Continue the full independently pronounced chanting reconstruction. Preserve v0.35 minimal common marked-Hebrew spans, every original syllable/category/word/occurrence ID and the unchanged individual exact-note links. Common spans with different divisions are structural comparisons only, not individual syllable-to-note or acoustic allocation. Continue primary Cohen544–548/Baer105/938/939 contextual reciting/stress/cadence research; printed547 has two additional literal Gen22:1settings still to transcribe (prophetical setting explicitly hypothetical). Source/review all six Kinnor Accent phonological grammars and reusable independent singing material before exposing extra voices/presets. Preserve142missing pronunciation words, two combined forms,2,059word-owned source forms/style without exact written ranges,2,811recording-timing-review words and all unknown source cells. Maintain full Torah and full feature inventory; melody/pronunciation/range/transpose/tempo remain independent. Full goal active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 280,
-    "newRegressionChecks": 8,
+    "automated": 290,
+    "newRegressionChecks": 10,
     "ui": "Public v0.33→v0.34 retains Genesis1:1–5word2/Sephardic/Baer/key0/60BPM and all4gains0. Both normal and standalone pass muted repeated Play with Sephardic ba·ra→Ashkenazic bo·ro: same active gen-1-1-2/G-sharp4 clock, all52 marked Hebrew button texts/IDs/aria-labels, source note IDs/pitches/beats and both source rule values remain equal; selected style emphasis changes. Normal progress advances11.1267%→28.16% through the switch. Public Gen8:20word7 retains two explicit shared bet halves and exact written source syllables; word8 keeps the no-source refusal and zero rule rows. Public Deut1:27word2 retains separate QAMATS_Q o/o and QAMATS_G a/o plus the literal Ashkenazic repeat mark and both Hebrew alternatives. Both distributions root/bodyfit319/1280 with actual widths checked. Standalone embeds the exact new packet and both evidence JSONs; its observation timeout recovered on the same tab6 atready=true/version0.34.0, without restarting navigation. No application console errors. Screenshot outputs/TropeTrain-v0.34-live.jpg viewed and shows the actual a/o table and original marked syllables; work/audits/ui-live-0.34.json retains invariants. Both public builds left Gen1:1–5word2/Sephardic/Baer/60BPM/key0/Endofword with rule explanation open, all4gains0/stopped/repeatfalse/audio paused/viewportreset. Owned8767session80181stopped/exit0; user8765untouched. NativeSave/download/direct-file-origin and independent phonological/cantorial/acoustic review remain pending. Local additionally verifies vocal sheva, tav t/s, silent matres and reload persistence.",
     "limits": "Both existing source text projections and source categories only; no IPA, reviewed phoneme realization, segment/note timing, new voice or Kinnor equivalence."
   },
@@ -38,7 +38,7 @@
     {
       "id": "alignment",
       "description": "Reviewed syllables, stress, sheva, qamats and phonemes",
-      "status": "source_categories_preserve_all_prior_word_syllable_stress_and_Hebrew_ranges_no_individual_segment_letter_phoneme_or_audio_allocation"
+      "status": "exact_original_word_syllable_category_links_plus_common_Hebrew_spans_for_77782_words_independent_divisions_no_new_phoneme_audio_allocation"
     },
     {
       "id": "playback",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.34.0",
+    "version": "0.35.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "6d52d0b515d2b307986d99396795b596479b9c2f",
-    "status": "published_code_and_Pages_jobs_public_bytes_UI_verified_final_records_follow",
-    "record": "docs/VERIFICATION-0.34.md",
-    "next": "Continue the full independently pronounced chanting reconstruction. Use v0.34 source-category plans as the stable pronunciation representation:87 named categories, exact two-style text reconstruction, linked geminate halves and explicit source-only/shared cases. Source and verify the six Kinnor Accent phonological targets and contextual rules; the two PhoneticMAM projections differ only in qamats gadol/tav and are not those six grammars. No tentative IPA or unreviewed acoustic realization should become a playable preset. Obtain/research reusable reviewed singing material and exact syllable/phoneme audio alignment. Continue complete contextual melody grammars from primary Cohen544–548 and BaerNo105/938/939 reciting-note/stress/cadence evidence with literal worked examples; refuse arbitrary prefix pitches or extrapolation from raw F0. Preserve remaining142 pronunciation gaps, two combined words,2,059 word-owned forms/style without exact written ranges,2,811 timing-review words and all unknown source cells. All Hebrew/accents/canonical and occurrence IDs, source styles, recordings, source scores/demo events and independent melody/range/key/tempo remain unchanged. Full inventory active/incomplete; printing deferred."
+    "baseCommit": "5423a1a3c6bc9a2fb71274c7fd22fea16920127f",
+    "status": "implemented_common_Hebrew_span_alignment_full290pass_preview_QA",
+    "record": "docs/VERIFICATION-0.35.md",
+    "next": "Verify both normal/standalone and publish v0.35; keep all original syllables and marked Hebrew, source text styles, notes and fixed audio independent. Complete contextual melody grammars and six reviewed pronunciation grammars/voices remain next substantive research targets; p547 two further worked settings inspected but not yet transcribed."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -603,5 +603,17 @@
       "TAV_0DAG"
     ],
     "review": "Every existing study field reconstructs unchanged after removing the new annotations. Source computational categories/text only; independent phonological/cantorial review pending. IPA, acoustic phonemes, individual segment-letter ranges, note/audio times and voice remain unassigned. No additional playable preset."
+  },
+  "pronunciationScoreGroups": {
+    "revision": 1,
+    "record": "docs/PRONUNCIATION-SCORE-GROUPS.json",
+    "scope": "Minimal shared marked-Hebrew spans between independent original score/pronunciation divisions; no individual note allocation for different divisions.",
+    "wordsWithExactWrittenRanges": 77782,
+    "commonSpanEventsPerStyle": 226205,
+    "differentDivisionEventsPerStyle": 5705,
+    "eventsWithoutCommonSpanPerStyle": 4973,
+    "cohenCommonSpanComponents": 52,
+    "baerCommonSpanNotes": 145,
+    "review": "Structural correspondence only. No phonemes, syllable audio times, singing voice or full traditional melody grammar inferred."
   }
 }

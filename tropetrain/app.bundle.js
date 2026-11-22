@@ -8366,6 +8366,105 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // pronunciation-underlay-summary.js
   var PRONUNCIATION_UNDERLAY_SUMMARY = { "styles": { "sephardic": { "wordsWithUnits": 79841, "sharedWords": 2, "readerWordsWithRanges": 77782 }, "ashkenazic": { "wordsWithUnits": 79841, "sharedWords": 2, "readerWordsWithRanges": 77782 } } };
 
+  // pronunciation-score-groups.js
+  var canonical = (w) => w.sourceWordId ?? w.id;
+  function scoreRanges(word) {
+    let end = 0;
+    const ranges = word.syllables.map((s) => {
+      const start = end;
+      end += s.sourceHebrew.length;
+      return { syllableId: s.id, hebrew: s.sourceHebrew, start, end };
+    });
+    if (ranges.map((r) => r.hebrew).join("") !== word.sourceHebrew) throw Error("Score syllables do not reproduce the original marked Hebrew.");
+    return ranges;
+  }
+  function sourceSpan(unit, word) {
+    if (unit.hebrewClusterRanges == null) return null;
+    const written = [];
+    for (const r of unit.hebrewClusterRanges) {
+      if (r.readerWordId !== canonical(word) || !["written", "shared-consonant"].includes(r.role) || !Number.isInteger(r.start) || !Number.isInteger(r.end) || r.start < 0 || r.start >= r.end || r.end > word.sourceHebrew.length || word.sourceHebrew.slice(r.start, r.end) !== r.text) throw Error("Pronunciation ranges do not match the original marked Hebrew.");
+      if (r.role === "written") written.push(r);
+    }
+    if (!written.length || written.some((r, i) => i && written[i - 1].end !== r.start)) throw Error("Pronunciation written ranges are not contiguous.");
+    return { start: written[0].start, end: written.at(-1).end };
+  }
+  function linkPronunciationScoreGroups(events2, words3, library, style) {
+    if (!PRONUNCIATION_STYLES.some((s) => s.id === style)) throw Error("Unsupported pronunciation text style.");
+    const prepared = /* @__PURE__ */ new Map(), seen = /* @__PURE__ */ new Set();
+    for (const event of events2) {
+      if (seen.has(event.id)) throw Error("Duplicate score event ID.");
+      seen.add(event.id);
+      const word = words3[event.wordIndex];
+      if (!word || word.id !== event.wordId || (event.sourceWordId ?? event.wordId) !== canonical(word)) throw Error("Score notes do not match their Hebrew word occurrences.");
+      if (!prepared.has(word.id)) prepared.set(word.id, { word, ranges: scoreRanges(word), events: [] });
+      const item = prepared.get(word.id), range = item.ranges.find((r) => r.syllableId === event.syllableId);
+      if (!range || range.hebrew !== event.syllable) throw Error("Score event syllable no longer matches its original Hebrew.");
+      item.events.push(event);
+    }
+    const results = [...prepared.values()].map(({ word, ranges, events: notes }) => {
+      const study = library.study(word, style), groups2 = [], paths = [];
+      if (study) for (const row of study.rows) for (const cell of row.styles[style]) {
+        const owned = cell.units.filter((u) => u.readerWordId === canonical(word));
+        if (!owned.length) continue;
+        const units = owned.map((unit) => ({ unit, span: sourceSpan(unit, word) }));
+        if (units.some((u) => !u.span)) {
+          paths.push({ row: row.number, column: cell.column, status: "source-only-written-form" });
+          continue;
+        }
+        if (units.some((u, i) => i && units[i - 1].span.end !== u.span.start)) {
+          paths.push({ row: row.number, column: cell.column, status: "noncontiguous-source-path" });
+          continue;
+        }
+        const first = units[0].span.start, last = units.at(-1).span.end;
+        const boundaries = new Set(ranges.flatMap((r) => [r.start, r.end]));
+        const common = [...new Set([first, ...units.map((u) => u.span.end)].filter((b) => boundaries.has(b)))].sort((a, b) => a - b);
+        if (common[0] !== first || common.at(-1) !== last) {
+          paths.push({ row: row.number, column: cell.column, status: "incomplete-common-span" });
+          continue;
+        }
+        for (let i = 1; i < common.length; i++) {
+          const start = common[i - 1], end = common[i], score = ranges.filter((r) => r.start >= start && r.end <= end), source = units.filter((u) => u.span.start >= start && u.span.end <= end);
+          if (!score.length || !source.length || score[0].start !== start || score.at(-1).end !== end || source[0].span.start !== start || source.at(-1).span.end !== end) throw Error("Common Hebrew span is incomplete.");
+          const groupNotes = notes.filter((e) => score.some((r) => r.syllableId === e.syllableId));
+          if (!groupNotes.length) continue;
+          groups2.push({
+            id: `${word.id}-r${row.number}-c${cell.column}-${start}-${end}`,
+            wordId: word.id,
+            sourceWordId: canonical(word),
+            hebrew: word.sourceHebrew.slice(start, end),
+            hebrewRange: { start, end },
+            relation: score.length === 1 && source.length === 1 ? "same-written-syllable" : "different-syllable-divisions",
+            sourceRow: row.number,
+            sourceColumn: cell.column,
+            sourceReference: structuredClone(cell.sourceReference ?? null),
+            scoreSyllables: score.map((r) => ({ ...r, eventIds: groupNotes.filter((e) => e.syllableId === r.syllableId).map((e) => e.id), printedLyrics: [...new Set(groupNotes.filter((e) => e.syllableId === r.syllableId).map((e) => e.sourceLyric).filter(Boolean))] })),
+            sourceUnits: source.map(({ unit, span }) => ({ ...structuredClone(unit), writtenSpan: { ...span } })),
+            eventIds: groupNotes.map((e) => e.id),
+            individualNoteAllocation: score.length === 1 && source.length === 1 ? "equal-written-span" : null,
+            phonemes: null,
+            audioTimes: null
+          });
+        }
+        paths.push({ row: row.number, column: cell.column, status: "checked-common-spans" });
+      }
+      return { wordId: word.id, sourceWordId: canonical(word), hebrew: word.sourceHebrew, groups: groups2, paths, reason: groups2.length ? null : !study ? "no-source-correspondence" : paths.some((p) => p.status === "source-only-written-form") ? "source-only-written-form" : paths.length ? "incomplete-source-path" : "no-individual-word-units", eventIds: notes.map((e) => e.id) };
+    });
+    const groups = results.flatMap((w) => w.groups), covered = new Set(groups.flatMap((g) => g.eventIds)), different = new Set(groups.filter((g) => g.relation === "different-syllable-divisions").flatMap((g) => g.eventIds));
+    return {
+      format: "tropetrain-pronunciation-score-groups-v1",
+      revision: 1,
+      style,
+      sourceCommit: library.sourceCommit,
+      dataLicense: "CC-BY-SA-4.0",
+      method: "Minimal common spans at boundaries shared by both unchanged marked-Hebrew underlays. Each source row/column remains a separate path. Shared consonants do not own the written letter twice. Different divisions retain all original syllables and do not allocate an individual source unit to a note.",
+      review: "Structural text correspondence only; independent linguistic, cantorial and acoustic review pending. No pronunciation is synthesized or retimed.",
+      phonemes: null,
+      audioTimes: null,
+      counts: { events: events2.length, eventsInCommonSpans: covered.size, eventsInDifferentDivisions: different.size, eventsWithoutCommonSpan: events2.length - covered.size, groups: groups.length },
+      words: results
+    };
+  }
+
   // pronunciation-reader.js
   var READER_PRONUNCIATION_MESSAGES = Object.freeze({
     "no-source-correspondence": "No source text",
@@ -8830,6 +8929,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         return { ...readerCache.get(cacheKey), wordId: value.id };
       },
+      groupNotes(events2, words3) {
+        return library ? linkPronunciationScoreGroups(events2, words3, library, style) : null;
+      },
       linkNotes(events2, words3) {
         return library ? linkPronunciationToNotes(events2, words3, library, style) : null;
       },
@@ -8837,6 +8939,97 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return { style, name: PRONUNCIATION_STYLES.find((s) => s.id === style).name, error };
       }
     };
+  }
+
+  // pronunciation-score-groups-ui.js
+  var REASONS = { "no-source-correspondence": "No checked pronunciation correspondence for this word.", "source-only-written-form": "The pronunciation source has no exact written range for this word form.", "incomplete-source-path": "A complete shared Hebrew span is unavailable.", "no-individual-word-units": "The source form is combined or has no individually owned units." };
+  function renderPronunciationScoreGroups(target, report, word) {
+    target.replaceChildren();
+    const item = report?.words?.find((w) => w.wordId === word?.id), message = document.createElement("p");
+    message.className = "muted";
+    if (!item) {
+      message.textContent = report?.error ?? "Select a word included in the current score span.";
+      target.append(message);
+      return;
+    }
+    const hebrew = document.createElement("p");
+    hebrew.lang = "he";
+    hebrew.dir = "rtl";
+    hebrew.className = "pronunciation-group-hebrew";
+    hebrew.textContent = item.hebrew;
+    target.append(hebrew);
+    if (!item.groups.length) {
+      message.textContent = REASONS[item.reason] ?? "No checked common span.";
+      target.append(message);
+      return;
+    }
+    message.textContent = "Each row relates the same marked Hebrew span. Different syllable divisions stay separate; a common span does not assign a pronunciation syllable to each note.";
+    target.append(message);
+    const table = document.createElement("table");
+    table.className = "pronunciation-score-groups";
+    const head = document.createElement("thead"), hr = document.createElement("tr");
+    for (const text of ["Marked Hebrew", "Score syllables", "Pronunciation source", "Correspondence"]) {
+      const th = document.createElement("th");
+      th.scope = "col";
+      th.textContent = text;
+      hr.append(th);
+    }
+    head.append(hr);
+    table.append(head);
+    const body = document.createElement("tbody");
+    for (const group of item.groups) {
+      const row = document.createElement("tr");
+      row.dataset.groupId = group.id;
+      row.dataset.relation = group.relation;
+      const h = document.createElement("td");
+      h.lang = "he";
+      h.dir = "rtl";
+      h.textContent = group.hebrew;
+      row.append(h);
+      const score = document.createElement("td");
+      group.scoreSyllables.forEach((s, i) => {
+        if (i) score.append(document.createTextNode(" | "));
+        const span = document.createElement("span");
+        span.lang = "he";
+        span.dir = "rtl";
+        span.textContent = s.hebrew;
+        score.append(span);
+        if (s.printedLyrics.length) {
+          const lyric = document.createElement("small");
+          lyric.dir = "ltr";
+          lyric.textContent = " (" + s.printedLyrics.join(" / ") + ")";
+          score.append(lyric);
+        }
+      });
+      row.append(score);
+      const source = document.createElement("td");
+      source.dir = "ltr";
+      group.sourceUnits.forEach((u, i) => {
+        if (i) source.append(document.createTextNode(" · "));
+        const span = document.createElement(u.sourceStress ? "strong" : "span");
+        span.textContent = u.text;
+        source.append(span);
+        const cues = [u.sourceStress ? "Primary stress" : "", u.hebrewUnderlay?.variants.some((v) => v.sharesNextConsonant) ? "Shares consonant with next source unit" : "", u.hebrewUnderlay?.variants.some((v) => v.sharesPreviousConsonant) ? "Shares consonant with previous source unit" : ""].filter(Boolean);
+        if (cues.length) {
+          const cue = document.createElement("small");
+          cue.textContent = cues.join(" · ");
+          source.append(cue);
+        }
+      });
+      const provenance = document.createElement("small");
+      provenance.textContent = `Row ${group.sourceRow}, column ${group.sourceColumn}${group.sourceReference ? " · original repeat reference retained" : ""}`;
+      source.append(provenance);
+      row.append(source);
+      const relation = document.createElement("td");
+      relation.textContent = group.relation === "different-syllable-divisions" ? `${group.scoreSyllables.length} score / ${group.sourceUnits.length} source syllables · shared span only` : "Same written syllable";
+      row.append(relation);
+      body.append(row);
+    }
+    table.append(body);
+    const scroll = document.createElement("div");
+    scroll.className = "table-scroll";
+    scroll.append(table);
+    target.append(scroll);
   }
 
   // recorded-practice.js
@@ -9159,6 +9352,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var sourcePitchTools = null;
   var scorePronunciation = true;
   var scorePronunciationReport = null;
+  var scoreGroupReport = null;
   var inspectedScoreEventId = null;
   try {
     const saved = JSON.parse(localStorage.getItem("tropetrain-score-pronunciation-v1"));
@@ -9982,6 +10176,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("score-pronunciation-download").disabled = !scorePronunciationReport?.links.length;
     const inspected = scorePronunciationReport?.links.find((l) => l.eventId === inspectedScoreEventId) ?? scorePronunciationReport?.links[0];
     $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
+    scoreGroupReport = null;
+    try {
+      scoreGroupReport = pronunciationTools?.groupNotes(plan.filter((e) => e.wordId === words2[state.cursor]?.id), words2) ?? null;
+    } catch (error) {
+      scoreGroupReport = { error: error.message, words: [] };
+    }
+    renderPronunciationScoreGroups($("score-word-alignment-content"), scoreGroupReport, words2[state.cursor]);
+    $("score-word-alignment-download").disabled = !scoreGroupReport?.words.length;
     $("staff-page-label").textContent = plan.length ? `Score notes ${from + 1}–${to} of ${plan.length}` : "No score notes in this span";
     $("staff-previous").disabled = from === 0;
     $("staff-next").disabled = to === plan.length;
@@ -10618,6 +10820,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } catch {
     }
     renderStaff();
+  });
+  $("score-word-alignment-download").addEventListener("click", () => {
+    if (scoreGroupReport?.words.length) download("tropetrain-word-score-alignment.json", { ...scoreGroupReport, musicalSource: { id: model.profile.id, revision: model.profile.revision } });
   });
   $("score-pronunciation-download").addEventListener("click", () => {
     if (!scorePronunciationReport?.links.length) return;

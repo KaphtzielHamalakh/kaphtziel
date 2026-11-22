@@ -105,3 +105,10 @@
 .pronunciation-rule-table th{font-weight:500}.pronunciation-rule-table th:first-child{width:46%}
 .pronunciation-rule-table small{display:block;font-size:11px;color:var(--soft)}
 .pronunciation-rule-difference{background:var(--pale)}.selected-source-style{font-weight:700}
+
+.pronunciation-score-groups{table-layout:fixed;width:100%;border-collapse:collapse;font:13px/1.6 system-ui,sans-serif}
+.pronunciation-score-groups th,.pronunciation-score-groups td{border:1px solid var(--line);padding:.6rem .4rem;vertical-align:top;overflow-wrap:anywhere;white-space:normal;text-align:start}
+.pronunciation-score-groups td:first-child{font:24px/1.9 "Noto Hebrew",serif}
+.pronunciation-score-groups small{display:block;color:var(--soft);font-size:11px}
+.pronunciation-score-groups [data-relation="different-syllable-divisions"]{background:var(--pale)}
+#score-word-alignment{margin-block:1rem;min-width:0}#score-word-alignment-content{min-width:0}
