@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "8ffa464a25c80132980021b9e0c009e03e051c99",
+  "publishedCommit": "2504267bcaee0dfd913a6902b2b49242a1d26011",
   "nextTask": "Continue word-aligned chanting across all Torah with independent six historical pronunciation grammars and every contextual cantorial melody system; printing deferred. v0.57now has an original, whole-source-audited phonemic candidate compiler for two source-defined Formal Ashkenazic regions, independently selected from the two MAMtext projections and six Kinnor documentary labels. Do not equate those regions with Kinnor profiles or promote candidates to approved phonemes/voices. Resolve the19557mobile-sheva references, special alef/mappiq,2360diphthong-part references and hiatus/local/quantity/allophone evidence;188Mideastern open segols lack established stress. Obtain reusable sustained singing material/transitions and qualified linguistic/acoustic/cantorial review. Preserve all79985Torah words, source branches/stress/shared halves/source-only ranges, original recordings/times/gaps, source rights and the complete roadmap. Keep the private0.55clock/curve diagnostic frozen. Continue missing Baer/Cohen figures and full contextual musical fitting, then retained learning/tutor tools. Full goal active/incomplete.",
   "lastPassingTests": {
     "automated": 482,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 9,
     "log": "/private/tmp/tropetrain-check-v57-final.log",
-    "ui": "Local normal88and portable89verify two independently saved research profiles, source ba/ra versusbo/ro, exactבָּרָ֣א and original0–3/3–7UTF16syllable ranges, unchanged27reader Hebrew strings/IDs/aria-labels, and unchanged historicalGalician/melody/key/tempo/range settings. MideasternGen1:2word11מְרַחֶ֖פֶת preserves primary stress and produces open-stressed/closed segol candidates ej/ɛ while mobile sheva stays null. Gen8:20word7exports both original shared bet halves referencing one b event; no extra letter or consonant. Gen13:3displayword12/canonicalgen-13-3-13preservesCGJ, separate Hebrew branches1/2and null written ranges. Isa42:5word1כֹּֽה־ retains the selected profile and exact Hebrew with unavailable categories/no substitute. Prepared normal/portable JSONexports work; portable coverage evidence is embedded. Profile/text choices persist on reload. Changing profile during repeated volume0instrument playback preserves Restart, original melody,60BPM/key0/range60–72and running playback; stopped afterward. Both319px layouts have root/scroll319and0overflowing proposal rows; screenshots inspected. Normal/portable consoles have no warnings/errors. Viewport reset; all playback stopped. Acoustic, qualified phonological/cantorial review and native file Save/file-origin tests remain unclaimed."
+    "ui": "Local normal88and portable89verify two independently saved research profiles, source ba/ra versusbo/ro, exactבָּרָ֣א and original0–3/3–7UTF16syllable ranges, unchanged27reader Hebrew strings/IDs/aria-labels, and unchanged historicalGalician/melody/key/tempo/range settings. MideasternGen1:2word11מְרַחֶ֖פֶת preserves primary stress and produces open-stressed/closed segol candidates ej/ɛ while mobile sheva stays null. Gen8:20word7exports both original shared bet halves referencing one b event; no extra letter or consonant. Gen13:3displayword12/canonicalgen-13-3-13preservesCGJ, separate Hebrew branches1/2and null written ranges. Isa42:5word1כֹּֽה־ retains the selected profile and exact Hebrew with unavailable categories/no substitute. Prepared normal/portable JSONexports work; portable coverage evidence is embedded. Profile/text choices persist on reload. Changing profile during repeated volume0instrument playback preserves Restart, original melody,60BPM/key0/range60–72and running playback; stopped afterward. Both319px layouts have root/scroll319and0overflowing proposal rows; screenshots inspected. Normal/portable consoles have no warnings/errors. Viewport reset; all playback stopped. Acoustic, qualified phonological/cantorial review and native file Save/file-origin tests remain unclaimed. Public normal80and portable81verifyv0.57, exactבָּרָ֣א/ranges0–3and3–7, independently changing ɔ/u candidates with unchanged27reader words/IDs and musical/text/historical-profile settings, and embedded portable coverage evidence. Publicportable319px root/scroll319with0overflowing candidate rows; public desktop/mobile screenshots saved and inspected. Both public consoles have0warnings/errors. Navigation observations timed out for80/81, but those same tabs reportedv0.57and passed controls/exports; they were not restarted. Allfour audioelements in each public tab are paused, both main controls showPlay. Private88/89closed; server43681stopped withCtrl-C/exit0. Viewport reset; user8765untouched."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "8ffa464a25c80132980021b9e0c009e03e051c99",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45038204897",
+    "commit": "2504267bcaee0dfd913a6902b2b49242a1d26011",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45044163816",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 18,
-    "publicChangedBytesExact": 122472527
+    "publicChangedFilesExact": 19,
+    "publicChangedBytesExact": 122537273
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.57.0",
-    "status": "482_checks_local_normal_portable_verified_publication_pending",
+    "status": "482_checks_public_normal_portable_verified_progress_saved_full_goal_active",
     "baseline": "988ca5222b21bc7b9bbe499390762bf75b29ef7b",
     "previousGoalTurn": "progress: v0.56 six documentary profiles and exact-word reports implemented, browser verified, published and saved with 473 checks; all historical singing rules remain pending.",
     "newPublicVoice": null,
@@ -1581,7 +1581,7 @@
       "katz-1993-mideastern-formal"
     ],
     "scope": "Incomplete source-defined Formal Ashkenazic phonemic proposals, independent of both MAMtext styles and all six documentary Kinnor profiles. No historical label equivalence, reviewed grammar, acoustic phone, duration, singing voice or sound allocation.",
-    "status": "whole_source_audit_and_local_UI_verified_publication_pending",
+    "status": "published_482_checks_source_preserving_word_proposals_local_and_public_normal_portable_verified_review_and_singing_pending",
     "allTorahWordLinks": 79985,
     "sourceGroups": 68504,
     "sourceUnitPlansPerStyle": 194272,
