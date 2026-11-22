@@ -1,6 +1,8 @@
 # TropeTrain · reconstruction in progress
 
-Version **v0.49.0** aligns the two independent Phonetic MAM text styles to the unchanged marked Hebrew in all26additional books: **146,934words per style** have complete exact written ranges. Try **Isaiah42:5word2 אָמַ֞ר**, then Pronunciation text style → Sephardic/Ashkenazic: the source ’a/’o and mar units align to **אָ / מַ֞ר**. Different source reading forms keep unresolved ranges and1,010unmatched words remain unassigned. This is sourced syllable correspondence with independent linguistic review pending; no new singing voice or Kinnor phonological preset.
+Published **v0.49.0** aligns the two independent Phonetic MAM text styles to the unchanged marked Hebrew in all26additional books: **146,934words per style** have complete exact written ranges. Try **Isaiah42:5word2 אָמַ֞ר**, then Pronunciation text style → Sephardic/Ashkenazic: the source ’a/’o and mar units align to **אָ / מַ֞ר**. Different source reading forms keep unresolved ranges and1,010unmatched words remain unassigned. This is sourced syllable correspondence with independent linguistic review pending; no new singing voice or Kinnor phonological preset.
+
+**445checks pass**, including16newchecks. Both public builds and all67changedfiles/127,399,853bytes are verified.
 
 It also adds11literal instrumental figures from **Baer No105 · first printed setting**, plus a full32-cell inventory with21explicit pending cells. In Printed pattern study, choose the Baer source and **Munaḥ → Revia · adjacent source columns**, then Play printed pattern using the instrument volume/tempo/key controls. Leading, dotted and final printed rests remain part of playback and the selectable staff. This is untexted source notation, with no new Kinnor preset, Bible-word fitting or singing voice. Printing deferred; full reconstruction active.
 

@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "13bc6bd36458634f798e4a25bcade68572966441",
+  "publishedCommit": "9bea166efb4967a33e7d422baab950a431bac916",
   "nextTask": "Continue full independent singing phonologies and contextual melody grammars, with qualified musical/linguistic review and reusable sung-phone material; printing deferred. The two MAM source text styles now have exact complete marked-Hebrew underlay for146934of150620mapped additional-book words/style; differing forms and1010unmapped words retain explicit gaps. Do not convert these text correspondences, category/IPA or personal timing proposals into reviewed acoustic material. Finish21pending Baer No105first-setting source cells and verify context/stress/word underlay before any full melody preset. Preserve all79985Torah words/accents, original notes/audio/times,54separate Haftarah takes and ordered sections; Vayera/Tazria/Masei remain whole-take-only, ezk43:15word4unmapped and16Gen28:4overflow words withheld. AllsixKinnor singing grammars/voices, every complete historical melody system and the entire documented learning/tutor roadmap remain required. Full objective active/incomplete.",
   "lastPassingTests": {
     "automated": 445,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 16,
     "log": "/private/tmp/tropetrain-check-v49-final2.log",
-    "ui": "Local normal64 and portable65 verify Isaiah42:5word2 source units: Sephardic ’a·mar / Ashkenazic ’o·mar align to exact unchanged אָ / מַ֞ר, preserving stress and the fullmaqaf group. All89visible marked Hebrew strings/canonical IDs/aria-labels match original reader JSON in both distributions and across style changes. Categories/IPA actions remain disabled for new books. Main key+1/tempo40/range60–72, pattern source/notes and original recording URLs remain unchanged across text styles. Literal Baer pair retains leading and dotted rests; final halfrest highlights its exact source component5 during muted playback. Pending Segol supplies no playback and shows its own source page/reason. Portable319root/body319/panel261; viewport reset. No appconsolewarnings/errors. Portable AX message limit requires observed DOM/control verification; normal uses AX primarily. Public QA follows; all audio gains0. NativeSave/file-origin and independent acoustic/linguistic/cantorial review unclaimed. Local repeating Haftarah+3/75% muted source playback retains identical processed blob URL, source timeline/status and settings through independent text style change. Isaiah1:1word1 stays unassigned in both styles, with empty units and disabled export; source opening restores Isaiah42:5word2. All source playback is then stopped, pitch0/speed100/repeatfalse restored."
+    "ui": "Public normal66 and portable67 verify Isaiah42:5word2: Sephardic ’a·mar / Ashkenazic ’o·mar aligns to exact unchanged אָ / מַ֞ר, with original stress and fullmaqaf group. All89visible marked Hebrew strings/canonical IDs/aria-labels match reader JSON across both distributions and both styles. New-book IPA stays disabled. Normal source practice continues repeating at+3/75% through a text-style change with identical processed blob URL, original source timeline/status and settings; processed sound review remains null. Normal Baer pair retains independent appliedkey+1(MIDI68)/tempo40(7.50seconds)/range60–72 across styles; source durations/identity remain exact. Literal finalhalfrest highlights baer105-1w-munah-four-glyphs-5 during muted playback; pendingSegol refusesPlay and shows its ownp30scan/reason. Portable pair uses unchanged source notes/11components/2rests/9attacks; Isaiah1:1word1stays unassigned with no substituted text. Portable reload retains Isaiah42:5word2/Sephardic;319root/body319/panel261, viewportreset. No appconsolewarnings/errors. Normal AX used primarily; portable AX exceeded messageframe limit because embedded source URLs, so observedDOM/normalcontrols verified its UI. Both public tabs left stopped,word2/Sephardic,Baerpair,allfivegains0/allfourmedia paused; normalinstrumentkey0/tempo60,Haftarahpitch0/speed100/repeatfalse restored. Screenshot outputs/TropeTrain-v0.49-live.jpg saved/viewed; source style overview also saved. All playback QA used muted clocks; nativeSave/file-origin and independent acoustic/phonological/cantorial review remain unclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "codeCommit": "13bc6bd36458634f798e4a25bcade68572966441",
-    "pagesRun": 45007234344,
+    "codeCommit": "9bea166efb4967a33e7d422baab950a431bac916",
+    "pagesRun": 45012234208,
     "status": "success",
     "jobs": 3,
-    "publicFilesExact": 47,
-    "publicBytesExact": 122763638
+    "publicFilesExact": 67,
+    "publicBytesExact": 127399853
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.49.0",
-    "status": "local_verified_pending_publication",
+    "status": "published_verified",
     "baseline": "11de16d3b65bef4d22cbece80f76485182fd9661",
     "newPlayablePreset": null,
     "sourceTable": "Baer No105 first printed setting, pp30–35; rare appendix p36",
