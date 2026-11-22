@@ -18,6 +18,14 @@ export function voiceAudioRecord(recording,base){
   return {...recording,title:`${voiceStudy(recording.studyId).name} · ${recording.deliveryId}`,audio:{...recording.audio,
     url:new URL(recording.audio.file,base).href,localFile:recording.id==='seed-esther-2011'?recording.audio.filename:null}};
 }
+export function voiceCoverage(record){return record.coverage??voiceStudy(record.studyId).coverage;}
+export function voiceCoverageLabel(record){
+  if(record.coverageLabel)return record.coverageLabel;
+  const coverage=voiceCoverage(record);if(!coverage)return null;
+  const name={gen:'Genesis',num:'Numbers'}[coverage.bookId]??coverage.bookId;
+  const a=coverage.start,z=coverage.end;
+  return `${name} ${a.chapter}:${a.verse}${a.chapter===z.chapter&&a.verse===z.verse?'':`–${a.chapter===z.chapter?'':z.chapter+':'}${z.verse}`}`;
+}
 export function voiceSpan(start,end,duration){
   if(!Number.isFinite(duration)||duration<=0||!Number.isFinite(start)||start<0||start>=duration)
     throw Error('Choose a start time inside this recording.');

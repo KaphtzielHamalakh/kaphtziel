@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "bd81e3e05ae3eb904318568a6cc8a3114bbe7059",
-  "nextTask": "Continue the full independently pronounced chanting reconstruction. v0.37 adds primary MAM edition correspondence for141words while retaining all68,384prior groups/387,096units/1,035,406category references (only root lineage hashes updated). Preserve all original Hebrew/accents/canonical and occurrence IDs, source syllables/categories, fixed recordings/times, literal source-score/demo events and independent melody/style/range/key/tempo. One pronunciation word gen-4-18-9 remains unassigned because the complete primary MAM/Phonetic MAM verse comparison fails; do not guess yod or phonological equivalence. Two source forms remain combined,2,180word-owned source forms/style lack exact written ranges, and2,811recording-timing words need review. Continue complete contextual Cohen/Baer melody rules and resolve the p547penitential ornament/duration evidence without arbitrary recitation pitches or unknown cells. Eleven CC BY-SA4Fellman2019HebrewHighHoliday originals remain privately acquired/hash-verified in work/references/context/v36; establish actual recorded verse/word/syllable boundaries and musical/phonological review before importing independent voices or symbolic notes. Source/review all six Kinnor Accent phonological grammars; the two source text projections are not those six grammars. Full feature inventory active/incomplete; printing deferred.",
+  "nextTask": "Continue the full independently pronounced chanting reconstruction. Preserve exact marked Hebrew and canonical/occurrence IDs; all v0.37 pronunciation packets, prior recordings/times and printed/demo events stay unchanged. v0.38 adds64unchanged CC BY-SA4Hebrew source verse clips from the distinct2018document and personal draft word-boundary review. Establish actual verse/word/syllable correspondence, source-edition differences, source performer credit and qualified cantorial/phonological review; personal or muted-clock marks remain drafts, never certified source timing. Eleven verified2019LenFellman full takes remain private and distinct. Continue contextual Cohen/Baer melody rules, p547penitential ornament/duration evidence and all six historical Kinnor Accent grammars/voices, without arbitrary pitches or unsupported presets. One MAM word gen-4-18-9 remains unassigned; two combined and2180source-only word forms/style remain;2811 earlier recording-timing words need review. Full feature inventory active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 307,
+    "automated": 315,
     "newRegressionChecks": 8,
-    "ui": "Public v0.36→v0.37 preserves Genesis22:1/hypothetical source/Sephardic and all13marked Hebrew button texts/IDs/aria-labels, with all4gains0. Both public distributions then open Genesis8:20word8 הַטְּהוֹרָ֗ה, compare primary MAM הַטְּהֹרָ֗ה and switch hat·tᵉ·hó·ra/hat·tᵉ·hó·ro independently; all14Hebrew texts/canonical DOMIDs/aria-labels and displayed noteIDs/pitches/beats remain exact. Different source spellings retain the explicit no-written-range/no-score-span message. Both muted repeat clocks continue: normal word12/A4 59.3895%→59.5228%; standalone word11/G4 46.158%→46.2475%. After playback paged the staff, reselected word8 supplies the valid same-event key/tempo comparison in both builds: gen-8-20-8-s1-n1 G4→A4 at key+2/tempo72, original0.6beats/Hebrew/style retained; restored0/60. Public Deut28:59word9preserves the null first source Hebrew column and gᵉ·dó·lót/lós, unchanged marked Hebrew and notes. Public Gen4:18word9keeps the no-source refusal, clears the old comparison and disables pronunciation-study export. Both distributions root/bodyfit319/1280 with actual widths checked; new selected normal16used for its responsive check. Standalone navigation observation timed out but the same tab6 reached0.37ready without restarting. No application console errors. Passage-open message now omits the stale musical-source label and uses “1 word has”. Screenshot outputs/TropeTrain-v0.37-live.jpg viewed; snapshots work/audits/ui-live-0.37.json; six reviewer studies in outputs/Edition-word-studies. Normal16/standalone6left Genesis8:20word8/Sephardic/OriginalDemo/instrument/key0/60BPM/Endofword with source comparison open, all4gains0/stopped/repeatfalse/audio paused/viewportreset. Old public12and local previews13/14/15closed after checks. Owned8767session57605stopped/exit0; user8765untouched. NativeSave/download/direct-file-origin, actual auditory and independent linguistic/cantorial/phonological review remain pending. Local checks additionally cover exact joined prefixes, two-row owners, restored consonantal view and recorded-word identity; the repeated recorded-word samples both at100% do not prove advancing recording time.",
-    "limits": "Two independent source text styles only. New primary-edition links retain different spellings and source-only ranges; no phonological equivalence, singing voice, extra Kinnor preset or complete melody grammar inferred."
+    "ui": "Local normal/portable v0.38 show70source recordings and the64verse source study. Genesis22:1opens all13unchanged UXLC marked words; independent Sephardic/Ashkenazic source-text switches preserve every reader word/ID/aria-label, the actual noteeventIDs/pitches/beats, the selected source recording and draftJSON. An initial whole-staff innerHTMLcomparison changed because it includes the pronunciation underlay; comparing actualeventIDs/pitches/beats confirms musical invariance. The initial two0:00display samples did not prove advancement; subsequent source-specific mutedplayhead captures advance0.019→9.333seconds across the style switch, with noaudio.play. Manual0.75–1.5word1draft entry/export, normalreloadrestore, portable same-source restore, ordinaryJSON/sourcehashrefusal and next-wordoverlap refusal pass. A0.019–1.2normal and0.5–1portable draft interval audition runs inmutedmode. SourcechangeGen22:2stopsplayback, starts all-null word times and refuses staleplayhead capture; original clip loads/checksum verifies/caches. Portable Gen22:1 uses the exactembedded original, not a networkreplacement. Both roots/bodiesfitactual319/1280widths; viewportreset. Alltestwordtimescleared; allfourgains0/stopped/repeatfalse, media paused. Noapplicationconsoleerrors. AXprimary; a getByLabel exactselector failed while the role-labeled native selector was present; using the observed combobox role worked. An offselected-tab AX summary click had no effect; observed-state Playwright summary click completed the normal editor check. No nativeSave/file-origin/auditory/independent musicalreview claim.",
+    "limits": "64 new fixed Hebrew verse recordings and personal draft times; no new independent singing voice, phonological equivalence or complete melody grammar."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -58,7 +58,7 @@
     {
       "id": "singing",
       "description": "Reusable singing voice and accompaniment, independently controlled",
-      "status": "main_word_linked_fixed_Torah_recordings_77174_source_timed_words_2811_blocked_no_independent_singing_synthesis"
+      "status": "prior_word_linked_Torah_fixed_recordings_plus64distinct_2018_source_verse_clips_personal_word_timing_drafts_no_independent_singing_synthesis"
     },
     {
       "id": "voice_range",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.37.0",
+    "version": "0.38.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "50adf40c0fd068df55154945465c1677a57d89b7",
-    "status": "published307pass_public_normal_standalone_byte_verified_final_records_follow",
-    "record": "docs/VERIFICATION-0.37.md",
-    "next": "Prove and add primary MAM edition word correspondence for the 141 supported words between unchanged exact anchors; retain Genesis4:18word9 refusal and all different-spelling source-only ranges. Complete full musical/six-voice objective remains required."
+    "baseCommit": "7a07e5b0e32492788b2a90274a67dbacc5b6464a",
+    "status": "315_final_checks_pass_local_normal_portable_verified_publication_pending",
+    "record": "docs/VERIFICATION-0.38.md",
+    "next": "Continue the full independently pronounced chanting reconstruction. Preserve exact marked Hebrew and canonical/occurrence IDs; all v0.37 pronunciation packets, prior recordings/times and printed/demo events stay unchanged. v0.38 adds64unchanged CC BY-SA4Hebrew source verse clips from the distinct2018document and personal draft word-boundary review. Establish actual verse/word/syllable correspondence, source-edition differences, source performer credit and qualified cantorial/phonological review; personal or muted-clock marks remain drafts, never certified source timing. Eleven verified2019LenFellman full takes remain private and distinct. Continue contextual Cohen/Baer melody rules, p547penitential ornament/duration evidence and all six historical Kinnor Accent grammars/voices, without arbitrary pitches or unsupported presets. One MAM word gen-4-18-9 remains unassigned; two combined and2180source-only word forms/style remain;2811 earlier recording-timing words need review. Full feature inventory active/incomplete; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -670,5 +670,15 @@
     "runtimeSha256": "2c97922de56fb73868f38df0e01746b99847946996ab6996e7a1f09137ce0781",
     "standaloneBytes": 68687061,
     "standaloneSha256": "1d1c390989841e85763152bc69e51a277dc02afaf0f72ed9b0f6a2e663d7f2b3"
+  },
+  "recordedVerseEvidence": {
+    "edition": 2018,
+    "recordings": 64,
+    "bytes": 20102828,
+    "estimatedDurationSeconds": 1240.422751,
+    "sourcePDFSha256": "18488d9dbbe4e2e2bb096338d46a4140a8c626bf60bf6e01b523c8845d3bec78",
+    "manifest": "docs/FELLMAN-RH-2018.json",
+    "review": "Source-defined verse scopes only. Performer not separately credited. Word/phoneme/note times and independent musical review remain null.",
+    "drafts": "Exact source identity and marked-word-bound personal drafts; no inferred times or promotion to reviewed evidence."
   }
 }

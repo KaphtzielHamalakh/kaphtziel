@@ -115,3 +115,5 @@
 
 #prophetical-score-scan{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:5px;margin-block:1rem}
 .pronunciation-edition-forms{width:100%;border-collapse:collapse;table-layout:fixed;margin:1rem 0}.pronunciation-edition-forms th,.pronunciation-edition-forms td{border:1px solid var(--line,#d6d6cf);padding:.6rem;overflow-wrap:anywhere}.pronunciation-edition-forms td{font-family:'Noto Serif Hebrew',serif;font-size:1.35rem}
+
+#word-timing-review{margin-top:1.25rem}#word-timing-editor{margin-top:1rem}#word-timing-select{width:100%;max-width:100%}#word-timing-word{font:1.8rem 'Noto Serif Hebrew',serif}#word-timing-json{display:block;box-sizing:border-box;width:100%;max-width:100%;font:12px/1.5 monospace}#word-timing-id{overflow-wrap:anywhere}

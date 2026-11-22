@@ -1,8 +1,8 @@
 {
   "format": "tropetrain-voice-studies-v1",
-  "revision": 2,
-  "retrieved": "2026-11-20",
-  "scope": "Six exact original source performances. Source pronunciation/delivery criteria are separate; no word-aligned or synthesized voice presets. Full Kinnor repertoire/pronunciation reconstruction remains pending.",
+  "revision": 3,
+  "retrieved": "2026-11-21",
+  "scope": "70 exact original source performances, including 64 Hebrew verse clips from the distinct 2018 Rosh Hashanah document. No independent singing synthesis or reviewed word timing inferred.",
   "studies": [
     {
       "id": "foreman-genesis",
@@ -110,6 +110,352 @@
         "linkedBy": "https://opensiddur.org/readings-and-sourcetexts/cantillation/cantillation-tables-for-torah-readings/",
         "retrieved": "2026-11-20",
         "originalSha1": "a3d2723f845ab5a4118f3d9d83fa927a734ad839"
+      }
+    },
+    {
+      "id": "fellman-rh-2018",
+      "name": "Rosh Hashanah · 2018 source verse recordings",
+      "sourceTitle": "Len Fellman, Rosh Hashanah Torah readings (2018 source document)",
+      "sourceUrl": "https://opensiddur.org/?p=21190",
+      "coverage": null,
+      "coverageStatus": "Source verse identified by original embedded filename. The reader opens unchanged UXLC; source-edition comparison and word boundaries remain unreviewed.",
+      "pronunciations": [
+        {
+          "id": "as-recorded",
+          "name": "As recorded · pronunciation not separately identified"
+        }
+      ],
+      "deliveryLabel": "Recorded verse",
+      "deliveries": [
+        {
+          "id": "gen-21-1",
+          "name": "Genesis 21:1",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-2",
+          "name": "Genesis 21:2",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-3",
+          "name": "Genesis 21:3",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-4",
+          "name": "Genesis 21:4 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-5",
+          "name": "Genesis 21:5",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-6",
+          "name": "Genesis 21:6",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-7",
+          "name": "Genesis 21:7",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-8",
+          "name": "Genesis 21:8",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-9",
+          "name": "Genesis 21:9",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-10",
+          "name": "Genesis 21:10",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-11",
+          "name": "Genesis 21:11",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-12",
+          "name": "Genesis 21:12 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-13",
+          "name": "Genesis 21:13",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-14",
+          "name": "Genesis 21:14",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-15",
+          "name": "Genesis 21:15",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-16",
+          "name": "Genesis 21:16",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-17",
+          "name": "Genesis 21:17",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-18",
+          "name": "Genesis 21:18",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-19",
+          "name": "Genesis 21:19",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-20",
+          "name": "Genesis 21:20",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-21",
+          "name": "Genesis 21:21 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-22",
+          "name": "Genesis 21:22",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-23",
+          "name": "Genesis 21:23",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-24",
+          "name": "Genesis 21:24",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-25",
+          "name": "Genesis 21:25",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-26",
+          "name": "Genesis 21:26",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-27",
+          "name": "Genesis 21:27 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-28",
+          "name": "Genesis 21:28",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-29",
+          "name": "Genesis 21:29",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-30",
+          "name": "Genesis 21:30",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-31",
+          "name": "Genesis 21:31",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-32",
+          "name": "Genesis 21:32",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-33",
+          "name": "Genesis 21:33",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-21-34",
+          "name": "Genesis 21:34 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-1",
+          "name": "Genesis 22:1",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-2",
+          "name": "Genesis 22:2",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-3",
+          "name": "Genesis 22:3 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-4",
+          "name": "Genesis 22:4",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-5",
+          "name": "Genesis 22:5",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-6",
+          "name": "Genesis 22:6",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-7",
+          "name": "Genesis 22:7",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-8",
+          "name": "Genesis 22:8 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-9",
+          "name": "Genesis 22:9",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-10",
+          "name": "Genesis 22:10",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-11",
+          "name": "Genesis 22:11",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-12",
+          "name": "Genesis 22:12",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-13",
+          "name": "Genesis 22:13",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-14",
+          "name": "Genesis 22:14 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-15",
+          "name": "Genesis 22:15",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-16",
+          "name": "Genesis 22:16",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-17",
+          "name": "Genesis 22:17",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-18",
+          "name": "Genesis 22:18",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-19",
+          "name": "Genesis 22:19 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-20",
+          "name": "Genesis 22:20",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-21",
+          "name": "Genesis 22:21",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-22",
+          "name": "Genesis 22:22",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-23",
+          "name": "Genesis 22:23",
+          "kind": "chanted"
+        },
+        {
+          "id": "gen-22-24",
+          "name": "Genesis 22:24 · source reading end",
+          "kind": "chanted"
+        },
+        {
+          "id": "num-29-1",
+          "name": "Numbers 29:1",
+          "kind": "chanted"
+        },
+        {
+          "id": "num-29-2",
+          "name": "Numbers 29:2",
+          "kind": "chanted"
+        },
+        {
+          "id": "num-29-3",
+          "name": "Numbers 29:3",
+          "kind": "chanted"
+        },
+        {
+          "id": "num-29-4",
+          "name": "Numbers 29:4",
+          "kind": "chanted"
+        },
+        {
+          "id": "num-29-5",
+          "name": "Numbers 29:5",
+          "kind": "chanted"
+        },
+        {
+          "id": "num-29-6",
+          "name": "Numbers 29:6 · source reading end",
+          "kind": "chanted"
+        }
+      ],
+      "description": "64 original Hebrew verse recordings: Genesis 21:1–34, Genesis 22:1–24 and Numbers 29:1–6, extracted unchanged from the 2018 Rosh Hashanah document. The document is by Len Fellman; its embedded-audio performer is not separately credited.",
+      "limits": "Fixed source recordings retain original pronunciation, melody, pitch and timing. They are not independently pronounced singing presets, a complete melody grammar or Kinnor realizations. The document credits Joshua R. Jacobson’s book for melodies; no modern score or inferred named tradition is imported.",
+      "rightsEvidence": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "evidenceUrl": "https://opensiddur.org/?p=21190",
+        "evidenceLocation": "Open Siddur resource license and reuse terms; original resource shared August 18, 2018",
+        "accessed": "2026-11-21"
       }
     }
   ],
@@ -288,6 +634,2886 @@
         "url": "https://creativecommons.org/licenses/by-sa/4.0/"
       },
       "modifications": "None. Original M4A/AAC bytes; playback spans are user-selected seconds, without a word or syllable timing claim.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-1",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-1",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=1",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 1
+        }
+      },
+      "coverageLabel": "Genesis 21:1",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-01H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 313886,
+        "sha1": "ab24be096750ab2dee696fd72bd3f2301e78c775",
+        "sha256": "5e24ca12632bb2aef83b6b7f8873fc867a18fe18c1a319bb597372938d0d3aa0",
+        "estimatedDurationSeconds": 19.591812,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-01H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-01H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-2",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-2",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=1",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 2
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 2
+        }
+      },
+      "coverageLabel": "Genesis 21:2",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-02H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 373988,
+        "sha1": "6b4a52ac7c640abc196f1494b0688d556757bd94",
+        "sha256": "5373b23f5b590ed2fd833da4313b8e0f1b8e8a474ec0ab78ceb981eac5d20c73",
+        "estimatedDurationSeconds": 23.092188,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-02H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-02H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-3",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-3",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=1",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 3
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 3
+        }
+      },
+      "coverageLabel": "Genesis 21:3",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-03H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 285799,
+        "sha1": "484dd3462149f5bac391ab33353404e1391854a5",
+        "sha256": "e5fde10e88794beefffa4308f0fa485a155026d0372da6f451ca642c200bf976",
+        "estimatedDurationSeconds": 17.580375,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-03H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-03H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-4",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-4",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=1",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 4
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 4
+        }
+      },
+      "coverageLabel": "Genesis 21:4",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-04He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 397812,
+        "sha1": "de9838d5a7c794862527ae549d74de60d26cb8a7",
+        "sha256": "a6c7b223535e991d17e227f10ca7352e85a7e4cbd9d6f3d328122a1ce9d824fd",
+        "estimatedDurationSeconds": 24.581187,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-04He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-04He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-5",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-5",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=1",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 5
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 5
+        }
+      },
+      "coverageLabel": "Genesis 21:5",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-05H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 238152,
+        "sha1": "b275b7365b1a689a19d8c0ca8cb70f7161c38770",
+        "sha256": "736404ef33c704e9b53d16f9b688c2a11de9d0cce6d413ca6d40ea22bcbab51c",
+        "estimatedDurationSeconds": 14.602438,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-05H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-05H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-6",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-6",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=1",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 6
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 6
+        }
+      },
+      "coverageLabel": "Genesis 21:6",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-06H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 201037,
+        "sha1": "767d7aa8960e5b0a1effd7478e8de2be22aa2647",
+        "sha256": "074610e01b40b34d68c6f3630fdd31e15ea04a36c9fe492f91280f028bc20096",
+        "estimatedDurationSeconds": 12.53875,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-06H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-06H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-7",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-7",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=2",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 7
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 7
+        }
+      },
+      "coverageLabel": "Genesis 21:7",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-07H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 350165,
+        "sha1": "4de06603849b89a0111a0c851949d6f37a2a3064",
+        "sha256": "f3b4edf0c426ceb27e572e42663c1f0b8968dd11e24d5ec93d41476adb49af85",
+        "estimatedDurationSeconds": 21.60325,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-07H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-07H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-8",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-8",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=2",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 8
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 8
+        }
+      },
+      "coverageLabel": "Genesis 21:8",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-08H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 277858,
+        "sha1": "09ff43dc8e446f3606d698b93492de8145e2d150",
+        "sha256": "d2f49cc38eff48c75cd1b6a6dddb700d83b866a5f99cc4a676d939d3497fe333",
+        "estimatedDurationSeconds": 17.084063,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-08H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-08H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-9",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-9",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=2",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 9
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 9
+        }
+      },
+      "coverageLabel": "Genesis 21:9",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-09H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 215248,
+        "sha1": "b5ce216ec4467f6c964e6cb96a62b3ef552e2e47",
+        "sha256": "485064c432e4f92e694475778855fb6f7f8499efb3a7847ae5e90d292d2995c1",
+        "estimatedDurationSeconds": 13.426937,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-09H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-09H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-10",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-10",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=2",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 10
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 10
+        }
+      },
+      "coverageLabel": "Genesis 21:10",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-10H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 389871,
+        "sha1": "5de7680512956792dc76dd37aef904b5c81b219c",
+        "sha256": "9eabc76c9b7259609e72cdc21802ac04320058b4500436a943f5c7d4ac24d629",
+        "estimatedDurationSeconds": 24.084875,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-10H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-10H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-11",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-11",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=2",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 11
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 11
+        }
+      },
+      "coverageLabel": "Genesis 21:11",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-11H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 285799,
+        "sha1": "5d88196408d8c796e4ade05413d063cb53651bbc",
+        "sha256": "3d8fc9146d2749a1429409edbed9bb90e384de00aa8e4194fe1786fc23c46f61",
+        "estimatedDurationSeconds": 17.580375,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-11H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-11H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-12",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-12",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=2",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 12
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 12
+        }
+      },
+      "coverageLabel": "Genesis 21:12",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-12He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 533732,
+        "sha1": "b19a9cd9680f90ab08792d53b1de99427ca4f145",
+        "sha256": "3c9822abd14719d4074fe20605db748b1a8e99a49a682b9d00ca295772e3820c",
+        "estimatedDurationSeconds": 33.332188,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-12He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-12He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-13",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-13",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 13
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 13
+        }
+      },
+      "coverageLabel": "Genesis 21:13",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-13H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 145030,
+        "sha1": "68e11888456d0bf4b21c88f399c10bb36fc29fcb",
+        "sha256": "d73bcaab3800b98993cd138db59c1e70aeaf30de267988e9dfd3da1a90c3a175",
+        "estimatedDurationSeconds": 9.038312,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-13H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-13H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-14",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-14",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 14
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 14
+        }
+      },
+      "coverageLabel": "Genesis 21:14",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-14H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 565832,
+        "sha1": "c0dcad4af29981cac537fa38263760254433a389",
+        "sha256": "aa500393bec002217fc42e6f50fe5c2e7841bfe277d2f61b2df7f4343383d925",
+        "estimatedDurationSeconds": 35.082437,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-14H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-14H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-15",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-15",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 15
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 15
+        }
+      },
+      "coverageLabel": "Genesis 21:15",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-15H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 221851,
+        "sha1": "93e71d0bfb842b6defb39cf1974813325a0c8760",
+        "sha256": "6dcf5884139cb02acd8d458ad26695750efec9039d5d2222b9aa3b74f70cfbf1",
+        "estimatedDurationSeconds": 13.583625,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-15H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-15H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-16",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-16",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 16
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 16
+        }
+      },
+      "coverageLabel": "Genesis 21:16",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-16H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 369057,
+        "sha1": "8c1c15c955f814abb8bb86e2a3db7088ea6067c4",
+        "sha256": "d79193e40509d7d00ec2605323f067b995ccff28ea362bde08eb9475b9ba5cec",
+        "estimatedDurationSeconds": 23.04,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-16H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-16H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-17",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-17",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 17
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 17
+        }
+      },
+      "coverageLabel": "Genesis 21:17",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-17H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 461760,
+        "sha1": "61ca259121f35f7244531157cef95bfaf70b87d5",
+        "sha256": "b9b59ce7af5ee3780d77d48a531492b7c9af11cf153aef33c62065ddcadd0ba4",
+        "estimatedDurationSeconds": 28.577938,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-17H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-17H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-18",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-18",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=3",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 18
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 18
+        }
+      },
+      "coverageLabel": "Genesis 21:18",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-18H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 325923,
+        "sha1": "e6ed34e8949223e34fbe9ea20721f01c4cef669d",
+        "sha256": "97a1698f1fdad6a0353ab3bb14e087deb253856fba275b5939d9e79aaa669706",
+        "estimatedDurationSeconds": 20.088125,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-18H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-18H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-19",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-19",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=4",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 19
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 19
+        }
+      },
+      "coverageLabel": "Genesis 21:19",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-19H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 325923,
+        "sha1": "e6ed34e8949223e34fbe9ea20721f01c4cef669d",
+        "sha256": "97a1698f1fdad6a0353ab3bb14e087deb253856fba275b5939d9e79aaa669706",
+        "estimatedDurationSeconds": 20.088125,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-19H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-19H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-20",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-20",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=4",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 20
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 20
+        }
+      },
+      "coverageLabel": "Genesis 21:20",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-20H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 269917,
+        "sha1": "67f29e699e43f087b574b721632cfb5ce32440ef",
+        "sha256": "dc7eada83b9ead37a0231987c8c40a2ebd3977534049637c26dc2e44a78514ae",
+        "estimatedDurationSeconds": 16.58775,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-20H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-20H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-21",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-21",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=4",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 21
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 21
+        }
+      },
+      "coverageLabel": "Genesis 21:21",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-21He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 254034,
+        "sha1": "98908c2476dbc034e23d03b6bcf3f7373328098b",
+        "sha256": "4b876e5a9348142033e5314a767034a7e6d7470180253f16e466536564f8d542",
+        "estimatedDurationSeconds": 15.595062,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-21He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-21He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-22",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-22",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=5",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 22
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 22
+        }
+      },
+      "coverageLabel": "Genesis 21:22",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-22H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 358106,
+        "sha1": "68e611f5c9bbe3982762e99918aa427ce5ee5ef5",
+        "sha256": "533a8b41bd1652e16238f5f215f4244d710ed58baab14d9d9a6cf66c004ad543",
+        "estimatedDurationSeconds": 22.099563,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-22H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-22H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-23",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-23",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=5",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 23
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 23
+        }
+      },
+      "coverageLabel": "Genesis 21:23",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-23H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 478060,
+        "sha1": "a1cce65d8c437c3b56aacf0feedfb5291b7b169f",
+        "sha256": "09a45e883b335f13cd67d3fad866b0b148b876f8d6b6236c9e2d60c7c598168d",
+        "estimatedDurationSeconds": 29.596688,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-23H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-23H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-24",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-24",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=5",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 24
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 24
+        }
+      },
+      "coverageLabel": "Genesis 21:24",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-24H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 126139,
+        "sha1": "c77cbdc2d2891f170a72ad3bd85b01f9902b6975",
+        "sha256": "9ff74b27dd99f5a7b82cbd227b6501a1ec937881ff25345f10d7bc8b010ab44d",
+        "estimatedDurationSeconds": 7.601625,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-24H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-24H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-25",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-25",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=5",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 25
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 25
+        }
+      },
+      "coverageLabel": "Genesis 21:25",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-25H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 213158,
+        "sha1": "8406accc5fe5881833dc91470ea9c36a50b6c440",
+        "sha256": "4cdcb84b7c80d10d7a79bcd2e2346d927d2fb4f00b61e449d087e819668cb37d",
+        "estimatedDurationSeconds": 13.296313,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-25H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-25H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-26",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-26",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=5",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 26
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 26
+        }
+      },
+      "coverageLabel": "Genesis 21:26",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-26H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 384939,
+        "sha1": "c22bdbec836bd8105ae5d3339c2444ceb9fae9b2",
+        "sha256": "83357cb4968abb93976bab45997bab88bb38d274526bfb33ec9366adcff7cfdb",
+        "estimatedDurationSeconds": 24.032625,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-26H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-26H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-27",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-27",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=5",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 27
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 27
+        }
+      },
+      "coverageLabel": "Genesis 21:27",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-27He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 246093,
+        "sha1": "3f83ca368aebd056d085cb711c65a970b482ff06",
+        "sha256": "8f9e3d574b25ca2becf02f7b65cb81b0f6325a955d697c1ca4604ebd7f215799",
+        "estimatedDurationSeconds": 15.09875,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-27He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-27He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-28",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-28",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 28
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 28
+        }
+      },
+      "coverageLabel": "Genesis 21:28",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-28H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 221851,
+        "sha1": "5fc03fcc739be2da7803a417c0289419d9afd44b",
+        "sha256": "c726737bc0e9657c59d5218febcc3e6b31fd3f87ed7fa763cb082cf5c8755c28",
+        "estimatedDurationSeconds": 13.583625,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-28H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-28H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-29",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-29",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 29
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 29
+        }
+      },
+      "coverageLabel": "Genesis 21:29",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-29H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 261975,
+        "sha1": "9e73a06532d030faf075b61be1f440202f2ed965",
+        "sha256": "4ed8648db27af5b91b1faae9c5a8cb05e30762a09b2d327c9290c7a8421f95ff",
+        "estimatedDurationSeconds": 16.091375,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-29H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-29H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-30",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-30",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 30
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 30
+        }
+      },
+      "coverageLabel": "Genesis 21:30",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-30H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 310041,
+        "sha1": "50f2e48e38193daf352069be13b42b926eadec46",
+        "sha256": "4105b5b6bf3fc2793f81df791ba76df442396f4b2318223ba030158b761ea207",
+        "estimatedDurationSeconds": 19.0955,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-30H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-30H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-31",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-31",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 31
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 31
+        }
+      },
+      "coverageLabel": "Genesis 21:31",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-31H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 254034,
+        "sha1": "ff0ed86c1465afacb2e49a9c0cc1960cbb587a38",
+        "sha256": "7a34ea35d9867c01b7b7023646f1bf2a9d6785ad95211962e6dadb90b7644563",
+        "estimatedDurationSeconds": 15.595062,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-31H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-31H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-32",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-32",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 32
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 32
+        }
+      },
+      "coverageLabel": "Genesis 21:32",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-32H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 277858,
+        "sha1": "d1598696ff3a97a3f7acd9ac862e7c7ca7c0ccd9",
+        "sha256": "885ac0a1323f7a1588f83567c8e2e96c3ac34e28a27e05b8da2be0d564d092d2",
+        "estimatedDurationSeconds": 17.084063,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-32H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-32H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-33",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-33",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 33
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 33
+        }
+      },
+      "coverageLabel": "Genesis 21:33",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-33H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 213910,
+        "sha1": "4e5dc8290540698875cef519f05011875c770fe9",
+        "sha256": "d5c74a85088983fbe3b7fa9f64f33695d2d77913c4ad7daf3d41437ef8ec29b6",
+        "estimatedDurationSeconds": 13.087312,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-33H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-33H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-21-34",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-21-34",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=6",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 21,
+          "verse": 34
+        },
+        "end": {
+          "chapter": 21,
+          "verse": 34
+        }
+      },
+      "coverageLabel": "Genesis 21:34",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH1-21-34He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 205969,
+        "sha1": "9a6ce42039e2c97d0c6a5c655990e8c9099e91f0",
+        "sha256": "6fc32aee8c62f28254a192319ae5a4c923e9b11a6fe73bdae6a40076adc50bbe",
+        "estimatedDurationSeconds": 12.591,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH1-21-34He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH1-21-34He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-1",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-1",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=7",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 1
+        }
+      },
+      "coverageLabel": "Genesis 22:1",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-01H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 302099,
+        "sha1": "e5728c16b17a90c545d32b4ec12889d89234a87d",
+        "sha256": "666e2307f837eafc316f7ee6fa1e6d55dfb23479f8830e41183f8a6f6aa9d1ea",
+        "estimatedDurationSeconds": 18.599125,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-01H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-01H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-2",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-2",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=7",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 2
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 2
+        }
+      },
+      "coverageLabel": "Genesis 22:2",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-02H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 518184,
+        "sha1": "a84d89e1d9b4e52812e20cc5f86f4b5e010d2933",
+        "sha256": "f2bcbb59cd9b69b269f059a9c67d9c4fb8d3c06ee7ea64e04d24abb92bceba34",
+        "estimatedDurationSeconds": 32.104438,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-02H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-02H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-3",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-3",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=7",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 3
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 3
+        }
+      },
+      "coverageLabel": "Genesis 22:3",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-03He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 590073,
+        "sha1": "26269d69a4eb0d91ab47cb0a8a53ae82aa7c5d9c",
+        "sha256": "4a0edf00c8470dcf6b46e8127a869b00474fe8c53963d5606e2823f01e2f7d92",
+        "estimatedDurationSeconds": 36.5975,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-03He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-03He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-4",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-4",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=8",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 4
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 4
+        }
+      },
+      "coverageLabel": "Genesis 22:4",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-04H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 261975,
+        "sha1": "52d9f47f446bc73e471aa864223a5d646836a2e8",
+        "sha256": "7be2d3a720d1c72ded0cc0a38f7bf71e8082ff2d3ca8b296b741a003fb2d55cf",
+        "estimatedDurationSeconds": 16.091375,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-04H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-04H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-5",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-5",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=8",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 5
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 5
+        }
+      },
+      "coverageLabel": "Genesis 22:5",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-05H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 350165,
+        "sha1": "fe4716f8a92e2e510169a60e581a9a38ddbbb1bf",
+        "sha256": "675a035dc70b7cfd6debbe66ede04d12391b1c47544004246d522d82c4d9c81e",
+        "estimatedDurationSeconds": 21.60325,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-05H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-05H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-6",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-6",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=8",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 6
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 6
+        }
+      },
+      "coverageLabel": "Genesis 22:6",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-06H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 341806,
+        "sha1": "9e5bba4c5c4031c114be279fc9665bc58238a097",
+        "sha256": "9213e20c6cf6ba9a458ddebec5877ee114369372ae5759ed42f520e6e78310fd",
+        "estimatedDurationSeconds": 21.080813,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-06H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-06H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-7",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-7",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=8",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 7
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 7
+        }
+      },
+      "coverageLabel": "Genesis 22:7",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-07H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 414113,
+        "sha1": "b78bcd5ff10547665d054fa93c3c4b8d10f66f7d",
+        "sha256": "65c3d7e1fc5854322a2ac313094116b5b4b5011e3bdffa38853cf0f93529564a",
+        "estimatedDurationSeconds": 25.6,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-07H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-07H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-8",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-8",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=8",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 8
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 8
+        }
+      },
+      "coverageLabel": "Genesis 22:8",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-08He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 333864,
+        "sha1": "3d95af8f77ca55698d5a382b86e27be6ff1e01a6",
+        "sha256": "4a3ce63aeb7e87b7d133c34c45b218f68e1c98989370452f1de6514c73b1b962",
+        "estimatedDurationSeconds": 20.584437,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-08He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-08He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-9",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-9",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=9",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 9
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 9
+        }
+      },
+      "coverageLabel": "Genesis 22:9",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-09H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 613897,
+        "sha1": "c81dc734d27e13aee7d507d3854cefff1bf9bbad",
+        "sha256": "661bd17adac93121971b72b9b8753bb4f3910c497ee05cc6bafaa140cec3d6d0",
+        "estimatedDurationSeconds": 38.0865,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-09H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-09H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-10",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-10",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=9",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 10
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 10
+        }
+      },
+      "coverageLabel": "Genesis 22:10",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-10H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 198028,
+        "sha1": "8530cb85a313160016332fce961e0fc03164c2cb",
+        "sha256": "4eb98516a99dd2ee16f17be4dd8e7a2ca8cd6fde1b5631cd6f4cf8f9a5cb3134",
+        "estimatedDurationSeconds": 12.094687,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-10H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-10H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-11",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-11",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=9",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 11
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 11
+        }
+      },
+      "coverageLabel": "Genesis 22:11",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-11H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 229793,
+        "sha1": "49f8957d758ba0b3e99478e60e5cc16ece5635d3",
+        "sha256": "92a341ea7c199e323fd9ce70bc740c207976a30bb0047aae62ec2f8bccff2de0",
+        "estimatedDurationSeconds": 14.08,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-11H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-11H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-12",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-12",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=9",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 12
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 12
+        }
+      },
+      "coverageLabel": "Genesis 22:12",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-12H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 462178,
+        "sha1": "de40bb5b656e7edaedfdf9e2ac8792fbcf9c2aa2",
+        "sha256": "3382843c7b60b42b5d838499844ffcf0543f7e6cbe15891c8910d683a326f965",
+        "estimatedDurationSeconds": 28.604063,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-12H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-12H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-13",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-13",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=9",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 13
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 13
+        }
+      },
+      "coverageLabel": "Genesis 22:13",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-13H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 422054,
+        "sha1": "16be1cf277da52662d5a2623e07e848ea129ba93",
+        "sha256": "c6e7e67b9c88cb5b5459ed31a81e1ec88fb612d8f64243bd58707da5a8e48857",
+        "estimatedDurationSeconds": 26.096312,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-13H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-13H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-14",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-14",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=9",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 14
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 14
+        }
+      },
+      "coverageLabel": "Genesis 22:14",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-14He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 333864,
+        "sha1": "05206898a668c29fd07bdccc9ec30d3e32a9db4d",
+        "sha256": "dca6f10c9f59f56949b68c79c5060b02bcca731ad675d890a2aa57b9c02d96a0",
+        "estimatedDurationSeconds": 20.584437,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-14He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-14He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-15",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-15",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=10",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 15
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 15
+        }
+      },
+      "coverageLabel": "Genesis 22:15",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-15H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 190086,
+        "sha1": "cc6b876a4f27ccdb01fca0d9e9867df9adc6f0f0",
+        "sha256": "a007036e043b427d431fafd65a56d33141b6ac854f5d39b302d677ced5f0caad",
+        "estimatedDurationSeconds": 11.598313,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-15H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-15H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-16",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-16",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=10",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 16
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 16
+        }
+      },
+      "coverageLabel": "Genesis 22:16",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-16H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 358106,
+        "sha1": "102963613a3c0ba97fffb1ed4d1754405a637448",
+        "sha256": "482ea01180c32afa37915b9b94ff23f64a14ede455c9a38c6b2a3288ec01a97d",
+        "estimatedDurationSeconds": 22.099563,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-16H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-16H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-17",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-17",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=10",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 17
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 17
+        }
+      },
+      "coverageLabel": "Genesis 22:17",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-17H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 389871,
+        "sha1": "5ee0fe4e4d0de28fbc3e5057ba89853cd3053ce3",
+        "sha256": "18d6c56062bbec7d599ec57258f646d78364077848d8cf2ba9bb590654a519fe",
+        "estimatedDurationSeconds": 24.084875,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-17H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-17H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-18",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-18",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=10",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 18
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 18
+        }
+      },
+      "coverageLabel": "Genesis 22:18",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-18H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 213910,
+        "sha1": "a3612acebf5d48062f3c1471e6c532dcf15be14d",
+        "sha256": "231b2d354182c64a010cdd34c6ac8306a2f934e26f3a7afd346dd8575eae986f",
+        "estimatedDurationSeconds": 13.087312,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-18H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-18H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-19",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-19",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=10",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 19
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 19
+        }
+      },
+      "coverageLabel": "Genesis 22:19",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-19He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 310041,
+        "sha1": "581e3ab61e262085bf1743b0708476559ac14956",
+        "sha256": "dfe940405b0b6fb5bb404492c3b410192f4573ed5f71ac98f387f78a391a8b47",
+        "estimatedDurationSeconds": 19.0955,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-19He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-19He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-20",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-20",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=11",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 20
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 20
+        }
+      },
+      "coverageLabel": "Genesis 22:20",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-20H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 406171,
+        "sha1": "0952e1086020fdbd57fc848f372c8b25a56a7b9f",
+        "sha256": "c3e48d2a8c848129d2f56116aa561bdecffe7dcf27f602f1e2eaacb99bbff6e6",
+        "estimatedDurationSeconds": 25.103625,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-20H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-20H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-21",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-21",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=11",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 21
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 21
+        }
+      },
+      "coverageLabel": "Genesis 22:21",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-21H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 165845,
+        "sha1": "b50e812fca42b4271a9c024ec50746ce63d02f8b",
+        "sha256": "7577fc11972911527699b230a67dc8de3a78c53cd669b27223aa166f9e69f6f8",
+        "estimatedDurationSeconds": 10.08325,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-21H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-21H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-22",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-22",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=11",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 22
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 22
+        }
+      },
+      "coverageLabel": "Genesis 22:22",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-22H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 165845,
+        "sha1": "3ff42652565c4480c43c5a9ad311186aaa9e0510",
+        "sha256": "5f18204127247fe740c75c344287f1a74dd36cfefcb7cdf56f60b6601d6c6e5b",
+        "estimatedDurationSeconds": 10.08325,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-22H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-22H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-23",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-23",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=11",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 23
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 23
+        }
+      },
+      "coverageLabel": "Genesis 22:23",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-23H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 205969,
+        "sha1": "8babbb53b4d8da18e4f892f8b560ba7fdb169cbb",
+        "sha256": "d321bc33131b94343513e247703a2c2ae3ce0c6a5d01eb78f753a27b66a6f9a5",
+        "estimatedDurationSeconds": 12.591,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-23H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-23H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-gen-22-24",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "gen-22-24",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=11",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "gen",
+        "start": {
+          "chapter": 22,
+          "verse": 24
+        },
+        "end": {
+          "chapter": 22,
+          "verse": 24
+        }
+      },
+      "coverageLabel": "Genesis 22:24",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH2-22-24He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 277858,
+        "sha1": "e4048c89ab17b5996a0b1741cfa97316a7a3b015",
+        "sha256": "20453db2354864a5b65bb6f3c872a65d4dda9a629511844c1ac2651056865bf1",
+        "estimatedDurationSeconds": 17.084063,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH2-22-24He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH2-22-24He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-num-29-1",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "num-29-1",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=12",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 29,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 29,
+          "verse": 1
+        }
+      },
+      "coverageLabel": "Numbers 29:1",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH12-29-01H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 350165,
+        "sha1": "ad880a687e89419d680699ba614a62e5dea9ea4d",
+        "sha256": "6c7cb6aa139257a0febe64faf7daea92c71943c1d29f5704b3ac08271a861f17",
+        "estimatedDurationSeconds": 21.60325,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH12-29-01H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH12-29-01H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-num-29-2",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "num-29-2",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=12",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 29,
+          "verse": 2
+        },
+        "end": {
+          "chapter": 29,
+          "verse": 2
+        }
+      },
+      "coverageLabel": "Numbers 29:2",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH12-29-02H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 358106,
+        "sha1": "e6bd82917d9e5a742089cd382a16eedd4d7f07e1",
+        "sha256": "ac36f23e58aa52132236ba7e62043d9a0f8086149e1ff5751931146cf0f58220",
+        "estimatedDurationSeconds": 22.099563,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH12-29-02H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH12-29-02H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-num-29-3",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "num-29-3",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=12",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 29,
+          "verse": 3
+        },
+        "end": {
+          "chapter": 29,
+          "verse": 3
+        }
+      },
+      "coverageLabel": "Numbers 29:3",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH12-29-03H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 229793,
+        "sha1": "246dce7b58d0c66bc7b7aac5768c951cf5e9799e",
+        "sha256": "47949fa9d937304619afcae2c268e6e4c88890787b4b6cb1f4563633c2bbfda1",
+        "estimatedDurationSeconds": 14.08,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH12-29-03H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH12-29-03H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-num-29-4",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "num-29-4",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=12",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 29,
+          "verse": 4
+        },
+        "end": {
+          "chapter": 29,
+          "verse": 4
+        }
+      },
+      "coverageLabel": "Numbers 29:4",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH12-29-04H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 198028,
+        "sha1": "c603ac2c2ecea4d8c36f38a467910b8f433d6e9c",
+        "sha256": "0369a67f6565988d9a406b5091e69b52e9b3dfa1c894ee46c81f4da06d374182",
+        "estimatedDurationSeconds": 12.094687,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH12-29-04H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH12-29-04H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-num-29-5",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "num-29-5",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=12",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 29,
+          "verse": 5
+        },
+        "end": {
+          "chapter": 29,
+          "verse": 5
+        }
+      },
+      "coverageLabel": "Numbers 29:5",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH12-29-05H.mp3",
+      "sourceReadingEnd": false,
+      "audio": {
+        "bytes": 134080,
+        "sha1": "d0da8dbe16e52b0ea9c89d36c1e826edf2968b35",
+        "sha256": "8b44be7c65628523419bace1ab3c2316f0fae1cfe265b7f6141800ad8f1b4e9b",
+        "estimatedDurationSeconds": 8.097938,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH12-29-05H.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH12-29-05H.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
+      "timedWords": null,
+      "syllableAlignment": null,
+      "phonemes": null,
+      "musicalNotes": null,
+      "independentReview": null
+    },
+    {
+      "id": "fellman-rh-2018-num-29-6",
+      "studyId": "fellman-rh-2018",
+      "pronunciationId": "as-recorded",
+      "deliveryId": "num-29-6",
+      "performer": "Performer not separately credited in 2018 document",
+      "year": 2018,
+      "sourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf#page=12",
+      "resolvedSourceUrl": "https://opensiddur.org/wp-content/uploads/2018/08/Rosh-Hashanah-Torah-Readings-with-English-transtropilation-Hebrew-and-audio-Len-Fellman-2018.pdf",
+      "coverage": {
+        "bookId": "num",
+        "start": {
+          "chapter": 29,
+          "verse": 6
+        },
+        "end": {
+          "chapter": 29,
+          "verse": 6
+        }
+      },
+      "coverageLabel": "Numbers 29:6",
+      "sourceDocumentAuthor": "Len Fellman",
+      "sourceVerseAsset": "RH12-29-06He.mp3",
+      "sourceReadingEnd": true,
+      "audio": {
+        "bytes": 422054,
+        "sha1": "0cb977b4245f9163315deeb441a5b11d933cbcc7",
+        "sha256": "9eb045ce0dca4eb790e61c6839ea18effbeae441456d1bc64d0caeb85839872d",
+        "estimatedDurationSeconds": 26.096312,
+        "durationMethod": "macOS afinfo estimated duration of unchanged original MP3",
+        "filename": "RH12-29-06He.mp3",
+        "file": "assets/voice-studies/fellman-rh-2018/RH12-29-06He.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "license": {
+        "id": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "modifications": "Unchanged Hebrew MP3 payload extracted from the pinned PDF. No inferred word times or phonemes.",
       "timedWords": null,
       "syllableAlignment": null,
       "phonemes": null,

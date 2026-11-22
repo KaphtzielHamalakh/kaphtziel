@@ -2,7 +2,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 const root=new URL('../',import.meta.url),read=name=>readFile(new URL(name,root));
 const catalog=JSON.parse(await read('docs/VOICE-STUDIES.json'));
-if(catalog.format!=='tropetrain-voice-studies-v1'||catalog.revision!==2||catalog.recordings.length!==6)throw Error('Unexpected voice-study catalog.');
+if(catalog.format!=='tropetrain-voice-studies-v1'||catalog.revision!==3||catalog.recordings.length!==70)throw Error('Unexpected voice-study catalog.');
 const ids=new Set(),combinations=new Set();
 for(const record of catalog.recordings){
   const study=catalog.studies.find(s=>s.id===record.studyId),key=[record.studyId,record.pronunciationId,record.deliveryId].join('/');
@@ -16,4 +16,4 @@ for(const record of catalog.recordings){
 for(const study of catalog.studies)for(const p of study.pronunciations)for(const d of study.deliveries)
   if(!combinations.has([study.id,p.id,d.id].join('/')))throw Error('Unsupported pronunciation/delivery cross-product.');
 await writeFile(new URL('voice-study-data.js',root),'// Generated from docs/VOICE-STUDIES.json by scripts/import-voice-studies.mjs.\nexport const VOICE_STUDIES='+JSON.stringify(catalog)+';\n');
-console.log('Verified six unchanged licensed source recordings; original media types, pronunciation/delivery axes and absent alignment preserved.');
+console.log('Verified 70 unchanged licensed source recordings; original media types, pronunciation/delivery axes and absent alignment preserved.');

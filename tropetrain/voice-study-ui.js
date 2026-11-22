@@ -1,17 +1,22 @@
-import {VOICE_STUDIES,voiceStudy,voiceRecording,voiceAudioRecord,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
+import {VOICE_STUDIES,voiceStudy,voiceRecording,voiceAudioRecord,voiceCoverage,voiceCoverageLabel,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
 import {VoiceStudyPlayer} from './voice-study-player.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
+import {mountWordTimingDraft} from './word-timing-ui.js';
 
 export function mountVoiceStudies({beforePlay,onOpenText}){
   const $=id=>document.getElementById(id),key='tropetrain-voice-studies-v1';
   let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
   const prefs=restoreVoicePreferences(saved);let record,study,runtimeRecord,loading=null,opening=false,request=0;
   const media=$('voice-study-audio'),audioBase=$('voice-studies').dataset.audioBase||location.href;
-  const store=new ReferenceAudioStore({openingUrl:media.getAttribute('src')});
+  const included=VOICE_STUDIES.recordings.find(r=>r.id==='fellman-rh-2018-gen-22-1');
+  const store=new ReferenceAudioStore({openingUrl:media.getAttribute('src'),includedUrls:{[included.audio.sha1]:$('voice-studies').dataset.includedVerse}});
+  let playhead=null;
+  const timing=mountWordTimingDraft({position:()=>playhead?{...playhead,seconds:player.running?player.now():playhead.seconds}:null,onAudition:span=>playSpan(span,false)});
   const persist=()=>{try{localStorage.setItem(key,JSON.stringify(prefs));}catch{}};
   const time=n=>`${Math.floor(n/60)}:${Math.floor(n%60).toString().padStart(2,'0')}`;
   const player=new VoiceStudyPlayer(media,{
     onPosition:(position,cycle,mode)=>{
+      playhead={recordId:record.id,seconds:position,mode};
       $('voice-study-position').textContent=`${prefs.repeat?`Loop ${cycle+1} · `:''}${time(position)} / ${time(player.end)}${mode==='muted'?' · muted clock, audio device unused':''}`;
     },
     onEnd:()=>{$('voice-study-status').textContent='Recording span finished. Reader word selection is unchanged.';},
@@ -31,9 +36,10 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     try{
       const available=await store.has(runtimeRecord);if(current!==request||record.id!==selected)return;
       $('voice-study-play').disabled=!available;$('voice-study-load').disabled=available||!!loading;
+      timing.setAvailable(available);
       $('voice-study-load').textContent=available?'Recording available':`Load recording · ${(record.audio.bytes/1048576).toFixed(1)} MB`;
-      $('voice-study-remove').disabled=!!runtimeRecord.audio.localFile||!available;
-      $('voice-study-storage').textContent=runtimeRecord.audio.localFile?'This original recording is included with the app.':available?
+      $('voice-study-remove').disabled=!!store.included(runtimeRecord)||!available;
+      $('voice-study-storage').textContent=store.included(runtimeRecord)?'This original recording is included with the app.':available?
         (store.saved.has(record.audio.sha1)?'Original checksum verified on playback; saved on this device.':'Original recording loaded for this session.'):
         'Load this original when ready. Its checksum is verified before playback; device storage keeps it offline when available.';
     }catch(error){$('voice-study-storage').textContent=error.message;}
@@ -46,16 +52,18 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
   }
   function render(){
     stop();study=voiceStudy(prefs.studyId);record=voiceRecording(prefs.studyId,prefs.pronunciationId,prefs.deliveryId);runtimeRecord=voiceAudioRecord(record,audioBase);
+    playhead=null;timing.select(record,voiceCoverage(record));
     const delivery=study.deliveries.find(d=>d.id===prefs.deliveryId);
     $('voice-study-kind').textContent=delivery.kind==='spoken'?'Spoken pronunciation study · without melody':'Chanted reference · recorded voice';
     $('voice-study-description').textContent=study.description;$('voice-study-limits').textContent=study.limits;
-    $('voice-study-coverage').textContent=study.coverageStatus;
+    $('voice-study-coverage').textContent=`${voiceCoverageLabel(record)?voiceCoverageLabel(record)+' · ':''}${study.coverageStatus}`;
     $('voice-study-creator').textContent=`${record.performer} · ${record.year}`;
     $('voice-study-source').href=record.sourceUrl;$('voice-study-source').textContent='Original performance source';
     $('voice-study-book').href=study.sourceUrl;$('voice-study-book').textContent=study.sourceTitle;
     $('voice-study-license').href=record.license.url;$('voice-study-license').textContent=record.license.id;
     $('voice-study-hash').textContent=record.audio.sha256;
-    $('voice-study-open').disabled=!study.coverage;$('voice-study-open').textContent=study.coverage?'Open Genesis 1:1–13 text':'Table names · no Bible passage mapping';
+    $('voice-study-open').disabled=!voiceCoverage(record);$('voice-study-open').textContent=voiceCoverage(record)?`Open ${voiceCoverageLabel(record)} text`:'Table names · no Bible passage mapping';
+    $('voice-study-delivery-label').textContent=study.deliveryLabel??'Recorded delivery';
     $('voice-study-volume').value=prefs.volume;$('voice-study-volume-value').textContent=`${prefs.volume}%`;
     $('voice-study-repeat').checked=prefs.repeat;player.setVolume(prefs.volume/100);
     $('voice-study-status').textContent='Choose a span in seconds, then Play. The reader’s musical settings and Hebrew selection stay separate.';
@@ -91,20 +99,22 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     finally{if(loading===job){loading=null;$('voice-study-cancel').hidden=true;readiness();}}
   });
   $('voice-study-cancel').addEventListener('click',()=>{loading?.abort();});
-  $('voice-study-play').addEventListener('click',async()=>{
-    let span;try{span=readSpan();}catch(error){$('voice-study-status').textContent=error.message;return;}
+  async function playSpan(span,repeat=prefs.repeat){
     beforePlay();const selected=runtimeRecord,current=++request;opening=true;
     $('voice-study-status').textContent='Opening the selected recording span…';
     try{
       const url=await store.url(selected);if(current!==request)return;
       const kind=study.deliveries.find(d=>d.id===prefs.deliveryId).kind;
       $('voice-study-status').textContent=`${kind==='spoken'?'Spoken study, without melody':'Chanted source recording'} · original recorded pitch and timing${prefs.volume===0?' · muted at 0%':''}.`;
-      await player.play(url,{...span,repeat:prefs.repeat,expectedDuration:selected.audio.estimatedDurationSeconds});
+      await player.play(url,{...span,repeat,expectedDuration:selected.audio.estimatedDurationSeconds});
     }catch(error){if(current===request){stop();$('voice-study-status').textContent=error.message;readiness();}}
     finally{if(current===request)opening=false;}
+  }
+  $('voice-study-play').addEventListener('click',()=>{
+    try{playSpan(readSpan());}catch(error){$('voice-study-status').textContent=error.message;}
   });
   $('voice-study-stop').addEventListener('click',()=>{stop();$('voice-study-status').textContent='Recording stopped. Reader word selection is unchanged.';readiness();});
   $('voice-study-remove').addEventListener('click',async()=>{const selected=runtimeRecord;stop();await store.remove(selected);$('voice-study-status').textContent='Saved copy removed. Load it again when needed.';readiness();});
-  $('voice-study-open').addEventListener('click',()=>{if(study.coverage)onOpenText(structuredClone(study.coverage));});
+  $('voice-study-open').addEventListener('click',()=>{if(voiceCoverage(record))onOpenText(structuredClone(voiceCoverage(record)));});
   return {stop,get running(){return opening||player.running||player.starting;},get loading(){return !!loading;}};
 }
