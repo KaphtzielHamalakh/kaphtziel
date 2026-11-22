@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore Torah, Prophets and the five scrolls with an original instrumental demonstration, a full Torah recorded-reference library and a bounded printed-score study, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.60.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.61.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -144,6 +144,17 @@
             <p class="muted">One second of context is added on each side. Set heard word boundaries yourself using the controls above. A matching model letter is not linguistic or musical approval, and no syllable or phoneme times are assigned.</p>
             <p><a href="./docs/ASAEL-WORD-SUPPORT.json">Method, model uncertainty and source rights</a> · <a href="./assets/voice-studies/asael-word-support-sources.zip">Pinned alignment research pack</a></p>
           </details>
+          <details id="phonetic-word-review" hidden><summary>Phonetic word evidence · research</summary>
+            <p class="phonetic-selected-word"><b id="phonetic-word-hebrew" lang="he" dir="rtl"></b></p>
+            <p>Compare the original recording’s model consonants with this unchanged Hebrew word. Model spaces can split or join Hebrew words. Highlighted consonants are provisional comparisons; vowels, sung durations and pronunciation review remain unassigned.</p>
+            <p id="phonetic-word-style" class="muted"></p><a href="#pronunciation-study">Change the independent pronunciation text comparison</a>
+            <button id="phonetic-word-load">Load phonetic word study</button>
+            <p id="phonetic-word-count" class="muted"></p><div id="phonetic-word-evidence"></div>
+            <p class="muted">Surrounding model output; its spacing and errors are retained:</p><div id="phonetic-word-context"></div>
+            <p>Open Automatic word support above, load its word study, then use Audition support with context to review the original. These comparisons leave your draft boundaries and the recorded voice unchanged.</p>
+            <p id="phonetic-word-status" role="status"></p>
+            <p><a href="./docs/ASAEL-PHONETIC-WORDS.json">Source phonetic evidence and limits</a> · <a href="./assets/voice-studies/asael-phonetic-word-sources.zip">Pinned phonetic research pack</a></p>
+          </details>
           <label>Word-timing draft JSON<textarea id="word-timing-json" rows="6" spellcheck="false" placeholder="Prepare JSON above, or paste an existing draft here"></textarea></label>
           <button id="word-timing-import">Import draft JSON</button>
         </div>
@@ -262,7 +273,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a><p><a href="./docs/REPERTOIRE-SOURCES.json">Prophets and five-scroll text provenance</a> · <a href="./docs/REPERTOIRE-AUDIT.json">Source correspondence audit</a></p></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Optional sourced scroll lines use written UXLC letters, a licensed scribal font and flagged edition differences. Typeset widths remain approximate; scrolls vary.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>PocketTorah recordings and the bounded printed-score study provide source references. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.60.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.61.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -273,6 +284,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.60.0"></script>
+  <script defer src="./app.bundle.js?v=0.61.0"></script>
 </body>
 </html>

@@ -4,15 +4,16 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "d71f84108b5d34c24e89efd7dc2ae85401dd3437",
-  "nextTask": "Continue the complete word-aligned chanting objective across all Torah, all six historical pronunciation grammars/voices, every contextual cantorial system and the retained tutor/learning inventory; printing deferred. v0.60 ran actual offline acoustic analysis of the two licensed Asael Genesis1:1–2:3 originals using the explicitly Apache2 pinned53Hebrew speech model.938word-support proposals keep469unchanged marked words per recording and separate clocks, with no manual/approved boundaries filled. Speech-model errors are substantial (45.56%/22.70% character error;24/7words without directly supported letters). Next compare source edition and listen to onset/tail boundaries against the originals, retaining explicit disagreements; validate whole-word then syllable/consonant/vowel timing with source-grounded phonology and qualified review before any aligned-chant playback uses these estimates. Do not tune thresholds or interpolate gaps to promote forced paths into evidence. Preserve the pinned source/model hashes, source-letter cluster projection, original recordings and null review/accepted fields. The default300mcheckpoint lacks explicit card license and was not used. The full820original archive has documentary coverage, not reviewed complete verse/word alignment; extend only with explicit range/variant evidence. Resolve the two Katz phonemic proposal gaps, all six complete Kinnor pronunciation grammars/voices, reusable sustained singing material, missing Baer/Cohen figures and all contextual musical fitting. Preserve all prior recordings/times/gaps/shared consonants/marks/IDs and the complete roadmap. Keep private0.55clock/curve diagnostic frozen. Full goal active/incomplete.",
+  "nextTask": "Continue complete word-aligned chanting across the entire Torah, all six historical pronunciation grammars/voices, every contextual cantorial system and the full retained tutor/learning inventory; printing deferred. v0.61 supplies real unprompted phonetic-model observations for both complete Asael Genesis1:1–2:3 originals and conditional source-consonant links to469unchanged Hebrew words, two independent MAMtext comparisons and101shared consonant pairs. It does not approve vowels, phonemes, word/syllable/note timing, source-edition equivalence or a singing voice. Speech-model omissions/substitutions/repetitions and misplaced word spaces remain explicit;347Ashkenazic/456Israeli words have candidates in their corresponding text comparisons. Next validate actual source edition, heard consonants/vowels and onsets/tails against originals with qualified evidence before any aligned chant consumes model matches. Preserve exact catalog/decoded/resampled/native clocks; never stretch or interpolate to fit. Do not tune minimum-edit or model thresholds to manufacture acceptance. All six complete Kinnor pronunciation grammars and reviewed singing voices remain missing, distinct from the two MAMtext styles, two Katz research proposals and fixed Asael source performances. Resolve Katz mobile-sheva/local vowel/special-category gaps with explicit sources, reusable sustained singing material, Baer/Cohen missing figures and full contextual melody fitting. The820original archive has documentary references, not proof of complete verse/word alignment or full acoustic review; extend only with explicit range/variant evidence. Preserve all original text/accents/IDs/shared consonants, every prior recording/time/gap/null and the complete roadmap. Keep private0.55clock/curve diagnostic frozen. Full goal active/incomplete.",
   "lastPassingTests": {
-    "automated": 502,
+    "automated": 509,
     "failed": 0,
     "skipped": 0,
     "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v60-initial.log",
-    "ui": "Local normal94 and portable95 pass the optional source-specific model study and context audition for Genesis1:1–2:3. Both keep469exact marked words/IDs and blank manual times. Exported manual drafts remain byte-identical before/after support loading; loading never saves or fills boundaries. Source pronunciation switching retains gen-1-1-2 / בָּרָ֣א and the open review panels, with separate support caches and clocks. Importing the Ashkenazic draft into Israeli is refused as a different source recording. Ashkenazic word2 has0/3directly supported letters and an explicit uncertainty warning; Israeli has2/3. Context audition starts at0.482499s/0.522499s, original native durations317.230794s/371.848707s, media paused at volume0 with the muted clock/audio device unused. Listening spans are unchanged. The last469thword remains gen-2-3-16 / לַעֲשֽׂוֹת׃ with separate unreviewed support. Changing independent MAM text style preserves90marked reader strings/IDs/aria labels,469draft options and instrument tempo/key/range. Choosing an untexted table hides model support; returning restores the same word and correct source cache, with no accepted times. Portable embeds both evidence documents and loads both compressed packets without model weights. Portable319px root/scroll319 and0overflowing review controls; desktop/mobile screenshots inspected. Normal/portable consoles have0warnings/errors. All source clocks stopped. No speaker listening, qualified acoustic review or approved word/syllable/phoneme/note timing is claimed. Public normal80 and portable81 pass v0.60 source-specific acoustic support and context audition. Both retain469exact marked words/IDs and byte-identical unfilled manual drafts after loading model support. Switching Ashkenazic/Israeli keeps selected word2 בָּרָ֣א / gen-1-1-2 and separate clocks. Model support is1.482–1.782s with0/3direct letters and the explicit uncertainty warning in Ashkenazic,1.522–1.802s with2/3 in Israeli. Native original durations317.230794s/371.848707s and context seeks0.482499s/0.522499s match local QA; every check uses volume0, paused native media and the muted clock/audio device unused. Cross-record draft import is refused. Source switching preserves the observed reader words/IDs/accents and instrument/text settings. Both new evidence documents are embedded in portable. Portable319px root/scroll319 with0overflowing review controls; public desktop/mobile screenshots inspected. Normal/portable consoles have0warnings/errors. All clocks stopped and source media paused at0volume. Private94/95closed, server50384/8768stopped, viewport reset and user8765/8767untouched. No speaker listening, reviewed word boundaries, musical/phonological approval, six historical voices, full contextual melody grammar or file-origin/nativeSave claim.",
-    "separateResearchAlgorithmChecks": 7
+    "log": "/private/tmp/tropetrain-check-v61-publication.log",
+    "ui": "Local normal96 and portable97 verify both checked source phonetic packets and all469marked word/ID draft entries, firstgen-1-1-1/lastgen-2-3-16. Manual draft exports remain byte-identical before/after model loading and independent text comparisons; every manual start/end remains null. Ashkenazic source/MAMcomparison keeps the opening tav linked to first-word ת even when the raw model places its s in the following model word jisbaʁˈu. Word2 בָּרָ֣א highlights only b/ʁ, retaining the raw preceding s without assigning it to that word. Changing the independent MAMtext comparison removes/restores the provisional tav/s match while the marked word/source recording remain unchanged. Source pronunciation switching retains gen-1-1-2, separate phonetic caches/clocks and blank drafts, with raw source hypotheses jisbaʁˈu/baʁˈa. Shared שָּׁ in gen-1-1-5 keeps one consonant and two source syllable links. Unresolved gen-1-3-6 displays no comparison or stale raw text; an untexted table hides/clears the panel, and returning restores the source cursor/cache. All90observed reader strings/IDs/aria labels and instrument range/tempo/transposition remain exact. Context playback uses only unchanged originals: native317.230794s/371.848707s, source seeks0.482499s/0.522499s, volume0, media paused, muted clock/audio device unused, unchanged0/full listening selection. Portable embeds both new evidence documents and loads both compressed packets; no model weight loads in the app. Final rebuilt selected-word labels match parent Hebrew/IDs, including all marks, in both distributions. Enlarged clusters and selected-word context are visually inspected;319px root/scroll319 with0overflowing new controls/labels. Normal/portable consoles0warnings/errors. All test clocks stopped. No speaker listening or qualified acoustic/phonological/cantorial approval is claimed.",
+    "separateResearchAlgorithmChecks": 7,
+    "independentTinySequencePairs": 225
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -191,10 +192,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.60.0",
-    "status": "502_checks_public_normal_portable_verified_final_records_saved_goal_active",
-    "baseline": "2c0fcb483da65a8ca63ae70dac3ab2d765b46b44",
-    "previousGoalTurn": "progress: v0.59 published and saved source archive,495checks,public normal/portable UI,1005exact output files. Full reconstruction remains incomplete.",
+    "version": "0.61.0",
+    "status": "509_checks_local_normal_portable_verified_publication_pending",
+    "baseline": "f2bd8e5a0ce0c41f6b9a9e56fe4be9660a93ec00",
+    "previousGoalTurn": "Progress: v0.60 source-specific CTC study published/tested/saved,502checks,1015exactfiles; no reviewed word times or complete independent voices.",
     "newPublicVoice": null,
     "review": null
   },
@@ -1678,5 +1679,33 @@
     "sourcePackSha256": "e3657e20729abae95d6499d881ec5663a6f27280346547dd5155b8a157cda59f",
     "allPrior607AssetsAndDataExact": true,
     "allPrior72RecordingsAndFiveStudiesUnchanged": true
+  },
+  "phoneticWordResearch": {
+    "record": "docs/ASAEL-PHONETIC-WORDS.json",
+    "model": "notmax123/whisper-heb-ipa",
+    "modelRevision": "6f7c493615d163a99ed6ea09b2cb7241760d868b",
+    "modelLicense": "Apache-2.0 explicit pinned card",
+    "fullSourceWindows": 28,
+    "wordsPerRecording": 469,
+    "comparisonStylesPerRecording": 2,
+    "sourceConsonantEventsPerStyle": 1504,
+    "sourceConsonantAtomsPerStyle": 1538,
+    "sharedConsonantPairsPerStyle": 101,
+    "wordsWithCandidateConsonants": {
+      "ashkenazicRecordingVsAshkenazicText": 347,
+      "israeliRecordingVsSephardicText": 456
+    },
+    "algorithmOracleChecks": 7,
+    "independentlyEnumeratedTinySequencePairs": 225,
+    "approvedWordBoundaries": 0,
+    "review": null,
+    "newVoice": null,
+    "modelWhitespaceDeterminesWordOwnership": false,
+    "originalHebrewAndAccentsPreserved": true,
+    "status": "509_checks_local_normal_portable_verified_publication_pending",
+    "sourcePack": "assets/voice-studies/asael-phonetic-word-sources.zip",
+    "sourcePackSha256": "aa4962eb17c450ac272a819f8ad1462e07aa526d1659e71482a8e2a6724f5002",
+    "allPrior611AssetsAndDataExact": true,
+    "allPrior72RecordingObjectsAndFiveStudiesExact": true
   }
 }
