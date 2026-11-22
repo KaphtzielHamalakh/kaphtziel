@@ -1,0 +1,8 @@
+--- a/Engine/diphone.c
++++ b/Engine/diphone.c
+@@ -111 +111 @@
+-			Length1(dp)/(Freq/1000); 
++			((double)Length1(dp) * 1000.0 / (double)Freq); 
+@@ -123 +123 @@
+-		phon_time= curtime - Length1(dp)/(Freq/1000) ;
++		phon_time= curtime - ((double)Length1(dp) * 1000.0 / (double)Freq) ;

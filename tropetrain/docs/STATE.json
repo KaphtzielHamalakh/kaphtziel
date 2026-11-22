@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-  "nextTask": "Resolve full-contour verification without moving failed probe times; inspect GetPitchPeriod integer Freq/1000 time conversion and distinguish engine-clock error from steady-window estimation limits. Then continue primary six-profile phonology specifications, permission-cleared reviewed voices and complete contextual musical systems over the Torah; retain the entire tutor/learning roadmap. Printing deferred. Exact current code/results/run commands are in work/audits/voice-engine-0.54/README.md. Preserve v0.53 reference failures, all original100engine files/HB2 and all original corpus/source facts. Public runtime remainsv0.52.0/466checks; the private word bridge does not update original phonemes, acoustic timings or historical profiles.",
+  "nextTask": "Freeze this bounded private clock/curve diagnostic with all failures retained. Return to source-backed specifications for the six independent pronunciation profiles and reusable reviewed voice material; continue contextual musical systems across all Torah. Preserve every existing recording gap, source-only/shared-consonant case and complete tutor/learning roadmap. Printing deferred. Full objective active/incomplete. Read work/audits/voice-engine-0.55/README.md for exact limits and run commands. Public executable remains0.52.0/466checks. Do not continue tuning one test word instead of the full six-profile and full-Torah objective.",
   "lastPassingTests": {
     "automated": 466,
     "failures": 0,
@@ -190,20 +190,30 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.54-research",
-    "status": "private_lab_verified_public_runtime_unchanged",
+    "version": "0.55-research",
+    "status": "private_diagnostic_frozen_with_seven_unresolved_curve_points",
     "publicRuntimeVersion": "0.52.0",
-    "baseline": "6bf59d92e1572401ddd70173a588407c74f8a4cf",
-    "record": "docs/VOICE-SUSTAIN-LAB.json",
-    "nativeRenders": 68,
-    "wasmRenders": 68,
-    "priorWaveIdentityChecks": 8,
-    "negativeChecks": 15,
+    "baseline": "c52b337f621a9fcbb49b593a258e50a6728a1fd8",
+    "record": "docs/VOICE-PITCH-CLOCK-LAB.json",
+    "nativeClockVectors": 180,
+    "wasmClockVectors": 180,
+    "analyticEstimatorCases": 135,
+    "estimatorNegativeControls": 7,
+    "nativeRenders": 40,
+    "wasmRenders": 40,
+    "renderNegativeChecks": 6,
+    "denseCurve": {
+      "points": 1980,
+      "withinBound": 1861,
+      "withheldBoundaryWindows": 112,
+      "unassigned": 6,
+      "outsideBound": 1,
+      "largestInteriorAbsoluteCents": 15.04878639962098
+    },
     "newPublicVoice": null,
     "newFullPhonology": null,
     "newFullMelodyGrammar": null,
-    "review": null,
-    "fullContourVerification": "pending_two_inconclusive_glide_probes"
+    "review": null
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1254,5 +1264,333 @@
     },
     "next": "Resolve full-contour verification without moving failed probe times; inspect GetPitchPeriod integer Freq/1000 time conversion and distinguish engine-clock error from steady-window estimation limits. Then continue primary six-profile phonology specifications, permission-cleared reviewed voices and complete contextual musical systems over the Torah; retain the entire tutor/learning roadmap. Printing deferred.",
     "record": "docs/VOICE-SUSTAIN-LAB.json"
+  },
+  "voicePitchClockLab": {
+    "status": "private_diagnostic_prototype_frozen_with_unresolved_curve_points",
+    "publicRuntimeVersion": "0.52.0",
+    "denseCurve": {
+      "scope": "Dense 10ms measurements over nominal vowel commands only. Boundary-overlapping windows remain visible/withheld; no phonetic boundary review or historical voice acceptance.",
+      "method": "symmetric-difference-cmnd-v1",
+      "summary": {
+        "points": 1980,
+        "withinBound": 1861,
+        "withheldBoundaryWindows": 112,
+        "unassigned": 6,
+        "outsideBound": 1,
+        "largestInteriorAbsoluteCents": 15.04878639962098
+      },
+      "unresolved": [
+        {
+          "name": "sephardic-rise--12-150",
+          "point": {
+            "seconds": 0.45,
+            "expectedHz": 114.92203232628056,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u1",
+            "nominalVowelBoundarySupport": false,
+            "measured": {
+              "method": "symmetric-difference-cmnd-v1",
+              "seconds": 0.45,
+              "hz": 113.92739947068655,
+              "periodicity": 0.9394063442196903,
+              "lagSamples": 193.54431069651028,
+              "integrationSamples": 551,
+              "integrationSeconds": 0.024988662131519273,
+              "minimumHz": 65,
+              "maximumHz": 650,
+              "threshold": 0.1,
+              "centerRoundingSeconds": 2.2675736961463855e-05
+            },
+            "cents": -15.04878639962098,
+            "status": "outside-15-cent-bound",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "a",
+                "R",
+                2,
+                2
+              ],
+              [
+                "a",
+                "R",
+                3,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "name": "sephardic-rise--12-150",
+          "point": {
+            "seconds": 0.65,
+            "expectedHz": 130.8127826502993,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u2",
+            "nominalVowelBoundarySupport": false,
+            "measured": null,
+            "cents": null,
+            "status": "unassigned",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "R",
+                "a",
+                5,
+                2
+              ],
+              [
+                "R",
+                "a",
+                6,
+                2
+              ],
+              [
+                "R",
+                "a",
+                7,
+                2
+              ],
+              [
+                "R",
+                "a",
+                8,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "name": "sephardic-rise--12-150",
+          "point": {
+            "seconds": 0.66,
+            "expectedHz": 130.8127826502993,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u2",
+            "nominalVowelBoundarySupport": false,
+            "measured": null,
+            "cents": null,
+            "status": "unassigned",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "R",
+                "a",
+                6,
+                2
+              ],
+              [
+                "R",
+                "a",
+                7,
+                2
+              ],
+              [
+                "R",
+                "a",
+                8,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "name": "sephardic-rise--12-150",
+          "point": {
+            "seconds": 1.21,
+            "expectedHz": 130.8127826502993,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u2",
+            "nominalVowelBoundarySupport": false,
+            "measured": null,
+            "cents": null,
+            "status": "unassigned",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "a",
+                "_",
+                17,
+                2
+              ],
+              [
+                "a",
+                "_",
+                18,
+                2
+              ],
+              [
+                "a",
+                "_",
+                19,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "name": "sephardic-fall--12-150",
+          "point": {
+            "seconds": 0.65,
+            "expectedHz": 110,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u2",
+            "nominalVowelBoundarySupport": false,
+            "measured": null,
+            "cents": null,
+            "status": "unassigned",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "R",
+                "a",
+                5,
+                2
+              ],
+              [
+                "R",
+                "a",
+                6,
+                2
+              ],
+              [
+                "R",
+                "a",
+                7,
+                2
+              ],
+              [
+                "R",
+                "a",
+                8,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "name": "sephardic-fall--12-150",
+          "point": {
+            "seconds": 0.66,
+            "expectedHz": 110,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u2",
+            "nominalVowelBoundarySupport": false,
+            "measured": null,
+            "cents": null,
+            "status": "unassigned",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "R",
+                "a",
+                6,
+                2
+              ],
+              [
+                "R",
+                "a",
+                7,
+                2
+              ],
+              [
+                "R",
+                "a",
+                8,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "name": "sephardic-fall--12-150",
+          "point": {
+            "seconds": 1.19,
+            "expectedHz": 110,
+            "sourceUnitId": "pmam-gen-1-1-2-sephardic-r2-c1-u2",
+            "nominalVowelBoundarySupport": false,
+            "measured": null,
+            "cents": null,
+            "status": "unassigned",
+            "intersectingUnvoicedSourceWindows": 0,
+            "sourceWindowKinds": [
+              [
+                "a",
+                "_",
+                16,
+                2
+              ],
+              [
+                "a",
+                "_",
+                17,
+                2
+              ],
+              [
+                "a",
+                "_",
+                18,
+                2
+              ]
+            ]
+          }
+        }
+      ],
+      "fullPrivateRecordSha256": "90000a38ee7c39f2122f6128eed4908d654d69211b85ef4ac1394431be2db95a",
+      "limits": "All 1980 fixed-grid points are retained privately. Nominal command boundaries are not acoustic boundaries. All seven unresolved interior points overlap voiced-type source windows; no claim that they are explained by unvoiced marks. Threshold remains 15 cents. Complete contour and voice are not accepted."
+    },
+    "wordPreservation": {
+      "wordId": "gen-1-1-2",
+      "hebrew": "בָּרָ֣א",
+      "readerRangesUTF16": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "sourceTextAlternatives": [
+        "MAM Sephardic text",
+        "MAM Ashkenazic text"
+      ],
+      "sourceLicense": "CC-BY-SA-4.0",
+      "sourceFixtureSha256": "baf96b782f806f8ca44be671974d65de8a8c121dfff975f24e9a10794f338f2a",
+      "unchanged": [
+        "reader Hebrew and accents",
+        "canonical word ID",
+        "style-specific source unit IDs",
+        "source stress",
+        "original syllable/category/letter data",
+        "original source phonemes and times"
+      ],
+      "experimentalBridge": "Original b/a-or-o/R/a-or-o choice. r→R is unreviewed. Final written alef and source silent-mater category remain; no added phone.",
+      "contours": "Two original engineering contours; neither realizes the written accent or names a tradition.",
+      "times": "Original nominal command durations only. No source recording or acoustic boundaries are inferred.",
+      "independentControls": [
+        "source text alternative",
+        "original contour",
+        "transposition",
+        "tempo",
+        "advisory range without retuning"
+      ],
+      "openingWord": "gen-1-1-1 בְּרֵאשִׁ֖ית refuses the missing explicit SHEVA_NA bridge; no substitute.",
+      "historicalPronunciation": null,
+      "historicalMelody": null,
+      "acousticTimes": null,
+      "independentReview": null
+    },
+    "invariants": {
+      "publicRuntimeChanged": false,
+      "readerHebrewChanged": false,
+      "accentsChanged": false,
+      "canonicalIdsChanged": false,
+      "originalUnderlayChanged": false,
+      "sourceAudioOrTimestampsChanged": false,
+      "originalSourcePhonemesOrTimesChanged": false,
+      "all605PriorAssetDataBlobsRetained": true,
+      "newPublicSingingVoice": null,
+      "newFullHistoricalPhonology": null,
+      "newFullMelodicGrammar": null
+    },
+    "replacementEvidence": "Complete source-backed phonological rules for each of the six actual Kinnor Accent labels, permission-cleared sustained vowels/transitions/diphthongs across the needed register, aligned marked-Hebrew word/syllable/phone annotations, and qualified linguistic, acoustic and cantorial review. An engine voice label does not supply these.",
+    "next": "Freeze this bounded private clock/curve diagnostic with all failures retained. Return to source-backed specifications for the six independent pronunciation profiles and reusable reviewed voice material; continue contextual musical systems across all Torah. Preserve every existing recording gap, source-only/shared-consonant case and complete tutor/learning roadmap. Printing deferred. Full objective active/incomplete.",
+    "record": "docs/VOICE-PITCH-CLOCK-LAB.json"
   }
 }
