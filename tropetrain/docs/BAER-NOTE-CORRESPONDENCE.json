@@ -205,11 +205,11 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "53e5fb7c06371beeeaf4d3373852a356be0b42a9b7df65034690cf743d8eb935"
+      "sha256": "219d8f9ea8263fe98491cb3fc73f76437da137d26327f8ce2c872ef832e8826e"
     },
     {
       "path": "music.js",
-      "sha256": "f9e2398a95583a822af2798f6c11ea1a2a5e66dc01a01e7bd9eca57a05c41d4f"
+      "sha256": "f08e2268790ca7d4a3366ab672299d07b30add38811d0c39953b4b153b9f637b"
     },
     {
       "path": "data/pronunciation/torah-display.json.gz",

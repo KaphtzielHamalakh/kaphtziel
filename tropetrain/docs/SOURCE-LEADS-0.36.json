@@ -1,0 +1,169 @@
+{
+  "format": "tropetrain-source-research-v1",
+  "revision": 1,
+  "checked": "2026-11-21",
+  "license": "CC-BY-SA-4.0 for attributed original metadata; original research descriptions CC0-1.0",
+  "fellmanHebrewChant": {
+    "checked": "2026-11-21",
+    "source": "https://archive.org/details/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "creator": "Fellman, Len",
+    "date": "2019",
+    "bytes": 23689145,
+    "limits": "Original fixed Hebrew chanting recordings only. No independent style/voice conversion, source-to-UXLC word/syllable timing, note transcription, complete melody grammar or Kinnor equivalence. English translations and derivative images are excluded.",
+    "status": "All11original Hebrew MP3 bytes/SHA1verified. Private research only; not imported as an app voice/preset or timing source.",
+    "files": [
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 1, Aliyah 1, Genesis 21, 1-4 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 1, Aliyah 1, Genesis 21:1-4 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%201%2C%20Aliyah%201%2C%20Genesis%2021%2C%201-4%20%28Hebrew%29.mp3",
+        "bytes": 2893992,
+        "sha1": "b9cb0b191ded1e760cfdabb89657cdbef19a7052",
+        "sha256": "e6e14ccd238630fc83a840f728dbafa897e4edec30fd569f5f5b36ac79192aa0",
+        "length": "180.58",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 1, Aliyah 2, Genesis 21, 5-12 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 1, Aliyah 2, Genesis 21:5-12 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%201%2C%20Aliyah%202%2C%20Genesis%2021%2C%205-12%20%28Hebrew%29.mp3",
+        "bytes": 2563387,
+        "sha1": "b5146f433b1ffa73afcc5f93168b1d0b4f3358a5",
+        "sha256": "054f61b4f8e0d89780767313b478d18251ba58b6995d45b837aa90100ad9b0fa",
+        "length": "159.92",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 1, Aliyah 3, Genesis 21, 13-21 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 1, Aliyah 3, Genesis 21:13-21 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%201%2C%20Aliyah%203%2C%20Genesis%2021%2C%2013-21%20%28Hebrew%29.mp3",
+        "bytes": 2913218,
+        "sha1": "76684c14b72432345b4a98344bf09b3b8dc2d43e",
+        "sha256": "c6b9cc5e3c0967f50cbe050b170a5cae1a21784b9b2fd34b7a9445c2afbf9a3b",
+        "length": "181.79",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 1, Aliyah 4, Genesis 21, 22-27 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 1, Aliyah 4, Genesis 21, 22-27 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%201%2C%20Aliyah%204%2C%20Genesis%2021%2C%2022-27%20%28Hebrew%29.mp3",
+        "bytes": 1892562,
+        "sha1": "4ed9de8f0972b559e5c33adc7b10a0db1924f6e7",
+        "sha256": "5f58da3504a5ce632f6785d182e936ebe2614575eb79d4cf2976666b7b2d8b17",
+        "length": "118",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 1, Aliyah 5, Genesis 21, 28-34 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 1, Aliyah 5, Genesis 21:28-34 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%201%2C%20Aliyah%205%2C%20Genesis%2021%2C%2028-34%20%28Hebrew%29.mp3",
+        "bytes": 1826525,
+        "sha1": "640ad228d0562b15a86afd62f3c545b34f2b8f07",
+        "sha256": "7bb9e09d05d86aa7bcb85aef9bd734bcc3eff459f9fba2e2409af5e0232596ea",
+        "length": "113.87",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 2, Aliyah 1, Genesis 22, 1-3 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 2, Aliyah 1, Genesis 22:1-3 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%202%2C%20Aliyah%201%2C%20Genesis%2022%2C%201-3%20%28Hebrew%29.mp3",
+        "bytes": 1499263,
+        "sha1": "cd87e2cfe5a5a76ccb437265016a301b90e6decb",
+        "sha256": "fa8d9bcf81364459e14e2911118f70f67d869448359712256b194a05c95ae0ee",
+        "length": "93.41",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 2, Aliyah 2, Genesis 22, 4-8 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 2, Aliyah 2, Genesis 22:4-8 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%202%2C%20Aliyah%202%2C%20Genesis%2022%2C%204-8%20%28Hebrew%29.mp3",
+        "bytes": 3259707,
+        "sha1": "fa0b27cb997728ddc00eed873558d7b08a479d4c",
+        "sha256": "6acd0c119f4f457e80c5875dad705bb1a864f645261c81d9244308aa066b9f9c",
+        "length": "203.44",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 2, Aliyah 3, Genesis 22, 9-14 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 2, Aliyah 3, Genesis 22, 9-14 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%202%2C%20Aliyah%203%2C%20Genesis%2022%2C%209-14%20%28Hebrew%29.mp3",
+        "bytes": 2333509,
+        "sha1": "1049ecd76bf2ba46be11de80f0dcecf909066cc0",
+        "sha256": "777ff3341569de02676311cfeea88925cf3fa9c1a23e4831297351d768665ce7",
+        "length": "145.55",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 2, Aliyah 4, Genesis 22, 15-19 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 2, Aliyah 4, Genesis 22, 15-19 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%202%2C%20Aliyah%204%2C%20Genesis%2022%2C%2015-19%20%28Hebrew%29.mp3",
+        "bytes": 1533953,
+        "sha1": "7c9be0095675e04cfafb7023af57d96b8026d028",
+        "sha256": "e927a2e58f87d7934f816dae529246f9dc7fdb9b18a4d3be493a392cb23dc0e7",
+        "length": "95.58",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Day 2, Aliyah 5, Genesis 22, 20-24 (Hebrew).mp3",
+        "title": "Rosh Hashanah Day 2, Aliyah 5, Genesis 22, 20-24 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Day%202%2C%20Aliyah%205%2C%20Genesis%2022%2C%2020-24%20%28Hebrew%29.mp3",
+        "bytes": 1307419,
+        "sha1": "5f106a6a1ec2580c7fcaa1aef1b5437de87a2b71",
+        "sha256": "32a1a3877d5d542a3a364ecd70cfaaa657984d25fba528a1ad002273c3371a55",
+        "length": "81.42",
+        "sourceSha1Verified": true
+      },
+      {
+        "name": "Len Fellman - Rosh Hashanah Maftir, Numbers 29, 1-6 (Hebrew).mp3",
+        "title": "Rosh Hashanah Maftir, Numbers 29:1-6 (Hebrew)",
+        "url": "https://archive.org/download/rosh-hashanah-torah-readings-with-english-transtropilation-audio-len-fellman-2019/Len%20Fellman%20-%20Rosh%20Hashanah%20Maftir%2C%20Numbers%2029%2C%201-6%20%28Hebrew%29.mp3",
+        "bytes": 1665610,
+        "sha1": "3ca9fb2bbaf1a7d06f727b9b9fb9daea7a21bf18",
+        "sha256": "bb9668995e26cb834d19147b5eda9bf82c0715c1b6be58507470e2ec136bf73c",
+        "length": "103.81",
+        "sourceSha1Verified": true
+      }
+    ],
+    "appAudioImported": false,
+    "next": "Identify source-verse/word/syllable boundaries against exact UXLC and obtain cantorial/phonological review before independent reconstruction. Keep original voice, pace, pronunciation and melody attribution explicit."
+  },
+  "otherCandidates": [
+    {
+      "source": "https://github.com/kylemath/cantillate",
+      "finding": "Primary README calls its hand-written motif tables guesses/stylized approximations; measured shapes use recording extraction and do not supply reviewed contextual rules. Root directory lists no project LICENSE; THIRD_PARTY_NOTICES covers fonts/tikkun, not a general code grant. No code, measured motif data or voice imported.",
+      "inspectedBlobs": {
+        "README.md": "02d93c09394204e1f73c3baf014222792057dbfd",
+        "THIRD_PARTY_NOTICES.md": "716d303b323f3d3bb95dbf2c268fd3e206ea61d7",
+        "js/audio.js": "daee4daa9a55d45537170ddf0d23824a6b4d0267"
+      }
+    },
+    {
+      "source": "https://github.com/RiahStudio/selah",
+      "finding": "MIT code license, but primary README/musicology explicitly treats pitches as original interpretations rather than a recovered traditional melody. Not adopted as a historical grammar.",
+      "inspectedBlob": {
+        "docs/THE-MUSICOLOGY.md": "16b76443ce8c965c22211713ff9cb18761dbdff5"
+      }
+    },
+    {
+      "source": "https://ivritsuite.com/trope_tutor.html",
+      "finding": "Primary page distinguishes PocketTorah licensed recordings, modern printed-chart transcriptions and permission-only Total Torah recordings. It supplies no general reuse permission for those modern arrangements/permission-only voice. No new assets or code imported."
+    }
+  ],
+  "cohenPrimaryReview": {
+    "source": "https://www.jewishencyclopedia.com/articles/718",
+    "pagesInspected": [
+      539,
+      540,
+      541,
+      542,
+      543,
+      544,
+      545,
+      546,
+      547,
+      548
+    ],
+    "finding": "Printed p547hypothetical prophetical Gen22:1 transcribed literally as an additional worked comparison. It is not a complete arbitrary-word grammar. Penitential example still needs unmetered ornament/duration review; p548rare figures remain source leads, not automatically supplied omitted cells. No arbitrary pre-stress note choices inferred."
+  },
+  "limits": "The complete original feature inventory, all six Kinnor pronunciation grammars/voices, all recovered contextual melody systems and independent singing remain active/incomplete. New source references do not establish Kinnor preset equivalence. Printing deferred."
+}
