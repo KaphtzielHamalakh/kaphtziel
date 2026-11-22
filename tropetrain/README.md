@@ -1,6 +1,8 @@
 # TropeTrain · reconstruction in progress
 
-Working v0.52 adds **Written Hebrew cluster** to **Why the pronunciation text changes**. Try **Genesis1:1word1בְּרֵאשִׁ֖ית**: switch the source text style and inspect the final tav(t/s), with the same original Hebrew cluster. **Genesis8:20word7** shows two shared-consonant halves pointing to one written bet. Vowel-point categories keep their parent-syllable scope; different source forms remain unbound. These are exact written-cluster annotations, with phonemes and sound timing still pending.
+Published **v0.52.0** · **466checks pass**,7new. Bothpublicbuilds and all19changedfiles/121,997,266bytesverified. [Verification](docs/VERIFICATION-0.52.md). Printing deferred.
+
+v0.52 adds **Written Hebrew cluster** to **Why the pronunciation text changes**. Try **Genesis1:1word1בְּרֵאשִׁ֖ית**: switch the source text style and inspect the final tav(t/s), with the same original Hebrew cluster. **Genesis8:20word7** shows two shared-consonant halves pointing to one written bet. Vowel-point categories keep their parent-syllable scope; different source forms remain unbound. These are exact written-cluster annotations, with phonemes and sound timing still pending.
 
 Published **v0.51.0** · **459checks pass**,7new. Bothpublicbuilds and all36changedfiles/122,405,419bytes verified. [Verification](docs/VERIFICATION-0.51.md). Full reconstructionactive/incomplete; printingdeferred.
 

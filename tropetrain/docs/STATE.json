@@ -3,15 +3,15 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "b38edec3a5f1c2a63a159feec03653a85c03daef",
-  "nextTask": "Finish v0.52automated/UI/source/publication checks and save progress, then continue six independently reviewed singing phonologies/voices and full contextual cantillation grammars across the Torah. Preserve every marked Hebrew word/ID, both source text styles and all prior source facts. Letter-cluster bindings are structural annotations only; letterless categories keep syllable scope, source-only forms remain unbound, shared first halves add no written letter, and differing marks remain separate. No new phonemes, IPA dialect, musical preset, singing voice or sound times inferred. Full retained roadmap active/incomplete; printing deferred.",
+  "publishedCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
+  "nextTask": "Continue primary-source specifications for the actual six historical KinnorAccentlabels and permission-cleared duration/F0-controlled Hebrew singing material, then full independent pronunciation/voice and contextual melody systems across the entire Torah, followed by the retained tutor/learning roadmap. Printing deferred. Inspect originalV6HelpAccentdescriptions and public phonology scholarship; the twoMAMtext projections differ onlyQAMATS_G/TAV_0DAGandare not sixhistoricalphonologies. Preserve v0.52exactcategory-to-letterclusterannotations, source-onlynulls, variant-specificproof, firstsharedreference/secondwrittenroles, letterlesscategorysyllablescope, everyoriginalmarkedHebrew/ID/stress/underlay/IPAproposal/music/audiofact and all605asset/datafiles. Allv0.51studyfieldsreconstructexactlyafterremovingonlynewannotations. No phonemes, individualvowel-point ranges, acoustic segmenttimes, newvoice orcomplete melodygrammar inferred. v0.51sourcepracticeguardsretain791structuralgaps/16Gen28:4durationgaps. All priorBaer/Cohen/Haftarahcontext/gapsstayintact. Fullobjectiveactive/incomplete.",
   "lastPassingTests": {
     "automated": 466,
     "failures": 0,
     "skipped": 0,
     "newTests": 7,
     "log": "/private/tmp/tropetrain-check-v52-final3.log",
-    "ui": "Local normal78: Gen1:1word1t/sbothtextstylesbindsameתUTF16range11–12;all27visibleHebrew/IDs/labelsunchanged. Mutedrecordedchantat100%survivesstylechange,activegen-1-1-1. SharedGen8:20word7betfirst/secondbothבְּ2–5,reference/writtenroles;noextra writtenletter. Canonicalgen-13-3-13(displayGen13:3word12)retainsאֽ͏ָהֳלוֹ֙inclCGJandaccents,source-only/noreaderbindings. Gen1:5word2finalmemretainsם ׀at8–11andexplicitSource marks differ:ם. Portable79independentlyverifiesfinalmemdifferenceandfriendlypoint/timinglimits;Gen8:20word7bothsharedhalves/stylechangepreserves14Hebrew/IDs/labels. RegisteredNotoHebrewfontverified. Bothnormal/portable319root/body319,andalltableswidth/scroll231afterlocalwrap/staticfix;viewportreset. Noappconsolewarnings/errors. AllaudioQAusedmutedclocks;all5gains0/all4mediapaused/repeatoff. Publicchecks and finalportableplaybackpending. NativeSave/file-originandindependentreviewunclaimed."
+    "ui": "Local normal78: Gen1:1word1t/sbothtextstylesbindsameתUTF16range11–12;all27visibleHebrew/IDs/labelsunchanged. Mutedrecordedchantat100%survivesstylechange,activegen-1-1-1. SharedGen8:20word7betfirst/secondbothבְּ2–5,reference/writtenroles;noextra writtenletter. Canonicalgen-13-3-13(displayGen13:3word12)retainsאֽ͏ָהֳלוֹ֙inclCGJandaccents,source-only/noreaderbindings. Gen1:5word2finalmemretainsם ׀at8–11andexplicitSource marks differ:ם. Portable79independentlyverifiesfinalmemdifferenceandfriendlypoint/timinglimits;Gen8:20word7bothsharedhalves/stylechangepreserves14Hebrew/IDs/labels. RegisteredNotoHebrewfontverified. Bothnormal/portable319root/body319,andalltableswidth/scroll231afterlocalwrap/staticfix;viewportreset. Noappconsolewarnings/errors. AllaudioQAusedmutedclocks;all5gains0/all4mediapaused/repeatoff. NativeSave/file-originandindependentreviewunclaimed. Public normal80: Gen1:1word1tavbothtextstylesbindתatreaderUTF16 11–12; switchingstylepreservesall27Hebrew/IDs/aria-labelsandall27matchcanonicalGenesisJSON. Originalrecordedchant100%/originalpitch/0volumecontinuesduringstylechange,activegen-1-1-1andbindingsunchanged. Friendlypoint/timinglimitsandregisteredNotoHebrewfontverified. Publicportable81: measuredtones100%/0pitchplayopeningwordonmutedclock,39measured/133frameonsets;stylechangepreservesall27Hebrew/IDs/labelsandall27matchcanonicalsource. SharedGen8:20word7betfirst/secondpointtoבְּ2–5withreference/writtenroles. EmbeddedletterauditdataURIverified. At319,root/body319andallfourtableswidth/scroll231;viewportreset. Canonicalgen-13-3-13(displayGen13:3word12)keepsאֽ͏ָהֳלוֹ֙inclCGJandaccents,source-only/zeroexactreaderbindings. Noappconsolewarnings/errors. Screenshotoutputs/TropeTrain-v0.52-live.jpgsaved/viewed. BothpublicbuildsleftGen1:1word1/Sephardic/recorded/100%speed/0pitch/repeatoff/all5gains0/all4mediapaused. AllplaybackQAusedmutedclocks; independentlinguistic/acoustic/cantorialreviewandnativeSave/file-originunclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -50,7 +50,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_MAM_source_text_styles_79985Torah_and150620additional_word_links_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_MAM_text_styles_with_exact_category_written_cluster_bindings_six_Kinnor_singing_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "codeCommit": "b38edec3a5f1c2a63a159feec03653a85c03daef",
-    "pagesRun": 45018881690,
+    "codeCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
+    "pagesRun": 45021855264,
     "status": "success",
     "jobs": 3,
-    "publicFilesExact": 36,
-    "publicBytesExact": 122405419
+    "publicFilesExact": 19,
+    "publicBytesExact": 121997266
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.52.0",
-    "status": "local_verified_awaiting_publication",
+    "status": "published_verified",
     "baseline": "e66b85c2beb386a6df3459a627673ed507aef1c8",
     "sourceGroups": 68504,
     "styles": 2,
@@ -212,7 +212,9 @@
         "bytes": 91880825,
         "sha256": "2db68d9236e24ea1132a09ba5d3a5e65ad39628d3b82dc0c45c6e9b63f2f1d98"
       }
-    }
+    },
+    "codeCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
+    "pagesRun": 45021855264
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1070,6 +1072,6 @@
     "individualVowelPointRanges": null,
     "acousticTimes": null,
     "review": null,
-    "status": "466checks_local_normal_portable_verified"
+    "status": "published_466checks_public_normal_portable_verified_review_pending"
   }
 }
