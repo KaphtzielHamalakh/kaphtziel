@@ -4,14 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "8ffa464a25c80132980021b9e0c009e03e051c99",
-  "nextTask": "Continue the complete six historical pronunciation specifications and reusable reviewed singing material, then all contextual melody systems across every Torah passage and the retained tutor/learning inventory; printing deferred. The new six documentary profiles expose87source-category slots each (522unassigned), not a completed phonological engine or singing presets. Read the primary Katz1993phonology and August2026draftmanual and Kantor2023classification leads recorded in work/audits/pronunciation-profiles-0.56/next-primary-sources.json. Separate regional/formal-reading/stress-conditioned facts from Kinnor label equivalence, preserve source rights, and build explicit context-sensitive candidate specifications without filling unknown rules from example Latin spellings. Kahn/Yampolskaya2022CC-BY4recitation research is not a Kinnor singing bank. Acquire/verify reusable sustained vowels/transitions/diphthongs and qualified linguistic/acoustic/cantorial review. Keep the private0.55clock/curve diagnostic frozen with seven unresolved interior points. Continue Baer/Cohen missing figures and full contextual musical fitting with source evidence; no arbitrary-word rule inferred from a chart heading. Preserve79985Torah words, exact marks/IDs, MAMsource groups/stress/shared-consonant and source-only bindings, all original recordings/times/gaps and the complete feature inventory. Full objective active/incomplete.",
+  "nextTask": "Continue word-aligned chanting across all Torah with independent six historical pronunciation grammars and every contextual cantorial melody system; printing deferred. v0.57now has an original, whole-source-audited phonemic candidate compiler for two source-defined Formal Ashkenazic regions, independently selected from the two MAMtext projections and six Kinnor documentary labels. Do not equate those regions with Kinnor profiles or promote candidates to approved phonemes/voices. Resolve the19557mobile-sheva references, special alef/mappiq,2360diphthong-part references and hiatus/local/quantity/allophone evidence;188Mideastern open segols lack established stress. Obtain reusable sustained singing material/transitions and qualified linguistic/acoustic/cantorial review. Preserve all79985Torah words, source branches/stress/shared halves/source-only ranges, original recordings/times/gaps, source rights and the complete roadmap. Keep the private0.55clock/curve diagnostic frozen. Continue missing Baer/Cohen figures and full contextual musical fitting, then retained learning/tutor tools. Full goal active/incomplete.",
   "lastPassingTests": {
-    "automated": 473,
+    "automated": 482,
     "failures": 0,
     "skipped": 0,
-    "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v56-release.log",
-    "ui": "Local85/87and public80/81verify all six historical evidence labels, exact Hebrew and independent MAMtext/melody/key/tempo/range settings. Gen1:1word2בָּרָ֣א keeps UTF16ranges0–3/3–7 while sourceba/ra andbo/ro change independently of the historical profile. Gen8:20word7 exports distinct first/second shared bet references with original marked bindings and no extra written letter. Canonicalgen-13-3-13(displayword12) preservesאֽ͏ָהֳלוֹ֙includingCGJ and source-only/nullwrittenranges. Isa42:5word1כֹּֽה־ keeps the selected profile with categories unavailable/no substitute. U.S.Sephardi evidence choice survives reload. Changing historical profile during volume0instrument playback keeps Restart/Playing, melody, key and tempo; stopped afterward. Both normal/portable319px layouts: root/scroll319,word/scroll231,caption231,stackedcellwidth231,no cell overflow. Desktop/mobile screenshots inspected. Public consolewarnings/errors empty. Private tabs85/86/87closed; server75660exited0afterCtrl-C,8767no listener. Viewportreset; user8765server untouched. Public80/81leftv0.56with all audio paused. NativefileSave/file-origin and acoustic/qualified historical review remain unclaimed."
+    "newTests": 9,
+    "log": "/private/tmp/tropetrain-check-v57-final.log",
+    "ui": "Local normal88and portable89verify two independently saved research profiles, source ba/ra versusbo/ro, exactבָּרָ֣א and original0–3/3–7UTF16syllable ranges, unchanged27reader Hebrew strings/IDs/aria-labels, and unchanged historicalGalician/melody/key/tempo/range settings. MideasternGen1:2word11מְרַחֶ֖פֶת preserves primary stress and produces open-stressed/closed segol candidates ej/ɛ while mobile sheva stays null. Gen8:20word7exports both original shared bet halves referencing one b event; no extra letter or consonant. Gen13:3displayword12/canonicalgen-13-3-13preservesCGJ, separate Hebrew branches1/2and null written ranges. Isa42:5word1כֹּֽה־ retains the selected profile and exact Hebrew with unavailable categories/no substitute. Prepared normal/portable JSONexports work; portable coverage evidence is embedded. Profile/text choices persist on reload. Changing profile during repeated volume0instrument playback preserves Restart, original melody,60BPM/key0/range60–72and running playback; stopped afterward. Both319px layouts have root/scroll319and0overflowing proposal rows; screenshots inspected. Normal/portable consoles have no warnings/errors. Viewport reset; all playback stopped. Acoustic, qualified phonological/cantorial review and native file Save/file-origin tests remain unclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -50,7 +50,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_MAM_text_styles_exact_bindings_six_documentary_profiles_with_word_evidence_full_reviewed_singing_grammars_pending"
+      "status": "two_independent_MAM_text_styles_six_documentary_Kinnor_profiles_two_source_defined_contextual_phonemic_proposals_exact_whole_Torah_bindings_reviewed_grammars_and_singing_voices_pending"
     },
     {
       "id": "melodies",
@@ -190,15 +190,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.56.0",
-    "status": "published_runtime_and_ui_verified",
-    "baseline": "3e64bdb7000f07d7e4911b0c910efe2309ea071d",
-    "previousGoalTurn": "progress: fixed and verified the private pitch clock, retained all unresolved curve points, published and saved research checkpoint0.55",
+    "version": "0.57.0",
+    "status": "482_checks_local_normal_portable_verified_publication_pending",
+    "baseline": "988ca5222b21bc7b9bbe499390762bf75b29ef7b",
+    "previousGoalTurn": "progress: v0.56 six documentary profiles and exact-word reports implemented, browser verified, published and saved with 473 checks; all historical singing rules remain pending.",
     "newPublicVoice": null,
-    "review": null,
-    "historicalLabels": 6,
-    "categorySlots": 522,
-    "reviewedRules": 0
+    "review": null
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1574,5 +1571,29 @@
     "responsiveStackedRows": true,
     "review": null,
     "qualifiedReviewPending": true
+  },
+  "phonologicalResearch": {
+    "version": "0.57.0",
+    "source": "Dovid Katz1993 The Phonology of Ashkenazic",
+    "record": "docs/PRONUNCIATION-PHONOLOGY.json",
+    "profiles": [
+      "katz-1993-northeastern-formal",
+      "katz-1993-mideastern-formal"
+    ],
+    "scope": "Incomplete source-defined Formal Ashkenazic phonemic proposals, independent of both MAMtext styles and all six documentary Kinnor profiles. No historical label equivalence, reviewed grammar, acoustic phone, duration, singing voice or sound allocation.",
+    "status": "whole_source_audit_and_local_UI_verified_publication_pending",
+    "allTorahWordLinks": 79985,
+    "sourceGroups": 68504,
+    "sourceUnitPlansPerStyle": 194272,
+    "categoryReferencesPerStyle": 518726,
+    "sharedConsonantEventsPerStyle": 18250,
+    "unassignedReferences": {
+      "northeastern": 22585,
+      "mideastern": 22773
+    },
+    "reviewedRealizations": 0,
+    "sourceAssetsAndDataUnchanged": 605,
+    "sourceGrammarAdaptationReview": null,
+    "newSingingVoice": null
   }
 }

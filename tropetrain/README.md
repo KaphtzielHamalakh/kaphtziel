@@ -1,6 +1,6 @@
 # TropeTrain · reconstruction in progress
 
-Version **v0.56.0** adds **Historical pronunciation profiles · evidence** under Pronunciation text. Inspect all six documented Kinnor Accent labels independently of the two MAM text styles, musical source, key, tempo and range. Each profile keeps87source-category rule slots explicit; all522remain unassigned pending complete phonological specifications and reviewed singing material. Historical names and help observations do not select a singing voice. [Profile sources and limits](docs/HISTORICAL-PRONUNCIATION-PROFILES.json).
+Version **v0.57.0** adds **Historical pronunciation profiles · evidence** under Pronunciation text. Inspect all six documented Kinnor Accent labels independently of the two MAM text styles, musical source, key, tempo and range. Each profile keeps87source-category rule slots explicit; all522remain unassigned pending complete phonological specifications and reviewed singing material. Historical names and help observations do not select a singing voice. [Profile sources and limits](docs/HISTORICAL-PRONUNCIATION-PROFILES.json).
 
 Try **Genesis1:1–3 → word2 בָּרָ֣א**. Switch Pronunciation text style between Sephardic/Ashkenazic and Historical accent to inspect between the six labels. Exact Hebrew/accents and UTF16syllable ranges0–3/3–7 stay unchanged. Prepare historical profile evidence exposes a JSON download, including original source syllables/stress and written/shared-consonant bindings. **Genesis8:20word7** retains both references to one written bet; **Genesis13:3displayword12** retains its source-only form and CGJ. Profiles remain documentary and non-playable. Full reconstruction active/incomplete; printing deferred.
 
@@ -224,3 +224,10 @@ Latest publication: [v0.31code 4ebe2f58](https://github.com/KaphtzielHamalakh/ka
 
 
 Version0.43 adds source-syllable text following during instrumental playback. Try Genesis1:1–3, Instrument, Original demonstration01, show pronunciation text, Word scope and Repeat. Switch the Phonetic MAM text style during playback. Only exact marked-Hebrew matches highlight; boundary differences remain explicit. This does not implement a singing voice. Full reconstruction remains active; printing deferred.
+
+
+Pronunciation rules preview (v0.57)
+
+Under Pronunciation text, expand “Pronunciation rules preview · research”. Select Northeastern or Mideastern Formal Ashkenazic independently of the MAM text style, historical Accent evidence and melody controls. These original source-based phonemic proposals follow Dovid Katz’s1993phonology; they have no reviewed singing voice or demonstrated equivalence to Kinnor’s six labels. Unknown sounds remain explicit. Existing recordings retain their own pronunciation.
+
+Try Genesis1:1–3, word2 בָּרָ֣א: the Northeastern qamats proposals are /ɔ/, while the Mideastern open-syllable proposals are /u/. Source ba/ra and bo/ro keep the exact same marked Hebrew ranges. Prepare word pronunciation proposal exports original source branches, syllable/letter bindings, stress, shared-consonant events, citations and every unresolved correspondence. Genesis1:2 word11 מְרַחֶ֖פֶת demonstrates conditioned segol; Genesis8:20 word7 demonstrates a shared consonant and unresolved mobile sheva. See docs/PRONUNCIATION-PHONOLOGY.json for full-Torah preservation/coverage and pending evidence. Printing remains deferred.

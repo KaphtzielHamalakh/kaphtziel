@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore Torah, Prophets and the five scrolls with an original instrumental demonstration, a full Torah recorded-reference library and a bounded printed-score study, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.56.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.57.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -52,6 +52,13 @@
         <button id="historical-accent-export" disabled>Prepare historical profile evidence</button><a id="historical-accent-download" hidden download>Download historical profile evidence</a>
         <p>Source categories remain those of the selected MAM text style. Related help observations are shown for comparison; their application to each category is unreviewed. Original marked Hebrew, source syllables, shared consonants and written ranges are retained. No phonemes, musical notes or sound times are assigned.</p>
         <p><a href="./docs/HISTORICAL-PRONUNCIATION-PROFILES.json">Profile specifications, sources and pending rules</a> · <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">Kinnor V5 manual, pp.48–49</a></p>
+      </details><details id="phonology-study"><summary>Pronunciation rules preview · research</summary>
+        <p>Compare two source-defined formal reading systems independently of melody and the MAM transcription. These are incomplete phonemic proposals awaiting linguistic and cantorial review. Kinnor’s historical Accent labels remain separate. Recordings keep their original pronunciation; this preview generates no sound.</p>
+        <label for="phonology-profile">Pronunciation rules to preview</label><select id="phonology-profile"></select>
+        <p id="phonology-status" role="status"></p><div id="phonology-word"></div>
+        <p>Symbols show proposed phonemes; ∅ marks an explicitly silent source category, while ? marks an unresolved correspondence. Shared consonant halves reference one proposed consonant event. Source branches and exact marked Hebrew remain separate. Syllable closure uses the source before consonant loss and degemination; primary stress is kept where established. Vowel quantity, acoustic phones and audio alignment remain unassigned.</p>
+        <button id="phonology-export" disabled>Prepare word pronunciation proposal</button><a id="phonology-download" hidden download>Download word pronunciation proposal</a>
+        <p><a href="./docs/PRONUNCIATION-PHONOLOGY.json">Rules, coverage and pending evidence</a> · <a href="https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf">Katz 1993 · primary phonology</a></p>
       </details></section>
         <p id="class-guide" class="class-guide" hidden>C: conjunctive. D1–D4: source-guide disjunctive levels. Frames follow the pointed source in every view. Context-dependent combinations are marked separately.</p>
         <details id="source-details" class="source-inspector"><summary>Inspect source signs</summary><p id="source-class"></p><p class="muted">Names and prose classes follow the source guide. A complete contextual hierarchy and musical realization still require review. Positions below count encoded source characters, including combining marks.</p><div class="table-scroll" tabindex="0" role="region" aria-label="Source sign characters"><table><thead><tr><th>Sign</th><th>Code</th><th>Name</th><th>Class / role</th><th>Position</th></tr></thead><tbody id="source-sign-rows"></tbody></table></div><ul id="source-sign-warnings"></ul><a href="https://www.tanach.us/Pages/Coding.html">Source encoding guide</a></details>
@@ -236,7 +243,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a><p><a href="./docs/REPERTOIRE-SOURCES.json">Prophets and five-scroll text provenance</a> · <a href="./docs/REPERTOIRE-AUDIT.json">Source correspondence audit</a></p></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Optional sourced scroll lines use written UXLC letters, a licensed scribal font and flagged edition differences. Typeset widths remain approximate; scrolls vary.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>PocketTorah recordings and the bounded printed-score study provide source references. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.56.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.57.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -247,6 +254,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.56.0"></script>
+  <script defer src="./app.bundle.js?v=0.57.0"></script>
 </body>
 </html>
