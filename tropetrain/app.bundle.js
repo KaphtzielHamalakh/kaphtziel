@@ -6366,6 +6366,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     return segments;
   }
+  function recordingRate(value) {
+    if (typeof value !== "number" || !Number.isFinite(value) || value < 0.5 || value > 1.5) throw Error("Choose a chant speed between 50% and 150%.");
+    return value;
+  }
   var RecordingPlayer = class {
     constructor(media, { onWord = () => {
     }, onEnd = () => {
@@ -6386,6 +6390,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.running = false;
       this.starting = false;
       this.clock = clock;
+      this.rate = 1;
       this.volume = Number.isFinite(media.volume) ? media.volume : 1;
       media.addEventListener("ended", () => {
         if (this.running && this.mode === "audio" && media.currentTime >= this.currentSegment.end) this.advance();
@@ -6408,8 +6413,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.cancelFrame(this.raf);
       this.onWord(null);
     }
+    get canPreservePitch() {
+      return "preservesPitch" in this.media;
+    }
     now() {
-      return this.mode === "muted" ? this.anchorPosition + Math.max(0, this.clock() - this.anchorClock) : this.media.currentTime;
+      return this.mode === "muted" ? this.anchorPosition + Math.max(0, this.clock() - this.anchorClock) * this.rate : this.media.currentTime;
+    }
+    setRate(value) {
+      const rate = recordingRate(value);
+      if (rate !== 1 && !this.canPreservePitch) throw Error("This browser cannot preserve recorded pitch at a different chant speed. Use 100%.");
+      const position = this.running && this.mode === "muted" ? this.now() : null;
+      if (this.canPreservePitch) {
+        this.media.preservesPitch = true;
+        if (rate !== 1 && this.media.preservesPitch !== true) throw Error("Pitch preservation is unavailable. Use 100%.");
+      }
+      this.media.playbackRate = rate;
+      this.rate = rate;
+      if (position !== null) {
+        this.anchorPosition = position;
+        this.anchorClock = this.clock();
+      }
     }
     async setVolume(value) {
       this.volume = Number.isFinite(value) ? Math.min(1, Math.max(0, value)) : 0;
@@ -6509,7 +6532,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (!Number.isFinite(duration) || definition.start < 0 || definition.start >= end || end > duration) throw Error("A reference boundary lies outside the decoded recording.");
         this.currentSegment = { ...definition, end };
         this.media.currentTime = definition.start;
-        this.media.playbackRate = 1;
+        this.setRate(this.rate);
         this.media.volume = this.volume;
         this.mode = this.volume === 0 ? "muted" : "audio";
         this.anchorPosition = definition.start;
@@ -9684,6 +9707,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     rangeLow: 60,
     rangeHigh: 72,
     referenceVolume: 0,
+    chantRate: 100,
     readerPage: 0,
     notePage: 0,
     staffPage: 0,
@@ -9700,6 +9724,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const saved = JSON.parse(originalPracticeText);
     if (saved) {
       state.practiceAudio = practiceAudioMode(saved.practiceAudio);
+      if ([50, 65, 75, 85, 100, 115, 125, 150].includes(saved.chantRate)) state.chantRate = saved.chantRate;
       for (const [key, min, max] of [["cursor", 0, 1e6], ["anchor", 0, 1e6], ["tempo", 40, 160], ["transpose", -12, 12], ["volume", 0, 100], ["referenceVolume", 0, 100], ["rangeLow", 36, 84], ["rangeHigh", 36, 84], ["readerPage", 0, 1e5]])
         if (Number.isInteger(saved[key]) && saved[key] >= min && saved[key] <= max) state[key] = saved[key];
       if (["pointed", "consonantal", "parallel"].includes(saved.view)) state.view = saved.view;
@@ -9789,7 +9814,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         pronunciationTools?.showWord(words2[word.wordIndex], { following: true });
       } else pronunciationTools?.showWord(words2[state.cursor]);
       if (word && recordedPracticeRunning) {
-        $("status").textContent = `Recorded chant · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
+        $("status").textContent = `Recorded chant · ${state.chantRate}% speed · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
         $("progress").style.width = `${100 * (word.wordIndex - playingBounds[0] + 1) / (playingBounds[1] - playingBounds[0] + 1)}%`;
       }
     },
@@ -9814,11 +9839,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (id) {
         selectedReferenceId = id;
         syncReferencePickers();
-        $("reference-status").textContent = `Playing ${referenceLibrary.byId.get(id).title} · original recorded key, tempo and pronunciation${state.referenceVolume === 0 ? " · muted at 0%" : ""}.`;
+        renderReferencePlaybackStatus(id);
       }
     },
     resolveSource: (id, options) => referenceStore.url(referenceLibrary.byId.get(id), options)
   });
+  function renderReferencePlaybackStatus(id) {
+    $("reference-status").textContent = `Playing ${referenceLibrary.byId.get(id).title} · ${recordedPracticeRunning ? `${state.chantRate}% speed · original pitch requested` : "original recorded key and tempo"} · original pronunciation${state.referenceVolume === 0 ? " · muted at 0%" : ""}.`;
+  }
   function loadArray(key) {
     try {
       const data = JSON.parse(localStorage.getItem(key));
@@ -10320,6 +10348,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("chant-volume").value = state.referenceVolume;
     $("chant-volume-value").textContent = `${state.referenceVolume}%`;
     if (state.practiceAudio !== "recorded") return;
+    $("chant-speed").disabled = !referencePlayer.canPreservePitch;
+    if (!referencePlayer.canPreservePitch) state.chantRate = 100;
+    $("chant-speed").value = state.chantRate;
+    $("chant-speed-note").textContent = referencePlayer.canPreservePitch ? "Speed is a percentage of this performance, independent of instrument BPM and key. Pitch preservation is requested from the browser; processing may affect timbre. Source word timings remain unchanged. Recording previews below always use original speed." : "This browser lacks pitch-preserving speed control. Chant plays at its original speed.";
     chantPlan = null;
     chantReady = false;
     for (const id of ["play", "compact-play", "chant-load"]) $(id).disabled = true;
@@ -10361,6 +10393,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (request !== chantPlayRequest) return;
     playingBounds = bounds2(state.cursor, state.anchor, state.scope);
     recordedPracticeRunning = true;
+    try {
+      referencePlayer.setRate(state.chantRate / 100);
+    } catch (error) {
+      recordedPracticeRunning = false;
+      say(error.message);
+      return;
+    }
     referencePlayer.setVolume(state.referenceVolume / 100);
     transportLabel(true);
     await referencePlayer.play(selected.rows, state.repeat);
@@ -10390,6 +10429,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   });
   $("chant-cancel").addEventListener("click", () => referenceLoadJob?.abort());
+  $("chant-speed").addEventListener("change", (e) => {
+    const percent = Number(e.target.value);
+    try {
+      if (recordedPracticeRunning) referencePlayer.setRate(percent / 100);
+      state.chantRate = percent;
+      persist();
+      if (recordedPracticeRunning) {
+        renderReferencePlaybackStatus(selectedReferenceId);
+        say(`Recorded chant · ${percent}% speed · original pitch requested · original pronunciation.`);
+      }
+    } catch (error) {
+      e.target.value = state.chantRate;
+      say(error.message);
+    }
+  });
   function renderSourceSigns(word) {
     combinationTools?.showWord(word.index);
     const analysis = word.signAnalysis;
@@ -10711,6 +10765,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!referencePlan || !referenceReady) return;
     const selected = referencePlan;
     stop("Listening to the recorded reference.");
+    referencePlayer.setRate(1);
     await referencePlayer.play(selected, state.repeat);
   });
   $("reference-full").addEventListener("click", async () => {
@@ -10719,6 +10774,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reference-word").textContent = "";
     $("reference-word-label").textContent = "Complete unmodified recording · timed word highlighting is off.";
     $("reference-source-comparison").textContent = "The recording retains its original text, key, tempo and pronunciation.";
+    referencePlayer.setRate(1);
     await referencePlayer.playWhole(id, state.repeat);
   });
   $("reference-stop").addEventListener("click", () => stop());
@@ -10801,7 +10857,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("score-description").textContent = printed ? "The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft." : "The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.";
     if (state.practiceAudio === "recorded") {
       $("music-badge").textContent = "Recorded chant";
-      $("music-notice").textContent = "PocketTorah chant follows the source word timings. The original performance keeps its own melody, pronunciation, pace and pitch. Acoustic timing review is pending.";
+      $("music-notice").textContent = "PocketTorah chant follows the source word timings. The original performance keeps its own melody and pronunciation. Chant speed is independent of instrument BPM and key; the browser is asked to preserve original pitch. Acoustic timing and processed sound review are pending.";
       $("score-description").textContent = "Instrument score only; no pitches have been transcribed from the recording. " + $("score-description").textContent;
     }
     $("score-help").textContent = printed ? "Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted." : "Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.";
