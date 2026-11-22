@@ -1,0 +1,1229 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-22",
+  "status": "private_engineering_prototype_not_a_public_voice",
+  "publicRuntimeVersion": "0.52.0",
+  "baselineMain": "cff2ff6eca3f93df22610d6807cd174060772527",
+  "scope": "Original isolated vowel stimuli with explicit duration and F0, without Hebrew, G2P, tradition or word timing.",
+  "engine": {
+    "repository": "https://github.com/numediart/MBROLA",
+    "commit": "274dead162f2826dc38c208fba92efeddb724c33",
+    "license": "AGPL-3.0-or-later",
+    "verifiedSourceFiles": 100,
+    "sourceUnchanged": true
+  },
+  "voice": {
+    "repository": "https://github.com/numediart/MBROLA-voices",
+    "commit": "fe05a0ccef6a941207fd6aaad0b31294a1f93a51",
+    "path": "data/hb2/hb2",
+    "gitBlob": "98dcebe914fedae3279bfe4d8bf0e9cde60e5157",
+    "sha256": "57b157d6baca885e234c0e58e3ffa4341d35a58406bb8ba03c706b3cfb591886",
+    "bytes": 6823814,
+    "creator": "Esther Raizen",
+    "sourceDescription": "Female Hebrew voice, Israeli accent",
+    "licenseBlob": "7746f8c927c04c84644e49834246b5b9fda551b6",
+    "rights": "Separate voice terms: synthesis only with MBROLA; no-charge copying/distribution with notice. Sale or incorporation in a sold product requires owner permission.",
+    "publicBinaryDistributed": false,
+    "publicAudioDistributed": false,
+    "acceptedAsHistoricalSingingVoice": false
+  },
+  "actualInventory": {
+    "rate": 22050,
+    "symbols": [
+      "?",
+      "N",
+      "R",
+      "S",
+      "Ts",
+      "X",
+      "Z",
+      "_",
+      "a",
+      "ai",
+      "b",
+      "d",
+      "dZ",
+      "e",
+      "ei",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "oi",
+      "p",
+      "s",
+      "t",
+      "tS",
+      "u",
+      "ui",
+      "v",
+      "w",
+      "z"
+    ],
+    "indexedDiphones": 1011,
+    "readmeDiphones": 1008,
+    "readmeOmitsF": true,
+    "missingExamples": [
+      "@",
+      "_ → o",
+      "b → w"
+    ],
+    "limits": "Presence of a symbol does not establish every transition or a historical phonemic realization."
+  },
+  "periodPatch": {
+    "record": "VOICE-ENGINE-PERIOD-PATCH.diff",
+    "license": "AGPL-3.0-or-later",
+    "sha256": "884e5a748f7a790e4cf47eaacec23db4ebdbcec16aaf2a01886fec59370614e7",
+    "derivedSourceFiles": 3,
+    "method": "Accumulate fractional synthesis periods; retain integer output frame positions. Original source tree retained.",
+    "independentReview": null,
+    "format": "Unified zero-context diff; apply with git apply --unidiff-zero or patch -p1 against the pinned source."
+  },
+  "toolchain": {
+    "commit": "a7c808831a666cc903fedb906c171a718cd97341",
+    "allGitBlobsExact": true,
+    "files": 138,
+    "archiveSha256": "5c3ac494d7917be781f29b8f75f27bd725dc268a96df2654442511d9570fadc2",
+    "version": "7.0.1",
+    "officialArchiveSha256": "bd00b4bfb30bf025ce9d3df299d9216a3f6e6b54ba6ffb1c1400e916b3b8ea2d",
+    "systemInstall": false
+  },
+  "verification": {
+    "nativeRenders": 16,
+    "wasmRenders": 16,
+    "negativeChecks": 24,
+    "pitchThresholdCents": 15,
+    "correlationThreshold": 0.85,
+    "durationToleranceSeconds": 0.015,
+    "upstreamAMaxAbsoluteCents": 25.261099699223628,
+    "fractionalAMaxAbsoluteCents": 2.2201554093040934,
+    "knownFailure": "The e stimulus has low correlation near source time 0.3s in both engines; remains unresolved. No claim that the numeric low-correlation estimate is a real pitch.",
+    "nativeUpstream": {
+      "scope": "Private original phoneme stimuli, no Hebrew/tradition/word alignment or independent review",
+      "voicedRenderCases": 8,
+      "coverageFailuresRejected": 3,
+      "invalidParameterCasesRejected": 5,
+      "playedAudibly": false,
+      "pitchAcceptanceAll": false,
+      "acceptedForPublicVoice": false,
+      "results": [
+        {
+          "name": "a-0-100",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.6995918367346938,
+          "expectedSeconds": 1.7,
+          "samples": 37476,
+          "rate": 22050,
+          "sha256": "48a11724442ad179e3e408c50f3cd4e8874c9848e9aff28f0e532ac748a2878f",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 220.67340147502037,
+              "cents": 5.291068014528873,
+              "correlation": 0.9871530033271843
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.73995267989426,
+              "cents": 5.587630039464668,
+              "correlation": 0.9997640986688385
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.3305136957407,
+              "cents": 4.658525589582021,
+              "correlation": 0.9854107947576242
+            }
+          ]
+        },
+        {
+          "name": "a-12-100",
+          "semitones": 12,
+          "tempoPercent": 100,
+          "seconds": 1.6978231292517008,
+          "expectedSeconds": 1.7,
+          "samples": 37437,
+          "rate": 22050,
+          "sha256": "e998f86e93299eb5ac4bd50f8c2ea97b64e764a494473cee298a4e6554daa45c",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 440,
+              "hz": 441.35437176344163,
+              "cents": 5.320757308814091,
+              "correlation": 0.9956963843070235
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 493.8833012561241,
+              "hz": 501.12186310134894,
+              "cents": 25.189549289221816,
+              "correlation": 0.9999155403276606
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 523.2511306011972,
+              "hz": 524.7716782980187,
+              "cents": 5.02360401076874,
+              "correlation": 0.9825477320602672
+            }
+          ]
+        },
+        {
+          "name": "a--12-100",
+          "semitones": -12,
+          "tempoPercent": 100,
+          "seconds": 1.6980045351473922,
+          "expectedSeconds": 1.7,
+          "samples": 37441,
+          "rate": 22050,
+          "sha256": "786b5a68ec9b8f4e16fcb8ee4dd711f6a83ebfc93d55ccf5ffe397311e2017c0",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 110,
+              "hz": 110.34573294156719,
+              "cents": 5.432781688332889,
+              "correlation": 0.966220087769158
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 123.47082531403103,
+              "hz": 123.86595033355782,
+              "cents": 5.531360773741666,
+              "correlation": 0.9996266998972319
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 130.8127826502993,
+              "hz": 131.19156043037987,
+              "cents": 5.0056685247488515,
+              "correlation": 0.9739333191008525
+            }
+          ]
+        },
+        {
+          "name": "a-0-50",
+          "semitones": 0,
+          "tempoPercent": 50,
+          "seconds": 3.397641723356009,
+          "expectedSeconds": 3.4,
+          "samples": 74918,
+          "rate": 22050,
+          "sha256": "ba9887193dfa7b3d21ea8ebb57ae4ecd0cd82cd7b556aca2932f216fdc4dd0db",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 220,
+              "hz": 220.49909911658364,
+              "cents": 3.923085227502346,
+              "correlation": 1
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.75289707086344,
+              "cents": 5.678084504777868,
+              "correlation": 0.9999999383979314
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.2876443798035,
+              "cents": 4.375589063526147,
+              "correlation": 0.9867266084314122
+            }
+          ]
+        },
+        {
+          "name": "a-0-150",
+          "semitones": 0,
+          "tempoPercent": 150,
+          "seconds": 1.129206349206349,
+          "expectedSeconds": 1.1333333333333335,
+          "samples": 24899,
+          "rate": 22050,
+          "sha256": "5e6e8a86e766be0ade98390c90ef0f5234eeff06a4d908e09887680799b65081",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.2,
+              "expectedHz": 220,
+              "hz": 220.67642002879052,
+              "cents": 5.31474910744558,
+              "correlation": 0.9869522626485753
+            },
+            {
+              "seconds": 0.5333333333333333,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.7400537249735,
+              "cents": 5.588336153452774,
+              "correlation": 0.9997608490277584
+            },
+            {
+              "seconds": 0.8666666666666667,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.3594221505022,
+              "cents": 4.849294643152331,
+              "correlation": 0.985728321269449
+            }
+          ]
+        },
+        {
+          "name": "a-12-50",
+          "semitones": 12,
+          "tempoPercent": 50,
+          "seconds": 3.3945578231292517,
+          "expectedSeconds": 3.4,
+          "samples": 74850,
+          "rate": 22050,
+          "sha256": "9c3828f9dc93e6267af2e156d034f3c2d6902f0d51ef650656841e5d0e4b5926",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 440,
+              "hz": 440.99574799962573,
+              "cents": 3.9134662777274873,
+              "correlation": 1
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 493.8833012561241,
+              "hz": 501.1425744637053,
+              "cents": 25.261099699223628,
+              "correlation": 0.99999697372952
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 523.2511306011972,
+              "hz": 524.5893467981887,
+              "cents": 4.421983603014512,
+              "correlation": 0.9827959922612194
+            }
+          ]
+        },
+        {
+          "name": "e-0-100",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.6973242630385488,
+          "expectedSeconds": 1.7,
+          "samples": 37426,
+          "rate": 22050,
+          "sha256": "484f99c575855b0011ce0f721c252fd3829dbc80cb6cda998b17053fe3ccc998",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 202.8672121461851,
+              "cents": -140.36137370723907,
+              "correlation": 0.1824515907712748
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.75630801567837,
+              "cents": 5.701919153024725,
+              "correlation": 0.999852646426732
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.50136538173393,
+              "cents": 5.785683745829377,
+              "correlation": 1
+            }
+          ]
+        },
+        {
+          "name": "e-7-75",
+          "semitones": 7,
+          "tempoPercent": 75,
+          "seconds": 2.262902494331066,
+          "expectedSeconds": 2.266666666666667,
+          "samples": 49897,
+          "rate": 22050,
+          "sha256": "749956fd5bea0f44f81752bcd21a901c62c759cabd82589b4e020b5e3d5deae2",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.4,
+              "expectedHz": 329.6275569128699,
+              "error": "Unresolved F0"
+            },
+            {
+              "seconds": 1.0666666666666667,
+              "expectedHz": 369.9944227116344,
+              "hz": 373.72751972599053,
+              "cents": 17.379933465529106,
+              "correlation": 1
+            },
+            {
+              "seconds": 1.7333333333333334,
+              "expectedHz": 391.99543598174927,
+              "hz": 393.75239707187205,
+              "cents": 7.742219077276285,
+              "correlation": 1
+            }
+          ]
+        }
+      ]
+    },
+    "nativeFractional": {
+      "scope": "Private original phoneme stimuli, no Hebrew/tradition/word alignment or independent review",
+      "voicedRenderCases": 8,
+      "coverageFailuresRejected": 3,
+      "invalidParameterCasesRejected": 5,
+      "playedAudibly": false,
+      "pitchAcceptanceAll": false,
+      "acceptedForPublicVoice": false,
+      "results": [
+        {
+          "name": "a-0-100",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.699954648526077,
+          "expectedSeconds": 1.7,
+          "samples": 37484,
+          "rate": 22050,
+          "sha256": "4d4abf779b649f273c1796cc0f1efcbd11d6440195b0198f36a31062802f6420",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 220.1628748839803,
+              "cents": 1.2812282627358396,
+              "correlation": 0.9741284412612669
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 246.95797812505708,
+              "cents": 0.11446341361093888,
+              "correlation": 0.9768683723330673
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.6116334055786,
+              "cents": -0.09219287578196753,
+              "correlation": 0.9704866989702823
+            }
+          ]
+        },
+        {
+          "name": "a-12-100",
+          "semitones": 12,
+          "tempoPercent": 100,
+          "seconds": 1.6979138321995464,
+          "expectedSeconds": 1.7,
+          "samples": 37439,
+          "rate": 22050,
+          "sha256": "e76eaf647c0ad260d225284a09671b193ea90ac1281d1e5b8cf0b31fa978016b",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 440,
+              "hz": 440.4112800200713,
+              "cents": 1.61747592835385,
+              "correlation": 0.9913323141997978
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 493.8833012561241,
+              "hz": 493.7153115269233,
+              "cents": -0.5889630425286428,
+              "correlation": 0.9792111186208641
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 523.2511306011972,
+              "hz": 523.0894901875844,
+              "cents": -0.5348877495875152,
+              "correlation": 0.9687235986046351
+            }
+          ]
+        },
+        {
+          "name": "a--12-100",
+          "semitones": -12,
+          "tempoPercent": 100,
+          "seconds": 1.69437641723356,
+          "expectedSeconds": 1.7,
+          "samples": 37361,
+          "rate": 22050,
+          "sha256": "53baf313c377dd60b16e78967289c43481be6956adf100132c32dfc8df195221",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 110,
+              "hz": 110.06877745227936,
+              "cents": 1.082115077379065,
+              "correlation": 0.9336657803587349
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 123.47082531403103,
+              "hz": 123.40222188664542,
+              "cents": -0.962183549614632,
+              "correlation": 0.9802497845169764
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 130.8127826502993,
+              "hz": 130.7801259923986,
+              "cents": -0.43224656718312593,
+              "correlation": 0.9655227614019692
+            }
+          ]
+        },
+        {
+          "name": "a-0-50",
+          "semitones": 0,
+          "tempoPercent": 50,
+          "seconds": 3.3946485260770976,
+          "expectedSeconds": 3.4,
+          "samples": 74852,
+          "rate": 22050,
+          "sha256": "500bd8830750012cffb2b124487f6d307802a850658d5de87ac28903d3954866",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 220,
+              "hz": 219.99340906180882,
+              "cents": -0.05186648880516951,
+              "correlation": 0.9869498585813933
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.02806668651453,
+              "cents": 0.6057311574427683,
+              "correlation": 0.9787475650772485
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.3489327640435,
+              "cents": -1.8315069388768737,
+              "correlation": 0.9693124568399308
+            }
+          ]
+        },
+        {
+          "name": "a-0-150",
+          "semitones": 0,
+          "tempoPercent": 150,
+          "seconds": 1.1282086167800454,
+          "expectedSeconds": 1.1333333333333335,
+          "samples": 24877,
+          "rate": 22050,
+          "sha256": "a1df225ac7a06127aa32712d5a5c58233b0ac54e694eb753360180577eabb617",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.2,
+              "expectedHz": 220,
+              "hz": 220.1569267059055,
+              "cents": 1.2344545842577328,
+              "correlation": 0.9747643069466152
+            },
+            {
+              "seconds": 0.5333333333333333,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.01678239694309,
+              "cents": 0.5266462469722107,
+              "correlation": 0.9783471430834161
+            },
+            {
+              "seconds": 0.8666666666666667,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.6669093275977,
+              "cents": 0.27356092772432755,
+              "correlation": 0.9712106203600779
+            }
+          ]
+        },
+        {
+          "name": "a-12-50",
+          "semitones": 12,
+          "tempoPercent": 50,
+          "seconds": 3.3945578231292517,
+          "expectedSeconds": 3.4,
+          "samples": 74850,
+          "rate": 22050,
+          "sha256": "ef43ea7fe0e6c9146a7f91e9752f854137751da79d822fa06dd3d2c7a279171a",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 440,
+              "hz": 440.03743146069064,
+              "cents": 0.14727241586868003,
+              "correlation": 0.9955986167109795
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 493.8833012561241,
+              "hz": 493.72000888764086,
+              "cents": -0.5724916227872708,
+              "correlation": 0.9787376197276
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 523.2511306011972,
+              "hz": 522.5805371255886,
+              "cents": -2.2201554093040934,
+              "correlation": 0.9625658191543051
+            }
+          ]
+        },
+        {
+          "name": "e-0-100",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.6975510204081632,
+          "expectedSeconds": 1.7,
+          "samples": 37431,
+          "rate": 22050,
+          "sha256": "477cdfe18a5e6087882e422282a51dadd16b5a404155616c247600ecae9cf8f3",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 202.88491589931698,
+              "cents": -140.2102995014905,
+              "correlation": 0.17924527610842472
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 246.92981116555114,
+              "cents": -0.08300492015084346,
+              "correlation": 0.9875049364553544
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.7364798090108,
+              "cents": 0.7337902248266203,
+              "correlation": 0.9963989161367447
+            }
+          ]
+        },
+        {
+          "name": "e-7-75",
+          "semitones": 7,
+          "tempoPercent": 75,
+          "seconds": 2.261904761904762,
+          "expectedSeconds": 2.266666666666667,
+          "samples": 49875,
+          "rate": 22050,
+          "sha256": "178dd949efdbdb5d0e0e8c2d89d82c637706b92e8b98daf5942d61e94eb31e05",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.4,
+              "expectedHz": 329.6275569128699,
+              "error": "Unresolved F0"
+            },
+            {
+              "seconds": 1.0666666666666667,
+              "expectedHz": 369.9944227116344,
+              "hz": 370.0024043325285,
+              "cents": 0.03734625164356455,
+              "correlation": 0.9839304444876034
+            },
+            {
+              "seconds": 1.7333333333333334,
+              "expectedHz": 391.99543598174927,
+              "hz": 392.1115800287575,
+              "cents": 0.5128701214041771,
+              "correlation": 0.9946890771625554
+            }
+          ]
+        }
+      ]
+    },
+    "wasm": {
+      "scope": "Private original engineering stimuli, no Hebrew or tradition",
+      "playedAudibly": false,
+      "results": [
+        {
+          "tag": "upstream",
+          "vowel": "a",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.6995918367346938,
+          "sha256": "aa536f354c6ee4432282bb7d429809e525878ebd5598aa442df15f89c02499f7",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 220.67340147502037,
+              "cents": 5.291068014528873,
+              "correlation": 0.9871530033271843
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.73995267989426,
+              "cents": 5.587630039464668,
+              "correlation": 0.9997640986688385
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.3305136957407,
+              "cents": 4.658525589582021,
+              "correlation": 0.9854107947576242
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "a",
+          "semitones": 12,
+          "tempoPercent": 100,
+          "seconds": 1.6978231292517008,
+          "sha256": "0334fdd1ff28e87e6d1d8364833d029c35ceb574ea0f9e9921319107b639778c",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 440,
+              "hz": 441.35437176344163,
+              "cents": 5.320757308814091,
+              "correlation": 0.9956963843070235
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 493.8833012561241,
+              "hz": 501.12186310134894,
+              "cents": 25.189549289221816,
+              "correlation": 0.9999155403276606
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 523.2511306011972,
+              "hz": 524.7716782980187,
+              "cents": 5.02360401076874,
+              "correlation": 0.9825477320602672
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "a",
+          "semitones": -12,
+          "tempoPercent": 100,
+          "seconds": 1.6980045351473922,
+          "sha256": "786b5a68ec9b8f4e16fcb8ee4dd711f6a83ebfc93d55ccf5ffe397311e2017c0",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 110,
+              "hz": 110.34573294156719,
+              "cents": 5.432781688332889,
+              "correlation": 0.966220087769158
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 123.47082531403103,
+              "hz": 123.86595033355782,
+              "cents": 5.531360773741666,
+              "correlation": 0.9996266998972319
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 130.8127826502993,
+              "hz": 131.19156043037987,
+              "cents": 5.0056685247488515,
+              "correlation": 0.9739333191008525
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "a",
+          "semitones": 0,
+          "tempoPercent": 50,
+          "seconds": 3.397641723356009,
+          "sha256": "b92c25898d2c87783378ef6171d8f1d097a74440cddb7c298673fbcccd758859",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 220,
+              "hz": 220.49909911658364,
+              "cents": 3.923085227502346,
+              "correlation": 1
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.75289707086344,
+              "cents": 5.678084504777868,
+              "correlation": 0.9999999383979314
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.2876443798035,
+              "cents": 4.375589063526147,
+              "correlation": 0.9867266084314122
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "a",
+          "semitones": 0,
+          "tempoPercent": 150,
+          "seconds": 1.129206349206349,
+          "sha256": "0cbcfdf8b3b09aae14f14d1f6a9dd5fa1775f21b53a49e96316f288e44be95e0",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.2,
+              "expectedHz": 220,
+              "hz": 220.67642002879052,
+              "cents": 5.31474910744558,
+              "correlation": 0.9869522626485753
+            },
+            {
+              "seconds": 0.5333333333333333,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.7400537249735,
+              "cents": 5.588336153452774,
+              "correlation": 0.9997608490277584
+            },
+            {
+              "seconds": 0.8666666666666667,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.3594221505022,
+              "cents": 4.849294643152331,
+              "correlation": 0.985728321269449
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "a",
+          "semitones": 12,
+          "tempoPercent": 50,
+          "seconds": 3.3945578231292517,
+          "sha256": "f581da45bf65be3b6b55cc1aa5b8f0c1f8a9386582dd08ddc0b0b3c7b840fd79",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 440,
+              "hz": 440.99574799962573,
+              "cents": 3.9134662777274873,
+              "correlation": 1
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 493.8833012561241,
+              "hz": 501.1425744637053,
+              "cents": 25.261099699223628,
+              "correlation": 0.99999697372952
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 523.2511306011972,
+              "hz": 524.5893467981887,
+              "cents": 4.421983603014512,
+              "correlation": 0.9827959922612194
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "e",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.6973242630385488,
+          "sha256": "3b23d48b3889c98c9adbddc1e3b063475bb04dc46dff8fb7f67d8643af9dee6d",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 202.8672121461851,
+              "cents": -140.36137370723907,
+              "correlation": 0.1824515907712748
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.75630801567837,
+              "cents": 5.701919153024725,
+              "correlation": 0.999852646426732
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 262.50136538173393,
+              "cents": 5.785683745829377,
+              "correlation": 1
+            }
+          ]
+        },
+        {
+          "tag": "upstream",
+          "vowel": "e",
+          "semitones": 7,
+          "tempoPercent": 75,
+          "seconds": 2.262902494331066,
+          "sha256": "da624d38203b8bcbec38b59b86c0c99edbfba19ab9d8a48717c38bd60cb45c15",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.4,
+              "expectedHz": 329.6275569128699,
+              "error": "Unresolved F0"
+            },
+            {
+              "seconds": 1.0666666666666667,
+              "expectedHz": 369.9944227116344,
+              "hz": 373.72751972599053,
+              "cents": 17.379933465529106,
+              "correlation": 1
+            },
+            {
+              "seconds": 1.7333333333333334,
+              "expectedHz": 391.99543598174927,
+              "hz": 393.75239707187205,
+              "cents": 7.742219077276285,
+              "correlation": 1
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "a",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.699954648526077,
+          "sha256": "0a82b8529f294fd823280be241e073744620cb04cfa814e0ff2826f9d4705b37",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 220.1628748839803,
+              "cents": 1.2812282627358396,
+              "correlation": 0.9741284412612669
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 246.95797812505708,
+              "cents": 0.11446341361093888,
+              "correlation": 0.9768683723330673
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.6116334055786,
+              "cents": -0.09219287578196753,
+              "correlation": 0.9704866989702823
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "a",
+          "semitones": 12,
+          "tempoPercent": 100,
+          "seconds": 1.6979138321995464,
+          "sha256": "63121c6654427757e39f6571b6d18ecfff0e63614e76243e05229409addaee31",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 440,
+              "hz": 440.4112800200713,
+              "cents": 1.61747592835385,
+              "correlation": 0.9913323141997978
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 493.8833012561241,
+              "hz": 493.7153115269233,
+              "cents": -0.5889630425286428,
+              "correlation": 0.9792111186208641
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 523.2511306011972,
+              "hz": 523.0894901875844,
+              "cents": -0.5348877495875152,
+              "correlation": 0.9687235986046351
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "a",
+          "semitones": -12,
+          "tempoPercent": 100,
+          "seconds": 1.69437641723356,
+          "sha256": "53baf313c377dd60b16e78967289c43481be6956adf100132c32dfc8df195221",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 110,
+              "hz": 110.06877745227936,
+              "cents": 1.082115077379065,
+              "correlation": 0.9336657803587349
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 123.47082531403103,
+              "hz": 123.40222188664542,
+              "cents": -0.962183549614632,
+              "correlation": 0.9802497845169764
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 130.8127826502993,
+              "hz": 130.7801259923986,
+              "cents": -0.43224656718312593,
+              "correlation": 0.9655227614019692
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "a",
+          "semitones": 0,
+          "tempoPercent": 50,
+          "seconds": 3.3946485260770976,
+          "sha256": "dfe6e5ab42d1a94d958caf067586965334e731e8fe4f9a8dd30c477bde913944",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 220,
+              "hz": 219.99340906180882,
+              "cents": -0.05186648880516951,
+              "correlation": 0.9869498585813933
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.02806668651453,
+              "cents": 0.6057311574427683,
+              "correlation": 0.9787475650772485
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.3489327640435,
+              "cents": -1.8315069388768737,
+              "correlation": 0.9693124568399308
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "a",
+          "semitones": 0,
+          "tempoPercent": 150,
+          "seconds": 1.1282086167800454,
+          "sha256": "8eda3e34f1c6b4e1e5879115861ace5cb2027010b38c3566703c5a4f4ff3c7c4",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.2,
+              "expectedHz": 220,
+              "hz": 220.1569267059055,
+              "cents": 1.2344545842577328,
+              "correlation": 0.9747643069466152
+            },
+            {
+              "seconds": 0.5333333333333333,
+              "expectedHz": 246.94165062806206,
+              "hz": 247.01678239694309,
+              "cents": 0.5266462469722107,
+              "correlation": 0.9783471430834161
+            },
+            {
+              "seconds": 0.8666666666666667,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.6669093275977,
+              "cents": 0.27356092772432755,
+              "correlation": 0.9712106203600779
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "a",
+          "semitones": 12,
+          "tempoPercent": 50,
+          "seconds": 3.3945578231292517,
+          "sha256": "2047f75a1d4df966c2194b79b61bb6cd1405cbeb4f75c111824ec0186b12c852",
+          "pitchPass": true,
+          "measurements": [
+            {
+              "seconds": 0.6,
+              "expectedHz": 440,
+              "hz": 440.03743146069064,
+              "cents": 0.14727241586868003,
+              "correlation": 0.9955986167109795
+            },
+            {
+              "seconds": 1.6,
+              "expectedHz": 493.8833012561241,
+              "hz": 493.72000888764086,
+              "cents": -0.5724916227872708,
+              "correlation": 0.9787376197276
+            },
+            {
+              "seconds": 2.6,
+              "expectedHz": 523.2511306011972,
+              "hz": 522.5805371255886,
+              "cents": -2.2201554093040934,
+              "correlation": 0.9625658191543051
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "e",
+          "semitones": 0,
+          "tempoPercent": 100,
+          "seconds": 1.6975510204081632,
+          "sha256": "a1db30b1dce94b106d7c9110a961146df2822be069f592bfb16c53c827473b2b",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.3,
+              "expectedHz": 220,
+              "hz": 202.88491589931698,
+              "cents": -140.2102995014905,
+              "correlation": 0.17924527610842472
+            },
+            {
+              "seconds": 0.8,
+              "expectedHz": 246.94165062806206,
+              "hz": 246.92981116555114,
+              "cents": -0.08300492015084346,
+              "correlation": 0.9875049364553544
+            },
+            {
+              "seconds": 1.3,
+              "expectedHz": 261.6255653005986,
+              "hz": 261.7364798090108,
+              "cents": 0.7337902248266203,
+              "correlation": 0.9963989161367447
+            }
+          ]
+        },
+        {
+          "tag": "fractional",
+          "vowel": "e",
+          "semitones": 7,
+          "tempoPercent": 75,
+          "seconds": 2.261904761904762,
+          "sha256": "178dd949efdbdb5d0e0e8c2d89d82c637706b92e8b98daf5942d61e94eb31e05",
+          "pitchPass": false,
+          "measurements": [
+            {
+              "seconds": 0.4,
+              "expectedHz": 329.6275569128699,
+              "error": "Unresolved F0"
+            },
+            {
+              "seconds": 1.0666666666666667,
+              "expectedHz": 369.9944227116344,
+              "hz": 370.0024043325285,
+              "cents": 0.03734625164356455,
+              "correlation": 0.9839304444876034
+            },
+            {
+              "seconds": 1.7333333333333334,
+              "expectedHz": 391.99543598174927,
+              "hz": 392.1115800287575,
+              "cents": 0.5128701214041771,
+              "correlation": 0.9946890771625554
+            }
+          ]
+        }
+      ],
+      "acceptedForPublicVoice": false,
+      "negativeCases": 8,
+      "pitchThresholdCents": 15,
+      "correlationThreshold": 0.85
+    },
+    "browser": {
+      "normalUi": true,
+      "tab": "82",
+      "audiblePlayback": false,
+      "observations": "Generated original a at default and +12/50%; generation stayed paused. Muted clock advanced and Stop reset it. Engine switch reproduced octave-up pitch error; e retained failure. Three unsupported examples refused with no audio source and disabled Play/Stop. At319, root/body319 and pre285/scroll285. No console warnings/errors; screenshot inspected.",
+      "recordSha256": "5815997f1d359cdfff20138a8e787486b59c86697bbe26c91e9696a5a65a57be"
+    },
+    "acceptedForPublicVoice": false,
+    "independentAcousticReview": null
+  },
+  "historicalAccentEvidence": {
+    "source": "https://archive.org/details/trope-trainer-6",
+    "productVersion": "6.0.428",
+    "helpPage": "AudioSettings.html",
+    "privatePageSha256": "997f560188a2bb977e385ce72b5e1d795f4712dfcb07884f433322221d3c51fd",
+    "labels": [
+      "Ashkenazi Traditional",
+      "Ashkenazi Modern",
+      "Sephardi",
+      "Sephardi Traditional",
+      "U.S. Sephardi",
+      "Galician"
+    ],
+    "status": "Help labels and selected pronunciation examples, not a running-menu capture or complete six-profile phonology.",
+    "independentSettings": "Help treats Accent, melody, vocal range and semitone pitch as separate settings.",
+    "missing": "Exhaustive contextual phonologies, reusable reviewed voice material and complete cantillation application rules."
+  },
+  "invariants": {
+    "publicRuntimeChanged": false,
+    "readerHebrewChanged": false,
+    "accentsChanged": false,
+    "idsChanged": false,
+    "syllableAlignmentChanged": false,
+    "sourceAudioChanged": false,
+    "sourceTimingChanged": false,
+    "newPhonemeWordBindings": null,
+    "publicNewVoice": null,
+    "newFullMelodicGrammar": null,
+    "all605PriorAssetDataBlobsRetained": true
+  },
+  "replacementEvidence": "Permission-cleared phoneme/diphone recordings across the necessary pitch/duration range, with matched marked-Hebrew word/syllable/phoneme boundaries, explicit historical profile specification and qualified linguistic/acoustic/cantorial review. A broad voice label cannot replace that evidence.",
+  "next": "Inspect the e diphone voicing issue without suppressing source evidence; continue primary historical phonology specifications and permission-cleared material, then reviewed independent sound bindings to the unchanged source syllables. Preserve all six pronunciation systems and full contextual musical systems in the active roadmap; printing deferred."
+}
