@@ -4,14 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "b38edec3a5f1c2a63a159feec03653a85c03daef",
-  "nextTask": "Continue six independent historical singing phonologies and permission-cleared reusable reviewed voices, then complete contextual cantillation grammars across the entire Torah and the retained tutor/learning roadmap. Printing deferred. v0.51adds2020original measured-duration-fitting wordwindows in5PocketTorahtakes under a separate conservative closed-ambiguity policy;43ambiguouswords and748count-mismatchwords remain withheld, plus16Gen28:4duration-overflowwords in both main source-audio modes. No rawsourcepacket/status/issues/nullbounds/markedHebrew/IDs/phonology/music/audio changed. Structuralcoverage79194; duration-fittingcoverage79178. BothindependentMAMtextstyles,exactunderlay/sourceIPA limits,54Haftarahtakeidentities/orderedsections,andallBaer/Cohen source context and gaps remain intact. Newpersonalpartial-worddrafts retain sourcepolicy provenance and beginblank. CurrentPocketTorahtree hasno corrected timing variants; qualified acoustic/linguistic/cantorial review stillrequired. Do not call the six singing voices or full melody systems implemented. Full objectiveactive/incomplete.",
+  "nextTask": "Finish v0.52automated/UI/source/publication checks and save progress, then continue six independently reviewed singing phonologies/voices and full contextual cantillation grammars across the Torah. Preserve every marked Hebrew word/ID, both source text styles and all prior source facts. Letter-cluster bindings are structural annotations only; letterless categories keep syllable scope, source-only forms remain unbound, shared first halves add no written letter, and differing marks remain separate. No new phonemes, IPA dialect, musical preset, singing voice or sound times inferred. Full retained roadmap active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 459,
+    "automated": 466,
     "failures": 0,
     "skipped": 0,
     "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v51-final2.log",
-    "ui": "Local normal74 verifies all5partial-take counts and shortcuts; Exodus3:16word1plays original recorded chant and measured sine tones at unchanged1.578511–2.295033source seconds (33measured/72frameonsets), muted clock. Changing MAMtextstyle keeps142visible marked Hebrew labels and activeexo-3-16-1unchanged while playback continues; recording retains original pronunciation. Ex3:18word11blocked inboth main modes. Deut9:6word16blocked inplayback/pitch/syllabledraft; Deut9:4word1eligible. Portable75independently playsTetzavehEx27:20word1at original0–3.663532s;208eligible/3withheld; stylechange preserves126Hebrew/IDs/aria-labels, all126matchcanonicalExodusJSON, playback continues. Portable draft has3units/all6boundariesnull, explicitpartial-original-windows-v1policy, unchangedHebrew/sourcewindow andnullreview. End-of-reading span crossingEx28:12word13refuses asawhole; exactwithheldwordalso refusesrecorded/measured/syllabledraft. Portable319viewport/root/body319/gaplist253; viewportreset. All5gains0/all4mediapaused, repeat off. No consoleerrors/warnings. Exact-label selector mismatch resolvedwithobservedID; no appchange. AllplaybackQAusedmutedclocks; nativeSave/file-origin andindependentacoustic/linguistic/musicalreviewunclaimed. Public normal76initializesv0.51with79194structural/791withheld/5partial-takecounts and allvolumecontrols0. Ex3:16word1plays both recordedchant and measuredtones onmutedclocks at75%source speed/originalpitch; bothfollowexo-3-16-1, fixedrecordedpronunciation and original1.578511–2.295033sourcewindow. Source measurementhash63a2fa3b6ce96feaf65f84ed4f4f5b6a216539eband33measured/72frameonsetsverified. MAMstylechange leavesplaybackrunning; all142visibleHebrew/IDs/aria-labelsexactandall142matchcanonicalExodusJSON. Draftcarriespartial-original-windows-v1/allboundariesnull/reviewnull. Ex3:18word11refusesrecorded/measured/draft; Shemot1word1stillwhole-onlywith181words/182timestamps. Publicportable77playsNassoNum5:11word1at100%/0pitch onmutedclock,106measured/233frameonsets,687eligible/3withheld. Stylechange keeps134Hebrew/IDs/labelsexactandall134matchcanonicalNumbersJSON; playbackcontinues. Num6:17word7refusesbothmainmodes; sourcepolicyreportembeddeddataURIverified. Earlierfastmodechangecancelledanunfinishedtonepreparation; completedplaybackwasthenverifiedseparatelybywaitingforvisiblemuted-clockstatus. Noappconsolewarnings/errors. Bothpublicbuildsleftrecorded/Shemot5Ex3:16word1/Sephardic/100%speed/0pitch/repeatoff/all5gains0/all4mediapaused. Screenshotoutputs/TropeTrain-v0.51-live.jpgsaved/viewed. AllaudioQAusedmutedclocks; acoustic/linguistic/musicalreviewandnativeSave/file-originunclaimed."
+    "log": "/private/tmp/tropetrain-check-v52-final3.log",
+    "ui": "Local normal78: Gen1:1word1t/sbothtextstylesbindsameתUTF16range11–12;all27visibleHebrew/IDs/labelsunchanged. Mutedrecordedchantat100%survivesstylechange,activegen-1-1-1. SharedGen8:20word7betfirst/secondbothבְּ2–5,reference/writtenroles;noextra writtenletter. Canonicalgen-13-3-13(displayGen13:3word12)retainsאֽ͏ָהֳלוֹ֙inclCGJandaccents,source-only/noreaderbindings. Gen1:5word2finalmemretainsם ׀at8–11andexplicitSource marks differ:ם. Portable79independentlyverifiesfinalmemdifferenceandfriendlypoint/timinglimits;Gen8:20word7bothsharedhalves/stylechangepreserves14Hebrew/IDs/labels. RegisteredNotoHebrewfontverified. Bothnormal/portable319root/body319,andalltableswidth/scroll231afterlocalwrap/staticfix;viewportreset. Noappconsolewarnings/errors. AllaudioQAusedmutedclocks;all5gains0/all4mediapaused/repeatoff. Publicchecks and finalportableplaybackpending. NativeSave/file-originandindependentreviewunclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -190,35 +190,29 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.51.0",
-    "status": "published_verified",
-    "baseline": "81777ec24e23e9a6923b95272a6303b25f363680",
-    "newOriginalWordWindows": 2020,
-    "newDurationFittingWindows": 2020,
-    "partialTakes": 5,
-    "ambiguousWords": 43,
-    "countMismatchWords": 748,
-    "sourceTimingReviewWords": 791,
-    "structurallyTimedWords": 79194,
-    "durationFittingWords": 79178,
-    "durationReviewWords": 16,
-    "sourcePacketChanged": false,
-    "sourceStatusesChanged": false,
-    "review": null,
+    "version": "0.52.0",
+    "status": "local_verified_awaiting_publication",
+    "baseline": "e66b85c2beb386a6df3459a627673ed507aef1c8",
+    "sourceGroups": 68504,
+    "styles": 2,
+    "exactClusterReferencesPerStyle": 315024,
+    "sourceOnlyLetterReferencesPerStyle": 9071,
+    "uniqueReaderClustersPerStyle": 295795,
+    "previousStudySha256": "4d6f82686325da4d72d6808ade8519d52da0376c1f4edb85936512de26d2b172",
     "newVoice": null,
     "newFullMelodyGrammar": null,
+    "review": null,
+    "localUi": "Normal78Gen1:1word1t/sbothstylesbindsameתUTF16range11–12;27visiblemarkedHebrew/IDs/labelsunchanged. Mutedrecordedchant100%survivesstylechange(activegen-1-1-1). Gen8:20word7sharedbetfirst/secondbothבְּ2–5, onlysecondwritten. Gen13:3canonicalgen-13-3-13isdisplayword12andkeepsאֽ͏ָהֳלוֹ֙/source-only/noletterbindings. Gen1:5word2retainspaseq;finalmemsource/readerpunctuationdifferenceexplicit. CorrectNotoHebrewfontverified. Responsive319root/body319; tablewhiteSpace normal/positionstatic; alltablewidth/scroll231afterlocaloverride. Allaudio0/stopped; portable/publicpending.",
     "artifacts": {
       "app.bundle.js": {
-        "bytes": 29298064,
-        "sha256": "887d5d3c13612812e93167e266eae11f35855b1cf09ccfdd2f43cc9d43c99c4f"
+        "bytes": 29305482,
+        "sha256": "54525ae251eb7e1c417d67b30aea2d55bb569acd2a6a64d96044fb2e3a9785ff"
       },
       "TropeTrain.html": {
-        "bytes": 91864307,
-        "sha256": "bd7923ffbd149f3687ed70a0e9aa179f31e11ff1d2b15d5302e2809a4f495a85"
+        "bytes": 91880825,
+        "sha256": "2db68d9236e24ea1132a09ba5d3a5e65ad39628d3b82dc0c45c6e9b63f2f1d98"
       }
-    },
-    "codeCommit": "b38edec3a5f1c2a63a159feec03653a85c03daef",
-    "pagesRun": 45018881690
+    }
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1059,5 +1053,23 @@
     "musicalReview": null,
     "linguisticReview": null,
     "status": "published_459checks_public_normal_portable_verified_review_pending"
+  },
+  "pronunciationLetterClusters": {
+    "revision": 1,
+    "record": "docs/PRONUNCIATION-LETTER-CLUSTERS.json",
+    "coordinateUnit": "UTF-16",
+    "scope": "source-variant",
+    "exactReaderClusterReferencesPerStyle": 315024,
+    "sourceOnlyLetterReferencesPerStyle": 9071,
+    "categoriesWithoutWrittenLettersPerStyle": 194631,
+    "sharedFirstReferencesPerStyle": 18250,
+    "sharedSecondReferencesPerStyle": 18250,
+    "markedClusterDifferencesPerStyle": 4391,
+    "uniqueReaderClustersPerStyle": 295795,
+    "phonemes": null,
+    "individualVowelPointRanges": null,
+    "acousticTimes": null,
+    "review": null,
+    "status": "466checks_local_normal_portable_verified"
   }
 }

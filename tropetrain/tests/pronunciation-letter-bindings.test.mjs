@@ -1,0 +1,39 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
+import {PronunciationLibrary} from '../pronunciation.js';import {bindPronunciationLetters} from '../pronunciation-letter-bindings.js';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url)),unpack=p=>JSON.parse(gunzipSync(read(p))),lib=new PronunciationLibrary(unpack('data/pronunciation/torah-display.json.gz'),{underlay:unpack('data/pronunciation/torah-underlay.json.gz'),segments:unpack('data/pronunciation/torah-segments.json.gz')});
+const word=id=>{const g=lib.byWord.get(id);return{id,sourceHebrew:g.group.readerHebrew[g.index]};},study=(id,style='sephardic')=>lib.study(word(id),style),units=(id,style='sephardic')=>study(id,style).rows[0].styles[style][0].units,bindings=u=>u.sourceSegments.variants.flatMap(v=>v.letterClusterBindings.bindings),find=(id,category,style='sephardic')=>units(id,style).flatMap(bindings).filter(b=>b.categoryId===category);
+test('all source groups preserve the complete v0.51 studies and exact marked cluster slices in both independent styles',()=>{
+ const out=JSON.parse(execFileSync(process.execPath,['scripts/audit-pronunciation-letter-bindings.mjs','--check'],{cwd:new URL('..',import.meta.url),encoding:'utf8',maxBuffer:1048576}));assert.equal(out.baselineExact,true);assert.equal(out.sourceGroups,68504);
+ for(const [style,c] of Object.entries(out.styles)){assert.equal(c.categoryReferences,518726);assert.equal(c.exactWrittenClusterReferences,315024);assert.equal(c.sourceOnlyLetterReferences,9071);assert.equal(c.categoriesWithoutLetters,194631);assert.equal(c.sharedFirstReferences,18250);assert.equal(c.sharedSecondReferences,18250);assert.equal(c.markedClusterDifferences,4391);assert.equal(c.uniqueReaderClusters,295795);assert.equal(c.writtenLettersExcludingSharedReferences,305851);assert.equal(c.units,style==='sephardic'?193936:193960);}
+ const report=JSON.parse(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json'));assert.equal(report.baseline.sha256,'4d6f82686325da4d72d6808ade8519d52da0376c1f4edb85936512de26d2b172');for(const p of report.inputs)assert.equal(createHash('sha256').update(read(p.path)).digest('hex'),p.sha256);assert.deepEqual(report.review,{linguistic:null,acoustic:null,cantorial:null});
+});
+test('opening word categories retain exact original letter clusters, silent matres, accents and both text-style differences',()=>{
+ const w=word('gen-1-1-1'),before=JSON.stringify(w);const seph=find(w.id,'TAV_0DAG')[0],ashk=find(w.id,'TAV_0DAG','ashkenazic')[0];assert.deepEqual(seph.readerClusterRanges,ashk.readerClusterRanges);assert.equal(seph.readerClusterRanges[0].text,'ת');assert.equal(units(w.id).at(-1).text,'shít');assert.equal(units(w.id,'ashkenazic').at(-1).text,'shís');
+ assert.equal(find(w.id,'BET_1DAG_QAL')[0].readerClusterRanges[0].text,'בְּ');assert.equal(find(w.id,'TRUESHIN_0DAG')[0].readerClusterRanges[0].text,'שִׁ֖');assert.equal(find(w.id,'ALEF_0MAPIQ_ML')[0].readerClusterRanges[0].text,'א');
+ for(const style of ['sephardic','ashkenazic']){for(const b of find('gen-1-1-2','QAMATS_G',style)){assert.equal(b.status,'no-written-letter');assert.equal(b.sourceCluster,null);assert.equal(b.readerClusterRanges,null);assert.equal(b.individualVowelPointRange,null);}assert.equal(find(w.id,'SHEVA_NA',style)[0].status,'no-written-letter');}
+ assert.equal(JSON.stringify(w),before);
+});
+test('both shared-consonant halves reference the same original marked cluster without duplicating its written letter',()=>{
+ const [first,second]=find('gen-8-20-7','BET_1DAG_XAZAQ');assert.equal(first.part,'first-half-shared');assert.equal(second.part,'second-half-shared');assert.equal(first.writtenLetterCount,0);assert.equal(second.writtenLetterCount,1);assert.equal(first.readerClusterRanges[0].text,'בְּ');
+ const a=first.readerClusterRanges[0],b=second.readerClusterRanges[0];assert.deepEqual({...a,role:'written'},b);assert.equal(a.role,'shared-consonant');assert.equal(b.role,'written');for(const x of [first,second]){assert.equal(x.phonemes,null);assert.equal(x.audioTimes,null);assert.equal(x.individualVowelPointRange,null);}
+});
+test('written vowel letters and furtive vowel/consonant pairs remain whole clusters with no phoneme or vowel-point allocation',()=>{
+ const w=word('gen-1-2-9'),shuruq=find(w.id,'SHURUQ')[0],pair=find(w.id,'FPP_PATAX_XET')[0];assert(shuruq);assert(pair);assert.equal(shuruq.readerClusterRanges[0].text[0],'ו');assert.equal(pair.readerClusterRanges[0].text[0],'ח');
+ for(const b of [shuruq,pair]){assert.equal(b.phonemes,null);assert.equal(b.individualVowelPointRange,null);for(const r of b.readerClusterRanges)assert.equal(w.sourceHebrew.slice(r.start,r.end),r.text);}
+});
+test('different source spellings, combined forms and alternative mark strings gain no invented written correspondence',()=>{
+ for(const id of ['gen-13-3-13','deu-32-6-1','deu-32-6-2'])for(const style of ['sephardic','ashkenazic'])for(const u of units(id,style))for(const b of bindings(u))assert.equal(b.readerClusterRanges,null);
+ const report=JSON.parse(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json')),example=report.examples.differingMarks;assert(example);assert.notEqual(example.source.text,example.reader.map(r=>r.text).join(''));
+ for(const r of example.reader)assert.equal(word(r.readerWordId).sourceHebrew.slice(r.start,r.end),r.text);
+ const w=word('gen-1-1-1'),a=lib.study({...w,id:'reading-a',sourceWordId:w.id},'sephardic'),b=lib.study({...w,id:'reading-b',sourceWordId:w.id},'sephardic');assert.notEqual(a.selection.occurrenceId,b.selection.occurrenceId);assert.deepEqual(a.rows,b.rows);
+});
+test('cluster binding rejects changed marked strings, partial cluster endpoints, roles, category order and shared identities',()=>{
+ const text='בָּ\u034f֣',source='בָּ֣',categories=new Map([['BET',{hebrewLetters:'ב',geminate:false}],['GIMEL',{hebrewLetters:'ג',geminate:false}]]),segments=[{id:'s1',categoryId:'BET',part:'whole'}],readerTexts=new Map([['word',text]]),underlay={source:{start:0,end:source.length,text:source,role:'written'},sharesNextConsonant:null,readerRanges:[{readerWordId:'word',start:0,end:text.length,text,role:'written'}]};
+ const binding=bindPronunciationLetters(segments,underlay,categories,readerTexts).bindings[0];assert.equal(binding.markedClustersEqual,false);assert.equal(binding.sourceCluster.text,source);assert.equal(binding.readerClusterRanges[0].text,text);assert.equal(binding.readerClusterRanges[0].end,text.length);
+ for(const change of [u=>u.readerRanges[0].end--,u=>u.readerRanges[0].text=source,u=>u.readerRanges[0].readerWordId='absent',u=>u.readerRanges[0].role='unknown',u=>u.source.role='unknown',u=>u.source.end--,u=>u.readerRanges=undefined]){const bad=structuredClone(underlay);change(bad);assert.throws(()=>bindPronunciationLetters(segments,bad,categories,readerTexts));}
+ for(const bad of [[...segments,...segments],[{...segments[0],categoryId:'GIMEL'}],[{...segments[0],part:'first-half-shared'}],[{...segments[0],part:'unknown'}]])assert.throws(()=>bindPronunciationLetters(bad,underlay,categories,readerTexts));
+});
+test('both distributions carry exact cluster audit evidence and keep the existing playable style inventory',()=>{
+ const html=read('TropeTrain.html').toString(),normal=read('index.html').toString();assert(html.includes(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json').toString('base64')));assert(normal.includes('href="./docs/PRONUNCIATION-LETTER-CLUSTERS.json"'));assert(read('sw.js').toString().includes('./docs/PRONUNCIATION-LETTER-CLUSTERS.json'));
+ assert(read('pronunciation-segment-ui.js').toString().includes('Written Hebrew cluster'));assert.equal((normal.match(/value="galician"/gu)??[]).length,0);assert.equal(JSON.parse(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json')).voice,null);
+});

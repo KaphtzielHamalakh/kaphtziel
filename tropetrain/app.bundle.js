@@ -1526,10 +1526,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
      * See the [Syllabification](/guides/syllabification) page for how a syllable is determined.
      * Currently, the Divine Name (e.g. יהוה), non-Hebrew text, and Hebrew punctuation (e.g. _passeq_, _nun hafucha_) are treated as a _single syllable_ because these do not follow the rules of Hebrew syllabification.
      */
-    constructor(clusters2, { isClosed = false, isAccented = false } = {}) {
+    constructor(clusters3, { isClosed = false, isAccented = false } = {}) {
       super();
       this.value = this;
-      this.#clusters = clusters2;
+      this.#clusters = clusters3;
       this.#isClosed = isClosed;
       this.#isAccented = isAccented;
     }
@@ -2703,9 +2703,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     return syls;
   };
-  var syllabify = (clusters2, options, isWordInConstruct) => {
-    const removeLatin = clusters2.filter((cluster) => !cluster.isNotHebrew);
-    const latinClusters = clusters2.map(clusterPos).filter((c) => c.cluster.isNotHebrew);
+  var syllabify = (clusters3, options, isWordInConstruct) => {
+    const removeLatin = clusters3.filter((cluster) => !cluster.isNotHebrew);
+    const latinClusters = clusters3.map(clusterPos).filter((c) => c.cluster.isNotHebrew);
     const groupedClusters = groupClusters(removeLatin, options);
     const syllables = groupedClusters.map((group) => group instanceof Syllable ? group : new Syllable([group]));
     const [first, ...rest] = syllables;
@@ -2860,11 +2860,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
      * ```
      */
     get clusters() {
-      const clusters2 = this.#makeClusters(this.text);
-      const firstCluster = clusters2[0];
-      const remainder = clusters2.slice(1);
+      const clusters3 = this.#makeClusters(this.text);
+      const firstCluster = clusters3[0];
+      const remainder = clusters3.slice(1);
       firstCluster.siblings = remainder;
-      return clusters2;
+      return clusters3;
     }
     /**
      * Gets all the consonant characters in the Word
@@ -3491,12 +3491,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function sourceClusters(text) {
     const matches = [...text.matchAll(/[א-ת][^א-ת]*/gu)];
     if (!matches.length) return [text];
-    const clusters2 = matches.map((m) => m[0]);
-    clusters2[0] = text.slice(0, matches[0].index) + clusters2[0];
-    return clusters2;
+    const clusters3 = matches.map((m) => m[0]);
+    clusters3[0] = text.slice(0, matches[0].index) + clusters3[0];
+    return clusters3;
   }
   function alignedSyllables(word, { fixture = null } = {}) {
-    const clusters2 = sourceClusters(word.sourceHebrew);
+    const clusters3 = sourceClusters(word.sourceHebrew);
     let lengths, stresses, romans, status, diagnostic = null;
     if (fixture) {
       lengths = fixture[0];
@@ -3509,13 +3509,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         const syllables = analysis.syllables;
         lengths = syllables.map((s) => (s.text.match(/[א-ת]/gu) || []).length);
         stresses = syllables.map((s) => s.isAccented && !word.sourceHebrew.endsWith("־"));
-        if (!lengths.length || lengths.some((n) => n === 0) || lengths.reduce((a, b) => a + b, 0) !== clusters2.length) throw Error("Analyzer boundaries do not map to the source letters.");
+        if (!lengths.length || lengths.some((n) => n === 0) || lengths.reduce((a, b) => a + b, 0) !== clusters3.length) throw Error("Analyzer boundaries do not map to the source letters.");
         if (/^[יהוה]+$/u.test(word.sourceHebrew.replace(/[^א-ת]/gu, "")) && word.sourceHebrew.replace(/[^א-ת]/gu, "") === "יהוה") {
           diagnostic = "Divine-name spoken form requires a separate reviewed reading rule.";
           status = "unsegmented";
         } else status = "draft-automatic";
       } catch (error) {
-        lengths = [clusters2.length];
+        lengths = [clusters3.length];
         stresses = [false];
         status = "unsegmented";
         diagnostic = error.message;
@@ -3523,7 +3523,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     let offset = 0;
     const result = lengths.map((length, i) => {
-      const sourceHebrew = clusters2.slice(offset, offset + length).join("");
+      const sourceHebrew = clusters3.slice(offset, offset + length).join("");
       offset += length;
       return {
         id: `${word.id}-s${i + 1}`,
@@ -3536,7 +3536,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         ...diagnostic ? { diagnostic } : {}
       };
     });
-    if (offset !== clusters2.length || result.map((s) => s.sourceHebrew).join("") !== word.sourceHebrew) throw Error(`Source alignment failed: ${word.id}`);
+    if (offset !== clusters3.length || result.map((s) => s.sourceHebrew).join("") !== word.sourceHebrew) throw Error(`Source alignment failed: ${word.id}`);
     return result;
   }
 
@@ -5533,8 +5533,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function readerLetterForms(text) {
     const raw = letters(text), forms = /* @__PURE__ */ new Set([raw]);
     if (/^[ובכלמשה]{0,3}יהוה$/u.test(raw)) for (const name of ["אדני", "אלהים"]) forms.add(raw.slice(0, -4) + name);
-    const clusters2 = text.match(/[א-ת][^א-ת]*/gu) ?? [];
-    if (raw.endsWith("הוא") && clusters2.at(-3)?.includes("ִ")) forms.add(raw.slice(0, -3) + "היא");
+    const clusters3 = text.match(/[א-ת][^א-ת]*/gu) ?? [];
+    if (raw.endsWith("הוא") && clusters3.at(-3)?.includes("ִ")) forms.add(raw.slice(0, -3) + "היא");
     if (/^[ובכלמשה]{0,3}יששכר$/u.test(raw)) forms.add(raw.replace("יששכר", "ישכר"));
     return [...forms];
   }
@@ -5769,7 +5769,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         const forms = [...new Set(cells.filter((c) => c.text !== null).map((c) => letters2(c.text)))];
         return forms.length === 1 ? forms[0] : null;
       });
-      const readerClusters = group.readerHebrew.flatMap((text, index) => clusters(text).map((c) => ({ ...c, readerWordId: group.readerIds[index] })));
+      const readerClusters2 = group.readerHebrew.flatMap((text, index) => clusters(text).map((c) => ({ ...c, readerWordId: group.readerIds[index] })));
       const exactGroup = rowLetters.every((s) => s !== null) && rowLetters.join("") === group.readerHebrew.map(letters2).join("");
       const rowOffsets = rowLetters.map((_, index) => rowLetters.slice(0, index).reduce((n, s) => n + (s?.length ?? 0), 0));
       const byWord = new Map(group.readerIds.map((id, index) => [id, clusters(group.readerHebrew[index]).map((c) => ({ ...c, readerWordId: id }))]));
@@ -5788,7 +5788,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             if (ends.length !== cell.units.length || ends.at(-1) !== list.length || ends.some((end, i) => !Number.isInteger(end) || end <= (ends[i - 1] ?? 0)) || shared.some((i) => !Number.isInteger(i) || i < 0 || i >= ends.length - 1) || new Set(shared).size !== shared.length) throw Error("Invalid source Hebrew syllable boundaries.");
             const parts = [...source.text.matchAll(/[^־\s]+/gu)].map((m) => ({ start: letters2(source.text.slice(0, m.index)).length, letters: letters2(m[0]) }));
             function readerRange(unit, start, end, role) {
-              if (exactGroup) return rangesForClusters(readerClusters, rowOffsets[rowIndex] + start, rowOffsets[rowIndex] + end, role);
+              if (exactGroup) return rangesForClusters(readerClusters2, rowOffsets[rowIndex] + start, rowOffsets[rowIndex] + end, role);
               const segment = cell.wordSegments.find((s) => s.unitIds.includes(unit.id));
               const index = cell.wordSegments.indexOf(segment), part = parts[index], target = byWord.get(unit.readerWordId);
               if (!unit.readerWordId || segment?.readerWordId !== unit.readerWordId || !part || !target || part.letters !== target.map((c) => c.text[0]).join("") || start < part.start || end > part.start + part.letters.length) return null;
@@ -5833,6 +5833,49 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text());
   }
 
+  // pronunciation-letter-bindings.js
+  var clusters2 = (text) => [...text.matchAll(/[א-ת][^א-ת]*/gu)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: m[0] }));
+  function readerClusters(ranges, readerTexts, role) {
+    if (ranges === null) return null;
+    if (!Array.isArray(ranges)) throw Error("Reader letter-cluster ranges changed.");
+    const result = [];
+    for (const range of ranges) {
+      if (!["written", "shared-consonant"].includes(range.role)) throw Error("Source letter binding role changed.");
+      const text = readerTexts.get(range.readerWordId), parts = typeof text === "string" ? clusters2(text).filter((c) => c.start >= range.start && c.end <= range.end) : [];
+      if (!parts.length || parts[0].start !== range.start || parts.at(-1).end !== range.end || parts.map((c) => c.text).join("") !== range.text || text.slice(range.start, range.end) !== range.text) throw Error("Marked Hebrew letter-cluster correspondence changed.");
+      if (range.role === role) result.push(...parts.map((c) => ({ ...c, readerWordId: range.readerWordId, role })));
+    }
+    return result;
+  }
+  function sourceClusters2(range) {
+    if (!range || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.end <= range.start || typeof range.text !== "string" || range.text.length !== range.end - range.start) throw Error("Source letter-cluster range changed.");
+    const parts = clusters2(range.text);
+    if (!parts.length || parts[0].start !== 0 || parts.at(-1).end !== range.text.length) throw Error("Source letter clusters are incomplete.");
+    return parts.map((c) => ({ ...c, start: c.start + range.start, end: c.end + range.start, role: range.role }));
+  }
+  function bindPronunciationLetters(segments, underlay, categories2, readerTexts) {
+    if (underlay?.source?.role !== "written" || underlay.sharesNextConsonant && underlay.sharesNextConsonant.role !== "shared-consonant") throw Error("Source letter-cluster role changed.");
+    if (!Array.isArray(segments) || !segments.length || new Set(segments.map((s) => s.id)).size !== segments.length) throw Error("Source segment identities changed.");
+    const written = sourceClusters2(underlay.source), shared = underlay.sharesNextConsonant ? sourceClusters2(underlay.sharesNextConsonant) : [], readerWritten = readerClusters(underlay.readerRanges, readerTexts, "written"), readerShared = readerClusters(underlay.readerRanges, readerTexts, "shared-consonant");
+    const sameLetters = (a, b) => a.length === b.length && a.every((c, i) => c.text[0] === b[i].text[0]);
+    if (readerWritten && !sameLetters(written, readerWritten) || readerShared && !sameLetters(shared, readerShared)) throw Error("Source and reader letter clusters differ.");
+    let offset = 0;
+    const bindings = segments.map((segment) => {
+      const category = categories2.get(segment.categoryId);
+      if (!category) throw Error("Unknown source category for letter binding.");
+      if (!["whole", "first-half-shared", "second-half-shared"].includes(segment.part) || segment.part !== "whole" && !category.geminate) throw Error("Source shared-consonant part changed.");
+      const letters4 = category.hebrewLetters;
+      if (typeof letters4 !== "string" || /[^א-ת]/u.test(letters4)) throw Error("Unsupported source category letters.");
+      const reference = segment.part === "first-half-shared", source = reference ? shared : written.slice(offset, offset + letters4.length), target = reference ? readerShared : readerWritten?.slice(offset, offset + letters4.length) ?? null;
+      if (!reference) offset += letters4.length;
+      if (!letters4) return { sourceSegmentId: segment.id, categoryId: segment.categoryId, part: segment.part, status: "no-written-letter", sourceCluster: null, readerClusterRanges: null, markedClustersEqual: null, writtenLetterCount: 0, phonemes: null, individualVowelPointRange: null, audioTimes: null };
+      if (source.map((c) => c.text[0]).join("") !== letters4 || reference && (!category.geminate || source.length !== 1) || target && !sameLetters(source, target)) throw Error("Source category letters do not reconstruct their clusters.");
+      return { sourceSegmentId: segment.id, categoryId: segment.categoryId, part: segment.part, status: target ? "exact-written-clusters" : "source-only", sourceCluster: { start: source[0].start, end: source.at(-1).end, text: source.map((c) => c.text).join(""), role: reference ? "shared-consonant" : "written" }, readerClusterRanges: target, markedClustersEqual: target ? source.map((c) => c.text).join("") === target.map((c) => c.text).join("") : null, writtenLetterCount: reference ? 0 : letters4.length, phonemes: null, individualVowelPointRange: null, audioTimes: null };
+    });
+    if (offset !== written.length) throw Error("Source category letter binding is incomplete.");
+    return { revision: 1, coordinateUnit: "UTF-16", scope: "source-variant", bindings, review: null, limits: "Whole marked letter clusters only; source and reader marks may differ. A shared first half references the following written cluster and contributes no additional written letter. Categories without a written letter retain only their parent syllable. No vowel-point, phoneme, note or audio-time allocation." };
+  }
+
   // pronunciation-segments.js
   var STYLES = ["sephardic", "ashkenazic"];
   var letters3 = (text) => text.replace(/[^א-ת]/gu, "");
@@ -5848,11 +5891,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
       }
       this.data = data;
+      this.categories = new Map(data.catalog.map((c) => [c.id, c]));
     }
     apply(study) {
       if (!study.hebrewUnderlay || study.sourceCommit !== this.data.sourceCommit || study.hebrewUnderlay.inputSha256 !== this.data.inputSha256) throw Error("Checked Hebrew syllable underlay is required for source rules.");
       const entry = this.data.groups[study.groupId];
       if (!entry || entry.length !== study.rows.length) throw Error("Missing pronunciation source rules for this group.");
+      const readerTexts = new Map(study.readerIds.map((id, i) => [id, study.readerHebrew[i]]));
       let segmentCount = 0;
       const rows2 = study.rows.map((row, ri) => {
         const [number, variants] = entry[ri];
@@ -5889,7 +5934,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 return { id: `${unit.id}-h${column}-seg${si + 1}`, categoryId: category.id, label: category.label, kind: category.kind, part: part === 0 ? "whole" : part === 1 ? "first-half-shared" : "second-half-shared", realizations: Object.fromEntries(STYLES.map((s) => [s, { ascii: values.ascii[s], text: values.display[s] }])), sourceUnitId: unit.id, readerWordId: unit.readerWordId, sourceStress: unit.sourceStress, sharedWithUnitId, hebrewScope: "parent-syllable-only", individualHebrewRange: null, ipa: null, phonemes: null, noteIds: null, audioTimes: null };
               });
               if (written !== letters3(underlay.source.text) || segments.map((s) => s.realizations[style].text).join("") !== unit.text) throw Error("Source rule reconstruction differs from the original Hebrew or transcription.");
-              return { hebrewColumn: column, sourceLabels: [...underlay.labels], sourceHebrew: underlay.source, readerRanges: underlay.readerRanges, segments };
+              return { hebrewColumn: column, sourceLabels: [...underlay.labels], sourceHebrew: underlay.source, readerRanges: underlay.readerRanges, segments, letterClusterBindings: bindPronunciationLetters(segments, underlay, this.categories, readerTexts) };
             });
             return { ...unit, sourceSegments: { revision: 1, style, variants: plans, review: "Named source categories and transcription values only; no reviewed acoustic phonemes or segment timing." } };
           });
@@ -9265,6 +9310,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       p("No checked source rules for this word. Your style choice is kept; no pronunciation is substituted.");
       return;
     }
+    p("Written Hebrew bindings identify whole letter clusters with their original marks. Vowel-point and sound timing are unassigned. Shared halves refer to one written consonant.");
     p(`${STYLE_NAMES[style]} source text is selected. The two columns below explain the existing transcriptions; they do not select a singing voice or change the notes.`);
     const wordId = study.selection.sourceWordId;
     let shown = 0;
@@ -9287,15 +9333,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         section.append(source);
         const note = document.createElement("p");
         note.className = "muted";
-        note.textContent = `Source row ${row.number}, Hebrew column ${variant.hebrewColumn}${variant.sourceLabels.length ? " · " + variant.sourceLabels.join(" / ") : ""}. ${unit.readerWordId === null ? "Combined source form; not assigned to an individual reader word." : unit.hebrewClusterRanges ? "Written syllable ranges remain exactly as linked above." : "Source Hebrew only; written syllable range remains unresolved."} Individual segment-letter ranges and sound timings are unassigned.`;
+        note.textContent = `Source row ${row.number}, Hebrew column ${variant.hebrewColumn}${variant.sourceLabels.length ? " · " + variant.sourceLabels.join(" / ") : ""}. ${unit.readerWordId === null ? "Combined source form; not assigned to an individual reader word." : unit.hebrewClusterRanges ? "Written syllable ranges remain exactly as linked above." : "Source Hebrew only; written syllable range remains unresolved."} Whole-cluster bindings retain the reader’s marks. Individual vowel-point and sound timing are unassigned.`;
         section.append(note);
         const table = document.createElement("table");
-        table.className = "pronunciation-rule-table";
+        table.className = "pronunciation-rule-table has-letter-bindings";
         const caption = document.createElement("caption");
         caption.textContent = "Named source categories and their transcription values";
         table.append(caption);
         const head = document.createElement("thead"), tr = document.createElement("tr");
-        for (const title of ["Source distinction", "Sephardic text", "Ashkenazic text"]) {
+        for (const title of ["Source distinction", "Sephardic text", "Ashkenazic text", "Written Hebrew cluster"]) {
           const th = document.createElement("th");
           th.scope = "col";
           th.textContent = title;
@@ -9326,6 +9372,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             if (s === style) td.className = "selected-source-style";
             r.append(td);
           }
+          const binding = variant.letterClusterBindings?.bindings.find((b) => b.sourceSegmentId === segment.id), written = document.createElement("td");
+          written.className = "pronunciation-letter-binding";
+          if (binding?.readerClusterRanges) {
+            const text = document.createElement("span");
+            text.lang = "he";
+            text.dir = "rtl";
+            text.textContent = binding.readerClusterRanges.map((r2) => r2.text).join(" ");
+            written.append(text);
+            const note2 = document.createElement("small");
+            note2.textContent = segment.part === "first-half-shared" ? "Shared reference to the next syllable’s written consonant" : segment.part === "second-half-shared" ? "Same written consonant as the preceding shared reference" : "Exact marked reader cluster";
+            written.append(note2);
+            written.dataset.segment = segment.id;
+            written.dataset.readerRanges = JSON.stringify(binding.readerClusterRanges);
+            written.title = binding.readerClusterRanges.map((r2) => `${r2.readerWordId} · UTF-16 ${r2.start}–${r2.end}`).join("; ");
+            if (!binding.markedClustersEqual) {
+              const source2 = document.createElement("small");
+              source2.textContent = `Source marks differ: ${binding.sourceCluster.text}`;
+              written.append(source2);
+            }
+          } else written.textContent = binding?.status === "no-written-letter" ? "No written letter in this category; syllable only" : "Source form only; no exact reader letter binding";
+          r.append(written);
           body.append(r);
         }
         table.append(body);
