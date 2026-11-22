@@ -10,6 +10,7 @@ test('real opening syllables retain exact text, accents, ownership, stress, shar
  const d=fixture(),w=word('gen-1-1-1'),s=p.study(w,'sephardic'),before=JSON.stringify(s),choice=sourceSyllableChoices(s,w,'sephardic')[0];
  assert.equal(d.word.hebrew,'בְּרֵאשִׁ֖ית');assert.equal(d.word.startSeconds,2.028362);assert.equal(d.word.endSeconds,3.3519);
  assert.equal(d.source.audioSha1,'755c6e9918ba2021bba8b33c46db309c115620d6');assert.equal(d.source.audioBytes,1798060);assert.equal(d.source.measuredDurationSeconds,449.5150625);
+ assert.equal(d.pronunciation.license,'CC-BY-SA-4.0');assert.match(d.pronunciation.attribution,/Benjamin Denckla/);assert.equal(d.recordingAttribution.creator,r.source.creator);assert.deepEqual(d.recordingAttribution.audioLicense,r.source.audioLicense);assert.deepEqual(d.recordingAttribution.timingLicense,r.source.timingLicense);
  assert.deepEqual(d.units.map(u=>[u.sourceText,u.sourceStress]),[['bᵉ',false],['ré',false],['shít',true]]);
  assert(d.units.every(u=>u.start===null&&u.end===null&&u.startBasis===null&&u.endBasis===null));assert.deepEqual(d.units.map(({start,end,startBasis,endBasis,...u})=>u),choice.units);assert.equal(JSON.stringify(s),before);
 });

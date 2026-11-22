@@ -36,7 +36,10 @@ export function createSyllableTimingDraft({library,word,study,style,choiceId}){
   word:{id:word.sourceWordId??word.id,occurrenceId:word.id,hebrew:word.sourceHebrew,recordingHebrew:row.sourceHebrew,
    sourceComparison:row.comparison,startSeconds:row.startSeconds,endSeconds:row.endSeconds??measured.durationSeconds},
   pronunciation:{sourceCommit:study.sourceCommit,style,row:choice.row,column:choice.column,choiceId:choice.id,
+   sourceGroupId:study.groupId,sourceUrl:'https://github.com/bdenckla/MAM-basics/tree/'+study.sourceCommit+'/Phonetic-MAM',
+   license:structuredClone(study.license),attribution:structuredClone(study.attribution),
    sourceUnitMeaning:'Documented transcription units; not a claim about the recorded reader’s pronunciation.'},
+  recordingAttribution:Object.fromEntries(['source','creator','projectCredits','individualReader','sourceUrl','audioLicense','timingLicense','alignmentLicense','originalCommit'].map(k=>[k,structuredClone(library.source[k])])),
   sourceEditionCompared:false,phonemes:null,musicalNotes:null,independentReview:null,
   units:choice.units.map(u=>({...u,start:null,end:null,startBasis:null,endBasis:null}))};
 }
