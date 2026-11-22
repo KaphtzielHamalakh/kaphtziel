@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "c6c35fe0e9d40f9a61f953b50c4e82fe0830f699",
-  "nextTask": "Continue the full independently pronounced word-aligned chanting reconstruction. All79,985Torah words now have source-group correspondence;79,983individual unit owners/style and two combined words remain. Preserve every original marked Hebrew/canonical and occurrence ID,68503prior source groups, source cells/stress/categories, score/demo notes, fixed recordings and timing.77,802words/style have exact written ranges;2,181source-only word forms/style and two combined words still need qualified phonological/underlay review. Source word correspondence and the explicit _UMEXIYAEL source rule do not allocate the extra written yod or prove identical pronunciation.2,811older recording-timing words need review. Establish actual verse/word/syllable/phoneme/performer/edition evidence for64distinct2018source clips and11distinct2019LenFellman full takes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules, unresolved BaerNo113first-setting lyric-under-rest questions and Cohenp547penitential ornament without arbitrary pitches. All six historical Kinnor Accent grammars/voices, all recovered melody systems, qualified musical/cantorial review and the entire remaining roadmap stay required. No unsupported preset or ordinary speech substitution; printing deferred.",
+  "nextTask": "Continue full independent word-aligned singing. Recorded practice now has50–150% native pitch-preserving speed, independent of instrument BPM/key/range and the two MAM text styles; original reference previews stay100%. Native processed acoustic/formant review and independent recorded transposition remain pending. Before adding DSP, measure original-tone/transient fixtures, latency/tail and source-time mapping, cancellation/memory and portable browser support. Continue the full independently pronounced word-aligned chanting reconstruction. All79,985Torah words now have source-group correspondence;79,983individual unit owners/style and two combined words remain. Preserve every original marked Hebrew/canonical and occurrence ID,68503prior source groups, source cells/stress/categories, score/demo notes, fixed recordings and timing.77,802words/style have exact written ranges;2,181source-only word forms/style and two combined words still need qualified phonological/underlay review. Source word correspondence and the explicit _UMEXIYAEL source rule do not allocate the extra written yod or prove identical pronunciation.2,811older recording-timing words need review. Establish actual verse/word/syllable/phoneme/performer/edition evidence for64distinct2018source clips and11distinct2019LenFellman full takes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules, unresolved BaerNo113first-setting lyric-under-rest questions and Cohenp547penitential ornament without arbitrary pitches. All six historical Kinnor Accent grammars/voices, all recovered melody systems, qualified musical/cantorial review and the entire remaining roadmap stay required. No unsupported preset or ordinary speech substitution; printing deferred.",
   "lastPassingTests": {
-    "automated": 333,
+    "automated": 342,
     "newRegressionChecks": 9,
-    "ui": "Public normal28 and portable29 show all16 exact marked Genesis4:18 reader words, selecting word9 וּמְחִיּיָאֵ֗ל. Three independent marked forms remain literal: UXLC וּמְחִיּיָאֵ֗ל, primary MAM וּמְחִיָּיאֵ֗ל and source reading וּמְחִיָּאֵ֗ל. Normal example navigation preserves BaerNo113/II, instrument mode, Ashkenazic source text,73BPM/+2/rangeC4–C5; the source correctly refuses uncovered Genesis4:18 and disables Play. Explicitly choosing OriginalDemo keeps those student controls. Switching only source text to Sephardic preserves every reader string/canonical ID/aria-label and actual event ID/pitch/beats while muted progress advances5.19735→5.9835%, word9/E4. Portable at60BPM/key0 similarly preserves all16marked words and actual note events, advancing4.24615→5.11538%, word9/D4, as ya/yo changes independently. Both actual roots/bodies fit319/1280 with source comparison open; viewportreset. No application console warnings/errors. Normal AX is primary; portable uses supported observed Playwright UI following the verified local fullAX native-pipe frame limit. Both left Genesis4:18word9, OriginalDemo/instrument/Sephardic/key0/60BPM/rangeC4–C5, six unchanged demo events/3.90seconds; all four gains0, repeatfalse, three media elements paused. Screenshot outputs/TropeTrain-v0.40-live.jpg viewed. Preview26/27 and old public24/25closed; public28/29marked deliverables. Owned8767session44490stopped/exit0; user8765untouched. No nativeSave/direct-file-origin/acoustic or qualified linguistic/cantorial review claimed.",
-    "limits": "Whole-Torah source-word correspondence, not reviewed pronunciation/acoustic alignment or six independent Kinnor singing grammars/voices."
+    "ui": "Local normal31 and portable32 open Genesis1:1–3,27unchanged marked Hebrew words. Main chanting at50% follows source word IDs from Genesis1:1 into1:2 with all gains0; switching Sephardic→Ashkenazic source text leaves all27reader Hebrew strings/canonical IDs/aria-labels exact and the source clock running. A live50→150% change keeps Genesis1:2word9 at the transition while instrument73BPM/+2/range60–72 remain independent. At150%, repeated word1 remains active/Restart across multiple cycles; Stop cancels it. Complete reference playback explicitly reports original key/tempo/pronunciation even while the saved main chant preference remains150%. Reload restores main rate150%, mode recorded, Ashkenazic text,73BPM/+2 and repeatfalse. Portable at75% independently switches shít→shís during Genesis1:1word1 playback; all27marked Hebrew labels/IDs remain exact. Reader underlay uses the matching source units beneath each word, without editing button text or accents. Live75→125% changes update both main and reference status; reload restores125%. Portable actual root/body fit319and1280; normal actual1280fit. A normal319override attempt after closing the portable still measured1280, so that attempt is not counted as a319pass. Viewport reset. Normal console has no warnings/errors. All checks muted; no native acoustic pitch/formant review claimed. Original preview test retains source text rather than selected MAM pronunciation. Normal AX is primary; portable uses the previously established supported Playwright/DOM fallback for its oversized fullAX output. Initial local server bind was sandbox-denied; authorized escalation started owned8767session31819. A premature127.0.0.1 navigation produced inert error tab30; its dataURL policy also refused close, and no bypass was used. Fresh localhost31/32 worked after the server was reachable. Portable32closed; normal31stopped. User8765 untouched.",
+    "limits": "Browser UI/muted clock and automated rate/source-position contracts only; native waveform pitch/timbre, phonological and cantorial review pending. Text styles do not change source singing pronunciation."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -43,7 +43,7 @@
     {
       "id": "playback",
       "description": "Word/group/verse/aliyah/reading/span and repeat",
-      "status": "main_source_timed_chant_and_instrument_modes_word_group_verse_span_repeat_cross_file_stop_clock_browser_tested"
+      "status": "source_timed_chant_independent50_to150percent_pitch_preservation_requested_original_reference_speed_preserved_automated_and_muted_UI_tested"
     },
     {
       "id": "pronunciations",
@@ -753,5 +753,41 @@
       "sha256": "40fdef25372c1055bbdeb0c8c39f0c35386d4e911377ed213d03af340a85bcfb",
       "allReviewFieldsNull": true
     }
+  },
+  "recordedPracticeSpeed": {
+    "status": "implemented_automated_and_local_UI_passed_publication_pending",
+    "rangePercent": [
+      50,
+      150
+    ],
+    "originalFilesChanged": false,
+    "independentOf": [
+      "instrumentBpm",
+      "instrumentKey",
+      "range",
+      "pronunciationTextStyle"
+    ],
+    "nativePreservesPitchRequired": true,
+    "acousticReview": null,
+    "recordedTransposition": "pending",
+    "defaultPercent": 100,
+    "presetsPercent": [
+      50,
+      65,
+      75,
+      85,
+      100,
+      115,
+      125,
+      150
+    ],
+    "originalReferencePreviewPercent": 100,
+    "sourceClock": "original_source_seconds_unchanged_live_rate_anchor_preserved",
+    "evidence": [
+      "https://html.spec.whatwg.org/multipage/media.html#dom-media-preservespitch",
+      "https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/preservesPitch"
+    ],
+    "sourceAssetsExact": 540,
+    "tests": 9
   }
 }

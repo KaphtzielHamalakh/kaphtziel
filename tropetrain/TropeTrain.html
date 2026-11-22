@@ -174,7 +174,7 @@
       <aside class="playback" id="playback-controls" aria-label="Playback controls">
         <p class="eyebrow">Listen & repeat</p><h2>Practice a little at a time.</h2>
         <label for="practice-audio">Listen with</label><select id="practice-audio"><option value="instrument">Instrument · selected melody</option><option value="recorded">Recorded chant · source word timings</option></select>
-        <div id="chant-practice" hidden><p class="muted">PocketTorah’s original voice, melody, pronunciation, pitch and pace. Instrument melody/key/tempo/range remain separate. This recording does not synthesize the selected instrumental melody or a Kinnor Accent style.</p><p id="chant-readiness" role="status"></p><button id="chant-load" disabled>Load chant audio</button><button id="chant-cancel" hidden>Cancel chant loading</button><div class="control-block"><div class="label-row"><label for="chant-volume">Chant volume</label><output id="chant-volume-value">0%</output></div><input id="chant-volume" type="range" min="0" max="100" value="0"></div><a href="#recorded-reference">Recording source details and timing gaps</a></div>
+        <div id="chant-practice" hidden><p class="muted">PocketTorah’s original voice, melody and pronunciation. Chant speed keeps the original pitch using your browser’s audio processing. Instrument melody/key/tempo/range remain separate. This recording does not synthesize the selected instrumental melody or a Kinnor Accent style.</p><label for="chant-speed">Chant speed</label><select id="chant-speed" aria-describedby="chant-speed-note"><option value="50">50% · half speed</option><option value="65">65%</option><option value="75">75%</option><option value="85">85%</option><option value="100" selected>100% · original speed</option><option value="115">115%</option><option value="125">125%</option><option value="150">150%</option></select><p id="chant-speed-note" class="muted"></p><p id="chant-readiness" role="status"></p><button id="chant-load" disabled>Load chant audio</button><button id="chant-cancel" hidden>Cancel chant loading</button><div class="control-block"><div class="label-row"><label for="chant-volume">Chant volume</label><output id="chant-volume-value">0%</output></div><input id="chant-volume" type="range" min="0" max="100" value="0"></div><a href="#recorded-reference">Recording source details and timing gaps</a></div>
         <label for="musical-source">Instrumental musical source</label><select id="musical-source"></select><p id="musical-source-status" role="status" class="muted"></p>
         <label for="scope">Play from cursor to</label><select id="scope"><option value="word">End of word</option><option value="group" selected>End of group</option><option value="verse">End of verse</option><option value="aliyah">End of assigned section</option><option value="selection">End of selected span</option><option value="passage">End of reading</option></select>
         <p class="span-preview" id="span-preview"></p>
@@ -835,6 +835,17 @@ New explicit final-rest timing is carried through playback, repeats, duration di
 The app’s source-study button opens the complete Genesis22:19 instrumental verse; other words/changed Hebrew refuse substitution. The existing2018fixed source recording of that verse remains a separate reference with its own melody/pronunciation; matching the Baer musical realization has not been established. First setting No.113/1 (Genesis21:12) remains a source lead: initial printed lyric fragments under rests require explicit underlay interpretation before assigning pitches or phonemes. Cohen p547’s penitential ornament and all general reciting/stress/cadence rules remain unresolved where evidence is insufficient.
 
 Fresh public-source leads were checked. TaamimFlow’s README describes a scaffold with audio stubs and original-installer XML/binaries; no repository license was found, and no code/data was imported. Cantillate describes stylized/experimental motif contours and gives no additional reviewed traditional grammar here; no material was imported. SHV-derived music explicitly describes a scholarly reconstruction rather than established performance practice and does not supply the requested communal systems. The full historical/pronunciation/singing/learning inventory remains active; printing deferred.
+
+
+## v0.40 · explicit reading-form source and complete Torah word correspondence
+
+The pinned [primary MAM reading source](https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/core/qere_from_implicit_kq.py) explicitly registers _UMEXIYAEL and derives one-yod וּמְחִיָּאֵ֗ל from primary written וּמְחִיָּיאֵ֗ל. Applying exactly this documented replacement reproduces the entire marked Phonetic MAM Genesis4:18 verse, including accents and points. UXLC וּמְחִיּיָאֵ֗ל remains unchanged and retains its original token kind w; no UXLC qere annotation or phonological equivalence is invented. Both old neighboring row/word anchors and the exact canonical owner are required. A closed factual guard admits no other word or global yod deletion. The new source group preserves four source units/style, stress and geminate-half references, with null written syllable ranges, phonemes, notes and acoustic times. All three marked forms are shown independently in the ordinary UI. Unmodified source4499bytes/Gitblob5dcf34bd2e1fd4ad6de30c900366128b3dca7abd and GPL3LICENSE are separately reusable source references; the upstream module is parsed as syntax evidence, never imported/executed by the browser. No proprietary Kinnor material imported.
+
+Final isolated build/full suite:333pass/0fail/0skip, nine new regression checks, log /private/tmp/tropetrain-check-v40-final.log. Initial canonical build failed before tests on iCloud ETIMEDOUT; a workspace-root npm attempt failed ENOENT and was corrected to the app cwd. First full isolated suite323pass/10fail; all nine new tests passed. The ten older failures were missing-word/count assertions or historical baseline filters. Corrected those facts and retained old baseline digests plus unknown-word refusal. No musical/phonological data was changed to satisfy checks. The isolated exact-baseline-plus-working-changes build has source/metadata guards; four generated files copied back byte-identically with no concurrent-source changes, work/audits/build-copy-0.40.json. Runtime SHA2562f28db7609de231db125da6d8c6ccea35c46b3eefd8f5201bad1ab59d8772816; standalone70,085,412bytes/SHA256deb1fd1b2c740d8a721795ff73af3b129db5aa05833338db6346f5f3ac0255ec. No runtime changes after the passing final suite. Existing musical modules, raw Torah, fixed recordings and prior timing files are unchanged in Git diff. The only modified tracked assets/data are the pronunciation notice and three explicitly regenerated pronunciation packets; the new GPL reference archive is separate. Every prior68503source group,387888units and1037430category references is preserved except three parent-data hashes; canonical groupSHA5403d1ec384384681ece8c86c3900ae844b550ebd4b360c2ae269c4bcf1da6fd; normalized runtime studySHA bcf75c436664baab51af6d8c64c2a7696e3c409113251dc977a0c81b8fd54795. Full reconstruction active/incomplete; printing deferred.
+
+Local normal26 and portable27 open the unchanged16marked Genesis4:18 words, selecting word9. Normal example navigation preserves BaerNo113/II, instrument mode, Ashkenazic text,73BPM/+2 and rangeC4–C5; the bounded score correctly refuses unavailable Genesis4:18 notes and disables Play. Explicitly choosing OriginalDemo gives its original six word9events/3.21seconds. All16reader strings/canonical IDs/aria-labels and actual event IDs/pitches/beats stay exact across the style change; muted progress advances5.17551→5.96791%, remaining word9/E4. Portable at60BPM/key0 similarly preserves all16marked words and actual six notes, advancing4.30513→5.12051% on word9/D4. Source texts change um·ḥiy·ya·’él / um·ḥiy·yo·’él independently. Both source comparisons show literal UXLC וּמְחִיּיָאֵ֗ל, primary MAM וּמְחִיָּיאֵ֗ל and source reading וּמְחִיָּאֵ֗ל. Unit scope explicitly leaves the extra written yod without a syllable/note/acoustic time. Coverage displays79,983individual owners/style and two combined words. Both actual roots/bodies fit319/1280 with the comparison open; viewportreset. No app console warnings/errors. Normal AX is primary; portable fullAX hits the known native-pipe frame limit and uses supported observed Playwright UI/read-only DOM. Both left stopped/allfour gains0, Sephardic/key0/60BPM/rangeunchanged. No acoustic, nativeSave or direct-file-origin review claimed.
+
+All six historical Accent grammars/voices, complete contextual cantillation systems, qualified linguistic/cantorial review and the entire remaining feature inventory stay active. Textual source completeness is distinct from musical realization and acoustic alignment. Printing deferred.
 </pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">Copyright 2022 The Noto Project Authors (https://github.com/notofonts/hebrew)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
@@ -5314,7 +5325,7 @@ SOFTWARE.
     "comparison": "The small ring between pickup notes in the first scan is absent from this independent copy. It is not treated as a pitched note. Pitches, rests, ties and note durations compared between both copies."
   }
 }
-</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.40.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+</pre></details><footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.41.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="#license-notices">Noto Serif Hebrew / OFL</a> · <a href="#license-notices">havarotjs / MIT</a> · <a href="#license-notices">Bravura / OFL</a> · <a href="#license-notices">Shlomo Stam / OFL</a> · <a href="#license-notices">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -11693,6 +11704,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     return segments;
   }
+  function recordingRate(value) {
+    if (typeof value !== "number" || !Number.isFinite(value) || value < 0.5 || value > 1.5) throw Error("Choose a chant speed between 50% and 150%.");
+    return value;
+  }
   var RecordingPlayer = class {
     constructor(media, { onWord = () => {
     }, onEnd = () => {
@@ -11713,6 +11728,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.running = false;
       this.starting = false;
       this.clock = clock;
+      this.rate = 1;
       this.volume = Number.isFinite(media.volume) ? media.volume : 1;
       media.addEventListener("ended", () => {
         if (this.running && this.mode === "audio" && media.currentTime >= this.currentSegment.end) this.advance();
@@ -11735,8 +11751,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.cancelFrame(this.raf);
       this.onWord(null);
     }
+    get canPreservePitch() {
+      return "preservesPitch" in this.media;
+    }
     now() {
-      return this.mode === "muted" ? this.anchorPosition + Math.max(0, this.clock() - this.anchorClock) : this.media.currentTime;
+      return this.mode === "muted" ? this.anchorPosition + Math.max(0, this.clock() - this.anchorClock) * this.rate : this.media.currentTime;
+    }
+    setRate(value) {
+      const rate = recordingRate(value);
+      if (rate !== 1 && !this.canPreservePitch) throw Error("This browser cannot preserve recorded pitch at a different chant speed. Use 100%.");
+      const position = this.running && this.mode === "muted" ? this.now() : null;
+      if (this.canPreservePitch) {
+        this.media.preservesPitch = true;
+        if (rate !== 1 && this.media.preservesPitch !== true) throw Error("Pitch preservation is unavailable. Use 100%.");
+      }
+      this.media.playbackRate = rate;
+      this.rate = rate;
+      if (position !== null) {
+        this.anchorPosition = position;
+        this.anchorClock = this.clock();
+      }
     }
     async setVolume(value) {
       this.volume = Number.isFinite(value) ? Math.min(1, Math.max(0, value)) : 0;
@@ -11836,7 +11870,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (!Number.isFinite(duration) || definition.start < 0 || definition.start >= end || end > duration) throw Error("A reference boundary lies outside the decoded recording.");
         this.currentSegment = { ...definition, end };
         this.media.currentTime = definition.start;
-        this.media.playbackRate = 1;
+        this.setRate(this.rate);
         this.media.volume = this.volume;
         this.mode = this.volume === 0 ? "muted" : "audio";
         this.anchorPosition = definition.start;
@@ -15011,6 +15045,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     rangeLow: 60,
     rangeHigh: 72,
     referenceVolume: 0,
+    chantRate: 100,
     readerPage: 0,
     notePage: 0,
     staffPage: 0,
@@ -15027,6 +15062,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const saved = JSON.parse(originalPracticeText);
     if (saved) {
       state.practiceAudio = practiceAudioMode(saved.practiceAudio);
+      if ([50, 65, 75, 85, 100, 115, 125, 150].includes(saved.chantRate)) state.chantRate = saved.chantRate;
       for (const [key, min, max] of [["cursor", 0, 1e6], ["anchor", 0, 1e6], ["tempo", 40, 160], ["transpose", -12, 12], ["volume", 0, 100], ["referenceVolume", 0, 100], ["rangeLow", 36, 84], ["rangeHigh", 36, 84], ["readerPage", 0, 1e5]])
         if (Number.isInteger(saved[key]) && saved[key] >= min && saved[key] <= max) state[key] = saved[key];
       if (["pointed", "consonantal", "parallel"].includes(saved.view)) state.view = saved.view;
@@ -15116,7 +15152,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         pronunciationTools?.showWord(words2[word.wordIndex], { following: true });
       } else pronunciationTools?.showWord(words2[state.cursor]);
       if (word && recordedPracticeRunning) {
-        $("status").textContent = `Recorded chant · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
+        $("status").textContent = `Recorded chant · ${state.chantRate}% speed · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
         $("progress").style.width = `${100 * (word.wordIndex - playingBounds[0] + 1) / (playingBounds[1] - playingBounds[0] + 1)}%`;
       }
     },
@@ -15141,11 +15177,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (id) {
         selectedReferenceId = id;
         syncReferencePickers();
-        $("reference-status").textContent = `Playing ${referenceLibrary.byId.get(id).title} · original recorded key, tempo and pronunciation${state.referenceVolume === 0 ? " · muted at 0%" : ""}.`;
+        renderReferencePlaybackStatus(id);
       }
     },
     resolveSource: (id, options) => referenceStore.url(referenceLibrary.byId.get(id), options)
   });
+  function renderReferencePlaybackStatus(id) {
+    $("reference-status").textContent = `Playing ${referenceLibrary.byId.get(id).title} · ${recordedPracticeRunning ? `${state.chantRate}% speed · original pitch requested` : "original recorded key and tempo"} · original pronunciation${state.referenceVolume === 0 ? " · muted at 0%" : ""}.`;
+  }
   function loadArray(key) {
     try {
       const data = JSON.parse(localStorage.getItem(key));
@@ -15647,6 +15686,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("chant-volume").value = state.referenceVolume;
     $("chant-volume-value").textContent = `${state.referenceVolume}%`;
     if (state.practiceAudio !== "recorded") return;
+    $("chant-speed").disabled = !referencePlayer.canPreservePitch;
+    if (!referencePlayer.canPreservePitch) state.chantRate = 100;
+    $("chant-speed").value = state.chantRate;
+    $("chant-speed-note").textContent = referencePlayer.canPreservePitch ? "Speed is a percentage of this performance, independent of instrument BPM and key. Pitch preservation is requested from the browser; processing may affect timbre. Source word timings remain unchanged. Recording previews below always use original speed." : "This browser lacks pitch-preserving speed control. Chant plays at its original speed.";
     chantPlan = null;
     chantReady = false;
     for (const id of ["play", "compact-play", "chant-load"]) $(id).disabled = true;
@@ -15688,6 +15731,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (request !== chantPlayRequest) return;
     playingBounds = bounds2(state.cursor, state.anchor, state.scope);
     recordedPracticeRunning = true;
+    try {
+      referencePlayer.setRate(state.chantRate / 100);
+    } catch (error) {
+      recordedPracticeRunning = false;
+      say(error.message);
+      return;
+    }
     referencePlayer.setVolume(state.referenceVolume / 100);
     transportLabel(true);
     await referencePlayer.play(selected.rows, state.repeat);
@@ -15717,6 +15767,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   });
   $("chant-cancel").addEventListener("click", () => referenceLoadJob?.abort());
+  $("chant-speed").addEventListener("change", (e) => {
+    const percent = Number(e.target.value);
+    try {
+      if (recordedPracticeRunning) referencePlayer.setRate(percent / 100);
+      state.chantRate = percent;
+      persist();
+      if (recordedPracticeRunning) {
+        renderReferencePlaybackStatus(selectedReferenceId);
+        say(`Recorded chant · ${percent}% speed · original pitch requested · original pronunciation.`);
+      }
+    } catch (error) {
+      e.target.value = state.chantRate;
+      say(error.message);
+    }
+  });
   function renderSourceSigns(word) {
     combinationTools?.showWord(word.index);
     const analysis = word.signAnalysis;
@@ -16038,6 +16103,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!referencePlan || !referenceReady) return;
     const selected = referencePlan;
     stop("Listening to the recorded reference.");
+    referencePlayer.setRate(1);
     await referencePlayer.play(selected, state.repeat);
   });
   $("reference-full").addEventListener("click", async () => {
@@ -16046,6 +16112,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reference-word").textContent = "";
     $("reference-word-label").textContent = "Complete unmodified recording · timed word highlighting is off.";
     $("reference-source-comparison").textContent = "The recording retains its original text, key, tempo and pronunciation.";
+    referencePlayer.setRate(1);
     await referencePlayer.playWhole(id, state.repeat);
   });
   $("reference-stop").addEventListener("click", () => stop());
@@ -16128,7 +16195,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("score-description").textContent = printed ? "The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft." : "The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.";
     if (state.practiceAudio === "recorded") {
       $("music-badge").textContent = "Recorded chant";
-      $("music-notice").textContent = "PocketTorah chant follows the source word timings. The original performance keeps its own melody, pronunciation, pace and pitch. Acoustic timing review is pending.";
+      $("music-notice").textContent = "PocketTorah chant follows the source word timings. The original performance keeps its own melody and pronunciation. Chant speed is independent of instrument BPM and key; the browser is asked to preserve original pitch. Acoustic timing and processed sound review are pending.";
       $("score-description").textContent = "Instrument score only; no pitches have been transcribed from the recording. " + $("score-description").textContent;
     }
     $("score-help").textContent = printed ? "Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted." : "Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.";

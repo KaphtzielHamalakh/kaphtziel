@@ -1,5 +1,5 @@
 // Recorded-reference adaptation: CC BY-SA 3.0; assets/references/NOTICE.txt.
-// Recorded takes retain their own text, timing, key and pronunciation. They are
+// Recorded takes retain their own text, source timing, key and pronunciation. They are
 // reference evidence, never silently substituted for a musical/phonetic profile.
 export function referenceIndex(recording){
   if(recording?.format!=='tropetrain-recorded-reference-v1'||!recording.words?.length)throw Error('Unsupported recorded reference.');
@@ -52,10 +52,15 @@ export function splitReferenceSegments(selection){
   }
   return segments;
 }
+// A recording has no inferred BPM. Rate scales elapsed source seconds only.
+export function recordingRate(value){
+  if(typeof value!=='number'||!Number.isFinite(value)||value<.5||value>1.5)throw Error('Choose a chant speed between 50% and 150%.');
+  return value;
+}
 export class RecordingPlayer {
   constructor(media,{onWord=()=>{},onEnd=()=>{},onError=()=>{},onLoading=()=>{},onRecording=()=>{},resolveSource=null,clock=()=>performance.now()/1000,frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
     this.media=media;this.onWord=onWord;this.onEnd=onEnd;this.onError=onError;this.onLoading=onLoading;this.onRecording=onRecording;this.resolveSource=resolveSource;this.frame=queueFrame;this.cancelFrame=cancelFrame;this.generation=0;this.running=false;this.starting=false;
-    this.clock=clock;this.volume=Number.isFinite(media.volume)?media.volume:1;
+    this.clock=clock;this.rate=1;this.volume=Number.isFinite(media.volume)?media.volume:1;
     media.addEventListener('ended',()=>{if(this.running&&this.mode==='audio'&&media.currentTime>=this.currentSegment.end)this.advance();});
     media.addEventListener('error',()=>{if(this.running){this.stop();onError(Error('The recording could not be decoded or loaded.'));}});
   }
@@ -63,7 +68,16 @@ export class RecordingPlayer {
     this.generation++;this.running=false;this.starting=false;this.pending?.abort();this.pending=null;
     this.enabling=null;this.media.pause();this.cancelFrame(this.raf);this.onWord(null);
   }
-  now(){return this.mode==='muted'?this.anchorPosition+Math.max(0,this.clock()-this.anchorClock):this.media.currentTime;}
+  get canPreservePitch(){return 'preservesPitch' in this.media;}
+  now(){return this.mode==='muted'?this.anchorPosition+Math.max(0,this.clock()-this.anchorClock)*this.rate:this.media.currentTime;}
+  setRate(value){
+    const rate=recordingRate(value);
+    if(rate!==1&&!this.canPreservePitch)throw Error('This browser cannot preserve recorded pitch at a different chant speed. Use 100%.');
+    const position=this.running&&this.mode==='muted'?this.now():null;
+    if(this.canPreservePitch){this.media.preservesPitch=true;if(rate!==1&&this.media.preservesPitch!==true)throw Error('Pitch preservation is unavailable. Use 100%.');}
+    this.media.playbackRate=rate;this.rate=rate;
+    if(position!==null){this.anchorPosition=position;this.anchorClock=this.clock();}
+  }
   async setVolume(value){
     this.volume=Number.isFinite(value)?Math.min(1,Math.max(0,value)):0;this.media.volume=this.volume;
     if(!this.running)return;
@@ -105,7 +119,7 @@ export class RecordingPlayer {
       if(this.media.readyState<1)await this.metadata(pending.signal);if(generation!==this.generation)return;
       const duration=this.media.duration,end=definition.end??duration;
       if(!Number.isFinite(duration)||definition.start<0||definition.start>=end||end>duration)throw Error('A reference boundary lies outside the decoded recording.');
-      this.currentSegment={...definition,end};this.media.currentTime=definition.start;this.media.playbackRate=1;this.media.volume=this.volume;
+      this.currentSegment={...definition,end};this.media.currentTime=definition.start;this.setRate(this.rate);this.media.volume=this.volume;
       this.mode=this.volume===0?'muted':'audio';this.anchorPosition=definition.start;this.anchorClock=this.clock();this.onRecording(definition.recordingId);
       this.starting=false;this.running=true;if(this.mode==='audio')await this.media.play();if(generation!==this.generation||!this.running)return;
       const tick=()=>{
