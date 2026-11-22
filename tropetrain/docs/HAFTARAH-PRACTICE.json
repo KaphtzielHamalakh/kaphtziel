@@ -1,0 +1,45 @@
+{
+  "schema": "tropetrain-haftarah-source-practice-v1",
+  "revision": 1,
+  "status": "original_recordings_with_source_timing_review_limits",
+  "source": {
+    "name": "PocketTorah Audio Files",
+    "creator": "Not-a-Box Media Lab",
+    "projectCredits": ["Russel Neiss", "Rabbi Charlie Schwartz"],
+    "individualReaders": null,
+    "sourceUrl": "https://archive.org/details/PockettorahAudioFiles",
+    "originalMetadataCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+    "releaseStatement": "https://ejewishphilanthropy.com/torah-on-the-go/",
+    "audioLicense": "CC-BY-SA-3.0",
+    "sourceMetadataLicense": "CC-BY-SA-2.5",
+    "adaptationLicense": "CC-BY-SA-3.0"
+  },
+  "inventory": {
+    "originalTakes": 54,
+    "originalAudioBytes": 93023935,
+    "originalGitPinnedTextTimingFiles": 70,
+    "originalGitPinnedTextTimingBytes": 5278580,
+    "sourceTimedTakes": 51,
+    "completeTakeOnly": 3,
+    "sourceTimedMappedWordOccurrences": 16604,
+    "mappedReaderWordOccurrences": 17577,
+    "uniqueMappedReaderWords": 17275,
+    "discontinuousSourceReadings": 5,
+    "individuallyUnmappedReaderWords": ["ezk-43-15-4"]
+  },
+  "identity": "Each take retains its own recording ID, original audio SHA1/SHA256/bytes, source timestamp file, source passage definition and ordered sections. Overlapping verses do not collapse into one default performance. Source passage assignments are historical source metadata, separate from current calendar customs.",
+  "text": "Both reader UXLC and original WLC source strings remain literal, including accents, written/read variants and source slash divisions. Exact consonantal sequences support word-boundary correspondence. Different interior forms remain unmapped; only exact unchanged verse prefixes/suffixes are retained around them. One source token spanning multiple reader words cannot acquire invented internal timestamps.",
+  "duration": "All 54 original SHA1/byte counts were verified and decoded offline with Apple afconvert to WAVE/LEI16@16000/mono. Raw PCM sample hashes and complete WAVE hashes are separate. Duration checks provide extent evidence, not acoustic word validation. Source timestamps are never clipped, shifted, interpolated or normalized.",
+  "withheld": [
+    {"take":"Vayera", "reason":"The original Kings_1 4:1–4:37 definition exceeds this reader edition and has 200 source words versus 556 timestamp entries. Opening that passage and word playback are withheld; the original whole recording remains available. No replacement book or passage is inferred."},
+    {"take":"Tazria", "reason":"An original timestamp decreases from 177.645787 to 177.4 seconds. Whole recording remains available; no word timing is repaired."},
+    {"take":"Masei", "reason":"The original discontinuous passage has 389 source words versus 367 timestamp entries. Whole recording remains available; no alternate verse boundary is substituted."},
+    {"word":"ezk-43-15-4", "reason":"The source and reader have different literal forms. The source token remains available as documentary data; individual reader-word playback is withheld."}
+  ],
+  "playback": "Open a source take’s exact ordered reading, choose the reader cursor/scope/span, then use Play selected reader span. Complete-recording playback uses the original whole take without inferred word highlighting. Repetition and source speed/pitch/volume have independent controls; instrument melody/key/BPM/range and pronunciation text choices remain separate.",
+  "processing": "Zero pitch bypasses the processor and keeps the original media. Changed pitch reuses the existing checked Signalsmith processor with formant compensation requested and an unchanged source timeline. Native speed requests pitch preservation. Processed acoustic/phonological/cantorial review remains pending; no text-style voice conversion is performed.",
+  "offline": "Catalog, source metadata and the unchanged Bereshit-H.mp3 preview are included in normal and portable builds. Other originals load only when requested, are checked by byte count/SHA1 and use the existing device recording cache. The complete 93MB collection is not included in the app bundle.",
+  "reproducibility": "Run scripts/import-haftarah-references.py --verify to reconstruct the packet and audit from haftarah-sources.zip and unchanged reader books. The archive includes original XML/timestamps, their Git pins, audio metadata and independently measured durations; no upstream application code or full audio collection is included.",
+  "review": {"acoustic":null,"musical":null,"phonological":null},
+  "limits": "Fixed source performances only. No new Kinnor preset, full contextual cantillation grammar, reviewed phoneme/syllable alignment or independently pronounced singing voice is claimed. Existing Torah packets, notes, Hebrew and source recordings/timestamps remain unchanged. Printing remains deferred."
+}

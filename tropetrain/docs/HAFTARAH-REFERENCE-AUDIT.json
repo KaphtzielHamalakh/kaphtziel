@@ -1,0 +1,821 @@
+{
+  "schema": "tropetrain-haftarah-reference-audit-v1",
+  "revision": 1,
+  "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+  "recordings": 54,
+  "originalAudioBytes": 93023935,
+  "sourceWordOccurrences": 17579,
+  "readerWordOccurrences": 17578,
+  "mappedReaderWordOccurrences": 17577,
+  "unmappedReaderWords": [
+    {
+      "recordingId": "pt-haftarah-20",
+      "words": [
+        {
+          "id": "ezk-43-15-4",
+          "hebrew": "וּמֵהָאֲרִאֵ֣יל"
+        }
+      ]
+    }
+  ],
+  "timingReviewRecordings": [
+    {
+      "id": "pt-haftarah-04",
+      "issues": [
+        {
+          "kind": "source-word-count",
+          "sourceWords": 200,
+          "sourceStarts": 556
+        }
+      ]
+    },
+    {
+      "id": "pt-haftarah-27",
+      "issues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 164,
+          "before": 177.645787,
+          "after": 177.4
+        }
+      ]
+    },
+    {
+      "id": "pt-haftarah-43",
+      "issues": [
+        {
+          "kind": "source-word-count",
+          "sourceWords": 389,
+          "sourceStarts": 367
+        }
+      ]
+    }
+  ],
+  "durationReviewWords": [],
+  "discontinuousSourceReadings": 5,
+  "sourceFiles": {
+    "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+    "files": [
+      {
+        "path": "Webbrowser/content/torah/labels/Achrei Mot-H.txt",
+        "local": "labels/Achrei Mot-H.txt",
+        "bytes": 1973,
+        "gitBlob": "36780b5cf00d9526d345055409f83cd912d207f5",
+        "sha256": "cb011e0bc7586c8029a762a7453ce50c88e8a548f3a7a3bae2b0bfedd734b122"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Balak-H.txt",
+        "local": "labels/Balak-H.txt",
+        "bytes": 2229,
+        "gitBlob": "daaef3bdbc5bf384bee51932cc287e9c64370c00",
+        "sha256": "0404117cd50482592687195d62d63020457180b4b1f59afea158430e56c7a7a8"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Bamidbar-H.txt",
+        "local": "labels/Bamidbar-H.txt",
+        "bytes": 3173,
+        "gitBlob": "5f490b1ade666505cdc6b3bfcbb4d3449e6593bd",
+        "sha256": "bc220edef5ca2822efd721f15cfa7010f20bd22977e9bd371688f577bba5be14"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Bechukotai-H.txt",
+        "local": "labels/Bechukotai-H.txt",
+        "bytes": 2338,
+        "gitBlob": "2df8185bdb8f6d1301d2c891f8ab227159a9502d",
+        "sha256": "add38f5223d80c05f87900255743d9d18570b7d470f8b7b7ed1b9f68de7324d0"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Behar-H.txt",
+        "local": "labels/Behar-H.txt",
+        "bytes": 3744,
+        "gitBlob": "51e249b3c86e4f461acfe7a997412c499c2693df",
+        "sha256": "669265247ecfafcf4c5bc54d840d9aa8e9dfbda3c98f1beaf434a9dec5694334"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Beha’alotcha-H.txt",
+        "local": "labels/Beha’alotcha-H.txt",
+        "bytes": 3362,
+        "gitBlob": "bb6f70c8daa19103f28206beb1b6ee5770ee7c57",
+        "sha256": "b3d87165b220c9c251080d7bfb04cb2c0edaf01eed4c48b2fd9bff3d2d786c49"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Bereshit-H.txt",
+        "local": "labels/Bereshit-H.txt",
+        "bytes": 4096,
+        "gitBlob": "b89664685d7163a3759a2d428694b948f28b652c",
+        "sha256": "f338b02017ce0de522cc5fdc62d3f992b88ca572b2c5b44e2c8a311b2f6ff2ea"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Beshalach-H.txt",
+        "local": "labels/Beshalach-H.txt",
+        "bytes": 8108,
+        "gitBlob": "09be8806c177ee422a52040b65087f5d0bfb0a5f",
+        "sha256": "ca5154467e9cbbcaf5962b744b01dd7394bd2276ea3222535eecce28f1fbb5e4"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Bo-H.txt",
+        "local": "labels/Bo-H.txt",
+        "bytes": 2535,
+        "gitBlob": "67f50fce874f9a3ad421566ec99d08dd7d3a59d1",
+        "sha256": "f65429ec91bbd88d1194b030c16dfeb6e802725efe6537ef909eec1fa9881945"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Chayei Sara-H.txt",
+        "local": "labels/Chayei Sara-H.txt",
+        "bytes": 4950,
+        "gitBlob": "74fa689913ae61c48994f918cdf79ac2166c96d7",
+        "sha256": "0f029fa864957fdbdb34d32e827ba8f8cca8e6dfaf16ea3fcc8d05105e489c61"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Chukat-H.txt",
+        "local": "labels/Chukat-H.txt",
+        "bytes": 5772,
+        "gitBlob": "b544a92c64be2ff2786f9dce6be79ad138e17b40",
+        "sha256": "37ba264c5125801edf5c59dabc61bffd9eb3b6459b02bbeeb946aa666ec321b1"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Devarim-H.txt",
+        "local": "labels/Devarim-H.txt",
+        "bytes": 3452,
+        "gitBlob": "3b6feb477acd392fa46ffb5ecd1906300ff7d2fa",
+        "sha256": "c96b837d95d74f42a7783ee35a7fc410a28debf0e5d09ed7e338b2e77593d93f"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Eikev-H.txt",
+        "local": "labels/Eikev-H.txt",
+        "bytes": 4276,
+        "gitBlob": "e1d3158190b35faf56031bf3ba249f2b74566db5",
+        "sha256": "4e00cbac405ca323ff2d6478a5022cd322c1f866ab0a58f6f8921893dacc346b"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Emor-H.txt",
+        "local": "labels/Emor-H.txt",
+        "bytes": 2677,
+        "gitBlob": "46fde5e037f84cfe3283a2d1befd7bb88528cc1a",
+        "sha256": "e654c89a7ce9efd4bb92173488f1d05e5765bbd2d57d2fb45bc495c39ad25f8f"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Haazinu-H.txt",
+        "local": "labels/Haazinu-H.txt",
+        "bytes": 4124,
+        "gitBlob": "49ca74f55c6c6d4185b5e62dea75a9e65cc38d09",
+        "sha256": "57848b0b5a5c29937c4e0bf05cee2852d190cd42d1da185c6b7071a14d995418"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Kedoshim-H.txt",
+        "local": "labels/Kedoshim-H.txt",
+        "bytes": 1549,
+        "gitBlob": "2eebdd9673e775fc4a63545179f4e32521b30238",
+        "sha256": "77a955ac0a9ab51737f4be1f9901cc70e36d48929fe387253a3e2523ecf857d8"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Ki Tavo-H.txt",
+        "local": "labels/Ki Tavo-H.txt",
+        "bytes": 3166,
+        "gitBlob": "95fe64208d094cba843145d1ae721733d04053be",
+        "sha256": "42b89bf64feb5be58d71293fd899e0a50993424a1c834733ef41e21ebb048066"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Ki Teitzei-H.txt",
+        "local": "labels/Ki Teitzei-H.txt",
+        "bytes": 1441,
+        "gitBlob": "661c38d0ceec232222cedecbd8026e4871f8f0d2",
+        "sha256": "8b34df1d1bd5aa5c8684c69b02b50543a30b4bee4bc5a8c7d22c321f229223d7"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Ki Tisa-H.txt",
+        "local": "labels/Ki Tisa-H.txt",
+        "bytes": 6817,
+        "gitBlob": "2419a1e737ad214e677d03bd13b216032d5745c5",
+        "sha256": "a7de16d8aa571f57ce5acbb9f74c705b9e014cf12da52a56d0e65ece04d7ce29"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Korach-H.txt",
+        "local": "labels/Korach-H.txt",
+        "bytes": 4563,
+        "gitBlob": "23f8f796209a7985ad2ae255312b2afbe9b0e6a5",
+        "sha256": "e0038f956b76d4704c9c7aa2f1df23fdcba507b74a0bb966534854c862c9dc1a"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Lech-Lecha-H.txt",
+        "local": "labels/Lech-Lecha-H.txt",
+        "bytes": 2579,
+        "gitBlob": "0087eec772bd58bbd5abb5c4182bc865a27c1503",
+        "sha256": "357c501d649e18332359870cd887e6d9f0a1a19f2738eb5b07e54cf3454bcc2c"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Masei-H.txt",
+        "local": "labels/Masei-H.txt",
+        "bytes": 3936,
+        "gitBlob": "8d31381d9361deb7ec6f199c7d7f3a13e4c2cae7",
+        "sha256": "b9b6d2b865aeec8acbe17b187265bec3bbad9006d3883ca5ef9a9c9e2b40dbae"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Matot-H.txt",
+        "local": "labels/Matot-H.txt",
+        "bytes": 3229,
+        "gitBlob": "774a45a6d5dbeb02aa17e5e16e27fcb7c76acc26",
+        "sha256": "da302c49a7eb1673da376cd43d52c388b9fb59e075c1441e8229f8a25785ba90"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Metzora-H.txt",
+        "local": "labels/Metzora-H.txt",
+        "bytes": 3897,
+        "gitBlob": "8378433e9851c1f6b4dc5c6fdc4f1e6ebd794213",
+        "sha256": "ccec9e1bd5ad647242e6fbe2b123f6845e4b3eb1c6e4c7ae73a94228b23fc6e5"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Miketz-H.txt",
+        "local": "labels/Miketz-H.txt",
+        "bytes": 2459,
+        "gitBlob": "204d524dd29e6b0047ddbe48af0cb33603eccf4f",
+        "sha256": "7f1da91e3033cf19ca5b0819c6d55e4d3e5fe9eb74f9d038161b9309b9ee38de"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Mishpatim-H.txt",
+        "local": "labels/Mishpatim-H.txt",
+        "bytes": 3370,
+        "gitBlob": "5748bd08601cab9e48457e31f842a492d9dcaf8d",
+        "sha256": "7672fe826cd0ea7c09ce08fb9a7ae9b8c6904365ce57c5aaf9756ced669fe527"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Nasso-H.txt",
+        "local": "labels/Nasso-H.txt",
+        "bytes": 4099,
+        "gitBlob": "3118f89f825b323f30ebec7d7a9f2375838beea8",
+        "sha256": "a29f55917a5c7a78ee263da4657515aab4169f0f5bc710a8ff567da0ae22376f"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Nitzavim-H.txt",
+        "local": "labels/Nitzavim-H.txt",
+        "bytes": 3516,
+        "gitBlob": "9fa8a75587bca970102bd7c1541e49aa38159c94",
+        "sha256": "4757471001ee834724db25f350cf867c7eb08c40b1b59de5ab5b98fdb2571a26"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Noach-H.txt",
+        "local": "labels/Noach-H.txt",
+        "bytes": 3127,
+        "gitBlob": "f766af2361c6ab25a5bf9adaa64e18a57db87d57",
+        "sha256": "f1956ecb624a070ab15e27721b5b434ca72552572e7193b4583acaf652fa977e"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Pekudei-H.txt",
+        "local": "labels/Pekudei-H.txt",
+        "bytes": 3774,
+        "gitBlob": "434cf0e6ae913698e21be3fc4e9b971bcc8bed48",
+        "sha256": "181fdb79eaff49cec43d2fe48f0c3a7dbac00010b2e698ea3864c256d2dea310"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Pinchas-H.txt",
+        "local": "labels/Pinchas-H.txt",
+        "bytes": 4157,
+        "gitBlob": "aeb6a6cb4b5e1ac5cc47512883fc7b7e0e0cadc1",
+        "sha256": "2d0ab05d39230e3b7cf416120032c2584b8ca95485b410c532ee5625ee7bb013"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Re’eh-H.txt",
+        "local": "labels/Re’eh-H.txt",
+        "bytes": 1661,
+        "gitBlob": "8c1da967ebfd4698109dbf08d4fd372c07da55bf",
+        "sha256": "2f2f79eaa8e56820098db35c17041bf5ae20428ad0212f6beb72dd4513f7467e"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Shemot-H.txt",
+        "local": "labels/Shemot-H.txt",
+        "bytes": 3473,
+        "gitBlob": "a158ff5ed25c84499174dd046f872cff25181d64",
+        "sha256": "9cb83c724588ff228ae30d8c278091351ea9fc6d201a00734e122bcbb286a787"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Shmini-H.txt",
+        "local": "labels/Shmini-H.txt",
+        "bytes": 6858,
+        "gitBlob": "36b28062e5cde258a81b50944f87ba1f04bcac2b",
+        "sha256": "0dd2d160e18137410db50143fcca0a499092d7ad5a75216ac29f790c6b1859cb"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Shoftim-H.txt",
+        "local": "labels/Shoftim-H.txt",
+        "bytes": 3487,
+        "gitBlob": "f18ca38f9035ed4a994b44e1cb2b7cbe7447452a",
+        "sha256": "2e103ba11c79a6ddbd108f800eac9007e8233510deeed701f370a417c2a736e4"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Sh’lach-H.txt",
+        "local": "labels/Sh’lach-H.txt",
+        "bytes": 4338,
+        "gitBlob": "6eae5184ca559b776807902cbb64dacafe00e14c",
+        "sha256": "ae5935b1e98e9dcaeaff30c88bc21e47b5f5f363194c2a81156c874df3c860dc"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Tazria-H.txt",
+        "local": "labels/Tazria-H.txt",
+        "bytes": 4115,
+        "gitBlob": "e55f31c33db6416417f5eab6084b14822d96b5c4",
+        "sha256": "7b8d04c693e50c61faa535e66fd10cb42488c8af3e9c6fb7b54938a2b0bc1804"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Terumah-H.txt",
+        "local": "labels/Terumah-H.txt",
+        "bytes": 3043,
+        "gitBlob": "33e967c28401ffb97b8242ee8c186b1846936e56",
+        "sha256": "5715ab8c6c75bf2c55ffa4294ba190027caddd14c67fdfb49dabb95546f2de58"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Tetzaveh-H.txt",
+        "local": "labels/Tetzaveh-H.txt",
+        "bytes": 3011,
+        "gitBlob": "b30179bf46f024013ca3acb8990f863b1caa5517",
+        "sha256": "1e9c7415e084e2cc925ef0cde28bf7c90f3e2fe22c30721643570f2f2e7a35ed"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Toldot-H.txt",
+        "local": "labels/Toldot-H.txt",
+        "bytes": 3644,
+        "gitBlob": "fd3a768491630537aca1a8150093f76460eda5c6",
+        "sha256": "ae421331647a36239d128b5d5ab161d10d3002b3ad4ce80a22f97bc899e14c22"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Tzav-H.txt",
+        "local": "labels/Tzav-H.txt",
+        "bytes": 3581,
+        "gitBlob": "b7f1d6bb3e535e8ab0cf8066cef737b52b2434e2",
+        "sha256": "9c7100d7521ba53e1b670d12c17a853748e70941859ae227fd891d5515ff0581"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vaera-H.txt",
+        "local": "labels/Vaera-H.txt",
+        "bytes": 4168,
+        "gitBlob": "d02e11eb3423af4565aa2c4ef0e329e73697c196",
+        "sha256": "a74178e19afe09862bfa639cab6a7b8e661f7e59cbb8de838760e997e4535d55"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayakhel-H.txt",
+        "local": "labels/Vayakhel-H.txt",
+        "bytes": 1729,
+        "gitBlob": "56d87d7e64a59f4bc4b12bffb47f2871fa60b755",
+        "sha256": "0b5dec64e03ce2b650a8b6a432417fc2ca5c6eda92846a63a0a1b10e670d3b11"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayechi-H.txt",
+        "local": "labels/Vayechi-H.txt",
+        "bytes": 2200,
+        "gitBlob": "0b8fb20122e6a9ef5708b34da736246c9cdee031",
+        "sha256": "0ade0e1539ce2dc3a879d7067e5b1ee9f1b29aa7b14bcca2bd917e5e8c0613d1"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayeilech-H.txt",
+        "local": "labels/Vayeilech-H.txt",
+        "bytes": 2013,
+        "gitBlob": "9900eb8a9226563c7ff91a07c1f1c81157fb509b",
+        "sha256": "a190b1b9868bea729d0663af0f985502dba428639009984a0e8c8e3c5037ec64"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayera-H.txt",
+        "local": "labels/Vayera-H.txt",
+        "bytes": 5987,
+        "gitBlob": "d995d2d9d953eb43cb51917ecb0cb35afa40e725",
+        "sha256": "d0bbdec20a7c9b1a121651ef0b162ca19c641883678c3132076945ab48e96626"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayeshev-H.txt",
+        "local": "labels/Vayeshev-H.txt",
+        "bytes": 2631,
+        "gitBlob": "293121d1edad83f43679947b8106264d1b0ad8c9",
+        "sha256": "96af01e552f4e66217ad6d09c06cc8a4ed3d2ae48bfd3bc1ce1e8130fe746446"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayetzei-H.txt",
+        "local": "labels/Vayetzei-H.txt",
+        "bytes": 3280,
+        "gitBlob": "84240b6443a3c4554b30b833a1ff714e849826f1",
+        "sha256": "090baa57d4914b80423dda4becbbf6d61479329ce4474f0f19758a0dc1336468"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayigash-H.txt",
+        "local": "labels/Vayigash-H.txt",
+        "bytes": 2504,
+        "gitBlob": "216f8aaa62746e939b138cfada302ddb506202b2",
+        "sha256": "56f7c522dc6f7797b40550f0bf2f93e741b3715a7d7d9a46b88d10ab43280e23"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayikra-H.txt",
+        "local": "labels/Vayikra-H.txt",
+        "bytes": 4350,
+        "gitBlob": "b49a2f35aad86cc13b363007199aaeb17539f8a3",
+        "sha256": "2c917addb85c110508e00cc1915435195afff9535fa1840280037894f2f33ff7"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vayishlach-H.txt",
+        "local": "labels/Vayishlach-H.txt",
+        "bytes": 3105,
+        "gitBlob": "360f7c96c531b6af0fdf7735fa6d7c13827405d3",
+        "sha256": "d6cc37aaab232fed30d01d2e40cfe24b076f86cd8cabf6571e48ce9559967da2"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Va’ethanan-H.txt",
+        "local": "labels/Va’ethanan-H.txt",
+        "bytes": 3237,
+        "gitBlob": "809816ae3e6720500c610056ea8aaf19a206c296",
+        "sha256": "534a9a9844184259d71d10d04c5b8e4c150a4190ec36cb69f3fa0a1a7de23039"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Vezot Haberakhah-H.txt",
+        "local": "labels/Vezot Haberakhah-H.txt",
+        "bytes": 3422,
+        "gitBlob": "f45232aeab363a74fb95c681286e090c0f6d3c6a",
+        "sha256": "37cfb808a4459017f9b375fb7fd1ce602e8afd331a47718ffa6ca3e513bb1bef"
+      },
+      {
+        "path": "Webbrowser/content/torah/labels/Yitro-H.txt",
+        "local": "labels/Yitro-H.txt",
+        "bytes": 3603,
+        "gitBlob": "db178b3678fcf26b923cb4623bcd9d5cbcb21172",
+        "sha256": "00222f718a401b99895bdf19b0964d2cd94cb638da94e083b7aeec6abc53e797"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Amos.xml",
+        "local": "xml/Amos.xml",
+        "bytes": 84175,
+        "gitBlob": "222a421a7fc7773a8f25bb5f017631730ce535b3",
+        "sha256": "2d83e798c51c3b09209156d984ce9b0d371088be77841ac40c53423797175e95"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Ezekiel.xml",
+        "local": "xml/Ezekiel.xml",
+        "bytes": 683079,
+        "gitBlob": "208495c600d4f81d01f7036e258fa4434619b93a",
+        "sha256": "4ebd5bff0c7eb20dab264c8ab1695234908a59b730f7449e21e672ddf0d3bd2f"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Hosea.xml",
+        "local": "xml/Hosea.xml",
+        "bytes": 97508,
+        "gitBlob": "1036d7c8bfa824fed15e70bdb14039716601b45f",
+        "sha256": "9a4c62bf8de2a3914d2b09f5e8756fb577da625443b60de528d2ccaa8457e64f"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Isaiah.xml",
+        "local": "xml/Isaiah.xml",
+        "bytes": 617886,
+        "gitBlob": "ac9df34553932397c642d491aedd62e88918d408",
+        "sha256": "e8fa77d048896272db48c6ae8761e737588f26aa4eec363179c30db6ffc60eed"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Jeremiah.xml",
+        "local": "xml/Jeremiah.xml",
+        "bytes": 780485,
+        "gitBlob": "a11ceaf71f4554a28271d9c4534ca41050fd63ae",
+        "sha256": "2eea518471899f458349f6627a7575f88114e595658e526c654e6e8dc5b5a63b"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Joel.xml",
+        "local": "xml/Joel.xml",
+        "bytes": 45086,
+        "gitBlob": "85387462d1bb8471e9a1ba6d0fbf610820801625",
+        "sha256": "8f0d04cd4adad5726e96d8dff1202ca9c97e42b9594037bcf652370c40d12924"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Joshua.xml",
+        "local": "xml/Joshua.xml",
+        "bytes": 369508,
+        "gitBlob": "cdba7bef1b13198c43f0d8838c4d45a77c676f67",
+        "sha256": "cd596e4ab184115ef3df4ea872a32e079c305141f1e32f39b666e54075250bcc"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Judges.xml",
+        "local": "xml/Judges.xml",
+        "bytes": 362044,
+        "gitBlob": "5c8620254f512729a95c0b051679454d8ffa7443",
+        "sha256": "67ab5a398a16113677539816bffe51f9d4044df09010c583b8bde8ea2ffd9669"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Kings_1.xml",
+        "local": "xml/Kings_1.xml",
+        "bytes": 473834,
+        "gitBlob": "3efabeb4019609cd4f8a06690a17b4ccf45fb234",
+        "sha256": "99f97028b7cd1993f8e8c99bc24d5f156c96f52bd1f0b61f3fa721aef883aa7e"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Kings_2.xml",
+        "local": "xml/Kings_2.xml",
+        "bytes": 443986,
+        "gitBlob": "50455ef159894c4c14cdef53187051b53d433a8a",
+        "sha256": "46c4ff08dbfbd2d281d49c32dde78ad2df5fbe06f2157275993697ec9d7acc7b"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Malachi.xml",
+        "local": "xml/Malachi.xml",
+        "bytes": 42413,
+        "gitBlob": "8578e1f6fc522230ab8f46b3fbc8d47efce617b0",
+        "sha256": "c5dbd62fabb32d140eb06da60352d181fb6ad4db118c73fbe5027fb7e6415302"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Micah.xml",
+        "local": "xml/Micah.xml",
+        "bytes": 61860,
+        "gitBlob": "ff22af4d47fb4859901d75ad1d0a381f0b3dfe0c",
+        "sha256": "d125f62464686667e361df42fb6eeb67986f38e16ee6c556c063aedd4868ea7e"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Obadiah.xml",
+        "local": "xml/Obadiah.xml",
+        "bytes": 22008,
+        "gitBlob": "fbbb2bed675e5d302d42ae920b81345f3d139f31",
+        "sha256": "3a1eb05cbce2d3b874069a4ea45d0d1b8ee3951720107c66c965fe215b928908"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Samuel_1.xml",
+        "local": "xml/Samuel_1.xml",
+        "bytes": 479872,
+        "gitBlob": "ac559e98b59b585f3942c81f81318b5f1bb2b59b",
+        "sha256": "80a2df5d217d9e820de2c777247f7fdac9e5c84bbaad670edf6eca77246c54fe"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Samuel_2.xml",
+        "local": "xml/Samuel_2.xml",
+        "bytes": 400067,
+        "gitBlob": "f6c28149dabc378d0d9ac11506e231c4e27d9931",
+        "sha256": "f5744b786ffcc3515aaae4e9499ea6ed69909460d6dfc9f5921235d1afd0ee98"
+      },
+      {
+        "path": "Webbrowser/content/torah/xml/Zechariah.xml",
+        "local": "xml/Zechariah.xml",
+        "bytes": 122841,
+        "gitBlob": "17bac63eb48735a3d84c77b46aa3dadacd7be4b0",
+        "sha256": "6b57e103c32f323f7dba72ed43b29af78019625646399384e5be5a449745429b"
+      }
+    ],
+    "allOriginalGitBlobsExact": true
+  },
+  "textDifferences": [
+    {
+      "bookId": "jos",
+      "chapter": 10,
+      "verse": 24,
+      "unassignedSourceIds": [
+        "wlc-2012-jos-10-24-19"
+      ],
+      "unassignedReaderIds": [
+        "jos-10-24-20"
+      ],
+      "sourceForms": [
+        "הֶ/הָלְכ֣וּא"
+      ],
+      "readerForms": [
+        "הֶהָלְכ֣וּ"
+      ]
+    },
+    {
+      "bookId": "jdg",
+      "chapter": 19,
+      "verse": 21,
+      "unassignedSourceIds": [
+        "wlc-2012-jdg-19-21-3"
+      ],
+      "unassignedReaderIds": [
+        "jdg-19-21-3"
+      ],
+      "sourceForms": [
+        "וַ/יָּ֖בָל"
+      ],
+      "readerForms": [
+        "וַיָּ֖בָול"
+      ]
+    },
+    {
+      "bookId": "sam1",
+      "chapter": 17,
+      "verse": 17,
+      "unassignedSourceIds": [
+        "wlc-2012-sam1-17-17-9"
+      ],
+      "unassignedReaderIds": [
+        "sam1-17-17-10"
+      ],
+      "sourceForms": [
+        "הַ/קָּלִיא֙"
+      ],
+      "readerForms": [
+        "הַקָּלִי֙"
+      ]
+    },
+    {
+      "bookId": "sam1",
+      "chapter": 19,
+      "verse": 23,
+      "unassignedSourceIds": [
+        "wlc-2012-sam1-19-23-4"
+      ],
+      "unassignedReaderIds": [
+        "sam1-19-23-4"
+      ],
+      "sourceForms": [
+        "נָי֖וֹת"
+      ],
+      "readerForms": [
+        "נָוֹ֖ית"
+      ]
+    },
+    {
+      "bookId": "sam2",
+      "chapter": 13,
+      "verse": 33,
+      "unassignedSourceIds": [
+        "wlc-2012-sam2-13-33-15"
+      ],
+      "unassignedReaderIds": [],
+      "sourceForms": [
+        "אִם־"
+      ],
+      "readerForms": []
+    },
+    {
+      "bookId": "sam2",
+      "chapter": 14,
+      "verse": 7,
+      "unassignedSourceIds": [
+        "wlc-2012-sam2-14-7-12"
+      ],
+      "unassignedReaderIds": [
+        "sam2-14-7-12"
+      ],
+      "sourceForms": [
+        "וּ/נְמִתֵ֙/הוּ֙"
+      ],
+      "readerForms": [
+        "וּנְמִיתֵ֙הוּ֙"
+      ]
+    },
+    {
+      "bookId": "sam2",
+      "chapter": 15,
+      "verse": 21,
+      "unassignedSourceIds": [
+        "wlc-2012-sam2-15-21-12"
+      ],
+      "unassignedReaderIds": [],
+      "sourceForms": [
+        "אִם־"
+      ],
+      "readerForms": []
+    },
+    {
+      "bookId": "sam2",
+      "chapter": 20,
+      "verse": 8,
+      "unassignedSourceIds": [
+        "wlc-2012-sam2-20-8-14"
+      ],
+      "unassignedReaderIds": [
+        "sam2-20-8-14"
+      ],
+      "sourceForms": [
+        "וְ/עָלָ֞י/ו"
+      ],
+      "readerForms": [
+        "וְעָלָ֞ו"
+      ]
+    },
+    {
+      "bookId": "isa",
+      "chapter": 58,
+      "verse": 14,
+      "unassignedSourceIds": [
+        "wlc-2012-isa-58-14-7"
+      ],
+      "unassignedReaderIds": [
+        "isa-58-14-7"
+      ],
+      "sourceForms": [
+        "בָּ֣מֳתֵי"
+      ],
+      "readerForms": [
+        "בָּ֣מֳותֵי"
+      ]
+    },
+    {
+      "bookId": "jer",
+      "chapter": 27,
+      "verse": 20,
+      "unassignedSourceIds": [
+        "wlc-2012-jer-27-20-9"
+      ],
+      "unassignedReaderIds": [
+        "jer-27-20-9"
+      ],
+      "sourceForms": [
+        "יְכָנְיָ֨ה"
+      ],
+      "readerForms": [
+        "יְכָונְיָ֨ה"
+      ]
+    },
+    {
+      "bookId": "ezk",
+      "chapter": 16,
+      "verse": 36,
+      "unassignedSourceIds": [
+        "wlc-2012-ezk-16-36-10"
+      ],
+      "unassignedReaderIds": [
+        "ezk-16-36-10"
+      ],
+      "sourceForms": [
+        "בְּ/תַזְנוּתַ֖יִ/ךְ"
+      ],
+      "readerForms": [
+        "כְּתַזְנוּתַ֖יִךְ"
+      ]
+    },
+    {
+      "bookId": "ezk",
+      "chapter": 43,
+      "verse": 15,
+      "unassignedSourceIds": [
+        "wlc-2012-ezk-43-15-4"
+      ],
+      "unassignedReaderIds": [
+        "ezk-43-15-4"
+      ],
+      "sourceForms": [
+        "וּ/מֵ/הָ/אֲרִיאֵ֣ל"
+      ],
+      "readerForms": [
+        "וּמֵהָאֲרִאֵ֣יל"
+      ]
+    },
+    {
+      "bookId": "ezk",
+      "chapter": 44,
+      "verse": 3,
+      "unassignedSourceIds": [
+        "wlc-2012-ezk-44-3-7"
+      ],
+      "unassignedReaderIds": [
+        "ezk-44-3-7"
+      ],
+      "sourceForms": [
+        "לֶ/אֱכָל־"
+      ],
+      "readerForms": [
+        "לֶאֱכָול־"
+      ]
+    },
+    {
+      "bookId": "amo",
+      "chapter": 7,
+      "verse": 2,
+      "unassignedSourceIds": [
+        "wlc-2012-amo-7-2-4"
+      ],
+      "unassignedReaderIds": [
+        "amo-7-2-4"
+      ],
+      "sourceForms": [
+        "לֶֽ/אֱכוֹל֙"
+      ],
+      "readerForms": [
+        "לֶֽאֱכֹל֙"
+      ]
+    }
+  ],
+  "sourceBoundaryGroups": [
+    {
+      "readerId": "sam2-3-30-10",
+      "sourceWordIds": [
+        "wlc-2012-sam2-3-30-10"
+      ]
+    },
+    {
+      "readerId": "sam2-3-30-11",
+      "sourceWordIds": [
+        "wlc-2012-sam2-3-30-10"
+      ]
+    }
+  ],
+  "review": {
+    "acoustic": null,
+    "musical": null,
+    "phonological": null
+  },
+  "limits": "Original source readings, not universal contemporary haftarah assignments, Kinnor presets, complete musical grammars or new pronunciation voices. Source variants/overlapping verses remain separate by recording. No reader/source text, audio or source timestamps changed. Unmatched interior forms and unusable timing windows remain withheld.",
+  "sourceRows": 17578,
+  "sourceTimedMappedWordOccurrences": 16604,
+  "uniqueMappedReaderWords": 17275,
+  "sourceCoverageReview": [
+    {
+      "id": "pt-haftarah-04",
+      "issues": [
+        {
+          "kind": "source-verse-outside-reader",
+          "bookId": "kgs1",
+          "edge": "end",
+          "chapter": 4,
+          "verse": 37
+        }
+      ]
+    }
+  ]
+}
