@@ -15,7 +15,7 @@ export function inlineSourceText(nodes){
 }
 export class PronunciationLibrary {
  constructor(data,{underlay=null,segments=null}={}){
-  if(data?.format!=='tropetrain-pronunciation-display-v1'||![1,2,3].includes(data.revision))throw Error('Unsupported pronunciation source revision.');
+  if(data?.format!=='tropetrain-pronunciation-display-v1'||![1,2,3,4].includes(data.revision))throw Error('Unsupported pronunciation source revision.');
   this.sourceCommit=data.sourceCommit;this.groups=data.groups;this.byWord=new Map();
   this.underlay=underlay?new PronunciationUnderlay(underlay,data.sourceCommit):null;
   if(segments&&!underlay)throw Error('Checked Hebrew underlay is required for pronunciation source rules.');

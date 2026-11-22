@@ -42,6 +42,8 @@ export function readerPronunciationWord(word,study,style){
  }
  const variants=study.sourceGroup?.writtenReadVariants?.filter(v=>v.readerWordId===sourceWordId)??[];
  if(variants.length)for(const entry of result.entries)entry.writtenReadVariant=variants[0];
+ const edition=study.sourceGroup?.editionWordLinks?.find(v=>v.readerWordId===sourceWordId);
+ if(edition)for(const entry of result.entries)entry.editionWordLink=edition;
  result.status=result.entries.length?'word-linked':transcribed?'combined-source-form':'no-style-transcription';
  return result;
 }
@@ -61,7 +63,7 @@ export function appendReaderPronunciation(target,report){
   }
   line.append(text);
   if(entry.labels.length){const labels=document.createElement('small');labels.lang='he';labels.dir='rtl';labels.textContent=entry.labels.join(' / ');line.append(labels);}
-  if(entry.sourceForm){const label=document.createElement('small');label.textContent=entry.writtenReadVariant?'Written/read source variant':'Source reading form';if(entry.writtenReadVariant)label.title=`UXLC written ${entry.writtenReadVariant.writtenHebrew}; preferred reading ${entry.writtenReadVariant.readerHebrew}. Source pronunciation retains its own form; written ranges remain unresolved.`;line.append(label);}
+  if(entry.sourceForm){const label=document.createElement('small');label.textContent=entry.editionWordLink?'Different source spelling':entry.writtenReadVariant?'Written/read source variant':'Source reading form';if(entry.editionWordLink)label.title=`Reader ${entry.editionWordLink.readerHebrew}; MAM ${entry.editionWordLink.primaryHebrew}. Contextual word correspondence only; the source transcription retains its own spelling and has no written syllable range or sound assignment.`;else if(entry.writtenReadVariant)label.title=`UXLC written ${entry.writtenReadVariant.writtenHebrew}; preferred reading ${entry.writtenReadVariant.readerHebrew}. Source pronunciation retains its own form; written ranges remain unresolved.`;line.append(label);}
   target.append(line);
  }
 }

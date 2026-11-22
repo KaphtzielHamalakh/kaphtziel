@@ -16,7 +16,7 @@ const text=(g,style)=>g.rows.flatMap(r=>r.transcriptions[style].map(inlineSource
 
 test('every mapped row and marked reader word matches the pinned original, with no duplicates or cross-order joins',()=>{
  const result=JSON.parse(execFileSync('python3',[new URL('../scripts/audit-pronunciation.py',import.meta.url).pathname],{encoding:'utf8'}));
- assert.equal(result.sourceBytes,14992105);assert.equal(result.mappedWords,79843);assert.equal(result.unassignedWords,142);
+ assert.equal(result.sourceBytes,14992105);assert.equal(result.mappedWords,79984);assert.equal(result.unassignedWords,1);
  assert.equal(result.allCandidateEdges,2162);assert.equal(result.maxExactSourceRows,1);assert.equal(result.maxExactReaderWords,3);
  assert.ok(result.exactOriginalRows>66000);assert.ok(result.manyWordGroups>10000);
 });
@@ -36,7 +36,7 @@ test('explicit reading forms and many-word groups retain both source texts and n
  assert.deepEqual(g.readerHebrew,['הֲ־','לַיְהוָה֙']);assert.equal(inlineSourceText(g.rows[0].hebrew[0]),'הַלְאֲדֹנָי֙');
  assert.ok(g.flags.includes('documented-reading-form'));assert.ok(g.flags.includes('source-group'));
  assert.equal(g.phonemes,undefined);assert.equal(g.syllables,undefined);assert.equal(g.audio,undefined);
- assert.equal(group('gen-8-20-8'),null);
+ assert.equal(group('gen-4-18-9'),null);
  const h=group('num-12-9-1');assert.deepEqual(h.readerHebrew,['וַיִּֽחַרְאַ֧ף']);assert.equal(inlineSourceText(h.rows[0].hebrew[0]),'וַיִּֽחַר־אַ֧ף');
 });
 test('alternate qamats readings, missing style cell and source column positions remain literal',()=>{
@@ -84,7 +84,7 @@ test('partial alignments accept only edges shared by all best paths, including r
 });
 test('v0.21 retains every complete v0.20 group exactly while linking only forced groups inside two original anchors',async()=>{
  const {createHash}=await import('node:crypto');
- const previous=data.groups.filter(g=>g.match!=='forced-between-verse-anchors'&&!g.writtenReadVariants);
+ const previous=data.groups.filter(g=>g.match!=='forced-between-verse-anchors'&&!g.writtenReadVariants&&!g.editionWordLinks);
  const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,stable(value[k])])):value;
  assert.equal(previous.length,66578);
  assert.equal(createHash('sha256').update(JSON.stringify(stable(previous))).digest('hex'),'42555a25020ef99348274c5402bff2816256a9d7efb53c60307a7a9f24c8a9b6');
@@ -100,6 +100,6 @@ test('v0.21 retains every complete v0.20 group exactly while linking only forced
 test('one spelling difference no longer hides other exact words in the same verse, without replacing the differences',()=>{
  const good=group('gen-8-20-1');assert.equal(good.match,'forced-between-verse-anchors');assert.deepEqual(good.readerHebrew,['וַיִּ֥בֶן']);
  assert.deepEqual(text(good,'sephardic'),['vay·yi·ven']);
- assert.equal(group('gen-8-20-8'),null);assert.equal(group('gen-8-20-11'),null);
+ assert.equal(group('gen-8-20-8').match,'primary-edition-words-between-anchors');assert.equal(group('gen-8-20-11').match,'primary-edition-words-between-anchors');
  assert.equal(group('gen-8-20-12').match,'forced-between-verse-anchors');
 });

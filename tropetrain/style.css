@@ -114,3 +114,4 @@
 #score-word-alignment{margin-block:1rem;min-width:0}#score-word-alignment-content{min-width:0}
 
 #prophetical-score-scan{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:5px;margin-block:1rem}
+.pronunciation-edition-forms{width:100%;border-collapse:collapse;table-layout:fixed;margin:1rem 0}.pronunciation-edition-forms th,.pronunciation-edition-forms td{border:1px solid var(--line,#d6d6cf);padding:.6rem;overflow-wrap:anywhere}.pronunciation-edition-forms td{font-family:'Noto Serif Hebrew',serif;font-size:1.35rem}

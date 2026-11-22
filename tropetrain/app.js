@@ -618,7 +618,7 @@ function applyRanges(ranges,{remember=true,restoreCursor=null,readingType}={}){
   state.cursor=restoreCursor&&words[restoreCursor.cursor]?restoreCursor.cursor:0;state.anchor=restoreCursor&&words[restoreCursor.anchor]?restoreCursor.anchor:state.cursor;
   state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();renderSections();if(remember)rememberReading();
   const unresolved=words.filter(w=>w.analysisStatus==='unsegmented').length;
-  $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} words have unresolved syllable boundaries. `:''}Musical source: ${model.profile.name}. Syllables are unreviewed; the recorded reference is separate.`;
+  $('library-message').textContent=`Opened ${passage.title}. ${unresolved?`${unresolved} word${unresolved===1?' has':'s have'} unresolved syllable boundaries. `:''}Syllables are unreviewed; the recorded reference is separate.`;
   if(passage.ranges.some(range=>range.divisionSource?.referenceMapping))$('library-message').textContent+=' Calendar and UXLC verse numbers differ here; inspect Source/UXLC verse numbering under Tutor assignments & sections.';
 }
 function updateBookLimits({reset=false}={}){

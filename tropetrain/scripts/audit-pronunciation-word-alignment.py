@@ -32,6 +32,7 @@ for group in data['groups']:
   proof=[[set() for _ in row[0]] for row in source_rows]
   choices=[set(forms(h)) for h in group['readerHebrew']]
   for variant in group.get('writtenReadVariants',[]):choices[group['readerIds'].index(variant['readerWordId'])].add(letters(variant['writtenHebrew']))
+  for link in group.get('editionWordLinks',[]):choices[group['readerIds'].index(link['readerWordId'])].add(letters(link['primaryHebrew']))
   reader_choices=list(itertools.product(*(sorted(c) for c in choices)));maximum=max(maximum,len(reader_choices))
   for source_choice in itertools.product(*source_rows):
    source=''.join(p for row in source_choice for p in row);matches=[]
@@ -77,7 +78,7 @@ for group in data['groups']:
      record=[style,group['id'],row['number'],column,unit_number,owner]
      line=(json.dumps(record,separators=(',',':'))+'\n').encode();hashes[style].update(line)
      if not is_repeat:literal_hashes[style].update(line)
-     if 'writtenReadVariants' not in group:
+     if 'writtenReadVariants' not in group and 'editionWordLinks' not in group:
       base_hashes[style].update(line)
       if not is_repeat:base_literal_hashes[style].update(line)
   assigned=sum(owner is not None for owner in group_units)

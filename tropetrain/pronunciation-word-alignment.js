@@ -18,6 +18,15 @@ export function groupReaderLetterForms(group,index){
    throw Error('Explicit written/read pronunciation evidence needs review.');
   forms.push(letters(variant.writtenHebrew));
  }
+ if(group.editionWordLinks){
+  const links=group.editionWordLinks,owners=new Set(links.map(v=>v.readerWordId));
+  if(links.length!==group.readerIds.length||owners.size!==links.length||group.readerIds.some(id=>!owners.has(id))||!group.flags.includes('primary-edition-correspondence')||!group.variantWindow?.beforeGroup||!group.variantWindow?.afterGroup||!/^[a-f0-9]{64}$/u.test(group.primaryEditionArchiveSha256??''))throw Error('Primary edition word evidence needs review.');
+  const plain=nodes=>nodes.map(n=>typeof n==='string'?n:plain(n.content)).join(''),sourceRows=group.rows.map(row=>[...new Set(row.hebrew.filter(h=>h!==null).map(h=>letters(plain(h))))]);
+  if(sourceRows.some(r=>r.length!==1)||sourceRows.map(r=>r[0]).join('')!==links.map(v=>letters(v.primaryHebrew??'')).join(''))throw Error('Primary edition spelling differs from the original pronunciation source.');
+  const link=links.find(v=>v.readerWordId===id),osis={gen:'Gen',exo:'Exod',lev:'Lev',num:'Num',deu:'Deut'}[group.bookId];
+  if(link.kind!=='mam-primary-edition-word'||link.readerHebrew!==text||typeof link.primaryHebrew!=='string'||!letters(link.primaryHebrew)||!Number.isInteger(link.primaryAtom)||link.primaryAtom<1||link.primaryVerse!==`${osis}.${group.displayChapter}.${group.displayVerse}`||!/^[a-f0-9]{64}$/u.test(link.sourceFileSha256??''))throw Error('Primary edition word evidence needs review.');
+  forms.push(letters(link.primaryHebrew));
+ }
  return [...new Set(forms)];
 }
 

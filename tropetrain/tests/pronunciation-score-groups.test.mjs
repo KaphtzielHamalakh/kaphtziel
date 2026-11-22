@@ -25,7 +25,7 @@ test('repeated assignment occurrences have distinct group/event IDs and identica
  const section={bookId:'gen',start:{chapter:22,verse:1},end:{chapter:22,verse:1}},m=createReadingModel(corpus.passage([{...section,id:'first'},{...section,id:'second'}]),{melodyId:'cohen-1902-gen22-ending'}),r=link(m.buildPlan(0,25),m.words,lib,'ashkenazic');assert.equal(r.counts.eventsInCommonSpans,104);const a=r.words[0].groups[0],b=r.words[13].groups[0];assert.notEqual(a.id,b.id);assert.notDeepEqual(a.eventIds,b.eventIds);assert.equal(a.sourceWordId,b.sourceWordId);assert.deepEqual(a.sourceUnits,b.sourceUnits);
 });
 test('source-only forms, missing words and combined units remain explicitly unassigned',()=>{
- const m=modelAt('gen',8,20),p=m.buildPlan(7,7),r=link(p,m.words,lib,'sephardic');assert.equal(r.words[0].reason,'no-source-correspondence');assert.equal(r.counts.eventsInCommonSpans,0);
+ const m=modelAt('gen',8,20),p=m.buildPlan(7,7),r=link(p,m.words,lib,'sephardic');assert.equal(r.words[0].reason,'source-only-written-form');assert.equal(r.counts.eventsInCommonSpans,0);
  const c=modelAt('deu',32,6),cr=link(c.buildPlan(0,1),c.words,lib,'sephardic');assert.ok(cr.words.every(w=>w.reason==='no-individual-word-units'));
  const d=modelAt('gen',2,4),i=d.words.findIndex(w=>w.sourceHebrew.replace(/[^א-ת]/gu,'')==='יהוה'),dr=link(d.buildPlan(i,i),d.words,lib,'sephardic');assert.equal(dr.words[0].reason,'source-only-written-form');assert.equal(dr.counts.eventsInCommonSpans,0);
 });

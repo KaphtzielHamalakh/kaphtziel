@@ -59,6 +59,6 @@ test('staff keeps exact Hebrew, source alternatives, melisma continuations and s
 test('the full-Torah structural audit pins its source inputs and is embedded unchanged in the standalone',()=>{
  const raw=readFileSync(new URL('../docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json',import.meta.url)),r=JSON.parse(raw);assert.equal(r.words,79985);assert.equal(r.verses,5853);
  for(const input of r.inputs)assert.equal(createHash('sha256').update(readFileSync(new URL('../'+input.path,import.meta.url))).digest('hex'),input.sha256);
- for(const style of ['sephardic','ashkenazic']){assert.equal(r.originalDemo[style].notes,231178);assert.equal(r.originalDemo[style].linkedNotes,220502);assert.equal(r.originalDemo[style].wordsFullyLinked,74763);assert.equal(r.boundedPrintedGenesis22[style].linkedNotes,50);assert.equal(r.boundedPrintedGenesis22[style].unlinked.length,2);}
+ for(const style of ['sephardic','ashkenazic']){assert.equal(r.originalDemo[style].notes,231178);assert.equal(r.originalDemo[style].linkedNotes,220525);assert.equal(r.originalDemo[style].wordsFullyLinked,74783);assert.equal(r.boundedPrintedGenesis22[style].linkedNotes,50);assert.equal(r.boundedPrintedGenesis22[style].unlinked.length,2);}
  assert.match(r.limits,/not a traditional melody/);assert.ok(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8').includes('data:application/json;base64,'+raw.toString('base64')));
 });

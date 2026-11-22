@@ -9,7 +9,7 @@ test('closed category data pins the unchanged source and differs in exactly the 
  assert.equal(segments.catalog.length,87);assert.equal(segments.inputSha256,hash(bytes('data/pronunciation/torah-display.json.gz')));assert.equal(segments.underlaySha256,hash(bytes('data/pronunciation/torah-underlay.json.gz')));assert.equal(segments.computationSourceSha256,hash(bytes('assets/pronunciation/phonetic-mam-computation-sources.zip')));
  assert.deepEqual(segments.catalog.filter(c=>c.ascii.sephardic!==c.ascii.ashkenazic).map(c=>c.id),['QAMATS_G','TAV_0DAG']);
  for(const c of segments.catalog)assert.deepEqual(Object.keys(c).sort(),['id','label','kind','hebrewLetters','geminate','ascii','display','half'].sort());
- const audit=JSON.parse(bytes('docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json'));assert.equal(audit.segmentsSha256,hash(bytes('data/pronunciation/torah-segments.json.gz')));assert.equal(audit.groups,68384);assert.equal(audit.units,387096);assert.equal(audit.segmentReferences,1035406);assert.equal(audit.sharedHalves,72872);assert.equal(audit.sourceOnlyUnits,11756);assert.equal(audit.unownedUnits,8);assert.match(audit.existingFields,/Every prior study field/);
+ const audit=JSON.parse(bytes('docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json'));assert.equal(audit.segmentsSha256,hash(bytes('data/pronunciation/torah-segments.json.gz')));assert.equal(audit.groups,68503);assert.equal(audit.units,387888);assert.equal(audit.segmentReferences,1037430);assert.equal(audit.sharedHalves,72996);assert.equal(audit.sourceOnlyUnits,12502);assert.equal(audit.unownedUnits,8);assert.match(audit.existingFields,/Every prior study field/);
 });
 test('qamats and tav without dagesh project both existing styles while silent matres and vocal sheva remain explicit source categories',()=>{
  assert.deepEqual(units('gen-1-1-2').map(u=>u.text),['ba','ra']);assert.deepEqual(units('gen-1-1-2','ashkenazic').map(u=>u.text),['bo','ro']);
@@ -28,7 +28,7 @@ test('coincident Ashkenazic qamats readings keep distinct category plans, origin
 test('source-only, combined and missing word correspondences retain every previous refusal and original Hebrew range',()=>{
  const old=baseline.study(word('gen-13-3-13'),'sephardic'),now=study('gen-13-3-13');assert.equal(now.revision,5);for(const [i,u] of now.rows[0].styles.sephardic[0].units.entries()){assert.equal(u.hebrewClusterRanges,null);assert.deepEqual(u.hebrewUnderlay,old.rows[0].styles.sephardic[0].units[i].hebrewUnderlay);assert.ok(u.sourceSegments.variants.length);}
  assert.ok(units('deu-32-6-1').every(u=>u.readerWordId===null&&u.sourceSegments.variants.every(v=>v.segments.every(s=>s.readerWordId===null))));
- assert.equal(lib.study({id:'gen-8-20-8',sourceHebrew:'הַטְּהוֹרָ֗ה'},'sephardic'),null);assert.throws(()=>lib.study({...word('gen-1-1-1'),sourceHebrew:'בְּרֵאשִׁית'},'sephardic'),/Hebrew source changed/);assert.throws(()=>lib.study(word('gen-1-1-1'),'galician'),/Unsupported pronunciation/);
+ assert.equal(lib.study({id:'gen-4-18-9',sourceHebrew:'וּמְחִיּיָאֵ֗ל'},'sephardic'),null);assert.throws(()=>lib.study({...word('gen-1-1-1'),sourceHebrew:'בְּרֵאשִׁית'},'sephardic'),/Hebrew source changed/);assert.throws(()=>lib.study(word('gen-1-1-1'),'galician'),/Unsupported pronunciation/);
 });
 test('changed provenance, category mappings, references and shared-consonant boundaries fail closed',()=>{
  assert.throws(()=>new PronunciationLibrary(data,{segments}),/underlay is required/);assert.throws(()=>new PronunciationLibrary(data,{underlay,segments:{...segments,inputSha256:'bad'}}),/source rules need review/);

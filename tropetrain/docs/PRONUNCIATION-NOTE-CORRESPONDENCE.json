@@ -9,29 +9,29 @@
   "originalDemo": {
     "sephardic": {
       "notes": 231178,
-      "linkedNotes": 220502,
-      "unlinkedNotes": 10676,
-      "wordsFullyLinked": 74763,
+      "linkedNotes": 220525,
+      "unlinkedNotes": 10653,
+      "wordsFullyLinked": 74783,
       "wordsPartlyLinked": 2717,
-      "wordsUnlinked": 2505,
+      "wordsUnlinked": 2485,
       "reasons": {
         "different-syllable-boundaries": 5703,
-        "source-only-written-form": 4485,
-        "no-source-correspondence": 484,
+        "source-only-written-form": 4940,
+        "no-source-correspondence": 6,
         "combined-source-form": 4
       }
     },
     "ashkenazic": {
       "notes": 231178,
-      "linkedNotes": 220502,
-      "unlinkedNotes": 10676,
-      "wordsFullyLinked": 74763,
+      "linkedNotes": 220525,
+      "unlinkedNotes": 10653,
+      "wordsFullyLinked": 74783,
       "wordsPartlyLinked": 2717,
-      "wordsUnlinked": 2505,
+      "wordsUnlinked": 2485,
       "reasons": {
         "different-syllable-boundaries": 5703,
-        "source-only-written-form": 4485,
-        "no-source-correspondence": 484,
+        "source-only-written-form": 4940,
+        "no-source-correspondence": 6,
         "combined-source-form": 4
       }
     }
@@ -79,16 +79,32 @@
   "syllableAnalyzer": "havarotjs0.25.5; existing manual/source fixtures retained",
   "inputs": [
     {
+      "path": "scripts/pronunciation_editions.py",
+      "sha256": "fab17a47197859f838a6c2aeae6c8f95cf27d86e846d56906dfc30e958d616e3"
+    },
+    {
+      "path": "scripts/audit-pronunciation-editions.py",
+      "sha256": "ad89b8bd032e2da2e02384a9967d532f4d523feb1d1eedc26bb58ebc902f342b"
+    },
+    {
+      "path": "docs/PRONUNCIATION-EDITION-WORDS.json",
+      "sha256": "cae5df17fd74297b48ddcb10d61267eed7d1a364377e52e2f5b20ccf832261f6"
+    },
+    {
+      "path": "assets/pronunciation/mam-simple-torah-sources.zip",
+      "sha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
       "path": "data/pronunciation/torah-display.json.gz",
-      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
+      "sha256": "0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7"
     },
     {
       "path": "data/pronunciation/torah-underlay.json.gz",
-      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
+      "sha256": "abaa42ef22f710638b4ac7a38e1d94687bda2ae537c2beb5a78dd286a79ff877"
     },
     {
       "path": "pronunciation.js",
-      "sha256": "40e9b0c97845803dfd494b8fdb1f30d4b74838f0313daee999aa8140c7c4dc32"
+      "sha256": "79ebb621b7c4c3de34cb3eaa2761955df974d5a49b9f376e80a2436f012afdc1"
     },
     {
       "path": "pronunciation-note-links.js",
@@ -96,15 +112,15 @@
     },
     {
       "path": "pronunciation-underlay.js",
-      "sha256": "c3491734974aa7d2d85e6ef5013d53e0994c79a0afe366b5683b9a5ea2168ed4"
+      "sha256": "e5b617d6b895883f536fe3b8f9e3a17ccdad501aefc1bca20d987f36f90c2146"
     },
     {
       "path": "pronunciation-structure.js",
-      "sha256": "52d114dbcda25bae6cabfb9000d4d3452da40387a6ca04c946a5f423287db94a"
+      "sha256": "9347f8e4c3973cbfabb4468bfc401b096cdf3fce535744fe2e37f8efc8428dc0"
     },
     {
       "path": "pronunciation-word-alignment.js",
-      "sha256": "d1105950b3089bcfe8035a7204096b98bb028c382b1e46591206112c79fb649a"
+      "sha256": "f02731ebacba921b7101f66abdeb3f9e497c6cdd0650d3836c8452b33448ce1d"
     },
     {
       "path": "pronunciation-repeats.js",

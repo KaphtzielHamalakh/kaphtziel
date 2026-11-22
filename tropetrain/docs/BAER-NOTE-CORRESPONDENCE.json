@@ -192,6 +192,26 @@
   "sourceEventsSha256": "eb1b9dde2a3b78b917485d38b9720d4b8624191f3957ec3f57023e994e7571a6",
   "inputs": [
     {
+      "path": "scripts/pronunciation_editions.py",
+      "sha256": "fab17a47197859f838a6c2aeae6c8f95cf27d86e846d56906dfc30e958d616e3"
+    },
+    {
+      "path": "scripts/audit-pronunciation-editions.py",
+      "sha256": "ad89b8bd032e2da2e02384a9967d532f4d523feb1d1eedc26bb58ebc902f342b"
+    },
+    {
+      "path": "pronunciation-word-alignment.js",
+      "sha256": "f02731ebacba921b7101f66abdeb3f9e497c6cdd0650d3836c8452b33448ce1d"
+    },
+    {
+      "path": "docs/PRONUNCIATION-EDITION-WORDS.json",
+      "sha256": "cae5df17fd74297b48ddcb10d61267eed7d1a364377e52e2f5b20ccf832261f6"
+    },
+    {
+      "path": "assets/pronunciation/mam-simple-torah-sources.zip",
+      "sha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
       "path": "docs/BAER-GENESIS-SCORE.json",
       "sha256": "88fcdabec7eeffe7d342a7f721dfacc8b56b29d10fc84f6dc038c66077c46045"
     },
@@ -213,11 +233,11 @@
     },
     {
       "path": "data/pronunciation/torah-display.json.gz",
-      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
+      "sha256": "0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7"
     },
     {
       "path": "data/pronunciation/torah-underlay.json.gz",
-      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
+      "sha256": "abaa42ef22f710638b4ac7a38e1d94687bda2ae537c2beb5a78dd286a79ff877"
     },
     {
       "path": "data/torah/gen.json",

@@ -47,8 +47,8 @@ export function sourcePronunciationStudy(group,{sourceCommit,word,style}){
  if(!['sephardic','ashkenazic'].includes(style))throw Error('Unsupported pronunciation text style.');
  const sourceWordId=word?.sourceWordId??word?.id,index=group.readerIds.indexOf(sourceWordId);
  if(index<0||group.readerHebrew[index]!==word.sourceHebrew)throw Error('The Hebrew source changed; this pronunciation link needs review.');
- if(group.writtenReadVariants){
-  if(group.writtenReadVariants.some(v=>!group.readerIds.includes(v.readerWordId)))throw Error('Explicit written/read pronunciation owner needs review.');
+ if(group.writtenReadVariants||group.editionWordLinks){
+  if(group.writtenReadVariants?.some(v=>!group.readerIds.includes(v.readerWordId)))throw Error('Explicit written/read pronunciation owner needs review.');
   group.readerHebrew.forEach((_,i)=>groupReaderLetterForms(group,i));
  }
  const singleWord=group.readerIds.length===1;
