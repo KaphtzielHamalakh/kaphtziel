@@ -1,9 +1,12 @@
 import {phoneticWordsAvailable,loadPhoneticWords,validatePhoneticWords,phoneticWordView} from './phonetic-word.js';
+import {mountVowelAnchorReview} from './vowel-anchor-ui.js';
 
 export function mountPhoneticWordReview(){
  const $=id=>document.getElementById(id),panel=$('phonetic-word-review'),cache=new Map();
  let generation=0,record=null,draft=null,index=0,packet=null;
+ const vowels=mountVowelAnchorReview();
  function draw(){
+  vowels.select(record,draft,index,packet);
   const available=!!draft&&phoneticWordsAvailable(record);panel.hidden=!available;
   $('phonetic-word-hebrew').textContent=available?draft.words[index].hebrew:'';
   $('phonetic-word-hebrew').dataset.wordId=available?draft.words[index].id:'';
