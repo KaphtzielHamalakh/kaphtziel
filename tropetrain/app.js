@@ -29,6 +29,7 @@ import {mountCalendar} from './calendar-ui.js';
 import {mountVoiceStudies} from './voice-study-ui.js';
 import {mountPronunciationStudy} from './pronunciation-ui.js';
 import {NOTE_LINK_REASONS} from './pronunciation-note-links.js';
+import {renderPronunciationScoreGroups} from './pronunciation-score-groups-ui.js';
 import {appendReaderPronunciation} from './pronunciation-reader.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
 import {mountSourcePitch} from './source-pitch-ui.js';
@@ -69,7 +70,7 @@ let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
 let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null;
-let scorePronunciation=true,scorePronunciationReport=null,inspectedScoreEventId=null;
+let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
@@ -472,6 +473,10 @@ function renderStaff(){
   $('score-pronunciation-download').disabled=!scorePronunciationReport?.links.length;
   const inspected=scorePronunciationReport?.links.find(l=>l.eventId===inspectedScoreEventId)??scorePronunciationReport?.links[0];
   $('score-pronunciation-detail').textContent=!inspected?'':inspected.status==='unlinked'?`${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}`:`${inspected.hebrew} · ${inspected.units.map(u=>`${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length?', '+u.labels.join('/') :''}${u.sharesNextConsonant?', shared consonant with next unit':''}${u.sharesPreviousConsonant?', shared consonant with previous unit':''})`).join(' / ')}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
+  scoreGroupReport=null;
+  try{scoreGroupReport=pronunciationTools?.groupNotes(plan.filter(e=>e.wordId===words[state.cursor]?.id),words)??null;}catch(error){scoreGroupReport={error:error.message,words:[]};}
+  renderPronunciationScoreGroups($('score-word-alignment-content'),scoreGroupReport,words[state.cursor]);
+  $('score-word-alignment-download').disabled=!scoreGroupReport?.words.length;
   $('staff-page-label').textContent=plan.length?`Score notes ${from+1}–${to} of ${plan.length}`:'No score notes in this span';
   $('staff-previous').disabled=from===0;$('staff-next').disabled=to===plan.length;
   $('pitch-staff').querySelectorAll('[data-word-index]').forEach(el=>{
@@ -748,6 +753,9 @@ $('volume').addEventListener('input',updateExportSummary);
 for(const [id,delta] of [['reader-previous',-1],['reader-next',1]])$(id).addEventListener('click',()=>{state.readerPage+=delta;state.followPlayback=false;$('follow-playback').checked=false;renderReader();persist();});
 for(const [id,delta] of [['notes-previous',-1],['notes-next',1]])$(id).addEventListener('click',()=>{state.notePage+=delta;renderNotes();});
 $('score-pronunciation').addEventListener('change',()=>{scorePronunciation=$('score-pronunciation').checked;try{localStorage.setItem('tropetrain-score-pronunciation-v1',JSON.stringify({enabled:scorePronunciation}));}catch{}renderStaff();});
+$('score-word-alignment-download').addEventListener('click',()=>{
+  if(scoreGroupReport?.words.length)download('tropetrain-word-score-alignment.json',{...scoreGroupReport,musicalSource:{id:model.profile.id,revision:model.profile.revision}});
+});
 $('score-pronunciation-download').addEventListener('click',()=>{
   if(!scorePronunciationReport?.links.length)return;
   const from=state.staffPage*STAFF_PAGE;

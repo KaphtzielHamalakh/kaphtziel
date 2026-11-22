@@ -1,0 +1,241 @@
+{
+  "format": "tropetrain-pronunciation-score-groups-audit-v1",
+  "revision": 1,
+  "words": 79985,
+  "verses": 5853,
+  "markedWordSha256": "e7491f5d7f89cc94bb4e39b63e42d53b8219d1970846839f4822df4c3bc1728c",
+  "originalDemoEventSha256": "6870929024d0c2289f7d9ef1879a7908ac0ee04280c528d64c89d85956f4ba3d",
+  "originalDemo": {
+    "sephardic": {
+      "events": 231178,
+      "eventsInCommonSpans": 226205,
+      "eventsInDifferentDivisions": 5705,
+      "eventsWithoutCommonSpan": 4973,
+      "groups": 186936,
+      "wordsWithCommonSpans": 77782,
+      "wordsFullyCovered": 77782,
+      "wordsWithoutCommonSpans": 2203,
+      "reasons": {
+        "source-only-written-form": 2059,
+        "no-source-correspondence": 142,
+        "no-individual-word-units": 2
+      }
+    },
+    "ashkenazic": {
+      "events": 231178,
+      "eventsInCommonSpans": 226205,
+      "eventsInDifferentDivisions": 5705,
+      "eventsWithoutCommonSpan": 4973,
+      "groups": 186960,
+      "wordsWithCommonSpans": 77782,
+      "wordsFullyCovered": 77782,
+      "wordsWithoutCommonSpans": 2203,
+      "reasons": {
+        "source-only-written-form": 2059,
+        "no-source-correspondence": 142,
+        "no-individual-word-units": 2
+      }
+    }
+  },
+  "boundedPrinted": {
+    "cohen-1902-gen22-ending": {
+      "sephardic": {
+        "events": 52,
+        "eventsInCommonSpans": 52,
+        "eventsInDifferentDivisions": 2,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 36,
+        "differentDivisions": [
+          {
+            "wordId": "gen-22-1-1",
+            "hebrew": "וַיְ",
+            "score": [
+              "וַ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      },
+      "ashkenazic": {
+        "events": 52,
+        "eventsInCommonSpans": 52,
+        "eventsInDifferentDivisions": 2,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 36,
+        "differentDivisions": [
+          {
+            "wordId": "gen-22-1-1",
+            "hebrew": "וַיְ",
+            "score": [
+              "וַ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      }
+    },
+    "baer-1894-gen1-1-5": {
+      "sephardic": {
+        "events": 145,
+        "eventsInCommonSpans": 145,
+        "eventsInDifferentDivisions": 6,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 118,
+        "differentDivisions": [
+          {
+            "wordId": "gen-1-3-5",
+            "hebrew": "וַֽיְ",
+            "score": [
+              "וַֽ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          },
+          {
+            "wordId": "gen-1-5-8",
+            "hebrew": "וַֽיְ",
+            "score": [
+              "וַֽ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          },
+          {
+            "wordId": "gen-1-5-10",
+            "hebrew": "וַֽיְ",
+            "score": [
+              "וַֽ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      },
+      "ashkenazic": {
+        "events": 145,
+        "eventsInCommonSpans": 145,
+        "eventsInDifferentDivisions": 6,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 118,
+        "differentDivisions": [
+          {
+            "wordId": "gen-1-3-5",
+            "hebrew": "וַֽיְ",
+            "score": [
+              "וַֽ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          },
+          {
+            "wordId": "gen-1-5-8",
+            "hebrew": "וַֽיְ",
+            "score": [
+              "וַֽ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          },
+          {
+            "wordId": "gen-1-5-10",
+            "hebrew": "וַֽיְ",
+            "score": [
+              "וַֽ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      }
+    }
+  },
+  "inputs": [
+    {
+      "path": "pronunciation-score-groups.js",
+      "sha256": "6766e457b617f07e9d0b0e902286bb3b8e3c5dd2bef64ca1978ce9fb7cf4638e"
+    },
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
+    },
+    {
+      "path": "data/pronunciation/torah-segments.json.gz",
+      "sha256": "c2c0e6e2cb65a5aca857fa9f306673c094564e732dbf7575672cb63bf7064df4"
+    },
+    {
+      "path": "syllables.js",
+      "sha256": "1f3d07558d263acbb7b8c235fd21d56a06a80cb5dde326d53076ceee13638bbc"
+    },
+    {
+      "path": "music.js",
+      "sha256": "f9e2398a95583a822af2798f6c11ea1a2a5e66dc01a01e7bd9eca57a05c41d4f"
+    },
+    {
+      "path": "printed-score-data.js",
+      "sha256": "8994a058ef0bd85728a314c7026be3c7bb18322d647f98bb2b1f681ffb1158e8"
+    },
+    {
+      "path": "baer-score-data.js",
+      "sha256": "2225cf5d21022baef7600ce31400531d2d9fe1142d4ede71e9914c6e0f634a60"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    }
+  ],
+  "limits": "Exact common written spans preserve independent score and pronunciation syllables. Different divisions do not supply an individual syllable-to-note or acoustic mapping. Source-only/combined/missing forms are not repaired. Original demo is newly composed, not a traditional melody. Both existing printed examples remain bounded instrumental transcriptions; six Kinnor pronunciation grammars/voices and complete musical systems still need evidence and review."
+}
