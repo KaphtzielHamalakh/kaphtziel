@@ -26,8 +26,11 @@ def source_cells(ar,row,style):
         cells.append((index+1,label,text))
     return cells
 
-def build(ar,jtech):
-    raw=SOURCE.read_bytes();data=json.loads(gzip.decompress(raw));groups={};counts=collections.Counter();errors=[]
+def build(ar,jtech,*,source=SOURCE,destination=None,audit_path=None,verify=None,emit=True):
+    destination=destination or APP/'data/pronunciation/torah-underlay.json.gz'
+    audit_path=audit_path or APP/'docs/PRONUNCIATION-UNDERLAY.json'
+    verify=('--check' in sys.argv) if verify is None else verify
+    raw=source.read_bytes();data=json.loads(gzip.decompress(raw));groups={};counts=collections.Counter();errors=[]
     for group in data['groups']:
         rows=[]
         for row in group['rows']:
@@ -69,26 +72,28 @@ def build(ar,jtech):
     audit={'schema':'tropetrain-pronunciation-underlay-audit-v1','revision':1,'sourceCommit':COMMIT,'inputSha256':digest(raw),'computationSourceSha256':result['computationSourceSha256'],'groups':len(groups),'counts':dict(counts),'unresolved':errors,'method':'Pinned GPL3 Reading.syllables unique decoding against published Sephardic transcription, factored over independent maqaf atoms. Both complete style projections and explicit joins match original cells exactly, excluding literal stress markers only. Preserve original Hebrew-letter ranges and shared-consonant metadata; browser aligns exact written clusters separately.','limits':'Source computation, not independent linguistic review or Kinnor grammar equivalence. Original source AST/stress/source packet unchanged. No IPA, phonemes, music, singing, syllable audio times or inferred pronunciation generated.'}
     assert not errors,errors[:5]
     encoded=(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n').encode();compressed=gzip.compress(encoded,mtime=0);audit.update(outputBytes=len(compressed),outputSha256=digest(compressed))
-    if '--check' in sys.argv:
-        assert (APP/'data/pronunciation/torah-underlay.json.gz').read_bytes()==compressed
-        assert json.loads((APP/'docs/PRONUNCIATION-UNDERLAY.json').read_text())==audit
+    if verify:
+        assert destination.read_bytes()==compressed
+        assert json.loads(audit_path.read_text())==audit
     else:
-        (APP/'data/pronunciation/torah-underlay.json.gz').write_bytes(compressed)
-        (APP/'docs/PRONUNCIATION-UNDERLAY.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
-    print(json.dumps(audit,ensure_ascii=False))
+        destination.parent.mkdir(parents=True,exist_ok=True);destination.write_bytes(compressed)
+        audit_path.parent.mkdir(parents=True,exist_ok=True);audit_path.write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
+    if emit:print(json.dumps(audit,ensure_ascii=False))
+    return audit
 
-with tempfile.TemporaryDirectory(prefix='tropetrain-mam-source-') as temporary:
-    target=Path(temporary)
-    with zipfile.ZipFile(ARCHIVE) as archive:
-        manifest=json.loads(archive.read('MANIFEST.json'));assert manifest['commit']==COMMIT
-        allowed={entry['path']:entry for entry in manifest['files']}
-        assert set(archive.namelist())==set(allowed)|{'MANIFEST.json','NOTICE.txt'}
-        for name,entry in allowed.items():
-            assert not Path(name).is_absolute() and '..' not in Path(name).parts
-            content=archive.read(name);assert len(content)==entry['bytes'] and digest(content)==entry['sha256']
-            assert hashlib.sha1(b'blob '+str(len(content)).encode()+b'\0'+content).hexdigest()==entry['gitBlob']
-            path=target/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(content)
-    sys.path.insert(0,str(target/'py'));sys.dont_write_bytecode=True
-    from phonetic_mam import analysis_reader
-    from phonetic_mam.core import jtech_ascii
-    build(analysis_reader,jtech_ascii)
+if __name__=='__main__':
+    with tempfile.TemporaryDirectory(prefix='tropetrain-mam-source-') as temporary:
+        target=Path(temporary)
+        with zipfile.ZipFile(ARCHIVE) as archive:
+            manifest=json.loads(archive.read('MANIFEST.json'));assert manifest['commit']==COMMIT
+            allowed={entry['path']:entry for entry in manifest['files']}
+            assert set(archive.namelist())==set(allowed)|{'MANIFEST.json','NOTICE.txt'}
+            for name,entry in allowed.items():
+                assert not Path(name).is_absolute() and '..' not in Path(name).parts
+                content=archive.read(name);assert len(content)==entry['bytes'] and digest(content)==entry['sha256']
+                assert hashlib.sha1(b'blob '+str(len(content)).encode()+b'\0'+content).hexdigest()==entry['gitBlob']
+                path=target/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(content)
+        sys.path.insert(0,str(target/'py'));sys.dont_write_bytecode=True
+        from phonetic_mam import analysis_reader
+        from phonetic_mam.core import jtech_ascii
+        build(analysis_reader,jtech_ascii)

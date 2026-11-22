@@ -1,0 +1,813 @@
+{
+  "schema": "tropetrain-pronunciation-repertoire-underlay-alignment-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "books": [
+    {
+      "bookId": "jos",
+      "groups": 8411,
+      "inputSha256": "a8865a34b851f13858dcc0e79504b0eb78caa4a4cb6590b27a125f889a1bbe07",
+      "underlaySha256": "0974f005184bc44579b7316d41148d25963bdcfc9357398a8490a0bda89512a7",
+      "styles": {
+        "sephardic": {
+          "units": 24978,
+          "exactReaderUnits": 24274,
+          "sourceOnlyUnits": 704,
+          "priorWordLinks": 24978,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 10009,
+          "wordsWithExactRanges": 9776,
+          "wordsFullyCovered": 9776,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 24978,
+          "exactReaderUnits": 24274,
+          "sourceOnlyUnits": 704,
+          "priorWordLinks": 24978,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 10009,
+          "wordsWithExactRanges": 9776,
+          "wordsFullyCovered": 9776,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "jdg",
+      "groups": 8391,
+      "inputSha256": "c3c78a687ea2d2039b70f93c50e855c223fbf21e15530fa072be6e126e88523e",
+      "underlaySha256": "000ae28c8d3d25728d130c5379a6e2a5b354331bf2c921957ca30bca6e54678d",
+      "styles": {
+        "sephardic": {
+          "units": 24137,
+          "exactReaderUnits": 23600,
+          "sourceOnlyUnits": 537,
+          "priorWordLinks": 24137,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 9843,
+          "wordsWithExactRanges": 9665,
+          "wordsFullyCovered": 9665,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 24137,
+          "exactReaderUnits": 23600,
+          "sourceOnlyUnits": 537,
+          "priorWordLinks": 24137,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 9843,
+          "wordsWithExactRanges": 9665,
+          "wordsFullyCovered": 9665,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "sam1",
+      "groups": 11323,
+      "inputSha256": "b395c86afcbe0d44768410385270cad85fef0927abae765ccb8255e59295913c",
+      "underlaySha256": "5707a56f74c09367ad97b6d44168dfb08c7596eb6315573405792e771f8c9a64",
+      "styles": {
+        "sephardic": {
+          "units": 32134,
+          "exactReaderUnits": 31106,
+          "sourceOnlyUnits": 1028,
+          "priorWordLinks": 32122,
+          "additionalWordLinks": 12,
+          "wordsWithUnits": 13225,
+          "wordsWithExactRanges": 12888,
+          "wordsFullyCovered": 12888,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 32134,
+          "exactReaderUnits": 31106,
+          "sourceOnlyUnits": 1028,
+          "priorWordLinks": 32122,
+          "additionalWordLinks": 12,
+          "wordsWithUnits": 13225,
+          "wordsWithExactRanges": 12888,
+          "wordsFullyCovered": 12888,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "sam2",
+      "groups": 9251,
+      "inputSha256": "a96d2f2a4d6c06b840a7dd06cae9359d9ee6de0095f3a0e39c0c93f73ece09d5",
+      "underlaySha256": "1b5169022791d552813cec529211e3ea4b86aff664e4ff9758f0f04eee992d9d",
+      "styles": {
+        "sephardic": {
+          "units": 26164,
+          "exactReaderUnits": 25664,
+          "sourceOnlyUnits": 500,
+          "priorWordLinks": 26139,
+          "additionalWordLinks": 25,
+          "wordsWithUnits": 10973,
+          "wordsWithExactRanges": 10806,
+          "wordsFullyCovered": 10806,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 26164,
+          "exactReaderUnits": 25664,
+          "sourceOnlyUnits": 500,
+          "priorWordLinks": 26139,
+          "additionalWordLinks": 25,
+          "wordsWithUnits": 10973,
+          "wordsWithExactRanges": 10806,
+          "wordsFullyCovered": 10806,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "kgs1",
+      "groups": 11154,
+      "inputSha256": "5e7fe5633adfae4be15b43144cb7cbf01fc3189c41001d898de57249ec092a90",
+      "underlaySha256": "d7860d98f87bdae0f28a9b50c1b4844e911f5558e265416b83d0cd744c98347b",
+      "styles": {
+        "sephardic": {
+          "units": 31877,
+          "exactReaderUnits": 31081,
+          "sourceOnlyUnits": 796,
+          "priorWordLinks": 31877,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 13085,
+          "wordsWithExactRanges": 12820,
+          "wordsFullyCovered": 12820,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 31877,
+          "exactReaderUnits": 31081,
+          "sourceOnlyUnits": 796,
+          "priorWordLinks": 31877,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 13085,
+          "wordsWithExactRanges": 12820,
+          "wordsFullyCovered": 12820,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "kgs2",
+      "groups": 10205,
+      "inputSha256": "8663a20e676bbb7658c33c26e2191469d11719d94a8baa1c59e3b7a6caaa3c79",
+      "underlaySha256": "e8c7d050bd2e8d4a3cf18e411d6533b514268c0e5334529d74b28b9e4f21b8be",
+      "styles": {
+        "sephardic": {
+          "units": 29555,
+          "exactReaderUnits": 28701,
+          "sourceOnlyUnits": 854,
+          "priorWordLinks": 29531,
+          "additionalWordLinks": 24,
+          "wordsWithUnits": 12164,
+          "wordsWithExactRanges": 11880,
+          "wordsFullyCovered": 11880,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 29555,
+          "exactReaderUnits": 28701,
+          "sourceOnlyUnits": 854,
+          "priorWordLinks": 29531,
+          "additionalWordLinks": 24,
+          "wordsWithUnits": 12164,
+          "wordsWithExactRanges": 11880,
+          "wordsFullyCovered": 11880,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "isa",
+      "groups": 14997,
+      "inputSha256": "3a422d0cc9c9dff855583103a8059f174fccb488a5b3eae02aa5b0da6a4a4500",
+      "underlaySha256": "c780e40283841ee108de79d76c70beea3c7f4d03ffcf8ef1bdb01e3d9cecc74e",
+      "styles": {
+        "sephardic": {
+          "units": 41278,
+          "exactReaderUnits": 39914,
+          "sourceOnlyUnits": 1364,
+          "priorWordLinks": 41254,
+          "additionalWordLinks": 24,
+          "wordsWithUnits": 16824,
+          "wordsWithExactRanges": 16369,
+          "wordsFullyCovered": 16369,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 41278,
+          "exactReaderUnits": 39914,
+          "sourceOnlyUnits": 1364,
+          "priorWordLinks": 41254,
+          "additionalWordLinks": 24,
+          "wordsWithUnits": 16824,
+          "wordsWithExactRanges": 16369,
+          "wordsFullyCovered": 16369,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "jer",
+      "groups": 18213,
+      "inputSha256": "8aada77c32ad69129cd1383184d2b65116487795df0926ec467957825b3f30fc",
+      "underlaySha256": "fb3105e7f980c681c42ead214f17d940de48a668081dfbc62e1df88c5b96a8e9",
+      "styles": {
+        "sephardic": {
+          "units": 52572,
+          "exactReaderUnits": 50369,
+          "sourceOnlyUnits": 2203,
+          "priorWordLinks": 52558,
+          "additionalWordLinks": 14,
+          "wordsWithUnits": 21661,
+          "wordsWithExactRanges": 20926,
+          "wordsFullyCovered": 20926,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 52572,
+          "exactReaderUnits": 50369,
+          "sourceOnlyUnits": 2203,
+          "priorWordLinks": 52558,
+          "additionalWordLinks": 14,
+          "wordsWithUnits": 21661,
+          "wordsWithExactRanges": 20926,
+          "wordsFullyCovered": 20926,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "ezk",
+      "groups": 16284,
+      "inputSha256": "ee2c431dc0ac69dcbaaef21d55b584e9c27e4749e35fabdfd298d8d901361e6e",
+      "underlaySha256": "be1d6ac1f70b999c22b746779cf3d3928fb75924749ab74929c1f5b165e1e812",
+      "styles": {
+        "sephardic": {
+          "units": 46479,
+          "exactReaderUnits": 45062,
+          "sourceOnlyUnits": 1417,
+          "priorWordLinks": 46479,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 18616,
+          "wordsWithExactRanges": 18144,
+          "wordsFullyCovered": 18144,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 46479,
+          "exactReaderUnits": 45062,
+          "sourceOnlyUnits": 1417,
+          "priorWordLinks": 46479,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 18616,
+          "wordsWithExactRanges": 18144,
+          "wordsFullyCovered": 18144,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "hos",
+      "groups": 2100,
+      "inputSha256": "7726f1b3ce1422340fee6dc2b50fef21bf2d26723e0cbf46db233558c76acc87",
+      "underlaySha256": "24eab228733c5046e0f1e0827d53c20e994ae04039c9de99d33e0ffe4306d52c",
+      "styles": {
+        "sephardic": {
+          "units": 5828,
+          "exactReaderUnits": 5690,
+          "sourceOnlyUnits": 138,
+          "priorWordLinks": 5828,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 2374,
+          "wordsWithExactRanges": 2328,
+          "wordsFullyCovered": 2328,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 5828,
+          "exactReaderUnits": 5690,
+          "sourceOnlyUnits": 138,
+          "priorWordLinks": 5828,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 2374,
+          "wordsWithExactRanges": 2328,
+          "wordsFullyCovered": 2328,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "jol",
+      "groups": 847,
+      "inputSha256": "489c123a5cb511cfdcee736c376abac70111abeeff43d75cbd3cbab4ca58f271",
+      "underlaySha256": "72933991a178cbf2ada91d47180b8f6ecdcacab5f086d891f8862b9418e8f531",
+      "styles": {
+        "sephardic": {
+          "units": 2356,
+          "exactReaderUnits": 2257,
+          "sourceOnlyUnits": 99,
+          "priorWordLinks": 2356,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 951,
+          "wordsWithExactRanges": 918,
+          "wordsFullyCovered": 918,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 2356,
+          "exactReaderUnits": 2257,
+          "sourceOnlyUnits": 99,
+          "priorWordLinks": 2356,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 951,
+          "wordsWithExactRanges": 918,
+          "wordsFullyCovered": 918,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "amo",
+      "groups": 1762,
+      "inputSha256": "c7ed138a46ecd5af534a16ad68d2d180cfda5267c19a504a86db324bdb3b91bd",
+      "underlaySha256": "52566cc6c2f902014a95d68f94e70f36bc9750d9befbb5f19c36410530925dfc",
+      "styles": {
+        "sephardic": {
+          "units": 4943,
+          "exactReaderUnits": 4696,
+          "sourceOnlyUnits": 247,
+          "priorWordLinks": 4943,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 2036,
+          "wordsWithExactRanges": 1954,
+          "wordsFullyCovered": 1954,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 4943,
+          "exactReaderUnits": 4696,
+          "sourceOnlyUnits": 247,
+          "priorWordLinks": 4943,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 2036,
+          "wordsWithExactRanges": 1954,
+          "wordsFullyCovered": 1954,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "oba",
+      "groups": 244,
+      "inputSha256": "98034660803252fb13a0a02e97bc6e363443bc69b4e6c7114b942896947a678b",
+      "underlaySha256": "339fd538440efb9c9d6f8a27e6bd02796f4e1830313f4344be4226ed7f171390",
+      "styles": {
+        "sephardic": {
+          "units": 684,
+          "exactReaderUnits": 663,
+          "sourceOnlyUnits": 21,
+          "priorWordLinks": 684,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 287,
+          "wordsWithExactRanges": 280,
+          "wordsFullyCovered": 280,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 684,
+          "exactReaderUnits": 663,
+          "sourceOnlyUnits": 21,
+          "priorWordLinks": 684,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 287,
+          "wordsWithExactRanges": 280,
+          "wordsFullyCovered": 280,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "jon",
+      "groups": 584,
+      "inputSha256": "73f0c393b9f5ebee598f0e10a16f2d000564a24bff83bdbf846c0d66799681e8",
+      "underlaySha256": "01c94cd52067df89132d29c4e82a1e73d465d421dcf86efe41c365ce63ebe0e0",
+      "styles": {
+        "sephardic": {
+          "units": 1688,
+          "exactReaderUnits": 1610,
+          "sourceOnlyUnits": 78,
+          "priorWordLinks": 1688,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 688,
+          "wordsWithExactRanges": 662,
+          "wordsFullyCovered": 662,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 1688,
+          "exactReaderUnits": 1610,
+          "sourceOnlyUnits": 78,
+          "priorWordLinks": 1688,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 688,
+          "wordsWithExactRanges": 662,
+          "wordsFullyCovered": 662,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "mic",
+      "groups": 1221,
+      "inputSha256": "a4affd81b1c6212a14b2cd8d2710af2e2d5524d53a9b5b3aa6393203c8c7d70c",
+      "underlaySha256": "27975e7567bb45dc4e1b522767f8be6ad3d145ab50dd328d60f471a2cef87d25",
+      "styles": {
+        "sephardic": {
+          "units": 3402,
+          "exactReaderUnits": 3285,
+          "sourceOnlyUnits": 117,
+          "priorWordLinks": 3402,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1367,
+          "wordsWithExactRanges": 1328,
+          "wordsFullyCovered": 1328,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 3402,
+          "exactReaderUnits": 3285,
+          "sourceOnlyUnits": 117,
+          "priorWordLinks": 3402,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1367,
+          "wordsWithExactRanges": 1328,
+          "wordsFullyCovered": 1328,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "nah",
+      "groups": 511,
+      "inputSha256": "f8328b67a882df93592f69dbea9bb1924c66536173b71e3285d7c63da2b1df6f",
+      "underlaySha256": "1bb4213bc6c058ef15e47367e8c3811136ba705573ad3d4dccbdc3b98e998be1",
+      "styles": {
+        "sephardic": {
+          "units": 1394,
+          "exactReaderUnits": 1355,
+          "sourceOnlyUnits": 39,
+          "priorWordLinks": 1394,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 551,
+          "wordsWithExactRanges": 538,
+          "wordsFullyCovered": 538,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 1394,
+          "exactReaderUnits": 1355,
+          "sourceOnlyUnits": 39,
+          "priorWordLinks": 1394,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 551,
+          "wordsWithExactRanges": 538,
+          "wordsFullyCovered": 538,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "hab",
+      "groups": 605,
+      "inputSha256": "cd0204d29affc48b47a0d282b5ef1ee53628b4ec37ff360b23bb0fd3decb6fef",
+      "underlaySha256": "60903667f1097ddd88cdd5636b37736def0630a521e39acc37a0daeb4bfa3922",
+      "styles": {
+        "sephardic": {
+          "units": 1606,
+          "exactReaderUnits": 1564,
+          "sourceOnlyUnits": 42,
+          "priorWordLinks": 1606,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 669,
+          "wordsWithExactRanges": 655,
+          "wordsFullyCovered": 655,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 1606,
+          "exactReaderUnits": 1564,
+          "sourceOnlyUnits": 42,
+          "priorWordLinks": 1606,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 669,
+          "wordsWithExactRanges": 655,
+          "wordsFullyCovered": 655,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "zep",
+      "groups": 658,
+      "inputSha256": "3ec67565b6675ae9acfa0b84d62a22834067bd5c53505cdd423b0ecf96d97b6c",
+      "underlaySha256": "fa13741dc3c81b4ba092d82ca10bf248db65b05d0bb580316d06c846997e4ea5",
+      "styles": {
+        "sephardic": {
+          "units": 1820,
+          "exactReaderUnits": 1718,
+          "sourceOnlyUnits": 102,
+          "priorWordLinks": 1820,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 761,
+          "wordsWithExactRanges": 727,
+          "wordsFullyCovered": 727,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 1820,
+          "exactReaderUnits": 1718,
+          "sourceOnlyUnits": 102,
+          "priorWordLinks": 1820,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 761,
+          "wordsWithExactRanges": 727,
+          "wordsFullyCovered": 727,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "hag",
+      "groups": 491,
+      "inputSha256": "030a677998e8fce332035be3f3a03382d2c49847fbdb5c567bc779ff85f98b7e",
+      "underlaySha256": "da30083328ce346039e3701e5c50d239eae890aec8d27cf157feba3fcd444243",
+      "styles": {
+        "sephardic": {
+          "units": 1485,
+          "exactReaderUnits": 1380,
+          "sourceOnlyUnits": 105,
+          "priorWordLinks": 1485,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 600,
+          "wordsWithExactRanges": 565,
+          "wordsFullyCovered": 565,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 1485,
+          "exactReaderUnits": 1380,
+          "sourceOnlyUnits": 105,
+          "priorWordLinks": 1485,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 600,
+          "wordsWithExactRanges": 565,
+          "wordsFullyCovered": 565,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "zec",
+      "groups": 2661,
+      "inputSha256": "386c9201cad69252fc99eafd354de1dc375c0acc6b21d0e978e1bf6bfdf0fc26",
+      "underlaySha256": "b811985dae73da7e43120e9088fd7b2c840ddecf876bfc50bcdaaac666c50901",
+      "styles": {
+        "sephardic": {
+          "units": 7460,
+          "exactReaderUnits": 7066,
+          "sourceOnlyUnits": 394,
+          "priorWordLinks": 7457,
+          "additionalWordLinks": 3,
+          "wordsWithUnits": 3045,
+          "wordsWithExactRanges": 2914,
+          "wordsFullyCovered": 2914,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 7460,
+          "exactReaderUnits": 7066,
+          "sourceOnlyUnits": 394,
+          "priorWordLinks": 7457,
+          "additionalWordLinks": 3,
+          "wordsWithUnits": 3045,
+          "wordsWithExactRanges": 2914,
+          "wordsFullyCovered": 2914,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "mal",
+      "groups": 774,
+      "inputSha256": "82588afffd8087d05f2087e76605544f44a1fb90ed09fefb25810abbd14fb1a3",
+      "underlaySha256": "11093665321ad28b6d8280d9c3aaac32f99d5cc69ea16878dc61412078fa685f",
+      "styles": {
+        "sephardic": {
+          "units": 2133,
+          "exactReaderUnits": 1995,
+          "sourceOnlyUnits": 138,
+          "priorWordLinks": 2133,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 869,
+          "wordsWithExactRanges": 823,
+          "wordsFullyCovered": 823,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 2133,
+          "exactReaderUnits": 1995,
+          "sourceOnlyUnits": 138,
+          "priorWordLinks": 2133,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 869,
+          "wordsWithExactRanges": 823,
+          "wordsFullyCovered": 823,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "sng",
+      "groups": 1118,
+      "inputSha256": "bba711e75e494515cbebd5aa3bc63985475f51c8db679e828176d68a11532c41",
+      "underlaySha256": "13d5b17f973283e2fcd54b37bb223978f9dd2c4fe8459bd9358182e95623c9f7",
+      "styles": {
+        "sephardic": {
+          "units": 3093,
+          "exactReaderUnits": 3090,
+          "sourceOnlyUnits": 3,
+          "priorWordLinks": 3093,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1229,
+          "wordsWithExactRanges": 1228,
+          "wordsFullyCovered": 1228,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 3093,
+          "exactReaderUnits": 3090,
+          "sourceOnlyUnits": 3,
+          "priorWordLinks": 3093,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1229,
+          "wordsWithExactRanges": 1228,
+          "wordsFullyCovered": 1228,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "rut",
+      "groups": 1108,
+      "inputSha256": "64ada7f95a5646fe212c866aff5f0e6deb7d50e57335e175a70e3e2f2bb72b21",
+      "underlaySha256": "a00087cdd36b28eb370199b5539ae56b39f41a35172fabfad5c1a64ee7886b8a",
+      "styles": {
+        "sephardic": {
+          "units": 3126,
+          "exactReaderUnits": 3072,
+          "sourceOnlyUnits": 54,
+          "priorWordLinks": 3126,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1283,
+          "wordsWithExactRanges": 1265,
+          "wordsFullyCovered": 1265,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 3126,
+          "exactReaderUnits": 3072,
+          "sourceOnlyUnits": 54,
+          "priorWordLinks": 3126,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1283,
+          "wordsWithExactRanges": 1265,
+          "wordsFullyCovered": 1265,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "lam",
+      "groups": 1354,
+      "inputSha256": "916ec9751f6bb1b0f2170ed94e83c827553637989467c8a7f591f850f874224d",
+      "underlaySha256": "dfeeacdcdacc33ee8e063de08a4d7ae7050bbd8c9f5de24453a08be697b5ebca",
+      "styles": {
+        "sephardic": {
+          "units": 3657,
+          "exactReaderUnits": 3556,
+          "sourceOnlyUnits": 101,
+          "priorWordLinks": 3657,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1519,
+          "wordsWithExactRanges": 1486,
+          "wordsFullyCovered": 1486,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 3657,
+          "exactReaderUnits": 3556,
+          "sourceOnlyUnits": 101,
+          "priorWordLinks": 3657,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 1519,
+          "wordsWithExactRanges": 1486,
+          "wordsFullyCovered": 1486,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "ecc",
+      "groups": 2554,
+      "inputSha256": "a691e61f57865fc29816dcd8c4d74d3d9756cb113c3d21de1f0997ec54ac21d5",
+      "underlaySha256": "ebc4a35968daa8520538fed5e0d2b41414caba0d53b5ad22e806851da16a26d5",
+      "styles": {
+        "sephardic": {
+          "units": 6701,
+          "exactReaderUnits": 6697,
+          "sourceOnlyUnits": 4,
+          "priorWordLinks": 6701,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 2965,
+          "wordsWithExactRanges": 2963,
+          "wordsFullyCovered": 2963,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 6701,
+          "exactReaderUnits": 6697,
+          "sourceOnlyUnits": 4,
+          "priorWordLinks": 6701,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 2965,
+          "wordsWithExactRanges": 2963,
+          "wordsFullyCovered": 2963,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    },
+    {
+      "bookId": "est",
+      "groups": 2579,
+      "inputSha256": "4e1dd3dc9c5d3256f05a4db052815b2e14b6fa8137c9cb0a60ced68bd368d9d0",
+      "underlaySha256": "8d8d1e5d355b576fe66b94e3b6d59b9c17d30b25fa6f4e64db388b650fd5f14c",
+      "styles": {
+        "sephardic": {
+          "units": 7382,
+          "exactReaderUnits": 7382,
+          "sourceOnlyUnits": 0,
+          "priorWordLinks": 7382,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 3026,
+          "wordsWithExactRanges": 3026,
+          "wordsFullyCovered": 3026,
+          "wordsWithPartialRanges": 0
+        },
+        "ashkenazic": {
+          "units": 7382,
+          "exactReaderUnits": 7382,
+          "sourceOnlyUnits": 0,
+          "priorWordLinks": 7382,
+          "additionalWordLinks": 0,
+          "wordsWithUnits": 3026,
+          "wordsWithExactRanges": 3026,
+          "wordsFullyCovered": 3026,
+          "wordsWithPartialRanges": 0
+        }
+      }
+    }
+  ],
+  "styles": {
+    "sephardic": {
+      "units": 367932,
+      "exactReaderUnits": 356847,
+      "sourceOnlyUnits": 11085,
+      "priorWordLinks": 367830,
+      "additionalWordLinks": 102,
+      "wordsWithUnits": 150620,
+      "wordsWithExactRanges": 146934,
+      "wordsFullyCovered": 146934,
+      "wordsWithPartialRanges": 0
+    },
+    "ashkenazic": {
+      "units": 367932,
+      "exactReaderUnits": 356847,
+      "sourceOnlyUnits": 11085,
+      "priorWordLinks": 367830,
+      "additionalWordLinks": 102,
+      "wordsWithUnits": 150620,
+      "wordsWithExactRanges": 146934,
+      "wordsFullyCovered": 146934,
+      "wordsWithPartialRanges": 0
+    }
+  },
+  "review": null,
+  "limits": "Exact source transcription and written-cluster correspondence checks only. Original Hebrew, accents, source packets, prior links, stress and units retained. Differing reading forms keep null written ranges. No category/IPA, phonemes, notes, audio times, new singing voices or full Kinnor phonological grammar assigned."
+}

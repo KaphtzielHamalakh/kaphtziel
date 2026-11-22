@@ -2,8 +2,16 @@ import {scoreData,untextedScoreData,escapeXml as x,beatLabel,eventPitchName} fro
 import {notePronunciationText} from './pronunciation-note-links.js';
 
 export const STAFF_PAGE=12;
+
+function restMarkup(rest,cx,height,beatsY){
+ const names={whole:'\ue4e3',half:'\ue4e4',quarter:'\ue4e5',eighth:'\ue4e6','16th':'\ue4e7','32nd':'\ue4e8'},glyph=names[rest.rhythm?.type]??(Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5');
+ let result=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="${height-15}" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text>`;
+ for(let dot=0;dot<(rest.rhythm?.dots??0);dot++)result+=`<circle class="dot rest-dot" cx="${cx+12+dot*5}" cy="76" r="1.7"/>`;
+ return result+`<text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
+}
+
 export function staffNotes(plan,words,from=0,count=STAFF_PAGE,{untexted=false,pronunciationLinks=null}={}){
-  const slice=plan.slice(from,from+count+1),notes=(untexted?untextedScoreData(slice):scoreData(slice,words)).slice(0,count);let position=84;
+  const slice=plan.slice(from,from+count+1),notes=(untexted?untextedScoreData(slice):scoreData(slice,words)).slice(0,count);let position=84+(from===0?55*(plan[0]?.sourceRestsBefore?.length??0):0);
   return notes.map((e,index)=>{
     const pronunciationLink=untexted?null:pronunciationLinks?.get(e.id),pronunciationText=notePronunciationText(pronunciationLink);
     const width=Math.max(90,Math.min(220,Math.max([...e.syllable].length*7+40,[...(pronunciationText??'')].length*8+24)));
@@ -21,6 +29,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
   let svg=`<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${untexted?'Printed pattern staff notes':'Selected staff notes'}"><title>${untexted?'Printed pattern pitches and durations; no word or syllable underlay is inferred.':'Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source.'}${annotated?' Pronunciation text is linked by exact written spans only; unlinked syllables and shared consonants need review.':''}</title>`;
   for(let y=60;y<=100;y+=10)svg+=`<line class="staff-line" x1="14" y1="${y}" x2="${width-12}" y2="${y}"/>`;
   svg+='<text class="music-symbol clef" x="24" y="90">\ue050</text>';
+  if(from===0)for(const [i,rest] of (plan[0]?.sourceRestsBefore??[]).entries())svg+=restMarkup(rest,84+55*(i+.5),height,beatsY);
   for(const e of notes){
     const up=e.y>=80,stemX=e.x+(up?5:-5),stemEnd=e.y+(up?-32:32),r=e.rhythm;
     const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=(untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`)+(annotated?`; pronunciation text: ${e.pronunciationText??'unlinked'}; written-span correspondence only`:'');
@@ -52,6 +61,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
       if(Math.abs(rests.reduce((n,r)=>n+r.beats,0)-e.gapAfterBeats)>1e-8)throw Error('Printed rest values and score gap disagree.');
       rests.forEach((rest,index)=>{
        const glyph=Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5',cx=e.x+e.width/2+e.gapWidth*(index+.5)/rests.length;
+       if(rest.rhythm?.dots||['whole','half','16th','32nd'].includes(rest.rhythm?.type)){svg+=restMarkup(rest,cx,height,beatsY);return;}
        svg+=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="${height-15}" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text><text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
       });
     }
