@@ -4,14 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "bda6b34342dedd6742faaf309def7eb1b23b9a4c",
-  "nextTask": "Continue the full independent melody/pronunciation/range/key reconstruction and all documented learning/tutor features; printing deferred. Prioritize reusable reviewed sung-phone material, complete historical phonological specifications and contextual melodic grammars. New Haftarah practice supplies actual original source performances, not six Kinnor singing voices or full musical rules. Keep54takes separate, including overlapping verses and five ordered discontinuous readings. Vayera source passage/count mismatch, Tazria decreasing timestamp and Masei count mismatch remain whole-take only; Ezekiel43:15word4source/reader forms remain unmapped. Do not guess a corrected book/verse or repair source times. All original Torah/PhoneticMAM/notes/audio remain exact. Personal syllable drafts and F0/ASR/IPA proposals cannot certify themselves. Continue qualified source/phoneme/syllable review and reusable complete musical/voice realizations, then the remaining learning/tutor roadmap. Full objective active/incomplete.",
+  "nextTask": "Continue complete independent melody/pronunciation/range/key reconstruction, prioritizing reusable reviewed sung-phone material, full source-based historical phonologies, contextual melody grammars and qualified review; printing deferred. All79985Torah source word links, existing underlay/category/IPA proposals and original musical/audio data remain unchanged. New26book text libraries map150620/151630additional words with1010explicit gaps; literal source units retain stress/joins/styles, but have no computed Hebrew ranges, category/IPA plans, phonemes, note allocation or sound times. Do not infer those from source correspondence or fixed PocketTorah performances. Preserve54Haftarah take identities and exact ordered sections; Vayera/Tazria/Masei remain whole-take-only, ezk43:15word4unmapped. OriginalTorah16Gen28:4overflow words and8older timing-gap takes remain withheld. AllsixKinnor singing grammars/voices, every full historical melody system and the entire learning/tutor roadmap remain required. Full objective active/incomplete.",
   "lastPassingTests": {
-    "automated": 419,
+    "automated": 429,
     "failures": 0,
     "skipped": 0,
-    "newTests": 14,
-    "log": "/private/tmp/tropetrain-check-v47.log",
-    "ui": "Public normal58 and portable59 verify original Haftarah source practice for Isaiah42:5–43:10. Normal+3/75% and portable-3/85% repeat playback show source-word highlights and exact sourceSHA1/426.50125second timeline metadata, with processedsound reviewnull. All89visible marked Hebrew strings/canonicalIDs/aria-labels match local source across both distributions and independent text-style change. Main instrumentBPM60/range60–72 stays independent. Zero pitch restores original media; portable whole-take playback uses embedded original and no inferred word highlight. Public Vayera source opening/wordplay withheld; Mishpatim preserves Jeremiah34:8–22 then33:25–26. Portable319root/body319/panel287; viewport reset. Both public builds left firstsource Isaiah42:5–43:10,Endofword,sourceSephardic,Haftarahpitch0/speed100/repeatfalse,allfivegains0/allfouraudio paused. Local tests additionally verify Noachload/cancel/reload/checksumcache and muted word playback, Tazria wordplay refusal and saved preferences after reload. No appconsolewarnings/errors. All playback QA used muted clocks; acoustic/phonological/cantorial review and nativeSave/file-origin tests unclaimed. Screenshot outputs/TropeTrain-v0.47-live.jpg saved. These are fixed original performances, not new Kinnor voices or complete musical grammars."
+    "newTests": 10,
+    "log": "/private/tmp/tropetrain-check-v48-final2.log",
+    "ui": "Local normal60 and portable61 verify Isaiah42:5word2: Sephardic ’a·mar and Ashkenazic ’o·mar under unchanged אָמַ֞ר, with the complete maqaf source group and stress/ownership retained. All89visible marked Hebrew strings, canonical IDs and aria-labels remain exact across styles and both distributions. Normal +3semitones/75% repeating Haftarah source playback continues with identical source URL/processing settings when text style changes; original recorded pronunciation is retained. New-book IPA actions stay disabled and no Hebrew ranges/categories/phonemes/notes/times are inferred. Esther source data loads in both builds; Genesis1:1word2 still has the earlier computed category/IPA evidence. Isaiah1:1word1 stays unassigned in both styles, with blank rows and disabled exports. Normal/portable raw source-group JSON matches; portable reload retains the selected word and Sephardic style. Portable319root/body319/panel261; viewport reset. No appconsolewarnings/errors. Playback tests used muted clocks; acoustic/cantorial/phonological review and nativeSave/file-origin checks remain unclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -35,7 +35,7 @@
     {
       "id": "reader",
       "description": "Pointed/consonantal/parallel views and stable IDs",
-      "status": "31_book_reader_with_optional_Torah_pronunciation_text_independent_styles_and_explicit_source_gaps_written_scroll_scope_preserved"
+      "status": "31_book_reader_independent_Torah_Prophets_and_scrolls_source_text_styles_150620new_word_links_1010explicit_gaps_no_new_singing"
     },
     {
       "id": "alignment",
@@ -50,7 +50,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_source_text_styles_all_Torah_words_linked_0unassigned_2combined_six_Kinnor_grammars_voices_pending"
+      "status": "two_independent_MAM_source_text_styles_79985Torah_and150620additional_word_links_six_Kinnor_grammars_voices_pending"
     },
     {
       "id": "melodies",
@@ -190,21 +190,18 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.47.0",
-    "status": "published_verified",
+    "version": "0.48.0",
+    "status": "local_verified_publication_pending",
     "artifacts": {
       "app.bundle.js": {
-        "bytes": 18036811,
-        "sha256": "b4d9a539d887f3e000eceb4a07586c957aa2b09cb107526a562ffd9907ea20a9"
+        "bytes": 25332051,
+        "sha256": "4a9efd7a7f6afc9aee3ade520e59764aee25e6f4505330079614a09653271095"
       },
       "TropeTrain.html": {
-        "bytes": 74907706,
-        "sha256": "24383207edb6a3aa0472f6e769ee4227b7adb76be5e2022d7565a266d50f58ff"
+        "bytes": 87369490,
+        "sha256": "442bb85341512b7753cc31d78b502c1b1d5944a17376c5e4fd02cc047742b41e"
       }
-    },
-    "codeCommit": "bda6b34342dedd6742faaf309def7eb1b23b9a4c",
-    "pagesRun": 45004909155,
-    "summary": "Added54unchanged original PocketTorah Haftarah takes with explicit source selection and reader word/span playback:51structurally timed takes/16604mapped timed word occurrences;3whole-take-only sources retain original data gaps. Source pitch/speed/volume/repeat are independent of instrument melody/key/BPM/range and pronunciation text. Zero pitch retains original audio. All541previous assets/data unchanged.419checks/14new; acoustic review and full Kinnor voices/grammars pending; printing deferred."
+    }
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -937,6 +934,24 @@
     "readerHebrewChanged": false,
     "phonemes": null,
     "musicalGrammar": null,
+    "independentReview": null
+  },
+  "repertoirePronunciationText": {
+    "books": 26,
+    "readerWords": 151630,
+    "mappedWords": 150620,
+    "unmappedWords": 1010,
+    "styles": [
+      "sephardic",
+      "ashkenazic"
+    ],
+    "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "readerHebrewChanged": false,
+    "torahSourceDataChanged": false,
+    "computedHebrewRanges": null,
+    "sourceCategoryProposals": null,
+    "phonemes": null,
+    "newSingingVoices": null,
     "independentReview": null
   }
 }
