@@ -78,7 +78,7 @@ for group in data['groups']:
      record=[style,group['id'],row['number'],column,unit_number,owner]
      line=(json.dumps(record,separators=(',',':'))+'\n').encode();hashes[style].update(line)
      if not is_repeat:literal_hashes[style].update(line)
-     if 'writtenReadVariants' not in group and 'editionWordLinks' not in group:
+     if 'writtenReadVariants' not in group and 'editionWordLinks' not in group and 'implicitReadingLinks' not in group:
       base_hashes[style].update(line)
       if not is_repeat:base_literal_hashes[style].update(line)
   assigned=sum(owner is not None for owner in group_units)

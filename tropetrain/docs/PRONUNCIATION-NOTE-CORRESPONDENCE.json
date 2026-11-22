@@ -16,8 +16,7 @@
       "wordsUnlinked": 2485,
       "reasons": {
         "different-syllable-boundaries": 5703,
-        "source-only-written-form": 4940,
-        "no-source-correspondence": 6,
+        "source-only-written-form": 4946,
         "combined-source-form": 4
       }
     },
@@ -30,8 +29,7 @@
       "wordsUnlinked": 2485,
       "reasons": {
         "different-syllable-boundaries": 5703,
-        "source-only-written-form": 4940,
-        "no-source-correspondence": 6,
+        "source-only-written-form": 4946,
         "combined-source-form": 4
       }
     }
@@ -84,7 +82,7 @@
     },
     {
       "path": "scripts/audit-pronunciation-editions.py",
-      "sha256": "ad89b8bd032e2da2e02384a9967d532f4d523feb1d1eedc26bb58ebc902f342b"
+      "sha256": "07742621ac989d9b359cf945357243d1634f3dd2c87128edb9505d9dbfa76309"
     },
     {
       "path": "docs/PRONUNCIATION-EDITION-WORDS.json",
@@ -96,15 +94,15 @@
     },
     {
       "path": "data/pronunciation/torah-display.json.gz",
-      "sha256": "0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7"
+      "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
     },
     {
       "path": "data/pronunciation/torah-underlay.json.gz",
-      "sha256": "abaa42ef22f710638b4ac7a38e1d94687bda2ae537c2beb5a78dd286a79ff877"
+      "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
     },
     {
       "path": "pronunciation.js",
-      "sha256": "79ebb621b7c4c3de34cb3eaa2761955df974d5a49b9f376e80a2436f012afdc1"
+      "sha256": "7960be4bc7c3e0cbc5f640ee6ceb28b87884793614925af9c35ff52639db03ca"
     },
     {
       "path": "pronunciation-note-links.js",
@@ -112,15 +110,15 @@
     },
     {
       "path": "pronunciation-underlay.js",
-      "sha256": "e5b617d6b895883f536fe3b8f9e3a17ccdad501aefc1bca20d987f36f90c2146"
+      "sha256": "beb775683840a373f1dd1ac4819ac09e9e4272306be04a76f7a201182ddf7de9"
     },
     {
       "path": "pronunciation-structure.js",
-      "sha256": "9347f8e4c3973cbfabb4468bfc401b096cdf3fce535744fe2e37f8efc8428dc0"
+      "sha256": "7f9d77ea81c81adbfccdecd1a445df063ec0034ba506dd1437500516629c2e3d"
     },
     {
       "path": "pronunciation-word-alignment.js",
-      "sha256": "f02731ebacba921b7101f66abdeb3f9e497c6cdd0650d3836c8452b33448ce1d"
+      "sha256": "499deb911d7aa791db5778ae363ca967e224e166e73a8c26a7660305924ec00f"
     },
     {
       "path": "pronunciation-repeats.js",

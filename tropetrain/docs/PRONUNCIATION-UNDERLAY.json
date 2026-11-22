@@ -2,19 +2,19 @@
   "schema": "tropetrain-pronunciation-underlay-audit-v1",
   "revision": 1,
   "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
-  "inputSha256": "0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7",
+  "inputSha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2",
   "computationSourceSha256": "357314571720309945b3c7e1a2b33582a34dfbc6a497a02309af8c8572fcafaf",
-  "groups": 68503,
+  "groups": 68504,
   "counts": {
-    "sephardicVariantUnits": 194268,
-    "ashkenazicVariantUnits": 194268,
-    "variants": 68718,
-    "variantUnits": 194268,
-    "sharedConsonants": 18249
+    "sephardicVariantUnits": 194272,
+    "ashkenazicVariantUnits": 194272,
+    "variants": 68719,
+    "variantUnits": 194272,
+    "sharedConsonants": 18250
   },
   "unresolved": [],
   "method": "Pinned GPL3 Reading.syllables unique decoding against published Sephardic transcription, factored over independent maqaf atoms. Both complete style projections and explicit joins match original cells exactly, excluding literal stress markers only. Preserve original Hebrew-letter ranges and shared-consonant metadata; browser aligns exact written clusters separately.",
   "limits": "Source computation, not independent linguistic review or Kinnor grammar equivalence. Original source AST/stress/source packet unchanged. No IPA, phonemes, music, singing, syllable audio times or inferred pronunciation generated.",
   "outputBytes": 289322,
-  "outputSha256": "abaa42ef22f710638b4ac7a38e1d94687bda2ae537c2beb5a78dd286a79ff877"
+  "outputSha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
 }

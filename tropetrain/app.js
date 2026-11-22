@@ -757,6 +757,11 @@ $('baer-high-holiday-open').addEventListener('click',()=>libraryAction(()=>{
   state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
   $('reader').focus();$('practice').scrollIntoView();
 }));
+$('implicit-reading-open').addEventListener('click',()=>libraryAction(()=>{
+  applyRanges([{id:'implicit-reading',bookId:'gen',start:{chapter:4,verse:18},end:{chapter:4,verse:18},label:'Documented source reading · Genesis4:18'}],{readingType:'torah'});
+  state.cursor=8;state.anchor=8;state.scope='word';render();
+  $('reader').focus();$('practice').scrollIntoView();
+}));
 for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
 for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
@@ -851,6 +856,7 @@ getRepertoireCorpus().then(value=>{
   $('source-study-open').disabled=false;
   $('baer-study-open').disabled=false;
   $('baer-high-holiday-open').disabled=false;
+  $('implicit-reading-open').disabled=false;
   $('prophetical-study-open').disabled=false;
   let restoreFailed=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){restoreFailed=true;retainPracticeRecovery(error);$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}

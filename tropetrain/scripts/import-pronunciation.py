@@ -9,6 +9,7 @@ import collections,gzip,hashlib,itertools,io,json,re,zipfile
 from pronunciation_matching import forced_edges
 from pronunciation_variants import anchored_written_variants,digest_groups
 from pronunciation_editions import load_primary,anchored_edition_words,PRIMARY_FILES
+from pronunciation_implicit_reading import anchored_implicit_reading
 ROOT=Path(__file__).resolve().parents[1]
 PACK=ROOT/'assets/pronunciation/phonetic-mam-torah-sources.zip'
 BOOKS=[('gen','A1-Genesis.json'),('exo','A2-Exodus.json'),('lev','A3-Levit.json'),('num','A4-Numbers.json'),('deu','A5-Deuter.json')]
@@ -98,7 +99,7 @@ def build():
   for name,f in manifest['files'].items():
    raw=archive.read(name)
    if len(raw)!=f['bytes'] or hashlib.sha256(raw).hexdigest()!=f['sha256'] or hashlib.sha1(f'blob {len(raw)}\0'.encode()+raw).hexdigest()!=f['gitBlob']:raise ValueError('Source changed: '+name)
-  groups=[];audits=[];sources=[];unused=[];partial_blocks=[];written_variants=[];base_groups=[];edition_entries=[];edition_refused=[];edition_base=[]
+  groups=[];audits=[];sources=[];unused=[];partial_blocks=[];written_variants=[];base_groups=[];edition_entries=[];edition_refused=[];edition_base=[];implicit_evidence=None
   for bid,filename in BOOKS:
    data=json.loads(archive.read(filename));target_raw=(ROOT/f'data/torah/{bid}.json').read_bytes();target=json.loads(target_raw)
    if data['schema']!='phonetic-mam-public-v1':raise ValueError('Unknown pronunciation display schema.')
@@ -184,13 +185,18 @@ def build():
     assert not set(group['readerIds'])&mapped
     mapped.update(group['readerIds']);nrows+=len(group['rows'])
    edition_entries.extend(ee);edition_refused.extend(refused)
-   groups=[g for g in groups if g['bookId']!=bid]+sorted(previous+extra,key=lambda g:order[g['readerIds'][0]])
+   implicit,proof=anchored_implicit_reading(bid,data,target,previous+extra,primary[PRIMARY_FILES[bid]],specs[PRIMARY_FILES[bid]],primary_sha,ROOT)
+   if proof:implicit_evidence=proof
+   for group in implicit:
+    assert not set(group['readerIds'])&mapped
+    mapped.update(group['readerIds']);nrows+=len(group['rows'])
+   groups=[g for g in groups if g['bookId']!=bid]+sorted(previous+extra+implicit,key=lambda g:order[g['readerIds'][0]])
    written_variants.extend(evidence)
    audits.append({'bookId':bid,'readerWords':len(reader),'mappedWords':len(mapped),'unmappedWords':len(reader)-len(mapped),'acceptedDisplayVerses':len(assigned),'unmatchedDisplayVerses':len(proposals)-len(assigned),'partiallyMatchedDisplayVerses':sum(bool(value) for value in partials.values()),'mappedDisplayRows':nrows,'nonlexicalRows':nonlexical,'anchoredRepeatedVerses':len(resolved),'readerSha256':hashlib.sha256(target_raw).hexdigest(),'unmappedReaderIds':[w['id'] for w in reader if w['id'] not in mapped]})
    sources.append({'bookId':bid,'filename':filename,**manifest['files'][filename]})
  previous_digest=digest_groups(edition_base)
  assert len(edition_base)==68384 and previous_digest=='779e9ce9376665b3cf04d553d5d51de4c6db37da9d4188ac63dd13339e8ba862','Previously published pronunciation groups changed.'
- packet={'format':'tropetrain-pronunciation-display-v1','revision':4,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','groups':groups}
+ packet={'format':'tropetrain-pronunciation-display-v1','revision':5,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','groups':groups}
  raw=json.dumps(packet,ensure_ascii=False,separators=(',',':')).encode();packed=gzip.compress(raw,compresslevel=9,mtime=0)
  (ROOT/'data/pronunciation/torah-display.json.gz').write_bytes(packed)
  audit={'schema':'tropetrain-pronunciation-alignment-v1','revision':1,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','sourceFiles':sources,'books':audits,'mappedWords':sum(b['mappedWords'] for b in audits),'readerWords':sum(b['readerWords'] for b in audits),'groups':len(groups),'unmatchedDisplayVerses':unused,'packetSha256':hashlib.sha256(packed).hexdigest(),'method':'Complete display-verse letter correspondence to one to six contiguous UXLC verse records in nearby chapters. Unique matches must be ordered and disjoint; repeats require two surrounding accepted anchors. Documented implicit-qere name/hi/Yissakhar forms and separately audited explicit one-written/one-reading UXLC pairs are permitted; original strings unchanged. Common row/word boundaries define many-to-many groups; all source columns/readings retained.','limits':'Source transcription study only; not six Kinnor profiles, new phoneme grammar, syllable/audio timing or singing synthesis. Ambiguous/unmatched words have no assigned transcription. Independent linguistic and mapping review pending.'}
@@ -201,16 +207,24 @@ def build():
   'method':'Both existing source/reader anchors are required. A single remaining original source row in the same verse must match every source Hebrew column against exact UXLC reading letters or an explicitly adjacent one-ketiv/one-qere pair. At most two reader words; no spelling normalization, substitutions or inferred multiword variant partition.',
   'review':'Word correspondence only. Source pronunciation can follow a different written form; no equality of phonology, written syllable ranges, notes or audio times inferred. Original Hebrew/accents and all previous groups/source rows remain unchanged. Independent linguistic review pending.',
   'primarySources':['https://www.tanach.us/Pages/Coding.html','https://www.tanach.us/Pages/Instructions.html']}
- assert digest_groups([g for g in groups if 'writtenReadVariants' not in g and 'editionWordLinks' not in g])==variant_record['baseGroupsSha256']
+ assert digest_groups([g for g in groups if 'writtenReadVariants' not in g and 'editionWordLinks' not in g and 'implicitReadingLinks' not in g])==variant_record['baseGroupsSha256']
  (ROOT/'docs/PRONUNCIATION-WRITTEN-VARIANTS.json').write_text(json.dumps(variant_record,ensure_ascii=False,indent=2)+'\n')
  audit.update(revision=3,writtenReadVariantRecord=variant_record['record'],writtenReadVariantGroups=len(written_variants),writtenReadVariantWords=variant_record['addedWords'],stageNote='Partial-window fields retain the exact-match stage before explicit written/read links; final unassigned reader IDs are listed per book.')
  edition_record={'schema':'tropetrain-pronunciation-edition-words-v1','revision':1,'sourceCommit':manifest['commit'],'license':'CC-BY-SA-4.0','archive':'assets/pronunciation/mam-simple-torah-sources.zip','archiveSha256':primary_sha,'baseGroups':len(edition_base),'baseGroupsSha256':previous_digest,'addedGroups':len(edition_entries),'addedWords':sum(len(e['readerIds']) for e in edition_entries),'entries':edition_entries,'refused':edition_refused,
   'method':'Both existing source/reader anchors and one native primary verse are required. A closed role-aware MAM projection selects qere/combined cantillation/scroll-note target, preserves original strings and reassembles fragments before atoms. The complete Phonetic MAM verse must reproduce the primary MAM comparison letters using only the already documented implicit-qere keys. Every source Hebrew alternative in the bounded gap must then reproduce the literal primary atom letters, with identical complete atom boundaries and the same number of reader words. Contextual word correspondence follows source order; no spelling edit-distance or phonological-equivalence rule is used.',
   'review':'Edition word correspondence only. Both marked Hebrew editions and source transcriptions stay unchanged. Differing spellings retain null reader syllable ranges, phonemes, notes and sound times. Independent correspondence and linguistic review remain pending.',
   'primarySources':['https://bdenckla.github.io/MAM-basics/MAM-simple/reading-mam-simple.html#consumer-notice','https://bdenckla.github.io/MAM-basics/MAM-simple/reading-mam-simple-json.html']}
- assert digest_groups([g for g in groups if 'editionWordLinks' not in g])==previous_digest
+ assert digest_groups([g for g in groups if 'editionWordLinks' not in g and 'implicitReadingLinks' not in g])==previous_digest
  (ROOT/'docs/PRONUNCIATION-EDITION-WORDS.json').write_text(json.dumps(edition_record,ensure_ascii=False,indent=2)+'\n')
  audit.update(revision=4,editionWordRecord='docs/PRONUNCIATION-EDITION-WORDS.json',editionWordGroups=len(edition_entries),editionWords=edition_record['addedWords'])
+ assert implicit_evidence is not None
+ old=[g for g in groups if 'implicitReadingLinks' not in g]
+ implicit_evidence.update(previousGroups=len(old),previousGroupsSha256=digest_groups(old),addedGroups=1,addedWords=1)
+ assert len(old)==68503 and digest_groups(old)=='5403d1ec384384681ece8c86c3900ae844b550ebd4b360c2ae269c4bcf1da6fd','Previously published68503 pronunciation groups changed.'
+ (ROOT/'docs/PRONUNCIATION-IMPLICIT-READING.json').write_text(json.dumps(implicit_evidence,ensure_ascii=False,indent=2)+'\n')
+ runtime={k:implicit_evidence[k] for k in ['sourceCommit','groupId','link','anchors','primaryArchiveSha256','sourceRuleArchiveSha256']}
+ (ROOT/'pronunciation-implicit-reading-data.js').write_text('// Factual source reading correspondence; see docs/PRONUNCIATION-IMPLICIT-READING.json.\nexport const IMPLICIT_READING='+json.dumps(runtime,ensure_ascii=False,separators=(',',':'))+';\n')
+ audit.update(revision=5,implicitReadingRecord='docs/PRONUNCIATION-IMPLICIT-READING.json',implicitReadingWords=1)
  (ROOT/'docs/PRONUNCIATION-ALIGNMENT.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
  summary={k:audit[k] for k in ['schema','revision','sourceCommit','mappedWords','readerWords','groups','limits']}
  (ROOT/'pronunciation-summary.js').write_text('// Generated by scripts/import-pronunciation.py.\nexport const PRONUNCIATION_SUMMARY='+json.dumps(summary,ensure_ascii=False,separators=(',',':'))+';\n')

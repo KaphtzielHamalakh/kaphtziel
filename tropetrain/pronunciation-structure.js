@@ -1,6 +1,7 @@
 // Source display structure only: no phoneme, Hebrew-cluster or musical inference.
 import {alignSourceWordBoundaries,groupReaderLetterForms} from './pronunciation-word-alignment.js';
 import {resolvePronunciationRepeats,PRONUNCIATION_REPEAT_EVIDENCE} from './pronunciation-repeats.js';
+import {isImplicitReadingGroup} from './pronunciation-implicit-reading.js';
 export function transcriptionStructure(nodes){
  if(nodes===null)return {status:'missing',text:null,units:[],boundaries:[],marks:[]};
  if(!Array.isArray(nodes))throw Error('Invalid pronunciation source cell.');
@@ -47,7 +48,7 @@ export function sourcePronunciationStudy(group,{sourceCommit,word,style}){
  if(!['sephardic','ashkenazic'].includes(style))throw Error('Unsupported pronunciation text style.');
  const sourceWordId=word?.sourceWordId??word?.id,index=group.readerIds.indexOf(sourceWordId);
  if(index<0||group.readerHebrew[index]!==word.sourceHebrew)throw Error('The Hebrew source changed; this pronunciation link needs review.');
- if(group.writtenReadVariants||group.editionWordLinks){
+ if(group.writtenReadVariants||group.editionWordLinks||isImplicitReadingGroup(group)){
   if(group.writtenReadVariants?.some(v=>!group.readerIds.includes(v.readerWordId)))throw Error('Explicit written/read pronunciation owner needs review.');
   group.readerHebrew.forEach((_,i)=>groupReaderLetterForms(group,i));
  }
