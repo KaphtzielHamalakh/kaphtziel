@@ -34,6 +34,7 @@ execFileSync('node',[path.join(root,'scripts/audit-source-pitches.mjs')],{stdio:
 execFileSync('node',[path.join(root,'scripts/audit-source-contour.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-score-groups.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/import-haftarah-references.py'),'--verify'],{stdio:'inherit'});
+execFileSync('python3',[path.join(root,'scripts/import-pronunciation-repertoire.py'),'--verify'],{stdio:'inherit'});
 const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).version;
 const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'utf8');
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
@@ -45,6 +46,8 @@ const repertoireBooks=await Promise.all(repertoireManifest.books.map(b=>readFile
 const repertoireEncoded=gzipSync(JSON.stringify({manifest:repertoireManifest,books:repertoireBooks}),{level:9}).toString('base64');
 const underlayEncoded=(await readFile(path.join(root,'data/pronunciation/torah-underlay.json.gz'))).toString('base64');
 const segmentsEncoded=(await readFile(path.join(root,'data/pronunciation/torah-segments.json.gz'))).toString('base64');
+const pronunciationRepertoireSummary=JSON.parse((await readFile(path.join(root,'pronunciation-repertoire-summary.js'),'utf8')).split('export const PRONUNCIATION_REPERTOIRE_SUMMARY=')[1].trim().replace(/;$/,''));
+const pronunciationRepertoireEncoded=Object.fromEntries(await Promise.all(pronunciationRepertoireSummary.books.map(async b=>[b.bookId,(await readFile(path.join(root,'data/pronunciation/repertoire',b.bookId+'.json.gz'))).toString('base64')])));
 const pronunciationEncoded=(await readFile(path.join(root,'data/pronunciation/torah-display.json.gz'))).toString('base64');
 const haftarahEncoded=(await readFile(path.join(root,'data/references/haftarah-library.json.gz'))).toString('base64');
 const referenceEncoded=(await readFile(path.join(root,'data/references/torah-library.json.gz'))).toString('base64');
@@ -57,7 +60,14 @@ const pitchWorkerSource=pitchWorker.outputFiles[0].text;
 const contourWorker=await build({absWorkingDir:root,entryPoints:['source-contour-worker.js'],bundle:true,format:'iife',platform:'browser',target:['es2022'],write:false,legalComments:'eof',charset:'utf8'});
 const contourWorkerSource=contourWorker.outputFiles[0].text;
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
-  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/haftarah-reference-data\.js$/},()=>({loader:'js',contents:`
+  name:'embedded-corpus',setup(builder){builder.onLoad({filter:/pronunciation-repertoire-data\.js$/},()=>({loader:'js',contents:`
+    const encoded=${JSON.stringify(pronunciationRepertoireEncoded)};
+    export async function loadPronunciationRepertoireBook(bookId){
+      if(!Object.hasOwn(encoded,bookId))throw Error('Choose a supported pronunciation source book.');
+      if(typeof DecompressionStream==='undefined')throw Error('Pronunciation source text needs gzip support.');
+      const bytes=Uint8Array.from(atob(encoded[bookId]),c=>c.charCodeAt(0));
+      return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+    }`}));builder.onLoad({filter:/haftarah-reference-data\.js$/},()=>({loader:'js',contents:`
     const encoded=${JSON.stringify(haftarahEncoded)};
     export async function loadHaftarahData(){
       if(typeof DecompressionStream==='undefined')throw Error('The Haftarah catalog needs gzip support.');
@@ -219,7 +229,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
  .replace('<footer>',()=>`<details id="pronunciation-notices"><summary>Pronunciation source attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(pronunciationNotice)}</pre></details><details id="voice-study-notices"><summary>Voice-study recording attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(voiceStudyNotice)}</pre></details><details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
 for(const scan of highHolidayScans)standalone=standalone.replaceAll(`src="./${scan.file}"`,()=>`src="data:image/png;base64,${scan.raw.toString('base64')}"`);
 standalone=standalone.replaceAll('href="./docs/BAER-HIGH-HOLIDAY-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(highHolidayEvidence).toString('base64')}"`);
-for(const [relative,mime] of [['docs/HAFTARAH-PRACTICE.json','application/json'],['docs/HAFTARAH-REFERENCE-AUDIT.json','application/json'],['data/references/haftarah-sources.zip','application/zip'],['docs/SYLLABLE-TIMING-DRAFT.json','application/json'],['docs/PRONUNCIATION-IPA-COVERAGE.json','application/json'],['docs/SINGING-SOURCE-RESEARCH.json','application/json'],['docs/SOURCE-DURATION-REVIEW.json','application/json'],['docs/PRONUNCIATION-IPA-PROPOSAL.json','application/json'],['assets/pronunciation/ipa-proposal-sources.zip','application/zip'],['docs/MEASURED-TONES.json','application/json'],['docs/MEASURED-TONE-COVERAGE.json','application/json'],['docs/RECORDED-PITCH-PROCESSING.json','application/json'],['vendor/signalsmith-stretch/NOTICE.txt','text/plain'],['vendor/signalsmith-stretch/LICENSE.txt','text/plain'],['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']]){
+for(const [relative,mime] of [['assets/pronunciation/phonetic-mam-repertoire-sources.zip','application/zip'],['docs/PRONUNCIATION-REPERTOIRE-ALIGNMENT.json','application/json'],['docs/HAFTARAH-PRACTICE.json','application/json'],['docs/HAFTARAH-REFERENCE-AUDIT.json','application/json'],['data/references/haftarah-sources.zip','application/zip'],['docs/SYLLABLE-TIMING-DRAFT.json','application/json'],['docs/PRONUNCIATION-IPA-COVERAGE.json','application/json'],['docs/SINGING-SOURCE-RESEARCH.json','application/json'],['docs/SOURCE-DURATION-REVIEW.json','application/json'],['docs/PRONUNCIATION-IPA-PROPOSAL.json','application/json'],['assets/pronunciation/ipa-proposal-sources.zip','application/zip'],['docs/MEASURED-TONES.json','application/json'],['docs/MEASURED-TONE-COVERAGE.json','application/json'],['docs/RECORDED-PITCH-PROCESSING.json','application/json'],['vendor/signalsmith-stretch/NOTICE.txt','text/plain'],['vendor/signalsmith-stretch/LICENSE.txt','text/plain'],['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']]){
  const bytes=await readFile(path.join(root,relative));standalone=standalone.replaceAll(`href="./${relative}"`,()=>`href="data:${mime};base64,${bytes.toString('base64')}"`);
 }
 await writeFile(path.join(root,'TropeTrain.html'),standalone);

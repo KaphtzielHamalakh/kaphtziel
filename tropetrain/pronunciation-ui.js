@@ -1,6 +1,7 @@
 import {sourceIpaEvidence} from './pronunciation-ipa.js';
 import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle} from './pronunciation.js';
 import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
+import {PRONUNCIATION_REPERTOIRE_SUMMARY} from './pronunciation-repertoire-summary.js';
 import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
 import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
@@ -12,10 +13,20 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
- const readerCache=new Map(),followCache=new Map();
+ const readerCache=new Map(),followCache=new Map(),bookRequests=new Map(),bookErrors=new Map();
+ function requestBook(value){
+  if(!library?.canLoadBook(value)||library.bookLoaded(value))return false;
+  const id=library.bookId(value);if(bookErrors.has(id)||bookRequests.has(id))return true;
+  const job=library.loadBookFor(value);bookRequests.set(id,job);
+  job.catch(e=>bookErrors.set(id,e.message)).finally(()=>{
+   if(bookRequests.get(id)===job)bookRequests.delete(id);
+   readerCache.clear();followCache.clear();lastKey=null;render();onChange();
+  });return true;
+ }
+ $('pronunciation-retry').addEventListener('click',()=>{if(word){bookErrors.delete(library.bookId(word));lastKey=null;render();}});
  for(const s of PRONUNCIATION_STYLES){const option=document.createElement('option');option.value=s.id;option.textContent=s.name;$('pronunciation-style').append(option);}
  $('pronunciation-style').value=style;
- $('pronunciation-coverage').textContent=`${PRONUNCIATION_SUMMARY.mappedWords.toLocaleString()} of ${PRONUNCIATION_SUMMARY.readerWords.toLocaleString()} Torah words linked to source groups. Unmatched words remain unassigned. Correspondence and linguistic review are pending.`;
+ $('pronunciation-coverage').textContent=`${PRONUNCIATION_SUMMARY.mappedWords.toLocaleString()} of ${PRONUNCIATION_SUMMARY.readerWords.toLocaleString()} Torah words linked to source groups; ${PRONUNCIATION_REPERTOIRE_SUMMARY.mappedWords.toLocaleString()} of ${PRONUNCIATION_REPERTOIRE_SUMMARY.readerWords.toLocaleString()} additional words in the Prophets and five scrolls. Unmatched words remain unassigned. Correspondence and linguistic review are pending.`;
  function appendInline(parent,nodes){
   for(const node of nodes){
    if(typeof node==='string'){parent.append(document.createTextNode(node));continue;}
@@ -96,13 +107,15 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  function render(){
   const current=JSON.stringify([style,word?.id,word?.sourceHebrew,word?.reference,listening,!!library,error]);if(current===lastKey)return;lastKey=current;
   $('pronunciation-target').textContent=word?`${word.reference} · word ${word.ordinal} · ${listening?'listening word':'selected word'}`:'Choose a Hebrew word.';
-  const coverage=PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
-  $('pronunciation-reader-word').textContent=word?.sourceHebrew??'';
+  const bookCoverage=PRONUNCIATION_REPERTOIRE_SUMMARY.books.find(b=>b.bookId===(word?.sourceWordId??word?.id??'').split('-')[0]);
+  const coverage=PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=bookCoverage?`${bookCoverage.mappedWords.toLocaleString()} of ${bookCoverage.readerWords.toLocaleString()} words in this book have source-group correspondence; ${bookCoverage.unmappedWords.toLocaleString()} remain unassigned. Literal source syllable units are kept; computed Hebrew ranges and source categories are not supplied for this book.`:`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
+  $('pronunciation-retry').hidden=true;$('pronunciation-reader-word').textContent=word?.sourceHebrew??'';
   $('pronunciation-rows').replaceChildren();$('pronunciation-source-rows').replaceChildren();$('pronunciation-json').textContent='';
   $('pronunciation-units').replaceChildren();$('pronunciation-unit-scope').textContent='Choose a word with source correspondence.';$('pronunciation-export').disabled=true;$('ipa-proposal-export').disabled=true;$('ipa-proposal-download').hidden=true;$('ipa-proposal-download').removeAttribute('href');$('ipa-proposal-json').textContent='';study=null;renderPronunciationRules($('pronunciation-rules-content'),null,style);
   if(error){$('pronunciation-status').textContent=error;return;}
   if(!library){$('pronunciation-status').textContent='Loading the local pronunciation source…';return;}
   if(!word){$('pronunciation-status').textContent='Choose a Hebrew word.';return;}
+  if(requestBook(word)){const message=bookErrors.get(library.bookId(word));$('pronunciation-status').textContent=message??'Loading this book’s local pronunciation source…';$('pronunciation-retry').hidden=!message;return;}
   let group;try{group=library.at(word);}catch(e){$('pronunciation-status').textContent=e.message;return;}
   if(!group){$('pronunciation-status').textContent='No checked source correspondence for this word. The selected style is kept; no transcription is substituted.';return;}
   study=library.study(word,style);
@@ -126,7 +139,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    $('pronunciation-rows').append(item);
    const source=document.createElement('div');source.className='pronunciation-row';columns(source,row.hebrew,true);$('pronunciation-source-rows').append(source);
   }
-  structure();renderPronunciationRules($('pronunciation-rules-content'),study,style);$('pronunciation-export').disabled=false;$('ipa-proposal-export').disabled=false;$('ipa-proposal-json').textContent=JSON.stringify(sourceIpaEvidence(study,word,style),null,2);
+  structure();renderPronunciationRules($('pronunciation-rules-content'),study,style);$('pronunciation-export').disabled=false;$('ipa-proposal-export').disabled=!study.sourceSegments;$('ipa-proposal-json').textContent=study.sourceSegments?JSON.stringify(sourceIpaEvidence(study,word,style),null,2):'No checked category/IPA evidence for this source display. No phonemes, note or sound times are inferred.';
   $('pronunciation-json').textContent=JSON.stringify({sourceCommit:library.sourceCommit,license:'CC-BY-SA-4.0',group},null,2);
  }
  $('ipa-proposal-export').addEventListener('click',()=>{
@@ -141,7 +154,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  getPronunciationLibrary().then(value=>{library=value;render();onChange();}).catch(e=>{error=e.message;render();onChange();});
  return {showWord(value,{following=false}={}){word=value;listening=following;render();},
   readerText(value){
-   if(!library)return null;
+   if(!library||requestBook(value))return null;
    // Bounded cache keeps repeated assignment occurrences independent while
    // avoiding source analysis on every paint. Always recheck the marked word.
    library.at(value);
