@@ -1,0 +1,1957 @@
+{
+  "schema": "tropetrain-baer-first-setting-patterns-v1",
+  "revision": 1,
+  "id": "baer-1894-no105-first-setting",
+  "name": "Baer No105 · first printed setting",
+  "source": {
+    "title": "Baal t’fillah oder Der practische Vorbeter",
+    "author": "Abraham Baer",
+    "edition": "Third expanded edition [1894]",
+    "titleRecord": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "manifest": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/manifest",
+    "institution": "Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main",
+    "digitizationPolicy": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+    "rights": "Original nineteenth-century print public domain; institutional digitization policy permits unrestricted public-domain digitization reuse. New literal component transcription CC0-1.0. Qualified musical/transcription review pending.",
+    "pages": {
+      "30": {
+        "page": "30",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853614",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3000,/0/default.jpg",
+        "bytes": 1281858,
+        "sha256": "f65cc9ea41f7fc1dfb59db4dd46a40f645a63571f2cf7b6c8d1ca498b158b54b",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          1065
+        ],
+        "inspectionCropFile": "page-30-first.png",
+        "image": "assets/scores/baer-no105-first-p30.png",
+        "imageSha256": "108f6af8f4c1e7101308f0bc59c5aa165a85a39119f0b91d291d214452c4b471",
+        "imageBytes": 278905,
+        "derivation": "Lossless, unretouched crop of the institutional3000px raster at inspectionCrop; original raster hash and URL retained. First printed setting only; adjacent staff fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3000,/0/default.jpg"
+      },
+      "31": {
+        "page": "31",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853615",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3000,/0/default.jpg",
+        "bytes": 1560317,
+        "sha256": "ac7b5034d91a14659c74da061c2a63bc1efce4cff5baba7b7db69436bbc57657",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          930
+        ],
+        "inspectionCropFile": "page-31-first.png",
+        "image": "assets/scores/baer-no105-first-p31.png",
+        "imageSha256": "d6810adabc2251d543fe5e4993252ea88e4b47f50878f090aef010791c7ae02a",
+        "imageBytes": 334720,
+        "derivation": "Lossless, unretouched crop of the institutional3000px raster at inspectionCrop; original raster hash and URL retained. First printed setting only; adjacent staff fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3000,/0/default.jpg"
+      },
+      "32": {
+        "page": "32",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853616",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3000,/0/default.jpg",
+        "bytes": 1545567,
+        "sha256": "2632d6d938ddddc5983d8c6d14708bc20facb613e8a0bedd0646fb9dea205329",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          930
+        ],
+        "inspectionCropFile": "page-32-first.png",
+        "image": "assets/scores/baer-no105-first-p32.png",
+        "imageSha256": "bc5e999bae0e4eaf35bf6c89a967249830eba0b5340121b2c79aa94b60c9cde3",
+        "imageBytes": 338619,
+        "derivation": "Lossless, unretouched crop of the institutional3000px raster at inspectionCrop; original raster hash and URL retained. First printed setting only; adjacent staff fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3000,/0/default.jpg"
+      },
+      "33": {
+        "page": "33",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853617",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3000,/0/default.jpg",
+        "bytes": 1540653,
+        "sha256": "6c2b6b85eb5100129fb0b187a6370d26050de9bacdf3764a699438858b2a47b7",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          930
+        ],
+        "inspectionCropFile": "page-33-first.png",
+        "image": "assets/scores/baer-no105-first-p33.png",
+        "imageSha256": "5d105dfa41e123dac0c1f32ae6d7fcd7d2782c9dfe129508e5ef158b6ccadc65",
+        "imageBytes": 256302,
+        "derivation": "Lossless, unretouched crop of the institutional3000px raster at inspectionCrop; original raster hash and URL retained. First printed setting only; adjacent staff fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3000,/0/default.jpg"
+      },
+      "34": {
+        "page": "34",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853618",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3000,/0/default.jpg",
+        "bytes": 1607174,
+        "sha256": "cddc69600f4817aa0f1181ded9782b952384a8e9eb116220cb6ae27158fa0ba4",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          930
+        ],
+        "inspectionCropFile": "page-34-first.png",
+        "image": "assets/scores/baer-no105-first-p34.png",
+        "imageSha256": "b80c22aaf1d5d455765d4fd8f4ba7fbd39351c456d7bc561f502ca9c2e1d1f56",
+        "imageBytes": 306711,
+        "derivation": "Lossless, unretouched crop of the institutional3000px raster at inspectionCrop; original raster hash and URL retained. First printed setting only; adjacent staff fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3000,/0/default.jpg"
+      },
+      "35": {
+        "page": "35",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853619",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3000,/0/default.jpg",
+        "bytes": 1501929,
+        "sha256": "1bd4dc8c9b7badb30fb9508a4642d3d2b2b6ee0ae669d50837a4d43a7c2170e9",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          930
+        ],
+        "inspectionCropFile": "page-35-first.png",
+        "image": "assets/scores/baer-no105-first-p35.png",
+        "imageSha256": "f7e245e48a3de2c400061c678ed37e5f81184405725ed8df19233be6e016e7b5",
+        "imageBytes": 303657,
+        "derivation": "Lossless, unretouched crop of the institutional3000px raster at inspectionCrop; original raster hash and URL retained. First printed setting only; adjacent staff fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3000,/0/default.jpg"
+      },
+      "36": {
+        "page": "36",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853620",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853620/full/3000,/0/default.jpg",
+        "bytes": 714611,
+        "sha256": "0d22045ad79067bc35325b064859034acce07e2b53452d8376df176bf595d36b",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          345,
+          3000,
+          1455
+        ],
+        "inspectionCropFile": "page-36-first.png",
+        "image": "assets/scores/baer-no105-first-p36.jpg",
+        "imageSha256": "4d69de883939e1afbacc24241e6f1ddc5747f0e003cb99326a5378fd3588745f",
+        "imageBytes": 149985,
+        "derivation": "Exact institutional1000px full-page JPEG, including both rare-sign blocks; sourceImageUrl records that original.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/download/webcache/1000/853620"
+      }
+    },
+    "contextImage": {
+      "image": "assets/scores/baer-no105-page30-context.jpg",
+      "sha256": "b5d7e372639f42de17fbb4f1309b66c4dbb251d074646cc7939bee61f2ce8d82",
+      "bytes": 267509,
+      "mime": "image/jpeg"
+    },
+    "image": "assets/scores/baer-no105-first-p30.png",
+    "page": 30,
+    "caption": "No105 first printed setting, with rare-sign appendix p36; literal source notation, not a complete melody grammar or Kinnor preset."
+  },
+  "sourceKey": "One printed flat: B-flat. Written pitches are retained; instrumental tuning is12-TET.",
+  "figures": [
+    {
+      "id": "zarqa",
+      "name": "Sar-ko · Zarqa",
+      "page": 30,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "segol",
+      "name": "se-gol · Segol",
+      "page": 30,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "notation-review",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Both stem directions and coincident heads need a documented single-line reading; no path is guessed."
+    },
+    {
+      "id": "munah-plain",
+      "name": "Mu-nach · plain source column",
+      "page": 30,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "munah-before-revia",
+      "name": "Munach · before Revia",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "revia",
+      "name": "r’wi-a · Revia",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "munah-four-glyphs",
+      "name": "Munach · before four printed signs",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "contextPending": "The four source glyphs are retained in the image; a modern sign predicate is not inferred."
+    },
+    {
+      "id": "munah-before-mahpakh",
+      "name": "Munach · before Mahpakh",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "notation-review",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Tuplet extent and slur boundaries need further literal transcription."
+    },
+    {
+      "id": "munah-before-merkha-tevir",
+      "name": "Munach · before Mercha / Tevir",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "mahpakh-pashta-zaqef",
+      "name": "Mahpach → paschto → sokef koton",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "notation-review",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Multiple stem directions and coincident components need a documented reading."
+    },
+    {
+      "id": "zakef-gadol",
+      "name": "Sokef godol · Zaqef gadol",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "mahpakh-pashta-without-zaqef",
+      "name": "Mahpach → paschto · ohne qaton",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "pashta-zaqef-one-word",
+      "name": "Paschto koton · auf einem Worte",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "pashta-alone",
+      "name": "Paschto · allein",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "pashta-zaqef-after-predecessors",
+      "name": "Paschto koton · after printed predecessors",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "merkha-tipha",
+      "name": "Mercho → Tipcho",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "munah-etnahta",
+      "name": "Munach → esnachto",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "merkha-tevir",
+      "name": "Mercho → t’wir",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "merkha-silluq",
+      "name": "Mercho → si-luk · sof po-suk",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "pazer",
+      "name": "Poser · Pazer",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "telisha-qetana",
+      "name": "T’lischo k’ta-noh",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "telisha-gedola",
+      "name": "T’lischo g’do-loh",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "qadma-azla",
+      "name": "Kadmo → w’aslo",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "azla-geresh",
+      "name": "Aslo → ge-resch",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "gershayim",
+      "name": "Gerschajim",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "darga-tevir",
+      "name": "Dargo → t’wir",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "yetiv",
+      "name": "J’siv · Yetiv",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "paseq",
+      "name": "P’sik · Paseq",
+      "page": 35,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "sof-pasuq",
+      "name": "Sof po-suk · Schluss",
+      "page": 35,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null
+    },
+    {
+      "id": "section-ending",
+      "name": "Mercho → tipcho → sof po-suk · printed ending",
+      "page": 35,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "shalshelet",
+      "name": "Schalscheles · first rare-sign setting",
+      "page": 36,
+      "sourceSection": "Rare-sign appendix · Parschijoth, first setting",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    },
+    {
+      "id": "qarnei-yerah-pair",
+      "name": "Karne poroh / jerach ben jomo · joint source example",
+      "page": 36,
+      "sourceSection": "Rare-sign appendix · Parschijoth, first setting",
+      "sourceSetting": "1. W.",
+      "status": "application-review",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Printed heading order and modern reader accent order differ; actual example underlay must be checked independently."
+    },
+    {
+      "id": "merkha-kefula",
+      "name": "Mercho k’fuloh · first rare-sign setting",
+      "page": 36,
+      "sourceSection": "Rare-sign appendix · Parschijoth, first setting",
+      "sourceSetting": "1. W.",
+      "status": "not-transcribed",
+      "review": null,
+      "wordApplication": null,
+      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+    }
+  ],
+  "notes": [
+    {
+      "id": "baer105-1w-zarqa-1",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-zarqa-2",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.2,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 5,
+        "normal": 4
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 2",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "tuplet": {
+        "id": "baer105-1w-zarqa-quintuplet",
+        "phase": "start"
+      },
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-3",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.2,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 5,
+        "normal": 4
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "tuplet": {
+        "id": "baer105-1w-zarqa-quintuplet",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-4",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.2,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 5,
+        "normal": 4
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 4",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-1w-zarqa-quintuplet",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-5",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.2,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 5,
+        "normal": 4
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 5",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-1w-zarqa-quintuplet",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-6",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.2,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 5,
+        "normal": 4
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 6",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-1w-zarqa-quintuplet",
+        "phase": "stop"
+      },
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-7",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 7",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-8",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 8",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-zarqa-9",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Sar-ko · Zarqa, printed component 9",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slur": {
+        "id": "baer105-zarqa-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-plain-1",
+      "cell": "munah-plain",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 1"
+    },
+    {
+      "id": "baer105-1w-munah-plain-2",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-munah-plain-3",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-munah-plain-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-plain-4",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 4",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slur": {
+        "id": "baer105-munah-plain-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-plain-5",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 5",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-munah-plain-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-plain-6",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 6",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slur": {
+        "id": "baer105-munah-plain-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-plain-7",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 7",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slur": {
+        "id": "baer105-munah-plain-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-plain-8",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, first setting, Mu-nach · plain source column, printed component 8",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "slur": {
+        "id": "baer105-munah-plain-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-before-revia-1",
+      "cell": "munah-before-revia",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before Revia, printed component 1"
+    },
+    {
+      "id": "baer105-1w-munah-before-revia-2",
+      "cell": "munah-before-revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before Revia, printed component 2",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-1w-revia-1",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 1",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slur": {
+        "id": "baer105-revia-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-revia-2",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 2",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-revia-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-revia-3",
+      "cell": "revia",
+      "kind": "rest",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 3"
+    },
+    {
+      "id": "baer105-1w-revia-4",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 4",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-revia-5",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 5",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-revia-slur-2",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-revia-6",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 6",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slur": {
+        "id": "baer105-revia-slur-2",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-revia-7",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 7",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-revia-slur-2",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-revia-8",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 8",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slur": {
+        "id": "baer105-revia-slur-2",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-revia-9",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, r’wi-a · Revia, printed component 9",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slur": {
+        "id": "baer105-revia-slur-2",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-four-glyphs-1",
+      "cell": "munah-four-glyphs",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before four printed signs, printed component 1"
+    },
+    {
+      "id": "baer105-1w-munah-four-glyphs-2",
+      "cell": "munah-four-glyphs",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before four printed signs, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-munah-four-glyphs-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-four-glyphs-3",
+      "cell": "munah-four-glyphs",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before four printed signs, printed component 3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slur": {
+        "id": "baer105-munah-four-glyphs-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-four-glyphs-4",
+      "cell": "munah-four-glyphs",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before four printed signs, printed component 4",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-munah-four-glyphs-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-munah-four-glyphs-5",
+      "cell": "munah-four-glyphs",
+      "kind": "rest",
+      "quarterBeats": 2.0,
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Munach · before four printed signs, printed component 5"
+    },
+    {
+      "id": "baer105-1w-zakef-gadol-1",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Sokef godol · Zaqef gadol, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-zakef-gadol-2",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Sokef godol · Zaqef gadol, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-zakef-gadol-3",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Sokef godol · Zaqef gadol, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-zakef-gadol-4",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Sokef godol · Zaqef gadol, printed component 4",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-1w-zakef-gadol-5",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Sokef godol · Zaqef gadol, printed component 5",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-1w-zakef-gadol-6",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, first setting, Sokef godol · Zaqef gadol, printed component 6",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-pashta-alone-1",
+      "cell": "pashta-alone",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto · allein, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-pashta-alone-2",
+      "cell": "pashta-alone",
+      "kind": "note",
+      "quarterBeats": 1.5,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto · allein, printed component 2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slur": {
+        "id": "baer105-pashta-alone-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-pashta-alone-3",
+      "cell": "pashta-alone",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto · allein, printed component 3",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-pashta-alone-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-merkha-silluq-1",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Mercho → si-luk · sof po-suk, printed component 1",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-1w-merkha-silluq-2",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Mercho → si-luk · sof po-suk, printed component 2",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-1w-merkha-silluq-3",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Mercho → si-luk · sof po-suk, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-merkha-silluq-4",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Mercho → si-luk · sof po-suk, printed component 4",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-merkha-silluq-5",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Mercho → si-luk · sof po-suk, printed component 5",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-1w-merkha-silluq-6",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Mercho → si-luk · sof po-suk, printed component 6",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-yetiv-1",
+      "cell": "yetiv",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, first setting, J’siv · Yetiv, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-yetiv-2",
+      "cell": "yetiv",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, first setting, J’siv · Yetiv, printed component 2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-1w-paseq-1",
+      "cell": "paseq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, P’sik · Paseq, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-paseq-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-paseq-2",
+      "cell": "paseq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, P’sik · Paseq, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-paseq-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-paseq-3",
+      "cell": "paseq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, P’sik · Paseq, printed component 3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slur": {
+        "id": "baer105-paseq-slur-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-1w-paseq-4",
+      "cell": "paseq",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, P’sik · Paseq, printed component 4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-paseq-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-paseq-5",
+      "cell": "paseq",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, P’sik · Paseq, printed component 5"
+    },
+    {
+      "id": "baer105-1w-sof-pasuq-1",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, Sof po-suk · Schluss, printed component 1",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slur": {
+        "id": "baer105-sof-pasuq-slur-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-sof-pasuq-2",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, Sof po-suk · Schluss, printed component 2",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-sof-pasuq-slur-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-1w-sof-pasuq-3",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, Sof po-suk · Schluss, printed component 3",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-1w-sof-pasuq-4",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 1.0,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, Sof po-suk · Schluss, printed component 4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-sof-pasuq-slur-2",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-sof-pasuq-5",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, first setting, Sof po-suk · Schluss, printed component 5",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slur": {
+        "id": "baer105-sof-pasuq-slur-2",
+        "phase": "stop"
+      }
+    }
+  ],
+  "matchingQueries": {
+    "zarqa": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "zarqa"
+        ]
+      }
+    ],
+    "munah-plain": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "munah"
+        ]
+      }
+    ],
+    "munah-before-revia": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "munah",
+          "revia"
+        ]
+      }
+    ],
+    "revia": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "revia"
+        ]
+      }
+    ],
+    "zakef-gadol": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "zakef-gadol"
+        ]
+      }
+    ],
+    "pashta-alone": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "pashta"
+        ]
+      }
+    ],
+    "merkha-silluq": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "merkha",
+          "silluq"
+        ]
+      }
+    ],
+    "yetiv": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "yetiv"
+        ]
+      }
+    ],
+    "paseq": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "paseq"
+        ]
+      }
+    ],
+    "sof-pasuq": [
+      {
+        "label": "Encoded sign lookup only; no automatic melodic application",
+        "ids": [
+          "silluq"
+        ]
+      }
+    ]
+  },
+  "scope": "Complete32-cell first-setting inventory;11literal figures transcribed for instrumental study. Remaining cells are explicitly not transcribed or await notation/application review. No arbitrary-word fitting is supplied.",
+  "timing": "Written note/rest values at an independently chosen quarter-note tempo. Printed recitative/bar separators do not impose inferred measure counts, breaths or expressive durations. Source leading, interior, dotted and final rests are retained.",
+  "pronunciation": null,
+  "syllableUnderlay": null,
+  "phonemes": null,
+  "review": {
+    "independentMusical": null,
+    "wordUnderlay": null,
+    "acoustic": null
+  },
+  "applicationIssue": {
+    "page": 36,
+    "sourceHeadingOrder": [
+      "Karne poroh",
+      "jerach ben jomo"
+    ],
+    "readerExample": [
+      {
+        "id": "num-35-5-7",
+        "hebrew": "אַלְפַּ֪יִם",
+        "sign": "U+05AA YERAH BEN YOMO"
+      },
+      {
+        "id": "num-35-5-8",
+        "hebrew": "בָּֽאַמָּ֟ה",
+        "sign": "U+059F QARNEY PARA"
+      }
+    ],
+    "status": "Preserve both source and reader. Do not infer component-to-word alignment from horizontal heading order."
+  },
+  "limits": "Source figures only. No complete contextual melody system, regional identity for 1.W., Kinnor equivalence, pronunciation transformation, Hebrew syllable fitting or new singing voice is asserted. Existing text, accents, notes, source audio and timing data remain unchanged."
+}

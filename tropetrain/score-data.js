@@ -63,7 +63,7 @@ export function untextedScoreData(plan){
   return plan.map((event,index)=>{
     if(event.wordId!==null||event.sourceWordId!==null||event.syllableId!==null||event.syllable!==null||event.phonemes!==null)
       throw Error('An untexted source pattern must not claim word, syllable or phoneme alignment.');
-    const next=plan[index+1],gap=next?next.startBeat-event.startBeat-event.beats:0;
+    const next=plan[index+1],gap=next?next.startBeat-event.startBeat-event.beats:event.endingRestBeats??0;
     return {...event,syllable:'',untexted:true,pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gap>1e-8?gap:0};
   });
 }

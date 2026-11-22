@@ -102,7 +102,7 @@
     },
     {
       "path": "pronunciation.js",
-      "sha256": "edb6a32044b29e2f233e7b7f223a9533fbbd5a2eb54959084700799e134de3bb"
+      "sha256": "9b55872d6d139c3accf67f2070241ed87aeeca921c7fe70ac857b6c3f4b061b3"
     },
     {
       "path": "pronunciation-note-links.js",
@@ -110,7 +110,7 @@
     },
     {
       "path": "pronunciation-underlay.js",
-      "sha256": "beb775683840a373f1dd1ac4819ac09e9e4272306be04a76f7a201182ddf7de9"
+      "sha256": "d825d7ef0fb406a5adc78dce7513a90e6404e2f58df2e4a4a129f9aea846a783"
     },
     {
       "path": "pronunciation-structure.js",
