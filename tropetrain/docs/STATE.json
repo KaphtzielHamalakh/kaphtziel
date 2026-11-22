@@ -3,15 +3,15 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "5de387999370b435d7c258cad4e77db7a217e0c8",
-  "nextTask": "Continue sourced contextual melody and pronunciation grammars and word/syllable/phoneme singing alignment across the entire Torah, then the remaining learning/tutor inventory; printing deferred. Recorded practice now has independent optional processed pitch±12 and native50–150%speed, separate from instrument key/range/BPM and MAM source text styles; original previews remain original. Preserve all540original asset/data files and the zero-pitch bypass. Processed tuning, transient edges and vocal timbre still need acoustic/phonological/cantorial review; do not infer a pronunciation voice or traditional grammar from numeric transposition. Continue the full independently pronounced word-aligned chanting reconstruction. All79,985Torah words now have source-group correspondence;79,983individual unit owners/style and two combined words remain. Preserve every original marked Hebrew/canonical and occurrence ID,68503prior source groups, source cells/stress/categories, score/demo notes, fixed recordings and timing.77,802words/style have exact written ranges;2,181source-only word forms/style and two combined words still need qualified phonological/underlay review. Source word correspondence and the explicit _UMEXIYAEL source rule do not allocate the extra written yod or prove identical pronunciation.2,811older recording-timing words need review. Establish actual verse/word/syllable/phoneme/performer/edition evidence for64distinct2018source clips and11distinct2019LenFellman full takes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules, unresolved BaerNo113first-setting lyric-under-rest questions and Cohenp547penitential ornament without arbitrary pitches. All six historical Kinnor Accent grammars/voices, all recovered melody systems, qualified musical/cantorial review and the entire remaining roadmap stay required. No unsupported preset or ordinary speech substitution; printing deferred.",
+  "publishedCommit": "bf1bbba10c4d7c73dda144d05ad362aa33672113",
+  "nextTask": "Prioritize complete sourced contextual cantillation/pronunciation grammars and audible word/syllable/phoneme alignment across the entire Torah. Investigate whether the already licensed, source-timed PocketTorah F0 evidence can provide a clearly labeled source-performance instrumental contour, preserving voiced/unvoiced gaps, confidence, source seconds, word boundaries and independent MAM text styles; do not call raw F0 reviewed notes or a complete traditional grammar. Preserve all existing Hebrew/accents/IDs, notes, recordings, timings and source data; exact-span text following must never highlight a different syllable division, source-only form or another assignment occurrence. All six historical Kinnor phonological/singing grammars/voices, every recovered contextual melody system and the full remaining roadmap remain required. Two MAM text styles are not those six voices.2,181word-owned source forms/style lack written syllable ranges and two words remain combined;2,811older recorded-timing words need review. Resolve BaerNo113first-setting lyric-under-rest questions, Cohenp547penitential ornament, complete reciting/stress/cadence rules and actual performer/edition/phoneme evidence for the64distinct2018verseclips/11distinct2019fulltakes. Qualified musical, phonological and acoustic review remains pending. Full reconstruction active/incomplete; printing deferred.",
   "lastPassingTests": {
     "automated": 370,
     "failures": 0,
     "skipped": 0,
     "newTests": 7,
     "log": "/private/tmp/tropetrain-check-v43-final.log",
-    "ui": "Normal40 and portable41: muted exact-span source-syllable following, live style change preserving all27marked words/IDs and actual note, view changes and Stop; Baer mismatched divisions withheld; fixed recordings have no syllable focus; portable actual319/1280fits; four gains0/allmedia paused; no console errors/warnings. Public verification pending."
+    "ui": "Public normal42 and portable43: both show actual source-syllable focus on the same note during live Sephardic/Ashkenazic text changes, all27marked Hebrew strings/canonical IDs/aria-labels exact. Normal shít→shís retains eventgen-1-1-1-s3-n1/E4/0.9beats and progress2.43907→2.48278%; portable shís→shít retains that event and progress58.119→59.2524%. These checks used the restored instrument+2key; filling the numeric input alone did not commit a key change in the browser client. Final setup uses the actual step buttons and confirms caption/input0semitones. Portable actual319root/body319/followclient-scroll261; reset1280. No app console warnings/errors. Both left Genesis1:1–3,word1,Instrument/OriginalDemo01,Wordscope,sourceSephardic,showtextenabled,60BPM/key0/range60–72,repeatfalse; allfour gains0/threemedia paused/followidle. Screenshot outputs/TropeTrain-v0.43-live.jpg saved and visually inspected. Normal AX primary; portable supported observed Playwright/read-only DOM for the known fullAX size limit. Qualified acoustic/phonological/cantorial quality, nativeSave and directfileorigin remain unclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "c6c35fe0e9d40f9a61f953b50c4e82fe0830f699",
+    "codeCommit": "bf1bbba10c4d7c73dda144d05ad362aa33672113",
+    "pagesRun": 44994390715,
     "status": "success",
-    "workflowRun": 44984716001,
-    "url": "https://kaphtziel.com/tropetrain/",
-    "liveAssets": "Code c6c35fe0e9d40f9a61f953b50c4e82fe0830f699, tested local9d0588ba19b64b0fbdaf01091c30898f0d89cf85; app treebaaf730f560c5122d8f364a6b311e2dbcfd38c9a/root9c8e7ecc478832e4da0d976f61a430d162c5399a. Pages44984716001 completed/success/all three jobs successful. All62 changed publicfiles/91,970,655bytes exactly match tested source. Final333pass/0fail/0skip, nine new regression checks; no runtime changes after the passing final suite. RuntimeSHA2562f28db7609de231db125da6d8c6ccea35c46b3eefd8f5201bad1ab59d8772816; standalone70,085,412bytes/SHA256deb1fd1b2c740d8a721795ff73af3b129db5aa05833338db6346f5f3ac0255ec. Only /tropetrain replaced with a current-main lease, preserving unrelated site files. All old68503source groups/387888units/1037430category references remain exact after excluding three parent-data hashes; all original marked Torah, score/demo notes, fixed audio and timing files stay unchanged. Review packet outputs/Pronunciation-source-review contains the literal three forms, full primary/source verse proof, original rule reference/license, both source styles, eight source units total and deliberately null written-yod/phonological/acoustic/cantorial reviews;70182byte JSON/SHA25640fdef25372c1055bbdeb0c8c39f0c35386d4e911377ed213d03af340a85bcfb. Whole-Torah source-group correspondence is distinct from reviewed phonemes, musical realization and independent singing; full reconstruction active/incomplete, printing deferred.",
-    "ui": "Public normal28 and portable29 show all16 exact marked Genesis4:18 reader words, selecting word9 וּמְחִיּיָאֵ֗ל. Three independent marked forms remain literal: UXLC וּמְחִיּיָאֵ֗ל, primary MAM וּמְחִיָּיאֵ֗ל and source reading וּמְחִיָּאֵ֗ל. Normal example navigation preserves BaerNo113/II, instrument mode, Ashkenazic source text,73BPM/+2/rangeC4–C5; the source correctly refuses uncovered Genesis4:18 and disables Play. Explicitly choosing OriginalDemo keeps those student controls. Switching only source text to Sephardic preserves every reader string/canonical ID/aria-label and actual event ID/pitch/beats while muted progress advances5.19735→5.9835%, word9/E4. Portable at60BPM/key0 similarly preserves all16marked words and actual note events, advancing4.24615→5.11538%, word9/D4, as ya/yo changes independently. Both actual roots/bodies fit319/1280 with source comparison open; viewportreset. No application console warnings/errors. Normal AX is primary; portable uses supported observed Playwright UI following the verified local fullAX native-pipe frame limit. Both left Genesis4:18word9, OriginalDemo/instrument/Sephardic/key0/60BPM/rangeC4–C5, six unchanged demo events/3.90seconds; all four gains0, repeatfalse, three media elements paused. Screenshot outputs/TropeTrain-v0.40-live.jpg viewed. Preview26/27 and old public24/25closed; public28/29marked deliverables. Owned8767session44490stopped/exit0; user8765untouched. No nativeSave/direct-file-origin/acoustic or qualified linguistic/cantorial review claimed."
+    "jobs": 3,
+    "publicFilesExact": 16,
+    "publicBytesExact": 88372445
   },
   "corpusImport": {
     "books": 5,
@@ -191,8 +191,10 @@
   },
   "workingIteration": {
     "version": "0.43.0",
-    "status": "370 checks passing; local UI verified; publishing next",
-    "summary": "Instrumental playback now projects only exact marked-Hebrew note/pronunciation spans into source-syllable highlighting and an inspectable current-syllable line. Sephardic and Ashkenazic Phonetic MAM text styles switch independently; melismas retain source units, repeated reading occurrences stay separate, and changed boundaries/source-only forms are withheld. No Hebrew, accents, IDs, source data, notes, recordings or times change. Text correspondence is not a singing voice or acoustic timing."
+    "status": "published_verified",
+    "summary": "Exact source-syllable text follows the existing instrument note clock independently in both MAM styles; no new singing voice, acoustic syllable timing or traditional melody grammar.",
+    "codeCommit": "bf1bbba10c4d7c73dda144d05ad362aa33672113",
+    "pagesRun": 44994390715
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
