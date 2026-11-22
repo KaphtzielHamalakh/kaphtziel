@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-singing-source-research-v1",
-  "revision": 1,
+  "revision": 2,
   "status": "research_only_no_voice_imported",
   "mbrolaVoices": {
     "repository": "https://github.com/numediart/MBROLA-voices",
@@ -39,5 +39,28 @@
     "Each historical Kinnor pronunciation needs a complete source-based phonological specification and matched reviewed examples; menu labels and isolated examples are insufficient."
   ],
   "phonologicalReview": null,
-  "singingReview": null
+  "singingReview": null,
+  "additionalPrimaryLeads": [
+    {
+      "source": "https://keshet.net.technion.ac.il/files/2022/05/BenShalomKeYe14.pdf",
+      "title": "Automatic analysis of music: performance of cantillation signs in Yemenite Jewish traditional cantillation",
+      "year": 2014,
+      "evidence": "Expert sung-Hebrew phoneme annotation and community-specific alignment research; reported66.1%within20ms does not certify this project’s annotations.",
+      "reuse": "No reusable matching corpus/model release established; none imported."
+    },
+    {
+      "source": "https://sipl.ece.technion.ac.il/projects/project-details/?prj_id=11111",
+      "title": "Automatic Speech Recognition for Torah Reading with Cantillation Marks",
+      "year": 2025,
+      "evidence": "Project description of Torah ASR data preparation, not a reviewed phonetic singing grammar.",
+      "reuse": "No reusable matching labels/audio/model license established; none imported."
+    },
+    {
+      "source": "https://speech.di.uoa.gr/sppages/spppdf/ICMC07.pdf",
+      "title": "A score-to-singing voice synthesis system for the Greek language",
+      "year": 2007,
+      "evidence": "Duration/F0-controlled diphone synthesis and long-vowel quality limitations.",
+      "reuse": "No Hebrew voice or code/recordings imported; not evidence for any Kinnor pronunciation."
+    }
+  ]
 }

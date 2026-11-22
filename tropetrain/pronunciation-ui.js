@@ -165,5 +165,6 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   },
   groupNotes(events,words){return library?linkPronunciationScoreGroups(events,words,library,style):null;},
   linkNotes(events,words){return library?linkPronunciationToNotes(events,words,library,style):null;},
+  timingStudy(value){return library?{style,study:library.study(value,style)}:null;},
   scoreStatus(){return {style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};}};
 }
