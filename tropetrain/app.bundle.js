@@ -8819,6 +8819,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
   }
 
+  // pronunciation-follow.js
+  function pronunciationFollow(event, word, link, style) {
+    if (!PRONUNCIATION_STYLES.some((s) => s.id === style)) throw Error("Unsupported pronunciation text style.");
+    const sourceWordId = word?.sourceWordId ?? word?.id;
+    if (!event || !word || !link || event.wordId !== word.id || link.eventId !== event.id || link.wordId !== word.id || link.sourceWordId !== sourceWordId || (event.sourceWordId ?? event.wordId) !== sourceWordId || link.syllableId !== event.syllableId || link.hebrew !== event.syllable) throw Error("Pronunciation highlight no longer matches the score occurrence.");
+    const range = link.hebrewRange;
+    if (!range || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.start >= range.end || range.end > word.sourceHebrew.length || word.sourceHebrew.slice(range.start, range.end) !== link.hebrew) throw Error("Pronunciation highlight no longer matches the marked Hebrew.");
+    if (!["exact-written-span", "unlinked"].includes(link.status) || link.status === "exact-written-span" && (!link.units?.length || link.reason !== null) || link.status === "unlinked" && (!link.reason || link.units?.length)) throw Error("Invalid pronunciation highlight correspondence.");
+    return Object.freeze({
+      eventId: event.id,
+      wordId: word.id,
+      sourceWordId,
+      style,
+      hebrew: link.hebrew,
+      status: link.status,
+      reason: link.reason,
+      units: Object.freeze(link.units.map((u) => Object.freeze({ sourceUnitId: u.sourceUnitId, text: u.text, sourceStress: u.sourceStress, sourceRow: u.sourceRow, sourceColumn: u.sourceColumn }))),
+      phonemes: null,
+      audioTimes: null,
+      review: "Exact written-span text correspondence only; no acoustic syllable, phoneme, voice or traditional musical realization is inferred."
+    });
+  }
+
   // pronunciation-reader.js
   var READER_PRONUNCIATION_MESSAGES = Object.freeze({
     "no-source-correspondence": "No source text",
@@ -9007,7 +9030,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } catch {
     }
     let style = pronunciationStyle(saved?.style), word = null, listening = false, library = null, error = null, lastKey = null, study = null;
-    const readerCache = /* @__PURE__ */ new Map();
+    const readerCache = /* @__PURE__ */ new Map(), followCache = /* @__PURE__ */ new Map();
     for (const s of PRONUNCIATION_STYLES) {
       const option = document.createElement("option");
       option.value = s.id;
@@ -9348,6 +9371,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           readerCache.set(cacheKey, readerPronunciationWord(value, library.study(value, style), style));
         }
         return { ...readerCache.get(cacheKey), wordId: value.id };
+      },
+      followNote(event, words3) {
+        if (!library) return null;
+        const w = words3[event.wordIndex];
+        const cacheKey = JSON.stringify([style, event.id, event.wordId, event.sourceWordId, event.syllableId, event.syllable, w?.id, w?.sourceWordId, w?.sourceHebrew]);
+        if (!followCache.has(cacheKey)) {
+          if (followCache.size >= 256) followCache.delete(followCache.keys().next().value);
+          const link = linkPronunciationToNotes([event], words3, library, style).links[0];
+          followCache.set(cacheKey, pronunciationFollow(event, w, link, style));
+        }
+        return followCache.get(cacheKey);
       },
       groupNotes(events2, words3) {
         return library ? linkPronunciationScoreGroups(events2, words3, library, style) : null;
@@ -10390,6 +10424,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var plan = [];
   var activeId = null;
   var activeEventId = null;
+  var activeInstrumentEvent = null;
   var playingBounds = null;
   var recent = loadArray("tropetrain-recent-v1");
   var assignments = loadArray("tropetrain-assignments-v1");
@@ -10545,6 +10580,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         renderStaff();
       }
     }
+    activeInstrumentEvent = event;
     setActive(event.wordId, event.id);
     pronunciationTools?.showWord(words2[event.wordIndex], { following: true });
     $("progress").style.width = `${progress * 100}%`;
@@ -10563,7 +10599,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function transportLabel(running) {
     $("play").innerHTML = running ? '<span aria-hidden="true">▶</span> Restart' : '<span aria-hidden="true">▶</span> Play';
   }
+  function renderPronunciationFollow() {
+    const hint = "Instrument notes can highlight source syllables with an exact marked-Hebrew match. This is text correspondence; a singing voice and acoustic syllable timing are pending.";
+    let report = null, error = null;
+    if (activeInstrumentEvent) try {
+      report = pronunciationTools?.followNote(activeInstrumentEvent, words2);
+    } catch (e) {
+      error = e.message;
+    }
+    const unitIds = new Set(report?.status === "exact-written-span" ? report.units.map((u) => u.sourceUnitId) : []);
+    for (const el3 of $("reader").querySelectorAll(".reader-word-pronunciation [data-source-unit]")) {
+      const button = el3.closest(".pronunciation-word")?.querySelector(".word");
+      const active = !!report && button?.dataset.word === report.wordId && unitIds.has(el3.dataset.sourceUnit);
+      el3.classList.toggle("pronunciation-syllable-active", active);
+      if (active) el3.setAttribute("aria-current", "true");
+      else el3.removeAttribute("aria-current");
+    }
+    const status = $("pronunciation-follow-status");
+    status.dataset.event = activeInstrumentEvent?.id ?? "";
+    status.dataset.followWord = activeInstrumentEvent?.wordId ?? "";
+    status.dataset.followStatus = error ? "review-needed" : report?.status ?? (activeInstrumentEvent ? "loading" : "idle");
+    status.textContent = error ? `Pronunciation highlighting unavailable: ${error}` : !activeInstrumentEvent ? hint : !report ? "Loading source syllable correspondence…" : report.status === "exact-written-span" ? `${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map((u) => u.text))].join(" / ")} · exact written-span match. Text follows the instrument; no sung syllable is implied.` : `${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
+  }
   function setActive(wordId, eventId) {
+    if (!eventId) activeInstrumentEvent = null;
     if (wordId !== activeId) {
       activeId = wordId;
       document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("active", marksWord(el3, wordId)));
@@ -10572,6 +10631,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       activeEventId = eventId;
       document.querySelectorAll("[data-event]").forEach((el3) => el3.classList.toggle("active", el3.dataset.event === eventId));
     }
+    renderPronunciationFollow();
   }
   function stop(message = "Stopped. Your selection is kept.", { preservePattern = false, preserveVoiceStudy = false } = {}) {
     if (!$("chant-pitch-cancel").hidden) $("chant-pitch-status").textContent = "Pitch preparation stopped. Original recordings are unchanged.";
@@ -10827,6 +10887,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
     }
     $("reader-pronunciation-status").textContent = !readerPronunciation ? "Pronunciation text under the words is hidden." : !buttons.length ? "Choose Pointed or Side by side to see pronunciation text with the preferred reading. Written scroll letters keep their separate source." : source?.error ? source.error : !seen.size ? "Loading local pronunciation text…" : `${source.name} · ${counts.linked} word-linked on this page${counts.sourceForm ? `, including ${counts.sourceForm} source reading forms` : ""}; ${counts.combined} combined and ${counts.unassigned} without individual source text${counts.review ? `; ${counts.review} links need review` : ""}. Stress and alternatives follow the source; linguistic review is pending. Recordings retain their original pronunciation.`;
+    renderPronunciationFollow();
   }
   function renderAlternatives(verses) {
     const groups = sourceAlternatives(verses, words2), target = $("written-reading-rows");

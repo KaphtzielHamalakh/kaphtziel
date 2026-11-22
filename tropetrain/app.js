@@ -67,7 +67,7 @@ state.readingType='torah';
 let passage={...openingPassage,title:'Genesis 1:1–3',ranges:[structuredClone(defaultRange)]};
 let model=createReadingModel(passage,state),{words,bounds,buildPlan}=model;
 state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.anchor,words.length-1);state.readerPage=0;
-let corpus,chooseEnd=false,plan=[],activeId=null,activeEventId=null,playingBounds=null;
+let corpus,chooseEnd=false,plan=[],activeId=null,activeEventId=null,activeInstrumentEvent=null,playingBounds=null;
 let recent=loadArray('tropetrain-recent-v1'),assignments=loadArray('tropetrain-assignments-v1');
 let restoringReading=!!restore.ranges;
 let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecovery(localStorage);}catch{}
@@ -124,6 +124,7 @@ const player=new Player((event,cycle,progress,index)=>{
     const staffPage=Math.floor(index/STAFF_PAGE);
     if(staffPage!==state.staffPage){state.staffPage=staffPage;renderStaff();}
   }
+  activeInstrumentEvent=event;
   setActive(event.wordId,event.id);
   pronunciationTools?.showWord(words[event.wordIndex],{following:true});
   $('progress').style.width=`${progress*100}%`;
@@ -136,9 +137,27 @@ const player=new Player((event,cycle,progress,index)=>{
   $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Rest · the next source note follows the printed pause.`;
 },{onError:error=>stop(`Audio unavailable: ${error.message}`)});
 function transportLabel(running){$('play').innerHTML=running?'<span aria-hidden="true">▶</span> Restart':'<span aria-hidden="true">▶</span> Play';}
+function renderPronunciationFollow(){
+  const hint='Instrument notes can highlight source syllables with an exact marked-Hebrew match. This is text correspondence; a singing voice and acoustic syllable timing are pending.';
+  let report=null,error=null;
+  if(activeInstrumentEvent)try{report=pronunciationTools?.followNote(activeInstrumentEvent,words);}catch(e){error=e.message;}
+  const unitIds=new Set(report?.status==='exact-written-span'?report.units.map(u=>u.sourceUnitId):[]);
+  for(const el of $('reader').querySelectorAll('.reader-word-pronunciation [data-source-unit]')){
+    const button=el.closest('.pronunciation-word')?.querySelector('.word');
+    const active=!!report&&button?.dataset.word===report.wordId&&unitIds.has(el.dataset.sourceUnit);
+    el.classList.toggle('pronunciation-syllable-active',active);
+    if(active)el.setAttribute('aria-current','true');else el.removeAttribute('aria-current');
+  }
+  const status=$('pronunciation-follow-status');
+  status.dataset.event=activeInstrumentEvent?.id??'';status.dataset.followWord=activeInstrumentEvent?.wordId??'';
+  status.dataset.followStatus=error?'review-needed':report?.status??(activeInstrumentEvent?'loading':'idle');
+  status.textContent=error?`Pronunciation highlighting unavailable: ${error}`:!activeInstrumentEvent?hint:!report?'Loading source syllable correspondence…':report.status==='exact-written-span'?`${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map(u=>u.text))].join(' / ')} · exact written-span match. Text follows the instrument; no sung syllable is implied.`:`${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
+}
 function setActive(wordId,eventId){
+  if(!eventId)activeInstrumentEvent=null;
   if(wordId!==activeId){activeId=wordId;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',marksWord(el,wordId)));}
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
+  renderPronunciationFollow();
 }
 function stop(message='Stopped. Your selection is kept.',{preservePattern=false,preserveVoiceStudy=false}={}){
   if(!$('chant-pitch-cancel').hidden)$('chant-pitch-status').textContent='Pitch preparation stopped. Original recordings are unchanged.';
@@ -259,6 +278,7 @@ function renderReaderPronunciation(){
     }catch(error){label.textContent='Source link needs review';label.title=error.message;label.lang='en';label.dir='ltr';if(!seen.has(word.id)){seen.add(word.id);counts.review++;}}
   }
   $('reader-pronunciation-status').textContent=!readerPronunciation?'Pronunciation text under the words is hidden.':!buttons.length?'Choose Pointed or Side by side to see pronunciation text with the preferred reading. Written scroll letters keep their separate source.':source?.error?source.error:!seen.size?'Loading local pronunciation text…':`${source.name} · ${counts.linked} word-linked on this page${counts.sourceForm?`, including ${counts.sourceForm} source reading forms`:''}; ${counts.combined} combined and ${counts.unassigned} without individual source text${counts.review?`; ${counts.review} links need review`:''}. Stress and alternatives follow the source; linguistic review is pending. Recordings retain their original pronunciation.`;
+  renderPronunciationFollow();
 }
 function renderAlternatives(verses){
   const groups=sourceAlternatives(verses,words),target=$('written-reading-rows');target.replaceChildren();
