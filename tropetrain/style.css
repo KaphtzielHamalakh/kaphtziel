@@ -112,3 +112,5 @@
 .pronunciation-score-groups small{display:block;color:var(--soft);font-size:11px}
 .pronunciation-score-groups [data-relation="different-syllable-divisions"]{background:var(--pale)}
 #score-word-alignment{margin-block:1rem;min-width:0}#score-word-alignment-content{min-width:0}
+
+#prophetical-score-scan{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:5px;margin-block:1rem}

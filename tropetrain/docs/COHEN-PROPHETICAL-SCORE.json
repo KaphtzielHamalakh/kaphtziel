@@ -1,0 +1,2697 @@
+{
+  "schema": "tropetrain-printed-verse-source-v1",
+  "id": "cohen-1902-gen22-prophetical",
+  "revision": 1,
+  "source": {
+    "author": "Francis L. Cohen",
+    "articleAuthors": [
+      "Cyrus Adler",
+      "Francis L. Cohen"
+    ],
+    "title": "Cantillation",
+    "publication": "Jewish Encyclopedia, vol.III",
+    "year": 1902,
+    "printedPage": 547,
+    "pdfPage": 585,
+    "url": "https://www.jewishencyclopedia.com/articles/718",
+    "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+    "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+    "performanceLabel": "Rather briskly: without strict tempo.",
+    "scope": "The source explicitly imagines Genesis22:1 as a passage from the Prophets. It is a hypothetical musical comparison using this Torah verse, not an actual Haftarah passage or a complete melody grammar.",
+    "referenceDifference": "The actual Hebrew and Latin underlay identify Genesis22:1; the article prose instead says Gen.xxix. That inconsistent reference is retained as a source discrepancy."
+  },
+  "scan": {
+    "file": "assets/scores/cohen-1902-prophetical-gen22.png",
+    "bytes": 650064,
+    "sha256": "63d2fcd87b5e99b58ee003501ae429ee9531467cc3f0353c9cdda7f713fe06f1",
+    "changes": "Faithful Poppler crop of the four lower musical systems on one-basedPDF585, scale4000/x80/y1830/W2350/H1220; no retouching. Separate untexted coda is visible but excluded from this transcription."
+  },
+  "secondScan": {
+    "file": "assets/scores/cohen-1902-page547.jpg",
+    "bytes": 146793,
+    "sha256": "b688cb547482708d6a1be106ae16a65762481d513e8e308717cae8bbf36aa570",
+    "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HJ3J547S.jpg",
+    "changes": "None; publisher-linked faithful page scan, retained byte-for-byte. Website interface not copied."
+  },
+  "notation": {
+    "key": "One sharp, F-sharp; source pitch spellings retained",
+    "barQuarterBeats": [
+      1.0,
+      4.0,
+      4.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      3.0,
+      4.0,
+      4.0,
+      3.0
+    ],
+    "meterByBar": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      3
+    ],
+    "pickupQuarterBeats": 1,
+    "quarterBeats": 41,
+    "components": 51,
+    "soundingAttacks": 50,
+    "rests": 5,
+    "restQuarterBeats": 2.5,
+    "tiedPairs": 1,
+    "slurs": 7,
+    "tuplets": 3,
+    "coda": "Separately labeled, no text underlay; excluded.",
+    "performance": "Written durations are regularized to the independent quarter-note tempo; no expressive timing, vocal delivery or notes for other verses inferred. Modern12-tone tuning and instrumental articulation are approximate."
+  },
+  "review": "Manual notation/underlay comparison against two faithful scans and independent bar arithmetic. Independent musical, phonological and Hebrew-underlay review remains pending.",
+  "transcriptionLicense": "CC0-1.0",
+  "sourceRights": "Original1902publication public domain; faithful source scan. No modern recording or proprietary program asset.",
+  "words": [
+    {
+      "id": "gen-22-1-1",
+      "sourceHebrew": "וַיְהִ֗י",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n001",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.75,
+          "beatFraction": "3/4",
+          "bar": 0,
+          "system": 1,
+          "printedLyric": "Wa",
+          "location": "p547 hypothetical prophetical example, system1, bar0, component1",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n002",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 0,
+          "system": 1,
+          "printedLyric": "ye",
+          "location": "p547 hypothetical prophetical example, system1, bar0, component2",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n003",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "hi",
+          "location": "p547 hypothetical prophetical example, system1, bar1, component3",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet",
+          "tupletPhase": "start",
+          "slurId": "hi-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n004",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system1, bar1, component4",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet",
+          "tupletPhase": "continue"
+        },
+        {
+          "id": "cohen-p547-prophetical-n005",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "midi": 66,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system1, bar1, component5",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet",
+          "tupletPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-prophetical-n006",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system1, bar1, component6",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "tieId": "hi-tie",
+          "tiePhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n007",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system1, bar1, component7",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5,
+          "tieId": "hi-tie",
+          "tiePhase": "stop",
+          "slurId": "hi-slur",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-2",
+      "sourceHebrew": "אַחַר֙",
+      "lengths": [
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n008",
+          "wordId": "gen-22-1-2",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "a",
+          "location": "p547 hypothetical prophetical example, system1, bar1, component8",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n009",
+          "wordId": "gen-22-1-2",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 72,
+          "quarterBeats": 3.0,
+          "beatFraction": "3",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "har",
+          "location": "p547 hypothetical prophetical example, system1, bar2, component9",
+          "rhythm": {
+            "type": "half",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-3",
+      "sourceHebrew": "הַדְּבָרִ֣ים",
+      "lengths": [
+        1,
+        1,
+        1,
+        3
+      ],
+      "stress": 3,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n010",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "ha",
+          "location": "p547 hypothetical prophetical example, system1, bar2, component10",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "pre-rim-triplet",
+          "tupletPhase": "start",
+          "slurId": "pre-rim-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n011",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "de",
+          "location": "p547 hypothetical prophetical example, system1, bar2, component11",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "pre-rim-triplet",
+          "tupletPhase": "continue"
+        },
+        {
+          "id": "cohen-p547-prophetical-n012",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "ba",
+          "location": "p547 hypothetical prophetical example, system1, bar2, component12",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "pre-rim-triplet",
+          "tupletPhase": "stop",
+          "slurId": "pre-rim-slur",
+          "slurPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-prophetical-n013",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 3,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 1,
+          "printedLyric": "rim",
+          "location": "p547 hypothetical prophetical example, system1, bar3, component13",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "rim-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n014",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 3,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system1, bar3, component14",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "rim-slur",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-4",
+      "sourceHebrew": "הָאֵ֔לֶּה",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n015",
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "midi": 66,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 1,
+          "printedLyric": "ha",
+          "location": "p547 hypothetical prophetical example, system1, bar3, component15",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n016",
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "el",
+          "location": "p547 hypothetical prophetical example, system2, bar4, component16",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n017",
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "leh",
+          "location": "p547 hypothetical prophetical example, system2, bar4, component17",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-5",
+      "sourceHebrew": "וְהָ֣אֱלֹהִ֔ים",
+      "lengths": [
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "stress": 4,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n018",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "we",
+          "location": "p547 hypothetical prophetical example, system2, bar4, component18",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n019",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "ha",
+          "location": "p547 hypothetical prophetical example, system2, bar5, component19",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "ha-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n020",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system2, bar5, component20",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "ha-slur",
+          "slurPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-prophetical-n021",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "e",
+          "location": "p547 hypothetical prophetical example, system2, bar5, component21",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n022",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 3,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "midi": 66,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "lo",
+          "location": "p547 hypothetical prophetical example, system2, bar5, component22",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n023",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 4,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 2.0,
+          "beatFraction": "2",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "him",
+          "location": "p547 hypothetical prophetical example, system2, bar6, component23",
+          "rhythm": {
+            "type": "half",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-6",
+      "sourceHebrew": "נִסָּ֖ה",
+      "lengths": [
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n024",
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "nis",
+          "location": "p547 hypothetical prophetical example, system2, bar6, component24",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n025",
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 1.5,
+          "beatFraction": "3/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "sah",
+          "location": "p547 hypothetical prophetical example, system2, bar7, component25",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-7",
+      "sourceHebrew": "אֶת־",
+      "lengths": [
+        2
+      ],
+      "stress": null,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n026",
+          "wordId": "gen-22-1-7",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "et",
+          "location": "p547 hypothetical prophetical example, system2, bar7, component26",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-8",
+      "sourceHebrew": "אַבְרָהָ֑ם",
+      "lengths": [
+        2,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n027",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "Ab",
+          "location": "p547 hypothetical prophetical example, system2, bar7, component27",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n028",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "ra",
+          "location": "p547 hypothetical prophetical example, system2, bar7, component28",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n029",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 8,
+          "system": 2,
+          "printedLyric": "ham",
+          "location": "p547 hypothetical prophetical example, system2, bar8, component29",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "first-ham-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n030",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 8,
+          "system": 2,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system2, bar8, component30",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5,
+          "slurId": "first-ham-slur",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-9",
+      "sourceHebrew": "וַיֹּ֣אמֶר",
+      "lengths": [
+        1,
+        2,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n031",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 8,
+          "system": 2,
+          "printedLyric": "way",
+          "location": "p547 hypothetical prophetical example, system2, bar8, component31",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n032",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "yo",
+          "location": "p547 hypothetical prophetical example, system3, bar9, component32",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "yo-mer-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n033",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "mer",
+          "location": "p547 hypothetical prophetical example, system3, bar9, component33",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n034",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar9, component34",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "yo-mer-slur",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-10",
+      "sourceHebrew": "אֵלָ֔יו",
+      "lengths": [
+        1,
+        3
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n035",
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "e",
+          "location": "p547 hypothetical prophetical example, system3, bar9, component35",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n036",
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "F",
+            "alter": 1,
+            "octave": 4
+          },
+          "midi": 66,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "law",
+          "location": "p547 hypothetical prophetical example, system3, bar9, component36",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-11",
+      "sourceHebrew": "אַבְרָהָ֖ם",
+      "lengths": [
+        2,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n037",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "Ab",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component37",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5
+        },
+        {
+          "id": "cohen-p547-prophetical-n038",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "ra",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component38",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n039",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "ham",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component39",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n040",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 72,
+          "quarterBeats": 0.75,
+          "beatFraction": "3/4",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component40",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "second-ham-slur",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n041",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component41",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n042",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component42",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "ham-triplet",
+          "tupletPhase": "start"
+        },
+        {
+          "id": "cohen-p547-prophetical-n043",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component43",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "ham-triplet",
+          "tupletPhase": "continue"
+        },
+        {
+          "id": "cohen-p547-prophetical-n044",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar10, component44",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "ham-triplet",
+          "tupletPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-prophetical-n045",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547 hypothetical prophetical example, system3, bar11, component45",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5,
+          "slurId": "second-ham-slur",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-12",
+      "sourceHebrew": "וַיֹּ֥אמֶר",
+      "lengths": [
+        1,
+        2,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n046",
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "way",
+          "location": "p547 hypothetical prophetical example, system3, bar11, component46",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n047",
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "yo",
+          "location": "p547 hypothetical prophetical example, system3, bar11, component47",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n048",
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "mer",
+          "location": "p547 hypothetical prophetical example, system3, bar11, component48",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-13",
+      "sourceHebrew": "הִנֵּֽנִי׃",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-prophetical-n049",
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 62,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "hin",
+          "location": "p547 hypothetical prophetical example, system3, bar11, component49",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n050",
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 2.0,
+          "beatFraction": "2",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "ne",
+          "location": "p547 hypothetical prophetical example, system4, bar12, component50",
+          "rhythm": {
+            "type": "half",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-prophetical-n051",
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 64,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "ni",
+          "location": "p547 hypothetical prophetical example, system4, bar12, component51",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "cohen-p547-prophetical-n001",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.75,
+      "beatFraction": "3/4",
+      "bar": 0,
+      "system": 1,
+      "printedLyric": "Wa",
+      "location": "p547 hypothetical prophetical example, system1, bar0, component1",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n002",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 0,
+      "system": 1,
+      "printedLyric": "ye",
+      "location": "p547 hypothetical prophetical example, system1, bar0, component2",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n003",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "hi",
+      "location": "p547 hypothetical prophetical example, system1, bar1, component3",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet",
+      "tupletPhase": "start",
+      "slurId": "hi-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n004",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system1, bar1, component4",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet",
+      "tupletPhase": "continue"
+    },
+    {
+      "id": "cohen-p547-prophetical-n005",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "midi": 66,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system1, bar1, component5",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet",
+      "tupletPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n006",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system1, bar1, component6",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "tieId": "hi-tie",
+      "tiePhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n007",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system1, bar1, component7",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5,
+      "tieId": "hi-tie",
+      "tiePhase": "stop",
+      "slurId": "hi-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n008",
+      "wordId": "gen-22-1-2",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "a",
+      "location": "p547 hypothetical prophetical example, system1, bar1, component8",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n009",
+      "wordId": "gen-22-1-2",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "quarterBeats": 3.0,
+      "beatFraction": "3",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "har",
+      "location": "p547 hypothetical prophetical example, system1, bar2, component9",
+      "rhythm": {
+        "type": "half",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n010",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "ha",
+      "location": "p547 hypothetical prophetical example, system1, bar2, component10",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "pre-rim-triplet",
+      "tupletPhase": "start",
+      "slurId": "pre-rim-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n011",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "de",
+      "location": "p547 hypothetical prophetical example, system1, bar2, component11",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "pre-rim-triplet",
+      "tupletPhase": "continue"
+    },
+    {
+      "id": "cohen-p547-prophetical-n012",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "ba",
+      "location": "p547 hypothetical prophetical example, system1, bar2, component12",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "pre-rim-triplet",
+      "tupletPhase": "stop",
+      "slurId": "pre-rim-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n013",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 3,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 1,
+      "printedLyric": "rim",
+      "location": "p547 hypothetical prophetical example, system1, bar3, component13",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "rim-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n014",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 3,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system1, bar3, component14",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "rim-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n015",
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "midi": 66,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 1,
+      "printedLyric": "ha",
+      "location": "p547 hypothetical prophetical example, system1, bar3, component15",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n016",
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "el",
+      "location": "p547 hypothetical prophetical example, system2, bar4, component16",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n017",
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "leh",
+      "location": "p547 hypothetical prophetical example, system2, bar4, component17",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5
+    },
+    {
+      "id": "cohen-p547-prophetical-n018",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "we",
+      "location": "p547 hypothetical prophetical example, system2, bar4, component18",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n019",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "ha",
+      "location": "p547 hypothetical prophetical example, system2, bar5, component19",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "ha-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n020",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system2, bar5, component20",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "ha-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n021",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "e",
+      "location": "p547 hypothetical prophetical example, system2, bar5, component21",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n022",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 3,
+      "pitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "midi": 66,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "lo",
+      "location": "p547 hypothetical prophetical example, system2, bar5, component22",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n023",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 4,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 2.0,
+      "beatFraction": "2",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "him",
+      "location": "p547 hypothetical prophetical example, system2, bar6, component23",
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n024",
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "nis",
+      "location": "p547 hypothetical prophetical example, system2, bar6, component24",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n025",
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 1.5,
+      "beatFraction": "3/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "sah",
+      "location": "p547 hypothetical prophetical example, system2, bar7, component25",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n026",
+      "wordId": "gen-22-1-7",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "et",
+      "location": "p547 hypothetical prophetical example, system2, bar7, component26",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n027",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "Ab",
+      "location": "p547 hypothetical prophetical example, system2, bar7, component27",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n028",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "ra",
+      "location": "p547 hypothetical prophetical example, system2, bar7, component28",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n029",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 8,
+      "system": 2,
+      "printedLyric": "ham",
+      "location": "p547 hypothetical prophetical example, system2, bar8, component29",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "first-ham-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n030",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 8,
+      "system": 2,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system2, bar8, component30",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5,
+      "slurId": "first-ham-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n031",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 8,
+      "system": 2,
+      "printedLyric": "way",
+      "location": "p547 hypothetical prophetical example, system2, bar8, component31",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n032",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "yo",
+      "location": "p547 hypothetical prophetical example, system3, bar9, component32",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "yo-mer-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n033",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "mer",
+      "location": "p547 hypothetical prophetical example, system3, bar9, component33",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n034",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar9, component34",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "yo-mer-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n035",
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "e",
+      "location": "p547 hypothetical prophetical example, system3, bar9, component35",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n036",
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "midi": 66,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "law",
+      "location": "p547 hypothetical prophetical example, system3, bar9, component36",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n037",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "Ab",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component37",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5
+    },
+    {
+      "id": "cohen-p547-prophetical-n038",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "ra",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component38",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n039",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "ham",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component39",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n040",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "quarterBeats": 0.75,
+      "beatFraction": "3/4",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component40",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "second-ham-slur",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n041",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component41",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n042",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component42",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "ham-triplet",
+      "tupletPhase": "start"
+    },
+    {
+      "id": "cohen-p547-prophetical-n043",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component43",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "ham-triplet",
+      "tupletPhase": "continue"
+    },
+    {
+      "id": "cohen-p547-prophetical-n044",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar10, component44",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "ham-triplet",
+      "tupletPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n045",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547 hypothetical prophetical example, system3, bar11, component45",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5,
+      "slurId": "second-ham-slur",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-prophetical-n046",
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "way",
+      "location": "p547 hypothetical prophetical example, system3, bar11, component46",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n047",
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "yo",
+      "location": "p547 hypothetical prophetical example, system3, bar11, component47",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n048",
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "mer",
+      "location": "p547 hypothetical prophetical example, system3, bar11, component48",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n049",
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "hin",
+      "location": "p547 hypothetical prophetical example, system3, bar11, component49",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n050",
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 2.0,
+      "beatFraction": "2",
+      "bar": 12,
+      "system": 4,
+      "printedLyric": "ne",
+      "location": "p547 hypothetical prophetical example, system4, bar12, component50",
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-prophetical-n051",
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 12,
+      "system": 4,
+      "printedLyric": "ni",
+      "location": "p547 hypothetical prophetical example, system4, bar12, component51",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    }
+  ]
+}

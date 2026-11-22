@@ -44,7 +44,7 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
   const events=Object.freeze(words.flatMap(w=>w.syllables.flatMap((s,i)=>{
     if(isPrintedScore(melodyId)){
       const row=printedSourceWord(w,melodyId);if(!row)return [];
-      return row.notes.filter(n=>n.syllableIndex===i).map((n,j)=>Object.freeze({id:`${s.id}-${melodyId===PRINTED_SCORE.id?'cohen':'baer'}-n${j+1}`,wordId:w.id,wordIndex:w.index,
+      return row.notes.filter(n=>n.syllableIndex===i).map((n,j)=>Object.freeze({id:`${s.id}-${profile.eventPrefix??(melodyId===PRINTED_SCORE.id?'cohen':'baer')}-n${j+1}`,wordId:w.id,wordIndex:w.index,
         sourceWordId:w.sourceWordId??w.id,syllableId:s.id,syllable:s.sourceHebrew,roman:null,phonemes:null,
         midi:n.midi,beats:n.quarterBeats,part:j+1,sourceLyric:n.printedLyric,sourceLocation:n.location,sourceBar:n.bar,sourceProfile:melodyId,sourceRhythm:n.rhythm,
         ...(n.pitch?{sourcePitch:n.pitch,sourceTranspose:0,sourceNoteId:n.id,sourceSystem:n.system}:{}),
@@ -73,7 +73,7 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     if(isPrintedScore(melodyId)&&words.slice(start,end+1).some(w=>!printedSourceWord(w,melodyId)))
-      throw Error(`This printed-score study covers only the unchanged words of ${melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5'}. Open that passage or choose the original demonstration. No notes are substituted.`);
+      throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel??(melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5')}. Open that passage or choose the original demonstration. No notes are substituted.`);
     let beat=0;
     return events.filter(e=>e.wordIndex>=start&&e.wordIndex<=end).map(e=>{
       const event={...e,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;

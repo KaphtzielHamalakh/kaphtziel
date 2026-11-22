@@ -6,6 +6,7 @@ import {gzipSync} from 'node:zlib';
 import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
 import './import-baer-score.mjs';
+import './import-cohen-prophetical.mjs';
 import './import-printed-patterns.mjs';
 import './import-pattern-catalog.mjs';
 import './import-calendar-examples.mjs';
@@ -115,6 +116,9 @@ const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesi
 const alternateScan=await readFile(path.join(root,'assets/scores/cohen-1902-alternate-score.png'));
 const scoreGroupsEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-SCORE-GROUPS.json'),'utf8');
 const printedEvidence=await readFile(path.join(root,'docs/PRINTED-SCORE.json'),'utf8');
+const propheticalScan=await readFile(path.join(root,'assets/scores/cohen-1902-prophetical-gen22.png'));
+const propheticalSecondScan=await readFile(path.join(root,'assets/scores/cohen-1902-page547.jpg'));
+const propheticalEvidence=await readFile(path.join(root,'docs/COHEN-PROPHETICAL-SCORE.json'),'utf8');
 const baerScan=await readFile(path.join(root,'assets/scores/baer-1894-genesis1.png'));
 const baerEvidence=await readFile(path.join(root,'docs/BAER-GENESIS-SCORE.json'),'utf8');
 const baerLinks=await readFile(path.join(root,'docs/BAER-NOTE-CORRESPONDENCE.json'),'utf8');
@@ -135,6 +139,9 @@ const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./a
 const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
  .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script><script>${script.replaceAll('</script','<\\/script')}</script>`)
  .replaceAll('href="./docs/PRONUNCIATION-SCORE-GROUPS.json"',()=>`href="data:application/json;base64,${Buffer.from(scoreGroupsEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/COHEN-PROPHETICAL-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(propheticalEvidence).toString('base64')}"`)
+ .replaceAll('href="./assets/scores/cohen-1902-page547.jpg"',()=>`href="data:image/jpeg;base64,${propheticalSecondScan.toString('base64')}"`)
+ .replace('src="./assets/scores/cohen-1902-prophetical-gen22.png"',()=>`src="data:image/png;base64,${propheticalScan.toString('base64')}"`)
  .replaceAll('href="./docs/SOURCE-PITCH-EVIDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(pitchEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/SOURCE-PITCH-SAMPLE-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(pitchSampleAudit).toString('base64')}"`)
  .replaceAll('href="./assets/OFL.txt"','href="#license-notices"').replaceAll('href="./assets/havarotjs-LICENSE.txt"','href="#license-notices"')

@@ -1,5 +1,6 @@
 import {validatePlan,soundingNotes} from './synthesis.js';
 import {scoreData,rhythmSpelling,escapeXml as x} from './score-data.js';
+import {isPrintedScore} from './printed-score-registry.js';
 
 export const DIVISIONS=4800,MIDI_PPQ=4800;
 function checked(plan,words,context){
@@ -21,10 +22,10 @@ function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
 }
 export function musicXml(plan,words,context){
   const notes=checked(plan,words,context),metadata=identity(notes,context);
-  const cohen=context.melody?.id==='cohen-1902-gen22-ending',baer=context.melody?.id==='baer-1894-gen1-1-5',printed=cohen||baer;
+  const cohen=context.melody?.id==='cohen-1902-gen22-ending',baer=context.melody?.id==='baer-1894-gen1-1-5',printed=isPrintedScore(context.melody?.id);
   const creator=printed?context.melody.creator:'TropeTrain original demonstration';
   const rights=printed?'Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda.':'Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.';
-  const direction=baer?context.melody.creator+'. '+context.melody.performanceNote:printed?'Cohen 1902, p. 539, Genesis 22:1 complete printed verse. Ties sustain without re-attack; source rests preserved. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.';
+  const direction=context.melody?.exportNote??(baer?context.melody.creator+'. '+context.melody.performanceNote:printed?'Cohen 1902, p. 539, Genesis 22:1 complete printed verse. Ties sustain without re-attack; source rests preserved. Printed durations regularized; source requests flexible tempo. No added coda.':'Original demo; no traditional attribution. Quarter-note beat. Individual 5:3 tuplets preserve 0.6/0.9-beat timings.');
   let xml=`<?xml version="1.0" encoding="UTF-8"?>\n<score-partwise version="4.0"><work><work-title>${x(context.title)}</work-title></work><identification><creator type="composer">${x(creator)}</creator><rights>${x(rights)}</rights><miscellaneous><miscellaneous-field name="tropetrain-metadata">${x(JSON.stringify(metadata))}</miscellaneous-field></miscellaneous></identification><defaults><lyric-font font-family="Noto Serif Hebrew"/></defaults><part-list><score-part id="P1"><part-name>Instrumental study</part-name></score-part></part-list><part id="P1">`;
   let measure=0,verseKey=null,beat=0,previousMeter=null;
   notes.forEach((e,index)=>{
@@ -33,7 +34,7 @@ export function musicXml(plan,words,context){
       if(measure)xml+='</measure>';
       verseKey=key;measure++;
       xml+=`<measure number="${measure}" implicit="yes">`;
-      const meter=cohen?(e.sourceBar>=3&&e.sourceBar<=10?3:4):null;
+      const meter=context.melody?.meterByBar?.[e.sourceBar]??(cohen?(e.sourceBar>=3&&e.sourceBar<=10?3:4):null);
       if(measure===1||meter!==previousMeter)xml+=`<attributes>${measure===1?`<divisions>${DIVISIONS}</divisions>`:''}<time>${meter?`<beats>${meter}</beats><beat-type>4</beat-type>`:'<senza-misura/>'}</time>${measure===1?'<clef><sign>G</sign><line>2</line></clef>':''}</attributes>`;
       previousMeter=meter;
       if(measure===1)xml+=`<direction><direction-type><words>${x(direction)}</words></direction-type><sound tempo="${context.tempo}"/></direction>`;

@@ -181,6 +181,52 @@
           }
         ]
       }
+    },
+    "cohen-1902-gen22-prophetical": {
+      "sephardic": {
+        "events": 51,
+        "eventsInCommonSpans": 51,
+        "eventsInDifferentDivisions": 2,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 36,
+        "differentDivisions": [
+          {
+            "wordId": "gen-22-1-1",
+            "hebrew": "וַיְ",
+            "score": [
+              "וַ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      },
+      "ashkenazic": {
+        "events": 51,
+        "eventsInCommonSpans": 51,
+        "eventsInDifferentDivisions": 2,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 36,
+        "differentDivisions": [
+          {
+            "wordId": "gen-22-1-1",
+            "hebrew": "וַיְ",
+            "score": [
+              "וַ",
+              "יְ"
+            ],
+            "source": [
+              "vay"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      }
     }
   },
   "inputs": [
@@ -206,7 +252,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "f9e2398a95583a822af2798f6c11ea1a2a5e66dc01a01e7bd9eca57a05c41d4f"
+      "sha256": "f08e2268790ca7d4a3366ab672299d07b30add38811d0c39953b4b153b9f637b"
     },
     {
       "path": "printed-score-data.js",
@@ -215,6 +261,30 @@
     {
       "path": "baer-score-data.js",
       "sha256": "2225cf5d21022baef7600ce31400531d2d9fe1142d4ede71e9914c6e0f634a60"
+    },
+    {
+      "path": "printed-score-registry.js",
+      "sha256": "219d8f9ea8263fe98491cb3fc73f76437da137d26327f8ce2c872ef832e8826e"
+    },
+    {
+      "path": "cohen-prophetical-data.js",
+      "sha256": "a2d413055bfc62fef2319e7864f9294927ddec157e2aa742bbcc327784f9d913"
+    },
+    {
+      "path": "cohen-prophetical-score.js",
+      "sha256": "c7d57e775237682716a2b5e31610edb2e212a2e0c8aeec54b0a2a3830b48c21f"
+    },
+    {
+      "path": "docs/COHEN-PROPHETICAL-SCORE.json",
+      "sha256": "527a291d53d0886c6c0ee25198e58597ecddebdaea9cdd6aa2bba3eb454f7ace"
+    },
+    {
+      "path": "assets/scores/cohen-1902-prophetical-gen22.png",
+      "sha256": "63d2fcd87b5e99b58ee003501ae429ee9531467cc3f0353c9cdda7f713fe06f1"
+    },
+    {
+      "path": "assets/scores/cohen-1902-page547.jpg",
+      "sha256": "b688cb547482708d6a1be106ae16a65762481d513e8e308717cae8bbf36aa570"
     },
     {
       "path": "data/torah/gen.json",

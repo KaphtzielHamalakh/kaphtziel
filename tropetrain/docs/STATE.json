@@ -4,10 +4,10 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "0c4854aeca6c65277f455304c5b0d362601825d0",
-  "nextTask": "Continue the full independently pronounced chanting reconstruction. Preserve v0.35 minimal common marked-Hebrew spans, every original syllable/category/word/occurrence ID and the unchanged individual exact-note links. Common spans with different divisions are structural comparisons only, not individual syllable-to-note or acoustic allocation. Continue primary Cohen544–548/Baer105/938/939 contextual reciting/stress/cadence research; printed547 has two additional literal Gen22:1settings still to transcribe (prophetical setting explicitly hypothetical). Source/review all six Kinnor Accent phonological grammars and reusable independent singing material before exposing extra voices/presets. Preserve142missing pronunciation words, two combined forms,2,059word-owned source forms/style without exact written ranges,2,811recording-timing-review words and all unknown source cells. Maintain full Torah and full feature inventory; melody/pronunciation/range/transpose/tempo remain independent. Full goal active/incomplete; printing deferred.",
+  "nextTask": "Continue the full independently pronounced chanting reconstruction. Preserve all original Hebrew/accents/canonical and occurrence IDs, source syllables/categories, fixed recordings/times, old source-score/demo events and independent melody/style/range/key/tempo. v0.36adds only a literal hypothetical prophetical Gen22:1 worked example, not an actual Haftarah passage or complete grammar; use it with p539/BaerNo939 as musical test vectors. Resolve the p547penitential ornament/duration evidence and remaining contextual Cohen/Baer938/105rules without inventing prefix pitches or unknown source cells. Eleven original CC BY-SA4Fellman2019HebrewHighHolidayMP3s/23,689,145bytes are privately acquired and sourceSHA1verified in work/references/context/v36/fellman-hebrew-acquired.json; align actual source verse/word/syllable text and obtain musical/phonological review before deriving independent singing or symbolic notes. They are not app voices or independently styled presets. Source/review all six Kinnor Accent phonological grammars; the two MAMtext projections are not those six grammars. Keep142missing pronunciation words/two combined/2,059source-only word forms/style/2,811timing-review words explicit. Entire feature inventory remains active/incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 290,
-    "newRegressionChecks": 10,
+    "automated": 299,
+    "newRegressionChecks": 9,
     "ui": "Public v0.34→v0.35 retains Baer/Genesis1:1–5word2/Sephardic/key0/60BPM with all4gains0. New common-span view shows exact marked Gen1:3word5 וַֽיְהִי־ with printed wa/j’ versus source vay, explicit2score/1source shared-span-only relation, original individual notes still unlinked and no phoneme/audio allocation. Both public normal/standalone retain all52Hebrew texts/canonical DOMIDs/aria-labels, noteIDs/pitches/beats and groupIDs through independent source-style switches; ba·ra→bo·ro text changes separately. Muted repeated word playback stays on gen-1-3-5/G-sharp4: normal9.05%→21.855%, standalone9.225%→22.625%. Selecting OriginalDemo then Baer preserves pronunciation and restores source-note values. Both public distributions root/bodyfit319/1280 with actual widths checked and viewport reset. Public standalone embeds exact new audit/source packets. Initial normal5navigation observation timed out; the same tab reached0.35 without restarting. New selected normal9allowed verified responsive checks; old5 and preview7/8closed after tests. No application console errors. Screenshot outputs/TropeTrain-v0.35-live.jpg viewed, shows actual printed notes/unlinked underlay and new shared-span table; invariants work/audits/ui-live-0.35.json. Both public normal9/standalone6left Gen1:1–5word5of1:3/Sephardic/Baer/key0/60BPM/Endofword, comparison open, all4gains0/stopped/repeatfalse/audio paused/viewportreset. Owned8767session68961stopped/exit0; user8765untouched. NativeSave/download/direct-file-origin, independent linguistic/cantorial/acoustic review and actual auditory review remain pending. Local previews additionally verify CohenWa/ye, source-only/combined/missing refusals, shared consonants, repeat/qamats alternatives and key+2/tempo72independence.",
     "limits": "Both existing source text styles only. Common marked-Hebrew spans preserve independent divisions; different divisions have no individual note/phoneme/audio allocation. No new reviewed pronunciation grammar, singing voice or complete melody system."
   },
@@ -53,7 +53,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "Cohen32source_figures_and_bounded_Gen22_plus_BaerNo939_Gen1_1to5_145notes_52words_tested_full_contextual_systems_pending"
+      "status": "32Cohen_source_figures_three_bounded_worked_examples_including_hypothetical_Gen22_complete_contextual_grammars_pending"
     },
     {
       "id": "singing",
@@ -93,7 +93,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "demo_and_two_bounded_source_scores_with_independent_source_pronunciation_exact_spans_139of145Baer_notes_six_explicit_refusals_no_inferred_fermata_holds"
+      "status": "three_bounded_literal_scores_independent_source_text_styles_common_Hebrew_spans_ties_slurs_rests_tuplets_tested_no_new_singing"
     },
     {
       "id": "display",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.35.0",
+    "version": "0.36.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "5423a1a3c6bc9a2fb71274c7fd22fea16920127f",
-    "status": "published_verified_common_spans_records_and_sync_pending",
-    "record": "docs/VERIFICATION-0.35.md",
-    "next": "Continue the full independently pronounced chanting reconstruction. Preserve v0.35 minimal common marked-Hebrew spans, every original syllable/category/word/occurrence ID and the unchanged individual exact-note links. Common spans with different divisions are structural comparisons only, not individual syllable-to-note or acoustic allocation. Continue primary Cohen544–548/Baer105/938/939 contextual reciting/stress/cadence research; printed547 has two additional literal Gen22:1settings still to transcribe (prophetical setting explicitly hypothetical). Source/review all six Kinnor Accent phonological grammars and reusable independent singing material before exposing extra voices/presets. Preserve142missing pronunciation words, two combined forms,2,059word-owned source forms/style without exact written ranges,2,811recording-timing-review words and all unknown source cells. Maintain full Torah and full feature inventory; melody/pronunciation/range/transpose/tempo remain independent. Full goal active/incomplete; printing deferred."
+    "baseCommit": "73c32c5e1a56003ecc20e7e9c0bf0cd67099d03e",
+    "status": "local299pass_normal_standalone_muted_QA_publication_pending",
+    "record": "docs/VERIFICATION-0.36.md",
+    "next": "Seek reusable source-backed complete melody/context/voice realization; preserve all original Hebrew, pronunciation and scores. Primary Cohen/Baer application examples remain musical test vectors, not the whole end state."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -618,5 +618,29 @@
     "runtimeSha256": "cedfa3b31dcb23bca799df2ce799ec35f3705f8b7efeb433cfddbfda1cddfdfb",
     "standaloneBytes": 66643576,
     "standaloneSha256": "9a1b9edfbd6911d62ff3a9c4165fc1b2b58c4839784a0235610575cf57e68cf6"
+  },
+  "cohenProphetical": {
+    "id": "cohen-1902-gen22-prophetical",
+    "source": "Cohen1902p547",
+    "record": "docs/COHEN-PROPHETICAL-SCORE.json",
+    "words": 13,
+    "components": 51,
+    "soundingAttacks": 50,
+    "quarterBeats": 41,
+    "rests": 5,
+    "tiedPairs": 1,
+    "slurs": 7,
+    "tuplets": 3,
+    "limits": "Explicitly hypothetical setting of Genesis22:1, not actual Haftarah or complete melodic grammar. Independent musical/underlay review pending. No singing voice.",
+    "runtimeSha256": "84088ea59e86c81ebc7d52837d11db61d22ed3776fbf18060fb43a91652382d9",
+    "standaloneBytes": 67832739,
+    "standaloneSha256": "3c984a22f1f1eb56fef1b6178a7bbb74cdf939a37aa6b2e9094a14a595413778"
+  },
+  "newSourceResearch": {
+    "record": "docs/SOURCE-LEADS-0.36.json",
+    "licensedHebrewOriginalFiles": 11,
+    "originalBytes": 23689145,
+    "originalSourceSha1Checks": 11,
+    "importedIntoApp": false
   }
 }
