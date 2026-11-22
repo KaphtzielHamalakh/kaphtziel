@@ -190,29 +190,11 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.55-research",
-    "status": "private_diagnostic_frozen_with_seven_unresolved_curve_points",
-    "publicRuntimeVersion": "0.52.0",
-    "baseline": "c52b337f621a9fcbb49b593a258e50a6728a1fd8",
-    "record": "docs/VOICE-PITCH-CLOCK-LAB.json",
-    "nativeClockVectors": 180,
-    "wasmClockVectors": 180,
-    "analyticEstimatorCases": 135,
-    "estimatorNegativeControls": 7,
-    "nativeRenders": 40,
-    "wasmRenders": 40,
-    "renderNegativeChecks": 6,
-    "denseCurve": {
-      "points": 1980,
-      "withinBound": 1861,
-      "withheldBoundaryWindows": 112,
-      "unassigned": 6,
-      "outsideBound": 1,
-      "largestInteriorAbsoluteCents": 15.04878639962098
-    },
+    "version": "0.56.0",
+    "status": "building_independent_historical_profile_evidence",
+    "baseline": "3e64bdb7000f07d7e4911b0c910efe2309ea071d",
+    "previousGoalTurn": "progress: fixed and verified the private pitch clock, retained all unresolved curve points, published and saved research checkpoint0.55",
     "newPublicVoice": null,
-    "newFullPhonology": null,
-    "newFullMelodyGrammar": null,
     "review": null
   },
   "sourceAnalysisIssue": {

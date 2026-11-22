@@ -1,5 +1,9 @@
 # TropeTrain · reconstruction in progress
 
+Version **v0.56.0** adds **Historical pronunciation profiles · evidence** under Pronunciation text. Inspect all six documented Kinnor Accent labels independently of the two MAM text styles, musical source, key, tempo and range. Each profile keeps87source-category rule slots explicit; all522remain unassigned pending complete phonological specifications and reviewed singing material. Historical names and help observations do not select a singing voice. [Profile sources and limits](docs/HISTORICAL-PRONUNCIATION-PROFILES.json).
+
+Try **Genesis1:1–3 → word2 בָּרָ֣א**. Switch Pronunciation text style between Sephardic/Ashkenazic and Historical accent to inspect between the six labels. Exact Hebrew/accents and UTF16syllable ranges0–3/3–7 stay unchanged. Prepare historical profile evidence exposes a JSON download, including original source syllables/stress and written/shared-consonant bindings. **Genesis8:20word7** retains both references to one written bet; **Genesis13:3displayword12** retains its source-only form and CGJ. Profiles remain documentary and non-playable. Full reconstruction active/incomplete; printing deferred.
+
 Published **v0.52.0** · **466checks pass**,7new. Bothpublicbuilds and all19changedfiles/121,997,266bytesverified. [Verification](docs/VERIFICATION-0.52.md). Printing deferred.
 
 v0.52 adds **Written Hebrew cluster** to **Why the pronunciation text changes**. Try **Genesis1:1word1בְּרֵאשִׁ֖ית**: switch the source text style and inspect the final tav(t/s), with the same original Hebrew cluster. **Genesis8:20word7** shows two shared-consonant halves pointing to one written bet. Vowel-point categories keep their parent-syllable scope; different source forms remain unbound. These are exact written-cluster annotations, with phonemes and sound timing still pending.
