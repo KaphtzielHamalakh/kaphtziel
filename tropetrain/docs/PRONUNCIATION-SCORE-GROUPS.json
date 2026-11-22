@@ -227,6 +227,80 @@
           }
         ]
       }
+    },
+    "baer-1894-gen22-19": {
+      "sephardic": {
+        "events": 46,
+        "eventsInCommonSpans": 46,
+        "eventsInDifferentDivisions": 4,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 33,
+        "differentDivisions": [
+          {
+            "wordId": "gen-22-19-6",
+            "hebrew": "יֵּלְ",
+            "score": [
+              "יֵּלְ"
+            ],
+            "source": [
+              "yé",
+              "lᵉ"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          },
+          {
+            "wordId": "gen-22-19-13",
+            "hebrew": "בִּבְאֵ֥ר",
+            "score": [
+              "בִּ",
+              "בְאֵ֥ר"
+            ],
+            "source": [
+              "biv",
+              "’ér"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      },
+      "ashkenazic": {
+        "events": 46,
+        "eventsInCommonSpans": 46,
+        "eventsInDifferentDivisions": 4,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 33,
+        "differentDivisions": [
+          {
+            "wordId": "gen-22-19-6",
+            "hebrew": "יֵּלְ",
+            "score": [
+              "יֵּלְ"
+            ],
+            "source": [
+              "yé",
+              "lᵉ"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          },
+          {
+            "wordId": "gen-22-19-13",
+            "hebrew": "בִּבְאֵ֥ר",
+            "score": [
+              "בִּ",
+              "בְאֵ֥ר"
+            ],
+            "source": [
+              "biv",
+              "’ér"
+            ],
+            "events": 2,
+            "individualNoteAllocation": null
+          }
+        ]
+      }
     }
   },
   "inputs": [
@@ -272,7 +346,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "f08e2268790ca7d4a3366ab672299d07b30add38811d0c39953b4b153b9f637b"
+      "sha256": "f1cdff2d340e70d72d362e9a9a510c03cf66b34e57658741615d59d5ca388c6d"
     },
     {
       "path": "printed-score-data.js",
@@ -284,7 +358,31 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "219d8f9ea8263fe98491cb3fc73f76437da137d26327f8ce2c872ef832e8826e"
+      "sha256": "8ff17ee3ef2c51cc5774e1eaab5ddcf397810e69be0f378b0cacfea7d9e21a6b"
+    },
+    {
+      "path": "baer-high-holiday-data.js",
+      "sha256": "73034737b1933151625ac2be708ee9313bb102026e47ba0642fc315188dbbde8"
+    },
+    {
+      "path": "baer-high-holiday-score.js",
+      "sha256": "dac05b20d0b7b9fbbe91cb027e83bc3fbc7acda8f5f9d94fa05d83df98c312b2"
+    },
+    {
+      "path": "docs/BAER-HIGH-HOLIDAY-SCORE.json",
+      "sha256": "7132ab7fdae6fe23d6363b735a88e86eefa14fc19e92265a9b0061c5b1aead68"
+    },
+    {
+      "path": "assets/scores/baer-1894-no113-ii-page37.png",
+      "sha256": "c62ef019215cdec7d3eca89cfc3ba71b5b436c6bf6d4bfa2d935ab562d9b47fa"
+    },
+    {
+      "path": "assets/scores/baer-1894-no113-ii-page38.png",
+      "sha256": "b03a4c48b4fdf3ec7503686a8d74f7a9aa31a5f015681ba5aa43cfc635659e3a"
+    },
+    {
+      "path": "assets/scores/baer-1894-no113-ii-page39.png",
+      "sha256": "4208812f5e24a50e4bd23bab9c2566654356745cab256a04bd55ef00f2ff778d"
     },
     {
       "path": "cohen-prophetical-data.js",
@@ -327,5 +425,5 @@
       "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
     }
   ],
-  "limits": "Exact common written spans preserve independent score and pronunciation syllables. Different divisions do not supply an individual syllable-to-note or acoustic mapping. Source-only/combined/missing forms are not repaired. Original demo is newly composed, not a traditional melody. Both existing printed examples remain bounded instrumental transcriptions; six Kinnor pronunciation grammars/voices and complete musical systems still need evidence and review."
+  "limits": "Exact common written spans preserve independent score and pronunciation syllables. Different divisions do not supply an individual syllable-to-note or acoustic mapping. Source-only/combined/missing forms are not repaired. Original demo is newly composed, not a traditional melody. All printed examples remain bounded instrumental transcriptions; six Kinnor pronunciation grammars/voices and complete musical systems still need evidence and review."
 }

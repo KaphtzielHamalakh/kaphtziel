@@ -15,7 +15,7 @@ export class Player {
   now(){return this.clockMode==='muted'?this.wallClock():this.context.currentTime;}
   async play(plan,repeat=false){
     this.stop({releaseAudio:false});
-    validatePlan(plan);
+    const duration=validatePlan(plan);
     const sounding=soundingNotes(plan);
     const generation=this.generation;
     if(this.volume>0)await this.prepareAudio();
@@ -23,7 +23,7 @@ export class Player {
     if(this.volume===0)this.releaseAudio();
     this.clockMode=this.volume===0?'muted':'audio';
     this.plan=plan;this.sounding=sounding;this.repeat=repeat;this.running=true;this.nextIndex=0;this.nextCycle=0;
-    this.duration=plan.at(-1).startSeconds+plan.at(-1).durationSeconds;
+    this.duration=duration;
     this.start=this.now()+0.06;
     this.paint=()=>{
       if(generation!==this.generation||!this.running)return;

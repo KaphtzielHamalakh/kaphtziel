@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore Torah, Prophets and the five scrolls with an original instrumental demonstration, a full Torah recorded-reference library and a bounded printed-score study, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.38.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.39.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -141,6 +141,19 @@
       <p class="muted">This is a complete printed example, with independent musical and Hebrew-underlay review pending. Its section label does not identify a Kinnor preset or establish rules for other verses. No singing voice is added.</p>
       <details><summary>Inspect Baer’s original six-system example</summary><a href="./assets/scores/baer-1894-genesis1.png"><img id="baer-score-scan" src="./assets/scores/baer-1894-genesis1.png" loading="lazy" alt="Baer third expanded edition circa1894, printed p. 210, No. 939: complete six-system Genesis 1:1–5 example with original Latin syllable underlay"></a><p><a href="./docs/BAER-GENESIS-SCORE.json">Source-note and Hebrew underlay evidence</a> · <a href="./docs/BAER-NOTE-CORRESPONDENCE.json">Exact pronunciation note-span audit</a> · Nineteenth-century print public domain; new transcription CC0. Scan: Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main; <a href="https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy">digitization policy</a>. This edition differs from the 1877 edition cited by Cohen.</p></details>
     </section>
+    <section class="recorded-reference" id="baer-high-holiday-study" aria-labelledby="baer-high-holiday-heading">
+      <div class="section-heading"><div><p class="eyebrow">A texted High Holiday example</p><h2 id="baer-high-holiday-heading">Genesis 22:19 · Baer’s second setting</h2></div><span class="badge">Instrumental transcription · review pending</span></div>
+      <p>Baer’s third expanded edition [1894], No.113, prints this complete verse across pp.37–39 in its High Holiday section. All14Hebrew words and accents are kept, with46notes, two tuplets, seven slurs and five rests. The final eighth rest is included in playback, repeats and exports.</p>
+      <button id="baer-high-holiday-open" disabled>Open Baer High Holiday Genesis 22:19 study</button>
+      <p>The first unequal triplet and its slur span אֶל־ and the opening of נְעָרָ֔יו. Printed B-natural and E-flat retain their original pitches. Written durations use your quarter-note tempo; expressive timing, tuning and instrument articulation are approximate. The two pronunciation text styles stay independent of melody, key, range and speed. Independent musical and Hebrew-underlay review remains pending; no singing voice, full melody grammar or Kinnor preset is inferred.</p>
+      <p>For a separate recorded reference, choose <a href="#voice-studies">Voice studies</a> → Rosh Hashanah · 2018 source verse recordings → Genesis22:19. That recording keeps its own melody and pronunciation; equivalence to this score has not been established.</p>
+      <details><summary>Inspect Baer’s original second setting</summary>
+        <p><a href="https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537">Library edition and complete book</a> · <a href="./docs/BAER-HIGH-HOLIDAY-SCORE.json">Exact notes, lyric fragments, source crops and review record</a></p>
+        <figure><img src="./assets/scores/baer-1894-no113-ii-page37.png" loading="lazy" alt="Baer No113 second setting, printed page37: Genesis22:19 reference, key, pickup and first measure"><figcaption>Page37 · No.113, 2.W. · source reference Genesis22:19.</figcaption></figure>
+        <figure><img src="./assets/scores/baer-1894-no113-ii-page38.png" loading="lazy" alt="Baer No113 second setting, printed page38: continuation of Genesis22:19"><figcaption>Page38 · same setting, continued; other rows are not performed.</figcaption></figure>
+        <figure><img src="./assets/scores/baer-1894-no113-ii-page39.png" loading="lazy" alt="Baer No113 second setting, printed page39: E-flat and final texted cadence and rest"><figcaption>Page39 · final texted cadence and eighth rest; no coda added.</figcaption></figure>
+      </details>
+    </section>
     <section class="printed-study" id="pattern-study" aria-labelledby="pattern-study-heading">
       <div class="section-heading"><div><p class="eyebrow">Printed accent patterns</p><h2 id="pattern-study-heading">Hear the pattern table</h2></div><span class="badge">Instrumental · review pending</span></div>
       <p class="muted">Cohen’s 1902 chart compares six ordinary Pentateuch traditions. This study includes thirty-two checked figures across pp. 540–543: plain Munaḥ/Revia, Yetib/conditional Zaqef, and the continued Munaḥ–Etnaḥta group, with source rows selected independently. Contextual melody systems and Kinnor preset equivalence remain pending.</p>
@@ -179,7 +192,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a><p><a href="./docs/REPERTOIRE-SOURCES.json">Prophets and five-scroll text provenance</a> · <a href="./docs/REPERTOIRE-AUDIT.json">Source correspondence audit</a></p></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Optional sourced scroll lines use written UXLC letters, a licensed scribal font and flagged edition differences. Typeset widths remain approximate; scrolls vary.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>PocketTorah recordings and the bounded printed-score study provide source references. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.38.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.39.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -190,6 +203,6 @@
       }
     });
   </script>
-  <script defer src="./app.bundle.js?v=0.38.0"></script>
+  <script defer src="./app.bundle.js?v=0.39.0"></script>
 </body>
 </html>

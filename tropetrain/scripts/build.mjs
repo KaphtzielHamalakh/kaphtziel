@@ -7,6 +7,7 @@ import {execFileSync} from 'node:child_process';
 import './import-printed-score.mjs';
 import './import-baer-score.mjs';
 import './import-cohen-prophetical.mjs';
+import './import-baer-high-holiday.mjs';
 import './import-printed-patterns.mjs';
 import './import-pattern-catalog.mjs';
 import './import-calendar-examples.mjs';
@@ -124,6 +125,8 @@ const propheticalScan=await readFile(path.join(root,'assets/scores/cohen-1902-pr
 const propheticalSecondScan=await readFile(path.join(root,'assets/scores/cohen-1902-page547.jpg'));
 const propheticalEvidence=await readFile(path.join(root,'docs/COHEN-PROPHETICAL-SCORE.json'),'utf8');
 const baerScan=await readFile(path.join(root,'assets/scores/baer-1894-genesis1.png'));
+const highHolidayEvidence=await readFile(path.join(root,'docs/BAER-HIGH-HOLIDAY-SCORE.json'),'utf8');
+const highHolidayScans=await Promise.all(JSON.parse(highHolidayEvidence).scans.map(async s=>({file:s.file,raw:await readFile(path.join(root,s.file))})));
 const baerEvidence=await readFile(path.join(root,'docs/BAER-GENESIS-SCORE.json'),'utf8');
 const baerLinks=await readFile(path.join(root,'docs/BAER-NOTE-CORRESPONDENCE.json'),'utf8');
 const patternScan=await readFile(path.join(root,'assets/scores/cohen-1902-munah-revia.png'));
@@ -140,7 +143,7 @@ const repertoireAudit=await readFile(path.join(root,'docs/REPERTOIRE-AUDIT.json'
 const roadmap=await readFile(path.join(root,'docs/RESEARCH.md'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
-const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
+let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
  .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script><script>${script.replaceAll('</script','<\\/script')}</script>`)
  .replaceAll('href="./docs/PRONUNCIATION-EDITION-WORDS.json"',()=>`href="data:application/json;base64,${Buffer.from(editionEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/mam-simple-torah-sources.zip"',()=>`href="data:application/zip;base64,${editionPack.toString('base64')}"`)
@@ -196,5 +199,7 @@ const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${vers
  .replaceAll('href="./docs/REPERTOIRE-AUDIT.json"',()=>`href="data:application/json;base64,${Buffer.from(repertoireAudit).toString('base64')}"`)
  .replaceAll('href="./docs/RESEARCH.md"','href="#standalone-roadmap"')
  .replace('<footer>',()=>`<details id="pronunciation-notices"><summary>Pronunciation source attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(pronunciationNotice)}</pre></details><details id="voice-study-notices"><summary>Voice-study recording attribution</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(voiceStudyNotice)}</pre></details><details id="standalone-roadmap"><summary>Evidence map & full roadmap</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 monospace">${escape(roadmap)}</pre></details><details id="license-notices"><summary>Font, software, recording and score sources</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 monospace">${escape(fontLicense)}\n\n${escape(musicFontLicense)}\n\n${escape(license)}\n\n${escape(referenceNotice)}\n\n${escape(scrollFontLicense)}\n\n${escape(layoutLicense)}\n\n${escape(layoutEvidence)}\n\n${escape(printedEvidence)}</pre></details><footer>`);
+for(const scan of highHolidayScans)standalone=standalone.replaceAll(`src="./${scan.file}"`,()=>`src="data:image/png;base64,${scan.raw.toString('base64')}"`);
+standalone=standalone.replaceAll('href="./docs/BAER-HIGH-HOLIDAY-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(highHolidayEvidence).toString('base64')}"`);
 await writeFile(path.join(root,'TropeTrain.html'),standalone);
 console.log('Built classic-script app.bundle.js and self-contained TropeTrain.html.');

@@ -6,7 +6,7 @@ test('six continued cadence records add twelve figures and34components while all
  assert.equal(rows.length,6);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),34);assert.equal(rows.flatMap(r=>r.unavailable).length,0);assert.equal(PRINTED_PATTERN_CATALOG.revision,3);
  const raw=JSON.parse(read('docs/PRINTED-PATTERN-CATALOG.json'));assert.equal(createHash('sha256').update(JSON.stringify(raw.rows.slice(0,12))).digest('hex'),'4a5fc220a42300cf9dce13e487c44f8dc786399e48ee153f24df4a84a8d82f33');
  for(const r of rows)assert.deepEqual(availablePatternModes(r.id).map(m=>m.id),['munah-etnahta','munah-before-etnahta','etnahta']);
- assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical']);
+ assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19']);
 });
 test('literal source pitches, repeated attacks and dotted/16th values match both page parts independently',()=>{
  for(const [letter,spec] of Object.entries(expected))for(const [key,mode] of [['m','munah-before-etnahta'],['e','etnahta']]){const p=plan(letter,mode);assert.deepEqual(p.map(e=>e.midi),spec[key][0]);assert.deepEqual(p.map(e=>e.beats),spec[key][1]);assert.equal(validatePlan(p),1.5);assert.equal(soundingNotes(p).length,p.length);assert.ok(p.every(e=>!e.tieId));}

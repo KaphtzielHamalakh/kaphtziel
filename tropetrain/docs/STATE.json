@@ -4,12 +4,12 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "b732204d3169e252eb94923e81aeb5749e738ed8",
-  "nextTask": "Continue the full independently pronounced chanting reconstruction. Preserve exact marked Hebrew and canonical/occurrence IDs; all v0.37 pronunciation packets, prior recordings/times and printed/demo events stay unchanged. v0.38 adds64unchanged CC BY-SA4Hebrew source verse clips from the distinct2018document and personal draft word-boundary review. Establish actual verse/word/syllable correspondence, source-edition differences, source performer credit and qualified cantorial/phonological review; personal or muted-clock marks remain drafts, never certified source timing. Eleven verified2019LenFellman full takes remain private and distinct. Continue contextual Cohen/Baer melody rules, p547penitential ornament/duration evidence and all six historical Kinnor Accent grammars/voices, without arbitrary pitches or unsupported presets. One MAM word gen-4-18-9 remains unassigned; two combined and2180source-only word forms/style remain;2811 earlier recording-timing words need review. Full feature inventory active/incomplete; printing deferred.",
+  "nextTask": "Finish v0.39 app-only publication, Pages/public-byte and live browser verification, then guarded output/resume saves. Continue word-aligned chanting across the entire Torah with independent sourced/reviewed pronunciation and melody systems. Preserve all exact marked Hebrew/canonical and occurrence IDs,79,985 words, prior scores/demo events, recordings/times and pronunciation packets. The two MAM source text styles remain independent projections, not six Kinnor singing voices. One MAM word gen-4-18-9 is unassigned, two source forms combined and2,180 word forms/style lack exact written ranges;2,811 earlier recording-timing words need review. Establish actual verse/word/syllable correspondence and performer/edition evidence for64 distinct2018 verse clips and11 distinct2019 LenFellman takes without guessing times or phonemes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules; No113 first setting Gen21:12 lyric fragments under rests and Cohen p547 penitential ornament remain unresolved. All six historical Accent grammars/voices and every remaining roadmap feature stay required; printing deferred. Do not infer Kinnor preset identity from the bounded printed examples.",
   "lastPassingTests": {
-    "automated": 315,
-    "newRegressionChecks": 8,
-    "ui": "Public normal20 and portable21 preserve all13marked Genesis22:1 reader strings/canonical IDs/aria-labels and actual noteeventIDs/pitches/beats through independent Sephardic/Ashkenazic text switches. Their original source clocks advance13.742→13.843seconds and16.633→16.735seconds, respectively, with allvolumes0/noaudio.play. An immediate first capture before metadata/position callback correctly refused a missing playhead; later valid captures supply the advancement proof. Normal typedJSON refuses altered Hebrew/accents and overlapping times, and reload restores13.742/13.843word1draft. All test word times then cleared. Public portable Numbers29:6 source reading-end selection loads the exact original, verifies its checksum, saves a device copy, opens the correct unchanged UXLC passage and runs a metadata-compatible muted0.5–1second span. Whole recording restored afterward. The earlier normal load was cancelled by immediately opening another passage; only the subsequent awaited portable checksum-ready state is claimed as a successful download. Both source verse previews retain the original audio and explicit performer/source-edition uncertainty. Normal/portable root/body fit actual319/1280widths; viewportreset. No application console errors. Navigation observation timeouts on normal16 and portable21 recovered by inspecting the same successfully loaded tabs, without browser reinitialization. Source selection/recorded pronunciation stay separate from main text-style/melody/key/range/tempo. NativeSave/directfileorigin, actual auditory review and qualified linguistic/cantorial review remain pending.",
-    "limits": "64 new fixed Hebrew verse recordings and personal draft times; no new independent singing voice, phonological equivalence or complete melody grammar."
+    "automated": 324,
+    "newRegressionChecks": 9,
+    "ui": "Local normal22 and portable23 opened all14 unchanged marked Genesis22:19 words and46 source notes/32.00seconds. Independent Sephardic/Ashkenazic text switches preserve every reader string/canonical ID/aria-label and actual note event ID/pitch/beats. Muted playback progress advances1.37333→1.51917% in normal and0.523125→0.612812% in portable across the style switch; this is clock/structural evidence, not auditory review. Selecting word12, then120BPM/+2 gives its five source pitches D5/C5/B4/A4/G4 and1.50seconds; style remains Ashkenazic and the range stays independent. All settings restored to60BPM/key0/Sephardic. Portable full-verse160BPM repeat shows46events/12.00seconds and subsequently Loop2/word3/B4 at11.5083%, then Stop/repeatfalse. An earlier sample at94.975% was still Loop1 and is not claimed as a complete repeat. Normal Genesis22:20 retains the new source choice but refuses unavailable notes and disables Play; source-study button restores Genesis22:19. Portable three embedded original source crops load at3330×340/310/320; exact source JSON is included. Both actual roots/bodies fit319/1280 widths; normal's first attempted319 override affected the other selected tab and still measured1280, so only the later measured319 result after closing portable23 is used. Viewport reset. Normal AX is primary; portable full AX snapshot hit the native pipe frame limit, so supported observed Playwright controls and read-only DOM checks completed that flow. Both report no application console warnings/errors. All four gains0, stopped/repeatfalse; no audible review, nativeSave or direct-file-origin verification claimed.",
+    "limits": "Bounded Baer No113/II instrumental transcription plus independent existing pronunciation text styles; musical/Hebrew-underlay/phonological review and six singing grammars/voices remain pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -53,7 +53,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32Cohen_source_figures_three_bounded_worked_examples_including_hypothetical_Gen22_complete_contextual_grammars_pending"
+      "status": "32_Cohen_figures_four_bounded_printed_examples_including_Baer_No113_II_Gen22_19_complete_contextual_grammars_pending"
     },
     {
       "id": "singing",
@@ -93,7 +93,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "three_bounded_literal_scores_independent_source_text_styles_common_Hebrew_spans_ties_slurs_rests_tuplets_tested_no_new_singing"
+      "status": "four_bounded_literal_scores_independent_pronunciation_text_common_spans_cross_word_slurs_tuplets_and_final_rests_tested_no_new_singing"
     },
     {
       "id": "display",
@@ -188,12 +188,12 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.38.0",
+    "version": "0.39.0",
     "branch": "codex/tropetrain-repertoire",
-    "baseCommit": "7a07e5b0e32492788b2a90274a67dbacc5b6464a",
-    "status": "published315pass_90files_exact_public_normal_portable_verified_final_records_follow",
-    "record": "docs/VERIFICATION-0.38.md",
-    "next": "Continue the full independently pronounced chanting reconstruction. Preserve exact marked Hebrew and canonical/occurrence IDs; all v0.37 pronunciation packets, prior recordings/times and printed/demo events stay unchanged. v0.38 adds64unchanged CC BY-SA4Hebrew source verse clips from the distinct2018document and personal draft word-boundary review. Establish actual verse/word/syllable correspondence, source-edition differences, source performer credit and qualified cantorial/phonological review; personal or muted-clock marks remain drafts, never certified source timing. Eleven verified2019LenFellman full takes remain private and distinct. Continue contextual Cohen/Baer melody rules, p547penitential ornament/duration evidence and all six historical Kinnor Accent grammars/voices, without arbitrary pitches or unsupported presets. One MAM word gen-4-18-9 remains unassigned; two combined and2180source-only word forms/style remain;2811 earlier recording-timing words need review. Full feature inventory active/incomplete; printing deferred."
+    "baseCommit": "b428e42ecde43e5e07ed82ef359b70d06a16032f",
+    "status": "324pass_preservation_source_pixels_normal_portable_QA_verified_publication_pending",
+    "record": "docs/VERIFICATION-0.39.md",
+    "next": "Finish v0.39 app-only publication, Pages/public-byte and live browser verification, then guarded output/resume saves. Continue word-aligned chanting across the entire Torah with independent sourced/reviewed pronunciation and melody systems. Preserve all exact marked Hebrew/canonical and occurrence IDs,79,985 words, prior scores/demo events, recordings/times and pronunciation packets. The two MAM source text styles remain independent projections, not six Kinnor singing voices. One MAM word gen-4-18-9 is unassigned, two source forms combined and2,180 word forms/style lack exact written ranges;2,811 earlier recording-timing words need review. Establish actual verse/word/syllable correspondence and performer/edition evidence for64 distinct2018 verse clips and11 distinct2019 LenFellman takes without guessing times or phonemes. Continue complete contextual Cohen/Baer reciting/stress/cadence rules; No113 first setting Gen21:12 lyric fragments under rests and Cohen p547 penitential ornament remain unresolved. All six historical Accent grammars/voices and every remaining roadmap feature stay required; printing deferred. Do not infer Kinnor preset identity from the bounded printed examples."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -685,6 +685,31 @@
       "markedWords": 871,
       "allTimesNull": true,
       "path": "outputs/Recorded-verse-review"
+    }
+  },
+  "newHighHolidayStudy": {
+    "id": "baer-1894-gen22-19",
+    "record": "docs/BAER-HIGH-HOLIDAY-SCORE.json",
+    "source": "Abraham Baer, third expanded edition [1894], No113 second setting, pp37–39",
+    "sourceWords": 14,
+    "components": 46,
+    "quarterBeats": 32,
+    "rests": 5,
+    "slurs": 7,
+    "tuplets": 2,
+    "exactNoteLinksPerStyle": 42,
+    "commonSpanEventsPerStyle": 46,
+    "differentDivisionEventsPerStyle": 4,
+    "review": "Literal instrumental source transcription; qualified musical/Hebrew-underlay/phonological review pending. No general melody grammar or independent singing voice.",
+    "verification": {
+      "automatedChecks": 324,
+      "newChecks": 9,
+      "nativeImages": 3,
+      "allSourceCropsExact": true,
+      "previousAssetDataFilesExact": 536,
+      "allOriginalTorahWordsEventsContextsExact": true,
+      "previousPrintedModelsAndExportsExact": true,
+      "ui": "Local normal22 and portable23 opened all14 unchanged marked Genesis22:19 words and46 source notes/32.00seconds. Independent Sephardic/Ashkenazic text switches preserve every reader string/canonical ID/aria-label and actual note event ID/pitch/beats. Muted playback progress advances1.37333→1.51917% in normal and0.523125→0.612812% in portable across the style switch; this is clock/structural evidence, not auditory review. Selecting word12, then120BPM/+2 gives its five source pitches D5/C5/B4/A4/G4 and1.50seconds; style remains Ashkenazic and the range stays independent. All settings restored to60BPM/key0/Sephardic. Portable full-verse160BPM repeat shows46events/12.00seconds and subsequently Loop2/word3/B4 at11.5083%, then Stop/repeatfalse. An earlier sample at94.975% was still Loop1 and is not claimed as a complete repeat. Normal Genesis22:20 retains the new source choice but refuses unavailable notes and disables Play; source-study button restores Genesis22:19. Portable three embedded original source crops load at3330×340/310/320; exact source JSON is included. Both actual roots/bodies fit319/1280 widths; normal's first attempted319 override affected the other selected tab and still measured1280, so only the later measured319 result after closing portable23 is used. Viewport reset. Normal AX is primary; portable full AX snapshot hit the native pipe frame limit, so supported observed Playwright controls and read-only DOM checks completed that flow. Both report no application console warnings/errors. All four gains0, stopped/repeatfalse; no audible review, nativeSave or direct-file-origin verification claimed."
     }
   }
 }
