@@ -1,0 +1,44 @@
+{
+  "schema": "tropetrain-source-duration-review-v1",
+  "revision": 1,
+  "archiveObservation": {
+    "url": "https://archive.org/metadata/PockettorahAudioFiles",
+    "bytes": 435549,
+    "files": [
+      {
+        "name": "Toldot-6.mp3",
+        "source": "original",
+        "format": "VBR MP3",
+        "length": "05:24",
+        "bitrate": "32",
+        "mtime": "1333597552",
+        "size": "1299540",
+        "md5": "56b23b24277e3cc97443fee8b463edb7",
+        "crc32": "b1812bde",
+        "sha1": "7158c12e934f9f8ae7d46251b997e854ecd6e669",
+        "height": "0",
+        "width": "0"
+      }
+    ]
+  },
+  "recordingId": "pt-portion-06-6",
+  "referenceSourceAudioSha1": "7158c12e934f9f8ae7d46251b997e854ecd6e669",
+  "referenceSourceAudioBytes": 1299540,
+  "measuredPcmDurationSeconds": 324.884875,
+  "labelSource": {
+    "path": "Webbrowser/content/torah/labels/Toldot-6.txt",
+    "gitBlob": "2eb89b254efc8179ee2835dcbf68e9c12ea05a4f",
+    "sha256": "45bbea23633b569cd9eca36c730122074dbb3e0f73464e0cd15b68dbdf00b9e2",
+    "firstOverflowWord": "gen-28-4-1",
+    "firstOverflowStartSeconds": 324.314551,
+    "firstOverflowEndSeconds": 325.036269,
+    "lastOverflowWord": "gen-28-4-16",
+    "lastOverflowStartSeconds": 334.689603,
+    "words": 16
+  },
+  "finding": "Current original archive metadata matches the pinned MP3 byte count/SHA1 and05:24label. Source word times for all16Genesis28:4words do not fit independently measured PCM duration. Source XML/text/audio bytes are preserved. Both main recorded-chant and measured-tone modes now withhold these spans before readiness instead of changing boundaries. Full original-take previews remain unmodified.",
+  "limits": "Original archive metadata corroborates input identity and coarse duration, not an acoustic diagnosis or repaired word alignment. Actual phoneme/word offsets and correct replacement timings still need source recording review.",
+  "acousticReview": null,
+  "attribution": "PocketTorah Audio Files, Not-a-Box Media Lab; project Russel Neiss and Rabbi Charlie Schwartz.",
+  "timingLicense": "CC-BY-SA-2.5"
+}

@@ -9,3 +9,6 @@ export function measuredPracticePlan(library,words,start,end){
  }
  return plan;
 }
+
+// Both main source-audio modes share the same independent duration guard.
+export const sourceTimedPracticePlan=measuredPracticePlan;

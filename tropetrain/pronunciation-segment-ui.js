@@ -1,3 +1,4 @@
+import {appendIpaProposal} from './pronunciation-ipa.js';
 const STYLE_NAMES={sephardic:'Sephardic',ashkenazic:'Ashkenazic'};
 export function renderPronunciationRules(container,study,style){
  container.replaceChildren();
@@ -26,7 +27,7 @@ export function renderPronunciationRules(container,study,style){
     for(const s of ['sephardic','ashkenazic']){const td=document.createElement('td');td.textContent=segment.realizations[s].text||'No transcription character';td.dataset.style=s;if(s===style)td.className='selected-source-style';r.append(td);}
     body.append(r);
    }
-   table.append(body);section.append(table);container.append(section);
+   table.append(body);section.append(table);appendIpaProposal(section,variant.segments);container.append(section);
   }
  }
  if(!shown)p('This source group has no individual or shared units for the selected word. No rule is substituted.');
