@@ -1,9 +1,11 @@
 import {getCorpus} from './library.js';
 import {createWordTimingDraft,parseWordTimingDraft,setWordBoundary,draftWordSpan} from './word-timing-draft.js';
+import {wordSupportAvailable,loadWordSupport,wordSupportContext,validateWordSupport} from './word-support.js';
 
 export function mountWordTimingDraft({position,onAudition}){
   const $=id=>document.getElementById(id),panel=$('word-timing-review');
-  let generation=0,draft=null,record=null,selected=0,available=false;
+  let generation=0,draft=null,record=null,selected=0,available=false,retainedWordId=null,support=null;
+  const supportCache=new Map();
   const key=()=>`tropetrain-word-timing-draft-v1:${record.audio.sha256}`;
   const message=text=>{$('word-timing-status').textContent=text;};
   function save(){
@@ -12,7 +14,9 @@ export function mountWordTimingDraft({position,onAudition}){
   }
   function draw(){
     const word=draft?.words[selected];$('word-timing-editor').hidden=!word;
+    $('word-support-panel').hidden=!word||!wordSupportAvailable(record);
     if(!word)return;
+    retainedWordId=word.id;
     $('word-timing-word').textContent=word.hebrew;$('word-timing-id').textContent=word.id;
     $('word-timing-select').value=String(selected);
     for(const k of ['start','end']){$(`word-timing-${k}`).value=word[k]??'';$(`word-timing-${k}`).max=draft.source.duration;}
@@ -20,6 +24,11 @@ export function mountWordTimingDraft({position,onAudition}){
     $('word-timing-count').textContent=`${complete} / ${draft.words.length} words have two draft boundaries. No boundaries are inferred.`;
     $('word-timing-audition').disabled=!available||word.start===null||word.end===null;
     $('word-timing-previous').disabled=selected===0;$('word-timing-next').disabled=selected===draft.words.length-1;
+    const candidate=support?.words[selected];$('word-support-load').disabled=!!support;
+    $('word-support-audition').disabled=!available||!candidate;
+    $('word-support-word').textContent=candidate?
+      `Model support ${candidate.modelSupport.start.toFixed(3)}–${candidate.modelSupport.end.toFixed(3)} seconds. ${candidate.evidence.lettersWithArgmaxSupport}/${candidate.evidence.targetLetters} written letters have direct model agreement. ${candidate.evidence.lettersWithArgmaxSupport===0?'No directly supported letters; this location is especially uncertain. ':''}Onsets and sung tails need listening review.`:
+      'Load the optional study to locate this word for listening review. Saved boundaries stay unchanged.';
   }
   function update(boundary,value){
     try{draft=setWordBoundary(draft,selected,boundary,value);save();}
@@ -50,12 +59,28 @@ export function mountWordTimingDraft({position,onAudition}){
     try{draft=parseWordTimingDraft($('word-timing-json').value,draft);save();draw();}
     catch(error){message(`Draft not imported: ${error.message}`);}
   });
+  $('word-support-load').addEventListener('click',async()=>{
+    if(!draft||!wordSupportAvailable(record))return;
+    const current=generation,selectedRecord=record,expected=draft;$('word-support-load').disabled=true;
+    $('word-support-status').textContent='Loading source-specific model support…';
+    try{
+      const value=await loadWordSupport(selectedRecord,expected);if(current!==generation)return;
+      support=value;supportCache.set(selectedRecord.id,value);draw();
+      $('word-support-status').textContent='Unreviewed model support loaded. Listen with context, then enter heard boundaries yourself. No draft times were filled.';
+    }catch(error){if(current===generation){$('word-support-load').disabled=false;$('word-support-status').textContent=error.message;}}
+  });
+  $('word-support-audition').addEventListener('click',()=>{
+    try{onAudition(wordSupportContext(support,selected));$('word-support-status').textContent='Auditioning model support with one second of context on each side. The interval is not a confirmed word or syllable duration.';}
+    catch(error){$('word-support-status').textContent=error.message;}
+  });
   return {
     setAvailable(value){available=value;draw();},
     async select(nextRecord,coverage){
-      const current=++generation;record=nextRecord;draft=null;selected=0;available=false;draw();
+      const keepOpen=panel.open&&JSON.stringify(draft?.coverage)===JSON.stringify(coverage);
+      const current=++generation;record=nextRecord;draft=null;support=null;selected=0;available=false;draw();
       $('word-timing-json').value='';$('word-timing-select').replaceChildren();
-      $('word-timing-empty').hidden=!!coverage;panel.open=false;
+      $('word-support-status').textContent='';
+      $('word-timing-empty').hidden=!!coverage;panel.open=keepOpen;
       if(!coverage){message(nextRecord.sourceCatalogRow?'Exact source passage boundaries are not established for this recording. Word timing remains unassigned.':'Cantillation-name tables have no Bible-word mapping.');return;}
       message('Loading unchanged source-passage reader words…');
       try{
@@ -65,6 +90,8 @@ export function mountWordTimingDraft({position,onAudition}){
         let saved;try{saved=localStorage.getItem(key());}catch{}
         if(saved){try{draft=parseWordTimingDraft(saved,draft);message('Personal draft restored; source edition and boundaries remain unreviewed.');}catch(error){message(`Saved draft withheld: ${error.message}`);}}
         else message('No word times assigned. Enter boundaries from the original recording; every saved mark remains an unreviewed draft.');
+        selected=Math.max(0,draft.words.findIndex(w=>w.id===retainedWordId));
+        const cached=supportCache.get(nextRecord.id);support=cached?validateWordSupport(cached,draft):null;
         draft.words.forEach((w,i)=>{const option=document.createElement('option');option.value=i;option.textContent=`${i+1} · ${w.hebrew} · ${w.id}`;$('word-timing-select').append(option);});
         draw();
       }catch(error){if(current===generation)message(error.message);}

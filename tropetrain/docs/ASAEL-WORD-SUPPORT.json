@@ -1,0 +1,54 @@
+{
+  "format": "tropetrain-word-support-catalog-v1",
+  "revision": 1,
+  "status": "unreviewed-model-support",
+  "retrieved": "2026-11-22",
+  "records": [
+    {
+      "recordId": "asael-2005-gen-opening-ashkenazic",
+      "file": "data/references/asael-word-support/asael-2005-gen-opening-ashkenazic.json.gz",
+      "bytes": 25520,
+      "sha256": "11321351b7cc5b47e6a1f46974089cd17f3149ea581ed543ceb7673f2a0dc75f",
+      "words": 469,
+      "originalSha256": "65bd2c69abaf1a8102e3e6bef5444ba4d7a2b25a5c51829a2f75579da0213cb0"
+    },
+    {
+      "recordId": "asael-2005-gen-opening-israeli",
+      "file": "data/references/asael-word-support/asael-2005-gen-opening-israeli.json.gz",
+      "bytes": 25349,
+      "sha256": "8ba85324efe5cd1599df5b35cbb75515df51481853e1fc62ef9d0afcc70db808",
+      "words": 469,
+      "originalSha256": "30bc957d282d0484dcccb5a4896c270b0eaf4773d21f9b1640f3fc96baccac97"
+    }
+  ],
+  "sourcePack": {
+    "file": "assets/voice-studies/asael-word-support-sources.zip",
+    "bytes": 72505,
+    "sha256": "e3657e20729abae95d6499d881ec5663a6f27280346547dd5155b8a157cda59f"
+  },
+  "purpose": "Opt-in context audition and manual source-word boundary review. Model-token evidence is not confirmed word/syllable timing, a phoneme bank or a historical singing grammar. Saved drafts remain unchanged.",
+  "model": {
+    "id": "imvladikon/wav2vec2-large-xlsr-53-hebrew",
+    "revision": "3dd308dda70b20507a6920b459052635973ae3cd",
+    "weightSha256": "ccb343830f577a24d1c7aa866a459ac93fbc00bd205abb1b90728cf1f767e0da",
+    "license": "Apache-2.0"
+  },
+  "review": null,
+  "newSingingVoice": null,
+  "diagnostics": {
+    "asael-2005-gen-opening-ashkenazic": {
+      "greedyCharacterErrorRateWithoutSpaces": 0.4556473829201102,
+      "greedyWordErrorRateAgainstConsonantalProjection": 0.9275053304904051,
+      "wordsWithEveryLetterHavingSomeArgmaxSupport": 159,
+      "wordsWithNoArgmaxSupportedLetters": 24,
+      "ctcConstrainedLogProbability": -4524.320940773188
+    },
+    "asael-2005-gen-opening-israeli": {
+      "greedyCharacterErrorRateWithoutSpaces": 0.22699724517906336,
+      "greedyWordErrorRateAgainstConsonantalProjection": 0.7270788912579957,
+      "wordsWithEveryLetterHavingSomeArgmaxSupport": 270,
+      "wordsWithNoArgmaxSupportedLetters": 7,
+      "ctcConstrainedLogProbability": -2682.2749566345933
+    }
+  }
+}
