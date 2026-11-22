@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "ae8c4f1d1d58ec3720780a8332faa02fb2bd5c8e",
+  "publishedCommit": "83ac2e4f8b70ae252b15e99e4cd198aeafeee19d",
   "nextTask": "Continue the complete word-aligned chanting objective across all Torah, all six historical pronunciation grammars/voices, every contextual cantorial system and the retained tutor/learning inventory; printing deferred. v0.59 maps54primary parashah catalogs plus their explicit Sukkot transclusions to651source readings/846references/820canonical originals, preserving195Ashkenazic and647Israeli pronunciation labels,4unassigned source spellings and2explicitly High Holiday melody references. All extra originals remain on-demand and must pass source size/hash and native duration checks; do not claim all820payloads acoustically reviewed, complete verse coverage, a Kinnor-equivalent preset or an independent singing engine. The two existing Genesis1:1–2:3performances still have469exact marked reader words and unassigned per-record word/syllable/phoneme times. Next advance actual source-edition and acoustic word/syllable alignment for those two originals, then extend across the catalog with explicit variant/range evidence. A private WhisperX/Hebrew CTC lead is recorded in work/audits/phonology-chant-0.59/alignment-source-lead.json: the default300mcheckpoint has incomplete source/license metadata; do not confuse it with the separately Apache-labeled53model or interpolate unsupported word times. Inspect reusable model/algorithm revisions before any bounded offline experiment; preserve original Hebrew, accents, stable IDs, source variants/shared halves and independent source clocks. Continue resolving the v0.57phonemic candidate gaps, qualified pronunciation/cantorial review, reusable sustained singing material, missing Baer/Cohen figures and complete contextual musical fitting. Keep the private0.55clock/curve diagnostic frozen. Preserve every prior recording/time/gap and the complete roadmap. Full goal active/incomplete.",
   "lastPassingTests": {
     "automated": 495,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 7,
     "log": "/private/tmp/tropetrain-check-v59-final.log",
-    "ui": "Local normal92 and portable93 verify the archive finder, saved source selection, independent source pronunciation and recorded melody labels. Native originals from Commons load with byte-count/SHA1 verification and device caching. Noach first reading decodes to166.243946s (Ashkenazic) and149.497755s (Israeli); the explicitly transcluded Hatan Torah High Holiday performance decodes to195.429637s. All playhead checks use volume0, media paused and the muted clock; no speaker playback or qualified acoustic review is claimed. Portable reuses verified originals and decodes Noach Israeli/High Holiday at the same durations. Separate source spans restore (Ashkenazic0/full; Israeli1–3s), then the arbitrary Israeli listening span is cleared to whole. Source picks preserve90marked reader strings/aria labels and instrument/MAM controls. The opening pair retains469exact marked words/IDs, firstgen-1-1-1 and lastgen-2-3-16, every time null and review null. Unmapped source recordings disable passage opening and retain no stale word draft; their new message correctly identifies unestablished passage boundaries. Source upload years are distinguished from unknown performance dates. Normal/portable319px layouts have root/scroll319 and0overflowing selects; screenshots inspected. Both new source evidence JSON and pinned source ZIP are embedded in portable. Normal/portable consoles show0warnings/errors. Full source-edition, word/syllable/phoneme/note and historical grammar review remains pending."
+    "ui": "Local normal92 and portable93 verify the archive finder, saved source selection, independent source pronunciation and recorded melody labels. Native originals from Commons load with byte-count/SHA1 verification and device caching. Noach first reading decodes to166.243946s (Ashkenazic) and149.497755s (Israeli); the explicitly transcluded Hatan Torah High Holiday performance decodes to195.429637s. All playhead checks use volume0, media paused and the muted clock; no speaker playback or qualified acoustic review is claimed. Portable reuses verified originals and decodes Noach Israeli/High Holiday at the same durations. Separate source spans restore (Ashkenazic0/full; Israeli1–3s), then the arbitrary Israeli listening span is cleared to whole. Source picks preserve90marked reader strings/aria labels and instrument/MAM controls. The opening pair retains469exact marked words/IDs, firstgen-1-1-1 and lastgen-2-3-16, every time null and review null. Unmapped source recordings disable passage opening and retain no stale word draft; their new message correctly identifies unestablished passage boundaries. Source upload years are distinguished from unknown performance dates. Normal/portable319px layouts have root/scroll319 and0overflowing selects; screenshots inspected. Both new source evidence JSON and pinned source ZIP are embedded in portable. Normal/portable consoles show0warnings/errors. Full source-edition, word/syllable/phoneme/note and historical grammar review remains pending. Public normal80 and portable81 pass the new archive/source controls. Fresh on-demand Noach originals in normal load/checksum/cache and decode to166.243946s/149.497755s, with volume0 and media paused. Portable reuses the checked Israeli original at149.497755s and separately loads/checksums/decodes the explicitly source-labeled High Holiday performance at195.429637s, retaining its distinct melody label and unassigned verse mapping. All playback checks use the muted clock with the audio device unused, and are stopped afterward. Source selection preserves27marked reader strings/IDs/aria labels and every observed main pronunciation/evidence/instrument control. The portable opening draft keeps469exact marked words/IDs, firstgen-1-1-1 and lastgen-2-3-16, all times null and review null. Both new source evidence documents are embedded. Public portable319px root/scroll319 with0overflowing source selects; final desktop/mobile screenshots inspected. Public consoles have0warnings/errors. Normal80 and portable81 navigation observations timed out, but the same handles reportedv0.59 and passed controls/decoder/draft/layout checks; neither navigation was restarted. Private92/93closed; server65729/8768stoppedCtrl-C/exit0. All public source media is paused at0volume, viewport reset, user8765/8767untouched. No speaker playback, qualified acoustic/phonological/cantorial approval, all820payload review or file-origin/nativeSave claim."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,15 +160,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "3911ce8e514a4860b99a11c067c07e90093ffad8",
-    "appCodeCommit": "ae8c4f1d1d58ec3720780a8332faa02fb2bd5c8e",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45049886751",
+    "commit": "83ac2e4f8b70ae252b15e99e4cd198aeafeee19d",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45056006205",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 23,
-    "publicChangedBytesExact": 132634912,
-    "scope": "Concurrent root privacy-page update preserved; identical tested app tree deployed.",
-    "supersededRun": 45049863816
+    "publicChangedFilesExact": 22,
+    "publicChangedBytesExact": 138644509
   },
   "corpusImport": {
     "books": 5,
@@ -194,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.59.0",
-    "status": "495_checks_local_normal_portable_verified_publication_pending",
+    "status": "495_checks_public_normal_portable_verified_final_records_saved_goal_active",
     "baseline": "c26ce435a8d3dd070c629f73ed8ef0d1ac5e746c",
     "previousGoalTurn": "progress: v0.58 published two licensed sung originals and a 1018-file rights index. 488 checks, public normal/portable UI, successful Pages deployments, exact changed public bytes, and all 998 local app files were saved. Full reconstruction remains incomplete.",
     "newPublicVoice": null,
@@ -1647,7 +1644,7 @@
     "newWordTimings": null,
     "newReviewedGrammar": null,
     "fullTorahVerseCoverageEstablished": false,
-    "status": "implemented_495_checks_local_normal_portable_verified_publication_pending",
+    "status": "published_source_archive_495_checks_public_normal_portable_verified_word_alignment_and_complete_grammars_pending",
     "sourcePack": "assets/voice-studies/asael-catalog-sources.zip",
     "sourcePackSha256": "de8b5333e1663723ef94c8ee0123ccdea24e8c4f08dd780cb42124f395c733f9",
     "allPrior72RecordingsAndFiveStudiesUnchanged": true,
