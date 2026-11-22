@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-  "nextTask": "Inspect the e diphone voicing issue without suppressing source evidence; continue primary historical phonology specifications and permission-cleared material, then reviewed independent sound bindings to the unchanged source syllables. Preserve all six pronunciation systems and full contextual musical systems in the active roadmap; printing deferred. Private lab run commands and exact source/build/diagnostic records: work/audits/voice-engine-0.53/README.md. Public runtime remains v0.52.0/466 checks; no reviewed historical voice, new phoneme-word mapping or complete melodic grammar is claimed. Retain all v0.52 letter-cluster/variant/shared-consonant bindings and every earlier data/source/playback invariant.",
+  "nextTask": "Resolve full-contour verification without moving failed probe times; inspect GetPitchPeriod integer Freq/1000 time conversion and distinguish engine-clock error from steady-window estimation limits. Then continue primary six-profile phonology specifications, permission-cleared reviewed voices and complete contextual musical systems over the Torah; retain the entire tutor/learning roadmap. Printing deferred. Exact current code/results/run commands are in work/audits/voice-engine-0.54/README.md. Preserve v0.53 reference failures, all original100engine files/HB2 and all original corpus/source facts. Public runtime remainsv0.52.0/466checks; the private word bridge does not update original phonemes, acoustic timings or historical profiles.",
   "lastPassingTests": {
     "automated": 466,
     "failures": 0,
@@ -190,18 +190,20 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.53-research",
+    "version": "0.54-research",
     "status": "private_lab_verified_public_runtime_unchanged",
     "publicRuntimeVersion": "0.52.0",
-    "baseline": "cff2ff6eca3f93df22610d6807cd174060772527",
-    "record": "docs/VOICE-ENGINE-LAB.json",
-    "nativeRenders": 16,
-    "wasmRenders": 16,
-    "negativeChecks": 24,
-    "acceptedForPublicVoice": false,
-    "newVoice": null,
+    "baseline": "6bf59d92e1572401ddd70173a588407c74f8a4cf",
+    "record": "docs/VOICE-SUSTAIN-LAB.json",
+    "nativeRenders": 68,
+    "wasmRenders": 68,
+    "priorWaveIdentityChecks": 8,
+    "negativeChecks": 15,
+    "newPublicVoice": null,
+    "newFullPhonology": null,
     "newFullMelodyGrammar": null,
-    "independentReview": null
+    "review": null,
+    "fullContourVerification": "pending_two_inconclusive_glide_probes"
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1137,5 +1139,120 @@
     },
     "next": "Inspect the e diphone voicing issue without suppressing source evidence; continue primary historical phonology specifications and permission-cleared material, then reviewed independent sound bindings to the unchanged source syllables. Preserve all six pronunciation systems and full contextual musical systems in the active roadmap; printing deferred.",
     "record": "docs/VOICE-ENGINE-LAB.json"
+  },
+  "voiceSustainLab": {
+    "status": "private_engineering_prototype_not_a_public_voice",
+    "publicRuntimeVersion": "0.52.0",
+    "sourceDiagnosis": {
+      "diphone": [
+        "_",
+        "e"
+      ],
+      "pitchMarkClasses": "00001212222",
+      "logicalFrame": 7,
+      "class": 1,
+      "meaning": "Unvoiced-transient after a voiced frame.",
+      "referenceSupportSeconds": [
+        0.25324263038548755,
+        0.3593650793650794
+      ],
+      "experimentalSupportSeconds": [
+        0.11065759637188209,
+        0.12244897959183673
+      ],
+      "limits": "Overlapping output-window support, not exclusive phone ownership or acoustic boundaries. No claim the source label is erroneous."
+    },
+    "experimentalDurationModel": {
+      "eligibility": [
+        "a",
+        "e",
+        "i",
+        "o",
+        "u"
+      ],
+      "verifiedContexts": [
+        "isolated a",
+        "isolated e",
+        "one original b/a-or-o/R/a-or-o word exercise"
+      ],
+      "rule": "Stretch the last contiguous stationary voiced run in a designated monophthong half; retain other source-coordinate intervals when stretching. Short/ineligible inputs use the original mapping.",
+      "protectedInterval": "If a pending low-pitch pulse would skip a protected interval, record an explicit phase restart at its endpoint. Acoustic review required.",
+      "sourcePitchMarksChanged": false,
+      "sourceWaveformsChanged": false,
+      "referenceFailureErased": false,
+      "measurementTimesMoved": false,
+      "independentReview": null
+    },
+    "wordExercise": {
+      "wordId": "gen-1-1-2",
+      "hebrew": "בָּרָ֣א",
+      "readerRangesUTF16": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "sourceStyles": [
+        "sephardic",
+        "ashkenazic"
+      ],
+      "sourceLicense": "CC-BY-SA-4.0",
+      "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+      "sourceFiles": [
+        {
+          "path": "data/pronunciation/torah-display.json.gz",
+          "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
+        },
+        {
+          "path": "data/pronunciation/torah-underlay.json.gz",
+          "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
+        },
+        {
+          "path": "data/pronunciation/torah-segments.json.gz",
+          "sha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+        }
+      ],
+      "sourceFixtureSha256": "baf96b782f806f8ca44be671974d65de8a8c121dfff975f24e9a10794f338f2a",
+      "sourceGroupsOrOriginalDataChanged": false,
+      "originalPhoneChoices": "b, a/o, R, a/o. Source r→engine R is an original unreviewed test choice, not a phonological equivalence.",
+      "silentMater": "Final written alef remains visible and retains its source category; no added phone is inferred.",
+      "originalContours": [
+        "rise",
+        "fall"
+      ],
+      "contourIdentity": "Original engineering data, not a cantillation tradition or a realization of the written accent.",
+      "nominalTimings": "Original explicit command durations. They are not timestamps of any source recording or reviewed acoustic syllable boundaries.",
+      "independentControls": [
+        "source text choice",
+        "original contour",
+        "transposition",
+        "tempo",
+        "advisory range without retuning"
+      ],
+      "openingWord": "gen-1-1-1 keeps its exact marked Hebrew but refuses the missing explicit SHEVA_NA bridge; no substitution.",
+      "historicalPronunciation": null,
+      "historicalMelody": null,
+      "acousticTimes": null,
+      "independentReview": null
+    },
+    "invariants": {
+      "publicRuntimeChanged": false,
+      "readerHebrewChanged": false,
+      "accentsChanged": false,
+      "canonicalIdsChanged": false,
+      "originalUnderlayChanged": false,
+      "originalSourcePhonemesOrTimesChanged": false,
+      "sourceAudioOrTimestampsChanged": false,
+      "all605PriorAssetDataBlobsRetained": true,
+      "newPublicSingingVoice": null,
+      "newFullHistoricalPhonology": null,
+      "newFullMelodicGrammar": null
+    },
+    "next": "Resolve full-contour verification without moving failed probe times; inspect GetPitchPeriod integer Freq/1000 time conversion and distinguish engine-clock error from steady-window estimation limits. Then continue primary six-profile phonology specifications, permission-cleared reviewed voices and complete contextual musical systems over the Torah; retain the entire tutor/learning roadmap. Printing deferred.",
+    "record": "docs/VOICE-SUSTAIN-LAB.json"
   }
 }
