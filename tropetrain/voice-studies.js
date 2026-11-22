@@ -1,8 +1,11 @@
 import {VOICE_STUDIES} from './voice-study-data.js';
+import {ASAEL_SOURCE_CATALOG} from './asael-source-catalog-data.js';
 export {VOICE_STUDIES};
+export const VOICE_SOURCE_STUDIES=[...VOICE_STUDIES.studies,...ASAEL_SOURCE_CATALOG.studies];
+export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings];
 
 export function voiceStudy(id){
-  const study=VOICE_STUDIES.studies.find(s=>s.id===id);
+  const study=VOICE_SOURCE_STUDIES.find(s=>s.id===id);
   if(!study)throw Error('Choose an available source study.');
   return study;
 }
@@ -10,7 +13,7 @@ export function voiceRecording(studyId,pronunciationId,deliveryId){
   const study=voiceStudy(studyId);
   if(!study.pronunciations.some(p=>p.id===pronunciationId)||!study.deliveries.some(d=>d.id===deliveryId))
     throw Error('This source does not provide that pronunciation and delivery.');
-  const recording=VOICE_STUDIES.recordings.find(r=>r.studyId===studyId&&r.pronunciationId===pronunciationId&&r.deliveryId===deliveryId);
+  const recording=VOICE_SOURCE_RECORDINGS.find(r=>r.studyId===studyId&&r.pronunciationId===pronunciationId&&r.deliveryId===deliveryId);
   if(!recording)throw Error('This source performance is unavailable.');
   return recording;
 }
@@ -39,7 +42,7 @@ export function restoreVoicePreferences(saved){
   if(!saved||typeof saved!=='object')return defaults;
   let record;try{record=voiceRecording(saved.studyId,saved.pronunciationId,saved.deliveryId);}catch{return defaults;}
   const spans={};
-  for(const candidate of VOICE_STUDIES.recordings){
+  for(const candidate of VOICE_SOURCE_RECORDINGS){
     const span=saved.spans?.[candidate.id];if(!span)continue;
     try{const checked=voiceSpan(span.start,span.end,candidate.audio.estimatedDurationSeconds);spans[candidate.id]={start:checked.start,end:span.end===null?null:checked.end};}catch{}
   }

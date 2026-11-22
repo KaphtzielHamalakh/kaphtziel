@@ -2,6 +2,7 @@ import {VOICE_STUDIES,voiceStudy,voiceRecording,voiceAudioRecord,voiceCoverage,v
 import {VoiceStudyPlayer} from './voice-study-player.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
 import {mountWordTimingDraft} from './word-timing-ui.js';
+import {mountAsaelSourceFinder} from './asael-source-finder.js';
 
 export function mountVoiceStudies({beforePlay,onOpenText}){
   const $=id=>document.getElementById(id),key='tropetrain-voice-studies-v1';
@@ -57,12 +58,18 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     $('voice-study-kind').textContent=delivery.kind==='spoken'?'Spoken pronunciation study · without melody':'Chanted reference · recorded voice';
     $('voice-study-description').textContent=study.description;$('voice-study-limits').textContent=study.limits;
     $('voice-study-coverage').textContent=`${voiceCoverageLabel(record)?voiceCoverageLabel(record)+' · ':''}${study.coverageStatus}`;
-    $('voice-study-creator').textContent=`${record.performer} · ${record.year}`;
+    const uploadYear=record.sourceUploadYear??(record.studyId==='asael-bereshit'?record.year:null);
+    $('voice-study-creator').textContent=`${record.performer} · ${uploadYear?`source upload ${uploadYear} · performance date not established`:record.year??'performance date not established'}`;
     $('voice-study-source').href=record.sourceUrl;$('voice-study-source').textContent='Original performance source';
     $('voice-study-book').href=study.sourceUrl;$('voice-study-book').textContent=study.sourceTitle;
     $('voice-study-license').href=record.license.url;$('voice-study-license').textContent=record.license.id;
-    $('voice-study-hash').textContent=record.audio.sha256;
-    $('voice-study-open').disabled=!voiceCoverage(record);$('voice-study-open').textContent=voiceCoverage(record)?`Open ${voiceCoverageLabel(record)} text`:'Table names · no Bible passage mapping';
+    $('voice-study-hash-label').textContent=record.audio.sha256?'Selected original SHA-256:':'Selected original SHA-1 (checked on loading):';
+    $('voice-study-hash').textContent=record.audio.sha256??record.audio.sha1;
+    const note=study.catalogNotes?.find(n=>n.recordId===record.id)?.text;
+    $('voice-study-catalog-note').textContent=note?`Catalog passage note, retained as written: ${note}. Source boundaries and edition correspondence require review.`:'';
+    $('voice-study-catalog-note').hidden=!note;
+    $('voice-study-open').disabled=!voiceCoverage(record);$('voice-study-open').textContent=voiceCoverage(record)?`Open ${voiceCoverageLabel(record)} text`:
+      record.sourceCatalogRow?'Passage mapping pending':'Table names · no Bible passage mapping';
     $('voice-study-delivery-label').textContent=study.deliveryLabel??'Recorded delivery';
     $('voice-study-volume').value=prefs.volume;$('voice-study-volume-value').textContent=`${prefs.volume}%`;
     $('voice-study-repeat').checked=prefs.repeat;player.setVolume(prefs.volume/100);
@@ -78,16 +85,21 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     catch(error){$('voice-study-status').textContent=error.message;}
     readiness();
   }
-  options('voice-study-choice',VOICE_STUDIES.studies,prefs.studyId);
+  function studyOptions(){
+    const items=[...VOICE_STUDIES.studies];if(!items.some(s=>s.id===prefs.studyId))items.push(voiceStudy(prefs.studyId));
+    options('voice-study-choice',items,prefs.studyId);
+  }
+  studyOptions();
   const populate=()=>{const s=voiceStudy(prefs.studyId);options('voice-study-pronunciation',s.pronunciations,prefs.pronunciationId);options('voice-study-delivery',s.deliveries,prefs.deliveryId);};
   populate();render();
   function chooseStudy(id){
     prefs.studyId=id;const s=voiceStudy(prefs.studyId);
-    $('voice-study-choice').value=prefs.studyId;
+    studyOptions();
     prefs.pronunciationId=s.pronunciations[0].id;prefs.deliveryId=s.deliveries[0].id;populate();render();
   }
   $('voice-study-choice').addEventListener('change',()=>chooseStudy($('voice-study-choice').value));
   $('asael-study-open').addEventListener('click',()=>chooseStudy('asael-bereshit'));
+  mountAsaelSourceFinder({selectedStudy:prefs.studyId,onChooseStudy:chooseStudy});
   for(const [id,field] of [['voice-study-pronunciation','pronunciationId'],['voice-study-delivery','deliveryId']])
     $(id).addEventListener('change',()=>{prefs[field]=$(id).value;render();});
   for(const id of ['voice-study-start','voice-study-end'])$(id).addEventListener('change',saveSpan);

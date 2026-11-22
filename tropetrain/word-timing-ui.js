@@ -56,7 +56,7 @@ export function mountWordTimingDraft({position,onAudition}){
       const current=++generation;record=nextRecord;draft=null;selected=0;available=false;draw();
       $('word-timing-json').value='';$('word-timing-select').replaceChildren();
       $('word-timing-empty').hidden=!!coverage;panel.open=false;
-      if(!coverage){message('Cantillation-name tables have no Bible-word mapping.');return;}
+      if(!coverage){message(nextRecord.sourceCatalogRow?'Exact source passage boundaries are not established for this recording. Word timing remains unassigned.':'Cantillation-name tables have no Bible-word mapping.');return;}
       message('Loading unchanged source-passage reader words…');
       try{
         const corpus=await getCorpus();if(current!==generation)return;
