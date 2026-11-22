@@ -3,15 +3,15 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-  "nextTask": "Freeze this bounded private clock/curve diagnostic with all failures retained. Return to source-backed specifications for the six independent pronunciation profiles and reusable reviewed voice material; continue contextual musical systems across all Torah. Preserve every existing recording gap, source-only/shared-consonant case and complete tutor/learning roadmap. Printing deferred. Full objective active/incomplete. Read work/audits/voice-engine-0.55/README.md for exact limits and run commands. Public executable remains0.52.0/466checks. Do not continue tuning one test word instead of the full six-profile and full-Torah objective.",
+  "publishedCommit": "8ffa464a25c80132980021b9e0c009e03e051c99",
+  "nextTask": "Continue the complete six historical pronunciation specifications and reusable reviewed singing material, then all contextual melody systems across every Torah passage and the retained tutor/learning inventory; printing deferred. The new six documentary profiles expose87source-category slots each (522unassigned), not a completed phonological engine or singing presets. Read the primary Katz1993phonology and August2026draftmanual and Kantor2023classification leads recorded in work/audits/pronunciation-profiles-0.56/next-primary-sources.json. Separate regional/formal-reading/stress-conditioned facts from Kinnor label equivalence, preserve source rights, and build explicit context-sensitive candidate specifications without filling unknown rules from example Latin spellings. Kahn/Yampolskaya2022CC-BY4recitation research is not a Kinnor singing bank. Acquire/verify reusable sustained vowels/transitions/diphthongs and qualified linguistic/acoustic/cantorial review. Keep the private0.55clock/curve diagnostic frozen with seven unresolved interior points. Continue Baer/Cohen missing figures and full contextual musical fitting with source evidence; no arbitrary-word rule inferred from a chart heading. Preserve79985Torah words, exact marks/IDs, MAMsource groups/stress/shared-consonant and source-only bindings, all original recordings/times/gaps and the complete feature inventory. Full objective active/incomplete.",
   "lastPassingTests": {
-    "automated": 466,
+    "automated": 473,
     "failures": 0,
     "skipped": 0,
     "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v52-final3.log",
-    "ui": "Local normal78: Gen1:1word1t/sbothtextstylesbindsameתUTF16range11–12;all27visibleHebrew/IDs/labelsunchanged. Mutedrecordedchantat100%survivesstylechange,activegen-1-1-1. SharedGen8:20word7betfirst/secondbothבְּ2–5,reference/writtenroles;noextra writtenletter. Canonicalgen-13-3-13(displayGen13:3word12)retainsאֽ͏ָהֳלוֹ֙inclCGJandaccents,source-only/noreaderbindings. Gen1:5word2finalmemretainsם ׀at8–11andexplicitSource marks differ:ם. Portable79independentlyverifiesfinalmemdifferenceandfriendlypoint/timinglimits;Gen8:20word7bothsharedhalves/stylechangepreserves14Hebrew/IDs/labels. RegisteredNotoHebrewfontverified. Bothnormal/portable319root/body319,andalltableswidth/scroll231afterlocalwrap/staticfix;viewportreset. Noappconsolewarnings/errors. AllaudioQAusedmutedclocks;all5gains0/all4mediapaused/repeatoff. NativeSave/file-originandindependentreviewunclaimed. Public normal80: Gen1:1word1tavbothtextstylesbindתatreaderUTF16 11–12; switchingstylepreservesall27Hebrew/IDs/aria-labelsandall27matchcanonicalGenesisJSON. Originalrecordedchant100%/originalpitch/0volumecontinuesduringstylechange,activegen-1-1-1andbindingsunchanged. Friendlypoint/timinglimitsandregisteredNotoHebrewfontverified. Publicportable81: measuredtones100%/0pitchplayopeningwordonmutedclock,39measured/133frameonsets;stylechangepreservesall27Hebrew/IDs/labelsandall27matchcanonicalsource. SharedGen8:20word7betfirst/secondpointtoבְּ2–5withreference/writtenroles. EmbeddedletterauditdataURIverified. At319,root/body319andallfourtableswidth/scroll231;viewportreset. Canonicalgen-13-3-13(displayGen13:3word12)keepsאֽ͏ָהֳלוֹ֙inclCGJandaccents,source-only/zeroexactreaderbindings. Noappconsolewarnings/errors. Screenshotoutputs/TropeTrain-v0.52-live.jpgsaved/viewed. BothpublicbuildsleftGen1:1word1/Sephardic/recorded/100%speed/0pitch/repeatoff/all5gains0/all4mediapaused. AllplaybackQAusedmutedclocks; independentlinguistic/acoustic/cantorialreviewandnativeSave/file-originunclaimed."
+    "log": "/private/tmp/tropetrain-check-v56-release.log",
+    "ui": "Local85/87and public80/81verify all six historical evidence labels, exact Hebrew and independent MAMtext/melody/key/tempo/range settings. Gen1:1word2בָּרָ֣א keeps UTF16ranges0–3/3–7 while sourceba/ra andbo/ro change independently of the historical profile. Gen8:20word7 exports distinct first/second shared bet references with original marked bindings and no extra written letter. Canonicalgen-13-3-13(displayword12) preservesאֽ͏ָהֳלוֹ֙includingCGJ and source-only/nullwrittenranges. Isa42:5word1כֹּֽה־ keeps the selected profile with categories unavailable/no substitute. U.S.Sephardi evidence choice survives reload. Changing historical profile during volume0instrument playback keeps Restart/Playing, melody, key and tempo; stopped afterward. Both normal/portable319px layouts: root/scroll319,word/scroll231,caption231,stackedcellwidth231,no cell overflow. Desktop/mobile screenshots inspected. Public consolewarnings/errors empty. Private tabs85/86/87closed; server75660exited0afterCtrl-C,8767no listener. Viewportreset; user8765server untouched. Public80/81leftv0.56with all audio paused. NativefileSave/file-origin and acoustic/qualified historical review remain unclaimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -50,7 +50,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_independent_MAM_text_styles_with_exact_category_written_cluster_bindings_six_Kinnor_singing_grammars_voices_pending"
+      "status": "two_independent_MAM_text_styles_exact_bindings_six_documentary_profiles_with_word_evidence_full_reviewed_singing_grammars_pending"
     },
     {
       "id": "melodies",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "codeCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-    "pagesRun": 45021855264,
+    "commit": "8ffa464a25c80132980021b9e0c009e03e051c99",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45038204897",
     "status": "success",
-    "jobs": 3,
-    "publicFilesExact": 19,
-    "publicBytesExact": 121997266
+    "allThreeJobsSucceeded": true,
+    "publicChangedFilesExact": 18,
+    "publicChangedBytesExact": 122472527
   },
   "corpusImport": {
     "books": 5,
@@ -191,11 +191,14 @@
   },
   "workingIteration": {
     "version": "0.56.0",
-    "status": "building_independent_historical_profile_evidence",
+    "status": "published_runtime_and_ui_verified",
     "baseline": "3e64bdb7000f07d7e4911b0c910efe2309ea071d",
     "previousGoalTurn": "progress: fixed and verified the private pitch clock, retained all unresolved curve points, published and saved research checkpoint0.55",
     "newPublicVoice": null,
-    "review": null
+    "review": null,
+    "historicalLabels": 6,
+    "categorySlots": 522,
+    "reviewedRules": 0
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1056,31 +1059,11 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.52.0",
-    "status": "published_verified",
-    "baseline": "e66b85c2beb386a6df3459a627673ed507aef1c8",
-    "sourceGroups": 68504,
-    "styles": 2,
-    "exactClusterReferencesPerStyle": 315024,
-    "sourceOnlyLetterReferencesPerStyle": 9071,
-    "uniqueReaderClustersPerStyle": 295795,
-    "previousStudySha256": "4d6f82686325da4d72d6808ade8519d52da0376c1f4edb85936512de26d2b172",
-    "newVoice": null,
-    "newFullMelodyGrammar": null,
-    "review": null,
-    "localUi": "Normal78Gen1:1word1t/sbothstylesbindsameתUTF16range11–12;27visiblemarkedHebrew/IDs/labelsunchanged. Mutedrecordedchant100%survivesstylechange(activegen-1-1-1). Gen8:20word7sharedbetfirst/secondbothבְּ2–5, onlysecondwritten. Gen13:3canonicalgen-13-3-13isdisplayword12andkeepsאֽ͏ָהֳלוֹ֙/source-only/noletterbindings. Gen1:5word2retainspaseq;finalmemsource/readerpunctuationdifferenceexplicit. CorrectNotoHebrewfontverified. Responsive319root/body319; tablewhiteSpace normal/positionstatic; alltablewidth/scroll231afterlocaloverride. Allaudio0/stopped; portable/publicpending.",
-    "artifacts": {
-      "app.bundle.js": {
-        "bytes": 29305482,
-        "sha256": "54525ae251eb7e1c417d67b30aea2d55bb569acd2a6a64d96044fb2e3a9785ff"
-      },
-      "TropeTrain.html": {
-        "bytes": 91880825,
-        "sha256": "2db68d9236e24ea1132a09ba5d3a5e65ad39628d3b82dc0c45c6e9b63f2f1d98"
-      }
-    },
-    "codeCommit": "0b1323996d21bbeed18bb434e3c054cf11cd812a",
-    "pagesRun": 45021855264
+    "version": "0.56.0",
+    "codeCommit": "8ffa464a25c80132980021b9e0c009e03e051c99",
+    "tests": 473,
+    "voiceAccepted": false,
+    "fullObjective": "active_incomplete"
   },
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
@@ -1574,5 +1557,22 @@
     "replacementEvidence": "Complete source-backed phonological rules for each of the six actual Kinnor Accent labels, permission-cleared sustained vowels/transitions/diphthongs across the needed register, aligned marked-Hebrew word/syllable/phone annotations, and qualified linguistic, acoustic and cantorial review. An engine voice label does not supply these.",
     "next": "Freeze this bounded private clock/curve diagnostic with all failures retained. Return to source-backed specifications for the six independent pronunciation profiles and reusable reviewed voice material; continue contextual musical systems across all Torah. Preserve every existing recording gap, source-only/shared-consonant case and complete tutor/learning roadmap. Printing deferred. Full objective active/incomplete.",
     "record": "docs/VOICE-PITCH-CLOCK-LAB.json"
+  },
+  "historicalPronunciationProfiles": {
+    "record": "docs/HISTORICAL-PRONUNCIATION-PROFILES.json",
+    "labels": 6,
+    "descriptiveObservations": 19,
+    "categorySlotsPerProfile": 87,
+    "unassignedRuleSlots": 522,
+    "reviewedPhonologicalRules": 0,
+    "singingVoice": null,
+    "playableProfiles": 0,
+    "sourceTextStylesIndependent": true,
+    "markedHebrewAndOriginalBindingsUnchanged": true,
+    "wordEvidenceExport": true,
+    "savedSelection": true,
+    "responsiveStackedRows": true,
+    "review": null,
+    "qualifiedReviewPending": true
   }
 }
