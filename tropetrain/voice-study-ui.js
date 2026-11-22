@@ -81,10 +81,13 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
   options('voice-study-choice',VOICE_STUDIES.studies,prefs.studyId);
   const populate=()=>{const s=voiceStudy(prefs.studyId);options('voice-study-pronunciation',s.pronunciations,prefs.pronunciationId);options('voice-study-delivery',s.deliveries,prefs.deliveryId);};
   populate();render();
-  $('voice-study-choice').addEventListener('change',()=>{
-    prefs.studyId=$('voice-study-choice').value;const s=voiceStudy(prefs.studyId);
+  function chooseStudy(id){
+    prefs.studyId=id;const s=voiceStudy(prefs.studyId);
+    $('voice-study-choice').value=prefs.studyId;
     prefs.pronunciationId=s.pronunciations[0].id;prefs.deliveryId=s.deliveries[0].id;populate();render();
-  });
+  }
+  $('voice-study-choice').addEventListener('change',()=>chooseStudy($('voice-study-choice').value));
+  $('asael-study-open').addEventListener('click',()=>chooseStudy('asael-bereshit'));
   for(const [id,field] of [['voice-study-pronunciation','pronunciationId'],['voice-study-delivery','deliveryId']])
     $(id).addEventListener('change',()=>{prefs[field]=$(id).value;render();});
   for(const id of ['voice-study-start','voice-study-end'])$(id).addEventListener('change',saveSpan);

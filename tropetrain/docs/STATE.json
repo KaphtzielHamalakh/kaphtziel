@@ -4,14 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "2504267bcaee0dfd913a6902b2b49242a1d26011",
-  "nextTask": "Continue word-aligned chanting across all Torah with independent six historical pronunciation grammars and every contextual cantorial melody system; printing deferred. v0.57now has an original, whole-source-audited phonemic candidate compiler for two source-defined Formal Ashkenazic regions, independently selected from the two MAMtext projections and six Kinnor documentary labels. Do not equate those regions with Kinnor profiles or promote candidates to approved phonemes/voices. Resolve the19557mobile-sheva references, special alef/mappiq,2360diphthong-part references and hiatus/local/quantity/allophone evidence;188Mideastern open segols lack established stress. Obtain reusable sustained singing material/transitions and qualified linguistic/acoustic/cantorial review. Preserve all79985Torah words, source branches/stress/shared halves/source-only ranges, original recordings/times/gaps, source rights and the complete roadmap. Keep the private0.55clock/curve diagnostic frozen. Continue missing Baer/Cohen figures and full contextual musical fitting, then retained learning/tutor tools. Full goal active/incomplete.",
+  "nextTask": "Continue the full word-aligned chanting objective across all Torah, all six historical pronunciation grammars/voices, every contextual cantorial system and the retained tutor/learning inventory; printing deferred. The new reusable Asael corpus has1124category entries resolving to1018unique canonical files/hashes, all withCC-BY-SA3.0metadata;107entries redirect and214filename pairs are only structural leads. Public source index pins every title/revision/URL/size/SHA1but leaves performer/verse coverage/pronunciation/melody/times/review null. Only two explicitly cataloged Genesis1:1–2:3originals are byte-verified/imported, with Ashkenazic melody and separately source-labeled Ashkenazic or Israeli pronunciation. Next map the remaining primary catalog coverage/reading variants and pronunciation labels, validate each media payload on use, and build actual reviewed word/syllable/phoneme alignment and sustained singing material. Do not copy times between performances, infer a community from an uploader/filename or equate a source label with Kinnor. Continue resolving the v0.57phonological candidate gaps (mobile sheva, special categories, diphthong sequences, hiatus/stress/local/quantity/allophone evidence) with qualified review. Keep the private0.55clock/curve diagnostic frozen; continue missing Baer/Cohen figures and complete contextual musical fitting. Preserve all79985Torahwords, exact marks/IDs/MAMsource branches/stress/shared halves/source-only ranges and every original recording/time/gap. Full goal active/incomplete.",
   "lastPassingTests": {
-    "automated": 482,
+    "automated": 488,
     "failures": 0,
     "skipped": 0,
-    "newTests": 9,
-    "log": "/private/tmp/tropetrain-check-v57-final.log",
-    "ui": "Local normal88and portable89verify two independently saved research profiles, source ba/ra versusbo/ro, exactבָּרָ֣א and original0–3/3–7UTF16syllable ranges, unchanged27reader Hebrew strings/IDs/aria-labels, and unchanged historicalGalician/melody/key/tempo/range settings. MideasternGen1:2word11מְרַחֶ֖פֶת preserves primary stress and produces open-stressed/closed segol candidates ej/ɛ while mobile sheva stays null. Gen8:20word7exports both original shared bet halves referencing one b event; no extra letter or consonant. Gen13:3displayword12/canonicalgen-13-3-13preservesCGJ, separate Hebrew branches1/2and null written ranges. Isa42:5word1כֹּֽה־ retains the selected profile and exact Hebrew with unavailable categories/no substitute. Prepared normal/portable JSONexports work; portable coverage evidence is embedded. Profile/text choices persist on reload. Changing profile during repeated volume0instrument playback preserves Restart, original melody,60BPM/key0/range60–72and running playback; stopped afterward. Both319px layouts have root/scroll319and0overflowing proposal rows; screenshots inspected. Normal/portable consoles have no warnings/errors. Viewport reset; all playback stopped. Acoustic, qualified phonological/cantorial review and native file Save/file-origin tests remain unclaimed. Public normal80and portable81verifyv0.57, exactבָּרָ֣א/ranges0–3and3–7, independently changing ɔ/u candidates with unchanged27reader words/IDs and musical/text/historical-profile settings, and embedded portable coverage evidence. Publicportable319px root/scroll319with0overflowing candidate rows; public desktop/mobile screenshots saved and inspected. Both public consoles have0warnings/errors. Navigation observations timed out for80/81, but those same tabs reportedv0.57and passed controls/exports; they were not restarted. Allfour audioelements in each public tab are paused, both main controls showPlay. Private88/89closed; server43681stopped withCtrl-C/exit0. Viewport reset; user8765untouched."
+    "newTests": 6,
+    "log": "/private/tmp/tropetrain-check-v58-final.log",
+    "ui": "Local normal90and portable91verify the visible Asael shortcut, synchronized source-study selector, separately labeled Ashkenazic/Israeli pronunciation and fixed source-labeled Ashkenazic melody. Both original Vorbis files load/checksum/cache; normal/portable native metadata gives317.230794s and371.848707s, with volume0muted clocks and media paused. Switching source pronunciation stops the old clock and keeps distinct source spans; native-keyboard1–3sAshkenazic span persists while Israeli stays0/full. Source/MAMtext/historical-profile/Katz-preview/instrument settings and27marked reader strings/IDs remain independent. Changing MAMtext during the muted source clock preserves the same originalBlob and clock. Opening the documented full passage gives Genesis1:1–2:3; both469-word draft lists retain exact marked Hebrew/IDs, including firstבְּרֵאשִׁ֖ית/gen-1-1-1andlastלַעֲשֽׂוֹת׃/gen-2-3-16. An arbitrary0.2–1.8sUI-test annotation is refused when imported into the other take; all synthetic times are cleared afterward. Saved source/pronunciation choices reload; cached originals remain available. Both319px layouts have root/scroll319and0overflowing source selects; screenshots inspected. Both source evidence documents are embedded in the portable build. Normal/portable consoles show0warnings/errors. All source playback stopped; viewport reset. Qualified acoustic/phonological/cantorial and source-edition/word-time review remain unclaimed; no speaker playback, nativeSave or file-origin claim."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -190,10 +190,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.57.0",
-    "status": "482_checks_public_normal_portable_verified_progress_saved_full_goal_active",
-    "baseline": "988ca5222b21bc7b9bbe499390762bf75b29ef7b",
-    "previousGoalTurn": "progress: v0.56 six documentary profiles and exact-word reports implemented, browser verified, published and saved with 473 checks; all historical singing rules remain pending.",
+    "version": "0.58.0",
+    "status": "488_checks_local_normal_portable_verified_publication_pending",
+    "baseline": "059bd73800497ff5c263aca06d1ee7c4cf9c922e",
+    "previousGoalTurn": "progress: v0.57source-defined phonemic compiler added; all79985Torahlinks/194272unitplans/518726categoryreferences preserved perstyle,482checks and local/public UI verified, publication and992-fileoutput saved. Singing voices/complete historical grammars remain pending.",
     "newPublicVoice": null,
     "review": null
   },
@@ -303,11 +303,11 @@
   },
   "voiceStudies": {
     "record": "docs/VOICE-STUDIES.json",
-    "studies": 3,
-    "recordings": 6,
-    "bytes": 36784196,
-    "status": "published_v18_six_originals_normal_and_standalone_browser_checked",
-    "review": "Primary rights/metadata/original bytes verified; independent acoustic/linguistic/musical review and word/syllable timing pending. No Kinnor preset equivalence."
+    "studies": 5,
+    "recordings": 72,
+    "bytes": 64404724,
+    "status": "72_originals_488checks_local_normal_portable_verified_publication_pending",
+    "review": "Source identity/rights/original bytes verified for72performances. Word/syllable/phoneme/note timings and independent linguistic/cantorial review remain pending; no Kinnor equivalence or new singing synthesis."
   },
   "musicalResearchNext": {
     "id": "bard-torah-2021",
@@ -1595,5 +1595,32 @@
     "sourceAssetsAndDataUnchanged": 605,
     "sourceGrammarAdaptationReview": null,
     "newSingingVoice": null
+  },
+  "pairedRecordedPronunciations": {
+    "record": "docs/ASAEL-PAIRED-CHANT.json",
+    "performer": "Asael (עשהאל)",
+    "pronunciations": [
+      "Ashkenazic, source label",
+      "Israeli, source label"
+    ],
+    "melody": "Ashkenazic, source label",
+    "recordings": 2,
+    "bytes": 7517700,
+    "coverage": "Genesis1:1–2:3",
+    "readerWordsPerDraft": 469,
+    "sourceEditionCompared": false,
+    "wordTimes": null,
+    "review": null,
+    "newIndependentSingingVoice": null,
+    "corpusLead": {
+      "indexedFiles": 1124,
+      "structuralFilenamePairs": 214,
+      "perFileAudit": "All1018canonical file pages reportCC-BY-SA3.0;45source responses saved, redirects retained, two audio payloads checked/imported. Coverage/pronunciation/melody semantics for other files remain unassigned.",
+      "indexedCategoryEntries": 1124,
+      "canonicalFiles": 1018,
+      "sourceHashes": 1018,
+      "indexRecord": "docs/ASAEL-CORPUS-SOURCE-INDEX.json"
+    },
+    "status": "original_payloads_rights_source_axes_and_exact_reader_drafts_verified_publication_pending"
   }
 }
