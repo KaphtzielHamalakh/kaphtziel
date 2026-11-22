@@ -27,6 +27,7 @@ execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py'
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-underlay.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/build-pronunciation-segments.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-segments.mjs')],{stdio:'inherit'});
+execFileSync('node',[path.join(root,'scripts/audit-pronunciation-letter-bindings.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/build-pronunciation-ipa.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-ipa.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-joint-coverage.mjs')],{stdio:'inherit'});
@@ -160,6 +161,7 @@ const editionPack=await readFile(path.join(root,'assets/pronunciation/mam-simple
 const pronunciationPack=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-torah-sources.zip'));
 const voiceStudyNotice=await readFile(path.join(root,'assets/voice-studies/NOTICE.txt'),'utf8');
 const sourceWindowsEvidence=await readFile(path.join(root,'docs/SOURCE-WORD-WINDOWS.json'),'utf8');
+const letterClusterEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-LETTER-CLUSTERS.json'),'utf8');
 const chantEvidence=await readFile(path.join(root,'docs/CHANT-COVERAGE.json'),'utf8');
 const voiceStudyEvidence=await readFile(path.join(root,'docs/VOICE-STUDIES.json'),'utf8');
 const printedScan=await readFile(path.join(root,'assets/scores/cohen-1902-genesis22.png'));
@@ -219,6 +221,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
  .replaceAll('href="./docs/JOINT-CHANT-PRONUNCIATION.json"',()=>`href="data:application/json;base64,${Buffer.from(jointEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json"',()=>`href="data:application/json;base64,${Buffer.from(noteCorrespondenceEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/SOURCE-WORD-WINDOWS.json"',()=>`href="data:application/json;base64,${Buffer.from(sourceWindowsEvidence).toString('base64')}"`)
+ .replaceAll('href="./docs/PRONUNCIATION-LETTER-CLUSTERS.json"',()=>`href="data:application/json;base64,${Buffer.from(letterClusterEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/CHANT-COVERAGE.json"',()=>`href="data:application/json;base64,${Buffer.from(chantEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/voice-studies/NOTICE.txt"','href="#voice-study-notices"')
  .replaceAll('href="./docs/VOICE-STUDIES.json"',()=>`href="data:application/json;base64,${Buffer.from(voiceStudyEvidence).toString('base64')}"`)

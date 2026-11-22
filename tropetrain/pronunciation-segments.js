@@ -1,5 +1,6 @@
 // Original mapping of separately computed, source-supported pronunciation facts.
 // Source data and adaptation: CC BY-SA4.0. No IPA or acoustic phonemes inferred.
+import {bindPronunciationLetters} from './pronunciation-letter-bindings.js';
 const STYLES=['sephardic','ashkenazic'];
 const letters=text=>text.replace(/[^א-ת]/gu,'');
 export class PronunciationSegments {
@@ -10,11 +11,12 @@ export class PronunciationSegments {
    if(typeof c.id!=='string'||ids.has(c.id)||typeof c.label!=='string'||typeof c.hebrewLetters!=='string'||!['consonant','vowel','diphthong-part','vowel-consonant-pair','silent-letter','silent-vowel-sign'].includes(c.kind)||typeof c.geminate!=='boolean')throw Error('Invalid pronunciation source category.');ids.add(c.id);
    for(const style of STYLES){if(typeof c.ascii?.[style]!=='string'||typeof c.display?.[style]!=='string'||c.geminate&&(typeof c.half?.ascii?.[style]!=='string'||typeof c.half?.display?.[style]!=='string'||c.half.ascii[style].repeat(2)!==c.ascii[style])||!c.geminate&&c.half!==null)throw Error('Invalid source transcription realization.');}
   }
-  this.data=data;
+  this.data=data;this.categories=new Map(data.catalog.map(c=>[c.id,c]));
  }
  apply(study){
   if(!study.hebrewUnderlay||study.sourceCommit!==this.data.sourceCommit||study.hebrewUnderlay.inputSha256!==this.data.inputSha256)throw Error('Checked Hebrew syllable underlay is required for source rules.');
   const entry=this.data.groups[study.groupId];if(!entry||entry.length!==study.rows.length)throw Error('Missing pronunciation source rules for this group.');
+  const readerTexts=new Map(study.readerIds.map((id,i)=>[id,study.readerHebrew[i]]));
   let segmentCount=0;
   const rows=study.rows.map((row,ri)=>{
    const [number,variants]=entry[ri];if(number!==row.number||!Array.isArray(variants))throw Error('Pronunciation source rule row changed.');
@@ -38,7 +40,7 @@ export class PronunciationSegments {
        return {id:`${unit.id}-h${column}-seg${si+1}`,categoryId:category.id,label:category.label,kind:category.kind,part:part===0?'whole':part===1?'first-half-shared':'second-half-shared',realizations:Object.fromEntries(STYLES.map(s=>[s,{ascii:values.ascii[s],text:values.display[s]}])),sourceUnitId:unit.id,readerWordId:unit.readerWordId,sourceStress:unit.sourceStress,sharedWithUnitId,hebrewScope:'parent-syllable-only',individualHebrewRange:null,ipa:null,phonemes:null,noteIds:null,audioTimes:null};
       });
       if(written!==letters(underlay.source.text)||segments.map(s=>s.realizations[style].text).join('')!==unit.text)throw Error('Source rule reconstruction differs from the original Hebrew or transcription.');
-      return {hebrewColumn:column,sourceLabels:[...underlay.labels],sourceHebrew:underlay.source,readerRanges:underlay.readerRanges,segments};
+      return {hebrewColumn:column,sourceLabels:[...underlay.labels],sourceHebrew:underlay.source,readerRanges:underlay.readerRanges,segments,letterClusterBindings:bindPronunciationLetters(segments,underlay,this.categories,readerTexts)};
      });
      return {...unit,sourceSegments:{revision:1,style,variants:plans,review:'Named source categories and transcription values only; no reviewed acoustic phonemes or segment timing.'}};
     });

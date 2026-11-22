@@ -1,0 +1,115 @@
+{
+  "schema": "tropetrain-pronunciation-letter-clusters-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "sourceGroups": 68504,
+  "inputs": [
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
+    },
+    {
+      "path": "data/pronunciation/torah-segments.json.gz",
+      "sha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+    },
+    {
+      "path": "pronunciation-letter-bindings.js",
+      "sha256": "808566161480286c5b7dfac15b0a694730120f7356e22d2c1baec4ed09e75461"
+    }
+  ],
+  "sourceLicense": "CC-BY-SA-4.0",
+  "baseline": {
+    "commit": "e66b85c2beb386a6df3459a627673ed507aef1c8",
+    "sha256": "4d6f82686325da4d72d6808ade8519d52da0376c1f4edb85936512de26d2b172",
+    "method": "JSON.stringify of every original study in source group order, first reader word and selected Sephardic text; each study includes both styles; newline per study. Digest independently computed from the exact v0.51 Git tree. Remove only letterClusterBindings from source variants before comparison."
+  },
+  "styles": {
+    "sephardic": {
+      "units": 193936,
+      "variantPlans": 194272,
+      "categoryReferences": 518726,
+      "exactWrittenClusterReferences": 315024,
+      "sourceOnlyLetterReferences": 9071,
+      "categoriesWithoutLetters": 194631,
+      "sharedFirstReferences": 18250,
+      "sharedSecondReferences": 18250,
+      "markedClusterDifferences": 4391,
+      "writtenLettersExcludingSharedReferences": 305851,
+      "uniqueReaderClusters": 295795
+    },
+    "ashkenazic": {
+      "units": 193960,
+      "variantPlans": 194272,
+      "categoryReferences": 518726,
+      "exactWrittenClusterReferences": 315024,
+      "sourceOnlyLetterReferences": 9071,
+      "categoriesWithoutLetters": 194631,
+      "sharedFirstReferences": 18250,
+      "sharedSecondReferences": 18250,
+      "markedClusterDifferences": 4391,
+      "writtenLettersExcludingSharedReferences": 305851,
+      "uniqueReaderClusters": 295795
+    }
+  },
+  "examples": {
+    "sharedReference": {
+      "wordId": "gen-1-1-5",
+      "binding": {
+        "sourceSegmentId": "pmam-gen-1-1-5-sephardic-r5-c1-u1-h1-seg3",
+        "categoryId": "TRUESHIN_1DAG",
+        "part": "first-half-shared",
+        "status": "exact-written-clusters",
+        "sourceCluster": {
+          "start": 2,
+          "end": 6,
+          "text": "שָּׁ",
+          "role": "shared-consonant"
+        },
+        "readerClusterRanges": [
+          {
+            "start": 2,
+            "end": 6,
+            "text": "שָּׁ",
+            "readerWordId": "gen-1-1-5",
+            "role": "shared-consonant"
+          }
+        ],
+        "markedClustersEqual": true,
+        "writtenLetterCount": 0,
+        "phonemes": null,
+        "individualVowelPointRange": null,
+        "audioTimes": null
+      }
+    },
+    "differingMarks": {
+      "wordId": "gen-1-5-2",
+      "source": {
+        "start": 8,
+        "end": 9,
+        "text": "ם",
+        "role": "written"
+      },
+      "reader": [
+        {
+          "start": 8,
+          "end": 11,
+          "text": "ם ׀",
+          "readerWordId": "gen-1-5-2",
+          "role": "written"
+        }
+      ]
+    }
+  },
+  "review": {
+    "linguistic": null,
+    "acoustic": null,
+    "cantorial": null
+  },
+  "phonemes": null,
+  "voice": null,
+  "limits": "Counts are category/variant references, not distinct words or letters. Whole marked letter clusters identify source categories; vowel points and acoustic phonemes remain unallocated. Shared halves point to one written consonant; first halves add no written letter. Different source spellings keep null reader bindings. Original word/unit IDs, source alternatives, Hebrew/accents, stress, ownership, IPA proposal, musical and audio data remain unchanged."
+}
