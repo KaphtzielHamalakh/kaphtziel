@@ -4,14 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "0f45930aabb4be9584f6bfb2748ccf474489f699",
-  "nextTask": "Continue the full independent pronunciation/melody/range/key reconstruction; printing deferred. Prioritize reusable reviewed sung-phone material, complete historical phonological specifications and contextual melodic grammars. New personal source-syllable drafts are only annotations: never promote them, a muted playhead, source IPA proposals, ASR scores or F0 estimates into reviewed pronunciation or musical evidence. Preserve all original marked Hebrew, source units/stress/shared consonants, word times, notes and audio. Each style, variant and occurrence keeps a separate draft; combined words remain unsplit, source-only ranges stay null, all sixteen Genesis28:4 overflow words and eight older timing-gap takes remain withheld. Investigate the primary CIM14 sung-Hebrew annotation corpus and Technion Torah ASR project only with explicit reusable rights and matching expert-reviewed data. No voice, corpus, model or ordinary speech has been imported. All six Kinnor historical Accent singing grammars/voices and every full recovered musical system plus the entire learning/tutor roadmap remain required; full objective active/incomplete.",
+  "nextTask": "Continue the full independent melody/pronunciation/range/key reconstruction and all documented learning/tutor features; printing deferred. Prioritize reusable reviewed sung-phone material, complete historical phonological specifications and contextual melodic grammars. New Haftarah practice supplies actual original source performances, not six Kinnor singing voices or full musical rules. Keep54takes separate, including overlapping verses and five ordered discontinuous readings. Vayera source passage/count mismatch, Tazria decreasing timestamp and Masei count mismatch remain whole-take only; Ezekiel43:15word4source/reader forms remain unmapped. Do not guess a corrected book/verse or repair source times. All original Torah/PhoneticMAM/notes/audio remain exact. Personal syllable drafts and F0/ASR/IPA proposals cannot certify themselves. Continue qualified source/phoneme/syllable review and reusable complete musical/voice realizations, then the remaining learning/tutor roadmap. Full objective active/incomplete.",
   "lastPassingTests": {
-    "automated": 405,
+    "automated": 419,
     "failures": 0,
     "skipped": 0,
-    "newTests": 11,
-    "log": "/private/tmp/tropetrain-check-v46-final.log",
-    "ui": "Public normal54 and portable55 verify personal source-syllable drafts for Genesis1:1word1. Sephardic typed2.1–2.3andAshkenazic2.15–2.4remain separate, normal/portable JSON matches, and all27marked Hebrew strings/canonical IDs/aria-labels remain exact. Prepared data-URI export equals displayed JSON and retains exact Phonetic MAM credits/license plus PocketTorah creator/project/audio/timing/alignment licenses. Changing style clears stale export and restores only that style’s draft. Original word preview uses unchanged Bereshit-1.mp3/native rate1, while main measured0/75%preferences remain unchanged; all tests muted. Portable319root/body319/panel253/textarea251, viewport reset. Public Genesis28:4editor hides its fields and reports source-duration review without shifting any boundary. Local tests additionally cover changed-mark import refusal, exact valid roundtrip, overlap refusal, reload persistence, both explicit muted-clock captures and source-only/shared-word guards. An early capture during preparation left its missing boundary blank; ready-state capture succeeded. All artificial test annotations cleared through UI in both origins/styles. Both public tabs left Genesis1:1–3,word1,sourceSephardic,Measuredtones0/75%,repeatfalse, four volumes zero and allthree media paused. No appconsolewarnings/errors. Screenshot outputs/TropeTrain-v0.46-live.jpg saved/viewed. NativeSave/directfileorigin and acoustic/phonological/cantorial review unclaimed. Personal annotations do not certify sung syllables, phonemes, notes, new voices or historical grammars."
+    "newTests": 14,
+    "log": "/private/tmp/tropetrain-check-v47.log",
+    "ui": "Local normal56 and portable57 verify first-source Isaiah42:5–43:10 word/span playback, source highlights, source speed/pitch/repeat independent of instrument BPM/key/range and pronunciation text. Normal +3semitones/75% and portable -3/85% produced metadata retaining source SHA1, native duration426.50125 and unchanged timeline; acoustic review unclaimed. Zero pitch restores normal original URL and portable embedded original; whole take has no inferred word highlight. All89visible marked Hebrew strings, stable IDs and aria-labels match across text-style change and both distributions. Noach original on-demand load/cancel/reload succeeds with checksum checked device cache and actual muted word playback. Mishpatim retains Jeremiah34:8–22 then33:25–26; Vayera source-opening/wordplay withheld and Tazria wordplay refused. Narrow portable319px root/body319/panel287, viewport reset. Five volume controls zero, allfour audio elements paused, repeatfalse, original pitch/speed restored. No appconsolewarnings/errors. All playback checks used muted clocks; no acoustic/cantorial/phonological review or nativeSave/file-origin test claimed."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -190,11 +190,18 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.46.0",
-    "status": "published_verified",
-    "codeCommit": "0f45930aabb4be9584f6bfb2748ccf474489f699",
-    "pagesRun": 45001449531,
-    "summary": "Added explicit personal source-syllable timing drafts for individually owned Phonetic MAM units inside unchanged PocketTorah word windows. Text styles, source variants and reading occurrences have separate identities; no boundaries are estimated. Capture retains typed/audio-clock/muted-clock basis, preview uses original audio at original pitch/speed independently of main musical preferences, and source credits/licenses travel in exported JSON. This is an annotation workflow, not reviewed phonemes, new singing voices or historical grammars.405 checks/11new; printing deferred."
+    "version": "0.47.0",
+    "status": "local_verified_publication_pending",
+    "artifacts": {
+      "app.bundle.js": {
+        "bytes": 18036811,
+        "sha256": "b4d9a539d887f3e000eceb4a07586c957aa2b09cb107526a562ffd9907ea20a9"
+      },
+      "TropeTrain.html": {
+        "bytes": 74907706,
+        "sha256": "24383207edb6a3aa0472f6e769ee4227b7adb76be5e2022d7565a266d50f58ff"
+      }
+    }
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -906,5 +913,27 @@
     "musicalNotes": null,
     "independentReview": null,
     "originalDataChanged": false
+  },
+  "haftarahSourcePractice": {
+    "revision": 1,
+    "originalTakes": 54,
+    "originalAudioBytes": 93023935,
+    "sourceTimedTakes": 51,
+    "completeTakeOnly": [
+      "Vayera",
+      "Tazria",
+      "Masei"
+    ],
+    "sourceTimedMappedWordOccurrences": 16604,
+    "individuallyUnmappedWords": [
+      "ezk-43-15-4"
+    ],
+    "discontinuousSourceReadings": 5,
+    "sourceCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+    "sourceTimestampsChanged": false,
+    "readerHebrewChanged": false,
+    "phonemes": null,
+    "musicalGrammar": null,
+    "independentReview": null
   }
 }
