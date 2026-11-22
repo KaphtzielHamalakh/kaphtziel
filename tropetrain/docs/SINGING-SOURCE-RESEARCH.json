@@ -1,0 +1,43 @@
+{
+  "schema": "tropetrain-singing-source-research-v1",
+  "revision": 1,
+  "status": "research_only_no_voice_imported",
+  "mbrolaVoices": {
+    "repository": "https://github.com/numediart/MBROLA-voices",
+    "commit": "fe05a0ccef6a941207fd6aaad0b31294a1f93a51",
+    "licenseUrl": "https://github.com/numediart/MBROLA-voices/blob/fe05a0ccef6a941207fd6aaad0b31294a1f93a51/LICENSE.md",
+    "terms": "Voice data limited to use with MBROLA. Free distribution requires its notice; incorporation into a sold product requires owner permission. Engine and voice data have separate terms. No voice binary downloaded, executed or redistributed.",
+    "voices": [
+      {
+        "id": "hb1",
+        "provider": "Yoram Meron",
+        "sourceLabel": "Hebrew male, Ashkenazi accent",
+        "readmeGitBlob": "e1d34f0bfcdb41a84aa59929edb0ba1728c8c303",
+        "licenseGitBlob": "5a21b9408ef2ceab54ad093f1caebd5f14df0780",
+        "readme": "https://github.com/numediart/MBROLA-voices/blob/fe05a0ccef6a941207fd6aaad0b31294a1f93a51/data/hb1/README.txt",
+        "limitations": "Source lists five vowels and says diphthongs and some Sefaradi accent consonants are absent. Its broad source accent label does not establish any Kinnor Accent preset."
+      },
+      {
+        "id": "hb2",
+        "provider": "Esther Raizen",
+        "sourceLabel": "Hebrew female, Israeli accent",
+        "readmeGitBlob": "7bf935dac5e53c64db3fe7747e90f4116789f5c6",
+        "licenseGitBlob": "7746f8c927c04c84644e49834246b5b9fda551b6",
+        "readme": "https://github.com/numediart/MBROLA-voices/blob/fe05a0ccef6a941207fd6aaad0b31294a1f93a51/data/hb2/README.txt",
+        "limitations": "Source lists SAMPA-like vowels and four diphthongs but explicitly excludes Sephardic guttural distinctions; it does not establish the six historical Kinnor styles."
+      }
+    ]
+  },
+  "phoneticMamIpa": {
+    "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "sourceGitBlob": "ad3d3c368f5197644ef23b3eb92e1ada73d5be58",
+    "scope": "One literal IPA proposal over87named categories,19with source questions; source table is not parameterized by the two text dialects. Twentieth geminate category tsadi has no literal repeated half and stays withheld for split parts. This is documentary evidence, not a reviewed IPA grammar or singing voice."
+  },
+  "nextEvidence": [
+    "A qualified reader must resolve the explicit source IPA questions and syllable/segment underlay.",
+    "A reusable singing voice must cover the required vowels, diphthongs and gutturals with usage rights, plus reviewed coarticulation and duration/F0 control.",
+    "Each historical Kinnor pronunciation needs a complete source-based phonological specification and matched reviewed examples; menu labels and isolated examples are insufficient."
+  ],
+  "phonologicalReview": null,
+  "singingReview": null
+}

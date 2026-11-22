@@ -1,3 +1,4 @@
+import {sourceIpaEvidence} from './pronunciation-ipa.js';
 import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle} from './pronunciation.js';
 import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
 import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
@@ -98,7 +99,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   const coverage=PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
   $('pronunciation-reader-word').textContent=word?.sourceHebrew??'';
   $('pronunciation-rows').replaceChildren();$('pronunciation-source-rows').replaceChildren();$('pronunciation-json').textContent='';
-  $('pronunciation-units').replaceChildren();$('pronunciation-unit-scope').textContent='Choose a word with source correspondence.';$('pronunciation-export').disabled=true;study=null;renderPronunciationRules($('pronunciation-rules-content'),null,style);
+  $('pronunciation-units').replaceChildren();$('pronunciation-unit-scope').textContent='Choose a word with source correspondence.';$('pronunciation-export').disabled=true;$('ipa-proposal-export').disabled=true;$('ipa-proposal-download').hidden=true;$('ipa-proposal-download').removeAttribute('href');$('ipa-proposal-json').textContent='';study=null;renderPronunciationRules($('pronunciation-rules-content'),null,style);
   if(error){$('pronunciation-status').textContent=error;return;}
   if(!library){$('pronunciation-status').textContent='Loading the local pronunciation source…';return;}
   if(!word){$('pronunciation-status').textContent='Choose a Hebrew word.';return;}
@@ -125,9 +126,12 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    $('pronunciation-rows').append(item);
    const source=document.createElement('div');source.className='pronunciation-row';columns(source,row.hebrew,true);$('pronunciation-source-rows').append(source);
   }
-  structure();renderPronunciationRules($('pronunciation-rules-content'),study,style);$('pronunciation-export').disabled=false;
+  structure();renderPronunciationRules($('pronunciation-rules-content'),study,style);$('pronunciation-export').disabled=false;$('ipa-proposal-export').disabled=false;$('ipa-proposal-json').textContent=JSON.stringify(sourceIpaEvidence(study,word,style),null,2);
   $('pronunciation-json').textContent=JSON.stringify({sourceCommit:library.sourceCommit,license:'CC-BY-SA-4.0',group},null,2);
  }
+ $('ipa-proposal-export').addEventListener('click',()=>{
+  if(!study)return;const report=sourceIpaEvidence(study,word,style),a=$('ipa-proposal-download');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(report,null,2)+'\n');a.download=`${report.sourceWordId}-ipa-source-proposal.json`;a.hidden=false;
+ });
  $('pronunciation-export').addEventListener('click',()=>{
   if(!study)return;
   const url=URL.createObjectURL(new Blob([JSON.stringify(study,null,2)],{type:'application/json;charset=utf-8'})),a=document.createElement('a');

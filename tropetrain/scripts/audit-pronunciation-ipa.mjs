@@ -1,0 +1,11 @@
+import {readFileSync,writeFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
+import {ipaFragment,IPA_PROPOSAL_SOURCE} from '../pronunciation-ipa.js';
+const raw=readFileSync(new URL('../data/pronunciation/torah-segments.json.gz',import.meta.url)),d=JSON.parse(gunzipSync(raw));
+const result={schema:'tropetrain-source-ipa-coverage-v1',revision:1,source:IPA_PROPOSAL_SOURCE,sourceCategoryPacketSha256:createHash('sha256').update(raw).digest('hex'),groups:0,variants:0,units:0,categoryReferences:0,questionedReferences:0,sharedHalfReferences:0,withheldSharedHalfReferences:0,countsByCategory:{},review:null,phonemes:null,audioTimes:null,limits:'Counts of existing Hebrew-source category references, not independent phonological verification or an allocation of sounds to notes. One IPA source proposal remains independent of the selected two text styles; no word, syllable, source form, range, note or time is changed.'};
+for(const rows of Object.values(d.groups)){
+ result.groups++;
+ for(const [,variants] of rows)for(const [,,,units] of variants){result.variants++;for(const parts of units){result.units++;for(const [index,part] of parts){const c=d.catalog[index],f=ipaFragment({id:'audit',categoryId:c.id,label:c.label,kind:c.kind,part:['whole','first-half-shared','second-half-shared'][part]});result.categoryReferences++;result.countsByCategory[c.id]=(result.countsByCategory[c.id]??0)+1;result.questionedReferences+=Number(f.questioned);result.sharedHalfReferences+=Number(part!==0);result.withheldSharedHalfReferences+=Number(f.proposedFragment===null);}}}
+}
+result.usedCategories=Object.keys(result.countsByCategory).length;result.unusedCategories=d.catalog.filter(c=>!result.countsByCategory[c.id]).map(c=>c.id);
+if(result.groups!==68504||result.variants!==68719||result.units!==194272||result.categoryReferences!==518726||result.usedCategories!==83||result.withheldSharedHalfReferences!==622)throw Error('Source IPA coverage changed.');
+writeFileSync(new URL('../docs/PRONUNCIATION-IPA-COVERAGE.json',import.meta.url),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({groups:result.groups,variants:result.variants,units:result.units,categoryReferences:result.categoryReferences,questionedReferences:result.questionedReferences,withheldSharedHalfReferences:result.withheldSharedHalfReferences}));

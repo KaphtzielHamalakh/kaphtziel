@@ -35,7 +35,7 @@ import {renderPronunciationScoreGroups} from './pronunciation-score-groups-ui.js
 import {appendReaderPronunciation} from './pronunciation-reader.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
 import {RecordedPitchStore,pitchProcessingSupported} from './recorded-pitch-store.js';
-import {measuredPracticePlan} from './measured-practice.js';
+import {sourceTimedPracticePlan} from './measured-practice.js';
 import {SourceContourStore,contourSupported} from './source-contour-store.js';
 import {mountSourcePitch} from './source-pitch-ui.js';
 
@@ -409,7 +409,7 @@ function renderChantPractice(){
   $('chant-speed').disabled=!referencePlayer.canPreservePitch;if(!referencePlayer.canPreservePitch)state.chantRate=100;$('chant-speed').value=state.chantRate;
   $('chant-speed-note').textContent=referencePlayer.canPreservePitch?'Percentage of source time, independent of instrument BPM and key. Pitch preservation is requested from the browser; processing can affect sound. Source word timings remain unchanged. Recording previews below always retain original speed.':'This browser lacks pitch-preserving speed control. Source practice uses100%.';
   chantPlan=null;chantReady=false;for(const id of ['play','compact-play','chant-load'])$(id).disabled=true;
-  try{chantPlan=(tones?measuredPracticePlan:chantPracticePlan)(referenceLibrary,words,...bounds(state.cursor,state.anchor,state.scope));}
+  try{chantPlan=sourceTimedPracticePlan(referenceLibrary,words,...bounds(state.cursor,state.anchor,state.scope));}
   catch(error){$('chant-readiness').textContent=error.message;return;}
   const selected=chantPlan;
   if(tones){chantReady=supported;for(const id of ['play','compact-play'])$(id).disabled=!chantReady;$('chant-readiness').textContent=`${selected.words} source-timed word${selected.words===1?'':'s'} · ${selected.records.length} source measurement${selected.records.length===1?'':'s'}. ${supported?'Ready to prepare tones with Play. Measurement packets load locally or from this site; the portable build carries every packet.':'A browser with workers and gzip support is required.'} Estimated frequency and source-word acoustic review pending.`;return;}
@@ -425,7 +425,7 @@ function renderChantPractice(){
 async function playChantPractice(){
   stop(`Preparing the selected ${sourcePracticeName().toLowerCase()}.`);
   const request=++chantPlayRequest;let selected;
-  try{selected=(state.practiceAudio==='measured'?measuredPracticePlan:chantPracticePlan)(referenceLibrary,words,...bounds(state.cursor,state.anchor,state.scope));
+  try{selected=sourceTimedPracticePlan(referenceLibrary,words,...bounds(state.cursor,state.anchor,state.scope));
     if(state.practiceAudio!=='measured'&&!(await Promise.all(selected.records.map(r=>referenceStore.has(r)))).every(Boolean))throw Error('Load chant audio for this span first.');
   }catch(error){if(request===chantPlayRequest){say(error.message);renderChantPractice();}return;}
   if(request!==chantPlayRequest)return;
@@ -437,6 +437,7 @@ async function playChantPractice(){
 function renderChantCoverage(){
   const coverage=chantCoverage(referenceLibrary);
   $('chant-coverage-summary').textContent=`${coverage.sourceTimedWords.toLocaleString()} of ${coverage.words.toLocaleString()} Torah words have structurally consistent source timings; ${coverage.reviewWords.toLocaleString()} words in ${coverage.gaps.length} takes await timing review. No missing times are guessed.`;
+  $('chant-coverage-summary').append(document.createTextNode(' An independent source-duration check withholds all16Genesis28:4words in both main source-audio modes; original source metadata is retained.'));
   $('joint-coverage-summary').textContent=`${JOINT_COVERAGE_SUMMARY.withChantAndPronunciation.toLocaleString()} words have both source-timed chanting and individual pronunciation units; ${JOINT_COVERAGE_SUMMARY.withChantAndWrittenRanges.toLocaleString()} also have exact written Hebrew ranges. Text styles keep their own evidence; the recording retains its original pronunciation. Independent review is pending.`;
   $('chant-gap-list').replaceChildren();
   for(const gap of coverage.gaps){
