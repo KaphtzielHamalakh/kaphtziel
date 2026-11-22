@@ -844,14 +844,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (this.#consonantsCache) {
         return this.#consonantsCache;
       }
-      const consonants2 = this.chars.reduce((a, char) => {
+      const consonants3 = this.chars.reduce((a, char) => {
         const text = char.text;
         if (char.isConsonant && this.#isCharConsonant(text)) {
           a.push(text);
         }
         return a;
       }, []);
-      return this.#consonantsCache = consonants2;
+      return this.#consonantsCache = consonants3;
     }
     /**
      * Gets all consonant names in the cluster.
@@ -9289,6 +9289,396 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } };
   }
 
+  // pronunciation-phonology.js
+  var freeze2 = (value) => {
+    if (value && typeof value === "object") {
+      Object.values(value).forEach(freeze2);
+      Object.freeze(value);
+    }
+    return value;
+  };
+  var PHONOLOGY_SOURCE = freeze2({
+    id: "katz-1993-phonology",
+    author: "Dovid Katz",
+    title: "The Phonology of Ashkenazic",
+    year: 1993,
+    book: "Hebrew in Ashkenaz: A Language in Exile, edited by Lewis Glinert",
+    url: "https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf",
+    sha256: "789b83c2c5eedc097c334edeb6ea42268a0b90e25b8ee887b2d21af3452ecb24",
+    rights: "Copyright reference, privately inspected; no PDF, scan, OCR or protected table redistributed. Original code records attributed linguistic facts.",
+    scanLimits: "The supplied scan repeats printed pages49and52; no rule here relies on missing page50.",
+    scope: "Schematic Northeastern and Mideastern Formal Ashkenazic. Local variation remains; no equivalence to a Kinnor Accent label or reviewed singing voice is established."
+  });
+  var PHONOLOGY_PROFILES = freeze2([
+    { id: "katz-1993-northeastern-formal", label: "Northeastern Formal Ashkenazic · research", region: "northeastern" },
+    { id: "katz-1993-mideastern-formal", label: "Mideastern Formal Ashkenazic · research", region: "mideastern" }
+  ].map((p) => ({ ...p, sourceId: PHONOLOGY_SOURCE.id, status: "source-based-proposal", kinnorAccentId: null, playable: false, singingVoice: null, review: null })));
+  var catalog = new Map(HISTORICAL_CATEGORY_INVENTORY.catalog.map((c) => [c.id, c]));
+  function phonologyProfile(id) {
+    const p = PHONOLOGY_PROFILES.find((p2) => p2.id === id);
+    if (!p) throw Error("Unknown phonological research profile; no replacement selected.");
+    return p;
+  }
+  var consonants2 = {
+    BET_0DAG: "v",
+    BET_1DAG_QAL: "b",
+    BET_1DAG_XAZAQ: "b",
+    DALET_0DAG: "d",
+    DALET_1DAG_QAL: "d",
+    DALET_1DAG_XAZAQ: "d",
+    FKAF_0DAG: "x",
+    FKAF_1DAG_QAL: "k",
+    FKAF_1DAG_XAZAQ: "k",
+    FMEM_0DAG: "m",
+    FNUN_0DAG: "n",
+    FPE_0DAG: "f",
+    FPE_1DAG_QAL: "p",
+    FTSADI_0DAG: "t͡s",
+    GIMEL_0DAG: "g",
+    GIMEL_1DAG_QAL: "g",
+    GIMEL_1DAG_XAZAQ: "g",
+    HE_0MAPIQ_CON: "h",
+    KAF_0DAG: "x",
+    KAF_1DAG_QAL: "k",
+    KAF_1DAG_XAZAQ: "k",
+    LAMED_0DAG: "l",
+    LAMED_1DAG: "l",
+    MEM_0DAG: "m",
+    MEM_1DAG: "m",
+    NUN_0DAG: "n",
+    NUN_1DAG: "n",
+    PE_0DAG: "f",
+    PE_1DAG_QAL: "p",
+    PE_1DAG_XAZAQ: "p",
+    QOF_0DAG: "k",
+    QOF_1DAG: "k",
+    RESH_0DAG: "r",
+    RESH_1DAG: "r",
+    SAMEKH_0DAG: "s",
+    SAMEKH_1DAG: "s",
+    SIN_0DAG: "s",
+    SIN_1DAG: "s",
+    TAV_0DAG: "s",
+    TAV_1DAG_QAL: "t",
+    TAV_1DAG_XAZAQ: "t",
+    TET_0DAG: "t",
+    TET_1DAG: "t",
+    TRUESHIN_0DAG: "ʃ",
+    TRUESHIN_1DAG: "ʃ",
+    TSADI_0DAG: "t͡s",
+    TSADI_1DAG: "t͡s",
+    VAV_0DAGOSD_CON: "v",
+    VAV_1DAG: "v",
+    XET_0DAG: "x",
+    YOD_0DAG_CON: "j",
+    YOD_1DAG: "j",
+    ZAYIN_0DAG: "z",
+    ZAYIN_1DAG: "z"
+  };
+  var proposal = (candidatePhonemes, rule, pages, reason = null, alternatives = null) => ({
+    status: candidatePhonemes === null ? "unassigned" : "proposed",
+    candidatePhonemes,
+    rule,
+    evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: pages },
+    reason,
+    alternatives,
+    phonemes: null,
+    ipa: null,
+    enginePhones: null,
+    quantity: null,
+    duration: null,
+    noteIds: null,
+    audioTimes: null,
+    review: null
+  });
+  function realize(segment, context, profile) {
+    const id = segment.categoryId, kind = segment.kind, me = profile.region === "mideastern";
+    if (kind === "silent-letter" || kind === "silent-vowel-sign") return proposal([], "source-silent-category", [69, 71]);
+    if (id === "ALEF_0MAPIQ_CON" || id === "AYIN_0DAG") return proposal([], "phonemic-guttural-loss", [69], "A phonetic glottal stop or lexical hiatus treatment is not assigned.");
+    if (consonants2[id]) return proposal([consonants2[id]], "consonant-correspondence", [68, 69, 70, 72], id.startsWith("RESH") ? "Abstract /r/ only; an acoustic allophone is unassigned." : null);
+    if (id === "SHEVA_NA" || id.startsWith("VARIKA_")) return proposal(null, "mobile-sheva-needs-local-evidence", [74], "The source describes multiple formal sheva qualities; no exact regional target is selected.");
+    if (kind === "diphthong-part") return proposal(null, "source-diphthong-sequence-needs-evidence", [67, 68, 69], "This source sequence needs a complete contextual correspondence; no vowel plus glide is guessed.");
+    if (id === "ALEF_1MAPIQ" || id === "HE_1MAPIQ" || id === "ALEF_SHURUQ_VOWEL") return proposal(null, "special-category-needs-evidence", [69, 70, 71], "This special source category needs an explicit regional realization.");
+    if (id === "FPP_PATAX_XET") return proposal(["a", "x"], "furtive-patah-and-chet", [67, 68, 70]);
+    if (id === "FPP_PATAX_AYIN") return proposal(["a"], "furtive-patah-and-ayin-loss", [67, 68, 69]);
+    if (id === "FPP_PATAX_MAPIQ_HE") return proposal(null, "furtive-patah-mappiq-needs-evidence", [67, 68, 71], "Patah quality /a/ is supported; the complete final consonant realization remains unassigned.");
+    if (id === "PATAX" || id === "XPATAX") return proposal(["a"], "patah-quality", [67, 68, 71]);
+    if (id === "XSEGOL") return proposal(["ɛ"], "hataf-segol-quality", [67, 68, 71]);
+    if (id === "XQAMATS" || id === "QAMATS_Q") return proposal(["ɔ"], "short-qamats-quality", [67, 68, 71]);
+    if (id === "QAMATS_G") {
+      if (!me) return proposal(["ɔ"], "northeastern-qamats", [67]);
+      if (context.historicalClosure === "unknown") return proposal(null, "mideastern-qamats-context-missing", [68, 71], "Historical syllable closure is unresolved.", ["u", "ɔ"]);
+      return proposal([context.historicalClosure === "closed" || context.beforeYodOrMappiq ? "ɔ" : "u"], "mideastern-qamats-context", [68, 71]);
+    }
+    if (id === "SEGOL_V") {
+      if (!me) return proposal(["ɛ"], "northeastern-segol", [67]);
+      if (context.historicalClosure === "closed" || context.primaryStress === false) return proposal(["ɛ"], "mideastern-segol-not-stressed-open", [67, 68, 72, 73]);
+      if (context.historicalClosure === "open" && context.primaryStress === true) return proposal(["ej"], "mideastern-segol-stressed-open", [67, 68, 72, 73]);
+      return proposal(null, "mideastern-segol-context-missing", [67, 68, 72, 73], "Historical open-syllable stress is not established.", ["ɛ", "ej"]);
+    }
+    if (id === "TSERE") return proposal([me ? "aj" : "ej"], "regional-tsere", [67, 68]);
+    if (id === "XOLAM_HASER" || id === "VAV_XOLAM") return proposal([me ? "ɔj" : "ej"], "regional-holam", [67, 68]);
+    if (id === "XIRIQ_G" || id === "XIRIQ_Q") return proposal(["i"], "hiriq-quality", [67, 68], "Vowel quantity and acoustic duration are unassigned.");
+    if (id === "SHURUQ" || id === "QUBUTS") return proposal([me ? "i" : "u"], "regional-shuruq-qubuts", [65, 67, 68], "Vowel quantity and acoustic duration are unassigned.");
+    return proposal(null, "category-needs-evidence", [], "No implemented source rule.");
+  }
+  var isNucleus = (s) => s.kind === "vowel" || s.kind === "vowel-consonant-pair" || s.kind === "diphthong-part" && !s.categoryId.startsWith("YOD_");
+  function unitContext(unit, variant, units) {
+    const segments = variant.segments, nuclei = segments.map((s, i) => isNucleus(s) ? i : -1).filter((i) => i >= 0);
+    const tail = nuclei.length === 1 ? segments.slice(nuclei[0] + 1) : [];
+    const closed = tail.some((s) => s.kind === "consonant" || s.kind === "vowel-consonant-pair" || s.categoryId === "YOD_0DAG_PART2_OF_DIPHTHONG") || nuclei.length === 1 && segments[nuclei[0]].kind === "vowel-consonant-pair";
+    const marked = unit.readerWordId !== null && units.some((u) => u.readerWordId === unit.readerWordId && u.sourceStress);
+    return {
+      historicalClosure: nuclei.length !== 1 ? "unknown" : closed ? "closed" : "open",
+      closureBasis: "Original source categories before consonant loss and degemination; shared first halves close the preceding syllable.",
+      beforeYodOrMappiq: tail.some((s) => ["YOD_0DAG_CON", "YOD_1DAG", "YOD_0DAG_PART2_OF_DIPHTHONG", "HE_1MAPIQ"].includes(s.categoryId)),
+      primaryStress: unit.sourceStress ? true : marked ? false : null,
+      stressBasis: unit.sourceStress ? "explicit-source-primary" : marked ? "another-primary-in-same-source-word" : "not-established",
+      posttonicReduction: false,
+      penultimateStressShift: false
+    };
+  }
+  function compileRoute(study, row, cell, column, style, profile) {
+    const route = { id: `${study.groupId}-${style}-r${row.number}-c${cell.column}-h${column}`, sourceRow: row.number, sourceColumn: cell.column, hebrewColumn: column, units: [], events: [], gaps: [] };
+    const records = /* @__PURE__ */ new Map();
+    for (const unit of cell.units) {
+      const variant = unit.sourceSegments.variants.find((v) => v.hebrewColumn === column);
+      if (!variant) {
+        route.gaps.push({ reason: "incomplete-source-route", sourceUnitId: unit.id });
+        continue;
+      }
+      const context = unitContext(unit, variant, cell.units);
+      const record = {
+        sourceUnitId: unit.id,
+        ownerWordId: unit.readerWordId,
+        sourceText: unit.text,
+        sourceStress: unit.sourceStress,
+        sourceLabels: structuredClone(variant.sourceLabels),
+        sourceHebrew: structuredClone(variant.sourceHebrew),
+        readerRanges: structuredClone(variant.readerRanges),
+        letterClusterBindings: structuredClone(variant.letterClusterBindings),
+        context,
+        fragments: []
+      };
+      for (const segment of variant.segments) {
+        const category = catalog.get(segment.categoryId);
+        if (!category || category.label !== segment.label || category.kind !== segment.kind || !["whole", "first-half-shared", "second-half-shared"].includes(segment.part) || segment.part !== "whole" && !category.geminate || records.has(segment.id)) throw Error("Source pronunciation category, part or identity changed.");
+        const fragment = { source: structuredClone(segment), proposal: realize(segment, context, profile), eventId: null };
+        record.fragments.push(fragment);
+        records.set(segment.id, { fragment, unit: record, category });
+      }
+      route.units.push(record);
+    }
+    const flat = [...records.values()];
+    for (const item of flat) {
+      const { fragment, unit, category } = item;
+      if (fragment.eventId !== null) continue;
+      let members = [item];
+      const s = fragment.source;
+      if (s.part !== "whole") {
+        const matches = flat.filter((other) => other.fragment.source.categoryId === s.categoryId && other.unit.sourceUnitId === s.sharedWithUnitId && other.fragment.source.sharedWithUnitId === unit.sourceUnitId && other.fragment.source.part === (s.part === "first-half-shared" ? "second-half-shared" : "first-half-shared"));
+        if (matches.length !== 1) {
+          fragment.proposal = proposal(null, "shared-consonant-counterpart-missing", [72], "A reciprocal source half is required; no second consonant or fallback is created.");
+          route.gaps.push({ reason: "shared-consonant-counterpart-missing", sourceSegmentIds: [s.id] });
+        } else members = [item, matches[0]].sort((a, b) => a.fragment.source.part === "first-half-shared" ? -1 : b.fragment.source.part === "first-half-shared" ? 1 : 0);
+      }
+      const eventId = members.map((m) => m.fragment.source.id).join("+"), event = {
+        id: eventId,
+        sourceSegmentIds: members.map((m) => m.fragment.source.id),
+        sourceUnitIds: members.map((m) => m.unit.sourceUnitId),
+        candidatePhonemes: fragment.proposal.candidatePhonemes,
+        rule: category.geminate ? "degemination" : fragment.proposal.rule,
+        evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: category.geminate ? [72] : fragment.proposal.evidence.printedPages },
+        phonemes: null,
+        enginePhones: null,
+        quantity: null,
+        duration: null,
+        noteIds: null,
+        audioTimes: null,
+        review: null
+      };
+      for (const m of members) m.fragment.eventId = eventId;
+      route.events.push(event);
+    }
+    for (let i = 0; i < route.units.length; i++) {
+      const unit = route.units[i];
+      if (unit.fragments.some((f) => f.source.kind === "diphthong-part")) route.gaps.push({ reason: "unreviewed-diphthong-sequence", sourceUnitIds: [unit.sourceUnitId] });
+      const next = route.units[i + 1];
+      if (!next || unit.ownerWordId !== next.ownerWordId) continue;
+      const end = unit.fragments.filter((f) => f.proposal.candidatePhonemes?.length).at(-1), start = next.fragments.find((f) => f.proposal.candidatePhonemes?.length);
+      const onset = next.fragments.slice(0, next.fragments.findIndex((f) => isNucleus(f.source)));
+      if (end && start && isNucleus(end.source) && isNucleus(start.source) && onset.some((f) => ["ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(f.source.categoryId))) route.gaps.push({ reason: "hiatus-phonetics-needs-review", sourceUnitIds: [unit.sourceUnitId, next.sourceUnitId], evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: [69] } });
+    }
+    return route;
+  }
+  function phonologyWordProposal(study, word, sourceStyle, profileId) {
+    const profile = phonologyProfile(profileId);
+    if (!["sephardic", "ashkenazic"].includes(sourceStyle)) throw Error("Unknown source text style.");
+    if (!word || typeof word.id !== "string" || typeof word.sourceHebrew !== "string") throw Error("Choose an unchanged marked Hebrew word.");
+    const sourceWordId = word.sourceWordId ?? word.id, index = study?.readerIds.indexOf(sourceWordId);
+    if (study && (study.sourceCommit !== HISTORICAL_CATEGORY_INVENTORY.sourceCommit || index < 0 || study.readerHebrew[index] !== word.sourceHebrew)) throw Error("The marked Hebrew or source word correspondence changed.");
+    const routes = [];
+    if (study?.sourceSegments) {
+      if (study.sourceSegments.inputSha256 !== HISTORICAL_CATEGORY_INVENTORY.inputSha256) throw Error("Source category evidence changed.");
+      for (const row of study.rows) for (const cell of row.styles[sourceStyle]) {
+        const columns = [...new Set(cell.units.flatMap((u) => u.sourceSegments.variants.map((v) => v.hebrewColumn)))];
+        for (const column of columns) {
+          const route = compileRoute(study, row, cell, column, sourceStyle, profile);
+          for (const unit of route.units) {
+            unit.selected = unit.ownerWordId === sourceWordId || unit.ownerWordId === null;
+            unit.occurrenceId = unit.ownerWordId === sourceWordId ? word.id : null;
+          }
+          routes.push(route);
+        }
+      }
+    }
+    const fragments = routes.flatMap((r) => r.units.filter((u) => u.selected).flatMap((u) => u.fragments));
+    return {
+      schema: "tropetrain-phonology-word-proposal-v1",
+      revision: 1,
+      wordId: word.id,
+      sourceWordId,
+      hebrew: word.sourceHebrew,
+      selectedTranscriptionStyle: sourceStyle,
+      profile: structuredClone(profile),
+      source: structuredClone(PHONOLOGY_SOURCE),
+      sourceCommit: study?.sourceCommit ?? null,
+      categoryInputSha256: study?.sourceSegments?.inputSha256 ?? null,
+      sourceDataLicense: "CC-BY-SA-4.0",
+      sourceCategoryStatus: study?.sourceSegments ? "source-categories-available" : "source-categories-unavailable",
+      routes,
+      counts: {
+        routes: routes.length,
+        categoryReferences: fragments.length,
+        proposedReferences: fragments.filter((f) => f.proposal.candidatePhonemes !== null).length,
+        unassignedReferences: fragments.filter((f) => f.proposal.candidatePhonemes === null).length,
+        proposedEvents: routes.reduce((n, r) => n + r.events.filter((e) => e.candidatePhonemes !== null).length, 0),
+        contextGaps: routes.reduce((n, r) => n + r.gaps.length, 0),
+        reviewedRealizations: 0
+      },
+      phonemes: null,
+      notes: null,
+      audioTimes: null,
+      phonologicalReview: null,
+      acousticReview: null,
+      cantorialReview: null,
+      playable: false,
+      singingVoice: null,
+      limits: "Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending."
+    };
+  }
+
+  // pronunciation-phonology-ui.js
+  function mountPhonologyPreview() {
+    const $2 = (id) => document.getElementById(id), key = "tropetrain-phonology-preview-v1";
+    let profileId = PHONOLOGY_PROFILES[0].id, study = null, word = null, style = "sephardic", report = null;
+    try {
+      const saved = JSON.parse(localStorage.getItem(key));
+      if (PHONOLOGY_PROFILES.some((p) => p.id === saved?.profileId)) profileId = saved.profileId;
+    } catch {
+    }
+    for (const p of PHONOLOGY_PROFILES) {
+      const option = document.createElement("option");
+      option.value = p.id;
+      option.textContent = p.label;
+      $2("phonology-profile").append(option);
+    }
+    $2("phonology-profile").value = profileId;
+    function render2() {
+      report = null;
+      $2("phonology-word").replaceChildren();
+      $2("phonology-export").disabled = true;
+      $2("phonology-download").hidden = true;
+      $2("phonology-download").removeAttribute("href");
+      $2("phonology-status").textContent = "Choose a Hebrew word to compare source-based phonemic proposals.";
+      if (!word) return;
+      try {
+        report = phonologyWordProposal(study, word, style, profileId);
+      } catch (e) {
+        $2("phonology-status").textContent = e.message;
+        return;
+      }
+      const marked = document.createElement("b");
+      marked.lang = "he";
+      marked.dir = "rtl";
+      marked.textContent = report.hebrew;
+      $2("phonology-word").append(marked);
+      $2("phonology-status").textContent = report.sourceCategoryStatus === "source-categories-unavailable" ? "No checked source categories for this word. The marked Hebrew is retained; no pronunciation is substituted." : `${report.counts.proposedReferences} of ${report.counts.categoryReferences} selected category references have phonemic proposals; ${report.counts.unassignedReferences} remain unassigned. ${report.counts.contextGaps} source-group sequence issue${report.counts.contextGaps === 1 ? "" : "s"} need review. All acoustic realizations remain unassigned.`;
+      for (const route of report.routes) {
+        if (!route.units.some((u) => u.selected)) continue;
+        const section = document.createElement("section"), title = document.createElement("p");
+        title.className = "muted";
+        title.textContent = `Source row ${route.sourceRow} · transcription column ${route.sourceColumn} · Hebrew branch ${route.hebrewColumn}`;
+        section.append(title);
+        const list = document.createElement("ol");
+        list.className = "phonology-unit-list";
+        for (const unit of route.units.filter((u) => u.selected)) {
+          const li = document.createElement("li");
+          li.dataset.sourceUnitId = unit.sourceUnitId;
+          const hebrew = document.createElement("span");
+          hebrew.lang = "he";
+          hebrew.dir = "rtl";
+          hebrew.className = "pronunciation-hebrew-underlay";
+          hebrew.textContent = unit.readerRanges ? unit.readerRanges.filter((r) => r.role === "written").map((r) => r.text).join(" ") : unit.sourceHebrew.text;
+          li.append(hebrew);
+          const source = document.createElement("small");
+          source.textContent = `Source ${unit.sourceText} · ${unit.readerRanges ? "written Hebrew" : "source Hebrew; written range unresolved"}${unit.ownerWordId === null ? " · shared unsplit group" : ""}`;
+          li.append(source);
+          const values = unit.fragments.map((f) => {
+            const p = f.proposal, shared = f.source.part !== "whole";
+            return `${p.candidatePhonemes === null ? "? " + f.source.categoryId : p.candidatePhonemes.length ? p.candidatePhonemes.join("") : "∅"}${shared ? " [shared]" : ""}`;
+          });
+          const candidate = document.createElement("p");
+          candidate.className = "phonology-candidate";
+          candidate.textContent = values.join(" · ");
+          li.append(candidate);
+          const context = document.createElement("small");
+          context.textContent = `Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress === null ? "not established" : unit.context.primaryStress ? "marked" : "on another syllable"}`;
+          li.append(context);
+          const gaps = unit.fragments.filter((f) => f.proposal.candidatePhonemes === null).map((f) => f.proposal.reason);
+          if (gaps.length) {
+            const gap = document.createElement("p");
+            gap.className = "muted";
+            gap.textContent = [...new Set(gaps)].join(" ");
+            li.append(gap);
+          }
+          list.append(li);
+        }
+        section.append(list);
+        for (const gap of route.gaps) {
+          const note = document.createElement("p");
+          note.className = "muted";
+          note.textContent = gap.reason === "hiatus-phonetics-needs-review" ? "Adjacent vowels after consonant loss: phonetic hiatus treatment needs review." : gap.reason === "unreviewed-diphthong-sequence" ? "The source vowel–yod sequence needs contextual evidence." : "A source route or shared consonant correspondence is incomplete.";
+          section.append(note);
+        }
+        $2("phonology-word").append(section);
+      }
+      $2("phonology-export").disabled = false;
+    }
+    $2("phonology-profile").addEventListener("change", () => {
+      profileId = $2("phonology-profile").value;
+      try {
+        localStorage.setItem(key, JSON.stringify({ profileId }));
+      } catch {
+      }
+      render2();
+    });
+    $2("phonology-export").addEventListener("click", () => {
+      if (!report) return;
+      const a = $2("phonology-download");
+      a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify(report, null, 2) + "\n");
+      a.download = `${report.sourceWordId}-${profileId}-proposal.json`;
+      a.hidden = false;
+    });
+    render2();
+    return { show(value, currentWord, currentStyle) {
+      study = value;
+      word = currentWord;
+      style = currentStyle;
+      render2();
+    } };
+  }
+
   // pronunciation-ipa-data.js
   var SOURCE_IPA_PROPOSAL = { "schema": "tropetrain-source-ipa-proposal-v1", "revision": 1, "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b", "source": "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/core/ipa.py", "sourceGitBlob": "ad3d3c368f5197644ef23b3eb92e1ada73d5be58", "sourceBytes": 3227, "sourceSha256": "fef942fcc6ee94e87c9102cfa0c01cc0a08b53bd14b667678cc1189617a4ca0a", "archive": { "path": "assets/pronunciation/ipa-proposal-sources.zip", "bytes": 18953, "sha256": "466c0cc8d0dd5be361070958e78c42df0ae252c07111b37d8a9824852874243c", "license": "GPL-3.0-only" }, "categoryPacketSha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094", "projectionLicense": "GPL-3.0-only", "parameterizedByTextStyle": false, "phonologicalReview": null, "acousticReview": null, "scope": "One literal source IPA proposal, separately displayed as documentary evidence. It is not an IPA rendering of either selected MAM text style or a reviewed historical pronunciation. Source question marks/notes remain explicit. Shared halves are projected only where the source value is literally a doubled string; the tsadi geminate half remains withheld. No upstream code executes. No Hebrew, existing transcription, syllable division, notes or audio times change.", "counts": { "categories": 87, "questionedCategories": 19, "geminateCategories": 20, "withheldSharedHalfCategories": 1 }, "catalog": [{ "categoryId": "ALEF_0MAPIQ_CON", "label": "Alef · consonantal", "kind": "consonant", "geminate": false, "ipa": "ʔ", "sourceLine": 13, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "ALEF_0MAPIQ_ML", "label": "Alef · mater lectionis", "kind": "silent-letter", "geminate": false, "ipa": "", "sourceLine": 14, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "ALEF_1MAPIQ", "label": "Alef · mapiq", "kind": "consonant", "geminate": false, "ipa": "ʔ", "sourceLine": 12, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "ALEF_SHURUQ_VOWEL", "label": "Alef shuruq vowel · source category", "kind": "vowel", "geminate": false, "ipa": "u", "sourceLine": 98, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "AYIN_0DAG", "label": "Ayin · without dagesh", "kind": "consonant", "geminate": false, "ipa": "ʔ", "sourceLine": 48, "sourceComment": "ʕ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "BET_0DAG", "label": "Bet · without dagesh", "kind": "consonant", "geminate": false, "ipa": "v", "sourceLine": 17, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "BET_1DAG_QAL", "label": "Bet · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "b", "sourceLine": 15, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "BET_1DAG_XAZAQ", "label": "Bet · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "bb", "sourceLine": 16, "sourceComment": null, "questioned": false, "sharedHalfIpa": "b", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "DALET_0DAG", "label": "Dalet · without dagesh", "kind": "consonant", "geminate": false, "ipa": "d", "sourceLine": 23, "sourceComment": "ð ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "DALET_1DAG_QAL", "label": "Dalet · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "d", "sourceLine": 21, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "DALET_1DAG_XAZAQ", "label": "Dalet · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "dd", "sourceLine": 22, "sourceComment": null, "questioned": false, "sharedHalfIpa": "d", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "FKAF_0DAG", "label": "Final kaf · without dagesh", "kind": "consonant", "geminate": false, "ipa": "x", "sourceLine": 68, "sourceComment": "χ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FKAF_1DAG_QAL", "label": "Final kaf · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "k", "sourceLine": 66, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FKAF_1DAG_XAZAQ", "label": "Final kaf · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "kk", "sourceLine": 67, "sourceComment": null, "questioned": false, "sharedHalfIpa": "k", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "FMEM_0DAG", "label": "Final mem · without dagesh", "kind": "consonant", "geminate": false, "ipa": "m", "sourceLine": 69, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FNUN_0DAG", "label": "Final nun · without dagesh", "kind": "consonant", "geminate": false, "ipa": "n", "sourceLine": 70, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FPE_0DAG", "label": "Final pe · without dagesh", "kind": "consonant", "geminate": false, "ipa": "f", "sourceLine": 72, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FPE_1DAG_QAL", "label": "Final pe · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "p", "sourceLine": 71, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FPP_PATAX_AYIN", "label": "Furtive pataḥ and ayin", "kind": "vowel-consonant-pair", "geminate": false, "ipa": "aʔ", "sourceLine": 101, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FPP_PATAX_MAPIQ_HE", "label": "Furtive pataḥ and mapiq he", "kind": "vowel-consonant-pair", "geminate": false, "ipa": "ah", "sourceLine": 99, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FPP_PATAX_XET", "label": "Furtive pataḥ and ḥet", "kind": "vowel-consonant-pair", "geminate": false, "ipa": "ax", "sourceLine": 100, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "FTSADI_0DAG", "label": "Final tsadi · without dagesh", "kind": "consonant", "geminate": false, "ipa": "t͡s", "sourceLine": 73, "sourceComment": "sˤ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "GIMEL_0DAG", "label": "Gimel · without dagesh", "kind": "consonant", "geminate": false, "ipa": "g", "sourceLine": 20, "sourceComment": "ɣ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "GIMEL_1DAG_QAL", "label": "Gimel · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "g", "sourceLine": 18, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "GIMEL_1DAG_XAZAQ", "label": "Gimel · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "gg", "sourceLine": 19, "sourceComment": null, "questioned": false, "sharedHalfIpa": "g", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "HE_0MAPIQ_CON", "label": "He · consonantal", "kind": "consonant", "geminate": false, "ipa": "h", "sourceLine": 25, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "HE_0MAPIQ_ML", "label": "He · mater lectionis", "kind": "silent-letter", "geminate": false, "ipa": "", "sourceLine": 26, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "HE_1MAPIQ", "label": "He · mapiq", "kind": "consonant", "geminate": false, "ipa": "h", "sourceLine": 24, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "KAF_0DAG", "label": "Kaf · without dagesh", "kind": "consonant", "geminate": false, "ipa": "x", "sourceLine": 39, "sourceComment": "χ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "KAF_1DAG_QAL", "label": "Kaf · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "k", "sourceLine": 37, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "KAF_1DAG_XAZAQ", "label": "Kaf · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "kk", "sourceLine": 38, "sourceComment": null, "questioned": false, "sharedHalfIpa": "k", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "LAMED_0DAG", "label": "Lamed · without dagesh", "kind": "consonant", "geminate": false, "ipa": "l", "sourceLine": 41, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "LAMED_1DAG", "label": "Lamed · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "ll", "sourceLine": 40, "sourceComment": null, "questioned": false, "sharedHalfIpa": "l", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "MEM_0DAG", "label": "Mem · without dagesh", "kind": "consonant", "geminate": false, "ipa": "m", "sourceLine": 43, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "MEM_1DAG", "label": "Mem · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "mm", "sourceLine": 42, "sourceComment": null, "questioned": false, "sharedHalfIpa": "m", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "NUN_0DAG", "label": "Nun · without dagesh", "kind": "consonant", "geminate": false, "ipa": "n", "sourceLine": 45, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "NUN_1DAG", "label": "Nun · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "nn", "sourceLine": 44, "sourceComment": null, "questioned": false, "sharedHalfIpa": "n", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "PATAX", "label": "Pataḥ", "kind": "vowel", "geminate": false, "ipa": "a", "sourceLine": 87, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "PE_0DAG", "label": "Pe · without dagesh", "kind": "consonant", "geminate": false, "ipa": "f", "sourceLine": 51, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "PE_1DAG_QAL", "label": "Pe · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "p", "sourceLine": 49, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "PE_1DAG_XAZAQ", "label": "Pe · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "pp", "sourceLine": 50, "sourceComment": null, "questioned": false, "sharedHalfIpa": "p", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "QAMATS_G", "label": "Qamats gadol", "kind": "vowel", "geminate": false, "ipa": "a", "sourceLine": 88, "sourceComment": "ɔ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "QAMATS_Q", "label": "Qamats qatan", "kind": "vowel", "geminate": false, "ipa": "o", "sourceLine": 89, "sourceComment": "ɔ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "QOF_0DAG", "label": "Qof · without dagesh", "kind": "consonant", "geminate": false, "ipa": "k", "sourceLine": 55, "sourceComment": "q ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "QOF_1DAG", "label": "Qof · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "kk", "sourceLine": 54, "sourceComment": "q ?", "questioned": true, "sharedHalfIpa": "k", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "QUBUTS", "label": "Qubuts", "kind": "vowel", "geminate": false, "ipa": "u", "sourceLine": 92, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "RESH_0DAG", "label": "Resh · without dagesh", "kind": "consonant", "geminate": false, "ipa": "ʁ", "sourceLine": 57, "sourceComment": "r ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "RESH_1DAG", "label": "Resh · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "ʁʁ", "sourceLine": 56, "sourceComment": "r ?", "questioned": true, "sharedHalfIpa": "ʁ", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "SAMEKH_0DAG", "label": "Samekh · without dagesh", "kind": "consonant", "geminate": false, "ipa": "s", "sourceLine": 47, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SAMEKH_1DAG", "label": "Samekh · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "ss", "sourceLine": 46, "sourceComment": null, "questioned": false, "sharedHalfIpa": "s", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "SEGOL_V", "label": "Segol", "kind": "vowel", "geminate": false, "ipa": "e", "sourceLine": 86, "sourceComment": "ɛ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SHEVA_NA", "label": "Vocal sheva", "kind": "vowel", "geminate": false, "ipa": "ə", "sourceLine": 77, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SHEVA_NAX", "label": "Silent sheva", "kind": "silent-vowel-sign", "geminate": false, "ipa": "", "sourceLine": 78, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SHURUQ", "label": "Shuruq", "kind": "vowel", "geminate": false, "ipa": "u", "sourceLine": 93, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SHURUQ_PART1_OF_YOD_DIPHTHONG", "label": "Yod diphthong · shuruq part", "kind": "diphthong-part", "geminate": false, "ipa": "u", "sourceLine": 96, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SIN_0DAG", "label": "Sin · without dagesh", "kind": "consonant", "geminate": false, "ipa": "s", "sourceLine": 61, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "SIN_1DAG", "label": "Sin · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "ss", "sourceLine": 60, "sourceComment": null, "questioned": false, "sharedHalfIpa": "s", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "TAV_0DAG", "label": "Tav · without dagesh", "kind": "consonant", "geminate": false, "ipa": "t", "sourceLine": 64, "sourceComment": "θ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "TAV_1DAG_QAL", "label": "Tav · dagesh qal", "kind": "consonant", "geminate": false, "ipa": "t", "sourceLine": 62, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "TAV_1DAG_XAZAQ", "label": "Tav · dagesh ḥazaq", "kind": "consonant", "geminate": true, "ipa": "tt", "sourceLine": 63, "sourceComment": null, "questioned": false, "sharedHalfIpa": "t", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "TET_0DAG", "label": "Tet · without dagesh", "kind": "consonant", "geminate": false, "ipa": "t", "sourceLine": 33, "sourceComment": "tˤ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "TET_1DAG", "label": "Tet · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "tt", "sourceLine": 32, "sourceComment": "tˤ ?", "questioned": true, "sharedHalfIpa": "t", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "TRUESHIN_0DAG", "label": "Shin · without dagesh", "kind": "consonant", "geminate": false, "ipa": "ʃ", "sourceLine": 59, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "TRUESHIN_1DAG", "label": "Shin · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "ʃʃ", "sourceLine": 58, "sourceComment": null, "questioned": false, "sharedHalfIpa": "ʃ", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "TSADI_0DAG", "label": "Tsadi · without dagesh", "kind": "consonant", "geminate": false, "ipa": "t͡s", "sourceLine": 53, "sourceComment": "sˤ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "TSADI_1DAG", "label": "Tsadi · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "t͡s", "sourceLine": 52, "sourceComment": "XXX not sure how to lengthen this; t͡st͡s seems wrong", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "withheld-no-source-half", "acousticPhonemes": null }, { "categoryId": "TSERE", "label": "Tsere", "kind": "vowel", "geminate": false, "ipa": "e", "sourceLine": 85, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "VARIKA_WITH_GENERIC_SHEVA", "label": "Varika with generic sheva", "kind": "vowel", "geminate": false, "ipa": "ə", "sourceLine": 79, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "VARIKA_WITH_VOCAL_SHEVA", "label": "Varika with vocal sheva", "kind": "vowel", "geminate": false, "ipa": "ə", "sourceLine": 80, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "VAV_0DAGOSD_CON", "label": "Vav · consonantal", "kind": "consonant", "geminate": false, "ipa": "v", "sourceLine": 27, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "VAV_0DAGOSD_ML", "label": "Vav · mater lectionis", "kind": "silent-letter", "geminate": false, "ipa": "", "sourceLine": 28, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "VAV_1DAG", "label": "Vav · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "vv", "sourceLine": 75, "sourceComment": null, "questioned": false, "sharedHalfIpa": "v", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "VAV_XOLAM", "label": "Ḥolam with vav", "kind": "vowel", "geminate": false, "ipa": "o", "sourceLine": 90, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG", "label": "Yod diphthong · ḥolam part", "kind": "diphthong-part", "geminate": false, "ipa": "o", "sourceLine": 97, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XET_0DAG", "label": "Ḥet · without dagesh", "kind": "consonant", "geminate": false, "ipa": "x", "sourceLine": 31, "sourceComment": "ħ ? χ ?", "questioned": true, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XIRIQ_G", "label": "Ḥiriq gadol · source category", "kind": "vowel", "geminate": false, "ipa": "i", "sourceLine": 94, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XIRIQ_Q", "label": "Ḥiriq qatan · source category", "kind": "vowel", "geminate": false, "ipa": "i", "sourceLine": 84, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XOLAM_HASER", "label": "Ḥolam ḥaser", "kind": "vowel", "geminate": false, "ipa": "o", "sourceLine": 91, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XPATAX", "label": "Ḥataf pataḥ", "kind": "vowel", "geminate": false, "ipa": "a", "sourceLine": 82, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XQAMATS", "label": "Ḥataf qamats", "kind": "vowel", "geminate": false, "ipa": "o", "sourceLine": 83, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "XSEGOL", "label": "Ḥataf segol", "kind": "vowel", "geminate": false, "ipa": "e", "sourceLine": 81, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "YOD_0DAG_CON", "label": "Yod · consonantal", "kind": "consonant", "geminate": false, "ipa": "j", "sourceLine": 35, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "YOD_0DAG_ML", "label": "Yod · mater lectionis", "kind": "silent-letter", "geminate": false, "ipa": "", "sourceLine": 36, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "YOD_0DAG_PART2_OF_DIPHTHONG", "label": "Yod · diphthong, second part", "kind": "diphthong-part", "geminate": false, "ipa": "i", "sourceLine": 95, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "YOD_1DAG", "label": "Yod · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "jj", "sourceLine": 34, "sourceComment": null, "questioned": false, "sharedHalfIpa": "j", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }, { "categoryId": "ZAYIN_0DAG", "label": "Zayin · without dagesh", "kind": "consonant", "geminate": false, "ipa": "z", "sourceLine": 30, "sourceComment": null, "questioned": false, "sharedHalfIpa": null, "sharedHalfStatus": "not-applicable", "acousticPhonemes": null }, { "categoryId": "ZAYIN_1DAG", "label": "Zayin · geminate source reading", "kind": "consonant", "geminate": true, "ipa": "zz", "sourceLine": 29, "sourceComment": null, "questioned": false, "sharedHalfIpa": "z", "sharedHalfStatus": "literal-repeated-half", "acousticPhonemes": null }] };
 
@@ -9701,6 +10091,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     let style = pronunciationStyle(saved?.style), word = null, listening = false, library = null, error = null, lastKey = null, study = null;
     const readerCache = /* @__PURE__ */ new Map(), followCache = /* @__PURE__ */ new Map(), bookRequests = /* @__PURE__ */ new Map(), bookErrors = /* @__PURE__ */ new Map();
     const historicalProfiles = mountHistoricalPronunciation();
+    const phonologyPreview = mountPhonologyPreview();
     function requestBook(value) {
       if (!library?.canLoadBook(value) || library.bookLoaded(value)) return false;
       const id = library.bookId(value);
@@ -9908,6 +10299,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (current === lastKey) return;
       lastKey = current;
       historicalProfiles.show(null, word, style);
+      phonologyPreview.show(null, word, style);
       $2("pronunciation-target").textContent = word ? `${word.reference} · word ${word.ordinal} · ${listening ? "listening word" : "selected word"}` : "Choose a Hebrew word.";
       const bookCoverage = PRONUNCIATION_REPERTOIRE_SUMMARY.books.find((b) => b.bookId === (word?.sourceWordId ?? word?.id ?? "").split("-")[0]);
       const coverage = PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];
@@ -9957,6 +10349,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       study = library.study(word, style);
       historicalProfiles.show(study, word, style);
+      phonologyPreview.show(study, word, style);
       if (group.implicitReadingLinks) {
         const note = document.createElement("p");
         note.className = "muted";

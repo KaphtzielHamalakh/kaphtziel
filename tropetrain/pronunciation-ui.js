@@ -1,4 +1,5 @@
 import {mountHistoricalPronunciation} from './historical-pronunciation-ui.js';
+import {mountPhonologyPreview} from './pronunciation-phonology-ui.js';
 import {sourceIpaEvidence} from './pronunciation-ipa.js';
 import {getPronunciationLibrary,PRONUNCIATION_STYLES,pronunciationStyle} from './pronunciation.js';
 import {PRONUNCIATION_SUMMARY} from './pronunciation-summary.js';
@@ -16,6 +17,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
  const readerCache=new Map(),followCache=new Map(),bookRequests=new Map(),bookErrors=new Map();
  const historicalProfiles=mountHistoricalPronunciation();
+ const phonologyPreview=mountPhonologyPreview();
  function requestBook(value){
   if(!library?.canLoadBook(value)||library.bookLoaded(value))return false;
   const id=library.bookId(value);if(bookErrors.has(id)||bookRequests.has(id))return true;
@@ -109,6 +111,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  function render(){
   const current=JSON.stringify([style,word?.id,word?.sourceHebrew,word?.reference,listening,!!library,error]);if(current===lastKey)return;lastKey=current;
   historicalProfiles.show(null,word,style);
+  phonologyPreview.show(null,word,style);
   $('pronunciation-target').textContent=word?`${word.reference} · word ${word.ordinal} · ${listening?'listening word':'selected word'}`:'Choose a Hebrew word.';
   const bookCoverage=PRONUNCIATION_REPERTOIRE_SUMMARY.books.find(b=>b.bookId===(word?.sourceWordId??word?.id??'').split('-')[0]);
   const coverage=PRONUNCIATION_UNDERLAY_SUMMARY.styles[style];$('pronunciation-word-coverage').textContent=bookCoverage?`${bookCoverage.mappedWords.toLocaleString()} of ${bookCoverage.readerWords.toLocaleString()} words in this book have source-group correspondence; ${bookCoverage.unmappedWords.toLocaleString()} remain unassigned. Computed syllable ranges are shown only where the original marked Hebrew matches exactly. Different source forms keep unresolved ranges; source categories, IPA and new singing voices are not supplied for this book.`:`${coverage.wordsWithUnits.toLocaleString()} Torah words have individual source-unit links in this style; ${coverage.sharedWords} linked words remain in combined forms.`;
@@ -121,7 +124,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   if(requestBook(word)){const message=bookErrors.get(library.bookId(word));$('pronunciation-status').textContent=message??'Loading this book’s local pronunciation source…';$('pronunciation-retry').hidden=!message;return;}
   let group;try{group=library.at(word);}catch(e){$('pronunciation-status').textContent=e.message;return;}
   if(!group){$('pronunciation-status').textContent='No checked source correspondence for this word. The selected style is kept; no transcription is substituted.';return;}
-  study=library.study(word,style);historicalProfiles.show(study,word,style);
+  study=library.study(word,style);historicalProfiles.show(study,word,style);phonologyPreview.show(study,word,style);
   if(group.implicitReadingLinks){
    const note=document.createElement('p');note.className='muted';note.textContent='Documented source reading · the primary MAM rule explicitly derives this reading from its written form. All three marked forms remain unchanged. Word correspondence does not allocate the extra written yod to a syllable or establish a singing voice.';$('pronunciation-source-rows').append(note);
    const table=document.createElement('table');table.className='pronunciation-edition-forms';const head=document.createElement('tr');
