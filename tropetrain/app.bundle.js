@@ -10648,8 +10648,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         row: choice.row,
         column: choice.column,
         choiceId: choice.id,
+        sourceGroupId: study.groupId,
+        sourceUrl: "https://github.com/bdenckla/MAM-basics/tree/" + study.sourceCommit + "/Phonetic-MAM",
+        license: structuredClone(study.license),
+        attribution: structuredClone(study.attribution),
         sourceUnitMeaning: "Documented transcription units; not a claim about the recorded reader’s pronunciation."
       },
+      recordingAttribution: Object.fromEntries(["source", "creator", "projectCredits", "individualReader", "sourceUrl", "audioLicense", "timingLicense", "alignmentLicense", "originalCommit"].map((k) => [k, structuredClone(library.source[k])])),
       sourceEditionCompared: false,
       phonemes: null,
       musicalNotes: null,
