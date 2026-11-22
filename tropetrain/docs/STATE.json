@@ -4,14 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "bf1bbba10c4d7c73dda144d05ad362aa33672113",
-  "nextTask": "Prioritize complete sourced contextual cantillation/pronunciation grammars and audible word/syllable/phoneme alignment across the entire Torah. Investigate whether the already licensed, source-timed PocketTorah F0 evidence can provide a clearly labeled source-performance instrumental contour, preserving voiced/unvoiced gaps, confidence, source seconds, word boundaries and independent MAM text styles; do not call raw F0 reviewed notes or a complete traditional grammar. Preserve all existing Hebrew/accents/IDs, notes, recordings, timings and source data; exact-span text following must never highlight a different syllable division, source-only form or another assignment occurrence. All six historical Kinnor phonological/singing grammars/voices, every recovered contextual melody system and the full remaining roadmap remain required. Two MAM text styles are not those six voices.2,181word-owned source forms/style lack written syllable ranges and two words remain combined;2,811older recorded-timing words need review. Resolve BaerNo113first-setting lyric-under-rest questions, Cohenp547penitential ornament, complete reciting/stress/cadence rules and actual performer/edition/phoneme evidence for the64distinct2018verseclips/11distinct2019fulltakes. Qualified musical, phonological and acoustic review remains pending. Full reconstruction active/incomplete; printing deferred.",
+  "nextTask": "Continue the full independent melody/pronunciation/range/key reconstruction and all documented learning/tutor features, with printing deferred. Prioritize actual sourced phonological/singing realizations and contextual musical grammars, plus qualified musical/acoustic review; a measured tone reference is not completion of those requirements. Preserve every original marked Hebrew word/ID, source syllable, note, source recording/time and existing zero-pitch bypass. New tone mode uses raw F0 cells and unchanged source time, with missing cells muted only as an approximation.77158source words fit measured durations;74076have frequency-frame onsets/3082none. All16Gen28:4words in Toldot6overflow measured324.884875seconds and remain withheld without boundary rewrites;8older takes/2811words also require timing review. Resolve source audio/timing discrepancy from primary evidence; do not fabricate missing pitches or phonemes. All six historical Kinnor pronunciation grammars/voices, all recovered full contextual melody systems, performer/edition/syllable/phoneme evidence, the2181source-only word forms/style and2combined words, and every remaining roadmap item remain required. Full reconstruction active/incomplete.",
   "lastPassingTests": {
-    "automated": 370,
+    "automated": 387,
     "failures": 0,
     "skipped": 0,
-    "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v43-final.log",
-    "ui": "Public normal42 and portable43: both show actual source-syllable focus on the same note during live Sephardic/Ashkenazic text changes, all27marked Hebrew strings/canonical IDs/aria-labels exact. Normal shít→shís retains eventgen-1-1-1-s3-n1/E4/0.9beats and progress2.43907→2.48278%; portable shís→shít retains that event and progress58.119→59.2524%. These checks used the restored instrument+2key; filling the numeric input alone did not commit a key change in the browser client. Final setup uses the actual step buttons and confirms caption/input0semitones. Portable actual319root/body319/followclient-scroll261; reset1280. No app console warnings/errors. Both left Genesis1:1–3,word1,Instrument/OriginalDemo01,Wordscope,sourceSephardic,showtextenabled,60BPM/key0/range60–72,repeatfalse; allfour gains0/threemedia paused/followidle. Screenshot outputs/TropeTrain-v0.43-live.jpg saved and visually inspected. Normal AX primary; portable supported observed Playwright/read-only DOM for the known fullAX size limit. Qualified acoustic/phonological/cantorial quality, nativeSave and directfileorigin remain unclaimed."
+    "newTests": 17,
+    "log": "/private/tmp/tropetrain-check-v44-final.log",
+    "ui": "Local normal44/portable45 verified with gains0. Actual embedded worker produces7192241mono16000Hzframes/449.5150625s from opening packet,10584measured/34368unassignedcells,1547runs. Style changes preserve BlobURL and27marked words/IDs with no syllable focus. Pitch+3preserves exact timeline, speed75%independent. Original recording0pitch restores exactMP3URL. Source span Gen2:3word16→2:4word1 advances across two real generated takes. Gen28:4–5firstwordrefuses overflow; no source changes. Portable319root/body319/pre235/235,reset1280. No appconsolewarnings/errors. Acoustic quality, actual preparation Cancel timing, nativeSave/directfileorigin unclaimed; Stop verified and workerabortguardtestedincode. Public checks pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -190,11 +190,8 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.43.0",
-    "status": "published_verified",
-    "summary": "Exact source-syllable text follows the existing instrument note clock independently in both MAM styles; no new singing voice, acoustic syllable timing or traditional melody grammar.",
-    "codeCommit": "bf1bbba10c4d7c73dda144d05ad362aa33672113",
-    "pagesRun": 44994390715
+    "version": "0.44.0",
+    "status": "387 checks passing; local UI verified; publishing next"
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -842,5 +839,21 @@
     "phonemes": null,
     "acousticTiming": null,
     "review": "Structural correspondence; independent musical/linguistic/acoustic review pending."
+  },
+  "measuredTonePractice": {
+    "revision": 1,
+    "measurementTimedWords": 77174,
+    "durationFittingWords": 77158,
+    "wordsWithMeasuredOnsets": 74076,
+    "wordsWithoutMeasuredOnsets": 3082,
+    "durationReviewWords": 16,
+    "olderReviewWords": 2811,
+    "sourceRecordings": 370,
+    "method": "Held10ms source F0 cells, PCM16mono16kHz,2msedgefades. No smoothing, note quantization, octave correction or gap filling. Unassigned cells muted only in approximation.",
+    "notes": null,
+    "phonemes": null,
+    "voice": null,
+    "acousticReview": null,
+    "musicalReview": null
   }
 }

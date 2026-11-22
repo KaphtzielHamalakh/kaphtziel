@@ -1,0 +1,21 @@
+{
+  "schema": "tropetrain-measured-tone-method-v1",
+  "revision": 1,
+  "source": "PocketTorah measurements, docs/SOURCE-PITCH-EVIDENCE.json",
+  "method": "Verified original measurement packet; mono PCM16 at16000Hz, original PCM frame count. Hold each measured0.1Hz value for its original10ms cell. Fixed amplitude0.2;32sample/2ms fade at each contiguous-run edge. Frequency multiplied by2**(semitones/12), no score quantization, smoothing, octave correction or gap filling. Unassigned cells are muted only in this approximation.",
+  "sourceTiming": "Original word intervals and marked Hebrew/IDs are unchanged. Final endpoint is source decoded PCM duration, not a newly reviewed word offset. Per-word counts count frame onsets; a held10ms cell beginning before a word can overlap its boundary.",
+  "coverage": "370source-timed takes retain original metadata, but16Toldot6words extend beyond measured duration and are withheld individually.77158words fit measured source durations;74076have measured-frame onsets and3082have none. Eight older timing-gap takes/2811words remain withheld. No musical/acoustic approval inferred.",
+  "delivery": "Cancellable local worker. Session-only generated WAV cache, at most two entries/96MB except a single larger entry. Original audio is neither fetched nor overwritten to render tones. Normal build reads its own verified measurement packets; portable embeds all378.",
+  "independence": "Source tone pitch±12 and source speed50–150%, separate from instrumental melody/key/BPM/range and MAM text styles. Fixed original previews remain original. No singing/phonemes or syllable-to-frequency allocation.",
+  "audioLicense": "CC-BY-SA-3.0",
+  "timingLicense": "CC-BY-SA-2.5",
+  "codeLicense": "CC0-1.0",
+  "attribution": "PocketTorah Audio Files, Not-a-Box Media Lab; project Russel Neiss and Rabbi Charlie Schwartz. Individual reader not separately verified.",
+  "sourceUrl": "https://archive.org/details/PockettorahAudioFiles",
+  "review": {
+    "acoustic": null,
+    "musical": null,
+    "phonological": null
+  },
+  "limits": "YIN-derived steps2–5 estimate F0; periodicity is not a probability of a correct musical note. Unassigned measurements do not prove rests, silence or unvoiced delivery. No traditional melody grammar, Kinnor preset or independent pronunciation voice is supplied."
+}
