@@ -4,13 +4,14 @@ import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.j
 import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
 import {linkPronunciationScoreGroups} from './pronunciation-score-groups.js';
+import {pronunciationFollow} from './pronunciation-follow.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
 import {renderPronunciationRules} from './pronunciation-segment-ui.js';
 export function mountPronunciationStudy({onChange=()=>{}}={}){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
- const readerCache=new Map();
+ const readerCache=new Map(),followCache=new Map();
  for(const s of PRONUNCIATION_STYLES){const option=document.createElement('option');option.value=s.id;option.textContent=s.name;$('pronunciation-style').append(option);}
  $('pronunciation-style').value=style;
  $('pronunciation-coverage').textContent=`${PRONUNCIATION_SUMMARY.mappedWords.toLocaleString()} of ${PRONUNCIATION_SUMMARY.readerWords.toLocaleString()} Torah words linked to source groups. Unmatched words remain unassigned. Correspondence and linguistic review are pending.`;
@@ -146,6 +147,17 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
     readerCache.set(cacheKey,readerPronunciationWord(value,library.study(value,style),style));
    }
    return {...readerCache.get(cacheKey),wordId:value.id};
+  },
+  followNote(event,words){
+   if(!library)return null;
+   const w=words[event.wordIndex];
+   const cacheKey=JSON.stringify([style,event.id,event.wordId,event.sourceWordId,event.syllableId,event.syllable,w?.id,w?.sourceWordId,w?.sourceHebrew]);
+   if(!followCache.has(cacheKey)){
+    if(followCache.size>=256)followCache.delete(followCache.keys().next().value);
+    const link=linkPronunciationToNotes([event],words,library,style).links[0];
+    followCache.set(cacheKey,pronunciationFollow(event,w,link,style));
+   }
+   return followCache.get(cacheKey);
   },
   groupNotes(events,words){return library?linkPronunciationScoreGroups(events,words,library,style):null;},
   linkNotes(events,words){return library?linkPronunciationToNotes(events,words,library,style):null;},

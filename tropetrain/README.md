@@ -187,3 +187,6 @@ Latest publication: [v0.30 code 533874e0](https://github.com/KaphtzielHamalakh/k
 
 
 Latest publication: [v0.31code 4ebe2f58](https://github.com/KaphtzielHamalakh/kaphtziel/commit/4ebe2f585008209ea22a53ea117295c61119ef26), [successful Pages run 44951491047](https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/44951491047).48changed public files /50,432,084bytes exactly match the tested source. Try Genesis13:3readingword12 אֽ͏ָהֳלוֹ֙, pronunciation reader enabled, then compare Sephardic/Ashkenazic source qamats alternatives and explicit written/read evidence. All marked Hebrew and original musical plans unchanged; no new voice or complete grammar inferred. See [v0.31verification](docs/VERIFICATION-0.31.md).
+
+
+Version0.43 adds source-syllable text following during instrumental playback. Try Genesis1:1–3, Instrument, Original demonstration01, show pronunciation text, Word scope and Repeat. Switch the Phonetic MAM text style during playback. Only exact marked-Hebrew matches highlight; boundary differences remain explicit. This does not implement a singing voice. Full reconstruction remains active; printing deferred.
