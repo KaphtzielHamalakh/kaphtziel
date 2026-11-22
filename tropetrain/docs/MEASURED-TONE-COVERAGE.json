@@ -1,0 +1,156 @@
+{
+  "schema": "tropetrain-measured-tone-coverage-v1",
+  "revision": 1,
+  "inputs": {
+    "referencePacketSha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9",
+    "pitchManifestSha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf",
+    "measurementImplementationSha256": "740102a4e31a6c8a936ec87f24e4533e92bd681e700540944c7a8f68386899cd"
+  },
+  "recordings": 378,
+  "sourceTimedRecordings": 370,
+  "withheldRecordings": 8,
+  "sourceTimedWords": 77174,
+  "measuredTimeWords": 77158,
+  "durationReviewWords": [
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-1",
+      "hebrew": "וְיִֽתֶּן־",
+      "startSeconds": 324.314551,
+      "endSeconds": 325.036269,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-2",
+      "hebrew": "לְךָ֙",
+      "startSeconds": 325.036269,
+      "endSeconds": 325.825748,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-3",
+      "hebrew": "אֶת־",
+      "startSeconds": 325.825748,
+      "endSeconds": 326.172505,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-4",
+      "hebrew": "בִּרְכַּ֣ת",
+      "startSeconds": 326.172505,
+      "endSeconds": 326.751462,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-5",
+      "hebrew": "אַבְרָהָ֔ם",
+      "startSeconds": 326.751462,
+      "endSeconds": 327.81958,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-6",
+      "hebrew": "לְךָ֖",
+      "startSeconds": 327.81958,
+      "endSeconds": 328.469739,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-7",
+      "hebrew": "וּלְזַרְעֲךָ֣",
+      "startSeconds": 328.469739,
+      "endSeconds": 329.234455,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-8",
+      "hebrew": "אִתָּ֑ךְ",
+      "startSeconds": 329.234455,
+      "endSeconds": 329.884614,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-9",
+      "hebrew": "לְרִשְׁתְּךָ֙",
+      "startSeconds": 329.884614,
+      "endSeconds": 331.301031,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-10",
+      "hebrew": "אֶת־",
+      "startSeconds": 331.301031,
+      "endSeconds": 331.695771,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-11",
+      "hebrew": "אֶ֣רֶץ",
+      "startSeconds": 331.695771,
+      "endSeconds": 332.16017,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-12",
+      "hebrew": "מְגֻרֶ֔יךָ",
+      "startSeconds": 332.16017,
+      "endSeconds": 333.065748,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-13",
+      "hebrew": "אֲשֶׁר־",
+      "startSeconds": 333.065748,
+      "endSeconds": 333.692687,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-14",
+      "hebrew": "נָתַ֥ן",
+      "startSeconds": 333.692687,
+      "endSeconds": 334.016224,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-15",
+      "hebrew": "אֱלֹהִ֖ים",
+      "startSeconds": 334.016224,
+      "endSeconds": 334.689603,
+      "measurementDurationSeconds": 324.884875
+    },
+    {
+      "recordingId": "pt-portion-06-6",
+      "wordId": "gen-28-4-16",
+      "hebrew": "לְאַבְרָהָֽם׃",
+      "startSeconds": 334.689603,
+      "endSeconds": null,
+      "measurementDurationSeconds": 324.884875
+    }
+  ],
+  "wordsWithMeasuredFrameOnsets": 74076,
+  "wordsWithoutMeasuredFrameOnsets": 3082,
+  "sourceTimedMeasuredFrames": 3474389,
+  "sourceTimedUnassignedFrames": 5361199,
+  "withheldWords": 2811,
+  "maxDurationSeconds": 1072.3265,
+  "review": {
+    "acoustic": null,
+    "musical": null,
+    "phonological": null
+  },
+  "limits": "Exact source structure only. Per-word counts count frame onsets; a held10ms cell can overlap a word boundary. Missing measurements are muted, not identified rests/silence. No phoneme/syllable times, traditional grammar, reviewed musical notes or singing voice."
+}

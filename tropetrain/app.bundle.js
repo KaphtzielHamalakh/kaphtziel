@@ -4260,21 +4260,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return book.chapters[point2.chapter] ? { chapter: point2.chapter + 1, verse: 1 } : null;
   }
   function relatedUnits(value) {
-    let shape, entries;
+    let shape, entries2;
     if (object(value) && typeof value.k === "string") {
       shape = "unit";
-      entries = [["unit", value]];
+      entries2 = [["unit", value]];
     } else if (Array.isArray(value)) {
       shape = "array";
-      entries = value.map((unit, i) => [String(i), unit]);
+      entries2 = value.map((unit, i) => [String(i), unit]);
     } else if (object(value)) {
       shape = "numbered";
-      entries = Object.entries(value);
-      if (entries.some(([key]) => !/^[1-9]\d{0,2}$/.test(key))) throw Error("Unsupported numbered source structure; original references are kept.");
-      entries.sort((a, b) => Number(a[0]) - Number(b[0]));
+      entries2 = Object.entries(value);
+      if (entries2.some(([key]) => !/^[1-9]\d{0,2}$/.test(key))) throw Error("Unsupported numbered source structure; original references are kept.");
+      entries2.sort((a, b) => Number(a[0]) - Number(b[0]));
     } else throw Error("This source has only a citation or an unsupported structure; no passage boundaries were inferred.");
-    if (!entries.length || entries.length > 100) throw Error("The source needs between 1 and 100 explicit reading units.");
-    return { shape, units: entries.map(([key, unit]) => ({ key, unit })) };
+    if (!entries2.length || entries2.length > 100) throw Error("The source needs between 1 and 100 explicit reading units.");
+    return { shape, units: entries2.map(([key, unit]) => ({ key, unit })) };
   }
   function checkedRelatedUnit(entry, definition, corpus2) {
     if (!object(entry) || typeof entry.key !== "string" || entry.key.length > 10 || !object(entry.unit)) throw Error("Invalid related-reading source unit.");
@@ -7477,14 +7477,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!units || typeof units !== "object" || Array.isArray(units)) throw Error("Related reading only: the source has no Torah divisions for this service.");
     const keys = Object.keys(units);
     if (!keys.length || keys.some((key) => !/^([1-9]|M)$/.test(key))) throw Error("This source division structure is not supported; no ranges were substituted.");
-    const entries = keys.sort((a, b) => a === "M" ? 1 : b === "M" ? -1 : Number(a) - Number(b)).map((key) => ({ key, label: key === "M" ? "Maftir" : `Aliyah ${key}`, unit: units[key] }));
-    return { field, label: label2, entries };
+    const entries2 = keys.sort((a, b) => a === "M" ? 1 : b === "M" ? -1 : Number(a) - Number(b)).map((key) => ({ key, label: key === "M" ? "Maftir" : `Aliyah ${key}`, unit: units[key] }));
+    return { field, label: label2, entries: entries2 };
   }
   function calendarRanges(item, cycle, record, corpus2, onlyKey = null) {
     const divisions = readingDivisions(item, cycle);
-    const entries = onlyKey === null ? divisions.entries : divisions.entries.filter((e) => e.key === onlyKey);
-    if (!entries.length) throw Error("Choose an available aliyah.");
-    return entries.map(({ key, label: label2, unit }) => {
+    const entries2 = onlyKey === null ? divisions.entries : divisions.entries.filter((e) => e.key === onlyKey);
+    if (!entries2.length) throw Error("Choose an available aliyah.");
+    return entries2.map(({ key, label: label2, unit }) => {
       if (!unit || !BOOKS2[unit.k]) throw Error("This division needs a book outside the current Torah library.");
       const resolved = resolveTorahCalendarUnit(unit, corpus2.byId.get(BOOKS2[unit.k]));
       const range = corpus2.range({ id: `hebcal-${item.date.replaceAll("-", "")}-${record.region.toLowerCase()}-${divisions.field}-${key}`, bookId: BOOKS2[unit.k], start: resolved.start, end: resolved.end, label: `${item.name.en} · ${label2}` });
@@ -9488,7 +9488,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // recorded-practice.js
   function practiceAudioMode(value) {
-    return value === "recorded" ? "recorded" : "instrument";
+    return ["recorded", "measured"].includes(value) ? value : "instrument";
   }
   function chantPracticePlan(library, words3, start, end) {
     if (!library) throw Error("The recorded-chant catalog is loading.");
@@ -10239,6 +10239,149 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   };
 
+  // measured-practice.js
+  var entries = new Map(pitchManifest.records.map((e) => [e.id, e]));
+  function measuredPracticePlan(library, words3, start, end) {
+    const plan2 = chantPracticePlan(library, words3, start, end);
+    for (const row of plan2.rows) {
+      const source = entries.get(row.recordingId), record = library.byId.get(row.recordingId), duration = source?.durationSeconds, last = row.endSeconds ?? duration;
+      if (source?.wordTiming !== "aligned" || source.sourceAudio.sha1 !== record.audio.sha1 || source.sourceAudio.bytes !== record.audio.bytes || !Number.isFinite(row.startSeconds) || !Number.isFinite(last) || row.startSeconds < 0 || row.startSeconds >= last || last > duration) throw Error(`Source measurements do not cover ${row.id}; word timing review is required. No boundary is changed.`);
+    }
+    return plan2;
+  }
+
+  // source-contour.js
+  var CONTOUR_RENDERING = Object.freeze({ revision: 1, sampleRate: 16e3, hop: 160, amplitude: 0.2, edgeFadeSamples: 32, maxFrames: 16e3 * 3600 });
+  function contourSemitones(value) {
+    if (!Number.isInteger(value) || value < -12 || value > 12) throw Error("Choose measured-tone pitch from −12 to +12 semitones.");
+    return value;
+  }
+
+  // source-contour-worker-data.js
+  var SOURCE_CONTOUR_WORKER_SOURCE = '(() => {\n  // source-contour.js\n  var CONTOUR_RENDERING = Object.freeze({ revision: 1, sampleRate: 16e3, hop: 160, amplitude: 0.2, edgeFadeSamples: 32, maxFrames: 16e3 * 3600 });\n  function contourSemitones(value) {\n    if (!Number.isInteger(value) || value < -12 || value > 12) throw Error("Choose measured-tone pitch from −12 to +12 semitones.");\n    return value;\n  }\n  function contourGeometry(data, semitones = 0) {\n    contourSemitones(semitones);\n    const p = data?.parameters, pcm = data?.decodedPcm, c = data?.counts, r = CONTOUR_RENDERING;\n    if (p?.sampleRate !== r.sampleRate || p.hop !== r.hop || p.frequencyUnitHz !== 0.1 || p.periodicityUnit !== 1e-4 || pcm?.sampleRate !== r.sampleRate || pcm.channels !== 1 || pcm.bitsPerSample !== 16 || !Number.isInteger(pcm.frames) || pcm.frames < 1 || pcm.frames > r.maxFrames || pcm.durationSeconds !== pcm.frames / r.sampleRate || c?.frames !== Math.ceil(pcm.frames / r.hop) || c.periodicFrames !== data.series?.length || c.unassignedFrames !== c.frames - c.periodicFrames) throw Error("Measured-tone source geometry needs review.");\n    let previous = -1;\n    const runs = [];\n    for (const row of data.series) {\n      if (!Array.isArray(row) || row.length !== 3 || !row.every(Number.isInteger) || row[0] <= previous || row[0] >= c.frames || row[1] < 650 || row[1] > 6e3 || row[2] < 9e3 || row[2] > 1e4) throw Error("Invalid measured-tone source frame.");\n      if (row[0] !== previous + 1 || !runs.length) runs.push({ startFrame: row[0], endFrame: row[0] + 1, rows: [] });\n      const run = runs.at(-1);\n      run.endFrame = row[0] + 1;\n      run.rows.push(row);\n      previous = row[0];\n    }\n    const assignedSamples = runs.reduce((n, run) => n + Math.min(pcm.frames, run.endFrame * r.hop) - run.startFrame * r.hop, 0);\n    return { runs, frames: pcm.frames, sampleRate: r.sampleRate, assignedSamples, unassignedSamples: pcm.frames - assignedSamples, semitones };\n  }\n  function renderSourceContour(data, semitones = 0, { onProgress = () => {\n  } } = {}) {\n    const geometry = contourGeometry(data, semitones), r = CONTOUR_RENDERING, bytes = geometry.frames * 2;\n    const buffer = new ArrayBuffer(44 + bytes), view = new DataView(buffer), text = (offset, value) => {\n      for (let i = 0; i < value.length; i++) view.setUint8(offset + i, value.charCodeAt(i));\n    };\n    text(0, "RIFF");\n    view.setUint32(4, 36 + bytes, true);\n    text(8, "WAVE");\n    text(12, "fmt ");\n    view.setUint32(16, 16, true);\n    view.setUint16(20, 1, true);\n    view.setUint16(22, 1, true);\n    view.setUint32(24, r.sampleRate, true);\n    view.setUint32(28, r.sampleRate * 2, true);\n    view.setUint16(32, 2, true);\n    view.setUint16(34, 16, true);\n    text(36, "data");\n    view.setUint32(40, bytes, true);\n    const ratio = 2 ** (semitones / 12);\n    let rendered = 0;\n    onProgress(0);\n    for (const run of geometry.runs) {\n      const first = run.startFrame * r.hop, last = Math.min(geometry.frames, run.endFrame * r.hop), fade = Math.min(r.edgeFadeSamples, (last - first - 1) / 2);\n      let phase = 0;\n      for (const row of run.rows) {\n        const start = row[0] * r.hop, end = Math.min(geometry.frames, start + r.hop), increment = 2 * Math.PI * row[1] * 0.1 * ratio / r.sampleRate;\n        for (let frame = start; frame < end; frame++) {\n          const envelope = fade > 0 ? Math.min(1, (frame - first) / fade, (last - 1 - frame) / fade) : 1;\n          view.setInt16(44 + frame * 2, Math.round(Math.sin(phase) * r.amplitude * envelope * 32767), true);\n          phase = (phase + increment) % (2 * Math.PI);\n        }\n      }\n      rendered += last - first;\n      onProgress(geometry.assignedSamples ? rendered / geometry.assignedSamples : 1);\n    }\n    onProgress(1);\n    return { buffer, metadata: { schema: "tropetrain-measured-tone-render-v1", revision: r.revision, recordingId: data.id, sampleRate: r.sampleRate, frames: geometry.frames, durationSeconds: geometry.frames / r.sampleRate, semitones, amplitude: r.amplitude, edgeFadeSamples: r.edgeFadeSamples, assignedMeasurementFrames: data.counts.periodicFrames, unassignedMeasurementFrames: data.counts.unassignedFrames, assignedSamples: geometry.assignedSamples, mutedSamples: geometry.unassignedSamples, runs: geometry.runs.length, frequencyMapping: "Each measured frequency is held for its original 10ms cell; final cell clipped to source PCM duration. No smoothing, quantization, octave correction or gap filling.", gapMeaning: "Unassigned measurement cells are muted in this tone approximation; they do not establish silence, unvoiced speech or musical rests in the recording.", wordTiming: "Unchanged original source boundaries; no new syllable or phoneme times.", phonemes: null, musicalNotes: null, traditionalGrammar: null, acousticReview: null, musicalReview: null, dataLicense: "CC-BY-SA-3.0" } };\n  }\n\n  // source-contour-worker.js\n  self.onmessage = (event) => {\n    try {\n      let reported = -1;\n      const result = renderSourceContour(event.data.data, event.data.semitones, { onProgress: (value) => {\n        const percent = Math.floor(value * 100);\n        if (percent !== reported) {\n          reported = percent;\n          self.postMessage({ type: "progress", value });\n        }\n      } });\n      self.postMessage({ type: "result", ...result }, [result.buffer]);\n    } catch (error) {\n      self.postMessage({ type: "error", message: error.message });\n    }\n  };\n})();\n';
+
+  // source-contour-store.js
+  var check = (signal) => {
+    if (signal?.aborted) throw new DOMException("Stopped", "AbortError");
+  };
+  var contourSupported = () => typeof Worker !== "undefined" && !!globalThis.crypto?.subtle && typeof DecompressionStream !== "undefined";
+  function renderContourWorker(data, semitones, { signal, onProgress = () => {
+  }, makeWorker, workerSource = SOURCE_CONTOUR_WORKER_SOURCE } = {}) {
+    check(signal);
+    contourSemitones(semitones);
+    if (!makeWorker && !workerSource) throw Error("The embedded measured-tone renderer is unavailable.");
+    return new Promise((resolve, reject) => {
+      let worker, url, settled = false;
+      const cleanup = () => {
+        settled = true;
+        signal?.removeEventListener("abort", abort);
+        if (worker) {
+          worker.onmessage = null;
+          worker.onerror = null;
+          worker.terminate();
+        }
+        if (url) URL.revokeObjectURL(url);
+      };
+      const fail = (e) => {
+        if (settled) return;
+        cleanup();
+        reject(e);
+      }, abort = () => fail(new DOMException("Stopped", "AbortError"));
+      try {
+        if (makeWorker) worker = makeWorker();
+        else {
+          url = URL.createObjectURL(new Blob([workerSource], { type: "text/javascript" }));
+          worker = new Worker(url);
+        }
+        worker.onerror = () => fail(Error("The measured-tone renderer could not start."));
+        worker.onmessage = (event) => {
+          if (settled || signal?.aborted) return;
+          const value = event.data;
+          if (value?.type === "progress") {
+            if (Number.isFinite(value.value) && value.value >= 0 && value.value <= 1) onProgress(value.value);
+            return;
+          }
+          if (value?.type === "error") {
+            fail(Error(value.message ?? "Measured-tone preparation failed."));
+            return;
+          }
+          if (value?.type === "result") {
+            if (!(value.buffer instanceof ArrayBuffer) || value.buffer.byteLength !== 44 + data.decodedPcm.frames * 2) {
+              fail(Error("The measured-tone renderer returned invalid audio."));
+              return;
+            }
+            cleanup();
+            resolve(value);
+          }
+        };
+        signal?.addEventListener("abort", abort, { once: true });
+        check(signal);
+        worker.postMessage({ data, semitones });
+      } catch (error) {
+        fail(error);
+      }
+    });
+  }
+  var SourceContourStore = class {
+    constructor({ pitchStore = new SourcePitchStore(), render: render2 = renderContourWorker, makeUrl = (blob) => URL.createObjectURL(blob), revokeUrl = (url) => URL.revokeObjectURL(url), onProgress = () => {
+    }, onReady = () => {
+    }, maxEntries = 2, maxBytes = 96 * 1048576 } = {}) {
+      Object.assign(this, { pitchStore, render: render2, makeUrl, revokeUrl, onProgress, onReady, maxEntries, maxBytes });
+      this.cache = /* @__PURE__ */ new Map();
+      this.wordCache = /* @__PURE__ */ new Map();
+    }
+    async url(record, { signal, semitones = 0 } = {}) {
+      check(signal);
+      contourSemitones(semitones);
+      const entry = pitchManifest.records.find((r) => r.id === record?.id);
+      if (record?.status !== "aligned" || entry?.wordTiming !== "aligned" || record.audio?.sha1 !== entry.sourceAudio.sha1 || record.audio.bytes !== entry.sourceAudio.bytes) throw Error("Measured-tone source or word timings need review; no audio is substituted.");
+      const key = JSON.stringify([record.id, entry.sha256, CONTOUR_RENDERING.revision, semitones]);
+      if (this.cache.has(key)) {
+        const hit = this.cache.get(key);
+        this.cache.delete(key);
+        this.cache.set(key, hit);
+        this.onReady(hit.metadata);
+        return hit.url;
+      }
+      this.onProgress(0, "Reading and verifying source measurements");
+      const data = await this.pitchStore.get(record.id);
+      check(signal);
+      if (data.sourceAudio.sha1 !== record.audio.sha1 || data.sourceAudio.bytes !== record.audio.bytes) throw Error("The measured-tone source differs from the recording.");
+      const result = await this.render(data, semitones, { signal, onProgress: (value) => this.onProgress(value, "Preparing measured sine tones") });
+      check(signal);
+      const m = result.metadata;
+      if (m?.schema !== "tropetrain-measured-tone-render-v1" || m.revision !== CONTOUR_RENDERING.revision || m.recordingId !== record.id || m.frames !== data.decodedPcm.frames || m.sampleRate !== 16e3 || m.durationSeconds !== data.decodedPcm.durationSeconds || m.semitones !== semitones || m.assignedMeasurementFrames !== data.counts.periodicFrames || m.unassignedMeasurementFrames !== data.counts.unassignedFrames || result.buffer?.byteLength !== 44 + m.frames * 2) throw Error("Measured-tone rendering changed its source timeline or parameters.");
+      const blob = new Blob([result.buffer], { type: "audio/wav" }), metadata = { ...m, measurementFile: entry.file, measurementSha256: entry.sha256, implementationSha256: data.implementationSha256, referencePacketSha256: data.referencePacketSha256, sourceAudio: data.sourceAudio, decodedPcm: data.decodedPcm, rights: data.rights, sourcePerformance: "PocketTorah source recording; estimated frequencies only. No Kinnor preset or independently pronounced voice." };
+      const url = this.makeUrl(blob);
+      this.cache.set(key, { url, metadata, bytes: blob.size });
+      let bytes = [...this.cache.values()].reduce((n, x) => n + x.bytes, 0);
+      while (this.cache.size > 1 && (this.cache.size > this.maxEntries || bytes > this.maxBytes)) {
+        const first = this.cache.keys().next().value, old = this.cache.get(first);
+        this.cache.delete(first);
+        bytes -= old.bytes;
+        this.revokeUrl(old.url);
+      }
+      this.onReady(metadata);
+      return url;
+    }
+    wordSummary(entry, word) {
+      const data = this.pitchStore.cache.get(entry?.recording?.id);
+      if (!data) return null;
+      const key = JSON.stringify([data.id, word.id, word.sourceWordId, word.sourceHebrew]);
+      if (!this.wordCache.has(key)) {
+        const w = pitchWordWindow(data, entry, word);
+        if (this.wordCache.size >= 256) this.wordCache.delete(this.wordCache.keys().next().value);
+        this.wordCache.set(key, { wordId: w.wordId, occurrenceId: w.occurrenceId, hebrew: w.hebrew, sourceHebrew: w.sourceHebrew, comparison: w.comparison, startSeconds: w.startSeconds, endSeconds: w.endSeconds, endKind: w.endKind, measuredFrameOnsets: w.series.length, totalFrameOnsets: w.frames });
+      }
+      return this.wordCache.get(key);
+    }
+    clear() {
+      for (const e of this.cache.values()) this.revokeUrl(e.url);
+      this.cache.clear();
+      this.wordCache.clear();
+    }
+  };
+
   // source-pitch-ui.js
   function mountSourcePitch({ getWord, getReferences }) {
     const $2 = (id) => document.getElementById(id), store2 = new SourcePitchStore();
@@ -10472,6 +10615,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var chantPlayRequest = 0;
   var recordedPracticeRunning = false;
   var lastProcessedPitch = null;
+  var lastMeasuredTone = null;
+  var isSourcePractice = () => state.practiceAudio === "recorded" || state.practiceAudio === "measured";
+  var sourcePracticeName = () => state.practiceAudio === "measured" ? "Measured tones" : "Recorded chant";
   var referenceStore = new ReferenceAudioStore({ openingUrl: $("reference-audio").getAttribute("src") });
   var recordedPitchStore = new RecordedPitchStore({
     sourceStore: referenceStore,
@@ -10487,7 +10633,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       $("chant-pitch-metadata").textContent = JSON.stringify(metadata, null, 2);
     }
   });
-  var chantPitchLabel = () => state.chantTranspose === 0 ? "original pitch requested" : `${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones · processed recording`;
+  var sourceContourStore = new SourceContourStore({
+    onProgress: (value, message) => {
+      $("chant-pitch-status").textContent = `${message} · ${Math.round(value * 100)}%`;
+      if (recordedPracticeRunning) $("chant-pitch-cancel").hidden = false;
+    },
+    onReady: (metadata) => {
+      lastMeasuredTone = metadata;
+      $("chant-pitch-cancel").hidden = true;
+      $("measured-tone-details").hidden = false;
+      $("measured-tone-metadata").textContent = JSON.stringify(metadata, null, 2);
+      $("chant-pitch-status").textContent = `Prepared measured tones · ${metadata.durationSeconds.toFixed(3)} source seconds · ${metadata.assignedMeasurementFrames} measured / ${metadata.unassignedMeasurementFrames} unassigned frames. Approximation; review pending.`;
+    }
+  });
+  var chantPitchLabel = () => state.practiceAudio === "measured" ? `${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones · measured tones` : state.chantTranspose === 0 ? "original pitch requested" : `${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones · processed recording`;
   var referencePlayer = new RecordingPlayer($("reference-audio"), {
     onWord: (word) => {
       referenceActiveId = word?.occurrenceId ?? null;
@@ -10503,8 +10662,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         renderRecordedWord(word);
         pronunciationTools?.showWord(words2[word.wordIndex], { following: true });
       } else pronunciationTools?.showWord(words2[state.cursor]);
+      if (recordedPracticeRunning && state.practiceAudio === "measured" && word) {
+        const w = words2[word.wordIndex], summary = sourceContourStore.wordSummary(referenceLibrary.at(w), w);
+        $("measured-tone-window").textContent = summary ? `${summary.hebrew} · ${summary.measuredFrameOnsets} measured / ${summary.totalFrameOnsets} frame onsets in this source word window. ${summary.measuredFrameOnsets ? "Only assigned measurement cells make tones." : "No measured frequency onset in this window; missing measurements do not establish silence."} No syllable timing is inferred.` : "";
+      }
       if (word && recordedPracticeRunning) {
-        $("status").textContent = `Recorded chant · ${state.chantRate}% speed · ${chantPitchLabel()} · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
+        $("status").textContent = `${sourcePracticeName()} · ${state.chantRate}% speed · ${chantPitchLabel()} · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
         $("progress").style.width = `${100 * (word.wordIndex - playingBounds[0] + 1) / (playingBounds[1] - playingBounds[0] + 1)}%`;
       }
     },
@@ -10516,11 +10679,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     },
     onError: (error) => {
       $("chant-pitch-cancel").hidden = true;
-      if (state.chantTranspose !== 0) $("chant-pitch-status").textContent = `Recording processing unavailable: ${error.message}`;
+      if (state.practiceAudio === "measured" || state.chantTranspose !== 0) $("chant-pitch-status").textContent = `Source preparation unavailable: ${error.message}`;
       $("reference-status").textContent = `Reference unavailable: ${error.message}`;
       recordedPracticeRunning = false;
       transportLabel(false);
-      say(`Recorded chant unavailable: ${error.message}`);
+      say(`${sourcePracticeName()} unavailable: ${error.message}`);
       renderReference({ keepChoice: true });
       renderChantPractice();
     },
@@ -10534,10 +10697,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         renderReferencePlaybackStatus(id);
       }
     },
-    resolveSource: (id, options) => recordedPracticeRunning && state.chantTranspose !== 0 ? recordedPitchStore.url(referenceLibrary.byId.get(id), { ...options, semitones: state.chantTranspose }) : referenceStore.url(referenceLibrary.byId.get(id), options)
+    resolveSource: (id, options) => recordedPracticeRunning && state.practiceAudio === "measured" ? sourceContourStore.url(referenceLibrary.byId.get(id), { ...options, semitones: state.chantTranspose }) : recordedPracticeRunning && state.chantTranspose !== 0 ? recordedPitchStore.url(referenceLibrary.byId.get(id), { ...options, semitones: state.chantTranspose }) : referenceStore.url(referenceLibrary.byId.get(id), options)
   });
   function renderReferencePlaybackStatus(id) {
-    $("reference-status").textContent = `Playing ${referenceLibrary.byId.get(id).title} · ${recordedPracticeRunning ? `${state.chantRate}% speed · ${chantPitchLabel()}` : "original recorded key and tempo"} · ${recordedPracticeRunning && state.chantTranspose !== 0 ? "source performance · processed timbre unreviewed" : "original pronunciation"}${state.referenceVolume === 0 ? " · muted at 0%" : ""}.`;
+    $("reference-status").textContent = `Playing ${referenceLibrary.byId.get(id).title} · ${recordedPracticeRunning ? `${state.chantRate}% speed · ${chantPitchLabel()}` : "original recorded key and tempo"} · ${recordedPracticeRunning && state.practiceAudio === "measured" ? "sine-tone approximation · no pronunciation voice" : recordedPracticeRunning && state.chantTranspose !== 0 ? "source performance · processed timbre unreviewed" : "original pronunciation"}${state.referenceVolume === 0 ? " · muted at 0%" : ""}.`;
   }
   function loadArray(key) {
     try {
@@ -10634,7 +10797,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderPronunciationFollow();
   }
   function stop(message = "Stopped. Your selection is kept.", { preservePattern = false, preserveVoiceStudy = false } = {}) {
-    if (!$("chant-pitch-cancel").hidden) $("chant-pitch-status").textContent = "Pitch preparation stopped. Original recordings are unchanged.";
+    if (!$("chant-pitch-cancel").hidden) $("chant-pitch-status").textContent = "Preparation stopped. Original recordings are unchanged.";
+    $("measured-tone-window").textContent = "";
     $("chant-pitch-cancel").hidden = true;
     recordedPracticeRunning = false;
     chantPlayRequest++;
@@ -10652,7 +10816,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     transportLabel(false);
   }
   async function play() {
-    if (state.practiceAudio === "recorded") return playChantPractice();
+    if (isSourcePractice()) return playChantPractice();
     patternTools?.stop();
     voiceStudyTools?.stop();
     referencePlayer.stop();
@@ -11064,37 +11228,54 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
   }
   function renderChantPractice() {
-    const generation = ++chantGeneration;
+    const generation = ++chantGeneration, tones = state.practiceAudio === "measured";
     $("chant-volume").value = state.referenceVolume;
     $("chant-volume-value").textContent = `${state.referenceVolume}%`;
-    if (state.practiceAudio !== "recorded") return;
-    $("chant-pitch").disabled = !pitchProcessingSupported();
-    if (!pitchProcessingSupported()) state.chantTranspose = 0;
+    if (!isSourcePractice()) return;
+    $("chant-load").hidden = tones;
+    $("chant-cancel").hidden = tones || !referenceLoadJob;
+    document.querySelector('label[for="chant-pitch"]').textContent = tones ? "Tone pitch" : "Chant pitch";
+    document.querySelector('label[for="chant-speed"]').textContent = tones ? "Tone speed" : "Chant speed";
+    document.querySelector('label[for="chant-volume"]').textContent = tones ? "Tone volume" : "Chant volume";
+    $("chant-pitch").querySelector('option[value="0"]').textContent = tones ? "0 · measured source frequencies" : "0 · original pitch";
+    $("source-practice-note").textContent = tones ? "Sine tones follow estimated frequencies in the PocketTorah performance. Unassigned measurement cells are muted; gaps do not establish original silence or rests. No note quantization, gap filling, singing voice, Kinnor preset or general melody grammar is supplied. Instrument melody/key/BPM/range and pronunciation text remain independent." : "PocketTorah’s original voice, melody and pronunciation. Chant speed preserves the selected pitch using your browser’s audio processing. Instrument melody/key/tempo/range remain separate. This recording does not synthesize the selected instrumental melody or a Kinnor Accent style.";
+    $("chant-pitch-note").textContent = tones ? "Each measured frequency is held for its original 10ms cell; 2ms run-edge fades reduce clicks. Tone pitch multiplies those frequencies without moving source word boundaries. Missing measurements and octave errors remain uncorrected. Preparation is cancellable." : "Optional processed recording, independent of the instrument key, chant speed and pronunciation text. Formant compensation is requested; processed pitch and vocal timbre are approximate and await review. Changing pitch stops playback; press Play to prepare it. Reference previews below keep original pitch.";
+    const supported = tones ? contourSupported() : pitchProcessingSupported();
+    $("chant-pitch").disabled = !supported;
+    if (!supported) state.chantTranspose = 0;
     $("chant-pitch").value = state.chantTranspose;
-    if (state.chantTranspose === 0) {
-      $("chant-pitch-status").textContent = pitchProcessingSupported() ? "Original pitch · original recording." : "This browser lacks recorded pitch processing. Original pitch remains available.";
-      $("chant-pitch-details").hidden = true;
-    }
-    if (state.chantTranspose !== 0 && !referencePlayer.running && !referencePlayer.starting && lastProcessedPitch?.semitones !== state.chantTranspose) {
-      $("chant-pitch-status").textContent = `Press Play to prepare ${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones. Original recordings remain unchanged.`;
-      $("chant-pitch-details").hidden = true;
+    $("measured-tone-details").hidden = !tones || !lastMeasuredTone;
+    $("chant-pitch-details").hidden = tones || state.chantTranspose === 0;
+    if (tones) {
+      if (!referencePlayer.running && !referencePlayer.starting) $("chant-pitch-status").textContent = supported ? `Press Play to prepare measured sine tones at ${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones. No original audio download is needed.` : "This browser lacks measured-tone rendering.";
+    } else {
+      if (state.chantTranspose === 0) $("chant-pitch-status").textContent = supported ? "Original pitch · original recording." : "This browser lacks recorded pitch processing. Original pitch remains available.";
+      if (state.chantTranspose !== 0 && !referencePlayer.running && !referencePlayer.starting && lastProcessedPitch?.semitones !== state.chantTranspose) {
+        $("chant-pitch-status").textContent = `Press Play to prepare ${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones. Original recordings remain unchanged.`;
+        $("chant-pitch-details").hidden = true;
+      }
     }
     if (!referencePlayer.starting) $("chant-pitch-cancel").hidden = true;
     $("chant-speed").disabled = !referencePlayer.canPreservePitch;
     if (!referencePlayer.canPreservePitch) state.chantRate = 100;
     $("chant-speed").value = state.chantRate;
-    $("chant-speed-note").textContent = referencePlayer.canPreservePitch ? "Speed is a percentage of this performance, independent of instrument BPM and key. Pitch preservation is requested from the browser; processing may affect timbre. Source word timings remain unchanged. Recording previews below always use original speed." : "This browser lacks pitch-preserving speed control. Chant plays at its original speed.";
+    $("chant-speed-note").textContent = referencePlayer.canPreservePitch ? "Percentage of source time, independent of instrument BPM and key. Pitch preservation is requested from the browser; processing can affect sound. Source word timings remain unchanged. Recording previews below always retain original speed." : "This browser lacks pitch-preserving speed control. Source practice uses100%.";
     chantPlan = null;
     chantReady = false;
     for (const id of ["play", "compact-play", "chant-load"]) $(id).disabled = true;
-    $("chant-cancel").hidden = !referenceLoadJob;
     try {
-      chantPlan = chantPracticePlan(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
+      chantPlan = (tones ? measuredPracticePlan : chantPracticePlan)(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
     } catch (error) {
       $("chant-readiness").textContent = error.message;
       return;
     }
     const selected = chantPlan;
+    if (tones) {
+      chantReady = supported;
+      for (const id of ["play", "compact-play"]) $(id).disabled = !chantReady;
+      $("chant-readiness").textContent = `${selected.words} source-timed word${selected.words === 1 ? "" : "s"} · ${selected.records.length} source measurement${selected.records.length === 1 ? "" : "s"}. ${supported ? "Ready to prepare tones with Play. Measurement packets load locally or from this site; the portable build carries every packet." : "A browser with workers and gzip support is required."} Estimated frequency and source-word acoustic review pending.`;
+      return;
+    }
     $("chant-readiness").textContent = "Checking saved chant audio…";
     Promise.all(selected.records.map((record) => referenceStore.has(record))).then((available) => {
       if (generation !== chantGeneration || state.practiceAudio !== "recorded") return;
@@ -11109,12 +11290,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
   }
   async function playChantPractice() {
-    stop("Preparing the selected recorded chant.");
+    stop(`Preparing the selected ${sourcePracticeName().toLowerCase()}.`);
     const request = ++chantPlayRequest;
     let selected;
     try {
-      selected = chantPracticePlan(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
-      if (!(await Promise.all(selected.records.map((r) => referenceStore.has(r)))).every(Boolean)) throw Error("Load chant audio for this span first.");
+      selected = (state.practiceAudio === "measured" ? measuredPracticePlan : chantPracticePlan)(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
+      if (state.practiceAudio !== "measured" && !(await Promise.all(selected.records.map((r) => referenceStore.has(r)))).every(Boolean)) throw Error("Load chant audio for this span first.");
     } catch (error) {
       if (request === chantPlayRequest) {
         say(error.message);
@@ -11162,11 +11343,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   });
   $("chant-cancel").addEventListener("click", () => referenceLoadJob?.abort());
   $("chant-pitch").addEventListener("change", (e) => {
-    stop("Chant pitch changed. Press Play to prepare the recording.");
+    stop("Source pitch changed. Press Play to prepare it.");
     state.chantTranspose = Number(e.target.value);
-    $("chant-pitch-details").hidden = true;
-    $("chant-pitch-status").textContent = state.chantTranspose === 0 ? "Original pitch · original recording." : "Press Play to prepare the processed recording. Review is pending.";
     persist();
+    renderChantPractice();
   });
   $("chant-pitch-cancel").addEventListener("click", () => stop("Pitch preparation cancelled."));
   $("chant-speed").addEventListener("change", (e) => {
@@ -11177,7 +11357,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       persist();
       if (recordedPracticeRunning) {
         renderReferencePlaybackStatus(selectedReferenceId);
-        say(`Recorded chant · ${percent}% speed · ${chantPitchLabel()} · source performance.`);
+        say(`${sourcePracticeName()} · ${percent}% speed · ${chantPitchLabel()} · source timing.`);
       }
     } catch (error) {
       e.target.value = state.chantRate;
@@ -11331,7 +11511,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       unavailable = error.message;
     }
     for (const id of ["download", "prepare-musicxml", "prepare-midi"]) $(id).disabled = !!unavailable;
-    for (const id of ["play", "compact-play"]) $(id).disabled = state.practiceAudio === "recorded" ? !chantReady : !!unavailable;
+    for (const id of ["play", "compact-play"]) $(id).disabled = isSourcePractice() ? !chantReady : !!unavailable;
     $("musical-source-status").textContent = unavailable ?? model.profile.summary ?? (model.profile.id === BAER_SCORE.id ? "Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing." : model.profile.id === PRINTED_SCORE.id ? "Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda." : "Original demonstration · newly composed pitches; syllables unreviewed.");
     if (unavailable) {
       $("event-count").textContent = "No sourced notes for this span";
@@ -11634,8 +11814,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("scroll-layout-status").textContent = isTorahReading(passage2.ranges) ? scrollMessage : "Sourced scroll layout covers Torah only. Your scroll-layout preference is kept for Torah readings.";
     $("reading-type-label").textContent = `${READING_TYPES.find((type) => type.id === state.readingType).label} · practice reader`;
     $("scope").querySelector('option[value="verse"]').textContent = passage2.ranges.some((range) => range.divisionSource?.referenceMapping) ? "End of UXLC verse record" : "End of verse";
+    if (state.practiceAudio === "measured") {
+      $("music-badge").textContent = "Measured tone reference";
+      $("music-notice").textContent = "Sine-tone approximation of estimated PocketTorah frequencies, with original source word timings. Unassigned cells are muted, without identifying rests or silence. No reviewed note/syllable transcription, singing voice or complete traditional melody grammar. Pronunciation text is independent.";
+      $("score-description").textContent = "Separate instrument score only; measured tones do not assign source frequencies to these notes or syllables. " + $("score-description").textContent;
+    }
     $("practice-audio").value = state.practiceAudio;
-    $("chant-practice").hidden = state.practiceAudio !== "recorded";
+    $("chant-practice").hidden = !isSourcePractice();
     renderReader();
     renderSequence();
     renderChantPractice();
@@ -11748,13 +11933,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     for (const [index, range] of passage2.ranges.entries()) {
       const row = document.createElement("div");
       row.className = "section-row";
-      const check = document.createElement("input");
-      check.type = "checkbox";
-      check.checked = !range.hidden;
-      check.setAttribute("aria-label", `Show ${range.label || "section " + (index + 1)}`);
-      check.addEventListener("change", () => libraryAction(() => {
+      const check2 = document.createElement("input");
+      check2.type = "checkbox";
+      check2.checked = !range.hidden;
+      check2.setAttribute("aria-label", `Show ${range.label || "section " + (index + 1)}`);
+      check2.addEventListener("change", () => libraryAction(() => {
         try {
-          applyRanges(passage2.ranges.map((r) => r.id === range.id ? { ...r, hidden: !check.checked } : r), { remember: false });
+          applyRanges(passage2.ranges.map((r) => r.id === range.id ? { ...r, hidden: !check2.checked } : r), { remember: false });
         } finally {
           renderSections();
         }
@@ -11775,7 +11960,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         const i = words2.findIndex((w) => w.sectionId === range.id);
         if (i >= 0) selectWord(i);
       });
-      row.append(check, title, name, jump);
+      row.append(check2, title, name, jump);
       if (passage2.ranges.length > 1) {
         for (const [direction, text] of [[-1, "Move earlier"], [1, "Move later"]]) {
           const move = document.createElement("button");

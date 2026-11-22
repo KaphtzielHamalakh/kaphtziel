@@ -1,5 +1,5 @@
 // Source-timed recording practice; never a melody or pronunciation realization.
-export function practiceAudioMode(value){return value==='recorded'?'recorded':'instrument';}
+export function practiceAudioMode(value){return ['recorded','measured'].includes(value)?value:'instrument';}
 export function chantPracticePlan(library,words,start,end){
   if(!library)throw Error('The recorded-chant catalog is loading.');
   const rows=library.selection(words,start,end),records=library.recordsFor(rows);
