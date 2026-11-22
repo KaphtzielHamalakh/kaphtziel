@@ -38,6 +38,7 @@ import {RecordedPitchStore,pitchProcessingSupported} from './recorded-pitch-stor
 import {sourceTimedPracticePlan} from './measured-practice.js';
 import {SourceContourStore,contourSupported} from './source-contour-store.js';
 import {mountSourcePitch} from './source-pitch-ui.js';
+import {mountSyllableTiming} from './syllable-timing-ui.js';
 
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 let readerPronunciation=false;
@@ -76,7 +77,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null;
+let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -172,6 +173,7 @@ function setActive(wordId,eventId){
   renderPronunciationFollow();
 }
 function stop(message='Stopped. Your selection is kept.',{preservePattern=false,preserveVoiceStudy=false}={}){
+  syllableTimingTools?.cancelLoading();
   if(!$('chant-pitch-cancel').hidden)$('chant-pitch-status').textContent='Preparation stopped. Original recordings are unchanged.';
   $('measured-tone-window').textContent='';
   $('chant-pitch-cancel').hidden=true;recordedPracticeRunning=false;chantPlayRequest++;pronunciationTools?.showWord(words[state.cursor]);
@@ -687,7 +689,7 @@ function render(){
   }
   $('practice-audio').value=state.practiceAudio;
   $('chant-practice').hidden=!isSourcePractice();
-  renderReader();renderSequence();renderChantPractice();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();
+  renderReader();renderSequence();renderChantPractice();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -922,8 +924,25 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy({onChange:()=>{renderStaff();renderReaderPronunciation();}});
+pronunciationTools=mountPronunciationStudy({onChange:()=>{renderStaff();renderReaderPronunciation();syllableTimingTools?.refresh();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
+syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
+  position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,
+  hasSource:record=>referenceStore.has(record),loadSource:(record,signal)=>referenceStore.load(record,{signal}),stop:()=>stop(),
+  audition:async({word,draft,span})=>{
+    const previewRequest=++chantPlayRequest;
+    const index=words.findIndex(w=>w.id===word.id&&w.sourceHebrew===word.sourceHebrew);
+    if(index<0)throw Error('The selected reading changed; reopen this timing draft.');
+    const checked=sourceTimedPracticePlan(referenceLibrary,words,index,index),row=checked.rows[0];
+    if(row.recordingId!==draft.source.recordingId||row.id!==draft.word.id||!(span.start>=draft.word.startSeconds&&span.start<span.end&&span.end<=draft.word.endSeconds))throw Error('Draft interval differs from the unchanged source word.');
+    if(!await referenceStore.has(checked.records[0]))throw Error('Load the original recording before auditioning this interval.');
+    if(previewRequest!==chantPlayRequest||words[index]?.id!==word.id||words[index]?.sourceHebrew!==word.sourceHebrew)throw Error('Source preview was superseded by a stop or reading change.');
+    stop('Listening to a personal source-syllable draft. Source pronunciation and timing remain unchanged.');
+    referencePlayer.setRate(1);referencePlayer.setVolume(state.referenceVolume/100);
+    await referencePlayer.play([{...row,startSeconds:span.start,endSeconds:span.end}],false);
+    if(!referencePlayer.running)throw Error('The source interval could not start; review the recorded-reference status.');
+  }
+});
 $('reader-pronunciation').addEventListener('change',()=>{readerPronunciation=$('reader-pronunciation').checked;try{localStorage.setItem('tropetrain-reader-pronunciation-v1',JSON.stringify({enabled:readerPronunciation}));}catch{}renderReaderPronunciation();});
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
@@ -946,7 +965,7 @@ getReferenceLibrary().then(value=>{
   referenceLibrary=value;$('reference-portion').replaceChildren();
   for(const part of value.parts){const option=document.createElement('option');option.value=part.id;option.textContent=part.name;$('reference-portion').append(option);}
   $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${value.source.audit.timingReviewRecordings.length} complete-take only`;
-  $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();sourcePitchTools?.refresh();
+  $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();sourcePitchTools?.refresh();syllableTimingTools?.refresh();
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';

@@ -1,0 +1,32 @@
+{
+  "schema": "tropetrain-syllable-timing-draft-evidence-v1",
+  "revision": 1,
+  "status": "personal_annotation_workflow_no_reviewed_boundaries_imported",
+  "scope": "The selected Torah word’s individually owned Phonetic MAM source units can receive explicit personal start/end annotations within the unchanged PocketTorah word window. No syllable boundaries are estimated or promoted to reviewed evidence.",
+  "format": "tropetrain-syllable-timing-draft-v1",
+  "identity": ["Original audio SHA1 and byte count", "Independently measured PCM SHA256 and duration", "Measurement packet SHA256", "Canonical reader word and reading occurrence", "Exact marked reader Hebrew and original recording Hebrew", "Original source word start/end", "Pronunciation source commit", "Selected source text style and row/column", "Exact unit IDs, text, stress, original marks, written cluster ranges and shared-consonant underlay"],
+  "annotations": {
+    "start": "Null until explicitly entered or captured; unchanged source seconds",
+    "end": "Null until explicitly entered or captured; unchanged source seconds",
+    "basis": ["typed", "audio-clock", "muted-clock"],
+    "constraints": "Finite times within the independently checked original word window, with positive complete intervals and source order preserved even across blank units. No gaps, neighbors, phonemes or musical notes are inferred. Captured clock values are not rounded across a source boundary."
+  },
+  "independence": "Sephardic and Ashkenazic are source transcription styles, separate from Kinnor’s six historical Accent labels. Each style, source variant and reading occurrence has a separate draft. Changing text does not change the original recording’s pronunciation, musical source, instrument key, range or BPM. Preview uses the unchanged source at original pitch/speed, without changing main practice preferences.",
+  "sourceLimitations": "Combined words with no individual unit owner stay unsplit. Source-only reading forms retain null written ranges. Source word times and source-edition differences remain unreviewed. All sixteen Genesis 28:4 words outside measured Toldot 6 duration and the older eight unreliable timing takes are refused; no source boundary is clipped or shifted.",
+  "storage": "Personal localStorage drafts keyed by source audio identity, canonical word, occurrence, text style and source variant. Prepared JSON/download is cleared on edits, imports and context changes. Import validates against a freshly constructed source identity. No draft can certify its own phonemes, notes, source-edition comparison or independent review.",
+  "playback": "Explicit Play original word or Audition draft syllable uses the existing source player and source checksum checks. Reference/chant volume applies. Zero volume runs a muted clock with the media paused, and its captures remain labeled muted-clock. Instrumental and processed source practice cannot supply captures. Stop and the existing hidden-tab stop apply.",
+  "rights": {
+    "annotationSoftware": "Original project material, CC0",
+    "pronunciationTextUnderlay": "Phonetic MAM, CC BY-SA 4.0; existing attribution and source archive",
+    "audio": "Unchanged PocketTorah, Not-a-Box Media Lab, CC BY-SA 3.0",
+    "sourceWordTiming": "Existing PocketTorah source timing, CC BY-SA 2.5; no modification"
+  },
+  "requiredToReplaceDrafts": [
+    "A qualified reader must compare the exact source edition and actual recorded pronunciation with each selected source transcription variant.",
+    "A qualified annotator must identify audible syllable and phoneme boundaries in the matching original recording, with explicit uncertainty and independent review; clock captures alone do not prove them.",
+    "Reusable sung-phone recordings or a reviewed synthesis voice, complete source-based phonological specifications for each historical pronunciation, and contextual note/duration/F0 realization are still needed for independent sung styles."
+  ],
+  "phonemes": null,
+  "musicalNotes": null,
+  "independentReview": null
+}

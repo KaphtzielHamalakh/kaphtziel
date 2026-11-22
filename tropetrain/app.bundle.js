@@ -9474,6 +9474,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       linkNotes(events2, words3) {
         return library ? linkPronunciationToNotes(events2, words3, library, style) : null;
       },
+      timingStudy(value) {
+        return library ? { style, study: library.study(value, style) } : null;
+      },
       scoreStatus() {
         return { style, name: PRONUNCIATION_STYLES.find((s) => s.id === style).name, error };
       }
@@ -10579,6 +10582,349 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { refresh };
   }
 
+  // syllable-timing-draft.js
+  var measurements = new Map(pitchManifest.records.map((r) => [r.id, r]));
+  var editable = ["start", "end", "startBasis", "endBasis"];
+  var canonical2 = (value) => JSON.stringify((function sort(x) {
+    return Array.isArray(x) ? x.map(sort) : x && typeof x === "object" ? Object.fromEntries(Object.keys(x).sort().map((k) => [k, sort(x[k])])) : x;
+  })(value));
+  var fixedUnit = (unit) => Object.fromEntries(Object.entries(unit).filter(([key]) => !editable.includes(key)));
+  function sourceSyllableChoices(study, word, style) {
+    if (!PRONUNCIATION_STYLES.some((s) => s.id === style)) throw Error("Choose a supported source text style.");
+    const id = word.sourceWordId ?? word.id, index = study?.readerIds.indexOf(id);
+    if (!study?.hebrewUnderlay || index < 0 || study.readerHebrew[index] !== word.sourceHebrew || study.selectedStyle !== style) throw Error("Exact marked Hebrew and source underlay are required.");
+    const choices = [];
+    for (const row of study.rows) for (const cell of row.styles[style]) {
+      const units = cell.units.filter((u) => u.readerWordId === id);
+      if (!units.length) continue;
+      if (units.length > 128 || new Set(units.map((u) => u.id)).size !== units.length) throw Error("Source syllable identity needs review.");
+      choices.push({
+        id: `r${row.number}-c${cell.column}`,
+        row: row.number,
+        column: cell.column,
+        label: `Source row ${row.number}, column ${cell.column} · ${units.map((u) => u.text).join(" · ")}`,
+        units: units.map((u) => ({
+          sourceUnitId: u.id,
+          ownerWordId: u.readerWordId,
+          sourceText: u.text,
+          sourceStress: u.sourceStress,
+          sourceMarks: structuredClone(u.sourceMarks),
+          hebrewClusterRanges: structuredClone(u.hebrewClusterRanges),
+          hebrewUnderlay: structuredClone(u.hebrewUnderlay)
+        }))
+      });
+    }
+    return choices;
+  }
+  function createSyllableTimingDraft({ library, word, study, style, choiceId }) {
+    if (!library) throw Error("The recorded source catalog is still loading.");
+    const choice = sourceSyllableChoices(study, word, style).find((c) => c.id === choiceId);
+    if (!choice) throw Error("No individually owned source syllables in this variant; shared words stay unsplit.");
+    const plan2 = sourceTimedPracticePlan(library, [word], 0, 0), row = plan2.rows[0], record = plan2.records[0], measured = measurements.get(record.id);
+    return {
+      schema: "tropetrain-syllable-timing-draft-v1",
+      revision: 1,
+      status: "personal-unreviewed",
+      source: {
+        recordingId: record.id,
+        audioSha1: record.audio.sha1,
+        audioBytes: record.audio.bytes,
+        measuredPcmSha256: measured.pcmSha256,
+        measuredDurationSeconds: measured.durationSeconds,
+        measurementPacketSha256: measured.sha256
+      },
+      word: {
+        id: word.sourceWordId ?? word.id,
+        occurrenceId: word.id,
+        hebrew: word.sourceHebrew,
+        recordingHebrew: row.sourceHebrew,
+        sourceComparison: row.comparison,
+        startSeconds: row.startSeconds,
+        endSeconds: row.endSeconds ?? measured.durationSeconds
+      },
+      pronunciation: {
+        sourceCommit: study.sourceCommit,
+        style,
+        row: choice.row,
+        column: choice.column,
+        choiceId: choice.id,
+        sourceUnitMeaning: "Documented transcription units; not a claim about the recorded reader’s pronunciation."
+      },
+      sourceEditionCompared: false,
+      phonemes: null,
+      musicalNotes: null,
+      independentReview: null,
+      units: choice.units.map((u) => ({ ...u, start: null, end: null, startBasis: null, endBasis: null }))
+    };
+  }
+  function syllableTimingKey(draft) {
+    return "tropetrain-syllable-timing-v1:" + JSON.stringify([draft.source.audioSha1, draft.word.id, draft.word.occurrenceId, draft.pronunciation.style, draft.pronunciation.choiceId]);
+  }
+  function validateSyllableTimingDraft(value, expected) {
+    if (!value || typeof value !== "object" || Array.isArray(value)) throw Error("A syllable timing draft object is required.");
+    if (value.schema !== "tropetrain-syllable-timing-draft-v1" || value.revision !== 1 || value.status !== "personal-unreviewed" || value.sourceEditionCompared !== false || ["phonemes", "musicalNotes", "independentReview"].some((k) => value[k] !== null)) throw Error("Only personal unreviewed syllable drafts are supported.");
+    const fixed = (x) => ({ ...x, units: void 0 });
+    if (canonical2(fixed(value)) !== canonical2(fixed(expected))) throw Error("Draft source, marked Hebrew, occurrence, style, variant or review status differs.");
+    if (!Array.isArray(value.units) || value.units.length !== expected.units.length) throw Error("Draft source syllable count differs.");
+    const clean = structuredClone(expected);
+    let boundary = expected.word.startSeconds;
+    for (const [index, unit] of value.units.entries()) {
+      if (!unit || canonical2(fixedUnit(unit)) !== canonical2(fixedUnit(expected.units[index]))) throw Error("Draft source syllables, written ranges, stress or shared consonants differ.");
+      for (const key of ["start", "end"]) {
+        const time = unit[key], basis = unit[key + "Basis"];
+        if (time === null) {
+          if (basis !== null) throw Error("A blank boundary must have no capture basis.");
+        } else {
+          if (!Number.isFinite(time) || time < expected.word.startSeconds || time > expected.word.endSeconds) throw Error("Syllable boundaries must be source seconds inside this unchanged word window.");
+          if (!["typed", "audio-clock", "muted-clock"].includes(basis)) throw Error("Each boundary must retain its annotation basis.");
+          if (time < boundary) throw Error("Syllable boundaries must follow source order without overlaps, including across blank units.");
+          boundary = time;
+        }
+        clean.units[index][key] = time;
+        clean.units[index][key + "Basis"] = basis;
+      }
+      if (unit.start !== null && unit.end !== null && unit.start >= unit.end) throw Error("A syllable end must follow its start.");
+    }
+    return clean;
+  }
+  function setSyllableBoundary(draft, index, key, value, basis = "typed") {
+    if (!Number.isInteger(index) || index < 0 || index >= draft.units.length || !["start", "end"].includes(key)) throw Error("Choose a source syllable boundary.");
+    const next = structuredClone(draft);
+    next.units[index][key] = value;
+    next.units[index][key + "Basis"] = value === null ? null : basis;
+    return validateSyllableTimingDraft(next, draft);
+  }
+  function captureSyllableBoundary(draft, index, key, position) {
+    if (!position || position.recordingId !== draft.source.recordingId || !["audio", "muted"].includes(position.mode)) throw Error("Play the unchanged source recording before capturing its playhead. Instrumental tones and processed recordings cannot supply this boundary.");
+    return setSyllableBoundary(draft, index, key, position.seconds, position.mode === "muted" ? "muted-clock" : "audio-clock");
+  }
+  function parseSyllableTimingDraft(text, expected) {
+    if (typeof text !== "string" || text.length > 1e6) throw Error("Draft JSON must be smaller than 1 MB.");
+    return validateSyllableTimingDraft(JSON.parse(text), expected);
+  }
+  function draftSyllableSpan(draft, index) {
+    const unit = draft.units[index];
+    if (!unit || unit.start === null || unit.end === null) throw Error("Enter both source boundaries before auditioning a draft syllable.");
+    return { start: unit.start, end: unit.end };
+  }
+
+  // syllable-timing-ui.js
+  function mountSyllableTiming({ getWord, getPronunciation, getReferences, position, hasSource, loadSource, audition, stop: stop2 }) {
+    const $2 = (id) => document.getElementById(id), panel = $2("syllable-timing-review");
+    let contextKey = null, generation = 0, draft = null, expected = null, choices = [], word = null, study = null, style = null, record = null, selected = 0, available = false, loadJob = null;
+    const message = (text) => {
+      $2("syllable-timing-status").textContent = text;
+    };
+    const clearExport = () => {
+      $2("syllable-timing-json").value = "";
+      $2("syllable-timing-download").hidden = true;
+      $2("syllable-timing-download").removeAttribute("href");
+    };
+    function save() {
+      clearExport();
+      try {
+        localStorage.setItem(syllableTimingKey(draft), JSON.stringify(draft));
+        message("Personal syllable draft saved on this device. No source times, phonemes or musical notes were changed.");
+      } catch {
+        message("Device storage unavailable. Prepare and copy the draft JSON to retain your annotations.");
+      }
+    }
+    function draw() {
+      $2("syllable-timing-editor").hidden = !draft;
+      for (const id of ["load", "whole", "audition", "capture-start", "capture-end", "prepare", "import"]) $2(`syllable-timing-${id}`).disabled = !draft || ["whole", "audition"].includes(id) && !available || id === "load" && (available || !!loadJob);
+      $2("syllable-timing-cancel").hidden = !loadJob;
+      if (!draft) return;
+      const unit = draft.units[selected];
+      $2("syllable-timing-unit").value = String(selected);
+      $2("syllable-timing-text").textContent = unit.sourceText;
+      $2("syllable-timing-hebrew").textContent = unit.hebrewClusterRanges ? unit.hebrewClusterRanges.filter((r) => r.role === "written").map((r) => r.text).join(" ") : "No exact written range; source text only.";
+      $2("syllable-timing-unit-note").textContent = [unit.sourceStress ? "Source primary stress." : "", unit.hebrewUnderlay?.variants.some((v) => v.sharesNextConsonant || v.sharesPreviousConsonant) ? "Shared consonant retained; no phoneme split or timing inferred." : ""].filter(Boolean).join(" ");
+      for (const k of ["start", "end"]) {
+        const el3 = $2(`syllable-timing-${k}`);
+        el3.value = unit[k] ?? "";
+        el3.min = draft.word.startSeconds;
+        el3.max = draft.word.endSeconds;
+      }
+      $2("syllable-timing-count").textContent = `${draft.units.filter((u) => u.start !== null && u.end !== null).length} / ${draft.units.length} source units have two personal boundaries. All other boundaries remain blank.`;
+      $2("syllable-timing-audition").disabled = !available || unit.start === null || unit.end === null;
+      $2("syllable-timing-load").textContent = available ? "Original recording available" : `Load original recording · ${(record.audio.bytes / 1048576).toFixed(1)} MB`;
+    }
+    function choose(id) {
+      expected = createSyllableTimingDraft({ library: getReferences(), word, study, style, choiceId: id });
+      draft = expected;
+      record = getReferences().byId.get(draft.source.recordingId);
+      selected = 0;
+      clearExport();
+      let saved;
+      try {
+        saved = localStorage.getItem(syllableTimingKey(expected));
+      } catch {
+      }
+      if (saved) {
+        try {
+          draft = parseSyllableTimingDraft(saved, expected);
+          message("Personal syllable draft restored. Text style and source variant keep separate annotations; linguistic and musical review remain pending.");
+        } catch (error) {
+          message("Saved draft withheld: " + error.message);
+        }
+      } else message("No syllable times assigned. Listen to the original chant and enter or capture your own boundaries.");
+      $2("syllable-timing-unit").replaceChildren();
+      draft.units.forEach((unit, i) => {
+        const option = document.createElement("option");
+        option.value = i;
+        option.textContent = `${i + 1} · ${unit.sourceText}${unit.sourceStress ? " · source stress" : ""}`;
+        $2("syllable-timing-unit").append(option);
+      });
+      draw();
+    }
+    async function refresh() {
+      const w = getWord(), p = getPronunciation(w), refs = getReferences(), next = JSON.stringify([w?.id, w?.sourceHebrew, p?.style, !!p?.study, !!refs, panel.open]);
+      if (next === contextKey) return;
+      contextKey = next;
+      const current = ++generation;
+      loadJob?.abort();
+      loadJob = null;
+      draft = expected = record = null;
+      available = false;
+      clearExport();
+      draw();
+      $2("syllable-timing-word").textContent = w?.sourceHebrew ?? "";
+      $2("syllable-timing-window").textContent = "";
+      $2("syllable-timing-variant").replaceChildren();
+      if (!panel.open) {
+        message("Open this panel to annotate the selected word in the original chant.");
+        return;
+      }
+      try {
+        if (!p?.study) throw Error("Source pronunciation correspondence is still loading or unavailable for this selected word.");
+        word = w;
+        study = p.study;
+        style = p.style;
+        choices = sourceSyllableChoices(study, word, style);
+        if (!choices.length) throw Error("No individually owned source syllables; combined source words remain unsplit.");
+        for (const choice of choices) {
+          const option = document.createElement("option");
+          option.value = choice.id;
+          option.textContent = choice.label;
+          $2("syllable-timing-variant").append(option);
+        }
+        choose(choices[0].id);
+        record = refs.byId.get(draft.source.recordingId);
+        $2("syllable-timing-window").textContent = `${word.reference} · canonical ${draft.word.id} · occurrence ${draft.word.occurrenceId}. ${draft.word.startSeconds.toFixed(6)}–${draft.word.endSeconds.toFixed(6)} source seconds in ${record.title}. Recording Hebrew: ${draft.word.recordingHebrew} (${draft.word.sourceComparison}). Selected style labels source text only; the recorded pronunciation stays unchanged.`;
+        const ready = await hasSource(record);
+        if (current !== generation) return;
+        available = ready;
+        draw();
+      } catch (error) {
+        if (current === generation) {
+          draft = expected = null;
+          draw();
+          message(error.message);
+        }
+      }
+    }
+    panel.addEventListener("toggle", refresh);
+    $2("syllable-timing-variant").addEventListener("change", () => {
+      try {
+        choose($2("syllable-timing-variant").value);
+      } catch (error) {
+        message(error.message);
+      }
+    });
+    $2("syllable-timing-unit").addEventListener("change", () => {
+      selected = Number($2("syllable-timing-unit").value);
+      draw();
+    });
+    for (const key of ["start", "end"]) {
+      $2(`syllable-timing-${key}`).addEventListener("change", () => {
+        try {
+          const value = $2(`syllable-timing-${key}`).value;
+          draft = setSyllableBoundary(draft, selected, key, value === "" ? null : Number(value));
+          save();
+        } catch (error) {
+          message(error.message);
+        }
+        draw();
+      });
+      $2(`syllable-timing-capture-${key}`).addEventListener("click", () => {
+        try {
+          draft = captureSyllableBoundary(draft, selected, key, position());
+          save();
+          if (draft.units[selected][key + "Basis"] === "muted-clock") message("Muted-clock annotation saved; it is not evidence of a sung syllable boundary.");
+        } catch (error) {
+          message(error.message);
+        }
+        draw();
+      });
+    }
+    $2("syllable-timing-clear").addEventListener("click", () => {
+      for (const key of ["start", "end"]) draft = setSyllableBoundary(draft, selected, key, null);
+      save();
+      draw();
+    });
+    $2("syllable-timing-load").addEventListener("click", async () => {
+      if (loadJob || !record) return;
+      const source = record, job = new AbortController(), current = generation;
+      loadJob = job;
+      draw();
+      message("Loading and checking the unchanged original recording…");
+      try {
+        await loadSource(source, job.signal);
+        if (current === generation && !job.signal.aborted) {
+          available = true;
+          message("Original source loaded and checksum checked. Press Play original word when ready.");
+        }
+      } catch (error) {
+        if (current === generation) message(job.signal.aborted ? "Source loading cancelled." : error.message);
+      } finally {
+        if (loadJob === job) {
+          loadJob = null;
+          draw();
+        }
+      }
+    });
+    $2("syllable-timing-cancel").addEventListener("click", () => loadJob?.abort());
+    async function play2(span) {
+      const current = generation;
+      try {
+        await audition({ word, draft, span });
+        if (current === generation) message("Auditioning your interval in the unchanged original chant at original pitch and speed. Use reference/chant volume to listen; zero volume uses a muted clock.");
+      } catch (error) {
+        if (current === generation) message(error.message);
+      }
+    }
+    $2("syllable-timing-whole").addEventListener("click", () => play2({ start: draft.word.startSeconds, end: draft.word.endSeconds }));
+    $2("syllable-timing-audition").addEventListener("click", () => {
+      try {
+        play2(draftSyllableSpan(draft, selected));
+      } catch (error) {
+        message(error.message);
+      }
+    });
+    $2("syllable-timing-stop").addEventListener("click", () => stop2());
+    $2("syllable-timing-prepare").addEventListener("click", () => {
+      const text = JSON.stringify(draft, null, 2) + "\n";
+      $2("syllable-timing-json").value = text;
+      const a = $2("syllable-timing-download");
+      a.href = "data:application/json;charset=utf-8," + encodeURIComponent(text);
+      a.download = `${draft.word.id}-${style}-${draft.pronunciation.choiceId}-syllable-draft.json`;
+      a.hidden = false;
+      message("Unreviewed draft JSON prepared. Source units, shared consonants and marked Hebrew are retained; no phonemes or musical notes are assigned.");
+    });
+    $2("syllable-timing-import").addEventListener("click", () => {
+      try {
+        draft = parseSyllableTimingDraft($2("syllable-timing-json").value, expected);
+        save();
+        draw();
+      } catch (error) {
+        message("Draft not imported: " + error.message);
+      }
+    });
+    return { refresh, cancelLoading() {
+      loadJob?.abort();
+    } };
+  }
+
   // app.js
   var $ = (id) => document.getElementById(id);
   var VERSE_PAGE = 8;
@@ -10675,6 +11021,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var voiceStudyTools = null;
   var pronunciationTools = null;
   var sourcePitchTools = null;
+  var syllableTimingTools = null;
   var scorePronunciation = true;
   var scorePronunciationReport = null;
   var scoreGroupReport = null;
@@ -10883,6 +11230,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderPronunciationFollow();
   }
   function stop(message = "Stopped. Your selection is kept.", { preservePattern = false, preserveVoiceStudy = false } = {}) {
+    syllableTimingTools?.cancelLoading();
     if (!$("chant-pitch-cancel").hidden) $("chant-pitch-status").textContent = "Preparation stopped. Original recordings are unchanged.";
     $("measured-tone-window").textContent = "";
     $("chant-pitch-cancel").hidden = true;
@@ -11916,6 +12264,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     combinationTools?.readingChanged();
     patternTools?.refresh();
     sourcePitchTools?.refresh();
+    syllableTimingTools?.refresh();
   }
   function rememberReading() {
     const key = (ranges) => JSON.stringify(ranges.map((r) => ({ bookId: r.bookId, start: r.start, end: r.end, hidden: r.hidden })));
@@ -12461,8 +12810,32 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   pronunciationTools = mountPronunciationStudy({ onChange: () => {
     renderStaff();
     renderReaderPronunciation();
+    syllableTimingTools?.refresh();
   } });
   sourcePitchTools = mountSourcePitch({ getWord: () => words2[state.cursor], getReferences: () => referenceLibrary });
+  syllableTimingTools = mountSyllableTiming({
+    getWord: () => words2[state.cursor],
+    getPronunciation: (word) => pronunciationTools.timingStudy(word),
+    getReferences: () => referenceLibrary,
+    position: () => referencePlayer.running && !recordedPracticeRunning ? { recordingId: referencePlayer.currentSegment.recordingId, seconds: referencePlayer.now(), mode: referencePlayer.mode } : null,
+    hasSource: (record) => referenceStore.has(record),
+    loadSource: (record, signal) => referenceStore.load(record, { signal }),
+    stop: () => stop(),
+    audition: async ({ word, draft, span }) => {
+      const previewRequest = ++chantPlayRequest;
+      const index = words2.findIndex((w) => w.id === word.id && w.sourceHebrew === word.sourceHebrew);
+      if (index < 0) throw Error("The selected reading changed; reopen this timing draft.");
+      const checked2 = sourceTimedPracticePlan(referenceLibrary, words2, index, index), row = checked2.rows[0];
+      if (row.recordingId !== draft.source.recordingId || row.id !== draft.word.id || !(span.start >= draft.word.startSeconds && span.start < span.end && span.end <= draft.word.endSeconds)) throw Error("Draft interval differs from the unchanged source word.");
+      if (!await referenceStore.has(checked2.records[0])) throw Error("Load the original recording before auditioning this interval.");
+      if (previewRequest !== chantPlayRequest || words2[index]?.id !== word.id || words2[index]?.sourceHebrew !== word.sourceHebrew) throw Error("Source preview was superseded by a stop or reading change.");
+      stop("Listening to a personal source-syllable draft. Source pronunciation and timing remain unchanged.");
+      referencePlayer.setRate(1);
+      referencePlayer.setVolume(state.referenceVolume / 100);
+      await referencePlayer.play([{ ...row, startSeconds: span.start, endSeconds: span.end }], false);
+      if (!referencePlayer.running) throw Error("The source interval could not start; review the recorded-reference status.");
+    }
+  });
   $("reader-pronunciation").addEventListener("change", () => {
     readerPronunciation = $("reader-pronunciation").checked;
     try {
@@ -12532,6 +12905,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderChantCoverage();
     renderChantPractice();
     sourcePitchTools?.refresh();
+    syllableTimingTools?.refresh();
   }).catch((error) => {
     $("reference-library-status").textContent = error.message;
   });
