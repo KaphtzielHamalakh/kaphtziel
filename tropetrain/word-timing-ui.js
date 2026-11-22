@@ -1,11 +1,13 @@
 import {getCorpus} from './library.js';
 import {createWordTimingDraft,parseWordTimingDraft,setWordBoundary,draftWordSpan} from './word-timing-draft.js';
 import {wordSupportAvailable,loadWordSupport,wordSupportContext,validateWordSupport} from './word-support.js';
+import {mountPhoneticWordReview} from './phonetic-word-ui.js';
 
 export function mountWordTimingDraft({position,onAudition}){
   const $=id=>document.getElementById(id),panel=$('word-timing-review');
   let generation=0,draft=null,record=null,selected=0,available=false,retainedWordId=null,support=null;
   const supportCache=new Map();
+  const phonetic=mountPhoneticWordReview();
   const key=()=>`tropetrain-word-timing-draft-v1:${record.audio.sha256}`;
   const message=text=>{$('word-timing-status').textContent=text;};
   function save(){
@@ -13,6 +15,7 @@ export function mountWordTimingDraft({position,onAudition}){
     catch{message('Device storage unavailable. Copy the draft JSON to retain these annotations.');}
   }
   function draw(){
+    phonetic.select(record,draft,selected);
     const word=draft?.words[selected];$('word-timing-editor').hidden=!word;
     $('word-support-panel').hidden=!word||!wordSupportAvailable(record);
     if(!word)return;
