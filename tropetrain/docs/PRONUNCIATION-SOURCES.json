@@ -121,5 +121,14 @@
   "underlayRecord": "docs/PRONUNCIATION-UNDERLAY.json",
   "underlayAlignmentRecord": "docs/PRONUNCIATION-UNDERLAY-ALIGNMENT.json",
   "computationSourceArchive": "assets/pronunciation/phonetic-mam-computation-sources.zip",
-  "writtenReadVariantRecord": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json"
+  "writtenReadVariantRecord": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json",
+  "primaryEditionCorrespondence": {
+    "record": "docs/PRONUNCIATION-EDITION-WORDS.json",
+    "archive": "assets/pronunciation/mam-simple-torah-sources.zip",
+    "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "files": 6,
+    "license": "CC-BY-SA-4.0",
+    "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla.",
+    "method": "Unmodified native MAM Torah JSON and original license, independently Git-blob/hash checked. Explicit primary Scripture roles, exact complete-verse comparison letters and both unchanged source/reader anchors. Different spellings stay source-only; no equivalence inferred."
+  }
 }

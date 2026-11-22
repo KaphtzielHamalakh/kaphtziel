@@ -1,0 +1,5038 @@
+{
+  "schema": "tropetrain-pronunciation-edition-words-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "license": "CC-BY-SA-4.0",
+  "archive": "assets/pronunciation/mam-simple-torah-sources.zip",
+  "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4",
+  "baseGroups": 68384,
+  "baseGroupsSha256": "779e9ce9376665b3cf04d553d5d51de4c6db37da9d4188ac63dd13339e8ba862",
+  "addedGroups": 119,
+  "addedWords": 141,
+  "entries": [
+    {
+      "groupId": "pmam-gen-8-20-8",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-8-20-8"
+      ],
+      "readerHebrew": [
+        "הַטְּהוֹרָ֗ה"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-8-20-8",
+          "readerHebrew": "הַטְּהוֹרָ֗ה",
+          "primaryHebrew": "הַטְּהֹרָ֗ה",
+          "primaryAtom": 8,
+          "primaryVerse": "Gen.8.20",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-8-20-7",
+        "afterGroup": "pmam-gen-8-20-9",
+        "beforeReaderEnd": "gen-8-20-7",
+        "afterReaderStart": "gen-8-20-9"
+      },
+      "primaryVerseText": "וַיִּ֥בֶן נֹ֛חַ מִזְבֵּ֖חַ לַֽיהֹוָ֑ה וַיִּקַּ֞ח מִכֹּ֣ל׀ הַבְּהֵמָ֣ה הַטְּהֹרָ֗ה וּמִכֹּל֙ הָע֣וֹף הַטָּה֔וֹר וַיַּ֥עַל עֹלֹ֖ת בַּמִּזְבֵּֽחַ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-8-20-11",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-8-20-11"
+      ],
+      "readerHebrew": [
+        "הַטָּהֹ֔ר"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-8-20-11",
+          "readerHebrew": "הַטָּהֹ֔ר",
+          "primaryHebrew": "הַטָּה֔וֹר",
+          "primaryAtom": 11,
+          "primaryVerse": "Gen.8.20",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-8-20-10",
+        "afterGroup": "pmam-gen-8-20-12",
+        "beforeReaderEnd": "gen-8-20-10",
+        "afterReaderStart": "gen-8-20-12"
+      },
+      "primaryVerseText": "וַיִּ֥בֶן נֹ֛חַ מִזְבֵּ֖חַ לַֽיהֹוָ֑ה וַיִּקַּ֞ח מִכֹּ֣ל׀ הַבְּהֵמָ֣ה הַטְּהֹרָ֗ה וּמִכֹּל֙ הָע֣וֹף הַטָּה֔וֹר וַיַּ֥עַל עֹלֹ֖ת בַּמִּזְבֵּֽחַ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-13-8-8",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-13-8-10"
+      ],
+      "readerHebrew": [
+        "וּבֵינֶ֔יךָ"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-13-8-10",
+          "readerHebrew": "וּבֵינֶ֔יךָ",
+          "primaryHebrew": "וּבֵינֶ֔ךָ",
+          "primaryAtom": 10,
+          "primaryVerse": "Gen.13.8",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-13-8-7",
+        "afterGroup": "pmam-gen-13-8-9",
+        "beforeReaderEnd": "gen-13-8-9",
+        "afterReaderStart": "gen-13-8-11"
+      },
+      "primaryVerseText": "וַיֹּ֨אמֶר אַבְרָ֜ם אֶל־ל֗וֹט אַל־נָ֨א תְהִ֤י מְרִיבָה֙ בֵּינִ֣י וּבֵינֶ֔ךָ וּבֵ֥ין רֹעַ֖י וּבֵ֣ין רֹעֶ֑יךָ כִּֽי־אֲנָשִׁ֥ים אַחִ֖ים אֲנָֽחְנוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-14-2-14",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-14-2-17"
+      ],
+      "readerHebrew": [
+        "צְבוֹיִ֔ים"
+      ],
+      "sourceRows": [
+        14
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-14-2-17",
+          "readerHebrew": "צְבוֹיִ֔ים",
+          "primaryHebrew": "צְבוֹיִ֔ם",
+          "primaryAtom": 16,
+          "primaryVerse": "Gen.14.2",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-14-2-13",
+        "afterGroup": "pmam-gen-14-2-15",
+        "beforeReaderEnd": "gen-14-2-15",
+        "afterReaderStart": "gen-14-2-18"
+      },
+      "primaryVerseText": "עָשׂ֣וּ מִלְחָמָ֗ה אֶת־בֶּ֙רַע֙ מֶ֣לֶךְ סְדֹ֔ם וְאֶת־בִּרְשַׁ֖ע מֶ֣לֶךְ עֲמֹרָ֑ה שִׁנְאָ֣ב׀ מֶ֣לֶךְ אַדְמָ֗ה וְשֶׁמְאֵ֙בֶר֙ מֶ֣לֶךְ צְבוֹיִ֔ם וּמֶ֥לֶךְ בֶּ֖לַע הִיא־צֹֽעַר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-14-22-5",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-14-22-6"
+      ],
+      "readerHebrew": [
+        "הֲרִימֹ֨תִי"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-14-22-6",
+          "readerHebrew": "הֲרִימֹ֨תִי",
+          "primaryHebrew": "הֲרִמֹ֨תִי",
+          "primaryAtom": 6,
+          "primaryVerse": "Gen.14.22",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-14-22-4",
+        "afterGroup": "pmam-gen-14-22-6",
+        "beforeReaderEnd": "gen-14-22-5",
+        "afterReaderStart": "gen-14-22-7"
+      },
+      "primaryVerseText": "וַיֹּ֥אמֶר אַבְרָ֖ם אֶל־מֶ֣לֶךְ סְדֹ֑ם הֲרִמֹ֨תִי יָדִ֤י אֶל־יְהֹוָה֙ אֵ֣ל עֶלְי֔וֹן קֹנֵ֖ה שָׁמַ֥יִם וָאָֽרֶץ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-19-16-2",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-19-16-2"
+      ],
+      "readerHebrew": [
+        "וַיַּחֲזִ֨קוּ"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-19-16-2",
+          "readerHebrew": "וַיַּחֲזִ֨קוּ",
+          "primaryHebrew": "וַיַּחֲזִ֨יקוּ",
+          "primaryAtom": 2,
+          "primaryVerse": "Gen.19.16",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-19-16-1",
+        "afterGroup": "pmam-gen-19-16-3",
+        "beforeReaderEnd": "gen-19-16-1",
+        "afterReaderStart": "gen-19-16-3"
+      },
+      "primaryVerseText": "וַֽיִּתְמַהְמָ֓הּ׀ וַיַּחֲזִ֨יקוּ הָאֲנָשִׁ֜ים בְּיָד֣וֹ וּבְיַד־אִשְׁתּ֗וֹ וּבְיַד֙ שְׁתֵּ֣י בְנֹתָ֔יו בְּחֶמְלַ֥ת יְהֹוָ֖ה עָלָ֑יו וַיֹּצִאֻ֥הוּ וַיַּנִּחֻ֖הוּ מִח֥וּץ לָעִֽיר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-25-3-9",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-25-3-11"
+      ],
+      "readerHebrew": [
+        "וּלְטוּשִׁ֖ים"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-25-3-11",
+          "readerHebrew": "וּלְטוּשִׁ֖ים",
+          "primaryHebrew": "וּלְטוּשִׁ֖ם",
+          "primaryAtom": 11,
+          "primaryVerse": "Gen.25.3",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-25-3-8",
+        "afterGroup": "pmam-gen-25-3-10",
+        "beforeReaderEnd": "gen-25-3-10",
+        "afterReaderStart": "gen-25-3-12"
+      },
+      "primaryVerseText": "וְיׇקְשָׁ֣ן יָלַ֔ד אֶת־שְׁבָ֖א וְאֶת־דְּדָ֑ן וּבְנֵ֣י דְדָ֔ן הָי֛וּ אַשּׁוּרִ֥ם וּלְטוּשִׁ֖ם וּלְאֻמִּֽים׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-27-31-13",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-27-31-14"
+      ],
+      "readerHebrew": [
+        "בַּעֲב֖וּר"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-27-31-14",
+          "readerHebrew": "בַּעֲב֖וּר",
+          "primaryHebrew": "בַּעֲבֻ֖ר",
+          "primaryAtom": 14,
+          "primaryVerse": "Gen.27.31",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-27-31-12",
+        "afterGroup": "pmam-gen-27-31-14",
+        "beforeReaderEnd": "gen-27-31-13",
+        "afterReaderStart": "gen-27-31-15"
+      },
+      "primaryVerseText": "וַיַּ֤עַשׂ גַּם־הוּא֙ מַטְעַמִּ֔ים וַיָּבֵ֖א לְאָבִ֑יו וַיֹּ֣אמֶר לְאָבִ֗יו יָקֻ֤ם אָבִי֙ וְיֹאכַל֙ מִצֵּ֣יד בְּנ֔וֹ בַּעֲבֻ֖ר תְּבָרְכַ֥נִּי נַפְשֶֽׁךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-35-5-7",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-35-5-8"
+      ],
+      "readerHebrew": [
+        "סְבִיבֹ֣תֵיהֶ֔ם"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-35-5-8",
+          "readerHebrew": "סְבִיבֹ֣תֵיהֶ֔ם",
+          "primaryHebrew": "סְבִיב֣וֹתֵיהֶ֔ם",
+          "primaryAtom": 8,
+          "primaryVerse": "Gen.35.5",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-35-5-6",
+        "afterGroup": "pmam-gen-35-5-8",
+        "beforeReaderEnd": "gen-35-5-7",
+        "afterReaderStart": "gen-35-5-9"
+      },
+      "primaryVerseText": "וַיִּסָּ֑עוּ וַיְהִ֣י׀ חִתַּ֣ת אֱלֹהִ֗ים עַל־הֶֽעָרִים֙ אֲשֶׁר֙ סְבִיב֣וֹתֵיהֶ֔ם וְלֹ֣א רָֽדְפ֔וּ אַחֲרֵ֖י בְּנֵ֥י יַעֲקֹֽב׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-35-23-10",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-35-23-10"
+      ],
+      "readerHebrew": [
+        "וּזְבוּלֻֽן׃"
+      ],
+      "sourceRows": [
+        10
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-35-23-10",
+          "readerHebrew": "וּזְבוּלֻֽן׃",
+          "primaryHebrew": "וּזְבֻלֽוּן׃",
+          "primaryAtom": 10,
+          "primaryVerse": "Gen.35.23",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-35-23-9",
+        "afterGroup": "pmam-gen-35-24-1",
+        "beforeReaderEnd": "gen-35-23-9",
+        "afterReaderStart": "gen-35-24-1"
+      },
+      "primaryVerseText": "בְּנֵ֣י לֵאָ֔ה בְּכ֥וֹר יַעֲקֹ֖ב רְאוּבֵ֑ן וְשִׁמְעוֹן֙ וְלֵוִ֣י וִֽיהוּדָ֔ה וְיִשָּׂשכָ֖ר וּזְבֻלֽוּן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-41-35-4",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-41-35-6"
+      ],
+      "readerHebrew": [
+        "הַטֹּבֹ֔ת"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-41-35-6",
+          "readerHebrew": "הַטֹּבֹ֔ת",
+          "primaryHebrew": "הַטֹּב֔וֹת",
+          "primaryAtom": 6,
+          "primaryVerse": "Gen.41.35",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-41-35-3",
+        "afterGroup": "pmam-gen-41-35-5",
+        "beforeReaderEnd": "gen-41-35-5",
+        "afterReaderStart": "gen-41-35-7"
+      },
+      "primaryVerseText": "וְיִקְבְּצ֗וּ אֶת־כׇּל־אֹ֙כֶל֙ הַשָּׁנִ֣ים הַטֹּב֔וֹת הַבָּאֹ֖ת הָאֵ֑לֶּה וְיִצְבְּרוּ־בָ֞ר תַּ֧חַת יַד־פַּרְעֹ֛ה אֹ֥כֶל בֶּעָרִ֖ים וְשָׁמָֽרוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-45-15-4",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-45-15-5"
+      ],
+      "readerHebrew": [
+        "עֲלֵיהֶ֑ם"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-45-15-5",
+          "readerHebrew": "עֲלֵיהֶ֑ם",
+          "primaryHebrew": "עֲלֵהֶ֑ם",
+          "primaryAtom": 5,
+          "primaryVerse": "Gen.45.15",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-45-15-3",
+        "afterGroup": "pmam-gen-45-15-5",
+        "beforeReaderEnd": "gen-45-15-4",
+        "afterReaderStart": "gen-45-15-6"
+      },
+      "primaryVerseText": "וַיְנַשֵּׁ֥ק לְכׇל־אֶחָ֖יו וַיֵּ֣בְךְּ עֲלֵהֶ֑ם וְאַ֣חֲרֵי כֵ֔ן דִּבְּר֥וּ אֶחָ֖יו אִתּֽוֹ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-46-9-5",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-46-9-5"
+      ],
+      "readerHebrew": [
+        "וְחֶצְר֥וֹן"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-46-9-5",
+          "readerHebrew": "וְחֶצְר֥וֹן",
+          "primaryHebrew": "וְחֶצְרֹ֥ן",
+          "primaryAtom": 5,
+          "primaryVerse": "Gen.46.9",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-46-9-4",
+        "afterGroup": "pmam-gen-46-9-6",
+        "beforeReaderEnd": "gen-46-9-4",
+        "afterReaderStart": "gen-46-9-6"
+      },
+      "primaryVerseText": "וּבְנֵ֖י רְאוּבֵ֑ן חֲנ֥וֹךְ וּפַלּ֖וּא וְחֶצְרֹ֥ן וְכַרְמִֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-46-12-15",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-46-12-16"
+      ],
+      "readerHebrew": [
+        "חֶצְר֥וֹן"
+      ],
+      "sourceRows": [
+        15
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-46-12-16",
+          "readerHebrew": "חֶצְר֥וֹן",
+          "primaryHebrew": "חֶצְרֹ֥ן",
+          "primaryAtom": 16,
+          "primaryVerse": "Gen.46.12",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-46-12-14",
+        "afterGroup": "pmam-gen-46-12-16",
+        "beforeReaderEnd": "gen-46-12-15",
+        "afterReaderStart": "gen-46-12-17"
+      },
+      "primaryVerseText": "וּבְנֵ֣י יְהוּדָ֗ה עֵ֧ר וְאוֹנָ֛ן וְשֵׁלָ֖ה וָפֶ֣רֶץ וָזָ֑רַח וַיָּ֨מׇת עֵ֤ר וְאוֹנָן֙ בְּאֶ֣רֶץ כְּנַ֔עַן וַיִּהְי֥וּ בְנֵי־פֶ֖רֶץ חֶצְרֹ֥ן וְחָמֽוּל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-46-13-6",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-46-13-6"
+      ],
+      "readerHebrew": [
+        "וְשִׁמְרֽוֹן׃"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-46-13-6",
+          "readerHebrew": "וְשִׁמְרֽוֹן׃",
+          "primaryHebrew": "וְשִׁמְרֹֽן׃",
+          "primaryAtom": 6,
+          "primaryVerse": "Gen.46.13",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-46-13-5",
+        "afterGroup": "pmam-gen-46-14-1",
+        "beforeReaderEnd": "gen-46-13-5",
+        "afterReaderStart": "gen-46-14-1"
+      },
+      "primaryVerseText": "וּבְנֵ֖י יִשָּׂשכָ֑ר תּוֹלָ֥ע וּפֻוָ֖ה וְי֥וֹב וְשִׁמְרֹֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-46-14-2",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-46-14-2"
+      ],
+      "readerHebrew": [
+        "זְבוּלֻ֑ן"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-46-14-2",
+          "readerHebrew": "זְבוּלֻ֑ן",
+          "primaryHebrew": "זְבֻל֑וּן",
+          "primaryAtom": 2,
+          "primaryVerse": "Gen.46.14",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-46-14-1",
+        "afterGroup": "pmam-gen-46-14-3",
+        "beforeReaderEnd": "gen-46-14-1",
+        "afterReaderStart": "gen-46-14-3"
+      },
+      "primaryVerseText": "וּבְנֵ֖י זְבֻל֑וּן סֶ֥רֶד וְאֵל֖וֹן וְיַחְלְאֵֽל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-gen-49-13-8",
+      "bookId": "gen",
+      "readerIds": [
+        "gen-49-13-7"
+      ],
+      "readerHebrew": [
+        "אֳנִיּ֔וֹת"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "gen-49-13-7",
+          "readerHebrew": "אֳנִיּ֔וֹת",
+          "primaryHebrew": "אֳנִיֹּ֔ת",
+          "primaryAtom": 7,
+          "primaryVerse": "Gen.49.13",
+          "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-gen-49-13-7",
+        "afterGroup": "pmam-gen-49-13-9",
+        "beforeReaderEnd": "gen-49-13-6",
+        "afterReaderStart": "gen-49-13-8"
+      },
+      "primaryVerseText": "זְבוּלֻ֕ן לְח֥וֹף יַמִּ֖ים יִשְׁכֹּ֑ן וְהוּא֙ לְח֣וֹף אֳנִיֹּ֔ת וְיַרְכָת֖וֹ עַל־צִידֹֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Gen.json",
+        "file": "Gen.json",
+        "gitBlob": "2a0b8ad1b4f3ea1580e9eb9f5b050e954e8e3f6e",
+        "bytes": 603988,
+        "sha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Gen.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-4-3-4",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-4-3-4"
+      ],
+      "readerHebrew": [
+        "וַיַּשְׁלִיכֵ֥הוּ"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-4-3-4",
+          "readerHebrew": "וַיַּשְׁלִיכֵ֥הוּ",
+          "primaryHebrew": "וַיַּשְׁלִכֵ֥הוּ",
+          "primaryAtom": 4,
+          "primaryVerse": "Exod.4.3",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-4-3-3",
+        "afterGroup": "pmam-exo-4-3-5",
+        "beforeReaderEnd": "exo-4-3-3",
+        "afterReaderStart": "exo-4-3-5"
+      },
+      "primaryVerseText": "וַיֹּ֙אמֶר֙ הַשְׁלִיכֵ֣הוּ אַ֔רְצָה וַיַּשְׁלִכֵ֥הוּ אַ֖רְצָה וַיְהִ֣י לְנָחָ֑שׁ וַיָּ֥נׇס מֹשֶׁ֖ה מִפָּנָֽיו׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-6-14-11",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-6-14-11"
+      ],
+      "readerHebrew": [
+        "חֶצְר֣וֹן"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-6-14-11",
+          "readerHebrew": "חֶצְר֣וֹן",
+          "primaryHebrew": "חֶצְרֹ֣ן",
+          "primaryAtom": 11,
+          "primaryVerse": "Exod.6.14",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-6-14-10",
+        "afterGroup": "pmam-exo-6-14-12",
+        "beforeReaderEnd": "exo-6-14-10",
+        "afterReaderStart": "exo-6-14-12"
+      },
+      "primaryVerseText": "אֵ֖לֶּה רָאשֵׁ֣י בֵית־אֲבֹתָ֑ם בְּנֵ֨י רְאוּבֵ֜ן בְּכֹ֣ר יִשְׂרָאֵ֗ל חֲנ֤וֹךְ וּפַלּוּא֙ חֶצְרֹ֣ן וְכַרְמִ֔י אֵ֖לֶּה מִשְׁפְּחֹ֥ת רְאוּבֵֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-8-15-2",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-8-15-2"
+      ],
+      "readerHebrew": [
+        "הַֽחַרְטֻמִּים֙"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-8-15-2",
+          "readerHebrew": "הַֽחַרְטֻמִּים֙",
+          "primaryHebrew": "הַֽחַרְטֻמִּם֙",
+          "primaryAtom": 2,
+          "primaryVerse": "Exod.8.15",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-8-15-1",
+        "afterGroup": "pmam-exo-8-15-3",
+        "beforeReaderEnd": "exo-8-15-1",
+        "afterReaderStart": "exo-8-15-3"
+      },
+      "primaryVerseText": "וַיֹּאמְר֤וּ הַֽחַרְטֻמִּם֙ אֶל־פַּרְעֹ֔ה אֶצְבַּ֥ע אֱלֹהִ֖ים הִ֑וא וַיֶּחֱזַ֤ק לֵב־פַּרְעֹה֙ וְלֹֽא־שָׁמַ֣ע אֲלֵהֶ֔ם כַּאֲשֶׁ֖ר דִּבֶּ֥ר יְהֹוָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-10-25-7",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-10-25-8"
+      ],
+      "readerHebrew": [
+        "וְעֹל֑וֹת"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-10-25-8",
+          "readerHebrew": "וְעֹל֑וֹת",
+          "primaryHebrew": "וְעֹלֹ֑ת",
+          "primaryAtom": 8,
+          "primaryVerse": "Exod.10.25",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-10-25-6",
+        "afterGroup": "pmam-exo-10-25-8",
+        "beforeReaderEnd": "exo-10-25-7",
+        "afterReaderStart": "exo-10-25-9"
+      },
+      "primaryVerseText": "וַיֹּ֣אמֶר מֹשֶׁ֔ה גַּם־אַתָּ֛ה תִּתֵּ֥ן בְּיָדֵ֖נוּ זְבָחִ֣ים וְעֹלֹ֑ת וְעָשִׂ֖ינוּ לַיהֹוָ֥ה אֱלֹהֵֽינוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-12-4-3",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-12-4-4"
+      ],
+      "readerHebrew": [
+        "מִהְיֹ֣ת"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-12-4-4",
+          "readerHebrew": "מִהְיֹ֣ת",
+          "primaryHebrew": "מִהְי֣וֹת",
+          "primaryAtom": 4,
+          "primaryVerse": "Exod.12.4",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-12-4-2",
+        "afterGroup": "pmam-exo-12-4-4",
+        "beforeReaderEnd": "exo-12-4-3",
+        "afterReaderStart": "exo-12-4-5"
+      },
+      "primaryVerseText": "וְאִם־יִמְעַ֣ט הַבַּ֘יִת֮ מִהְי֣וֹת מִשֶּׂה֒ וְלָקַ֣ח ה֗וּא וּשְׁכֵנ֛וֹ הַקָּרֹ֥ב אֶל־בֵּית֖וֹ בְּמִכְסַ֣ת נְפָשֹׁ֑ת אִ֚ישׁ לְפִ֣י אׇכְל֔וֹ תָּכֹ֖סּוּ עַל־הַשֶּֽׂה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-14-13-18",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-14-13-23"
+      ],
+      "readerHebrew": [
+        "תֹסִ֛יפוּ"
+      ],
+      "sourceRows": [
+        18
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-14-13-23",
+          "readerHebrew": "תֹסִ֛יפוּ",
+          "primaryHebrew": "תֹסִ֛פוּ",
+          "primaryAtom": 23,
+          "primaryVerse": "Exod.14.13",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-14-13-17",
+        "afterGroup": "pmam-exo-14-13-19",
+        "beforeReaderEnd": "exo-14-13-22",
+        "afterReaderStart": "exo-14-13-24"
+      },
+      "primaryVerseText": "וַיֹּ֨אמֶר מֹשֶׁ֣ה אֶל־הָעָם֮ אַל־תִּירָ֒אוּ֒ הִֽתְיַצְּב֗וּ וּרְאוּ֙ אֶת־יְשׁוּעַ֣ת יְהֹוָ֔ה אֲשֶׁר־יַעֲשֶׂ֥ה לָכֶ֖ם הַיּ֑וֹם כִּ֗י אֲשֶׁ֨ר רְאִיתֶ֤ם אֶת־מִצְרַ֙יִם֙ הַיּ֔וֹם לֹ֥א תֹסִ֛פוּ לִרְאֹתָ֥ם ע֖וֹד עַד־עוֹלָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-14-14-5",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-14-14-5"
+      ],
+      "readerHebrew": [
+        "תַּחֲרִישֽׁוּן׃"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-14-14-5",
+          "readerHebrew": "תַּחֲרִישֽׁוּן׃",
+          "primaryHebrew": "תַּחֲרִשֽׁוּן׃",
+          "primaryAtom": 5,
+          "primaryVerse": "Exod.14.14",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-14-14-4",
+        "afterGroup": "pmam-exo-14-15-2",
+        "beforeReaderEnd": "exo-14-14-4",
+        "afterReaderStart": "exo-14-15-1"
+      },
+      "primaryVerseText": "יְהֹוָ֖ה יִלָּחֵ֣ם לָכֶ֑ם וְאַתֶּ֖ם תַּחֲרִשֽׁוּן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-14-22-8",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-14-22-9"
+      ],
+      "readerHebrew": [
+        "חֹמָ֔ה"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-14-22-9",
+          "readerHebrew": "חֹמָ֔ה",
+          "primaryHebrew": "חוֹמָ֔ה",
+          "primaryAtom": 9,
+          "primaryVerse": "Exod.14.22",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-14-22-7",
+        "afterGroup": "pmam-exo-14-22-9",
+        "beforeReaderEnd": "exo-14-22-8",
+        "afterReaderStart": "exo-14-22-10"
+      },
+      "primaryVerseText": "וַיָּבֹ֧אוּ בְנֵֽי־יִשְׂרָאֵ֛ל בְּת֥וֹךְ הַיָּ֖ם בַּיַּבָּשָׁ֑ה וְהַמַּ֤יִם לָהֶם֙ חוֹמָ֔ה מִֽימִינָ֖ם וּמִשְּׂמֹאלָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-19-11-7",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-19-11-7"
+      ],
+      "readerHebrew": [
+        "הַשְּׁלִישִׁ֗י"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-19-11-7",
+          "readerHebrew": "הַשְּׁלִישִׁ֗י",
+          "primaryHebrew": "הַשְּׁלִשִׁ֗י",
+          "primaryAtom": 7,
+          "primaryVerse": "Exod.19.11",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-19-11-6",
+        "afterGroup": "pmam-exo-19-11-8",
+        "beforeReaderEnd": "exo-19-11-6",
+        "afterReaderStart": "exo-19-11-8"
+      },
+      "primaryVerseText": "וְהָי֥וּ נְכֹנִ֖ים לַיּ֣וֹם הַשְּׁלִישִׁ֑י כִּ֣י׀ בַּיּ֣וֹם הַשְּׁלִשִׁ֗י יֵרֵ֧ד יְהֹוָ֛ה לְעֵינֵ֥י כׇל־הָעָ֖ם עַל־הַ֥ר סִינָֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-19-19-3",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-19-19-3"
+      ],
+      "readerHebrew": [
+        "הַשּׁוֹפָ֔ר"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-19-19-3",
+          "readerHebrew": "הַשּׁוֹפָ֔ר",
+          "primaryHebrew": "הַשֹּׁפָ֔ר",
+          "primaryAtom": 3,
+          "primaryVerse": "Exod.19.19",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-19-19-2",
+        "afterGroup": "pmam-exo-19-19-4",
+        "beforeReaderEnd": "exo-19-19-2",
+        "afterReaderStart": "exo-19-19-4"
+      },
+      "primaryVerseText": "וַֽיְהִי֙ ק֣וֹל הַשֹּׁפָ֔ר הוֹלֵ֖ךְ וְחָזֵ֣ק מְאֹ֑ד מֹשֶׁ֣ה יְדַבֵּ֔ר וְהָאֱלֹהִ֖ים יַעֲנֶ֥נּוּ בְקֽוֹל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-23-22-2",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-23-22-2",
+        "exo-23-22-3"
+      ],
+      "readerHebrew": [
+        "אִם־",
+        "שָׁמֹ֤עַ"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-23-22-2",
+          "readerHebrew": "אִם־",
+          "primaryHebrew": "אִם",
+          "primaryAtom": 2,
+          "primaryVerse": "Exod.23.22",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-23-22-3",
+          "readerHebrew": "שָׁמֹ֤עַ",
+          "primaryHebrew": "שָׁמ֤וֹעַ",
+          "primaryAtom": 3,
+          "primaryVerse": "Exod.23.22",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-23-22-1",
+        "afterGroup": "pmam-exo-23-22-3",
+        "beforeReaderEnd": "exo-23-22-1",
+        "afterReaderStart": "exo-23-22-4"
+      },
+      "primaryVerseText": "כִּ֣י אִם־שָׁמ֤וֹעַ תִּשְׁמַע֙ בְּקֹל֔וֹ וְעָשִׂ֕יתָ כֹּ֖ל אֲשֶׁ֣ר אֲדַבֵּ֑ר וְאָֽיַבְתִּי֙ אֶת־אֹ֣יְבֶ֔יךָ וְצַרְתִּ֖י אֶת־צֹרְרֶֽיךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-25-22-12",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-25-22-12",
+        "exo-25-22-13"
+      ],
+      "readerHebrew": [
+        "עַל־",
+        "אֲרֹ֣ן"
+      ],
+      "sourceRows": [
+        12
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-25-22-12",
+          "readerHebrew": "עַל־",
+          "primaryHebrew": "עַל",
+          "primaryAtom": 12,
+          "primaryVerse": "Exod.25.22",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-25-22-13",
+          "readerHebrew": "אֲרֹ֣ן",
+          "primaryHebrew": "אֲר֣וֹן",
+          "primaryAtom": 13,
+          "primaryVerse": "Exod.25.22",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-25-22-11",
+        "afterGroup": "pmam-exo-25-22-13",
+        "beforeReaderEnd": "exo-25-22-11",
+        "afterReaderStart": "exo-25-22-14"
+      },
+      "primaryVerseText": "וְנוֹעַדְתִּ֣י לְךָ֮ שָׁם֒ וְדִבַּרְתִּ֨י אִתְּךָ֜ מֵעַ֣ל הַכַּפֹּ֗רֶת מִבֵּין֙ שְׁנֵ֣י הַכְּרֻבִ֔ים אֲשֶׁ֖ר עַל־אֲר֣וֹן הָעֵדֻ֑ת אֵ֣ת כׇּל־אֲשֶׁ֧ר אֲצַוֶּ֛ה אוֹתְךָ֖ אֶל־בְּנֵ֥י יִשְׂרָאֵֽל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-26-24-2",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-26-24-2"
+      ],
+      "readerHebrew": [
+        "תֹֽאֲמִים֮"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-26-24-2",
+          "readerHebrew": "תֹֽאֲמִים֮",
+          "primaryHebrew": "תֹֽאֲמִם֮",
+          "primaryAtom": 2,
+          "primaryVerse": "Exod.26.24",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-26-24-1",
+        "afterGroup": "pmam-exo-26-24-3",
+        "beforeReaderEnd": "exo-26-24-1",
+        "afterReaderStart": "exo-26-24-3"
+      },
+      "primaryVerseText": "וְיִֽהְי֣וּ תֹֽאֲמִם֮ מִלְּמַ֒טָּה֒ וְיַחְדָּ֗ו יִהְי֤וּ תַמִּים֙ עַל־רֹאשׁ֔וֹ אֶל־הַטַּבַּ֖עַת הָאֶחָ֑ת כֵּ֚ן יִהְיֶ֣ה לִשְׁנֵיהֶ֔ם לִשְׁנֵ֥י הַמִּקְצֹעֹ֖ת יִהְיֽוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-28-28-5",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-28-28-8"
+      ],
+      "readerHebrew": [
+        "הָאֵפֹד֙"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-28-28-8",
+          "readerHebrew": "הָאֵפֹד֙",
+          "primaryHebrew": "הָאֵפוֹד֙",
+          "primaryAtom": 7,
+          "primaryVerse": "Exod.28.28",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-28-28-4",
+        "afterGroup": "pmam-exo-28-28-6",
+        "beforeReaderEnd": "exo-28-28-7",
+        "afterReaderStart": "exo-28-28-9"
+      },
+      "primaryVerseText": "וְיִרְכְּס֣וּ אֶת־הַ֠חֹ֠שֶׁן מִֽטַּבְּעֹתָ֞ו אֶל־טַבְּעֹ֤ת הָאֵפוֹד֙ בִּפְתִ֣יל תְּכֵ֔לֶת לִֽהְי֖וֹת עַל־חֵ֣שֶׁב הָאֵפ֑וֹד וְלֹֽא־יִזַּ֣ח הַחֹ֔שֶׁן מֵעַ֖ל הָאֵפֽוֹד׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-29-22-16",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-29-22-20"
+      ],
+      "readerHebrew": [
+        "עֲלֵהֶ֔ן"
+      ],
+      "sourceRows": [
+        16
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-29-22-20",
+          "readerHebrew": "עֲלֵהֶ֔ן",
+          "primaryHebrew": "עֲלֵיהֶ֔ן",
+          "primaryAtom": 20,
+          "primaryVerse": "Exod.29.22",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-29-22-15",
+        "afterGroup": "pmam-exo-29-22-17",
+        "beforeReaderEnd": "exo-29-22-19",
+        "afterReaderStart": "exo-29-22-21"
+      },
+      "primaryVerseText": "וְלָקַחְתָּ֣ מִן־הָ֠אַ֠יִל הַחֵ֨לֶב וְהָֽאַלְיָ֜ה וְאֶת־הַחֵ֣לֶב׀ הַֽמְכַסֶּ֣ה אֶת־הַקֶּ֗רֶב וְאֵ֨ת יֹתֶ֤רֶת הַכָּבֵד֙ וְאֵ֣ת׀ שְׁתֵּ֣י הַכְּלָיֹ֗ת וְאֶת־הַחֵ֙לֶב֙ אֲשֶׁ֣ר עֲלֵיהֶ֔ן וְאֵ֖ת שׁ֣וֹק הַיָּמִ֑ין כִּ֛י אֵ֥יל מִלֻּאִ֖ים הֽוּא׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-29-40-9",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-29-40-9"
+      ],
+      "readerHebrew": [
+        "רְבִעִ֥ית"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-29-40-9",
+          "readerHebrew": "רְבִעִ֥ית",
+          "primaryHebrew": "רְבִיעִ֥ת",
+          "primaryAtom": 9,
+          "primaryVerse": "Exod.29.40",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-29-40-8",
+        "afterGroup": "pmam-exo-29-40-10",
+        "beforeReaderEnd": "exo-29-40-8",
+        "afterReaderStart": "exo-29-40-10"
+      },
+      "primaryVerseText": "וְעִשָּׂרֹ֨ן סֹ֜לֶת בָּל֨וּל בְּשֶׁ֤מֶן כָּתִית֙ רֶ֣בַע הַהִ֔ין וְנֵ֕סֶךְ רְבִיעִ֥ת הַהִ֖ין יָ֑יִן לַכֶּ֖בֶשׂ הָאֶחָֽד׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-32-34-15",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-32-34-17"
+      ],
+      "readerHebrew": [
+        "עֲלֵיהֶ֖ם"
+      ],
+      "sourceRows": [
+        15
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-32-34-17",
+          "readerHebrew": "עֲלֵיהֶ֖ם",
+          "primaryHebrew": "עֲלֵהֶ֖ם",
+          "primaryAtom": 17,
+          "primaryVerse": "Exod.32.34",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-32-34-14",
+        "afterGroup": "pmam-exo-32-34-16",
+        "beforeReaderEnd": "exo-32-34-16",
+        "afterReaderStart": "exo-32-34-18"
+      },
+      "primaryVerseText": "וְעַתָּ֞ה לֵ֣ךְ׀ נְחֵ֣ה אֶת־הָעָ֗ם אֶ֤ל אֲשֶׁר־דִּבַּ֙רְתִּי֙ לָ֔ךְ הִנֵּ֥ה מַלְאָכִ֖י יֵלֵ֣ךְ לְפָנֶ֑יךָ וּבְי֣וֹם פׇּקְדִ֔י וּפָקַדְתִּ֥י עֲלֵהֶ֖ם חַטָּאתָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-34-24-5",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-34-24-6",
+        "exo-34-24-7"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "גְּבוּלֶ֑ךָ"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-34-24-6",
+          "readerHebrew": "אֶת־",
+          "primaryHebrew": "אֶת",
+          "primaryAtom": 6,
+          "primaryVerse": "Exod.34.24",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-34-24-7",
+          "readerHebrew": "גְּבוּלֶ֑ךָ",
+          "primaryHebrew": "גְּבֻלֶ֑ךָ",
+          "primaryAtom": 7,
+          "primaryVerse": "Exod.34.24",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-34-24-4",
+        "afterGroup": "pmam-exo-34-24-6",
+        "beforeReaderEnd": "exo-34-24-5",
+        "afterReaderStart": "exo-34-24-8"
+      },
+      "primaryVerseText": "כִּֽי־אוֹרִ֤ישׁ גּוֹיִם֙ מִפָּנֶ֔יךָ וְהִרְחַבְתִּ֖י אֶת־גְּבֻלֶ֑ךָ וְלֹא־יַחְמֹ֥ד אִישׁ֙ אֶֽת־אַרְצְךָ֔ בַּעֲלֹֽתְךָ֗ לֵרָאוֹת֙ אֶת־פְּנֵי֙ יְהֹוָ֣ה אֱלֹהֶ֔יךָ שָׁלֹ֥שׁ פְּעָמִ֖ים בַּשָּׁנָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-36-13-6",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-36-13-6",
+        "exo-36-13-7"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "הַיְרִעֹ֜ת"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-36-13-6",
+          "readerHebrew": "אֶת־",
+          "primaryHebrew": "אֶת",
+          "primaryAtom": 6,
+          "primaryVerse": "Exod.36.13",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-36-13-7",
+          "readerHebrew": "הַיְרִעֹ֜ת",
+          "primaryHebrew": "הַיְרִיעֹ֜ת",
+          "primaryAtom": 7,
+          "primaryVerse": "Exod.36.13",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-36-13-5",
+        "afterGroup": "pmam-exo-36-13-7",
+        "beforeReaderEnd": "exo-36-13-5",
+        "afterReaderStart": "exo-36-13-8"
+      },
+      "primaryVerseText": "וַיַּ֕עַשׂ חֲמִשִּׁ֖ים קַרְסֵ֣י זָהָ֑ב וַיְחַבֵּ֨ר אֶת־הַיְרִיעֹ֜ת אַחַ֤ת אֶל־אַחַת֙ בַּקְּרָסִ֔ים וַיְהִ֥י הַמִּשְׁכָּ֖ן אֶחָֽד׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-36-19-5",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-36-19-5"
+      ],
+      "readerHebrew": [
+        "אֵלִ֖ים"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-36-19-5",
+          "readerHebrew": "אֵלִ֖ים",
+          "primaryHebrew": "אֵילִ֖ם",
+          "primaryAtom": 5,
+          "primaryVerse": "Exod.36.19",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-36-19-4",
+        "afterGroup": "pmam-exo-36-19-6",
+        "beforeReaderEnd": "exo-36-19-4",
+        "afterReaderStart": "exo-36-19-6"
+      },
+      "primaryVerseText": "וַיַּ֤עַשׂ מִכְסֶה֙ לָאֹ֔הֶל עֹרֹ֥ת אֵילִ֖ם מְאׇדָּמִ֑ים וּמִכְסֵ֛ה עֹרֹ֥ת תְּחָשִׁ֖ים מִלְמָֽעְלָה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-37-3-14",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-37-3-15"
+      ],
+      "readerHebrew": [
+        "טַבָּע֔וֹת"
+      ],
+      "sourceRows": [
+        14
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-37-3-15",
+          "readerHebrew": "טַבָּע֔וֹת",
+          "primaryHebrew": "טַבָּעֹ֔ת",
+          "primaryAtom": 15,
+          "primaryVerse": "Exod.37.3",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-37-3-13",
+        "afterGroup": "pmam-exo-37-3-15",
+        "beforeReaderEnd": "exo-37-3-14",
+        "afterReaderStart": "exo-37-3-16"
+      },
+      "primaryVerseText": "וַיִּצֹ֣ק ל֗וֹ אַרְבַּע֙ טַבְּעֹ֣ת זָהָ֔ב עַ֖ל אַרְבַּ֣ע פַּעֲמֹתָ֑יו וּשְׁתֵּ֣י טַבָּעֹ֗ת עַל־צַלְעוֹ֙ הָֽאֶחָ֔ת וּשְׁתֵּי֙ טַבָּעֹ֔ת עַל־צַלְע֖וֹ הַשֵּׁנִֽית׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-38-10-7",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-38-10-7"
+      ],
+      "readerHebrew": [
+        "הָעַמֻּדִ֛ים"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-38-10-7",
+          "readerHebrew": "הָעַמֻּדִ֛ים",
+          "primaryHebrew": "הָעַמּוּדִ֛ים",
+          "primaryAtom": 7,
+          "primaryVerse": "Exod.38.10",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-38-10-6",
+        "afterGroup": "pmam-exo-38-10-8",
+        "beforeReaderEnd": "exo-38-10-6",
+        "afterReaderStart": "exo-38-10-8"
+      },
+      "primaryVerseText": "עַמּוּדֵיהֶ֣ם עֶשְׂרִ֔ים וְאַדְנֵיהֶ֥ם עֶשְׂרִ֖ים נְחֹ֑שֶׁת וָוֵ֧י הָעַמּוּדִ֛ים וַחֲשֻׁקֵיהֶ֖ם כָּֽסֶף׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-39-13-7",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-39-13-7"
+      ],
+      "readerHebrew": [
+        "מִשְׁבְּצ֥וֹת"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-39-13-7",
+          "readerHebrew": "מִשְׁבְּצ֥וֹת",
+          "primaryHebrew": "מִשְׁבְּצֹ֥ת",
+          "primaryAtom": 7,
+          "primaryVerse": "Exod.39.13",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-39-13-6",
+        "afterGroup": "pmam-exo-39-13-8",
+        "beforeReaderEnd": "exo-39-13-6",
+        "afterReaderStart": "exo-39-13-8"
+      },
+      "primaryVerseText": "וְהַטּוּר֙ הָֽרְבִיעִ֔י תַּרְשִׁ֥ישׁ שֹׁ֖הַם וְיָשְׁפֵ֑ה מֽוּסַבֹּ֛ת מִשְׁבְּצֹ֥ת זָהָ֖ב בְּמִלֻּאֹתָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-exo-39-35-1",
+      "bookId": "exo",
+      "readerIds": [
+        "exo-39-35-1",
+        "exo-39-35-2"
+      ],
+      "readerHebrew": [
+        "אֶת־",
+        "אֲרֹ֥ן"
+      ],
+      "sourceRows": [
+        1
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-39-35-1",
+          "readerHebrew": "אֶת־",
+          "primaryHebrew": "אֶת",
+          "primaryAtom": 1,
+          "primaryVerse": "Exod.39.35",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "exo-39-35-2",
+          "readerHebrew": "אֲרֹ֥ן",
+          "primaryHebrew": "אֲר֥וֹן",
+          "primaryAtom": 2,
+          "primaryVerse": "Exod.39.35",
+          "sourceFileSha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-exo-39-34-10",
+        "afterGroup": "pmam-exo-39-35-2",
+        "beforeReaderEnd": "exo-39-34-12",
+        "afterReaderStart": "exo-39-35-3"
+      },
+      "primaryVerseText": "אֶת־אֲר֥וֹן הָעֵדֻ֖ת וְאֶת־בַּדָּ֑יו וְאֵ֖ת הַכַּפֹּֽרֶת׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Exod.json",
+        "file": "Exod.json",
+        "gitBlob": "c615e0059de6c01a80124b91ebfe13dad9c1b64b",
+        "bytes": 521345,
+        "sha256": "491dfbd6b301384e23593f5a6982e8d4c08e5c6a04556a12829dd7c7b765b9bb",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Exod.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-10-1-13",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-10-1-14"
+      ],
+      "readerHebrew": [
+        "וַיַּקְרִ֜בוּ"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-10-1-14",
+          "readerHebrew": "וַיַּקְרִ֜בוּ",
+          "primaryHebrew": "וַיַּקְרִ֜יבוּ",
+          "primaryAtom": 14,
+          "primaryVerse": "Lev.10.1",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-10-1-12",
+        "afterGroup": "pmam-lev-10-1-14",
+        "beforeReaderEnd": "lev-10-1-13",
+        "afterReaderStart": "lev-10-1-15"
+      },
+      "primaryVerseText": "וַיִּקְח֣וּ בְנֵֽי־אַ֠הֲרֹ֠ן נָדָ֨ב וַאֲבִיה֜וּא אִ֣ישׁ מַחְתָּת֗וֹ וַיִּתְּנ֤וּ בָהֵן֙ אֵ֔שׁ וַיָּשִׂ֥ימוּ עָלֶ֖יהָ קְטֹ֑רֶת וַיַּקְרִ֜יבוּ לִפְנֵ֤י יְהֹוָה֙ אֵ֣שׁ זָרָ֔ה אֲשֶׁ֧ר לֹ֦א צִוָּ֖ה אֹתָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-10-13-4",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-10-13-4"
+      ],
+      "readerHebrew": [
+        "קָדֹ֔שׁ"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-10-13-4",
+          "readerHebrew": "קָדֹ֔שׁ",
+          "primaryHebrew": "קָד֔וֹשׁ",
+          "primaryAtom": 4,
+          "primaryVerse": "Lev.10.13",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-10-13-3",
+        "afterGroup": "pmam-lev-10-13-5",
+        "beforeReaderEnd": "lev-10-13-3",
+        "afterReaderStart": "lev-10-13-5"
+      },
+      "primaryVerseText": "וַאֲכַלְתֶּ֤ם אֹתָהּ֙ בְּמָק֣וֹם קָד֔וֹשׁ כִּ֣י חׇקְךָ֤ וְחׇק־בָּנֶ֙יךָ֙ הִ֔וא מֵאִשֵּׁ֖י יְהֹוָ֑ה כִּי־כֵ֖ן צֻוֵּֽיתִי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-11-4-7",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-11-4-8"
+      ],
+      "readerHebrew": [
+        "וּמִמַּפְרִיסֵ֖י"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-11-4-8",
+          "readerHebrew": "וּמִמַּפְרִיסֵ֖י",
+          "primaryHebrew": "וּמִמַּפְרִסֵ֖י",
+          "primaryAtom": 8,
+          "primaryVerse": "Lev.11.4",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-11-4-6",
+        "afterGroup": "pmam-lev-11-4-8",
+        "beforeReaderEnd": "lev-11-4-7",
+        "afterReaderStart": "lev-11-4-9"
+      },
+      "primaryVerseText": "אַ֤ךְ אֶת־זֶה֙ לֹ֣א תֹֽאכְל֔וּ מִֽמַּעֲלֵי֙ הַגֵּרָ֔ה וּמִמַּפְרִסֵ֖י הַפַּרְסָ֑ה אֶֽת־הַ֠גָּמָ֠ל כִּֽי־מַעֲלֵ֨ה גֵרָ֜ה ה֗וּא וּפַרְסָה֙ אֵינֶ֣נּוּ מַפְרִ֔יס טָמֵ֥א ה֖וּא לָכֶֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-14-10-5",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-14-10-6"
+      ],
+      "readerHebrew": [
+        "תְּמִימִ֔ים"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-14-10-6",
+          "readerHebrew": "תְּמִימִ֔ים",
+          "primaryHebrew": "תְּמִימִ֔ם",
+          "primaryAtom": 6,
+          "primaryVerse": "Lev.14.10",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-14-10-4",
+        "afterGroup": "pmam-lev-14-10-6",
+        "beforeReaderEnd": "lev-14-10-5",
+        "afterReaderStart": "lev-14-10-7"
+      },
+      "primaryVerseText": "וּבַיּ֣וֹם הַשְּׁמִינִ֗י יִקַּ֤ח שְׁנֵֽי־כְבָשִׂים֙ תְּמִימִ֔ם וְכַבְשָׂ֥ה אַחַ֛ת בַּת־שְׁנָתָ֖הּ תְּמִימָ֑ה וּשְׁלֹשָׁ֣ה עֶשְׂרֹנִ֗ים סֹ֤לֶת מִנְחָה֙ בְּלוּלָ֣ה בַשֶּׁ֔מֶן וְלֹ֥ג אֶחָ֖ד שָֽׁמֶן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-16-8-5",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-16-8-6"
+      ],
+      "readerHebrew": [
+        "גּוֹרָל֑וֹת"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-16-8-6",
+          "readerHebrew": "גּוֹרָל֑וֹת",
+          "primaryHebrew": "גֹּרָל֑וֹת",
+          "primaryAtom": 6,
+          "primaryVerse": "Lev.16.8",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-16-8-4",
+        "afterGroup": "pmam-lev-16-8-6",
+        "beforeReaderEnd": "lev-16-8-5",
+        "afterReaderStart": "lev-16-8-7"
+      },
+      "primaryVerseText": "וְנָתַ֧ן אַהֲרֹ֛ן עַל־שְׁנֵ֥י הַשְּׂעִירִ֖ם גֹּרָל֑וֹת גּוֹרָ֤ל אֶחָד֙ לַיהֹוָ֔ה וְגוֹרָ֥ל אֶחָ֖ד לַעֲזָאזֵֽל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-18-29-5",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-18-29-6"
+      ],
+      "readerHebrew": [
+        "הַתּוֹעֵב֖וֹת"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-18-29-6",
+          "readerHebrew": "הַתּוֹעֵב֖וֹת",
+          "primaryHebrew": "הַתּוֹעֵבֹ֖ת",
+          "primaryAtom": 6,
+          "primaryVerse": "Lev.18.29",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-18-29-4",
+        "afterGroup": "pmam-lev-18-29-6",
+        "beforeReaderEnd": "lev-18-29-5",
+        "afterReaderStart": "lev-18-29-7"
+      },
+      "primaryVerseText": "כִּ֚י כׇּל־אֲשֶׁ֣ר יַעֲשֶׂ֔ה מִכֹּ֥ל הַתּוֹעֵבֹ֖ת הָאֵ֑לֶּה וְנִכְרְת֛וּ הַנְּפָשׁ֥וֹת הָעֹשֹׂ֖ת מִקֶּ֥רֶב עַמָּֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-19-4-2",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-19-4-3",
+        "lev-19-4-4"
+      ],
+      "readerHebrew": [
+        "אֶל־",
+        "הָ֣אֱלִילִ֔ים"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-19-4-3",
+          "readerHebrew": "אֶל־",
+          "primaryHebrew": "אֶל",
+          "primaryAtom": 3,
+          "primaryVerse": "Lev.19.4",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-19-4-4",
+          "readerHebrew": "הָ֣אֱלִילִ֔ים",
+          "primaryHebrew": "הָ֣אֱלִילִ֔ם",
+          "primaryAtom": 4,
+          "primaryVerse": "Lev.19.4",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-19-4-1",
+        "afterGroup": "pmam-lev-19-4-3",
+        "beforeReaderEnd": "lev-19-4-2",
+        "afterReaderStart": "lev-19-4-5"
+      },
+      "primaryVerseText": "אַל־תִּפְנוּ֙ אֶל־הָ֣אֱלִילִ֔ם וֵֽאלֹהֵי֙ מַסֵּכָ֔ה לֹ֥א תַעֲשׂ֖וּ לָכֶ֑ם אֲנִ֖י יְהֹוָ֥ה אֱלֹהֵיכֶֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-20-6-6",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-20-6-8"
+      ],
+      "readerHebrew": [
+        "לִזְנ֖וֹת"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-20-6-8",
+          "readerHebrew": "לִזְנ֖וֹת",
+          "primaryHebrew": "לִזְנֹ֖ת",
+          "primaryAtom": 8,
+          "primaryVerse": "Lev.20.6",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-20-6-5",
+        "afterGroup": "pmam-lev-20-6-7",
+        "beforeReaderEnd": "lev-20-6-7",
+        "afterReaderStart": "lev-20-6-9"
+      },
+      "primaryVerseText": "וְהַנֶּ֗פֶשׁ אֲשֶׁ֨ר תִּפְנֶ֤ה אֶל־הָֽאֹבֹת֙ וְאֶל־הַיִּדְּעֹנִ֔ים לִזְנֹ֖ת אַחֲרֵיהֶ֑ם וְנָתַתִּ֤י אֶת־פָּנַי֙ בַּנֶּ֣פֶשׁ הַהִ֔וא וְהִכְרַתִּ֥י אֹת֖וֹ מִקֶּ֥רֶב עַמּֽוֹ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-23-20-7",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-23-20-6"
+      ],
+      "readerHebrew": [
+        "הַבִּכּוּרִ֤ים"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-23-20-6",
+          "readerHebrew": "הַבִּכּוּרִ֤ים",
+          "primaryHebrew": "הַבִּכֻּרִ֤ים",
+          "primaryAtom": 6,
+          "primaryVerse": "Lev.23.20",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-23-20-6",
+        "afterGroup": "pmam-lev-23-20-8",
+        "beforeReaderEnd": "lev-23-20-5",
+        "afterReaderStart": "lev-23-20-7"
+      },
+      "primaryVerseText": "וְהֵנִ֣יף הַכֹּהֵ֣ן׀אֹתָ֡ם עַל֩ לֶ֨חֶם הַבִּכֻּרִ֤ים תְּנוּפָה֙ לִפְנֵ֣י יְהֹוָ֔ה עַל־שְׁנֵ֖י כְּבָשִׂ֑ים קֹ֛דֶשׁ יִהְי֥וּ לַיהֹוָ֖ה לַכֹּהֵֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-23-38-9",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-23-38-10",
+        "lev-23-38-11"
+      ],
+      "readerHebrew": [
+        "כָּל־",
+        "נִדְב֣וֹתֵיכֶ֔ם"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-23-38-10",
+          "readerHebrew": "כָּל־",
+          "primaryHebrew": "כׇּל",
+          "primaryAtom": 10,
+          "primaryVerse": "Lev.23.38",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-23-38-11",
+          "readerHebrew": "נִדְב֣וֹתֵיכֶ֔ם",
+          "primaryHebrew": "נִדְבֹ֣תֵיכֶ֔ם",
+          "primaryAtom": 11,
+          "primaryVerse": "Lev.23.38",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-23-38-8",
+        "afterGroup": "pmam-lev-23-38-10",
+        "beforeReaderEnd": "lev-23-38-9",
+        "afterReaderStart": "lev-23-38-12"
+      },
+      "primaryVerseText": "מִלְּבַ֖ד שַׁבְּתֹ֣ת יְהֹוָ֑ה וּמִלְּבַ֣ד מַתְּנֽוֹתֵיכֶ֗ם וּמִלְּבַ֤ד כׇּל־נִדְרֵיכֶם֙ וּמִלְּבַד֙ כׇּל־נִדְבֹ֣תֵיכֶ֔ם אֲשֶׁ֥ר תִּתְּנ֖וּ לַיהֹוָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-lev-26-45-11",
+      "bookId": "lev",
+      "readerIds": [
+        "lev-26-45-12"
+      ],
+      "readerHebrew": [
+        "לִהְיֹ֥ת"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "lev-26-45-12",
+          "readerHebrew": "לִהְיֹ֥ת",
+          "primaryHebrew": "לִהְי֥וֹת",
+          "primaryAtom": 12,
+          "primaryVerse": "Lev.26.45",
+          "sourceFileSha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-lev-26-45-10",
+        "afterGroup": "pmam-lev-26-45-12",
+        "beforeReaderEnd": "lev-26-45-11",
+        "afterReaderStart": "lev-26-45-13"
+      },
+      "primaryVerseText": "וְזָכַרְתִּ֥י לָהֶ֖ם בְּרִ֣ית רִאשֹׁנִ֑ים אֲשֶׁ֣ר הוֹצֵֽאתִי־אֹתָם֩ מֵאֶ֨רֶץ מִצְרַ֜יִם לְעֵינֵ֣י הַגּוֹיִ֗ם לִהְי֥וֹת לָהֶ֛ם לֵאלֹהִ֖ים אֲנִ֥י יְהֹוָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Lev.json",
+        "file": "Lev.json",
+        "gitBlob": "7925e3d5236c543e556d6c490ee2cb2f83888c4c",
+        "bytes": 350761,
+        "sha256": "dc27aca1ec05c50da4f6260984b554215e54b3dff2120ffeb084e3b07f418d69",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Lev.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-1-17-9",
+      "bookId": "num",
+      "readerIds": [
+        "num-1-17-9"
+      ],
+      "readerHebrew": [
+        "בְּשֵׁמֽוֹת׃"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-1-17-9",
+          "readerHebrew": "בְּשֵׁמֽוֹת׃",
+          "primaryHebrew": "בְּשֵׁמֹֽת׃",
+          "primaryAtom": 9,
+          "primaryVerse": "Num.1.17",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-1-17-8",
+        "afterGroup": "pmam-num-1-18-1",
+        "beforeReaderEnd": "num-1-17-8",
+        "afterReaderStart": "num-1-18-1"
+      },
+      "primaryVerseText": "וַיִּקַּ֥ח מֹשֶׁ֖ה וְאַהֲרֹ֑ן אֵ֚ת הָאֲנָשִׁ֣ים הָאֵ֔לֶּה אֲשֶׁ֥ר נִקְּב֖וּ בְּשֵׁמֹֽת׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-3-2-4",
+      "bookId": "num",
+      "readerIds": [
+        "num-3-2-5"
+      ],
+      "readerHebrew": [
+        "הַבְּכ֣וֹר ׀"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-3-2-5",
+          "readerHebrew": "הַבְּכ֣וֹר ׀",
+          "primaryHebrew": "הַבְּכֹ֣ר",
+          "primaryAtom": 5,
+          "primaryVerse": "Num.3.2",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-3-2-3",
+        "afterGroup": "pmam-num-3-2-6",
+        "beforeReaderEnd": "num-3-2-4",
+        "afterReaderStart": "num-3-2-6"
+      },
+      "primaryVerseText": "וְאֵ֛לֶּה שְׁמ֥וֹת בְּֽנֵי־אַהֲרֹ֖ן הַבְּכֹ֣ר׀נָדָ֑ב וַאֲבִיה֕וּא אֶלְעָזָ֖ר וְאִיתָמָֽר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-3-42-7",
+      "bookId": "num",
+      "readerIds": [
+        "num-3-42-7",
+        "num-3-42-8",
+        "num-3-42-9"
+      ],
+      "readerHebrew": [
+        "אֶֽת־",
+        "כָּל־",
+        "בְּכֹ֖ר"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-3-42-7",
+          "readerHebrew": "אֶֽת־",
+          "primaryHebrew": "אֶֽת",
+          "primaryAtom": 7,
+          "primaryVerse": "Num.3.42",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-3-42-8",
+          "readerHebrew": "כָּל־",
+          "primaryHebrew": "כׇּל",
+          "primaryAtom": 8,
+          "primaryVerse": "Num.3.42",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-3-42-9",
+          "readerHebrew": "בְּכֹ֖ר",
+          "primaryHebrew": "בְּכ֖וֹר",
+          "primaryAtom": 9,
+          "primaryVerse": "Num.3.42",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-3-42-6",
+        "afterGroup": "pmam-num-3-42-8",
+        "beforeReaderEnd": "num-3-42-6",
+        "afterReaderStart": "num-3-42-10"
+      },
+      "primaryVerseText": "וַיִּפְקֹ֣ד מֹשֶׁ֔ה כַּאֲשֶׁ֛ר צִוָּ֥ה יְהֹוָ֖ה אֹת֑וֹ אֶֽת־כׇּל־בְּכ֖וֹר בִּבְנֵ֥י יִשְׂרָאֵֽל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-3-43-5",
+      "bookId": "num",
+      "readerIds": [
+        "num-3-43-6"
+      ],
+      "readerHebrew": [
+        "שֵׁמ֛וֹת"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-3-43-6",
+          "readerHebrew": "שֵׁמ֛וֹת",
+          "primaryHebrew": "שֵׁמֹ֛ת",
+          "primaryAtom": 6,
+          "primaryVerse": "Num.3.43",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-3-43-4",
+        "afterGroup": "pmam-num-3-43-6",
+        "beforeReaderEnd": "num-3-43-5",
+        "afterReaderStart": "num-3-43-7"
+      },
+      "primaryVerseText": "וַיְהִי֩ כׇל־בְּכ֨וֹר זָכָ֜ר בְּמִסְפַּ֥ר שֵׁמֹ֛ת מִבֶּן־חֹ֥דֶשׁ וָמַ֖עְלָה לִפְקֻדֵיהֶ֑ם שְׁנַ֤יִם וְעֶשְׂרִים֙ אֶ֔לֶף שְׁלֹשָׁ֥ה וְשִׁבְעִ֖ים וּמָאתָֽיִם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-7-7-3",
+      "bookId": "num",
+      "readerIds": [
+        "num-7-7-3"
+      ],
+      "readerHebrew": [
+        "הָעֲגָלֹ֗ת"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-7-7-3",
+          "readerHebrew": "הָעֲגָלֹ֗ת",
+          "primaryHebrew": "הָעֲגָל֗וֹת",
+          "primaryAtom": 3,
+          "primaryVerse": "Num.7.7",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-7-7-2",
+        "afterGroup": "pmam-num-7-7-4",
+        "beforeReaderEnd": "num-7-7-2",
+        "afterReaderStart": "num-7-7-4"
+      },
+      "primaryVerseText": "אֵ֣ת׀ שְׁתֵּ֣י הָעֲגָל֗וֹת וְאֵת֙ אַרְבַּ֣עַת הַבָּקָ֔ר נָתַ֖ן לִבְנֵ֣י גֵרְשׁ֑וֹן כְּפִ֖י עֲבֹדָתָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-7-23-7",
+      "bookId": "num",
+      "readerIds": [
+        "num-7-23-7"
+      ],
+      "readerHebrew": [
+        "עַתּוּדִ֣ים"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-7-23-7",
+          "readerHebrew": "עַתּוּדִ֣ים",
+          "primaryHebrew": "עַתֻּדִ֣ים",
+          "primaryAtom": 7,
+          "primaryVerse": "Num.7.23",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-7-23-6",
+        "afterGroup": "pmam-num-7-23-8",
+        "beforeReaderEnd": "num-7-23-6",
+        "afterReaderStart": "num-7-23-8"
+      },
+      "primaryVerseText": "וּלְזֶ֣בַח הַשְּׁלָמִים֮ בָּקָ֣ר שְׁנַ֒יִם֒ אֵילִ֤ם חֲמִשָּׁה֙ עַתֻּדִ֣ים חֲמִשָּׁ֔ה כְּבָשִׂ֥ים בְּנֵי־שָׁנָ֖ה חֲמִשָּׁ֑ה זֶ֛ה קׇרְבַּ֥ן נְתַנְאֵ֖ל בֶּן־צוּעָֽר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-9-3-9",
+      "bookId": "num",
+      "readerIds": [
+        "num-9-3-10"
+      ],
+      "readerHebrew": [
+        "בְּמוֹעֲד֑וֹ"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-9-3-10",
+          "readerHebrew": "בְּמוֹעֲד֑וֹ",
+          "primaryHebrew": "בְּמֹעֲד֑וֹ",
+          "primaryAtom": 10,
+          "primaryVerse": "Num.9.3",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-9-3-8",
+        "afterGroup": "pmam-num-9-3-10",
+        "beforeReaderEnd": "num-9-3-9",
+        "afterReaderStart": "num-9-3-11"
+      },
+      "primaryVerseText": "בְּאַרְבָּעָ֣ה עָשָֽׂר־י֠וֹם בַּחֹ֨דֶשׁ הַזֶּ֜ה בֵּ֧ין הָֽעַרְבַּ֛יִם תַּעֲשׂ֥וּ אֹת֖וֹ בְּמֹעֲד֑וֹ כְּכׇל־חֻקֹּתָ֥יו וּכְכׇל־מִשְׁפָּטָ֖יו תַּעֲשׂ֥וּ אֹתֽוֹ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-9-7-12",
+      "bookId": "num",
+      "readerIds": [
+        "num-9-7-12"
+      ],
+      "readerHebrew": [
+        "הַקְרִ֜ב"
+      ],
+      "sourceRows": [
+        12
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-9-7-12",
+          "readerHebrew": "הַקְרִ֜ב",
+          "primaryHebrew": "הַקְרִ֜יב",
+          "primaryAtom": 12,
+          "primaryVerse": "Num.9.7",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-9-7-11",
+        "afterGroup": "pmam-num-9-7-13",
+        "beforeReaderEnd": "num-9-7-11",
+        "afterReaderStart": "num-9-7-13"
+      },
+      "primaryVerseText": "וַ֠יֹּאמְר֠וּ הָאֲנָשִׁ֤ים הָהֵ֙מָּה֙ אֵלָ֔יו אֲנַ֥חְנוּ טְמֵאִ֖ים לְנֶ֣פֶשׁ אָדָ֑ם לָ֣מָּה נִגָּרַ֗ע לְבִלְתִּ֨י הַקְרִ֜יב אֶת־קׇרְבַּ֤ן יְהֹוָה֙ בְּמֹ֣עֲד֔וֹ בְּת֖וֹךְ בְּנֵ֥י יִשְׂרָאֵֽל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-9-17-2",
+      "bookId": "num",
+      "readerIds": [
+        "num-9-17-2"
+      ],
+      "readerHebrew": [
+        "הֵעָלֹ֤ת"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-9-17-2",
+          "readerHebrew": "הֵעָלֹ֤ת",
+          "primaryHebrew": "הֵעָל֤וֹת",
+          "primaryAtom": 2,
+          "primaryVerse": "Num.9.17",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-9-17-1",
+        "afterGroup": "pmam-num-9-17-3",
+        "beforeReaderEnd": "num-9-17-1",
+        "afterReaderStart": "num-9-17-3"
+      },
+      "primaryVerseText": "וּלְפִ֞י הֵעָל֤וֹת הֶֽעָנָן֙ מֵעַ֣ל הָאֹ֔הֶל וְאַ֣חֲרֵי כֵ֔ן יִסְע֖וּ בְּנֵ֣י יִשְׂרָאֵ֑ל וּבִמְק֗וֹם אֲשֶׁ֤ר יִשְׁכׇּן־שָׁם֙ הֶֽעָנָ֔ן שָׁ֥ם יַחֲנ֖וּ בְּנֵ֥י יִשְׂרָאֵֽל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-10-9-8",
+      "bookId": "num",
+      "readerIds": [
+        "num-10-9-10"
+      ],
+      "readerHebrew": [
+        "בַּחֲצֹצְר֑וֹת"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-10-9-10",
+          "readerHebrew": "בַּחֲצֹצְר֑וֹת",
+          "primaryHebrew": "בַּחֲצֹצְרֹ֑ת",
+          "primaryAtom": 10,
+          "primaryVerse": "Num.10.9",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-10-9-7",
+        "afterGroup": "pmam-num-10-9-9",
+        "beforeReaderEnd": "num-10-9-9",
+        "afterReaderStart": "num-10-9-11"
+      },
+      "primaryVerseText": "וְכִֽי־תָבֹ֨אוּ מִלְחָמָ֜ה בְּאַרְצְכֶ֗ם עַל־הַצַּר֙ הַצֹּרֵ֣ר אֶתְכֶ֔ם וַהֲרֵעֹתֶ֖ם בַּחֲצֹצְרֹ֑ת וְנִזְכַּרְתֶּ֗ם לִפְנֵי֙ יְהֹוָ֣ה אֱלֹֽהֵיכֶ֔ם וְנוֹשַׁעְתֶּ֖ם מֵאֹיְבֵיכֶֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-10-16-6",
+      "bookId": "num",
+      "readerIds": [
+        "num-10-16-7",
+        "num-10-16-8"
+      ],
+      "readerHebrew": [
+        "בֶּן־",
+        "חֵלֽוֹן׃"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-10-16-7",
+          "readerHebrew": "בֶּן־",
+          "primaryHebrew": "בֶּן",
+          "primaryAtom": 7,
+          "primaryVerse": "Num.10.16",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-10-16-8",
+          "readerHebrew": "חֵלֽוֹן׃",
+          "primaryHebrew": "חֵלֹֽן׃",
+          "primaryAtom": 8,
+          "primaryVerse": "Num.10.16",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-10-16-5",
+        "afterGroup": "pmam-num-10-17-1",
+        "beforeReaderEnd": "num-10-16-6",
+        "afterReaderStart": "num-10-17-1"
+      },
+      "primaryVerseText": "וְעַ֨ל־צְבָ֔א מַטֵּ֖ה בְּנֵ֣י זְבוּלֻ֑ן אֱלִיאָ֖ב בֶּן־חֵלֹֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-11-26-13",
+      "bookId": "num",
+      "readerIds": [
+        "num-11-26-12"
+      ],
+      "readerHebrew": [
+        "עֲלֵיהֶ֣ם"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-11-26-12",
+          "readerHebrew": "עֲלֵיהֶ֣ם",
+          "primaryHebrew": "עֲלֵהֶ֣ם",
+          "primaryAtom": 12,
+          "primaryVerse": "Num.11.26",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-11-26-12",
+        "afterGroup": "pmam-num-11-26-14",
+        "beforeReaderEnd": "num-11-26-11",
+        "afterReaderStart": "num-11-26-13"
+      },
+      "primaryVerseText": "וַיִּשָּׁאֲר֣וּ שְׁנֵֽי־אֲנָשִׁ֣ים׀בַּֽמַּחֲנֶ֡ה שֵׁ֣ם הָאֶחָ֣ד׀אֶלְדָּ֡ד וְשֵׁם֩ הַשֵּׁנִ֨י מֵידָ֜ד וַתָּ֧נַח עֲלֵהֶ֣ם הָר֗וּחַ וְהֵ֙מָּה֙ בַּכְּתֻבִ֔ים וְלֹ֥א יָצְא֖וּ הָאֹ֑הֱלָה וַיִּֽתְנַבְּא֖וּ בַּֽמַּחֲנֶֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-13-26-11",
+      "bookId": "num",
+      "readerIds": [
+        "num-13-26-17"
+      ],
+      "readerHebrew": [
+        "אוֹתָ֤ם"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-13-26-17",
+          "readerHebrew": "אוֹתָ֤ם",
+          "primaryHebrew": "אֹתָ֤ם",
+          "primaryAtom": 17,
+          "primaryVerse": "Num.13.26",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-13-26-10",
+        "afterGroup": "pmam-num-13-26-12",
+        "beforeReaderEnd": "num-13-26-16",
+        "afterReaderStart": "num-13-26-18"
+      },
+      "primaryVerseText": "וַיֵּלְכ֡וּ וַיָּבֹ֩אוּ֩ אֶל־מֹשֶׁ֨ה וְאֶֽל־אַהֲרֹ֜ן וְאֶל־כׇּל־עֲדַ֧ת בְּנֵֽי־יִשְׂרָאֵ֛ל אֶל־מִדְבַּ֥ר פָּארָ֖ן קָדֵ֑שָׁה וַיָּשִׁ֨יבוּ אֹתָ֤ם דָּבָר֙ וְאֶת־כׇּל־הָ֣עֵדָ֔ה וַיַּרְא֖וּם אֶת־פְּרִ֥י הָאָֽרֶץ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-13-29-11",
+      "bookId": "num",
+      "readerIds": [
+        "num-13-29-11"
+      ],
+      "readerHebrew": [
+        "יֹשֵׁ֣ב"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-13-29-11",
+          "readerHebrew": "יֹשֵׁ֣ב",
+          "primaryHebrew": "יוֹשֵׁ֣ב",
+          "primaryAtom": 11,
+          "primaryVerse": "Num.13.29",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-13-29-10",
+        "afterGroup": "pmam-num-13-29-12",
+        "beforeReaderEnd": "num-13-29-10",
+        "afterReaderStart": "num-13-29-12"
+      },
+      "primaryVerseText": "עֲמָלֵ֥ק יוֹשֵׁ֖ב בְּאֶ֣רֶץ הַנֶּ֑גֶב וְ֠הַֽחִתִּ֠י וְהַיְבוּסִ֤י וְהָֽאֱמֹרִי֙ יוֹשֵׁ֣ב בָּהָ֔ר וְהַֽכְּנַעֲנִי֙ יוֹשֵׁ֣ב עַל־הַיָּ֔ם וְעַ֖ל יַ֥ד הַיַּרְדֵּֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-13-32-1",
+      "bookId": "num",
+      "readerIds": [
+        "num-13-32-1"
+      ],
+      "readerHebrew": [
+        "וַיּוֹצִ֜יאוּ"
+      ],
+      "sourceRows": [
+        1
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-13-32-1",
+          "readerHebrew": "וַיּוֹצִ֜יאוּ",
+          "primaryHebrew": "וַיֹּצִ֜יאוּ",
+          "primaryAtom": 1,
+          "primaryVerse": "Num.13.32",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-13-31-11",
+        "afterGroup": "pmam-num-13-32-2",
+        "beforeReaderEnd": "num-13-31-14",
+        "afterReaderStart": "num-13-32-2"
+      },
+      "primaryVerseText": "וַיֹּצִ֜יאוּ דִּבַּ֤ת הָאָ֙רֶץ֙ אֲשֶׁ֣ר תָּר֣וּ אֹתָ֔הּ אֶל־בְּנֵ֥י יִשְׂרָאֵ֖ל לֵאמֹ֑ר הָאָ֡רֶץ אֲשֶׁר֩ עָבַ֨רְנוּ בָ֜הּ לָת֣וּר אֹתָ֗הּ אֶ֣רֶץ אֹכֶ֤לֶת יוֹשְׁבֶ֙יהָ֙ הִ֔וא וְכׇל־הָעָ֛ם אֲשֶׁר־רָאִ֥ינוּ בְתוֹכָ֖הּ אַנְשֵׁ֥י מִדּֽוֹת׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-15-39-11",
+      "bookId": "num",
+      "readerIds": [
+        "num-15-39-13",
+        "num-15-39-14"
+      ],
+      "readerHebrew": [
+        "וְלֹֽא־",
+        "תָתֻ֜רוּ"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-15-39-13",
+          "readerHebrew": "וְלֹֽא־",
+          "primaryHebrew": "וְלֹֽא",
+          "primaryAtom": 13,
+          "primaryVerse": "Num.15.39",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-15-39-14",
+          "readerHebrew": "תָתֻ֜רוּ",
+          "primaryHebrew": "תָת֜וּרוּ",
+          "primaryAtom": 14,
+          "primaryVerse": "Num.15.39",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-15-39-10",
+        "afterGroup": "pmam-num-15-39-12",
+        "beforeReaderEnd": "num-15-39-12",
+        "afterReaderStart": "num-15-39-15"
+      },
+      "primaryVerseText": "וְהָיָ֣ה לָכֶם֮ לְצִיצִת֒ וּרְאִיתֶ֣ם אֹת֗וֹ וּזְכַרְתֶּם֙ אֶת־כׇּל־מִצְוֺ֣ת יְהֹוָ֔ה וַעֲשִׂיתֶ֖ם אֹתָ֑ם וְלֹֽא־תָת֜וּרוּ אַחֲרֵ֤י לְבַבְכֶם֙ וְאַחֲרֵ֣י עֵֽינֵיכֶ֔ם אֲשֶׁר־אַתֶּ֥ם זֹנִ֖ים אַחֲרֵיהֶֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-19-7-8",
+      "bookId": "num",
+      "readerIds": [
+        "num-19-7-8"
+      ],
+      "readerHebrew": [
+        "יָב֣וֹא"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-19-7-8",
+          "readerHebrew": "יָב֣וֹא",
+          "primaryHebrew": "יָבֹ֣א",
+          "primaryAtom": 8,
+          "primaryVerse": "Num.19.7",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-19-7-7",
+        "afterGroup": "pmam-num-19-7-9",
+        "beforeReaderEnd": "num-19-7-7",
+        "afterReaderStart": "num-19-7-9"
+      },
+      "primaryVerseText": "וְכִבֶּ֨ס בְּגָדָ֜יו הַכֹּהֵ֗ן וְרָחַ֤ץ בְּשָׂרוֹ֙ בַּמַּ֔יִם וְאַחַ֖ר יָבֹ֣א אֶל־הַֽמַּחֲנֶ֑ה וְטָמֵ֥א הַכֹּהֵ֖ן עַד־הָעָֽרֶב׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-20-17-20",
+      "bookId": "num",
+      "readerIds": [
+        "num-20-17-22"
+      ],
+      "readerHebrew": [
+        "גְּבוּלֶֽךָ׃"
+      ],
+      "sourceRows": [
+        20
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-20-17-22",
+          "readerHebrew": "גְּבוּלֶֽךָ׃",
+          "primaryHebrew": "גְּבֻלֶֽךָ׃",
+          "primaryAtom": 22,
+          "primaryVerse": "Num.20.17",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-20-17-19",
+        "afterGroup": "pmam-num-20-18-1",
+        "beforeReaderEnd": "num-20-17-21",
+        "afterReaderStart": "num-20-18-1"
+      },
+      "primaryVerseText": "נַעְבְּרָה־נָּ֣א בְאַרְצֶ֗ךָ לֹ֤א נַעֲבֹר֙ בְּשָׂדֶ֣ה וּבְכֶ֔רֶם וְלֹ֥א נִשְׁתֶּ֖ה מֵ֣י בְאֵ֑ר דֶּ֧רֶךְ הַמֶּ֣לֶךְ נֵלֵ֗ךְ לֹ֤א נִטֶּה֙ יָמִ֣ין וּשְׂמֹ֔אול עַ֥ד אֲשֶֽׁר־נַעֲבֹ֖ר גְּבֻלֶֽךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-21-13-9",
+      "bookId": "num",
+      "readerIds": [
+        "num-21-13-9"
+      ],
+      "readerHebrew": [
+        "מִגְּב֣וּל"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-21-13-9",
+          "readerHebrew": "מִגְּב֣וּל",
+          "primaryHebrew": "מִגְּבֻ֣ל",
+          "primaryAtom": 9,
+          "primaryVerse": "Num.21.13",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-21-13-8",
+        "afterGroup": "pmam-num-21-13-10",
+        "beforeReaderEnd": "num-21-13-8",
+        "afterReaderStart": "num-21-13-10"
+      },
+      "primaryVerseText": "מִשָּׁם֮ נָסָ֒עוּ֒ וַֽיַּחֲנ֗וּ מֵעֵ֤בֶר אַרְנוֹן֙ אֲשֶׁ֣ר בַּמִּדְבָּ֔ר הַיֹּצֵ֖א מִגְּבֻ֣ל הָֽאֱמֹרִ֑י כִּ֤י אַרְנוֹן֙ גְּב֣וּל מוֹאָ֔ב בֵּ֥ין מוֹאָ֖ב וּבֵ֥ין הָאֱמֹרִֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-21-30-4",
+      "bookId": "num",
+      "readerIds": [
+        "num-21-30-4",
+        "num-21-30-5"
+      ],
+      "readerHebrew": [
+        "עַד־",
+        "דִּיב֑וֹן"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-21-30-4",
+          "readerHebrew": "עַד־",
+          "primaryHebrew": "עַד",
+          "primaryAtom": 4,
+          "primaryVerse": "Num.21.30",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-21-30-5",
+          "readerHebrew": "דִּיב֑וֹן",
+          "primaryHebrew": "דִּיבֹ֑ן",
+          "primaryAtom": 5,
+          "primaryVerse": "Num.21.30",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-21-30-3",
+        "afterGroup": "pmam-num-21-30-5",
+        "beforeReaderEnd": "num-21-30-3",
+        "afterReaderStart": "num-21-30-6"
+      },
+      "primaryVerseText": "וַנִּירָ֛ם אָבַ֥ד חֶשְׁבּ֖וֹן עַד־דִּיבֹ֑ן וַנַּשִּׁ֣ים עַד־נֹ֔פַח אֲשֶׁ֖רׄ עַד־מֵֽידְבָֽא׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-22-5-4",
+      "bookId": "num",
+      "readerIds": [
+        "num-22-5-5",
+        "num-22-5-6"
+      ],
+      "readerHebrew": [
+        "בֶּן־",
+        "בְּע֗וֹר"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-22-5-5",
+          "readerHebrew": "בֶּן־",
+          "primaryHebrew": "בֶּן",
+          "primaryAtom": 5,
+          "primaryVerse": "Num.22.5",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-22-5-6",
+          "readerHebrew": "בְּע֗וֹר",
+          "primaryHebrew": "בְּעֹ֗ר",
+          "primaryAtom": 6,
+          "primaryVerse": "Num.22.5",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-22-5-3",
+        "afterGroup": "pmam-num-22-5-5",
+        "beforeReaderEnd": "num-22-5-4",
+        "afterReaderStart": "num-22-5-7"
+      },
+      "primaryVerseText": "וַיִּשְׁלַ֨ח מַלְאָכִ֜ים אֶל־בִּלְעָ֣ם בֶּן־בְּעֹ֗ר פְּ֠ת֠וֹרָה אֲשֶׁ֧ר עַל־הַנָּהָ֛ר אֶ֥רֶץ בְּנֵי־עַמּ֖וֹ לִקְרֹא־ל֑וֹ לֵאמֹ֗ר הִ֠נֵּ֠ה עַ֣ם יָצָ֤א מִמִּצְרַ֙יִם֙ הִנֵּ֤ה כִסָּה֙ אֶת־עֵ֣ין הָאָ֔רֶץ וְה֥וּא יֹשֵׁ֖ב מִמֻּלִֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-22-38-7",
+      "bookId": "num",
+      "readerIds": [
+        "num-22-38-9"
+      ],
+      "readerHebrew": [
+        "הֲיָכ֥וֹל"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-22-38-9",
+          "readerHebrew": "הֲיָכ֥וֹל",
+          "primaryHebrew": "הֲיָכֹ֥ל",
+          "primaryAtom": 9,
+          "primaryVerse": "Num.22.38",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-22-38-6",
+        "afterGroup": "pmam-num-22-38-8",
+        "beforeReaderEnd": "num-22-38-8",
+        "afterReaderStart": "num-22-38-10"
+      },
+      "primaryVerseText": "וַיֹּ֨אמֶר בִּלְעָ֜ם אֶל־בָּלָ֗ק הִֽנֵּה־בָ֙אתִי֙ אֵלֶ֔יךָ עַתָּ֕ה הֲיָכֹ֥ל אוּכַ֖ל דַּבֵּ֣ר מְא֑וּמָה הַדָּבָ֗ר אֲשֶׁ֨ר יָשִׂ֧ים אֱלֹהִ֛ים בְּפִ֖י אֹת֥וֹ אֲדַבֵּֽר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-23-29-14",
+      "bookId": "num",
+      "readerIds": [
+        "num-23-29-16"
+      ],
+      "readerHebrew": [
+        "אֵילִֽים׃"
+      ],
+      "sourceRows": [
+        14
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-23-29-16",
+          "readerHebrew": "אֵילִֽים׃",
+          "primaryHebrew": "אֵילִֽם׃",
+          "primaryAtom": 16,
+          "primaryVerse": "Num.23.29",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-23-29-13",
+        "afterGroup": "pmam-num-23-30-1",
+        "beforeReaderEnd": "num-23-29-15",
+        "afterReaderStart": "num-23-30-1"
+      },
+      "primaryVerseText": "וַיֹּ֤אמֶר בִּלְעָם֙ אֶל־בָּלָ֔ק בְּנֵה־לִ֥י בָזֶ֖ה שִׁבְעָ֣ה מִזְבְּחֹ֑ת וְהָכֵ֥ן לִי֙ בָּזֶ֔ה שִׁבְעָ֥ה פָרִ֖ים וְשִׁבְעָ֥ה אֵילִֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-26-24-3",
+      "bookId": "num",
+      "readerIds": [
+        "num-26-24-3"
+      ],
+      "readerHebrew": [
+        "הַיָּשׁוּבִ֑י"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-26-24-3",
+          "readerHebrew": "הַיָּשׁוּבִ֑י",
+          "primaryHebrew": "הַיָּשֻׁבִ֑י",
+          "primaryAtom": 3,
+          "primaryVerse": "Num.26.24",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-26-24-2",
+        "afterGroup": "pmam-num-26-24-4",
+        "beforeReaderEnd": "num-26-24-2",
+        "afterReaderStart": "num-26-24-4"
+      },
+      "primaryVerseText": "לְיָשׁ֕וּב מִשְׁפַּ֖חַת הַיָּשֻׁבִ֑י לְשִׁמְרֹ֕ן מִשְׁפַּ֖חַת הַשִּׁמְרֹנִֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-32-22-8",
+      "bookId": "num",
+      "readerIds": [
+        "num-32-22-8"
+      ],
+      "readerHebrew": [
+        "נְקִיִּ֛ים"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-32-22-8",
+          "readerHebrew": "נְקִיִּ֛ים",
+          "primaryHebrew": "נְקִיִּ֛ם",
+          "primaryAtom": 8,
+          "primaryVerse": "Num.32.22",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-32-22-7",
+        "afterGroup": "pmam-num-32-22-9",
+        "beforeReaderEnd": "num-32-22-7",
+        "afterReaderStart": "num-32-22-9"
+      },
+      "primaryVerseText": "וְנִכְבְּשָׁ֨ה הָאָ֜רֶץ לִפְנֵ֤י יְהֹוָה֙ וְאַחַ֣ר תָּשֻׁ֔בוּ וִהְיִיתֶ֧ם נְקִיִּ֛ם מֵיְהֹוָ֖ה וּמִיִּשְׂרָאֵ֑ל וְ֠הָיְתָ֠ה הָאָ֨רֶץ הַזֹּ֥את לָכֶ֛ם לַאֲחֻזָּ֖ה לִפְנֵ֥י יְהֹוָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-33-35-4",
+      "bookId": "num",
+      "readerIds": [
+        "num-33-35-4"
+      ],
+      "readerHebrew": [
+        "בְּעֶצְי֥וֹן"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-33-35-4",
+          "readerHebrew": "בְּעֶצְי֥וֹן",
+          "primaryHebrew": "בְּעֶצְיֹ֥ן",
+          "primaryAtom": 4,
+          "primaryVerse": "Num.33.35",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-33-35-3",
+        "afterGroup": "pmam-num-33-35-5",
+        "beforeReaderEnd": "num-33-35-3",
+        "afterReaderStart": "num-33-35-5"
+      },
+      "primaryVerseText": "וַיִּסְע֖וּ מֵֽעַבְרֹנָ֑ה וַֽיַּחֲנ֖וּ בְּעֶצְיֹ֥ן גָּֽבֶר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-33-36-2",
+      "bookId": "num",
+      "readerIds": [
+        "num-33-36-2"
+      ],
+      "readerHebrew": [
+        "מֵעֶצְי֣וֹן"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-33-36-2",
+          "readerHebrew": "מֵעֶצְי֣וֹן",
+          "primaryHebrew": "מֵעֶצְיֹ֣ן",
+          "primaryAtom": 2,
+          "primaryVerse": "Num.33.36",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-33-36-1",
+        "afterGroup": "pmam-num-33-36-3",
+        "beforeReaderEnd": "num-33-36-1",
+        "afterReaderStart": "num-33-36-3"
+      },
+      "primaryVerseText": "וַיִּסְע֖וּ מֵעֶצְיֹ֣ן גָּ֑בֶר וַיַּחֲנ֥וּ בְמִדְבַּר־צִ֖ן הִ֥וא קָדֵֽשׁ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-33-52-13",
+      "bookId": "num",
+      "readerIds": [
+        "num-33-52-17",
+        "num-33-52-18"
+      ],
+      "readerHebrew": [
+        "כָּל־",
+        "בָּמֹתָ֖ם"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-33-52-17",
+          "readerHebrew": "כָּל־",
+          "primaryHebrew": "כׇּל",
+          "primaryAtom": 17,
+          "primaryVerse": "Num.33.52",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-33-52-18",
+          "readerHebrew": "בָּמֹתָ֖ם",
+          "primaryHebrew": "בָּמוֹתָ֖ם",
+          "primaryAtom": 18,
+          "primaryVerse": "Num.33.52",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-33-52-12",
+        "afterGroup": "pmam-num-33-52-14",
+        "beforeReaderEnd": "num-33-52-16",
+        "afterReaderStart": "num-33-52-19"
+      },
+      "primaryVerseText": "וְה֨וֹרַשְׁתֶּ֜ם אֶת־כׇּל־יֹשְׁבֵ֤י הָאָ֙רֶץ֙ מִפְּנֵיכֶ֔ם וְאִ֨בַּדְתֶּ֔ם אֵ֖ת כׇּל־מַשְׂכִּיֹּתָ֑ם וְאֵ֨ת כׇּל־צַלְמֵ֤י מַסֵּֽכֹתָם֙ תְּאַבֵּ֔דוּ וְאֵ֥ת כׇּל־בָּמוֹתָ֖ם תַּשְׁמִֽידוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-34-11-8",
+      "bookId": "num",
+      "readerIds": [
+        "num-34-11-8"
+      ],
+      "readerHebrew": [
+        "הַגְּב֔וּל"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-34-11-8",
+          "readerHebrew": "הַגְּב֔וּל",
+          "primaryHebrew": "הַגְּבֻ֔ל",
+          "primaryAtom": 8,
+          "primaryVerse": "Num.34.11",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-34-11-7",
+        "afterGroup": "pmam-num-34-11-9",
+        "beforeReaderEnd": "num-34-11-7",
+        "afterReaderStart": "num-34-11-9"
+      },
+      "primaryVerseText": "וְיָרַ֨ד הַגְּבֻ֧ל מִשְּׁפָ֛ם הָרִבְלָ֖ה מִקֶּ֣דֶם לָעָ֑יִן וְיָרַ֣ד הַגְּבֻ֔ל וּמָחָ֛ה עַל־כֶּ֥תֶף יָם־כִּנֶּ֖רֶת קֵֽדְמָה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-num-35-19-8",
+      "bookId": "num",
+      "readerIds": [
+        "num-35-19-10"
+      ],
+      "readerHebrew": [
+        "יְמִיתֶֽנּוּ׃"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "num-35-19-10",
+          "readerHebrew": "יְמִיתֶֽנּוּ׃",
+          "primaryHebrew": "יְמִתֶֽנּוּ׃",
+          "primaryAtom": 10,
+          "primaryVerse": "Num.35.19",
+          "sourceFileSha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-num-35-19-7",
+        "afterGroup": "pmam-num-35-20-1",
+        "beforeReaderEnd": "num-35-19-9",
+        "afterReaderStart": "num-35-20-1"
+      },
+      "primaryVerseText": "גֹּאֵ֣ל הַדָּ֔ם ה֥וּא יָמִ֖ית אֶת־הָרֹצֵ֑חַ בְּפִגְעוֹ־ב֖וֹ ה֥וּא יְמִתֶֽנּוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Num.json",
+        "file": "Num.json",
+        "gitBlob": "17c187b9b5622915940926c54c005cb734d50ea2",
+        "bytes": 508228,
+        "sha256": "954dfda904be825bd400eda3b9c2c1f64da8829e5a6d7781217d84a126888e10",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Num.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-1-15-8",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-1-15-9"
+      ],
+      "readerHebrew": [
+        "אֹתָ֛ם"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-1-15-9",
+          "readerHebrew": "אֹתָ֛ם",
+          "primaryHebrew": "אוֹתָ֛ם",
+          "primaryAtom": 9,
+          "primaryVerse": "Deut.1.15",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-1-15-7",
+        "afterGroup": "pmam-deu-1-15-9",
+        "beforeReaderEnd": "deu-1-15-8",
+        "afterReaderStart": "deu-1-15-10"
+      },
+      "primaryVerseText": "וָאֶקַּ֞ח אֶת־רָאשֵׁ֣י שִׁבְטֵיכֶ֗ם אֲנָשִׁ֤ים חֲכָמִים֙ וִֽידֻעִ֔ים וָאֶתֵּ֥ן אוֹתָ֛ם רָאשִׁ֖ים עֲלֵיכֶ֑ם שָׂרֵ֨י אֲלָפִ֜ים וְשָׂרֵ֣י מֵא֗וֹת וְשָׂרֵ֤י חֲמִשִּׁים֙ וְשָׂרֵ֣י עֲשָׂרֹ֔ת וְשֹׁטְרִ֖ים לְשִׁבְטֵיכֶֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-2-23-7",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-2-23-8"
+      ],
+      "readerHebrew": [
+        "מִכַּפְתּ֔וֹר"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-2-23-8",
+          "readerHebrew": "מִכַּפְתּ֔וֹר",
+          "primaryHebrew": "מִכַּפְתֹּ֔ר",
+          "primaryAtom": 8,
+          "primaryVerse": "Deut.2.23",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-2-23-6",
+        "afterGroup": "pmam-deu-2-23-8",
+        "beforeReaderEnd": "deu-2-23-7",
+        "afterReaderStart": "deu-2-23-9"
+      },
+      "primaryVerseText": "וְהָֽעַוִּ֛ים הַיֹּשְׁבִ֥ים בַּחֲצֵרִ֖ים עַד־עַזָּ֑ה כַּפְתֹּרִים֙ הַיֹּצְאִ֣ים מִכַּפְתֹּ֔ר הִשְׁמִידֻ֖ם וַיֵּשְׁב֥וּ תַחְתָּֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-3-5-3",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-3-5-4"
+      ],
+      "readerHebrew": [
+        "בְּצֻר֛וֹת"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-3-5-4",
+          "readerHebrew": "בְּצֻר֛וֹת",
+          "primaryHebrew": "בְּצֻרֹ֛ת",
+          "primaryAtom": 4,
+          "primaryVerse": "Deut.3.5",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-3-5-2",
+        "afterGroup": "pmam-deu-3-5-4",
+        "beforeReaderEnd": "deu-3-5-3",
+        "afterReaderStart": "deu-3-5-5"
+      },
+      "primaryVerseText": "כׇּל־אֵ֜לֶּה עָרִ֧ים בְּצֻרֹ֛ת חוֹמָ֥ה גְבֹהָ֖ה דְּלָתַ֣יִם וּבְרִ֑יחַ לְבַ֛ד מֵעָרֵ֥י הַפְּרָזִ֖י הַרְבֵּ֥ה מְאֹֽד׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-3-25-11",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-3-25-13"
+      ],
+      "readerHebrew": [
+        "וְהַלְּבָנֽוֹן׃"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-3-25-13",
+          "readerHebrew": "וְהַלְּבָנֽוֹן׃",
+          "primaryHebrew": "וְהַלְּבָנֹֽן׃",
+          "primaryAtom": 13,
+          "primaryVerse": "Deut.3.25",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-3-25-10",
+        "afterGroup": "pmam-deu-3-26-1",
+        "beforeReaderEnd": "deu-3-25-12",
+        "afterReaderStart": "deu-3-26-1"
+      },
+      "primaryVerseText": "אֶעְבְּרָה־נָּ֗א וְאֶרְאֶה֙ אֶת־הָאָ֣רֶץ הַטּוֹבָ֔ה אֲשֶׁ֖ר בְּעֵ֣בֶר הַיַּרְדֵּ֑ן הָהָ֥ר הַטּ֛וֹב הַזֶּ֖ה וְהַלְּבָנֹֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-4-3-2",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-4-3-2"
+      ],
+      "readerHebrew": [
+        "הָֽרֹאֹ֔ת"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-4-3-2",
+          "readerHebrew": "הָֽרֹאֹ֔ת",
+          "primaryHebrew": "הָֽרֹא֔וֹת",
+          "primaryAtom": 2,
+          "primaryVerse": "Deut.4.3",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-4-3-1",
+        "afterGroup": "pmam-deu-4-3-3",
+        "beforeReaderEnd": "deu-4-3-1",
+        "afterReaderStart": "deu-4-3-3"
+      },
+      "primaryVerseText": "עֵֽינֵיכֶם֙ הָֽרֹא֔וֹת אֵ֛ת אֲשֶׁר־עָשָׂ֥ה יְהֹוָ֖ה בְּבַ֣עַל פְּע֑וֹר כִּ֣י כׇל־הָאִ֗ישׁ אֲשֶׁ֤ר הָלַךְ֙ אַחֲרֵ֣י בַֽעַל־פְּע֔וֹר הִשְׁמִיד֛וֹ יְהֹוָ֥ה אֱלֹהֶ֖יךָ מִקִּרְבֶּֽךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-4-42-11",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-4-42-14",
+        "deu-4-42-15"
+      ],
+      "readerHebrew": [
+        "מִתְּמ֣וֹל",
+        "שִׁלְשׁ֑וֹם"
+      ],
+      "sourceRows": [
+        11,
+        12
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-4-42-14",
+          "readerHebrew": "מִתְּמ֣וֹל",
+          "primaryHebrew": "מִתְּמֹ֣ל",
+          "primaryAtom": 14,
+          "primaryVerse": "Deut.4.42",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-4-42-15",
+          "readerHebrew": "שִׁלְשׁ֑וֹם",
+          "primaryHebrew": "שִׁלְשֹׁ֑ם",
+          "primaryAtom": 15,
+          "primaryVerse": "Deut.4.42",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-4-42-10",
+        "afterGroup": "pmam-deu-4-42-13",
+        "beforeReaderEnd": "deu-4-42-13",
+        "afterReaderStart": "deu-4-42-16"
+      },
+      "primaryVerseText": "לָנֻ֨ס שָׁ֜מָּה רוֹצֵ֗חַ אֲשֶׁ֨ר יִרְצַ֤ח אֶת־רֵעֵ֙הוּ֙ בִּבְלִי־דַ֔עַת וְה֛וּא לֹא־שֹׂנֵ֥א ל֖וֹ מִתְּמֹ֣ל שִׁלְשֹׁ֑ם וְנָ֗ס אֶל־אַחַ֛ת מִן־הֶעָרִ֥ים הָאֵ֖ל וָחָֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-6-9-2",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-6-9-2",
+        "deu-6-9-3"
+      ],
+      "readerHebrew": [
+        "עַל־",
+        "מְזוּזֹ֥ת"
+      ],
+      "sourceRows": [
+        2
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-6-9-2",
+          "readerHebrew": "עַל־",
+          "primaryHebrew": "עַל",
+          "primaryAtom": 2,
+          "primaryVerse": "Deut.6.9",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-6-9-3",
+          "readerHebrew": "מְזוּזֹ֥ת",
+          "primaryHebrew": "מְזֻז֥וֹת",
+          "primaryAtom": 3,
+          "primaryVerse": "Deut.6.9",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-6-9-1",
+        "afterGroup": "pmam-deu-6-9-3",
+        "beforeReaderEnd": "deu-6-9-1",
+        "afterReaderStart": "deu-6-9-4"
+      },
+      "primaryVerseText": "וּכְתַבְתָּ֛ם עַל־מְזֻז֥וֹת בֵּיתֶ֖ךָ וּבִשְׁעָרֶֽיךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-6-21-7",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-6-21-7"
+      ],
+      "readerHebrew": [
+        "וַיּוֹצִיאֵ֧נוּ"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-6-21-7",
+          "readerHebrew": "וַיּוֹצִיאֵ֧נוּ",
+          "primaryHebrew": "וַיֹּצִיאֵ֧נוּ",
+          "primaryAtom": 7,
+          "primaryVerse": "Deut.6.21",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-6-21-6",
+        "afterGroup": "pmam-deu-6-21-8",
+        "beforeReaderEnd": "deu-6-21-6",
+        "afterReaderStart": "deu-6-21-8"
+      },
+      "primaryVerseText": "וְאָמַרְתָּ֣ לְבִנְךָ֔ עֲבָדִ֛ים הָיִ֥ינוּ לְפַרְעֹ֖ה בְּמִצְרָ֑יִם וַיֹּצִיאֵ֧נוּ יְהֹוָ֛ה מִמִּצְרַ֖יִם בְּיָ֥ד חֲזָקָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-7-16-8",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-7-16-10",
+        "deu-7-16-11"
+      ],
+      "readerHebrew": [
+        "לֹא־",
+        "תָחֹ֥ס"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-7-16-10",
+          "readerHebrew": "לֹא־",
+          "primaryHebrew": "לֹא",
+          "primaryAtom": 10,
+          "primaryVerse": "Deut.7.16",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-7-16-11",
+          "readerHebrew": "תָחֹ֥ס",
+          "primaryHebrew": "תָח֥וֹס",
+          "primaryAtom": 11,
+          "primaryVerse": "Deut.7.16",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-7-16-7",
+        "afterGroup": "pmam-deu-7-16-9",
+        "beforeReaderEnd": "deu-7-16-9",
+        "afterReaderStart": "deu-7-16-12"
+      },
+      "primaryVerseText": "וְאָכַלְתָּ֣ אֶת־כׇּל־הָֽעַמִּ֗ים אֲשֶׁ֨ר יְהֹוָ֤ה אֱלֹהֶ֙יךָ֙ נֹתֵ֣ן לָ֔ךְ לֹא־תָח֥וֹס עֵֽינְךָ֖ עֲלֵיהֶ֑ם וְלֹ֤א תַעֲבֹד֙ אֶת־אֱלֹ֣הֵיהֶ֔ם כִּֽי־מוֹקֵ֥שׁ ה֖וּא לָֽךְ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-8-2-4",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-8-2-6"
+      ],
+      "readerHebrew": [
+        "הֹלִֽיכֲךָ֜"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-8-2-6",
+          "readerHebrew": "הֹלִֽיכֲךָ֜",
+          "primaryHebrew": "הוֹלִֽיכְךָ֜",
+          "primaryAtom": 6,
+          "primaryVerse": "Deut.8.2",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-8-2-3",
+        "afterGroup": "pmam-deu-8-2-5",
+        "beforeReaderEnd": "deu-8-2-5",
+        "afterReaderStart": "deu-8-2-7"
+      },
+      "primaryVerseText": "וְזָכַרְתָּ֣ אֶת־כׇּל־הַדֶּ֗רֶךְ אֲשֶׁ֨ר הוֹלִֽיכְךָ֜ יְהֹוָ֧ה אֱלֹהֶ֛יךָ זֶ֛ה אַרְבָּעִ֥ים שָׁנָ֖ה בַּמִּדְבָּ֑ר לְמַ֨עַן עַנֹּֽתְךָ֜ לְנַסֹּֽתְךָ֗ לָדַ֜עַת אֶת־אֲשֶׁ֧ר בִּֽלְבָבְךָ֛ הֲתִשְׁמֹ֥ר מִצְוֺתָ֖ו אִם־לֹֽא׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-8-3-11",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-8-3-13"
+      ],
+      "readerHebrew": [
+        "הוֹדִֽעֲךָ֗"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-8-3-13",
+          "readerHebrew": "הוֹדִֽעֲךָ֗",
+          "primaryHebrew": "הוֹדִֽיעֲךָ֗",
+          "primaryAtom": 13,
+          "primaryVerse": "Deut.8.3",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-8-3-10",
+        "afterGroup": "pmam-deu-8-3-12",
+        "beforeReaderEnd": "deu-8-3-12",
+        "afterReaderStart": "deu-8-3-14"
+      },
+      "primaryVerseText": "וַֽיְעַנְּךָ֮ וַיַּרְעִבֶ֒ךָ֒ וַיַּאֲכִֽלְךָ֤ אֶת־הַמָּן֙ אֲשֶׁ֣ר לֹא־יָדַ֔עְתָּ וְלֹ֥א יָדְע֖וּן אֲבֹתֶ֑יךָ לְמַ֣עַן הוֹדִֽיעֲךָ֗ כִּ֠י לֹ֣א עַל־הַלֶּ֤חֶם לְבַדּוֹ֙ יִחְיֶ֣ה הָֽאָדָ֔ם כִּ֛י עַל־כׇּל־מוֹצָ֥א פִֽי־יְהֹוָ֖ה יִחְיֶ֥ה הָאָדָֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-8-12-4",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-8-12-5"
+      ],
+      "readerHebrew": [
+        "טוֹבִ֛ים"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-8-12-5",
+          "readerHebrew": "טוֹבִ֛ים",
+          "primaryHebrew": "טֹבִ֛ים",
+          "primaryAtom": 5,
+          "primaryVerse": "Deut.8.12",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-8-12-3",
+        "afterGroup": "pmam-deu-8-12-5",
+        "beforeReaderEnd": "deu-8-12-4",
+        "afterReaderStart": "deu-8-12-6"
+      },
+      "primaryVerseText": "פֶּן־תֹּאכַ֖ל וְשָׂבָ֑עְתָּ וּבָתִּ֥ים טֹבִ֛ים תִּבְנֶ֖ה וְיָשָֽׁבְתָּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-9-15-8",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-9-15-9"
+      ],
+      "readerHebrew": [
+        "לֻחֹ֣ת"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-9-15-9",
+          "readerHebrew": "לֻחֹ֣ת",
+          "primaryHebrew": "לוּחֹ֣ת",
+          "primaryAtom": 9,
+          "primaryVerse": "Deut.9.15",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-9-15-7",
+        "afterGroup": "pmam-deu-9-15-9",
+        "beforeReaderEnd": "deu-9-15-8",
+        "afterReaderStart": "deu-9-15-10"
+      },
+      "primaryVerseText": "וָאֵ֗פֶן וָֽאֵרֵד֙ מִן־הָהָ֔ר וְהָהָ֖ר בֹּעֵ֣ר בָּאֵ֑שׁ וּשְׁנֵי֙ לוּחֹ֣ת הַבְּרִ֔ית עַ֖ל שְׁתֵּ֥י יָדָֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-10-11-10",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-10-11-10"
+      ],
+      "readerHebrew": [
+        "וְיִֽרְשׁ֣וּ"
+      ],
+      "sourceRows": [
+        10
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-10-11-10",
+          "readerHebrew": "וְיִֽרְשׁ֣וּ",
+          "primaryHebrew": "וְיִֽירְשׁ֣וּ",
+          "primaryAtom": 10,
+          "primaryVerse": "Deut.10.11",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-10-11-9",
+        "afterGroup": "pmam-deu-10-11-11",
+        "beforeReaderEnd": "deu-10-11-9",
+        "afterReaderStart": "deu-10-11-11"
+      },
+      "primaryVerseText": "וַיֹּ֤אמֶר יְהֹוָה֙ אֵלַ֔י ק֛וּם לֵ֥ךְ לְמַסַּ֖ע לִפְנֵ֣י הָעָ֑ם וְיָבֹ֙אוּ֙ וְיִֽירְשׁ֣וּ אֶת־הָאָ֔רֶץ אֲשֶׁר־נִשְׁבַּ֥עְתִּי לַאֲבֹתָ֖ם לָתֵ֥ת לָהֶֽם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-12-20-5",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-12-20-5",
+        "deu-12-20-6"
+      ],
+      "readerHebrew": [
+        "אֶֽת־",
+        "גְּבֽוּלְךָ֮"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-12-20-5",
+          "readerHebrew": "אֶֽת־",
+          "primaryHebrew": "אֶֽת",
+          "primaryAtom": 5,
+          "primaryVerse": "Deut.12.20",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-12-20-6",
+          "readerHebrew": "גְּבֽוּלְךָ֮",
+          "primaryHebrew": "גְּבֻלְךָ֮",
+          "primaryAtom": 6,
+          "primaryVerse": "Deut.12.20",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-12-20-4",
+        "afterGroup": "pmam-deu-12-20-6",
+        "beforeReaderEnd": "deu-12-20-4",
+        "afterReaderStart": "deu-12-20-7"
+      },
+      "primaryVerseText": "כִּֽי־יַרְחִיב֩ יְהֹוָ֨ה אֱלֹהֶ֥יךָ אֶֽת־גְּבֻלְךָ֮ כַּאֲשֶׁ֣ר דִּבֶּר־לָךְ֒ וְאָמַרְתָּ֙ אֹכְלָ֣ה בָשָׂ֔ר כִּֽי־תְאַוֶּ֥ה נַפְשְׁךָ֖ לֶאֱכֹ֣ל בָּשָׂ֑ר בְּכׇל־אַוַּ֥ת נַפְשְׁךָ֖ תֹּאכַ֥ל בָּשָֽׂר׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-18-22-9",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-18-22-10"
+      ],
+      "readerHebrew": [
+        "יָב֔וֹא"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-18-22-10",
+          "readerHebrew": "יָב֔וֹא",
+          "primaryHebrew": "יָבֹ֔א",
+          "primaryAtom": 10,
+          "primaryVerse": "Deut.18.22",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-18-22-8",
+        "afterGroup": "pmam-deu-18-22-10",
+        "beforeReaderEnd": "deu-18-22-9",
+        "afterReaderStart": "deu-18-22-11"
+      },
+      "primaryVerseText": "אֲשֶׁר֩ יְדַבֵּ֨ר הַנָּבִ֜יא בְּשֵׁ֣ם יְהֹוָ֗ה וְלֹֽא־יִהְיֶ֤ה הַדָּבָר֙ וְלֹ֣א יָבֹ֔א ה֣וּא הַדָּבָ֔ר אֲשֶׁ֥ר לֹא־דִבְּר֖וֹ יְהֹוָ֑ה בְּזָדוֹן֙ דִּבְּר֣וֹ הַנָּבִ֔יא לֹ֥א תָג֖וּר מִמֶּֽנּוּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-20-1-4",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-20-1-4",
+        "deu-20-1-5"
+      ],
+      "readerHebrew": [
+        "עַל־",
+        "אֹיְבֶ֗יךָ"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-20-1-4",
+          "readerHebrew": "עַל־",
+          "primaryHebrew": "עַל",
+          "primaryAtom": 4,
+          "primaryVerse": "Deut.20.1",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-20-1-5",
+          "readerHebrew": "אֹיְבֶ֗יךָ",
+          "primaryHebrew": "אֹיְבֶ֗ךָ",
+          "primaryAtom": 5,
+          "primaryVerse": "Deut.20.1",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-20-1-3",
+        "afterGroup": "pmam-deu-20-1-5",
+        "beforeReaderEnd": "deu-20-1-3",
+        "afterReaderStart": "deu-20-1-6"
+      },
+      "primaryVerseText": "כִּֽי־תֵצֵ֨א לַמִּלְחָמָ֜ה עַל־אֹיְבֶ֗ךָ וְֽרָאִ֜יתָ ס֤וּס וָרֶ֙כֶב֙ עַ֚ם רַ֣ב מִמְּךָ֔ לֹ֥א תִירָ֖א מֵהֶ֑ם כִּֽי־יְהֹוָ֤ה אֱלֹהֶ֙יךָ֙ עִמָּ֔ךְ הַמַּֽעַלְךָ֖ מֵאֶ֥רֶץ מִצְרָֽיִם׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-21-15-16",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-21-15-17"
+      ],
+      "readerHebrew": [
+        "הַבְּכ֖וֹר"
+      ],
+      "sourceRows": [
+        16
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-21-15-17",
+          "readerHebrew": "הַבְּכ֖וֹר",
+          "primaryHebrew": "הַבְּכֹ֖ר",
+          "primaryAtom": 17,
+          "primaryVerse": "Deut.21.15",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-21-15-15",
+        "afterGroup": "pmam-deu-21-15-17",
+        "beforeReaderEnd": "deu-21-15-16",
+        "afterReaderStart": "deu-21-15-18"
+      },
+      "primaryVerseText": "כִּֽי־תִהְיֶ֨יןָ לְאִ֜ישׁ שְׁתֵּ֣י נָשִׁ֗ים הָאַחַ֤ת אֲהוּבָה֙ וְהָאַחַ֣ת שְׂנוּאָ֔ה וְיָֽלְדוּ־ל֣וֹ בָנִ֔ים הָאֲהוּבָ֖ה וְהַשְּׂנוּאָ֑ה וְהָיָ֛ה הַבֵּ֥ן הַבְּכֹ֖ר לַשְּׂנִיאָֽה׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-22-14-5",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-22-14-5"
+      ],
+      "readerHebrew": [
+        "וְהוֹצִ֥יא"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-22-14-5",
+          "readerHebrew": "וְהוֹצִ֥יא",
+          "primaryHebrew": "וְהוֹצִ֥א",
+          "primaryAtom": 5,
+          "primaryVerse": "Deut.22.14",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-22-14-4",
+        "afterGroup": "pmam-deu-22-14-6",
+        "beforeReaderEnd": "deu-22-14-4",
+        "afterReaderStart": "deu-22-14-6"
+      },
+      "primaryVerseText": "וְשָׂ֥ם לָהּ֙ עֲלִילֹ֣ת דְּבָרִ֔ים וְהוֹצִ֥א עָלֶ֖יהָ שֵׁ֣ם רָ֑ע וְאָמַ֗ר אֶת־הָאִשָּׁ֤ה הַזֹּאת֙ לָקַ֔חְתִּי וָאֶקְרַ֣ב אֵלֶ֔יהָ וְלֹא־מָצָ֥אתִי לָ֖הּ בְּתוּלִֽים׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-24-13-5",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-24-13-6"
+      ],
+      "readerHebrew": [
+        "כְּבֹ֣א"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-24-13-6",
+          "readerHebrew": "כְּבֹ֣א",
+          "primaryHebrew": "כְּב֣וֹא",
+          "primaryAtom": 6,
+          "primaryVerse": "Deut.24.13",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-24-13-4",
+        "afterGroup": "pmam-deu-24-13-6",
+        "beforeReaderEnd": "deu-24-13-5",
+        "afterReaderStart": "deu-24-13-7"
+      },
+      "primaryVerseText": "הָשֵׁב֩ תָּשִׁ֨יב ל֤וֹ אֶֽת־הַעֲבוֹט֙ כְּב֣וֹא הַשֶּׁ֔מֶשׁ וְשָׁכַ֥ב בְּשַׂלְמָת֖וֹ וּבֵֽרְכֶ֑ךָּ וּלְךָ֙ תִּהְיֶ֣ה צְדָקָ֔ה לִפְנֵ֖י יְהֹוָ֥ה אֱלֹהֶֽיךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-25-7-11",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-25-7-14"
+      ],
+      "readerHebrew": [
+        "מֵאֵ֨ין"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-25-7-14",
+          "readerHebrew": "מֵאֵ֨ין",
+          "primaryHebrew": "מֵאֵ֨ן",
+          "primaryAtom": 14,
+          "primaryVerse": "Deut.25.7",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-25-7-10",
+        "afterGroup": "pmam-deu-25-7-12",
+        "beforeReaderEnd": "deu-25-7-13",
+        "afterReaderStart": "deu-25-7-15"
+      },
+      "primaryVerseText": "וְאִם־לֹ֤א יַחְפֹּץ֙ הָאִ֔ישׁ לָקַ֖חַת אֶת־יְבִמְתּ֑וֹ וְעָלְתָה֩ יְבִמְתּ֨וֹ הַשַּׁ֜עְרָה אֶל־הַזְּקֵנִ֗ים וְאָֽמְרָה֙ מֵאֵ֨ן יְבָמִ֜י לְהָקִ֨ים לְאָחִ֥יו שֵׁם֙ בְּיִשְׂרָאֵ֔ל לֹ֥א אָבָ֖ה יַבְּמִֽי׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-28-18-7",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-28-18-8"
+      ],
+      "readerHebrew": [
+        "וְעַשְׁתְּר֥וֹת"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-28-18-8",
+          "readerHebrew": "וְעַשְׁתְּר֥וֹת",
+          "primaryHebrew": "וְעַשְׁתְּרֹ֥ת",
+          "primaryAtom": 8,
+          "primaryVerse": "Deut.28.18",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-28-18-6",
+        "afterGroup": "pmam-deu-28-18-8",
+        "beforeReaderEnd": "deu-28-18-7",
+        "afterReaderStart": "deu-28-18-9"
+      },
+      "primaryVerseText": "אָר֥וּר פְּרִֽי־בִטְנְךָ֖ וּפְרִ֣י אַדְמָתֶ֑ךָ שְׁגַ֥ר אֲלָפֶ֖יךָ וְעַשְׁתְּרֹ֥ת צֹאנֶֽךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-28-49-5",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-28-49-5"
+      ],
+      "readerHebrew": [
+        "מֵרָחוֹק֙"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-28-49-5",
+          "readerHebrew": "מֵרָחוֹק֙",
+          "primaryHebrew": "מֵֽרָחֹק֙",
+          "primaryAtom": 5,
+          "primaryVerse": "Deut.28.49",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-28-49-4",
+        "afterGroup": "pmam-deu-28-49-6",
+        "beforeReaderEnd": "deu-28-49-4",
+        "afterReaderStart": "deu-28-49-6"
+      },
+      "primaryVerseText": "יִשָּׂ֣א יְהֹוָה֩ עָלֶ֨יךָ גּ֤וֹי מֵֽרָחֹק֙ מִקְצֵ֣ה הָאָ֔רֶץ כַּאֲשֶׁ֥ר יִדְאֶ֖ה הַנָּ֑שֶׁר גּ֕וֹי אֲשֶׁ֥ר לֹא־תִשְׁמַ֖ע לְשֹׁנֽוֹ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-28-52-7",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-28-52-8"
+      ],
+      "readerHebrew": [
+        "הַגְּבֹה֣וֹת"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-28-52-8",
+          "readerHebrew": "הַגְּבֹה֣וֹת",
+          "primaryHebrew": "הַגְּבֹהֹ֣ת",
+          "primaryAtom": 8,
+          "primaryVerse": "Deut.28.52",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-28-52-6",
+        "afterGroup": "pmam-deu-28-52-8",
+        "beforeReaderEnd": "deu-28-52-7",
+        "afterReaderStart": "deu-28-52-9"
+      },
+      "primaryVerseText": "וְהֵצַ֨ר לְךָ֜ בְּכׇל־שְׁעָרֶ֗יךָ עַ֣ד רֶ֤דֶת חֹמֹתֶ֙יךָ֙ הַגְּבֹהֹ֣ת וְהַבְּצֻר֔וֹת אֲשֶׁ֥ר אַתָּ֛ה בֹּטֵ֥חַ בָּהֵ֖ן בְּכׇל־אַרְצֶ֑ךָ וְהֵצַ֤ר לְךָ֙ בְּכׇל־שְׁעָרֶ֔יךָ בְּכׇ֨ל־אַרְצְךָ֔ אֲשֶׁ֥ר נָתַ֛ן יְהֹוָ֥ה אֱלֹהֶ֖יךָ לָֽךְ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-28-58-7",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-28-58-10"
+      ],
+      "readerHebrew": [
+        "הַכְּתוּבִ֖ים"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-28-58-10",
+          "readerHebrew": "הַכְּתוּבִ֖ים",
+          "primaryHebrew": "הַכְּתֻבִ֖ים",
+          "primaryAtom": 10,
+          "primaryVerse": "Deut.28.58",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-28-58-6",
+        "afterGroup": "pmam-deu-28-58-8",
+        "beforeReaderEnd": "deu-28-58-9",
+        "afterReaderStart": "deu-28-58-11"
+      },
+      "primaryVerseText": "אִם־לֹ֨א תִשְׁמֹ֜ר לַעֲשׂ֗וֹת אֶת־כׇּל־דִּבְרֵי֙ הַתּוֹרָ֣ה הַזֹּ֔את הַכְּתֻבִ֖ים בַּסֵּ֣פֶר הַזֶּ֑ה לְ֠יִרְאָ֠ה אֶת־הַשֵּׁ֞ם הַנִּכְבָּ֤ד וְהַנּוֹרָא֙ הַזֶּ֔ה אֵ֖ת יְהֹוָ֥ה אֱלֹהֶֽיךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-28-59-8",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-28-59-9"
+      ],
+      "readerHebrew": [
+        "גְּדֹלוֹת֙"
+      ],
+      "sourceRows": [
+        8
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-28-59-9",
+          "readerHebrew": "גְּדֹלוֹת֙",
+          "primaryHebrew": "גְּדֹלֹת֙",
+          "primaryAtom": 9,
+          "primaryVerse": "Deut.28.59",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-28-59-7",
+        "afterGroup": "pmam-deu-28-59-9",
+        "beforeReaderEnd": "deu-28-59-8",
+        "afterReaderStart": "deu-28-59-10"
+      },
+      "primaryVerseText": "וְהִפְלָ֤א יְהֹוָה֙ אֶת־מַכֹּ֣תְךָ֔ וְאֵ֖ת מַכּ֣וֹת זַרְעֶ֑ךָ מַכּ֤וֹת גְּדֹלֹת֙ וְנֶ֣אֱמָנ֔וֹת וׇחֳלָיִ֖ם רָעִ֥ים וְנֶאֱמָנִֽים׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-30-9-13",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-30-9-13"
+      ],
+      "readerHebrew": [
+        "לְטוֹבָ֑ה"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-30-9-13",
+          "readerHebrew": "לְטוֹבָ֑ה",
+          "primaryHebrew": "לְטֹבָ֑ה",
+          "primaryAtom": 13,
+          "primaryVerse": "Deut.30.9",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-30-9-12",
+        "afterGroup": "pmam-deu-30-9-14",
+        "beforeReaderEnd": "deu-30-9-12",
+        "afterReaderStart": "deu-30-9-14"
+      },
+      "primaryVerseText": "וְהוֹתִֽירְךָ֩ יְהֹוָ֨ה אֱלֹהֶ֜יךָ בְּכֹ֣ל׀ מַעֲשֵׂ֣ה יָדֶ֗ךָ בִּפְרִ֨י בִטְנְךָ֜ וּבִפְרִ֧י בְהֶמְתְּךָ֛ וּבִפְרִ֥י אַדְמָתְךָ֖ לְטֹבָ֑ה כִּ֣י׀ יָשׁ֣וּב יְהֹוָ֗ה לָשׂ֤וּשׂ עָלֶ֙יךָ֙ לְט֔וֹב כַּאֲשֶׁר־שָׂ֖שׂ עַל־אֲבֹתֶֽיךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-30-18-14",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-30-18-17"
+      ],
+      "readerHebrew": [
+        "לָבֹ֥א"
+      ],
+      "sourceRows": [
+        14
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-30-18-17",
+          "readerHebrew": "לָבֹ֥א",
+          "primaryHebrew": "לָב֥וֹא",
+          "primaryAtom": 17,
+          "primaryVerse": "Deut.30.18",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-30-18-13",
+        "afterGroup": "pmam-deu-30-18-15",
+        "beforeReaderEnd": "deu-30-18-16",
+        "afterReaderStart": "deu-30-18-18"
+      },
+      "primaryVerseText": "הִגַּ֤דְתִּי לָכֶם֙ הַיּ֔וֹם כִּ֥י אָבֹ֖ד תֹּאבֵד֑וּן לֹא־תַאֲרִיכֻ֤ן יָמִים֙ עַל־הָ֣אֲדָמָ֔ה אֲשֶׁ֨ר אַתָּ֤ה עֹבֵר֙ אֶת־הַיַּרְדֵּ֔ן לָב֥וֹא שָׁ֖מָּה לְרִשְׁתָּֽהּ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-30-19-1",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-30-19-1"
+      ],
+      "readerHebrew": [
+        "הַעִידֹ֨תִי"
+      ],
+      "sourceRows": [
+        1
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-30-19-1",
+          "readerHebrew": "הַעִידֹ֨תִי",
+          "primaryHebrew": "הַעִדֹ֨תִי",
+          "primaryAtom": 1,
+          "primaryVerse": "Deut.30.19",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-30-18-16",
+        "afterGroup": "pmam-deu-30-19-2",
+        "beforeReaderEnd": "deu-30-18-19",
+        "afterReaderStart": "deu-30-19-2"
+      },
+      "primaryVerseText": "הַעִדֹ֨תִי בָכֶ֣ם הַיּוֹם֮ אֶת־הַשָּׁמַ֣יִם וְאֶת־הָאָ֒רֶץ֒ הַחַיִּ֤ים וְהַמָּ֙וֶת֙ נָתַ֣תִּי לְפָנֶ֔יךָ הַבְּרָכָ֖ה וְהַקְּלָלָ֑ה וּבָֽחַרְתָּ֙ בַּחַיִּ֔ים לְמַ֥עַן תִּֽחְיֶ֖ה אַתָּ֥ה וְזַרְעֶֽךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-32-7-6",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-32-7-6",
+        "deu-32-7-7"
+      ],
+      "readerHebrew": [
+        "דּוֹר־",
+        "וָד֑וֹר"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-32-7-6",
+          "readerHebrew": "דּוֹר־",
+          "primaryHebrew": "דֹּר",
+          "primaryAtom": 6,
+          "primaryVerse": "Deut.32.7",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-32-7-7",
+          "readerHebrew": "וָד֑וֹר",
+          "primaryHebrew": "וָדֹ֑ר",
+          "primaryAtom": 7,
+          "primaryVerse": "Deut.32.7",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-32-7-5",
+        "afterGroup": "pmam-deu-32-7-8",
+        "beforeReaderEnd": "deu-32-7-5",
+        "afterReaderStart": "deu-32-7-8"
+      },
+      "primaryVerseText": "זְכֹר֙ יְמ֣וֹת עוֹלָ֔ם בִּ֖ינוּ שְׁנ֣וֹת דֹּר־וָדֹ֑ר שְׁאַ֤ל אָבִ֙יךָ֙ וְיַגֵּ֔דְךָ זְקֵנֶ֖יךָ וְיֹ֥אמְרוּ לָֽךְ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-32-24-9",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-32-24-7",
+        "deu-32-24-8"
+      ],
+      "readerHebrew": [
+        "וְשֶׁן־",
+        "בְּהֵמוֹת֙"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-32-24-7",
+          "readerHebrew": "וְשֶׁן־",
+          "primaryHebrew": "וְשֶׁן",
+          "primaryAtom": 7,
+          "primaryVerse": "Deut.32.24",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-32-24-8",
+          "readerHebrew": "בְּהֵמוֹת֙",
+          "primaryHebrew": "בְּהֵמֹת֙",
+          "primaryAtom": 8,
+          "primaryVerse": "Deut.32.24",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-32-24-7",
+        "afterGroup": "pmam-deu-32-24-10",
+        "beforeReaderEnd": "deu-32-24-6",
+        "afterReaderStart": "deu-32-24-9"
+      },
+      "primaryVerseText": "מְזֵ֥י רָעָ֛ב וּלְחֻ֥מֵי רֶ֖שֶׁף וְקֶ֣טֶב מְרִירִ֑י וְשֶׁן־בְּהֵמֹת֙ אֲשַׁלַּח־בָּ֔ם עִם־חֲמַ֖ת זֹחֲלֵ֥י עָפָֽר׃ ",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-32-27-10",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-32-27-10"
+      ],
+      "readerHebrew": [
+        "יָדֵ֣ינוּ"
+      ],
+      "sourceRows": [
+        10
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-32-27-10",
+          "readerHebrew": "יָדֵ֣ינוּ",
+          "primaryHebrew": "יָדֵ֣נוּ",
+          "primaryAtom": 10,
+          "primaryVerse": "Deut.32.27",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-32-27-9",
+        "afterGroup": "pmam-deu-32-27-11",
+        "beforeReaderEnd": "deu-32-27-9",
+        "afterReaderStart": "deu-32-27-11"
+      },
+      "primaryVerseText": "לוּלֵ֗י כַּ֤עַס אוֹיֵב֙ אָג֔וּר פֶּֽן־יְנַכְּר֖וּ צָרֵ֑ימוֹ פֶּן־יֹֽאמְרוּ֙ יָדֵ֣נוּ רָ֔מָה וְלֹ֥א יְהֹוָ֖ה פָּעַ֥ל כׇּל־זֹֽאת׃ ",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-32-34-5",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-32-34-5"
+      ],
+      "readerHebrew": [
+        "חָתֻ֖ם"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-32-34-5",
+          "readerHebrew": "חָתֻ֖ם",
+          "primaryHebrew": "חָת֖וּם",
+          "primaryAtom": 5,
+          "primaryVerse": "Deut.32.34",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-32-34-4",
+        "afterGroup": "pmam-deu-32-34-6",
+        "beforeReaderEnd": "deu-32-34-4",
+        "afterReaderStart": "deu-32-34-6"
+      },
+      "primaryVerseText": "הֲלֹא־ה֖וּא כָּמֻ֣ס עִמָּדִ֑י חָת֖וּם בְּאוֹצְרֹתָֽי׃ ",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-33-12-13",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-33-12-13"
+      ],
+      "readerHebrew": [
+        "כְּתֵיפָ֖יו"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-33-12-13",
+          "readerHebrew": "כְּתֵיפָ֖יו",
+          "primaryHebrew": "כְּתֵפָ֖יו",
+          "primaryAtom": 13,
+          "primaryVerse": "Deut.33.12",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-33-12-12",
+        "afterGroup": "pmam-deu-33-12-14",
+        "beforeReaderEnd": "deu-33-12-12",
+        "afterReaderStart": "deu-33-12-14"
+      },
+      "primaryVerseText": "לְבִנְיָמִ֣ן אָמַ֔ר יְדִ֣יד יְהֹוָ֔ה יִשְׁכֹּ֥ן לָבֶ֖טַח עָלָ֑יו חֹפֵ֤ף עָלָיו֙ כׇּל־הַיּ֔וֹם וּבֵ֥ין כְּתֵפָ֖יו שָׁכֵֽן׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-33-19-10",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-33-19-12"
+      ],
+      "readerHebrew": [
+        "וּשְׂפוּנֵ֖י"
+      ],
+      "sourceRows": [
+        10
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-33-19-12",
+          "readerHebrew": "וּשְׂפוּנֵ֖י",
+          "primaryHebrew": "וּשְׂפֻנֵ֖י",
+          "primaryAtom": 12,
+          "primaryVerse": "Deut.33.19",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-33-19-9",
+        "afterGroup": "pmam-deu-33-19-11",
+        "beforeReaderEnd": "deu-33-19-11",
+        "afterReaderStart": "deu-33-19-13"
+      },
+      "primaryVerseText": "עַמִּים֙ הַר־יִקְרָ֔אוּ שָׁ֖ם יִזְבְּח֣וּ זִבְחֵי־צֶ֑דֶק כִּ֣י שֶׁ֤פַע יַמִּים֙ יִינָ֔קוּ וּשְׂפֻנֵ֖י טְמ֥וּנֵי חֽוֹל׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-33-25-3",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-33-25-3"
+      ],
+      "readerHebrew": [
+        "מִנְעָלֶ֑יךָ"
+      ],
+      "sourceRows": [
+        3
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-33-25-3",
+          "readerHebrew": "מִנְעָלֶ֑יךָ",
+          "primaryHebrew": "מִנְעָלֶ֑ךָ",
+          "primaryAtom": 3,
+          "primaryVerse": "Deut.33.25",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-33-25-2",
+        "afterGroup": "pmam-deu-33-25-4",
+        "beforeReaderEnd": "deu-33-25-2",
+        "afterReaderStart": "deu-33-25-4"
+      },
+      "primaryVerseText": "בַּרְזֶ֥ל וּנְחֹ֖שֶׁת מִנְעָלֶ֑ךָ וּכְיָמֶ֖יךָ דׇּבְאֶֽךָ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
+      "groupId": "pmam-deu-34-11-1",
+      "bookId": "deu",
+      "readerIds": [
+        "deu-34-11-1",
+        "deu-34-11-2"
+      ],
+      "readerHebrew": [
+        "לְכָל־",
+        "הָ֨אֹת֜וֹת"
+      ],
+      "sourceRows": [
+        1
+      ],
+      "editionWordLinks": [
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-34-11-1",
+          "readerHebrew": "לְכָל־",
+          "primaryHebrew": "לְכׇל",
+          "primaryAtom": 1,
+          "primaryVerse": "Deut.34.11",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        },
+        {
+          "kind": "mam-primary-edition-word",
+          "readerWordId": "deu-34-11-2",
+          "readerHebrew": "הָ֨אֹת֜וֹת",
+          "primaryHebrew": "הָ֨אֹתֹ֜ת",
+          "primaryAtom": 2,
+          "primaryVerse": "Deut.34.11",
+          "sourceFileSha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc"
+        }
+      ],
+      "anchors": {
+        "beforeGroup": "pmam-deu-34-10-10",
+        "afterGroup": "pmam-deu-34-11-2",
+        "beforeReaderEnd": "deu-34-10-12",
+        "afterReaderStart": "deu-34-11-3"
+      },
+      "primaryVerseText": "לְכׇל־הָ֨אֹתֹ֜ת וְהַמּוֹפְתִ֗ים אֲשֶׁ֤ר שְׁלָחוֹ֙ יְהֹוָ֔ה לַעֲשׂ֖וֹת בְּאֶ֣רֶץ מִצְרָ֑יִם לְפַרְעֹ֥ה וּלְכׇל־עֲבָדָ֖יו וּלְכׇל־אַרְצֽוֹ׃",
+      "sourceFile": {
+        "path": "MAM-simple/json-vtrad-mam/Deut.json",
+        "file": "Deut.json",
+        "gitBlob": "aa762e9bc2d0b8a8d39c206b995beff7bc19e417",
+        "bytes": 466729,
+        "sha256": "466721240cc6c2ae0144c4c583ebd58d9460268e8674f41fac6a9a8035e7eacc",
+        "url": "https://raw.githubusercontent.com/bdenckla/MAM-basics/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/MAM-simple/json-vtrad-mam/Deut.json"
+      },
+      "archiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    }
+  ],
+  "refused": [
+    {
+      "readerIds": [
+        "gen-4-18-9"
+      ],
+      "sourceRows": [
+        [
+          4,
+          18,
+          7
+        ]
+      ],
+      "reason": "primary-verse-differs"
+    }
+  ],
+  "method": "Both existing source/reader anchors and one native primary verse are required. A closed role-aware MAM projection selects qere/combined cantillation/scroll-note target, preserves original strings and reassembles fragments before atoms. The complete Phonetic MAM verse must reproduce the primary MAM comparison letters using only the already documented implicit-qere keys. Every source Hebrew alternative in the bounded gap must then reproduce the literal primary atom letters, with identical complete atom boundaries and the same number of reader words. Contextual word correspondence follows source order; no spelling edit-distance or phonological-equivalence rule is used.",
+  "review": "Edition word correspondence only. Both marked Hebrew editions and source transcriptions stay unchanged. Differing spellings retain null reader syllable ranges, phonemes, notes and sound times. Independent correspondence and linguistic review remain pending.",
+  "primarySources": [
+    "https://bdenckla.github.io/MAM-basics/MAM-simple/reading-mam-simple.html#consumer-notice",
+    "https://bdenckla.github.io/MAM-basics/MAM-simple/reading-mam-simple-json.html"
+  ]
+}

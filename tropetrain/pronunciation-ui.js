@@ -39,6 +39,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   const scope=$('pronunciation-unit-scope');
   const shared=study.readerIds.length>1,currentId=study.selection.sourceWordId;
   scope.textContent=study.alignmentScope==='single-reader-word'?'These source units correspond to the selected Hebrew word. Computed source syllables and exact written ranges are labeled below; musical notes are not assigned.':study.alignmentScope==='source-word-boundaries'?'Source boundaries and computed Hebrew ranges identify individual words. Units labeled “selected” belong to the selected Hebrew word.':study.alignmentScope==='partial-source-word-boundaries'?'Some source words have clear individual links. Combined source words remain together; their units are labeled “shared” and are not split.':'These source units correspond to the complete Hebrew group below. They are not divided among its individual words.';
+  if(study.sourceGroup.editionWordLinks)scope.textContent='These source words correspond by primary MAM verse and unchanged surrounding words. The two editions keep their own spellings and accents. Different spellings have no assigned written syllable ranges, musical notes or sound times; word correspondence does not establish equal pronunciation.';
   const group=document.createElement('p');group.className='pronunciation-group-hebrew';group.lang='he';group.dir='rtl';
   study.readerHebrew.forEach((text,index)=>{
    if(index)group.append(document.createTextNode(' '));
@@ -102,6 +103,12 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   let group;try{group=library.at(word);}catch(e){$('pronunciation-status').textContent=e.message;return;}
   if(!group){$('pronunciation-status').textContent='No checked source correspondence for this word. The selected style is kept; no transcription is substituted.';return;}
   study=library.study(word,style);
+  if(group.editionWordLinks){
+   const note=document.createElement('p');note.className='muted';note.textContent='Different source spelling · linked through the primary MAM edition and surrounding words. The source transcription retains its own Hebrew form. No phonological equivalence or written syllable alignment is inferred.';$('pronunciation-source-rows').append(note);
+   const table=document.createElement('table');table.className='pronunciation-edition-forms';
+   const head=document.createElement('tr');for(const title of ['Reader · UXLC','Pronunciation source · MAM']){const th=document.createElement('th');th.scope='col';th.textContent=title;head.append(th);}table.append(head);
+   for(const link of group.editionWordLinks){const row=document.createElement('tr');row.dataset.readerWord=link.readerWordId;for(const text of [link.readerHebrew,link.primaryHebrew]){const cell=document.createElement('td');cell.lang='he';cell.dir='rtl';cell.textContent=text;row.append(cell);}table.append(row);}$('pronunciation-source-rows').append(table);
+  }
   $('pronunciation-status').textContent=`Phonetic MAM display ${group.displayChapter}:${group.displayVerse} · source row${group.rows.length===1?'':'s'} ${group.rows.map(r=>r.number).join(', ')} · ${group.readerIds.length} reader word${group.readerIds.length===1?'':'s'}. ${group.match==='forced-between-verse-anchors'?'Matched within a verse with text differences; unmatched words stay unassigned. ':''}${group.flags.includes('documented-reading-form')?'The source uses a documented reading form. ':''}${group.flags.includes('explicit-written-read-variant')?'Linked through an explicit UXLC written/read pair; the pronunciation source retains its own written form. ':''}${group.flags.includes('source-text-difference')?'Source Hebrew differs; compare the exact forms below. ':''}${group.flags.includes('source-group')?'The source units below distinguish exact word links from combined forms.':''}`;
   for(const [rowIndex,row] of group.rows.entries()){
    const derived=study.rows[rowIndex].styles[style];

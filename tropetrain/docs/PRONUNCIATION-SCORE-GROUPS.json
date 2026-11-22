@@ -8,31 +8,31 @@
   "originalDemo": {
     "sephardic": {
       "events": 231178,
-      "eventsInCommonSpans": 226205,
+      "eventsInCommonSpans": 226228,
       "eventsInDifferentDivisions": 5705,
-      "eventsWithoutCommonSpan": 4973,
-      "groups": 186936,
-      "wordsWithCommonSpans": 77782,
-      "wordsFullyCovered": 77782,
-      "wordsWithoutCommonSpans": 2203,
+      "eventsWithoutCommonSpan": 4950,
+      "groups": 186959,
+      "wordsWithCommonSpans": 77802,
+      "wordsFullyCovered": 77802,
+      "wordsWithoutCommonSpans": 2183,
       "reasons": {
-        "source-only-written-form": 2059,
-        "no-source-correspondence": 142,
+        "source-only-written-form": 2180,
+        "no-source-correspondence": 1,
         "no-individual-word-units": 2
       }
     },
     "ashkenazic": {
       "events": 231178,
-      "eventsInCommonSpans": 226205,
+      "eventsInCommonSpans": 226228,
       "eventsInDifferentDivisions": 5705,
-      "eventsWithoutCommonSpan": 4973,
-      "groups": 186960,
-      "wordsWithCommonSpans": 77782,
-      "wordsFullyCovered": 77782,
-      "wordsWithoutCommonSpans": 2203,
+      "eventsWithoutCommonSpan": 4950,
+      "groups": 186983,
+      "wordsWithCommonSpans": 77802,
+      "wordsFullyCovered": 77802,
+      "wordsWithoutCommonSpans": 2183,
       "reasons": {
-        "source-only-written-form": 2059,
-        "no-source-correspondence": 142,
+        "source-only-written-form": 2180,
+        "no-source-correspondence": 1,
         "no-individual-word-units": 2
       }
     }
@@ -231,20 +231,40 @@
   },
   "inputs": [
     {
+      "path": "scripts/pronunciation_editions.py",
+      "sha256": "fab17a47197859f838a6c2aeae6c8f95cf27d86e846d56906dfc30e958d616e3"
+    },
+    {
+      "path": "scripts/audit-pronunciation-editions.py",
+      "sha256": "ad89b8bd032e2da2e02384a9967d532f4d523feb1d1eedc26bb58ebc902f342b"
+    },
+    {
+      "path": "pronunciation-word-alignment.js",
+      "sha256": "f02731ebacba921b7101f66abdeb3f9e497c6cdd0650d3836c8452b33448ce1d"
+    },
+    {
+      "path": "docs/PRONUNCIATION-EDITION-WORDS.json",
+      "sha256": "cae5df17fd74297b48ddcb10d61267eed7d1a364377e52e2f5b20ccf832261f6"
+    },
+    {
+      "path": "assets/pronunciation/mam-simple-torah-sources.zip",
+      "sha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4"
+    },
+    {
       "path": "pronunciation-score-groups.js",
       "sha256": "6766e457b617f07e9d0b0e902286bb3b8e3c5dd2bef64ca1978ce9fb7cf4638e"
     },
     {
       "path": "data/pronunciation/torah-display.json.gz",
-      "sha256": "8172b85f786c127b33aa999c64a69f588601c089e25caebaa72b3ad294663741"
+      "sha256": "0be1dc0fb62d1754ddb03eda10efd7f393d9b571b6a7cdff6436078452ff06c7"
     },
     {
       "path": "data/pronunciation/torah-underlay.json.gz",
-      "sha256": "27c11537752d39dafba22fea9f4b8272100e0c9ae2bf3f0a7cf04c2873d867e0"
+      "sha256": "abaa42ef22f710638b4ac7a38e1d94687bda2ae537c2beb5a78dd286a79ff877"
     },
     {
       "path": "data/pronunciation/torah-segments.json.gz",
-      "sha256": "c2c0e6e2cb65a5aca857fa9f306673c094564e732dbf7575672cb63bf7064df4"
+      "sha256": "668955faba0523988052c5bec4c98b9da2c878879010cf84600e537992aa4cbb"
     },
     {
       "path": "syllables.js",

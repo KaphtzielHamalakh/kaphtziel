@@ -60,8 +60,8 @@ test('source units losslessly reconstruct all cells, including joins, spaces and
   }
   missing+=s.status==='missing';repeatMarks+=s.status==='repeat-mark';stress+=counts.stressed??0;readings+=counts.reading??0;supers+=counts['superscript-e']??0;
  }
- assert.deepEqual({count,missing,repeatMarks,stress,readings,supers},{count:139258,missing:2282,repeatMarks:89,stress:136909,readings:327,supers:38937});
- const audit=JSON.parse(read('docs/PRONUNCIATION-STRUCTURE.json'));assert.equal(audit.inputSha256,createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'));assert.equal(audit.groups,68384);assert.equal(audit.mappedReaderWords,79843);
+ assert.deepEqual({count,missing,repeatMarks,stress,readings,supers},{count:139500,missing:2284,repeatMarks:89,stress:137149,readings:327,supers:39035});
+ const audit=JSON.parse(read('docs/PRONUNCIATION-STRUCTURE.json'));assert.equal(audit.inputSha256,createHash('sha256').update(read('data/pronunciation/torah-display.json.gz')).digest('hex'));assert.equal(audit.groups,68503);assert.equal(audit.mappedReaderWords,79984);
 });
 test('source study follows occurrence IDs while reader text, syllable drafts, melody, range, tempo and pitches remain independent',()=>{
  const manifest=JSON.parse(read('data/torah/manifest.json')),books=manifest.books.map(b=>JSON.parse(read('data/torah/'+b.file))),corpus=new Corpus({manifest,books});
@@ -71,7 +71,7 @@ test('source study follows occurrence IDs while reader text, syllable drafts, me
  assert.deepEqual(a.rows,b.rows);assert.deepEqual(a.sourceGroup,b.sourceGroup);assert.notEqual(a.selectedStyle,b.selectedStyle);
  const {w}=get('gen-1-1-2'),occurrence={...w,id:'gen-1-1-2@repeat',sourceWordId:w.id};
  const s=library.study(occurrence,'ashkenazic');assert.equal(s.selection.occurrenceId,occurrence.id);assert.equal(s.selection.sourceWordId,w.id);assert.deepEqual(s.readerIds,[w.id]);
- assert.equal(library.study({id:'gen-8-20-8',sourceHebrew:'הַטְּהוֹרָ֗ה'},'sephardic'),null);
+ assert.equal(library.study({id:'gen-4-18-9',sourceHebrew:'וּמְחִיּיָאֵ֗ל'},'sephardic'),null);
 });
 test('structure refuses unsupported markup/styles and changed marked text without modifying source data',()=>{
  const {g,w}=get('gen-1-1-2'),before=JSON.stringify(g);

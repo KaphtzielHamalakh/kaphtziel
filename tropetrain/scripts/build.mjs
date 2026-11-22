@@ -16,6 +16,7 @@ import './audit-chant-coverage.mjs';
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 execFileSync('python3',[path.join(root,'scripts/import-scroll-layout.py')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/import-pronunciation.py')],{stdio:'inherit'});
+execFileSync('python3',[path.join(root,'scripts/audit-pronunciation-editions.py')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-structure.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-pronunciation-word-alignment.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/build-pronunciation-underlay.py')],{stdio:'inherit'});
@@ -108,6 +109,8 @@ const computationSources=await readFile(path.join(root,'assets/pronunciation/pho
 const pronunciationNotice=await readFile(path.join(root,'assets/pronunciation/NOTICE.txt'),'utf8');
 const pronunciationEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-ALIGNMENT.json'),'utf8');
 const writtenVariantEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-WRITTEN-VARIANTS.json'),'utf8');
+const editionEvidence=await readFile(path.join(root,'docs/PRONUNCIATION-EDITION-WORDS.json'),'utf8');
+const editionPack=await readFile(path.join(root,'assets/pronunciation/mam-simple-torah-sources.zip'));
 const pronunciationPack=await readFile(path.join(root,'assets/pronunciation/phonetic-mam-torah-sources.zip'));
 const voiceStudyNotice=await readFile(path.join(root,'assets/voice-studies/NOTICE.txt'),'utf8');
 const chantEvidence=await readFile(path.join(root,'docs/CHANT-COVERAGE.json'),'utf8');
@@ -138,6 +141,8 @@ const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAl
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
 const standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
  .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script><script>${script.replaceAll('</script','<\\/script')}</script>`)
+ .replaceAll('href="./docs/PRONUNCIATION-EDITION-WORDS.json"',()=>`href="data:application/json;base64,${Buffer.from(editionEvidence).toString('base64')}"`)
+ .replaceAll('href="./assets/pronunciation/mam-simple-torah-sources.zip"',()=>`href="data:application/zip;base64,${editionPack.toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-SCORE-GROUPS.json"',()=>`href="data:application/json;base64,${Buffer.from(scoreGroupsEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/COHEN-PROPHETICAL-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(propheticalEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/scores/cohen-1902-page547.jpg"',()=>`href="data:image/jpeg;base64,${propheticalSecondScan.toString('base64')}"`)
