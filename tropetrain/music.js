@@ -49,9 +49,10 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
         midi:n.midi,beats:n.quarterBeats,part:j+1,sourceLyric:n.printedLyric,sourceLocation:n.location,sourceBar:n.bar,sourceProfile:melodyId,sourceRhythm:n.rhythm,
         ...(n.pitch?{sourcePitch:n.pitch,sourceTranspose:0,sourceNoteId:n.id,sourceSystem:n.system}:{}),
         ...(n.fermata?{sourceFermata:n.fermata}:{}),
-        ...(n.slurId?{sourceSlurId:`${w.id}-${n.slurId}`,sourceSlurPhase:n.slurPhase}:{}),
-        ...(n.tupletId?{sourceTupletId:`${w.id}-${n.tupletId}`,sourceTupletPhase:n.tupletPhase}:{}),
+        ...(n.slurId?{sourceSlurId:`${profile.notationGroupScope==='verse'?w.verseKey:w.id}-${n.slurId}`,sourceSlurPhase:n.slurPhase}:{}),
+        ...(n.tupletId?{sourceTupletId:`${profile.notationGroupScope==='verse'?w.verseKey:w.id}-${n.tupletId}`,sourceTupletPhase:n.tupletPhase}:{}),
         ...(n.restAfterBeats?{sourceRestAfterBeats:n.restAfterBeats}:{}),
+        ...(n.restAfterBar!==undefined?{sourceRestAfterBar:n.restAfterBar}:{}),
         ...(n.tieId?{tieId:`${w.id}-${n.tieId}`,tieStart:n.tiePhase==='start',tieStop:n.tiePhase==='stop'}:{})}));
     }
     const seed=[62,64,65,67][w.index%4];
@@ -75,8 +76,10 @@ export function createReadingModel(passage,{melodyId=melody.id}={}){
     if(isPrintedScore(melodyId)&&words.slice(start,end+1).some(w=>!printedSourceWord(w,melodyId)))
       throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel??(melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5')}. Open that passage or choose the original demonstration. No notes are substituted.`);
     let beat=0;
-    return events.filter(e=>e.wordIndex>=start&&e.wordIndex<=end).map(e=>{
-      const event={...e,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
+    const selected=events.filter(e=>e.wordIndex>=start&&e.wordIndex<=end);
+    return selected.map((e,index)=>{
+      const event={...e,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo,
+        ...(profile.preserveBoundaryRests&&index===selected.length-1&&e.sourceRestAfterBeats?{endingRestSeconds:e.sourceRestAfterBeats*60/tempo}:{})};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
     });
   }
   return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words)};

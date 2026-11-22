@@ -3,6 +3,7 @@ import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js
 import {PRINTED_SCORE} from './printed-score.js';
 import {BAER_SCORE} from './baer-score.js';
 import {COHEN_PROPHETICAL} from './cohen-prophetical-score.js';
+import {BAER_HIGH_HOLIDAY} from './baer-high-holiday-score.js';
 import {isPrintedScore} from './printed-score-registry.js';
 import {beatLabel,eventPitchName} from './score-data.js';
 import {passage as openingPassage} from './passage.js';
@@ -15,7 +16,7 @@ import {Player} from './audio.js';
 import {staffMarkup,STAFF_PAGE} from './staff.js';
 import {musicXml,midiFile} from './music-exports.js';
 import {renderWav,wavSummary} from './wav.js';
-import {instrument,soundingNotes} from './synthesis.js';
+import {instrument,soundingNotes,validatePlan} from './synthesis.js';
 import {SIGN_ANALYSIS,sourceClassLabel} from './accents.js';
 import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.js';
 import {RecordingPlayer} from './recorded-reference.js';
@@ -451,12 +452,12 @@ function renderSequence(){
   try{plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
   for(const id of ['play','compact-play'])$(id).disabled=state.practiceAudio==='recorded'?!chantReady:!!unavailable;
-  $('musical-source-status').textContent=unavailable??(model.profile.id===COHEN_PROPHETICAL.id?COHEN_PROPHETICAL.summary:model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
+  $('musical-source-status').textContent=unavailable??model.profile.summary??(model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
   if(unavailable){
     $('event-count').textContent='No sourced notes for this span';renderNotes();renderStaff();updateExportSummary();
     $('range-report').textContent='Select a covered span to inspect its range.';return false;
   }
-  const duration=plan.at(-1).startSeconds+plan.at(-1).durationSeconds;
+  const duration=validatePlan(plan);
   $('event-count').textContent=`${plan.length} events · ${duration.toFixed(2)} s`;renderNotes();renderStaff();updateExportSummary();
   const out=plan.filter(e=>e.midi<state.rangeLow||e.midi>state.rangeHigh).length;
   $('range-report').textContent=state.rangeLow>state.rangeHigh?'Lowest note must be below highest note.':`${out} of ${plan.length} notes outside ${noteName(state.rangeLow)}–${noteName(state.rangeHigh)}.`;
@@ -593,6 +594,12 @@ function render(){
     $('score-description').textContent='The staff, note list and exports use the same 51 printed components of Cohen’s p. 547 hypothetical prophetical setting of Genesis 22:1. The original 13 Hebrew words/accents and both pronunciation text styles remain independent of these notes.';
     $('score-help').textContent='Click a note to go to its Hebrew word. '+COHEN_PROPHETICAL.performanceNote+' Ties hold one attack; slurs retain distinct attacks. '+COHEN_PROPHETICAL.evidenceNote;
     if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah retains its own year-round Torah melody and pronunciation. The separate hypothetical prophetical instrument score is not this recording’s melody.';$('score-description').textContent='Instrument score only. '+$('score-description').textContent;}
+  }
+  if(model.profile.id===BAER_HIGH_HOLIDAY.id){
+    $('music-notice').textContent=BAER_HIGH_HOLIDAY.description;
+    $('score-description').textContent='The staff, note list and exports retain the same46printed notes and five rests of Genesis22:19. The unequal triplet and slur across two words keep their source identities. Pronunciation text styles remain independent; different underlay divisions stay unlinked.';
+    $('score-help').textContent='Click a note to go to its Hebrew word. '+BAER_HIGH_HOLIDAY.performanceNote+' Printed lyric fragments je/l’ and ja/cha remain separate note annotations within their Hebrew syllables; no new phonemes are assigned.';
+    if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah retains its original year-round melody and pronunciation. The separate Baer High Holiday instrument score is not this recording’s melody.';$('score-description').textContent='Instrument score only. '+$('score-description').textContent;}
   }
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
   $('scroll-layout').checked=state.scrollLayout;$('scroll-layout').disabled=!scrollLayout||!isTorahReading(passage.ranges);
@@ -744,6 +751,12 @@ $('baer-study-open').addEventListener('click',()=>libraryAction(()=>{
   state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
   $('reader').focus();$('practice').scrollIntoView();
 }));
+$('baer-high-holiday-open').addEventListener('click',()=>libraryAction(()=>{
+  state.melodyId=BAER_HIGH_HOLIDAY.id;state.practiceAudio='instrument';
+  applyRanges([{id:'baer-high-holiday',bookId:'gen',start:{chapter:22,verse:19},end:{chapter:22,verse:19},label:'Baer No113 second setting'}]);
+  state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
+  $('reader').focus();$('practice').scrollIntoView();
+}));
 for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
 for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
@@ -837,6 +850,7 @@ getRepertoireCorpus().then(value=>{
   $('library-status').textContent='31 books · 606 chapters · text available offline';$('open-reading').disabled=false;
   $('source-study-open').disabled=false;
   $('baer-study-open').disabled=false;
+  $('baer-high-holiday-open').disabled=false;
   $('prophetical-study-open').disabled=false;
   let restoreFailed=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){restoreFailed=true;retainPracticeRecovery(error);$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}

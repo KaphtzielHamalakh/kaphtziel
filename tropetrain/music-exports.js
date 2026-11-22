@@ -14,7 +14,8 @@ function identity(notes,context){
   return {...context,format:'tropetrain-score-metadata-v1',words:selected,
     events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,midi:e.midi,startBeat:e.startBeat,beats:e.beats,
       ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceBar:e.sourceBar,sourceLyric:e.sourceLyric,sourceRhythm:e.sourceRhythm,
-        sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop}:{}),
+        sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop,
+        ...(e.sourceRestAfterBar!==undefined?{sourceRestAfterBar:e.sourceRestAfterBar}:{}),...(e.endingRestSeconds!==undefined?{endingRestSeconds:e.endingRestSeconds}:{})}:{}),
       ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
 }
 function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
@@ -51,6 +52,8 @@ export function musicXml(plan,words,context){
     xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric></note>`;
     beat=e.startBeat+e.beats;
   });
+  const endingRest=notes.at(-1).gapAfterBeats;
+  if(endingRest>0)xml+=`<note><rest/><duration>${Math.round(endingRest*DIVISIONS)}</duration>${durationNotation(endingRest)}</note>`;
   return xml+'<barline location="right"><bar-style>light-heavy</bar-style></barline></measure></part></score-partwise>\n';
 }
 function join(parts){const result=new Uint8Array(parts.reduce((n,p)=>n+p.length,0));let offset=0;for(const p of parts){result.set(p,offset);offset+=p.length;}return result;}
@@ -70,6 +73,7 @@ export function midiFile(plan,words,context){
     meta(start-tick,1,e.id);if(!e.continuation)meta(0,5,e.syllable);
     parts.push(Uint8Array.of(0,0x90,e.midi,80),vlq(end-start),Uint8Array.of(0x80,e.midi,0));tick=end;
   }
-  meta(0,0x2f,new Uint8Array());const track=join(parts);
+  const end=Math.round(validatePlan(plan)*context.tempo/60*MIDI_PPQ);
+  meta(Math.max(0,end-tick),0x2f,new Uint8Array());const track=join(parts);
   return join([text.encode('MThd'),u32(6),Uint8Array.of(0,0,0,1,MIDI_PPQ>>>8,MIDI_PPQ&255),text.encode('MTrk'),u32(track.length),track]);
 }

@@ -52,7 +52,7 @@ export function scoreData(plan,words){
     const syllableIndex=word.syllables.findIndex(s=>s.id===event.syllableId);
     if(syllableIndex<0||word.syllables[syllableIndex].sourceHebrew!==event.syllable)throw Error('Score syllables no longer match the source.');
     const syllabic=word.syllables.length===1?'single':syllableIndex===0?'begin':syllableIndex===word.syllables.length-1?'end':'middle';
-    const gapAfterBeats=next?next.startBeat-event.startBeat-event.beats:0;
+    const gapAfterBeats=next?next.startBeat-event.startBeat-event.beats:(event.endingRestSeconds??0)*event.beats/event.durationSeconds;
     return {...event,word,pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
   });
 }

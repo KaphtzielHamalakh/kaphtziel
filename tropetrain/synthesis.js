@@ -8,7 +8,9 @@ export function validatePlan(plan){
       throw Error('The note sequence has invalid timing or pitch.');
     previousEnd=e.startSeconds+e.durationSeconds;
   }
-  return previousEnd;
+  const tail=plan.at(-1).endingRestSeconds??0;
+  if(!Number.isFinite(tail)||tail<0||plan.slice(0,-1).some(e=>e.endingRestSeconds!==undefined))throw Error('The final rest has invalid timing or placement.');
+  return previousEnd+tail;
 }
 // Printed tied components remain separate for notation/highlighting, but share
 // one sounding envelope. Reject broken ties instead of adding a new attack.
