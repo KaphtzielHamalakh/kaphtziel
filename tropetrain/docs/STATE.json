@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "d71f84108b5d34c24e89efd7dc2ae85401dd3437",
+  "publishedCommit": "b5d3020dc29aff5fb070dccd8dafec57791c0d2f",
   "nextTask": "Continue complete word-aligned chanting across the entire Torah, all six historical pronunciation grammars/voices, every contextual cantorial system and the full retained tutor/learning inventory; printing deferred. v0.61 supplies real unprompted phonetic-model observations for both complete Asael Genesis1:1–2:3 originals and conditional source-consonant links to469unchanged Hebrew words, two independent MAMtext comparisons and101shared consonant pairs. It does not approve vowels, phonemes, word/syllable/note timing, source-edition equivalence or a singing voice. Speech-model omissions/substitutions/repetitions and misplaced word spaces remain explicit;347Ashkenazic/456Israeli words have candidates in their corresponding text comparisons. Next validate actual source edition, heard consonants/vowels and onsets/tails against originals with qualified evidence before any aligned chant consumes model matches. Preserve exact catalog/decoded/resampled/native clocks; never stretch or interpolate to fit. Do not tune minimum-edit or model thresholds to manufacture acceptance. All six complete Kinnor pronunciation grammars and reviewed singing voices remain missing, distinct from the two MAMtext styles, two Katz research proposals and fixed Asael source performances. Resolve Katz mobile-sheva/local vowel/special-category gaps with explicit sources, reusable sustained singing material, Baer/Cohen missing figures and full contextual melody fitting. The820original archive has documentary references, not proof of complete verse/word alignment or full acoustic review; extend only with explicit range/variant evidence. Preserve all original text/accents/IDs/shared consonants, every prior recording/time/gap/null and the complete roadmap. Keep private0.55clock/curve diagnostic frozen. Full goal active/incomplete.",
   "lastPassingTests": {
     "automated": 509,
@@ -11,7 +11,7 @@
     "skipped": 0,
     "newTests": 7,
     "log": "/private/tmp/tropetrain-check-v61-publication.log",
-    "ui": "Local normal96 and portable97 verify both checked source phonetic packets and all469marked word/ID draft entries, firstgen-1-1-1/lastgen-2-3-16. Manual draft exports remain byte-identical before/after model loading and independent text comparisons; every manual start/end remains null. Ashkenazic source/MAMcomparison keeps the opening tav linked to first-word ת even when the raw model places its s in the following model word jisbaʁˈu. Word2 בָּרָ֣א highlights only b/ʁ, retaining the raw preceding s without assigning it to that word. Changing the independent MAMtext comparison removes/restores the provisional tav/s match while the marked word/source recording remain unchanged. Source pronunciation switching retains gen-1-1-2, separate phonetic caches/clocks and blank drafts, with raw source hypotheses jisbaʁˈu/baʁˈa. Shared שָּׁ in gen-1-1-5 keeps one consonant and two source syllable links. Unresolved gen-1-3-6 displays no comparison or stale raw text; an untexted table hides/clears the panel, and returning restores the source cursor/cache. All90observed reader strings/IDs/aria labels and instrument range/tempo/transposition remain exact. Context playback uses only unchanged originals: native317.230794s/371.848707s, source seeks0.482499s/0.522499s, volume0, media paused, muted clock/audio device unused, unchanged0/full listening selection. Portable embeds both new evidence documents and loads both compressed packets; no model weight loads in the app. Final rebuilt selected-word labels match parent Hebrew/IDs, including all marks, in both distributions. Enlarged clusters and selected-word context are visually inspected;319px root/scroll319 with0overflowing new controls/labels. Normal/portable consoles0warnings/errors. All test clocks stopped. No speaker listening or qualified acoustic/phonological/cantorial approval is claimed.",
+    "ui": "Local normal96 and portable97 verify both checked source phonetic packets and all469marked word/ID draft entries, firstgen-1-1-1/lastgen-2-3-16. Manual draft exports remain byte-identical before/after model loading and independent text comparisons; every manual start/end remains null. Ashkenazic source/MAMcomparison keeps the opening tav linked to first-word ת even when the raw model places its s in the following model word jisbaʁˈu. Word2 בָּרָ֣א highlights only b/ʁ, retaining the raw preceding s without assigning it to that word. Changing the independent MAMtext comparison removes/restores the provisional tav/s match while the marked word/source recording remain unchanged. Source pronunciation switching retains gen-1-1-2, separate phonetic caches/clocks and blank drafts, with raw source hypotheses jisbaʁˈu/baʁˈa. Shared שָּׁ in gen-1-1-5 keeps one consonant and two source syllable links. Unresolved gen-1-3-6 displays no comparison or stale raw text; an untexted table hides/clears the panel, and returning restores the source cursor/cache. All90observed reader strings/IDs/aria labels and instrument range/tempo/transposition remain exact. Context playback uses only unchanged originals: native317.230794s/371.848707s, source seeks0.482499s/0.522499s, volume0, media paused, muted clock/audio device unused, unchanged0/full listening selection. Portable embeds both new evidence documents and loads both compressed packets; no model weight loads in the app. Final rebuilt selected-word labels match parent Hebrew/IDs, including all marks, in both distributions. Enlarged clusters and selected-word context are visually inspected;319px root/scroll319 with0overflowing new controls/labels. Normal/portable consoles0warnings/errors. All test clocks stopped. No speaker listening or qualified acoustic/phonological/cantorial approval is claimed. Public normal80 and portable81 verify v0.61. Both load the two checked phonetic packets, preserve469exact marked Hebrew words/IDs and retain unfilled manual boundaries. Normal Ashkenazic and portable Israeli draft JSON remain byte-identical to their pre-release browser exports; the other observed source word arrays also remain exact. Word1 בְּרֵאשִׁ֖ית retains its tav/s match in the Ashkenazic text comparison even when the raw model attaches s to following jisbaʁˈu. Changing only MAMtext comparison to Sephardic changes4candidate consonants to3 while the source and marked word remain unchanged, in both distributions. Word2 בָּרָ֣א highlights only b/ʁ, retaining raw preceding model material without assigning it to that word; switching source pronunciation keeps gen-1-1-2 and separate caches/drafts, with jisbaʁˈu/baʁˈa source hypotheses. The shared שָּׁ in gen-1-1-5 retains one consonant and two source syllables; unresolved gen-1-3-6 clears raw context and displays explicit missing evidence. Last gen-2-3-16 לַעֲשֽׂוֹת׃ remains exact. All27observed reader button strings/IDs/aria labels and pronunciation/instrument BPM/key/range controls remain exact across release and source changes. Muted original context checks preserve native317.230794s/371.848707s and seeks0.482499s/0.522499s; each reports muted clock/audio device unused, native media paused, volume0, unchanged0/full listening span. Portable embeds the new JSON evidence and final2,125,816byte source ZIP with full Apache license and CCdeed links. Portable319px root/scroll319 has0overflowing new controls/labels. Public desktop/mobile screenshots are visually inspected; both consoles have0warnings/errors. All clocks stopped/source media paused0; private96/97closed, server95945/8768stoppedCtrl-C/exit0, viewport reset, public80/81retained and user8765/8767untouched. No speaker listening, qualified linguistic/musical approval, accepted vowels/timings, six historical voices, full contextual melody grammar or file-origin/nativeSave claim.",
     "separateResearchAlgorithmChecks": 7,
     "independentTinySequencePairs": 225
   },
@@ -162,12 +162,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "d71f84108b5d34c24e89efd7dc2ae85401dd3437",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45063193266",
+    "commit": "b5d3020dc29aff5fb070dccd8dafec57791c0d2f",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45072796187",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 23,
-    "publicChangedBytesExact": 133528379
+    "publicChangedFilesExact": 24,
+    "publicChangedBytesExact": 140120623
   },
   "corpusImport": {
     "books": 5,
@@ -193,7 +193,7 @@
   },
   "workingIteration": {
     "version": "0.61.0",
-    "status": "509_checks_local_normal_portable_verified_publication_pending",
+    "status": "509_checks_public_normal_portable_verified_final_records_saved_goal_active",
     "baseline": "f2bd8e5a0ce0c41f6b9a9e56fe4be9660a93ec00",
     "previousGoalTurn": "Progress: v0.60 source-specific CTC study published/tested/saved,502checks,1015exactfiles; no reviewed word times or complete independent voices.",
     "newPublicVoice": null,
@@ -1702,7 +1702,7 @@
     "newVoice": null,
     "modelWhitespaceDeterminesWordOwnership": false,
     "originalHebrewAndAccentsPreserved": true,
-    "status": "509_checks_local_normal_portable_verified_publication_pending",
+    "status": "published_conditional_consonant_links_509_checks_public_normal_portable_verified_qualified_vowel_timing_review_pending",
     "sourcePack": "assets/voice-studies/asael-phonetic-word-sources.zip",
     "sourcePackSha256": "aa4962eb17c450ac272a819f8ad1462e07aa526d1659e71482a8e2a6724f5002",
     "allPrior611AssetsAndDataExact": true,
