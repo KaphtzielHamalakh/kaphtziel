@@ -1,0 +1,10 @@
+# TropeTrain v0.80 verification in progress
+
+
+## v0.80 source-sign recall — implementation checkpoint
+
+A documented learning feature now offers empty above/below accent boxes, source-character name choices, literal marked answers and answer playback. The current reading supplies the question bank. The full-Torah audit accounts for all5,853records/79,985words:67,453questions cover78,632words;1,353words stay outside this single-accent exercise. All10,796multiword maqaf cards stay complete;68,381original source positions include928repeated-position cards, with zero split joins. All four printed Shalshelet/paseq occurrences can be named literally without claiming a composite musical realization. Unresolved Munaḥ/paseq and other composites remain excluded. No source Hebrew, vowel, accent, CGJ, canonical/occurrence ID or syllable alignment is replaced.
+
+Questions project only their requested graphemes and build on demand. A native modal keeps the question separate from the unchanged reader. Previous/next/random questions, reveal, character-name self-check, session reset, Stop/Escape/close and Sound settings are functional. There is no automatic playback. Listen/Play answer delegates to the existing selected sound source, selection boundaries and all original printed-small-note, source-only, shared-word and recording gates. Melody, source pronunciation text/proposals, key, tempo, range and recordings stay independent. Optional hints use the existing source reader renderer and preserve all alternative rows/columns, shared consonants and complete shared-source-word ownership. A correct character answer certifies no musical, phonological or acoustic review.
+
+Fourteen focused tests pass. Full build/packaging, normal/portable browser verification, publication and final save remain pending. No new recording, singing voice, historical grammar, accepted phone or Kinnor preset is added. The full reconstruction and complete feature inventory remain active/incomplete; musical/phonological work stays first and printing is deferred.
