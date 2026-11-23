@@ -153,3 +153,5 @@
 .pronunciation-span-content p{margin:.3rem 0}.pronunciation-span-content small{display:block;color:var(--soft)}
 
 .source-unresolved-mark{font:700 18px system-ui,sans-serif;text-anchor:middle;fill:#8e3b2f}
+
+.source-phrase-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem;align-items:end}.source-phrase-controls label{grid-column:1/-1}.source-phrase-controls select{min-width:0;width:100%}@media(max-width:550px){.source-phrase-controls{grid-template-columns:minmax(0,1fr)}.source-phrase-controls button{width:100%}}

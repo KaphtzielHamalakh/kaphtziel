@@ -1,0 +1,10 @@
+# TropeTrain v0.79 verification in progress
+
+
+## v0.79 source phrase selection — implementation checkpoint
+
+A pinned CC BY4 Open Scriptures Hebrew Bible source now supplies complete phrase ranges for 4,546 strictly matched Torah verses / 58,802 words. All 5,853 verses / 79,985 words were compared; 1,307 verses remain withheld (1,299 marked-text differences, two word-division differences and six source hierarchies not validated by this implementation). Original UXLC Hebrew, accents, CGJ, preferred-reading IDs and separately retained written alternatives are unchanged. Source morphology separators and explicit XML punctuation are handled only in the comparison representation. No accent, vowel or word is substituted.
+
+Select a source phrase offers the smallest source phrase, larger ancestor phrases and the whole verse around the cursor. Explicit selection stops playback, selects the complete range and leaves melody, pronunciation text/profiles, range, key, tempo and recordings independent. Existing Play/Repeat, boundaries, source-underlay gates and printed-score timing requirements remain in force. Native JSON/MIDI/MusicXML retain source phrase provenance, original word/occurrence IDs and null sound allocation. Changed or clipped contexts, stale occurrences and altered source packets fail closed. The complete source archive and license are retained for reproducible builds; the portable embeds the compact derived packet and attribution.
+
+Thirteen focused tests pass, and the full-Torah audit validates 52,806 selectable ranges / 596,966 original note-membership checks, with no split maqaf ranges. One initial test expected ten rather than seven existing printed notes in a selected span; only that test expectation was corrected. Build, packaging, normal/portable browser tests and publication remain pending. This is a source hierarchy for phrase practice and future contextual musical fitting. It adds no historical melody grammar, pronunciation realization or singing voice. All original reconstruction requirements remain active; printing deferred.

@@ -1,3 +1,5 @@
+import {getSourcePhraseLibrary} from './source-phrases.js';
+import {mountSourcePhrases} from './source-phrase-ui.js';
 import {isJointEvent,eventNavigationIndex} from './event-correspondence.js';
 import {JOINT_COVERAGE_SUMMARY} from './joint-coverage-summary.js';
 import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js';
@@ -89,7 +91,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null;
+let sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -634,6 +636,7 @@ function renderStaff(){
 function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
   return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+    ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(plan.some(e=>e.sourceSmallNote)?{smallNoteStudy:{...SMALL_NOTE_STUDY}}:{}),
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
     ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
@@ -649,7 +652,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -784,7 +787,7 @@ function render(){
   }
   $('practice-audio').value=state.practiceAudio;
   $('chant-practice').hidden=!isSourcePractice();
-  renderReader();renderSequence();renderChantPractice();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
+  renderReader();renderSequence();renderChantPractice();sourcePhraseTools?.refresh();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -999,6 +1002,7 @@ $('download').addEventListener('click',()=>{
   let pronunciationResearch;
   try{pronunciationResearch=pronunciationTools?.proposalNotes(plan,words)??null;}catch(error){say(`Pronunciation note references unavailable: ${error.message}`);return;}
   const data={format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,contextAnalysis:CONTEXT_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+    ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
     ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
     ...(pronunciationResearch?{pronunciationResearch}:{}),
@@ -1086,9 +1090,13 @@ haftarahTools=mountHaftarah({beforePlay:()=>stop('Listening to a Haftarah source
     if(word&&words[word.wordIndex]?.id===occurrence)pronunciationTools?.showWord(words[word.wordIndex],{following:true});else pronunciationTools?.showWord(words[state.cursor]);
   }
 });
+sourcePhraseTools=mountSourcePhrases({getWords:()=>words,getCursor:()=>state.cursor,getSelection:()=>bounds(state.cursor,state.anchor,state.scope),onSelect:selection=>{
+  stop('Source phrase selected. Press Play when ready.');state.cursor=selection.startIndex;state.anchor=selection.endIndex;state.scope='selection';state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();$('reader').focus();
+}});
 mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});
 render();renderSections();renderPickers();showPracticeRecovery();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getRepertoireCorpus().then(value=>{
+  getSourcePhraseLibrary(value).then(library=>{sourcePhraseTools.setLibrary(library);exportsKey=null;updateExportSummary();}).catch(error=>sourcePhraseTools.unavailable(error));
   corpus=value;syncReadingForm('torah','gen');$('reading-type').disabled=false;$('book').disabled=false;
   $('library-status').textContent='31 books · 606 chapters · text available offline';$('open-reading').disabled=false;
   $('source-study-open').disabled=false;
