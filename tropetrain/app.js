@@ -562,10 +562,11 @@ function renderStaff(){
   const linkMap=scorePronunciationReport?new Map(scorePronunciationReport.links.map(l=>[l.eventId,l])):null;
   $('pitch-staff').innerHTML=staffMarkup(plan,words,from,STAFF_PAGE,{pronunciationLinks:linkMap});
   const source=pronunciationTools?.scoreStatus();
-  $('score-pronunciation-summary').textContent=!scorePronunciation?'Pronunciation text on the score is hidden. Hebrew and musical settings are kept.':linkError?`Score text links unavailable: ${linkError}`:source?.error?source.error:!scorePronunciationReport?'Loading pronunciation text for the score…':`${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
+  const research=scorePronunciationReport?.kind==='phonemic-research';
+  $('score-pronunciation-summary').textContent=!scorePronunciation?'Pronunciation text on the score is hidden. Hebrew and musical settings are kept.':linkError?`Score text links unavailable: ${linkError}`:source?.error?source.error:!scorePronunciationReport?'Loading pronunciation text for the score…':research?`${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page reference the same source syllables; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. ? unresolved, ∅ source silence, (∅) proposed loss, ↔ one shared consonant. These are phonemic research candidates; sound timing, singing voice and independent review remain unassigned.`:`${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
   $('score-pronunciation-download').disabled=!scorePronunciationReport?.links.length;
   const inspected=scorePronunciationReport?.links.find(l=>l.eventId===inspectedScoreEventId)??scorePronunciationReport?.links[0];
-  $('score-pronunciation-detail').textContent=!inspected?'':inspected.status==='unlinked'?`${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}`:`${inspected.hebrew} · ${inspected.units.map(u=>`${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length?', '+u.labels.join('/') :''}${u.sharesNextConsonant?', shared consonant with next unit':''}${u.sharesPreviousConsonant?', shared consonant with previous unit':''})`).join(' / ')}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
+  $('score-pronunciation-detail').textContent=!inspected?'':inspected.status==='unlinked'?`${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}`:research?`${inspected.hebrew} · ${inspected.phonology.paths.map(p=>`${p.text} (source ${p.sourceText}; row ${p.sourceRow}, column ${p.sourceColumn}, Hebrew branch ${p.hebrewColumn})`).join(' / ')}. Exact source-unit note references; shared candidates are one abstract event. No acoustic delivery or repeated consonant is inferred from a melisma.`:`${inspected.hebrew} · ${inspected.units.map(u=>`${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length?', '+u.labels.join('/') :''}${u.sharesNextConsonant?', shared consonant with next unit':''}${u.sharesPreviousConsonant?', shared consonant with previous unit':''})`).join(' / ')}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
   scoreGroupReport=null;
   try{scoreGroupReport=pronunciationTools?.groupNotes(plan.filter(e=>e.wordId===words[state.cursor]?.id),words)??null;}catch(error){scoreGroupReport={error:error.message,words:[]};}
   renderPronunciationScoreGroups($('score-word-alignment-content'),scoreGroupReport,words[state.cursor]);
@@ -585,10 +586,11 @@ function exportContext(){
     textSource:{...passage,verses:undefined},vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},
     tempo:state.tempo,transpose:state.transpose,volume:state.volume};
 }
+function clearNoteEventExport(){$('note-events-save').hidden=true;$('note-events-save').removeAttribute('href');}
 function clearExports(){
   wavJob?.abort();wavJob=null;
   $('wav-preview').pause();$('wav-preview').removeAttribute('src');$('wav-preview').hidden=true;
-  $('note-events-save').hidden=true;$('note-events-save').removeAttribute('href');
+  clearNoteEventExport();
   for(const [id,url] of exportUrls){URL.revokeObjectURL(url);$(id).hidden=true;$(id).removeAttribute('href');}exportUrls.clear();
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
@@ -910,8 +912,11 @@ $('score-pronunciation-download').addEventListener('click',()=>{
 for(const [id,delta] of [['staff-previous',-1],['staff-next',1]])$(id).addEventListener('click',()=>{state.staffPage+=delta;renderStaff();});
 $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
+  let pronunciationResearch;
+  try{pronunciationResearch=pronunciationTools?.proposalNotes(plan,words)??null;}catch(error){say(`Pronunciation note references unavailable: ${error.message}`);return;}
   const data={format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,contextAnalysis:CONTEXT_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
+    ...(pronunciationResearch?{pronunciationResearch}:{}),
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan};
   const link=$('note-events-save');link.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(data,null,2)+'\n');link.hidden=false;
@@ -961,7 +966,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy({onChange:()=>{renderStaff();renderReaderPronunciation();syllableTimingTools?.refresh();}});
+pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();syllableTimingTools?.refresh();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
 syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
   position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,

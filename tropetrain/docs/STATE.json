@@ -4,18 +4,14 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "e15fdd265752a33fc993792425ac9664cd034515",
-  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. Resolve its 2,195 withheld words through explicit source reading/variant evidence: 2,181 source-only forms,12 conflicting paths,2 combined words. Never invent written spans or accepted phones; keep original demo timing separate from source timing.",
+  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. Resolve its 2,195 withheld words through explicit source reading/variant evidence: 2,181 source-only forms,12 conflicting paths,2 combined words. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
   "lastPassingTests": {
-    "automated": 578,
+    "automated": 587,
+    "newRegressionChecks": 9,
     "failed": 0,
     "skipped": 0,
-    "newTests": 8,
-    "log": "/private/tmp/tropetrain-check-v70-final.log",
-    "separateResearchAlgorithmChecks": 12,
-    "priorConsonantOracleChecks": 7,
-    "priorIndependentTinySequencePairs": 225,
-    "ui": "578 automated checks pass,0fail/0skip,8new substantive tests. Public normal and portable each pass22 native checks: unchanged17marked Genesis11:4words and44source-linked original notes; exact exported unit/range provenance with null source timing/phonemes/voice/review; independent MAM styles, regional research text profiles, key, tempo and advisory range; advancing muted clock and exact text highlights; mode-off stops/restores old notes; source-only CGJ, combined Deut32:6 and conflicting routes block unsafe spans while covered words remain playable; printed sources/other-book reading/persisted opt-in remain usable. Cross-group selection survives all three views, Loop2 starts gen-11-4-11-mams1-n1 and playback ends exactly at selected word12. All players stopped, instrument0, native media paused and consoles clear. Actual319px root/scroll319 fits; desktop/mobile screenshots inspected; viewport reset. Visible prepared JSON data parsed; no speaker listening or physical saved-file claim. All618 prior asset/data files are unchanged except the separately updated attribution notice; all original source packets remain exact.",
-    "sourceSlurGeometryRelationships": 1206
+    "ui": "Final587 automated checks pass,0fail/0skip,9new functional tests. Local normal135and portable136each pass39UIchecks: all22previous musical-integrity checks plus17new pronunciation-note checks. Exact Genesis1:1marked words, NE bɔ versus ME bu on the same notes, both MAM source styles, profile changes during an advancing muted clock, note-reference JSON provenance/nulls, independent key/tempo, and pronunciation-only export invalidation with prepared MIDI retained all pass. Shared consonant/unknown markers, source-only CGJ, combined words, printed-score gaps, unavailable book categories and literal Khan text remain explicit. Repeated selection crosses groups, Loop2starts gen-11-4-11-mams1-n1 and stops at selectedword12. Allplayers stopped, instrument0, native media paused, consoles clear. Actual mobile319px root/scroll319 and staff285/1194 fit; desktop label bounds allfit and desktop/mobile screenshots visually inspected; viewport reset. Prepared JSON data was parsed, with no speaker listening or physical saved-file download claim.",
+    "scope": "local normal and portable; public verification pending"
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -194,10 +190,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.70.0",
-    "status": "published578checks_44public_browser_checks_full_goal_active",
-    "baseline": "abab6ff4efc834336cc581f99b24f3b22b830873",
-    "previousGoalTurn": "Progress:v0.69published570checks_32publicchecks_1064exactfiles_saved",
+    "version": "0.71.0",
+    "status": "local587checks_78UIchecks_pass_publication_pending",
+    "baseline": "4d9c7d9b8f7e9a422e82a19ec08cd99991a5dc48",
+    "previousGoalTurn": "Progress:v0.70published578checks_44publicchecks_1069exactfiles_saved",
     "newPublicVoice": null,
     "review": null
   },
@@ -1855,5 +1851,33 @@
     "publicUiChecks": 44,
     "finalReleaseRecordFiles": 7,
     "note": "Only the previous music.js provenance hash was stale in three audit JSON artifacts. These artifacts now match the exact completed test build; initial mismatch evidence is preserved."
+  },
+  "phonemicNoteReferences": {
+    "version": "0.71.0",
+    "record": "docs/PRONUNCIATION-NOTE-PROPOSALS.json",
+    "status": "final187chapter_fourCombination_audit_587tests_78localUIchecks_pass_publication_pending",
+    "profiles": [
+      "katz-1993-northeastern-formal",
+      "katz-1993-mideastern-formal"
+    ],
+    "sourceStyles": [
+      "sephardic",
+      "ashkenazic"
+    ],
+    "availableWords": 77790,
+    "withheldWords": 2195,
+    "originalDemoNotes": 224269,
+    "allFourCombinationsStructurallyLinked": true,
+    "phonemes": null,
+    "enginePhones": null,
+    "acousticAllocation": null,
+    "newSingingVoice": null,
+    "review": null,
+    "newPhonologicalRules": 0,
+    "replacementEvidence": [
+      "Qualified linguistic review of each source-category/context route, including mobile sheva, special consonants, syllable joins and proposed regional vowel transitions.",
+      "Reusable dry sustained singing phoneme and transition recordings with verified phonetic labels, pitch and sound boundaries for the specific independently identified pronunciation profile.",
+      "Source-attributed contextual melody rules and a qualified review of the same Genesis1:1–3 passage under two pronunciations with one melody, then two melodies with one pronunciation; historical Kinnor label identity needs separate documentary evidence."
+    ]
   }
 }
