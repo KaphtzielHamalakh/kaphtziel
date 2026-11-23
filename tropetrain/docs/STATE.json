@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-22",
+  "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "9aab9171ff2097149bf61e76e36da8c4c6c4605b",
-  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete remaining5Baer first-setting cells and contextual fitting from actual notation without invented grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
+  "nextTask": "Finish testing and publication of the source-bound maqaf primary-stress context, preserving meteg uncertainty and all prior source/proposal bindings. Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete remaining5Baer first-setting cells and contextual fitting from actual notation without invented grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
-    "automated": 551,
+    "automated": 556,
     "failed": 0,
     "skipped": 0,
-    "newTests": 9,
-    "log": "/private/tmp/tropetrain-check-v66-final.log",
+    "newTests": 5,
+    "log": "/private/tmp/tropetrain-check-v67.log",
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Final 551 automated checks pass, with no failures or skips; the nine substantive music checks also pass separately. All 619 prior asset/data files and all 175 prior Baer components are exact. Native local checks inspected every note and rest of all five new routes, independent key/tempo/range/pronunciation controls, all five unavailable cells and the 120-match Munah/Mahapakh lookup. Public normal116 and portable117 each pass 11 checks: startup, pitches, rhythms, rests, stable source IDs, readiness, inventory, exact 22 marked Genesis3:22 words, independent pronunciation text, advancing muted playback and stopped media. Both final pages show the corrected nonnumeric introduction and the source-derived 27/5 inventory. Portable319px has root/scroll319 and staff232/799; the B-flat triplet inspects MIDI70. Both public consoles are clear; all test players are stopped, instrument volume0 and native media paused. Portable navigation/reload observations finished on the same existing handle after an early timeout/loading observation; no duplicate navigation. Independent musical, syllable and acoustic review remains pending; no new singing voice or complete grammar is inferred.",
+    "ui": "All556automated checks pass,0fail/0skip;5new substantive source-stress checks. Normal118and portable119 verify exact marked Genesis11:4words/IDs and complete-group exports, two independent MAM text styles and two regional proposals. lla/llo text differs independently; NE/ME qamats proposals differ without changing notes or Hebrew. Original final-word stress remains intact; preceding-word primary exclusion applies only within qualified complete groups. Gen1:12meteg retains explicit segol uncertainty and null accepted phones/quantity/note/audio timing/voice/review. Deut32:6combined source ownership/ranges remain null and unsplit. Native key+1 raises every MIDI by1with beats/times unchanged;tempo+1changes seconds only;range guide changes no notes or source proposals. Muted passage playback stays Playing through style/profile changes, then stopped. Saved profile/text preference reload passes. Normal and portable319px root/scroll319, research panel231/231; screenshots visually inspected. Both consoles0errors/warnings; all media paused, instrument volume0; viewport reset. Prepared export dataURL parsed; no file-download or speaker-listening claim. All619prior asset/data files exact. Harness corrections: full-group exports contain the following stressed word; owner-scoped assertions used. Invalid book test value deut corrected to actual native option deu. Remote-realm log arrays checked by count.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -59,7 +59,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32_Cohen_and24_Baer_No105_untexted_figures_four_bounded_printed_examples_complete_contextual_grammars_and_independent_review_pending"
+      "status": "32_Cohen_and27_Baer_No105_untexted_figures_with31single_routes_plus_pair_four_bounded_printed_examples_complete_contextual_grammars_and_independent_review_pending"
     },
     {
       "id": "singing",
@@ -194,10 +194,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.66.0",
-    "status": "published_551checks_public_UI_verified_full_goal_active",
-    "baseline": "783b82e4bb21b8975bbfba7939036f3a0536a5e5",
-    "previousGoalTurn": "Progress:v0.65published542checks/21publicchecks/all1053sourceandoutputfiles_saved",
+    "version": "0.67.0",
+    "status": "local_556_checks_normal_portable_mobile_passed_publication_pending",
+    "baseline": "253c7511d075c9233a496e9b3266442fdeffb460",
+    "previousGoalTurn": "Progress:v0.66published551checks_22publicchecks_1055exactfiles_saved",
     "newPublicVoice": null,
     "review": null
   },
@@ -1581,15 +1581,15 @@
     "qualifiedReviewPending": true
   },
   "phonologicalResearch": {
-    "version": "0.65.0",
-    "source": "Dovid Katz1993 The Phonology of Ashkenazic",
+    "version": "0.67.0",
+    "source": "Dovid Katz1993 phonology; Gesenius–Kautzsch–Cowley1910 §16 maqaf/meteg context",
     "record": "docs/PRONUNCIATION-PHONOLOGY.json",
     "profiles": [
       "katz-1993-northeastern-formal",
       "katz-1993-mideastern-formal"
     ],
     "scope": "Incomplete source-defined Formal Ashkenazic phonemic proposals, independent of both MAMtext styles and all six documentary Kinnor profiles. No historical label equivalence, reviewed grammar, acoustic phone, duration, singing voice or sound allocation.",
-    "status": "published_542checks_source_preserving_2272pairs_both_live_distributions_verified_review_and_singing_pending",
+    "status": "fourway_source_bound_maqaf_audit_and5targeted_pass_full556_UI_publication_pending",
     "allTorahWordLinks": 79985,
     "sourceGroups": 68504,
     "sourceUnitPlansPerStyle": 194272,
@@ -1597,7 +1597,7 @@
     "sharedConsonantEventsPerStyle": 18250,
     "unassignedReferences": {
       "northeastern": 20313,
-      "mideastern": 20501
+      "mideastern": 20456
     },
     "reviewedRealizations": 0,
     "sourceAssetsAndDataUnchanged": 619,
@@ -1609,7 +1609,14 @@
       "PATAX": 308
     },
     "unassignedVowelYodCompoundsPerStyle": 44,
-    "phoneticTransitionsReviewed": 0
+    "phoneticTransitionsReviewed": 0,
+    "maqafPrimaryUnitsPerStyle": 15228,
+    "maqafMetegUnitsPerStyle": 2835,
+    "newMaqafSegolReferencesPerStyle": 45,
+    "unresolvedMideasternSegolReferences": 143,
+    "priorKnownProposalsPreserved": true,
+    "originalSourceStressUnchanged": true,
+    "prosodyReview": null
   },
   "pairedRecordedPronunciations": {
     "record": "docs/ASAEL-PAIRED-CHANT.json",
