@@ -1,0 +1,1204 @@
+{
+  "schema": "tropetrain-source-group-timing-audit-v1",
+  "revision": 1,
+  "status": "personal_unreviewed_annotation_only",
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "results": [
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם תחתון"
+      },
+      "knownSharedGroups": 1,
+      "knownSharedWordOccurrences": 2,
+      "blankDraftsValidated": 2,
+      "drafts": [
+        {
+          "style": "sephardic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"sephardic\",\"r1-c1\",{\"qamats\":\"קמץ-ד\",\"cantillation\":\"טעם תחתון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+              "text": "nay",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        },
+        {
+          "style": "ashkenazic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"ashkenazic\",\"r1-c1\",{\"qamats\":\"קמץ-ד\",\"cantillation\":\"טעם תחתון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u4",
+              "text": "noy",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם עליון"
+      },
+      "knownSharedGroups": 1,
+      "knownSharedWordOccurrences": 2,
+      "blankDraftsValidated": 2,
+      "drafts": [
+        {
+          "style": "sephardic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"sephardic\",\"r1-c1\",{\"qamats\":\"קמץ-ד\",\"cantillation\":\"טעם עליון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+              "text": "nay",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        },
+        {
+          "style": "ashkenazic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"ashkenazic\",\"r1-c1\",{\"qamats\":\"קמץ-ד\",\"cantillation\":\"טעם עליון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u4",
+              "text": "noy",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם תחתון"
+      },
+      "knownSharedGroups": 1,
+      "knownSharedWordOccurrences": 2,
+      "blankDraftsValidated": 2,
+      "drafts": [
+        {
+          "style": "sephardic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"sephardic\",\"r1-c1\",{\"qamats\":\"קמץ-ס\",\"cantillation\":\"טעם תחתון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+              "text": "nay",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        },
+        {
+          "style": "ashkenazic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"ashkenazic\",\"r1-c1\",{\"qamats\":\"קמץ-ס\",\"cantillation\":\"טעם תחתון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u4",
+              "text": "noy",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם עליון"
+      },
+      "knownSharedGroups": 1,
+      "knownSharedWordOccurrences": 2,
+      "blankDraftsValidated": 2,
+      "drafts": [
+        {
+          "style": "sephardic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"sephardic\",\"r1-c1\",{\"qamats\":\"קמץ-ס\",\"cantillation\":\"טעם עליון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+              "text": "nay",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        },
+        {
+          "style": "ashkenazic",
+          "choiceId": "r1-c1",
+          "key": "tropetrain-syllable-timing-v2:[\"e9b76ecfa9b7f931ddf1d040ee2bf6263816b541\",[\"deu-32-6-1\",\"deu-32-6-2\"],[\"deu-32-6-1\",\"deu-32-6-2\"],\"ashkenazic\",\"r1-c1\",{\"qamats\":\"קמץ-ס\",\"cantillation\":\"טעם עליון\"}]",
+          "source": {
+            "recordingId": "pt-portion-53-1",
+            "audioSha1": "e9b76ecfa9b7f931ddf1d040ee2bf6263816b541",
+            "audioBytes": 355986,
+            "measuredPcmSha256": "1e585ef47e9a2a16093b83c9a195c1400da5e52c62ed4a159af2923babce5401",
+            "measuredDurationSeconds": 88.9730625,
+            "measurementPacketSha256": "ad156a571a386c6415c9c52809fee96ae2d3026f853c8d3d3341f306d78217c6",
+            "timingSource": {
+              "originalPath": "Webbrowser/content/torah/labels/Haazinu-1.txt",
+              "gitBlob": "df932c4257eb81395b2669ce2c41d95c66fc2d9f",
+              "sha256": "0badffcb283b758af6ded2bcb2f6faff6c5511952f2294bf2da4bd31f89debaf",
+              "bytes": 609
+            }
+          },
+          "span": {
+            "kind": "complete-shared-source-word",
+            "wordIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "occurrenceIds": [
+              "deu-32-6-1",
+              "deu-32-6-2"
+            ],
+            "hebrew": [
+              "הֲ־",
+              "לַיְהוָה֙"
+            ],
+            "startSeconds": 67.420989,
+            "endSeconds": 70.792265,
+            "originalWordWindows": [
+              {
+                "id": "deu-32-6-1",
+                "occurrenceId": "deu-32-6-1",
+                "hebrew": "הֲ־",
+                "recordingHebrew": "הֲ־",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-1",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 1,
+                    "sourceToken": "הֲ־",
+                    "sourceHebrew": "הֲ־",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 48,
+                "startSeconds": 67.420989,
+                "endSeconds": 69
+              },
+              {
+                "id": "deu-32-6-2",
+                "occurrenceId": "deu-32-6-2",
+                "hebrew": "לַיְהוָה֙",
+                "recordingHebrew": "לַיְהוָה֙",
+                "sourceWords": [
+                  {
+                    "id": "wlc-2012-deu-32-6-2",
+                    "chapter": 32,
+                    "verse": 6,
+                    "ordinal": 2,
+                    "sourceToken": "לַ/יְהוָה֙",
+                    "sourceHebrew": "לַיְהוָה֙",
+                    "editorialNotes": [],
+                    "writtenVariants": []
+                  }
+                ],
+                "sourceComparison": "exact",
+                "referenceIndex": 49,
+                "startSeconds": 69,
+                "endSeconds": 70.792265
+              }
+            ]
+          },
+          "units": [
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u1",
+              "text": "hal",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u2",
+              "text": "’ă",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u3",
+              "text": "dó",
+              "stress": false,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            },
+            {
+              "id": "pmam-deu-32-6-1-ashkenazic-r1-c1-u4",
+              "text": "noy",
+              "stress": true,
+              "ownerWordId": null,
+              "ownerWordIds": [
+                "deu-32-6-1",
+                "deu-32-6-2"
+              ],
+              "writtenRanges": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "recordedPronunciationEquivalent": null,
+          "review": null
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "syllable-group-timing.js",
+      "sha256": "04605476d1b0f4feb04f71a6dd7ad0fe28f76faff07516475830cd09fa4f0985"
+    },
+    {
+      "path": "syllable-timing-draft.js",
+      "sha256": "6c1c5b53e0c62b0cfd66a9c5f48c823f48cff7c984a425073b542d0e68e610ee"
+    },
+    {
+      "path": "syllable-timing-ui.js",
+      "sha256": "9d17364a191870710095099da1d0aa55a3f0f90fe81f7d849b94d906be245e40"
+    },
+    {
+      "path": "source-joint-syllables.js",
+      "sha256": "4322b6500ecd61dfea635cf721430925c7bb3bc24f7e7c11a9a6372356ba3dbb"
+    },
+    {
+      "path": "reference-library.js",
+      "sha256": "5d84a8f672fe88ccf4607ffc16eb66eedfb6229fcef49bb8b158aed7d24d8a78"
+    },
+    {
+      "path": "measured-practice.js",
+      "sha256": "8ce5940ca3e37ba1449723b4d614ac2af818cf31ef4d1ffa559b2e2df8089f27"
+    },
+    {
+      "path": "data/references/torah-library.json.gz",
+      "sha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9"
+    },
+    {
+      "path": "data/pitch/manifest.json",
+      "sha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf"
+    }
+  ],
+  "method": "Every known shared source pronunciation word in the whole-Torah joint-playback audit is checked in both MAM styles and all four literal source policies. Complete marked member words, source-unit text/stress/category/underlay, original recording identity and all separate consecutive member windows must survive. Only exactly touching consecutive windows in one duration-checked recording form a group interval. No syllable receives an individual owner or written range. All annotation fields begin null. Preview uses the original recording at rate1 and an empty word-follow list; no source syllable or individual word clock is invented.",
+  "compatibility": "Existing individually owned v1 draft data and keys remain unchanged. V2 group keys retain all canonical and occurrence IDs, text style, variant and source choices. Imports match a freshly constructed source identity. Original Hebrew, accents, source arrays, recordings, timestamps, instrumental notes, range/key/tempo preferences and defaults remain unchanged.",
+  "rights": {
+    "pronunciation": "Hebrew Wikisource / Phonetic MAM, CC-BY-SA4.0",
+    "originalAudio": "PocketTorah / Not-a-Box Media Lab, CC-BY-SA3.0",
+    "originalTiming": "PocketTorah, CC-BY-SA2.5",
+    "software": "Original project software, CC0"
+  },
+  "pending": "A qualified reader must compare the exact source edition and actual recorded pronunciation with the selected transcription. Audible syllable/phone boundaries, uncertainty and independent review remain pending. Personal clock or typed annotations do not establish acoustic truth, a singing voice, a complete melody grammar or any Kinnor preset equivalence.",
+  "sourceEditionCompared": false,
+  "recordedPronunciationEquivalent": null,
+  "phonemes": null,
+  "musicalNotes": null,
+  "independentReview": null
+}

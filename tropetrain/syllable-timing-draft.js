@@ -44,22 +44,28 @@ export function createSyllableTimingDraft({library,word,study,style,choiceId}){
   units:choice.units.map(u=>({...u,start:null,end:null,startBasis:null,endBasis:null}))};
 }
 export function syllableTimingKey(draft){
+ if(draft.schema==='tropetrain-syllable-timing-draft-v2')return 'tropetrain-syllable-timing-v2:'+JSON.stringify([draft.source.audioSha1,draft.span.wordIds,draft.span.occurrenceIds,draft.pronunciation.style,draft.pronunciation.choiceId,draft.correspondence.sourceReadingChoices]);
  return 'tropetrain-syllable-timing-v1:'+JSON.stringify([draft.source.audioSha1,draft.word.id,draft.word.occurrenceId,draft.pronunciation.style,draft.pronunciation.choiceId]);
+}
+export function syllableTimingWindow(draft){
+ if(draft.schema==='tropetrain-syllable-timing-draft-v2'&&draft.revision===2&&draft.word===null&&draft.span?.kind==='complete-shared-source-word')return draft.span;
+ if(draft.schema==='tropetrain-syllable-timing-draft-v1'&&draft.revision===1)return draft.word;
+ throw Error('Unsupported source syllable timing draft.');
 }
 export function validateSyllableTimingDraft(value,expected){
  if(!value||typeof value!=='object'||Array.isArray(value))throw Error('A syllable timing draft object is required.');
- if(value.schema!=='tropetrain-syllable-timing-draft-v1'||value.revision!==1||value.status!=='personal-unreviewed'||value.sourceEditionCompared!==false||['phonemes','musicalNotes','independentReview'].some(k=>value[k]!==null))throw Error('Only personal unreviewed syllable drafts are supported.');
+ if(!['tropetrain-syllable-timing-draft-v1','tropetrain-syllable-timing-draft-v2'].includes(value.schema)||value.schema!==expected.schema||value.revision!==expected.revision||value.status!=='personal-unreviewed'||value.sourceEditionCompared!==false||['phonemes','musicalNotes','independentReview'].some(k=>value[k]!==null))throw Error('Only matching personal unreviewed syllable drafts are supported.');
  const fixed=x=>({...x,units:undefined});
  if(canonical(fixed(value))!==canonical(fixed(expected)))throw Error('Draft source, marked Hebrew, occurrence, style, variant or review status differs.');
  if(!Array.isArray(value.units)||value.units.length!==expected.units.length)throw Error('Draft source syllable count differs.');
- const clean=structuredClone(expected);let boundary=expected.word.startSeconds;
+ const clean=structuredClone(expected),window=syllableTimingWindow(expected);let boundary=window.startSeconds;
  for(const [index,unit] of value.units.entries()){
   if(!unit||canonical(fixedUnit(unit))!==canonical(fixedUnit(expected.units[index])))throw Error('Draft source syllables, written ranges, stress or shared consonants differ.');
   for(const key of ['start','end']){
    const time=unit[key],basis=unit[key+'Basis'];
    if(time===null){if(basis!==null)throw Error('A blank boundary must have no capture basis.');}
    else {
-    if(!Number.isFinite(time)||time<expected.word.startSeconds||time>expected.word.endSeconds)throw Error('Syllable boundaries must be source seconds inside this unchanged word window.');
+    if(!Number.isFinite(time)||time<window.startSeconds||time>window.endSeconds)throw Error('Syllable boundaries must be source seconds inside this unchanged word or complete group window.');
     if(!['typed','audio-clock','muted-clock'].includes(basis))throw Error('Each boundary must retain its annotation basis.');
     if(time<boundary)throw Error('Syllable boundaries must follow source order without overlaps, including across blank units.');
     boundary=time;
@@ -73,6 +79,14 @@ export function validateSyllableTimingDraft(value,expected){
 export function setSyllableBoundary(draft,index,key,value,basis='typed'){
  if(!Number.isInteger(index)||index<0||index>=draft.units.length||!['start','end'].includes(key))throw Error('Choose a source syllable boundary.');
  const next=structuredClone(draft);next.units[index][key]=value;next.units[index][key+'Basis']=value===null?null:basis;
+ return validateSyllableTimingDraft(next,draft);
+}
+export function setSyllableBoundaries(draft,index,{start,end}){
+ if(!Number.isInteger(index)||index<0||index>=draft.units.length)throw Error('Choose a source syllable unit.');
+ const next=structuredClone(draft);
+ for(const [key,value]of Object.entries({start,end}))if(value!==draft.units[index][key]){
+  next.units[index][key]=value;next.units[index][key+'Basis']=value===null?null:'typed';
+ }
  return validateSyllableTimingDraft(next,draft);
 }
 export function captureSyllableBoundary(draft,index,key,position){
