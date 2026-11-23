@@ -140,11 +140,11 @@
   "inputs": [
     {
       "path": "pronunciation-note-proposals.js",
-      "sha256": "7c5dbc003e5aa425005457b64f95ac4103b5ed1ffe171d9648625ed78436575f"
+      "sha256": "3ddf1233abc714d752f5fb4d18ce6d4482357d6a116317f729085796d2c16d13"
     },
     {
       "path": "pronunciation-note-links.js",
-      "sha256": "fa807dbd59e4ae1e6a706b322bcf13af9cb3bb05ec512212bf2ea480aaa99ea9"
+      "sha256": "33fcd5821a1bbd362567ac5d53eeb619a715a91b4d77a06a8b73b430a140d983"
     },
     {
       "path": "pronunciation-phonology-reader.js",
@@ -156,11 +156,11 @@
     },
     {
       "path": "source-syllable-underlay.js",
-      "sha256": "8009e0eb6a83b42a0f76f9512470770fc7baa4a2279ff900cedf6554ac5f34cd"
+      "sha256": "93dd60b1240fcab2a84bd95577acca10015cefe263c7e5c7e1ee9cfdd3c69d0f"
     },
     {
       "path": "music.js",
-      "sha256": "4db3eedaacfdd89ea1709cb413fe0cdfc7a40cf4744b3e92b21d2fd5f1b09bfb"
+      "sha256": "703e12f4f9495034abc44f72a1ac0d195853d05fa717f09bbb13b40dc3e396a4"
     }
   ],
   "method": "Every Torah chapter, every contiguous span of words with consensus source syllables, and actual original-demo buildPlan notes, in both MAM source styles and both existing research profiles. All source-unit/marked-Hebrew references are checked. Musical events and all accepted-phone/acoustic-timing nulls are preserved. Each assignment digest includes complete word evidence, every alternative route, note link and abstract event reference.",

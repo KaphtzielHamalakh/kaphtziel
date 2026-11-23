@@ -13,7 +13,7 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
  }
  const links=base.links.map(link=>{
   const report=prepared.get(link.wordId),paths=[];
-  if(link.status==='exact-written-span')for(const entry of report.entries)for(const part of entry.parts){
+  if(['exact-written-span','source-reading-word'].includes(link.status))for(const entry of report.entries)for(const part of entry.parts){
    const sourceUnit=link.units.find(u=>u.sourceUnitId===part.sourceUnitId);if(!sourceUnit)continue;
    if(part.sourceStress!==sourceUnit.sourceStress||JSON.stringify(part.hebrewClusterRanges)!==JSON.stringify(sourceUnit.hebrewClusterRanges))throw Error('Phonemic proposal and note source-unit correspondence changed.');
    const route=report.evidence.routes.find(r=>r.sourceRow===entry.sourceRow&&r.sourceColumn===entry.sourceColumn&&r.hebrewColumn===entry.hebrewColumn);
@@ -36,7 +36,7 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
     hebrewClusterRanges:structuredClone(part.hebrewClusterRanges),references});
   }
   const linked=paths.length>0;
-  return {...link,sourceTextStatus:link.status,sourceTextReason:link.reason,status:linked?'exact-written-span':'unlinked',reason:linked?null:link.reason??'no-phonemic-proposal-route',
+  return {...link,sourceTextStatus:link.status,sourceTextReason:link.reason,status:linked?link.status:'unlinked',reason:linked?null:link.reason??'no-phonemic-proposal-route',
    phonology:linked?{profileId,text:[...new Set(paths.map(p=>p.text))].join(' / '),paths,phonemes:null,enginePhones:null,quantity:null,duration:null,audioTimes:null,voice:null,review:null}:null};
  });
  const sourceEvents=[...events.values()];
