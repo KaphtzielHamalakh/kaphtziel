@@ -19,7 +19,7 @@ export function availablePatternModes(sourceId=PRINTED_PATTERNS.id){
 export function patternEvidence(sourceId,kind,mode){
  const row=patternSource(sourceId,mode),record=row.record;let file,url,mime;
  if(kind==='record'){file=row.recordPath??'docs/PRINTED-PATTERN-CATALOG.json';url=patternRecord(file);mime='application/json';}
- else if(['columns','context','continuation'].includes(kind)){file=kind==='columns'?record.source.image:kind==='context'?record.source.contextImage.image:record.source.continuationImage?.image;url=patternImage(file);mime=file?.endsWith('.jpg')?'image/jpeg':'image/png';}
+ else if(['columns','context','continuation','preface'].includes(kind)){file=kind==='columns'?record.source.image:kind==='context'?record.source.contextImage.image:kind==='preface'?record.notationPrinciple?.source.file:record.source.continuationImage?.image;url=patternImage(file);mime=file?.endsWith('.jpg')?'image/jpeg':'image/png';}
  else throw Error('Choose a source image or record.');
  const prefix=`data:${mime};base64,`;if(!url?.startsWith(prefix))throw Error('Source evidence is unavailable.');
  const bytes=Uint8Array.from(atob(url.slice(prefix.length)),c=>c.charCodeAt(0));
@@ -36,7 +36,7 @@ export const PATTERN_MODES=Object.freeze([
   {id:'etnahta',name:'Etnaḥta · in printed Munaḥ–Etnaḥta (p.543)'}
 ]);
 export function patternContextChoices(sourceId,mode){
- if(sourceId===BAER_PATTERN_ID)return mode==='munah-revia-pair'?[{label:'Encoded Munaḥ → Revia lookup only; no automatic melodic application',ids:['munah','revia']}]:BAER_PATTERN_ROW.record.matchingQueries[mode]??[];
+ if(sourceId===BAER_PATTERN_ID)return mode==='munah-revia-pair'?[{label:'Encoded Munaḥ → Revia lookup only; no automatic melodic application',ids:['munah','revia']}]:BAER_PATTERN_ROW.record.matchingQueries[baerPatternModes().find(m=>m.id===mode)?.sourceFigureId??mode]??[];
  const record=patternSource(sourceId).record;
  if(!availablePatternModes(sourceId).some(m=>m.id===mode))return [];
  return record.matchingQueries?.[mode]??[{label:'Source combination',ids:record.matchingQuery}];

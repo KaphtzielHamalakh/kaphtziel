@@ -23,7 +23,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     setActive(rest?.id??null);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed rest${rest?` · component ${rest.sourceComponentNumber} · ${beatLabel(rest.beats)} quarter-note beats`:''}.`;
   },{onError:error=>{stop();$('pattern-status').textContent=`Pattern audio unavailable: ${error.message}`;}});
   function inspect(event){
-    selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`} · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''}${event.sourceFermata?' Printed fermata: the hold length is unspecified. Playback regularizes the written duration.':''}${event.sourceAccidentalEvidence?' '+event.sourceAccidentalEvidence:''} No syllable or phoneme allocation is asserted.`;
+    selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation}${event.sourceVariant?' · '+event.sourceVariant.label:''} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`} · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''}${event.sourceFermata?' Printed fermata: the hold length is unspecified. Playback regularizes the written duration.':''}${event.sourceAccidentalEvidence?' '+event.sourceAccidentalEvidence:''} No syllable or phoneme allocation is asserted.`;
   }
   function stop(message='Printed pattern stopped.'){
     const wasRunning=player.running||starting;request++;starting=false;player.stop();setActive(null);$('pattern-status').setAttribute('aria-live','polite');
@@ -48,6 +48,8 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     $('pattern-settings').textContent=`Uses instrument controls above: ${state.tempo} BPM · transpose ${state.transpose>0?'+':''}${state.transpose} · instrument volume ${state.volume}%. Fixed recordings and the Bible reading’s musical source are separate.`;
     player.setVolume(state.volume/100);if(key===settingsKey)return;stop('Pattern settings changed. Press Play printed pattern to hear them.');settingsKey=key;populateContexts();
     $('pattern-selected-source').textContent=`${row.label}. ${record.sourceKey}`;
+    const principle=record.notationPrinciple;$('pattern-alternatives').hidden=!principle;
+    if(principle)$('pattern-preface-link').href=patternImage(principle.source.file);else $('pattern-preface-link').removeAttribute('href');
     const cells=[...new Set(record.notes.map(n=>n.cell))].map(c=>allPatternModes(sourceId).find(m=>m.id===c)?.name??c);
     $('pattern-availability').textContent=record.figures?`${record.figures.filter(f=>f.status==='transcribed').length} of ${record.figures.length} source cells transcribed; ${row.unavailable.length} remain pending. ${record.selectedFigure?.pending??record.selectedFigure?.contextPending??'Literal source figures only; arbitrary-word fitting and independent musical review remain pending.'}`:`Transcribed: ${cells.join(' and ')}.${row.unavailable.length?' Awaiting notation evidence: '+row.unavailable.map(p=>({munah:'plain Munaḥ',revia:'Revia',yetiv:'Yetib','zakef-preceded':'conditional Zaqef'})[p.cell]).join(', ')+'.':''} ${record.conditions?.[mode]?.subtypeReview?' The source predecessor “Zaqef” has no subtype; subtype searches are lookup candidates.':''} Independent musical/transcription review is pending.`;
     const legacy=sourceId===PRINTED_PATTERNS.id;
@@ -87,9 +89,9 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     }catch(error){if(current!==request)return;stop();$('pattern-status').textContent=`Pattern unavailable: ${error.message}`;}
   });
   const evidenceUrls=new Map(),viewer=$('pattern-source-viewer');
-  for(const [id,kind] of [['pattern-source-link','columns'],['pattern-continuation-link','continuation'],['pattern-context-link','context'],['pattern-record-link','record']])$(id).addEventListener('click',event=>{
+  for(const [id,kind] of [['pattern-source-link','columns'],['pattern-continuation-link','continuation'],['pattern-context-link','context'],['pattern-record-link','record'],['pattern-preface-link','preface']])$(id).addEventListener('click',event=>{
     event.preventDefault();const evidence=patternEvidence($('pattern-source').value,kind,$('pattern-mode').value);
-    $('pattern-viewer-title').textContent=kind==='record'?'Exact source record':'Full-resolution printed source';
+    $('pattern-viewer-title').textContent=kind==='record'?'Exact source record':kind==='preface'?'Baer’s alternative-line instruction':'Full-resolution printed source';
     $('pattern-viewer-caption').textContent=patternSource($('pattern-source').value).label+' · '+evidence.name;
     $('pattern-viewer-image').hidden=kind==='record';$('pattern-viewer-json').hidden=kind!=='record';
     if(kind==='record')$('pattern-viewer-json').textContent=evidence.text;else{$('pattern-viewer-image').src=evidence.url;$('pattern-viewer-image').alt=$('pattern-viewer-caption').textContent;}
