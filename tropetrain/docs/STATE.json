@@ -6,15 +6,15 @@
   "publishedCommit": "46d3b77677b798338151303204b6726212ee713a",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
-    "automated": 570,
+    "automated": 578,
     "failed": 0,
     "skipped": 0,
-    "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v69.log",
+    "newTests": 8,
+    "log": "/private/tmp/tropetrain-check-v70-final.log",
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "All570automated checks pass/0fail/0skip,7newsubstantive tests. Both public normal and portable each pass16native UIchecks: exact marked7word Genesis1:1, original syllable/stress links, independent profiles/source styles/key/tempo/range, advancing muted clock and exact text highlights, one shared consonant event, explicit unknown/silence/proposedloss, exactCGJ/source-only branches, unsplitDeut32:6, unchangedKhan/MAMstreams, hide/show, persistedprofile reload, stoppedmedia and clearconsoles. Actual319px root/scroll319fits; desktop/mobile screenshots visually inspected and viewportreset. All619oldasset/data files unchanged. Every79985Torah word checked in4profile/style combinations:79983owned previews,2combined/unallocated,194268owned routeunits/518715ownedcategoryrefs; the remaining4units/11refs stay in their source group. No new phonological rule, accepted sound, timing, voice, Kinnoridentity or independent musical review.",
+    "ui": "Normal131 and portable132 each pass22 native UI checks. Genesis11:4 keeps17marked words and44source-linked notes. MAM styles and regional research profiles change independently of all notes/times/key/range. Visible prepared event data retains source unit links and null source timing/phonemes/voice/review. Source-only CGJ, combined Deut32:6 and conflicting paths block unsafe spans; covered words remain playable. Default and printed sources, other-book reading, persisted opt-in and paused media/clear consoles pass. Cross-group selection survives pointed/consonantal/parallel views. Both Loop2 restart at gen-11-4-11-mams1-n1 and finish exactly at word12; instrument0. No speaker listening or saved-file download claim. Actual319px root/scroll319 and desktop/mobile visuals pass; viewport reset.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -194,10 +194,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.69.0",
-    "status": "published570checks_32public_browser_checks_full_goal_active",
-    "baseline": "154eecff1165dd1a460b23eb1bd3c32a5d75901a",
-    "previousGoalTurn": "Progress:v0.68published563checks_28publicchecks_1061exactfiles_saved",
+    "version": "0.70.0",
+    "status": "578checks_44local_UI_checks_publication_pending",
+    "baseline": "abab6ff4efc834336cc581f99b24f3b22b830873",
+    "previousGoalTurn": "Progress:v0.69published570checks_32publicchecks_1064exactfiles_saved",
     "newPublicVoice": null,
     "review": null
   },
@@ -1817,5 +1817,28 @@
     "completeGrammar": false,
     "kinnorAccentId": null,
     "status": "published_two_literal_word_text_streams_159words_318links_538checks_publicnormalportable_verified_complete_grammar_and_voice_pending"
+  },
+  "sourceSyllablePlayback": {
+    "version": "0.70.0",
+    "record": "docs/SOURCE-SYLLABLE-PLAYBACK.json",
+    "status": "578checks_44local_UI_checks_publication_pending",
+    "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "availableWords": 77790,
+    "unavailableWords": 2195,
+    "consensusSyllables": 187261,
+    "gaps": {
+      "source-only-written-form": 2181,
+      "conflicting-source-paths": 12,
+      "combined-source-form": 2
+    },
+    "assignmentSha256": "a7b487372767d724032a352c9e5f258a56de607aaf4582ff1685134cb928de66",
+    "performance": "original-demo-01",
+    "historicalMelodyGrammar": null,
+    "sourceDurationsAssigned": false,
+    "phonemes": null,
+    "newSingingVoice": null,
+    "review": null,
+    "sourceAssetsPreserved": 618,
+    "attributionNoticeUpdated": true
   }
 }
