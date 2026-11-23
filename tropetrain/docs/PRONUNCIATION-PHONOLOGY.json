@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-pronunciation-phonology-v1",
-  "revision": 1,
+  "revision": 2,
   "date": "2026-11-22",
   "source": {
     "id": "katz-1993-phonology",
@@ -11,7 +11,7 @@
     "url": "https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf",
     "sha256": "789b83c2c5eedc097c334edeb6ea42268a0b90e25b8ee887b2d21af3452ecb24",
     "rights": "Copyright reference, privately inspected; no PDF, scan, OCR or protected table redistributed. Original code records attributed linguistic facts.",
-    "scanLimits": "The supplied scan repeats printed pages49and52; no rule here relies on missing page50.",
+    "scanLimits": "The supplied scan repeats printed pages49and52; printed page50 is appended as PDF page48. No rule here relies on page50.",
     "scope": "Schematic Northeastern and Mideastern Formal Ashkenazic. Local variation remains; no equivalence to a Kinnor Accent label or reviewed singing voice is established."
   },
   "profiles": [
@@ -52,19 +52,25 @@
       "routes": 68719,
       "units": 194272,
       "categoryReferences": 518726,
-      "proposedReferences": 496141,
-      "unassignedReferences": 22585,
+      "proposedReferences": 498413,
+      "unassignedReferences": 20313,
       "events": 500476,
       "sharedEvents": 18250,
+      "vowelYodConstituentPairs": 2272,
+      "vowelYodCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308
+      },
       "contextGaps": {
         "hiatus-phonetics-needs-review": 8260,
-        "unreviewed-diphthong-sequence": 2316
+        "vowel-yod-phonetics-needs-review": 2272,
+        "unreviewed-diphthong-sequence": 44
       },
       "unassignedCategories": {
         "SHEVA_NA": 19557,
         "HE_1MAPIQ": 657,
-        "YOD_0DAG_PART2_OF_DIPHTHONG": 2316,
         "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "YOD_0DAG_PART2_OF_DIPHTHONG": 44,
         "ALEF_1MAPIQ": 2,
         "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13,
         "FPP_PATAX_MAPIQ_HE": 3,
@@ -73,7 +79,7 @@
       "contextualUnassigned": {
         "mobile-sheva-needs-local-evidence": 19557,
         "special-category-needs-evidence": 665,
-        "source-diphthong-sequence-needs-evidence": 2360,
+        "source-diphthong-sequence-needs-evidence": 88,
         "furtive-patah-mappiq-needs-evidence": 3
       },
       "closure": {
@@ -94,20 +100,26 @@
       "routes": 68719,
       "units": 194272,
       "categoryReferences": 518726,
-      "proposedReferences": 495953,
-      "unassignedReferences": 22773,
+      "proposedReferences": 498225,
+      "unassignedReferences": 20501,
       "events": 500476,
       "sharedEvents": 18250,
+      "vowelYodConstituentPairs": 2272,
+      "vowelYodCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308
+      },
       "contextGaps": {
         "hiatus-phonetics-needs-review": 8249,
-        "unreviewed-diphthong-sequence": 2316
+        "vowel-yod-phonetics-needs-review": 2272,
+        "unreviewed-diphthong-sequence": 44
       },
       "unassignedCategories": {
         "SHEVA_NA": 19557,
         "SEGOL_V": 188,
         "HE_1MAPIQ": 657,
-        "YOD_0DAG_PART2_OF_DIPHTHONG": 2316,
         "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "YOD_0DAG_PART2_OF_DIPHTHONG": 44,
         "ALEF_1MAPIQ": 2,
         "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13,
         "FPP_PATAX_MAPIQ_HE": 3,
@@ -117,7 +129,7 @@
         "mobile-sheva-needs-local-evidence": 19557,
         "mideastern-segol-context-missing": 188,
         "special-category-needs-evidence": 665,
-        "source-diphthong-sequence-needs-evidence": 2360,
+        "source-diphthong-sequence-needs-evidence": 88,
         "furtive-patah-mappiq-needs-evidence": 3
       },
       "closure": {
@@ -138,19 +150,25 @@
       "routes": 68719,
       "units": 194272,
       "categoryReferences": 518726,
-      "proposedReferences": 496141,
-      "unassignedReferences": 22585,
+      "proposedReferences": 498413,
+      "unassignedReferences": 20313,
       "events": 500476,
       "sharedEvents": 18250,
+      "vowelYodConstituentPairs": 2272,
+      "vowelYodCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308
+      },
       "contextGaps": {
         "hiatus-phonetics-needs-review": 8260,
-        "unreviewed-diphthong-sequence": 2316
+        "vowel-yod-phonetics-needs-review": 2272,
+        "unreviewed-diphthong-sequence": 44
       },
       "unassignedCategories": {
         "SHEVA_NA": 19557,
         "HE_1MAPIQ": 657,
-        "YOD_0DAG_PART2_OF_DIPHTHONG": 2316,
         "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "YOD_0DAG_PART2_OF_DIPHTHONG": 44,
         "ALEF_1MAPIQ": 2,
         "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13,
         "FPP_PATAX_MAPIQ_HE": 3,
@@ -159,7 +177,7 @@
       "contextualUnassigned": {
         "mobile-sheva-needs-local-evidence": 19557,
         "special-category-needs-evidence": 665,
-        "source-diphthong-sequence-needs-evidence": 2360,
+        "source-diphthong-sequence-needs-evidence": 88,
         "furtive-patah-mappiq-needs-evidence": 3
       },
       "closure": {
@@ -180,20 +198,26 @@
       "routes": 68719,
       "units": 194272,
       "categoryReferences": 518726,
-      "proposedReferences": 495953,
-      "unassignedReferences": 22773,
+      "proposedReferences": 498225,
+      "unassignedReferences": 20501,
       "events": 500476,
       "sharedEvents": 18250,
+      "vowelYodConstituentPairs": 2272,
+      "vowelYodCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308
+      },
       "contextGaps": {
         "hiatus-phonetics-needs-review": 8249,
-        "unreviewed-diphthong-sequence": 2316
+        "vowel-yod-phonetics-needs-review": 2272,
+        "unreviewed-diphthong-sequence": 44
       },
       "unassignedCategories": {
         "SHEVA_NA": 19557,
         "SEGOL_V": 188,
         "HE_1MAPIQ": 657,
-        "YOD_0DAG_PART2_OF_DIPHTHONG": 2316,
         "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "YOD_0DAG_PART2_OF_DIPHTHONG": 44,
         "ALEF_1MAPIQ": 2,
         "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13,
         "FPP_PATAX_MAPIQ_HE": 3,
@@ -203,7 +227,7 @@
         "mobile-sheva-needs-local-evidence": 19557,
         "mideastern-segol-context-missing": 188,
         "special-category-needs-evidence": 665,
-        "source-diphthong-sequence-needs-evidence": 2360,
+        "source-diphthong-sequence-needs-evidence": 88,
         "furtive-patah-mappiq-needs-evidence": 3
       },
       "closure": {
@@ -232,7 +256,7 @@
   "interpretation": "Each style/profile total includes all original source alternatives, not a single chosen reading or a count of finished words. Proposed phonemes are distinct from null approved phonemes. Silence is an empty candidate array; unknown is null. Formal source stress is preserved without invented penultimate stress or posttonic reduction. Closure precedes consonant loss and degemination. No source-only form gains a written range.",
   "pending": [
     "Qualified linguistic and cantorial review of every contextual correspondence and source stress/closure adaptation.",
-    "Exact mobile sheva, varika, special alef/mappiq and vowel–yod sequences; phonetic hiatus and local variation.",
+    "Exact mobile sheva, varika, special alef/mappiq and holam/shuruq–yod sequences; phonetic hiatus and local variation. Patah/qamats–yod constituents now have source-based proposals, not approved phonetic transitions.",
     "Physical vowel quantity, acoustic allophones, reusable sustained singing voice material and phone/syllable/note timings.",
     "Independent complete rules for all six historical Kinnor labels, with evidence establishing label equivalence; the two regional research proposals do not establish it."
   ],

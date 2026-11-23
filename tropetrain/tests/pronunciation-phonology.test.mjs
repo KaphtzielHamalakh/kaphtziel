@@ -27,7 +27,7 @@ test('source alternatives retain separate routes, source-only forms keep null wr
 });
 test('explicit source silence differs from unresolved sounds and combined ownership stays unsplit',()=>{
  const r=report('gen-1-1-2'),silent=fragments(r).find(f=>f.source.categoryId==='ALEF_0MAPIQ_ML');assert.deepEqual(silent.proposal.candidatePhonemes,[]);assert.equal(silent.proposal.status,'proposed');
- for(const id of['deu-32-6-1','deu-32-6-2']){const r=report(id);assert(r.routes.flatMap(r=>r.units).every(u=>u.ownerWordId===null&&u.occurrenceId===null));assert(fragments(r).some(f=>f.source.kind==='diphthong-part'&&f.proposal.candidatePhonemes===null));assert(r.counts.contextGaps>0);}
+ for(const id of['deu-32-6-1','deu-32-6-2']){const r=report(id);assert(r.routes.flatMap(r=>r.units).every(u=>u.ownerWordId===null&&u.occurrenceId===null));assert(r.routes.flatMap(r=>r.units).some(u=>u.vowelYodProposal?.candidatePhonemes.join(' ')==='ɔ j'));assert.equal(r.phonemes,null);assert(r.counts.contextGaps>0);}
  const w=word('gen-1-1-2'),s=lib.study(w,'sephardic');for(const id of['first','repeat']){const r=propose(s,{...w,id,sourceWordId:w.id},'sephardic',profiles[0].id);assert(r.routes[0].units.every(u=>u.occurrenceId===id));}
 });
 test('unknown profile, altered marks and categories refuse rather than guessing; unavailable books retain exact Hebrew',()=>{
@@ -40,4 +40,25 @@ test('a broken shared-consonant reference is withheld in its own route without i
 });
 test('normal and portable builds expose independently labeled research proposals with embedded coverage evidence',()=>{
  const doc=read('docs/PRONUNCIATION-PHONOLOGY.json'),normal=read('index.html').toString(),portable=read('TropeTrain.html').toString();assert(normal.includes('id="phonology-profile"'));assert(normal.indexOf('id="phonology-study"')>normal.indexOf('id="historical-pronunciation-study"'));assert(portable.includes(doc.toString('base64')));assert(portable.includes('tropetrain-phonology-word-proposal-v1'));const audit=JSON.parse(doc);assert.equal(audit.results.length,4);assert(audit.results.every(m=>m.readerWords===79985&&m.unassignedReferences>0));assert.equal(audit.invariants.acousticRealizations,0);
+});
+
+test('patah and qamats followed by source yod keep a two-constituent proposal within their original syllable',()=>{
+ for(const [id,pair]of[['gen-3-22-21',['a','j']],['deu-32-6-1',['ɔ','j']]])for(const profile of[0,1])for(const style of['sephardic','ashkenazic']){
+  const w=word(id),study=lib.study(w,style),before=JSON.stringify(study),r=propose(study,w,style,profiles[profile].id),route=r.routes[0],unit=route.units.find(u=>u.vowelYodProposal),p=unit.vowelYodProposal;
+  assert.deepEqual(p.candidatePhonemes,pair);assert.equal(p.sourceSegmentIds.length,2);assert.equal(new Set(p.eventIds).size,2);assert.deepEqual(p.eventIds.flatMap(id=>route.events.find(e=>e.id===id).candidatePhonemes),pair);
+  assert.deepEqual(p.sourceSegmentIds,[unit.fragments.at(-2).source.id,unit.fragments.at(-1).source.id]);assert(unit.context.beforeYodOrMappiq);assert.equal(unit.context.historicalClosure,'closed');
+  for(const k of['phonemes','enginePhones','quantity','duration','noteIds','audioTimes','review'])assert.equal(p[k],null);assert.equal(JSON.stringify(study),before);assert(route.gaps.some(g=>g.reason==='vowel-yod-phonetics-needs-review'));assert.equal(r.playable,false);
+ }
+});
+test('constituent yod does not select a regional vowel or change source text and repeated ownership',()=>{
+ const id='gen-3-22-21',w=word(id),study=lib.study(w,'sephardic'),a=propose(study,w,'sephardic',profiles[0].id),b=propose(study,{...w,id:'repeated-word',sourceWordId:id},'sephardic',profiles[1].id);
+ assert.deepEqual(a.routes[0].units[0].fragments[1].proposal.candidatePhonemes,['ɔ']);assert.deepEqual(b.routes[0].units[0].fragments[1].proposal.candidatePhonemes,['u']);assert.equal(a.hebrew,b.hebrew);assert.equal(b.wordId,'repeated-word');assert(b.routes[0].units.every(u=>u.occurrenceId==='repeated-word'));assert.deepEqual(a.routes[0].units.map(u=>u.readerRanges),b.routes[0].units.map(u=>u.readerRanges));assert.deepEqual(a.routes[0].units.map(u=>u.sourceText),b.routes[0].units.map(u=>u.sourceText));
+});
+test('holam/shuruq compounds and nonterminal or multiple-nucleus yod remain unresolved',()=>{
+ for(const id of['gen-12-2-2','exo-38-17-8'])for(const profile of[0,1]){const r=report(id,profile),u=r.routes.flatMap(r=>r.units).find(u=>u.fragments.some(f=>f.source.categoryId==='YOD_0DAG_PART2_OF_DIPHTHONG'));assert.equal(u.vowelYodProposal,null);assert.equal(u.fragments.at(-1).proposal.candidatePhonemes,null);assert(r.routes.some(r=>r.gaps.some(g=>g.reason==='unreviewed-diphthong-sequence')));}
+ for(const mutation of['nonterminal','multiple-nuclei']){const w=word('gen-3-22-21'),s=lib.study(w,'sephardic'),segments=s.rows[0].styles.sephardic[0].units.at(-1).sourceSegments.variants[0].segments,extra=structuredClone(segments[mutation==='nonterminal'?0:1]);extra.id+='-probe';if(mutation==='nonterminal')segments.push(extra);else segments.splice(1,0,extra);const r=propose(s,w,'sephardic',profiles[0].id),u=r.routes[0].units.at(-1);assert.equal(u.vowelYodProposal,null);assert.equal(u.fragments.find(f=>f.source.categoryId==='YOD_0DAG_PART2_OF_DIPHTHONG').proposal.candidatePhonemes,null);}
+});
+test('whole-Torah coverage distinguishes constituent proposals from reviewed phonetic sequences',()=>{
+ const audit=JSON.parse(read('docs/PRONUNCIATION-PHONOLOGY.json'));assert.equal(audit.revision,2);for(const m of audit.results){assert.equal(m.vowelYodConstituentPairs,2272);assert.deepEqual(m.vowelYodCategories,{QAMATS_G:1964,PATAX:308});assert.equal(m.unassignedCategories.YOD_0DAG_PART2_OF_DIPHTHONG,44);assert.equal(m.unassignedReferences,m.profileId.includes('northeastern')?20313:20501);assert.equal(m.contextGaps['vowel-yod-phonetics-needs-review'],2272);assert.equal(m.contextGaps['unreviewed-diphthong-sequence'],44);assert.equal(m.events,500476);assert.equal(m.sharedEvents,18250);assert.equal(m.readerWords,79985);}
+ assert(audit.source.scanLimits.includes('appended as PDF page48'));assert.equal(audit.newSingingVoice,null);const ui=read('pronunciation-phonology-ui.js').toString();assert(ui.includes('phonology-vowel-yod'));assert(ui.includes('phonetic transition and singing remain unassigned'));
 });
