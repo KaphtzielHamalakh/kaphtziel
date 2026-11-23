@@ -75,6 +75,21 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
       const end=notes.find(n=>n.sourceSlurId===e.sourceSlurId&&n.sourceSlurPhase==='stop');
       if(end)svg+=`<path class="tie-arc source-slur" aria-label="Printed slur; notes remain distinct" d="M${e.x+8} ${e.y+10} Q${(e.x+end.x)/2} ${Math.max(e.y,end.y)+32} ${end.x-8} ${end.y+10}"/>`;
     }
+    for(const slur of e.sourceSlurs??[]){
+      if(slur.phase!=='start')continue;
+      const end=notes.find(n=>n.sourceSlurs?.some(s=>s.id===slur.id&&s.phase==='stop'));
+      if(!end)continue;
+      const above=slur.placement==='above',offset=10,direction=above?-1:1;
+      const covered=notes.filter(n=>n.index>=e.index&&n.index<=end.index);
+      const extreme=above?Math.min(...covered.map(n=>n.y)):Math.max(...covered.map(n=>n.y));
+      const outer=(slur.lane??1)>1,control=extreme+direction*(outer?44+16*((slur.lane??2)-2):32);
+      // A broad outer arc needs steep ends where a shorter slur shares its
+      // endpoint. A single quadratic would cross that inner arc or leave the
+      // view box. The cubic shoulder preserves both endpoint relationships.
+      const shoulder=Math.min(32,(end.x-e.x)/4);
+      const path=outer?`C${e.x+8+shoulder} ${control} ${end.x-8-shoulder} ${control} ${end.x-8} ${end.y+direction*offset}`:`Q${(e.x+end.x)/2} ${control} ${end.x-8} ${end.y+direction*offset}`;
+      svg+=`<path class="tie-arc source-slur" data-source-slur="${x(slur.id)}" aria-label="Printed slur; notes remain distinct${above?'; above staff':''}" d="M${e.x+8} ${e.y+direction*offset} ${path}"/>`;
+    }
   }
   return svg+'</svg>';
 }
