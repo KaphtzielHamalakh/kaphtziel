@@ -16,7 +16,8 @@ export function staffNotes(plan,words,from=0,count=STAFF_PAGE,{untexted=false,pr
     const pronunciationLink=untexted?null:pronunciationLinks?.get(e.id),pronunciationText=notePronunciationText(pronunciationLink);
     const width=Math.max(90,Math.min(220,Math.max([...e.syllable].length*7+40,[...(pronunciationText??'')].length*8+24)));
     const gapWidth=e.gapAfterBeats?55*(e.sourceRestsAfter?.length??1):0;
-    const cx=position+width/2,y=100-(e.pitch.position-30)*5,ledgers=[];position+=width+gapWidth;
+    if(e.sourceRepeatStart)position+=34;
+    const cx=position+width/2,y=100-(e.pitch.position-30)*5,ledgers=[];position+=width+gapWidth+(e.sourceRepeatEnd?34:0);
     if(y>=110)for(let line=110;line<=y;line+=10)ledgers.push(line);
     if(y<=50)for(let line=50;line>=y;line-=10)ledgers.push(line);
     return {...e,pronunciationLink,pronunciationText,index:from+index,x:cx,y,width,gapWidth,restX:cx+width/2+gapWidth/2,endX:position,ledgers,
@@ -37,6 +38,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     for(const y of e.ledgers)svg+=`<line class="ledger" x1="${e.x-10}" x2="${e.x+10}" y1="${y}" y2="${y}"/>`;
     svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="${grace?3.8:5.5}" ry="${grace?2.6:3.8}" transform="rotate(-20 ${e.x} ${e.y})"/>`;
     if(r.type!=='whole')svg+=`<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
+    if(e.sourceGrace?.slash)svg+=`<line class="note-stroke grace-slash" aria-label="Printed grace slash" x1="${stemX-6}" x2="${stemX+9}" y1="${stemEnd+14}" y2="${stemEnd+3}"/>`;
     if(['eighth','16th','32nd'].includes(r.type)){
       const flags=r.type==='eighth'?1:r.type==='16th'?2:3,scale=grace?.7:1;
       for(let flag=0;flag<flags;flag++){const y=stemEnd+(up?flag*6*scale:-flag*6*scale),direction=up?1:-1;svg+=`<path class="flag" d="M${stemX} ${y} q${18*scale} ${10*direction*scale} ${4*scale} ${24*direction*scale} q${6*scale} ${-12*direction*scale} ${-4*scale} ${-16*direction*scale} Z"/>`;}
@@ -55,6 +57,11 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace?`<tspan x="${e.x}" dy="-6">grace</tspan><tspan x="${e.x}" dy="14">demo 80 ms</tspan>`:beatLabel(e.beats)+' beats'}</text></g>`;
     // A bracket spans several notes. Keeping it outside the first note's
     // button prevents that button's accessible bounds covering its neighbours.
+    for(const [direction,repeat,cx] of [['forward',e.sourceRepeatStart,e.x-e.width/2-18],['backward',e.sourceRepeatEnd,e.x+e.width/2+16]]){
+      if(!repeat)continue;
+      const forward=direction==='forward',dotX=cx+(forward?12:-12);
+      svg+=`<g class="source-repeat" data-repeat-direction="${direction}" data-source-repeat="${x(repeat.id)}" role="img" aria-label="Printed ${direction} repeat; numeric count unspecified"><line stroke="currentColor" stroke-width="3" x1="${cx}" x2="${cx}" y1="60" y2="100"/><line stroke="currentColor" x1="${cx+(forward?5:-5)}" x2="${cx+(forward?5:-5)}" y1="60" y2="100"/><circle fill="currentColor" cx="${dotX}" cy="75" r="2"/><circle fill="currentColor" cx="${dotX}" cy="85" r="2"/></g>`;
+    }
     if(e.sourceTupletPhase==='start'){
       const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');
       if(end)svg+=`<path class="tuplet-bracket" aria-label="Printed tuplet: ${r.actual} in the time of ${r.normal}" d="M${e.x-10} 34 v-5 H${end.x+10} v5"/><text class="rhythm-ratio" x="${(e.x+end.x)/2}" y="22">${r.actual}:${r.normal}</text>`;

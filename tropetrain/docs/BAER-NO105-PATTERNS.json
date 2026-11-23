@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-baer-first-setting-patterns-v1",
-  "revision": 5,
+  "revision": 6,
   "id": "baer-1894-no105-first-setting",
   "name": "Baer No105 · first printed setting",
   "source": {
@@ -170,7 +170,23 @@
     },
     "image": "assets/scores/baer-no105-first-p30.png",
     "page": 30,
-    "caption": "No105 first printed setting, with rare-sign appendix p36; literal source notation, not a complete melody grammar or Kinnor preset."
+    "caption": "No105 first printed setting, with rare-sign appendix p36; literal source notation, not a complete melody grammar or Kinnor preset.",
+    "detailImages": {
+      "rare-first": {
+        "image": "assets/scores/baer-no105-rare-first-detail.png",
+        "imageBytes": 209252,
+        "imageSha256": "75884b88d2c5ef47dccd6b049753551c44a4846a44925ede156db62401950d83",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853620/full/3000,/0/default.jpg",
+        "sourceImageSha256": "0d22045ad79067bc35325b064859034acce07e2b53452d8376df176bf595d36b",
+        "inspectionCrop": [
+          620,
+          700,
+          2890,
+          1320
+        ],
+        "derivation": "Lossless unretouched crop of the institutional3000px raster. Original pixels; no enlargement or generated content. First rare-sign setting and headings retained."
+      }
+    }
   },
   "sourceKey": "One printed flat: B-flat. Written pitches are retained; instrumental tuning is12-TET.",
   "figures": [
@@ -386,10 +402,14 @@
       "page": 32,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "1. W.",
-      "status": "notation-review",
+      "status": "unmeasured-grace",
       "review": null,
       "wordApplication": null,
-      "pending": "A small slashed component and its relation to the adjacent beamed notes need literal grace/alternative interpretation; no duration is invented."
+      "pending": "Literal printed components are transcribed. Grace durations and stealing ratios remain unspecified. Optional original timing adds80ms per grace; it is not a historical realization. Musical review and Bible-word application remain unassigned. The printed predecessor abbreviation remains documentary; no modern contextual application is assigned.",
+      "timingStatus": "unmeasured-grace-group",
+      "sourceMeasuredQuarterBeats": 3,
+      "unmeasuredGraceNotes": 1,
+      "contextPending": "The printed predecessor abbreviation remains documentary; no modern contextual application is assigned."
     },
     {
       "id": "merkha-tipha",
@@ -437,10 +457,64 @@
       "page": 33,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "1. W.",
-      "status": "notation-review",
+      "status": "unmeasured-grace",
       "review": null,
       "wordApplication": null,
-      "pending": "A small unmeasured grace component occurs inside the source melisma; source ornament/timing treatment still needs explicit evidence."
+      "pending": "Literal printed components are transcribed. Grace durations and stealing ratios remain unspecified. Optional original timing adds80ms per grace; it is not a historical realization. Musical review and Bible-word application remain unassigned. The two heads on one stem are separate melodic alternatives under the printed preface instruction, never a chord. Bible-word fitting is unassigned.",
+      "timingStatus": "unmeasured-grace-group",
+      "sourceMeasuredQuarterBeats": 4,
+      "unmeasuredGraceNotes": 2,
+      "variants": [
+        {
+          "id": "upper",
+          "label": "Upper printed alternative",
+          "componentIds": [
+            "baer105-1w-pazer-1",
+            "baer105-1w-pazer-2",
+            "baer105-1w-pazer-3",
+            "baer105-1w-pazer-4",
+            "baer105-1w-pazer-5",
+            "baer105-1w-pazer-6",
+            "baer105-1w-pazer-7",
+            "baer105-1w-pazer-8",
+            "baer105-1w-pazer-9",
+            "baer105-1w-pazer-10",
+            "baer105-1w-pazer-11",
+            "baer105-1w-pazer-12",
+            "baer105-1w-pazer-13",
+            "baer105-1w-pazer-14",
+            "baer105-1w-pazer-15",
+            "baer105-1w-pazer-16",
+            "baer105-1w-pazer-18",
+            "baer105-1w-pazer-19"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "Lower printed alternative",
+          "componentIds": [
+            "baer105-1w-pazer-1",
+            "baer105-1w-pazer-2",
+            "baer105-1w-pazer-3",
+            "baer105-1w-pazer-4",
+            "baer105-1w-pazer-5",
+            "baer105-1w-pazer-6",
+            "baer105-1w-pazer-7",
+            "baer105-1w-pazer-8",
+            "baer105-1w-pazer-9",
+            "baer105-1w-pazer-10",
+            "baer105-1w-pazer-11",
+            "baer105-1w-pazer-12",
+            "baer105-1w-pazer-13",
+            "baer105-1w-pazer-14",
+            "baer105-1w-pazer-15",
+            "baer105-1w-pazer-17",
+            "baer105-1w-pazer-18",
+            "baer105-1w-pazer-19"
+          ]
+        }
+      ],
+      "contextPending": "The two heads on one stem are separate melodic alternatives under the printed preface instruction, never a chord. Bible-word fitting is unassigned."
     },
     {
       "id": "telisha-qetana",
@@ -645,10 +719,25 @@
       "page": 36,
       "sourceSection": "Rare-sign appendix · Parschijoth, first setting",
       "sourceSetting": "1. W.",
-      "status": "not-transcribed",
+      "status": "unmeasured-grace",
       "review": null,
       "wordApplication": null,
-      "pending": "Literal component transcription is not yet complete; no notes are supplied."
+      "pending": "Literal printed components are transcribed. Grace durations and stealing ratios remain unspecified. Optional original timing adds80ms per grace; it is not a historical realization. Musical review and Bible-word application remain unassigned. Repeat markers are literal; no numeric count is printed. Optional two-pass playback is an original demonstration. Grace duration, fermata hold and Bible-word fitting remain unassigned.",
+      "timingStatus": "unmeasured-grace-group",
+      "sourceMeasuredQuarterBeats": 8,
+      "unmeasuredGraceNotes": 3,
+      "repeat": {
+        "id": "baer105-shalshelet-repeat",
+        "startComponentId": "baer105-1w-shalshelet-3",
+        "endComponentId": "baer105-1w-shalshelet-16",
+        "startDirection": "forward",
+        "endDirection": "backward",
+        "sourceCount": null,
+        "review": null,
+        "sourceLocation": "Baer [1894], p.36, first setting: repeat signs enclose the first ascending F4 through the C5 with fermata; no numeric count printed."
+      },
+      "contextPending": "Repeat markers are literal; no numeric count is printed. Optional two-pass playback is an original demonstration. Grace duration, fermata hold and Bible-word fitting remain unassigned.",
+      "detailImage": "rare-first"
     },
     {
       "id": "qarnei-yerah-pair",
@@ -656,10 +745,15 @@
       "page": 36,
       "sourceSection": "Rare-sign appendix · Parschijoth, first setting",
       "sourceSetting": "1. W.",
-      "status": "application-review",
+      "status": "unmeasured-grace",
       "review": null,
       "wordApplication": null,
-      "pending": "Printed heading order and modern reader accent order differ; actual example underlay must be checked independently."
+      "pending": "Literal printed components are transcribed. Grace durations and stealing ratios remain unspecified. Optional original timing adds80ms per grace; it is not a historical realization. Musical review and Bible-word application remain unassigned. Printed heading order differs from modern accent order. The Latin example Al-pa-jim boam-moh. and footnote4.B.M.C35V5 identify Numbers35:5, but its Hebrew syllable/note allocation and modern contextual application remain unassigned.",
+      "timingStatus": "unmeasured-grace-group",
+      "sourceMeasuredQuarterBeats": 9,
+      "unmeasuredGraceNotes": 3,
+      "contextPending": "Printed heading order differs from modern accent order. The Latin example Al-pa-jim boam-moh. and footnote4.B.M.C35V5 identify Numbers35:5, but its Hebrew syllable/note allocation and modern contextual application remain unassigned.",
+      "detailImage": "rare-first"
     },
     {
       "id": "merkha-kefula",
@@ -6022,6 +6116,2278 @@
         "id": "baer105-1w-telisha-qetana-slur",
         "phase": "stop"
       }
+    },
+    {
+      "id": "baer105-1w-pashta-zaqef-after-predecessors-1",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto koton · after printed predecessors, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-pashta-zaqef-after-predecessors-2",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto koton · after printed predecessors, printed component 2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-1w-pashta-zaqef-after-predecessors-3",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto koton · after printed predecessors, printed component 3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-1w-pashta-zaqef-after-predecessors-4",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto koton · after printed predecessors, printed component 4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-1w-pashta-zaqef-after-predecessors-5",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto koton · after printed predecessors, printed component 5",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-pashta-zaqef-after-predecessors-5-group",
+        "order": 1,
+        "count": 1,
+        "previousComponentId": "baer105-1w-pashta-zaqef-after-predecessors-4",
+        "nextComponentId": "baer105-1w-pashta-zaqef-after-predecessors-6",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": true,
+        "printedSize": "small",
+        "printedBeams": 1
+      }
+    },
+    {
+      "id": "baer105-1w-pashta-zaqef-after-predecessors-6",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, first setting, Paschto koton · after printed predecessors, printed component 6",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-pazer-1",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-pazer-2",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "tuplet": {
+        "id": "baer105-1w-pazer-2-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "start",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-3",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-1w-pazer-2-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-4",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-1w-pazer-2-triplet",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-5",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 5",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "tuplet": {
+        "id": "baer105-1w-pazer-5-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-6",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 6",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "tuplet": {
+        "id": "baer105-1w-pazer-5-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-7",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 7",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "tuplet": {
+        "id": "baer105-1w-pazer-5-triplet",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-8",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 8",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 76,
+      "tuplet": {
+        "id": "baer105-1w-pazer-8-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-9",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 9",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 77,
+      "tuplet": {
+        "id": "baer105-1w-pazer-8-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-10",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 10",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "tuplet": {
+        "id": "baer105-1w-pazer-8-triplet",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-11",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 11",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-12",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 12",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 76,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-pazer-12-group",
+        "order": 1,
+        "count": 2,
+        "previousComponentId": "baer105-1w-pazer-11",
+        "nextComponentId": "baer105-1w-pazer-14",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 2
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-13",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 13",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-pazer-12-group",
+        "order": 2,
+        "count": 2,
+        "previousComponentId": "baer105-1w-pazer-11",
+        "nextComponentId": "baer105-1w-pazer-14",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 2
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-14",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 14",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-15",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 15",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-16",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 16",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-17",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 17",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-18",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 18",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-pazer-19",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, Poser · Pazer, printed component 19",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-pazer-2-slur",
+          "phase": "stop",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-1",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-shalshelet-2",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-shalshelet-3",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "start",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-4",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 4",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-5",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 5",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-6",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 6",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-7",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 7",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-8",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 8",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-9",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 9",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 76,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-10",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 10",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 77,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-11",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 11",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-12",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 12",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 76,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-shalshelet-12-group",
+        "order": 1,
+        "count": 2,
+        "previousComponentId": "baer105-1w-shalshelet-11",
+        "nextComponentId": "baer105-1w-shalshelet-14",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 2
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-13",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 13",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-shalshelet-12-group",
+        "order": 2,
+        "count": 2,
+        "previousComponentId": "baer105-1w-shalshelet-11",
+        "nextComponentId": "baer105-1w-shalshelet-14",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 2
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-14",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 14",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-15",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 15",
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "accidentalEvidence": "Printed natural before B4 cancels the one-flat key signature in the repeated source measure."
+    },
+    {
+      "id": "baer105-1w-shalshelet-16",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 16",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "fermata": {
+        "shape": "normal",
+        "placement": "above",
+        "duration": "unspecified"
+      }
+    },
+    {
+      "id": "baer105-1w-shalshelet-17",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 17",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-18",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 18",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-19",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 19",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-20",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 20",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-21",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 21",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-22",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 22",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-23",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 23",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "tuplet": {
+        "id": "baer105-1w-shalshelet-23-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-24",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 24",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "tuplet": {
+        "id": "baer105-1w-shalshelet-23-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-25",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 25",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "tuplet": {
+        "id": "baer105-1w-shalshelet-23-triplet",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-26",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 26",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-shalshelet-26-group",
+        "order": 1,
+        "count": 1,
+        "previousComponentId": "baer105-1w-shalshelet-25",
+        "nextComponentId": "baer105-1w-shalshelet-27",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": true,
+        "printedSize": "small",
+        "printedBeams": 1
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-shalshelet-27",
+      "cell": "shalshelet",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Schalscheles · first rare-sign setting, printed component 27",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-shalshelet-3-slur",
+          "phase": "stop",
+          "placement": "above",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-1",
+      "cell": "qarnei-yerah-pair",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 1"
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-2",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-3",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "start",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-4",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 4",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-qarnei-yerah-pair-4-group",
+        "order": 1,
+        "count": 2,
+        "previousComponentId": "baer105-1w-qarnei-yerah-pair-3",
+        "nextComponentId": "baer105-1w-qarnei-yerah-pair-6",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 3
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-5",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 5",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-qarnei-yerah-pair-4-group",
+        "order": 2,
+        "count": 2,
+        "previousComponentId": "baer105-1w-qarnei-yerah-pair-3",
+        "nextComponentId": "baer105-1w-qarnei-yerah-pair-6",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 3
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-6",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 6",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-7",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 7",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-8",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 8",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-9",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 9",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-3-slur",
+          "phase": "stop",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-10",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 10",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-11",
+      "cell": "qarnei-yerah-pair",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 11"
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-12",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 12",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-13",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 13",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-14",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 14",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "start",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-15",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.125,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 15",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-16",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.125,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 16",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-17",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.125,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 17",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-18",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.125,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 18",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-19",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 19",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-20",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 20",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-21",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 21",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-22",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 22",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-1w-qarnei-yerah-pair-22-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-23",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 23",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-1w-qarnei-yerah-pair-22-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-24",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 24",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-1w-qarnei-yerah-pair-22-triplet",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-25",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 25",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-26",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 26",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-qarnei-yerah-pair-26-group",
+        "order": 1,
+        "count": 1,
+        "previousComponentId": "baer105-1w-qarnei-yerah-pair-25",
+        "nextComponentId": "baer105-1w-qarnei-yerah-pair-27",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": true,
+        "printedSize": "small",
+        "printedBeams": 1
+      },
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
+    },
+    {
+      "id": "baer105-1w-qarnei-yerah-pair-27",
+      "cell": "qarnei-yerah-pair",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 36,
+      "sourceLocation": "Baer [1894], p.36, first setting, Karne poroh / jerach ben jomo · joint source example, printed component 27",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-1w-qarnei-yerah-pair-14-slur",
+          "phase": "stop",
+          "placement": "below",
+          "lane": 1
+        }
+      ]
     }
   ],
   "matchingQueries": {
@@ -6331,6 +8697,20 @@
       "revision": 5,
       "date": "2026-11-23",
       "change": "Add Telisha Qetana literal pitch and shape transcription with null grace durations and a separate optional original 80 ms grace demonstration. All 217 prior source components are unchanged. Independent musical, notation and timing review remains pending."
+    },
+    {
+      "revision": 6,
+      "addedFigures": [
+        "pashta-zaqef-after-predecessors",
+        "pazer",
+        "shalshelet",
+        "qarnei-yerah-pair"
+      ],
+      "newComponents": 79,
+      "previousComponents": 229,
+      "previousComponentsPythonJsonSha256": "145986f3602c540c6994e13175c4b35121ff7dfc59d7acc09503f31a14faa8ef",
+      "description": "Complete literal first-setting inventory with null source grace timing and repeat count. Optional original grace and repeat demonstrations remain separate. Independent musical review and all Bible-word fitting remain pending.",
+      "previousComponentsJavaScriptSha256": "7a94e66c91000c3d0d08ccc79d8f25083c40004b5ae98aea9a4f263f56736c4e"
     }
   ],
   "notationPrinciple": {

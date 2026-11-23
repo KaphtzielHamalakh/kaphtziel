@@ -13,19 +13,19 @@ const data=BAER_PATTERN_ROW.record,read=p=>readFileSync(new URL('../'+p,import.m
 const plan=(mode,options={})=>printedPatternPlan(mode,{sourceId:BAER_PATTERN_ID,tempo:60,transpose:0,...options});
 
 test('Baer source inventory keeps32cells, twenty-seven measured figures and five source-timing/application gaps apart from the existing Cohen catalogue',()=>{
- assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(BAER_PATTERN_ROW.unavailable.length,5);
+ assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(BAER_PATTERN_ROW.unavailable.length,0);
  assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.length,19);
- assert.equal(allPatternModes(BAER_PATTERN_ID).length,37);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,32); // one adjacent-column pair
- assert.equal(data.notes.length,229);assert.equal(data.notes.filter(n=>n.kind==='note').length,215);assert.equal(data.notes.filter(n=>n.kind==='rest').length,14);
- for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);if(f.status!=='unmeasured-grace')assert.equal(data.notes.some(n=>n.cell===f.id),false);else assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,3);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);}
+ assert.equal(allPatternModes(BAER_PATTERN_ID).length,38);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,32); // one adjacent-column pair
+ assert.equal(data.notes.length,308);assert.equal(data.notes.filter(n=>n.kind==='note').length,292);assert.equal(data.notes.filter(n=>n.kind==='rest').length,16);
+ for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);if(f.status!=='unmeasured-grace')assert.equal(data.notes.some(n=>n.cell===f.id),false);else assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,f.unmeasuredGraceNotes);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);}
 });
 
 test('each source image reconstructs its exact byte hash and current-mode evidence shows the correct printed page and MIME',()=>{
- for(const spec of [...Object.values(data.source.pages),data.source.contextImage]){
+ for(const spec of [...Object.values(data.source.pages),...Object.values(data.source.detailImages),data.source.contextImage]){
   const raw=read(spec.image);assert.equal(createHash('sha256').update(raw).digest('hex'),spec.imageSha256??spec.sha256);assert.deepEqual(Buffer.from(BAER_PATTERN_IMAGES[spec.image].split(',')[1],'base64'),raw);
  }
  const a=patternEvidence(BAER_PATTERN_ID,'columns','revia'),b=patternEvidence(BAER_PATTERN_ID,'columns','qarnei-yerah-pair');
- assert.equal(a.file,data.source.pages['31'].image);assert.equal(a.mime,'image/png');assert.equal(b.file,data.source.pages['36'].image);assert.equal(b.mime,'image/jpeg');
+ assert.equal(a.file,data.source.pages['31'].image);assert.equal(a.mime,'image/png');assert.equal(b.file,data.source.detailImages['rare-first'].image);assert.equal(b.mime,'image/png');assert.equal(patternEvidence(BAER_PATTERN_ID,'context','qarnei-yerah-pair').file,data.source.pages['36'].image);
  assert.equal(patternSource(BAER_PATTERN_ID,'revia').record.source.page,31);assert.equal(patternSource(BAER_PATTERN_ID,'qarnei-yerah-pair').record.source.page,36);
  assert.deepEqual(JSON.parse(patternEvidence(BAER_PATTERN_ID,'record','revia').text),data);
 });
@@ -79,6 +79,6 @@ test('muted live player visits leading rest, notes, final rest and the next loop
 
 test('both distributions embed the exact new source record and image bytes without altering the original Cohen catalogue',()=>{
  const bundle=read('app.bundle.js').toString(),portable=read('TropeTrain.html').toString();
- for(const spec of [...Object.values(data.source.pages),data.source.contextImage])for(const html of [bundle,portable])assert.ok(html.includes(read(spec.image).toString('base64')),spec.image);
+ for(const spec of [...Object.values(data.source.pages),...Object.values(data.source.detailImages),data.source.contextImage])for(const html of [bundle,portable])assert.ok(html.includes(read(spec.image).toString('base64')),spec.image);
  assert.ok(portable.includes(read('docs/BAER-NO105-PATTERNS.json').toString('base64')));assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);
 });
