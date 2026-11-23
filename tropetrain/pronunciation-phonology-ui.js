@@ -25,7 +25,13 @@ export function mountPhonologyPreview(){
      return `${p.candidatePhonemes===null?'? '+f.source.categoryId:p.candidatePhonemes.length?p.candidatePhonemes.join(''):'∅'}${shared?' [shared]':''}`;
     });
     const candidate=document.createElement('p');candidate.className='phonology-candidate';candidate.textContent=values.join(' · ');li.append(candidate);
-    const context=document.createElement('small');context.textContent=`Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress===null?'not established':unit.context.primaryStress?'marked':'on another syllable'}`;li.append(context);
+    const context=document.createElement('small');context.textContent=`Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress===null?'not established':unit.context.primaryStress?'marked':unit.context.maqafPrimary?'in the final joined word':'on another syllable'}`;li.append(context);
+    if(unit.context.maqafPrimary){
+     const evidence=unit.context.maqafPrimary,note=document.createElement('p');note.className='muted phonology-maqaf';
+     const joined=document.createElement('span');joined.lang='he';joined.dir='rtl';joined.textContent=evidence.markedHebrew.join(' ');note.append(joined,document.createTextNode(' · One primary-accent group. The source records its primary stress on the final word. Original word and syllable links are retained.'));
+     if(evidence.wordHasMeteg)note.append(document.createTextNode(' Meteg is retained in this word; secondary stress or full-vowel realization still needs review.'));
+     const source=document.createElement('a');source.href=report.prosodySources[0].url;source.textContent=' Maqaf and meteg evidence (§16).';note.append(source);li.append(note);
+    }
     if(unit.vowelYodProposal){const pair=document.createElement('small');pair.className='phonology-vowel-yod';pair.textContent=`Vowel–yod constituents: /${unit.vowelYodProposal.candidatePhonemes.join(' + ')}/ · Katz1993 pp.67–68,71. Same source syllable and two existing events; phonetic transition and singing remain unassigned.`;li.append(pair);}
     const gaps=unit.fragments.filter(f=>f.proposal.candidatePhonemes===null).map(f=>f.proposal.reason);if(gaps.length){const gap=document.createElement('p');gap.className='muted';gap.textContent=[...new Set(gaps)].join(' ');li.append(gap);}
     list.append(li);

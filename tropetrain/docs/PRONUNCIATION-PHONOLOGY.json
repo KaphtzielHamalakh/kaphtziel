@@ -1,7 +1,7 @@
 {
   "schema": "tropetrain-pronunciation-phonology-v1",
-  "revision": 2,
-  "date": "2026-11-22",
+  "revision": 3,
+  "date": "2026-11-23",
   "source": {
     "id": "katz-1993-phonology",
     "author": "Dovid Katz",
@@ -13,6 +13,46 @@
     "rights": "Copyright reference, privately inspected; no PDF, scan, OCR or protected table redistributed. Original code records attributed linguistic facts.",
     "scanLimits": "The supplied scan repeats printed pages49and52; printed page50 is appended as PDF page48. No rule here relies on page50.",
     "scope": "Schematic Northeastern and Mideastern Formal Ashkenazic. Local variation remains; no equivalence to a Kinnor Accent label or reviewed singing voice is established."
+  },
+  "prosodySources": [
+    {
+      "id": "gesenius-cowley-1910-maqaf",
+      "title": "Gesenius’ Hebrew Grammar",
+      "edition": "Kautzsch–Cowley, 1910",
+      "sections": [
+        "16a",
+        "16c"
+      ],
+      "url": "https://en.wikisource.org/wiki/Gesenius%27_Hebrew_Grammar/16",
+      "witnesses": [
+        "https://en.wikisource.org/w/index.php?title=Page:Gesenius%27_Hebrew_Grammar_(1910_Kautzsch-Cowley_edition).djvu/87&oldid=8849221",
+        "https://en.wikisource.org/w/index.php?title=Page:Gesenius%27_Hebrew_Grammar_(1910_Kautzsch-Cowley_edition).djvu/88&oldid=16367737"
+      ],
+      "rights": "Public-domain original grammar; references and original implementation only. No scan or transcription is imported.",
+      "scope": "Maqaf joins a primary-accent group. Meteg can mark secondary stress or full vowel realization; neither its quality nor its timing is inferred."
+    }
+  ],
+  "priorKnownBaseline": {
+    "commit": "253c7511d075c9233a496e9b3266442fdeffb460",
+    "serialization": "source-order JSON.stringify([sourceSegmentId,candidatePhonemes])+newline for every non-null prior proposal",
+    "pins": {
+      "sephardic|katz-1993-northeastern-formal": {
+        "count": 498413,
+        "sha256": "50ab66106569ada6c1e8949e47676128d6d0a6eac8a0b509cbbf2a4b6d53f6a3"
+      },
+      "sephardic|katz-1993-mideastern-formal": {
+        "count": 498225,
+        "sha256": "d73c345de182d8b73262ab5f694e3e1e0d34537f978058173ce6db77581fd5cc"
+      },
+      "ashkenazic|katz-1993-northeastern-formal": {
+        "count": 498413,
+        "sha256": "9e111c89bb067760f478becf7b66a131c0e620eb742c4e2eab18412f262c68ea"
+      },
+      "ashkenazic|katz-1993-mideastern-formal": {
+        "count": 498225,
+        "sha256": "53e91f0e44f74bd46d9156a17ea935cd72d337456f7a5ec748a6ef5ca25e50a7"
+      }
+    }
   },
   "profiles": [
     {
@@ -89,8 +129,14 @@
       "stress": {
         "another-primary-in-same-source-word": 109795,
         "explicit-source-primary": 68730,
-        "not-established": 15747
-      }
+        "source-maqaf-primary-in-final-word": 15228,
+        "not-established": 519
+      },
+      "maqafPrimaryUnits": 15228,
+      "maqafMetegUnits": 2835,
+      "newMaqafSegolReferences": 0,
+      "preservedPriorKnownReferences": 498413,
+      "preservedPriorKnownSha256": "50ab66106569ada6c1e8949e47676128d6d0a6eac8a0b509cbbf2a4b6d53f6a3"
     },
     {
       "sourceStyle": "sephardic",
@@ -100,8 +146,8 @@
       "routes": 68719,
       "units": 194272,
       "categoryReferences": 518726,
-      "proposedReferences": 498225,
-      "unassignedReferences": 20501,
+      "proposedReferences": 498270,
+      "unassignedReferences": 20456,
       "events": 500476,
       "sharedEvents": 18250,
       "vowelYodConstituentPairs": 2272,
@@ -110,13 +156,13 @@
         "PATAX": 308
       },
       "contextGaps": {
-        "hiatus-phonetics-needs-review": 8249,
+        "hiatus-phonetics-needs-review": 8254,
         "vowel-yod-phonetics-needs-review": 2272,
         "unreviewed-diphthong-sequence": 44
       },
       "unassignedCategories": {
         "SHEVA_NA": 19557,
-        "SEGOL_V": 188,
+        "SEGOL_V": 143,
         "HE_1MAPIQ": 657,
         "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
         "YOD_0DAG_PART2_OF_DIPHTHONG": 44,
@@ -127,10 +173,11 @@
       },
       "contextualUnassigned": {
         "mobile-sheva-needs-local-evidence": 19557,
-        "mideastern-segol-context-missing": 188,
+        "mideastern-segol-maqaf-meteg-needs-evidence": 136,
         "special-category-needs-evidence": 665,
         "source-diphthong-sequence-needs-evidence": 88,
-        "furtive-patah-mappiq-needs-evidence": 3
+        "furtive-patah-mappiq-needs-evidence": 3,
+        "mideastern-segol-context-missing": 7
       },
       "closure": {
         "open": 109208,
@@ -139,8 +186,14 @@
       "stress": {
         "another-primary-in-same-source-word": 109795,
         "explicit-source-primary": 68730,
-        "not-established": 15747
-      }
+        "source-maqaf-primary-in-final-word": 15228,
+        "not-established": 519
+      },
+      "maqafPrimaryUnits": 15228,
+      "maqafMetegUnits": 2835,
+      "newMaqafSegolReferences": 45,
+      "preservedPriorKnownReferences": 498225,
+      "preservedPriorKnownSha256": "d73c345de182d8b73262ab5f694e3e1e0d34537f978058173ce6db77581fd5cc"
     },
     {
       "sourceStyle": "ashkenazic",
@@ -187,8 +240,14 @@
       "stress": {
         "another-primary-in-same-source-word": 109795,
         "explicit-source-primary": 68730,
-        "not-established": 15747
-      }
+        "source-maqaf-primary-in-final-word": 15228,
+        "not-established": 519
+      },
+      "maqafPrimaryUnits": 15228,
+      "maqafMetegUnits": 2835,
+      "newMaqafSegolReferences": 0,
+      "preservedPriorKnownReferences": 498413,
+      "preservedPriorKnownSha256": "9e111c89bb067760f478becf7b66a131c0e620eb742c4e2eab18412f262c68ea"
     },
     {
       "sourceStyle": "ashkenazic",
@@ -198,8 +257,8 @@
       "routes": 68719,
       "units": 194272,
       "categoryReferences": 518726,
-      "proposedReferences": 498225,
-      "unassignedReferences": 20501,
+      "proposedReferences": 498270,
+      "unassignedReferences": 20456,
       "events": 500476,
       "sharedEvents": 18250,
       "vowelYodConstituentPairs": 2272,
@@ -208,13 +267,13 @@
         "PATAX": 308
       },
       "contextGaps": {
-        "hiatus-phonetics-needs-review": 8249,
+        "hiatus-phonetics-needs-review": 8254,
         "vowel-yod-phonetics-needs-review": 2272,
         "unreviewed-diphthong-sequence": 44
       },
       "unassignedCategories": {
         "SHEVA_NA": 19557,
-        "SEGOL_V": 188,
+        "SEGOL_V": 143,
         "HE_1MAPIQ": 657,
         "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
         "YOD_0DAG_PART2_OF_DIPHTHONG": 44,
@@ -225,10 +284,11 @@
       },
       "contextualUnassigned": {
         "mobile-sheva-needs-local-evidence": 19557,
-        "mideastern-segol-context-missing": 188,
+        "mideastern-segol-maqaf-meteg-needs-evidence": 136,
         "special-category-needs-evidence": 665,
         "source-diphthong-sequence-needs-evidence": 88,
-        "furtive-patah-mappiq-needs-evidence": 3
+        "furtive-patah-mappiq-needs-evidence": 3,
+        "mideastern-segol-context-missing": 7
       },
       "closure": {
         "open": 109208,
@@ -237,8 +297,14 @@
       "stress": {
         "another-primary-in-same-source-word": 109795,
         "explicit-source-primary": 68730,
-        "not-established": 15747
-      }
+        "source-maqaf-primary-in-final-word": 15228,
+        "not-established": 519
+      },
+      "maqafPrimaryUnits": 15228,
+      "maqafMetegUnits": 2835,
+      "newMaqafSegolReferences": 45,
+      "preservedPriorKnownReferences": 498225,
+      "preservedPriorKnownSha256": "53e91f0e44f74bd46d9156a17ea935cd72d337456f7a5ec748a6ef5ca25e50a7"
     }
   ],
   "invariants": {
@@ -253,10 +319,10 @@
     "playableProfiles": 0,
     "reviewedProfiles": 0
   },
-  "interpretation": "Each style/profile total includes all original source alternatives, not a single chosen reading or a count of finished words. Proposed phonemes are distinct from null approved phonemes. Silence is an empty candidate array; unknown is null. Formal source stress is preserved without invented penultimate stress or posttonic reduction. Closure precedes consonant loss and degemination. No source-only form gains a written range.",
+  "interpretation": "Each style/profile total includes all original source alternatives, not a single chosen reading or a count of finished words. Proposed phonemes are distinct from null approved phonemes. Silence is an empty candidate array; unknown is null. Formal source stress is preserved without invented penultimate stress or posttonic reduction. Closure precedes consonant loss and degemination. A complete same-verse maqaf chain can exclude a separate prefix primary when its final word has the sole explicit source primary. Meteg-bearing prefix words retain unresolved open-segol quality. No source-only form gains a written range.",
   "pending": [
     "Qualified linguistic and cantorial review of every contextual correspondence and source stress/closure adaptation.",
-    "Exact mobile sheva, varika, special alef/mappiq and holam/shuruq–yod sequences; phonetic hiatus and local variation. Patah/qamats–yod constituents now have source-based proposals, not approved phonetic transitions.",
+    "Secondary/meteg quality and incomplete maqaf source frames remain unresolved. Exact mobile sheva, varika, special alef/mappiq and holam/shuruq–yod sequences; phonetic hiatus and local variation. Patah/qamats–yod constituents now have source-based proposals, not approved phonetic transitions.",
     "Physical vowel quantity, acoustic allophones, reusable sustained singing voice material and phone/syllable/note timings.",
     "Independent complete rules for all six historical Kinnor labels, with evidence establishing label equivalence; the two regional research proposals do not establish it."
   ],

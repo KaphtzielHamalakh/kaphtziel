@@ -10112,6 +10112,62 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } };
   }
 
+  // pronunciation-stress.js
+  var MAQAF_STRESS_SOURCE = Object.freeze({
+    id: "gesenius-cowley-1910-maqaf",
+    title: "Gesenius’ Hebrew Grammar",
+    edition: "Kautzsch–Cowley, 1910",
+    sections: Object.freeze(["16a", "16c"]),
+    url: "https://en.wikisource.org/wiki/Gesenius%27_Hebrew_Grammar/16",
+    witnesses: Object.freeze([
+      "https://en.wikisource.org/w/index.php?title=Page:Gesenius%27_Hebrew_Grammar_(1910_Kautzsch-Cowley_edition).djvu/87&oldid=8849221",
+      "https://en.wikisource.org/w/index.php?title=Page:Gesenius%27_Hebrew_Grammar_(1910_Kautzsch-Cowley_edition).djvu/88&oldid=16367737"
+    ]),
+    rights: "Public-domain original grammar; references and original implementation only. No scan or transcription is imported.",
+    scope: "Maqaf joins a primary-accent group. Meteg can mark secondary stress or full vowel realization; neither its quality nor its timing is inferred."
+  });
+  var joined2 = (text) => /־[\s\u034f\u200d]*$/u.test(text);
+  var accent = (text) => /[\u0591-\u05af]/u.test(text);
+  function sourceMaqafChain(study, units, column) {
+    const ids = study?.readerIds, hebrew = study?.readerHebrew;
+    if (!Array.isArray(units) || !Array.isArray(ids) || !Array.isArray(hebrew) || ids.length < 2 || ids.length !== hebrew.length || new Set(ids).size !== ids.length) return null;
+    const refs = ids.map((id) => /^([a-z0-9]+)-(\d+)-(\d+)-(\d+)$/u.exec(id));
+    if (refs.some((r) => !r) || refs.some((r, i) => i && (r.slice(1, 4).join("-") !== refs[0].slice(1, 4).join("-") || Number(r[4]) !== Number(refs[i - 1][4]) + 1))) return null;
+    if (hebrew.some((h) => typeof h !== "string") || hebrew.some((h) => h.includes("׀")) || hebrew.slice(0, -1).some((h) => !joined2(h) || accent(h) || h.includes("׃")) || joined2(hebrew.at(-1))) return null;
+    const primary = units.filter((u) => u.sourceStress);
+    if (primary.length !== 1 || primary[0].readerWordId !== ids.at(-1) || ids.some((id) => !units.some((u) => u.readerWordId === id))) return null;
+    const words4 = new Map(ids.map((id, i) => [id, hebrew[i]])), coverage = new Map(ids.map((id, i) => [id, new Uint8Array(hebrew[i].length)])), segments = [];
+    for (const unit of units) {
+      const variant = unit.sourceSegments?.variants.find((v) => v.hebrewColumn === column);
+      if (!words4.has(unit.readerWordId) || !variant || !Array.isArray(variant.readerRanges) || !variant.readerRanges.length) return null;
+      for (const range of variant.readerRanges) {
+        const text = words4.get(range.readerWordId);
+        if (text === void 0 || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.end <= range.start || range.end > text.length || text.slice(range.start, range.end) !== range.text) return null;
+        if (range.role !== "written" && range.role !== "shared-consonant" || range.role === "written" && range.readerWordId !== unit.readerWordId) return null;
+        if (range.role === "written") coverage.get(range.readerWordId).fill(1, range.start, range.end);
+      }
+      if (!Array.isArray(variant.segments)) return null;
+      for (const segment of variant.segments) {
+        if (segment.sourceUnitId !== unit.id || segment.readerWordId !== unit.readerWordId) return null;
+        segments.push({ segment, unit });
+      }
+    }
+    if ([...coverage.values()].some((range) => range.some((covered) => !covered)) || new Set(segments.map((x) => x.segment.id)).size !== segments.length) return null;
+    for (const { segment: s, unit } of segments) if (s.part !== "whole") {
+      const reciprocal = s.part === "first-half-shared" ? "second-half-shared" : s.part === "second-half-shared" ? "first-half-shared" : null;
+      if (!reciprocal || segments.filter((x) => x.segment.categoryId === s.categoryId && x.unit.id === s.sharedWithUnitId && x.segment.sharedWithUnitId === unit.id && x.segment.part === reciprocal).length !== 1) return null;
+    }
+    return {
+      readerWordIds: [...ids],
+      markedHebrew: [...hebrew],
+      primaryWordId: ids.at(-1),
+      primarySourceUnitId: primary[0].id,
+      precedingMetegWordIds: ids.slice(0, -1).filter((id, i) => hebrew[i].includes("ֽ")),
+      evidence: { sourceId: MAQAF_STRESS_SOURCE.id, sections: ["16a", "16c"] },
+      review: null
+    };
+  }
+
   // pronunciation-phonology.js
   var freeze3 = (value) => {
     if (value && typeof value === "object") {
@@ -10236,6 +10292,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     if (id === "SEGOL_V") {
       if (!me) return proposal(["ɛ"], "northeastern-segol", [67]);
+      if (context.historicalClosure !== "closed" && context.maqafPrimary?.wordHasMeteg) return proposal(null, "mideastern-segol-maqaf-meteg-needs-evidence", [67, 68, 72, 73], "The joined group excludes a separate primary accent, but this word retains meteg. Secondary stress or full-vowel quality is not inferred.", ["ɛ", "ej"]);
       if (context.historicalClosure === "closed" || context.primaryStress === false) return proposal(["ɛ"], "mideastern-segol-not-stressed-open", [67, 68, 72, 73]);
       if (context.historicalClosure === "open" && context.primaryStress === true) return proposal(["ej"], "mideastern-segol-stressed-open", [67, 68, 72, 73]);
       return proposal(null, "mideastern-segol-context-missing", [67, 68, 72, 73], "Historical open-syllable stress is not established.", ["ɛ", "ej"]);
@@ -10257,17 +10314,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       basis: "Original adjacent whole source categories in one source syllable; Katz1993 pp.68,71 treats postvocalic yod as consonantal /j/. Source-category adaptation is a proposal requiring review."
     };
   }
-  function unitContext(unit, variant, units) {
+  function unitContext(unit, variant, units, maqaf) {
     const segments = variant.segments, nuclei = segments.map((s, i) => isNucleus(s) ? i : -1).filter((i) => i >= 0);
     const tail = nuclei.length === 1 ? segments.slice(nuclei[0] + 1) : [];
     const closed = tail.some((s) => s.kind === "consonant" || s.kind === "vowel-consonant-pair" || s.categoryId === "YOD_0DAG_PART2_OF_DIPHTHONG") || nuclei.length === 1 && segments[nuclei[0]].kind === "vowel-consonant-pair";
     const marked = unit.readerWordId !== null && units.some((u) => u.readerWordId === unit.readerWordId && u.sourceStress);
+    const maqafPrimary = !unit.sourceStress && !marked && maqaf && unit.readerWordId !== maqaf.primaryWordId ? {
+      ...maqaf,
+      precedingWordId: unit.readerWordId,
+      wordHasMeteg: maqaf.precedingMetegWordIds.includes(unit.readerWordId),
+      basis: "A complete marked-reader maqaf chain with exactly one explicit source primary in its final word. Original source stress and word ownership are unchanged."
+    } : null;
     return {
       historicalClosure: nuclei.length !== 1 ? "unknown" : closed ? "closed" : "open",
       closureBasis: "Original source categories before consonant loss and degemination; shared first halves close the preceding syllable.",
       beforeYodOrMappiq: tail.some((s) => ["YOD_0DAG_CON", "YOD_1DAG", "YOD_0DAG_PART2_OF_DIPHTHONG", "HE_1MAPIQ"].includes(s.categoryId)),
-      primaryStress: unit.sourceStress ? true : marked ? false : null,
-      stressBasis: unit.sourceStress ? "explicit-source-primary" : marked ? "another-primary-in-same-source-word" : "not-established",
+      primaryStress: unit.sourceStress ? true : marked || maqafPrimary ? false : null,
+      stressBasis: unit.sourceStress ? "explicit-source-primary" : marked ? "another-primary-in-same-source-word" : maqafPrimary ? "source-maqaf-primary-in-final-word" : "not-established",
+      maqafPrimary,
       posttonicReduction: false,
       penultimateStressShift: false,
       vowelYod: vowelYodContext(segments)
@@ -10275,14 +10339,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function compileRoute(study, row, cell, column, style, profile) {
     const route = { id: `${study.groupId}-${style}-r${row.number}-c${cell.column}-h${column}`, sourceRow: row.number, sourceColumn: cell.column, hebrewColumn: column, units: [], events: [], gaps: [] };
-    const records = /* @__PURE__ */ new Map();
+    const records = /* @__PURE__ */ new Map(), maqaf = sourceMaqafChain(study, cell.units, column);
     for (const unit of cell.units) {
       const variant = unit.sourceSegments.variants.find((v) => v.hebrewColumn === column);
       if (!variant) {
         route.gaps.push({ reason: "incomplete-source-route", sourceUnitId: unit.id });
         continue;
       }
-      const context = unitContext(unit, variant, cell.units);
+      const context = unitContext(unit, variant, cell.units, maqaf);
       const record = {
         sourceUnitId: unit.id,
         ownerWordId: unit.readerWordId,
@@ -10388,13 +10452,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const fragments = routes.flatMap((r) => r.units.filter((u) => u.selected).flatMap((u) => u.fragments));
     return {
       schema: "tropetrain-phonology-word-proposal-v1",
-      revision: 1,
+      revision: 2,
       wordId: word.id,
       sourceWordId,
       hebrew: word.sourceHebrew,
       selectedTranscriptionStyle: sourceStyle,
       profile: structuredClone(profile),
       source: structuredClone(PHONOLOGY_SOURCE),
+      prosodySources: [structuredClone(MAQAF_STRESS_SOURCE)],
       sourceCommit: study?.sourceCommit ?? null,
       categoryInputSha256: study?.sourceSegments?.inputSha256 ?? null,
       sourceDataLicense: "CC-BY-SA-4.0",
@@ -10486,8 +10551,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           candidate.textContent = values.join(" · ");
           li.append(candidate);
           const context = document.createElement("small");
-          context.textContent = `Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress === null ? "not established" : unit.context.primaryStress ? "marked" : "on another syllable"}`;
+          context.textContent = `Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress === null ? "not established" : unit.context.primaryStress ? "marked" : unit.context.maqafPrimary ? "in the final joined word" : "on another syllable"}`;
           li.append(context);
+          if (unit.context.maqafPrimary) {
+            const evidence = unit.context.maqafPrimary, note = document.createElement("p");
+            note.className = "muted phonology-maqaf";
+            const joined3 = document.createElement("span");
+            joined3.lang = "he";
+            joined3.dir = "rtl";
+            joined3.textContent = evidence.markedHebrew.join(" ");
+            note.append(joined3, document.createTextNode(" · One primary-accent group. The source records its primary stress on the final word. Original word and syllable links are retained."));
+            if (evidence.wordHasMeteg) note.append(document.createTextNode(" Meteg is retained in this word; secondary stress or full-vowel realization still needs review."));
+            const source2 = document.createElement("a");
+            source2.href = report.prosodySources[0].url;
+            source2.textContent = " Maqaf and meteg evidence (§16).";
+            note.append(source2);
+            li.append(note);
+          }
           if (unit.vowelYodProposal) {
             const pair2 = document.createElement("small");
             pair2.className = "phonology-vowel-yod";

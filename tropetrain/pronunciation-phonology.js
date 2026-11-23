@@ -1,5 +1,6 @@
 // Original implementation of attributed linguistic facts. No source table or audio is copied.
 import {HISTORICAL_CATEGORY_INVENTORY as inventory} from './historical-pronunciation-categories.js';
+import {MAQAF_STRESS_SOURCE,sourceMaqafChain} from './pronunciation-stress.js';
 const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
 export const PHONOLOGY_SOURCE=freeze({id:'katz-1993-phonology',author:'Dovid Katz',title:'The Phonology of Ashkenazic',year:1993,
  book:'Hebrew in Ashkenaz: A Language in Exile, edited by Lewis Glinert',url:'https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf',
@@ -44,6 +45,7 @@ function realize(segment,context,profile){
  }
  if(id==='SEGOL_V'){
   if(!me)return proposal(['ɛ'],'northeastern-segol',[67]);
+  if(context.historicalClosure!=='closed'&&context.maqafPrimary?.wordHasMeteg)return proposal(null,'mideastern-segol-maqaf-meteg-needs-evidence',[67,68,72,73],'The joined group excludes a separate primary accent, but this word retains meteg. Secondary stress or full-vowel quality is not inferred.',['ɛ','ej']);
   if(context.historicalClosure==='closed'||context.primaryStress===false)return proposal(['ɛ'],'mideastern-segol-not-stressed-open',[67,68,72,73]);
   if(context.historicalClosure==='open'&&context.primaryStress===true)return proposal(['ej'],'mideastern-segol-stressed-open',[67,68,72,73]);
   return proposal(null,'mideastern-segol-context-missing',[67,68,72,73],'Historical open-syllable stress is not established.',['ɛ','ej']);
@@ -61,24 +63,27 @@ function vowelYodContext(segments){
  return {vowelSegmentId:vowel.id,yodSegmentId:yod.id,vowelCategoryId:vowel.categoryId,
   basis:'Original adjacent whole source categories in one source syllable; Katz1993 pp.68,71 treats postvocalic yod as consonantal /j/. Source-category adaptation is a proposal requiring review.'};
 }
-function unitContext(unit,variant,units){
+function unitContext(unit,variant,units,maqaf){
  const segments=variant.segments,nuclei=segments.map((s,i)=>isNucleus(s)?i:-1).filter(i=>i>=0);
  const tail=nuclei.length===1?segments.slice(nuclei[0]+1):[];
  const closed=tail.some(s=>s.kind==='consonant'||s.kind==='vowel-consonant-pair'||s.categoryId==='YOD_0DAG_PART2_OF_DIPHTHONG')||nuclei.length===1&&segments[nuclei[0]].kind==='vowel-consonant-pair';
  const marked=unit.readerWordId!==null&&units.some(u=>u.readerWordId===unit.readerWordId&&u.sourceStress);
+ const maqafPrimary=!unit.sourceStress&&!marked&&maqaf&&unit.readerWordId!==maqaf.primaryWordId?{...maqaf,
+  precedingWordId:unit.readerWordId,wordHasMeteg:maqaf.precedingMetegWordIds.includes(unit.readerWordId),
+  basis:'A complete marked-reader maqaf chain with exactly one explicit source primary in its final word. Original source stress and word ownership are unchanged.'}:null;
  return {historicalClosure:nuclei.length!==1?'unknown':closed?'closed':'open',
   closureBasis:'Original source categories before consonant loss and degemination; shared first halves close the preceding syllable.',
   beforeYodOrMappiq:tail.some(s=>['YOD_0DAG_CON','YOD_1DAG','YOD_0DAG_PART2_OF_DIPHTHONG','HE_1MAPIQ'].includes(s.categoryId)),
-  primaryStress:unit.sourceStress?true:marked?false:null,stressBasis:unit.sourceStress?'explicit-source-primary':marked?'another-primary-in-same-source-word':'not-established',
+  primaryStress:unit.sourceStress?true:marked||maqafPrimary?false:null,stressBasis:unit.sourceStress?'explicit-source-primary':marked?'another-primary-in-same-source-word':maqafPrimary?'source-maqaf-primary-in-final-word':'not-established',maqafPrimary,
   posttonicReduction:false,penultimateStressShift:false,vowelYod:vowelYodContext(segments)};
 }
 function compileRoute(study,row,cell,column,style,profile){
  const route={id:`${study.groupId}-${style}-r${row.number}-c${cell.column}-h${column}`,sourceRow:row.number,sourceColumn:cell.column,hebrewColumn:column,units:[],events:[],gaps:[]};
- const records=new Map();
+ const records=new Map(),maqaf=sourceMaqafChain(study,cell.units,column);
  for(const unit of cell.units){
   const variant=unit.sourceSegments.variants.find(v=>v.hebrewColumn===column);
   if(!variant){route.gaps.push({reason:'incomplete-source-route',sourceUnitId:unit.id});continue;}
-  const context=unitContext(unit,variant,cell.units);
+  const context=unitContext(unit,variant,cell.units,maqaf);
   const record={sourceUnitId:unit.id,ownerWordId:unit.readerWordId,sourceText:unit.text,sourceStress:unit.sourceStress,sourceLabels:structuredClone(variant.sourceLabels),
    sourceHebrew:structuredClone(variant.sourceHebrew),readerRanges:structuredClone(variant.readerRanges),letterClusterBindings:structuredClone(variant.letterClusterBindings),context,fragments:[]};
   for(const segment of variant.segments){
@@ -137,8 +142,8 @@ export function phonologyWordProposal(study,word,sourceStyle,profileId){
   }
  }
  const fragments=routes.flatMap(r=>r.units.filter(u=>u.selected).flatMap(u=>u.fragments));
- return {schema:'tropetrain-phonology-word-proposal-v1',revision:1,wordId:word.id,sourceWordId,hebrew:word.sourceHebrew,selectedTranscriptionStyle:sourceStyle,
-  profile:structuredClone(profile),source:structuredClone(PHONOLOGY_SOURCE),sourceCommit:study?.sourceCommit??null,categoryInputSha256:study?.sourceSegments?.inputSha256??null,sourceDataLicense:'CC-BY-SA-4.0',
+ return {schema:'tropetrain-phonology-word-proposal-v1',revision:2,wordId:word.id,sourceWordId,hebrew:word.sourceHebrew,selectedTranscriptionStyle:sourceStyle,
+  profile:structuredClone(profile),source:structuredClone(PHONOLOGY_SOURCE),prosodySources:[structuredClone(MAQAF_STRESS_SOURCE)],sourceCommit:study?.sourceCommit??null,categoryInputSha256:study?.sourceSegments?.inputSha256??null,sourceDataLicense:'CC-BY-SA-4.0',
   sourceCategoryStatus:study?.sourceSegments?'source-categories-available':'source-categories-unavailable',routes,
   counts:{routes:routes.length,categoryReferences:fragments.length,proposedReferences:fragments.filter(f=>f.proposal.candidatePhonemes!==null).length,unassignedReferences:fragments.filter(f=>f.proposal.candidatePhonemes===null).length,
    proposedEvents:routes.reduce((n,r)=>n+r.events.filter(e=>e.candidatePhonemes!==null).length,0),contextGaps:routes.reduce((n,r)=>n+r.gaps.length,0),reviewedRealizations:0},
