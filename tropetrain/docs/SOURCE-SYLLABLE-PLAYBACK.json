@@ -1,0 +1,1106 @@
+{
+  "schema": "tropetrain-source-syllable-playback-audit-v1",
+  "revision": 1,
+  "source": {
+    "id": "mam-consensus-written-syllables-v1",
+    "revision": 1,
+    "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "dataLicense": "CC-BY-SA-4.0",
+    "name": "Phonetic MAM · consensus written syllables",
+    "review": null,
+    "phonemes": null,
+    "voice": null,
+    "inputSha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2",
+    "computationSourceSha256": "357314571720309945b3c7e1a2b33582a34dfbc6a497a02309af8c8572fcafaf",
+    "summary": "Original Torah instrumental demonstration using exact written spans agreed by both source text styles. Source-only, combined and conflicting syllable paths remain unavailable. Linguistic and musical review is pending."
+  },
+  "counts": {
+    "readerWords": 79985,
+    "available": 77790,
+    "unavailable": 2195,
+    "syllables": 187261,
+    "paths": 160222,
+    "sourceUnitReferences": 387888,
+    "sharedConsonantReferences": 36318
+  },
+  "gaps": {
+    "source-only-written-form": 2181,
+    "conflicting-source-paths": 12,
+    "combined-source-form": 2
+  },
+  "gapExamples": {
+    "source-only-written-form": [
+      {
+        "id": "gen-2-4-8",
+        "hebrew": "יְהוָ֥ה"
+      },
+      {
+        "id": "gen-2-5-15",
+        "hebrew": "יְהוָ֤ה"
+      },
+      {
+        "id": "gen-2-7-2",
+        "hebrew": "יְהוָ֨ה"
+      },
+      {
+        "id": "gen-2-8-2",
+        "hebrew": "יְהוָ֧ה"
+      },
+      {
+        "id": "gen-2-9-2",
+        "hebrew": "יְהוָ֤ה"
+      },
+      {
+        "id": "gen-2-12-3",
+        "hebrew": "הַהִ֖וא"
+      },
+      {
+        "id": "gen-2-15-2",
+        "hebrew": "יְהוָ֥ה"
+      },
+      {
+        "id": "gen-2-16-2",
+        "hebrew": "יְהוָ֣ה"
+      },
+      {
+        "id": "gen-2-18-2",
+        "hebrew": "יְהוָ֣ה"
+      },
+      {
+        "id": "gen-2-19-2",
+        "hebrew": "יְהוָ֨ה"
+      },
+      {
+        "id": "gen-2-21-2",
+        "hebrew": "יְהוָ֨ה"
+      },
+      {
+        "id": "gen-2-22-2",
+        "hebrew": "יְהוָ֨ה"
+      }
+    ],
+    "conflicting-source-paths": [
+      {
+        "id": "gen-32-18-6",
+        "hebrew": "יִֽפְגָּשְׁךָ֞"
+      },
+      {
+        "id": "exo-20-3-1",
+        "hebrew": "לֹֽ֣א"
+      },
+      {
+        "id": "exo-20-3-2",
+        "hebrew": "יִהְיֶֽה־"
+      },
+      {
+        "id": "exo-20-4-1",
+        "hebrew": "לֹֽ֣א"
+      },
+      {
+        "id": "exo-20-4-2",
+        "hebrew": "תֽ͏ַעֲשֶׂ֨ה־"
+      },
+      {
+        "id": "exo-20-10-6",
+        "hebrew": "לֹֽ֣א־"
+      },
+      {
+        "id": "exo-20-10-11",
+        "hebrew": "וּבִנְךָֽ֣־"
+      },
+      {
+        "id": "deu-5-7-1",
+        "hebrew": "לֹ֣א"
+      },
+      {
+        "id": "deu-5-7-2",
+        "hebrew": "יִהְיֶ֥ה־"
+      },
+      {
+        "id": "deu-5-8-1",
+        "hebrew": "לֹֽ֣א־"
+      },
+      {
+        "id": "deu-5-8-2",
+        "hebrew": "תַעֲשֶֽׂ֨ה־"
+      },
+      {
+        "id": "deu-5-15-2",
+        "hebrew": "כִּ֣י־"
+      }
+    ],
+    "combined-source-form": [
+      {
+        "id": "deu-32-6-1",
+        "hebrew": "הֲ־"
+      },
+      {
+        "id": "deu-32-6-2",
+        "hebrew": "לַיְהוָה֙"
+      }
+    ]
+  },
+  "conflicts": [
+    {
+      "id": "gen-32-18-6",
+      "hebrew": "יִֽפְגָּשְׁךָ֞",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 5,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c1-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c1-u2",
+              "start": 5,
+              "end": 11,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c1-u3",
+              "start": 11,
+              "end": 14,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 5,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c2-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c2-u2",
+              "start": 5,
+              "end": 8,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c2-u3",
+              "start": 8,
+              "end": 11,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-sephardic-r5-c2-u4",
+              "start": 11,
+              "end": 14,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 5,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c1-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c1-u2",
+              "start": 5,
+              "end": 11,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c1-u3",
+              "start": 11,
+              "end": 14,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 5,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c2-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c2-u2",
+              "start": 5,
+              "end": 8,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c2-u3",
+              "start": 8,
+              "end": 11,
+              "stress": false
+            },
+            {
+              "id": "pmam-gen-32-18-5-ashkenazic-r5-c2-u4",
+              "start": 11,
+              "end": 14,
+              "stress": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exo-20-3-1",
+      "hebrew": "לֹֽ֣א",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-sephardic-r11-c1-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-sephardic-r11-c2-u1",
+              "start": 0,
+              "end": 5,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-ashkenazic-r11-c1-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-ashkenazic-r11-c2-u1",
+              "start": 0,
+              "end": 5,
+              "stress": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exo-20-3-2",
+      "hebrew": "יִהְיֶֽה־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-sephardic-r11-c1-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-2-11-sephardic-r11-c1-u3",
+              "start": 4,
+              "end": 9,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-sephardic-r11-c2-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-2-11-sephardic-r11-c2-u3",
+              "start": 4,
+              "end": 9,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-ashkenazic-r11-c1-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-2-11-ashkenazic-r11-c1-u3",
+              "start": 4,
+              "end": 9,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-2-11-ashkenazic-r11-c2-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-2-11-ashkenazic-r11-c2-u3",
+              "start": 4,
+              "end": 9,
+              "stress": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exo-20-4-1",
+      "hebrew": "לֹֽ֣א",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c1-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c2-u1",
+              "start": 0,
+              "end": 5,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c1-u1",
+              "start": 0,
+              "end": 5,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c2-u1",
+              "start": 0,
+              "end": 5,
+              "stress": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exo-20-4-2",
+      "hebrew": "תֽ͏ַעֲשֶׂ֨ה־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c1-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c1-u3",
+              "start": 4,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c1-u4",
+              "start": 6,
+              "end": 12,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c2-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c2-u3",
+              "start": 4,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-sephardic-r1-c2-u4",
+              "start": 6,
+              "end": 12,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c1-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c1-u3",
+              "start": 4,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c1-u4",
+              "start": 6,
+              "end": 12,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c2-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c2-u3",
+              "start": 4,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-3-1-ashkenazic-r1-c2-u4",
+              "start": 6,
+              "end": 12,
+              "stress": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exo-20-10-6",
+      "hebrew": "לֹֽ֣א־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 6,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-6-sephardic-r6-c1-u1",
+              "start": 0,
+              "end": 6,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 6,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-6-sephardic-r6-c2-u1",
+              "start": 0,
+              "end": 6,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 6,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-6-ashkenazic-r6-c1-u1",
+              "start": 0,
+              "end": 6,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 6,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-6-ashkenazic-r6-c2-u1",
+              "start": 0,
+              "end": 6,
+              "stress": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exo-20-10-11",
+      "hebrew": "וּבִנְךָֽ֣־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 9,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-9-sephardic-r9-c1-u1",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-sephardic-r9-c1-u2",
+              "start": 2,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-sephardic-r9-c1-u3",
+              "start": 6,
+              "end": 11,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 9,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-9-sephardic-r9-c2-u1",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-sephardic-r9-c2-u2",
+              "start": 2,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-sephardic-r9-c2-u3",
+              "start": 6,
+              "end": 11,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 9,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-9-ashkenazic-r9-c1-u1",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-ashkenazic-r9-c1-u2",
+              "start": 2,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-ashkenazic-r9-c1-u3",
+              "start": 6,
+              "end": 11,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 9,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-exo-20-9-9-ashkenazic-r9-c2-u1",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-ashkenazic-r9-c2-u2",
+              "start": 2,
+              "end": 6,
+              "stress": false
+            },
+            {
+              "id": "pmam-exo-20-9-9-ashkenazic-r9-c2-u3",
+              "start": 6,
+              "end": 11,
+              "stress": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deu-5-7-1",
+      "hebrew": "לֹ֣א",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-sephardic-r11-c1-u1",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-sephardic-r11-c2-u1",
+              "start": 0,
+              "end": 4,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-ashkenazic-r11-c1-u1",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-ashkenazic-r11-c2-u1",
+              "start": 0,
+              "end": 4,
+              "stress": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deu-5-7-2",
+      "hebrew": "יִהְיֶ֥ה־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-sephardic-r11-c1-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-6-11-sephardic-r11-c1-u3",
+              "start": 4,
+              "end": 9,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-sephardic-r11-c2-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-6-11-sephardic-r11-c2-u3",
+              "start": 4,
+              "end": 9,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-ashkenazic-r11-c1-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-6-11-ashkenazic-r11-c1-u3",
+              "start": 4,
+              "end": 9,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 11,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-6-11-ashkenazic-r11-c2-u2",
+              "start": 0,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-6-11-ashkenazic-r11-c2-u3",
+              "start": 4,
+              "end": 9,
+              "stress": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deu-5-8-1",
+      "hebrew": "לֹֽ֣א־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c1-u1",
+              "start": 0,
+              "end": 6,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c2-u1",
+              "start": 0,
+              "end": 6,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c1-u1",
+              "start": 0,
+              "end": 6,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c2-u1",
+              "start": 0,
+              "end": 6,
+              "stress": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deu-5-8-2",
+      "hebrew": "תַעֲשֶֽׂ֨ה־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c1-u2",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c1-u3",
+              "start": 2,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c1-u4",
+              "start": 4,
+              "end": 11,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c2-u2",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c2-u3",
+              "start": 2,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-sephardic-r1-c2-u4",
+              "start": 4,
+              "end": 11,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c1-u2",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c1-u3",
+              "start": 2,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c1-u4",
+              "start": 4,
+              "end": 11,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 1,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c2-u2",
+              "start": 0,
+              "end": 2,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c2-u3",
+              "start": 2,
+              "end": 4,
+              "stress": false
+            },
+            {
+              "id": "pmam-deu-5-7-1-ashkenazic-r1-c2-u4",
+              "start": 4,
+              "end": 11,
+              "stress": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deu-5-15-2",
+      "hebrew": "כִּ֣י־",
+      "paths": [
+        {
+          "style": "sephardic",
+          "row": 2,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-14-2-sephardic-r2-c1-u1",
+              "start": 0,
+              "end": 6,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "sephardic",
+          "row": 2,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-14-2-sephardic-r2-c2-u1",
+              "start": 0,
+              "end": 6,
+              "stress": false
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 2,
+          "column": 1,
+          "units": [
+            {
+              "id": "pmam-deu-5-14-2-ashkenazic-r2-c1-u1",
+              "start": 0,
+              "end": 6,
+              "stress": true
+            }
+          ]
+        },
+        {
+          "style": "ashkenazic",
+          "row": 2,
+          "column": 2,
+          "units": [
+            {
+              "id": "pmam-deu-5-14-2-ashkenazic-r2-c2-u1",
+              "start": 0,
+              "end": 6,
+              "stress": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assignmentSha256": "a7b487372767d724032a352c9e5f258a56de607aaf4582ff1685134cb928de66",
+  "method": "Every mapped Torah word; all individually owned paths in both original MAM text styles must cover complete unchanged marked Hebrew with identical syllable boundaries/stress. Every path/unit/shared reference is retained. No source-only or combined unit is assigned a substitute range.",
+  "performance": {
+    "melodyId": "original-demo-01",
+    "kind": "original-instrumental-demonstration",
+    "sourceDurationsAssigned": false,
+    "historicalMelodyGrammar": null,
+    "phonemes": null,
+    "singingVoice": null,
+    "review": null
+  },
+  "attribution": "Hebrew Wikisource / Phonetic MAM, Benjamin Denckla; original data and derived source correspondence CC-BY-SA-4.0. Original instrumental note/timing policy remains CC0.",
+  "limits": "Structural correspondence, not independent linguistic/cantorial review or a historical musical realization. All recordings and original source data remain unchanged. No Kinnor pronunciation equivalence or new voice."
+}
