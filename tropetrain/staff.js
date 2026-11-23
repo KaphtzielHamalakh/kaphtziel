@@ -48,15 +48,17 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
       if(e.sourceFermata.placement==='above')svg+=`<g class="staff-fermata" role="img" aria-label="Printed fermata; hold length unspecified"><path d="M${e.x-11} 36 Q${e.x} 12 ${e.x+11} 36"/><circle cx="${e.x}" cy="31" r="2.2"/></g>`;
       else{const y=Math.max(125,e.y+30);svg+=`<g class="staff-fermata below" role="img" aria-label="Printed inverted fermata below the staff; hold length unspecified"><path d="M${e.x-11} ${y} Q${e.x} ${y+24} ${e.x+11} ${y}"/><circle cx="${e.x}" cy="${y+5}" r="2.2"/></g>`;}
     }
-    if(e.sourceTupletPhase==='start'){
-      const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');
-      if(end)svg+=`<path class="tuplet-bracket" aria-label="Printed tuplet: ${r.actual} in the time of ${r.normal}" d="M${e.x-10} 34 v-5 H${end.x+10} v5"/><text class="rhythm-ratio" x="${(e.x+end.x)/2}" y="22">${r.actual}:${r.normal}</text>`;
-    }
     svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(eventPitchName(e))}</text>`;
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.syllable)}</text>`;
     if(!untexted&&(e.continuation||e.continuedFromPrevious))svg+=`<line class="melisma-line" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="206" y2="206"/>`;
     if(annotated&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-pronunciation${e.pronunciationText===null?' unlinked':''}${e.pronunciationLink?.units.length&&e.pronunciationLink.units.every(u=>u.sourceStress)?' source-stressed':''}" x="${e.x}" y="229" lang="en" xml:lang="en" direction="ltr" unicode-bidi="plaintext">${x(e.pronunciationText??'unlinked')}</text>`;
     svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${beatLabel(e.beats)} beats</text></g>`;
+    // A bracket spans several notes. Keeping it outside the first note's
+    // button prevents that button's accessible bounds covering its neighbours.
+    if(e.sourceTupletPhase==='start'){
+      const end=notes.find(n=>n.sourceTupletId===e.sourceTupletId&&n.sourceTupletPhase==='stop');
+      if(end)svg+=`<path class="tuplet-bracket" aria-label="Printed tuplet: ${r.actual} in the time of ${r.normal}" d="M${e.x-10} 34 v-5 H${end.x+10} v5"/><text class="rhythm-ratio" x="${(e.x+end.x)/2}" y="22">${r.actual}:${r.normal}</text>`;
+    }
     if(e.gapAfterBeats){
       const rests=e.sourceRestsAfter??[{beats:e.gapAfterBeats}];
       if(Math.abs(rests.reduce((n,r)=>n+r.beats,0)-e.gapAfterBeats)>1e-8)throw Error('Printed rest values and score gap disagree.');
