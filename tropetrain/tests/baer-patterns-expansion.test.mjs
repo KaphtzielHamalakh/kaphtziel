@@ -13,8 +13,8 @@ const data=BAER_PATTERN_ROW.record,plan=(id,options={})=>baerPatternPlan(id,{tem
 
 test('all60 previously published Baer components retain exact IDs, pitches, source values, rests, slurs and tuplets',()=>{
  assert.equal(createHash('sha256').update(JSON.stringify(data.notes.slice(0,60))).digest('hex'),'569bf9de5d372768293f9014be1ff4494c426caa2d3659302e8d9bf92a38d658');
- assert.equal(data.revision,4);assert.equal(data.revisionHistory[1].newComponents,63);assert.equal(data.revisionHistory[1].addedFigures.length,8);
- assert.equal(data.notes.filter(n=>n.rhythm.type==='32nd').length,4);
+ assert.equal(data.revision,5);assert.equal(data.revisionHistory[1].newComponents,63);assert.equal(data.revisionHistory[1].addedFigures.length,8);
+ assert.equal(data.notes.filter(n=>n.rhythm.type==='32nd'&&!n.grace).length,4);
 });
 
 test('new literal source examples preserve their unequal written extents without meter padding',()=>{

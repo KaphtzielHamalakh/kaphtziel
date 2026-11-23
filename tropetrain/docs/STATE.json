@@ -4,17 +4,17 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "6b7032b7d61c4559fefe5fd09ff70eefaa5965eb",
-  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete remaining5Baer first-setting cells and contextual fitting from actual notation without invented grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
+  "nextTask": "Publish the fully testedv0.68original instrumental grace demonstration, verify Pages/public bytes/UI and save. Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
-    "automated": 556,
+    "automated": 563,
     "failed": 0,
     "skipped": 0,
-    "newTests": 5,
-    "log": "/private/tmp/tropetrain-check-v67.log",
+    "newTests": 7,
+    "log": "/private/tmp/tropetrain-check-v68-final-label.log",
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "All 556 automated checks pass, with 0 failures/skips and five new substantive source-stress checks. All 619 prior asset/data files and all four prior non-null phonemic proposal streams are exact. Public normal120 and portable121 each pass 13 checks: startup, exact marked Hebrew/stable IDs, four complete source-proposal exports, original primary-stress ownership, independent MAM text styles, independent regional proposals, key, tempo, range, muted playback through pronunciation changes, meteg uncertainty/null voices, unsplit combined source forms, and clear consoles/stopped media. Genesis11:4 retains נִבְנֶה־ לָּ֣נוּ and the final-word source primary, with /ɛ/ proposed in the preceding word. Genesis1:12 retains עֹֽשֶׂה־, meteg and an unresolved Mideastern segol quality; accepted phones/timings/reviews/voice remain null. Deut32:6 source ownership/ranges remain null and unsplit. Actual319px root/scroll319 and research panel231/231 pass; public desktop/mobile screenshots visually inspected. Both public consoles have 0 errors/warnings. Players stopped, instrument volume0, native media paused, viewport reset. Portable navigation observation timed out early; the same tab121 completed without duplicate navigation. Test setup explicitly selected passage after the saved word scope correctly returned two events; no application fix was needed. No speaker listening or actual file-download claim; prepared export links were parsed. These are incomplete source-based phonemic proposals, with no new singing voice, qualified review, complete grammar or Kinnor equivalence.",
+    "ui": "Final563automated checks pass,0fail/0skip,7new. Normal122and portable123each pass14checks: startup/default-off/explicit original-demo choice/12source pitches and native inspection/217prior components exact/exported null source timing with original80ms provenance/independent key/tempo/range/advancing muted playback through MAMtext and regional-profile changes/exact17Genesis11:4marked words and reader notes/disable-stops/reloaddefault-off/clear consoles and paused media. Native clock advances component1to3 across pronunciation changes. All619asset/data files unchanged. Grace labels are two lines,72.25px wide inside90px note buttons; actual319px root/scroll319, staff232/1194; desktop/mobile screenshots visually checked. No speaker listening or actual saved-file download claim; prepared JSON links parsed. All players stopped, instrument0, native media paused and viewport reset. Source grace durations/stealing ratios staynull; the optional80ms original instrumental choice is not historical timing, a complete grammar or a singing voice.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -59,7 +59,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32_Cohen_and27_Baer_No105_untexted_figures_with31single_routes_plus_pair_four_bounded_printed_examples_complete_contextual_grammars_and_independent_review_pending"
+      "status": "32_Cohen_27fully_measured_Baer_figures_and1literal_unmeasured_grace_figure_with_optional_original_instrumental_timing_complete_contextual_grammars_and_review_pending"
     },
     {
       "id": "singing",
@@ -194,10 +194,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.67.0",
-    "status": "published_556_checks_26public_checks_full_goal_active",
-    "baseline": "253c7511d075c9233a496e9b3266442fdeffb460",
-    "previousGoalTurn": "Progress:v0.66published551checks_22publicchecks_1055exactfiles_saved",
+    "version": "0.68.0",
+    "status": "563_pass_28local_UI_checks_ready_for_publication",
+    "baseline": "e9157ccf999d920dcd9614b91de570ff8321b6a2",
+    "previousGoalTurn": "Progress:v0.67published556checks_26publicchecks_1058exactfiles_saved",
     "newPublicVoice": null,
     "review": null
   },
@@ -970,31 +970,42 @@
     "independentReview": null
   },
   "baerFirstSettingPatterns": {
-    "revision": 4,
+    "revision": 5,
     "record": "docs/BAER-NO105-PATTERNS.json",
     "source": "Abraham Baer, third expanded edition [1894], No105 first setting pp30–35; first rare-sign appendix setting p36",
     "sourceCells": 32,
     "transcribedFigures": 27,
     "pendingCells": 5,
-    "printedComponents": 217,
-    "pitchedComponents": 203,
+    "printedComponents": 229,
+    "pitchedComponents": 215,
     "rests": 14,
     "newVoice": null,
     "wordUnderlay": null,
     "completeMusicalGrammar": null,
     "independentReview": null,
     "limits": "Literal untexted instrumental figures only. First-setting1.W. is not assigned a regional or Kinnor identity. All pending cells remain visible without replacement notes; context/sign lookups do not apply music to reader words.",
-    "sourceComponents": 217,
-    "notes": 203,
-    "newFigures": 3,
-    "newComponents": 42,
+    "sourceComponents": 229,
+    "notes": 215,
+    "newFigures": 1,
+    "newComponents": 12,
     "fermataHoldLengths": null,
     "review": null,
     "rangeAdvice": "Advisory only; changing guide does not alter source notes or stop playback.",
     "sourceAlternatives": 4,
     "playableSingleFigureRoutes": 31,
     "printedPreface": "IX",
-    "status": "published_27figures_551checks_public_UI_verified_independent_review_and_word_fitting_pending"
+    "status": "563_pass_literal_grace_shapes_original_timing_separate_local_UI_verified_publication_review_and_word_fitting_pending",
+    "pitchTranscribedFigures": 28,
+    "otherNotationOrApplicationPendingCells": 4,
+    "unmeasuredGraceFigures": 1,
+    "unmeasuredGraceNotes": 3,
+    "optionalOriginalDemoRoutes": 1,
+    "originalGraceTiming": {
+      "id": "original-grace-demo-80ms-v1",
+      "secondsPerNote": 0.08,
+      "historicalSourceDuration": null,
+      "review": null
+    }
   },
   "repertoirePronunciationUnderlay": {
     "version": "0.49.0",

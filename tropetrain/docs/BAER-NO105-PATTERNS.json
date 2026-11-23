@@ -1,6 +1,6 @@
 {
   "schema": "tropetrain-baer-first-setting-patterns-v1",
-  "revision": 4,
+  "revision": 5,
   "id": "baer-1894-no105-first-setting",
   "name": "Baer No105 · first printed setting",
   "source": {
@@ -448,10 +448,13 @@
       "page": 33,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "1. W.",
-      "status": "notation-review",
+      "status": "unmeasured-grace",
       "review": null,
       "wordApplication": null,
-      "pending": "Three small beamed components occur between a plain principal note and the following main note. Their grace-size relationship and timing need explicit interpretation; no regular32nd duration is assigned."
+      "pending": "Twelve printed pitches and shapes are transcribed, including three small beamed grace notes. Their source durations and stealing ratios remain unspecified. Optional original timing uses 80 ms per grace note; it is a demonstration choice, not a historical realization.",
+      "timingStatus": "unmeasured-grace-group",
+      "sourceMeasuredQuarterBeats": 5.25,
+      "unmeasuredGraceNotes": 3
     },
     {
       "id": "telisha-gedola",
@@ -5729,6 +5732,296 @@
       "sourcePage": 35,
       "sourceLocation": "Baer [1894], p.35, first setting, Mercho → tipcho → sof po-suk · printed ending, printed component 18",
       "sourceBar": 3
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-1",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-2",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-3",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-4",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 4",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-5",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 5",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-6",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 6",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-1w-telisha-qetana-slur",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-7",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 7",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-telisha-qetana-graces",
+        "order": 1,
+        "count": 3,
+        "previousComponentId": "baer105-1w-telisha-qetana-6",
+        "nextComponentId": "baer105-1w-telisha-qetana-10",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 3
+      }
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-8",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 8",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-telisha-qetana-graces",
+        "order": 2,
+        "count": 3,
+        "previousComponentId": "baer105-1w-telisha-qetana-6",
+        "nextComponentId": "baer105-1w-telisha-qetana-10",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 3
+      }
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-9",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 9",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-1w-telisha-qetana-graces",
+        "order": 3,
+        "count": 3,
+        "previousComponentId": "baer105-1w-telisha-qetana-6",
+        "nextComponentId": "baer105-1w-telisha-qetana-10",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": false,
+        "printedSize": "small",
+        "printedBeams": 3
+      }
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-10",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 10",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-11",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 11",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-1w-telisha-qetana-12",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, first setting, T’lischo k’ta-noh, printed component 12",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "slur": {
+        "id": "baer105-1w-telisha-qetana-slur",
+        "phase": "stop"
+      }
     }
   ],
   "matchingQueries": {
@@ -5947,8 +6240,8 @@
       }
     ]
   },
-  "scope": "Complete 32-cell first-setting inventory; 27 source figures have literal pitch and written-value transcriptions. Four figures have explicit alternatives, giving 31 single-figure routes. Five source cells remain pending. No arbitrary-word fitting or complete melody grammar is supplied.",
-  "timing": "Written note/rest values at an independently chosen quarter-note tempo. Printed recitative/bar separators do not impose inferred measure counts, breaths or expressive durations. Source leading, interior, dotted and final rests are retained. The two retained fermatas have unspecified hold lengths; instrumental playback uses their written values, without an inferred extension.",
+  "scope": "Complete 32-cell first-setting inventory. Twenty-seven fully measured figures retain 31 single routes. Telisha Qetana adds 12 printed pitches and shapes, including three unmeasured grace notes; its optional instrumental timing demonstration is separate from source duration. Four other cells remain pending. No arbitrary-word fitting, complete melody grammar or Kinnor equivalence.",
+  "timing": "Written note/rest values at an independently chosen quarter-note tempo. Printed recitative/bar separators do not impose inferred measure counts, breaths or expressive durations. Source leading, interior, dotted and final rests are retained. The two retained fermatas have unspecified hold lengths; instrumental playback uses their written values, without an inferred extension. Telisha Qetana’s three small beamed grace notes have null source durations/stealing ratios. An optional original instrumental demonstration adds 80 ms per grace note between unchanged measured values. That choice is never stored as a historical source duration.",
   "pronunciation": null,
   "syllableUnderlay": null,
   "phonemes": null,
@@ -6033,6 +6326,11 @@
       ],
       "newComponents": 42,
       "independentReview": null
+    },
+    {
+      "revision": 5,
+      "date": "2026-11-23",
+      "change": "Add Telisha Qetana literal pitch and shape transcription with null grace durations and a separate optional original 80 ms grace demonstration. All 217 prior source components are unchanged. Independent musical, notation and timing review remains pending."
     }
   ],
   "notationPrinciple": {

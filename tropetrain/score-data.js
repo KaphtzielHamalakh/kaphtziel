@@ -1,3 +1,4 @@
+import {validateGraceEvent} from './source-grace.js';
 export const escapeXml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 const gcd=(a,b)=>b?gcd(b,a%b):a;
 export function beatLabel(beats){
@@ -37,7 +38,9 @@ export function rhythmSpelling(beats){
   return {type:'quarter',dots:0,actual:10000/factor,normal:normal/factor};
 }
 export function eventRhythm(event){
-  const r=event.sourceRhythm;if(!r)return rhythmSpelling(event.beats);
+  const r=event.sourceRhythm;
+  if(event.sourceGrace){validateGraceEvent(event);return r;}
+  if(!r)return rhythmSpelling(event.beats);
   const value={whole:4,half:2,quarter:1,eighth:.5,'16th':.25,'32nd':.125}[r.type];
   if(!value||![0,1].includes(r.dots)||!Number.isInteger(r.actual)||r.actual<1||!Number.isInteger(r.normal)||r.normal<1||Math.abs(value*(r.dots?1.5:1)*r.normal/r.actual-event.beats)>1e-8)
     throw Error('Printed rhythm and sounding duration disagree.');
