@@ -3,8 +3,8 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "6b7032b7d61c4559fefe5fd09ff70eefaa5965eb",
-  "nextTask": "Publish the fully testedv0.68original instrumental grace demonstration, verify Pages/public bytes/UI and save. Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
+  "publishedCommit": "b6125c869b1b8f3fa9ee016ead42ffec1c951451",
+  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
     "automated": 563,
     "failed": 0,
@@ -14,7 +14,7 @@
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Final563automated checks pass,0fail/0skip,7new. Normal122and portable123each pass14checks: startup/default-off/explicit original-demo choice/12source pitches and native inspection/217prior components exact/exported null source timing with original80ms provenance/independent key/tempo/range/advancing muted playback through MAMtext and regional-profile changes/exact17Genesis11:4marked words and reader notes/disable-stops/reloaddefault-off/clear consoles and paused media. Native clock advances component1to3 across pronunciation changes. All619asset/data files unchanged. Grace labels are two lines,72.25px wide inside90px note buttons; actual319px root/scroll319, staff232/1194; desktop/mobile screenshots visually checked. No speaker listening or actual saved-file download claim; prepared JSON links parsed. All players stopped, instrument0, native media paused and viewport reset. Source grace durations/stealing ratios staynull; the optional80ms original instrumental choice is not historical timing, a complete grammar or a singing voice.",
+    "ui": "All 563 automated checks pass, with no failures or skips and seven new substantive grace-source/timing checks. All 619 prior asset/data files and all 217 prior Baer components are exact. Public normal124 and portable125 each pass14checks: startup, default-off gating, explicit original-demo selection and three small heads, all12source pitches/native inspections, 217prior components, exported null source durations and original80ms provenance, independent key, tempo with unchanged grace-demo milliseconds, advisory range, actual pronunciation-text changes with an advancing muted clock, exact17marked Genesis11:4words and reader notes, disabling-stops, default-off reload, and clear consoles/paused media. The three grace labels use two lines and fit inside their90px note buttons; actual319px root/scroll319 and horizontally scrolling staff232/1194 pass. Desktop/mobile screenshots visually inspected. All test players stopped, instrument volume0, native media paused and viewport reset. Prepared JSON export links were parsed; no actual saved-file download or speaker-listening claim. Source grace durations and stealing ratios remain null. The optional80ms-per-note timing adds original instrumental demonstration time between unchanged measured source values; it is not a historical duration, a new singing voice, Bible-word fitting, qualified musical review or a complete melody grammar.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -164,12 +164,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "1e6ee821a08c38fa17fec56466e4fef536957622",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45101797610",
+    "commit": "b6125c869b1b8f3fa9ee016ead42ffec1c951451",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45130616035",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 15,
-    "publicChangedBytesExact": 137088367
+    "publicChangedFilesExact": 24,
+    "publicChangedBytesExact": 141252480
   },
   "corpusImport": {
     "books": 5,
@@ -195,7 +195,7 @@
   },
   "workingIteration": {
     "version": "0.68.0",
-    "status": "563_pass_28local_UI_checks_ready_for_publication",
+    "status": "published_563_checks_28public_checks_full_goal_active",
     "baseline": "e9157ccf999d920dcd9614b91de570ff8321b6a2",
     "previousGoalTurn": "Progress:v0.67published556checks_26publicchecks_1058exactfiles_saved",
     "newPublicVoice": null,
@@ -994,7 +994,7 @@
     "sourceAlternatives": 4,
     "playableSingleFigureRoutes": 31,
     "printedPreface": "IX",
-    "status": "563_pass_literal_grace_shapes_original_timing_separate_local_UI_verified_publication_review_and_word_fitting_pending",
+    "status": "published_27measured_1unmeasured_grace_figure_optional_original_demo_563checks_public_UI_verified_historical_timing_word_fitting_and_review_pending",
     "pitchTranscribedFigures": 28,
     "otherNotationOrApplicationPendingCells": 4,
     "unmeasuredGraceFigures": 1,
