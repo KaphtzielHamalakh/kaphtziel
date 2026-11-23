@@ -4,17 +4,17 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "642059911bdca9e9452a2dd1776f3a63408f0464",
-  "nextTask": "Continue complete word-aligned chanting over the Torah, all six independent historical pronunciation grammars/voices, every contextual cantorial system and the retained tutor/learning inventory; printing deferred. Preserve exact marked Hebrew/stableIDs, source alternatives/shared consonants, all1120pronunciation source units/styles and14unsplit compounds, all gaps/nulls/clocks/recordings. Complete the remaining8Baer No105first-setting cells from actual notation evidence (Munah before Mahpakh; Mahpakh/Pashta/Zaqef; Pashta after predecessors; Pazer; Telisha qetana; extended ending; Shalshelet; Qarney/Yerah). Do not invent grace/repeat durations or combine alternative melodic lines. Source transcriptions still need qualified review and complete contextual/word fitting; numbered Baer settings are not Kinnor labels. Inspect primary p36Loh/Num32:42readerלָ֦ה/num-32-42-9 as a possible bounded texted example only after source-word/syllable evidence is verified. Six historical voices and full grammar remain missing. Privatev0.55MBROLAclock/curve diagnostic remains frozen.",
+  "nextTask": "Continue exact word-aligned Torah pronunciation and all six complete independent historical grammars/voices, every contextual cantorial system and retained tutor/learning inventory; printing deferred. Preserve every original marked Hebrew word/stableID, MAM alternative/shared range,1120source units per style/14unsplit compounds and all original recordings/clocks/gaps/nulls. The two new Khan published Tiberian text readings cover only159words/Gen1:1–13 and are separate from Kinnor labels, MAM text styles and fixed Foreman audio. Complete qualified source-mark/transcription/syllable/acoustic review before using them for generated singing. No guessed audio or note times. Continue primary evidence for full regional phonology, remaining8Baer figures and contextual word fitting without inventing durations/tradition equivalence. Privatev0.55MBROLAcurve/clock diagnostic stays frozen; full goal active/incomplete.",
   "lastPassingTests": {
-    "automated": 529,
+    "automated": 538,
     "failed": 0,
     "skipped": 0,
-    "newTests": 10,
-    "log": "/private/tmp/tropetrain-check-v63-cubic.log",
+    "newTests": 9,
+    "log": "/private/tmp/tropetrain-check-v64-mobile.log",
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Final complete529pass/0fail/0skip,10new checks, log/private/tmp/tropetrain-check-v63-cubic.log; no runtime/source changes after that gate. Original123components and617prior assets/data/72recording/five-study definitions remain exact. Local normal102/portable103both deliberately refreshed to the corrected runtime; all7new source routes retain exact IDs/pitches/rhythms/rests/tie/slur counts and all27marked Hebrew reader words/IDs. Segol upper/lower paths remain5/4monophonic notes; Darga alternatives differ only at their explicit G4/D4head. Munah triplet retains5heads/4sounding attacks and one tie distinct from its slur. Mercha kefula retains12notes/9beats/three printed3/4bars and three nested source slurs; corrected cubic outer arc visually encloses both smaller arcs and passes1206geometric relationships over-12/0/+12with SVGcontainment. Actual instrument semitone buttons give key-2/Aflat and tempo120gives4.50s without changing source pitches/rhythms; advisory high-range change during muted playback retains the same notes and active clock. Independent MAMtext change retains pattern notes/clock; source/main reading are unchanged. Normal/portable preface image renders2640x500from exact268701bytePNG and supports internal Save link; image bytes embedded in portable. Pending Pazer disables play/export and clears the staff; changing to Cohen hides/clears the Baer-only preface link. Earlier319px mobile control/root/dialog checks show319/319, no new-control overflow and2640pxsource panning inside245pxbody; public final-mobile verification remains required. Both local consoles0warnings/errors. All test players stopped, instrumentvolume0, native media paused, viewportreset; private102/103closed and server1737/8769stoppedCtrl-C/exit0. Olduser80/81/100/101and8765/8767untouched. No speaker listening, accepted singing voice, arbitrary-word fitting, full contextual grammar or qualified music/phonology review claimed. Public normal104/portable105 verify v0.63 and all7new source routes. Each route’s exact note IDs/pitches/values/rests and summary matches the final local build. Segol keeps5-note upper and4-note lower melodies with shared physical head IDs; Darga’s explicit G4/D4alternative never becomes a chord. Munah keeps5printed heads/4sounding attacks, triplet and same-pitch tie; Mercha kefula displays3correctly nested slurs and9written beats. Both versions start muted playback and retain the same notes when the independent MAMtext style changes. Actual semitone buttons produce key-2/Aflat;120BPM produces4.50seconds without changing9beats. High-range advice changes during active muted playback while retaining notes/clock. All27marked Hebrew reader words/IDs, main musical source and original instrument settings remain exact after restoration. The original preface image renders2640x500in both viewers; portable retains all268701source bytes and native Save link. Pending Pazer disables play/export and clears the staff. At319px, root/scroll319, every new control fits, staff pans inside232pxcontainer and full source image pans inside245pxdialog without page overflow. The final cubic and both inner slurs are present in both public builds and the mobile DOM. Actual desktop/mobile screenshots visually inspected; both consoles0warnings/errors. All test players stopped, instrumentvolume0, native media paused, viewportreset; public104/105retained and olduser80/81/100/101and8765/8767untouched. No speaker listening, qualified musical/phonological approval, new singing voice, arbitrary-word underlay or complete contextual grammar is claimed.",
+    "ui": "Final full538pass/0fail/0skip,9newchecks, log/private/tmp/tropetrain-check-v64-mobile.log; runtimeJSd62fcea0...same aspreliminarybrowsergate, finalportable102290862bytes/SHA25691fe770950fda60024c1f201be2f448bb6ebcbbd7d7fd257f71a71722f2a757d. Guardedcopy60485terminalexit0 copiedonly2generatedartifacts; no runtime/sourcechanges afterfullpass. Normal106andportable107eachproveall318source-wordlinks(159words/twostreams)across90+69readerpages, exactmarkedHebrew/IDs/phonetictext, bothactualsourcecolumnsandfiveexplicitcommonreadings. Nativeexportkeepssamewholeword/nulltimings; Gen1:14keepschosenstreamwith16explicitmissingwords/noexport, whileMAMstilloffersitsown16wordtext. Independentsource-onlyswitchduringmutedplaybackkeepscomplete score/settings/activeclock; MAMstylechangesitsseparatescoretextasexpectedwithoutalteringKhantext. Nativekey+1/tempo85/range74retainallmarkedwords/phonetictext; restored0/84/72. Source/checkbox/passagepersistacrossnormalandportablereloads. CompleteactualportableZIP311629bytes/SHA256b1b4b0006e9e0c29c581595cf8e49a72b02120f4ea63b37d03fcafd49b0ed6ebandJSON171155bytes/SHA256a1a80d4fe28571065b4fabeaddc2c09e3ace9047f5baf4f713271be4f44ef782verifiedfromrendereddataURLsusingboundedread-onlyDOMobservationsaftertransporttruncatedlongstringsat200000chars. No sourcebyteschanged. At319pxbothfinalsourcecontrolsfit:root/scroll319,selector259/259,newcomparison231/231after scopedcellwrapping. FinalmobileJPEGsaved; bothconsoles0warn/error. Allplayersstopped/instrument0/media paused,viewportreset. Old80/81/100/101/104/105anduser8765/8767untouched; private106/107andserver17190/8770remainuntilpublicationQA. All618priorassets/dataand72recordings/fivestudiesexact. No speakerlistening, source full-mark equivalence, acceptedsyllable/phone/note/audiotimes, newvoice, Kinnoridentity orfullgrammarclaimed.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -59,7 +59,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32_Cohen_and19_Baer_No105_untexted_figures_four_bounded_printed_examples_complete_contextual_grammars_and_independent_review_pending"
+      "status": "32_Cohen_and24_Baer_No105_untexted_figures_four_bounded_printed_examples_complete_contextual_grammars_and_independent_review_pending"
     },
     {
       "id": "singing",
@@ -194,10 +194,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.63.0",
-    "status": "529_checks_public_normal_portable_mobile_verified_final_records_saved_goal_active",
-    "baseline": "9051adb8f7ccc9e9852a56409fccd6af78324987",
-    "previousGoalTurn": "Progress:0.62published/519checks/live normal-portable-mobile/1040exactfiles saved.",
+    "version": "0.64.0",
+    "status": "538_final_checks_normal_portable_mobile_all318links_passed_publication_pending",
+    "baseline": "158fefb4a9d97aefd5559acc87b5ccb8762355bc",
+    "previousGoalTurn": "Progress:0.63published529checks/live normal-portable-mobile/1044exactfiles saved.",
     "newPublicVoice": null,
     "review": null
   },
@@ -1749,5 +1749,31 @@
     "allOriginalSourceUnitsRepresentedAsRows": true,
     "rightUnsplitCompoundObservationsWithheldPerComparison": 2,
     "sourceCompoundKind": "vowel-consonant-pair"
+  },
+  "publishedTiberianPronunciation": {
+    "record": "docs/KHAN-TIBERIAN-GENESIS.json",
+    "source": "Geoffrey Khan2020 §I.5.4.1, printed614–620, CC BY4.0",
+    "coverage": "Genesis1:1–13",
+    "words": 159,
+    "independentSourceTextReadings": 2,
+    "wordLinks": 318,
+    "printedColumns": 21,
+    "differentWords": 18,
+    "explicitCommonReadingVerses": [
+      3,
+      5,
+      8,
+      9,
+      13
+    ],
+    "originalMarkedReaderHebrewPreserved": true,
+    "sourceFullMarkEquivalence": null,
+    "syllableRanges": null,
+    "audioTimes": null,
+    "review": null,
+    "newVoice": null,
+    "completeGrammar": false,
+    "kinnorAccentId": null,
+    "status": "538checks_localnormalportablemobile_all318wordlinks_verified_publicationpending"
   }
 }
