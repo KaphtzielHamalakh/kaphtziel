@@ -51,7 +51,8 @@ export function readerPronunciationWord(word,study,style){
 }
 
 export function appendReaderPronunciation(target,report){
- target.replaceChildren();target.lang=report.schema==='tropetrain-published-pronunciation-word-v1'?'und-fonipa':'en';target.dir='ltr';target.className='reader-word-pronunciation';target.dataset.pronunciationStatus=report.status;
+ target.replaceChildren();target.lang=['tropetrain-published-pronunciation-word-v1','tropetrain-reader-phonology-proposal-v1'].includes(report.schema)?'und-fonipa':'en';target.dir='ltr';target.className='reader-word-pronunciation';target.dataset.pronunciationStatus=report.status;
+ if(report.profile)target.dataset.phonologyProfile=report.profile.id;else delete target.dataset.phonologyProfile;
  if(report.status!=='word-linked'){
   target.classList.add('unlinked');target.textContent=READER_PRONUNCIATION_MESSAGES[report.status];
   target.title=report.status==='combined-source-form'?'The source keeps this pronunciation combined across words. Select the Hebrew word for the complete source group.':'No transcription is substituted from another style or an approximate spelling.';return;
@@ -60,9 +61,10 @@ export function appendReaderPronunciation(target,report){
   const line=document.createElement('span');line.className='reader-pronunciation-entry';line.dataset.sourceCell=entry.sourceCellId;
   line.title=`Source row ${entry.sourceRow}, column ${entry.sourceColumn}${entry.sourceReference?' · same transcription as column '+entry.sourceReference.column:''}${entry.sourceForm?' · source reading form; written range unresolved':''}. Source text only; independent linguistic review pending.`;
   if(entry.kind==='published-phonetic-word')line.title=`Khan2020, printed p.${entry.printedPage}, transcription${entry.sourceColumn}${entry.sourceReference?' · explicitly shared by both readings':''}. Complete printed word only; syllable, note and audio timing unassigned.`;
+  if(entry.kind==='phonemic-research-word')line.title=`${report.profile.label}. Source row ${entry.sourceRow}, transcription column ${entry.sourceColumn}, Hebrew branch ${entry.hebrewColumn}. ? unresolved; ∅ source silence; (∅) proposed consonant loss; ↔ the same consonant event linked from the preceding source unit. Dots retain source syllables. Phonemic candidates only; no voice or timing assigned.`;
   const text=document.createElement('span');text.className='reader-pronunciation-text';
   for(const part of entry.parts){
-   text.append(document.createTextNode(part.join));const token=document.createElement(part.sourceStress?'strong':'span');token.textContent=part.text;token.dataset.sourceUnit=part.sourceUnitId;text.append(token);
+   text.append(document.createTextNode(part.join));const token=document.createElement(part.sourceStress?'strong':'span');token.textContent=part.text;token.dataset.sourceUnit=part.sourceUnitId;if(part.references){token.dataset.phonemicProposal='true';token.title=`Source ${part.sourceText} · ${part.hebrewClusterRanges?'original marked Hebrew ranges':'source form; written range unresolved'}. Candidate phones are displayed once; ↔ retains a shared source reference.`;}text.append(token);
   }
   line.append(text);
   if(entry.labels.length){const labels=document.createElement('small');labels.lang='he';labels.dir='rtl';labels.textContent=entry.labels.join(' / ');line.append(labels);}

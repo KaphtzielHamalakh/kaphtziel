@@ -1,10 +1,12 @@
 // Literal published text, not a pronunciation generator or an acoustic alignment.
 import {KHAN_PRONUNCIATION as source} from './khan-pronunciation-data.js';
+import {PHONOLOGY_PROFILES} from './pronunciation-phonology.js';
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 export const KHAN_PRONUNCIATION=freeze(source);
 export const READER_PRONUNCIATION_SOURCES=freeze([
  {id:'mam',name:'Phonetic MAM · selected text style',kind:'mam'},
- ...source.styles.map(s=>({id:'khan-'+s.id,name:s.label+' · Genesis1:1–13',kind:'published-word',reading:s.id}))
+ ...source.styles.map(s=>({id:'khan-'+s.id,name:s.label+' · Genesis1:1–13',kind:'published-word',reading:s.id})),
+ ...PHONOLOGY_PROFILES.map(p=>({id:p.id,name:p.label+' · phonemic text',kind:'phonemic-research',profileId:p.id}))
 ]);
 export function readerPronunciationSource(id){const s=READER_PRONUNCIATION_SOURCES.find(s=>s.id===id);if(!s)throw Error('Unknown reader pronunciation source; no replacement selected.');return s;}
 const words=new Map();
