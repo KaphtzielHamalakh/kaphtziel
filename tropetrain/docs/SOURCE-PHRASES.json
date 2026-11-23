@@ -1,0 +1,5919 @@
+{
+  "schema": "tropetrain-source-phrases-audit-v1",
+  "revision": 1,
+  "source": {
+    "id": "oshb-cantillation-structure",
+    "commit": "db6c5c9b46b8f39346f10915ddb1a70dcd429901",
+    "url": "https://github.com/openscriptures/morphhb/tree/db6c5c9b46b8f39346f10915ddb1a70dcd429901",
+    "license": "CC-BY-4.0",
+    "attribution": "Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb",
+    "edition": "Westminster Leningrad Codex4.20; edited n attributes",
+    "musicalRealization": null,
+    "pronunciation": null,
+    "review": null
+  },
+  "inputArchive": {
+    "path": "assets/structure/oshb-torah-source.zip",
+    "bytes": 1232120,
+    "sha256": "469f7d0fed0701d4d3c3f67d390d917c222639469332ef4026a6ac9141c23c40",
+    "distribution": "Build-time original XML archive; the portable app embeds the derived packet and attribution. Original XML is available through an explicit online source link."
+  },
+  "sourceFiles": [
+    {
+      "name": "Gen.xml",
+      "gitBlob": "09ac9cab0a47c5fae8d747c2868f1cf50d6d1131",
+      "bytes": 1859928,
+      "url": "https://raw.githubusercontent.com/openscriptures/morphhb/db6c5c9b46b8f39346f10915ddb1a70dcd429901/wlc/Gen.xml",
+      "sha256": "0526e5c9a5fb4d907847645f954ed3d1268fa69decbd872056cedd2668d86449"
+    },
+    {
+      "name": "Exod.xml",
+      "gitBlob": "9397e001f25d14353793a3924d4e9c605cecfc6c",
+      "bytes": 1524391,
+      "url": "https://raw.githubusercontent.com/openscriptures/morphhb/db6c5c9b46b8f39346f10915ddb1a70dcd429901/wlc/Exod.xml",
+      "sha256": "04868367cdacb6ccdc61488e923e20f918172042e6437842a0621f63ac5b847f"
+    },
+    {
+      "name": "Lev.xml",
+      "gitBlob": "71dca6003694912dd283b5d4f7e98d0790a123f6",
+      "bytes": 1085066,
+      "url": "https://raw.githubusercontent.com/openscriptures/morphhb/db6c5c9b46b8f39346f10915ddb1a70dcd429901/wlc/Lev.xml",
+      "sha256": "e21e70265c9ef500182f8ccb4f4e1186e5a79e1169d24cef23cc479baf07b191"
+    },
+    {
+      "name": "Num.xml",
+      "gitBlob": "15339e5a99c7900cf37810f8d6d7f18c59ad0aa0",
+      "bytes": 1496830,
+      "url": "https://raw.githubusercontent.com/openscriptures/morphhb/db6c5c9b46b8f39346f10915ddb1a70dcd429901/wlc/Num.xml",
+      "sha256": "02e4febfcc027d10b3e35e4f091eae67a40d26f37b6254faac6b4af053fe4896"
+    },
+    {
+      "name": "Deut.xml",
+      "gitBlob": "6966deedd88043fbef5a124d50e346711f652efa",
+      "bytes": 1315399,
+      "url": "https://raw.githubusercontent.com/openscriptures/morphhb/db6c5c9b46b8f39346f10915ddb1a70dcd429901/wlc/Deut.xml",
+      "sha256": "04f8087442a1e67a631cd70f2ac4e42fe0a780ae132edb165a3a29f3f290358f"
+    }
+  ],
+  "readerFingerprints": {
+    "gen": "bd1048b7d3f43c6cecb7fc5675e86521c89616130a638983242a7f7bcd5ecea6",
+    "exo": "8a41813ae43475461ae5f14a2e432fc3573c57e9d8b49fa15556a4416186dd99",
+    "lev": "a0b545fbb872d88cce14996b306f31d6ee374f1966a8831be4d98566c5ae65c8",
+    "num": "00e653b88d8c0dc2dfea8f243dfcfde1f7c6962b74c1ff8e22dd6de831fe5cab",
+    "deu": "e85f612a84d5c4338dfe3943beada11c1cf413e848286bcce14ad2eae3e6fe01"
+  },
+  "counts": {
+    "verses": 5853,
+    "words": 79985,
+    "availableVerses": 4548,
+    "availableWords": 58838,
+    "sourcePhraseLeaves": 32441,
+    "withheldVerses": 1305,
+    "withheldWords": 21147
+  },
+  "withheldReasons": {
+    "1": 1299,
+    "2": 2,
+    "4": 4
+  },
+  "reasonCodes": {
+    "0": "complete-marked-verse-correspondence",
+    "1": "different-marked-text",
+    "2": "different-word-count",
+    "3": "missing-source-verse",
+    "4": "invalid-or-incomplete-source-structure"
+  },
+  "examples": [
+    {
+      "verse": "gen-1-2",
+      "status": 1,
+      "sourceVerse": "Gen.1.2",
+      "readerWords": 14,
+      "sourceWords": 14,
+      "firstDifferences": [
+        {
+          "ordinal": 3,
+          "readerWordId": "gen-1-2-3",
+          "readerHebrew": "תֹ֙הוּ֙",
+          "sourceWordId": "01aPd",
+          "sourceHebrew": "תֹ֨הוּ֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-7",
+      "status": 1,
+      "sourceVerse": "Gen.1.7",
+      "readerWords": 17,
+      "sourceWords": 17,
+      "firstDifferences": [
+        {
+          "ordinal": 7,
+          "readerWordId": "gen-1-7-7",
+          "readerHebrew": "הַמַּ֙יִם֙",
+          "sourceWordId": "01A4a",
+          "sourceHebrew": "הַמַּ֨יִם֙"
+        },
+        {
+          "ordinal": 16,
+          "readerWordId": "gen-1-7-16",
+          "readerHebrew": "וֽ͏ַיְהִי־",
+          "sourceWordId": "019qY",
+          "sourceHebrew": "וַֽיְהִי־"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-9",
+      "status": 1,
+      "sourceVerse": "Gen.1.9",
+      "readerWords": 13,
+      "sourceWords": 13,
+      "firstDifferences": [
+        {
+          "ordinal": 6,
+          "readerWordId": "gen-1-9-6",
+          "readerHebrew": "הַשָּׁמַ֙יִם֙",
+          "sourceWordId": "01LJh",
+          "sourceHebrew": "הַשָּׁמַ֨יִם֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-11",
+      "status": 1,
+      "sourceVerse": "Gen.1.11",
+      "readerWords": 20,
+      "sourceWords": 20,
+      "firstDifferences": [
+        {
+          "ordinal": 4,
+          "readerWordId": "gen-1-11-4",
+          "readerHebrew": "הָאָ֙רֶץ֙",
+          "sourceWordId": "01zTj",
+          "sourceHebrew": "הָאָ֨רֶץ֙"
+        },
+        {
+          "ordinal": 5,
+          "readerWordId": "gen-1-11-5",
+          "readerHebrew": "דֶּ֗שֶׁא",
+          "sourceWordId": "01fPi",
+          "sourceHebrew": "דֶּ֔שֶׁא"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-12",
+      "status": 1,
+      "sourceVerse": "Gen.1.12",
+      "readerWords": 18,
+      "sourceWords": 18,
+      "firstDifferences": [
+        {
+          "ordinal": 6,
+          "readerWordId": "gen-1-12-6",
+          "readerHebrew": "זֶ֙רַע֙",
+          "sourceWordId": "01YWU",
+          "sourceHebrew": "זֶ֨רַע֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-13",
+      "status": 1,
+      "sourceVerse": "Gen.1.13",
+      "readerWords": 6,
+      "sourceWords": 6,
+      "firstDifferences": [
+        {
+          "ordinal": 1,
+          "readerWordId": "gen-1-13-1",
+          "readerHebrew": "וֽ͏ַיְהִי־",
+          "sourceWordId": "013Lj",
+          "sourceHebrew": "וַֽיְהִי־"
+        },
+        {
+          "ordinal": 3,
+          "readerWordId": "gen-1-13-3",
+          "readerHebrew": "וֽ͏ַיְהִי־",
+          "sourceWordId": "01WTe",
+          "sourceHebrew": "וַֽיְהִי־"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-15",
+      "status": 1,
+      "sourceVerse": "Gen.1.15",
+      "readerWords": 9,
+      "sourceWords": 9,
+      "firstDifferences": [
+        {
+          "ordinal": 8,
+          "readerWordId": "gen-1-15-8",
+          "readerHebrew": "וֽ͏ַיְהִי־",
+          "sourceWordId": "01MmM",
+          "sourceHebrew": "וַֽיְהִי־"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-21",
+      "status": 1,
+      "sourceVerse": "Gen.1.21",
+      "readerWords": 23,
+      "sourceWords": 23,
+      "firstDifferences": [
+        {
+          "ordinal": 9,
+          "readerWordId": "gen-1-21-9",
+          "readerHebrew": "הֽ͏ַחַיָּ֣ה ׀",
+          "sourceWordId": "016w9",
+          "sourceHebrew": "הַֽחַיָּ֣ה ׀"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-22",
+      "status": 1,
+      "sourceVerse": "Gen.1.22",
+      "readerWords": 13,
+      "sourceWords": 13,
+      "firstDifferences": [
+        {
+          "ordinal": 9,
+          "readerWordId": "gen-1-22-9",
+          "readerHebrew": "הַמַּ֙יִם֙",
+          "sourceWordId": "01qVd",
+          "sourceHebrew": "הַמַּ֨יִם֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-26",
+      "status": 1,
+      "sourceVerse": "Gen.1.26",
+      "readerWords": 19,
+      "sourceWords": 19,
+      "firstDifferences": [
+        {
+          "ordinal": 17,
+          "readerWordId": "gen-1-26-17",
+          "readerHebrew": "הֽ͏ָרֹמֵ֥שׂ",
+          "sourceWordId": "01zqr",
+          "sourceHebrew": "הָֽרֹמֵ֥שׂ"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-27",
+      "status": 1,
+      "sourceVerse": "Gen.1.27",
+      "readerWords": 13,
+      "sourceWords": 13,
+      "firstDifferences": [
+        {
+          "ordinal": 4,
+          "readerWordId": "gen-1-27-4",
+          "readerHebrew": "הֽ͏ָאָדָם֙",
+          "sourceWordId": "01LXS",
+          "sourceHebrew": "הָֽאָדָם֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-28",
+      "status": 1,
+      "sourceVerse": "Gen.1.28",
+      "readerWords": 22,
+      "sourceWords": 22,
+      "firstDifferences": [
+        {
+          "ordinal": 20,
+          "readerWordId": "gen-1-28-20",
+          "readerHebrew": "הֽ͏ָרֹמֶ֥שֶׂת",
+          "sourceWordId": "01vpK",
+          "sourceHebrew": "הָֽרֹמֶ֥שֶׂת"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-31",
+      "status": 1,
+      "sourceVerse": "Gen.1.31",
+      "readerWords": 15,
+      "sourceWords": 15,
+      "firstDifferences": [
+        {
+          "ordinal": 10,
+          "readerWordId": "gen-1-31-10",
+          "readerHebrew": "וֽ͏ַיְהִי־",
+          "sourceWordId": "01vLv",
+          "sourceHebrew": "וַֽיְהִי־"
+        },
+        {
+          "ordinal": 12,
+          "readerWordId": "gen-1-31-12",
+          "readerHebrew": "וֽ͏ַיְהִי־",
+          "sourceWordId": "01Sxc",
+          "sourceHebrew": "וַֽיְהִי־"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-5",
+      "status": 1,
+      "sourceVerse": "Gen.2.5",
+      "readerWords": 23,
+      "sourceWords": 23,
+      "firstDifferences": [
+        {
+          "ordinal": 23,
+          "readerWordId": "gen-2-5-23",
+          "readerHebrew": "הֽ͏ָאֲדָמָֽה׃",
+          "sourceWordId": "01FCP",
+          "sourceHebrew": "הָֽאֲדָמָֽה׃"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-8",
+      "status": 1,
+      "sourceVerse": "Gen.2.8",
+      "readerWords": 12,
+      "sourceWords": 12,
+      "firstDifferences": [
+        {
+          "ordinal": 5,
+          "readerWordId": "gen-2-8-5",
+          "readerHebrew": "בְּעֵ֖דֶן",
+          "sourceWordId": "01hSr",
+          "sourceHebrew": "בְעֵ֖דֶן"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-10",
+      "status": 1,
+      "sourceVerse": "Gen.2.10",
+      "readerWords": 11,
+      "sourceWords": 11,
+      "firstDifferences": [
+        {
+          "ordinal": 1,
+          "readerWordId": "gen-2-10-1",
+          "readerHebrew": "וְנָהָר֙",
+          "sourceWordId": "01zCS",
+          "sourceHebrew": "וְנָהָרּ֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-17",
+      "status": 1,
+      "sourceVerse": "Gen.2.17",
+      "readerWords": 13,
+      "sourceWords": 13,
+      "firstDifferences": [
+        {
+          "ordinal": 2,
+          "readerWordId": "gen-2-17-2",
+          "readerHebrew": "הַדַּ֙עַת֙",
+          "sourceWordId": "01aJe",
+          "sourceHebrew": "הַדַּ֨עַת֙"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-18",
+      "status": 1,
+      "sourceVerse": "Gen.2.18",
+      "readerWords": 12,
+      "sourceWords": 12,
+      "firstDifferences": [
+        {
+          "ordinal": 1,
+          "readerWordId": "gen-2-18-1",
+          "readerHebrew": "וַיֹּ֙אמֶר֙",
+          "sourceWordId": "01AXU",
+          "sourceHebrew": "וַיֹּ֨אמֶר֙"
+        },
+        {
+          "ordinal": 9,
+          "readerWordId": "gen-2-18-9",
+          "readerHebrew": "אֽ͏ֶעֱשֶׂהּ־",
+          "sourceWordId": "01G2d",
+          "sourceHebrew": "אֶֽעֱשֶׂהּ־"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-19",
+      "status": 1,
+      "sourceVerse": "Gen.2.19",
+      "readerWords": 28,
+      "sourceWords": 28,
+      "firstDifferences": [
+        {
+          "ordinal": 24,
+          "readerWordId": "gen-2-19-24",
+          "readerHebrew": "הֽ͏ָאָדָ֛ם",
+          "sourceWordId": "01F5r",
+          "sourceHebrew": "הָֽאָדָ֛ם"
+        }
+      ]
+    },
+    {
+      "verse": "gen-2-22",
+      "status": 1,
+      "sourceVerse": "Gen.2.22",
+      "readerWords": 13,
+      "sourceWords": 13,
+      "firstDifferences": [
+        {
+          "ordinal": 13,
+          "readerWordId": "gen-2-22-13",
+          "readerHebrew": "הֽ͏ָאָדָֽם׃",
+          "sourceWordId": "01RD4",
+          "sourceHebrew": "הָֽאָדָֽם׃"
+        }
+      ]
+    }
+  ],
+  "withheldVerses": [
+    {
+      "verse": "gen-1-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-1-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-2-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-3-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-3-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-3-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-3-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-3-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-3-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-4-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-5-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-6-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-7-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-8-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-9-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-10-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-11-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-12-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-13-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-13-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-13-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-13-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-13-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-17",
+      "reasonCode": 2
+    },
+    {
+      "verse": "gen-14-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-14-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-15-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-16-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-16-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-16-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-16-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-17-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-18-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-19-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-20-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-21-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-22-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-22-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-22-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-22-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-22-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-22-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-23-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-23-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-23-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-23-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-44",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-47",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-48",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-49",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-53",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-54",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-55",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-56",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-61",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-24-67",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-25-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-28",
+      "reasonCode": 4
+    },
+    {
+      "verse": "gen-26-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-26-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-39",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-27-46",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-28-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-29-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-29-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-29-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-29-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-29-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-29-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-30-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-31-54",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-32-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-33-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-33-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-33-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-33-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-33-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-33-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-34-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-35-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-35-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-35-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-35-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-36-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-36-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-36-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-36-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-36-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-36-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-37-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-38-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-39-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-40-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-55",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-41-57",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-42-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-43-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-44-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-45-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-45-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-45-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-46-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-46-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-46-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-46-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-47-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-48-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-48-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-48-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-48-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-48-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-49-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-50-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-50-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-50-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-50-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "gen-50-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-1-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-1-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-1-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-1-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-1-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-2-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-2-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-2-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-2-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-2-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-2-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-3-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-3-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-3-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-3-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-3-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-3-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-4-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-5-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-5-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-6-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-6-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-6-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-6-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-6-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-7-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-8-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-9-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-9-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-9-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-9-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-10-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-11-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-11-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-11-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-41",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-12-50",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-13-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-13-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-13-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-13-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-14-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-15-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-16-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-17-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-18-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-18-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-18-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-18-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-19-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-19-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-19-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-19-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-19-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-20-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-21-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-22-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-23-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-23-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-23-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-24-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-25-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-25-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-25-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-26-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-27-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-28-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-29-41",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-30-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-31-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-31-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-31-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-32-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-33-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-6",
+      "reasonCode": 4
+    },
+    {
+      "verse": "exo-34-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-34-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-35-35",
+      "reasonCode": 4
+    },
+    {
+      "verse": "exo-36-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-36-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-36-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-36-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-36-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-36-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-36-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-37-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-37-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-37-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-37-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-38-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-39",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-39-41",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-40-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-40-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-40-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-40-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "exo-40-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-1-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-1-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-1-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-2-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-2-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-2-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-2-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-2-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-2-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-3-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-3-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-3-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-3-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-3-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-3-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-4-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-4-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-4-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-4-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-5-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-5-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-5-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-5-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-6-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-7-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-7-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-7-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-7-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-7-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-8-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-9-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-9-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-9-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-10-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-10-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-10-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-10-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-10-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-11-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-11-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-11-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-11-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-11-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-11-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-42",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-49",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-51",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-56",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-13-57",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-48",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-51",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-14-53",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-15-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-15-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-16-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-16-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-16-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-16-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-16-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-17-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-17-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-17-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-18-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-18-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-18-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-18-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-18-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-18-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-19-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-19-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-19-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-19-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-20-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-20-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-20-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-21-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-21-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-21-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-22-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-22-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-22-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-22-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-23-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-24-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-24-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-24-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-24-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-25-45",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-39",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-40",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-26-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-27-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-27-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-27-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-27-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "lev-27-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-1-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-2-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-2-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-2-34",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-3-47",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-4-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-4-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-4-49",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-5-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-5-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-60",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-72",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-79",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-84",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-7-89",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-8-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-8-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-8-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-9-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-9-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-9-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-9-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-10-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-10-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-10-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-10-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-10-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-10-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-11-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-12-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-12-9",
+      "reasonCode": 2
+    },
+    {
+      "verse": "num-12-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-12-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-13-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-13-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-13-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-13-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-14-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-15-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-15-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-15-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-15-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-15-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-16-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-17-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-17-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-17-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-17-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-17-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-17-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-18-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-19-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-19-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-19-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-19-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-20-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-21-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-22-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-23-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-23-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-23-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-23-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-23-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-24-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-24-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-24-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-24-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-24-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-24-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-25-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-37",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-40",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-44",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-57",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-59",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-60",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-63",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-26-64",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-27-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-27-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-27-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-27-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-27-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-28-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-28-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-28-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-28-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-29-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-30-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-30-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-30-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-30-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-41",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-43",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-47",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-31-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-32-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-33-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-33-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-33-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-33-56",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-35-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-35-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-35-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "num-36-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-33",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-42",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-1-44",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-31",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-2-36",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-3-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-3-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-3-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-3-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-3-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-4-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-4-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-4-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-4-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-4-42",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-4-46",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-5-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-6-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-6-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-6-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-6-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-6-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-6-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-7-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-8-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-8-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-8-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-21",
+      "reasonCode": 4
+    },
+    {
+      "verse": "deu-9-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-9-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-10-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-11-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-12-30",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-13-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-13-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-13-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-13-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-13-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-13-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-14-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-14-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-14-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-14-25",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-14-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-14-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-15-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-16-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-16-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-16-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-16-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-16-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-17-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-17-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-17-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-17-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-17-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-17-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-18-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-18-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-18-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-18-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-18-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-4",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-19-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-20-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-20-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-20-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-20-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-20-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-20-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-21-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-21-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-21-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-21-23",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-22-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-23-6",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-23-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-23-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-23-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-24-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-24-18",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-24-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-24-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-25-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-25-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-25-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-25-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-25-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-26-17",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-27-3",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-27-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-27-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-27-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-1",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-24",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-35",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-40",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-45",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-47",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-53",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-57",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-63",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-65",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-68",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-28-69",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-29-5",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-29-14",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-29-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-29-21",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-29-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-29-28",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-8",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-9",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-12",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-15",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-19",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-30-20",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-31-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-31-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-31-27",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-31-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-7",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-11",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-22",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-32",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-38",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-39",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-50",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-32-52",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-33-2",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-33-10",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-33-13",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-33-16",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-33-26",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-33-29",
+      "reasonCode": 1
+    },
+    {
+      "verse": "deu-34-4",
+      "reasonCode": 1
+    }
+  ],
+  "sourceStructureGaps": [
+    {
+      "verse": "gen-26-28",
+      "sourceEndpoints": [
+        [
+          0,
+          "1.1.1",
+          "01SHs"
+        ],
+        [
+          2,
+          "1.1.0",
+          "01NwY"
+        ],
+        [
+          5,
+          "1.0",
+          "01CJy"
+        ],
+        [
+          6,
+          "1.1",
+          "01shv"
+        ],
+        [
+          7,
+          "1.0.1",
+          "01xJC"
+        ],
+        [
+          10,
+          "1.0.0",
+          "01Qv7"
+        ],
+        [
+          11,
+          "1.0",
+          "015SQ"
+        ],
+        [
+          13,
+          "1",
+          "014P8"
+        ],
+        [
+          15,
+          "0.0",
+          "01Lpu"
+        ],
+        [
+          16,
+          "0",
+          "01nMq"
+        ]
+      ]
+    },
+    {
+      "verse": "exo-34-6",
+      "sourceEndpoints": [
+        [
+          3,
+          "1.2.0",
+          "022Eu"
+        ],
+        [
+          4,
+          "1.2",
+          "02Vys"
+        ],
+        [
+          5,
+          "1.0",
+          "02mpZ"
+        ],
+        [
+          6,
+          "1.1",
+          "028G9"
+        ],
+        [
+          8,
+          "1.0",
+          "02idq"
+        ],
+        [
+          9,
+          "1",
+          "02FLj"
+        ],
+        [
+          11,
+          "0.0",
+          "02aAR"
+        ],
+        [
+          14,
+          "0",
+          "02DHb"
+        ]
+      ]
+    },
+    {
+      "verse": "exo-35-35",
+      "sourceEndpoints": [
+        [
+          1,
+          "1.1.1.0",
+          "028u5"
+        ],
+        [
+          3,
+          "1.1.1",
+          "02cNx"
+        ],
+        [
+          4,
+          "1.1.0",
+          "02Qdc"
+        ],
+        [
+          7,
+          "1.0",
+          "02ZLb"
+        ],
+        [
+          8,
+          "1.1",
+          "028mE"
+        ],
+        [
+          9,
+          "1.0.1.0",
+          "02XsU"
+        ],
+        [
+          11,
+          "1.0.1",
+          "02Jot"
+        ],
+        [
+          13,
+          "1.0.0",
+          "02kXU"
+        ],
+        [
+          14,
+          "1.0",
+          "02BPU"
+        ],
+        [
+          15,
+          "1",
+          "02va8"
+        ],
+        [
+          16,
+          "0.1.0",
+          "027Pb"
+        ],
+        [
+          18,
+          "0.1",
+          "02J1p"
+        ],
+        [
+          19,
+          "0.0",
+          "02dXx"
+        ],
+        [
+          20,
+          "0",
+          "02SBD"
+        ]
+      ]
+    },
+    {
+      "verse": "deu-9-21",
+      "sourceEndpoints": [
+        [
+          1,
+          "1.2.1.0",
+          "05MaF"
+        ],
+        [
+          5,
+          "1.2.1",
+          "05nTA"
+        ],
+        [
+          6,
+          "1.2.0",
+          "05Xw7"
+        ],
+        [
+          8,
+          "1.0",
+          "055Mw"
+        ],
+        [
+          9,
+          "1.2",
+          "05uvu"
+        ],
+        [
+          12,
+          "1.1.0",
+          "05fDj"
+        ],
+        [
+          13,
+          "1.1",
+          "05UXN"
+        ],
+        [
+          16,
+          "1.0",
+          "05bdC"
+        ],
+        [
+          17,
+          "1",
+          "05gUj"
+        ],
+        [
+          18,
+          "0.1.0",
+          "05kJL"
+        ],
+        [
+          20,
+          "0.1",
+          "05W3H"
+        ],
+        [
+          22,
+          "0.0",
+          "05aVp"
+        ],
+        [
+          25,
+          "0",
+          "059pt"
+        ]
+      ]
+    }
+  ],
+  "packet": {
+    "path": "data/structure/torah-phrases.json.gz",
+    "bytes": 185847,
+    "sha256": "f1ef0e4a5b43ac6d19538e569d476c32776598bfd95c6bff37222f07a78fd526"
+  },
+  "comparison": "Preferred w/q reading only, with source morphology separators removed and explicit XML maqaf/sof pasuq/paseq attached to their word. NFD is used only for comparison; no source or reader string is overwritten. Every word in the complete verse must match all letters, vowels, marks and punctuation. One different mark withholds the complete verse. No inferred replacement tree.",
+  "limits": "Source-edited phrase hierarchy, not a musical/pitch realization, pronunciation rule, sung timing or reviewed cantorial grammar. New selection code adapts source paths; independent cantorial review pending."
+}

@@ -1,0 +1,339 @@
+{
+  "schema": "tropetrain-source-phrase-playback-audit-v1",
+  "revision": 1,
+  "sourceCommit": "db6c5c9b46b8f39346f10915ddb1a70dcd429901",
+  "counts": {
+    "verses": 5853,
+    "words": 79985,
+    "availableVerses": 4548,
+    "availableWords": 58838,
+    "withheldVerses": 1305,
+    "withheldWords": 21147,
+    "selectedRanges": 52841,
+    "sourcePhraseLeaves": 32441,
+    "noteMembershipChecks": 597410,
+    "splitMaqafRanges": 0
+  },
+  "examples": [
+    {
+      "verse": "gen-1-1",
+      "ranges": [
+        {
+          "kind": "source-phrase",
+          "path": "1.0",
+          "from": 1,
+          "to": 1,
+          "sourceEndWordId": "01xeN"
+        },
+        {
+          "kind": "source-branch",
+          "path": "1",
+          "from": 1,
+          "to": 3,
+          "sourceEndWordId": "01TyA"
+        },
+        {
+          "kind": "source-verse",
+          "path": null,
+          "from": 1,
+          "to": 7,
+          "sourceEndWordId": "01nPh"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1",
+          "from": 2,
+          "to": 3,
+          "sourceEndWordId": "01TyA"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0.0",
+          "from": 4,
+          "to": 5,
+          "sourceEndWordId": "01TSc"
+        },
+        {
+          "kind": "source-branch",
+          "path": "0",
+          "from": 4,
+          "to": 7,
+          "sourceEndWordId": "01nPh"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0",
+          "from": 6,
+          "to": 7,
+          "sourceEndWordId": "01nPh"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-3",
+      "ranges": [
+        {
+          "kind": "source-phrase",
+          "path": "1.0",
+          "from": 1,
+          "to": 2,
+          "sourceEndWordId": "01JM7"
+        },
+        {
+          "kind": "source-branch",
+          "path": "1",
+          "from": 1,
+          "to": 4,
+          "sourceEndWordId": "01W26"
+        },
+        {
+          "kind": "source-verse",
+          "path": null,
+          "from": 1,
+          "to": 6,
+          "sourceEndWordId": "01jbg"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1",
+          "from": 3,
+          "to": 4,
+          "sourceEndWordId": "01W26"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0",
+          "from": 5,
+          "to": 6,
+          "sourceEndWordId": "01jbg"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-4",
+      "ranges": [
+        {
+          "kind": "source-phrase",
+          "path": "1.0.0",
+          "from": 1,
+          "to": 2,
+          "sourceEndWordId": "01v6U"
+        },
+        {
+          "kind": "source-branch",
+          "path": "1.0",
+          "from": 1,
+          "to": 4,
+          "sourceEndWordId": "01GzE"
+        },
+        {
+          "kind": "source-branch",
+          "path": "1",
+          "from": 1,
+          "to": 6,
+          "sourceEndWordId": "01g2y"
+        },
+        {
+          "kind": "source-verse",
+          "path": null,
+          "from": 1,
+          "to": 12,
+          "sourceEndWordId": "01dBc"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1.0",
+          "from": 3,
+          "to": 4,
+          "sourceEndWordId": "01GzE"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1",
+          "from": 5,
+          "to": 6,
+          "sourceEndWordId": "01g2y"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0.1",
+          "from": 7,
+          "to": 8,
+          "sourceEndWordId": "01794"
+        },
+        {
+          "kind": "source-branch",
+          "path": "0",
+          "from": 7,
+          "to": 12,
+          "sourceEndWordId": "01dBc"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0.0",
+          "from": 9,
+          "to": 10,
+          "sourceEndWordId": "01XR4"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0",
+          "from": 11,
+          "to": 12,
+          "sourceEndWordId": "01dBc"
+        }
+      ]
+    },
+    {
+      "verse": "gen-1-5",
+      "ranges": [
+        {
+          "kind": "source-phrase",
+          "path": "1.1.0",
+          "from": 1,
+          "to": 3,
+          "sourceEndWordId": "01Wkf"
+        },
+        {
+          "kind": "source-branch",
+          "path": "1.1",
+          "from": 1,
+          "to": 4,
+          "sourceEndWordId": "01wrL"
+        },
+        {
+          "kind": "source-branch",
+          "path": "1",
+          "from": 1,
+          "to": 7,
+          "sourceEndWordId": "01sMn"
+        },
+        {
+          "kind": "source-verse",
+          "path": null,
+          "from": 1,
+          "to": 13,
+          "sourceEndWordId": "01NFp"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1.1",
+          "from": 4,
+          "to": 4,
+          "sourceEndWordId": "01wrL"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1.0",
+          "from": 5,
+          "to": 5,
+          "sourceEndWordId": "013TL"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "1",
+          "from": 6,
+          "to": 7,
+          "sourceEndWordId": "01sMn"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0.0",
+          "from": 8,
+          "to": 11,
+          "sourceEndWordId": "01kA7"
+        },
+        {
+          "kind": "source-branch",
+          "path": "0",
+          "from": 8,
+          "to": 13,
+          "sourceEndWordId": "01NFp"
+        },
+        {
+          "kind": "source-phrase",
+          "path": "0",
+          "from": 12,
+          "to": 13,
+          "sourceEndWordId": "01NFp"
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "scripts/import-source-phrases.py",
+      "sha256": "18346935845dcce9ce614ba75537a97ed579002c044c23951942c016f2880f9e"
+    },
+    {
+      "path": "scripts/audit-source-phrases.mjs",
+      "sha256": "4c59b65c5abf03bc95b70b3a83626b1c2c3145a8e15200cbb5797fe79356fb8b"
+    },
+    {
+      "path": "source-phrases.js",
+      "sha256": "be76b842d8d699b10620482e71f343c8555bb492b5824d1dae2068a43e4e0912"
+    },
+    {
+      "path": "source-phrase-data.js",
+      "sha256": "e010a148a908ff258eae140ff7e804892317eef3de2a06b91649e9f0996250a7"
+    },
+    {
+      "path": "source-phrase-summary.js",
+      "sha256": "1ac13558b56c79bdf927e37cb538b52c920fd7acf91318fc21ca0bd86333a7db"
+    },
+    {
+      "path": "source-phrase-ui.js",
+      "sha256": "7923116332104e76ff34b01561d0e055dabc57d78af5a43b7a23bc4ce7940531"
+    },
+    {
+      "path": "app.js",
+      "sha256": "b2ca4ff5d84e9244d920ad46374335a9fbd118aee369a179a031591b03f4d97e"
+    },
+    {
+      "path": "index.html",
+      "sha256": "66d5fb9791a8d2ba5c9d04090c293c2b7775de420a77e0f4092aaf8d45b4fa9d"
+    },
+    {
+      "path": "music.js",
+      "sha256": "994b1b66e3756d719cec2c495a742c824da489adcebb036a78d1a7bd7b7655da"
+    },
+    {
+      "path": "style.css",
+      "sha256": "795d6b2797a37ce8aeb49b4b208a67febdbb34155138291e836b1fc9d3731a3a"
+    },
+    {
+      "path": "sw.js",
+      "sha256": "e819d26aaef2147f64951f5c89472b554639ab4b4a5a89ac89023879b605b0e5"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "bed3925c24df9abb302f01c0c68a641c19d4dc16fcae33ae4bcfa7b5755a71bf"
+    },
+    {
+      "path": "assets/structure/oshb-torah-source.zip",
+      "sha256": "469f7d0fed0701d4d3c3f67d390d917c222639469332ef4026a6ac9141c23c40"
+    },
+    {
+      "path": "assets/structure/NOTICE.txt",
+      "sha256": "6cc97e146471d835b7b32151fd63dce0d49f165c8b317c0bcf73e5d1a9305273"
+    },
+    {
+      "path": "data/structure/torah-phrases.json.gz",
+      "sha256": "f1ef0e4a5b43ac6d19538e569d476c32776598bfd95c6bff37222f07a78fd526"
+    },
+    {
+      "path": "docs/SOURCE-PHRASES.json",
+      "sha256": "21e2a9d612c1e6048a2c50425d74ef95e6c607fa93539a11685c6c824690d9cf"
+    }
+  ],
+  "sourceTextChanged": false,
+  "accentMarksChanged": false,
+  "noteSequencesChanged": false,
+  "recordingsChanged": false,
+  "phonemes": null,
+  "audioTimes": null,
+  "singingVoice": null,
+  "historicalMusicalRealization": null,
+  "independentReview": null,
+  "limits": "Exact source phrase range selection across the checked complete Torah verses. Other marked editions, word divisions, unsupported source paths and clipped/stale occurrences are withheld. Existing melody, pronunciation text/proposals, recorded clocks, key, tempo and range stay independent. No source pitch, acoustic word/syllable allocation or musical grammar is inferred."
+}

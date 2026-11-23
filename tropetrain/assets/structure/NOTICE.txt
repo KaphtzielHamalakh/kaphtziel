@@ -1,0 +1,28 @@
+Source phrase boundaries
+
+Original work of the Open Scriptures Hebrew Bible available at
+https://github.com/openscriptures/morphhb
+Pinned revision: db6c5c9b46b8f39346f10915ddb1a70dcd429901
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+The source uses the public-domain Westminster Leningrad Codex, version 4.20.
+The n attributes record its edited cantillation divisions. The source README
+and OshbVerse documentation describe their nested dot-separated paths.
+
+TropeTrain derives phrase ranges from those paths only when every preferred
+reading word, accent, vowel and punctuation in a whole verse agrees with the
+unchanged UXLC reading. Morphology separators and separately encoded source
+maqaf, paseq and sof pasuq are attached to their source word for comparison.
+No source or displayed Hebrew string is rewritten. Other editions and changed
+marks are withheld. Complete source XML, its license and README are preserved
+in oshb-torah-source.zip for reproducible builds.
+
+The compact derived packet and comparison are adaptations by this project,
+under CC BY 4.0. New selection and validation code is original. No endorsement
+by the Open Scriptures Hebrew Bible Project is implied.
+
+These are source phrase boundaries, with independent cantorial review pending.
+They do not provide melody pitches, sung syllable alignment, a pronunciation
+voice or equivalence to a historical Kinnor preset. Selected recordings retain
+their own melody and pronunciation; instrumental studies keep their own notes.

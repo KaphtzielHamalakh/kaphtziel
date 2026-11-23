@@ -1,0 +1,2 @@
+// Generated from pinned, licensed OSHB source; do not edit by hand.
+export const SOURCE_PHRASE_DATA=Object.freeze({"sourceCommit":"db6c5c9b46b8f39346f10915ddb1a70dcd429901","packetJsonSha256":"0440ec91f9b8e5eacd19715497901d74fc581f14e2c1057cb87ff6a34f9d888b","counts":{"verses":5853,"words":79985,"availableVerses":4548,"availableWords":58838,"sourcePhraseLeaves":32441,"withheldVerses":1305,"withheldWords":21147}});

@@ -15,10 +15,13 @@ test('downloaded entry point uses a classic bundle instead of file-origin ES mod
 });
 test('browser bundle embeds the same complete Torah data as the source corpus',()=>{
   const bundle=read('app.bundle.js');
-  const encoded=bundle.match(/var encoded = "([A-Za-z0-9+/=]+)"/);
-  assert.ok(encoded,'Embedded gzip corpus is present.');
-  const data=JSON.parse(gunzipSync(Buffer.from(encoded[1],'base64')).toString('utf8'));
-  assert.deepEqual(data.manifest,JSON.parse(read('data/torah/manifest.json')));
+  const manifest=JSON.parse(read('data/torah/manifest.json'));
+  const candidates=[...bundle.matchAll(/var encoded\w* = "(H4sI[A-Za-z0-9+/=]+)"/g)]
+    .map(match=>JSON.parse(gunzipSync(Buffer.from(match[1],'base64')).toString('utf8')))
+    .filter(data=>data.manifest?.edition===manifest.edition&&Array.isArray(data.books)&&data.books.length===manifest.books.length&&data.books.every((book,i)=>book.id===manifest.books[i].id));
+  assert.equal(candidates.length,1,'Exactly one complete Torah corpus is embedded, independently of other compressed data.');
+  const data=candidates[0];
+  assert.deepEqual(data.manifest,manifest);
   for(const book of data.books)assert.deepEqual(book,JSON.parse(read(`data/torah/${book.id}.json`)));
 });
 test('page assets and offline cache use the release version to avoid mixed upgrades',()=>{
