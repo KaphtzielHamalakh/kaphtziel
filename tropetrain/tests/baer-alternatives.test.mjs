@@ -28,7 +28,7 @@ test('Segol keeps two monophonic stem-lines and shared physical heads without me
  assert.deepEqual(b.map(e=>e.midi),[67,60,69,65]);assert.deepEqual(b.map(e=>e.beats),[1,.5,.5,1]);
  assert.equal(a[0].id,b[0].id);assert.equal(a[3].id,b[2].id);assert.equal(a[0].sourceVariant.id,'upper');assert.equal(b[0].sourceVariant.id,'lower');
  assert.equal(printedPatternBeats(a),3);assert.equal(printedPatternBeats(b),3);
- assert.deepEqual(patternContextChoices(data.id,'segol:lower')[0].ids,['segol']);
+ assert.deepEqual(patternContextChoices(data.id,'segol:lower')[0].ids,['segolta']);
  for(const route of [a,b])for(let i=1;i<route.length;i++)assert.equal(route[i].startSeconds,route[i-1].startSeconds+route[i-1].durationSeconds);
 });
 
