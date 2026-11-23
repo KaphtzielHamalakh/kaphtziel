@@ -1,3 +1,4 @@
+import {isJointEvent,eventNavigationIndex} from './event-correspondence.js';
 import {JOINT_COVERAGE_SUMMARY} from './joint-coverage-summary.js';
 import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js';
 import {PRINTED_SCORE} from './printed-score.js';
@@ -49,8 +50,8 @@ const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 let readerPronunciation=false;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-reader-pronunciation-v1'));if(typeof saved?.enabled==='boolean')readerPronunciation=saved.enabled;}catch{}
 $('reader-pronunciation').checked=readerPronunciation;
-let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceReadingChoices=readingChoices(),sourceSyllableAdapter=null,sourceSyllableError=null,sourceSyllableRequest=0;
-try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;sourceReadingChoices=readingChoices(saved?.sourceReadingChoices??{});}catch{}
+let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceJointEnabled=false,sourceReadingChoices=readingChoices(),sourceSyllableAdapter=null,sourceSyllableError=null,sourceSyllableRequest=0;
+try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;sourceJointEnabled=saved?.allowJointSources===true;sourceReadingChoices=readingChoices(saved?.sourceReadingChoices??{});}catch{}
 function makeReadingModel(value,settings){return createReadingModel(value,{...settings,...(sourceSyllablesEnabled?{sourceUnderlay:sourceSyllableAdapter}:{})});}
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,chantRate:100,chantTranspose:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
@@ -64,7 +65,7 @@ try{
     for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
-    if(['word','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
+    if(['word','source-unit','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
     for(const key of ['repeat','groups','followPlayback','signClasses','scrollLayout'])if(typeof saved[key]==='boolean')state[key]=saved[key];
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
@@ -78,7 +79,7 @@ state.readingType='torah';
 let passage={...openingPassage,title:'Genesis 1:1–3',ranges:[structuredClone(defaultRange)]};
 let model=makeReadingModel(passage,state),{words,bounds,buildPlan}=model;
 state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.anchor,words.length-1);state.readerPage=0;
-let corpus,chooseEnd=false,plan=[],activeId=null,activeEventId=null,activeInstrumentEvent=null,playingBounds=null;
+let corpus,chooseEnd=false,plan=[],activeId=null,activeWordIds=[],activeEventId=null,activeInstrumentEvent=null,playingBounds=null;
 let recent=loadArray('tropetrain-recent-v1'),assignments=loadArray('tropetrain-assignments-v1');
 let restoringReading=!!restore.ranges;
 let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecovery(localStorage);}catch{}
@@ -137,8 +138,9 @@ const label=i=>`${words[i].chapter}:${words[i].verse} · word ${words[i].ordinal
 const fullLabel=i=>`${words[i].bookName} ${label(i)}`;
 const say=text=>{$('status').setAttribute('aria-live','polite');$('status').textContent=text;};
 const player=new Player((event,cycle,progress,index)=>{
+  const navigationIndex=eventNavigationIndex(event);
   if(state.followPlayback){
-    const page=Math.floor(words[event.wordIndex].verseIndex/VERSE_PAGE);
+    const page=Math.floor(words[navigationIndex].verseIndex/VERSE_PAGE);
     if(page!==state.readerPage){state.readerPage=page;renderReader();}
     const notePage=Math.floor(index/NOTE_PAGE);
     if(notePage!==state.notePage){state.notePage=notePage;renderNotes();}
@@ -146,10 +148,10 @@ const player=new Player((event,cycle,progress,index)=>{
     if(staffPage!==state.staffPage){state.staffPage=staffPage;renderStaff();}
   }
   activeInstrumentEvent=event;
-  setActive(event.wordId,event.id);
-  pronunciationTools?.showWord(words[event.wordIndex],{following:true});
+  setActive(isJointEvent(event)?event.wordIds:event.wordId,event.id);
+  pronunciationTools?.showWord(words[navigationIndex],{following:true});
   $('progress').style.width=`${progress*100}%`;
-  $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Playing ${label(event.wordIndex)} · ${eventPitchName(event)}`;
+  $('status').textContent=`${state.repeat?`Loop ${cycle+1} · `:''}Playing ${isJointEvent(event)?label(navigationIndex)+' through word '+words[event.wordIndices.at(-1)].ordinal+' · shared source word':label(navigationIndex)} · ${eventPitchName(event)}`;
 },()=>{
   pronunciationTools?.showWord(words[state.cursor]);
   setActive(null,null);$('progress').style.width='100%';say(`Finished at ${label(playingBounds[1])}.`);transportLabel(false);
@@ -163,10 +165,11 @@ function renderPronunciationFollow(){
   let report=null,error=null;
   const readerSource=pronunciationTools?.readerStatus();
   if(activeInstrumentEvent&&readerSource?.kind!=='published-word')try{report=pronunciationTools?.followNote(activeInstrumentEvent,words);}catch(e){error=e.message;}
-  const unitIds=new Set(['exact-written-span','source-reading-word'].includes(report?.status)?report.units.map(u=>u.sourceUnitId):[]);
+  const unitIds=new Set(['exact-written-span','source-reading-word','source-reading-group'].includes(report?.status)?report.units.map(u=>u.sourceUnitId):[]);
   for(const el of $('reader').querySelectorAll('.reader-word-pronunciation [data-source-unit]')){
     const button=el.closest('.pronunciation-word')?.querySelector('.word');
-    const active=!!report&&button?.dataset.word===report.wordId&&unitIds.has(el.dataset.sourceUnit);
+    const shared=el.closest('.reader-source-group');
+    const active=!!report&&unitIds.has(el.dataset.sourceUnit)&&(report.status==='source-reading-group'?shared?.dataset.jointGroup===report.jointGroupId:button?.dataset.word===report.wordId);
     el.classList.toggle('pronunciation-syllable-active',active);
     if(active)el.setAttribute('aria-current','true');else el.removeAttribute('aria-current');
   }
@@ -174,13 +177,16 @@ function renderPronunciationFollow(){
   status.dataset.event=activeInstrumentEvent?.id??'';status.dataset.followWord=activeInstrumentEvent?.wordId??'';
   status.dataset.followStatus=error?'review-needed':report?.status??(activeInstrumentEvent?'loading':'idle');
   if(readerSource?.kind==='published-word'){status.dataset.followStatus='published-word-only';status.textContent='Published Tiberian text follows whole words. Syllable and note highlighting is unassigned for this source; the instrument and recordings keep their own pronunciation and melody.';return;}
+  status.dataset.followWords=JSON.stringify(report?.wordIds??(report?.wordId?[report.wordId]:[]));
+  if(report?.status==='source-reading-group'){status.textContent=`${readerSource.name} · shared source syllable ${report.hebrew} · both displayed words together. Individual word ownership, written syllable ranges, sung phones and acoustic timing remain unassigned.`;return;}
   if(report?.status==='source-reading-word'){status.textContent=`${readerSource.name} · source reading ${report.hebrew} · word-level correspondence to the unchanged displayed Hebrew. Source text follows the instrument; written syllable ranges, sung phones and acoustic timing remain unassigned.`;return;}
   if(readerSource?.kind==='phonemic-research'&&report?.status==='exact-written-span'){status.textContent=`${readerSource.name} · ${report.hebrew} · existing exact source-syllable correspondence. Research text follows the instrument; candidate sounds, shared consonants and silences have no assigned acoustic timing or singing voice.`;return;}
   status.textContent=error?`Pronunciation highlighting unavailable: ${error}`:!activeInstrumentEvent?hint:!report?'Loading source syllable correspondence…':report.status==='exact-written-span'?`${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map(u=>u.text))].join(' / ')} · exact written-span match. Text follows the instrument; no sung syllable is implied.`:`${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
 }
 function setActive(wordId,eventId){
   if(!eventId)activeInstrumentEvent=null;
-  if(wordId!==activeId){activeId=wordId;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',marksWord(el,wordId)));}
+  const ids=Array.isArray(wordId)?wordId:wordId?[wordId]:[],key=ids.join('\u0000');
+  if(key!==activeId){activeId=key;activeWordIds=ids;document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('active',ids.some(id=>marksWord(el,id))));}
   if(eventId!==activeEventId){activeEventId=eventId;document.querySelectorAll('[data-event]').forEach(el=>el.classList.toggle('active',el.dataset.event===eventId));}
   renderPronunciationFollow();
 }
@@ -281,6 +287,7 @@ function renderReader(){
   renderReaderPronunciation();
 }
 function renderReaderPronunciation(){
+  $('reader').querySelectorAll('.reader-source-group').forEach(el=>el.remove());
   const buttons=[...$('reader').querySelectorAll('.hebrew-line .word')],source=pronunciationTools?.readerStatus(),counts={linked:0,sourceForm:0,combined:0,unassigned:0,review:0},seen=new Set();
   for(const [index,button] of buttons.entries()){
     const word=words[Number(button.dataset.index)];
@@ -301,9 +308,20 @@ function renderReaderPronunciation(){
       const report=pronunciationTools?.readerText(word);
       if(report){
         appendReaderPronunciation(label,report);
+        if(word.sourceJointGroup&&report.status==='combined-source-form'){label.textContent='Shared source reading below';label.title='This source pronunciation belongs jointly to the complete group of written words. No individual syllable owner is assigned.';}
         if(!seen.has(word.id)){seen.add(word.id);if(report.status==='word-linked'){counts.linked++;counts.sourceForm+=report.entries.some(e=>e.sourceForm);}else counts[report.status==='combined-source-form'?'combined':'unassigned']++;}
       }else{label.textContent=source?.error?'Source text unavailable':'Loading source text…';label.lang='en';label.dir='ltr';}
     }catch(error){label.textContent='Source link needs review';label.title=error.message;label.lang='en';label.dir='ltr';if(!seen.has(word.id)){seen.add(word.id);counts.review++;}}
+  }
+  if(readerPronunciation)for(const group of model.sourceJointGroups??[]){
+    if(!group.wordIds.every(id=>buttons.some(b=>marksWord(b,id))))continue;
+    const panel=document.createElement('section');panel.className='reader-source-group';panel.dataset.jointGroup=group.id;panel.lang='en';panel.dir='ltr';
+    const title=document.createElement('h4'),first=words[group.navigationWordIndex],last=words[group.wordIndices.at(-1)];title.textContent=`Shared source pronunciation · ${first.reference}, words ${first.ordinal}–${last.ordinal}`;
+    const hebrew=document.createElement('p');hebrew.lang='he';hebrew.dir='rtl';hebrew.textContent=group.readerHebrew.join(' ');
+    const text=document.createElement('div');try{const report=pronunciationTools?.readerGroup(group,words);if(report)appendReaderPronunciation(text,report);else text.textContent=source?.kind==='published-word'?'No joint text in this published transcription.':'Preparing the shared source text…';}catch(error){text.textContent='Shared source link needs review';text.title=error.message;}
+    const note=document.createElement('p');note.className='muted';note.textContent='One complete source pronunciation word; every syllable corresponds to both written words together. The displayed Hebrew and accents are unchanged. Individual word ownership and acoustic timing remain unassigned.';
+    const select=document.createElement('button');select.textContent='Select complete shared source word';select.addEventListener('click',()=>{stop('Complete shared source word selected.');state.cursor=group.wordIndices[0];state.anchor=group.wordIndices.at(-1);state.scope='source-unit';state.notePage=0;state.staffPage=0;render();});
+    panel.append(title,hebrew,text,note,select);(buttons.find(b=>marksWord(b,group.wordIds[0]))?.closest('.verse')??$('reader')).append(panel);
   }
   $('reader-pronunciation-status').textContent=!readerPronunciation?'Pronunciation text under the words is hidden.':!buttons.length?'Choose Pointed or Side by side to see pronunciation text with the preferred reading. Written scroll letters keep their separate source.':source?.error?source.error:!seen.size?'Loading local pronunciation text…':`${source.name} · ${counts.linked} word-linked on this page${counts.sourceForm?`, including ${counts.sourceForm} source reading forms`:''}; ${counts.combined} combined and ${counts.unassigned} without individual source text${counts.review?`; ${counts.review} links need review`:''}. ${source.kind==='phonemic-research'?'Research phonemic candidates: ? unresolved, ∅ source silence, (∅) proposed consonant loss, ↔ one shared consonant event. Dots and bold preserve source syllables and stress; linguistic review, voice and sound timing remain unassigned.':'Stress and alternatives follow the source; linguistic review is pending.'} Recordings retain their original pronunciation.`;
   renderPronunciationFollow();
@@ -335,11 +353,11 @@ function updateSelection(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
   document.querySelectorAll('[data-word]').forEach(el=>{
     const i=Number(el.dataset.index),last=Number(el.dataset.endIndex??i),selected=last>=start&&i<=end;el.classList.toggle('selected',selected);el.classList.toggle('cursor',i<=state.cursor&&last>=state.cursor);
-    el.classList.toggle('active',marksWord(el,activeId));el.setAttribute('aria-pressed',String(selected));
+    el.classList.toggle('active',activeWordIds.some(id=>marksWord(el,id)));el.setAttribute('aria-pressed',String(selected));
     el.classList.toggle('reference-active',marksWord(el,referenceActiveId));
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${fullLabel(start)} to ${fullLabel(end)}`:`Cursor: ${fullLabel(state.cursor)}`;
-  $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`;
+  $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`+(state.scope==='source-unit'&&words[state.cursor].sourceJointGroup?' · complete shared pronunciation word; both written words play together'+(start<state.cursor?' including the word before the cursor':''):'');
   $('compact-span').textContent=`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · ${end-start+1} words`;
   $('end-selection').setAttribute('aria-pressed',String(chooseEnd));$('end-selection').textContent=chooseEnd?'Click the last word':'Choose span end';
   const w=words[state.cursor];$('current-word').textContent=w.sourceHebrew;$('current-reference').textContent=`${w.reference} · word ${w.ordinal}`;
@@ -348,6 +366,7 @@ function updateSelection(){
   const locations=isTorahReading(passage.ranges)?scrollLayout?.locations(w)??[]:[];
   $('source-layout-detail').textContent=locations.length?locations.map(({row,piece})=>`Layout column ${row.page}, line ${row.line}${piece.variant?' · written variant':''}${piece.status!=='exact'?` · ${piece.status}: layout ${piece.layoutSource}, UXLC written ${piece.written}`:''}`).join('; '):'';
   $('alignment-status').textContent=w.sourceSyllableUnderlay?w.sourceSyllableUnderlay.status==='available'?w.sourceSyllableUnderlay.alignmentLevel==='source-reading-word'?`${w.syllables.length} source reading syllables · ${w.sourceSyllableUnderlay.sourceReadingHebrew} · word-level correspondence only; displayed Hebrew unchanged, written syllable ranges unassigned`:`${w.syllables.length} source syllables · exact written spans and stress agreed by both MAM text styles · review pending`:`Source syllable underlay unavailable: ${SOURCE_SYLLABLE_GAPS[w.sourceSyllableUnderlay.reason]}`:w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
+  if(w.sourceJointGroup)$('alignment-status').textContent=`${w.sourceJointGroup.syllables.length} shared source syllables · ${w.sourceJointGroup.sourceReadingHebrew} · complete group only; both written words together, no individual syllable allocation`;
   pronunciationTools?.showWord(w);
   renderSourceSigns(w);
   renderReference();
@@ -535,7 +554,7 @@ function renderNotes(){
     const syllable=document.createElement('span');syllable.className='syllable';syllable.lang='he';syllable.dir='rtl';syllable.textContent=e.syllable;
     const length=document.createElement('span');length.className='length';length.textContent=`${beatLabel(e.beats)} beats`;chip.append(pitch,stem,syllable,length);chip.classList.toggle('active',e.id===activeEventId);$('note-ribbon').append(chip);
     const row=document.createElement('tr');row.dataset.event=e.id;row.classList.toggle('active',e.id===activeEventId);
-    for(const [i,value] of [e.wordId,e.syllable,eventPitchName(e),e.midi,e.startBeat.toFixed(2),beatLabel(e.beats),e.durationSeconds.toFixed(3)].entries()){
+    for(const [i,value] of [isJointEvent(e)?e.wordIds.join(' + '):e.wordId,e.syllable,eventPitchName(e),e.midi,e.startBeat.toFixed(2),beatLabel(e.beats),e.durationSeconds.toFixed(3)].entries()){
       const cell=document.createElement('td');cell.textContent=value;if(i===1){cell.lang='he';cell.dir='rtl';}row.append(cell);
     }$('event-rows').append(row);
   }
@@ -543,7 +562,7 @@ function renderNotes(){
 }
 function renderSequence(){
   let unavailable=null;
-  try{plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);}catch(error){plan=[];unavailable=error.message;}
+  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
   for(const id of ['play','compact-play'])$(id).disabled=isSourcePractice()?!chantReady:!!unavailable;
   $('musical-source-status').textContent=unavailable??(model.sourceSyllableUnderlay?model.sourceSyllableUnderlay.sourceReadingWords?'Original instrumental demonstration with consensus source syllables and documented source readings. Differing readings have word-level correspondence; displayed Hebrew and accents are unchanged, with no invented written syllable ranges.':SOURCE_SYLLABLE_UNDERLAY.summary:null)??model.profile.summary??(model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
@@ -571,6 +590,7 @@ function renderStaff(){
   const inspected=scorePronunciationReport?.links.find(l=>l.eventId===inspectedScoreEventId)??scorePronunciationReport?.links[0];
   $('score-pronunciation-detail').textContent=!inspected?'':inspected.status==='unlinked'?`${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}`:research?`${inspected.hebrew} · ${inspected.phonology.paths.map(p=>`${p.text} (source ${p.sourceText}; row ${p.sourceRow}, column ${p.sourceColumn}, Hebrew branch ${p.hebrewColumn})`).join(' / ')}. Exact source-unit note references; shared candidates are one abstract event. No acoustic delivery or repeated consonant is inferred from a melisma.`:`${inspected.hebrew} · ${inspected.units.map(u=>`${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length?', '+u.labels.join('/') :''}${u.sharesNextConsonant?', shared consonant with next unit':''}${u.sharesPreviousConsonant?', shared consonant with previous unit':''})`).join(' / ')}. ${inspected.alignmentLevel==='source-reading-word'?'Source reading syllable with word-level correspondence; written syllable ranges remain unassigned':'Exact written-span correspondence'}; no phoneme or acoustic timing is assigned.`;
   if(scorePronunciationReport?.links.some(l=>l.alignmentLevel==='source-reading-word')){$('score-pronunciation-summary').textContent=`${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have source-unit text links. Different source reading forms have word-level correspondence with null written syllable ranges. ${research?'Incomplete phonemic research candidates; ':''}Linguistic review, acoustic timing and singing voice remain unassigned.`;$('score-pronunciation-detail').textContent+=' Source reading syllable; word correspondence only, no written-span assignment.';}
+  if(scorePronunciationReport?.links.some(l=>l.status==='source-reading-group')){$('score-pronunciation-summary').textContent=`${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes have source-unit text links. Shared source syllables correspond to the complete group of displayed words; individual word ownership and written syllable ranges are null. ${research?'Incomplete research candidates; ':''}singing voice, acoustic timing and independent review remain pending.`;if(inspected?.status==='source-reading-group')$('score-pronunciation-detail').textContent=`${inspected.hebrew} · ${inspected.units.map(u=>u.text).join(' / ')} · complete shared source word. Both displayed words remain together; no individual word or written syllable allocation.`;}
   scoreGroupReport=null;
   try{scoreGroupReport=pronunciationTools?.groupNotes(plan.filter(e=>e.wordId===words[state.cursor]?.id),words)??null;}catch(error){scoreGroupReport={error:error.message,words:[]};}
   renderPronunciationScoreGroups($('score-word-alignment-content'),scoreGroupReport,words[state.cursor]);
@@ -579,7 +599,7 @@ function renderStaff(){
   $('staff-previous').disabled=from===0;$('staff-next').disabled=to===plan.length;
   $('pitch-staff').querySelectorAll('[data-word-index]').forEach(el=>{
     el.classList.toggle('active',el.dataset.event===activeEventId);
-    const activate=()=>{inspectedScoreEventId=el.dataset.event;selectWord(Number(el.dataset.wordIndex));};el.addEventListener('click',activate);
+    const activate=()=>{inspectedScoreEventId=el.dataset.event;if(el.dataset.jointGroup){stop('Complete shared source word selected from the score.');state.cursor=Number(el.dataset.wordIndex);state.anchor=words[state.cursor].sourceJointGroup.wordIndices.at(-1);state.scope='source-unit';render();}else selectWord(Number(el.dataset.wordIndex));};el.addEventListener('click',activate);
     el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
   });
 }
@@ -587,6 +607,7 @@ function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
   return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
+    ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
     textSource:{...passage,verses:undefined},vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},
     tempo:state.tempo,transpose:state.transpose,volume:state.volume};
 }
@@ -599,7 +620,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,state.tempo,state.transpose,state.volume]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -677,16 +698,21 @@ function render(){
   $('passage-title').textContent=passage.title;$('word-count').textContent=`${passage.verses.length} verse${passage.verses.length===1?'':'s'} · ${words.length} words`;
   const printed=isPrintedScore(model.profile.id),baer=model.profile.id===BAER_SCORE.id;
   $('musical-source').value=state.melodyId;$('melody-name').textContent=model.profile.name;
+  $('scope').querySelector('option[value="source-unit"]').disabled=printed||!sourceSyllablesEnabled;
   $('source-syllables').checked=sourceSyllablesEnabled;$('source-syllables').disabled=printed;
+  $('source-joint').checked=sourceJointEnabled;$('source-joint').disabled=printed||!sourceSyllablesEnabled||!sourceReadingsEnabled;
+  $('source-joint-status').textContent=sourceJointEnabled&&sourceReadingsEnabled?'Shared source words enabled. Select the complete shared word or a span containing all its written words. Playback never splits a source syllable or silently extends an individual-word selection.':'Optional: keep a source pronunciation word shared by several written words together. Choose Whole source pronunciation word to select it explicitly.';
   $('source-readings').checked=sourceReadingsEnabled;$('source-readings').disabled=printed||!sourceSyllablesEnabled;
   for(const kind of ['qamats','cantillation']){$('source-choice-'+kind).value=sourceReadingChoices[kind]??'';$('source-choice-'+kind).disabled=printed||!sourceSyllablesEnabled;}
   $('source-choices-status').textContent=Object.values(sourceReadingChoices).some(v=>v!==null)?'Selected source text: '+Object.values(sourceReadingChoices).filter(Boolean).join(' · ')+'. Original Hebrew and accents are retained. Source syllables/stress may change the original demonstration notes. Pronunciation text style remains independent. All original alternatives remain in the evidence.':'Consensus only: conflicting source readings remain unavailable. Choose a documented source alternative to include it. These are text readings; historical musical realization and singing voices remain pending.';
   $('source-readings-status').textContent=!sourceReadingsEnabled?'Optional: include documented source readings with word-level correspondence. The displayed Hebrew keeps its original letters and accents.':`Source reading forms enabled. Different spellings retain null written syllable ranges; the staff identifies their source reading syllables. Pitches and timing remain an original instrumental demonstration.`;
   $('source-syllables-status').textContent=printed?'Printed scores use their printed syllable underlay.':!sourceSyllablesEnabled?'Use source syllables to compare the original motif with both pronunciation text styles.':sourceSyllableError?`Source syllables unavailable: ${sourceSyllableError}`:!sourceSyllableAdapter?'Preparing source syllables…':sourceReadingsEnabled?`${model.sourceSyllableUnderlay.availableWords} of ${words.length} words have source syllables, including ${model.sourceSyllableUnderlay.sourceReadingWords} documented source reading forms with word-level correspondence. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable.`:`${model.sourceSyllableUnderlay.availableWords} of ${words.length} words have consensus written syllables. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable. Source-only forms, combined words and conflicting paths keep their original evidence.`;
+  if(!printed&&sourceSyllablesEnabled&&sourceSyllableAdapter&&sourceJointEnabled&&sourceReadingsEnabled)$('source-syllables-status').textContent=`${model.sourceSyllableUnderlay.availableWords} individually covered words plus ${model.sourceSyllableUnderlay.jointWordOccurrences} words in ${model.sourceSyllableUnderlay.jointGroups} shared source group(s). ${words.length-model.sourceSyllableUnderlay.coveredWords} without a playable source correspondence. Only complete shared groups can play.`;
   $('music-badge').textContent=printed?'Printed score study':'Instrumental demo';
   $('music-notice').textContent=printed?'A bounded transcription of the complete printed Genesis 22:1 example, all 13 words. Musical and Hebrew underlay review is pending. This is an instrumental study; no full tradition or singing voice is claimed.':'This original motif tests the practice workflow. It is not a historical cantillation melody. Syllable divisions are drafts awaiting review.';
   $('score-description').textContent=printed?'The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft.':'The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.';
   if(model.sourceSyllableUnderlay?.sourceReadingWords){$('music-notice').textContent='Original instrumental motif. Documented source readings retain the complete displayed Hebrew and accents. Staff lyrics use the source reading syllables; written syllable ranges remain unassigned for those words. Pronunciation styles change text independently. Source durations, historical word fitting and a singing voice remain pending.';$('score-description').textContent='Staff and note list use the original instrumental sequence. Differing source reading forms are word-linked; their syllable text belongs to the source reading, not a segmentation of the displayed Hebrew.';}
+  else if(model.sourceJointGroups?.length){$('music-notice').textContent='Original instrumental demonstration. Shared source pronunciation words retain all displayed Hebrew and accents together. No syllable is assigned to an individual written word; source timing, sung phones, historical musical fitting and a singing voice remain pending.';$('score-description').textContent='The shared source reading is one complete pronunciation word. Staff lyrics use its original source syllables and stress; all listed Hebrew words remain jointly linked, with no individual written syllable ranges.';}
   else if(model.sourceSyllableUnderlay){$('music-notice').textContent='This original instrumental motif uses exact written source syllables shared by both Phonetic MAM text styles. Pitches and tone durations are original demonstration choices. Linguistic and musical review is pending; phonemes and singing voice remain unassigned.';$('score-description').textContent='The staff, note list and exports share the original instrumental sequence and consensus source syllables. Original Hebrew, source stress, alternatives and shared consonant references are retained.';}
   if(state.practiceAudio==='recorded'){$('music-badge').textContent='Recorded chant';$('music-notice').textContent='PocketTorah chant follows the source word timings. The original performance keeps its own melody and pronunciation. Chant speed is independent of instrument BPM and key; chant pitch can process the source independently, and the browser is asked to preserve that pitch at the selected speed. Acoustic timing and processed sound review are pending.';$('score-description').textContent='Instrument score only; no pitches have been transcribed from the recording. '+$('score-description').textContent;}
   $('score-help').textContent=printed?'Click a note to go to its Hebrew word. Printed durations use a regular quarter-note beat here; the source calls for flexible timing. Ties hold one pitch without a new attack; rests clear the active highlight. The separately printed untexted coda is omitted.':'Click a note to go to its Hebrew word. Each accidental is explicit. The demo’s 0.6 and 0.9 beats use individual 5:3 quarter-note tuplets; lengths are also written below. Lines under the lyrics continue one syllable across several notes.';
@@ -715,7 +741,8 @@ function render(){
   $('scope').querySelector('option[value="verse"]').textContent=passage.ranges.some(range=>range.divisionSource?.referenceMapping)?'End of UXLC verse record':'End of verse';
   $('haftarah-reader-link').hidden=state.readingType!=='haftarah';
   if(state.practiceAudio==='measured'){
-    $('music-badge').textContent='Measured tone reference';$('music-notice').textContent='Sine-tone approximation of estimated PocketTorah frequencies, with original source word timings. Unassigned cells are muted, without identifying rests or silence. No reviewed note/syllable transcription, singing voice or complete traditional melody grammar. Pronunciation text is independent.';
+    if(!printed&&sourceSyllablesEnabled&&sourceSyllableAdapter&&sourceJointEnabled&&sourceReadingsEnabled)$('source-syllables-status').textContent=`${model.sourceSyllableUnderlay.availableWords} individually covered words plus ${model.sourceSyllableUnderlay.jointWordOccurrences} words in ${model.sourceSyllableUnderlay.jointGroups} shared source group(s). ${words.length-model.sourceSyllableUnderlay.coveredWords} without a playable source correspondence. Only complete shared groups can play.`;
+  $('music-badge').textContent='Measured tone reference';$('music-notice').textContent='Sine-tone approximation of estimated PocketTorah frequencies, with original source word timings. Unassigned cells are muted, without identifying rests or silence. No reviewed note/syllable transcription, singing voice or complete traditional melody grammar. Pronunciation text is independent.';
     $('score-description').textContent='Separate instrument score only; measured tones do not assign source frequencies to these notes or syllables. '+$('score-description').textContent;
   }
   $('practice-audio').value=state.practiceAudio;
@@ -848,16 +875,17 @@ $('musical-source').addEventListener('change',e=>{
 async function prepareSourceSyllables(){
  const request=++sourceSyllableRequest;sourceSyllableError=null;stop('Syllable underlay changed.');
  model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);state.notePage=0;state.staffPage=0;render();
- if(sourceSyllableAdapter&&(sourceSyllableAdapter.allowSourceReadings!==sourceReadingsEnabled||JSON.stringify(sourceSyllableAdapter.sourceReadingChoices)!==JSON.stringify(sourceReadingChoices))){sourceSyllableAdapter=new SourceSyllableUnderlay(sourceSyllableAdapter.library,{allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices});model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);render();}
+ if(sourceSyllableAdapter&&(sourceSyllableAdapter.allowSourceReadings!==sourceReadingsEnabled||sourceSyllableAdapter.allowJointSources!==sourceJointEnabled||JSON.stringify(sourceSyllableAdapter.sourceReadingChoices)!==JSON.stringify(sourceReadingChoices))){sourceSyllableAdapter=new SourceSyllableUnderlay(sourceSyllableAdapter.library,{allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices,allowJointSources:sourceJointEnabled});model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);render();}
  if(!sourceSyllablesEnabled||sourceSyllableAdapter)return;
- try{const library=await getPronunciationLibrary();sourceSyllableAdapter=new SourceSyllableUnderlay(library,{allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices});}
+ try{const library=await getPronunciationLibrary();sourceSyllableAdapter=new SourceSyllableUnderlay(library,{allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices,allowJointSources:sourceJointEnabled});}
  catch(error){if(request===sourceSyllableRequest){sourceSyllableError=error.message;render();}return;}
  if(request!==sourceSyllableRequest||!sourceSyllablesEnabled||isPrintedScore(state.melodyId))return;
  stop('Source syllables ready. Press Play to hear the original instrumental demonstration.');model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);render();
 }
-for(const kind of ['qamats','cantillation'])$('source-choice-'+kind).addEventListener('change',()=>{sourceReadingChoices=readingChoices({...sourceReadingChoices,[kind]:$('source-choice-'+kind).value||null});store('tropetrain-source-syllables-v1',{enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices});prepareSourceSyllables();});
-$('source-readings').addEventListener('change',()=>{sourceReadingsEnabled=$('source-readings').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices}));}catch{}prepareSourceSyllables();});
-$('source-syllables').addEventListener('change',()=>{sourceSyllablesEnabled=$('source-syllables').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices}));}catch{}prepareSourceSyllables();});
+for(const kind of ['qamats','cantillation'])$('source-choice-'+kind).addEventListener('change',()=>{sourceReadingChoices=readingChoices({...sourceReadingChoices,[kind]:$('source-choice-'+kind).value||null});store('tropetrain-source-syllables-v1',{enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices,allowJointSources:sourceJointEnabled});prepareSourceSyllables();});
+$('source-joint').addEventListener('change',()=>{sourceJointEnabled=$('source-joint').checked;store('tropetrain-source-syllables-v1',{enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices,allowJointSources:sourceJointEnabled});prepareSourceSyllables();});
+$('source-readings').addEventListener('change',()=>{sourceReadingsEnabled=$('source-readings').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices,allowJointSources:sourceJointEnabled}));}catch{}prepareSourceSyllables();});
+$('source-syllables').addEventListener('change',()=>{sourceSyllablesEnabled=$('source-syllables').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices,allowJointSources:sourceJointEnabled}));}catch{}prepareSourceSyllables();});
 $('source-study-open').addEventListener('click',()=>libraryAction(()=>{
   state.melodyId=PRINTED_SCORE.id;
   applyRanges([{id:'cohen-study',bookId:'gen',start:{chapter:22,verse:1},end:{chapter:22,verse:1},label:'Printed score context'}]);
@@ -928,6 +956,7 @@ $('download').addEventListener('click',()=>{
   try{pronunciationResearch=pronunciationTools?.proposalNotes(plan,words)??null;}catch(error){say(`Pronunciation note references unavailable: ${error.message}`);return;}
   const data={format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,contextAnalysis:CONTEXT_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
+    ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
     ...(pronunciationResearch?{pronunciationResearch}:{}),
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan};

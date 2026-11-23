@@ -1,3 +1,4 @@
+import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
 import {validateGraceEvent} from './source-grace.js';
 export const escapeXml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 const gcd=(a,b)=>b?gcd(b,a%b):a;
@@ -48,15 +49,15 @@ export function eventRhythm(event){
 }
 export function scoreData(plan,words){
   return plan.map((event,index)=>{
-    const word=words[event.wordIndex];
-    if(!word||word.id!==event.wordId)throw Error('Score notes no longer match their source words.');
+    const joint=isJointEvent(event)?jointEventCorrespondence(event,words):null,word=joint?.word??words[event.wordIndex];
+    if(!word||!joint&&word.id!==event.wordId)throw Error('Score notes no longer match their source words.');
     const previous=plan[index-1],next=plan[index+1],continuation=previous?.syllableId===event.syllableId;
     const extendsNext=next?.syllableId===event.syllableId;
-    const syllableIndex=word.syllables.findIndex(s=>s.id===event.syllableId);
-    if(syllableIndex<0||word.syllables[syllableIndex].sourceHebrew!==event.syllable)throw Error('Score syllables no longer match the source.');
-    const syllabic=word.syllables.length===1?'single':syllableIndex===0?'begin':syllableIndex===word.syllables.length-1?'end':'middle';
+    const syllables=joint?.group.syllables??word.syllables,syllableIndex=syllables.findIndex(s=>s.id===event.syllableId);
+    if(syllableIndex<0||syllables[syllableIndex].sourceHebrew!==event.syllable)throw Error('Score syllables no longer match the source.');
+    const syllabic=syllables.length===1?'single':syllableIndex===0?'begin':syllableIndex===syllables.length-1?'end':'middle';
     const gapAfterBeats=next?next.startBeat-event.startBeat-event.beats:(event.endingRestSeconds??0)*event.beats/event.durationSeconds;
-    return {...event,word,pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
+    return {...event,word,...(joint?{correspondenceWords:joint.members,sourceJointGroup:joint.group}:{}),pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
   });
 }
 // Printed pattern tables may label an accent without specifying a syllable

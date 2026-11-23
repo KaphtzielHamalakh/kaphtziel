@@ -1,3 +1,4 @@
+import {jointSourceStudy} from './source-joint-syllables.js';
 import {readingStudyForWord} from './source-reading-choices.js';
 // Original correspondence adapter for existing source-based phonemic proposals.
 // Note references identify written syllables; they assign no acoustic delivery.
@@ -12,9 +13,10 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
   const original=byId.get(word.wordId);
   prepared.set(word.wordId,readerPhonologyWord(original,readingStudyForWord(original,library,style),style,profileId));
  }
+ const jointReports=new Map((base.sourceGroups??[]).map(g=>[g.id,readerPhonologyWord(words[g.navigationWordIndex],jointSourceStudy(g,words,library,style),style,profileId,{jointGroup:g})]));
  const links=base.links.map(link=>{
-  const report=prepared.get(link.wordId),paths=[];
-  if(['exact-written-span','source-reading-word'].includes(link.status))for(const entry of report.entries)for(const part of entry.parts){
+  const report=link.status==='source-reading-group'?jointReports.get(link.jointGroupId):prepared.get(link.wordId),paths=[];
+  if(['exact-written-span','source-reading-word','source-reading-group'].includes(link.status))for(const entry of report.entries)for(const part of entry.parts){
    const sourceUnit=link.units.find(u=>u.sourceUnitId===part.sourceUnitId);if(!sourceUnit)continue;
    if(part.sourceStress!==sourceUnit.sourceStress||JSON.stringify(part.hebrewClusterRanges)!==JSON.stringify(sourceUnit.hebrewClusterRanges))throw Error('Phonemic proposal and note source-unit correspondence changed.');
    const route=report.evidence.routes.find(r=>r.sourceRow===entry.sourceRow&&r.sourceColumn===entry.sourceColumn&&r.hebrewColumn===entry.hebrewColumn);
@@ -27,7 +29,7 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
      events.set(key,{...structuredClone(event),id:key,sourceEventId:event.id,sourceRouteId:route.id,sourceStyle:style,profileId,noteReferences:[]});eventSignatures.set(key,JSON.stringify(event));seenReferences.set(key,new Set());
     }
     else if(eventSignatures.get(key)!==JSON.stringify(event))throw Error('Phonemic proposal event disagrees across source word references.');
-    const binding={noteId:link.eventId,wordId:link.wordId,sourceWordId:link.sourceWordId,sourceUnitId:part.sourceUnitId,sourceSegmentId:reference.sourceSegmentId,part:reference.part,sharedReference:reference.sharedReference};
+    const binding={noteId:link.eventId,wordId:link.wordId,sourceWordId:link.sourceWordId,...(link.jointGroupId?{jointGroupId:link.jointGroupId,wordIds:link.wordIds.slice(),sourceWordIds:link.sourceWordIds.slice()}:{}),sourceUnitId:part.sourceUnitId,sourceSegmentId:reference.sourceSegmentId,part:reference.part,sharedReference:reference.sharedReference};
     const signature=JSON.stringify(binding);
     if(!seenReferences.get(key).has(signature)){events.get(key).noteReferences.push(binding);seenReferences.get(key).add(signature);}
     return {...structuredClone(reference),proposalEventKey:key};
@@ -50,5 +52,5 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
    sourceSilentEvents:sourceEvents.filter(e=>e.candidatePhonemes?.length===0&&e.rule==='source-silent-category').length,
    proposedAbsenceEvents:sourceEvents.filter(e=>e.candidatePhonemes?.length===0&&e.rule!=='source-silent-category').length,
    sharedEvents:sourceEvents.filter(e=>e.sourceSegmentIds.length>1).length},
-  links,sourceEvents,wordEvidence:[...prepared.values()]};
+  links,sourceEvents,wordEvidence:[...prepared.values()],...(jointReports.size?{groupEvidence:[...jointReports.values()]}:{})};
 }

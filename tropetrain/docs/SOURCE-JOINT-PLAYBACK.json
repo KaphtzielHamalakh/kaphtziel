@@ -1,0 +1,370 @@
+{
+  "schema": "tropetrain-source-joint-playback-audit-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "dataLicense": "CC-BY-SA-4.0",
+  "sourceUrl": "https://github.com/bdenckla/MAM-basics/tree/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM",
+  "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla",
+  "results": [
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם תחתון"
+      },
+      "counts": {
+        "chapters": 187,
+        "readerWords": 79985,
+        "individualWords": 79983,
+        "jointWordOccurrences": 2,
+        "jointGroups": 1,
+        "coveredWords": 79985,
+        "uncoveredWords": 0,
+        "notes": 231981,
+        "jointNotes": 4,
+        "textNoteChecks": 8,
+        "phonemicNoteChecks": 16
+      },
+      "individualAssignmentSha256": "813b73e7cce09a7d4fbd07ebb7f9cf4028f5f8b624d801885ed7b871968a9cd6",
+      "groups": [
+        {
+          "id": "pmam-deu-32-6-1",
+          "wordIds": [
+            "deu-32-6-1",
+            "deu-32-6-2"
+          ],
+          "readerHebrew": [
+            "הֲ־",
+            "לַיְהוָה֙"
+          ],
+          "sourceReadingHebrew": "הַלְאֲדֹנָי֙",
+          "syllables": [
+            {
+              "hebrew": "הַלְ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u1"
+              ]
+            },
+            {
+              "hebrew": "אֲ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u2"
+              ]
+            },
+            {
+              "hebrew": "דֹ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u3"
+              ]
+            },
+            {
+              "hebrew": "נָי֙",
+              "stress": true,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם עליון"
+      },
+      "counts": {
+        "chapters": 187,
+        "readerWords": 79985,
+        "individualWords": 79983,
+        "jointWordOccurrences": 2,
+        "jointGroups": 1,
+        "coveredWords": 79985,
+        "uncoveredWords": 0,
+        "notes": 231981,
+        "jointNotes": 4,
+        "textNoteChecks": 8,
+        "phonemicNoteChecks": 16
+      },
+      "individualAssignmentSha256": "a45baf7861a9a2e82d0c2c8f38bdb19bbab93bbe760cef87a18d918d6bb3512e",
+      "groups": [
+        {
+          "id": "pmam-deu-32-6-1",
+          "wordIds": [
+            "deu-32-6-1",
+            "deu-32-6-2"
+          ],
+          "readerHebrew": [
+            "הֲ־",
+            "לַיְהוָה֙"
+          ],
+          "sourceReadingHebrew": "הַלְאֲדֹנָי֙",
+          "syllables": [
+            {
+              "hebrew": "הַלְ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u1"
+              ]
+            },
+            {
+              "hebrew": "אֲ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u2"
+              ]
+            },
+            {
+              "hebrew": "דֹ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u3"
+              ]
+            },
+            {
+              "hebrew": "נָי֙",
+              "stress": true,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם תחתון"
+      },
+      "counts": {
+        "chapters": 187,
+        "readerWords": 79985,
+        "individualWords": 79983,
+        "jointWordOccurrences": 2,
+        "jointGroups": 1,
+        "coveredWords": 79985,
+        "uncoveredWords": 0,
+        "notes": 231982,
+        "jointNotes": 4,
+        "textNoteChecks": 8,
+        "phonemicNoteChecks": 16
+      },
+      "individualAssignmentSha256": "d703a12c3adda0a4f15916f2d53949ce219f9c3941a7577e67b6921ad0882155",
+      "groups": [
+        {
+          "id": "pmam-deu-32-6-1",
+          "wordIds": [
+            "deu-32-6-1",
+            "deu-32-6-2"
+          ],
+          "readerHebrew": [
+            "הֲ־",
+            "לַיְהוָה֙"
+          ],
+          "sourceReadingHebrew": "הַלְאֲדֹנָי֙",
+          "syllables": [
+            {
+              "hebrew": "הַלְ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u1"
+              ]
+            },
+            {
+              "hebrew": "אֲ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u2"
+              ]
+            },
+            {
+              "hebrew": "דֹ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u3"
+              ]
+            },
+            {
+              "hebrew": "נָי֙",
+              "stress": true,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם עליון"
+      },
+      "counts": {
+        "chapters": 187,
+        "readerWords": 79985,
+        "individualWords": 79983,
+        "jointWordOccurrences": 2,
+        "jointGroups": 1,
+        "coveredWords": 79985,
+        "uncoveredWords": 0,
+        "notes": 231982,
+        "jointNotes": 4,
+        "textNoteChecks": 8,
+        "phonemicNoteChecks": 16
+      },
+      "individualAssignmentSha256": "d43575d65c30a77b9abe3ef15668b84dbc9140653a9ad53fd8ca5385ebed7a8d",
+      "groups": [
+        {
+          "id": "pmam-deu-32-6-1",
+          "wordIds": [
+            "deu-32-6-1",
+            "deu-32-6-2"
+          ],
+          "readerHebrew": [
+            "הֲ־",
+            "לַיְהוָה֙"
+          ],
+          "sourceReadingHebrew": "הַלְאֲדֹנָי֙",
+          "syllables": [
+            {
+              "hebrew": "הַלְ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u1",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u1"
+              ]
+            },
+            {
+              "hebrew": "אֲ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u2",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u2"
+              ]
+            },
+            {
+              "hebrew": "דֹ",
+              "stress": false,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u3",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u3"
+              ]
+            },
+            {
+              "hebrew": "נָי֙",
+              "stress": true,
+              "writtenRange": null,
+              "readerWordId": null,
+              "sourceUnitIds": [
+                "pmam-deu-32-6-1-sephardic-r1-c1-u4",
+                "pmam-deu-32-6-1-ashkenazic-r1-c1-u4"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "source-joint-syllables.js",
+      "sha256": "4322b6500ecd61dfea635cf721430925c7bb3bc24f7e7c11a9a6372356ba3dbb"
+    },
+    {
+      "path": "source-joint-note-links.js",
+      "sha256": "043ab5769f816a7218bacbce281d303da5b163feb1524ce1fe126a74ffc99308"
+    },
+    {
+      "path": "event-correspondence.js",
+      "sha256": "8619e78d4a01a1f5c842159e4cb1130230e7080bd0deacaa9450ca4dd582e083"
+    },
+    {
+      "path": "source-syllable-underlay.js",
+      "sha256": "d95cc61128250326d74bde9c6fd4b725c22063a68753b73e6972a29cba8e2ac9"
+    },
+    {
+      "path": "music.js",
+      "sha256": "071afb7b2e9f096899856cae210e991ebcef1267575d2787af5a743d3c6cff89"
+    },
+    {
+      "path": "pronunciation-note-links.js",
+      "sha256": "f3b9b8af205a6506d594fdef40a4b2d38036cc6eed458f93bc3f67a904c152b8"
+    },
+    {
+      "path": "pronunciation-note-proposals.js",
+      "sha256": "e55ada09866fa250f51b9e5eae4a99e46874a18c2c7f7f4ec0fb3e00f6544f73"
+    },
+    {
+      "path": "pronunciation-phonology-reader.js",
+      "sha256": "45dfeda500da658c023a986b7ef99c9f3fc8c3b02dc5d52098ba7aca4e3f8390"
+    },
+    {
+      "path": "pronunciation-reader.js",
+      "sha256": "75cea22f8d1dd4359cad8a26c88f817cff2cfff09c33650beb107e906e246152"
+    },
+    {
+      "path": "score-data.js",
+      "sha256": "715e7b5688028542c6efa24b1ef5539a1bb1334f739618d85d4e56725d669994"
+    },
+    {
+      "path": "music-exports.js",
+      "sha256": "521e5286a88ab5bc429ad74685f42477c33a2afbf6a2c32ec62b8761ea813a0d"
+    }
+  ],
+  "method": "Explicit opt-in for a complete source pronunciation word shared across written words. The original source word segment and complete source-row syllable intervals must match, both MAM styles must agree on Hebrew syllables/stress, and all literal reader-form paths must give unique correspondence. Every note retains all reader-word occurrences together; individual word IDs/indices and written syllable ranges are null. Whole-source scope selects the group explicitly; clipped spans fail closed. No arbitrary syllable split or automatic extension of individual-word playback.",
+  "performance": {
+    "melodyId": "original-demo-01",
+    "policy": "original-joint-source-word-motif-v1",
+    "sourceTiming": null,
+    "phonemes": null,
+    "voice": null,
+    "review": null
+  },
+  "pending": "Full Torah source correspondence is not a reviewed singing grammar. Historical melody realizations, six independent pronunciation grammars/voices, phonetic/acoustic allocation, independent review and the full retained learning inventory remain pending. The two words in the joint group still have no individual syllable allocation."
+}

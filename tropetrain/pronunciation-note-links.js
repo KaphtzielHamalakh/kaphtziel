@@ -1,3 +1,5 @@
+import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
+import {linkJointSourceNote} from './source-joint-note-links.js';
 import {readingStudyForWord} from './source-reading-choices.js';
 // Original exact-span bridge. This relates two existing text underlays; it
 // neither changes the score syllables nor allocates phonemes or recorded time.
@@ -37,9 +39,10 @@ function writtenSpan(unit,word){
 }
 export function linkPronunciationToNotes(plan,words,library,style){
  if(!PRONUNCIATION_STYLES.some(s=>s.id===style))throw Error('Unsupported pronunciation text style.');
- const prepared=new Map(),seen=new Set();
+ const prepared=new Map(),seen=new Set(),jointGroups=new Map();
  const links=plan.map(event=>{
   if(seen.has(event.id))throw Error('Duplicate score event ID.');seen.add(event.id);
+  if(isJointEvent(event)){const {group,members}=jointEventCorrespondence(event,words);jointGroups.set(group.id,group);for(const word of members)if(!prepared.has(word.id))prepared.set(word.id,{word});return linkJointSourceNote(event,words,library,style);}
   const word=words[event.wordIndex];
   if(!word||word.id!==event.wordId||(event.sourceWordId??event.wordId)!==sourceId(word))throw Error('Score notes do not match their Hebrew word occurrences.');
   if(JSON.stringify(event.sourceSyllableLink?.sourceReadingChoices??null)!==JSON.stringify(word.sourceSyllableUnderlay?.sourceReadingChoices??null))throw Error('Source reading note choice changed.');
@@ -65,9 +68,10 @@ export function linkPronunciationToNotes(plan,words,library,style){
  });
  return {format:'tropetrain-pronunciation-note-links-v1',revision:1,style,sourceCommit:library.sourceCommit,
   pronunciationSource:{project:'Phonetic MAM by Benjamin Denckla; Hebrew Wikisource / Miqra according to the Masorah',dataLicense:'CC-BY-SA-4.0',notice:'assets/pronunciation/NOTICE.txt'},
-  method:links.some(l=>l.alignmentLevel==='source-reading-word')?'Equal marked-Hebrew ranges for written forms; explicit source-unit identities for opted-in source reading forms at word level, with null written syllable ranges. No acoustic allocation.':'Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.',
+  ...(jointGroups.size?{sourceGroups:[...jointGroups.values()].map(g=>structuredClone(g))}:{}),
+  method:jointGroups.size?'Complete source word groups retain all reader-word occurrences together, null individual owners/written ranges, and exact source-unit syllables. Other notes retain their original written or source-reading-word correspondence. No acoustic allocation.':links.some(l=>l.alignmentLevel==='source-reading-word')?'Equal marked-Hebrew ranges for written forms; explicit source-unit identities for opted-in source reading forms at word level, with null written syllable ranges. No acoustic allocation.':'Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.',
   review:'Structural text correspondence only. Score syllabification, pronunciation and musical underlay need independent review. No phoneme, vocal delivery or acoustic alignment is inferred.',
   phonemes:null,audioTimes:null,words:[...prepared.values()].map(({word:w})=>({wordId:w.id,sourceWordId:sourceId(w),hebrew:w.sourceHebrew,...(w.sourceSyllableUnderlay?.sourceChoiceEvidence?{sourceReadingChoices:structuredClone(w.sourceSyllableUnderlay.sourceReadingChoices),sourceChoiceEvidence:structuredClone(w.sourceSyllableUnderlay.sourceChoiceEvidence)}:{})})),
   counts:{notes:links.length,linkedNotes:links.filter(l=>l.status!=='unlinked').length,unlinkedNotes:links.filter(l=>l.status==='unlinked').length},links};
 }
-export function notePronunciationText(link){return ['exact-written-span','source-reading-word'].includes(link?.status)?Object.hasOwn(link,'phonology')?link.phonology?.text??null:[...new Set(link.units.map(u=>u.text))].join(' / '):null;}
+export function notePronunciationText(link){return ['exact-written-span','source-reading-word','source-reading-group'].includes(link?.status)?Object.hasOwn(link,'phonology')?link.phonology?.text??null:[...new Set(link.units.map(u=>u.text))].join(' / '):null;}
