@@ -77,6 +77,18 @@
   "syllableAnalyzer": "havarotjs0.25.5; existing manual/source fixtures retained",
   "inputs": [
     {
+      "path": "event-correspondence.js",
+      "sha256": "8619e78d4a01a1f5c842159e4cb1130230e7080bd0deacaa9450ca4dd582e083"
+    },
+    {
+      "path": "source-joint-syllables.js",
+      "sha256": "4322b6500ecd61dfea635cf721430925c7bb3bc24f7e7c11a9a6372356ba3dbb"
+    },
+    {
+      "path": "source-joint-note-links.js",
+      "sha256": "043ab5769f816a7218bacbce281d303da5b163feb1524ce1fe126a74ffc99308"
+    },
+    {
       "path": "source-reading-choices.js",
       "sha256": "db71fe569d380017309c872df84b6afd06af4658af7eaa29ba91bcfad52b1189"
     },
@@ -110,7 +122,7 @@
     },
     {
       "path": "pronunciation-note-links.js",
-      "sha256": "7cf647a04408511eb4b343f830d9c47558eb5cd4a14325272e2f5765b58f4877"
+      "sha256": "f3b9b8af205a6506d594fdef40a4b2d38036cc6eed458f93bc3f67a904c152b8"
     },
     {
       "path": "pronunciation-underlay.js",
@@ -134,7 +146,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "fcf82a88db95e126b7b1df0e2925fbb8407b962794f4087d69232524a24b91f5"
+      "sha256": "071afb7b2e9f096899856cae210e991ebcef1267575d2787af5a743d3c6cff89"
     },
     {
       "path": "printed-score-data.js",

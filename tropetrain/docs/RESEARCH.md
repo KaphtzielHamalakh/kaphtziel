@@ -1314,3 +1314,10 @@ Pinned MAM-basics 6f0612ed2109d32e288d7c0ca41ae3dbfaad702bsource and CC BY-SA 4.
 Source-derived text correspondence and an original instrumental demonstration only. No new phonological rule, accepted phones, acoustic note allocation, independently pronounced singing voice, complete historical melody grammar or Kinnor equivalence is established. All six historical pronunciation grammars/voices and the entire documented melody/tutor/learning inventory remain on the roadmap. Independent linguistic/cantorial review is pending. Printing deferred; full reconstruction active and incomplete.
 
 Connected GitHub code 923a0edb1a124653c2579d21b043527562ac9968; Pages 45194228926, all three jobs succeeded. All 33 changed code files / 138748996 public bytes match the tested build. 615 automated checks pass, 0 fail/skip, 10 new substantive regressions. All 620 prior asset/data files remain byte-identical. Public normal 150 / portable 151 passed 172 checks.
+
+
+## v0.75 joint source word — implementation checkpoint
+
+An explicit shared-source-word option retains the complete source pronunciation word in Deuteronomy32:6 across its two unchanged written words. Four original source syllables are played once, with both reader words linked together and no individual word owner, written syllable range or acoustic allocation. Whole source pronunciation word is an explicit scope; an individual or clipped span fails closed. Both MAM text styles and two existing incomplete regional research profiles follow exact source units without changing the notes. Staff and MIDI/XML metadata retain both words and null owners. All four source-choice combinations retain every prior individual assignment digest; only the two joint words gain group playback. This is an original instrumental demonstration, not a historical melody or independently pronounced singing voice.
+
+Full build, automated regressions, normal/portable UI checks and deployment are pending. The entire feature inventory remains active; printing deferred. Source data and derived correspondence retain Hebrew Wikisource attribution and CC-BY-SA4. No new recordings or source payloads were imported.

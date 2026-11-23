@@ -1,0 +1,5 @@
+# TropeTrain v0.75 verification in progress
+
+An explicit shared-source-word option retains the complete source pronunciation word in Deuteronomy32:6 across its two unchanged written words. Four original source syllables are played once, with both reader words linked together and no individual word owner, written syllable range or acoustic allocation. Whole source pronunciation word is an explicit scope; an individual or clipped span fails closed. Both MAM text styles and two existing incomplete regional research profiles follow exact source units without changing the notes. Staff and MIDI/XML metadata retain both words and null owners. All four source-choice combinations retain every prior individual assignment digest; only the two joint words gain group playback. This is an original instrumental demonstration, not a historical melody or independently pronounced singing voice.
+
+Initial nine targeted domain tests pass; two additional clock/audit checks and full build/browser/publication verification are pending. No acoustic listening or qualified pronunciation/cantorial review is claimed.

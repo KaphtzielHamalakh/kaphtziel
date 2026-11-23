@@ -1,18 +1,21 @@
+import {validateJointStudy} from './source-joint-syllables.js';
 // Display existing proposals at their exact source word and syllable links.
 // No phonological rule, resyllabification, note or sound time is introduced.
 import {phonologyWordProposal} from './pronunciation-phonology.js';
 
-export function readerPhonologyWord(word,study,sourceStyle,profileId){
- const evidence=phonologyWordProposal(study,word,sourceStyle,profileId);
+export function readerPhonologyWord(word,study,sourceStyle,profileId,{jointGroup=null}={}){
+ if(jointGroup)validateJointStudy(study,jointGroup,sourceStyle);
+ const original=phonologyWordProposal(study,word,sourceStyle,profileId),evidence=jointGroup?{...original,wordId:null,sourceWordId:null,wordIds:jointGroup.wordIds.slice(),sourceWordIds:jointGroup.sourceWordIds.slice(),hebrew:jointGroup.readerHebrew.slice(),jointGroupId:jointGroup.id,individualWordAllocation:null}:original;
  const result={schema:'tropetrain-reader-phonology-proposal-v1',wordId:word.id,sourceWordId:evidence.sourceWordId,
   hebrew:evidence.hebrew,style:sourceStyle,profile:evidence.profile,status:'no-source-correspondence',entries:[],
   sourceCommit:evidence.sourceCommit,source:evidence.source,sourceDataLicense:evidence.sourceDataLicense,evidence,
   phonemes:null,noteIds:null,audioTimes:null,review:null,newSingingVoice:null};
+ if(jointGroup)Object.assign(result,{schema:'tropetrain-reader-phonology-group-proposal-v1',wordId:null,wordIds:jointGroup.wordIds.slice(),sourceWordIds:jointGroup.sourceWordIds.slice(),jointGroupId:jointGroup.id,individualWordAllocation:null});
  for(const route of evidence.routes){
-  const owned=route.units.filter(u=>u.ownerWordId===result.sourceWordId);
+  const owned=route.units.filter(u=>jointGroup?u.ownerWordId===null&&jointGroup.syllables.some(s=>s.sourceUnitIds.includes(u.sourceUnitId)):u.ownerWordId===result.sourceWordId);
   if(!owned.length)continue;
   const events=new Map(route.events.map(e=>[e.id,e]));
-  const entry={kind:'phonemic-research-word',sourceCellId:route.id,sourceRow:route.sourceRow,sourceColumn:route.sourceColumn,
+  const entry={kind:jointGroup?'phonemic-research-group':'phonemic-research-word',sourceCellId:route.id,sourceRow:route.sourceRow,sourceColumn:route.sourceColumn,
    hebrewColumn:route.hebrewColumn,sourceReference:null,sourceForm:owned.some(u=>u.readerRanges===null),
    labels:[...new Set(owned.flatMap(u=>u.sourceLabels))],parts:[],text:'',profileId,review:null};
   for(const unit of owned){
@@ -39,6 +42,6 @@ export function readerPhonologyWord(word,study,sourceStyle,profileId){
   }
   entry.text=entry.parts.map(p=>p.join+p.text).join('');result.entries.push(entry);
  }
- result.status=result.entries.length?'word-linked':evidence.routes.length?'combined-source-form':'no-source-correspondence';
+ result.status=result.entries.length?jointGroup?'group-linked':'word-linked':evidence.routes.length?'combined-source-form':'no-source-correspondence';
  return result;
 }

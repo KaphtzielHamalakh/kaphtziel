@@ -10,9 +10,9 @@ function checked(plan,words,context){
   return scoreData(plan,words);
 }
 function identity(notes,context){
-  const selected=[...new Map(notes.map(e=>[e.word.id,e.word])).values()];
+  const selected=[...new Map(notes.flatMap(e=>(e.correspondenceWords??[e.word]).map(w=>[w.id,w]))).values()];
   return {...context,format:'tropetrain-score-metadata-v1',words:selected,
-    events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,midi:e.midi,startBeat:e.startBeat,beats:e.beats,
+    events:notes.map((e,i)=>({noteId:`note-${i+1}`,eventId:e.id,wordId:e.wordId,sourceWordId:e.sourceWordId,syllableId:e.syllableId,syllable:e.syllable,...(e.jointGroupId?{wordIndex:null,wordIds:e.wordIds,sourceWordIds:e.sourceWordIds,wordIndices:e.wordIndices,jointGroupId:e.jointGroupId,navigationWordIndex:e.navigationWordIndex,navigationWordId:e.navigationWordId,sourceSyllableLink:e.sourceSyllableLink}:{}),midi:e.midi,startBeat:e.startBeat,beats:e.beats,
       ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceBar:e.sourceBar,sourceLyric:e.sourceLyric,sourceRhythm:e.sourceRhythm,
         sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop,
         ...(e.sourceRestAfterBar!==undefined?{sourceRestAfterBar:e.sourceRestAfterBar}:{}),...(e.endingRestSeconds!==undefined?{endingRestSeconds:e.endingRestSeconds}:{})}:{}),

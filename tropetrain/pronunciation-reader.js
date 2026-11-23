@@ -1,3 +1,4 @@
+import {validateJointStudy} from './source-joint-syllables.js';
 // Original word display projection of existing, separately sourced units.
 // Never resyllabifies Hebrew or assigns phonemes, notes or acoustic times.
 import {PRONUNCIATION_STYLES} from './pronunciation.js';
@@ -8,7 +9,7 @@ export const READER_PRONUNCIATION_MESSAGES=Object.freeze({
  'combined-source-form':'Combined source form'
 });
 
-export function readerPronunciationWord(word,study,style){
+export function readerPronunciationWord(word,study,style,{jointGroup=null}={}){
  if(!PRONUNCIATION_STYLES.some(s=>s.id===style))throw Error('Unsupported pronunciation text style.');
  const sourceWordId=word.sourceWordId??word.id;
  const result={wordId:word.id,sourceWordId,hebrew:word.sourceHebrew,style,status:'no-source-correspondence',entries:[],sourceCommit:study?.sourceCommit??null,license:'CC-BY-SA-4.0',review:'Source text and word correspondence only; independent linguistic review pending. No phonemes, musical notes, voice or acoustic timing inferred.'};
@@ -16,6 +17,7 @@ export function readerPronunciationWord(word,study,style){
  if(study.sourceSelection)result.sourceSelection=structuredClone(study.sourceSelection);
  const index=study.readerIds.indexOf(sourceWordId);
  if(index<0||study.readerHebrew[index]!==word.sourceHebrew)throw Error('The Hebrew source changed; this pronunciation link needs review.');
+ if(jointGroup){validateJointStudy(study,jointGroup,style);Object.assign(result,{wordId:null,sourceWordId:null,wordIds:jointGroup.wordIds.slice(),sourceWordIds:jointGroup.sourceWordIds.slice(),hebrew:jointGroup.readerHebrew.slice(),jointGroupId:jointGroup.id,individualWordAllocation:null});}
  let transcribed=false;
  for(const row of study.rows)for(const cell of row.styles[style]){
   transcribed||=cell.units.length>0;
@@ -23,7 +25,7 @@ export function readerPronunciationWord(word,study,style){
   // across another word or an unowned unit, and never copy a whole source group.
   let segment=null,previousIndex=-2;
   cell.units.forEach((unit,unitIndex)=>{
-   if(unit.readerWordId!==sourceWordId)return;
+   if(jointGroup?unit.readerWordId!==null||!jointGroup.syllables.some(s=>s.sourceUnitIds.includes(unit.id)):unit.readerWordId!==sourceWordId)return;
    if(cell.text.slice(unit.start,unit.end)!==unit.text)throw Error('Pronunciation text no longer matches its source offsets.');
    for(const range of unit.hebrewClusterRanges??[]){
     if(range.readerWordId!==sourceWordId||!['written','shared-consonant'].includes(range.role)||!Number.isInteger(range.start)||!Number.isInteger(range.end)||range.start<0||range.start>=range.end||range.end>word.sourceHebrew.length||word.sourceHebrew.slice(range.start,range.end)!==range.text)
@@ -41,20 +43,20 @@ export function readerPronunciationWord(word,study,style){
    segment.end=unit.end;segment.text=cell.text.slice(segment.start,segment.end);previousIndex=unitIndex;
   });
  }
- const variants=study.sourceGroup?.writtenReadVariants?.filter(v=>v.readerWordId===sourceWordId)??[];
+ const variants=jointGroup?[]:study.sourceGroup?.writtenReadVariants?.filter(v=>v.readerWordId===sourceWordId)??[];
  if(variants.length)for(const entry of result.entries)entry.writtenReadVariant=variants[0];
- const edition=study.sourceGroup?.editionWordLinks?.find(v=>v.readerWordId===sourceWordId);
+ const edition=jointGroup?null:study.sourceGroup?.editionWordLinks?.find(v=>v.readerWordId===sourceWordId);
  if(edition)for(const entry of result.entries)entry.editionWordLink=edition;
- const implicit=study.sourceGroup?.implicitReadingLinks?.find(v=>v.readerWordId===sourceWordId);
+ const implicit=jointGroup?null:study.sourceGroup?.implicitReadingLinks?.find(v=>v.readerWordId===sourceWordId);
  if(implicit)for(const entry of result.entries)entry.implicitReadingLink=implicit;
- result.status=result.entries.length?'word-linked':transcribed?'combined-source-form':'no-style-transcription';
+ result.status=result.entries.length?jointGroup?'group-linked':'word-linked':transcribed?'combined-source-form':'no-style-transcription';
  return result;
 }
 
 export function appendReaderPronunciation(target,report){
- target.replaceChildren();target.lang=['tropetrain-published-pronunciation-word-v1','tropetrain-reader-phonology-proposal-v1'].includes(report.schema)?'und-fonipa':'en';target.dir='ltr';target.className='reader-word-pronunciation';target.dataset.pronunciationStatus=report.status;
+ target.replaceChildren();target.lang=['tropetrain-published-pronunciation-word-v1','tropetrain-reader-phonology-proposal-v1','tropetrain-reader-phonology-group-proposal-v1'].includes(report.schema)?'und-fonipa':'en';target.dir='ltr';target.className='reader-word-pronunciation';target.dataset.pronunciationStatus=report.status;
  if(report.profile)target.dataset.phonologyProfile=report.profile.id;else delete target.dataset.phonologyProfile;
- if(report.status!=='word-linked'){
+ if(!['word-linked','group-linked'].includes(report.status)){
   target.classList.add('unlinked');target.textContent=READER_PRONUNCIATION_MESSAGES[report.status];
   target.title=report.status==='combined-source-form'?'The source keeps this pronunciation combined across words. Select the Hebrew word for the complete source group.':'No transcription is substituted from another style or an approximate spelling.';return;
  }
@@ -62,7 +64,7 @@ export function appendReaderPronunciation(target,report){
   const line=document.createElement('span');line.className='reader-pronunciation-entry';line.dataset.sourceCell=entry.sourceCellId;
   line.title=`Source row ${entry.sourceRow}, column ${entry.sourceColumn}${entry.sourceReference?' · same transcription as column '+entry.sourceReference.column:''}${entry.sourceForm?' · source reading form; written range unresolved':''}. Source text only; independent linguistic review pending.`;
   if(entry.kind==='published-phonetic-word')line.title=`Khan2020, printed p.${entry.printedPage}, transcription${entry.sourceColumn}${entry.sourceReference?' · explicitly shared by both readings':''}. Complete printed word only; syllable, note and audio timing unassigned.`;
-  if(entry.kind==='phonemic-research-word')line.title=`${report.profile.label}. Source row ${entry.sourceRow}, transcription column ${entry.sourceColumn}, Hebrew branch ${entry.hebrewColumn}. ? unresolved; ∅ source silence; (∅) proposed consonant loss; ↔ the same consonant event linked from the preceding source unit. Dots retain source syllables. Phonemic candidates only; no voice or timing assigned.`;
+  if(['phonemic-research-word','phonemic-research-group'].includes(entry.kind))line.title=`${report.profile.label}. Source row ${entry.sourceRow}, transcription column ${entry.sourceColumn}, Hebrew branch ${entry.hebrewColumn}. ? unresolved; ∅ source silence; (∅) proposed consonant loss; ↔ the same consonant event linked from the preceding source unit. Dots retain source syllables. Phonemic candidates only; no voice or timing assigned.`;
   const text=document.createElement('span');text.className='reader-pronunciation-text';
   for(const part of entry.parts){
    text.append(document.createTextNode(part.join));const token=document.createElement(part.sourceStress?'strong':'span');token.textContent=part.text;token.dataset.sourceUnit=part.sourceUnitId;if(part.references){token.dataset.phonemicProposal='true';token.title=`Source ${part.sourceText} · ${part.hebrewClusterRanges?'original marked Hebrew ranges':'source form; written range unresolved'}. Candidate phones are displayed once; ↔ retains a shared source reference.`;}text.append(token);

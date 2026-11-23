@@ -1,3 +1,5 @@
+import {isJointEvent,eventNavigationIndex,jointEventCorrespondence} from './event-correspondence.js';
+import {jointSourceStudy} from './source-joint-syllables.js';
 import {readingStudyForWord} from './source-reading-choices.js';
 import {mountKhanPronunciation} from './khan-pronunciation-ui.js';
 import {mountHistoricalPronunciation} from './historical-pronunciation-ui.js';
@@ -11,7 +13,7 @@ import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
 import {linkPronunciationProposalsToNotes} from './pronunciation-note-proposals.js';
 import {linkPronunciationScoreGroups} from './pronunciation-score-groups.js';
-import {pronunciationFollow} from './pronunciation-follow.js';
+import {pronunciationFollow,pronunciationGroupFollow} from './pronunciation-follow.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
 import {readerPhonologyWord} from './pronunciation-phonology-reader.js';
 import {renderPronunciationRules} from './pronunciation-segment-ui.js';
@@ -181,9 +183,15 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    }
    return {...readerCache.get(cacheKey),wordId:value.id};
   },
+  readerGroup(group,words){
+   const source=publishedPronunciation.readerStatus();if(source.kind==='published-word'||!library)return null;
+   const study=jointSourceStudy(group,words,library,style),word=words[group.navigationWordIndex];
+   return source.kind==='phonemic-research'?readerPhonologyWord(word,study,style,source.profileId,{jointGroup:group}):readerPronunciationWord(word,study,style,{jointGroup:group});
+  },
   followNote(event,words){
    if(!library)return null;
-   const w=words[event.wordIndex];
+   const w=words[eventNavigationIndex(event)];
+   if(isJointEvent(event)){const {group}=jointEventCorrespondence(event,words),key=JSON.stringify([style,event.id,group.wordIds,group.readerHebrew,group.sourceReadingChoices,event.sourceSyllableLink]);if(!followCache.has(key)){if(followCache.size>=256)followCache.delete(followCache.keys().next().value);const link=linkPronunciationToNotes([event],words,library,style).links[0];followCache.set(key,pronunciationGroupFollow(event,words,link,style));}return followCache.get(key);}
    const cacheKey=JSON.stringify([style,event.id,event.wordId,event.sourceWordId,event.syllableId,event.syllable,w?.id,w?.sourceWordId,w?.sourceHebrew,w?.sourceSyllableUnderlay?.sourceReadingChoices]);
    if(!followCache.has(cacheKey)){
     if(followCache.size>=256)followCache.delete(followCache.keys().next().value);

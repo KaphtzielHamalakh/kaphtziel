@@ -138,19 +138,19 @@
     },
     {
       "path": "source-syllable-underlay.js",
-      "sha256": "c8ee2c0618e7f693e2c33eab05dfafbfa5600019199d2c3e1fec39ed69bc09de"
+      "sha256": "d95cc61128250326d74bde9c6fd4b725c22063a68753b73e6972a29cba8e2ac9"
     },
     {
       "path": "pronunciation-note-links.js",
-      "sha256": "7cf647a04408511eb4b343f830d9c47558eb5cd4a14325272e2f5765b58f4877"
+      "sha256": "f3b9b8af205a6506d594fdef40a4b2d38036cc6eed458f93bc3f67a904c152b8"
     },
     {
       "path": "pronunciation-note-proposals.js",
-      "sha256": "4ac37893df26d70fd9a2752a36185491b4a6e867f52492656733765d3aefbb5c"
+      "sha256": "e55ada09866fa250f51b9e5eae4a99e46874a18c2c7f7f4ec0fb3e00f6544f73"
     },
     {
       "path": "pronunciation-reader.js",
-      "sha256": "b84bcc09b41c2e3f02577ed378e8cc8b7055144e3b50f94c61cb9a1cee8c04b6"
+      "sha256": "75cea22f8d1dd4359cad8a26c88f817cff2cfff09c33650beb107e906e246152"
     },
     {
       "path": "pronunciation-phonology.js",
@@ -158,7 +158,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "fcf82a88db95e126b7b1df0e2925fbb8407b962794f4087d69232524a24b91f5"
+      "sha256": "071afb7b2e9f096899856cae210e991ebcef1267575d2787af5a743d3c6cff89"
     }
   ],
   "method": "Explicit literal source labels select complete Hebrew columns consistently across both text styles, never a first-column guess. All source syllable/stress alternatives remain in originalStudy and sourceChoiceEvidence. Six maqaf-ending reading words include their own separator; exact complete-word ownership and original row offsets are retained. Displayed Hebrew/accents remain unchanged. Different reading spellings have null written syllable ranges. No source phones/timing/voice is assigned.",

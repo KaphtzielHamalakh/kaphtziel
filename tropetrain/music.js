@@ -1,3 +1,4 @@
+import {isJointEvent,eventNavigationIndex} from './event-correspondence.js';
 import { passage as defaultPassage } from './passage.js';
 import { alignedSyllables } from './syllables.js';
 import {analyzeSourceSigns} from './accents.js';
@@ -46,7 +47,9 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
       analysisStatus:sourceSyllables?.status==='unavailable'?'source-underlay-unavailable':syllables.some(s=>s.reviewStatus==='unsegmented')?'unsegmented':syllables[0].reviewStatus};
     if(groupEnd)group++;return word;
   });
-  const events=Object.freeze(words.flatMap(w=>w.syllables.flatMap((s,i)=>{
+  const sourceJointGroups=sourceUnderlayEnabled?sourceUnderlay?.jointGroups?.(words)??[]:[];
+  for(const group of sourceJointGroups)for(const i of group.wordIndices)words[i].sourceJointGroup=group;
+  const wordEvents=words.flatMap(w=>w.syllables.flatMap((s,i)=>{
     if(w.sourceSyllableUnderlay?.status==='unavailable')return [];
     if(isPrintedScore(melodyId)){
       const row=printedSourceWord(w,melodyId);if(!row)return [];
@@ -72,11 +75,23 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
        ...(s.alignmentLevel==='source-reading-word'?{alignmentLevel:s.alignmentLevel,sourceReadingHebrew:s.sourceReadingHebrew,sourceReadingRange:Object.freeze({...s.sourceReadingRange}),readerHebrew:w.sourceHebrew}:{}),
        ...(w.sourceSyllableUnderlay.sourceReadingChoices?{sourceReadingChoices:Object.freeze({...w.sourceSyllableUnderlay.sourceReadingChoices})}:{}),
        sourceTiming:null,phonemes:null,voice:null,review:null,performance:'original-demo-01'})}:{})}));
-  })));
+  }));
+  const jointEvents=sourceJointGroups.flatMap(group=>group.syllables.flatMap((s,i)=>{
+   const last=words[group.wordIndices.at(-1)],seed=[62,64,65,67][group.navigationWordIndex%4],pitches=last.groupEnd&&i===group.syllables.length-1?[65,64,62]:[seed+(i%2?2:0)];
+   return pitches.map((midi,j)=>Object.freeze({id:s.id+'-n'+(j+1),wordId:null,sourceWordId:null,wordIndex:null,
+    jointGroupId:group.id,wordIds:Object.freeze([...group.wordIds]),sourceWordIds:Object.freeze([...group.sourceWordIds]),wordIndices:Object.freeze([...group.wordIndices]),navigationWordIndex:group.navigationWordIndex,navigationWordId:group.navigationWordId,
+    syllableId:s.id,syllable:s.sourceHebrew,roman:null,phonemes:null,midi,beats:pitches.length>1?.5:s.stress?.9:.6,part:j+1,
+    sourceSyllableLink:Object.freeze({underlayId:SOURCE_SYLLABLE_UNDERLAY.id,revision:1,sourceCommit:SOURCE_SYLLABLE_UNDERLAY.sourceCommit,dataLicense:SOURCE_SYLLABLE_UNDERLAY.dataLicense,
+     alignmentLevel:'source-reading-group',jointGroupId:group.id,sourceGroupId:group.sourceGroupId,wordIds:Object.freeze([...group.wordIds]),sourceWordIds:Object.freeze([...group.sourceWordIds]),readerHebrew:Object.freeze([...group.readerHebrew]),
+     sourceReadingHebrew:group.sourceReadingHebrew,sourceReadingRange:Object.freeze({...s.sourceReadingRange}),sourceUnitIds:Object.freeze([...s.sourceUnitIds]),writtenRange:null,sourceSyllablePosition:i,sourceReadingChoices:Object.freeze({...group.sourceReadingChoices}),
+     individualWordAllocation:null,sourceTiming:null,phonemes:null,voice:null,review:null,performance:'original-demo-01',performancePolicy:'original-joint-source-word-motif-v1'})}));
+  }));
+  const events=Object.freeze(sourceJointGroups.length?[...wordEvents,...jointEvents].sort((a,b)=>eventNavigationIndex(a)-eventNavigationIndex(b)):wordEvents);
   function bounds(cursor,anchor,scope){
     if(!words[cursor]||!words[anchor])throw Error('Choose a word in this reading.');
     if(scope==='selection')return [Math.min(cursor,anchor),Math.max(cursor,anchor)];
     if(scope==='word')return [cursor,cursor];
+    if(scope==='source-unit'){const g=words[cursor].sourceJointGroup;return g?[g.wordIndices[0],g.wordIndices.at(-1)]:[cursor,cursor];}
     if(scope==='passage')return [cursor,words.length-1];
     const field=scope==='group'?'group':scope==='aliyah'?'sectionId':'verseKey';
     let end=cursor;while(end+1<words.length&&words[end+1][field]===words[cursor][field])end++;
@@ -85,19 +100,21 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
   function buildPlan(start,end,{tempo=84,transpose=0}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
-    const blocked=sourceUnderlayEnabled?words.slice(start,end+1).find(w=>w.sourceSyllableUnderlay.status!=='available'):null;
+    const cut=sourceJointGroups.find(g=>g.wordIndices.some(i=>i>=start&&i<=end)&&!g.wordIndices.every(i=>i>=start&&i<=end));
+    if(cut)throw Error('This span cuts a shared source pronunciation word. Select all its written words or choose Whole source pronunciation word. No syllable was split.');
+    const blocked=sourceUnderlayEnabled?words.slice(start,end+1).find(w=>w.sourceSyllableUnderlay.status!=='available'&&!w.sourceJointGroup):null;
     if(blocked)throw Error(`${blocked.reference} · word ${blocked.ordinal}: ${SOURCE_SYLLABLE_GAPS[blocked.sourceSyllableUnderlay.reason]} Choose a covered span or turn off source syllable underlay. No notes were substituted.`);
     if(isPrintedScore(melodyId)&&words.slice(start,end+1).some(w=>!printedSourceWord(w,melodyId)))
       throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel??(melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5')}. Open that passage or choose the original demonstration. No notes are substituted.`);
     let beat=0;
-    const selected=events.filter(e=>e.wordIndex>=start&&e.wordIndex<=end);
+    const selected=events.filter(e=>isJointEvent(e)?e.wordIndices.every(i=>i>=start&&i<=end):e.wordIndex>=start&&e.wordIndex<=end);
     return selected.map((e,index)=>{
       const event={...e,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo,
         ...(profile.preserveBoundaryRests&&index===selected.length-1&&e.sourceRestAfterBeats?{endingRestSeconds:e.sourceRestAfterBeats*60/tempo}:{})};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
     });
   }
-  return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words),
-   ...(sourceUnderlayEnabled?{sourceSyllableUnderlay:{...SOURCE_SYLLABLE_UNDERLAY,...(sourceUnderlay&&Object.values(sourceUnderlay.sourceReadingChoices??{}).some(v=>v!==null)?{sourceReadingChoices:{...sourceUnderlay.sourceReadingChoices}}:{}),availableWords:words.filter(w=>w.sourceSyllableUnderlay.status==='available').length,unavailableWords:words.filter(w=>w.sourceSyllableUnderlay.status!=='available').length,...(sourceUnderlay?.allowSourceReadings?{allowSourceReadings:true,sourceReadingWords:words.filter(w=>w.sourceSyllableUnderlay.alignmentLevel==='source-reading-word').length}:{})}}:{})};
+  return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words),...(sourceJointGroups.length?{sourceJointGroups}:{}),
+   ...(sourceUnderlayEnabled?{sourceSyllableUnderlay:{...SOURCE_SYLLABLE_UNDERLAY,...(sourceUnderlay?.allowJointSources?{allowJointSources:true,jointGroups:sourceJointGroups.length,jointWordOccurrences:sourceJointGroups.reduce((n,g)=>n+g.wordIds.length,0),coveredWords:words.filter(w=>w.sourceSyllableUnderlay.status==='available'||w.sourceJointGroup).length}:{}),...(sourceUnderlay&&Object.values(sourceUnderlay.sourceReadingChoices??{}).some(v=>v!==null)?{sourceReadingChoices:{...sourceUnderlay.sourceReadingChoices}}:{}),availableWords:words.filter(w=>w.sourceSyllableUnderlay.status==='available').length,unavailableWords:words.filter(w=>w.sourceSyllableUnderlay.status!=='available').length,...(sourceUnderlay?.allowSourceReadings?{allowSourceReadings:true,sourceReadingWords:words.filter(w=>w.sourceSyllableUnderlay.alignmentLevel==='source-reading-word').length}:{})}}:{})};
 }
 const initial=createReadingModel(defaultPassage);
 export const words=initial.words,events=initial.events,bounds=initial.bounds,buildPlan=initial.buildPlan;

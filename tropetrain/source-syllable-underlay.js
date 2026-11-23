@@ -1,3 +1,4 @@
+import {sourceJointGroups} from './source-joint-syllables.js';
 // Original consensus adapter for existing CC-BY-SA source syllable facts.
 // It assigns written spans to an ORIGINAL instrumental demonstration only.
 import {sourceReadingSyllables} from './source-reading-syllables.js';
@@ -70,7 +71,8 @@ export function sourceSyllableWord(word,studies){
  return {...result,status:'available',reason:null,syllables};
 }
 export class SourceSyllableUnderlay{
- constructor(library,{allowSourceReadings=false,sourceReadingChoices={}}={}){if(!library||library.sourceCommit!==SOURCE_SYLLABLE_UNDERLAY.sourceCommit||!library.underlay)throw Error('Checked source syllable library required.');this.library=library;this.allowSourceReadings=allowSourceReadings;this.sourceReadingChoices=readingChoices(sourceReadingChoices);this.groups=new Map();}
+ constructor(library,{allowSourceReadings=false,sourceReadingChoices={},allowJointSources=false}={}){if(!library||library.sourceCommit!==SOURCE_SYLLABLE_UNDERLAY.sourceCommit||!library.underlay)throw Error('Checked source syllable library required.');this.library=library;this.allowJointSources=allowJointSources;this.allowSourceReadings=allowSourceReadings;this.sourceReadingChoices=readingChoices(sourceReadingChoices);this.groups=new Map();}
+ jointGroups(words){return this.allowJointSources&&this.allowSourceReadings?sourceJointGroups(words,this.library,{source:SOURCE_SYLLABLE_UNDERLAY,sourceReadingChoices:this.sourceReadingChoices}):[];}
  word(word){
   if(!word||typeof word.id!=='string'||typeof word.sourceHebrew!=='string')return sourceSyllableWord(word,null);
   if(!['gen','exo','lev','num','deu'].includes(canonical(word).split('-')[0]))return sourceSyllableWord(word,{sephardic:null,ashkenazic:null});
