@@ -1,5 +1,6 @@
 // Structural source checks only; these do not approve a musical realization.
 import {validateSourceGrace} from './source-grace.js';
+import {sourceRepeatBounds} from './source-repeat.js';
 export function baerComponentRoutes(record,figure,{allowUnmeasuredGrace=false}={}){
  const components=record.notes.filter(n=>n.cell===figure.id),byId=new Map(components.map(n=>[n.id,n]));
  if(byId.size!==components.length)throw Error('Duplicate source component ID.');
@@ -31,6 +32,7 @@ export function baerComponentRoutes(record,figure,{allowUnmeasuredGrace=false}={
   }
   for(const arc of arcs.values())if(arc.length<2||arc[0].phase!=='start'||arc.at(-1).phase!=='stop'||arc.slice(1,-1).some(a=>a.phase!=='continue'))throw Error('A source slur must keep both endpoints in each alternative.');
   for(const tie of ties.values())if(tie.length!==2||tie[0].n.tie.phase!=='start'||tie[1].n.tie.phase!=='stop'||tie[1].index!==tie[0].index+1||tie[0].n.kind!=='note'||tie[1].n.kind!=='note'||tie[0].n.midi!==tie[1].n.midi)throw Error('A printed tie must join adjacent equal pitches.');
+  sourceRepeatBounds(route,figure.repeat);
   return {variant:figure.variants?variant:null,components:route};
  });
  if(covered.size!==components.length)throw Error('A source component was omitted from every alternative.');

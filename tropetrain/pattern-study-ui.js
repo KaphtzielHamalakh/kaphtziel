@@ -1,3 +1,5 @@
+import {REPEAT_DEMO} from './source-repeat.js';
+import {BAER_PATTERN_ID,baerPatternWrittenPlan} from './baer-patterns.js';
 import {GRACE_DEMO} from './source-grace.js';
 import {printedRestAt,printedPatternDuration,printedPatternBeats,printedPatternRests} from './baer-patterns.js';
 import {PRINTED_PATTERNS,PRINTED_PATTERN_CATALOG,PRINTED_PATTERN_SOURCES,PATTERN_MODES,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA,allPatternModes,patternImage,patternRecord,patternSource,availablePatternModes,printedPatternPlan,patternEvidence,patternContextChoices} from './printed-patterns.js';
@@ -9,7 +11,7 @@ import {printedPatternRange} from './pattern-range.js';
 
 export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   const $=id=>document.getElementById(id),preferenceKey='tropetrain-pattern-study-v1';
-  let plan=[],settingsKey=null,selectedId=null,starting=false,request=0,saved,activeId=null;
+  let plan=[],writtenPlan=[],settingsKey=null,selectedId=null,starting=false,request=0,saved,activeId=null;
   try{saved=JSON.parse(localStorage.getItem(preferenceKey));}catch{}
   function clearExport(){const link=$('pattern-export-link');link.hidden=true;link.removeAttribute('href');}
   function rangeChanged(){clearExport();const s=getSettings();$('pattern-range').textContent=printedPatternRange(plan,s.rangeLow,s.rangeHigh).text;}
@@ -19,7 +21,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     if(current){const hit=(current.querySelector('.staff-hit')??current).getBoundingClientRect(),box=container.getBoundingClientRect();if(hit.left<box.left||hit.right>box.right)container.scrollBy({left:hit.left-box.left-(container.clientWidth-hit.width)/2,behavior:'auto'});}
   };
   const player=new Player((event,cycle,_progress,index)=>{
-    setActive(event.id);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed component ${event.sourceComponentNumber??index+1} of ${event.sourceComponentCount??plan.length}${event.sourcePage?' · p.'+event.sourcePage:''} · ${eventPitchName(event)}.${event.sourceGrace?' Unmeasured printed grace; original demonstration timing: 80 ms.':''}${event.sourceFermata?' Printed fermata; playback uses the written duration.':''}`;
+    setActive(event.sourceComponentId??event.id);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed component ${event.sourceComponentNumber??index+1} of ${event.sourceComponentCount??plan.length}${event.sourcePage?' · p.'+event.sourcePage:''} · ${eventPitchName(event)}.${event.repeatPass?` Original repeat demonstration · pass ${event.repeatPass} of 2; source count unspecified.`:""}${event.sourceGrace?' Unmeasured printed grace; original demonstration timing: 80 ms.':''}${event.sourceFermata?' Printed fermata; playback uses the written duration.':''}`;
   },()=>{starting=false;setActive(null);$('pattern-status').setAttribute('aria-live','polite');$('pattern-status').textContent=plan.some(e=>e.sourceGrace)?'Original instrumental timing demonstration finished. Source grace durations remain unspecified.':'Printed pattern finished. Bible-word selection is unchanged.';},(cycle,progress,index)=>{
     const rest=printedRestAt(plan,progress*player.duration);
     setActive(rest?.id??null);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed rest${rest?` · component ${rest.sourceComponentNumber} · ${beatLabel(rest.beats)} quarter-note beats`:''}.`;
@@ -47,8 +49,8 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   }
   function refresh(){
     clearExport();
-    const state=getSettings(),sourceId=$('pattern-source').value,mode=$('pattern-mode').value,row=patternSource(sourceId,mode),record=row.record,graceDemo=$('pattern-grace-demo').checked,key=JSON.stringify([sourceId,mode,state.tempo,state.transpose,graceDemo]);
-    const unmeasured=record.selectedFigure?.status==='unmeasured-grace';$('pattern-grace-options').hidden=!unmeasured;
+    const state=getSettings(),sourceId=$('pattern-source').value,mode=$('pattern-mode').value,row=patternSource(sourceId,mode),record=row.record,graceDemo=$('pattern-grace-demo').checked,repeatDemo=$('pattern-repeat-demo').checked,key=JSON.stringify([sourceId,mode,state.tempo,state.transpose,graceDemo,repeatDemo]);
+    const unmeasured=record.selectedFigure?.status==='unmeasured-grace';$('pattern-grace-options').hidden=!unmeasured;$('pattern-repeat-options').hidden=!record.selectedFigure?.repeat;
     $('pattern-play').textContent=unmeasured?'Play timing demonstration':'Play printed pattern';
     $('pattern-settings').textContent=`Uses instrument controls above: ${state.tempo} BPM · transpose ${state.transpose>0?'+':''}${state.transpose} · instrument volume ${state.volume}%. Fixed recordings and the Bible reading’s musical source are separate.`;
     player.setVolume(state.volume/100);if(key===settingsKey)return;stop('Pattern settings changed. Press Play printed pattern to hear them.');settingsKey=key;populateContexts();
@@ -69,23 +71,25 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     else{$('pattern-continuation-scan').removeAttribute('src');$('pattern-continuation-link').removeAttribute('href');}
     $('pattern-record-link').href=patternRecord(row.recordPath??'docs/PRINTED-PATTERN-CATALOG.json');
     $('pattern-primary-link').href=record.source.url;$('pattern-rights').textContent=record.source.rights??'Original printed source public domain; new literal transcription CC0. Independent review pending.';
-    const supported=availablePatternModes(sourceId,{graceDemo}).some(m=>m.id===mode);
+    const supported=availablePatternModes(sourceId,{graceDemo,repeatDemo}).some(m=>m.id===mode);
     $('pattern-play').disabled=!supported;$('pattern-download').disabled=!supported;
-    if(!supported){plan=[];rangeChanged();$('pattern-staff').replaceChildren();$('pattern-summary').textContent='Choose a transcribed printed figure. Pending cells supply no replacement music.';$('pattern-note-detail').textContent='';$('pattern-status').textContent=unmeasured?'Choose the optional original timing demonstration to hear this figure. Source grace durations remain unspecified.':'Choose supported columns for this source row.';return;}
-    plan=printedPatternPlan(mode,{...state,sourceId,graceDemo});$('pattern-staff').innerHTML=staffMarkup(plan,[],0,plan.length,{untexted:true});
-    $('pattern-summary').textContent=plan.some(e=>e.sourceGrace)?`${plan.length} printed components · ${plan.filter(e=>e.sourceGrace).length} unmeasured grace notes. Original instrumental demonstration: 80 ms per grace added between ${beatLabel(plan.filter(e=>!e.sourceGrace).reduce((b,e)=>b+e.beats,0))} unchanged measured quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds. Source grace durations remain unspecified; no word or phoneme fitting is assigned.`:`${plan[0].sourceComponentCount??plan.length} printed components · ${printedPatternRests(plan).length} rests · ${soundingNotes(plan).length} sounding attacks · ${beatLabel(printedPatternBeats(plan))} quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds.${plan.some(e=>e.sourceFermata)?' Printed fermata hold length is unspecified; playback uses the written duration.':''} Ties hold pitches; slurs keep distinct attacks.`;
+    if(!supported){plan=[];writtenPlan=[];rangeChanged();$('pattern-staff').replaceChildren();$('pattern-summary').textContent='Choose a transcribed printed figure. Pending cells supply no replacement music.';$('pattern-note-detail').textContent='';$('pattern-status').textContent=unmeasured?'Choose the optional original timing demonstration'+(record.selectedFigure?.repeat?' and two-pass repeat demonstration':'')+' to hear this figure. Source grace durations and numeric repeat count remain unspecified.':'Choose supported columns for this source row.';return;}
+    plan=printedPatternPlan(mode,{...state,sourceId,graceDemo,repeatDemo});writtenPlan=sourceId===BAER_PATTERN_ID?baerPatternWrittenPlan(mode,{...state,graceDemo}):plan;$('pattern-staff').innerHTML=staffMarkup(writtenPlan,[],0,writtenPlan.length,{untexted:true});
+    $('pattern-summary').textContent=plan.some(e=>e.sourceGrace)?`${plan.length} ${record.selectedFigure?.repeat?"playback component occurrences":"printed components"} · ${plan.filter(e=>e.sourceGrace).length} ${record.selectedFigure?.repeat?"grace-note occurrences":"unmeasured grace notes"}. Original instrumental demonstration: 80 ms per grace added between ${beatLabel(plan.filter(e=>!e.sourceGrace).reduce((b,e)=>b+e.beats,0))} unchanged measured quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds. Source grace durations remain unspecified; no word or phoneme fitting is assigned.`:`${plan[0].sourceComponentCount??plan.length} printed components · ${printedPatternRests(plan).length} rests · ${soundingNotes(plan).length} sounding attacks · ${beatLabel(printedPatternBeats(plan))} quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds.${plan.some(e=>e.sourceFermata)?' Printed fermata hold length is unspecified; playback uses the written duration.':''} Ties hold pitches; slurs keep distinct attacks.`;
+    if(record.selectedFigure?.repeat)$('pattern-summary').textContent+=' Written staff retains 27 literal components and both repeat signs. Playback has 41 component occurrences: introduction once, marked section twice, ending once. The two-pass count is original; source count and fermata hold remain unspecified.';
     for(const el of $('pattern-staff').querySelectorAll('[data-event],[data-rest]')){
-      const event=plan.find(e=>e.id===el.dataset.event)??printedPatternRests(plan).find(r=>r.id===el.dataset.rest);el.addEventListener('click',()=>inspect(event));
+      const event=writtenPlan.find(e=>e.id===el.dataset.event)??printedPatternRests(writtenPlan).find(r=>r.id===el.dataset.rest);el.addEventListener('click',()=>inspect(event));
       el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect(event);}});
     }
-    rangeChanged();inspect(plan.find(e=>e.id===selectedId)??printedPatternRests(plan).find(r=>r.id===selectedId)??plan[0]);$('pattern-status').textContent='Ready to compare these printed figures.';
+    rangeChanged();inspect(writtenPlan.find(e=>e.id===selectedId)??printedPatternRests(writtenPlan).find(r=>r.id===selectedId)??writtenPlan[0]);$('pattern-status').textContent='Ready to compare these printed figures.';
   }
   for(const row of PRINTED_PATTERN_SOURCES){const option=document.createElement('option');option.value=row.id;option.textContent=row.label;$('pattern-source').append(option);}
   $('pattern-source').value=PRINTED_PATTERN_SOURCES.some(r=>r.id===saved?.sourceId)?saved.sourceId:PRINTED_PATTERNS.id;
   populateModes(saved?.mode??'pair');
-  $('pattern-source').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;populateModes($('pattern-mode').value);refresh();remember();});
-  $('pattern-mode').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;refresh();remember();});
+  $('pattern-source').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;populateModes($('pattern-mode').value);refresh();remember();});
+  $('pattern-mode').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;refresh();remember();});
   $('pattern-grace-demo').addEventListener('change',()=>refresh());
+  $('pattern-repeat-demo').addEventListener('change',()=>refresh());
   $('pattern-play').addEventListener('click',async()=>{
     beforePlay();refresh();if(!plan.length)return;const state=getSettings(),current=++request;starting=true;$('pattern-status').setAttribute('aria-live','off');$('pattern-status').textContent='Starting the printed pattern…';
     player.setVolume(state.volume/100);
@@ -110,12 +114,16 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   $('pattern-context-query').addEventListener('change',remember);
   $('pattern-find').addEventListener('click',()=>{const q=contextChoices().find(q=>q.ids.join('>')===$('pattern-context-query').value);if(q)findPattern(q.ids.join('>'));});
   $('pattern-download').addEventListener('click',()=>{
-    refresh();if(!plan.length)return;const state=getSettings(),row=patternSource($('pattern-source').value,$('pattern-mode').value),record={format:'tropetrain-untexted-pattern-v1',source:row.record,sourceCatalog:row.sourceCatalog??{id:PRINTED_PATTERN_CATALOG.id,revision:PRINTED_PATTERN_CATALOG.revision},mode:$('pattern-mode').value,
-      tempo:state.tempo,transpose:state.transpose,volume:state.volume,timingDemonstration:plan.some(e=>e.sourceGrace)?{...GRACE_DEMO}:null,pronunciation:null,phonemes:null,syllableUnderlay:null,
-      vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},events:plan};
+    refresh();if(!plan.length)return;const state=getSettings(),row=patternSource($('pattern-source').value,$('pattern-mode').value),record=patternEventDocument(row,$('pattern-mode').value,state,plan,writtenPlan);
     const a=$('pattern-export-link');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(record,null,2));a.hidden=false;a.click();
   });
   for(const id of ['pattern-source','pattern-mode','pattern-stop','pattern-find'])$(id).disabled=false;
   refresh();
   return {stop,refresh,rangeChanged,setRepeat:value=>{player.repeat=value;},volumeChanged:()=>refresh()};
+}
+
+export function patternEventDocument(row,mode,state,plan,writtenPlan){
+ return {format:'tropetrain-untexted-pattern-v1',source:row.record,sourceCatalog:row.sourceCatalog??{id:PRINTED_PATTERN_CATALOG.id,revision:PRINTED_PATTERN_CATALOG.revision},mode,
+  tempo:state.tempo,transpose:state.transpose,volume:state.volume,timingDemonstration:plan.some(e=>e.sourceGrace)?{...GRACE_DEMO}:null,repeatDemonstration:plan.some(e=>e.performanceRepeat)?{...REPEAT_DEMO}:null,sourceWrittenEvents:row.record.selectedFigure?.repeat?writtenPlan:null,pronunciation:null,phonemes:null,syllableUnderlay:null,
+  vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},events:plan};
 }

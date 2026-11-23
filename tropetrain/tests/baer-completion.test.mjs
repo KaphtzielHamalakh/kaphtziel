@@ -15,7 +15,7 @@ const data=BAER_PATTERN_ROW.record,plan=(id,options={})=>baerPatternPlan(id,{tem
 test('the new source routes preserve all175 prior components and the full32-cell inventory',()=>{
  assert.equal(createHash('sha256').update(JSON.stringify(data.notes.slice(0,175))).digest('hex'),'892ff95cf68c97ab348321e80e4161da8eff1f9001d864df55d7b7492e083220');
  for(const queries of Object.values(data.matchingQueries))for(const q of queries)assert.deepEqual(sourceLookupPattern(q.ids).ids,q.ids);assert.deepEqual(data.matchingQueries.paseq,[]);
- assert.equal(data.revision,5);assert.equal(data.notes.length,229);assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(data.figures.filter(f=>f.status==='unmeasured-grace').length,1);assert.equal(data.notes.filter(n=>n.kind==='note').length,215);assert.equal(data.notes.filter(n=>n.kind==='rest').length,14);
+ assert.equal(data.revision,6);assert.equal(data.notes.length,308);assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(data.figures.filter(f=>f.status==='unmeasured-grace').length,5);assert.equal(data.notes.filter(n=>n.kind==='note').length,292);assert.equal(data.notes.filter(n=>n.kind==='rest').length,16);
 });
 
 test('Munah before Mahpakh assigns the triplet only to the three secondary-beamed sixteenths',()=>{
@@ -54,7 +54,7 @@ test('rendered instrumental ending has exact digital silence across both distinc
 });
 
 test('five default-disabled source cells keep unassigned grace timing or explicit notation/application gaps',()=>{
- const pending=data.figures.filter(f=>f.status!=='transcribed');assert.deepEqual(pending.map(f=>f.id),['pashta-zaqef-after-predecessors','pazer','telisha-qetana','shalshelet','qarnei-yerah-pair']);for(const f of pending){assert.equal(f.review,null);assert.equal(f.wordApplication,null);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);if(f.status==='unmeasured-grace'){assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,3);assert(data.notes.filter(n=>n.cell===f.id&&n.grace).every(n=>n.quarterBeats===null));}else assert.equal(data.notes.some(n=>n.cell===f.id),false);}
+ const pending=data.figures.filter(f=>f.status!=='transcribed');assert.deepEqual(pending.map(f=>f.id),['pashta-zaqef-after-predecessors','pazer','telisha-qetana','shalshelet','qarnei-yerah-pair']);for(const f of pending){assert.equal(f.review,null);assert.equal(f.wordApplication,null);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);if(f.status==='unmeasured-grace'){assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,f.unmeasuredGraceNotes);assert(data.notes.filter(n=>n.cell===f.id&&n.grace).every(n=>n.quarterBeats===null));}else assert.equal(data.notes.some(n=>n.cell===f.id),false);}
  for(const name of['app.bundle.js','TropeTrain.html'])assert(readFileSync(new URL('../'+name,import.meta.url),'utf8').includes('baer105-1w-section-ending-18'));
 });
 

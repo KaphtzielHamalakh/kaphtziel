@@ -11,8 +11,8 @@ export function patternSource(id=PRINTED_PATTERNS.id,mode){
  if(id===BAER_PATTERN_ID)return baerPatternSource(mode);
  const row=PRINTED_PATTERN_CATALOG.rows.find(r=>r.id===id);if(!row)throw Error('Choose a checked printed source row.');return row;
 }
-export function availablePatternModes(sourceId=PRINTED_PATTERNS.id,{graceDemo=false}={}){
- if(sourceId===BAER_PATTERN_ID)return baerPatternModes().filter(m=>m.status==='transcribed'||graceDemo===true&&m.status==='unmeasured-grace');
+export function availablePatternModes(sourceId=PRINTED_PATTERNS.id,{graceDemo=false,repeatDemo=false}={}){
+ if(sourceId===BAER_PATTERN_ID)return baerPatternModes().filter(m=>(m.status==='transcribed'||graceDemo===true&&m.status==='unmeasured-grace')&&(!m.repeat||repeatDemo===true));
  const cells=new Set(patternSource(sourceId).record.notes.map(n=>n.cell));
  return PATTERN_MODES.filter(m=>(m.cells??[m.id]).every(c=>cells.has(c)));
 }
@@ -41,8 +41,8 @@ export function patternContextChoices(sourceId,mode){
  if(!availablePatternModes(sourceId).some(m=>m.id===mode))return [];
  return record.matchingQueries?.[mode]??[{label:'Source combination',ids:record.matchingQuery}];
 }
-export function printedPatternPlan(mode='pair',{tempo=84,transpose=0,sourceId=PRINTED_PATTERNS.id,graceDemo=false}={}){
- if(sourceId===BAER_PATTERN_ID)return baerPatternPlan(mode,{tempo,transpose,graceDemo});
+export function printedPatternPlan(mode='pair',{tempo=84,transpose=0,sourceId=PRINTED_PATTERNS.id,graceDemo=false,repeatDemo=false}={}){
+ if(sourceId===BAER_PATTERN_ID)return baerPatternPlan(mode,{tempo,transpose,graceDemo,repeatDemo});
  if(!PATTERN_MODES.some(m=>m.id===mode))throw Error('Choose a printed pattern.');
  const row=patternSource(sourceId),record=row.record;
  if(!availablePatternModes(sourceId).some(m=>m.id===mode))throw Error('This printed source has no checked transcription for those columns.');

@@ -2,6 +2,7 @@
 import {BAER_PATTERN_ROW} from './baer-pattern-data.js';
 import {baerComponentRoutes} from './baer-notation.js';
 import {graceDemoTiming} from './source-grace.js';
+import {repeatOccurrences} from './source-repeat.js';
 export const BAER_PATTERN_ID=BAER_PATTERN_ROW.id;
 const pair={id:'munah-revia-pair',name:'Munaḥ → Revia · adjacent source columns',page:31,cells:['munah-before-revia','revia'],status:'transcribed'};
 export function baerPatternModes(){return [...BAER_PATTERN_ROW.record.figures,pair].flatMap(f=>{
@@ -10,10 +11,11 @@ export function baerPatternModes(){return [...BAER_PATTERN_ROW.record.figures,pa
  return [{...common,name:f.name+(f.status==='transcribed'?'':f.status==='unmeasured-grace'?' · unmeasured grace · optional demo':' · pending')}];
 });}
 export function baerPatternSource(mode){
- const figure=baerPatternModes().find(f=>f.id===mode),page=figure?.page??30,record=BAER_PATTERN_ROW.record,scan=record.source.pages[String(page)];
- return {...BAER_PATTERN_ROW,record:{...record,source:{...record.source,page,image:scan.image,caption:`Printed p.${page}, first setting. ${figure?.name??record.name}. `+(figure?.pending??figure?.contextPending??'Literal notes/rests only; no Bible-word fitting or complete grammar is asserted.')+(figure?.sourceCondition?` Printed condition: ${figure.sourceCondition.literal} (${figure.sourceCondition.english}); modern application remains unassigned.`:'')},selectedFigure:figure??null}};
+ const figure=baerPatternModes().find(f=>f.id===mode),page=figure?.page??30,record=BAER_PATTERN_ROW.record,scan=record.source.detailImages?.[figure?.detailImage]??record.source.pages[String(page)];
+ return {...BAER_PATTERN_ROW,record:{...record,source:{...record.source,page,image:scan.image,...(figure?.detailImage?{contextImage:record.source.pages[String(page)]}:{}),caption:`Printed p.${page}, first setting. ${figure?.name??record.name}. `+(figure?.pending??figure?.contextPending??'Literal notes/rests only; no Bible-word fitting or complete grammar is asserted.')+(figure?.sourceCondition?` Printed condition: ${figure.sourceCondition.literal} (${figure.sourceCondition.english}); modern application remains unassigned.`:'')},selectedFigure:figure??null}};
 }
-export function baerPatternPlan(mode,{tempo=84,transpose=0,graceDemo=false}={}){
+export function baerPatternWrittenPlan(mode,options={}){return baerPatternPlan(mode,{...options,written:true});}
+export function baerPatternPlan(mode,{tempo=84,transpose=0,graceDemo=false,repeatDemo=false,written=false}={}){
  const row=baerPatternSource(mode),record=row.record,figure=record.selectedFigure;
  if(!figure)throw Error('Choose a printed pattern.');
  if(figure.status!=='transcribed'&&!(figure.status==='unmeasured-grace'&&graceDemo===true))throw Error('This source figure awaits literal notation or timing review. An unmeasured-grace figure requires the optional original instrumental timing demonstration.');
@@ -25,9 +27,10 @@ export function baerPatternPlan(mode,{tempo=84,transpose=0,graceDemo=false}={}){
  });
  if(!components.length||components.some(c=>!c))throw Error('This source figure has no complete transcribed component route.');
  let beat=0;const plan=[],before=[];
- for(const [i,c] of components.entries()){
+ for(const occurrence of repeatOccurrences(components,figure.repeat,{repeatDemo,written})){
+  const {component:c,index:i,...repetition}=occurrence;
   const grace=graceDemoTiming(c,{tempo,graceDemo}),beats=grace?.beats??c.quarterBeats;
-  const common={id:c.id,sourceProfile:record.id,sourceRevision:record.revision,sourcePage:c.sourcePage,sourceLocation:c.sourceLocation,sourceLabel:record.figures.find(f=>f.id===c.cell).name,sourceComponentNumber:i+1,sourceComponentCount:components.length,sourceCell:c.cell,beats,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:grace?.seconds??beats*60/tempo,
+  const common={id:occurrence.repeatPass?`${c.id}-pass-${occurrence.repeatPass}`:c.id,...(figure.repeat?{sourceComponentId:c.id,...repetition}:{}),sourceProfile:record.id,sourceRevision:record.revision,sourcePage:c.sourcePage,sourceLocation:c.sourceLocation,sourceLabel:record.figures.find(f=>f.id===c.cell).name,sourceComponentNumber:i+1,sourceComponentCount:components.length,sourceCell:c.cell,beats,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:grace?.seconds??beats*60/tempo,
    ...(grace?{sourceQuarterBeats:null,sourceGrace:grace.sourceGrace,performanceTiming:grace.performanceTiming}:{}),
    ...(figure.sourceVariant?{sourceVariant:Object.freeze({id:figure.sourceVariant.id,label:figure.sourceVariant.label,figureId:figure.sourceFigureId})}:{}),...(c.sourceBar?{sourceBar:c.sourceBar}:{})};
   if(c.kind==='rest'){
