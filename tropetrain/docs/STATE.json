@@ -3,8 +3,8 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "46d3b77677b798338151303204b6726212ee713a",
-  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
+  "publishedCommit": "e15fdd265752a33fc993792425ac9664cd034515",
+  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. Resolve its 2,195 withheld words through explicit source reading/variant evidence: 2,181 source-only forms,12 conflicting paths,2 combined words. Never invent written spans or accepted phones; keep original demo timing separate from source timing.",
   "lastPassingTests": {
     "automated": 578,
     "failed": 0,
@@ -14,7 +14,7 @@
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Normal131 and portable132 each pass22 native UI checks. Genesis11:4 keeps17marked words and44source-linked notes. MAM styles and regional research profiles change independently of all notes/times/key/range. Visible prepared event data retains source unit links and null source timing/phonemes/voice/review. Source-only CGJ, combined Deut32:6 and conflicting paths block unsafe spans; covered words remain playable. Default and printed sources, other-book reading, persisted opt-in and paused media/clear consoles pass. Cross-group selection survives pointed/consonantal/parallel views. Both Loop2 restart at gen-11-4-11-mams1-n1 and finish exactly at word12; instrument0. No speaker listening or saved-file download claim. Actual319px root/scroll319 and desktop/mobile visuals pass; viewport reset.",
+    "ui": "578 automated checks pass,0fail/0skip,8new substantive tests. Public normal and portable each pass22 native checks: unchanged17marked Genesis11:4words and44source-linked original notes; exact exported unit/range provenance with null source timing/phonemes/voice/review; independent MAM styles, regional research text profiles, key, tempo and advisory range; advancing muted clock and exact text highlights; mode-off stops/restores old notes; source-only CGJ, combined Deut32:6 and conflicting routes block unsafe spans while covered words remain playable; printed sources/other-book reading/persisted opt-in remain usable. Cross-group selection survives all three views, Loop2 starts gen-11-4-11-mams1-n1 and playback ends exactly at selected word12. All players stopped, instrument0, native media paused and consoles clear. Actual319px root/scroll319 fits; desktop/mobile screenshots inspected; viewport reset. Visible prepared JSON data parsed; no speaker listening or physical saved-file claim. All618 prior asset/data files are unchanged except the separately updated attribution notice; all original source packets remain exact.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -164,12 +164,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "46d3b77677b798338151303204b6726212ee713a",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45135649175",
+    "commit": "e15fdd265752a33fc993792425ac9664cd034515",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45142602551",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 16,
-    "publicChangedBytesExact": 137496604
+    "publicChangedFilesExact": 18,
+    "publicChangedBytesExact": 137635587
   },
   "corpusImport": {
     "books": 5,
@@ -195,7 +195,7 @@
   },
   "workingIteration": {
     "version": "0.70.0",
-    "status": "578checks_44local_UI_checks_publication_pending",
+    "status": "published578checks_44public_browser_checks_full_goal_active",
     "baseline": "abab6ff4efc834336cc581f99b24f3b22b830873",
     "previousGoalTurn": "Progress:v0.69published570checks_32publicchecks_1064exactfiles_saved",
     "newPublicVoice": null,
@@ -1821,7 +1821,7 @@
   "sourceSyllablePlayback": {
     "version": "0.70.0",
     "record": "docs/SOURCE-SYLLABLE-PLAYBACK.json",
-    "status": "578checks_44local_UI_checks_publication_pending",
+    "status": "published578checks_44public_native_UIchecks",
     "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
     "availableWords": 77790,
     "unavailableWords": 2195,
