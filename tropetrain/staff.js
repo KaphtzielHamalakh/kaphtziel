@@ -31,15 +31,15 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
   svg+='<text class="music-symbol clef" x="24" y="90">\ue050</text>';
   if(from===0)for(const [i,rest] of (plan[0]?.sourceRestsBefore??[]).entries())svg+=restMarkup(rest,84+55*(i+.5),height,beatsY);
   for(const e of notes){
-    const up=e.y>=80,stemX=e.x+(up?5:-5),stemEnd=e.y+(up?-32:32),r=e.rhythm;
-    const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=(untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`)+(annotated?`; pronunciation text: ${e.pronunciationText??'unlinked'}; written-span correspondence only`:'');
-    svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${untexted?'':` data-word-index="${e.wordIndex}"`}${annotated?` data-pronunciation-status="${x(e.pronunciationLink?.status??'unlinked')}"`:''} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="${height-15}" rx="5"/>`;
+    const grace=!!e.sourceGrace,up=e.y>=80,stemX=e.x+(up?(grace?4:5):-(grace?4:5)),stemEnd=e.y+(up?-(grace?24:32):(grace?24:32)),r=e.rhythm;
+    const word=untexted?null:`${e.word.reference} · word ${e.word.ordinal}`,name=(untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace?'unmeasured printed grace; original 80 ms instrumental timing demonstration':beatLabel(e.beats)+' beats'}`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`)+(annotated?`; pronunciation text: ${e.pronunciationText??'unlinked'}; written-span correspondence only`:'');
+    svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${grace?` data-source-timing="unmeasured-grace" data-performance-timing="${x(e.performanceTiming.id)}"`: ""}${untexted?'':` data-word-index="${e.wordIndex}"`}${annotated?` data-pronunciation-status="${x(e.pronunciationLink?.status??'unlinked')}"`:''} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="${height-15}" rx="5"/>`;
     for(const y of e.ledgers)svg+=`<line class="ledger" x1="${e.x-10}" x2="${e.x+10}" y1="${y}" y2="${y}"/>`;
-    svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="5.5" ry="3.8" transform="rotate(-20 ${e.x} ${e.y})"/>`;
+    svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="${grace?3.8:5.5}" ry="${grace?2.6:3.8}" transform="rotate(-20 ${e.x} ${e.y})"/>`;
     if(r.type!=='whole')svg+=`<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
     if(['eighth','16th','32nd'].includes(r.type)){
-      const flags=r.type==='eighth'?1:r.type==='16th'?2:3;
-      for(let flag=0;flag<flags;flag++){const y=stemEnd+(up?flag*6:-flag*6),direction=up?1:-1;svg+=`<path class="flag" d="M${stemX} ${y} q18 ${10*direction} 4 ${24*direction} q6 ${-12*direction} -4 ${-16*direction} Z"/>`;}
+      const flags=r.type==='eighth'?1:r.type==='16th'?2:3,scale=grace?.7:1;
+      for(let flag=0;flag<flags;flag++){const y=stemEnd+(up?flag*6*scale:-flag*6*scale),direction=up?1:-1;svg+=`<path class="flag" d="M${stemX} ${y} q${18*scale} ${10*direction*scale} ${4*scale} ${24*direction*scale} q${6*scale} ${-12*direction*scale} ${-4*scale} ${-16*direction*scale} Z"/>`;}
     }
     for(let dot=0;dot<r.dots;dot++)svg+=`<circle class="dot" cx="${e.x+13+dot*5}" cy="${e.y%10===0?e.y-5:e.y}" r="1.7"/>`;
     if(r.actual!==r.normal&&!e.sourceTupletId)svg+=`<text class="rhythm-ratio" x="${e.x}" y="24">${r.actual}:${r.normal}</text>`;
@@ -52,7 +52,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.syllable)}</text>`;
     if(!untexted&&(e.continuation||e.continuedFromPrevious))svg+=`<line class="melisma-line" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="206" y2="206"/>`;
     if(annotated&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-pronunciation${e.pronunciationText===null?' unlinked':''}${e.pronunciationLink?.units.length&&e.pronunciationLink.units.every(u=>u.sourceStress)?' source-stressed':''}" x="${e.x}" y="229" lang="en" xml:lang="en" direction="ltr" unicode-bidi="plaintext">${x(e.pronunciationText??'unlinked')}</text>`;
-    svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${beatLabel(e.beats)} beats</text></g>`;
+    svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace?`<tspan x="${e.x}" dy="-6">grace</tspan><tspan x="${e.x}" dy="14">demo 80 ms</tspan>`:beatLabel(e.beats)+' beats'}</text></g>`;
     // A bracket spans several notes. Keeping it outside the first note's
     // button prevents that button's accessible bounds covering its neighbours.
     if(e.sourceTupletPhase==='start'){

@@ -1,5 +1,6 @@
 // Structural source checks only; these do not approve a musical realization.
-export function baerComponentRoutes(record,figure){
+import {validateSourceGrace} from './source-grace.js';
+export function baerComponentRoutes(record,figure,{allowUnmeasuredGrace=false}={}){
  const components=record.notes.filter(n=>n.cell===figure.id),byId=new Map(components.map(n=>[n.id,n]));
  if(byId.size!==components.length)throw Error('Duplicate source component ID.');
  const variants=figure.variants??[{id:null,label:null,componentIds:components.map(n=>n.id)}];
@@ -9,7 +10,15 @@ export function baerComponentRoutes(record,figure){
   const ids=variant.componentIds;
   if(!Array.isArray(ids)||!ids.length||new Set(ids).size!==ids.length)throw Error('A source route must list each component once.');
   const route=ids.map(id=>{const n=byId.get(id);if(!n)throw Error('Source alternative references a missing or different source cell.');covered.add(id);return n;});
-  for(const n of route)if(!Number.isFinite(n.quarterBeats)||n.quarterBeats<=0)throw Error('Unmeasured source components require explicit timing evidence.');
+  for(const n of route){
+   if(n.grace){
+    if(!allowUnmeasuredGrace)throw Error('Unmeasured source components require explicit timing evidence.');
+    const g=validateSourceGrace(n),members=route.filter(c=>c.grace?.groupId===g.groupId),before=route.findIndex(c=>c.id===g.previousComponentId),after=route.findIndex(c=>c.id===g.nextComponentId);
+    if(members.length!==g.count||before<0||after-before!==g.count+1||route[before].grace||route[after].grace||
+     members.some((c,i)=>route[before+i+1]!==c||c.grace.order!==i+1||c.grace.count!==g.count||c.grace.previousComponentId!==g.previousComponentId||c.grace.nextComponentId!==g.nextComponentId))
+     throw Error('A grace group must retain every ordered component between its two measured source anchors.');
+   }else if(!Number.isFinite(n.quarterBeats)||n.quarterBeats<=0)throw Error('Unmeasured source components require explicit timing evidence.');
+  }
   const arcs=new Map(),ties=new Map();
   for(const [index,n] of route.entries()){
    for(const arc of [...(n.slur?[n.slur]:[]),...(n.slurs??[])]){

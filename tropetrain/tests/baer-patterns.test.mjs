@@ -12,12 +12,12 @@ import {renderWav} from '../wav.js';
 const data=BAER_PATTERN_ROW.record,read=p=>readFileSync(new URL('../'+p,import.meta.url));
 const plan=(mode,options={})=>printedPatternPlan(mode,{sourceId:BAER_PATTERN_ID,tempo:60,transpose:0,...options});
 
-test('Baer source inventory keeps32cells, twenty-seven literal figures and5explicit unfinished cells apart from the existing Cohen catalogue',()=>{
+test('Baer source inventory keeps32cells, twenty-seven measured figures and five source-timing/application gaps apart from the existing Cohen catalogue',()=>{
  assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(BAER_PATTERN_ROW.unavailable.length,5);
  assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.length,19);
  assert.equal(allPatternModes(BAER_PATTERN_ID).length,37);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,32); // one adjacent-column pair
- assert.equal(data.notes.length,217);assert.equal(data.notes.filter(n=>n.kind==='note').length,203);assert.equal(data.notes.filter(n=>n.kind==='rest').length,14);
- for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);assert.equal(data.notes.some(n=>n.cell===f.id),false);assert.throws(()=>plan(f.id),/awaits literal notation or application review/);}
+ assert.equal(data.notes.length,229);assert.equal(data.notes.filter(n=>n.kind==='note').length,215);assert.equal(data.notes.filter(n=>n.kind==='rest').length,14);
+ for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);if(f.status!=='unmeasured-grace')assert.equal(data.notes.some(n=>n.cell===f.id),false);else assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,3);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);}
 });
 
 test('each source image reconstructs its exact byte hash and current-mode evidence shows the correct printed page and MIME',()=>{
