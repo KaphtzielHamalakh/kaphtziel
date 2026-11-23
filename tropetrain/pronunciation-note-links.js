@@ -1,3 +1,4 @@
+import {readingStudyForWord} from './source-reading-choices.js';
 // Original exact-span bridge. This relates two existing text underlays; it
 // neither changes the score syllables nor allocates phonemes or recorded time.
 import {PRONUNCIATION_STYLES} from './pronunciation.js';
@@ -41,8 +42,9 @@ export function linkPronunciationToNotes(plan,words,library,style){
   if(seen.has(event.id))throw Error('Duplicate score event ID.');seen.add(event.id);
   const word=words[event.wordIndex];
   if(!word||word.id!==event.wordId||(event.sourceWordId??event.wordId)!==sourceId(word))throw Error('Score notes do not match their Hebrew word occurrences.');
+  if(JSON.stringify(event.sourceSyllableLink?.sourceReadingChoices??null)!==JSON.stringify(word.sourceSyllableUnderlay?.sourceReadingChoices??null))throw Error('Source reading note choice changed.');
   if(!prepared.has(word.id)){
-   const ranges=syllableRanges(word),study=library.study(word,style);
+   const ranges=syllableRanges(word),study=readingStudyForWord(word,library,style);
    const units=study?.rows.flatMap(row=>row.styles[style].flatMap(cell=>cell.units.map(unit=>({unit,row:row.number,column:cell.column,reference:cell.sourceReference??null,labels:[...new Set(unit.hebrewUnderlay?.variants.flatMap(v=>v.labels)??[])]}))))??[];
    const owned=units.filter(u=>u.unit.readerWordId===sourceId(word)).map(u=>({...u,span:writtenSpan(u.unit,word)}));
    prepared.set(word.id,{word,ranges,study,units,owned});
@@ -65,7 +67,7 @@ export function linkPronunciationToNotes(plan,words,library,style){
   pronunciationSource:{project:'Phonetic MAM by Benjamin Denckla; Hebrew Wikisource / Miqra according to the Masorah',dataLicense:'CC-BY-SA-4.0',notice:'assets/pronunciation/NOTICE.txt'},
   method:links.some(l=>l.alignmentLevel==='source-reading-word')?'Equal marked-Hebrew ranges for written forms; explicit source-unit identities for opted-in source reading forms at word level, with null written syllable ranges. No acoustic allocation.':'Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.',
   review:'Structural text correspondence only. Score syllabification, pronunciation and musical underlay need independent review. No phoneme, vocal delivery or acoustic alignment is inferred.',
-  phonemes:null,audioTimes:null,words:[...prepared.values()].map(({word:w})=>({wordId:w.id,sourceWordId:sourceId(w),hebrew:w.sourceHebrew})),
+  phonemes:null,audioTimes:null,words:[...prepared.values()].map(({word:w})=>({wordId:w.id,sourceWordId:sourceId(w),hebrew:w.sourceHebrew,...(w.sourceSyllableUnderlay?.sourceChoiceEvidence?{sourceReadingChoices:structuredClone(w.sourceSyllableUnderlay.sourceReadingChoices),sourceChoiceEvidence:structuredClone(w.sourceSyllableUnderlay.sourceChoiceEvidence)}:{})})),
   counts:{notes:links.length,linkedNotes:links.filter(l=>l.status!=='unlinked').length,unlinkedNotes:links.filter(l=>l.status==='unlinked').length},links};
 }
 export function notePronunciationText(link){return ['exact-written-span','source-reading-word'].includes(link?.status)?Object.hasOwn(link,'phonology')?link.phonology?.text??null:[...new Set(link.units.map(u=>u.text))].join(' / '):null;}

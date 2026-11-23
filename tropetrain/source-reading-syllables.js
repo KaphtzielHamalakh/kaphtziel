@@ -27,7 +27,7 @@ export function sourceReadingSyllables(word,studies,result){
   for(const column of new Set(path.units.flatMap(u=>u.hebrewUnderlay.variants.map(v=>v.hebrewColumn)))){
    const raw=sourceRow?.hebrew[column-1];if(!raw)return result;
    const source=plain(raw),from=units[0].start,to=units.at(-1).end;
-   if(source.slice(from,to)!==text||from>0&&!/[־\s]/u.test(source[from-1])||to<source.length&&!/[־\s]/u.test(source[to]))return result;
+   if(source.slice(from,to)!==text||from>0&&!/[־\s]/u.test(source[from-1])||to<source.length&&!/[־\s]/u.test(source[to])&&!/[־\s]/u.test(source[to-1]))return result;
   }
   readings.push({path,units,text});
  }

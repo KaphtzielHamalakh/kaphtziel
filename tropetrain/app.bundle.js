@@ -4168,7 +4168,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         const raw = sourceRow?.hebrew[column - 1];
         if (!raw) return result;
         const source = plain(raw), from = units[0].start, to = units.at(-1).end;
-        if (source.slice(from, to) !== text || from > 0 && !/[־\s]/u.test(source[from - 1]) || to < source.length && !/[־\s]/u.test(source[to])) return result;
+        if (source.slice(from, to) !== text || from > 0 && !/[־\s]/u.test(source[from - 1]) || to < source.length && !/[־\s]/u.test(source[to]) && !/[־\s]/u.test(source[to - 1])) return result;
       }
       readings.push({ path, units, text });
     }
@@ -4208,6 +4208,164 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         review: null
       }))
     };
+  }
+
+  // pronunciation-structure.js
+  function transcriptionStructure(nodes) {
+    if (nodes === null) return { status: "missing", text: null, units: [], boundaries: [], marks: [] };
+    if (!Array.isArray(nodes)) throw Error("Invalid pronunciation source cell.");
+    let text = "";
+    const marks = [];
+    function visit(items, path = []) {
+      items.forEach((node, index) => {
+        const sourcePath = [...path, index];
+        if (typeof node === "string") {
+          text += node;
+          return;
+        }
+        if (!node || !["stressed", "superscript-e", "reading"].includes(node.kind)) throw Error("Unsupported pronunciation source markup.");
+        const start2 = text.length;
+        if (node.kind === "superscript-e") text += "ᵉ";
+        else {
+          if (!Array.isArray(node.content) || node.kind === "reading" && typeof node.label !== "string") throw Error("Invalid pronunciation source markup.");
+          visit(node.content, [...sourcePath, "content"]);
+        }
+        marks.push({ kind: node.kind, start: start2, end: text.length, path: sourcePath, ...node.kind === "reading" ? { label: node.label } : {} });
+      });
+    }
+    visit(nodes);
+    const status = text === "" ? "empty" : text === "—" ? "repeat-mark" : "present";
+    if (status !== "present") return { status, text, units: [], boundaries: [], marks };
+    const units = [], boundaries = [];
+    function unit(start2, end) {
+      if (start2 === end) return;
+      const sourceMarks = marks.filter((m) => m.start < end && m.end > start2);
+      const value = text.slice(start2, end);
+      units.push({
+        number: units.length + 1,
+        text: value,
+        start: start2,
+        end,
+        sourceStress: sourceMarks.some((m) => m.kind === "stressed"),
+        sourceMarks: sourceMarks.map((m) => ({ ...m })),
+        acutePositions: [...value.matchAll(/\u0301/gu)].map((m) => start2 + m.index),
+        brevePositions: [...value.matchAll(/\u0306/gu)].map((m) => start2 + m.index)
+      });
+    }
+    let start = 0;
+    for (const match of text.matchAll(/[·\-\s]/gu)) {
+      unit(start, match.index);
+      boundaries.push({ text: match[0], start: match.index, end: match.index + match[0].length, kind: match[0] === "·" ? "syllable-dot" : match[0] === "-" ? "source-join" : "space" });
+      start = match.index + match[0].length;
+    }
+    unit(start, text.length);
+    return { status, text, units, boundaries, marks };
+  }
+  function sourcePronunciationStudy(group, { sourceCommit, word, style }) {
+    if (!["sephardic", "ashkenazic"].includes(style)) throw Error("Unsupported pronunciation text style.");
+    const sourceWordId = word?.sourceWordId ?? word?.id, index = group.readerIds.indexOf(sourceWordId);
+    if (index < 0 || group.readerHebrew[index] !== word.sourceHebrew) throw Error("The Hebrew source changed; this pronunciation link needs review.");
+    if (group.writtenReadVariants || group.editionWordLinks || isImplicitReadingGroup(group)) {
+      if (group.writtenReadVariants?.some((v) => !group.readerIds.includes(v.readerWordId))) throw Error("Explicit written/read pronunciation owner needs review.");
+      group.readerHebrew.forEach((_, i) => groupReaderLetterForms(group, i));
+    }
+    const singleWord = group.readerIds.length === 1;
+    function cellStructure(nodes, style2, row, column) {
+      const cell = transcriptionStructure(nodes), id = `${group.id}-${style2}-r${row}-c${column + 1}`;
+      const alignment = { readerWordId: singleWord ? group.readerIds[0] : null, phonemes: null, hebrewClusterRanges: null, noteIds: null, audioTimes: null };
+      return { id, column: column + 1, ...cell, ...alignment, units: cell.units.map((unit) => ({ id: `${id}-u${unit.number}`, ...unit, ...alignment })) };
+    }
+    const rows2 = group.rows.map((row) => ({ number: row.number, styles: Object.fromEntries(["sephardic", "ashkenazic"].map((id) => [id, row.transcriptions[id].map((cell, column) => cellStructure(cell, id, row.number, column))])) }));
+    const resolved = resolvePronunciationRepeats(group, rows2);
+    const aligned = alignSourceWordBoundaries(group, resolved, group.rows.map((row) => row.hebrew.map(transcriptionStructure)));
+    return {
+      format: "tropetrain-pronunciation-study-v1",
+      revision: 3,
+      sourceCommit,
+      license: "CC-BY-SA-4.0",
+      attribution: "Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.",
+      selectedStyle: style,
+      selection: { sourceWordId, occurrenceId: word.id, sourceHebrew: word.sourceHebrew },
+      groupId: group.id,
+      readerIds: [...group.readerIds],
+      readerHebrew: [...group.readerHebrew],
+      alignmentScope: singleWord ? "single-reader-word" : aligned.wordAlignment.styles[style].status === "word-aligned" ? "source-word-boundaries" : aligned.wordAlignment.styles[style].status === "partly-word-aligned" ? "partial-source-word-boundaries" : "complete-reader-group",
+      rows: aligned.rows,
+      wordAlignment: aligned.wordAlignment,
+      repeatEvidence: PRONUNCIATION_REPEAT_EVIDENCE,
+      sourceGroup: group,
+      review: "Source display structure and correspondence only; independent linguistic and correspondence review pending. Word IDs require consensus across all literal Hebrew readings and all exact documented reader-form paths, with explicit transcription joins. Combined or conflicting source words remain unsplit. Dots, joins, stress and all source marks stay literal; phonemes, Hebrew-cluster mapping, note alignment and audio times remain unassigned."
+    };
+  }
+
+  // source-reading-choices.js
+  var SOURCE_READING_CHOICES = Object.freeze({
+    qamats: Object.freeze(["קמץ-ד", "קמץ-ס"]),
+    cantillation: Object.freeze(["טעם תחתון", "טעם עליון"])
+  });
+  function readingChoices(value = {}) {
+    if (!value || typeof value !== "object" || Array.isArray(value) || Object.keys(value).some((k) => !Object.hasOwn(SOURCE_READING_CHOICES, k))) throw Error("Unknown source reading choice.");
+    const result = { qamats: value.qamats ?? null, cantillation: value.cantillation ?? null };
+    for (const [k, v] of Object.entries(result)) if (v !== null && !SOURCE_READING_CHOICES[k].includes(v)) throw Error("Unknown source reading choice.");
+    return result;
+  }
+  function chooseSourceStudy(study, choices) {
+    const policy = readingChoices(choices);
+    if (!study || !Object.values(policy).some((v) => v !== null)) return study;
+    if (study.sourceSelection) throw Error("A source selection cannot be applied twice.");
+    const chosenRows = [];
+    let incompatible = false;
+    const rows2 = study.rows.map((row) => {
+      const raw = study.sourceGroup.rows.find((r) => r.number === row.number);
+      if (!raw) throw Error("Source reading row changed.");
+      const columns = raw.hebrew.map((nodes, i) => ({ column: i + 1, ...transcriptionStructure(nodes) })).filter((c) => c.text !== null);
+      let selected = columns;
+      const requested = [];
+      for (const [k, allowed] of Object.entries(SOURCE_READING_CHOICES)) {
+        const values = new Set(columns.flatMap((c) => c.marks.filter((m) => m.kind === "reading" && allowed.includes(m.label)).map((m) => m.label)));
+        if (values.size > 1 && policy[k] !== null) {
+          requested.push({ kind: k, label: policy[k] });
+          selected = selected.filter((c) => c.marks.some((m) => m.kind === "reading" && m.label === policy[k]));
+        }
+      }
+      if (!requested.length) return row;
+      if (!selected.length) incompatible = true;
+      const keep = new Set(selected.map((c) => c.column));
+      chosenRows.push({ number: row.number, requested, hebrewColumns: [...keep], sourceReadings: columns.map((c) => ({ column: c.column, text: c.text, labels: c.marks.filter((m) => m.kind === "reading").map((m) => m.label) })) });
+      return { ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.flatMap((cell) => {
+        if (!cell.units.length) return [cell];
+        const membership = cell.units.map((u) => u.hebrewUnderlay.variants.some((v) => keep.has(v.hebrewColumn)));
+        if (!membership.some(Boolean)) return [];
+        if (!membership.every(Boolean)) throw Error("A source choice cannot discard part of a transcription path.");
+        const units = cell.units.map((unit) => {
+          const variants = unit.hebrewUnderlay.variants.filter((v) => keep.has(v.hebrewColumn)), candidate = variants[0].readerRanges;
+          const readerRanges = candidate && variants.every((v) => JSON.stringify(v.readerRanges) === JSON.stringify(candidate)) ? structuredClone(candidate) : null;
+          return {
+            ...unit,
+            hebrewClusterRanges: readerRanges,
+            hebrewUnderlay: { ...unit.hebrewUnderlay, status: readerRanges ? "exact-reader-clusters" : variants.some((v) => v.readerRanges) ? "variant-reader-difference" : "source-only", variants: structuredClone(variants) },
+            ...unit.sourceSegments ? { sourceSegments: { ...unit.sourceSegments, variants: structuredClone(unit.sourceSegments.variants.filter((v) => keep.has(v.hebrewColumn))) } } : {}
+          };
+        });
+        return [{ ...cell, units }];
+      })])) };
+    });
+    if (!chosenRows.length) return study;
+    return { ...study, rows: rows2, sourceSelection: {
+      schema: "tropetrain-source-reading-selection-v1",
+      policy,
+      rows: chosenRows,
+      incompatible,
+      scope: "Selected source columns only. Original reader Hebrew/accents and the complete original study remain unchanged. A source label is not a historical musical realization.",
+      originalStudy: structuredClone(study),
+      phonemes: null,
+      sourceTiming: null,
+      voice: null,
+      review: null
+    } };
+  }
+  function readingStudyForWord(word, library, style) {
+    return chooseSourceStudy(library.study(word, style), word.sourceSyllableUnderlay?.sourceReadingChoices ?? {});
   }
 
   // source-syllable-underlay.js
@@ -4325,10 +4483,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { ...result, status: "available", reason: null, syllables };
   }
   var SourceSyllableUnderlay = class {
-    constructor(library, { allowSourceReadings = false } = {}) {
+    constructor(library, { allowSourceReadings = false, sourceReadingChoices: sourceReadingChoices2 = {} } = {}) {
       if (!library || library.sourceCommit !== SOURCE_SYLLABLE_UNDERLAY.sourceCommit || !library.underlay) throw Error("Checked source syllable library required.");
       this.library = library;
       this.allowSourceReadings = allowSourceReadings;
+      this.sourceReadingChoices = readingChoices(sourceReadingChoices2);
       this.groups = /* @__PURE__ */ new Map();
     }
     word(word) {
@@ -4342,8 +4501,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (this.groups.size >= 128) this.groups.delete(this.groups.keys().next().value);
         this.groups.set(group.id, studies);
       }
-      const result = sourceSyllableWord(word, studies);
-      return this.allowSourceReadings ? sourceReadingSyllables(word, studies, result) : result;
+      const selected = Object.fromEntries(Object.entries(studies).map(([style, study]) => [style, chooseSourceStudy(study, this.sourceReadingChoices)]));
+      let result = sourceSyllableWord(word, selected);
+      if (this.allowSourceReadings) result = sourceReadingSyllables(word, selected, result);
+      if (Object.values(selected).some((s) => s.sourceSelection)) {
+        const original = sourceSyllableWord(word, studies);
+        result = { ...result, sourceReadingChoices: structuredClone(this.sourceReadingChoices), sourceChoiceEvidence: {
+          policy: structuredClone(this.sourceReadingChoices),
+          selectedRows: structuredClone(selected.sephardic.sourceSelection?.rows ?? selected.ashkenazic.sourceSelection.rows),
+          originalPaths: original.paths,
+          originalUnallocatedSourceUnits: original.unallocatedSourceUnits,
+          originalSourceGroup: structuredClone(studies.sephardic.sourceGroup),
+          review: null
+        } };
+      }
+      return result;
     }
   };
 
@@ -4475,6 +4647,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           writtenRange: s.writtenRange === null ? null : Object.freeze({ ...s.writtenRange }),
           sourceSyllablePosition: s.sourceSyllablePosition,
           ...s.alignmentLevel === "source-reading-word" ? { alignmentLevel: s.alignmentLevel, sourceReadingHebrew: s.sourceReadingHebrew, sourceReadingRange: Object.freeze({ ...s.sourceReadingRange }), readerHebrew: w.sourceHebrew } : {},
+          ...w.sourceSyllableUnderlay.sourceReadingChoices ? { sourceReadingChoices: Object.freeze({ ...w.sourceSyllableUnderlay.sourceReadingChoices }) } : {},
           sourceTiming: null,
           phonemes: null,
           voice: null,
@@ -4524,7 +4697,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       buildPlan: buildPlan3,
       profile,
       context: analyzeAccentContext(words4),
-      ...sourceUnderlayEnabled ? { sourceSyllableUnderlay: { ...SOURCE_SYLLABLE_UNDERLAY, availableWords: words4.filter((w) => w.sourceSyllableUnderlay.status === "available").length, unavailableWords: words4.filter((w) => w.sourceSyllableUnderlay.status !== "available").length, ...sourceUnderlay?.allowSourceReadings ? { allowSourceReadings: true, sourceReadingWords: words4.filter((w) => w.sourceSyllableUnderlay.alignmentLevel === "source-reading-word").length } : {} } } : {}
+      ...sourceUnderlayEnabled ? { sourceSyllableUnderlay: { ...SOURCE_SYLLABLE_UNDERLAY, ...sourceUnderlay && Object.values(sourceUnderlay.sourceReadingChoices ?? {}).some((v) => v !== null) ? { sourceReadingChoices: { ...sourceUnderlay.sourceReadingChoices } } : {}, availableWords: words4.filter((w) => w.sourceSyllableUnderlay.status === "available").length, unavailableWords: words4.filter((w) => w.sourceSyllableUnderlay.status !== "available").length, ...sourceUnderlay?.allowSourceReadings ? { allowSourceReadings: true, sourceReadingWords: words4.filter((w) => w.sourceSyllableUnderlay.alignmentLevel === "source-reading-word").length } : {} } } : {}
     };
   }
   var initial = createReadingModel(passage);
@@ -5924,94 +6097,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text());
   }
 
-  // pronunciation-structure.js
-  function transcriptionStructure(nodes) {
-    if (nodes === null) return { status: "missing", text: null, units: [], boundaries: [], marks: [] };
-    if (!Array.isArray(nodes)) throw Error("Invalid pronunciation source cell.");
-    let text = "";
-    const marks = [];
-    function visit(items, path = []) {
-      items.forEach((node, index) => {
-        const sourcePath = [...path, index];
-        if (typeof node === "string") {
-          text += node;
-          return;
-        }
-        if (!node || !["stressed", "superscript-e", "reading"].includes(node.kind)) throw Error("Unsupported pronunciation source markup.");
-        const start2 = text.length;
-        if (node.kind === "superscript-e") text += "ᵉ";
-        else {
-          if (!Array.isArray(node.content) || node.kind === "reading" && typeof node.label !== "string") throw Error("Invalid pronunciation source markup.");
-          visit(node.content, [...sourcePath, "content"]);
-        }
-        marks.push({ kind: node.kind, start: start2, end: text.length, path: sourcePath, ...node.kind === "reading" ? { label: node.label } : {} });
-      });
-    }
-    visit(nodes);
-    const status = text === "" ? "empty" : text === "—" ? "repeat-mark" : "present";
-    if (status !== "present") return { status, text, units: [], boundaries: [], marks };
-    const units = [], boundaries = [];
-    function unit(start2, end) {
-      if (start2 === end) return;
-      const sourceMarks = marks.filter((m) => m.start < end && m.end > start2);
-      const value = text.slice(start2, end);
-      units.push({
-        number: units.length + 1,
-        text: value,
-        start: start2,
-        end,
-        sourceStress: sourceMarks.some((m) => m.kind === "stressed"),
-        sourceMarks: sourceMarks.map((m) => ({ ...m })),
-        acutePositions: [...value.matchAll(/\u0301/gu)].map((m) => start2 + m.index),
-        brevePositions: [...value.matchAll(/\u0306/gu)].map((m) => start2 + m.index)
-      });
-    }
-    let start = 0;
-    for (const match of text.matchAll(/[·\-\s]/gu)) {
-      unit(start, match.index);
-      boundaries.push({ text: match[0], start: match.index, end: match.index + match[0].length, kind: match[0] === "·" ? "syllable-dot" : match[0] === "-" ? "source-join" : "space" });
-      start = match.index + match[0].length;
-    }
-    unit(start, text.length);
-    return { status, text, units, boundaries, marks };
-  }
-  function sourcePronunciationStudy(group, { sourceCommit, word, style }) {
-    if (!["sephardic", "ashkenazic"].includes(style)) throw Error("Unsupported pronunciation text style.");
-    const sourceWordId = word?.sourceWordId ?? word?.id, index = group.readerIds.indexOf(sourceWordId);
-    if (index < 0 || group.readerHebrew[index] !== word.sourceHebrew) throw Error("The Hebrew source changed; this pronunciation link needs review.");
-    if (group.writtenReadVariants || group.editionWordLinks || isImplicitReadingGroup(group)) {
-      if (group.writtenReadVariants?.some((v) => !group.readerIds.includes(v.readerWordId))) throw Error("Explicit written/read pronunciation owner needs review.");
-      group.readerHebrew.forEach((_, i) => groupReaderLetterForms(group, i));
-    }
-    const singleWord = group.readerIds.length === 1;
-    function cellStructure(nodes, style2, row, column) {
-      const cell = transcriptionStructure(nodes), id = `${group.id}-${style2}-r${row}-c${column + 1}`;
-      const alignment = { readerWordId: singleWord ? group.readerIds[0] : null, phonemes: null, hebrewClusterRanges: null, noteIds: null, audioTimes: null };
-      return { id, column: column + 1, ...cell, ...alignment, units: cell.units.map((unit) => ({ id: `${id}-u${unit.number}`, ...unit, ...alignment })) };
-    }
-    const rows2 = group.rows.map((row) => ({ number: row.number, styles: Object.fromEntries(["sephardic", "ashkenazic"].map((id) => [id, row.transcriptions[id].map((cell, column) => cellStructure(cell, id, row.number, column))])) }));
-    const resolved = resolvePronunciationRepeats(group, rows2);
-    const aligned = alignSourceWordBoundaries(group, resolved, group.rows.map((row) => row.hebrew.map(transcriptionStructure)));
-    return {
-      format: "tropetrain-pronunciation-study-v1",
-      revision: 3,
-      sourceCommit,
-      license: "CC-BY-SA-4.0",
-      attribution: "Hebrew Wikisource · Miqra according to the Masorah; Phonetic MAM by Benjamin Denckla, with Seth (Avi) Kadish and Erel Segal-Halevi.",
-      selectedStyle: style,
-      selection: { sourceWordId, occurrenceId: word.id, sourceHebrew: word.sourceHebrew },
-      groupId: group.id,
-      readerIds: [...group.readerIds],
-      readerHebrew: [...group.readerHebrew],
-      alignmentScope: singleWord ? "single-reader-word" : aligned.wordAlignment.styles[style].status === "word-aligned" ? "source-word-boundaries" : aligned.wordAlignment.styles[style].status === "partly-word-aligned" ? "partial-source-word-boundaries" : "complete-reader-group",
-      rows: aligned.rows,
-      wordAlignment: aligned.wordAlignment,
-      repeatEvidence: PRONUNCIATION_REPEAT_EVIDENCE,
-      sourceGroup: group,
-      review: "Source display structure and correspondence only; independent linguistic and correspondence review pending. Word IDs require consensus across all literal Hebrew readings and all exact documented reader-form paths, with explicit transcription joins. Combined or conflicting source words remain unsplit. Dots, joins, stress and all source marks stay literal; phonemes, Hebrew-cluster mapping, note alignment and audio times remain unassigned."
-    };
-  }
-
   // pronunciation-underlay.js
   var letters3 = (text) => text.replace(/[^א-ת]/gu, "");
   var clusters = (text) => [...text.matchAll(/[א-ת][^א-ת]*/gu)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: m[0] }));
@@ -6362,8 +6447,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       seen.add(event.id);
       const word = words4[event.wordIndex];
       if (!word || word.id !== event.wordId || (event.sourceWordId ?? event.wordId) !== sourceId(word)) throw Error("Score notes do not match their Hebrew word occurrences.");
+      if (JSON.stringify(event.sourceSyllableLink?.sourceReadingChoices ?? null) !== JSON.stringify(word.sourceSyllableUnderlay?.sourceReadingChoices ?? null)) throw Error("Source reading note choice changed.");
       if (!prepared.has(word.id)) {
-        const ranges2 = syllableRanges(word), study2 = library.study(word, style);
+        const ranges2 = syllableRanges(word), study2 = readingStudyForWord(word, library, style);
         const units2 = study2?.rows.flatMap((row) => row.styles[style].flatMap((cell) => cell.units.map((unit) => ({ unit, row: row.number, column: cell.column, reference: cell.sourceReference ?? null, labels: [...new Set(unit.hebrewUnderlay?.variants.flatMap((v) => v.labels) ?? [])] })))) ?? [];
         const owned2 = units2.filter((u) => u.unit.readerWordId === sourceId(word)).map((u) => ({ ...u, span: writtenSpan(u.unit, word) }));
         prepared.set(word.id, { word, ranges: ranges2, study: study2, units: units2, owned: owned2 });
@@ -6404,7 +6490,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       review: "Structural text correspondence only. Score syllabification, pronunciation and musical underlay need independent review. No phoneme, vocal delivery or acoustic alignment is inferred.",
       phonemes: null,
       audioTimes: null,
-      words: [...prepared.values()].map(({ word: w }) => ({ wordId: w.id, sourceWordId: sourceId(w), hebrew: w.sourceHebrew })),
+      words: [...prepared.values()].map(({ word: w }) => ({ wordId: w.id, sourceWordId: sourceId(w), hebrew: w.sourceHebrew, ...w.sourceSyllableUnderlay?.sourceChoiceEvidence ? { sourceReadingChoices: structuredClone(w.sourceSyllableUnderlay.sourceReadingChoices), sourceChoiceEvidence: structuredClone(w.sourceSyllableUnderlay.sourceChoiceEvidence) } : {} })),
       counts: { notes: links.length, linkedNotes: links.filter((l) => l.status !== "unlinked").length, unlinkedNotes: links.filter((l) => l.status === "unlinked").length },
       links
     };
@@ -10388,6 +10474,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       sourceCommit: study?.sourceCommit ?? null,
       categoryInputSha256: study?.sourceSegments?.inputSha256 ?? null,
       sourceDataLicense: "CC-BY-SA-4.0",
+      ...study?.sourceSelection ? { sourceSelection: structuredClone(study.sourceSelection) } : {},
       sourceCategoryStatus: study?.sourceSegments ? "source-categories-available" : "source-categories-unavailable",
       routes,
       counts: {
@@ -11146,7 +11233,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const prepared = /* @__PURE__ */ new Map(), events2 = /* @__PURE__ */ new Map(), eventSignatures = /* @__PURE__ */ new Map(), seenReferences = /* @__PURE__ */ new Map(), byId3 = new Map(words4.map((w) => [w.id, w]));
     for (const word of base.words) {
       const original = byId3.get(word.wordId);
-      prepared.set(word.wordId, readerPhonologyWord(original, library.study(original, style), style, profileId));
+      prepared.set(word.wordId, readerPhonologyWord(original, readingStudyForWord(original, library, style), style, profileId));
     }
     const links = base.links.map((link) => {
       const report = prepared.get(link.wordId), paths = [];
@@ -11365,6 +11452,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const sourceWordId = word.sourceWordId ?? word.id;
     const result = { wordId: word.id, sourceWordId, hebrew: word.sourceHebrew, style, status: "no-source-correspondence", entries: [], sourceCommit: study?.sourceCommit ?? null, license: "CC-BY-SA-4.0", review: "Source text and word correspondence only; independent linguistic review pending. No phonemes, musical notes, voice or acoustic timing inferred." };
     if (!study) return result;
+    if (study.sourceSelection) result.sourceSelection = structuredClone(study.sourceSelection);
     const index = study.readerIds.indexOf(sourceWordId);
     if (index < 0 || study.readerHebrew[index] !== word.sourceHebrew) throw Error("The Hebrew source changed; this pronunciation link needs review.");
     let transcribed = false;
@@ -11965,10 +12053,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (readerSource.kind === "published-word") return publishedPronunciation.readerText(value);
         if (!library || requestBook(value)) return null;
         library.at(value);
-        const cacheKey = JSON.stringify([readerSource.id, style, value.sourceWordId ?? value.id, value.sourceHebrew, readerSource.kind === "phonemic-research" ? value.id : null]);
+        const cacheKey = JSON.stringify([readerSource.id, style, value.sourceWordId ?? value.id, value.sourceHebrew, value.sourceSyllableUnderlay?.sourceReadingChoices, readerSource.kind === "phonemic-research" ? value.id : null]);
         if (!readerCache.has(cacheKey)) {
           if (readerCache.size >= 512) readerCache.delete(readerCache.keys().next().value);
-          const study2 = library.study(value, style);
+          const study2 = readingStudyForWord(value, library, style);
           readerCache.set(cacheKey, readerSource.kind === "phonemic-research" ? readerPhonologyWord(value, study2, style, readerSource.profileId) : readerPronunciationWord(value, study2, style));
         }
         return { ...readerCache.get(cacheKey), wordId: value.id };
@@ -11976,7 +12064,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       followNote(event, words4) {
         if (!library) return null;
         const w = words4[event.wordIndex];
-        const cacheKey = JSON.stringify([style, event.id, event.wordId, event.sourceWordId, event.syllableId, event.syllable, w?.id, w?.sourceWordId, w?.sourceHebrew]);
+        const cacheKey = JSON.stringify([style, event.id, event.wordId, event.sourceWordId, event.syllableId, event.syllable, w?.id, w?.sourceWordId, w?.sourceHebrew, w?.sourceSyllableUnderlay?.sourceReadingChoices]);
         if (!followCache.has(cacheKey)) {
           if (followCache.size >= 256) followCache.delete(followCache.keys().next().value);
           const link = linkPronunciationToNotes([event], words4, library, style).links[0];
@@ -13792,6 +13880,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $("reader-pronunciation").checked = readerPronunciation;
   var sourceSyllablesEnabled = false;
   var sourceReadingsEnabled = false;
+  var sourceReadingChoices = readingChoices();
   var sourceSyllableAdapter = null;
   var sourceSyllableError = null;
   var sourceSyllableRequest = 0;
@@ -13799,6 +13888,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const saved = JSON.parse(localStorage.getItem("tropetrain-source-syllables-v1"));
     sourceSyllablesEnabled = saved?.enabled === true;
     sourceReadingsEnabled = saved?.allowSourceReadings === true;
+    sourceReadingChoices = readingChoices(saved?.sourceReadingChoices ?? {});
   } catch {
   }
   function makeReadingModel(value, settings) {
@@ -14956,7 +15046,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("cancel-wav").hidden = true;
   }
   function updateExportSummary() {
-    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.melodyId, model.sourceSyllableUnderlay?.id ?? null, model.sourceSyllableUnderlay?.availableWords ?? null, state.tempo, state.transpose, state.volume]);
+    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.melodyId, model.sourceSyllableUnderlay?.id ?? null, model.sourceSyllableUnderlay?.availableWords ?? null, model.sourceSyllableUnderlay?.sourceReadingChoices ?? null, state.tempo, state.transpose, state.volume]);
     if (key !== exportsKey) {
       clearExports();
       exportsKey = key;
@@ -15128,6 +15218,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("source-syllables").disabled = printed;
     $("source-readings").checked = sourceReadingsEnabled;
     $("source-readings").disabled = printed || !sourceSyllablesEnabled;
+    for (const kind of ["qamats", "cantillation"]) {
+      $("source-choice-" + kind).value = sourceReadingChoices[kind] ?? "";
+      $("source-choice-" + kind).disabled = printed || !sourceSyllablesEnabled;
+    }
+    $("source-choices-status").textContent = Object.values(sourceReadingChoices).some((v) => v !== null) ? "Selected source text: " + Object.values(sourceReadingChoices).filter(Boolean).join(" · ") + ". Original Hebrew and accents are retained. Source syllables/stress may change the original demonstration notes. Pronunciation text style remains independent. All original alternatives remain in the evidence." : "Consensus only: conflicting source readings remain unavailable. Choose a documented source alternative to include it. These are text readings; historical musical realization and singing voices remain pending.";
     $("source-readings-status").textContent = !sourceReadingsEnabled ? "Optional: include documented source readings with word-level correspondence. The displayed Hebrew keeps its original letters and accents." : `Source reading forms enabled. Different spellings retain null written syllable ranges; the staff identifies their source reading syllables. Pitches and timing remain an original instrumental demonstration.`;
     $("source-syllables-status").textContent = printed ? "Printed scores use their printed syllable underlay." : !sourceSyllablesEnabled ? "Use source syllables to compare the original motif with both pronunciation text styles." : sourceSyllableError ? `Source syllables unavailable: ${sourceSyllableError}` : !sourceSyllableAdapter ? "Preparing source syllables…" : sourceReadingsEnabled ? `${model.sourceSyllableUnderlay.availableWords} of ${words3.length} words have source syllables, including ${model.sourceSyllableUnderlay.sourceReadingWords} documented source reading forms with word-level correspondence. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable.` : `${model.sourceSyllableUnderlay.availableWords} of ${words3.length} words have consensus written syllables. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable. Source-only forms, combined words and conflicting paths keep their original evidence.`;
     $("music-badge").textContent = printed ? "Printed score study" : "Instrumental demo";
@@ -15502,8 +15597,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.notePage = 0;
     state.staffPage = 0;
     render();
-    if (sourceSyllableAdapter && sourceSyllableAdapter.allowSourceReadings !== sourceReadingsEnabled) {
-      sourceSyllableAdapter = new SourceSyllableUnderlay(sourceSyllableAdapter.library, { allowSourceReadings: sourceReadingsEnabled });
+    if (sourceSyllableAdapter && (sourceSyllableAdapter.allowSourceReadings !== sourceReadingsEnabled || JSON.stringify(sourceSyllableAdapter.sourceReadingChoices) !== JSON.stringify(sourceReadingChoices))) {
+      sourceSyllableAdapter = new SourceSyllableUnderlay(sourceSyllableAdapter.library, { allowSourceReadings: sourceReadingsEnabled, sourceReadingChoices });
       model = makeReadingModel(passage2, state);
       ({ words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model);
       render();
@@ -15511,7 +15606,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!sourceSyllablesEnabled || sourceSyllableAdapter) return;
     try {
       const library = await getPronunciationLibrary();
-      sourceSyllableAdapter = new SourceSyllableUnderlay(library, { allowSourceReadings: sourceReadingsEnabled });
+      sourceSyllableAdapter = new SourceSyllableUnderlay(library, { allowSourceReadings: sourceReadingsEnabled, sourceReadingChoices });
     } catch (error) {
       if (request === sourceSyllableRequest) {
         sourceSyllableError = error.message;
@@ -15525,10 +15620,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     ({ words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model);
     render();
   }
+  for (const kind of ["qamats", "cantillation"]) $("source-choice-" + kind).addEventListener("change", () => {
+    sourceReadingChoices = readingChoices({ ...sourceReadingChoices, [kind]: $("source-choice-" + kind).value || null });
+    store("tropetrain-source-syllables-v1", { enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled, sourceReadingChoices });
+    prepareSourceSyllables();
+  });
   $("source-readings").addEventListener("change", () => {
     sourceReadingsEnabled = $("source-readings").checked;
     try {
-      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled }));
+      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled, sourceReadingChoices }));
     } catch {
     }
     prepareSourceSyllables();
@@ -15536,7 +15636,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $("source-syllables").addEventListener("change", () => {
     sourceSyllablesEnabled = $("source-syllables").checked;
     try {
-      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled }));
+      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled, sourceReadingChoices }));
     } catch {
     }
     prepareSourceSyllables();
