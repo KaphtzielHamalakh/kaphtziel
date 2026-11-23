@@ -3,15 +3,15 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "8d3009c051f109fd51202d03e41a32843c38f3c8",
+  "publishedCommit": "08b645de64c50d39a7873d013f2345b1a07b3dbf",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. The explicit source-reading option now covers79962Torahwords; resolve23remainingwords (9source-only,12conflicting,2combined) from evidence without invented written ranges. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
   "lastPassingTests": {
     "automated": 605,
     "newRegressionChecks": 8,
     "failed": 0,
     "skipped": 0,
-    "ui": "Local normal144and portable145 each pass69native checks:22playback/boundary,17pronunciation-note,12Baer-pattern and18source-reading checks. Displayed Hebrew and accents exact; documented source reading forms keep null written syllable ranges; independent styles and research profiles preserve notes. Word-relative reading intervals retain original source row offsets separately. Muted clocks, loop/stop, exports, stale source guards and persisted opt-in pass; singing voice and acoustic timing remain null. Portable source evidence is embedded.",
-    "scope": "Original instrumental demonstration; source reading word correspondence; qualified linguistic/musical/voice review remains pending."
+    "ui": "Public normal 146 and portable 147 each pass 69 native UI checks: 22 playback/boundary, 17 independent pronunciation-note, 12 Baer pattern, and 18 source reading checks. Exact Hebrew and accents, both MAM text styles, both incomplete regional research profiles, source-unit highlighting, loop/stop, exports, independent key/tempo/range, and saved opt-in settings pass. Different source readings have word correspondence and null written syllable ranges. Their offsets are relative to the complete reading word; original source-row offsets remain separately preserved. Mobile root/scroll width 320px fits, with staff scrolling contained. All players stopped, instrument volume 0, native media paused, viewport reset, consoles clear. Visible prepared JSON was checked; no speaker listening, physical saved-file download, or qualified musical/voice review is claimed.",
+    "scope": "Public normal and portable; muted UI/structural/prepared-data checks; qualified musical and voice review pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "e15fdd265752a33fc993792425ac9664cd034515",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45142602551",
+    "commit": "08b645de64c50d39a7873d013f2345b1a07b3dbf",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45180833716",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 18,
-    "publicChangedBytesExact": 137635587
+    "publicChangedFilesExact": 26,
+    "publicChangedBytesExact": 138637053
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.73.0",
-    "status": "605checks_138localUIchecks_passed_ready_to_publish",
+    "status": "published605checks_138publicUIchecks_full_goal_active",
     "next": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. The explicit source-reading option now covers79962Torahwords; resolve23remainingwords (9source-only,12conflicting,2combined) from evidence without invented written ranges. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets."
   },
   "sourceAnalysisIssue": {
@@ -1285,7 +1285,7 @@
               "minimumHz": 65,
               "maximumHz": 650,
               "threshold": 0.1,
-              "centerRoundingSeconds": 2.2675736961463855e-05
+              "centerRoundingSeconds": 0.000022675736961463855
             },
             "cents": -15.04878639962098,
             "status": "outside-15-cent-bound",
@@ -1949,7 +1949,7 @@
   "sourceReadingPlayback": {
     "version": "0.73.0",
     "record": "docs/SOURCE-READING-PLAYBACK.json",
-    "status": "605automated_checks_local_normal_and_portable138_UI_checks_passed_publication_pending",
+    "status": "published605checks_138publicUIchecks_qualified_singing_review_pending",
     "readerWords": 79985,
     "priorWrittenWords": 77790,
     "additionalSourceReadingWords": 2172,
@@ -1965,6 +1965,16 @@
     "review": null,
     "sourceReadingRanges": "Word-relative in the complete source reading; original row offsets remain separately in source paths.",
     "automatedChecks": 605,
-    "newChecks": 8
+    "newChecks": 8,
+    "publicUiChecks": 138,
+    "defaultWrittenUnderlayUnchanged": {
+      "availableWords": 77790,
+      "withheldWords": 2195
+    },
+    "optInSourceReadings": {
+      "availableWords": 79962,
+      "withheldWords": 23
+    },
+    "publicCommit": "08b645de64c50d39a7873d013f2345b1a07b3dbf"
   }
 }
