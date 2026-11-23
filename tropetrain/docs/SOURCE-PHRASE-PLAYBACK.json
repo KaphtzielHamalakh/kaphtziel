@@ -5,13 +5,13 @@
   "counts": {
     "verses": 5853,
     "words": 79985,
-    "availableVerses": 4546,
-    "availableWords": 58802,
-    "withheldVerses": 1307,
-    "withheldWords": 21183,
-    "selectedRanges": 52806,
-    "sourcePhraseLeaves": 32418,
-    "noteMembershipChecks": 596966,
+    "availableVerses": 4548,
+    "availableWords": 58838,
+    "withheldVerses": 1305,
+    "withheldWords": 21147,
+    "selectedRanges": 52841,
+    "sourcePhraseLeaves": 32441,
+    "noteMembershipChecks": 597410,
     "splitMaqafRanges": 0
   },
   "examples": [
@@ -263,7 +263,7 @@
   "inputs": [
     {
       "path": "scripts/import-source-phrases.py",
-      "sha256": "d5f15f41f3489cd82d7504ffa6a3680b0c35835e5a6b3f24627741136311f739"
+      "sha256": "18346935845dcce9ce614ba75537a97ed579002c044c23951942c016f2880f9e"
     },
     {
       "path": "scripts/audit-source-phrases.mjs",
@@ -271,7 +271,7 @@
     },
     {
       "path": "source-phrases.js",
-      "sha256": "abd6188952df216ce1ce92cd0f5fc07f4505dec7ccde7c859a08b9eeb843e1de"
+      "sha256": "be76b842d8d699b10620482e71f343c8555bb492b5824d1dae2068a43e4e0912"
     },
     {
       "path": "source-phrase-data.js",
@@ -279,7 +279,7 @@
     },
     {
       "path": "source-phrase-summary.js",
-      "sha256": "1bd4b8f60e6d13054cd66bd6cd3f64fcf972979d8d965298b9755b2794feedb7"
+      "sha256": "1ac13558b56c79bdf927e37cb538b52c920fd7acf91318fc21ca0bd86333a7db"
     },
     {
       "path": "source-phrase-ui.js",
@@ -319,11 +319,11 @@
     },
     {
       "path": "data/structure/torah-phrases.json.gz",
-      "sha256": "d39a68d37e9c963873f8b93c793e15959739068126e11056a2a1754e0a70bb6d"
+      "sha256": "f1ef0e4a5b43ac6d19538e569d476c32776598bfd95c6bff37222f07a78fd526"
     },
     {
       "path": "docs/SOURCE-PHRASES.json",
-      "sha256": "3da5d62dd32bccb54a1b6708a0098bc9af565d8982808969d1fe0ebba137606d"
+      "sha256": "21e2a9d612c1e6048a2c50425d74ef95e6c607fa93539a11685c6c824690d9cf"
     }
   ],
   "sourceTextChanged": false,

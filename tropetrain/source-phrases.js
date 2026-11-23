@@ -17,7 +17,7 @@ function validateRows(rows,count,book){
  for(const row of rows){
   if(!Array.isArray(row)||row.length!==3)throw Error('Invalid source phrase endpoint.');
   const [i,path,id]=row,parts=typeof path==='string'?path.split('.'):[];
-  if(!Number.isInteger(i)||i<=end||i>=count||!/^([0-3])(?:\.[0-3]){0,7}$/.test(path)||seen.has(path)||typeof id!=='string'||!new RegExp('^0'+(bookIds.indexOf(book)+1)+'[A-Za-z0-9]{3}$').test(id))throw Error('Source phrase order, path or identity changed.');
+  if(!Number.isInteger(i)||i<=end||i>=count||!/^([0-9])(?:\.[0-9]){0,7}$/.test(path)||seen.has(path)||typeof id!=='string'||!new RegExp('^0'+(bookIds.indexOf(book)+1)+'[A-Za-z0-9]{3}$').test(id))throw Error('Source phrase order, path or identity changed.');
   end=i;seen.add(path);for(let n=1;n<=parts.length;n++)prefixes.add(parts.slice(0,n).join('.'));
  }
  if(end!==count-1||rows.at(-1)[1]!=='0')throw Error('The source phrase hierarchy does not end at the complete verse.');

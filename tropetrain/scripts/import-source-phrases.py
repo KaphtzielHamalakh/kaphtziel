@@ -26,7 +26,7 @@ def reader_verses(book):
  return [(f'{book["id"]}-{c["number"]}-{v["number"]}',[[w['id'],w['sourceHebrew']]for w in v['tokens']if w['kind']in ['w','q']and re.search('[א-ת]',w['sourceHebrew'])])for c in book['chapters']for v in c['verses']]
 def valid_paths(rows,count):
  if not rows or rows[-1][0]!=count-1 or rows[-1][1]!='0':return False
- if any(not re.fullmatch(r'[0-3](?:\.[0-3]){0,7}',p)or not re.fullmatch('[0-9]{2}[A-Za-z0-9]{3}',sid or '')for _,p,sid in rows):return False
+ if any(not re.fullmatch(r'[0-9](?:\.[0-9]){0,7}',p)or not re.fullmatch('[0-9]{2}[A-Za-z0-9]{3}',sid or '')for _,p,sid in rows):return False
  if len({p for _,p,_ in rows})!=len(rows):return False
  if any(a[0]>=b[0]for a,b in zip(rows,rows[1:])):return False
  prefixes={'.'.join(p.split('.')[:i])for _,p,_ in rows for i in range(1,len(p.split('.'))+1)}

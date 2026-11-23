@@ -65,16 +65,16 @@
   "counts": {
     "verses": 5853,
     "words": 79985,
-    "availableVerses": 4546,
-    "availableWords": 58802,
-    "sourcePhraseLeaves": 32418,
-    "withheldVerses": 1307,
-    "withheldWords": 21183
+    "availableVerses": 4548,
+    "availableWords": 58838,
+    "sourcePhraseLeaves": 32441,
+    "withheldVerses": 1305,
+    "withheldWords": 21147
   },
   "withheldReasons": {
     "1": 1299,
     "2": 2,
-    "4": 6
+    "4": 4
   },
   "reasonCodes": {
     "0": "complete-marked-verse-correspondence",
@@ -4238,10 +4238,6 @@
       "reasonCode": 1
     },
     {
-      "verse": "num-16-28",
-      "reasonCode": 4
-    },
-    {
       "verse": "num-16-30",
       "reasonCode": 1
     },
@@ -4720,10 +4716,6 @@
     {
       "verse": "num-36-1",
       "reasonCode": 1
-    },
-    {
-      "verse": "num-36-3",
-      "reasonCode": 4
     },
     {
       "verse": "deu-1-17",
@@ -5847,131 +5839,6 @@
       ]
     },
     {
-      "verse": "num-16-28",
-      "sourceEndpoints": [
-        [
-          0,
-          "1.4.0",
-          "04zkp"
-        ],
-        [
-          1,
-          "1.4",
-          "04w5g"
-        ],
-        [
-          2,
-          "1.3.0",
-          "04xko"
-        ],
-        [
-          3,
-          "1.3",
-          "04Xb8"
-        ],
-        [
-          6,
-          "1.2",
-          "04Tkw"
-        ],
-        [
-          7,
-          "1.1",
-          "04mH6"
-        ],
-        [
-          10,
-          "1.0",
-          "04GjZ"
-        ],
-        [
-          11,
-          "1",
-          "04zYY"
-        ],
-        [
-          13,
-          "0.0",
-          "042Ri"
-        ],
-        [
-          14,
-          "0",
-          "04HWE"
-        ]
-      ]
-    },
-    {
-      "verse": "num-36-3",
-      "sourceEndpoints": [
-        [
-          0,
-          "1.4.0.1",
-          "04B2W"
-        ],
-        [
-          1,
-          "1.4.0.0",
-          "04NgW"
-        ],
-        [
-          5,
-          "1.4.0",
-          "04Fs9"
-        ],
-        [
-          6,
-          "1.4",
-          "04KKd"
-        ],
-        [
-          8,
-          "1.3.0",
-          "04QMW"
-        ],
-        [
-          10,
-          "1.3",
-          "04hCj"
-        ],
-        [
-          11,
-          "1.2",
-          "04PoM"
-        ],
-        [
-          12,
-          "1.1.0",
-          "04MpW"
-        ],
-        [
-          14,
-          "1.1",
-          "047tw"
-        ],
-        [
-          16,
-          "1.0",
-          "043Sd"
-        ],
-        [
-          17,
-          "1",
-          "04LAG"
-        ],
-        [
-          19,
-          "0.0",
-          "041FY"
-        ],
-        [
-          20,
-          "0",
-          "04Z9n"
-        ]
-      ]
-    },
-    {
       "verse": "deu-9-21",
       "sourceEndpoints": [
         [
@@ -6044,8 +5911,8 @@
   ],
   "packet": {
     "path": "data/structure/torah-phrases.json.gz",
-    "bytes": 185719,
-    "sha256": "d39a68d37e9c963873f8b93c793e15959739068126e11056a2a1754e0a70bb6d"
+    "bytes": 185847,
+    "sha256": "f1ef0e4a5b43ac6d19538e569d476c32776598bfd95c6bff37222f07a78fd526"
   },
   "comparison": "Preferred w/q reading only, with source morphology separators removed and explicit XML maqaf/sof pasuq/paseq attached to their word. NFD is used only for comparison; no source or reader string is overwritten. Every word in the complete verse must match all letters, vowels, marks and punctuation. One different mark withholds the complete verse. No inferred replacement tree.",
   "limits": "Source-edited phrase hierarchy, not a musical/pitch realization, pronunciation rule, sung timing or reviewed cantorial grammar. New selection code adapts source paths; independent cantorial review pending."
