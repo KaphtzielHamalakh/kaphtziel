@@ -14,6 +14,7 @@ import {linkPronunciationToNotes} from './pronunciation-note-links.js';
 import {linkPronunciationProposalsToNotes} from './pronunciation-note-proposals.js';
 import {linkPronunciationScoreGroups} from './pronunciation-score-groups.js';
 import {pronunciationFollow,pronunciationGroupFollow} from './pronunciation-follow.js';
+import {compilePronunciationSpanFollow,pronunciationSpanFollow} from './pronunciation-span-follow.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
 import {readerPhonologyWord} from './pronunciation-phonology-reader.js';
 import {renderPronunciationRules} from './pronunciation-segment-ui.js';
@@ -22,6 +23,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
  const readerCache=new Map(),followCache=new Map(),bookRequests=new Map(),bookErrors=new Map();
+ let spanPlan=null,spanWords=new Map(),spanReports=new Map();
  const publishedPronunciation=mountKhanPronunciation({onChange});
  const historicalProfiles=mountHistoricalPronunciation();
  const phonologyPreview=mountPhonologyPreview();
@@ -199,6 +201,17 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
     followCache.set(cacheKey,pronunciationFollow(event,w,link,style));
    }
    return followCache.get(cacheKey);
+  },
+  followSpan(event,words,events){
+   const source=publishedPronunciation.readerStatus();
+   if(!library||source.kind==='published-word'||isJointEvent(event))return null;
+   if(spanPlan!==events){spanPlan=events;spanWords=new Map();spanReports.clear();for(const e of events)if(e.wordId){if(!spanWords.has(e.wordId))spanWords.set(e.wordId,[]);spanWords.get(e.wordId).push(e);}}
+   const word=words[event.wordIndex],profileId=source.kind==='phonemic-research'?source.profileId:null;
+   // Word cache keys include all original syllables and the selected source.
+   // The live result still rechecks the active occurrence and marked Hebrew.
+   const key=JSON.stringify([style,profileId,word.id,word.sourceHebrew,word.syllables.map(s=>[s.id,s.sourceHebrew])]);
+   if(!spanReports.has(key)){if(spanReports.size>=256)spanReports.delete(spanReports.keys().next().value);spanReports.set(key,compilePronunciationSpanFollow(spanWords.get(word.id)??[],words,library,style,{profileId}));}
+   return pronunciationSpanFollow(event,word,spanReports.get(key));
   },
   groupNotes(events,words){return library?linkPronunciationScoreGroups(events,words,library,style):null;},
   linkNotes(events,words){
