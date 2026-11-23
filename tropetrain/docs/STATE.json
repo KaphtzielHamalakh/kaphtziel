@@ -3,15 +3,15 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "8aef1eb600809ad1fbeb264368a780659ba659ed",
+  "publishedCommit": "fd231c6ffb87bb7c6245a9eafd96f5500902112c",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. With explicit source qamats/upper-lower reading choices and the shared-source-word opt-in, all79985Torahwords now have structural source correspondence:79983individual and2jointly covered. Deu32:6retains one source pronunciation word across two written words; individual owners/written syllable ranges remain null and clipped playback fails closed. Keep complete source groups together. Continue toward qualified phoneme-to-note singing, independently sourced historical melody/pronunciation grammars, complete reviewed voices and the full retained learning inventory. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
   "lastPassingTests": {
-    "automated": 649,
-    "newRegressionChecks": 10,
+    "automated": 664,
+    "newRegressionChecks": 15,
     "failed": 0,
     "skipped": 0,
-    "ui": "276public UIchecks pass:normal166and portable167each138 (22core,17phonemic-note,12Baer,18source-readings,17source-choices,22shared-word,17original-chant timing,13whole-span). Both mismatch directions preserve Hebrew/notes and source alternatives; style/profile changes, advancing muted clock, exact-note/rest/stop/disable clearing and reload pass. All13portable span checks at320px; active/idle content320/320. Existing shared-word annotations restored blank. Viewport reset; audio muted/stopped, native media paused, consoles clear. Prepared source/export data checked; no physical saved-file download, speaker listening or qualified acoustic/cantorial approval. Public portable navigation and initial readiness exceeded observation deadlines but reached the exact expected state without duplicate navigation; warm acceptance passed.",
-    "scope": "Muted normal/portable UI and mobile layout, whole-span correspondence and original playback/source timing regressions. Acoustic/linguistic/cantorial review pending."
+    "ui": "Normal public170and portable171each155UIchecks(22core,17phonemic,12Baer,18source-readings,17choices,22joint,17timing,13span,17penitential),310total; bothlocaldistributionssame310. Portable320pxidle/active320/320,viewportreset,screenshotsvisuallyinspected. AllaudioQAshortmutedandstopped; no acoustic/cantorialapproval or physicalsavefiledownloadclaim. Prepared50noteJSON/MIDI,sourceunknowns,independentstyles/profiles/key/tempo/range,defaultgate/reload/stop/exportinvalidationandbothfaithfulscanschecked.",
+    "scope": "Muted normal/portable UI and320pxlayout; literal pitch, source small-note unknowns, independently selected pronunciation text/proposals, playback/exports and all retained structural regressions. No acoustic/cantorial approval."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "8aef1eb600809ad1fbeb264368a780659ba659ed",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45232593046",
+    "commit": "fd231c6ffb87bb7c6245a9eafd96f5500902112c",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45247371579",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 18,
-    "publicChangedBytesExact": 138948863
+    "publicChangedFilesExact": 44,
+    "publicChangedBytesExact": 140851761
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.78.0",
-    "status": "implemented_full_check_pending",
+    "status": "published664checks_310publicUIchecks_full_goal_active",
     "next": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. With explicit source qamats/upper-lower reading choices and the shared-source-word opt-in, all79985Torahwords now have structural source correspondence:79983individual and2jointly covered. Deu32:6retains one source pronunciation word across two written words; individual owners/written syllable ranges remain null and clipped playback fails closed. Keep complete source groups together. Continue toward qualified phoneme-to-note singing, independently sourced historical melody/pronunciation grammars, complete reviewed voices and the full retained learning inventory. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets."
   },
   "sourceAnalysisIssue": {
@@ -1290,7 +1290,7 @@
               "minimumHz": 65,
               "maximumHz": 650,
               "threshold": 0.1,
-              "centerRoundingSeconds": 2.2675736961463855e-05
+              "centerRoundingSeconds": 0.000022675736961463855
             },
             "cents": -15.04878639962098,
             "status": "outside-15-cent-bound",
@@ -2502,7 +2502,7 @@
     "revision": 1,
     "record": "docs/COHEN-PENITENTIAL-SCORE.json",
     "playbackAudit": "docs/COHEN-PENITENTIAL-PLAYBACK.json",
-    "status": "implemented_full_check_pending",
+    "status": "published664checks_310publicUIchecks",
     "words": 13,
     "pitchedComponents": 50,
     "measuredNotes": 49,
@@ -2515,6 +2515,124 @@
     "independentReview": null,
     "singingVoice": null,
     "originalTimingOptInDefault": false,
-    "existingPropheticalMeterCorrection": "Final3beatbarremainsundercontinuing4/4;all51notes/41beatsunchanged"
+    "existingPropheticalMeterCorrection": "Final3beatbarremainsundercontinuing4/4;all51notes/41beatsunchanged",
+    "publicCommit": "fd231c6ffb87bb7c6245a9eafd96f5500902112c",
+    "individualNoteTextStyles": {
+      "sephardic": {
+        "exact": {
+          "notes": 50,
+          "linkedNotes": 48,
+          "unlinkedNotes": 2
+        },
+        "common": {
+          "events": 50,
+          "eventsInCommonSpans": 50,
+          "eventsInDifferentDivisions": 2,
+          "eventsWithoutCommonSpan": 0,
+          "groups": 36
+        },
+        "profiles": {
+          "katz-1993-northeastern-formal": {
+            "notes": 50,
+            "linkedNotes": 48,
+            "unlinkedNotes": 2,
+            "sourceEvents": 92,
+            "unassignedEvents": 2,
+            "sourceSilentEvents": 11,
+            "proposedAbsenceEvents": 7,
+            "sharedEvents": 6,
+            "review": null,
+            "voice": null,
+            "phonemes": null,
+            "audioTimes": null
+          },
+          "katz-1993-mideastern-formal": {
+            "notes": 50,
+            "linkedNotes": 48,
+            "unlinkedNotes": 2,
+            "sourceEvents": 92,
+            "unassignedEvents": 2,
+            "sourceSilentEvents": 11,
+            "proposedAbsenceEvents": 7,
+            "sharedEvents": 6,
+            "review": null,
+            "voice": null,
+            "phonemes": null,
+            "audioTimes": null
+          }
+        }
+      },
+      "ashkenazic": {
+        "exact": {
+          "notes": 50,
+          "linkedNotes": 48,
+          "unlinkedNotes": 2
+        },
+        "common": {
+          "events": 50,
+          "eventsInCommonSpans": 50,
+          "eventsInDifferentDivisions": 2,
+          "eventsWithoutCommonSpan": 0,
+          "groups": 36
+        },
+        "profiles": {
+          "katz-1993-northeastern-formal": {
+            "notes": 50,
+            "linkedNotes": 48,
+            "unlinkedNotes": 2,
+            "sourceEvents": 92,
+            "unassignedEvents": 2,
+            "sourceSilentEvents": 11,
+            "proposedAbsenceEvents": 7,
+            "sharedEvents": 6,
+            "review": null,
+            "voice": null,
+            "phonemes": null,
+            "audioTimes": null
+          },
+          "katz-1993-mideastern-formal": {
+            "notes": 50,
+            "linkedNotes": 48,
+            "unlinkedNotes": 2,
+            "sourceEvents": 92,
+            "unassignedEvents": 2,
+            "sourceSilentEvents": 11,
+            "proposedAbsenceEvents": 7,
+            "sharedEvents": 6,
+            "review": null,
+            "voice": null,
+            "phonemes": null,
+            "audioTimes": null
+          }
+        }
+      }
+    },
+    "unresolvedSourceMarks": [
+      {
+        "id": "p547-small-note-mark",
+        "sourceComponentId": "cohen-p547-penitential-n011",
+        "description": "Printed mark above/left of the small C5quarter note; see original scan.",
+        "semanticKind": null,
+        "realization": null,
+        "review": null
+      }
+    ],
+    "smallNoteStudy": {
+      "id": "original-small-quarter-study-80ms-v1",
+      "secondsPerNote": 0.08,
+      "label": "Original written-pitch study · 80 ms small note",
+      "status": "original-instrumental-demonstration",
+      "basis": "Adds 80 ms for the printed small C5 quarter note between unchanged measured source notes. The adjacent unresolved mark is not realized.",
+      "sourceDuration": null,
+      "stealTimePrevious": null,
+      "stealTimeFollowing": null,
+      "notationalInterpretation": null,
+      "unresolvedMarkRealization": null,
+      "historicalRealization": null,
+      "review": null,
+      "defaultEnabled": false
+    },
+    "phonemes": null,
+    "audioTimes": null
   }
 }
