@@ -1840,5 +1840,20 @@
     "review": null,
     "sourceAssetsPreserved": 618,
     "attributionNoticeUpdated": true
+  },
+  "releaseProvenanceCorrection": {
+    "version": "0.70.0",
+    "files": [
+      "tropetrain/docs/BAER-NOTE-CORRESPONDENCE.json",
+      "tropetrain/docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json",
+      "tropetrain/docs/PRONUNCIATION-SCORE-GROUPS.json"
+    ],
+    "inputMusicSha256": "4db3eedaacfdd89ea1709cb413fe0cdfc7a40cf4744b3e92b21d2fd5f1b09bfb",
+    "musicalDataChanged": false,
+    "runtimeChangedAfterPassingSuite": false,
+    "automatedChecks": 578,
+    "publicUiChecks": 44,
+    "finalReleaseRecordFiles": 7,
+    "note": "Only the previous music.js provenance hash was stale in three audit JSON artifacts. These artifacts now match the exact completed test build; initial mismatch evidence is preserved."
   }
 }
