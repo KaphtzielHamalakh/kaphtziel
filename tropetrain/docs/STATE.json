@@ -3,15 +3,15 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "923a0edb1a124653c2579d21b043527562ac9968",
+  "publishedCommit": "15cdc9ba6989bb5a632948194fc7ba3ed237799f",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. With explicit source qamats/upper-lower reading choices and the shared-source-word opt-in, all79985Torahwords now have structural source correspondence:79983individual and2jointly covered. Deu32:6retains one source pronunciation word across two written words; individual owners/written syllable ranges remain null and clipped playback fails closed. Keep complete source groups together. Continue toward qualified phoneme-to-note singing, independently sourced historical melody/pronunciation grammars, complete reviewed voices and the full retained learning inventory. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
   "lastPassingTests": {
-    "automated": 615,
-    "newRegressionChecks": 10,
+    "automated": 626,
+    "newRegressionChecks": 11,
     "failed": 0,
     "skipped": 0,
-    "ui": "Public normal 150 and portable 151 each pass 86 UI checks: 22 playback and boundary, 17 independent pronunciation-note, 12 Baer, 18 source-reading, and 17 source-choice checks. Both MAM text styles and two incomplete regional research profiles follow the selected source columns. Exact Hebrew and accents, original alternatives, stress, null written ranges, combined-word gaps, saved settings, stop on change and export invalidation pass. A separate normal mobile tab 152 passed 17 source-choice checks. Both normal and portable pages fit 320 px without page overflow; viewport reset. All audio stopped and muted, native media paused, consoles clear. Visible prepared JSON and MIDI links were checked; no acoustic listening, physical saved-file download or qualified musical/voice review is claimed.",
-    "scope": "Public normal and portable; muted UI, structural and prepared-data checks. Qualified musical/voice review pending."
+    "ui": "216 public UI checks pass: normal tab156 and portable tab157 each108 (22 playback/source-underlay,17 phonemic note references,12 Baer notation,18 source readings,17 source choices,22 shared-word checks). The22portable shared-word checks ran at320px; an additional normal mobile tab158 confirmed320px root/scroll,4notes,1shared panel and4source units. Viewport reset; all audio muted/stopped, native media paused and consoles clear. Visible prepared JSON/MIDI/MusicXML/WAV links checked; no physical saved-file download, speaker listening or qualified linguistic/musical review claimed.",
+    "scope": "Muted normal and portable UI, structural source correspondence and prepared export checks; qualified musical and voice review pending."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -160,12 +160,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "923a0edb1a124653c2579d21b043527562ac9968",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45194228926",
+    "commit": "15cdc9ba6989bb5a632948194fc7ba3ed237799f",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45208897593",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 33,
-    "publicChangedBytesExact": 138748996
+    "publicChangedFilesExact": 37,
+    "publicChangedBytesExact": 138928002
   },
   "corpusImport": {
     "books": 5,
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.75.0",
-    "status": "joint_source_word_implemented_full_verification_pending",
+    "status": "published626checks_216publicUIchecks_full_goal_active",
     "next": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. With explicit source qamats/upper-lower reading choices and the shared-source-word opt-in, all79985Torahwords now have structural source correspondence:79983individual and2jointly covered. Deu32:6retains one source pronunciation word across two written words; individual owners/written syllable ranges remain null and clipped playback fails closed. Keep complete source groups together. Continue toward qualified phoneme-to-note singing, independently sourced historical melody/pronunciation grammars, complete reviewed voices and the full retained learning inventory. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets."
   },
   "sourceAnalysisIssue": {
@@ -1285,7 +1285,7 @@
               "minimumHz": 65,
               "maximumHz": 650,
               "threshold": 0.1,
-              "centerRoundingSeconds": 2.2675736961463855e-05
+              "centerRoundingSeconds": 0.000022675736961463855
             },
             "cents": -15.04878639962098,
             "status": "outside-15-cent-bound",
@@ -2073,7 +2073,7 @@
   },
   "sourceJointPlayback": {
     "version": "0.75.0",
-    "status": "implemented_full_build_and_browser_verification_pending",
+    "status": "published626checks_216publicUIchecks",
     "record": "docs/SOURCE-JOINT-PLAYBACK.json",
     "readerWords": 79985,
     "individualWords": 79983,
@@ -2087,6 +2087,90 @@
     "sourceTiming": null,
     "voice": null,
     "historicalMelodyGrammar": null,
-    "review": null
+    "review": null,
+    "coveredWords": 79985,
+    "policyResults": [
+      {
+        "policy": {
+          "qamats": "קמץ-ד",
+          "cantillation": "טעם תחתון"
+        },
+        "counts": {
+          "chapters": 187,
+          "readerWords": 79985,
+          "individualWords": 79983,
+          "jointWordOccurrences": 2,
+          "jointGroups": 1,
+          "coveredWords": 79985,
+          "uncoveredWords": 0,
+          "notes": 231981,
+          "jointNotes": 4,
+          "textNoteChecks": 8,
+          "phonemicNoteChecks": 16
+        },
+        "individualAssignmentSha256": "813b73e7cce09a7d4fbd07ebb7f9cf4028f5f8b624d801885ed7b871968a9cd6"
+      },
+      {
+        "policy": {
+          "qamats": "קמץ-ד",
+          "cantillation": "טעם עליון"
+        },
+        "counts": {
+          "chapters": 187,
+          "readerWords": 79985,
+          "individualWords": 79983,
+          "jointWordOccurrences": 2,
+          "jointGroups": 1,
+          "coveredWords": 79985,
+          "uncoveredWords": 0,
+          "notes": 231981,
+          "jointNotes": 4,
+          "textNoteChecks": 8,
+          "phonemicNoteChecks": 16
+        },
+        "individualAssignmentSha256": "a45baf7861a9a2e82d0c2c8f38bdb19bbab93bbe760cef87a18d918d6bb3512e"
+      },
+      {
+        "policy": {
+          "qamats": "קמץ-ס",
+          "cantillation": "טעם תחתון"
+        },
+        "counts": {
+          "chapters": 187,
+          "readerWords": 79985,
+          "individualWords": 79983,
+          "jointWordOccurrences": 2,
+          "jointGroups": 1,
+          "coveredWords": 79985,
+          "uncoveredWords": 0,
+          "notes": 231982,
+          "jointNotes": 4,
+          "textNoteChecks": 8,
+          "phonemicNoteChecks": 16
+        },
+        "individualAssignmentSha256": "d703a12c3adda0a4f15916f2d53949ce219f9c3941a7577e67b6921ad0882155"
+      },
+      {
+        "policy": {
+          "qamats": "קמץ-ס",
+          "cantillation": "טעם עליון"
+        },
+        "counts": {
+          "chapters": 187,
+          "readerWords": 79985,
+          "individualWords": 79983,
+          "jointWordOccurrences": 2,
+          "jointGroups": 1,
+          "coveredWords": 79985,
+          "uncoveredWords": 0,
+          "notes": 231982,
+          "jointNotes": 4,
+          "textNoteChecks": 8,
+          "phonemicNoteChecks": 16
+        },
+        "individualAssignmentSha256": "d43575d65c30a77b9abe3ef15668b84dbc9140653a9ad53fd8ca5385ebed7a8d"
+      }
+    ],
+    "publicCommit": "15cdc9ba6989bb5a632948194fc7ba3ed237799f"
   }
 }
