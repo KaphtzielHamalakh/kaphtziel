@@ -15,7 +15,7 @@ export const COHEN_PROPHETICAL=Object.freeze({
  performanceNote:'The source says “Rather briskly: without strict tempo.” Written durations are regularized to your independent quarter-note tempo. Modern 12-tone tuning and instrumental articulation are approximate; no expressive timing or untexted coda is added.',
  exportNote:'Cohen 1902, p. 547: hypothetical prophetical setting of the same Genesis 22:1 Torah verse. Not an actual Haftarah passage or a complete musical grammar.51 printed components/50 attacks/41 quarter-note beats, five eighth rests, one tied pair. Source durations regularized; no untexted coda or singing voice.',
  evidenceNote:'The actual marked Hebrew and underlay identify Genesis 22:1; the article prose instead says Gen. xxix. Its inconsistency is preserved as a source discrepancy.',
- meterByBar:Object.freeze([4,4,4,3,3,3,3,3,3,3,4,4,3]),
+ meterByBar:Object.freeze([4,4,4,3,3,3,3,3,3,3,4,4,4]),
  coverage:Object.freeze(cohenPropheticalWords.map(w=>w.id))
 });
 export function cohenPropheticalWord(word){return cohenPropheticalWords.find(w=>w.id===(word.sourceWordId??word.id)&&w.sourceHebrew===word.sourceHebrew)??null;}

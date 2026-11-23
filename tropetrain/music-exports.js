@@ -16,13 +16,29 @@ function identity(notes,context){
       ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceBar:e.sourceBar,sourceLyric:e.sourceLyric,sourceRhythm:e.sourceRhythm,
         sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop,
         ...(e.sourceRestAfterBar!==undefined?{sourceRestAfterBar:e.sourceRestAfterBar}:{}),...(e.endingRestSeconds!==undefined?{endingRestSeconds:e.endingRestSeconds}:{})}:{}),
+      ...(e.sourceSmallNote?{sourceQuarterBeats:e.sourceQuarterBeats,sourceSmallNote:e.sourceSmallNote,sourceUnresolvedMarks:e.sourceUnresolvedMarks,performanceTiming:e.performanceTiming}:{}),
+      ...(e.sourceSlurPlacement?{sourceSlurPlacement:e.sourceSlurPlacement}:{}),
       ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
 }
 function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
   return `<type>${r.type}</type>${'<dot/>'.repeat(r.dots)}${accidental?`<accidental>${accidental}</accidental>`:''}${r.actual===r.normal?'':`<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
 }
+function sourceSlurNumbers(notes){
+ const assigned=new Map(),active=new Map();
+ for(const e of notes){
+  if(!e.sourceSlurId||!['start','stop'].includes(e.sourceSlurPhase))continue;
+  if(!assigned.has(e.sourceSlurId)){
+   const used=new Set(active.values());let number=1;while(used.has(number))number++;
+   if(number>16)throw Error('MusicXML supports at most16simultaneous slur numbers.');
+   assigned.set(e.sourceSlurId,number);
+  }
+  if(e.sourceSlurPhase==='start')active.set(e.sourceSlurId,assigned.get(e.sourceSlurId));else active.delete(e.sourceSlurId);
+ }
+ return assigned;
+}
 export function musicXml(plan,words,context){
   const notes=checked(plan,words,context),metadata=identity(notes,context);
+  const slurNumbers=sourceSlurNumbers(notes);
   const cohen=context.melody?.id==='cohen-1902-gen22-ending',baer=context.melody?.id==='baer-1894-gen1-1-5',printed=isPrintedScore(context.melody?.id);
   const creator=printed?context.melody.creator:'TropeTrain original demonstration';
   const rights=printed?'Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda.':'Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.';
@@ -45,9 +61,9 @@ export function musicXml(plan,words,context){
     if(gap>1e-7)xml+=`<note><rest/><duration>${Math.round(gap*DIVISIONS)}</duration>${durationNotation(gap)}</note>`;
     const p=e.pitch,accidental=p.alter===1?'sharp':p.alter===-1?'flat':'natural';
     if(p.octave<0)throw Error('MusicXML pitch octaves begin at C0.');
-    xml+=`<note id="note-${index+1}"><pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch><duration>${Math.round(e.beats*DIVISIONS)}</duration>${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,e.rhythm)}`;
-    const marks=(e.tieStop?'<tied type="stop"/>':'')+(e.tieStart?'<tied type="start"/>':'')+(e.sourceFermata?'<fermata type="upright">normal</fermata>':'')+(['start','stop'].includes(e.sourceSlurPhase)?`<slur type="${e.sourceSlurPhase}" number="1"/>`:'')+(['start','stop'].includes(e.sourceTupletPhase)?`<tuplet type="${e.sourceTupletPhase}" number="1"/>`:'');
-    if(marks)xml+=`<notations>${marks}</notations>`;
+    xml+=`<note id="note-${index+1}">${e.sourceSmallNote?'<grace slash="no"/>':''}<pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch>${e.sourceSmallNote?'':`<duration>${Math.round(e.beats*DIVISIONS)}</duration>`}${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,e.rhythm)}`;
+    const marks=(e.tieStop?'<tied type="stop"/>':'')+(e.tieStart?'<tied type="start"/>':'')+(e.sourceFermata?'<fermata type="upright">normal</fermata>':'')+(['start','stop'].includes(e.sourceSlurPhase)?`<slur type="${e.sourceSlurPhase}" number="${slurNumbers.get(e.sourceSlurId)}"${e.sourceSlurPlacement?` placement="${x(e.sourceSlurPlacement)}"`:""}/>`:'')+(['start','stop'].includes(e.sourceTupletPhase)?`<tuplet type="${e.sourceTupletPhase}" number="1"/>`:'');
+    if(marks||e.sourceUnresolvedMarks?.length)xml+=`<notations>${marks}${(e.sourceUnresolvedMarks??[]).map(mark=>`<other-notation type="single">${x(mark.id+": unresolved source mark; no realization assigned")}</other-notation>`).join('')}</notations>`;
     const extension=e.extendsNext?(e.continuation?'continue':'start'):e.continuation?'stop':null;
     xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric></note>`;
     beat=e.startBeat+e.beats;

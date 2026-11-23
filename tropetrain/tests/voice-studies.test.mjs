@@ -33,7 +33,7 @@ test('two Tiberian pronunciation readings each have a distinct spoken and source
   assert.throws(()=>voiceRecording('bard-torah','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceRecording('seed-esther','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceStudy('invented'),/available/);
-  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19']);
+  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential']);
 });
 test('source selection and runtime URL resolution leave all Hebrew, marks, syllables and instrument events unchanged',()=>{
   const model=createReadingModel(passage),before=JSON.stringify(model.words),events=JSON.stringify(model.events);

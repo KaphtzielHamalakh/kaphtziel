@@ -63,7 +63,7 @@
       3,
       4,
       4,
-      3
+      4
     ],
     "pickupQuarterBeats": 1,
     "quarterBeats": 41,
@@ -75,7 +75,8 @@
     "slurs": 7,
     "tuplets": 3,
     "coda": "Separately labeled, no text underlay; excluded.",
-    "performance": "Written durations are regularized to the independent quarter-note tempo; no expressive timing, vocal delivery or notes for other verses inferred. Modern12-tone tuning and instrumental articulation are approximate."
+    "performance": "Written durations are regularized to the independent quarter-note tempo; no expressive timing, vocal delivery or notes for other verses inferred. Modern12-tone tuning and instrumental articulation are approximate.",
+    "finalBar": "Three-beat complementary final bar under the continuing4/4signature; no new3/4signature is printed."
   },
   "review": "Manual notation/underlay comparison against two faithful scans and independent bar arithmetic. Independent musical, phonological and Hebrew-underlay review remains pending.",
   "transcriptionLicense": "CC0-1.0",

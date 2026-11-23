@@ -3751,7 +3751,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     performanceNote: "The source says “Rather briskly: without strict tempo.” Written durations are regularized to your independent quarter-note tempo. Modern 12-tone tuning and instrumental articulation are approximate; no expressive timing or untexted coda is added.",
     exportNote: "Cohen 1902, p. 547: hypothetical prophetical setting of the same Genesis 22:1 Torah verse. Not an actual Haftarah passage or a complete musical grammar.51 printed components/50 attacks/41 quarter-note beats, five eighth rests, one tied pair. Source durations regularized; no untexted coda or singing voice.",
     evidenceNote: "The actual marked Hebrew and underlay identify Genesis 22:1; the article prose instead says Gen. xxix. Its inconsistency is preserved as a source discrepancy.",
-    meterByBar: Object.freeze([4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 4, 4, 3]),
+    meterByBar: Object.freeze([4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]),
     coverage: Object.freeze(cohenPropheticalWords.map((w) => w.id))
   });
   function cohenPropheticalWord(word) {
@@ -3789,11 +3789,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return row?.sourceHebrew === word.sourceHebrew ? row : null;
   }
 
+  // cohen-penitential-data.js
+  var cohenPenitentialWords = [{ "id": "gen-22-1-1", "sourceHebrew": "וַיְהִ֗י", "lengths": [1, 1, 2], "stress": 2, "notes": [{ "id": "cohen-p547-penitential-n001", "wordId": "gen-22-1-1", "syllableIndex": 0, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 0.75, "beatFraction": "3/4", "bar": 0, "system": 1, "printedLyric": "Wa", "location": "p547penitential example,system1,bar0,component1", "rhythm": { "type": "eighth", "dots": 1, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n002", "wordId": "gen-22-1-1", "syllableIndex": 1, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 0.25, "beatFraction": "1/4", "bar": 0, "system": 1, "printedLyric": "ye", "location": "p547penitential example,system1,bar0,component2", "rhythm": { "type": "16th", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n003", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 0.25, "beatFraction": "1/4", "bar": 1, "system": 1, "printedLyric": "hi", "location": "p547penitential example,system1,bar1,component3", "rhythm": { "type": "16th", "dots": 1, "actual": 3, "normal": 2 }, "tupletId": "hi-triplet-1", "tupletPhase": "start", "slurId": "hi-outer", "slurPhase": "start", "slurPlacement": "above" }, { "id": "cohen-p547-penitential-n004", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "E", "alter": 0, "octave": 5 }, "midi": 76, "quarterBeats": 0.08333333333333333, "beatFraction": "1/12", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component4", "rhythm": { "type": "32nd", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hi-triplet-1", "tupletPhase": "continue" }, { "id": "cohen-p547-penitential-n005", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 0.16666666666666666, "beatFraction": "1/6", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component5", "rhythm": { "type": "16th", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hi-triplet-1", "tupletPhase": "stop" }, { "id": "cohen-p547-penitential-n006", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "C", "alter": 0, "octave": 5 }, "midi": 72, "quarterBeats": 0.16666666666666666, "beatFraction": "1/6", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component6", "rhythm": { "type": "16th", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hi-triplet-2", "tupletPhase": "start" }, { "id": "cohen-p547-penitential-n007", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "B", "alter": 0, "octave": 4 }, "midi": 71, "quarterBeats": 0.16666666666666666, "beatFraction": "1/6", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component7", "rhythm": { "type": "16th", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hi-triplet-2", "tupletPhase": "continue" }, { "id": "cohen-p547-penitential-n008", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.16666666666666666, "beatFraction": "1/6", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component8", "rhythm": { "type": "16th", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hi-triplet-2", "tupletPhase": "stop" }, { "id": "cohen-p547-penitential-n009", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.75, "beatFraction": "3/4", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component9", "rhythm": { "type": "eighth", "dots": 1, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n010", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.25, "beatFraction": "1/4", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component10", "rhythm": { "type": "16th", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n011", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "C", "alter": 0, "octave": 5 }, "midi": 72, "quarterBeats": null, "beatFraction": null, "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component11", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "slurId": "small-to-main", "slurPhase": "start", "slurPlacement": "below", "smallNote": { "kind": "unmeasured-small-quarter", "printedSize": "small", "slash": false, "duration": null, "stealTimePrevious": null, "stealTimeFollowing": null, "notationalInterpretation": null, "previousComponentId": "cohen-p547-penitential-n010", "nextComponentId": "cohen-p547-penitential-n012", "unresolvedMarkIds": ["p547-small-note-mark"] }, "unresolvedMarks": [{ "id": "p547-small-note-mark", "sourceComponentId": "cohen-p547-penitential-n011", "description": "Printed mark above/left of the small C5quarter note; see original scan.", "semanticKind": null, "realization": null, "review": null }] }, { "id": "cohen-p547-penitential-n012", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "B", "alter": 0, "octave": 4 }, "midi": 71, "quarterBeats": 1, "beatFraction": "1", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component12", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "slurId": "small-to-main", "slurPhase": "stop", "slurPlacement": "below" }, { "id": "cohen-p547-penitential-n013", "wordId": "gen-22-1-1", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.25, "beatFraction": "1/4", "bar": 1, "system": 1, "printedLyric": "", "location": "p547penitential example,system1,bar1,component13", "rhythm": { "type": "16th", "dots": 0, "actual": 1, "normal": 1 }, "restAfterBeats": 0.25, "slurId": "hi-outer", "slurPhase": "stop", "slurPlacement": "above" }] }, { "id": "gen-22-1-2", "sourceHebrew": "אַחַר֙", "lengths": [1, 2], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n014", "wordId": "gen-22-1-2", "syllableIndex": 0, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 1, "system": 1, "printedLyric": "a", "location": "p547penitential example,system1,bar1,component14", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n015", "wordId": "gen-22-1-2", "syllableIndex": 1, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 3, "beatFraction": "3", "bar": 2, "system": 1, "printedLyric": "har", "location": "p547penitential example,system1,bar2,component15", "rhythm": { "type": "half", "dots": 1, "actual": 1, "normal": 1 } }] }, { "id": "gen-22-1-3", "sourceHebrew": "הַדְּבָרִ֣ים", "lengths": [1, 1, 1, 3], "stress": 3, "notes": [{ "id": "cohen-p547-penitential-n016", "wordId": "gen-22-1-3", "syllableIndex": 0, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 2, "system": 1, "printedLyric": "ha", "location": "p547penitential example,system1,bar2,component16", "rhythm": { "type": "eighth", "dots": 1, "actual": 3, "normal": 2 }, "tupletId": "hadeba-triplet", "tupletPhase": "start", "slurId": "hadeba", "slurPhase": "start" }, { "id": "cohen-p547-penitential-n017", "wordId": "gen-22-1-3", "syllableIndex": 1, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.16666666666666666, "beatFraction": "1/6", "bar": 2, "system": 1, "printedLyric": "de", "location": "p547penitential example,system1,bar2,component17", "rhythm": { "type": "16th", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hadeba-triplet", "tupletPhase": "continue" }, { "id": "cohen-p547-penitential-n018", "wordId": "gen-22-1-3", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.3333333333333333, "beatFraction": "1/3", "bar": 2, "system": 1, "printedLyric": "ba", "location": "p547penitential example,system1,bar2,component18", "rhythm": { "type": "eighth", "dots": 0, "actual": 3, "normal": 2 }, "tupletId": "hadeba-triplet", "tupletPhase": "stop", "slurId": "hadeba", "slurPhase": "stop" }, { "id": "cohen-p547-penitential-n019", "wordId": "gen-22-1-3", "syllableIndex": 3, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 2, "beatFraction": "2", "bar": 3, "system": 2, "printedLyric": "rim", "location": "p547penitential example,system2,bar3,component19", "rhythm": { "type": "half", "dots": 0, "actual": 1, "normal": 1 } }] }, { "id": "gen-22-1-4", "sourceHebrew": "הָאֵ֔לֶּה", "lengths": [1, 1, 2], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n020", "wordId": "gen-22-1-4", "syllableIndex": 0, "pitch": { "step": "C", "alter": 1, "octave": 5 }, "midi": 73, "quarterBeats": 1, "beatFraction": "1", "bar": 3, "system": 2, "printedLyric": "ha", "location": "p547penitential example,system2,bar3,component20", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n021", "wordId": "gen-22-1-4", "syllableIndex": 1, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 1, "beatFraction": "1", "bar": 4, "system": 2, "printedLyric": "el", "location": "p547penitential example,system2,bar4,component21", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n022", "wordId": "gen-22-1-4", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 1, "beatFraction": "1", "bar": 4, "system": 2, "printedLyric": "leh", "location": "p547penitential example,system2,bar4,component22", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "restAfterBeats": 0.5 }] }, { "id": "gen-22-1-5", "sourceHebrew": "וְהָ֣אֱלֹהִ֔ים", "lengths": [1, 1, 1, 1, 3], "stress": 4, "notes": [{ "id": "cohen-p547-penitential-n023", "wordId": "gen-22-1-5", "syllableIndex": 0, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 4, "system": 2, "printedLyric": "we", "location": "p547penitential example,system2,bar4,component23", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n024", "wordId": "gen-22-1-5", "syllableIndex": 1, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 1.5, "beatFraction": "3/2", "bar": 5, "system": 2, "printedLyric": "ha", "location": "p547penitential example,system2,bar5,component24", "rhythm": { "type": "quarter", "dots": 1, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n025", "wordId": "gen-22-1-5", "syllableIndex": 2, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 5, "system": 2, "printedLyric": "e", "location": "p547penitential example,system2,bar5,component25", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n026", "wordId": "gen-22-1-5", "syllableIndex": 3, "pitch": { "step": "C", "alter": 1, "octave": 5 }, "midi": 73, "quarterBeats": 1, "beatFraction": "1", "bar": 5, "system": 2, "printedLyric": "lo", "location": "p547penitential example,system2,bar5,component26", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n027", "wordId": "gen-22-1-5", "syllableIndex": 4, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 1, "beatFraction": "1", "bar": 6, "system": 2, "printedLyric": "him", "location": "p547penitential example,system2,bar6,component27", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "slurId": "him", "slurPhase": "start" }, { "id": "cohen-p547-penitential-n028", "wordId": "gen-22-1-5", "syllableIndex": 4, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 6, "system": 2, "printedLyric": "", "location": "p547penitential example,system2,bar6,component28", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 }, "restAfterBeats": 0.5, "slurId": "him", "slurPhase": "stop" }] }, { "id": "gen-22-1-6", "sourceHebrew": "נִסָּ֖ה", "lengths": [1, 2], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n029", "wordId": "gen-22-1-6", "syllableIndex": 0, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 1, "beatFraction": "1", "bar": 6, "system": 2, "printedLyric": "nis", "location": "p547penitential example,system2,bar6,component29", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n030", "wordId": "gen-22-1-6", "syllableIndex": 1, "pitch": { "step": "B", "alter": 0, "octave": 4 }, "midi": 71, "quarterBeats": 1.5, "beatFraction": "3/2", "bar": 7, "system": 2, "printedLyric": "sah", "location": "p547penitential example,system2,bar7,component30", "rhythm": { "type": "quarter", "dots": 1, "actual": 1, "normal": 1 } }] }, { "id": "gen-22-1-7", "sourceHebrew": "אֶת־", "lengths": [2], "stress": null, "notes": [{ "id": "cohen-p547-penitential-n031", "wordId": "gen-22-1-7", "syllableIndex": 0, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 7, "system": 2, "printedLyric": "et", "location": "p547penitential example,system2,bar7,component31", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }] }, { "id": "gen-22-1-8", "sourceHebrew": "אַבְרָהָ֑ם", "lengths": [2, 1, 2], "stress": 2, "notes": [{ "id": "cohen-p547-penitential-n032", "wordId": "gen-22-1-8", "syllableIndex": 0, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 7, "system": 2, "printedLyric": "Ab", "location": "p547penitential example,system2,bar7,component32", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n033", "wordId": "gen-22-1-8", "syllableIndex": 1, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 7, "system": 2, "printedLyric": "ra", "location": "p547penitential example,system2,bar7,component33", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n034", "wordId": "gen-22-1-8", "syllableIndex": 2, "pitch": { "step": "B", "alter": 0, "octave": 4 }, "midi": 71, "quarterBeats": 1, "beatFraction": "1", "bar": 8, "system": 3, "printedLyric": "ham", "location": "p547penitential example,system3,bar8,component34", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "slurId": "first-ham", "slurPhase": "start" }, { "id": "cohen-p547-penitential-n035", "wordId": "gen-22-1-8", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 1, "beatFraction": "1", "bar": 8, "system": 3, "printedLyric": "", "location": "p547penitential example,system3,bar8,component35", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "restAfterBeats": 0.5, "slurId": "first-ham", "slurPhase": "stop" }] }, { "id": "gen-22-1-9", "sourceHebrew": "וַיֹּ֣אמֶר", "lengths": [1, 2, 2], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n036", "wordId": "gen-22-1-9", "syllableIndex": 0, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 8, "system": 3, "printedLyric": "way", "location": "p547penitential example,system3,bar8,component36", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n037", "wordId": "gen-22-1-9", "syllableIndex": 1, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 1, "beatFraction": "1", "bar": 9, "system": 3, "printedLyric": "yo", "location": "p547penitential example,system3,bar9,component37", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n038", "wordId": "gen-22-1-9", "syllableIndex": 2, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 1, "beatFraction": "1", "bar": 9, "system": 3, "printedLyric": "mer", "location": "p547penitential example,system3,bar9,component38", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }] }, { "id": "gen-22-1-10", "sourceHebrew": "אֵלָ֔יו", "lengths": [1, 3], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n039", "wordId": "gen-22-1-10", "syllableIndex": 0, "pitch": { "step": "C", "alter": 1, "octave": 5 }, "midi": 73, "quarterBeats": 1, "beatFraction": "1", "bar": 9, "system": 3, "printedLyric": "e", "location": "p547penitential example,system3,bar9,component39", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n040", "wordId": "gen-22-1-10", "syllableIndex": 1, "pitch": { "step": "D", "alter": 0, "octave": 5 }, "midi": 74, "quarterBeats": 1, "beatFraction": "1", "bar": 10, "system": 3, "printedLyric": "law", "location": "p547penitential example,system3,bar10,component40", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "slurId": "law", "slurPhase": "start" }, { "id": "cohen-p547-penitential-n041", "wordId": "gen-22-1-10", "syllableIndex": 1, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 10, "system": 3, "printedLyric": "", "location": "p547penitential example,system3,bar10,component41", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 }, "restAfterBeats": 0.5, "slurId": "law", "slurPhase": "stop" }] }, { "id": "gen-22-1-11", "sourceHebrew": "אַבְרָהָ֖ם", "lengths": [2, 1, 2], "stress": 2, "notes": [{ "id": "cohen-p547-penitential-n042", "wordId": "gen-22-1-11", "syllableIndex": 0, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 1, "beatFraction": "1", "bar": 10, "system": 3, "printedLyric": "Ab", "location": "p547penitential example,system3,bar10,component42", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n043", "wordId": "gen-22-1-11", "syllableIndex": 1, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 1, "beatFraction": "1", "bar": 10, "system": 3, "printedLyric": "ra", "location": "p547penitential example,system3,bar10,component43", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n044", "wordId": "gen-22-1-11", "syllableIndex": 2, "pitch": { "step": "B", "alter": 0, "octave": 4 }, "midi": 71, "quarterBeats": 1, "beatFraction": "1", "bar": 11, "system": 3, "printedLyric": "ham", "location": "p547penitential example,system3,bar11,component44", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 }, "fermata": { "shape": "normal", "placement": "above", "duration": "unspecified" }, "restAfterBeats": 0.5 }] }, { "id": "gen-22-1-12", "sourceHebrew": "וַיֹּ֥אמֶר", "lengths": [1, 2, 2], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n045", "wordId": "gen-22-1-12", "syllableIndex": 0, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 11, "system": 3, "printedLyric": "way", "location": "p547penitential example,system3,bar11,component45", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n046", "wordId": "gen-22-1-12", "syllableIndex": 1, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 1, "beatFraction": "1", "bar": 11, "system": 3, "printedLyric": "yo", "location": "p547penitential example,system3,bar11,component46", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n047", "wordId": "gen-22-1-12", "syllableIndex": 2, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 11, "system": 3, "printedLyric": "mer", "location": "p547penitential example,system3,bar11,component47", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }] }, { "id": "gen-22-1-13", "sourceHebrew": "הִנֵּֽנִי׃", "lengths": [1, 1, 2], "stress": 1, "notes": [{ "id": "cohen-p547-penitential-n048", "wordId": "gen-22-1-13", "syllableIndex": 0, "pitch": { "step": "G", "alter": 0, "octave": 4 }, "midi": 67, "quarterBeats": 0.5, "beatFraction": "1/2", "bar": 11, "system": 3, "printedLyric": "hin", "location": "p547penitential example,system3,bar11,component48", "rhythm": { "type": "eighth", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n049", "wordId": "gen-22-1-13", "syllableIndex": 1, "pitch": { "step": "B", "alter": 0, "octave": 4 }, "midi": 71, "quarterBeats": 2, "beatFraction": "2", "bar": 12, "system": 4, "printedLyric": "ne", "location": "p547penitential example,system4,bar12,component49", "rhythm": { "type": "half", "dots": 0, "actual": 1, "normal": 1 } }, { "id": "cohen-p547-penitential-n050", "wordId": "gen-22-1-13", "syllableIndex": 2, "pitch": { "step": "A", "alter": 0, "octave": 4 }, "midi": 69, "quarterBeats": 1, "beatFraction": "1", "bar": 12, "system": 4, "printedLyric": "ni", "location": "p547penitential example,system4,bar12,component50", "rhythm": { "type": "quarter", "dots": 0, "actual": 1, "normal": 1 } }] }];
+
+  // cohen-penitential-score.js
+  var COHEN_PENITENTIAL = Object.freeze({
+    id: "cohen-1902-gen22-penitential",
+    revision: 1,
+    eventPrefix: "cohen-penitential",
+    name: "Printed penitential example · Cohen 1902",
+    status: "literal pitch/underlay transcription; small-note interpretation and adjacent source mark unresolved; independent review pending",
+    license: "Public-domain print; new transcription CC0-1.0",
+    creator: "Francis L.Cohen · Jewish Encyclopedia,vol.III (1902),p. 547",
+    source: "https://www.jewishencyclopedia.com/articles/718",
+    scan: "./assets/scores/cohen-1902-penitential-gen22.png",
+    coverageLabel: "Genesis 22:1",
+    requiresSmallNoteTiming: true,
+    preserveBoundaryRests: true,
+    description: "Cohen’s Penitential Days example, all 13unchanged Genesis 22:1words.49 measured notes/41 quarter-note beats, one unmeasured small C5 quarter note, six rests, six slurs, three tuplets and one unspecified fermata. One adjacent source mark remains unresolved/unrealized. A bounded instrumental written-pitch study, not a complete High Holiday or Kinnor system or a singing voice.",
+    summary: "Cohen 1902p. 547 · penitential Genesis 22:1written pitches · small-note study requires opt-in; adjacent mark unresolved/unrealized. Independent review pending.",
+    performanceNote: "Source says Rather slower:without strict tempo. Measured notation is regularized to your quarter-note tempo; tuning/articulation approximate. Optional original policy adds 80 ms for the small C5 quarter note without stealing source time. The adjacent unresolved mark is not realized; fermata hold and historical performance remain unspecified. No untexted coda.",
+    exportNote: "Cohen 1902p. 547Penitential Days Genesis 22:1written-pitch study. All13words preserved;49 measured notes/41 quarter-note beats and one small C5 quarter with null source duration. Original80ms timing is optional and not historical; adjacent source mark unresolved/unrealized, fermata length unspecified. No complete system/voice/coda claimed.",
+    evidenceNote: "The text identifies Genesis 22:1; the article prose says Gen.xxix. The source discrepancy and unresolved small-note mark are retained.",
+    meterByBar: Object.freeze([4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4]),
+    coverage: Object.freeze(cohenPenitentialWords.map((w) => w.id))
+  });
+  function cohenPenitentialWord(word) {
+    return cohenPenitentialWords.find((w) => w.id === (word.sourceWordId ?? word.id) && w.sourceHebrew === word.sourceHebrew) ?? null;
+  }
+
   // printed-score-registry.js
-  var PRINTED_SCORE_PROFILES = Object.freeze([PRINTED_SCORE, BAER_SCORE, COHEN_PROPHETICAL, BAER_HIGH_HOLIDAY]);
+  var PRINTED_SCORE_PROFILES = Object.freeze([PRINTED_SCORE, BAER_SCORE, COHEN_PROPHETICAL, BAER_HIGH_HOLIDAY, COHEN_PENITENTIAL]);
   var isPrintedScore = (id) => PRINTED_SCORE_PROFILES.some((p) => p.id === id);
   function printedSourceWord(word, id) {
-    return id === PRINTED_SCORE.id ? printedWord(word) : id === BAER_SCORE.id ? baerWord(word) : id === COHEN_PROPHETICAL.id ? cohenPropheticalWord(word) : id === BAER_HIGH_HOLIDAY.id ? baerHighHolidayWord(word) : null;
+    return id === PRINTED_SCORE.id ? printedWord(word) : id === BAER_SCORE.id ? baerWord(word) : id === COHEN_PROPHETICAL.id ? cohenPropheticalWord(word) : id === BAER_HIGH_HOLIDAY.id ? baerHighHolidayWord(word) : id === COHEN_PENITENTIAL.id ? cohenPenitentialWord(word) : null;
   }
 
   // accent-context.js
@@ -4638,6 +4667,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   };
 
+  // source-small-note.js
+  var SMALL_NOTE_STUDY = Object.freeze({
+    id: "original-small-quarter-study-80ms-v1",
+    secondsPerNote: 0.08,
+    label: "Original written-pitch study · 80 ms small note",
+    status: "original-instrumental-demonstration",
+    basis: "Adds 80 ms for the printed small C5 quarter note between unchanged measured source notes. The adjacent unresolved mark is not realized.",
+    sourceDuration: null,
+    stealTimePrevious: null,
+    stealTimeFollowing: null,
+    notationalInterpretation: null,
+    unresolvedMarkRealization: null,
+    historicalRealization: null,
+    review: null
+  });
+  function validateSourceSmallNote({ quarterBeats, rhythm, smallNote }) {
+    const s = smallNote, r = rhythm;
+    if (quarterBeats !== null || !s || s.kind !== "unmeasured-small-quarter" || s.printedSize !== "small" || s.slash !== false || s.duration !== null || s.stealTimePrevious !== null || s.stealTimeFollowing !== null || s.notationalInterpretation !== null || s.previousComponentId !== "cohen-p547-penitential-n010" || s.nextComponentId !== "cohen-p547-penitential-n012" || JSON.stringify(s.unresolvedMarkIds) !== JSON.stringify(["p547-small-note-mark"]) || r?.type !== "quarter" || r.dots !== 0 || r.actual !== 1 || r.normal !== 1) throw Error("The source small quarter note must retain its printed shape, anchors, unresolved mark and null timing/interpretation.");
+    return s;
+  }
+  function smallNoteStudyTiming(event, { tempo, smallNoteDemo: smallNoteDemo2 = false } = {}) {
+    if (!event.sourceSmallNote) return null;
+    validateSourceSmallNote({ quarterBeats: event.sourceQuarterBeats, rhythm: event.sourceRhythm, smallNote: event.sourceSmallNote });
+    if (smallNoteDemo2 !== true) throw Error("This span contains an unmeasured small note and an unresolved source mark. Choose the explicit original 80 ms written-pitch study; the mark remains unrealized.");
+    if (!Number.isFinite(tempo) || tempo <= 0) throw Error("Invalid small-note study tempo.");
+    return { beats: SMALL_NOTE_STUDY.secondsPerNote * tempo / 60, seconds: SMALL_NOTE_STUDY.secondsPerNote, performanceTiming: { ...SMALL_NOTE_STUDY } };
+  }
+  function validateSmallNoteEvent(event) {
+    validateSourceSmallNote({ quarterBeats: event.sourceQuarterBeats, rhythm: event.sourceRhythm, smallNote: event.sourceSmallNote });
+    const mark = event.sourceUnresolvedMarks?.[0];
+    if (event.sourceUnresolvedMarks?.length !== 1 || mark.id !== "p547-small-note-mark" || mark.sourceComponentId !== event.sourceNoteId || mark.semanticKind !== null || mark.realization !== null || mark.review !== null) throw Error("The unresolved source mark must retain null musical meaning, realization and review.");
+    if (event.sourceProfile !== "cohen-1902-gen22-penitential" || event.sourceNoteId !== "cohen-p547-penitential-n011" || event.sourceWordId !== "gen-22-1-1" || typeof event.wordId !== "string" || !event.wordId || typeof event.syllableId !== "string" || typeof event.syllable !== "string" || event.phonemes !== null || event.performanceTiming?.id !== SMALL_NOTE_STUDY.id || event.durationSeconds !== 0.08 || JSON.stringify(event.performanceTiming) !== JSON.stringify(SMALL_NOTE_STUDY)) throw Error("Small-note playback needs its unchanged source occurrence and explicit original timing; no historical interpretation or phoneme is assigned.");
+  }
+
   // music.js
   var syllableDrafts = [
     [[1, 2, 3], ["bə", "rē", "shīt"], 2],
@@ -4738,6 +4801,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           sourceRhythm: n.rhythm,
           ...n.pitch ? { sourcePitch: n.pitch, sourceTranspose: 0, sourceNoteId: n.id, sourceSystem: n.system } : {},
           ...n.fermata ? { sourceFermata: n.fermata } : {},
+          ...n.smallNote ? { sourceQuarterBeats: null, sourceSmallNote: structuredClone(n.smallNote) } : {},
+          ...n.unresolvedMarks ? { sourceUnresolvedMarks: structuredClone(n.unresolvedMarks) } : {},
+          ...n.slurPlacement ? { sourceSlurPlacement: n.slurPlacement } : {},
           ...n.slurId ? { sourceSlurId: `${profile.notationGroupScope === "verse" ? w.verseKey : w.id}-${n.slurId}`, sourceSlurPhase: n.slurPhase } : {},
           ...n.tupletId ? { sourceTupletId: `${profile.notationGroupScope === "verse" ? w.verseKey : w.id}-${n.tupletId}`, sourceTupletPhase: n.tupletPhase } : {},
           ...n.restAfterBeats ? { sourceRestAfterBeats: n.restAfterBeats } : {},
@@ -4839,7 +4905,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       while (end + 1 < words4.length && words4[end + 1][field] === words4[cursor][field]) end++;
       return [cursor, end];
     }
-    function buildPlan3(start, end, { tempo = 84, transpose = 0 } = {}) {
+    function buildPlan3(start, end, { tempo = 84, transpose = 0, smallNoteDemo: smallNoteDemo2 = false } = {}) {
       if (!Number.isInteger(start) || !Number.isInteger(end) || !words4[start] || !words4[end] || start > end) throw Error("Invalid playback span.");
       if (!Number.isFinite(tempo) || tempo <= 0 || !Number.isInteger(transpose) || Math.abs(transpose) > 36) throw Error("Invalid tempo or transposition.");
       const cut = sourceJointGroups2.find((g) => g.wordIndices.some((i) => i >= start && i <= end) && !g.wordIndices.every((i) => i >= start && i <= end));
@@ -4851,16 +4917,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       let beat = 0;
       const selected = events2.filter((e) => isJointEvent(e) ? e.wordIndices.every((i) => i >= start && i <= end) : e.wordIndex >= start && e.wordIndex <= end);
       return selected.map((e, index) => {
+        const small = smallNoteStudyTiming(e, { tempo, smallNoteDemo: smallNoteDemo2 }), beats = small?.beats ?? e.beats;
         const event = {
           ...e,
+          beats,
           midi: e.midi + transpose,
           ...e.sourcePitch ? { sourceTranspose: transpose } : {},
           startBeat: beat,
           startSeconds: beat * 60 / tempo,
-          durationSeconds: e.beats * 60 / tempo,
+          durationSeconds: small?.seconds ?? beats * 60 / tempo,
+          ...small ? { performanceTiming: small.performanceTiming } : {},
           ...profile.preserveBoundaryRests && index === selected.length - 1 && e.sourceRestAfterBeats ? { endingRestSeconds: e.sourceRestAfterBeats * 60 / tempo } : {}
         };
-        beat += e.beats + (e.sourceRestAfterBeats ?? 0);
+        beat += beats + (e.sourceRestAfterBeats ?? 0);
         return event;
       });
     }
@@ -4960,6 +5029,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function eventRhythm(event) {
     const r = event.sourceRhythm;
+    if (event.sourceSmallNote) {
+      validateSmallNoteEvent(event);
+      return r;
+    }
     if (event.sourceGrace) {
       validateGraceEvent(event);
       return r;
@@ -6757,9 +6830,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     svg += '<text class="music-symbol clef" x="24" y="90"></text>';
     if (from === 0) for (const [i, rest] of (plan2[0]?.sourceRestsBefore ?? []).entries()) svg += restMarkup(rest, 84 + 55 * (i + 0.5), height, beatsY);
     for (const e of notes) {
-      const grace = !!e.sourceGrace, up = e.y >= 80, stemX = e.x + (up ? grace ? 4 : 5 : -(grace ? 4 : 5)), stemEnd = e.y + (up ? -(grace ? 24 : 32) : grace ? 24 : 32), r = e.rhythm;
-      const word = untexted ? null : `${e.word.reference} · ${isJointEvent(e) ? "joint words " + e.correspondenceWords.map((w) => w.ordinal).join("–") : "word " + e.word.ordinal}`, name = (untexted ? `Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace ? "unmeasured printed grace; original 80 ms instrumental timing demonstration" : beatLabel(e.beats) + " beats"}` : `Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`) + (annotated ? `; pronunciation text: ${e.pronunciationText ?? "unlinked"}; ${isJointEvent(e) ? "joint source reading; both reader words together; no individual word allocation" : e.sourceSyllableLink?.alignmentLevel === "source-reading-word" ? "source reading syllable, word correspondence only; displayed " + e.word.sourceHebrew : "written-span correspondence only"}` : "");
-      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}"${grace ? ` data-source-timing="unmeasured-grace" data-performance-timing="${escapeXml(e.performanceTiming.id)}"` : ""}${untexted ? "" : ` data-word-index="${eventNavigationIndex(e)}"${isJointEvent(e) ? ` data-joint-group="${escapeXml(e.jointGroupId)}"` : ""}`}${isJointEvent(e) ? ' data-syllable-alignment="source-reading-group"' : e.sourceSyllableLink?.alignmentLevel === "source-reading-word" ? ' data-syllable-alignment="source-reading-word"' : ""}${annotated ? ` data-pronunciation-status="${escapeXml(e.pronunciationLink?.status ?? "unlinked")}"` : ""}${e.pronunciationLink?.phonology ? ` data-phonology-profile="${escapeXml(e.pronunciationLink.phonology.profileId)}"` : ""} aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="${height - 15}" rx="5"/>`;
+      const grace = !!(e.sourceGrace || e.sourceSmallNote), up = e.y >= 80, stemX = e.x + (up ? grace ? 4 : 5 : -(grace ? 4 : 5)), stemEnd = e.y + (up ? -(grace ? 24 : 32) : grace ? 24 : 32), r = e.rhythm;
+      const word = untexted ? null : `${e.word.reference} · ${isJointEvent(e) ? "joint words " + e.correspondenceWords.map((w) => w.ordinal).join("–") : "word " + e.word.ordinal}`, name = (untexted ? `Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace ? "unmeasured printed grace; original 80 ms instrumental timing demonstration" : beatLabel(e.beats) + " beats"}` : `Go to ${word}; ${eventPitchName(e)}; ${e.sourceSmallNote ? "unmeasured printed small quarter; original 80 ms study" : beatLabel(e.beats) + " beats"}; ${e.syllable}`) + (e.sourceSmallNote ? "; printed small quarter; original 80 ms written-pitch study; adjacent unresolved source mark not realized" : "") + (annotated ? `; pronunciation text: ${e.pronunciationText ?? "unlinked"}; ${isJointEvent(e) ? "joint source reading; both reader words together; no individual word allocation" : e.sourceSyllableLink?.alignmentLevel === "source-reading-word" ? "source reading syllable, word correspondence only; displayed " + e.word.sourceHebrew : "written-span correspondence only"}` : "");
+      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}"${grace ? ` data-source-timing="${e.sourceSmallNote ? "unmeasured-small-quarter" : "unmeasured-grace"}" data-performance-timing="${escapeXml(e.performanceTiming.id)}"` : ""}${untexted ? "" : ` data-word-index="${eventNavigationIndex(e)}"${isJointEvent(e) ? ` data-joint-group="${escapeXml(e.jointGroupId)}"` : ""}`}${isJointEvent(e) ? ' data-syllable-alignment="source-reading-group"' : e.sourceSyllableLink?.alignmentLevel === "source-reading-word" ? ' data-syllable-alignment="source-reading-word"' : ""}${annotated ? ` data-pronunciation-status="${escapeXml(e.pronunciationLink?.status ?? "unlinked")}"` : ""}${e.pronunciationLink?.phonology ? ` data-phonology-profile="${escapeXml(e.pronunciationLink.phonology.profileId)}"` : ""} aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="${height - 15}" rx="5"/>`;
       for (const y of e.ledgers) svg += `<line class="ledger" x1="${e.x - 10}" x2="${e.x + 10}" y1="${y}" y2="${y}"/>`;
       svg += `<text class="music-symbol accidental" x="${e.x - 22}" y="${e.y}">${e.pitch.alter === 1 ? "" : e.pitch.alter === -1 ? "" : ""}</text><ellipse class="notehead${["whole", "half"].includes(r.type) ? " open-notehead" : ""}" cx="${e.x}" cy="${e.y}" rx="${grace ? 3.8 : 5.5}" ry="${grace ? 2.6 : 3.8}" transform="rotate(-20 ${e.x} ${e.y})"/>`;
       if (r.type !== "whole") svg += `<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
@@ -6781,11 +6854,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           svg += `<g class="staff-fermata below" role="img" aria-label="Printed inverted fermata below the staff; hold length unspecified"><path d="M${e.x - 11} ${y} Q${e.x} ${y + 24} ${e.x + 11} ${y}"/><circle cx="${e.x}" cy="${y + 5}" r="2.2"/></g>`;
         }
       }
+      if (e.sourceUnresolvedMarks?.length) svg += `<text class="source-unresolved-mark" x="${e.x}" y="20" aria-label="Unresolved source mark; see original scan; not realized">?</text>`;
       svg += `<text class="staff-pitch" x="${e.x}" y="165">${escapeXml(eventPitchName(e))}</text>`;
       if (!untexted && (!e.continuation || e.continuedFromPrevious)) svg += `<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${escapeXml(e.syllable)}</text>`;
       if (!untexted && (e.continuation || e.continuedFromPrevious)) svg += `<line class="melisma-line" x1="${e.x - e.width / 2 + 5}" x2="${e.x + e.width / 2 - 5}" y1="206" y2="206"/>`;
       if (annotated && (!e.continuation || e.continuedFromPrevious)) svg += `<text class="staff-pronunciation${e.pronunciationText === null ? " unlinked" : ""}${e.pronunciationLink?.units.length && e.pronunciationLink.units.every((u) => u.sourceStress) ? " source-stressed" : ""}" x="${e.x}" y="229" lang="${e.pronunciationLink?.phonology ? "und-fonipa" : "en"}" xml:lang="${e.pronunciationLink?.phonology ? "und-fonipa" : "en"}" direction="ltr" unicode-bidi="plaintext">${escapeXml(e.pronunciationText ?? "unlinked")}</text>`;
-      svg += `<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace ? `<tspan x="${e.x}" dy="-6">grace</tspan><tspan x="${e.x}" dy="14">demo 80 ms</tspan>` : beatLabel(e.beats) + " beats"}</text></g>`;
+      svg += `<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace ? `<tspan x="${e.x}" dy="-6">${e.sourceSmallNote ? "small note" : "grace"}</tspan><tspan x="${e.x}" dy="14">${e.sourceSmallNote ? "study" : "demo"} 80 ms</tspan>` : beatLabel(e.beats) + " beats"}</text></g>`;
       for (const [direction, repeat, cx] of [["forward", e.sourceRepeatStart, e.x - e.width / 2 - 18], ["backward", e.sourceRepeatEnd, e.x + e.width / 2 + 16]]) {
         if (!repeat) continue;
         const forward = direction === "forward", dotX = cx + (forward ? 12 : -12);
@@ -6799,6 +6873,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         const rests = e.sourceRestsAfter ?? [{ beats: e.gapAfterBeats }];
         if (Math.abs(rests.reduce((n, r2) => n + r2.beats, 0) - e.gapAfterBeats) > 1e-8) throw Error("Printed rest values and score gap disagree.");
         rests.forEach((rest, index) => {
+          if (!rest.rhythm) rest = { ...rest, rhythm: rhythmSpelling(rest.beats) };
           const glyph = Math.abs(rest.beats - 0.5) < 1e-8 ? "" : "", cx = e.x + e.width / 2 + e.gapWidth * (index + 0.5) / rests.length;
           if (rest.rhythm?.dots || ["whole", "half", "16th", "32nd"].includes(rest.rhythm?.type)) {
             svg += restMarkup(rest, cx, height, beatsY);
@@ -6813,8 +6888,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       if (e.tieStop && e.index === from && from > 0) svg += `<path class="tie-arc" aria-label="Tie continued from previous page" d="M${e.x - e.width / 2 + 5} ${e.y + 9} Q${e.x - 20} ${e.y + 24} ${e.x - 8} ${e.y + 9}"/>`;
       if (e.sourceSlurPhase === "start") {
-        const end = notes.find((n) => n.sourceSlurId === e.sourceSlurId && n.sourceSlurPhase === "stop");
-        if (end) svg += `<path class="tie-arc source-slur" aria-label="Printed slur; notes remain distinct" d="M${e.x + 8} ${e.y + 10} Q${(e.x + end.x) / 2} ${Math.max(e.y, end.y) + 32} ${end.x - 8} ${end.y + 10}"/>`;
+        const end = notes.find((n) => n.sourceSlurId === e.sourceSlurId && n.sourceSlurPhase === "stop"), above = e.sourceSlurPlacement === "above", direction = above ? -1 : 1;
+        if (end) {
+          const extreme = above ? Math.min(...notes.filter((n) => n.index >= e.index && n.index <= end.index).map((n) => n.y)) : Math.max(e.y, end.y);
+          svg += `<path class="tie-arc source-slur" aria-label="Printed slur; notes remain distinct${above ? "; above staff" : ""}" d="M${e.x + 8} ${e.y + direction * 10} Q${(e.x + end.x) / 2} ${extreme + direction * 32} ${end.x - 8} ${end.y + direction * 10}"/>`;
+        } else if (e.sourceSlurPlacement) {
+          svg += `<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${escapeXml(e.sourceSlurId)}" aria-label="Printed slur continues on next score page; notes remain distinct" d="M${e.x + 8} ${e.y + direction * 10} Q${(e.x + width) / 2} ${e.y + direction * 32} ${width - 16} ${e.y + direction * 10}"/>`;
+        }
+      }
+      if (e.sourceSlurPhase === "stop" && e.sourceSlurPlacement && !notes.some((n) => n.sourceSlurId === e.sourceSlurId && n.sourceSlurPhase === "start") && plan2.slice(0, from).some((n) => n.sourceSlurId === e.sourceSlurId && n.sourceSlurPhase === "start")) {
+        const direction = e.sourceSlurPlacement === "above" ? -1 : 1;
+        svg += `<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${escapeXml(e.sourceSlurId)}" aria-label="Printed slur continued from previous score page; notes remain distinct" d="M14 ${e.y + direction * 10} Q${e.x / 2} ${e.y + direction * 32} ${e.x - 8} ${e.y + direction * 10}"/>`;
       }
       for (const slur of e.sourceSlurs ?? []) {
         if (slur.phase !== "start") continue;
@@ -6871,6 +6955,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           ...e.sourceRestAfterBar !== void 0 ? { sourceRestAfterBar: e.sourceRestAfterBar } : {},
           ...e.endingRestSeconds !== void 0 ? { endingRestSeconds: e.endingRestSeconds } : {}
         } : {},
+        ...e.sourceSmallNote ? { sourceQuarterBeats: e.sourceQuarterBeats, sourceSmallNote: e.sourceSmallNote, sourceUnresolvedMarks: e.sourceUnresolvedMarks, performanceTiming: e.performanceTiming } : {},
+        ...e.sourceSlurPlacement ? { sourceSlurPlacement: e.sourceSlurPlacement } : {},
         ...e.sourcePitch ? { sourcePitch: e.sourcePitch, sourceTranspose: e.sourceTranspose, sourceNoteId: e.sourceNoteId, sourceSystem: e.sourceSystem, sourceFermata: e.sourceFermata, sourceSlurId: e.sourceSlurId, sourceSlurPhase: e.sourceSlurPhase, sourceTupletId: e.sourceTupletId, sourceTupletPhase: e.sourceTupletPhase } : {}
       }))
     };
@@ -6878,8 +6964,25 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function durationNotation(beats, accidental = null, r = rhythmSpelling(beats)) {
     return `<type>${r.type}</type>${"<dot/>".repeat(r.dots)}${accidental ? `<accidental>${accidental}</accidental>` : ""}${r.actual === r.normal ? "" : `<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
   }
+  function sourceSlurNumbers(notes) {
+    const assigned = /* @__PURE__ */ new Map(), active = /* @__PURE__ */ new Map();
+    for (const e of notes) {
+      if (!e.sourceSlurId || !["start", "stop"].includes(e.sourceSlurPhase)) continue;
+      if (!assigned.has(e.sourceSlurId)) {
+        const used = new Set(active.values());
+        let number = 1;
+        while (used.has(number)) number++;
+        if (number > 16) throw Error("MusicXML supports at most16simultaneous slur numbers.");
+        assigned.set(e.sourceSlurId, number);
+      }
+      if (e.sourceSlurPhase === "start") active.set(e.sourceSlurId, assigned.get(e.sourceSlurId));
+      else active.delete(e.sourceSlurId);
+    }
+    return assigned;
+  }
   function musicXml(plan2, words4, context) {
     const notes = checked(plan2, words4, context), metadata = identity(notes, context);
+    const slurNumbers = sourceSlurNumbers(notes);
     const cohen = context.melody?.id === "cohen-1902-gen22-ending", baer = context.melody?.id === "baer-1894-gen1-1-5", printed = isPrintedScore(context.melody?.id);
     const creator = printed ? context.melody.creator : "TropeTrain original demonstration";
     const rights = printed ? "Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda." : "Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.";
@@ -6904,9 +7007,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (gap > 1e-7) xml += `<note><rest/><duration>${Math.round(gap * DIVISIONS)}</duration>${durationNotation(gap)}</note>`;
       const p = e.pitch, accidental = p.alter === 1 ? "sharp" : p.alter === -1 ? "flat" : "natural";
       if (p.octave < 0) throw Error("MusicXML pitch octaves begin at C0.");
-      xml += `<note id="note-${index + 1}"><pitch><step>${p.step}</step>${p.alter ? `<alter>${p.alter}</alter>` : ""}<octave>${p.octave}</octave></pitch><duration>${Math.round(e.beats * DIVISIONS)}</duration>${e.tieStop ? '<tie type="stop"/>' : ""}${e.tieStart ? '<tie type="start"/>' : ""}${durationNotation(e.beats, accidental, e.rhythm)}`;
-      const marks = (e.tieStop ? '<tied type="stop"/>' : "") + (e.tieStart ? '<tied type="start"/>' : "") + (e.sourceFermata ? '<fermata type="upright">normal</fermata>' : "") + (["start", "stop"].includes(e.sourceSlurPhase) ? `<slur type="${e.sourceSlurPhase}" number="1"/>` : "") + (["start", "stop"].includes(e.sourceTupletPhase) ? `<tuplet type="${e.sourceTupletPhase}" number="1"/>` : "");
-      if (marks) xml += `<notations>${marks}</notations>`;
+      xml += `<note id="note-${index + 1}">${e.sourceSmallNote ? '<grace slash="no"/>' : ""}<pitch><step>${p.step}</step>${p.alter ? `<alter>${p.alter}</alter>` : ""}<octave>${p.octave}</octave></pitch>${e.sourceSmallNote ? "" : `<duration>${Math.round(e.beats * DIVISIONS)}</duration>`}${e.tieStop ? '<tie type="stop"/>' : ""}${e.tieStart ? '<tie type="start"/>' : ""}${durationNotation(e.beats, accidental, e.rhythm)}`;
+      const marks = (e.tieStop ? '<tied type="stop"/>' : "") + (e.tieStart ? '<tied type="start"/>' : "") + (e.sourceFermata ? '<fermata type="upright">normal</fermata>' : "") + (["start", "stop"].includes(e.sourceSlurPhase) ? `<slur type="${e.sourceSlurPhase}" number="${slurNumbers.get(e.sourceSlurId)}"${e.sourceSlurPlacement ? ` placement="${escapeXml(e.sourceSlurPlacement)}"` : ""}/>` : "") + (["start", "stop"].includes(e.sourceTupletPhase) ? `<tuplet type="${e.sourceTupletPhase}" number="1"/>` : "");
+      if (marks || e.sourceUnresolvedMarks?.length) xml += `<notations>${marks}${(e.sourceUnresolvedMarks ?? []).map((mark) => `<other-notation type="single">${escapeXml(mark.id + ": unresolved source mark; no realization assigned")}</other-notation>`).join("")}</notations>`;
       const extension = e.extendsNext ? e.continuation ? "continue" : "start" : e.continuation ? "stop" : null;
       xml += `<lyric number="1">${e.continuation ? "" : `<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${escapeXml(e.syllable)}</text>`}${extension ? `<extend type="${extension}"/>` : ""}</lyric></note>`;
       beat = e.startBeat + e.beats;
@@ -14539,6 +14642,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   } catch {
   }
   $("pronunciation-span-follow").checked = pronunciationSpanFollowing;
+  var smallNoteDemo = false;
+  try {
+    const saved = JSON.parse(localStorage.getItem("tropetrain-cohen-small-note-v1"));
+    smallNoteDemo = saved?.policyId === SMALL_NOTE_STUDY.id && saved.enabled === true;
+  } catch {
+  }
+  $("printed-small-note-demo").checked = smallNoteDemo;
   var scrollLayout = null;
   var scrollMessage = "Sourced scroll lines are loading.";
   var referenceLibrary = null;
@@ -15573,7 +15683,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     let unavailable = null;
     try {
       if (state.scope === "source-unit" && (!sourceSyllablesEnabled || !model.sourceSyllableUnderlay)) throw Error("Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.");
-      plan = buildPlan2(...bounds2(state.cursor, state.anchor, state.scope), state);
+      plan = buildPlan2(...bounds2(state.cursor, state.anchor, state.scope), { ...state, smallNoteDemo });
     } catch (error) {
       plan = [];
       unavailable = error.message;
@@ -15664,6 +15774,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       instrument,
       signAnalysis: SIGN_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
+      ...plan.some((e) => e.sourceSmallNote) ? { smallNoteStudy: { ...SMALL_NOTE_STUDY } } : {},
       ...model.sourceSyllableUnderlay ? { syllableUnderlay: model.sourceSyllableUnderlay } : {},
       ...model.sourceJointGroups?.length ? { sourceJointGroups: model.sourceJointGroups } : {},
       textSource: { ...passage2, verses: void 0 },
@@ -15695,7 +15806,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("cancel-wav").hidden = true;
   }
   function updateExportSummary() {
-    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.melodyId, model.sourceSyllableUnderlay?.id ?? null, model.sourceSyllableUnderlay?.availableWords ?? null, model.sourceSyllableUnderlay?.sourceReadingChoices ?? null, model.sourceSyllableUnderlay?.allowJointSources ?? false, state.tempo, state.transpose, state.volume]);
+    const key = JSON.stringify([passage2.ranges, bounds2(state.cursor, state.anchor, state.scope), state.melodyId, !!model.profile.requiresSmallNoteTiming && smallNoteDemo, model.sourceSyllableUnderlay?.id ?? null, model.sourceSyllableUnderlay?.availableWords ?? null, model.sourceSyllableUnderlay?.sourceReadingChoices ?? null, model.sourceSyllableUnderlay?.allowJointSources ?? false, state.tempo, state.transpose, state.volume]);
     if (key !== exportsKey) {
       clearExports();
       exportsKey = key;
@@ -15863,6 +15974,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const printed = isPrintedScore(model.profile.id), baer = model.profile.id === BAER_SCORE.id;
     $("musical-source").value = state.melodyId;
     $("melody-name").textContent = model.profile.name;
+    $("printed-small-note-controls").hidden = !model.profile.requiresSmallNoteTiming;
+    $("printed-small-note-demo").checked = smallNoteDemo;
+    $("printed-small-note-demo").disabled = state.practiceAudio !== "instrument";
+    $("printed-small-note-status").textContent = smallNoteDemo ? "Original written-pitch study enabled: 80 ms for the small quarter note, added between unchanged measured notes. The adjacent source mark is unresolved and not realized; historical interpretation, duration, fermata hold and musical review remain pending." : "This printed example contains a small quarter note with no assigned source duration and an unresolved adjacent mark. Enable the explicit original study to hear all written pitches; the mark remains unrealized. Other complete spans keep their measured notation.";
     $("scope").querySelector('option[value="source-unit"]').disabled = printed || !sourceSyllablesEnabled;
     $("source-syllables").checked = sourceSyllablesEnabled;
     $("source-syllables").disabled = printed;
@@ -15905,6 +16020,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (state.practiceAudio === "recorded") {
         $("music-notice").textContent = "PocketTorah chant keeps its own original melody and pronunciation. The separate Baer instrumental study is not the recording’s melody.";
         $("score-description").textContent = "Instrument score only; no pitches have been transcribed from the recording. " + $("score-description").textContent;
+      }
+    }
+    if (model.profile.id === COHEN_PENITENTIAL.id) {
+      $("music-notice").textContent = "Cohen’s penitential Genesis 22:1written-pitch study:49 measured notes and one small C5 quarter, with an unresolved adjacent mark. The optional original 80 ms small-note timing is not historical; the mark is not realized. All 13 Hebrew words/accents remain exact. No complete High Holiday system or singing voice.";
+      $("score-description").textContent = "The staff and exports retain the source pitches, printed rhythms, six rests, six slurs, three tuplets and one unspecified fermata. A question mark flags the unresolved source mark; inspect the original scan. Independent notation, underlay and musical review is pending.";
+      $("score-help").textContent = "The small printed quarter is shown at small size. Its optional80ms timing is an original study policy; no source duration or stealing ratio is assigned. MusicXML preserves it as an unmeasured grace element with the performance clock in metadata. The adjacent source mark remains unresolved/unrealized. Source fermata hold is unspecified; untexted coda omitted.";
+      if (state.practiceAudio === "recorded") {
+        $("music-notice").textContent = "PocketTorah keeps its own recorded melody and pronunciation. The separate Cohen penitential written-pitch study is not this recording’s musical realization.";
+        $("score-description").textContent = "Instrument score only. " + $("score-description").textContent;
       }
     }
     if (model.profile.id === COHEN_PROPHETICAL.id) {
@@ -16237,6 +16361,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     option.textContent = profile.name;
     $("musical-source").append(option);
   }
+  $("printed-small-note-demo").addEventListener("change", () => {
+    stop("Small-note study changed.");
+    smallNoteDemo = $("printed-small-note-demo").checked;
+    store("tropetrain-cohen-small-note-v1", { enabled: smallNoteDemo, policyId: SMALL_NOTE_STUDY.id });
+    render();
+  });
   $("musical-source").addEventListener("change", (e) => {
     stop("Musical source changed.");
     state.melodyId = e.target.value;
@@ -16307,6 +16437,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $("source-study-open").addEventListener("click", () => libraryAction(() => {
     state.melodyId = PRINTED_SCORE.id;
     applyRanges([{ id: "cohen-study", bookId: "gen", start: { chapter: 22, verse: 1 }, end: { chapter: 22, verse: 1 }, label: "Printed score context" }]);
+    state.anchor = words3.length - 1;
+    state.cursor = 0;
+    state.scope = "selection";
+    render();
+    $("reader").focus();
+    $("practice").scrollIntoView();
+  }));
+  $("cohen-penitential-open").addEventListener("click", () => libraryAction(() => {
+    state.melodyId = COHEN_PENITENTIAL.id;
+    state.practiceAudio = "instrument";
+    applyRanges([{ id: "cohen-penitential-study", bookId: "gen", start: { chapter: 22, verse: 1 }, end: { chapter: 22, verse: 1 }, label: "Cohen penitential written-pitch example" }]);
     state.anchor = words3.length - 1;
     state.cursor = 0;
     state.scope = "selection";
@@ -16673,6 +16814,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("implicit-reading-open").disabled = false;
     $("khan-pronunciation-open").disabled = false;
     $("prophetical-study-open").disabled = false;
+    $("cohen-penitential-open").disabled = false;
     let restoreFailed = false;
     if (restore.ranges) {
       try {
