@@ -7349,10 +7349,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { kind: "partial-original-windows", eligibleWords: windows.size, withheldWords: words4.length - windows.size, windows, ambiguities };
   }
   function originalWordWindow(recording, word, policy = sourceTimingPolicy(recording)) {
-    const canonical5 = recording?.words?.[word?.referenceIndex];
-    if (!canonical5 || canonical5.id !== word.id || canonical5.uxlcHebrew !== word.uxlcHebrew) return null;
-    if (policy.kind === "original-aligned") return { startSeconds: canonical5.startSeconds, endSeconds: canonical5.endSeconds };
-    return policy.windows.get(canonical5.id) ?? null;
+    const canonical6 = recording?.words?.[word?.referenceIndex];
+    if (!canonical6 || canonical6.id !== word.id || canonical6.uxlcHebrew !== word.uxlcHebrew) return null;
+    if (policy.kind === "original-aligned") return { startSeconds: canonical6.startSeconds, endSeconds: canonical6.endSeconds };
+    return policy.windows.get(canonical6.id) ?? null;
   }
 
   // reference-library-data.js
@@ -13535,16 +13535,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
   }
   function syllableTimingKey(draft) {
+    if (draft.schema === "tropetrain-syllable-timing-draft-v2") return "tropetrain-syllable-timing-v2:" + JSON.stringify([draft.source.audioSha1, draft.span.wordIds, draft.span.occurrenceIds, draft.pronunciation.style, draft.pronunciation.choiceId, draft.correspondence.sourceReadingChoices]);
     return "tropetrain-syllable-timing-v1:" + JSON.stringify([draft.source.audioSha1, draft.word.id, draft.word.occurrenceId, draft.pronunciation.style, draft.pronunciation.choiceId]);
+  }
+  function syllableTimingWindow(draft) {
+    if (draft.schema === "tropetrain-syllable-timing-draft-v2" && draft.revision === 2 && draft.word === null && draft.span?.kind === "complete-shared-source-word") return draft.span;
+    if (draft.schema === "tropetrain-syllable-timing-draft-v1" && draft.revision === 1) return draft.word;
+    throw Error("Unsupported source syllable timing draft.");
   }
   function validateSyllableTimingDraft(value, expected) {
     if (!value || typeof value !== "object" || Array.isArray(value)) throw Error("A syllable timing draft object is required.");
-    if (value.schema !== "tropetrain-syllable-timing-draft-v1" || value.revision !== 1 || value.status !== "personal-unreviewed" || value.sourceEditionCompared !== false || ["phonemes", "musicalNotes", "independentReview"].some((k) => value[k] !== null)) throw Error("Only personal unreviewed syllable drafts are supported.");
+    if (!["tropetrain-syllable-timing-draft-v1", "tropetrain-syllable-timing-draft-v2"].includes(value.schema) || value.schema !== expected.schema || value.revision !== expected.revision || value.status !== "personal-unreviewed" || value.sourceEditionCompared !== false || ["phonemes", "musicalNotes", "independentReview"].some((k) => value[k] !== null)) throw Error("Only matching personal unreviewed syllable drafts are supported.");
     const fixed = (x) => ({ ...x, units: void 0 });
     if (canonical4(fixed(value)) !== canonical4(fixed(expected))) throw Error("Draft source, marked Hebrew, occurrence, style, variant or review status differs.");
     if (!Array.isArray(value.units) || value.units.length !== expected.units.length) throw Error("Draft source syllable count differs.");
-    const clean = structuredClone(expected);
-    let boundary = expected.word.startSeconds;
+    const clean = structuredClone(expected), window2 = syllableTimingWindow(expected);
+    let boundary = window2.startSeconds;
     for (const [index, unit] of value.units.entries()) {
       if (!unit || canonical4(fixedUnit(unit)) !== canonical4(fixedUnit(expected.units[index]))) throw Error("Draft source syllables, written ranges, stress or shared consonants differ.");
       for (const key of ["start", "end"]) {
@@ -13552,7 +13558,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (time === null) {
           if (basis !== null) throw Error("A blank boundary must have no capture basis.");
         } else {
-          if (!Number.isFinite(time) || time < expected.word.startSeconds || time > expected.word.endSeconds) throw Error("Syllable boundaries must be source seconds inside this unchanged word window.");
+          if (!Number.isFinite(time) || time < window2.startSeconds || time > window2.endSeconds) throw Error("Syllable boundaries must be source seconds inside this unchanged word or complete group window.");
           if (!["typed", "audio-clock", "muted-clock"].includes(basis)) throw Error("Each boundary must retain its annotation basis.");
           if (time < boundary) throw Error("Syllable boundaries must follow source order without overlaps, including across blank units.");
           boundary = time;
@@ -13571,6 +13577,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     next.units[index][key + "Basis"] = value === null ? null : basis;
     return validateSyllableTimingDraft(next, draft);
   }
+  function setSyllableBoundaries(draft, index, { start, end }) {
+    if (!Number.isInteger(index) || index < 0 || index >= draft.units.length) throw Error("Choose a source syllable unit.");
+    const next = structuredClone(draft);
+    for (const [key, value] of Object.entries({ start, end })) if (value !== draft.units[index][key]) {
+      next.units[index][key] = value;
+      next.units[index][key + "Basis"] = value === null ? null : "typed";
+    }
+    return validateSyllableTimingDraft(next, draft);
+  }
   function captureSyllableBoundary(draft, index, key, position) {
     if (!position || position.recordingId !== draft.source.recordingId || !["audio", "muted"].includes(position.mode)) throw Error("Play the unchanged source recording before capturing its playhead. Instrumental tones and processed recordings cannot supply this boundary.");
     return setSyllableBoundary(draft, index, key, position.seconds, position.mode === "muted" ? "muted-clock" : "audio-clock");
@@ -13585,8 +13600,98 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { start: unit.start, end: unit.end };
   }
 
+  // syllable-group-timing.js
+  var measurements2 = new Map(pitchManifest.records.map((r) => [r.id, r]));
+  var same4 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  var canonical5 = (w) => w.sourceWordId ?? w.id;
+  function groupTimingChoices(study, group, words4, style) {
+    if (!group || group.wordIds.length < 2 || new Set(group.wordIds).size !== group.wordIds.length || group.sourceGroupId !== study?.groupId || group.individualWordAllocation !== null || group.writtenSyllableRanges !== null || group.sourceTiming !== null || group.phonemes !== null || group.voice !== null || group.review !== null) throw Error("A complete unchanged shared source word is required.");
+    const members = group.wordIndices.map((i) => words4[i]);
+    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical5(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same4(group.sourceWordIds, study.readerIds) || !same4(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
+    const selected = validateJointStudy(chooseSourceStudy(study, group.sourceReadingChoices), group, style);
+    if (selected.selectedStyle !== style) throw Error("Choose the current source text style.");
+    if (group.navigationWordId !== members[0].id || group.navigationWordIndex !== members[0].index || group.source.sourceCommit !== study.sourceCommit || group.syllables.map((s) => s.sourceHebrew).join("") !== group.sourceReadingHebrew || group.syllables.some((s) => s.readerWordId !== null || s.writtenRange !== null || s.acousticTimes !== null)) throw Error("Shared source syllables or navigation changed.");
+    for (const path of group.paths.filter((p) => p.style === style)) if (path.sourceReadingHebrew !== group.sourceReadingHebrew || !same4(path.units.map((u) => [u.hebrew, u.sourceStress]), group.syllables.map((s) => [s.sourceHebrew, s.stress]))) throw Error("Shared source syllable text or stress changed.");
+    return group.paths.filter((p) => p.style === style).map((path) => ({
+      id: `r${path.sourceRow}-c${path.sourceColumn}`,
+      row: path.sourceRow,
+      column: path.sourceColumn,
+      label: `Source row ${path.sourceRow}, column ${path.sourceColumn} · complete shared word · ${path.units.map((u) => u.sourceText).join(" · ")}`,
+      units: path.units.map((u) => ({
+        sourceUnitId: u.sourceUnitId,
+        ownerWordId: null,
+        ownerWordIds: group.sourceWordIds.slice(),
+        ownerOccurrenceIds: group.wordIds.slice(),
+        sourceText: u.sourceText,
+        sourceStress: u.sourceStress,
+        sourceMarks: structuredClone(u.sourceMarks),
+        sourceSegments: structuredClone(u.sourceSegments),
+        hebrewClusterRanges: null,
+        hebrewUnderlay: structuredClone(u.hebrewUnderlay)
+      }))
+    }));
+  }
+  function createGroupTimingDraft({ library, words: words4, group, study, style, choiceId }) {
+    if (!library) throw Error("The recorded source catalog is still loading.");
+    const choice = groupTimingChoices(study, group, words4, style).find((c) => c.id === choiceId);
+    if (!choice) throw Error("Choose a complete shared source-word variant.");
+    const plan2 = sourceTimedPracticePlan(library, words4, group.wordIndices[0], group.wordIndices.at(-1));
+    if (plan2.records.length !== 1 || plan2.rows.length !== group.wordIds.length) throw Error("A shared source word must have one complete original recording window.");
+    const record = plan2.records[0], measured = measurements2.get(record.id), rows2 = plan2.rows;
+    for (const [i, row] of rows2.entries()) {
+      if (row.id !== group.sourceWordIds[i] || row.occurrenceId !== group.wordIds[i] || row.uxlcHebrew !== group.readerHebrew[i] || row.recordingId !== record.id || !Number.isFinite(row.endSeconds) || i && (rows2[i - 1].endSeconds !== row.startSeconds || rows2[i - 1].referenceIndex + 1 !== row.referenceIndex)) throw Error("Original shared-word windows must be consecutive and touch exactly; no gap, overlap or boundary can be inferred.");
+    }
+    const originalWordWindows = rows2.map((row) => ({
+      id: row.id,
+      occurrenceId: row.occurrenceId,
+      hebrew: row.uxlcHebrew,
+      recordingHebrew: row.sourceHebrew,
+      sourceWords: structuredClone(row.sourceWords),
+      sourceComparison: row.comparison,
+      referenceIndex: row.referenceIndex,
+      startSeconds: row.startSeconds,
+      endSeconds: row.endSeconds,
+      ...row.timingPolicy ? { timingPolicy: structuredClone(row.timingPolicy) } : {}
+    }));
+    return {
+      schema: "tropetrain-syllable-timing-draft-v2",
+      revision: 2,
+      status: "personal-unreviewed",
+      source: { recordingId: record.id, audioSha1: record.audio.sha1, audioBytes: record.audio.bytes, measuredPcmSha256: measured.pcmSha256, measuredDurationSeconds: measured.durationSeconds, measurementPacketSha256: measured.sha256, timingSource: structuredClone(record.timingSource) },
+      word: null,
+      span: { kind: "complete-shared-source-word", wordIds: group.sourceWordIds.slice(), occurrenceIds: group.wordIds.slice(), hebrew: group.readerHebrew.slice(), startSeconds: rows2[0].startSeconds, endSeconds: rows2.at(-1).endSeconds, originalWordWindows },
+      correspondence: { sourceGroupId: group.sourceGroupId, sourceReadingHebrew: group.sourceReadingHebrew, sourceReadingChoices: structuredClone(group.sourceReadingChoices), individualWordAllocation: null, writtenSyllableRanges: null, sourceTiming: null, recordedPronunciationEquivalent: null },
+      pronunciation: {
+        sourceCommit: study.sourceCommit,
+        style,
+        row: choice.row,
+        column: choice.column,
+        choiceId: choice.id,
+        sourceGroupId: group.sourceGroupId,
+        sourceUrl: "https://github.com/bdenckla/MAM-basics/tree/" + study.sourceCommit + "/Phonetic-MAM",
+        license: structuredClone(study.license),
+        attribution: structuredClone(study.attribution),
+        sourceUnitMeaning: "Complete shared source transcription word; every syllable corresponds jointly to all member words. No claim about the recorded reader’s pronunciation."
+      },
+      recordingAttribution: Object.fromEntries(["source", "creator", "projectCredits", "individualReader", "sourceUrl", "audioLicense", "timingLicense", "alignmentLicense", "originalCommit"].map((k) => [k, structuredClone(library.source[k])])),
+      sourceEditionCompared: false,
+      phonemes: null,
+      musicalNotes: null,
+      independentReview: null,
+      units: choice.units.map((u) => ({ ...u, start: null, end: null, startBasis: null, endBasis: null }))
+    };
+  }
+  function groupTimingPreview({ library, words: words4, study, style, draft, span }) {
+    const first = words4.find((w) => w.id === draft.span?.occurrenceIds?.[0]), group = first?.sourceJointGroup;
+    if (!group) throw Error("The complete shared source word is no longer selected or available.");
+    const expected = createGroupTimingDraft({ library, words: words4, group, study, style, choiceId: draft.pronunciation.choiceId });
+    const checked2 = validateSyllableTimingDraft(draft, expected), window2 = checked2.span;
+    if (!span || !Number.isFinite(span.start) || !Number.isFinite(span.end) || span.start < window2.startSeconds || span.start >= span.end || span.end > window2.endSeconds) throw Error("Draft interval must stay inside the unchanged complete shared-word window.");
+    return { record: library.byId.get(checked2.source.recordingId), segment: { recordingId: checked2.source.recordingId, start: span.start, end: span.end, words: [] }, originalWordWindows: structuredClone(window2.originalWordWindows), individualWordAllocation: null };
+  }
+
   // syllable-timing-ui.js
-  function mountSyllableTiming({ getWord, getPronunciation, getReferences, position, hasSource, loadSource, audition, stop: stop2 }) {
+  function mountSyllableTiming({ getWord, getWords = () => [], getPronunciation, getReferences, position, hasSource, loadSource, audition, stop: stop2 }) {
     const $2 = (id) => document.getElementById(id), panel = $2("syllable-timing-review");
     let contextKey = null, generation = 0, draft = null, expected = null, choices = [], word = null, study = null, style = null, record = null, selected = 0, available = false, loadJob = null;
     const message = (text) => {
@@ -13606,28 +13711,46 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         message("Device storage unavailable. Prepare and copy the draft JSON to retain your annotations.");
       }
     }
+    function pendingDraft() {
+      const values = {};
+      for (const key of ["start", "end"]) {
+        const el3 = $2(`syllable-timing-${key}`);
+        if (el3.validity.badInput) throw Error("Finish entering a valid source-second boundary.");
+        values[key] = el3.value === "" ? null : Number(el3.value);
+      }
+      return setSyllableBoundaries(draft, selected, values);
+    }
+    function commitFields() {
+      const next = pendingDraft();
+      if (JSON.stringify(next) !== JSON.stringify(draft)) {
+        draft = next;
+        save();
+      }
+      return draft;
+    }
     function draw() {
       $2("syllable-timing-editor").hidden = !draft;
       for (const id of ["load", "whole", "audition", "capture-start", "capture-end", "prepare", "import"]) $2(`syllable-timing-${id}`).disabled = !draft || ["whole", "audition"].includes(id) && !available || id === "load" && (available || !!loadJob);
       $2("syllable-timing-cancel").hidden = !loadJob;
       if (!draft) return;
-      const unit = draft.units[selected];
+      const unit = draft.units[selected], window2 = syllableTimingWindow(draft), joint = draft.revision === 2;
       $2("syllable-timing-unit").value = String(selected);
+      $2("syllable-timing-whole").textContent = joint ? "Play original group" : "Play original word";
       $2("syllable-timing-text").textContent = unit.sourceText;
-      $2("syllable-timing-hebrew").textContent = unit.hebrewClusterRanges ? unit.hebrewClusterRanges.filter((r) => r.role === "written").map((r) => r.text).join(" ") : "No exact written range; source text only.";
-      $2("syllable-timing-unit-note").textContent = [unit.sourceStress ? "Source primary stress." : "", unit.hebrewUnderlay?.variants.some((v) => v.sharesNextConsonant || v.sharesPreviousConsonant) ? "Shared consonant retained; no phoneme split or timing inferred." : ""].filter(Boolean).join(" ");
+      $2("syllable-timing-hebrew").textContent = joint ? "Complete shared source word; no individual written syllable range." : unit.hebrewClusterRanges ? unit.hebrewClusterRanges.filter((r) => r.role === "written").map((r) => r.text).join(" ") : "No exact written range; source text only.";
+      $2("syllable-timing-unit-note").textContent = [unit.sourceStress ? "Source primary stress." : "", joint ? "This source syllable corresponds to all listed words together. Recorded pronunciation equivalence is unreviewed." : "", unit.hebrewUnderlay?.variants.some((v) => v.sharesNextConsonant || v.sharesPreviousConsonant) ? "Shared consonant retained; no phoneme split or timing inferred." : ""].filter(Boolean).join(" ");
       for (const k of ["start", "end"]) {
         const el3 = $2(`syllable-timing-${k}`);
         el3.value = unit[k] ?? "";
-        el3.min = draft.word.startSeconds;
-        el3.max = draft.word.endSeconds;
+        el3.min = window2.startSeconds;
+        el3.max = window2.endSeconds;
       }
       $2("syllable-timing-count").textContent = `${draft.units.filter((u) => u.start !== null && u.end !== null).length} / ${draft.units.length} source units have two personal boundaries. All other boundaries remain blank.`;
       $2("syllable-timing-audition").disabled = !available || unit.start === null || unit.end === null;
       $2("syllable-timing-load").textContent = available ? "Original recording available" : `Load original recording · ${(record.audio.bytes / 1048576).toFixed(1)} MB`;
     }
     function choose(id) {
-      expected = createSyllableTimingDraft({ library: getReferences(), word, study, style, choiceId: id });
+      expected = word.sourceJointGroup ? createGroupTimingDraft({ library: getReferences(), words: getWords(), group: word.sourceJointGroup, study, style, choiceId: id }) : createSyllableTimingDraft({ library: getReferences(), word, study, style, choiceId: id });
       draft = expected;
       record = getReferences().byId.get(draft.source.recordingId);
       selected = 0;
@@ -13655,7 +13778,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       draw();
     }
     async function refresh() {
-      const w = getWord(), p = getPronunciation(w), refs = getReferences(), next = JSON.stringify([w?.id, w?.sourceHebrew, p?.style, !!p?.study, !!refs, panel.open]);
+      const w = getWord(), p = getPronunciation(w), refs = getReferences(), g = w?.sourceJointGroup, next = JSON.stringify([w?.id, w?.sourceHebrew, p?.style, p?.study?.sourceCommit, p?.study?.groupId, !!p?.study, !!refs, panel.open, g ? [g.id, g.wordIds, g.readerHebrew, g.sourceReadingChoices] : null]);
       if (next === contextKey) return;
       contextKey = next;
       const current = ++generation;
@@ -13665,7 +13788,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       available = false;
       clearExport();
       draw();
-      $2("syllable-timing-word").textContent = w?.sourceHebrew ?? "";
+      $2("syllable-timing-word").textContent = g ? g.readerHebrew.join(" ") : w?.sourceHebrew ?? "";
       $2("syllable-timing-window").textContent = "";
       $2("syllable-timing-variant").replaceChildren();
       if (!panel.open) {
@@ -13677,7 +13800,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         word = w;
         study = p.study;
         style = p.style;
-        choices = sourceSyllableChoices(study, word, style);
+        choices = g ? groupTimingChoices(study, g, getWords(), style) : sourceSyllableChoices(study, word, style);
         if (!choices.length) throw Error("No individually owned source syllables; combined source words remain unsplit.");
         for (const choice of choices) {
           const option = document.createElement("option");
@@ -13687,7 +13810,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         choose(choices[0].id);
         record = refs.byId.get(draft.source.recordingId);
-        $2("syllable-timing-window").textContent = `${word.reference} · canonical ${draft.word.id} · occurrence ${draft.word.occurrenceId}. ${draft.word.startSeconds.toFixed(6)}–${draft.word.endSeconds.toFixed(6)} source seconds in ${record.title}.${draft.word.timingPolicy ? " Original interval outside ambiguous timestamps; no corrected or acoustically approved boundary." : ""} Recording Hebrew: ${draft.word.recordingHebrew} (${draft.word.sourceComparison}). Selected style labels source text only; the recorded pronunciation stays unchanged.`;
+        const window2 = syllableTimingWindow(draft);
+        $2("syllable-timing-window").textContent = draft.revision === 2 ? `${word.reference} · complete shared source pronunciation word · ${window2.startSeconds.toFixed(6)}–${window2.endSeconds.toFixed(6)} source seconds in ${record.title}. Original member windows: ${window2.originalWordWindows.map((r) => `${r.id} (${r.occurrenceId}), ${r.startSeconds.toFixed(6)}–${r.endSeconds.toFixed(6)}, original text ${r.recordingHebrew} (${r.sourceComparison})`).join("; ")}. Both marked words and their separate original clocks are retained. No source syllable is assigned to an individual word. The source transcription and recorded pronunciation still need comparison; changing text style does not change the recording.` : `${word.reference} · canonical ${draft.word.id} · occurrence ${draft.word.occurrenceId}. ${window2.startSeconds.toFixed(6)}–${window2.endSeconds.toFixed(6)} source seconds in ${record.title}.${draft.word.timingPolicy ? " Original interval outside ambiguous timestamps; no corrected or acoustically approved boundary." : ""} Recording Hebrew: ${draft.word.recordingHebrew} (${draft.word.sourceComparison}). Selected style labels source text only; the recorded pronunciation stays unchanged.`;
         const ready = await hasSource(record);
         if (current !== generation) return;
         available = ready;
@@ -13709,15 +13833,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
     });
     $2("syllable-timing-unit").addEventListener("change", () => {
-      selected = Number($2("syllable-timing-unit").value);
-      draw();
+      try {
+        commitFields();
+        selected = Number($2("syllable-timing-unit").value);
+        draw();
+      } catch (error) {
+        $2("syllable-timing-unit").value = String(selected);
+        message(error.message);
+      }
     });
     for (const key of ["start", "end"]) {
+      $2(`syllable-timing-${key}`).addEventListener("input", () => {
+        clearExport();
+        message("Boundary edited. Leave the field, prepare the draft or audition to validate and save it.");
+        try {
+          const next = pendingDraft(), u = next.units[selected];
+          $2("syllable-timing-audition").disabled = !available || u.start === null || u.end === null;
+        } catch {
+          $2("syllable-timing-audition").disabled = true;
+        }
+      });
       $2(`syllable-timing-${key}`).addEventListener("change", () => {
         try {
-          const value = $2(`syllable-timing-${key}`).value;
-          draft = setSyllableBoundary(draft, selected, key, value === "" ? null : Number(value));
-          save();
+          commitFields();
         } catch (error) {
           message(error.message);
         }
@@ -13725,6 +13863,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       });
       $2(`syllable-timing-capture-${key}`).addEventListener("click", () => {
         try {
+          commitFields();
           draft = captureSyllableBoundary(draft, selected, key, position());
           save();
           if (draft.units[selected][key + "Basis"] === "muted-clock") message("Muted-clock annotation saved; it is not evidence of a sung syllable boundary.");
@@ -13749,7 +13888,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         await loadSource(source, job.signal);
         if (current === generation && !job.signal.aborted) {
           available = true;
-          message("Original source loaded and checksum checked. Press Play original word when ready.");
+          message("Original source loaded and checksum checked. Press " + (draft.revision === 2 ? "Play original group" : "Play original word") + " when ready.");
         }
       } catch (error) {
         if (current === generation) message(job.signal.aborted ? "Source loading cancelled." : error.message);
@@ -13770,9 +13909,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (current === generation) message(error.message);
       }
     }
-    $2("syllable-timing-whole").addEventListener("click", () => play2({ start: draft.word.startSeconds, end: draft.word.endSeconds }));
+    $2("syllable-timing-whole").addEventListener("click", () => {
+      const window2 = syllableTimingWindow(draft);
+      play2({ start: window2.startSeconds, end: window2.endSeconds });
+    });
     $2("syllable-timing-audition").addEventListener("click", () => {
       try {
+        commitFields();
+        draw();
         play2(draftSyllableSpan(draft, selected));
       } catch (error) {
         message(error.message);
@@ -13780,13 +13924,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
     $2("syllable-timing-stop").addEventListener("click", () => stop2());
     $2("syllable-timing-prepare").addEventListener("click", () => {
-      const text = JSON.stringify(draft, null, 2) + "\n";
-      $2("syllable-timing-json").value = text;
-      const a = $2("syllable-timing-download");
-      a.href = "data:application/json;charset=utf-8," + encodeURIComponent(text);
-      a.download = `${draft.word.id}-${style}-${draft.pronunciation.choiceId}-syllable-draft.json`;
-      a.hidden = false;
-      message("Unreviewed draft JSON prepared. Source units, shared consonants and marked Hebrew are retained; no phonemes or musical notes are assigned.");
+      try {
+        commitFields();
+        draw();
+        const text = JSON.stringify(draft, null, 2) + "\n";
+        $2("syllable-timing-json").value = text;
+        const a = $2("syllable-timing-download");
+        a.href = "data:application/json;charset=utf-8," + encodeURIComponent(text);
+        a.download = `${draft.word?.id ?? draft.span.occurrenceIds[0] + "-complete-group"}-${style}-${draft.pronunciation.choiceId}-syllable-draft.json`;
+        a.hidden = false;
+        message("Unreviewed draft JSON prepared. Source units, shared consonants and marked Hebrew are retained; no phonemes or musical notes are assigned.");
+      } catch (error) {
+        clearExport();
+        message("Draft not prepared: " + error.message);
+      }
     });
     $2("syllable-timing-import").addEventListener("click", () => {
       try {
@@ -16263,6 +16414,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   sourcePitchTools = mountSourcePitch({ getWord: () => words3[state.cursor], getReferences: () => referenceLibrary });
   syllableTimingTools = mountSyllableTiming({
     getWord: () => words3[state.cursor],
+    getWords: () => words3,
     getPronunciation: (word) => pronunciationTools.timingStudy(word),
     getReferences: () => referenceLibrary,
     position: () => referencePlayer.running && !recordedPracticeRunning ? { recordingId: referencePlayer.currentSegment.recordingId, seconds: referencePlayer.now(), mode: referencePlayer.mode } : null,
@@ -16273,14 +16425,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const previewRequest = ++chantPlayRequest;
       const index = words3.findIndex((w) => w.id === word.id && w.sourceHebrew === word.sourceHebrew);
       if (index < 0) throw Error("The selected reading changed; reopen this timing draft.");
-      const checked2 = sourceTimedPracticePlan(referenceLibrary, words3, index, index), row = checked2.rows[0];
-      if (row.recordingId !== draft.source.recordingId || row.id !== draft.word.id || !(span.start >= draft.word.startSeconds && span.start < span.end && span.end <= draft.word.endSeconds)) throw Error("Draft interval differs from the unchanged source word.");
-      if (!await referenceStore.has(checked2.records[0])) throw Error("Load the original recording before auditioning this interval.");
+      const joint = draft.revision === 2, groupPreview = () => {
+        const p = pronunciationTools.timingStudy(words3[index]);
+        return groupTimingPreview({ library: referenceLibrary, words: words3, study: p?.study, style: p?.style, draft, span });
+      };
+      const checked2 = joint ? groupPreview() : sourceTimedPracticePlan(referenceLibrary, words3, index, index), row = joint ? null : checked2.rows[0], record = joint ? checked2.record : checked2.records[0];
+      if (!joint && (row.recordingId !== draft.source.recordingId || row.id !== draft.word.id || !(span.start >= draft.word.startSeconds && span.start < span.end && span.end <= draft.word.endSeconds))) throw Error("Draft interval differs from the unchanged source word.");
+      if (!await referenceStore.has(record)) throw Error("Load the original recording before auditioning this interval.");
       if (previewRequest !== chantPlayRequest || words3[index]?.id !== word.id || words3[index]?.sourceHebrew !== word.sourceHebrew) throw Error("Source preview was superseded by a stop or reading change.");
+      if (joint) groupPreview();
       stop("Listening to a personal source-syllable draft. Source pronunciation and timing remain unchanged.");
       referencePlayer.setRate(1);
       referencePlayer.setVolume(state.referenceVolume / 100);
-      await referencePlayer.play([{ ...row, startSeconds: span.start, endSeconds: span.end }], false);
+      if (joint) await referencePlayer.playSegments([checked2.segment], false);
+      else await referencePlayer.play([{ ...row, startSeconds: span.start, endSeconds: span.end }], false);
       if (!referencePlayer.running) throw Error("The source interval could not start; review the recorded-reference status.");
     }
   });

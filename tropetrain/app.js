@@ -40,6 +40,7 @@ import {sourceTimedPracticePlan} from './measured-practice.js';
 import {SourceContourStore,contourSupported} from './source-contour-store.js';
 import {mountSourcePitch} from './source-pitch-ui.js';
 import {mountSyllableTiming} from './syllable-timing-ui.js';
+import {groupTimingPreview} from './syllable-group-timing.js';
 import {mountHaftarah} from './haftarah-ui.js';
 import {getPronunciationLibrary} from './pronunciation.js';
 import {SourceSyllableUnderlay,SOURCE_SYLLABLE_UNDERLAY,SOURCE_SYLLABLE_GAPS} from './source-syllable-underlay.js';
@@ -1009,20 +1010,23 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
 pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();syllableTimingTools?.refresh();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
-syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
+syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getWords:()=>words,getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
   position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,
   hasSource:record=>referenceStore.has(record),loadSource:(record,signal)=>referenceStore.load(record,{signal}),stop:()=>stop(),
   audition:async({word,draft,span})=>{
     const previewRequest=++chantPlayRequest;
     const index=words.findIndex(w=>w.id===word.id&&w.sourceHebrew===word.sourceHebrew);
     if(index<0)throw Error('The selected reading changed; reopen this timing draft.');
-    const checked=sourceTimedPracticePlan(referenceLibrary,words,index,index),row=checked.rows[0];
-    if(row.recordingId!==draft.source.recordingId||row.id!==draft.word.id||!(span.start>=draft.word.startSeconds&&span.start<span.end&&span.end<=draft.word.endSeconds))throw Error('Draft interval differs from the unchanged source word.');
-    if(!await referenceStore.has(checked.records[0]))throw Error('Load the original recording before auditioning this interval.');
+    const joint=draft.revision===2,groupPreview=()=>{const p=pronunciationTools.timingStudy(words[index]);return groupTimingPreview({library:referenceLibrary,words,study:p?.study,style:p?.style,draft,span});};
+    const checked=joint?groupPreview():sourceTimedPracticePlan(referenceLibrary,words,index,index),row=joint?null:checked.rows[0],record=joint?checked.record:checked.records[0];
+    if(!joint&&(row.recordingId!==draft.source.recordingId||row.id!==draft.word.id||!(span.start>=draft.word.startSeconds&&span.start<span.end&&span.end<=draft.word.endSeconds)))throw Error('Draft interval differs from the unchanged source word.');
+    if(!await referenceStore.has(record))throw Error('Load the original recording before auditioning this interval.');
     if(previewRequest!==chantPlayRequest||words[index]?.id!==word.id||words[index]?.sourceHebrew!==word.sourceHebrew)throw Error('Source preview was superseded by a stop or reading change.');
+    if(joint)groupPreview();
     stop('Listening to a personal source-syllable draft. Source pronunciation and timing remain unchanged.');
     referencePlayer.setRate(1);referencePlayer.setVolume(state.referenceVolume/100);
-    await referencePlayer.play([{...row,startSeconds:span.start,endSeconds:span.end}],false);
+    if(joint)await referencePlayer.playSegments([checked.segment],false);
+    else await referencePlayer.play([{...row,startSeconds:span.start,endSeconds:span.end}],false);
     if(!referencePlayer.running)throw Error('The source interval could not start; review the recorded-reference status.');
   }
 });
