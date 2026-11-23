@@ -1,3 +1,4 @@
+import {readingStudyForWord} from './source-reading-choices.js';
 // Original correspondence adapter for existing source-based phonemic proposals.
 // Note references identify written syllables; they assign no acoustic delivery.
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
@@ -9,7 +10,7 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
  const prepared=new Map(),events=new Map(),eventSignatures=new Map(),seenReferences=new Map(),byId=new Map(words.map(w=>[w.id,w]));
  for(const word of base.words){
   const original=byId.get(word.wordId);
-  prepared.set(word.wordId,readerPhonologyWord(original,library.study(original,style),style,profileId));
+  prepared.set(word.wordId,readerPhonologyWord(original,readingStudyForWord(original,library,style),style,profileId));
  }
  const links=base.links.map(link=>{
   const report=prepared.get(link.wordId),paths=[];

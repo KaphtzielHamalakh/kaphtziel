@@ -144,6 +144,7 @@ export function phonologyWordProposal(study,word,sourceStyle,profileId){
  const fragments=routes.flatMap(r=>r.units.filter(u=>u.selected).flatMap(u=>u.fragments));
  return {schema:'tropetrain-phonology-word-proposal-v1',revision:2,wordId:word.id,sourceWordId,hebrew:word.sourceHebrew,selectedTranscriptionStyle:sourceStyle,
   profile:structuredClone(profile),source:structuredClone(PHONOLOGY_SOURCE),prosodySources:[structuredClone(MAQAF_STRESS_SOURCE)],sourceCommit:study?.sourceCommit??null,categoryInputSha256:study?.sourceSegments?.inputSha256??null,sourceDataLicense:'CC-BY-SA-4.0',
+  ...(study?.sourceSelection?{sourceSelection:structuredClone(study.sourceSelection)}:{}),
   sourceCategoryStatus:study?.sourceSegments?'source-categories-available':'source-categories-unavailable',routes,
   counts:{routes:routes.length,categoryReferences:fragments.length,proposedReferences:fragments.filter(f=>f.proposal.candidatePhonemes!==null).length,unassignedReferences:fragments.filter(f=>f.proposal.candidatePhonemes===null).length,
    proposedEvents:routes.reduce((n,r)=>n+r.events.filter(e=>e.candidatePhonemes!==null).length,0),contextGaps:routes.reduce((n,r)=>n+r.gaps.length,0),reviewedRealizations:0},

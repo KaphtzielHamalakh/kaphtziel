@@ -77,6 +77,10 @@
   "syllableAnalyzer": "havarotjs0.25.5; existing manual/source fixtures retained",
   "inputs": [
     {
+      "path": "source-reading-choices.js",
+      "sha256": "db71fe569d380017309c872df84b6afd06af4658af7eaa29ba91bcfad52b1189"
+    },
+    {
       "path": "scripts/pronunciation_editions.py",
       "sha256": "fab17a47197859f838a6c2aeae6c8f95cf27d86e846d56906dfc30e958d616e3"
     },
@@ -106,7 +110,7 @@
     },
     {
       "path": "pronunciation-note-links.js",
-      "sha256": "33fcd5821a1bbd362567ac5d53eeb619a715a91b4d77a06a8b73b430a140d983"
+      "sha256": "7cf647a04408511eb4b343f830d9c47558eb5cd4a14325272e2f5765b58f4877"
     },
     {
       "path": "pronunciation-underlay.js",
@@ -130,7 +134,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "703e12f4f9495034abc44f72a1ac0d195853d05fa717f09bbb13b40dc3e396a4"
+      "sha256": "fcf82a88db95e126b7b1df0e2925fbb8407b962794f4087d69232524a24b91f5"
     },
     {
       "path": "printed-score-data.js",

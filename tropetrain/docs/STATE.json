@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "08b645de64c50d39a7873d013f2345b1a07b3dbf",
-  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. The explicit source-reading option now covers79962Torahwords; resolve23remainingwords (9source-only,12conflicting,2combined) from evidence without invented written ranges. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
+  "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. The explicit qamats and upper/lower text reading choices now cover79983of79985Torahwords. Deu32:6first source syllable spans two written words; keep them unsplit until a many-to-many source-group plan can preserve both word selections without guessed syllable divisions. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
   "lastPassingTests": {
     "automated": 605,
     "newRegressionChecks": 8,
@@ -190,9 +190,9 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.73.0",
-    "status": "published605checks_138publicUIchecks_full_goal_active",
-    "next": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. The explicit source-reading option now covers79962Torahwords; resolve23remainingwords (9source-only,12conflicting,2combined) from evidence without invented written ranges. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets."
+    "version": "0.74.0",
+    "status": "implementation_complete_full_build_and_browser_verification_pending",
+    "next": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. The explicit qamats and upper/lower text reading choices now cover79983of79985Torahwords. Deu32:6first source syllable spans two written words; keep them unsplit until a many-to-many source-group plan can preserve both word selections without guessed syllable divisions. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -1285,7 +1285,7 @@
               "minimumHz": 65,
               "maximumHz": 650,
               "threshold": 0.1,
-              "centerRoundingSeconds": 0.000022675736961463855
+              "centerRoundingSeconds": 2.2675736961463855e-05
             },
             "cents": -15.04878639962098,
             "status": "outside-15-cent-bound",
@@ -1947,34 +1947,52 @@
     }
   },
   "sourceReadingPlayback": {
-    "version": "0.73.0",
+    "version": "0.74.0",
     "record": "docs/SOURCE-READING-PLAYBACK.json",
-    "status": "published605checks_138publicUIchecks_qualified_singing_review_pending",
+    "status": "updated_implementation_full_verification_pending",
     "readerWords": 79985,
     "priorWrittenWords": 77790,
-    "additionalSourceReadingWords": 2172,
-    "availableWords": 79962,
-    "withheldWords": 23,
-    "additionalSourceSyllables": 6227,
-    "additionalNotes": 7665,
-    "sourceReadingAssignmentSha256": "d2065270c8a0189fcdc1e6d3c8d03e89477edc60b0abb403ca00f7345c52963e",
+    "additionalSourceReadingWords": 2178,
+    "availableWords": 79968,
+    "withheldWords": 17,
+    "additionalSourceSyllables": 6239,
+    "additionalNotes": 7677,
+    "sourceReadingAssignmentSha256": "b2be49a2afd373c05ccc24238b315f1007e0bd615a7f461e51bffb1e3a19bfd7",
     "originalMarkedHebrewPreserved": true,
     "differentFormsWrittenSyllableRanges": null,
     "newSingingVoice": null,
     "historicalMelodyGrammar": null,
     "review": null,
     "sourceReadingRanges": "Word-relative in the complete source reading; original row offsets remain separately in source paths.",
-    "automatedChecks": 605,
-    "newChecks": 8,
-    "publicUiChecks": 138,
+    "automatedChecks": null,
+    "newChecks": 10,
+    "publicUiChecks": null,
     "defaultWrittenUnderlayUnchanged": {
       "availableWords": 77790,
       "withheldWords": 2195
     },
     "optInSourceReadings": {
-      "availableWords": 79962,
-      "withheldWords": 23
+      "availableWords": 79968,
+      "withheldWords": 17
     },
-    "publicCommit": "08b645de64c50d39a7873d013f2345b1a07b3dbf"
+    "publicCommit": null,
+    "previousPublishedCommit": "08b645de64c50d39a7873d013f2345b1a07b3dbf"
+  },
+  "sourceReadingChoices": {
+    "status": "implemented_verification_in_progress",
+    "policies": [
+      "קמץ-ד",
+      "קמץ-ס",
+      "טעם תחתון",
+      "טעם עליון"
+    ],
+    "evidence": "docs/SOURCE-READING-CHOICES.json",
+    "availableWords": 79983,
+    "withheldWords": 2,
+    "sourceReadingWords": 2181,
+    "selectedWords": 235,
+    "review": null,
+    "newSingingVoice": null,
+    "historicalMelodyGrammar": null
   }
 }

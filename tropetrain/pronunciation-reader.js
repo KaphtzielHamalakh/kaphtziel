@@ -13,6 +13,7 @@ export function readerPronunciationWord(word,study,style){
  const sourceWordId=word.sourceWordId??word.id;
  const result={wordId:word.id,sourceWordId,hebrew:word.sourceHebrew,style,status:'no-source-correspondence',entries:[],sourceCommit:study?.sourceCommit??null,license:'CC-BY-SA-4.0',review:'Source text and word correspondence only; independent linguistic review pending. No phonemes, musical notes, voice or acoustic timing inferred.'};
  if(!study)return result;
+ if(study.sourceSelection)result.sourceSelection=structuredClone(study.sourceSelection);
  const index=study.readerIds.indexOf(sourceWordId);
  if(index<0||study.readerHebrew[index]!==word.sourceHebrew)throw Error('The Hebrew source changed; this pronunciation link needs review.');
  let transcribed=false;

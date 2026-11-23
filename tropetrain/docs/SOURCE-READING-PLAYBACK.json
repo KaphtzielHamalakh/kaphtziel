@@ -1,20 +1,21 @@
 {
   "schema": "tropetrain-source-reading-playback-audit-v1",
-  "revision": 1,
+  "revision": 2,
+  "priorSourceReadingAssignmentSha256": "d2065270c8a0189fcdc1e6d3c8d03e89477edc60b0abb403ca00f7345c52963e",
   "counts": {
     "chapters": 187,
     "readerWords": 79985,
     "writtenWords": 77790,
-    "sourceReadingWords": 2172,
-    "availableWords": 79962,
-    "withheldWords": 23,
-    "addedSourceSyllables": 6227,
-    "addedNotes": 7665,
-    "sourceTextNoteChecks": 15330,
-    "phonemicProfileNoteChecks": 30660
+    "sourceReadingWords": 2178,
+    "availableWords": 79968,
+    "withheldWords": 17,
+    "addedSourceSyllables": 6239,
+    "addedNotes": 7677,
+    "sourceTextNoteChecks": 15354,
+    "phonemicProfileNoteChecks": 30708
   },
   "gaps": {
-    "source-only-written-form": 9,
+    "source-only-written-form": 3,
     "conflicting-source-paths": 12,
     "combined-source-form": 2
   },
@@ -22,16 +23,6 @@
     {
       "id": "gen-13-3-13",
       "hebrew": "אֽ͏ָהֳלוֹ֙",
-      "reason": "source-only-written-form"
-    },
-    {
-      "id": "gen-14-8-13",
-      "hebrew": "הִוא־",
-      "reason": "source-only-written-form"
-    },
-    {
-      "id": "gen-27-38-7",
-      "hebrew": "הִֽוא־",
       "reason": "source-only-written-form"
     },
     {
@@ -70,11 +61,6 @@
       "reason": "conflicting-source-paths"
     },
     {
-      "id": "deu-4-25-16",
-      "hebrew": "יְהוָֽה־",
-      "reason": "source-only-written-form"
-    },
-    {
       "id": "deu-5-7-1",
       "hebrew": "לֹ֣א",
       "reason": "conflicting-source-paths"
@@ -110,16 +96,6 @@
       "reason": "source-only-written-form"
     },
     {
-      "id": "deu-17-2-19",
-      "hebrew": "יְהוָֽה־",
-      "reason": "source-only-written-form"
-    },
-    {
-      "id": "deu-25-19-11",
-      "hebrew": "יְהוָֽה־",
-      "reason": "source-only-written-form"
-    },
-    {
       "id": "deu-32-6-1",
       "hebrew": "הֲ־",
       "reason": "combined-source-form"
@@ -128,11 +104,6 @@
       "id": "deu-32-6-2",
       "hebrew": "לַיְהוָה֙",
       "reason": "combined-source-form"
-    },
-    {
-      "id": "deu-32-7-6",
-      "hebrew": "דּוֹר־",
-      "reason": "source-only-written-form"
     }
   ],
   "examples": [
@@ -196,7 +167,7 @@
       ]
     }
   ],
-  "sourceReadingAssignmentSha256": "d2065270c8a0189fcdc1e6d3c8d03e89477edc60b0abb403ca00f7345c52963e",
+  "sourceReadingAssignmentSha256": "b2be49a2afd373c05ccc24238b315f1007e0bd615a7f461e51bffb1e3a19bfd7",
   "priorWrittenAssignmentSha256": "a7b487372767d724032a352c9e5f258a56de607aaf4582ff1685134cb928de66",
   "source": {
     "project": "Phonetic MAM by Benjamin Denckla, Hebrew Wikisource",
@@ -225,5 +196,5 @@
     "kind": "original-instrumental-demonstration",
     "sourceDurationsAssigned": false
   },
-  "pending": "The remaining23words retain source-only, conflicting or combined evidence. Independent linguistic/cantorial review, complete historical melody grammars and reusable reviewed singing voices for independent pronunciation styles remain pending. Research phonemic candidates retain every unresolved category and null acoustic realization."
+  "pending": "The remaining17words retain source-only, conflicting or combined evidence. Independent linguistic/cantorial review, complete historical melody grammars and reusable reviewed singing voices for independent pronunciation styles remain pending. Research phonemic candidates retain every unresolved category and null acoustic realization."
 }

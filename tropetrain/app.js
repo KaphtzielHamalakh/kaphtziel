@@ -43,12 +43,14 @@ import {mountHaftarah} from './haftarah-ui.js';
 import {getPronunciationLibrary} from './pronunciation.js';
 import {SourceSyllableUnderlay,SOURCE_SYLLABLE_UNDERLAY,SOURCE_SYLLABLE_GAPS} from './source-syllable-underlay.js';
 
+import {readingChoices} from './source-reading-choices.js';
+
 const $=id=>document.getElementById(id),VERSE_PAGE=8,NOTE_PAGE=128;
 let readerPronunciation=false;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-reader-pronunciation-v1'));if(typeof saved?.enabled==='boolean')readerPronunciation=saved.enabled;}catch{}
 $('reader-pronunciation').checked=readerPronunciation;
-let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceSyllableAdapter=null,sourceSyllableError=null,sourceSyllableRequest=0;
-try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;}catch{}
+let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceReadingChoices=readingChoices(),sourceSyllableAdapter=null,sourceSyllableError=null,sourceSyllableRequest=0;
+try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;sourceReadingChoices=readingChoices(saved?.sourceReadingChoices??{});}catch{}
 function makeReadingModel(value,settings){return createReadingModel(value,{...settings,...(sourceSyllablesEnabled?{sourceUnderlay:sourceSyllableAdapter}:{})});}
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,chantRate:100,chantTranspose:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
@@ -597,7 +599,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,state.tempo,state.transpose,state.volume]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,state.tempo,state.transpose,state.volume]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -677,6 +679,8 @@ function render(){
   $('musical-source').value=state.melodyId;$('melody-name').textContent=model.profile.name;
   $('source-syllables').checked=sourceSyllablesEnabled;$('source-syllables').disabled=printed;
   $('source-readings').checked=sourceReadingsEnabled;$('source-readings').disabled=printed||!sourceSyllablesEnabled;
+  for(const kind of ['qamats','cantillation']){$('source-choice-'+kind).value=sourceReadingChoices[kind]??'';$('source-choice-'+kind).disabled=printed||!sourceSyllablesEnabled;}
+  $('source-choices-status').textContent=Object.values(sourceReadingChoices).some(v=>v!==null)?'Selected source text: '+Object.values(sourceReadingChoices).filter(Boolean).join(' · ')+'. Original Hebrew and accents are retained. Source syllables/stress may change the original demonstration notes. Pronunciation text style remains independent. All original alternatives remain in the evidence.':'Consensus only: conflicting source readings remain unavailable. Choose a documented source alternative to include it. These are text readings; historical musical realization and singing voices remain pending.';
   $('source-readings-status').textContent=!sourceReadingsEnabled?'Optional: include documented source readings with word-level correspondence. The displayed Hebrew keeps its original letters and accents.':`Source reading forms enabled. Different spellings retain null written syllable ranges; the staff identifies their source reading syllables. Pitches and timing remain an original instrumental demonstration.`;
   $('source-syllables-status').textContent=printed?'Printed scores use their printed syllable underlay.':!sourceSyllablesEnabled?'Use source syllables to compare the original motif with both pronunciation text styles.':sourceSyllableError?`Source syllables unavailable: ${sourceSyllableError}`:!sourceSyllableAdapter?'Preparing source syllables…':sourceReadingsEnabled?`${model.sourceSyllableUnderlay.availableWords} of ${words.length} words have source syllables, including ${model.sourceSyllableUnderlay.sourceReadingWords} documented source reading forms with word-level correspondence. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable.`:`${model.sourceSyllableUnderlay.availableWords} of ${words.length} words have consensus written syllables. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable. Source-only forms, combined words and conflicting paths keep their original evidence.`;
   $('music-badge').textContent=printed?'Printed score study':'Instrumental demo';
@@ -844,15 +848,16 @@ $('musical-source').addEventListener('change',e=>{
 async function prepareSourceSyllables(){
  const request=++sourceSyllableRequest;sourceSyllableError=null;stop('Syllable underlay changed.');
  model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);state.notePage=0;state.staffPage=0;render();
- if(sourceSyllableAdapter&&sourceSyllableAdapter.allowSourceReadings!==sourceReadingsEnabled){sourceSyllableAdapter=new SourceSyllableUnderlay(sourceSyllableAdapter.library,{allowSourceReadings:sourceReadingsEnabled});model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);render();}
+ if(sourceSyllableAdapter&&(sourceSyllableAdapter.allowSourceReadings!==sourceReadingsEnabled||JSON.stringify(sourceSyllableAdapter.sourceReadingChoices)!==JSON.stringify(sourceReadingChoices))){sourceSyllableAdapter=new SourceSyllableUnderlay(sourceSyllableAdapter.library,{allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices});model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);render();}
  if(!sourceSyllablesEnabled||sourceSyllableAdapter)return;
- try{const library=await getPronunciationLibrary();sourceSyllableAdapter=new SourceSyllableUnderlay(library,{allowSourceReadings:sourceReadingsEnabled});}
+ try{const library=await getPronunciationLibrary();sourceSyllableAdapter=new SourceSyllableUnderlay(library,{allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices});}
  catch(error){if(request===sourceSyllableRequest){sourceSyllableError=error.message;render();}return;}
  if(request!==sourceSyllableRequest||!sourceSyllablesEnabled||isPrintedScore(state.melodyId))return;
  stop('Source syllables ready. Press Play to hear the original instrumental demonstration.');model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);render();
 }
-$('source-readings').addEventListener('change',()=>{sourceReadingsEnabled=$('source-readings').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled}));}catch{}prepareSourceSyllables();});
-$('source-syllables').addEventListener('change',()=>{sourceSyllablesEnabled=$('source-syllables').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled}));}catch{}prepareSourceSyllables();});
+for(const kind of ['qamats','cantillation'])$('source-choice-'+kind).addEventListener('change',()=>{sourceReadingChoices=readingChoices({...sourceReadingChoices,[kind]:$('source-choice-'+kind).value||null});store('tropetrain-source-syllables-v1',{enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices});prepareSourceSyllables();});
+$('source-readings').addEventListener('change',()=>{sourceReadingsEnabled=$('source-readings').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices}));}catch{}prepareSourceSyllables();});
+$('source-syllables').addEventListener('change',()=>{sourceSyllablesEnabled=$('source-syllables').checked;try{localStorage.setItem('tropetrain-source-syllables-v1',JSON.stringify({enabled:sourceSyllablesEnabled,allowSourceReadings:sourceReadingsEnabled,sourceReadingChoices}));}catch{}prepareSourceSyllables();});
 $('source-study-open').addEventListener('click',()=>libraryAction(()=>{
   state.melodyId=PRINTED_SCORE.id;
   applyRanges([{id:'cohen-study',bookId:'gen',start:{chapter:22,verse:1},end:{chapter:22,verse:1},label:'Printed score context'}]);

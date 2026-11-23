@@ -1,0 +1,5 @@
+# TropeTrain v0.74 verification in progress
+
+Explicit literal source qamats labels קמץ-ד/קמץ-ס and upper/lower text reading labels טעם תחתון/טעם עליון select complete source Hebrew columns consistently across both MAM transcription styles. No default first-column selection. Original Hebrew and accents remain exact. All four combinations cover79,983of79,985Torahwords;2combined words in Deuteronomy32:6remain withheld. Each combination preserves79,748unaffected reports exactly and selects235word reports. Source choices are text evidence, not historical musical presets or voices. Qamats choices can change source syllable count; source stress can change the original instrumental demonstration timing. Pronunciation text/profile, melody, key, tempo and advisory range remain separate. Original unselected branches are retained in exported evidence.
+
+Targeted implementation checks pass. Full build, all automated checks, normal/portable browser QA and public Pages/byte verification are pending. This record will be replaced with observed results before release completion. No acoustic listening or qualified pronunciation/musical review is claimed.

@@ -1,3 +1,4 @@
+import {readingStudyForWord} from './source-reading-choices.js';
 import {mountKhanPronunciation} from './khan-pronunciation-ui.js';
 import {mountHistoricalPronunciation} from './historical-pronunciation-ui.js';
 import {mountPhonologyPreview} from './pronunciation-phonology-ui.js';
@@ -172,10 +173,10 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    // Bounded cache keeps repeated assignment occurrences independent while
    // avoiding source analysis on every paint. Always recheck the marked word.
    library.at(value);
-   const cacheKey=JSON.stringify([readerSource.id,style,value.sourceWordId??value.id,value.sourceHebrew,readerSource.kind==='phonemic-research'?value.id:null]);
+   const cacheKey=JSON.stringify([readerSource.id,style,value.sourceWordId??value.id,value.sourceHebrew,value.sourceSyllableUnderlay?.sourceReadingChoices,readerSource.kind==='phonemic-research'?value.id:null]);
    if(!readerCache.has(cacheKey)){
     if(readerCache.size>=512)readerCache.delete(readerCache.keys().next().value);
-    const study=library.study(value,style);
+    const study=readingStudyForWord(value,library,style);
     readerCache.set(cacheKey,readerSource.kind==='phonemic-research'?readerPhonologyWord(value,study,style,readerSource.profileId):readerPronunciationWord(value,study,style));
    }
    return {...readerCache.get(cacheKey),wordId:value.id};
@@ -183,7 +184,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
   followNote(event,words){
    if(!library)return null;
    const w=words[event.wordIndex];
-   const cacheKey=JSON.stringify([style,event.id,event.wordId,event.sourceWordId,event.syllableId,event.syllable,w?.id,w?.sourceWordId,w?.sourceHebrew]);
+   const cacheKey=JSON.stringify([style,event.id,event.wordId,event.sourceWordId,event.syllableId,event.syllable,w?.id,w?.sourceWordId,w?.sourceHebrew,w?.sourceSyllableUnderlay?.sourceReadingChoices]);
    if(!followCache.has(cacheKey)){
     if(followCache.size>=256)followCache.delete(followCache.keys().next().value);
     const link=linkPronunciationToNotes([event],words,library,style).links[0];

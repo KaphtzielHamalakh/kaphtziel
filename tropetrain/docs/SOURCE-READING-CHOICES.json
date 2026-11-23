@@ -1,0 +1,171 @@
+{
+  "schema": "tropetrain-source-reading-choices-audit-v1",
+  "revision": 1,
+  "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+  "sourceLicense": "CC-BY-SA-4.0",
+  "sourceUrl": "https://github.com/bdenckla/MAM-basics/tree/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/Phonetic-MAM",
+  "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla",
+  "results": [
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם תחתון"
+      },
+      "counts": {
+        "readerWords": 79985,
+        "availableWords": 79983,
+        "withheldWords": 2,
+        "sourceReadingWords": 2181,
+        "selectedWords": 235,
+        "selectedNotes": 866,
+        "textNoteChecks": 1732,
+        "phonemicNoteChecks": 3464,
+        "unaffectedReportsExact": 79748
+      },
+      "remaining": [
+        {
+          "id": "deu-32-6-1",
+          "hebrew": "הֲ־",
+          "reason": "combined-source-form"
+        },
+        {
+          "id": "deu-32-6-2",
+          "hebrew": "לַיְהוָה֙",
+          "reason": "combined-source-form"
+        }
+      ],
+      "assignmentSha256": "813b73e7cce09a7d4fbd07ebb7f9cf4028f5f8b624d801885ed7b871968a9cd6"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם עליון"
+      },
+      "counts": {
+        "readerWords": 79985,
+        "availableWords": 79983,
+        "withheldWords": 2,
+        "sourceReadingWords": 2181,
+        "selectedWords": 235,
+        "selectedNotes": 866,
+        "textNoteChecks": 1732,
+        "phonemicNoteChecks": 3464,
+        "unaffectedReportsExact": 79748
+      },
+      "remaining": [
+        {
+          "id": "deu-32-6-1",
+          "hebrew": "הֲ־",
+          "reason": "combined-source-form"
+        },
+        {
+          "id": "deu-32-6-2",
+          "hebrew": "לַיְהוָה֙",
+          "reason": "combined-source-form"
+        }
+      ],
+      "assignmentSha256": "a45baf7861a9a2e82d0c2c8f38bdb19bbab93bbe760cef87a18d918d6bb3512e"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם תחתון"
+      },
+      "counts": {
+        "readerWords": 79985,
+        "availableWords": 79983,
+        "withheldWords": 2,
+        "sourceReadingWords": 2181,
+        "selectedWords": 235,
+        "selectedNotes": 867,
+        "textNoteChecks": 1734,
+        "phonemicNoteChecks": 3468,
+        "unaffectedReportsExact": 79748
+      },
+      "remaining": [
+        {
+          "id": "deu-32-6-1",
+          "hebrew": "הֲ־",
+          "reason": "combined-source-form"
+        },
+        {
+          "id": "deu-32-6-2",
+          "hebrew": "לַיְהוָה֙",
+          "reason": "combined-source-form"
+        }
+      ],
+      "assignmentSha256": "d703a12c3adda0a4f15916f2d53949ce219f9c3941a7577e67b6921ad0882155"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם עליון"
+      },
+      "counts": {
+        "readerWords": 79985,
+        "availableWords": 79983,
+        "withheldWords": 2,
+        "sourceReadingWords": 2181,
+        "selectedWords": 235,
+        "selectedNotes": 867,
+        "textNoteChecks": 1734,
+        "phonemicNoteChecks": 3468,
+        "unaffectedReportsExact": 79748
+      },
+      "remaining": [
+        {
+          "id": "deu-32-6-1",
+          "hebrew": "הֲ־",
+          "reason": "combined-source-form"
+        },
+        {
+          "id": "deu-32-6-2",
+          "hebrew": "לַיְהוָה֙",
+          "reason": "combined-source-form"
+        }
+      ],
+      "assignmentSha256": "d43575d65c30a77b9abe3ef15668b84dbc9140653a9ad53fd8ca5385ebed7a8d"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "source-reading-choices.js",
+      "sha256": "db71fe569d380017309c872df84b6afd06af4658af7eaa29ba91bcfad52b1189"
+    },
+    {
+      "path": "source-reading-syllables.js",
+      "sha256": "93b49141cfc235f70c08c9dfd6c409a8792d29c45ba359dfbdb9f7de85c0189a"
+    },
+    {
+      "path": "source-syllable-underlay.js",
+      "sha256": "c8ee2c0618e7f693e2c33eab05dfafbfa5600019199d2c3e1fec39ed69bc09de"
+    },
+    {
+      "path": "pronunciation-note-links.js",
+      "sha256": "7cf647a04408511eb4b343f830d9c47558eb5cd4a14325272e2f5765b58f4877"
+    },
+    {
+      "path": "pronunciation-note-proposals.js",
+      "sha256": "4ac37893df26d70fd9a2752a36185491b4a6e867f52492656733765d3aefbb5c"
+    },
+    {
+      "path": "pronunciation-reader.js",
+      "sha256": "b84bcc09b41c2e3f02577ed378e8cc8b7055144e3b50f94c61cb9a1cee8c04b6"
+    },
+    {
+      "path": "pronunciation-phonology.js",
+      "sha256": "fc4350e322f33b178ee8a414d2fde2070377b8eefaa23478efb3c42557182508"
+    },
+    {
+      "path": "music.js",
+      "sha256": "fcf82a88db95e126b7b1df0e2925fbb8407b962794f4087d69232524a24b91f5"
+    }
+  ],
+  "method": "Explicit literal source labels select complete Hebrew columns consistently across both text styles, never a first-column guess. All source syllable/stress alternatives remain in originalStudy and sourceChoiceEvidence. Six maqaf-ending reading words include their own separator; exact complete-word ownership and original row offsets are retained. Displayed Hebrew/accents remain unchanged. Different reading spellings have null written syllable ranges. No source phones/timing/voice is assigned.",
+  "pending": "The first source syllable in Deuteronomy32:6 spans two written words; both remain combined and withheld from individual-word underlay. Independent linguistic/cantorial review, six historical pronunciation grammars/voices and contextual musical realizations remain pending.",
+  "phonemes": null,
+  "sourceTiming": null,
+  "singingVoice": null,
+  "historicalMelodyGrammar": null,
+  "review": null
+}

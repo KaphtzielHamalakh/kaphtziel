@@ -1,6 +1,7 @@
 // Original consensus adapter for existing CC-BY-SA source syllable facts.
 // It assigns written spans to an ORIGINAL instrumental demonstration only.
 import {sourceReadingSyllables} from './source-reading-syllables.js';
+import {readingChoices,chooseSourceStudy} from './source-reading-choices.js';
 export const SOURCE_SYLLABLE_UNDERLAY=Object.freeze({id:'mam-consensus-written-syllables-v1',revision:1,
  sourceCommit:'6f0612ed2109d32e288d7c0ca41ae3dbfaad702b',dataLicense:'CC-BY-SA-4.0',
  name:'Phonetic MAM · consensus written syllables',review:null,phonemes:null,voice:null,
@@ -69,14 +70,22 @@ export function sourceSyllableWord(word,studies){
  return {...result,status:'available',reason:null,syllables};
 }
 export class SourceSyllableUnderlay{
- constructor(library,{allowSourceReadings=false}={}){if(!library||library.sourceCommit!==SOURCE_SYLLABLE_UNDERLAY.sourceCommit||!library.underlay)throw Error('Checked source syllable library required.');this.library=library;this.allowSourceReadings=allowSourceReadings;this.groups=new Map();}
+ constructor(library,{allowSourceReadings=false,sourceReadingChoices={}}={}){if(!library||library.sourceCommit!==SOURCE_SYLLABLE_UNDERLAY.sourceCommit||!library.underlay)throw Error('Checked source syllable library required.');this.library=library;this.allowSourceReadings=allowSourceReadings;this.sourceReadingChoices=readingChoices(sourceReadingChoices);this.groups=new Map();}
  word(word){
   if(!word||typeof word.id!=='string'||typeof word.sourceHebrew!=='string')return sourceSyllableWord(word,null);
   if(!['gen','exo','lev','num','deu'].includes(canonical(word).split('-')[0]))return sourceSyllableWord(word,{sephardic:null,ashkenazic:null});
   const group=this.library.at(word);if(!group)return sourceSyllableWord(word,{sephardic:null,ashkenazic:null});
   let studies=this.groups.get(group.id);
   if(!studies){studies=Object.fromEntries(['sephardic','ashkenazic'].map(s=>[s,this.library.study(word,s)]));if(this.groups.size>=128)this.groups.delete(this.groups.keys().next().value);this.groups.set(group.id,studies);}
-  const result=sourceSyllableWord(word,studies);
-  return this.allowSourceReadings?sourceReadingSyllables(word,studies,result):result;
+  const selected=Object.fromEntries(Object.entries(studies).map(([style,study])=>[style,chooseSourceStudy(study,this.sourceReadingChoices)]));
+  let result=sourceSyllableWord(word,selected);
+  if(this.allowSourceReadings)result=sourceReadingSyllables(word,selected,result);
+  if(Object.values(selected).some(s=>s.sourceSelection)){
+   const original=sourceSyllableWord(word,studies);
+   result={...result,sourceReadingChoices:structuredClone(this.sourceReadingChoices),sourceChoiceEvidence:{
+    policy:structuredClone(this.sourceReadingChoices),selectedRows:structuredClone(selected.sephardic.sourceSelection?.rows??selected.ashkenazic.sourceSelection.rows),
+    originalPaths:original.paths,originalUnallocatedSourceUnits:original.unallocatedSourceUnits,originalSourceGroup:structuredClone(studies.sephardic.sourceGroup),review:null}};
+  }
+  return result;
  }
 }
