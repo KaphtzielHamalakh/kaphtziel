@@ -3,7 +3,7 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "b6125c869b1b8f3fa9ee016ead42ffec1c951451",
+  "publishedCommit": "46d3b77677b798338151303204b6726212ee713a",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
     "automated": 570,
@@ -14,7 +14,7 @@
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Normal127and portable128each pass16checks: exact7Genesis1:1marked words, source unit/stress preservation, independent NE/MEprofiles and both MAMstyles, unchanged source notes, independent key/tempo/advisory range, muted advancing clock and text correspondence, shared reference/unknown, exactCGJ/source-only branches, unsplitDeut32:6, literalKhanexcerpt, hide/show, savedprofile reload, pausedmedia and clearconsoles. Narrow319px root/scroll319; viewportreset. No speaker-listening or reviewed-voice claim.",
+    "ui": "All570automated checks pass/0fail/0skip,7newsubstantive tests. Both public normal and portable each pass16native UIchecks: exact marked7word Genesis1:1, original syllable/stress links, independent profiles/source styles/key/tempo/range, advancing muted clock and exact text highlights, one shared consonant event, explicit unknown/silence/proposedloss, exactCGJ/source-only branches, unsplitDeut32:6, unchangedKhan/MAMstreams, hide/show, persistedprofile reload, stoppedmedia and clearconsoles. Actual319px root/scroll319fits; desktop/mobile screenshots visually inspected and viewportreset. All619oldasset/data files unchanged. Every79985Torah word checked in4profile/style combinations:79983owned previews,2combined/unallocated,194268owned routeunits/518715ownedcategoryrefs; the remaining4units/11refs stay in their source group. No new phonological rule, accepted sound, timing, voice, Kinnoridentity or independent musical review.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -164,12 +164,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "b6125c869b1b8f3fa9ee016ead42ffec1c951451",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45130616035",
+    "commit": "46d3b77677b798338151303204b6726212ee713a",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45135649175",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 24,
-    "publicChangedBytesExact": 141252480
+    "publicChangedFilesExact": 16,
+    "publicChangedBytesExact": 137496604
   },
   "corpusImport": {
     "books": 5,
@@ -195,7 +195,7 @@
   },
   "workingIteration": {
     "version": "0.69.0",
-    "status": "570checks_32local_browser_checks_publication_pending",
+    "status": "published570checks_32public_browser_checks_full_goal_active",
     "baseline": "154eecff1165dd1a460b23eb1bd3c32a5d75901a",
     "previousGoalTurn": "Progress:v0.68published563checks_28publicchecks_1061exactfiles_saved",
     "newPublicVoice": null,
@@ -1629,7 +1629,7 @@
     "originalSourceStressUnchanged": true,
     "prosodyReview": null,
     "readerPreview": {
-      "status": "570checks_32local_browser_checks_publication_pending",
+      "status": "published570checks_32public_native_UIchecks",
       "profileCount": 2,
       "independentOfMelody": true,
       "newPhonologicalRules": 0,
