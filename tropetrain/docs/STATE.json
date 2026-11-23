@@ -3,7 +3,7 @@
   "updated": "2026-11-22",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "1e6ee821a08c38fa17fec56466e4fef536957622",
+  "publishedCommit": "9aab9171ff2097149bf61e76e36da8c4c6c4605b",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete remaining5Baer first-setting cells and contextual fitting from actual notation without invented grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
     "automated": 551,
@@ -14,7 +14,7 @@
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Final551pass/0fail/0skip,9newchecks,52316exit0. Guardedcopy95430exit0copied3generatedfiles. Actualnormal114clickedallnotesandrestsinfivenewroutes:allpitch/rhythm/rest/sourceID/readinesschecks pass. Exact217componentJSONviewer matchesfinalrecord; all22Gen3:22markedwordsandIDs stayexact. Nativeplus/minusraises/restoresall14endingMIDIvaluesbyonewithbeats/restsunchanged;tempo85changessecondsindependentlyandrestores84;range74andpronunciationtext/stylechangeskeepnotesandHebrewthenrestore72/Ashkenazic/Khanextended. Directnumberfill/Tabdidnotcommitaninputchangeinthebrowserautomation;theactualstepperbuttons pass. AllfivependingcellskeepPlay/exportdisabledandzeronotes/rests. NewMunahlookupreturns120whole-Torahmatcheswithoutselecting/replacingreaderwords. Portable115all14endingnotes/3rests pass;mutedclockadvancescomponent1to3acrosspronunciationstylechangeandfinishesnormally. Actual319root/scroll319,staff232/799withnativeB-flat/MIDI70tripletinspectionvisuallychecked. Bothconsoles0errors;allplayersstopped/volume0/nativemediapaused. All619priorasset/datafilesexact. Noacousticreviewornewvoiceclaimed.",
+    "ui": "Final 551 automated checks pass, with no failures or skips; the nine substantive music checks also pass separately. All 619 prior asset/data files and all 175 prior Baer components are exact. Native local checks inspected every note and rest of all five new routes, independent key/tempo/range/pronunciation controls, all five unavailable cells and the 120-match Munah/Mahapakh lookup. Public normal116 and portable117 each pass 11 checks: startup, pitches, rhythms, rests, stable source IDs, readiness, inventory, exact 22 marked Genesis3:22 words, independent pronunciation text, advancing muted playback and stopped media. Both final pages show the corrected nonnumeric introduction and the source-derived 27/5 inventory. Portable319px has root/scroll319 and staff232/799; the B-flat triplet inspects MIDI70. Both public consoles are clear; all test players are stopped, instrument volume0 and native media paused. Portable navigation/reload observations finished on the same existing handle after an early timeout/loading observation; no duplicate navigation. Independent musical, syllable and acoustic review remains pending; no new singing voice or complete grammar is inferred.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -195,7 +195,7 @@
   },
   "workingIteration": {
     "version": "0.66.0",
-    "status": "551_pass_normal_portable_mobile_UI_verified_publication_pending",
+    "status": "published_551checks_public_UI_verified_full_goal_active",
     "baseline": "783b82e4bb21b8975bbfba7939036f3a0536a5e5",
     "previousGoalTurn": "Progress:v0.65published542checks/21publicchecks/all1053sourceandoutputfiles_saved",
     "newPublicVoice": null,
@@ -994,7 +994,7 @@
     "sourceAlternatives": 4,
     "playableSingleFigureRoutes": 31,
     "printedPreface": "IX",
-    "status": "551_pass_literal_figures_and_UI_verified_publication_and_independent_review_pending"
+    "status": "published_27figures_551checks_public_UI_verified_independent_review_and_word_fitting_pending"
   },
   "repertoirePronunciationUnderlay": {
     "version": "0.49.0",
