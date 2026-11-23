@@ -8,7 +8,8 @@ export const NOTE_LINK_REASONS=Object.freeze({
  'combined-source-form':'The source pronunciation remains combined across words.',
  'source-only-written-form':'The pronunciation uses a source form without an exact written Hebrew range.',
  'different-syllable-boundaries':'The pronunciation and score divide the written Hebrew differently. Their syllables remain unchanged.',
- 'no-exact-unit':'No pronunciation unit has exactly this score syllable’s written Hebrew range.'
+ 'no-exact-unit':'No pronunciation unit has exactly this score syllable’s written Hebrew range.',
+ 'no-phonemic-proposal-route':'No phonemic research route is linked to this exact source unit. No text or sound is substituted.'
 });
 const sourceId=word=>word.sourceWordId??word.id;
 function syllableRanges(word){
@@ -56,4 +57,4 @@ export function linkPronunciationToNotes(plan,words,library,style){
   phonemes:null,audioTimes:null,words:[...prepared.values()].map(({word:w})=>({wordId:w.id,sourceWordId:sourceId(w),hebrew:w.sourceHebrew})),
   counts:{notes:links.length,linkedNotes:links.filter(l=>l.status==='exact-written-span').length,unlinkedNotes:links.filter(l=>l.status==='unlinked').length},links};
 }
-export function notePronunciationText(link){return link?.status==='exact-written-span'?[...new Set(link.units.map(u=>u.text))].join(' / '):null;}
+export function notePronunciationText(link){return link?.status==='exact-written-span'?Object.hasOwn(link,'phonology')?link.phonology?.text??null:[...new Set(link.units.map(u=>u.text))].join(' / '):null;}

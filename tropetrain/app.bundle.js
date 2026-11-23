@@ -6253,7 +6253,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     "combined-source-form": "The source pronunciation remains combined across words.",
     "source-only-written-form": "The pronunciation uses a source form without an exact written Hebrew range.",
     "different-syllable-boundaries": "The pronunciation and score divide the written Hebrew differently. Their syllables remain unchanged.",
-    "no-exact-unit": "No pronunciation unit has exactly this score syllable’s written Hebrew range."
+    "no-exact-unit": "No pronunciation unit has exactly this score syllable’s written Hebrew range.",
+    "no-phonemic-proposal-route": "No phonemic research route is linked to this exact source unit. No text or sound is substituted."
   });
   var sourceId = (word) => word.sourceWordId ?? word.id;
   function syllableRanges(word) {
@@ -6324,7 +6325,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
   }
   function notePronunciationText(link) {
-    return link?.status === "exact-written-span" ? [...new Set(link.units.map((u) => u.text))].join(" / ") : null;
+    return link?.status === "exact-written-span" ? Object.hasOwn(link, "phonology") ? link.phonology?.text ?? null : [...new Set(link.units.map((u) => u.text))].join(" / ") : null;
   }
 
   // staff.js
@@ -6372,7 +6373,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     for (const e of notes) {
       const grace = !!e.sourceGrace, up = e.y >= 80, stemX = e.x + (up ? grace ? 4 : 5 : -(grace ? 4 : 5)), stemEnd = e.y + (up ? -(grace ? 24 : 32) : grace ? 24 : 32), r = e.rhythm;
       const word = untexted ? null : `${e.word.reference} · word ${e.word.ordinal}`, name = (untexted ? `Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace ? "unmeasured printed grace; original 80 ms instrumental timing demonstration" : beatLabel(e.beats) + " beats"}` : `Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`) + (annotated ? `; pronunciation text: ${e.pronunciationText ?? "unlinked"}; written-span correspondence only` : "");
-      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}"${grace ? ` data-source-timing="unmeasured-grace" data-performance-timing="${escapeXml(e.performanceTiming.id)}"` : ""}${untexted ? "" : ` data-word-index="${e.wordIndex}"`}${annotated ? ` data-pronunciation-status="${escapeXml(e.pronunciationLink?.status ?? "unlinked")}"` : ""} aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="${height - 15}" rx="5"/>`;
+      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}"${grace ? ` data-source-timing="unmeasured-grace" data-performance-timing="${escapeXml(e.performanceTiming.id)}"` : ""}${untexted ? "" : ` data-word-index="${e.wordIndex}"`}${annotated ? ` data-pronunciation-status="${escapeXml(e.pronunciationLink?.status ?? "unlinked")}"` : ""}${e.pronunciationLink?.phonology ? ` data-phonology-profile="${escapeXml(e.pronunciationLink.phonology.profileId)}"` : ""} aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="${height - 15}" rx="5"/>`;
       for (const y of e.ledgers) svg += `<line class="ledger" x1="${e.x - 10}" x2="${e.x + 10}" y1="${y}" y2="${y}"/>`;
       svg += `<text class="music-symbol accidental" x="${e.x - 22}" y="${e.y}">${e.pitch.alter === 1 ? "" : e.pitch.alter === -1 ? "" : ""}</text><ellipse class="notehead${["whole", "half"].includes(r.type) ? " open-notehead" : ""}" cx="${e.x}" cy="${e.y}" rx="${grace ? 3.8 : 5.5}" ry="${grace ? 2.6 : 3.8}" transform="rotate(-20 ${e.x} ${e.y})"/>`;
       if (r.type !== "whole") svg += `<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
@@ -6396,7 +6397,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       svg += `<text class="staff-pitch" x="${e.x}" y="165">${escapeXml(eventPitchName(e))}</text>`;
       if (!untexted && (!e.continuation || e.continuedFromPrevious)) svg += `<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${escapeXml(e.syllable)}</text>`;
       if (!untexted && (e.continuation || e.continuedFromPrevious)) svg += `<line class="melisma-line" x1="${e.x - e.width / 2 + 5}" x2="${e.x + e.width / 2 - 5}" y1="206" y2="206"/>`;
-      if (annotated && (!e.continuation || e.continuedFromPrevious)) svg += `<text class="staff-pronunciation${e.pronunciationText === null ? " unlinked" : ""}${e.pronunciationLink?.units.length && e.pronunciationLink.units.every((u) => u.sourceStress) ? " source-stressed" : ""}" x="${e.x}" y="229" lang="en" xml:lang="en" direction="ltr" unicode-bidi="plaintext">${escapeXml(e.pronunciationText ?? "unlinked")}</text>`;
+      if (annotated && (!e.continuation || e.continuedFromPrevious)) svg += `<text class="staff-pronunciation${e.pronunciationText === null ? " unlinked" : ""}${e.pronunciationLink?.units.length && e.pronunciationLink.units.every((u) => u.sourceStress) ? " source-stressed" : ""}" x="${e.x}" y="229" lang="${e.pronunciationLink?.phonology ? "und-fonipa" : "en"}" xml:lang="${e.pronunciationLink?.phonology ? "und-fonipa" : "en"}" direction="ltr" unicode-bidi="plaintext">${escapeXml(e.pronunciationText ?? "unlinked")}</text>`;
       svg += `<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace ? `<tspan x="${e.x}" dy="-6">grace</tspan><tspan x="${e.x}" dy="14">demo 80 ms</tspan>` : beatLabel(e.beats) + " beats"}</text></g>`;
       if (e.sourceTupletPhase === "start") {
         const end = notes.find((n) => n.sourceTupletId === e.sourceTupletId && n.sourceTupletPhase === "stop");
@@ -10924,6 +10925,177 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // pronunciation-underlay-summary.js
   var PRONUNCIATION_UNDERLAY_SUMMARY = { "styles": { "sephardic": { "wordsWithUnits": 79983, "sharedWords": 2, "readerWordsWithRanges": 77802 }, "ashkenazic": { "wordsWithUnits": 79983, "sharedWords": 2, "readerWordsWithRanges": 77802 } } };
 
+  // pronunciation-phonology-reader.js
+  function readerPhonologyWord(word, study, sourceStyle, profileId) {
+    const evidence = phonologyWordProposal(study, word, sourceStyle, profileId);
+    const result = {
+      schema: "tropetrain-reader-phonology-proposal-v1",
+      wordId: word.id,
+      sourceWordId: evidence.sourceWordId,
+      hebrew: evidence.hebrew,
+      style: sourceStyle,
+      profile: evidence.profile,
+      status: "no-source-correspondence",
+      entries: [],
+      sourceCommit: evidence.sourceCommit,
+      source: evidence.source,
+      sourceDataLicense: evidence.sourceDataLicense,
+      evidence,
+      phonemes: null,
+      noteIds: null,
+      audioTimes: null,
+      review: null,
+      newSingingVoice: null
+    };
+    for (const route of evidence.routes) {
+      const owned = route.units.filter((u) => u.ownerWordId === result.sourceWordId);
+      if (!owned.length) continue;
+      const events2 = new Map(route.events.map((e) => [e.id, e]));
+      const entry = {
+        kind: "phonemic-research-word",
+        sourceCellId: route.id,
+        sourceRow: route.sourceRow,
+        sourceColumn: route.sourceColumn,
+        hebrewColumn: route.hebrewColumn,
+        sourceReference: null,
+        sourceForm: owned.some((u) => u.readerRanges === null),
+        labels: [...new Set(owned.flatMap((u) => u.sourceLabels))],
+        parts: [],
+        text: "",
+        profileId,
+        review: null
+      };
+      for (const unit of owned) {
+        for (const range of unit.readerRanges ?? []) {
+          if (range.readerWordId !== result.sourceWordId || !["written", "shared-consonant"].includes(range.role) || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.start >= range.end || range.end > word.sourceHebrew.length || word.sourceHebrew.slice(range.start, range.end) !== range.text)
+            throw Error("Phonemic proposal no longer matches its original marked Hebrew ranges.");
+        }
+        const references = unit.fragments.map((fragment) => {
+          const event = events2.get(fragment.eventId);
+          if (!event || !event.sourceSegmentIds.includes(fragment.source.id) || !event.sourceUnitIds.includes(unit.sourceUnitId))
+            throw Error("Phonemic proposal source event correspondence changed.");
+          const sharedReference = event.sourceSegmentIds[0] !== fragment.source.id;
+          const soundStatus = event.candidatePhonemes === null ? "unresolved" : event.candidatePhonemes.length ? "candidate-phonemes" : fragment.proposal.rule === "source-silent-category" ? "source-silent" : "proposed-absence";
+          const text = sharedReference ? soundStatus === "unresolved" ? "↔?" : "↔" : soundStatus === "unresolved" ? "?" : soundStatus === "source-silent" ? "∅" : soundStatus === "proposed-absence" ? "(∅)" : event.candidatePhonemes.join("");
+          return {
+            sourceSegmentId: fragment.source.id,
+            eventId: event.id,
+            part: fragment.source.part,
+            sharedReference,
+            candidatePhonemes: structuredClone(event.candidatePhonemes),
+            soundStatus,
+            text
+          };
+        });
+        entry.parts.push({
+          sourceUnitId: unit.sourceUnitId,
+          text: references.map((r) => r.text).join(""),
+          join: entry.parts.length ? " · " : "",
+          sourceText: unit.sourceText,
+          sourceStress: unit.sourceStress,
+          sourceMarks: structuredClone(unit.sourceLabels),
+          hebrewClusterRanges: structuredClone(unit.readerRanges),
+          sourceHebrew: structuredClone(unit.sourceHebrew),
+          letterClusterBindings: structuredClone(unit.letterClusterBindings),
+          references
+        });
+      }
+      entry.text = entry.parts.map((p) => p.join + p.text).join("");
+      result.entries.push(entry);
+    }
+    result.status = result.entries.length ? "word-linked" : evidence.routes.length ? "combined-source-form" : "no-source-correspondence";
+    return result;
+  }
+
+  // pronunciation-note-proposals.js
+  function linkPronunciationProposalsToNotes(plan2, words4, library, style, profileId) {
+    const profile = phonologyProfile(profileId), base = linkPronunciationToNotes(plan2, words4, library, style);
+    const prepared = /* @__PURE__ */ new Map(), events2 = /* @__PURE__ */ new Map(), eventSignatures = /* @__PURE__ */ new Map(), seenReferences = /* @__PURE__ */ new Map(), byId3 = new Map(words4.map((w) => [w.id, w]));
+    for (const word of base.words) {
+      const original = byId3.get(word.wordId);
+      prepared.set(word.wordId, readerPhonologyWord(original, library.study(original, style), style, profileId));
+    }
+    const links = base.links.map((link) => {
+      const report = prepared.get(link.wordId), paths = [];
+      if (link.status === "exact-written-span") for (const entry of report.entries) for (const part of entry.parts) {
+        const sourceUnit = link.units.find((u) => u.sourceUnitId === part.sourceUnitId);
+        if (!sourceUnit) continue;
+        if (part.sourceStress !== sourceUnit.sourceStress || JSON.stringify(part.hebrewClusterRanges) !== JSON.stringify(sourceUnit.hebrewClusterRanges)) throw Error("Phonemic proposal and note source-unit correspondence changed.");
+        const route = report.evidence.routes.find((r) => r.sourceRow === entry.sourceRow && r.sourceColumn === entry.sourceColumn && r.hebrewColumn === entry.hebrewColumn);
+        if (!route) throw Error("Missing original phonemic proposal route.");
+        const references = part.references.map((reference) => {
+          const event = route.events.find((e) => e.id === reference.eventId);
+          if (!event || !event.sourceSegmentIds.includes(reference.sourceSegmentId) || !event.sourceUnitIds.includes(part.sourceUnitId)) throw Error("Phonemic proposal event no longer owns its source reference.");
+          const key = JSON.stringify([profileId, style, route.id, event.id]);
+          if (!events2.has(key)) {
+            events2.set(key, { ...structuredClone(event), id: key, sourceEventId: event.id, sourceRouteId: route.id, sourceStyle: style, profileId, noteReferences: [] });
+            eventSignatures.set(key, JSON.stringify(event));
+            seenReferences.set(key, /* @__PURE__ */ new Set());
+          } else if (eventSignatures.get(key) !== JSON.stringify(event)) throw Error("Phonemic proposal event disagrees across source word references.");
+          const binding = { noteId: link.eventId, wordId: link.wordId, sourceWordId: link.sourceWordId, sourceUnitId: part.sourceUnitId, sourceSegmentId: reference.sourceSegmentId, part: reference.part, sharedReference: reference.sharedReference };
+          const signature2 = JSON.stringify(binding);
+          if (!seenReferences.get(key).has(signature2)) {
+            events2.get(key).noteReferences.push(binding);
+            seenReferences.get(key).add(signature2);
+          }
+          return { ...structuredClone(reference), proposalEventKey: key };
+        });
+        paths.push({
+          sourceRouteId: route.id,
+          sourceCellId: entry.sourceCellId,
+          sourceRow: entry.sourceRow,
+          sourceColumn: entry.sourceColumn,
+          hebrewColumn: entry.hebrewColumn,
+          sourceUnitId: part.sourceUnitId,
+          sourceText: part.sourceText,
+          text: part.text,
+          sourceStress: part.sourceStress,
+          labels: structuredClone(entry.labels),
+          hebrewClusterRanges: structuredClone(part.hebrewClusterRanges),
+          references
+        });
+      }
+      const linked = paths.length > 0;
+      return {
+        ...link,
+        sourceTextStatus: link.status,
+        sourceTextReason: link.reason,
+        status: linked ? "exact-written-span" : "unlinked",
+        reason: linked ? null : link.reason ?? "no-phonemic-proposal-route",
+        phonology: linked ? { profileId, text: [...new Set(paths.map((p) => p.text))].join(" / "), paths, phonemes: null, enginePhones: null, quantity: null, duration: null, audioTimes: null, voice: null, review: null } : null
+      };
+    });
+    const sourceEvents = [...events2.values()];
+    return {
+      ...base,
+      format: "tropetrain-pronunciation-note-proposals-v1",
+      revision: 1,
+      kind: "phonemic-research",
+      profile: structuredClone(profile),
+      phonologySource: structuredClone(PHONOLOGY_SOURCE),
+      method: "Exact source-unit identity and unchanged marked-Hebrew ranges connect existing phonemic candidates to note references. All alternative routes and unallocated source units remain in wordEvidence. A shared consonant is one abstract source event with separate note references. Repeated word occurrences retain distinct note IDs. No phoneme onset, duration, melisma repetition or acoustic allocation is inferred.",
+      limits: "Incomplete source-defined phonemic proposals only; no Kinnor Accent equivalence, accepted engine phones, singing voice or historical melody realization. Unknown, source silence, proposed loss and shared references remain distinct. Notes keep their original pitches, syllables and timing.",
+      review: null,
+      phonemes: null,
+      enginePhones: null,
+      audioTimes: null,
+      voice: null,
+      counts: {
+        notes: links.length,
+        linkedNotes: links.filter((l) => l.phonology !== null).length,
+        unlinkedNotes: links.filter((l) => l.phonology === null).length,
+        sourceEvents: sourceEvents.length,
+        unassignedEvents: sourceEvents.filter((e) => e.candidatePhonemes === null).length,
+        sourceSilentEvents: sourceEvents.filter((e) => e.candidatePhonemes?.length === 0 && e.rule === "source-silent-category").length,
+        proposedAbsenceEvents: sourceEvents.filter((e) => e.candidatePhonemes?.length === 0 && e.rule !== "source-silent-category").length,
+        sharedEvents: sourceEvents.filter((e) => e.sourceSegmentIds.length > 1).length
+      },
+      links,
+      sourceEvents,
+      wordEvidence: [...prepared.values()]
+    };
+  }
+
   // pronunciation-score-groups.js
   var canonical2 = (w) => w.sourceWordId ?? w.id;
   function scoreRanges(word) {
@@ -11145,88 +11317,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       target.append(line);
     }
-  }
-
-  // pronunciation-phonology-reader.js
-  function readerPhonologyWord(word, study, sourceStyle, profileId) {
-    const evidence = phonologyWordProposal(study, word, sourceStyle, profileId);
-    const result = {
-      schema: "tropetrain-reader-phonology-proposal-v1",
-      wordId: word.id,
-      sourceWordId: evidence.sourceWordId,
-      hebrew: evidence.hebrew,
-      style: sourceStyle,
-      profile: evidence.profile,
-      status: "no-source-correspondence",
-      entries: [],
-      sourceCommit: evidence.sourceCommit,
-      source: evidence.source,
-      sourceDataLicense: evidence.sourceDataLicense,
-      evidence,
-      phonemes: null,
-      noteIds: null,
-      audioTimes: null,
-      review: null,
-      newSingingVoice: null
-    };
-    for (const route of evidence.routes) {
-      const owned = route.units.filter((u) => u.ownerWordId === result.sourceWordId);
-      if (!owned.length) continue;
-      const events2 = new Map(route.events.map((e) => [e.id, e]));
-      const entry = {
-        kind: "phonemic-research-word",
-        sourceCellId: route.id,
-        sourceRow: route.sourceRow,
-        sourceColumn: route.sourceColumn,
-        hebrewColumn: route.hebrewColumn,
-        sourceReference: null,
-        sourceForm: owned.some((u) => u.readerRanges === null),
-        labels: [...new Set(owned.flatMap((u) => u.sourceLabels))],
-        parts: [],
-        text: "",
-        profileId,
-        review: null
-      };
-      for (const unit of owned) {
-        for (const range of unit.readerRanges ?? []) {
-          if (range.readerWordId !== result.sourceWordId || !["written", "shared-consonant"].includes(range.role) || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.start >= range.end || range.end > word.sourceHebrew.length || word.sourceHebrew.slice(range.start, range.end) !== range.text)
-            throw Error("Phonemic proposal no longer matches its original marked Hebrew ranges.");
-        }
-        const references = unit.fragments.map((fragment) => {
-          const event = events2.get(fragment.eventId);
-          if (!event || !event.sourceSegmentIds.includes(fragment.source.id) || !event.sourceUnitIds.includes(unit.sourceUnitId))
-            throw Error("Phonemic proposal source event correspondence changed.");
-          const sharedReference = event.sourceSegmentIds[0] !== fragment.source.id;
-          const soundStatus = event.candidatePhonemes === null ? "unresolved" : event.candidatePhonemes.length ? "candidate-phonemes" : fragment.proposal.rule === "source-silent-category" ? "source-silent" : "proposed-absence";
-          const text = sharedReference ? soundStatus === "unresolved" ? "↔?" : "↔" : soundStatus === "unresolved" ? "?" : soundStatus === "source-silent" ? "∅" : soundStatus === "proposed-absence" ? "(∅)" : event.candidatePhonemes.join("");
-          return {
-            sourceSegmentId: fragment.source.id,
-            eventId: event.id,
-            part: fragment.source.part,
-            sharedReference,
-            candidatePhonemes: structuredClone(event.candidatePhonemes),
-            soundStatus,
-            text
-          };
-        });
-        entry.parts.push({
-          sourceUnitId: unit.sourceUnitId,
-          text: references.map((r) => r.text).join(""),
-          join: entry.parts.length ? " · " : "",
-          sourceText: unit.sourceText,
-          sourceStress: unit.sourceStress,
-          sourceMarks: structuredClone(unit.sourceLabels),
-          hebrewClusterRanges: structuredClone(unit.readerRanges),
-          sourceHebrew: structuredClone(unit.sourceHebrew),
-          letterClusterBindings: structuredClone(unit.letterClusterBindings),
-          references
-        });
-      }
-      entry.text = entry.parts.map((p) => p.join + p.text).join("");
-      result.entries.push(entry);
-    }
-    result.status = result.entries.length ? "word-linked" : evidence.routes.length ? "combined-source-form" : "no-source-correspondence";
-    return result;
   }
 
   // pronunciation-segment-ui.js
@@ -11762,13 +11852,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return library ? linkPronunciationScoreGroups(events2, words4, library, style) : null;
       },
       linkNotes(events2, words4) {
-        return library ? linkPronunciationToNotes(events2, words4, library, style) : null;
+        if (!library) return null;
+        const source = publishedPronunciation.readerStatus();
+        return source.kind === "phonemic-research" ? linkPronunciationProposalsToNotes(events2, words4, library, style, source.profileId) : linkPronunciationToNotes(events2, words4, library, style);
+      },
+      proposalNotes(events2, words4) {
+        const source = publishedPronunciation.readerStatus();
+        return library && source.kind === "phonemic-research" ? linkPronunciationProposalsToNotes(events2, words4, library, style, source.profileId) : null;
       },
       timingStudy(value) {
         return library ? { style, study: library.study(value, style) } : null;
       },
       scoreStatus() {
-        return { style, name: PRONUNCIATION_STYLES.find((s) => s.id === style).name, error };
+        const source = publishedPronunciation.readerStatus();
+        return source.kind === "phonemic-research" ? { ...source, style, error } : { style, name: PRONUNCIATION_STYLES.find((s) => s.id === style).name, error };
       }
     };
   }
@@ -14643,10 +14740,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const linkMap = scorePronunciationReport ? new Map(scorePronunciationReport.links.map((l) => [l.eventId, l])) : null;
     $("pitch-staff").innerHTML = staffMarkup(plan, words3, from, STAFF_PAGE, { pronunciationLinks: linkMap });
     const source = pronunciationTools?.scoreStatus();
-    $("score-pronunciation-summary").textContent = !scorePronunciation ? "Pronunciation text on the score is hidden. Hebrew and musical settings are kept." : linkError ? `Score text links unavailable: ${linkError}` : source?.error ? source.error : !scorePronunciationReport ? "Loading pronunciation text for the score…" : `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
+    const research = scorePronunciationReport?.kind === "phonemic-research";
+    $("score-pronunciation-summary").textContent = !scorePronunciation ? "Pronunciation text on the score is hidden. Hebrew and musical settings are kept." : linkError ? `Score text links unavailable: ${linkError}` : source?.error ? source.error : !scorePronunciationReport ? "Loading pronunciation text for the score…" : research ? `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page reference the same source syllables; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. ? unresolved, ∅ source silence, (∅) proposed loss, ↔ one shared consonant. These are phonemic research candidates; sound timing, singing voice and independent review remain unassigned.` : `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
     $("score-pronunciation-download").disabled = !scorePronunciationReport?.links.length;
     const inspected = scorePronunciationReport?.links.find((l) => l.eventId === inspectedScoreEventId) ?? scorePronunciationReport?.links[0];
-    $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
+    $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : research ? `${inspected.hebrew} · ${inspected.phonology.paths.map((p) => `${p.text} (source ${p.sourceText}; row ${p.sourceRow}, column ${p.sourceColumn}, Hebrew branch ${p.hebrewColumn})`).join(" / ")}. Exact source-unit note references; shared candidates are one abstract event. No acoustic delivery or repeated consonant is inferred from a melisma.` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
     scoreGroupReport = null;
     try {
       scoreGroupReport = pronunciationTools?.groupNotes(plan.filter((e) => e.wordId === words3[state.cursor]?.id), words3) ?? null;
@@ -14689,14 +14787,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       volume: state.volume
     };
   }
+  function clearNoteEventExport() {
+    $("note-events-save").hidden = true;
+    $("note-events-save").removeAttribute("href");
+  }
   function clearExports() {
     wavJob?.abort();
     wavJob = null;
     $("wav-preview").pause();
     $("wav-preview").removeAttribute("src");
     $("wav-preview").hidden = true;
-    $("note-events-save").hidden = true;
-    $("note-events-save").removeAttribute("href");
+    clearNoteEventExport();
     for (const [id, url] of exportUrls) {
       URL.revokeObjectURL(url);
       $(id).hidden = true;
@@ -15420,6 +15521,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   });
   $("download").addEventListener("click", () => {
     const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
+    let pronunciationResearch;
+    try {
+      pronunciationResearch = pronunciationTools?.proposalNotes(plan, words3) ?? null;
+    } catch (error) {
+      say(`Pronunciation note references unavailable: ${error.message}`);
+      return;
+    }
     const data = {
       format: "tropetrain-events-v1",
       textSource: { ...passage2, verses: void 0 },
@@ -15429,6 +15537,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       contextAnalysis: CONTEXT_ANALYSIS,
       pronunciation: { id: null, status: "not implemented" },
       ...model.sourceSyllableUnderlay ? { syllableUnderlay: model.sourceSyllableUnderlay } : {},
+      ...pronunciationResearch ? { pronunciationResearch } : {},
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
       tempo: state.tempo,
       transpose: state.transpose,
@@ -15535,6 +15644,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   } });
   patternTools = mountPatternStudy({ getSettings: () => state, beforePlay: () => stop("Listening to the printed pattern. Bible-word selection is kept.", { preservePattern: true }), findPattern: (id) => combinationTools.findPattern(id) });
   pronunciationTools = mountPronunciationStudy({ onChange: () => {
+    clearNoteEventExport();
     renderStaff();
     renderReaderPronunciation();
     syllableTimingTools?.refresh();

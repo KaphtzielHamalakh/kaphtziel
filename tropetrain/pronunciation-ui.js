@@ -8,6 +8,7 @@ import {PRONUNCIATION_REPERTOIRE_SUMMARY} from './pronunciation-repertoire-summa
 import {PRONUNCIATION_UNDERLAY_SUMMARY} from './pronunciation-underlay-summary.js';
 import {hasTranscription} from './pronunciation-repeats.js';
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
+import {linkPronunciationProposalsToNotes} from './pronunciation-note-proposals.js';
 import {linkPronunciationScoreGroups} from './pronunciation-score-groups.js';
 import {pronunciationFollow} from './pronunciation-follow.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
@@ -191,7 +192,12 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
    return followCache.get(cacheKey);
   },
   groupNotes(events,words){return library?linkPronunciationScoreGroups(events,words,library,style):null;},
-  linkNotes(events,words){return library?linkPronunciationToNotes(events,words,library,style):null;},
+  linkNotes(events,words){
+   if(!library)return null;
+   const source=publishedPronunciation.readerStatus();
+   return source.kind==='phonemic-research'?linkPronunciationProposalsToNotes(events,words,library,style,source.profileId):linkPronunciationToNotes(events,words,library,style);
+  },
+  proposalNotes(events,words){const source=publishedPronunciation.readerStatus();return library&&source.kind==='phonemic-research'?linkPronunciationProposalsToNotes(events,words,library,style,source.profileId):null;},
   timingStudy(value){return library?{style,study:library.study(value,style)}:null;},
-  scoreStatus(){return {style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};}};
+  scoreStatus(){const source=publishedPronunciation.readerStatus();return source.kind==='phonemic-research'?{...source,style,error}:{style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};}};
 }

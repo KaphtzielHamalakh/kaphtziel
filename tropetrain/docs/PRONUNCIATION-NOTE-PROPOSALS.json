@@ -1,0 +1,181 @@
+{
+  "schema": "tropetrain-pronunciation-note-proposals-audit-v1",
+  "revision": 1,
+  "coverage": {
+    "chapters": 187,
+    "readerWords": 79985,
+    "availableWords": 77790,
+    "withheldWords": 2195,
+    "sourceSyllables": 187261,
+    "coveredSpans": 2359,
+    "notes": 224269
+  },
+  "gaps": {
+    "source-only-written-form": 2181,
+    "conflicting-source-paths": 12,
+    "combined-source-form": 2
+  },
+  "source": {
+    "id": "katz-1993-phonology",
+    "author": "Dovid Katz",
+    "title": "The Phonology of Ashkenazic",
+    "year": 1993,
+    "book": "Hebrew in Ashkenaz: A Language in Exile, edited by Lewis Glinert",
+    "url": "https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf",
+    "sha256": "789b83c2c5eedc097c334edeb6ea42268a0b90e25b8ee887b2d21af3452ecb24",
+    "rights": "Copyright reference, privately inspected; no PDF, scan, OCR or protected table redistributed. Original code records attributed linguistic facts.",
+    "scanLimits": "The supplied scan repeats printed pages49and52; printed page50 is appended as PDF page48. No rule here relies on page50.",
+    "scope": "Schematic Northeastern and Mideastern Formal Ashkenazic. Local variation remains; no equivalence to a Kinnor Accent label or reviewed singing voice is established."
+  },
+  "profiles": [
+    {
+      "id": "katz-1993-northeastern-formal",
+      "label": "Northeastern Formal Ashkenazic · research",
+      "region": "northeastern",
+      "sourceId": "katz-1993-phonology",
+      "status": "source-based-proposal",
+      "kinnorAccentId": null,
+      "playable": false,
+      "singingVoice": null,
+      "review": null
+    },
+    {
+      "id": "katz-1993-mideastern-formal",
+      "label": "Mideastern Formal Ashkenazic · research",
+      "region": "mideastern",
+      "sourceId": "katz-1993-phonology",
+      "status": "source-based-proposal",
+      "kinnorAccentId": null,
+      "playable": false,
+      "singingVoice": null,
+      "review": null
+    }
+  ],
+  "results": [
+    {
+      "sourceStyle": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "notes": 224269,
+      "linkedNotes": 224269,
+      "unlinkedNotes": 0,
+      "wordEvidenceRecords": 77790,
+      "sourceEventRecords": 485111,
+      "unassignedEventRecords": 20248,
+      "sourceSilentEventRecords": 47635,
+      "proposedAbsenceEventRecords": 32142,
+      "sharedEventRecords": 18185,
+      "noteReferences": 613006,
+      "maxResearchTextCodePoints": 11,
+      "longestTextExample": {
+        "wordId": "exo-20-13-2",
+        "hebrew": "תִּֿרְ",
+        "text": "sir∅ / tir∅"
+      },
+      "assignmentSha256": "a63f7c4c10e43f7d066325025177cae3b071e540bb5f739fe7e144197fcbfaab"
+    },
+    {
+      "sourceStyle": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "notes": 224269,
+      "linkedNotes": 224269,
+      "unlinkedNotes": 0,
+      "wordEvidenceRecords": 77790,
+      "sourceEventRecords": 485111,
+      "unassignedEventRecords": 20387,
+      "sourceSilentEventRecords": 47635,
+      "proposedAbsenceEventRecords": 32142,
+      "sharedEventRecords": 18185,
+      "noteReferences": 613006,
+      "maxResearchTextCodePoints": 11,
+      "longestTextExample": {
+        "wordId": "gen-9-21-7",
+        "hebrew": "אָ",
+        "text": "(∅)ɔ / (∅)u"
+      },
+      "assignmentSha256": "cb5c661c2f40048cd78da704b6661eb000ebed2e2bbf6bf80acd15be6d89d5df"
+    },
+    {
+      "sourceStyle": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "notes": 224269,
+      "linkedNotes": 224269,
+      "unlinkedNotes": 0,
+      "wordEvidenceRecords": 77790,
+      "sourceEventRecords": 485111,
+      "unassignedEventRecords": 20248,
+      "sourceSilentEventRecords": 47635,
+      "proposedAbsenceEventRecords": 32142,
+      "sharedEventRecords": 18185,
+      "noteReferences": 613006,
+      "maxResearchTextCodePoints": 11,
+      "longestTextExample": {
+        "wordId": "exo-20-13-2",
+        "hebrew": "תִּֿרְ",
+        "text": "sir∅ / tir∅"
+      },
+      "assignmentSha256": "a7e4296d7c59e128492c6bd1cb9be81e7e72f07d0662708e1b2d727ea0de1148"
+    },
+    {
+      "sourceStyle": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "notes": 224269,
+      "linkedNotes": 224269,
+      "unlinkedNotes": 0,
+      "wordEvidenceRecords": 77790,
+      "sourceEventRecords": 485111,
+      "unassignedEventRecords": 20387,
+      "sourceSilentEventRecords": 47635,
+      "proposedAbsenceEventRecords": 32142,
+      "sharedEventRecords": 18185,
+      "noteReferences": 613006,
+      "maxResearchTextCodePoints": 11,
+      "longestTextExample": {
+        "wordId": "gen-9-21-7",
+        "hebrew": "אָ",
+        "text": "(∅)ɔ / (∅)u"
+      },
+      "assignmentSha256": "74ce494860a458335f3030cf71631a141d473ac92f88364b849e063d00911ba8"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "pronunciation-note-proposals.js",
+      "sha256": "7c5dbc003e5aa425005457b64f95ac4103b5ed1ffe171d9648625ed78436575f"
+    },
+    {
+      "path": "pronunciation-note-links.js",
+      "sha256": "fa807dbd59e4ae1e6a706b322bcf13af9cb3bb05ec512212bf2ea480aaa99ea9"
+    },
+    {
+      "path": "pronunciation-phonology-reader.js",
+      "sha256": "2d6fbb73635674a3c080c5083de1bcf7288f6e1cc1cd262d2b75ee0026492f96"
+    },
+    {
+      "path": "pronunciation-phonology.js",
+      "sha256": "23277eb08a88fcb73f626eab7074b33f1f3551b86b6c1953f3d77755c3537db2"
+    },
+    {
+      "path": "source-syllable-underlay.js",
+      "sha256": "8009e0eb6a83b42a0f76f9512470770fc7baa4a2279ff900cedf6554ac5f34cd"
+    },
+    {
+      "path": "music.js",
+      "sha256": "4db3eedaacfdd89ea1709cb413fe0cdfc7a40cf4744b3e92b21d2fd5f1b09bfb"
+    }
+  ],
+  "method": "Every Torah chapter, every contiguous span of words with consensus source syllables, and actual original-demo buildPlan notes, in both MAM source styles and both existing research profiles. All source-unit/marked-Hebrew references are checked. Musical events and all accepted-phone/acoustic-timing nulls are preserved. Each assignment digest includes complete word evidence, every alternative route, note link and abstract event reference.",
+  "counting": "Event-record counts sum the abstract event registries of independent covered spans; they are not counts of distinct approved sounds across Torah. Shared and repeated-note references do not generate another abstract source event within a span. Withheld words retain their source-only, conflicting or combined evidence outside playable spans.",
+  "invariants": {
+    "originalMarkedHebrew": true,
+    "notesUnchanged": true,
+    "sourceBranchesRetained": true,
+    "sourceStressRetained": true,
+    "sharedEventsNotReplayed": true,
+    "acceptedPhonemes": null,
+    "acousticAllocation": null,
+    "newSingingVoice": null,
+    "review": null
+  },
+  "attribution": "Source syllable/category correspondence: Hebrew Wikisource / Phonetic MAM, Benjamin Denckla, CC-BY-SA-4.0. Existing original linguistic fact implementation cites Katz1993. No source table, scan, new audio or phonological rule is imported.",
+  "pending": "Qualified linguistic/cantorial review, exact mobile sheva and other unresolved categories, phonetic transitions and allophones, sustained reusable singing material and phone-to-note performance timing. These two incomplete source-defined profiles establish no equivalence to any of the six Kinnor menu labels."
+}
