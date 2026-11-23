@@ -1,4 +1,5 @@
 import {getSourcePhraseLibrary} from './source-phrases.js';
+import {mountSourceRecall} from './source-recall-ui.js';
 import {mountSourcePhrases} from './source-phrase-ui.js';
 import {isJointEvent,eventNavigationIndex} from './event-correspondence.js';
 import {JOINT_COVERAGE_SUMMARY} from './joint-coverage-summary.js';
@@ -91,7 +92,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null;
+let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -787,7 +788,7 @@ function render(){
   }
   $('practice-audio').value=state.practiceAudio;
   $('chant-practice').hidden=!isSourcePractice();
-  renderReader();renderSequence();renderChantPractice();sourcePhraseTools?.refresh();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
+  renderReader();renderSequence();renderChantPractice();sourcePhraseTools?.refresh();sourceRecallTools?.refresh();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -1055,7 +1056,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();syllableTimingTools?.refresh();}});
+pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();sourceRecallTools?.refreshPronunciation();syllableTimingTools?.refresh();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
 syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getWords:()=>words,getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
   position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,
@@ -1093,6 +1094,17 @@ haftarahTools=mountHaftarah({beforePlay:()=>stop('Listening to a Haftarah source
 sourcePhraseTools=mountSourcePhrases({getWords:()=>words,getCursor:()=>state.cursor,getSelection:()=>bounds(state.cursor,state.anchor,state.scope),onSelect:selection=>{
   stop('Source phrase selected. Press Play when ready.');state.cursor=selection.startIndex;state.anchor=selection.endIndex;state.scope='selection';state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();$('reader').focus();
 }});
+sourceRecallTools=mountSourceRecall({getWords:()=>words,getCursor:()=>state.cursor,playButton:$('play'),
+ getPlayback:()=>({enabled:!$('play').disabled,label:state.practiceAudio==='recorded'?'Recorded chant':state.practiceAudio==='measured'?'Measured instrumental tones':model.profile.name??model.profile.id,message:isSourcePractice()?$('chant-readiness').textContent:$('musical-source-status').textContent}),
+ getPronunciation:card=>{
+  if(!readerPronunciation)return {enabled:false};
+  const source=pronunciationTools?.readerStatus(),selected=words.slice(card.startIndex,card.endIndex+1),group=(model.sourceJointGroups??[]).find(g=>g.wordIndices[0]===card.startIndex&&g.wordIndices.at(-1)===card.endIndex);
+  const rows=group?[{label:'Complete shared source pronunciation word · both written words together',wordIds:group.wordIds.slice(),report:pronunciationTools?.readerGroup(group,words),message:source?.kind==='published-word'?'No shared-word text in this published transcription.':source?.error??'Preparing the shared source text…'}]:selected.map(word=>({label:`Word ${word.ordinal}`,wordIds:[word.id],report:pronunciationTools?.readerText(word)}));
+  return {enabled:true,name:source?.name??'Source pronunciation text',note:source?.kind==='phonemic-research'?'Incomplete research text; unresolved sounds, source branches and shared consonants remain explicit. No singing voice or acoustic timing is assigned.':'Original source syllables, stress and alternatives. Pronunciation text is independent of the selected melody; recordings keep their own pronunciation.',rows};
+ },
+ onStop:()=>stop(),onListen:()=>play(),onSelect:card=>{
+  stop('Recall word group selected. Press Listen when ready.');state.cursor=card.startIndex;state.anchor=card.endIndex;state.scope='selection';state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();
+ }});
 mountCalendar({getCorpus,getReadingCorpus:getRepertoireCorpus,onOpen:(ranges,title,options)=>{applyRanges(ranges,options);$('assignment-title').value=title;}});
 render();renderSections();renderPickers();showPracticeRecovery();if(state.findScope==='torah')refreshSignSearch();document.documentElement.dataset.ready='true';$('startup-status').hidden=true;
 getRepertoireCorpus().then(value=>{

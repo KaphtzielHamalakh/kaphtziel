@@ -1,0 +1,273 @@
+{
+  "schema": "tropetrain-source-recall-audit-v1",
+  "revision": 1,
+  "source": {
+    "id": "uxlc-prose-signs",
+    "revision": 1,
+    "source": "https://www.tanach.us/Pages/Coding.html",
+    "unicode": "https://www.unicode.org/Public/18.0.0/charts/PDF/U0590.pdf",
+    "scope": "Source-sign recognition for Torah/prose. Full contextual hierarchy and melodies are not implemented."
+  },
+  "counts": {
+    "verses": 5853,
+    "readerWords": 79985,
+    "cards": 67453,
+    "includedWords": 78632,
+    "withheldWords": 1353,
+    "hiddenSourcePositions": 68381,
+    "abovePositions": 20909,
+    "belowPositions": 47472,
+    "repeatedPositionCards": 928,
+    "maqafCards": 10796,
+    "splitMaqafCards": 0,
+    "longestWordClusters": 11
+  },
+  "books": [
+    {
+      "bookId": "gen",
+      "verses": 1533,
+      "readerWords": 20614,
+      "cards": 17457,
+      "includedWords": 20346,
+      "withheldWords": 268
+    },
+    {
+      "bookId": "exo",
+      "verses": 1213,
+      "readerWords": 16714,
+      "cards": 14015,
+      "includedWords": 16390,
+      "withheldWords": 324
+    },
+    {
+      "bookId": "lev",
+      "verses": 859,
+      "readerWords": 11950,
+      "cards": 9947,
+      "includedWords": 11780,
+      "withheldWords": 170
+    },
+    {
+      "bookId": "num",
+      "verses": 1289,
+      "readerWords": 16412,
+      "cards": 13915,
+      "includedWords": 16141,
+      "withheldWords": 271
+    },
+    {
+      "bookId": "deu",
+      "verses": 959,
+      "readerWords": 14295,
+      "cards": 12119,
+      "includedWords": 13975,
+      "withheldWords": 320
+    }
+  ],
+  "bySign": {
+    "tipha": 11256,
+    "munah": 8747,
+    "etnahta": 5470,
+    "merkha": 9063,
+    "silluq": 5809,
+    "revia": 2434,
+    "pashta": 5421,
+    "zakef-katon": 6509,
+    "darga": 1075,
+    "tevir": 2666,
+    "qadma": 1904,
+    "zarqa": 361,
+    "segolta": 369,
+    "mahapakh": 3023,
+    "geresh": 1074,
+    "yetiv": 357,
+    "gershayim": 509,
+    "telisha-gedola": 266,
+    "zakef-gadol": 525,
+    "pazer": 153,
+    "telisha-qetana": 451,
+    "shalshelet": 4,
+    "merkha-kefula": 5,
+    "yerah-ben-yomo": 1,
+    "qarnei-fara": 1
+  },
+  "withheldReasons": {
+    "paseq-context": 384,
+    "several-functional-accents": 517,
+    "multiple-disjunctives": 59,
+    "sign-order-needs-context": 74,
+    "accented-maqaf-prefix": 47,
+    "no-functional-accent": 44,
+    "unresolved-repeated-sign": 2
+  },
+  "examples": [
+    {
+      "bookId": "gen",
+      "chapter": 1,
+      "verse": 1,
+      "hebrew": [
+        "בְּרֵאשִׁ֖ית"
+      ],
+      "projection": [
+        "בְּרֵאשִׁית"
+      ],
+      "answer": {
+        "id": "tipha",
+        "name": "Tipḥa",
+        "char": "֖",
+        "code": "U+0596"
+      },
+      "wordIds": [
+        "gen-1-1-1"
+      ]
+    },
+    {
+      "bookId": "gen",
+      "chapter": 1,
+      "verse": 2,
+      "hebrew": [
+        "וְהָאָ֗רֶץ"
+      ],
+      "projection": [
+        "וְהָאָרֶץ"
+      ],
+      "answer": {
+        "id": "revia",
+        "name": "Revia",
+        "char": "֗",
+        "code": "U+0597"
+      },
+      "wordIds": [
+        "gen-1-2-1"
+      ]
+    },
+    {
+      "bookId": "gen",
+      "chapter": 1,
+      "verse": 3,
+      "hebrew": [
+        "וַיֹּ֥אמֶר"
+      ],
+      "projection": [
+        "וַיֹּאמֶר"
+      ],
+      "answer": {
+        "id": "merkha",
+        "name": "Merkha",
+        "char": "֥",
+        "code": "U+05A5"
+      },
+      "wordIds": [
+        "gen-1-3-1"
+      ]
+    },
+    {
+      "bookId": "gen",
+      "chapter": 1,
+      "verse": 4,
+      "hebrew": [
+        "וַיַּ֧רְא"
+      ],
+      "projection": [
+        "וַיַּרְא"
+      ],
+      "answer": {
+        "id": "darga",
+        "name": "Darga",
+        "char": "֧",
+        "code": "U+05A7"
+      },
+      "wordIds": [
+        "gen-1-4-1"
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "path": "source-recall.js",
+      "sha256": "4cda561a64a95adfedb66ed8b275a6dd527e018e1c213a4c286269a72efc40d0"
+    },
+    {
+      "path": "source-recall-ui.js",
+      "sha256": "ab7aec76e4312d4cccb948840ee3132427c3e4a1e4f2e22df0416a759437f1c0"
+    },
+    {
+      "path": "pronunciation-reader.js",
+      "sha256": "75cea22f8d1dd4359cad8a26c88f817cff2cfff09c33650beb107e906e246152"
+    },
+    {
+      "path": "pronunciation-ui.js",
+      "sha256": "c172cb4821aa7633ed6047ff0267b697ccf15378f7889fdb755cf5c6888a15b4"
+    },
+    {
+      "path": "source-joint-syllables.js",
+      "sha256": "4322b6500ecd61dfea635cf721430925c7bb3bc24f7e7c11a9a6372356ba3dbb"
+    },
+    {
+      "path": "scripts/audit-source-recall.mjs",
+      "sha256": "c96893acd69cdebc45b0f5dade24113f92082fa40ea329b52a30cc8595db22fc"
+    },
+    {
+      "path": "accents.js",
+      "sha256": "5ad7b90fc9a1cc31628ae4d166b664c6fda97ed9f9e17cd5a34d9b767306f252"
+    },
+    {
+      "path": "accent-context.js",
+      "sha256": "78da1a1a2e7c46f5979be826c51924b1e4ffa95f099dabec1601ad1a2c255a42"
+    },
+    {
+      "path": "app.js",
+      "sha256": "cd6b53d949a5309b25722f389376a9e4664c7e76cacfc718f2c97eb16d27356e"
+    },
+    {
+      "path": "index.html",
+      "sha256": "96b948219290efeeda9ce230fc1a4680caa8c0ff5b66486eace979d4803cd616"
+    },
+    {
+      "path": "style.css",
+      "sha256": "0154827a35e81b5cc9b15313a4844d7aabfb6285e4939435c8e8e001b09e87ea"
+    },
+    {
+      "path": "sw.js",
+      "sha256": "53aef2f910851da4da95fb34fcd4869a1fdcc8b9c93f74f820071534e36de890"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "074bc9d4f49ad452f3bd96b847c1808ef8f653c010eb67ad356a8acd40799106"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    }
+  ],
+  "sourceTextChanged": false,
+  "sourceAccentMarksChanged": false,
+  "questionProjectionOnly": true,
+  "answersRestoreOriginalWords": true,
+  "canonicalAndOccurrenceIdsSeparate": true,
+  "maqafGroupsPreserved": true,
+  "melody": null,
+  "pronunciation": null,
+  "phonemes": null,
+  "audioTimes": null,
+  "singingVoice": null,
+  "musicalReview": null,
+  "phonologicalReview": null,
+  "limits": "Source-character self-check, not musical or phonological assessment. Optional pronunciation hints reuse the existing source reader renderer; complete shared words keep collective ownership. A question contains one qualified functional accent, including its repeated source positions. Shalshelet keeps its printed paseq without inferring a musical composite. Maqaf units stay complete. Unresolved composites, poetic/unclassified signs and clipped joins receive no guessed answer. Boxes mask source offsets only in the exercise; the reader/model/underlay retain original marked Hebrew. Playback delegates to the selected existing sound source and its availability gates. No source note, recording, clock or pronunciation rule is derived."
+}
