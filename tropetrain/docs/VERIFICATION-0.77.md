@@ -1,0 +1,5 @@
+# TropeTrain v0.77 local verification
+
+Normal build and649automated checks pass,0fail/skip,10new. Normal164and portable165each138normal UIchecks pass,276total. New13checks cover complete span over two printed syllables, multiple source units in one printed syllable, both MAMstyles/two incomplete phonemic profiles, immutable Hebrew/notes, noninterrupting style changes, clearing at stop/disable/exact next syllable, reload and muted/stopped cleanup. All13portable span checks at320px; active/idle content fits320/320. Viewport reset. Existing source-word/source-reading/shared-word/timing and printed pattern checks pass. Test annotations restored blank.
+
+No runtime changes after full649-pass suite. QA fixture/proof arguments were corrected before final acceptance; no app bug was inferred from those invocation errors. No physical saved-file download, speaker listening or qualified acoustic/cantorial review. Publication and public verification pending. Entire goal active/incomplete; printing deferred.

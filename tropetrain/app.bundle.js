@@ -2722,16 +2722,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const removeLatin = clusters3.filter((cluster) => !cluster.isNotHebrew);
     const latinClusters = clusters3.map(clusterPos).filter((c) => c.cluster.isNotHebrew);
     const groupedClusters = groupClusters(removeLatin, options);
-    const syllables = groupedClusters.map((group) => group instanceof Syllable ? group : new Syllable([group]));
-    const [first, ...rest] = syllables;
+    const syllables2 = groupedClusters.map((group) => group instanceof Syllable ? group : new Syllable([group]));
+    const [first, ...rest] = syllables2;
     first.siblings = rest;
-    syllables.forEach(setIsClosed);
-    syllables.forEach(setIsAccented);
-    if (!syllables.map((s) => s.isAccented).includes(true) && !isWordInConstruct) {
-      syllables[syllables.length - 1].isAccented = true;
+    syllables2.forEach(setIsClosed);
+    syllables2.forEach(setIsAccented);
+    if (!syllables2.map((s) => s.isAccented).includes(true) && !isWordInConstruct) {
+      syllables2[syllables2.length - 1].isAccented = true;
     }
-    syllables.forEach((s) => s.clusters.forEach((c) => c.parent = s));
-    return latinClusters.length ? reinsertLatin(syllables, latinClusters) : syllables;
+    syllables2.forEach((s) => s.clusters.forEach((c) => c.parent = s));
+    return latinClusters.length ? reinsertLatin(syllables2, latinClusters) : syllables2;
   };
 
   // ../../tropetrain-v62-deps/node_modules/havarotjs/dist/word.js
@@ -3101,10 +3101,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         this.#syllablesCache = [syl];
         return [syl];
       }
-      const syllables = syllabify(this.clusters, this.#sylOpts, this.isInConstruct);
-      syllables.forEach((syl) => syl.parent = this);
-      this.#syllablesCache = syllables;
-      return syllables;
+      const syllables2 = syllabify(this.clusters, this.#sylOpts, this.isInConstruct);
+      syllables2.forEach((syl) => syl.parent = this);
+      this.#syllablesCache = syllables2;
+      return syllables2;
     }
     /**
      * Gets the position of a syllable within the Word
@@ -3521,9 +3521,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } else {
       try {
         const analysis = new Text(word.sourceHebrew.replace(/־$/u, ""), { strict: false });
-        const syllables = analysis.syllables;
-        lengths = syllables.map((s) => (s.text.match(/[א-ת]/gu) || []).length);
-        stresses = syllables.map((s) => s.isAccented && !word.sourceHebrew.endsWith("־"));
+        const syllables2 = analysis.syllables;
+        lengths = syllables2.map((s) => (s.text.match(/[א-ת]/gu) || []).length);
+        stresses = syllables2.map((s) => s.isAccented && !word.sourceHebrew.endsWith("־"));
         if (!lengths.length || lengths.some((n) => n === 0) || lengths.reduce((a, b) => a + b, 0) !== clusters3.length) throw Error("Analyzer boundaries do not map to the source letters.");
         if (/^[יהוה]+$/u.test(word.sourceHebrew.replace(/[^א-ת]/gu, "")) && word.sourceHebrew.replace(/[^א-ת]/gu, "") === "יהוה") {
           diagnostic = "Divine-name spoken form requires a separate reviewed reading rule.";
@@ -4445,8 +4445,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       readings.push({ path, units, text });
     }
-    const signature2 = (r) => JSON.stringify(r.units.map((u) => [u.text, u.sourceStress]));
-    if (!["sephardic", "ashkenazic"].every((style) => readings.some((r) => r.path.style === style)) || new Set(readings.map(signature2)).size !== 1) return result;
+    const signature3 = (r) => JSON.stringify(r.units.map((u) => [u.text, u.sourceStress]));
+    if (!["sephardic", "ashkenazic"].every((style) => readings.some((r) => r.path.style === style)) || new Set(readings.map(signature3)).size !== 1) return result;
     const first = readings[0];
     return {
       ...result,
@@ -4579,7 +4579,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!["sephardic", "ashkenazic"].every((s) => result.paths.some((p) => p.style === s))) return { ...result, reason: "missing-source-style" };
     if (new Set(result.paths.map(signature)).size !== 1) return { ...result, reason: "conflicting-source-paths" };
     const units = result.paths[0].units;
-    const syllables = units.map((u, i) => ({
+    const syllables2 = units.map((u, i) => ({
       sourceHebrew: word.sourceHebrew.slice(u.start, u.end),
       stress: u.sourceStress,
       roman: null,
@@ -4594,8 +4594,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       acousticTimes: null,
       review: null
     }));
-    if (syllables.map((s) => s.sourceHebrew).join("") !== word.sourceHebrew) throw Error("Source syllables must reproduce all original marks.");
-    return { ...result, status: "available", reason: null, syllables };
+    if (syllables2.map((s) => s.sourceHebrew).join("") !== word.sourceHebrew) throw Error("Source syllables must reproduce all original marks.");
+    return { ...result, status: "available", reason: null, syllables: syllables2 };
   }
   var SourceSyllableUnderlay = class {
     constructor(library, { allowSourceReadings = false, sourceReadingChoices: sourceReadingChoices2 = {}, allowJointSources = false } = {}) {
@@ -4694,20 +4694,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const words4 = raw.map((w, index) => {
       const fixture = fixtures.get(w.sourceWordId ?? w.id), printed = printedSourceWord(w, melodyId);
       const sourceSyllables = sourceUnderlayEnabled ? sourceUnderlay === null ? sourceSyllableWord(w, null) : sourceUnderlay.word(w) : null;
-      const syllables = sourceSyllables?.status === "available" ? sourceSyllables.syllables.map((s, i) => ({ ...s, id: `${w.id}-mams${i + 1}` })) : alignedSyllables(w, { fixture: printed ? [printed.lengths, null, printed.stress] : fixture?.text === w.sourceHebrew ? fixture.syllables : null });
+      const syllables2 = sourceSyllables?.status === "available" ? sourceSyllables.syllables.map((s, i) => ({ ...s, id: `${w.id}-mams${i + 1}` })) : alignedSyllables(w, { fixture: printed ? [printed.lengths, null, printed.stress] : fixture?.text === w.sourceHebrew ? fixture.syllables : null });
       const atVerseEnd = index === raw.length - 1 || raw[index + 1].verseKey !== w.verseKey;
       const groupEnd = atVerseEnd || !w.sourceHebrew.endsWith("־") && /[\u0591-\u0595]/u.test(w.sourceHebrew);
       const signAnalysis = analyzeSourceSigns(w.sourceHebrew);
       const word = {
         ...w,
         index,
-        syllables,
+        syllables: syllables2,
         group,
         groupEnd,
         signAnalysis,
         accent: signAnalysis.label,
         ...sourceSyllables ? { sourceSyllableUnderlay: sourceSyllables } : {},
-        analysisStatus: sourceSyllables?.status === "unavailable" ? "source-underlay-unavailable" : syllables.some((s) => s.reviewStatus === "unsegmented") ? "unsegmented" : syllables[0].reviewStatus
+        analysisStatus: sourceSyllables?.status === "unavailable" ? "source-underlay-unavailable" : syllables2.some((s) => s.reviewStatus === "unsegmented") ? "unsegmented" : syllables2[0].reviewStatus
       };
       if (groupEnd) group++;
       return word;
@@ -4976,9 +4976,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (!word || !joint && word.id !== event.wordId) throw Error("Score notes no longer match their source words.");
       const previous = plan2[index - 1], next = plan2[index + 1], continuation = previous?.syllableId === event.syllableId;
       const extendsNext = next?.syllableId === event.syllableId;
-      const syllables = joint?.group.syllables ?? word.syllables, syllableIndex = syllables.findIndex((s) => s.id === event.syllableId);
-      if (syllableIndex < 0 || syllables[syllableIndex].sourceHebrew !== event.syllable) throw Error("Score syllables no longer match the source.");
-      const syllabic = syllables.length === 1 ? "single" : syllableIndex === 0 ? "begin" : syllableIndex === syllables.length - 1 ? "end" : "middle";
+      const syllables2 = joint?.group.syllables ?? word.syllables, syllableIndex = syllables2.findIndex((s) => s.id === event.syllableId);
+      if (syllableIndex < 0 || syllables2[syllableIndex].sourceHebrew !== event.syllable) throw Error("Score syllables no longer match the source.");
+      const syllabic = syllables2.length === 1 ? "single" : syllableIndex === 0 ? "begin" : syllableIndex === syllables2.length - 1 ? "end" : "middle";
       const gapAfterBeats = next ? next.startBeat - event.startBeat - event.beats : (event.endingRestSeconds ?? 0) * event.beats / event.durationSeconds;
       return { ...event, word, ...joint ? { correspondenceWords: joint.members, sourceJointGroup: joint.group } : {}, pitch: eventPitchSpelling(event), rhythm: eventRhythm(event), gapAfterBeats: gapAfterBeats > 1e-8 ? gapAfterBeats : 0, continuation, extendsNext, syllabic };
     });
@@ -6476,10 +6476,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           const candidates = variants.filter((v) => v[style === "sephardic" ? 1 : 2] === cell.column);
           if (!candidates.length || candidates.some((v) => !Array.isArray(v[3]) || v[3].length !== cell.units.length)) throw Error("Source rule syllable boundaries changed.");
           const units = cell.units.map((unit, ui) => {
-            const plans = candidates.map(([column, , , syllables]) => {
+            const plans = candidates.map(([column, , , syllables2]) => {
               const underlay = unit.hebrewUnderlay.variants.find((v) => v.hebrewColumn === column);
               if (!underlay) throw Error("Source rule Hebrew alternative changed.");
-              const plan2 = syllables[ui];
+              const plan2 = syllables2[ui];
               if (!Array.isArray(plan2) || !plan2.length) throw Error("Missing source rule segments.");
               let written = "";
               const segments = plan2.map((item, si) => {
@@ -6489,12 +6489,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 if (part !== 1) written += category.hebrewLetters;
                 let sharedWithUnitId = null;
                 if (part === 1) {
-                  const next = syllables[ui + 1]?.[0];
+                  const next = syllables2[ui + 1]?.[0];
                   if (si !== plan2.length - 1 || !underlay.sharesNextConsonant || next?.[0] !== index || next?.[1] !== 2) throw Error("Invalid first shared-consonant half.");
                   sharedWithUnitId = cell.units[ui + 1]?.id;
                 }
                 if (part === 2) {
-                  const previous = syllables[ui - 1]?.at(-1);
+                  const previous = syllables2[ui - 1]?.at(-1);
                   if (si !== 0 || !underlay.sharesPreviousConsonant || previous?.[0] !== index || previous?.[1] !== 1) throw Error("Invalid second shared-consonant half.");
                   sharedWithUnitId = cell.units[ui - 1]?.id;
                 }
@@ -7349,10 +7349,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { kind: "partial-original-windows", eligibleWords: windows.size, withheldWords: words4.length - windows.size, windows, ambiguities };
   }
   function originalWordWindow(recording, word, policy = sourceTimingPolicy(recording)) {
-    const canonical6 = recording?.words?.[word?.referenceIndex];
-    if (!canonical6 || canonical6.id !== word.id || canonical6.uxlcHebrew !== word.uxlcHebrew) return null;
-    if (policy.kind === "original-aligned") return { startSeconds: canonical6.startSeconds, endSeconds: canonical6.endSeconds };
-    return policy.windows.get(canonical6.id) ?? null;
+    const canonical7 = recording?.words?.[word?.referenceIndex];
+    if (!canonical7 || canonical7.id !== word.id || canonical7.uxlcHebrew !== word.uxlcHebrew) return null;
+    if (policy.kind === "original-aligned") return { startSeconds: canonical7.startSeconds, endSeconds: canonical7.endSeconds };
+    return policy.windows.get(canonical7.id) ?? null;
   }
 
   // reference-library-data.js
@@ -11471,10 +11471,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             seenReferences.set(key, /* @__PURE__ */ new Set());
           } else if (eventSignatures.get(key) !== JSON.stringify(event)) throw Error("Phonemic proposal event disagrees across source word references.");
           const binding = { noteId: link.eventId, wordId: link.wordId, sourceWordId: link.sourceWordId, ...link.jointGroupId ? { jointGroupId: link.jointGroupId, wordIds: link.wordIds.slice(), sourceWordIds: link.sourceWordIds.slice() } : {}, sourceUnitId: part.sourceUnitId, sourceSegmentId: reference.sourceSegmentId, part: reference.part, sharedReference: reference.sharedReference };
-          const signature2 = JSON.stringify(binding);
-          if (!seenReferences.get(key).has(signature2)) {
+          const signature3 = JSON.stringify(binding);
+          if (!seenReferences.get(key).has(signature3)) {
             events2.get(key).noteReferences.push(binding);
-            seenReferences.get(key).add(signature2);
+            seenReferences.get(key).add(signature3);
           }
           return { ...structuredClone(reference), proposalEventKey: key };
         });
@@ -11680,6 +11680,113 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       audioTimes: null,
       review: "Complete source pronunciation word shared by all listed unchanged reader words. No individual word, written syllable or acoustic allocation."
     });
+  }
+
+  // pronunciation-span-follow.js
+  var canonical4 = (w) => w.sourceWordId ?? w.id;
+  var signature2 = (e) => [e.id, e.wordId, e.sourceWordId ?? e.wordId, e.syllableId, e.syllable];
+  var syllables = (w) => w.syllables.map((s) => [s.id, s.sourceHebrew]);
+  function compilePronunciationSpanFollow(events2, words4, library, style, { profileId = null } = {}) {
+    const profile = profileId ? phonologyProfile(profileId) : null;
+    const common2 = linkPronunciationScoreGroups(events2, words4, library, style), paths = [], gaps = [];
+    for (const item of common2.words) {
+      const word = words4.find((w) => w.id === item.wordId);
+      const different = item.groups.filter((g) => g.relation === "different-syllable-divisions");
+      const proposal2 = profileId && different.length ? readerPhonologyWord(word, library.study(word, style), style, profileId) : null;
+      for (const group of different) {
+        if (group.scoreSyllables.some((s) => !s.eventIds.length)) {
+          gaps.push({ groupId: group.id, reason: "incomplete-score-span" });
+          continue;
+        }
+        const ids = new Set(group.sourceUnits.map((u) => u.id));
+        const entries2 = proposal2 ? proposal2.entries.filter((e) => e.sourceRow === group.sourceRow && e.sourceColumn === group.sourceColumn && [...ids].every((id) => e.parts.some((p) => p.sourceUnitId === id))) : [null];
+        if (!entries2.length) {
+          gaps.push({ groupId: group.id, reason: "no-phonemic-proposal-route" });
+          continue;
+        }
+        for (const entry of entries2) {
+          const units = group.sourceUnits.map((u) => {
+            const part = entry?.parts.find((p) => p.sourceUnitId === u.id);
+            if (part && (part.sourceText !== u.text || part.sourceStress !== u.sourceStress || JSON.stringify(part.hebrewClusterRanges) !== JSON.stringify(u.hebrewClusterRanges))) throw Error("Shared-span pronunciation source changed.");
+            return {
+              sourceUnitId: u.id,
+              sourceText: u.text,
+              text: part?.text ?? u.text,
+              sourceStress: u.sourceStress,
+              sourceMarks: structuredClone(u.sourceMarks),
+              hebrewClusterRanges: structuredClone(u.hebrewClusterRanges),
+              ...part ? { references: structuredClone(part.references) } : {},
+              phonemes: null,
+              noteIds: null,
+              audioTimes: null
+            };
+          });
+          paths.push({
+            id: group.id + (entry ? "-h" + entry.hebrewColumn : ""),
+            groupId: group.id,
+            wordId: word.id,
+            sourceWordId: canonical4(word),
+            hebrew: group.hebrew,
+            hebrewRange: { ...group.hebrewRange },
+            sourceRow: group.sourceRow,
+            sourceColumn: group.sourceColumn,
+            sourceReference: structuredClone(group.sourceReference),
+            ...entry ? { hebrewColumn: entry.hebrewColumn, profileId } : {},
+            scoreSyllables: structuredClone(group.scoreSyllables),
+            sourceUnits: units,
+            eventIds: group.eventIds.slice(),
+            individualNoteAllocation: null,
+            phonemes: null,
+            audioTimes: null,
+            review: null
+          });
+        }
+      }
+    }
+    return {
+      schema: "tropetrain-pronunciation-span-follow-v1",
+      revision: 1,
+      style,
+      profileId,
+      ...profile ? { profile: structuredClone(profile), phonologySource: structuredClone(PHONOLOGY_SOURCE) } : {},
+      sourceCommit: common2.sourceCommit,
+      dataLicense: common2.dataLicense,
+      words: common2.words.map((item) => {
+        const w = words4.find((w2) => w2.id === item.wordId);
+        return { wordId: w.id, sourceWordId: canonical4(w), hebrew: w.sourceHebrew, scoreSyllables: syllables(w) };
+      }),
+      events: events2.map(signature2),
+      paths,
+      gaps,
+      individualNoteAllocation: null,
+      phonemes: null,
+      audioTimes: null,
+      voice: null,
+      review: null,
+      method: "Follow each complete common marked-Hebrew span as a whole across its score notes. Both independent syllable divisions, source alternatives and shared-consonant references are retained. No source syllable is assigned to an individual note; this is display correspondence, not an acoustic clock."
+    };
+  }
+  function pronunciationSpanFollow(event, word, report) {
+    const expected = report.words.find((w) => w.wordId === word?.id);
+    if (!expected || event.wordId !== word.id || expected.sourceWordId !== canonical4(word) || expected.hebrew !== word.sourceHebrew || JSON.stringify(expected.scoreSyllables) !== JSON.stringify(syllables(word)) || !report.events.some((e) => JSON.stringify(e) === JSON.stringify(signature2(event)))) throw Error("Shared-span follower no longer matches the original Hebrew score occurrence.");
+    const paths = report.paths.filter((p) => p.wordId === word.id && p.eventIds.includes(event.id));
+    if (!paths.length) return null;
+    return {
+      eventId: event.id,
+      wordId: word.id,
+      sourceWordId: canonical4(word),
+      style: report.style,
+      profileId: report.profileId,
+      status: "common-written-span",
+      reason: null,
+      paths: structuredClone(paths),
+      units: [...new Map(paths.flatMap((p) => p.sourceUnits).map((u) => [u.sourceUnitId, u])).values()],
+      individualNoteAllocation: null,
+      phonemes: null,
+      audioTimes: null,
+      voice: null,
+      review: null
+    };
   }
 
   // pronunciation-reader.js
@@ -11907,6 +12014,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     let style = pronunciationStyle(saved?.style), word = null, listening = false, library = null, error = null, lastKey = null, study = null;
     const readerCache = /* @__PURE__ */ new Map(), followCache = /* @__PURE__ */ new Map(), bookRequests = /* @__PURE__ */ new Map(), bookErrors = /* @__PURE__ */ new Map();
+    let spanPlan = null, spanWords = /* @__PURE__ */ new Map(), spanReports = /* @__PURE__ */ new Map();
     const publishedPronunciation = mountKhanPronunciation({ onChange });
     const historicalProfiles = mountHistoricalPronunciation();
     const phonologyPreview = mountPhonologyPreview();
@@ -12331,6 +12439,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           followCache.set(cacheKey, pronunciationFollow(event, w, link, style));
         }
         return followCache.get(cacheKey);
+      },
+      followSpan(event, words4, events2) {
+        const source = publishedPronunciation.readerStatus();
+        if (!library || source.kind === "published-word" || isJointEvent(event)) return null;
+        if (spanPlan !== events2) {
+          spanPlan = events2;
+          spanWords = /* @__PURE__ */ new Map();
+          spanReports.clear();
+          for (const e of events2) if (e.wordId) {
+            if (!spanWords.has(e.wordId)) spanWords.set(e.wordId, []);
+            spanWords.get(e.wordId).push(e);
+          }
+        }
+        const word2 = words4[event.wordIndex], profileId = source.kind === "phonemic-research" ? source.profileId : null;
+        const key2 = JSON.stringify([style, profileId, word2.id, word2.sourceHebrew, word2.syllables.map((s) => [s.id, s.sourceHebrew])]);
+        if (!spanReports.has(key2)) {
+          if (spanReports.size >= 256) spanReports.delete(spanReports.keys().next().value);
+          spanReports.set(key2, compilePronunciationSpanFollow(spanWords.get(word2.id) ?? [], words4, library, style, { profileId }));
+        }
+        return pronunciationSpanFollow(event, word2, spanReports.get(key2));
       },
       groupNotes(events2, words4) {
         return library ? linkPronunciationScoreGroups(events2, words4, library, style) : null;
@@ -13456,7 +13584,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // syllable-timing-draft.js
   var measurements = new Map(pitchManifest.records.map((r) => [r.id, r]));
   var editable = ["start", "end", "startBasis", "endBasis"];
-  var canonical4 = (value) => JSON.stringify((function sort(x) {
+  var canonical5 = (value) => JSON.stringify((function sort(x) {
     return Array.isArray(x) ? x.map(sort) : x && typeof x === "object" ? Object.fromEntries(Object.keys(x).sort().map((k) => [k, sort(x[k])])) : x;
   })(value));
   var fixedUnit = (unit) => Object.fromEntries(Object.entries(unit).filter(([key]) => !editable.includes(key)));
@@ -13547,12 +13675,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!value || typeof value !== "object" || Array.isArray(value)) throw Error("A syllable timing draft object is required.");
     if (!["tropetrain-syllable-timing-draft-v1", "tropetrain-syllable-timing-draft-v2"].includes(value.schema) || value.schema !== expected.schema || value.revision !== expected.revision || value.status !== "personal-unreviewed" || value.sourceEditionCompared !== false || ["phonemes", "musicalNotes", "independentReview"].some((k) => value[k] !== null)) throw Error("Only matching personal unreviewed syllable drafts are supported.");
     const fixed = (x) => ({ ...x, units: void 0 });
-    if (canonical4(fixed(value)) !== canonical4(fixed(expected))) throw Error("Draft source, marked Hebrew, occurrence, style, variant or review status differs.");
+    if (canonical5(fixed(value)) !== canonical5(fixed(expected))) throw Error("Draft source, marked Hebrew, occurrence, style, variant or review status differs.");
     if (!Array.isArray(value.units) || value.units.length !== expected.units.length) throw Error("Draft source syllable count differs.");
     const clean = structuredClone(expected), window2 = syllableTimingWindow(expected);
     let boundary = window2.startSeconds;
     for (const [index, unit] of value.units.entries()) {
-      if (!unit || canonical4(fixedUnit(unit)) !== canonical4(fixedUnit(expected.units[index]))) throw Error("Draft source syllables, written ranges, stress or shared consonants differ.");
+      if (!unit || canonical5(fixedUnit(unit)) !== canonical5(fixedUnit(expected.units[index]))) throw Error("Draft source syllables, written ranges, stress or shared consonants differ.");
       for (const key of ["start", "end"]) {
         const time = unit[key], basis = unit[key + "Basis"];
         if (time === null) {
@@ -13603,11 +13731,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // syllable-group-timing.js
   var measurements2 = new Map(pitchManifest.records.map((r) => [r.id, r]));
   var same4 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-  var canonical5 = (w) => w.sourceWordId ?? w.id;
+  var canonical6 = (w) => w.sourceWordId ?? w.id;
   function groupTimingChoices(study, group, words4, style) {
     if (!group || group.wordIds.length < 2 || new Set(group.wordIds).size !== group.wordIds.length || group.sourceGroupId !== study?.groupId || group.individualWordAllocation !== null || group.writtenSyllableRanges !== null || group.sourceTiming !== null || group.phonemes !== null || group.voice !== null || group.review !== null) throw Error("A complete unchanged shared source word is required.");
     const members = group.wordIndices.map((i) => words4[i]);
-    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical5(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same4(group.sourceWordIds, study.readerIds) || !same4(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
+    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical6(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same4(group.sourceWordIds, study.readerIds) || !same4(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
     const selected = validateJointStudy(chooseSourceStudy(study, group.sourceReadingChoices), group, style);
     if (selected.selectedStyle !== style) throw Error("Choose the current source text style.");
     if (group.navigationWordId !== members[0].id || group.navigationWordIndex !== members[0].index || group.source.sourceCommit !== study.sourceCommit || group.syllables.map((s) => s.sourceHebrew).join("") !== group.sourceReadingHebrew || group.syllables.some((s) => s.readerWordId !== null || s.writtenRange !== null || s.acousticTimes !== null)) throw Error("Shared source syllables or navigation changed.");
@@ -14405,6 +14533,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   } catch {
   }
   $("score-pronunciation").checked = scorePronunciation;
+  var pronunciationSpanFollowing = false;
+  try {
+    pronunciationSpanFollowing = JSON.parse(localStorage.getItem("tropetrain-pronunciation-span-follow-v1"))?.enabled === true;
+  } catch {
+  }
+  $("pronunciation-span-follow").checked = pronunciationSpanFollowing;
   var scrollLayout = null;
   var scrollMessage = "Sourced scroll lines are loading.";
   var referenceLibrary = null;
@@ -14575,17 +14709,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const readerSource = pronunciationTools?.readerStatus();
     if (activeInstrumentEvent && readerSource?.kind !== "published-word") try {
       report = pronunciationTools?.followNote(activeInstrumentEvent, words3);
+      if (pronunciationSpanFollowing && report?.status === "unlinked" && report.reason === "different-syllable-boundaries") report = pronunciationTools?.followSpan(activeInstrumentEvent, words3, plan) ?? report;
     } catch (e) {
       error = e.message;
     }
-    const unitIds = new Set(["exact-written-span", "source-reading-word", "source-reading-group"].includes(report?.status) ? report.units.map((u) => u.sourceUnitId) : []);
+    const unitIds = new Set(["exact-written-span", "source-reading-word", "source-reading-group", "common-written-span"].includes(report?.status) ? report.units.map((u) => u.sourceUnitId) : []);
     for (const el3 of $("reader").querySelectorAll(".reader-word-pronunciation [data-source-unit]")) {
       const button = el3.closest(".pronunciation-word")?.querySelector(".word");
       const shared = el3.closest(".reader-source-group");
       const active = !!report && unitIds.has(el3.dataset.sourceUnit) && (report.status === "source-reading-group" ? shared?.dataset.jointGroup === report.jointGroupId : button?.dataset.word === report.wordId);
       el3.classList.toggle("pronunciation-syllable-active", active);
+      el3.classList.toggle("pronunciation-span-active", active && report.status === "common-written-span");
       if (active) el3.setAttribute("aria-current", "true");
       else el3.removeAttribute("aria-current");
+    }
+    const spanContent = $("pronunciation-span-content");
+    spanContent.replaceChildren();
+    spanContent.hidden = report?.status !== "common-written-span";
+    const groups = new Set(report?.status === "common-written-span" ? report.paths.map((p) => p.groupId) : []);
+    for (const row of $("score-word-alignment-content").querySelectorAll("[data-group-id]")) {
+      const active = groups.has(row.dataset.groupId);
+      row.classList.toggle("pronunciation-span-active", active);
+      if (active) row.setAttribute("aria-current", "true");
+      else row.removeAttribute("aria-current");
     }
     const status = $("pronunciation-follow-status");
     status.dataset.event = activeInstrumentEvent?.id ?? "";
@@ -14597,6 +14743,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       return;
     }
     status.dataset.followWords = JSON.stringify(report?.wordIds ?? (report?.wordId ? [report.wordId] : []));
+    if (report?.status === "common-written-span") {
+      status.textContent = `${readerSource.kind === "phonemic-research" ? readerSource.name : pronunciationTools.scoreStatus().name} · complete shared Hebrew span. All source syllables in each displayed alternative follow together; individual note allocation and acoustic timing remain unassigned.`;
+      for (const path of report.paths) {
+        const line = document.createElement("p");
+        line.dataset.groupId = path.groupId;
+        line.dataset.followEvent = report.eventId;
+        const hebrew = document.createElement("span");
+        hebrew.lang = "he";
+        hebrew.dir = "rtl";
+        hebrew.textContent = path.hebrew;
+        line.append(hebrew, document.createTextNode(" → "));
+        const text = document.createElement("span");
+        text.lang = report.profileId ? "und-fonipa" : "en";
+        text.dir = "ltr";
+        text.textContent = path.sourceUnits.map((u) => u.text).join(" · ");
+        line.append(text);
+        const scope = document.createElement("small");
+        scope.textContent = `${path.scoreSyllables.length} score / ${path.sourceUnits.length} source syllables · row ${path.sourceRow}, column ${path.sourceColumn}${path.hebrewColumn ? " · Hebrew branch " + path.hebrewColumn : ""} · whole span only`;
+        line.append(scope);
+        spanContent.append(line);
+      }
+      return;
+    }
     if (report?.status === "source-reading-group") {
       status.textContent = `${readerSource.name} · shared source syllable ${report.hebrew} · both displayed words together. Individual word ownership, written syllable ranges, sung phones and acoustic timing remain unassigned.`;
       return;
@@ -16259,6 +16428,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   for (const [id, delta] of [["notes-previous", -1], ["notes-next", 1]]) $(id).addEventListener("click", () => {
     state.notePage += delta;
     renderNotes();
+  });
+  $("pronunciation-span-follow").addEventListener("change", () => {
+    pronunciationSpanFollowing = $("pronunciation-span-follow").checked;
+    store("tropetrain-pronunciation-span-follow-v1", { enabled: pronunciationSpanFollowing });
+    renderPronunciationFollow();
   });
   $("score-pronunciation").addEventListener("change", () => {
     scorePronunciation = $("score-pronunciation").checked;
