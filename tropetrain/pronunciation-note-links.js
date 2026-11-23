@@ -13,6 +13,10 @@ export const NOTE_LINK_REASONS=Object.freeze({
 });
 const sourceId=word=>word.sourceWordId??word.id;
 function syllableRanges(word){
+ if(word.sourceSyllableUnderlay?.alignmentLevel==='source-reading-word'){
+  if(word.syllables.map(s=>s.sourceHebrew).join('')!==word.sourceSyllableUnderlay.sourceReadingHebrew||word.syllables.some(s=>s.writtenRange!==null))throw Error('Source reading syllables changed.');
+  return word.syllables.map(s=>({...s,start:null,end:null}));
+ }
  let offset=0;
  const ranges=word.syllables.map(s=>{const start=offset;offset+=s.sourceHebrew.length;return {...s,start,end:offset};});
  if(ranges.map(r=>r.sourceHebrew).join('')!==word.sourceHebrew)throw Error('Score syllables do not reproduce the original marked Hebrew.');
@@ -45,16 +49,23 @@ export function linkPronunciationToNotes(plan,words,library,style){
   }
   const {ranges,study,units,owned}=prepared.get(word.id),range=ranges.find(s=>s.id===event.syllableId);
   if(!range||range.sourceHebrew!==event.syllable)throw Error('Score event syllable no longer matches its original Hebrew.');
-  const matches=owned.filter(u=>u.span?.start===range.start&&u.span.end===range.end);
+  const reading=word.sourceSyllableUnderlay?.alignmentLevel==='source-reading-word';
+  if(reading){const link=event.sourceSyllableLink;if(link?.alignmentLevel!=='source-reading-word'||link.writtenRange!==null||link.readerHebrew!==word.sourceHebrew||link.sourceReadingHebrew!==word.sourceSyllableUnderlay.sourceReadingHebrew||JSON.stringify(link.sourceUnitIds)!==JSON.stringify(range.sourceUnitIds)||JSON.stringify(link.sourceReadingRange)!==JSON.stringify(range.sourceReadingRange))throw Error('Source reading note correspondence changed.');}
+  const matches=owned.filter(u=>reading?range.sourceUnitIds.includes(u.unit.id):u.span?.start===range.start&&u.span.end===range.end);
+  if(reading)for(const match of matches){
+   const original=word.sourceSyllableUnderlay.paths.find(p=>p.style===style&&p.sourceRow===match.row&&p.sourceColumn===match.column)?.units.find(u=>u.sourceUnitId===match.unit.id);
+   if(!original||original.sourceText!==match.unit.text||original.sourceStress!==match.unit.sourceStress||JSON.stringify(original.hebrewUnderlay)!==JSON.stringify(match.unit.hebrewUnderlay))throw Error('Source reading pronunciation path changed.');
+  }
   const reason=matches.length?null:!study?'no-source-correspondence':!units.length?'no-style-transcription':!owned.length?'combined-source-form':owned.every(u=>!u.span)?'source-only-written-form':owned.some(u=>u.span&&u.span.start<range.end&&u.span.end>range.start)?'different-syllable-boundaries':'no-exact-unit';
-  return {eventId:event.id,wordId:word.id,sourceWordId:sourceId(word),syllableId:range.id,hebrew:range.sourceHebrew,hebrewRange:{start:range.start,end:range.end},status:matches.length?'exact-written-span':'unlinked',reason,
+  return {eventId:event.id,wordId:word.id,sourceWordId:sourceId(word),syllableId:range.id,hebrew:range.sourceHebrew,hebrewRange:reading?null:{start:range.start,end:range.end},status:matches.length?reading?'source-reading-word':'exact-written-span':'unlinked',reason,
+   ...(reading?{readerHebrew:word.sourceHebrew,sourceReadingHebrew:word.sourceSyllableUnderlay.sourceReadingHebrew,sourceReadingRange:structuredClone(range.sourceReadingRange),alignmentLevel:'source-reading-word'}:{}),
    units:matches.map(({unit,row,column,reference,labels})=>({sourceUnitId:unit.id,text:unit.text,sourceRow:row,sourceColumn:column,sourceStress:unit.sourceStress,labels,sourceReference:reference,sourceMarks:structuredClone(unit.sourceMarks),hebrewClusterRanges:structuredClone(unit.hebrewClusterRanges),sharesNextConsonant:unit.hebrewUnderlay?.variants.some(v=>v.sharesNextConsonant)??false,sharesPreviousConsonant:unit.hebrewUnderlay?.variants.some(v=>v.sharesPreviousConsonant)??false}))};
  });
  return {format:'tropetrain-pronunciation-note-links-v1',revision:1,style,sourceCommit:library.sourceCommit,
   pronunciationSource:{project:'Phonetic MAM by Benjamin Denckla; Hebrew Wikisource / Miqra according to the Masorah',dataLicense:'CC-BY-SA-4.0',notice:'assets/pronunciation/NOTICE.txt'},
-  method:'Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.',
+  method:links.some(l=>l.alignmentLevel==='source-reading-word')?'Equal marked-Hebrew ranges for written forms; explicit source-unit identities for opted-in source reading forms at word level, with null written syllable ranges. No acoustic allocation.':'Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.',
   review:'Structural text correspondence only. Score syllabification, pronunciation and musical underlay need independent review. No phoneme, vocal delivery or acoustic alignment is inferred.',
   phonemes:null,audioTimes:null,words:[...prepared.values()].map(({word:w})=>({wordId:w.id,sourceWordId:sourceId(w),hebrew:w.sourceHebrew})),
-  counts:{notes:links.length,linkedNotes:links.filter(l=>l.status==='exact-written-span').length,unlinkedNotes:links.filter(l=>l.status==='unlinked').length},links};
+  counts:{notes:links.length,linkedNotes:links.filter(l=>l.status!=='unlinked').length,unlinkedNotes:links.filter(l=>l.status==='unlinked').length},links};
 }
-export function notePronunciationText(link){return link?.status==='exact-written-span'?Object.hasOwn(link,'phonology')?link.phonology?.text??null:[...new Set(link.units.map(u=>u.text))].join(' / '):null;}
+export function notePronunciationText(link){return ['exact-written-span','source-reading-word'].includes(link?.status)?Object.hasOwn(link,'phonology')?link.phonology?.text??null:[...new Set(link.units.map(u=>u.text))].join(' / '):null;}

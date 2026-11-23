@@ -1,0 +1,229 @@
+{
+  "schema": "tropetrain-source-reading-playback-audit-v1",
+  "revision": 1,
+  "counts": {
+    "chapters": 187,
+    "readerWords": 79985,
+    "writtenWords": 77790,
+    "sourceReadingWords": 2172,
+    "availableWords": 79962,
+    "withheldWords": 23,
+    "addedSourceSyllables": 6227,
+    "addedNotes": 7665,
+    "sourceTextNoteChecks": 15330,
+    "phonemicProfileNoteChecks": 30660
+  },
+  "gaps": {
+    "source-only-written-form": 9,
+    "conflicting-source-paths": 12,
+    "combined-source-form": 2
+  },
+  "remaining": [
+    {
+      "id": "gen-13-3-13",
+      "hebrew": "אֽ͏ָהֳלוֹ֙",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "gen-14-8-13",
+      "hebrew": "הִוא־",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "gen-27-38-7",
+      "hebrew": "הִֽוא־",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "gen-32-18-6",
+      "hebrew": "יִֽפְגָּשְׁךָ֞",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "exo-20-3-1",
+      "hebrew": "לֹֽ֣א",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "exo-20-3-2",
+      "hebrew": "יִהְיֶֽה־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "exo-20-4-1",
+      "hebrew": "לֹֽ֣א",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "exo-20-4-2",
+      "hebrew": "תֽ͏ַעֲשֶׂ֨ה־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "exo-20-10-6",
+      "hebrew": "לֹֽ֣א־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "exo-20-10-11",
+      "hebrew": "וּבִנְךָֽ֣־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "deu-4-25-16",
+      "hebrew": "יְהוָֽה־",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "deu-5-7-1",
+      "hebrew": "לֹ֣א",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "deu-5-7-2",
+      "hebrew": "יִהְיֶ֥ה־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "deu-5-8-1",
+      "hebrew": "לֹֽ֣א־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "deu-5-8-2",
+      "hebrew": "תַעֲשֶֽׂ֨ה־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "deu-5-12-8",
+      "hebrew": "יְהוָ֥֣ה",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "deu-5-15-2",
+      "hebrew": "כִּ֣י־",
+      "reason": "conflicting-source-paths"
+    },
+    {
+      "id": "deu-5-15-8",
+      "hebrew": "יְהוָ֤֨ה",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "deu-17-2-19",
+      "hebrew": "יְהוָֽה־",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "deu-25-19-11",
+      "hebrew": "יְהוָֽה־",
+      "reason": "source-only-written-form"
+    },
+    {
+      "id": "deu-32-6-1",
+      "hebrew": "הֲ־",
+      "reason": "combined-source-form"
+    },
+    {
+      "id": "deu-32-6-2",
+      "hebrew": "לַיְהוָה֙",
+      "reason": "combined-source-form"
+    },
+    {
+      "id": "deu-32-7-6",
+      "hebrew": "דּוֹר־",
+      "reason": "source-only-written-form"
+    }
+  ],
+  "examples": [
+    {
+      "id": "gen-2-4-8",
+      "hebrew": "יְהוָ֥ה",
+      "reading": "אֲדֹנָ֥י",
+      "syllables": [
+        "אֲ",
+        "דֹ",
+        "נָ֥י"
+      ]
+    },
+    {
+      "id": "gen-2-5-15",
+      "hebrew": "יְהוָ֤ה",
+      "reading": "אֲדֹנָ֤י",
+      "syllables": [
+        "אֲ",
+        "דֹ",
+        "נָ֤י"
+      ]
+    },
+    {
+      "id": "gen-2-7-2",
+      "hebrew": "יְהוָ֨ה",
+      "reading": "אֲדֹנָ֨י",
+      "syllables": [
+        "אֲ",
+        "דֹ",
+        "נָ֨י"
+      ]
+    },
+    {
+      "id": "gen-2-8-2",
+      "hebrew": "יְהוָ֧ה",
+      "reading": "אֲדֹנָ֧י",
+      "syllables": [
+        "אֲ",
+        "דֹ",
+        "נָ֧י"
+      ]
+    },
+    {
+      "id": "gen-2-9-2",
+      "hebrew": "יְהוָ֤ה",
+      "reading": "אֲדֹנָ֤י",
+      "syllables": [
+        "אֲ",
+        "דֹ",
+        "נָ֤י"
+      ]
+    },
+    {
+      "id": "gen-2-12-3",
+      "hebrew": "הַהִ֖וא",
+      "reading": "הַהִ֖יא",
+      "syllables": [
+        "הַ",
+        "הִ֖יא"
+      ]
+    }
+  ],
+  "sourceReadingAssignmentSha256": "d2065270c8a0189fcdc1e6d3c8d03e89477edc60b0abb403ca00f7345c52963e",
+  "priorWrittenAssignmentSha256": "a7b487372767d724032a352c9e5f258a56de607aaf4582ff1685134cb928de66",
+  "source": {
+    "project": "Phonetic MAM by Benjamin Denckla, Hebrew Wikisource",
+    "commit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "url": "https://github.com/bdenckla/MAM-basics/tree/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "license": "CC-BY-SA-4.0",
+    "attribution": "Hebrew Wikisource; MAM prepared by Seth (Avi) Kadish with Erel Segal-Halevi and Benjamin Denckla",
+    "attributionUrl": "https://en.wikisource.org/wiki/User:Dovi/Miqra_according_to_the_Masorah#beginning",
+    "notice": "assets/pronunciation/NOTICE.txt"
+  },
+  "method": "Opt-in extension only. All original source paths and both transcription styles must agree on complete source-reading syllables and stress. Source word ownership and a documented reader letter form must agree. Source-reading offsets belong to the source form; displayed Hebrew is unchanged, and written syllable ranges remain null. All 77,790 previous written-word reports are deeply identical.",
+  "invariants": {
+    "markedHebrewUnchanged": true,
+    "sourceBranchesRetained": true,
+    "sourceStressRetained": true,
+    "priorWrittenReportsExact": true,
+    "writtenSyllableRangesForDifferentForms": null,
+    "acceptedPhonemes": null,
+    "acousticAllocation": null,
+    "singingVoice": null,
+    "historicalMelodyGrammar": null,
+    "review": null
+  },
+  "performance": {
+    "melodyId": "original-demo-01",
+    "kind": "original-instrumental-demonstration",
+    "sourceDurationsAssigned": false
+  },
+  "pending": "The remaining23words retain source-only, conflicting or combined evidence. Independent linguistic/cantorial review, complete historical melody grammars and reusable reviewed singing voices for independent pronunciation styles remain pending. Research phonemic candidates retain every unresolved category and null acoustic realization."
+}

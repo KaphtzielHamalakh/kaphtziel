@@ -68,7 +68,8 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
       midi,beats:pitches.length>1?0.5:(s.stress?0.9:0.6),part:j+1,
       ...(sourceUnderlayEnabled?{sourceSyllableLink:Object.freeze({underlayId:SOURCE_SYLLABLE_UNDERLAY.id,revision:1,
        sourceCommit:SOURCE_SYLLABLE_UNDERLAY.sourceCommit,dataLicense:SOURCE_SYLLABLE_UNDERLAY.dataLicense,
-       sourceUnitIds:Object.freeze([...s.sourceUnitIds]),writtenRange:Object.freeze({...s.writtenRange}),sourceSyllablePosition:s.sourceSyllablePosition,
+       sourceUnitIds:Object.freeze([...s.sourceUnitIds]),writtenRange:s.writtenRange===null?null:Object.freeze({...s.writtenRange}),sourceSyllablePosition:s.sourceSyllablePosition,
+       ...(s.alignmentLevel==='source-reading-word'?{alignmentLevel:s.alignmentLevel,sourceReadingHebrew:s.sourceReadingHebrew,sourceReadingRange:Object.freeze({...s.sourceReadingRange}),readerHebrew:w.sourceHebrew}:{}),
        sourceTiming:null,phonemes:null,voice:null,review:null,performance:'original-demo-01'})}:{})}));
   })));
   function bounds(cursor,anchor,scope){
@@ -95,7 +96,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     });
   }
   return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words),
-   ...(sourceUnderlayEnabled?{sourceSyllableUnderlay:{...SOURCE_SYLLABLE_UNDERLAY,availableWords:words.filter(w=>w.sourceSyllableUnderlay.status==='available').length,unavailableWords:words.filter(w=>w.sourceSyllableUnderlay.status!=='available').length}}:{})};
+   ...(sourceUnderlayEnabled?{sourceSyllableUnderlay:{...SOURCE_SYLLABLE_UNDERLAY,availableWords:words.filter(w=>w.sourceSyllableUnderlay.status==='available').length,unavailableWords:words.filter(w=>w.sourceSyllableUnderlay.status!=='available').length,...(sourceUnderlay?.allowSourceReadings?{allowSourceReadings:true,sourceReadingWords:words.filter(w=>w.sourceSyllableUnderlay.alignmentLevel==='source-reading-word').length}:{})}}:{})};
 }
 const initial=createReadingModel(defaultPassage);
 export const words=initial.words,events=initial.events,bounds=initial.bounds,buildPlan=initial.buildPlan;

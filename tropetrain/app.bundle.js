@@ -3976,6 +3976,240 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
   }
 
+  // pronunciation-repeats.js
+  var PRONUNCIATION_REPEAT_EVIDENCE = Object.freeze({
+    commit: "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    file: "py/phonetic_mam/display_projection.py",
+    gitBlob: "737dc0c4330dca9984baf1ab3fe7e17a78bb2c70",
+    url: "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/display_projection.py",
+    rule: "The second qamats transcription is displayed as an em dash when its content equals the first qamats transcription in the same pronunciation style."
+  });
+  var SECOND_LABELS = /* @__PURE__ */ new Set(["קמץ-ס", "טעם תחתון, קמץ-ס", "טעם עליון, קמץ-ס"]);
+  var hasTranscription = (cell) => cell.status === "present" || cell.status === "repeated";
+  function resolvePronunciationRepeats(group, rows2) {
+    return rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell, index) => {
+      if (cell.status !== "repeat-mark") return cell;
+      const original = group.rows[rowIndex], firstNodes = original.transcriptions[style][0];
+      const alternativeLabels = [...new Set(original.hebrew.flatMap((nodes) => nodes ?? []).filter((n) => n && typeof n === "object" && n.kind === "reading" && SECOND_LABELS.has(n.label)).map((n) => n.label))];
+      const base = cells[0];
+      const valid2 = index === 1 && original.transcriptions[style][index]?.length === 1 && original.transcriptions[style][index][0] === "—" && firstNodes?.length === 1 && firstNodes[0]?.kind === "reading" && firstNodes[0].label === "קמץ-ד" && base.status === "present" && base.units.length > 0 && alternativeLabels.length > 0;
+      if (!valid2) return { ...cell, status: "unresolved-repeat", literalStatus: "repeat-mark", literalText: "—", sourceReference: null };
+      const reference = { cellId: base.id, row: row.number, column: 1, style, kind: "equal-qamats-transcription", alternativeLabels };
+      const mark = (m) => ({ ...m, sourceColumn: 1 });
+      return {
+        ...cell,
+        status: "repeated",
+        literalStatus: "repeat-mark",
+        literalText: "—",
+        sourceReference: reference,
+        text: base.text,
+        boundaries: base.boundaries.map((b) => ({ ...b })),
+        marks: base.marks.map(mark),
+        units: base.units.map((unit) => ({ ...unit, id: `${cell.id}-u${unit.number}`, readerWordId: cell.readerWordId, sourceMarks: unit.sourceMarks.map(mark), sourceReference: { cellId: base.id, column: 1 } }))
+      };
+    })])) }));
+  }
+
+  // pronunciation-implicit-reading-data.js
+  var IMPLICIT_READING = { "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b", "groupId": "pmam-gen-4-18-7", "link": { "kind": "mam-explicit-implicit-reading-word", "ruleId": "mam-umexiyael-gen4-18", "readerWordId": "gen-4-18-9", "readerHebrew": "וּמְחִיּיָאֵ֗ל", "primaryHebrew": "וּמְחִיָּיאֵ֗ל", "sourceReadingHebrew": "וּמְחִיָּאֵ֗ל", "primaryAtom": 9, "primaryVerse": "Gen.4.18", "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf", "sourceRuleGitBlob": "5dcf34bd2e1fd4ad6de30c900366128b3dca7abd", "sourceRuleSha256": "5cbfeb9f7e2cf626dc9695a8619a5c7c42b8597f5ef97ced9120d0abed163e3d" }, "anchors": { "beforeGroup": "pmam-gen-4-18-6", "afterGroup": "pmam-gen-4-18-8", "beforeReaderEnd": "gen-4-18-8", "afterReaderStart": "gen-4-18-10" }, "primaryArchiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4", "sourceRuleArchiveSha256": "cf2aef1d9df85e4ead6f7ef9cfcb15001d777104a0c29b2dcbaddc7133292d0e" };
+
+  // pronunciation-implicit-reading.js
+  var equal = (actual, expected) => actual && Object.keys(actual).length === Object.keys(expected).length && Object.entries(expected).every(([key, value]) => actual[key] === value);
+  var isImplicitReadingGroup = (group) => group.readerIds?.includes(IMPLICIT_READING.link.readerWordId) || group.id === IMPLICIT_READING.groupId || group.match === "primary-implicit-reading-between-anchors" || Object.hasOwn(group, "implicitReadingLinks");
+  function implicitReadingWordForm(group, index) {
+    const link = group.implicitReadingLinks?.[0], known = IMPLICIT_READING.link;
+    if (index !== 0 || group.id !== IMPLICIT_READING.groupId || group.bookId !== "gen" || group.displayChapter !== 4 || group.displayVerse !== 18 || group.readerIds.length !== 1 || group.readerIds[0] !== known.readerWordId || group.readerHebrew[0] !== known.readerHebrew || group.readerStart !== known.readerWordId || group.readerEnd !== known.readerWordId || group.implicitReadingLinks?.length !== 1 || !equal(link, known) || group.match !== "primary-implicit-reading-between-anchors" || !group.flags.includes("documented-implicit-reading-form") || !equal(group.variantWindow, IMPLICIT_READING.anchors) || group.primaryEditionArchiveSha256 !== IMPLICIT_READING.primaryArchiveSha256 || group.implicitReadingSourceArchiveSha256 !== IMPLICIT_READING.sourceRuleArchiveSha256 || group.rows.length !== 1 || group.rows[0].number !== 7 || JSON.stringify(group.rows[0].hebrew) !== JSON.stringify([[known.sourceReadingHebrew]]))
+      throw Error("The documented implicit-reading correspondence needs review.");
+    return known.sourceReadingHebrew.replace(/[^א-ת]/gu, "");
+  }
+
+  // pronunciation-word-alignment.js
+  var letters = (text) => text.replace(/[^א-ת]/gu, "");
+  function readerLetterForms(text) {
+    const raw = letters(text), forms = /* @__PURE__ */ new Set([raw]);
+    if (/^[ובכלמשה]{0,3}יהוה$/u.test(raw)) for (const name of ["אדני", "אלהים"]) forms.add(raw.slice(0, -4) + name);
+    const clusters3 = text.match(/[א-ת][^א-ת]*/gu) ?? [];
+    if (raw.endsWith("הוא") && clusters3.at(-3)?.includes("ִ")) forms.add(raw.slice(0, -3) + "היא");
+    if (/^[ובכלמשה]{0,3}יששכר$/u.test(raw)) forms.add(raw.replace("יששכר", "ישכר"));
+    return [...forms];
+  }
+  function groupReaderLetterForms(group, index) {
+    const text = group.readerHebrew[index], id = group.readerIds[index], forms = readerLetterForms(text);
+    const variants = (group.writtenReadVariants ?? []).filter((v) => v.readerWordId === id);
+    if (variants.length > 1) throw Error("Ambiguous explicit written/read pronunciation evidence.");
+    for (const variant of variants) {
+      if (variant.kind !== "uxlc-explicit-one-written-one-reading" || variant.readerHebrew !== text || !variant.writtenTokenId || variant.writtenTokenId === id || typeof variant.writtenHebrew !== "string" || !letters(variant.writtenHebrew) || !group.flags.includes("explicit-written-read-variant") || !group.variantWindow?.beforeGroup || !group.variantWindow?.afterGroup)
+        throw Error("Explicit written/read pronunciation evidence needs review.");
+      forms.push(letters(variant.writtenHebrew));
+    }
+    if (group.editionWordLinks) {
+      const links = group.editionWordLinks, owners = new Set(links.map((v) => v.readerWordId));
+      if (links.length !== group.readerIds.length || owners.size !== links.length || group.readerIds.some((id2) => !owners.has(id2)) || !group.flags.includes("primary-edition-correspondence") || !group.variantWindow?.beforeGroup || !group.variantWindow?.afterGroup || !/^[a-f0-9]{64}$/u.test(group.primaryEditionArchiveSha256 ?? "")) throw Error("Primary edition word evidence needs review.");
+      const plain = (nodes) => nodes.map((n) => typeof n === "string" ? n : plain(n.content)).join(""), sourceRows = group.rows.map((row) => [...new Set(row.hebrew.filter((h) => h !== null).map((h) => letters(plain(h))))]);
+      if (sourceRows.some((r) => r.length !== 1) || sourceRows.map((r) => r[0]).join("") !== links.map((v) => letters(v.primaryHebrew ?? "")).join("")) throw Error("Primary edition spelling differs from the original pronunciation source.");
+      const link = links.find((v) => v.readerWordId === id), osis = { gen: "Gen", exo: "Exod", lev: "Lev", num: "Num", deu: "Deut" }[group.bookId];
+      if (link.kind !== "mam-primary-edition-word" || link.readerHebrew !== text || typeof link.primaryHebrew !== "string" || !letters(link.primaryHebrew) || !Number.isInteger(link.primaryAtom) || link.primaryAtom < 1 || link.primaryVerse !== `${osis}.${group.displayChapter}.${group.displayVerse}` || !/^[a-f0-9]{64}$/u.test(link.sourceFileSha256 ?? "")) throw Error("Primary edition word evidence needs review.");
+      forms.push(letters(link.primaryHebrew));
+    }
+    if (isImplicitReadingGroup(group)) forms.push(implicitReadingWordForm(group, index));
+    return [...new Set(forms)];
+  }
+  function literalReaderWordPaths(source, forms) {
+    const levels = [/* @__PURE__ */ new Map([[0, 1n]])], edges = [];
+    for (const [word, choices] of forms.entries()) {
+      const next = /* @__PURE__ */ new Map(), row = [];
+      for (const [start, count] of levels[word]) for (const form of new Set(choices)) {
+        if (!form || !source.startsWith(form, start)) continue;
+        const end = start + form.length;
+        row.push({ word, start, end, form });
+        next.set(end, (next.get(end) ?? 0n) + count);
+      }
+      edges.push(row);
+      levels.push(next);
+    }
+    const paths = levels.at(-1).get(source.length) ?? 0n;
+    if (!paths) return { paths: "0", edges: [] };
+    let ends = /* @__PURE__ */ new Set([source.length]);
+    const valid2 = [];
+    for (let word = forms.length - 1; word >= 0; word--) {
+      const row = edges[word].filter((edge) => ends.has(edge.end));
+      valid2.push(...row);
+      ends = new Set(row.map((edge) => edge.start));
+    }
+    return { paths: paths.toString(), edges: valid2 };
+  }
+  function sourceParts(cell, column) {
+    if (cell.text === null) return null;
+    const parts = [...cell.text.matchAll(/[^־\s]+/gu)].map((match) => ({ text: match[0], start: match.index, end: match.index + match[0].length, letters: letters(match[0]) }));
+    if (!parts.length || parts.some((part) => !part.letters)) return { invalid: true };
+    return { column: column + 1, text: cell.text, labels: cell.marks.filter((m) => m.kind === "reading").map((m) => m.label), parts };
+  }
+  function boundaryProof(group, hebrewRows) {
+    const rows2 = hebrewRows.map((cells) => cells.map(sourceParts).filter(Boolean));
+    if (rows2.some((forms) => !forms.length || forms.some((f) => f.invalid))) return { reason: "missing-or-nonlexical-source-Hebrew" };
+    if (rows2.some((forms) => new Set(forms.map((f) => f.parts.length)).size !== 1)) return { reason: "source-Hebrew-boundaries-differ" };
+    const slots = rows2.map((forms) => forms[0].parts.map((_, part) => ({ forms: forms.map((f) => ({ column: f.column, text: f.parts[part].text, start: f.parts[part].start, end: f.parts[part].end, labels: f.labels })), owners: /* @__PURE__ */ new Set() })));
+    const formLists = group.readerHebrew.map((_, index) => groupReaderLetterForms(group, index)), variants = [];
+    function visit(row, chosen) {
+      if (row < rows2.length) {
+        for (const form of rows2[row]) visit(row + 1, [...chosen, form]);
+        return;
+      }
+      let position = 0;
+      const spans = chosen.flatMap((form, r) => form.parts.map((part, p) => {
+        const start = position;
+        position += part.letters.length;
+        return { row: r, part: p, start, end: position };
+      }));
+      const source = chosen.map((form) => form.parts.map((part) => part.letters).join("")).join("");
+      const match = literalReaderWordPaths(source, formLists);
+      variants.push({ sourceColumns: chosen.map((f) => f.column), paths: match.paths });
+      if (match.paths === "0") return;
+      for (const span of spans) for (const edge of match.edges) if (edge.start < span.end && edge.end > span.start) slots[span.row][span.part].owners.add(edge.word);
+    }
+    visit(0, []);
+    if (variants.some((v) => v.paths === "0")) return { reason: "source-reading-word-difference", variants };
+    return { reason: null, variants, rows: slots.map((parts) => parts.map((part) => ({ sourceForms: part.forms, readerIds: group.readerIds.filter((_, index) => part.owners.has(index)), readerWordId: part.owners.size === 1 ? group.readerIds[[...part.owners][0]] : null }))) };
+  }
+  function transcriptionWords(cell) {
+    if (!hasTranscription(cell)) return [];
+    return [...cell.text.matchAll(/[^-\s]+/gu)].map((match) => ({ number: 0, text: match[0], start: match.index, end: match.index + match[0].length })).map((part, index) => ({ ...part, number: index + 1, unitIds: cell.units.filter((u) => u.start >= part.start && u.end <= part.end).map((u) => u.id) }));
+  }
+  function alignSourceWordBoundaries(group, rows2, hebrewRows) {
+    const single = group.readerIds.length === 1, proof = single ? null : boundaryProof(group, hebrewRows);
+    const aligned = rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell) => {
+      const parts = transcriptionWords(cell), slots = proof?.rows?.[rowIndex];
+      let reason = single ? null : proof.reason;
+      if (!hasTranscription(cell)) reason = "no-source-transcription";
+      else if (parts.some((part) => !part.unitIds.length)) reason = "empty-transcription-word";
+      else if (!single && !reason && parts.length !== slots.length) reason = "transcription-boundaries-differ";
+      const wordSegments = parts.map((part, index) => ({
+        ...part,
+        readerIds: reason ? [] : single ? [group.readerIds[0]] : slots[index].readerIds,
+        readerWordId: reason ? null : single ? group.readerIds[0] : slots[index].readerWordId,
+        sourceForms: single ? [] : slots?.[index]?.sourceForms ?? []
+      }));
+      const owners = new Map(wordSegments.flatMap((part) => part.unitIds.map((id) => [id, part.readerWordId])));
+      const units = cell.units.map((unit) => ({ ...unit, readerWordId: owners.get(unit.id) ?? null }));
+      const assigned = units.filter((u) => u.readerWordId !== null).length;
+      const status = !hasTranscription(cell) ? "no-source-transcription" : !units.length ? "group-only" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only";
+      return { ...cell, units, wordSegments, wordAlignment: { status, method: single ? "single-reader-word-group" : "literal-source-boundaries", reason: reason ?? (assigned < units.length ? "source-word-spans-multiple-reader-words" : null) } };
+    })])) }));
+    const styles3 = Object.fromEntries(["sephardic", "ashkenazic"].map((style) => {
+      const units = aligned.flatMap((row) => row.styles[style].flatMap((cell) => cell.units)), assigned = units.filter((unit) => unit.readerWordId !== null).length;
+      return [style, { status: !units.length ? "no-source-transcription" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only", assignedUnits: assigned, groupOnlyUnits: units.length - assigned }];
+    }));
+    return { rows: aligned, wordAlignment: { revision: 1, styles: styles3, proof: single ? { method: "single-reader-word-group" } : { method: "all-literal-source-readings-and-all-exact-reader-form-paths", reason: proof.reason, variants: proof.variants ?? [] } } };
+  }
+
+  // source-reading-syllables.js
+  var letters2 = (text) => text.replace(/[^א-ת]/gu, "");
+  function sourceReadingSyllables(word, studies, result) {
+    if (result.reason !== "source-only-written-form" || !result.paths.length) return result;
+    const id = word.sourceWordId ?? word.id, readings = [];
+    for (const path of result.paths) {
+      const study = studies[path.style], group = study.sourceGroup, index = group.readerIds.indexOf(id);
+      if (index < 0 || group.readerHebrew[index] !== word.sourceHebrew) throw Error("Source reading word ownership changed.");
+      const forms = groupReaderLetterForms(group, index), units = [];
+      for (const unit of path.units) {
+        const variants = unit.hebrewUnderlay?.variants;
+        if (!variants?.length || variants.some((v) => !v.source || v.readerRanges !== null)) return result;
+        const values = variants.map((v) => ({ text: v.source.text, start: v.source.start, end: v.source.end, column: v.hebrewColumn }));
+        if (new Set(values.map((v) => JSON.stringify([v.text, v.start, v.end]))).size !== 1) return result;
+        units.push({ ...values[0], sourceUnitId: unit.sourceUnitId, sourceStress: unit.sourceStress });
+      }
+      const text = units.map((u) => u.text).join("");
+      if (!text || letters2(text) === letters2(word.sourceHebrew) || !forms.includes(letters2(text))) return result;
+      const row = study.rows.find((r) => r.number === path.sourceRow), cell = row?.styles[path.style].find((c) => c.column === path.sourceColumn);
+      if (!cell || units.some((u) => cell.units.find((x) => x.id === u.sourceUnitId)?.readerWordId !== id)) throw Error("Source reading units lost their word ownership.");
+      if (units.some((u, i) => i && units[i - 1].end !== u.start)) return result;
+      const sourceRow = group.rows.find((r) => r.number === path.sourceRow), plain = (nodes) => nodes.map((n) => typeof n === "string" ? n : plain(n.content)).join("");
+      for (const column of new Set(path.units.flatMap((u) => u.hebrewUnderlay.variants.map((v) => v.hebrewColumn)))) {
+        const raw = sourceRow?.hebrew[column - 1];
+        if (!raw) return result;
+        const source = plain(raw), from = units[0].start, to = units.at(-1).end;
+        if (source.slice(from, to) !== text || from > 0 && !/[־\s]/u.test(source[from - 1]) || to < source.length && !/[־\s]/u.test(source[to])) return result;
+      }
+      readings.push({ path, units, text });
+    }
+    const signature2 = (r) => JSON.stringify(r.units.map((u) => [u.text, u.sourceStress]));
+    if (!["sephardic", "ashkenazic"].every((style) => readings.some((r) => r.path.style === style)) || new Set(readings.map(signature2)).size !== 1) return result;
+    const first = readings[0];
+    return {
+      ...result,
+      status: "available",
+      reason: null,
+      alignmentLevel: "source-reading-word",
+      sourceReadingHebrew: first.text,
+      wordCorrespondence: {
+        sourceWordId: id,
+        readerHebrew: word.sourceHebrew,
+        sourceReadingHebrew: first.text,
+        method: "Pinned source word ownership and documented reader letter form; every source branch and both transcription styles agree on source syllables and stress.",
+        writtenSyllableRanges: null,
+        review: null
+      },
+      syllables: first.units.map((u, i) => ({
+        sourceHebrew: u.text,
+        stress: u.sourceStress,
+        roman: null,
+        phonemes: null,
+        reviewStatus: "source-reading-word-correspondence",
+        analyzer: result.source.name,
+        writtenRange: null,
+        sourceReadingRange: { start: u.start - first.units[0].start, end: u.end - first.units[0].start },
+        sourceReadingHebrew: first.text,
+        sourceUnitIds: readings.map((r) => r.units[i].sourceUnitId),
+        sourcePathIndices: readings.map((_, n) => n),
+        sourceSyllablePosition: i,
+        sourceUnderlayId: result.source.id,
+        alignmentLevel: "source-reading-word",
+        acousticTimes: null,
+        review: null
+      }))
+    };
+  }
+
   // source-syllable-underlay.js
   var SOURCE_SYLLABLE_UNDERLAY = Object.freeze({
     id: "mam-consensus-written-syllables-v1",
@@ -4091,9 +4325,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { ...result, status: "available", reason: null, syllables };
   }
   var SourceSyllableUnderlay = class {
-    constructor(library) {
+    constructor(library, { allowSourceReadings = false } = {}) {
       if (!library || library.sourceCommit !== SOURCE_SYLLABLE_UNDERLAY.sourceCommit || !library.underlay) throw Error("Checked source syllable library required.");
       this.library = library;
+      this.allowSourceReadings = allowSourceReadings;
       this.groups = /* @__PURE__ */ new Map();
     }
     word(word) {
@@ -4107,7 +4342,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (this.groups.size >= 128) this.groups.delete(this.groups.keys().next().value);
         this.groups.set(group.id, studies);
       }
-      return sourceSyllableWord(word, studies);
+      const result = sourceSyllableWord(word, studies);
+      return this.allowSourceReadings ? sourceReadingSyllables(word, studies, result) : result;
     }
   };
 
@@ -4236,8 +4472,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           sourceCommit: SOURCE_SYLLABLE_UNDERLAY.sourceCommit,
           dataLicense: SOURCE_SYLLABLE_UNDERLAY.dataLicense,
           sourceUnitIds: Object.freeze([...s.sourceUnitIds]),
-          writtenRange: Object.freeze({ ...s.writtenRange }),
+          writtenRange: s.writtenRange === null ? null : Object.freeze({ ...s.writtenRange }),
           sourceSyllablePosition: s.sourceSyllablePosition,
+          ...s.alignmentLevel === "source-reading-word" ? { alignmentLevel: s.alignmentLevel, sourceReadingHebrew: s.sourceReadingHebrew, sourceReadingRange: Object.freeze({ ...s.sourceReadingRange }), readerHebrew: w.sourceHebrew } : {},
           sourceTiming: null,
           phonemes: null,
           voice: null,
@@ -4287,7 +4524,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       buildPlan: buildPlan3,
       profile,
       context: analyzeAccentContext(words4),
-      ...sourceUnderlayEnabled ? { sourceSyllableUnderlay: { ...SOURCE_SYLLABLE_UNDERLAY, availableWords: words4.filter((w) => w.sourceSyllableUnderlay.status === "available").length, unavailableWords: words4.filter((w) => w.sourceSyllableUnderlay.status !== "available").length } } : {}
+      ...sourceUnderlayEnabled ? { sourceSyllableUnderlay: { ...SOURCE_SYLLABLE_UNDERLAY, availableWords: words4.filter((w) => w.sourceSyllableUnderlay.status === "available").length, unavailableWords: words4.filter((w) => w.sourceSyllableUnderlay.status !== "available").length, ...sourceUnderlay?.allowSourceReadings ? { allowSourceReadings: true, sourceReadingWords: words4.filter((w) => w.sourceSyllableUnderlay.alignmentLevel === "source-reading-word").length } : {} } } : {}
     };
   }
   var initial = createReadingModel(passage);
@@ -5687,172 +5924,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text());
   }
 
-  // pronunciation-repeats.js
-  var PRONUNCIATION_REPEAT_EVIDENCE = Object.freeze({
-    commit: "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
-    file: "py/phonetic_mam/display_projection.py",
-    gitBlob: "737dc0c4330dca9984baf1ab3fe7e17a78bb2c70",
-    url: "https://github.com/bdenckla/MAM-basics/blob/6f0612ed2109d32e288d7c0ca41ae3dbfaad702b/py/phonetic_mam/display_projection.py",
-    rule: "The second qamats transcription is displayed as an em dash when its content equals the first qamats transcription in the same pronunciation style."
-  });
-  var SECOND_LABELS = /* @__PURE__ */ new Set(["קמץ-ס", "טעם תחתון, קמץ-ס", "טעם עליון, קמץ-ס"]);
-  var hasTranscription = (cell) => cell.status === "present" || cell.status === "repeated";
-  function resolvePronunciationRepeats(group, rows2) {
-    return rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell, index) => {
-      if (cell.status !== "repeat-mark") return cell;
-      const original = group.rows[rowIndex], firstNodes = original.transcriptions[style][0];
-      const alternativeLabels = [...new Set(original.hebrew.flatMap((nodes) => nodes ?? []).filter((n) => n && typeof n === "object" && n.kind === "reading" && SECOND_LABELS.has(n.label)).map((n) => n.label))];
-      const base = cells[0];
-      const valid2 = index === 1 && original.transcriptions[style][index]?.length === 1 && original.transcriptions[style][index][0] === "—" && firstNodes?.length === 1 && firstNodes[0]?.kind === "reading" && firstNodes[0].label === "קמץ-ד" && base.status === "present" && base.units.length > 0 && alternativeLabels.length > 0;
-      if (!valid2) return { ...cell, status: "unresolved-repeat", literalStatus: "repeat-mark", literalText: "—", sourceReference: null };
-      const reference = { cellId: base.id, row: row.number, column: 1, style, kind: "equal-qamats-transcription", alternativeLabels };
-      const mark = (m) => ({ ...m, sourceColumn: 1 });
-      return {
-        ...cell,
-        status: "repeated",
-        literalStatus: "repeat-mark",
-        literalText: "—",
-        sourceReference: reference,
-        text: base.text,
-        boundaries: base.boundaries.map((b) => ({ ...b })),
-        marks: base.marks.map(mark),
-        units: base.units.map((unit) => ({ ...unit, id: `${cell.id}-u${unit.number}`, readerWordId: cell.readerWordId, sourceMarks: unit.sourceMarks.map(mark), sourceReference: { cellId: base.id, column: 1 } }))
-      };
-    })])) }));
-  }
-
-  // pronunciation-implicit-reading-data.js
-  var IMPLICIT_READING = { "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b", "groupId": "pmam-gen-4-18-7", "link": { "kind": "mam-explicit-implicit-reading-word", "ruleId": "mam-umexiyael-gen4-18", "readerWordId": "gen-4-18-9", "readerHebrew": "וּמְחִיּיָאֵ֗ל", "primaryHebrew": "וּמְחִיָּיאֵ֗ל", "sourceReadingHebrew": "וּמְחִיָּאֵ֗ל", "primaryAtom": 9, "primaryVerse": "Gen.4.18", "sourceFileSha256": "bf7a742869b58ebec8b14c6991f4a63236eb0b5e3cae14300d60cb09f1ed3abf", "sourceRuleGitBlob": "5dcf34bd2e1fd4ad6de30c900366128b3dca7abd", "sourceRuleSha256": "5cbfeb9f7e2cf626dc9695a8619a5c7c42b8597f5ef97ced9120d0abed163e3d" }, "anchors": { "beforeGroup": "pmam-gen-4-18-6", "afterGroup": "pmam-gen-4-18-8", "beforeReaderEnd": "gen-4-18-8", "afterReaderStart": "gen-4-18-10" }, "primaryArchiveSha256": "c95d736fc8ad5bcdc40358dec3da6ff66554d009743d6cb94a8b87825d721fd4", "sourceRuleArchiveSha256": "cf2aef1d9df85e4ead6f7ef9cfcb15001d777104a0c29b2dcbaddc7133292d0e" };
-
-  // pronunciation-implicit-reading.js
-  var equal = (actual, expected) => actual && Object.keys(actual).length === Object.keys(expected).length && Object.entries(expected).every(([key, value]) => actual[key] === value);
-  var isImplicitReadingGroup = (group) => group.readerIds?.includes(IMPLICIT_READING.link.readerWordId) || group.id === IMPLICIT_READING.groupId || group.match === "primary-implicit-reading-between-anchors" || Object.hasOwn(group, "implicitReadingLinks");
-  function implicitReadingWordForm(group, index) {
-    const link = group.implicitReadingLinks?.[0], known = IMPLICIT_READING.link;
-    if (index !== 0 || group.id !== IMPLICIT_READING.groupId || group.bookId !== "gen" || group.displayChapter !== 4 || group.displayVerse !== 18 || group.readerIds.length !== 1 || group.readerIds[0] !== known.readerWordId || group.readerHebrew[0] !== known.readerHebrew || group.readerStart !== known.readerWordId || group.readerEnd !== known.readerWordId || group.implicitReadingLinks?.length !== 1 || !equal(link, known) || group.match !== "primary-implicit-reading-between-anchors" || !group.flags.includes("documented-implicit-reading-form") || !equal(group.variantWindow, IMPLICIT_READING.anchors) || group.primaryEditionArchiveSha256 !== IMPLICIT_READING.primaryArchiveSha256 || group.implicitReadingSourceArchiveSha256 !== IMPLICIT_READING.sourceRuleArchiveSha256 || group.rows.length !== 1 || group.rows[0].number !== 7 || JSON.stringify(group.rows[0].hebrew) !== JSON.stringify([[known.sourceReadingHebrew]]))
-      throw Error("The documented implicit-reading correspondence needs review.");
-    return known.sourceReadingHebrew.replace(/[^א-ת]/gu, "");
-  }
-
-  // pronunciation-word-alignment.js
-  var letters = (text) => text.replace(/[^א-ת]/gu, "");
-  function readerLetterForms(text) {
-    const raw = letters(text), forms = /* @__PURE__ */ new Set([raw]);
-    if (/^[ובכלמשה]{0,3}יהוה$/u.test(raw)) for (const name of ["אדני", "אלהים"]) forms.add(raw.slice(0, -4) + name);
-    const clusters3 = text.match(/[א-ת][^א-ת]*/gu) ?? [];
-    if (raw.endsWith("הוא") && clusters3.at(-3)?.includes("ִ")) forms.add(raw.slice(0, -3) + "היא");
-    if (/^[ובכלמשה]{0,3}יששכר$/u.test(raw)) forms.add(raw.replace("יששכר", "ישכר"));
-    return [...forms];
-  }
-  function groupReaderLetterForms(group, index) {
-    const text = group.readerHebrew[index], id = group.readerIds[index], forms = readerLetterForms(text);
-    const variants = (group.writtenReadVariants ?? []).filter((v) => v.readerWordId === id);
-    if (variants.length > 1) throw Error("Ambiguous explicit written/read pronunciation evidence.");
-    for (const variant of variants) {
-      if (variant.kind !== "uxlc-explicit-one-written-one-reading" || variant.readerHebrew !== text || !variant.writtenTokenId || variant.writtenTokenId === id || typeof variant.writtenHebrew !== "string" || !letters(variant.writtenHebrew) || !group.flags.includes("explicit-written-read-variant") || !group.variantWindow?.beforeGroup || !group.variantWindow?.afterGroup)
-        throw Error("Explicit written/read pronunciation evidence needs review.");
-      forms.push(letters(variant.writtenHebrew));
-    }
-    if (group.editionWordLinks) {
-      const links = group.editionWordLinks, owners = new Set(links.map((v) => v.readerWordId));
-      if (links.length !== group.readerIds.length || owners.size !== links.length || group.readerIds.some((id2) => !owners.has(id2)) || !group.flags.includes("primary-edition-correspondence") || !group.variantWindow?.beforeGroup || !group.variantWindow?.afterGroup || !/^[a-f0-9]{64}$/u.test(group.primaryEditionArchiveSha256 ?? "")) throw Error("Primary edition word evidence needs review.");
-      const plain = (nodes) => nodes.map((n) => typeof n === "string" ? n : plain(n.content)).join(""), sourceRows = group.rows.map((row) => [...new Set(row.hebrew.filter((h) => h !== null).map((h) => letters(plain(h))))]);
-      if (sourceRows.some((r) => r.length !== 1) || sourceRows.map((r) => r[0]).join("") !== links.map((v) => letters(v.primaryHebrew ?? "")).join("")) throw Error("Primary edition spelling differs from the original pronunciation source.");
-      const link = links.find((v) => v.readerWordId === id), osis = { gen: "Gen", exo: "Exod", lev: "Lev", num: "Num", deu: "Deut" }[group.bookId];
-      if (link.kind !== "mam-primary-edition-word" || link.readerHebrew !== text || typeof link.primaryHebrew !== "string" || !letters(link.primaryHebrew) || !Number.isInteger(link.primaryAtom) || link.primaryAtom < 1 || link.primaryVerse !== `${osis}.${group.displayChapter}.${group.displayVerse}` || !/^[a-f0-9]{64}$/u.test(link.sourceFileSha256 ?? "")) throw Error("Primary edition word evidence needs review.");
-      forms.push(letters(link.primaryHebrew));
-    }
-    if (isImplicitReadingGroup(group)) forms.push(implicitReadingWordForm(group, index));
-    return [...new Set(forms)];
-  }
-  function literalReaderWordPaths(source, forms) {
-    const levels = [/* @__PURE__ */ new Map([[0, 1n]])], edges = [];
-    for (const [word, choices] of forms.entries()) {
-      const next = /* @__PURE__ */ new Map(), row = [];
-      for (const [start, count] of levels[word]) for (const form of new Set(choices)) {
-        if (!form || !source.startsWith(form, start)) continue;
-        const end = start + form.length;
-        row.push({ word, start, end, form });
-        next.set(end, (next.get(end) ?? 0n) + count);
-      }
-      edges.push(row);
-      levels.push(next);
-    }
-    const paths = levels.at(-1).get(source.length) ?? 0n;
-    if (!paths) return { paths: "0", edges: [] };
-    let ends = /* @__PURE__ */ new Set([source.length]);
-    const valid2 = [];
-    for (let word = forms.length - 1; word >= 0; word--) {
-      const row = edges[word].filter((edge) => ends.has(edge.end));
-      valid2.push(...row);
-      ends = new Set(row.map((edge) => edge.start));
-    }
-    return { paths: paths.toString(), edges: valid2 };
-  }
-  function sourceParts(cell, column) {
-    if (cell.text === null) return null;
-    const parts = [...cell.text.matchAll(/[^־\s]+/gu)].map((match) => ({ text: match[0], start: match.index, end: match.index + match[0].length, letters: letters(match[0]) }));
-    if (!parts.length || parts.some((part) => !part.letters)) return { invalid: true };
-    return { column: column + 1, text: cell.text, labels: cell.marks.filter((m) => m.kind === "reading").map((m) => m.label), parts };
-  }
-  function boundaryProof(group, hebrewRows) {
-    const rows2 = hebrewRows.map((cells) => cells.map(sourceParts).filter(Boolean));
-    if (rows2.some((forms) => !forms.length || forms.some((f) => f.invalid))) return { reason: "missing-or-nonlexical-source-Hebrew" };
-    if (rows2.some((forms) => new Set(forms.map((f) => f.parts.length)).size !== 1)) return { reason: "source-Hebrew-boundaries-differ" };
-    const slots = rows2.map((forms) => forms[0].parts.map((_, part) => ({ forms: forms.map((f) => ({ column: f.column, text: f.parts[part].text, start: f.parts[part].start, end: f.parts[part].end, labels: f.labels })), owners: /* @__PURE__ */ new Set() })));
-    const formLists = group.readerHebrew.map((_, index) => groupReaderLetterForms(group, index)), variants = [];
-    function visit(row, chosen) {
-      if (row < rows2.length) {
-        for (const form of rows2[row]) visit(row + 1, [...chosen, form]);
-        return;
-      }
-      let position = 0;
-      const spans = chosen.flatMap((form, r) => form.parts.map((part, p) => {
-        const start = position;
-        position += part.letters.length;
-        return { row: r, part: p, start, end: position };
-      }));
-      const source = chosen.map((form) => form.parts.map((part) => part.letters).join("")).join("");
-      const match = literalReaderWordPaths(source, formLists);
-      variants.push({ sourceColumns: chosen.map((f) => f.column), paths: match.paths });
-      if (match.paths === "0") return;
-      for (const span of spans) for (const edge of match.edges) if (edge.start < span.end && edge.end > span.start) slots[span.row][span.part].owners.add(edge.word);
-    }
-    visit(0, []);
-    if (variants.some((v) => v.paths === "0")) return { reason: "source-reading-word-difference", variants };
-    return { reason: null, variants, rows: slots.map((parts) => parts.map((part) => ({ sourceForms: part.forms, readerIds: group.readerIds.filter((_, index) => part.owners.has(index)), readerWordId: part.owners.size === 1 ? group.readerIds[[...part.owners][0]] : null }))) };
-  }
-  function transcriptionWords(cell) {
-    if (!hasTranscription(cell)) return [];
-    return [...cell.text.matchAll(/[^-\s]+/gu)].map((match) => ({ number: 0, text: match[0], start: match.index, end: match.index + match[0].length })).map((part, index) => ({ ...part, number: index + 1, unitIds: cell.units.filter((u) => u.start >= part.start && u.end <= part.end).map((u) => u.id) }));
-  }
-  function alignSourceWordBoundaries(group, rows2, hebrewRows) {
-    const single = group.readerIds.length === 1, proof = single ? null : boundaryProof(group, hebrewRows);
-    const aligned = rows2.map((row, rowIndex) => ({ ...row, styles: Object.fromEntries(Object.entries(row.styles).map(([style, cells]) => [style, cells.map((cell) => {
-      const parts = transcriptionWords(cell), slots = proof?.rows?.[rowIndex];
-      let reason = single ? null : proof.reason;
-      if (!hasTranscription(cell)) reason = "no-source-transcription";
-      else if (parts.some((part) => !part.unitIds.length)) reason = "empty-transcription-word";
-      else if (!single && !reason && parts.length !== slots.length) reason = "transcription-boundaries-differ";
-      const wordSegments = parts.map((part, index) => ({
-        ...part,
-        readerIds: reason ? [] : single ? [group.readerIds[0]] : slots[index].readerIds,
-        readerWordId: reason ? null : single ? group.readerIds[0] : slots[index].readerWordId,
-        sourceForms: single ? [] : slots?.[index]?.sourceForms ?? []
-      }));
-      const owners = new Map(wordSegments.flatMap((part) => part.unitIds.map((id) => [id, part.readerWordId])));
-      const units = cell.units.map((unit) => ({ ...unit, readerWordId: owners.get(unit.id) ?? null }));
-      const assigned = units.filter((u) => u.readerWordId !== null).length;
-      const status = !hasTranscription(cell) ? "no-source-transcription" : !units.length ? "group-only" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only";
-      return { ...cell, units, wordSegments, wordAlignment: { status, method: single ? "single-reader-word-group" : "literal-source-boundaries", reason: reason ?? (assigned < units.length ? "source-word-spans-multiple-reader-words" : null) } };
-    })])) }));
-    const styles3 = Object.fromEntries(["sephardic", "ashkenazic"].map((style) => {
-      const units = aligned.flatMap((row) => row.styles[style].flatMap((cell) => cell.units)), assigned = units.filter((unit) => unit.readerWordId !== null).length;
-      return [style, { status: !units.length ? "no-source-transcription" : assigned === units.length ? "word-aligned" : assigned ? "partly-word-aligned" : "group-only", assignedUnits: assigned, groupOnlyUnits: units.length - assigned }];
-    }));
-    return { rows: aligned, wordAlignment: { revision: 1, styles: styles3, proof: single ? { method: "single-reader-word-group" } : { method: "all-literal-source-readings-and-all-exact-reader-form-paths", reason: proof.reason, variants: proof.variants ?? [] } } };
-  }
-
   // pronunciation-structure.js
   function transcriptionStructure(nodes) {
     if (nodes === null) return { status: "missing", text: null, units: [], boundaries: [], marks: [] };
@@ -5942,7 +6013,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 
   // pronunciation-underlay.js
-  var letters2 = (text) => text.replace(/[^א-ת]/gu, "");
+  var letters3 = (text) => text.replace(/[^א-ת]/gu, "");
   var clusters = (text) => [...text.matchAll(/[א-ת][^א-ת]*/gu)].map((m) => ({ start: m.index, end: m.index + m[0].length, text: m[0] }));
   var same2 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   function rangesForClusters(list, start, end, role = "written") {
@@ -5972,11 +6043,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (!entry || entry.length !== group.rows.length) throw Error("The pronunciation underlay group needs review.");
       const hebrewRows = group.rows.map((row) => row.hebrew.map(transcriptionStructure));
       const rowLetters = hebrewRows.map((cells) => {
-        const forms = [...new Set(cells.filter((c) => c.text !== null).map((c) => letters2(c.text)))];
+        const forms = [...new Set(cells.filter((c) => c.text !== null).map((c) => letters3(c.text)))];
         return forms.length === 1 ? forms[0] : null;
       });
       const readerClusters2 = group.readerHebrew.flatMap((text, index) => clusters(text).map((c) => ({ ...c, readerWordId: group.readerIds[index] })));
-      const exactGroup = rowLetters.every((s) => s !== null) && rowLetters.join("") === group.readerHebrew.map(letters2).join("");
+      const exactGroup = rowLetters.every((s) => s !== null) && rowLetters.join("") === group.readerHebrew.map(letters3).join("");
       const rowOffsets = rowLetters.map((_, index) => rowLetters.slice(0, index).reduce((n, s) => n + (s?.length ?? 0), 0));
       const byWord = new Map(group.readerIds.map((id, index) => [id, clusters(group.readerHebrew[index]).map((c) => ({ ...c, readerWordId: id }))]));
       let sourceUnits = 0, readerUnits = 0;
@@ -5992,7 +6063,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             if (!source || source.text === null) throw Error("Missing source Hebrew underlay.");
             const list = clusters(source.text);
             if (ends.length !== cell.units.length || ends.at(-1) !== list.length || ends.some((end, i) => !Number.isInteger(end) || end <= (ends[i - 1] ?? 0)) || shared.some((i) => !Number.isInteger(i) || i < 0 || i >= ends.length - 1) || new Set(shared).size !== shared.length) throw Error("Invalid source Hebrew syllable boundaries.");
-            const parts = [...source.text.matchAll(/[^־\s]+/gu)].map((m) => ({ start: letters2(source.text.slice(0, m.index)).length, letters: letters2(m[0]) }));
+            const parts = [...source.text.matchAll(/[^־\s]+/gu)].map((m) => ({ start: letters3(source.text.slice(0, m.index)).length, letters: letters3(m[0]) }));
             function readerRange(unit, start, end, role) {
               if (exactGroup) return rangesForClusters(readerClusters2, rowOffsets[rowIndex] + start, rowOffsets[rowIndex] + end, role);
               const segment = cell.wordSegments.find((s) => s.unitIds.includes(unit.id));
@@ -6070,13 +6141,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const category = categories5.get(segment.categoryId);
       if (!category) throw Error("Unknown source category for letter binding.");
       if (!["whole", "first-half-shared", "second-half-shared"].includes(segment.part) || segment.part !== "whole" && !category.geminate) throw Error("Source shared-consonant part changed.");
-      const letters4 = category.hebrewLetters;
-      if (typeof letters4 !== "string" || /[^א-ת]/u.test(letters4)) throw Error("Unsupported source category letters.");
-      const reference = segment.part === "first-half-shared", source = reference ? shared : written.slice(offset, offset + letters4.length), target = reference ? readerShared : readerWritten?.slice(offset, offset + letters4.length) ?? null;
-      if (!reference) offset += letters4.length;
-      if (!letters4) return { sourceSegmentId: segment.id, categoryId: segment.categoryId, part: segment.part, status: "no-written-letter", sourceCluster: null, readerClusterRanges: null, markedClustersEqual: null, writtenLetterCount: 0, phonemes: null, individualVowelPointRange: null, audioTimes: null };
-      if (source.map((c) => c.text[0]).join("") !== letters4 || reference && (!category.geminate || source.length !== 1) || target && !sameLetters(source, target)) throw Error("Source category letters do not reconstruct their clusters.");
-      return { sourceSegmentId: segment.id, categoryId: segment.categoryId, part: segment.part, status: target ? "exact-written-clusters" : "source-only", sourceCluster: { start: source[0].start, end: source.at(-1).end, text: source.map((c) => c.text).join(""), role: reference ? "shared-consonant" : "written" }, readerClusterRanges: target, markedClustersEqual: target ? source.map((c) => c.text).join("") === target.map((c) => c.text).join("") : null, writtenLetterCount: reference ? 0 : letters4.length, phonemes: null, individualVowelPointRange: null, audioTimes: null };
+      const letters5 = category.hebrewLetters;
+      if (typeof letters5 !== "string" || /[^א-ת]/u.test(letters5)) throw Error("Unsupported source category letters.");
+      const reference = segment.part === "first-half-shared", source = reference ? shared : written.slice(offset, offset + letters5.length), target = reference ? readerShared : readerWritten?.slice(offset, offset + letters5.length) ?? null;
+      if (!reference) offset += letters5.length;
+      if (!letters5) return { sourceSegmentId: segment.id, categoryId: segment.categoryId, part: segment.part, status: "no-written-letter", sourceCluster: null, readerClusterRanges: null, markedClustersEqual: null, writtenLetterCount: 0, phonemes: null, individualVowelPointRange: null, audioTimes: null };
+      if (source.map((c) => c.text[0]).join("") !== letters5 || reference && (!category.geminate || source.length !== 1) || target && !sameLetters(source, target)) throw Error("Source category letters do not reconstruct their clusters.");
+      return { sourceSegmentId: segment.id, categoryId: segment.categoryId, part: segment.part, status: target ? "exact-written-clusters" : "source-only", sourceCluster: { start: source[0].start, end: source.at(-1).end, text: source.map((c) => c.text).join(""), role: reference ? "shared-consonant" : "written" }, readerClusterRanges: target, markedClustersEqual: target ? source.map((c) => c.text).join("") === target.map((c) => c.text).join("") : null, writtenLetterCount: reference ? 0 : letters5.length, phonemes: null, individualVowelPointRange: null, audioTimes: null };
     });
     if (offset !== written.length) throw Error("Source category letter binding is incomplete.");
     return { revision: 1, coordinateUnit: "UTF-16", scope: "source-variant", bindings, review: null, limits: "Whole marked letter clusters only; source and reader marks may differ. A shared first half references the following written cluster and contributes no additional written letter. Categories without a written letter retain only their parent syllable. No vowel-point, phoneme, note or audio-time allocation." };
@@ -6084,7 +6155,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // pronunciation-segments.js
   var STYLES = ["sephardic", "ashkenazic"];
-  var letters3 = (text) => text.replace(/[^א-ת]/gu, "");
+  var letters4 = (text) => text.replace(/[^א-ת]/gu, "");
   var PronunciationSegments = class {
     constructor(data, sourceCommit) {
       if (data?.format !== "tropetrain-pronunciation-segments-v1" || data.revision !== 1 || data.sourceCommit !== sourceCommit || data.inputSha256 !== "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2" || data.underlaySha256 !== "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153" || data.computationSourceSha256 !== "357314571720309945b3c7e1a2b33582a34dfbc6a497a02309af8c8572fcafaf" || data.license !== "CC-BY-SA-4.0" || !Array.isArray(data.catalog) || !data.groups) throw Error("The pronunciation source rules need review.");
@@ -6139,7 +6210,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 segmentCount++;
                 return { id: `${unit.id}-h${column}-seg${si + 1}`, categoryId: category.id, label: category.label, kind: category.kind, part: part === 0 ? "whole" : part === 1 ? "first-half-shared" : "second-half-shared", realizations: Object.fromEntries(STYLES.map((s) => [s, { ascii: values.ascii[s], text: values.display[s] }])), sourceUnitId: unit.id, readerWordId: unit.readerWordId, sourceStress: unit.sourceStress, sharedWithUnitId, hebrewScope: "parent-syllable-only", individualHebrewRange: null, ipa: null, phonemes: null, noteIds: null, audioTimes: null };
               });
-              if (written !== letters3(underlay.source.text) || segments.map((s) => s.realizations[style].text).join("") !== unit.text) throw Error("Source rule reconstruction differs from the original Hebrew or transcription.");
+              if (written !== letters4(underlay.source.text) || segments.map((s) => s.realizations[style].text).join("") !== unit.text) throw Error("Source rule reconstruction differs from the original Hebrew or transcription.");
               return { hebrewColumn: column, sourceLabels: [...underlay.labels], sourceHebrew: underlay.source, readerRanges: underlay.readerRanges, segments, letterClusterBindings: bindPronunciationLetters(segments, underlay, this.categories, readerTexts) };
             });
             return { ...unit, sourceSegments: { revision: 1, style, variants: plans, review: "Named source categories and transcription values only; no reviewed acoustic phonemes or segment timing." } };
@@ -6258,6 +6329,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   });
   var sourceId = (word) => word.sourceWordId ?? word.id;
   function syllableRanges(word) {
+    if (word.sourceSyllableUnderlay?.alignmentLevel === "source-reading-word") {
+      if (word.syllables.map((s) => s.sourceHebrew).join("") !== word.sourceSyllableUnderlay.sourceReadingHebrew || word.syllables.some((s) => s.writtenRange !== null)) throw Error("Source reading syllables changed.");
+      return word.syllables.map((s) => ({ ...s, start: null, end: null }));
+    }
     let offset = 0;
     const ranges = word.syllables.map((s) => {
       const start = offset;
@@ -6295,7 +6370,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       const { ranges, study, units, owned } = prepared.get(word.id), range = ranges.find((s) => s.id === event.syllableId);
       if (!range || range.sourceHebrew !== event.syllable) throw Error("Score event syllable no longer matches its original Hebrew.");
-      const matches = owned.filter((u) => u.span?.start === range.start && u.span.end === range.end);
+      const reading = word.sourceSyllableUnderlay?.alignmentLevel === "source-reading-word";
+      if (reading) {
+        const link = event.sourceSyllableLink;
+        if (link?.alignmentLevel !== "source-reading-word" || link.writtenRange !== null || link.readerHebrew !== word.sourceHebrew || link.sourceReadingHebrew !== word.sourceSyllableUnderlay.sourceReadingHebrew || JSON.stringify(link.sourceUnitIds) !== JSON.stringify(range.sourceUnitIds) || JSON.stringify(link.sourceReadingRange) !== JSON.stringify(range.sourceReadingRange)) throw Error("Source reading note correspondence changed.");
+      }
+      const matches = owned.filter((u) => reading ? range.sourceUnitIds.includes(u.unit.id) : u.span?.start === range.start && u.span.end === range.end);
+      if (reading) for (const match of matches) {
+        const original = word.sourceSyllableUnderlay.paths.find((p) => p.style === style && p.sourceRow === match.row && p.sourceColumn === match.column)?.units.find((u) => u.sourceUnitId === match.unit.id);
+        if (!original || original.sourceText !== match.unit.text || original.sourceStress !== match.unit.sourceStress || JSON.stringify(original.hebrewUnderlay) !== JSON.stringify(match.unit.hebrewUnderlay)) throw Error("Source reading pronunciation path changed.");
+      }
       const reason = matches.length ? null : !study ? "no-source-correspondence" : !units.length ? "no-style-transcription" : !owned.length ? "combined-source-form" : owned.every((u) => !u.span) ? "source-only-written-form" : owned.some((u) => u.span && u.span.start < range.end && u.span.end > range.start) ? "different-syllable-boundaries" : "no-exact-unit";
       return {
         eventId: event.id,
@@ -6303,9 +6387,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         sourceWordId: sourceId(word),
         syllableId: range.id,
         hebrew: range.sourceHebrew,
-        hebrewRange: { start: range.start, end: range.end },
-        status: matches.length ? "exact-written-span" : "unlinked",
+        hebrewRange: reading ? null : { start: range.start, end: range.end },
+        status: matches.length ? reading ? "source-reading-word" : "exact-written-span" : "unlinked",
         reason,
+        ...reading ? { readerHebrew: word.sourceHebrew, sourceReadingHebrew: word.sourceSyllableUnderlay.sourceReadingHebrew, sourceReadingRange: structuredClone(range.sourceReadingRange), alignmentLevel: "source-reading-word" } : {},
         units: matches.map(({ unit, row, column, reference, labels }) => ({ sourceUnitId: unit.id, text: unit.text, sourceRow: row, sourceColumn: column, sourceStress: unit.sourceStress, labels, sourceReference: reference, sourceMarks: structuredClone(unit.sourceMarks), hebrewClusterRanges: structuredClone(unit.hebrewClusterRanges), sharesNextConsonant: unit.hebrewUnderlay?.variants.some((v) => v.sharesNextConsonant) ?? false, sharesPreviousConsonant: unit.hebrewUnderlay?.variants.some((v) => v.sharesPreviousConsonant) ?? false }))
       };
     });
@@ -6315,17 +6400,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       style,
       sourceCommit: library.sourceCommit,
       pronunciationSource: { project: "Phonetic MAM by Benjamin Denckla; Hebrew Wikisource / Miqra according to the Masorah", dataLicense: "CC-BY-SA-4.0", notice: "assets/pronunciation/NOTICE.txt" },
-      method: "Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.",
+      method: links.some((l) => l.alignmentLevel === "source-reading-word") ? "Equal marked-Hebrew ranges for written forms; explicit source-unit identities for opted-in source reading forms at word level, with null written syllable ranges. No acoustic allocation." : "Equal half-open UTF16 ranges in the unchanged marked Hebrew, independently in each source text style. Shared consonant references are retained separately from written ownership. No syllable splitting, merging or pronunciation substitution.",
       review: "Structural text correspondence only. Score syllabification, pronunciation and musical underlay need independent review. No phoneme, vocal delivery or acoustic alignment is inferred.",
       phonemes: null,
       audioTimes: null,
       words: [...prepared.values()].map(({ word: w }) => ({ wordId: w.id, sourceWordId: sourceId(w), hebrew: w.sourceHebrew })),
-      counts: { notes: links.length, linkedNotes: links.filter((l) => l.status === "exact-written-span").length, unlinkedNotes: links.filter((l) => l.status === "unlinked").length },
+      counts: { notes: links.length, linkedNotes: links.filter((l) => l.status !== "unlinked").length, unlinkedNotes: links.filter((l) => l.status === "unlinked").length },
       links
     };
   }
   function notePronunciationText(link) {
-    return link?.status === "exact-written-span" ? Object.hasOwn(link, "phonology") ? link.phonology?.text ?? null : [...new Set(link.units.map((u) => u.text))].join(" / ") : null;
+    return ["exact-written-span", "source-reading-word"].includes(link?.status) ? Object.hasOwn(link, "phonology") ? link.phonology?.text ?? null : [...new Set(link.units.map((u) => u.text))].join(" / ") : null;
   }
 
   // staff.js
@@ -6367,14 +6452,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function staffMarkup(plan2, words4, from = 0, count = STAFF_PAGE, { untexted = false, pronunciationLinks = null } = {}) {
     const annotated = !untexted && pronunciationLinks !== null, height = annotated ? 280 : 250, beatsY = annotated ? 260 : 230;
     const notes = staffNotes(plan2, words4, from, count, { untexted, pronunciationLinks }), width = (notes.at(-1)?.endX ?? 200) + 30;
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${untexted ? "Printed pattern staff notes" : "Selected staff notes"}"><title>${untexted ? "Printed pattern pitches and durations; no word or syllable underlay is inferred." : "Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source."}${annotated ? " Pronunciation text is linked by exact written spans only; unlinked syllables and shared consonants need review." : ""}</title>`;
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${untexted ? "Printed pattern staff notes" : "Selected staff notes"}"><title>${untexted ? "Printed pattern pitches and durations; no word or syllable underlay is inferred." : "Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source."}${annotated ? notes.some((n) => n.sourceSyllableLink?.alignmentLevel === "source-reading-word") ? " Source reading syllables have word-level correspondence; displayed Hebrew is unchanged and written syllable ranges are unassigned." : " Pronunciation text is linked by exact written spans only; unlinked syllables and shared consonants need review." : ""}</title>`;
     for (let y = 60; y <= 100; y += 10) svg += `<line class="staff-line" x1="14" y1="${y}" x2="${width - 12}" y2="${y}"/>`;
     svg += '<text class="music-symbol clef" x="24" y="90"></text>';
     if (from === 0) for (const [i, rest] of (plan2[0]?.sourceRestsBefore ?? []).entries()) svg += restMarkup(rest, 84 + 55 * (i + 0.5), height, beatsY);
     for (const e of notes) {
       const grace = !!e.sourceGrace, up = e.y >= 80, stemX = e.x + (up ? grace ? 4 : 5 : -(grace ? 4 : 5)), stemEnd = e.y + (up ? -(grace ? 24 : 32) : grace ? 24 : 32), r = e.rhythm;
-      const word = untexted ? null : `${e.word.reference} · word ${e.word.ordinal}`, name = (untexted ? `Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace ? "unmeasured printed grace; original 80 ms instrumental timing demonstration" : beatLabel(e.beats) + " beats"}` : `Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`) + (annotated ? `; pronunciation text: ${e.pronunciationText ?? "unlinked"}; written-span correspondence only` : "");
-      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}"${grace ? ` data-source-timing="unmeasured-grace" data-performance-timing="${escapeXml(e.performanceTiming.id)}"` : ""}${untexted ? "" : ` data-word-index="${e.wordIndex}"`}${annotated ? ` data-pronunciation-status="${escapeXml(e.pronunciationLink?.status ?? "unlinked")}"` : ""}${e.pronunciationLink?.phonology ? ` data-phonology-profile="${escapeXml(e.pronunciationLink.phonology.profileId)}"` : ""} aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="${height - 15}" rx="5"/>`;
+      const word = untexted ? null : `${e.word.reference} · word ${e.word.ordinal}`, name = (untexted ? `Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace ? "unmeasured printed grace; original 80 ms instrumental timing demonstration" : beatLabel(e.beats) + " beats"}` : `Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`) + (annotated ? `; pronunciation text: ${e.pronunciationText ?? "unlinked"}; ${e.sourceSyllableLink?.alignmentLevel === "source-reading-word" ? "source reading syllable, word correspondence only; displayed " + e.word.sourceHebrew : "written-span correspondence only"}` : "");
+      svg += `<g class="staff-note" role="button" tabindex="0" data-event="${escapeXml(e.id)}"${grace ? ` data-source-timing="unmeasured-grace" data-performance-timing="${escapeXml(e.performanceTiming.id)}"` : ""}${untexted ? "" : ` data-word-index="${e.wordIndex}"`}${e.sourceSyllableLink?.alignmentLevel === "source-reading-word" ? ' data-syllable-alignment="source-reading-word"' : ""}${annotated ? ` data-pronunciation-status="${escapeXml(e.pronunciationLink?.status ?? "unlinked")}"` : ""}${e.pronunciationLink?.phonology ? ` data-phonology-profile="${escapeXml(e.pronunciationLink.phonology.profileId)}"` : ""} aria-label="${escapeXml(name)}"><title>${escapeXml(name)}</title><rect class="staff-hit" x="${e.x - e.width / 2}" y="8" width="${e.width}" height="${height - 15}" rx="5"/>`;
       for (const y of e.ledgers) svg += `<line class="ledger" x1="${e.x - 10}" x2="${e.x + 10}" y1="${y}" y2="${y}"/>`;
       svg += `<text class="music-symbol accidental" x="${e.x - 22}" y="${e.y}">${e.pitch.alter === 1 ? "" : e.pitch.alter === -1 ? "" : ""}</text><ellipse class="notehead${["whole", "half"].includes(r.type) ? " open-notehead" : ""}" cx="${e.x}" cy="${e.y}" rx="${grace ? 3.8 : 5.5}" ry="${grace ? 2.6 : 3.8}" transform="rotate(-20 ${e.x} ${e.y})"/>`;
       if (r.type !== "whole") svg += `<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
@@ -11065,7 +11150,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     const links = base.links.map((link) => {
       const report = prepared.get(link.wordId), paths = [];
-      if (link.status === "exact-written-span") for (const entry of report.entries) for (const part of entry.parts) {
+      if (["exact-written-span", "source-reading-word"].includes(link.status)) for (const entry of report.entries) for (const part of entry.parts) {
         const sourceUnit = link.units.find((u) => u.sourceUnitId === part.sourceUnitId);
         if (!sourceUnit) continue;
         if (part.sourceStress !== sourceUnit.sourceStress || JSON.stringify(part.hebrewClusterRanges) !== JSON.stringify(sourceUnit.hebrewClusterRanges)) throw Error("Phonemic proposal and note source-unit correspondence changed.");
@@ -11108,7 +11193,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         ...link,
         sourceTextStatus: link.status,
         sourceTextReason: link.reason,
-        status: linked ? "exact-written-span" : "unlinked",
+        status: linked ? link.status : "unlinked",
         reason: linked ? null : link.reason ?? "no-phonemic-proposal-route",
         phonology: linked ? { profileId, text: [...new Set(paths.map((p) => p.text))].join(" / "), paths, phonemes: null, enginePhones: null, quantity: null, duration: null, audioTimes: null, voice: null, review: null } : null
       };
@@ -11249,8 +11334,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const sourceWordId = word?.sourceWordId ?? word?.id;
     if (!event || !word || !link || event.wordId !== word.id || link.eventId !== event.id || link.wordId !== word.id || link.sourceWordId !== sourceWordId || (event.sourceWordId ?? event.wordId) !== sourceWordId || link.syllableId !== event.syllableId || link.hebrew !== event.syllable) throw Error("Pronunciation highlight no longer matches the score occurrence.");
     const range = link.hebrewRange;
-    if (!range || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.start >= range.end || range.end > word.sourceHebrew.length || word.sourceHebrew.slice(range.start, range.end) !== link.hebrew) throw Error("Pronunciation highlight no longer matches the marked Hebrew.");
-    if (!["exact-written-span", "unlinked"].includes(link.status) || link.status === "exact-written-span" && (!link.units?.length || link.reason !== null) || link.status === "unlinked" && (!link.reason || link.units?.length)) throw Error("Invalid pronunciation highlight correspondence.");
+    if (link.status === "source-reading-word") {
+      const source = event.sourceSyllableLink;
+      if (range !== null || source?.alignmentLevel !== "source-reading-word" || source.writtenRange !== null || link.readerHebrew !== word.sourceHebrew || source.readerHebrew !== word.sourceHebrew || link.sourceReadingHebrew !== source.sourceReadingHebrew || JSON.stringify(link.sourceReadingRange) !== JSON.stringify(source.sourceReadingRange) || !link.units?.length || link.units.some((u) => !source.sourceUnitIds.includes(u.sourceUnitId))) throw Error("Source reading highlight lost its word correspondence.");
+    } else if (!range || !Number.isInteger(range.start) || !Number.isInteger(range.end) || range.start < 0 || range.start >= range.end || range.end > word.sourceHebrew.length || word.sourceHebrew.slice(range.start, range.end) !== link.hebrew) throw Error("Pronunciation highlight no longer matches the marked Hebrew.");
+    if (!["exact-written-span", "source-reading-word", "unlinked"].includes(link.status) || link.status !== "unlinked" && (!link.units?.length || link.reason !== null) || link.status === "unlinked" && (!link.reason || link.units?.length)) throw Error("Invalid pronunciation highlight correspondence.");
     return Object.freeze({
       eventId: event.id,
       wordId: word.id,
@@ -11262,7 +11350,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       units: Object.freeze(link.units.map((u) => Object.freeze({ sourceUnitId: u.sourceUnitId, text: u.text, sourceStress: u.sourceStress, sourceRow: u.sourceRow, sourceColumn: u.sourceColumn }))),
       phonemes: null,
       audioTimes: null,
-      review: "Exact written-span text correspondence only; no acoustic syllable, phoneme, voice or traditional musical realization is inferred."
+      review: link.status === "source-reading-word" ? "Source reading syllable linked by original source-unit identity at word level. Written syllable ranges and acoustic timing remain unassigned." : "Exact written-span text correspondence only; no acoustic syllable, phoneme, voice or traditional musical realization is inferred."
     });
   }
 
@@ -13703,11 +13791,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   $("reader-pronunciation").checked = readerPronunciation;
   var sourceSyllablesEnabled = false;
+  var sourceReadingsEnabled = false;
   var sourceSyllableAdapter = null;
   var sourceSyllableError = null;
   var sourceSyllableRequest = 0;
   try {
-    sourceSyllablesEnabled = JSON.parse(localStorage.getItem("tropetrain-source-syllables-v1"))?.enabled === true;
+    const saved = JSON.parse(localStorage.getItem("tropetrain-source-syllables-v1"));
+    sourceSyllablesEnabled = saved?.enabled === true;
+    sourceReadingsEnabled = saved?.allowSourceReadings === true;
   } catch {
   }
   function makeReadingModel(value, settings) {
@@ -13982,7 +14073,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } catch (e) {
       error = e.message;
     }
-    const unitIds = new Set(report?.status === "exact-written-span" ? report.units.map((u) => u.sourceUnitId) : []);
+    const unitIds = new Set(["exact-written-span", "source-reading-word"].includes(report?.status) ? report.units.map((u) => u.sourceUnitId) : []);
     for (const el3 of $("reader").querySelectorAll(".reader-word-pronunciation [data-source-unit]")) {
       const button = el3.closest(".pronunciation-word")?.querySelector(".word");
       const active = !!report && button?.dataset.word === report.wordId && unitIds.has(el3.dataset.sourceUnit);
@@ -13997,6 +14088,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (readerSource?.kind === "published-word") {
       status.dataset.followStatus = "published-word-only";
       status.textContent = "Published Tiberian text follows whole words. Syllable and note highlighting is unassigned for this source; the instrument and recordings keep their own pronunciation and melody.";
+      return;
+    }
+    if (report?.status === "source-reading-word") {
+      status.textContent = `${readerSource.name} · source reading ${report.hebrew} · word-level correspondence to the unchanged displayed Hebrew. Source text follows the instrument; written syllable ranges, sung phones and acoustic timing remain unassigned.`;
       return;
     }
     if (readerSource?.kind === "phonemic-research" && report?.status === "exact-written-span") {
@@ -14367,7 +14462,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("source-variant").textContent = w.kind === "q" ? `Reading form (qere). ${(w.writtenVariants || []).length ? `Source written group: ${w.writtenVariants.map((t) => t.sourceHebrew).join(" ")}. Word/syllable correspondence is not inferred.` : "No written counterpart in this source."}` : "";
     const locations = isTorahReading(passage2.ranges) ? scrollLayout?.locations(w) ?? [] : [];
     $("source-layout-detail").textContent = locations.length ? locations.map(({ row, piece }) => `Layout column ${row.page}, line ${row.line}${piece.variant ? " · written variant" : ""}${piece.status !== "exact" ? ` · ${piece.status}: layout ${piece.layoutSource}, UXLC written ${piece.written}` : ""}`).join("; ") : "";
-    $("alignment-status").textContent = w.sourceSyllableUnderlay ? w.sourceSyllableUnderlay.status === "available" ? `${w.syllables.length} source syllables · exact written spans and stress agreed by both MAM text styles · review pending` : `Source syllable underlay unavailable: ${SOURCE_SYLLABLE_GAPS[w.sourceSyllableUnderlay.reason]}` : w.analysisStatus === "unsegmented" ? "Syllable boundaries unresolved; word shown as one aligned unit." : `${w.syllables.length} draft syllables · ${w.analysisStatus === "draft-manual" ? "manual fixture" : "automatic analysis"} · not reader-reviewed`;
+    $("alignment-status").textContent = w.sourceSyllableUnderlay ? w.sourceSyllableUnderlay.status === "available" ? w.sourceSyllableUnderlay.alignmentLevel === "source-reading-word" ? `${w.syllables.length} source reading syllables · ${w.sourceSyllableUnderlay.sourceReadingHebrew} · word-level correspondence only; displayed Hebrew unchanged, written syllable ranges unassigned` : `${w.syllables.length} source syllables · exact written spans and stress agreed by both MAM text styles · review pending` : `Source syllable underlay unavailable: ${SOURCE_SYLLABLE_GAPS[w.sourceSyllableUnderlay.reason]}` : w.analysisStatus === "unsegmented" ? "Syllable boundaries unresolved; word shown as one aligned unit." : `${w.syllables.length} draft syllables · ${w.analysisStatus === "draft-manual" ? "manual fixture" : "automatic analysis"} · not reader-reviewed`;
     pronunciationTools?.showWord(w);
     renderSourceSigns(w);
     renderReference();
@@ -14757,7 +14852,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     for (const id of ["download", "prepare-musicxml", "prepare-midi"]) $(id).disabled = !!unavailable;
     for (const id of ["play", "compact-play"]) $(id).disabled = isSourcePractice() ? !chantReady : !!unavailable;
-    $("musical-source-status").textContent = unavailable ?? (model.sourceSyllableUnderlay ? SOURCE_SYLLABLE_UNDERLAY.summary : null) ?? model.profile.summary ?? (model.profile.id === BAER_SCORE.id ? "Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing." : model.profile.id === PRINTED_SCORE.id ? "Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda." : "Original demonstration · newly composed pitches; syllables unreviewed.");
+    $("musical-source-status").textContent = unavailable ?? (model.sourceSyllableUnderlay ? model.sourceSyllableUnderlay.sourceReadingWords ? "Original instrumental demonstration with consensus source syllables and documented source readings. Differing readings have word-level correspondence; displayed Hebrew and accents are unchanged, with no invented written syllable ranges." : SOURCE_SYLLABLE_UNDERLAY.summary : null) ?? model.profile.summary ?? (model.profile.id === BAER_SCORE.id ? "Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing." : model.profile.id === PRINTED_SCORE.id ? "Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda." : "Original demonstration · newly composed pitches; syllables unreviewed.");
     if (unavailable) {
       $("event-count").textContent = "No sourced notes for this span";
       renderNotes();
@@ -14792,7 +14887,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("score-pronunciation-summary").textContent = !scorePronunciation ? "Pronunciation text on the score is hidden. Hebrew and musical settings are kept." : linkError ? `Score text links unavailable: ${linkError}` : source?.error ? source.error : !scorePronunciationReport ? "Loading pronunciation text for the score…" : research ? `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page reference the same source syllables; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. ? unresolved, ∅ source silence, (∅) proposed loss, ↔ one shared consonant. These are phonemic research candidates; sound timing, singing voice and independent review remain unassigned.` : `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
     $("score-pronunciation-download").disabled = !scorePronunciationReport?.links.length;
     const inspected = scorePronunciationReport?.links.find((l) => l.eventId === inspectedScoreEventId) ?? scorePronunciationReport?.links[0];
-    $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : research ? `${inspected.hebrew} · ${inspected.phonology.paths.map((p) => `${p.text} (source ${p.sourceText}; row ${p.sourceRow}, column ${p.sourceColumn}, Hebrew branch ${p.hebrewColumn})`).join(" / ")}. Exact source-unit note references; shared candidates are one abstract event. No acoustic delivery or repeated consonant is inferred from a melisma.` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
+    $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : research ? `${inspected.hebrew} · ${inspected.phonology.paths.map((p) => `${p.text} (source ${p.sourceText}; row ${p.sourceRow}, column ${p.sourceColumn}, Hebrew branch ${p.hebrewColumn})`).join(" / ")}. Exact source-unit note references; shared candidates are one abstract event. No acoustic delivery or repeated consonant is inferred from a melisma.` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. ${inspected.alignmentLevel === "source-reading-word" ? "Source reading syllable with word-level correspondence; written syllable ranges remain unassigned" : "Exact written-span correspondence"}; no phoneme or acoustic timing is assigned.`;
+    if (scorePronunciationReport?.links.some((l) => l.alignmentLevel === "source-reading-word")) {
+      $("score-pronunciation-summary").textContent = `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have source-unit text links. Different source reading forms have word-level correspondence with null written syllable ranges. ${research ? "Incomplete phonemic research candidates; " : ""}Linguistic review, acoustic timing and singing voice remain unassigned.`;
+      $("score-pronunciation-detail").textContent += " Source reading syllable; word correspondence only, no written-span assignment.";
+    }
     scoreGroupReport = null;
     try {
       scoreGroupReport = pronunciationTools?.groupNotes(plan.filter((e) => e.wordId === words3[state.cursor]?.id), words3) ?? null;
@@ -15027,11 +15126,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("melody-name").textContent = model.profile.name;
     $("source-syllables").checked = sourceSyllablesEnabled;
     $("source-syllables").disabled = printed;
-    $("source-syllables-status").textContent = printed ? "Printed scores use their printed syllable underlay." : !sourceSyllablesEnabled ? "Use source syllables to compare the original motif with both pronunciation text styles." : sourceSyllableError ? `Source syllables unavailable: ${sourceSyllableError}` : !sourceSyllableAdapter ? "Preparing source syllables…" : `${model.sourceSyllableUnderlay.availableWords} of ${words3.length} words have consensus written syllables. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable. Source-only forms, combined words and conflicting paths keep their original evidence.`;
+    $("source-readings").checked = sourceReadingsEnabled;
+    $("source-readings").disabled = printed || !sourceSyllablesEnabled;
+    $("source-readings-status").textContent = !sourceReadingsEnabled ? "Optional: include documented source readings with word-level correspondence. The displayed Hebrew keeps its original letters and accents." : `Source reading forms enabled. Different spellings retain null written syllable ranges; the staff identifies their source reading syllables. Pitches and timing remain an original instrumental demonstration.`;
+    $("source-syllables-status").textContent = printed ? "Printed scores use their printed syllable underlay." : !sourceSyllablesEnabled ? "Use source syllables to compare the original motif with both pronunciation text styles." : sourceSyllableError ? `Source syllables unavailable: ${sourceSyllableError}` : !sourceSyllableAdapter ? "Preparing source syllables…" : sourceReadingsEnabled ? `${model.sourceSyllableUnderlay.availableWords} of ${words3.length} words have source syllables, including ${model.sourceSyllableUnderlay.sourceReadingWords} documented source reading forms with word-level correspondence. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable.` : `${model.sourceSyllableUnderlay.availableWords} of ${words3.length} words have consensus written syllables. ${model.sourceSyllableUnderlay.unavailableWords} remain unavailable. Source-only forms, combined words and conflicting paths keep their original evidence.`;
     $("music-badge").textContent = printed ? "Printed score study" : "Instrumental demo";
     $("music-notice").textContent = printed ? "A bounded transcription of the complete printed Genesis 22:1 example, all 13 words. Musical and Hebrew underlay review is pending. This is an instrumental study; no full tradition or singing voice is claimed." : "This original motif tests the practice workflow. It is not a historical cantillation melody. Syllable divisions are drafts awaiting review.";
     $("score-description").textContent = printed ? "The staff, note list and exports use the same notes, rests and ties transcribed from Cohen’s 1902 printed Genesis 22:1 example. Hebrew underlay is a source-preserving draft." : "The staff, note list and exports use the playback sequence. This is the original instrumental demonstration with unreviewed Hebrew syllables.";
-    if (model.sourceSyllableUnderlay) {
+    if (model.sourceSyllableUnderlay?.sourceReadingWords) {
+      $("music-notice").textContent = "Original instrumental motif. Documented source readings retain the complete displayed Hebrew and accents. Staff lyrics use the source reading syllables; written syllable ranges remain unassigned for those words. Pronunciation styles change text independently. Source durations, historical word fitting and a singing voice remain pending.";
+      $("score-description").textContent = "Staff and note list use the original instrumental sequence. Differing source reading forms are word-linked; their syllable text belongs to the source reading, not a segmentation of the displayed Hebrew.";
+    } else if (model.sourceSyllableUnderlay) {
       $("music-notice").textContent = "This original instrumental motif uses exact written source syllables shared by both Phonetic MAM text styles. Pitches and tone durations are original demonstration choices. Linguistic and musical review is pending; phonemes and singing voice remain unassigned.";
       $("score-description").textContent = "The staff, note list and exports share the original instrumental sequence and consensus source syllables. Original Hebrew, source stress, alternatives and shared consonant references are retained.";
     }
@@ -15397,10 +15502,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.notePage = 0;
     state.staffPage = 0;
     render();
+    if (sourceSyllableAdapter && sourceSyllableAdapter.allowSourceReadings !== sourceReadingsEnabled) {
+      sourceSyllableAdapter = new SourceSyllableUnderlay(sourceSyllableAdapter.library, { allowSourceReadings: sourceReadingsEnabled });
+      model = makeReadingModel(passage2, state);
+      ({ words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model);
+      render();
+    }
     if (!sourceSyllablesEnabled || sourceSyllableAdapter) return;
     try {
       const library = await getPronunciationLibrary();
-      sourceSyllableAdapter = new SourceSyllableUnderlay(library);
+      sourceSyllableAdapter = new SourceSyllableUnderlay(library, { allowSourceReadings: sourceReadingsEnabled });
     } catch (error) {
       if (request === sourceSyllableRequest) {
         sourceSyllableError = error.message;
@@ -15414,10 +15525,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     ({ words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model);
     render();
   }
+  $("source-readings").addEventListener("change", () => {
+    sourceReadingsEnabled = $("source-readings").checked;
+    try {
+      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled }));
+    } catch {
+    }
+    prepareSourceSyllables();
+  });
   $("source-syllables").addEventListener("change", () => {
     sourceSyllablesEnabled = $("source-syllables").checked;
     try {
-      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled }));
+      localStorage.setItem("tropetrain-source-syllables-v1", JSON.stringify({ enabled: sourceSyllablesEnabled, allowSourceReadings: sourceReadingsEnabled }));
     } catch {
     }
     prepareSourceSyllables();
