@@ -6,15 +6,15 @@
   "publishedCommit": "b6125c869b1b8f3fa9ee016ead42ffec1c951451",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views.",
   "lastPassingTests": {
-    "automated": 563,
+    "automated": 570,
     "failed": 0,
     "skipped": 0,
     "newTests": 7,
-    "log": "/private/tmp/tropetrain-check-v68-final-label.log",
+    "log": "/private/tmp/tropetrain-check-v69.log",
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "All 563 automated checks pass, with no failures or skips and seven new substantive grace-source/timing checks. All 619 prior asset/data files and all 217 prior Baer components are exact. Public normal124 and portable125 each pass14checks: startup, default-off gating, explicit original-demo selection and three small heads, all12source pitches/native inspections, 217prior components, exported null source durations and original80ms provenance, independent key, tempo with unchanged grace-demo milliseconds, advisory range, actual pronunciation-text changes with an advancing muted clock, exact17marked Genesis11:4words and reader notes, disabling-stops, default-off reload, and clear consoles/paused media. The three grace labels use two lines and fit inside their90px note buttons; actual319px root/scroll319 and horizontally scrolling staff232/1194 pass. Desktop/mobile screenshots visually inspected. All test players stopped, instrument volume0, native media paused and viewport reset. Prepared JSON export links were parsed; no actual saved-file download or speaker-listening claim. Source grace durations and stealing ratios remain null. The optional80ms-per-note timing adds original instrumental demonstration time between unchanged measured source values; it is not a historical duration, a new singing voice, Bible-word fitting, qualified musical review or a complete melody grammar.",
+    "ui": "Normal127and portable128each pass16checks: exact7Genesis1:1marked words, source unit/stress preservation, independent NE/MEprofiles and both MAMstyles, unchanged source notes, independent key/tempo/advisory range, muted advancing clock and text correspondence, shared reference/unknown, exactCGJ/source-only branches, unsplitDeut32:6, literalKhanexcerpt, hide/show, savedprofile reload, pausedmedia and clearconsoles. Narrow319px root/scroll319; viewportreset. No speaker-listening or reviewed-voice claim.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -194,10 +194,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.68.0",
-    "status": "published_563_checks_28public_checks_full_goal_active",
-    "baseline": "e9157ccf999d920dcd9614b91de570ff8321b6a2",
-    "previousGoalTurn": "Progress:v0.67published556checks_26publicchecks_1058exactfiles_saved",
+    "version": "0.69.0",
+    "status": "570checks_32local_browser_checks_publication_pending",
+    "baseline": "154eecff1165dd1a460b23eb1bd3c32a5d75901a",
+    "previousGoalTurn": "Progress:v0.68published563checks_28publicchecks_1061exactfiles_saved",
     "newPublicVoice": null,
     "review": null
   },
@@ -1592,7 +1592,7 @@
     "qualifiedReviewPending": true
   },
   "phonologicalResearch": {
-    "version": "0.67.0",
+    "version": "0.69.0",
     "source": "Dovid Katz1993 phonology; Gesenius–Kautzsch–Cowley1910 §16 maqaf/meteg context",
     "record": "docs/PRONUNCIATION-PHONOLOGY.json",
     "profiles": [
@@ -1627,7 +1627,24 @@
     "unresolvedMideasternSegolReferences": 143,
     "priorKnownProposalsPreserved": true,
     "originalSourceStressUnchanged": true,
-    "prosodyReview": null
+    "prosodyReview": null,
+    "readerPreview": {
+      "status": "570checks_32local_browser_checks_publication_pending",
+      "profileCount": 2,
+      "independentOfMelody": true,
+      "newPhonologicalRules": 0,
+      "newVoices": 0,
+      "sourceSilentMarker": "∅",
+      "proposedLossMarker": "(∅)",
+      "unresolvedMarker": "?",
+      "sharedReferenceMarker": "↔",
+      "combinedWordsUnassigned": 2,
+      "individuallyLinkedWords": 79983,
+      "ownedRouteUnitsPerStyleProfile": 194268,
+      "ownedCategoryReferencesPerStyleProfile": 518715,
+      "combinedSourceRouteUnits": 4,
+      "combinedSourceCategoryReferences": 11
+    }
   },
   "pairedRecordedPronunciations": {
     "record": "docs/ASAEL-PAIRED-CHANT.json",

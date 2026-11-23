@@ -11,6 +11,7 @@ import {linkPronunciationToNotes} from './pronunciation-note-links.js';
 import {linkPronunciationScoreGroups} from './pronunciation-score-groups.js';
 import {pronunciationFollow} from './pronunciation-follow.js';
 import {readerPronunciationWord} from './pronunciation-reader.js';
+import {readerPhonologyWord} from './pronunciation-phonology-reader.js';
 import {renderPronunciationRules} from './pronunciation-segment-ui.js';
 export function mountPronunciationStudy({onChange=()=>{}}={}){
  const $=id=>document.getElementById(id),key='tropetrain-pronunciation-text-v1';
@@ -164,15 +165,17 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  return {showWord(value,{following=false}={}){word=value;listening=following;render();},
   readerStatus(){return publishedPronunciation.selected()?publishedPronunciation.readerStatus():{kind:'mam',style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};},
   readerText(value){
-   if(publishedPronunciation.selected())return publishedPronunciation.readerText(value);
+   const readerSource=publishedPronunciation.readerStatus();
+   if(readerSource.kind==='published-word')return publishedPronunciation.readerText(value);
    if(!library||requestBook(value))return null;
    // Bounded cache keeps repeated assignment occurrences independent while
    // avoiding source analysis on every paint. Always recheck the marked word.
    library.at(value);
-   const cacheKey=JSON.stringify([style,value.sourceWordId??value.id,value.sourceHebrew]);
+   const cacheKey=JSON.stringify([readerSource.id,style,value.sourceWordId??value.id,value.sourceHebrew,readerSource.kind==='phonemic-research'?value.id:null]);
    if(!readerCache.has(cacheKey)){
     if(readerCache.size>=512)readerCache.delete(readerCache.keys().next().value);
-    readerCache.set(cacheKey,readerPronunciationWord(value,library.study(value,style),style));
+    const study=library.study(value,style);
+    readerCache.set(cacheKey,readerSource.kind==='phonemic-research'?readerPhonologyWord(value,study,style,readerSource.profileId):readerPronunciationWord(value,study,style));
    }
    return {...readerCache.get(cacheKey),wordId:value.id};
   },
