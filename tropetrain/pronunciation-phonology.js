@@ -5,7 +5,7 @@ export const PHONOLOGY_SOURCE=freeze({id:'katz-1993-phonology',author:'Dovid Kat
  book:'Hebrew in Ashkenaz: A Language in Exile, edited by Lewis Glinert',url:'https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf',
  sha256:'789b83c2c5eedc097c334edeb6ea42268a0b90e25b8ee887b2d21af3452ecb24',
  rights:'Copyright reference, privately inspected; no PDF, scan, OCR or protected table redistributed. Original code records attributed linguistic facts.',
- scanLimits:'The supplied scan repeats printed pages49and52; no rule here relies on missing page50.',
+ scanLimits:'The supplied scan repeats printed pages49and52; printed page50 is appended as PDF page48. No rule here relies on page50.',
  scope:'Schematic Northeastern and Mideastern Formal Ashkenazic. Local variation remains; no equivalence to a Kinnor Accent label or reviewed singing voice is established.'});
 export const PHONOLOGY_PROFILES=freeze([
  {id:'katz-1993-northeastern-formal',label:'Northeastern Formal Ashkenazic · research',region:'northeastern'},
@@ -28,6 +28,7 @@ function realize(segment,context,profile){
  if(id==='ALEF_0MAPIQ_CON'||id==='AYIN_0DAG')return proposal([],'phonemic-guttural-loss',[69],'A phonetic glottal stop or lexical hiatus treatment is not assigned.');
  if(consonants[id])return proposal([consonants[id]],'consonant-correspondence',[68,69,70,72],id.startsWith('RESH')?'Abstract /r/ only; an acoustic allophone is unassigned.':null);
  if(id==='SHEVA_NA'||id.startsWith('VARIKA_'))return proposal(null,'mobile-sheva-needs-local-evidence',[74],'The source describes multiple formal sheva qualities; no exact regional target is selected.');
+ if(id==='YOD_0DAG_PART2_OF_DIPHTHONG'&&context.vowelYod?.yodSegmentId===segment.id)return proposal(['j'],'postvocalic-yod-after-patah-or-qamats',[68,71],'An abstract /j/ constituent after source patah or qamats. The complete phonetic transition, quantity and note allocation remain unassigned.');
  if(kind==='diphthong-part')return proposal(null,'source-diphthong-sequence-needs-evidence',[67,68,69],'This source sequence needs a complete contextual correspondence; no vowel plus glide is guessed.');
  if(id==='ALEF_1MAPIQ'||id==='HE_1MAPIQ'||id==='ALEF_SHURUQ_VOWEL')return proposal(null,'special-category-needs-evidence',[69,70,71],'This special source category needs an explicit regional realization.');
  if(id==='FPP_PATAX_XET')return proposal(['a','x'],'furtive-patah-and-chet',[67,68,70]);
@@ -54,6 +55,12 @@ function realize(segment,context,profile){
  return proposal(null,'category-needs-evidence',[],'No implemented source rule.');
 }
 const isNucleus=s=>s.kind==='vowel'||s.kind==='vowel-consonant-pair'||s.kind==='diphthong-part'&&!s.categoryId.startsWith('YOD_');
+function vowelYodContext(segments){
+ const yod=segments.at(-1),vowel=segments.at(-2);
+ if(yod?.categoryId!=='YOD_0DAG_PART2_OF_DIPHTHONG'||yod.part!=='whole'||vowel?.part!=='whole'||!['PATAX','QAMATS_G'].includes(vowel.categoryId)||segments.filter(isNucleus).length!==1)return null;
+ return {vowelSegmentId:vowel.id,yodSegmentId:yod.id,vowelCategoryId:vowel.categoryId,
+  basis:'Original adjacent whole source categories in one source syllable; Katz1993 pp.68,71 treats postvocalic yod as consonantal /j/. Source-category adaptation is a proposal requiring review.'};
+}
 function unitContext(unit,variant,units){
  const segments=variant.segments,nuclei=segments.map((s,i)=>isNucleus(s)?i:-1).filter(i=>i>=0);
  const tail=nuclei.length===1?segments.slice(nuclei[0]+1):[];
@@ -63,7 +70,7 @@ function unitContext(unit,variant,units){
   closureBasis:'Original source categories before consonant loss and degemination; shared first halves close the preceding syllable.',
   beforeYodOrMappiq:tail.some(s=>['YOD_0DAG_CON','YOD_1DAG','YOD_0DAG_PART2_OF_DIPHTHONG','HE_1MAPIQ'].includes(s.categoryId)),
   primaryStress:unit.sourceStress?true:marked?false:null,stressBasis:unit.sourceStress?'explicit-source-primary':marked?'another-primary-in-same-source-word':'not-established',
-  posttonicReduction:false,penultimateStressShift:false};
+  posttonicReduction:false,penultimateStressShift:false,vowelYod:vowelYodContext(segments)};
 }
 function compileRoute(study,row,cell,column,style,profile){
  const route={id:`${study.groupId}-${style}-r${row.number}-c${cell.column}-h${column}`,sourceRow:row.number,sourceColumn:cell.column,hebrewColumn:column,units:[],events:[],gaps:[]};
@@ -96,10 +103,18 @@ function compileRoute(study,row,cell,column,style,profile){
   for(const m of members)m.fragment.eventId=eventId;
   route.events.push(event);
  }
- // Keep hiatus and source diphthong sequences explicit; no lexical contraction is inferred.
+ // Sequences reference the existing two events. They add no phone, shared half,
+ // vowel-point range, timing, contraction, or duplicate event.
  for(let i=0;i<route.units.length;i++){
   const unit=route.units[i];
-  if(unit.fragments.some(f=>f.source.kind==='diphthong-part'))route.gaps.push({reason:'unreviewed-diphthong-sequence',sourceUnitIds:[unit.sourceUnitId]});
+  unit.vowelYodProposal=null;
+  if(unit.context.vowelYod){
+   const ids=[unit.context.vowelYod.vowelSegmentId,unit.context.vowelYod.yodSegmentId],members=ids.map(id=>unit.fragments.find(f=>f.source.id===id));
+   if(members.every(f=>f.proposal.candidatePhonemes!==null))unit.vowelYodProposal={sourceSegmentIds:ids,eventIds:members.map(f=>f.eventId),
+    candidatePhonemes:members.flatMap(f=>f.proposal.candidatePhonemes),evidence:{sourceId:PHONOLOGY_SOURCE.id,printedPages:[67,68,71]},
+    status:'source-based-constituent-proposal',phonemes:null,enginePhones:null,quantity:null,duration:null,noteIds:null,audioTimes:null,review:null};
+  }
+  if(unit.fragments.some(f=>f.source.kind==='diphthong-part'))route.gaps.push({reason:unit.vowelYodProposal?'vowel-yod-phonetics-needs-review':'unreviewed-diphthong-sequence',sourceUnitIds:[unit.sourceUnitId],evidence:{sourceId:PHONOLOGY_SOURCE.id,printedPages:[68,71]}});
   const next=route.units[i+1];if(!next||unit.ownerWordId!==next.ownerWordId)continue;
   const end=unit.fragments.filter(f=>f.proposal.candidatePhonemes?.length).at(-1),start=next.fragments.find(f=>f.proposal.candidatePhonemes?.length);
   const onset=next.fragments.slice(0,next.fragments.findIndex(f=>isNucleus(f.source)));

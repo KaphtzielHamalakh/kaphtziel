@@ -26,11 +26,12 @@ export function mountPhonologyPreview(){
     });
     const candidate=document.createElement('p');candidate.className='phonology-candidate';candidate.textContent=values.join(' · ');li.append(candidate);
     const context=document.createElement('small');context.textContent=`Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress===null?'not established':unit.context.primaryStress?'marked':'on another syllable'}`;li.append(context);
+    if(unit.vowelYodProposal){const pair=document.createElement('small');pair.className='phonology-vowel-yod';pair.textContent=`Vowel–yod constituents: /${unit.vowelYodProposal.candidatePhonemes.join(' + ')}/ · Katz1993 pp.67–68,71. Same source syllable and two existing events; phonetic transition and singing remain unassigned.`;li.append(pair);}
     const gaps=unit.fragments.filter(f=>f.proposal.candidatePhonemes===null).map(f=>f.proposal.reason);if(gaps.length){const gap=document.createElement('p');gap.className='muted';gap.textContent=[...new Set(gaps)].join(' ');li.append(gap);}
     list.append(li);
    }
    section.append(list);
-   for(const gap of route.gaps){const note=document.createElement('p');note.className='muted';note.textContent=gap.reason==='hiatus-phonetics-needs-review'?'Adjacent vowels after consonant loss: phonetic hiatus treatment needs review.':gap.reason==='unreviewed-diphthong-sequence'?'The source vowel–yod sequence needs contextual evidence.':'A source route or shared consonant correspondence is incomplete.';section.append(note);}
+   for(const gap of route.gaps){const note=document.createElement('p');note.className='muted';note.textContent=gap.reason==='hiatus-phonetics-needs-review'?'Adjacent vowels after consonant loss: phonetic hiatus treatment needs review.':gap.reason==='vowel-yod-phonetics-needs-review'?'Patah/qamats and postvocalic yod have source-based constituent proposals. The phonetic transition, quantity and note timing still need review.':gap.reason==='unreviewed-diphthong-sequence'?'The source vowel–yod sequence needs contextual evidence.':'A source route or shared consonant correspondence is incomplete.';section.append(note);}
    $('phonology-word').append(section);
   }
   $('phonology-export').disabled=false;

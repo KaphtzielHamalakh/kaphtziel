@@ -6,15 +6,15 @@
   "publishedCommit": "9f054ce4558235d972bcc1dfb2b5d1d76ed51f1a",
   "nextTask": "Continue exact word-aligned Torah pronunciation and all six complete independent historical grammars/voices, every contextual cantorial system and retained tutor/learning inventory; printing deferred. Preserve every original marked Hebrew word/stableID, MAM alternative/shared range,1120source units per style/14unsplit compounds and all original recordings/clocks/gaps/nulls. The two new Khan published Tiberian text readings cover only159words/Gen1:1–13 and are separate from Kinnor labels, MAM text styles and fixed Foreman audio. Complete qualified source-mark/transcription/syllable/acoustic review before using them for generated singing. No guessed audio or note times. Continue primary evidence for full regional phonology, remaining8Baer figures and contextual word fitting without inventing durations/tradition equivalence. Privatev0.55MBROLAcurve/clock diagnostic stays frozen; full goal active/incomplete.",
   "lastPassingTests": {
-    "automated": 538,
+    "automated": 542,
     "failed": 0,
     "skipped": 0,
-    "newTests": 9,
-    "log": "/private/tmp/tropetrain-check-v64-mobile.log",
+    "newTests": 4,
+    "log": "/private/tmp/tropetrain-check-v65.log",
     "separateResearchAlgorithmChecks": 12,
     "priorConsonantOracleChecks": 7,
     "priorIndependentTinySequencePairs": 225,
-    "ui": "Final full538pass/0fail/0skip,9newchecks, log/private/tmp/tropetrain-check-v64-mobile.log; runtimeJSd62fcea0...same aspreliminarybrowsergate, finalportable102290862bytes/SHA25691fe770950fda60024c1f201be2f448bb6ebcbbd7d7fd257f71a71722f2a757d. Guardedcopy60485terminalexit0 copiedonly2generatedartifacts; no runtime/sourcechanges afterfullpass. Normal106andportable107eachproveall318source-wordlinks(159words/twostreams)across90+69readerpages, exactmarkedHebrew/IDs/phonetictext, bothactualsourcecolumnsandfiveexplicitcommonreadings. Nativeexportkeepssamewholeword/nulltimings; Gen1:14keepschosenstreamwith16explicitmissingwords/noexport, whileMAMstilloffersitsown16wordtext. Independentsource-onlyswitchduringmutedplaybackkeepscomplete score/settings/activeclock; MAMstylechangesitsseparatescoretextasexpectedwithoutalteringKhantext. Nativekey+1/tempo85/range74retainallmarkedwords/phonetictext; restored0/84/72. Source/checkbox/passagepersistacrossnormalandportablereloads. CompleteactualportableZIP311629bytes/SHA256b1b4b0006e9e0c29c581595cf8e49a72b02120f4ea63b37d03fcafd49b0ed6ebandJSON171155bytes/SHA256a1a80d4fe28571065b4fabeaddc2c09e3ace9047f5baf4f713271be4f44ef782verifiedfromrendereddataURLsusingboundedread-onlyDOMobservationsaftertransporttruncatedlongstringsat200000chars. No sourcebyteschanged. At319pxbothfinalsourcecontrolsfit:root/scroll319,selector259/259,newcomparison231/231after scopedcellwrapping. FinalmobileJPEGsaved; bothconsoles0warn/error. Allplayersstopped/instrument0/media paused,viewportreset. Old80/81/100/101/104/105anduser8765/8767untouched; private106/107andserver17190/8770remainuntilpublicationQA. All618priorassets/dataand72recordings/fivestudiesexact. No speakerlistening, source full-mark equivalence, acceptedsyllable/phone/note/audiotimes, newvoice, Kinnoridentity orfullgrammarclaimed. Publicnormal108andportable109eachverifyall318sourcewordlinks/159words/twostreams acrosstwo reader pages with exact unchanged markedHebrew/IDs/phonetictext. All20publiccheckflags true. Explicitinstrumentmode mutedtests retaincomplete score/settings/activeclockduringsource-onlyswitch; independentMAMstylekeepsKhantext. Originalpublicmodewasrecorded,so aninitialPlaying-onlystatuspredicatewasinapplicable; afterexplicitinstrumenttestsbothoriginalrecordedmodesrestored. Originalrecordedchantmutedclockalso staysRestart/Recordedchant at15.2174%before/aftersourcechoice, progressingnormally; noaudio/phoneticinterpretation is inferred. Sourcewordexport/commoncolumn provenance correct; bothbuildskeepselectedstreamwith16explicitmissingGen1:14words/disabledexport. Nativekey+1/tempo61/high74retainallreaderstrings, thenrestore0/60/72. Publicnormaldesktop1280root/scroll1280andallcontrolsfit; actualpublicportable319root/scroll319,selector259/259,comparison231/231withwrappedcells. Backgroundnormal108stayed1280whiletheviewportoverridetargetedactive109; normalpanelopenwasqueued. No publicnormal319claim; actuallocalnormalandportable319checksandexactpublicCSSprovideadditionalcoverage. Publicportableevidencelinklengths415536/228237retainfullexactsourceZIP/JSON,confirmedbyactual22filebyteaudit andlocalrenderedfull-bytehashchecks. Bothpublicconsoles0warn/error; actualdesktop/mobileJPEGsvisuallyinspected. Alltestplayersstopped/instrument0/chant0/nativemediapaused, originalrecordedmodesandMAMstylesrestored,viewportreset;108/109markedDeliverable. Old80/81/100/101/104/105and8765/8767untouched; private106/107/server17190closed. Portable109navigationobservationtimeoutinspectedthroughsamecompletedhandlewithoutrepeatnavigation. No newvoice, acceptedphone/syllable/note/audiotime, completegrammar, sourcefull-markequivalence orqualifiedreviewclaimed.",
+    "ui": "Final542pass/0fail/0skip,4newchecks,full26687exit0. Guardedcopy9644exit0copiedonly2generatedartifacts. Actualnormal110andportable111preserveexactGen3:22word21וָחַ֥י,sourceunit/letterbindingsand/a+j/constituents. RegionalNE/MEfirstqamatsɔ/uandMAMtextva/votoggleindependently;musicalsettingsand7noteeventsremainexact. Nativeexportskeep2existingeventreferencesandnullapprovedphones/quantity/times/review. BothmutedinstrumentclockscontinuePlayingword21D4duringprofilechange;Stoppressed. Normalkey+1raisesall7MIDIvalues1whilebeat/durationsfixed;tempo85/range74keepallpronunciation/Hebrewthenrestore0/84/72. Isolatednativepersistencepassesafterexplicitreadingselection;twoearlierpredicatesincorrectlyexpectedtheothertabnottohaveupdatedsharedoriginpreferences/reading. PortableDeut32:6combinedsourcekeepsallownership/occurrenceIDsnullwithɔ+jpair;normalGen12:2לְג֣וֹיkeeps3unknowns/shevaand2compoundfragmentswithno/a+j/fallback. Portable319root/scroll319;actualmobileanddesktopPNGvisuallyinspected,butmobilescreenshotshowsreader/transport,notnewpairpanel. Bothconsoles0warn/error,allmedia paused/volume0. PortableAXexceedednativeframe;documentednativelocatorsandboundedreadonlyDOMusedafterward. Initialportableexportclickwasblockedbycollapsedpreview;expandedbeforefinalexport/playchecks. Nohypotheticalaudioalignmentornewvoiceclaimed. Testedbuild619oldasset/datafiles,72recordingobjectsand159Khanbindingsareexact;canonicalbulkreader8705stoppedSIGINTexit130afteriCloudstall,notclaimedverified. Canonicalgeneratedcopychangedonly2artifacts;allasset/dataunchangedinstagingdiff.",
     "sourceSlurGeometryRelationships": 1206
   },
   "completionRequires": [
@@ -194,10 +194,10 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.64.0",
-    "status": "538checks_public_all318wordlinks_and_20UIchecks_verified_final_records_saved_goal_active",
-    "baseline": "158fefb4a9d97aefd5559acc87b5ccb8762355bc",
-    "previousGoalTurn": "Progress:0.63published529checks/live normal-portable-mobile/1044exactfiles saved.",
+    "version": "0.65.0",
+    "status": "542checks_16local_UI_checks_passed_publication_pending",
+    "baseline": "fca60b95715982b4b01cdc1575fc626d74826507",
+    "previousGoalTurn": "Progress:v0.64published538checks/publicnormalportable/exact1052files_saved",
     "newPublicVoice": null,
     "review": null
   },
@@ -1064,9 +1064,9 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.56.0",
-    "codeCommit": "8ffa464a25c80132980021b9e0c009e03e051c99",
-    "tests": 473,
+    "version": "0.64.0",
+    "codeCommit": "9f054ce4558235d972bcc1dfb2b5d1d76ed51f1a",
+    "tests": 538,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -1581,7 +1581,7 @@
     "qualifiedReviewPending": true
   },
   "phonologicalResearch": {
-    "version": "0.57.0",
+    "version": "0.65.0",
     "source": "Dovid Katz1993 The Phonology of Ashkenazic",
     "record": "docs/PRONUNCIATION-PHONOLOGY.json",
     "profiles": [
@@ -1589,20 +1589,27 @@
       "katz-1993-mideastern-formal"
     ],
     "scope": "Incomplete source-defined Formal Ashkenazic phonemic proposals, independent of both MAMtext styles and all six documentary Kinnor profiles. No historical label equivalence, reviewed grammar, acoustic phone, duration, singing voice or sound allocation.",
-    "status": "published_482_checks_source_preserving_word_proposals_local_and_public_normal_portable_verified_review_and_singing_pending",
+    "status": "542checks_source_preserving_constituent_pairs_UI_verified_publication_pending",
     "allTorahWordLinks": 79985,
     "sourceGroups": 68504,
     "sourceUnitPlansPerStyle": 194272,
     "categoryReferencesPerStyle": 518726,
     "sharedConsonantEventsPerStyle": 18250,
     "unassignedReferences": {
-      "northeastern": 22585,
-      "mideastern": 22773
+      "northeastern": 20313,
+      "mideastern": 20501
     },
     "reviewedRealizations": 0,
-    "sourceAssetsAndDataUnchanged": 605,
+    "sourceAssetsAndDataUnchanged": 619,
     "sourceGrammarAdaptationReview": null,
-    "newSingingVoice": null
+    "newSingingVoice": null,
+    "vowelYodConstituentPairsPerStyle": 2272,
+    "vowelYodCategories": {
+      "QAMATS_G": 1964,
+      "PATAX": 308
+    },
+    "unassignedVowelYodCompoundsPerStyle": 44,
+    "phoneticTransitionsReviewed": 0
   },
   "pairedRecordedPronunciations": {
     "record": "docs/ASAEL-PAIRED-CHANT.json",
