@@ -51,7 +51,7 @@ export function readerPronunciationWord(word,study,style){
 }
 
 export function appendReaderPronunciation(target,report){
- target.replaceChildren();target.lang='en';target.dir='ltr';target.className='reader-word-pronunciation';target.dataset.pronunciationStatus=report.status;
+ target.replaceChildren();target.lang=report.schema==='tropetrain-published-pronunciation-word-v1'?'und-fonipa':'en';target.dir='ltr';target.className='reader-word-pronunciation';target.dataset.pronunciationStatus=report.status;
  if(report.status!=='word-linked'){
   target.classList.add('unlinked');target.textContent=READER_PRONUNCIATION_MESSAGES[report.status];
   target.title=report.status==='combined-source-form'?'The source keeps this pronunciation combined across words. Select the Hebrew word for the complete source group.':'No transcription is substituted from another style or an approximate spelling.';return;
@@ -59,6 +59,7 @@ export function appendReaderPronunciation(target,report){
  for(const entry of report.entries){
   const line=document.createElement('span');line.className='reader-pronunciation-entry';line.dataset.sourceCell=entry.sourceCellId;
   line.title=`Source row ${entry.sourceRow}, column ${entry.sourceColumn}${entry.sourceReference?' · same transcription as column '+entry.sourceReference.column:''}${entry.sourceForm?' · source reading form; written range unresolved':''}. Source text only; independent linguistic review pending.`;
+  if(entry.kind==='published-phonetic-word')line.title=`Khan2020, printed p.${entry.printedPage}, transcription${entry.sourceColumn}${entry.sourceReference?' · explicitly shared by both readings':''}. Complete printed word only; syllable, note and audio timing unassigned.`;
   const text=document.createElement('span');text.className='reader-pronunciation-text';
   for(const part of entry.parts){
    text.append(document.createTextNode(part.join));const token=document.createElement(part.sourceStress?'strong':'span');token.textContent=part.text;token.dataset.sourceUnit=part.sourceUnitId;text.append(token);

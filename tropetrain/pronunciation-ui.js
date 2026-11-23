@@ -1,3 +1,4 @@
+import {mountKhanPronunciation} from './khan-pronunciation-ui.js';
 import {mountHistoricalPronunciation} from './historical-pronunciation-ui.js';
 import {mountPhonologyPreview} from './pronunciation-phonology-ui.js';
 import {sourceIpaEvidence} from './pronunciation-ipa.js';
@@ -16,6 +17,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
  let style=pronunciationStyle(saved?.style),word=null,listening=false,library=null,error=null,lastKey=null,study=null;
  const readerCache=new Map(),followCache=new Map(),bookRequests=new Map(),bookErrors=new Map();
+ const publishedPronunciation=mountKhanPronunciation({onChange});
  const historicalProfiles=mountHistoricalPronunciation();
  const phonologyPreview=mountPhonologyPreview();
  function requestBook(value){
@@ -110,6 +112,7 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  }
  function render(){
   const current=JSON.stringify([style,word?.id,word?.sourceHebrew,word?.reference,listening,!!library,error]);if(current===lastKey)return;lastKey=current;
+  publishedPronunciation.showWord(word);
   historicalProfiles.show(null,word,style);
   phonologyPreview.show(null,word,style);
   $('pronunciation-target').textContent=word?`${word.reference} · word ${word.ordinal} · ${listening?'listening word':'selected word'}`:'Choose a Hebrew word.';
@@ -159,7 +162,9 @@ export function mountPronunciationStudy({onChange=()=>{}}={}){
  $('pronunciation-style').addEventListener('change',()=>{style=pronunciationStyle($('pronunciation-style').value);try{localStorage.setItem(key,JSON.stringify({style}));}catch{}render();onChange();});
  getPronunciationLibrary().then(value=>{library=value;render();onChange();}).catch(e=>{error=e.message;render();onChange();});
  return {showWord(value,{following=false}={}){word=value;listening=following;render();},
+  readerStatus(){return publishedPronunciation.selected()?publishedPronunciation.readerStatus():{kind:'mam',style,name:PRONUNCIATION_STYLES.find(s=>s.id===style).name,error};},
   readerText(value){
+   if(publishedPronunciation.selected())return publishedPronunciation.readerText(value);
    if(!library||requestBook(value))return null;
    // Bounded cache keeps repeated assignment occurrences independent while
    // avoiding source analysis on every paint. Always recheck the marked word.

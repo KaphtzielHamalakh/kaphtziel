@@ -154,7 +154,8 @@ function transportLabel(running){$('play').innerHTML=running?'<span aria-hidden=
 function renderPronunciationFollow(){
   const hint='Instrument notes can highlight source syllables with an exact marked-Hebrew match. This is text correspondence; a singing voice and acoustic syllable timing are pending.';
   let report=null,error=null;
-  if(activeInstrumentEvent)try{report=pronunciationTools?.followNote(activeInstrumentEvent,words);}catch(e){error=e.message;}
+  const readerSource=pronunciationTools?.readerStatus();
+  if(activeInstrumentEvent&&readerSource?.kind!=='published-word')try{report=pronunciationTools?.followNote(activeInstrumentEvent,words);}catch(e){error=e.message;}
   const unitIds=new Set(report?.status==='exact-written-span'?report.units.map(u=>u.sourceUnitId):[]);
   for(const el of $('reader').querySelectorAll('.reader-word-pronunciation [data-source-unit]')){
     const button=el.closest('.pronunciation-word')?.querySelector('.word');
@@ -165,6 +166,7 @@ function renderPronunciationFollow(){
   const status=$('pronunciation-follow-status');
   status.dataset.event=activeInstrumentEvent?.id??'';status.dataset.followWord=activeInstrumentEvent?.wordId??'';
   status.dataset.followStatus=error?'review-needed':report?.status??(activeInstrumentEvent?'loading':'idle');
+  if(readerSource?.kind==='published-word'){status.dataset.followStatus='published-word-only';status.textContent='Published Tiberian text follows whole words. Syllable and note highlighting is unassigned for this source; the instrument and recordings keep their own pronunciation and melody.';return;}
   status.textContent=error?`Pronunciation highlighting unavailable: ${error}`:!activeInstrumentEvent?hint:!report?'Loading source syllable correspondence…':report.status==='exact-written-span'?`${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map(u=>u.text))].join(' / ')} · exact written-span match. Text follows the instrument; no sung syllable is implied.`:`${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
 }
 function setActive(wordId,eventId){
@@ -270,7 +272,7 @@ function renderReader(){
   renderReaderPronunciation();
 }
 function renderReaderPronunciation(){
-  const buttons=[...$('reader').querySelectorAll('.hebrew-line .word')],source=pronunciationTools?.scoreStatus(),counts={linked:0,sourceForm:0,combined:0,unassigned:0,review:0},seen=new Set();
+  const buttons=[...$('reader').querySelectorAll('.hebrew-line .word')],source=pronunciationTools?.readerStatus(),counts={linked:0,sourceForm:0,combined:0,unassigned:0,review:0},seen=new Set();
   for(const [index,button] of buttons.entries()){
     const word=words[Number(button.dataset.index)];
     const oldId=button.dataset.pronunciationDescription;
@@ -845,6 +847,10 @@ $('baer-high-holiday-open').addEventListener('click',()=>libraryAction(()=>{
   state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
   $('reader').focus();$('practice').scrollIntoView();
 }));
+$('khan-pronunciation-open').addEventListener('click',()=>libraryAction(()=>{
+  applyRanges([{id:'khan-pronunciation',bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:13},label:'Published Tiberian pronunciation examples · Genesis1:1–13'}],{readingType:'torah'});
+  state.cursor=0;state.anchor=0;state.scope='word';render();$('reader').focus();$('practice').scrollIntoView();
+}));
 $('implicit-reading-open').addEventListener('click',()=>libraryAction(()=>{
   applyRanges([{id:'implicit-reading',bookId:'gen',start:{chapter:4,verse:18},end:{chapter:4,verse:18},label:'Documented source reading · Genesis4:18'}],{readingType:'torah'});
   state.cursor=8;state.anchor=8;state.scope='word';render();
@@ -972,6 +978,7 @@ getRepertoireCorpus().then(value=>{
   $('baer-study-open').disabled=false;
   $('baer-high-holiday-open').disabled=false;
   $('implicit-reading-open').disabled=false;
+  $('khan-pronunciation-open').disabled=false;
   $('prophetical-study-open').disabled=false;
   let restoreFailed=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){restoreFailed=true;retainPracticeRecovery(error);$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}

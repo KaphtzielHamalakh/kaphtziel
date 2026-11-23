@@ -3476,13 +3476,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     get words() {
       const split = this.#sanitized.split(splitGroup);
       const groups = split.filter((group) => group);
-      const words3 = groups.map((original) => {
+      const words4 = groups.map((original) => {
         const word = this.#processKetivQeres(original);
         return new Word(word, this.#options, word !== original ? original : void 0);
       });
-      const [first, ...rest] = words3;
+      const [first, ...rest] = words4;
       first.siblings = rest;
-      return words3;
+      return words4;
     }
   };
   _a3 = Text;
@@ -3820,11 +3820,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   var verseIdentity = (w) => w.verseKey ?? [w.bookId, w.chapter, w.verse, w.sectionId].join(":");
   var joined = (w) => /־[\s\u034f\u200d]*$/u.test(w.sourceHebrew);
-  function analyzeAccentContext(words3) {
-    const units = [], runs = [], wordContexts = Array(words3.length);
+  function analyzeAccentContext(words4) {
+    const units = [], runs = [], wordContexts = Array(words4.length);
     let pending = null;
-    for (let i = 0; i < words3.length; i++) {
-      const word = words3[i], key = verseIdentity(word);
+    for (let i = 0; i < words4.length; i++) {
+      const word = words4[i], key = verseIdentity(word);
       if (!pending) pending = { id: `unit:${word.id}`, verseKey: key, wordIndices: [], atoms: [], issues: [], foldedPositions: 0 };
       const unit = pending;
       unit.wordIndices.push(i);
@@ -3847,10 +3847,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         unit.atoms.push({ id, proseClass: positions[0].proseClass, positions });
       }
       if (analysis.marks.some((s) => s.id === "paseq")) unit.issues.push("paseq-context");
-      if (analysis.marks.some((s) => s.id === "sof-pasuq") && i + 1 < words3.length && verseIdentity(words3[i + 1]) === key) unit.issues.push("internal-verse-closing-mark");
+      if (analysis.marks.some((s) => s.id === "sof-pasuq") && i + 1 < words4.length && verseIdentity(words4[i + 1]) === key) unit.issues.push("internal-verse-closing-mark");
       if (word.sourceHebrew.includes("־") && !joined(word)) unit.issues.push("internal-maqaf");
       if (joined(word) && raw.some((s) => s.proseClass)) unit.issues.push("accented-maqaf-prefix");
-      const continueUnit = joined(word) && i + 1 < words3.length && verseIdentity(words3[i + 1]) === key;
+      const continueUnit = joined(word) && i + 1 < words4.length && verseIdentity(words4[i + 1]) === key;
       if (joined(word) && !continueUnit) unit.issues.push("dangling-maqaf");
       if (continueUnit) continue;
       if (!unit.atoms.length) unit.issues.push("no-functional-accent");
@@ -3893,9 +3893,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (stream.length) result.push(stream);
     return result;
   }
-  function hitFor(words3, context, atoms) {
+  function hitFor(words4, context, atoms) {
     const unitIndices = [...new Set(atoms.map((a) => a.unitIndex))];
-    const selected = unitIndices.flatMap((n) => context.units[n].wordIndices), start = selected[0], end = selected.at(-1), slice = words3.slice(start, end + 1);
+    const selected = unitIndices.flatMap((n) => context.units[n].wordIndices), start = selected[0], end = selected.at(-1), slice = words4.slice(start, end + 1);
     return {
       start,
       end,
@@ -3909,10 +3909,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       includesMaqaf: slice.some(joined)
     };
   }
-  function findCombinationsInReading(words3, value, context = analyzeAccentContext(words3)) {
+  function findCombinationsInReading(words4, value, context = analyzeAccentContext(words4)) {
     const ids = query(value), hits = [];
     for (const stream of streams(context)) for (let i = 0; i <= stream.length - ids.length; i++) {
-      if (ids.every((id, j) => stream[i + j].id === id)) hits.push(hitFor(words3, context, stream.slice(i, i + ids.length)));
+      if (ids.every((id, j) => stream[i + j].id === id)) hits.push(hitFor(words4, context, stream.slice(i, i + ids.length)));
     }
     return hits;
   }
@@ -3941,7 +3941,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (cache.has(key)) return cache.get(key);
     const promise7 = (async () => {
       const hits = [];
-      await visitCorpusContext(corpus2, (words3, context) => hits.push(...findCombinationsInReading(words3, ids, context)));
+      await visitCorpusContext(corpus2, (words4, context) => hits.push(...findCombinationsInReading(words4, ids, context)));
       return hits;
     })();
     if (cache.size >= 8) cache.delete(cache.keys().next().value);
@@ -4027,7 +4027,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       sectionId: w.sectionId ?? v.sectionId ?? "opening",
       ordinal: w.ordinal ?? ordinal + 1
     })));
-    const words3 = raw.map((w, index) => {
+    const words4 = raw.map((w, index) => {
       const fixture = fixtures.get(w.sourceWordId ?? w.id), printed = printedSourceWord(w, melodyId);
       const syllables = alignedSyllables(w, { fixture: printed ? [printed.lengths, null, printed.stress] : fixture?.text === w.sourceHebrew ? fixture.syllables : null });
       const atVerseEnd = index === raw.length - 1 || raw[index + 1].verseKey !== w.verseKey;
@@ -4046,7 +4046,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (groupEnd) group++;
       return word;
     });
-    const events2 = Object.freeze(words3.flatMap((w) => w.syllables.flatMap((s, i) => {
+    const events2 = Object.freeze(words4.flatMap((w) => w.syllables.flatMap((s, i) => {
       if (isPrintedScore(melodyId)) {
         const row = printedSourceWord(w, melodyId);
         if (!row) return [];
@@ -4093,19 +4093,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }));
     })));
     function bounds3(cursor, anchor, scope) {
-      if (!words3[cursor] || !words3[anchor]) throw Error("Choose a word in this reading.");
+      if (!words4[cursor] || !words4[anchor]) throw Error("Choose a word in this reading.");
       if (scope === "selection") return [Math.min(cursor, anchor), Math.max(cursor, anchor)];
       if (scope === "word") return [cursor, cursor];
-      if (scope === "passage") return [cursor, words3.length - 1];
+      if (scope === "passage") return [cursor, words4.length - 1];
       const field = scope === "group" ? "group" : scope === "aliyah" ? "sectionId" : "verseKey";
       let end = cursor;
-      while (end + 1 < words3.length && words3[end + 1][field] === words3[cursor][field]) end++;
+      while (end + 1 < words4.length && words4[end + 1][field] === words4[cursor][field]) end++;
       return [cursor, end];
     }
     function buildPlan3(start, end, { tempo = 84, transpose = 0 } = {}) {
-      if (!Number.isInteger(start) || !Number.isInteger(end) || !words3[start] || !words3[end] || start > end) throw Error("Invalid playback span.");
+      if (!Number.isInteger(start) || !Number.isInteger(end) || !words4[start] || !words4[end] || start > end) throw Error("Invalid playback span.");
       if (!Number.isFinite(tempo) || tempo <= 0 || !Number.isInteger(transpose) || Math.abs(transpose) > 36) throw Error("Invalid tempo or transposition.");
-      if (isPrintedScore(melodyId) && words3.slice(start, end + 1).some((w) => !printedSourceWord(w, melodyId)))
+      if (isPrintedScore(melodyId) && words4.slice(start, end + 1).some((w) => !printedSourceWord(w, melodyId)))
         throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel ?? (melodyId === PRINTED_SCORE.id ? "Genesis 22:1" : "Genesis 1:1–5")}. Open that passage or choose the original demonstration. No notes are substituted.`);
       let beat = 0;
       const selected = events2.filter((e) => e.wordIndex >= start && e.wordIndex <= end);
@@ -4123,7 +4123,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         return event;
       });
     }
-    return { passage: passage3, words: words3, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile, context: analyzeAccentContext(words3) };
+    return { passage: passage3, words: words4, events: events2, bounds: bounds3, buildPlan: buildPlan3, profile, context: analyzeAccentContext(words4) };
   }
   var initial = createReadingModel(passage);
   var words = initial.words;
@@ -4178,9 +4178,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       throw Error("Printed rhythm and sounding duration disagree.");
     return r;
   }
-  function scoreData(plan2, words3) {
+  function scoreData(plan2, words4) {
     return plan2.map((event, index) => {
-      const word = words3[event.wordIndex];
+      const word = words4[event.wordIndex];
       if (!word || word.id !== event.wordId) throw Error("Score notes no longer match their source words.");
       const previous = plan2[index - 1], next = plan2[index + 1], continuation = previous?.syllableId === event.syllableId;
       const extendsNext = next?.syllableId === event.syllableId;
@@ -5161,8 +5161,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 
   // source-alternatives.js
-  function sourceAlternatives(verses, words3) {
-    const byOccurrence = new Map(words3.map((word) => [`${word.sectionId}|${word.sourceWordId ?? word.id}`, word]));
+  function sourceAlternatives(verses, words4) {
+    const byOccurrence = new Map(words4.map((word) => [`${word.sectionId}|${word.sourceWordId ?? word.id}`, word]));
     return verses.flatMap((verse) => writtenReadingGroups(verse.sourceTokens ?? []).filter((group) => group.status !== "same").map((group) => ({
       id: `${group.id}@${verse.sectionId}`,
       reference: verse.reference,
@@ -6072,13 +6072,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     for (let i = 1; i < written.length; i++) if (written[i - 1].end !== written[i].start) throw Error("Pronunciation written ranges are not contiguous.");
     return { start: written[0].start, end: written.at(-1).end };
   }
-  function linkPronunciationToNotes(plan2, words3, library, style) {
+  function linkPronunciationToNotes(plan2, words4, library, style) {
     if (!PRONUNCIATION_STYLES.some((s) => s.id === style)) throw Error("Unsupported pronunciation text style.");
     const prepared = /* @__PURE__ */ new Map(), seen = /* @__PURE__ */ new Set();
     const links = plan2.map((event) => {
       if (seen.has(event.id)) throw Error("Duplicate score event ID.");
       seen.add(event.id);
-      const word = words3[event.wordIndex];
+      const word = words4[event.wordIndex];
       if (!word || word.id !== event.wordId || (event.sourceWordId ?? event.wordId) !== sourceId(word)) throw Error("Score notes do not match their Hebrew word occurrences.");
       if (!prepared.has(word.id)) {
         const ranges2 = syllableRanges(word), study2 = library.study(word, style);
@@ -6129,8 +6129,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     for (let dot = 0; dot < (rest.rhythm?.dots ?? 0); dot++) result += `<circle class="dot rest-dot" cx="${cx + 12 + dot * 5}" cy="76" r="1.7"/>`;
     return result + `<text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
   }
-  function staffNotes(plan2, words3, from = 0, count = STAFF_PAGE, { untexted = false, pronunciationLinks = null } = {}) {
-    const slice = plan2.slice(from, from + count + 1), notes = (untexted ? untextedScoreData(slice) : scoreData(slice, words3)).slice(0, count);
+  function staffNotes(plan2, words4, from = 0, count = STAFF_PAGE, { untexted = false, pronunciationLinks = null } = {}) {
+    const slice = plan2.slice(from, from + count + 1), notes = (untexted ? untextedScoreData(slice) : scoreData(slice, words4)).slice(0, count);
     let position = 84 + (from === 0 ? 55 * (plan2[0]?.sourceRestsBefore?.length ?? 0) : 0);
     return notes.map((e, index) => {
       const pronunciationLink = untexted ? null : pronunciationLinks?.get(e.id), pronunciationText = notePronunciationText(pronunciationLink);
@@ -6156,9 +6156,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       };
     });
   }
-  function staffMarkup(plan2, words3, from = 0, count = STAFF_PAGE, { untexted = false, pronunciationLinks = null } = {}) {
+  function staffMarkup(plan2, words4, from = 0, count = STAFF_PAGE, { untexted = false, pronunciationLinks = null } = {}) {
     const annotated = !untexted && pronunciationLinks !== null, height = annotated ? 280 : 250, beatsY = annotated ? 260 : 230;
-    const notes = staffNotes(plan2, words3, from, count, { untexted, pronunciationLinks }), width = (notes.at(-1)?.endX ?? 200) + 30;
+    const notes = staffNotes(plan2, words4, from, count, { untexted, pronunciationLinks }), width = (notes.at(-1)?.endX ?? 200) + 30;
     let svg = `<svg xmlns="http://www.w3.org/2000/svg" class="pitch-staff" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="group" aria-label="${untexted ? "Printed pattern staff notes" : "Selected staff notes"}"><title>${untexted ? "Printed pattern pitches and durations; no word or syllable underlay is inferred." : "Playback event pitches and durations; draft Hebrew underlay. Consult the selected musical source."}${annotated ? " Pronunciation text is linked by exact written spans only; unlinked syllables and shared consonants need review." : ""}</title>`;
     for (let y = 60; y <= 100; y += 10) svg += `<line class="staff-line" x1="14" y1="${y}" x2="${width - 12}" y2="${y}"/>`;
     svg += '<text class="music-symbol clef" x="24" y="90"></text>';
@@ -6236,11 +6236,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // music-exports.js
   var DIVISIONS = 4800;
   var MIDI_PPQ = 4800;
-  function checked(plan2, words3, context) {
+  function checked(plan2, words4, context) {
     validatePlan(plan2);
     if (!Number.isFinite(context.tempo) || context.tempo <= 0) throw Error("The export needs a tempo.");
     for (const e of plan2) if (!Number.isFinite(e.startBeat) || e.startBeat < 0 || Math.abs(e.startBeat * 60 / context.tempo - e.startSeconds) > 1e-6 || Math.abs(e.beats * 60 / context.tempo - e.durationSeconds) > 1e-6) throw Error("Beat and playback timing disagree.");
-    return scoreData(plan2, words3);
+    return scoreData(plan2, words4);
   }
   function identity(notes, context) {
     const selected = [...new Map(notes.map((e) => [e.word.id, e.word])).values()];
@@ -6278,8 +6278,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function durationNotation(beats, accidental = null, r = rhythmSpelling(beats)) {
     return `<type>${r.type}</type>${"<dot/>".repeat(r.dots)}${accidental ? `<accidental>${accidental}</accidental>` : ""}${r.actual === r.normal ? "" : `<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
   }
-  function musicXml(plan2, words3, context) {
-    const notes = checked(plan2, words3, context), metadata = identity(notes, context);
+  function musicXml(plan2, words4, context) {
+    const notes = checked(plan2, words4, context), metadata = identity(notes, context);
     const cohen = context.melody?.id === "cohen-1902-gen22-ending", baer = context.melody?.id === "baer-1894-gen1-1-5", printed = isPrintedScore(context.melody?.id);
     const creator = printed ? context.melody.creator : "TropeTrain original demonstration";
     const rights = printed ? "Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda." : "Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.";
@@ -6333,8 +6333,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     while (n >>= 7) bytes.unshift(n & 127 | 128);
     return Uint8Array.from(bytes);
   }
-  function midiFile(plan2, words3, context) {
-    const notes = checked(plan2, words3, context), text = new TextEncoder(), parts = [];
+  function midiFile(plan2, words4, context) {
+    const notes = checked(plan2, words4, context), text = new TextEncoder(), parts = [];
     const meta = (delta, type, value) => {
       const bytes = typeof value === "string" ? text.encode(value) : value;
       parts.push(vlq(delta), Uint8Array.of(255, type), vlq(bytes.length), bytes);
@@ -6444,9 +6444,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (id === "unmarked") return !analysis.signs.length && !analysis.marks.some((s) => ["maqaf", "meteg", "silluq", "sof-pasuq"].includes(s.id)) ? 1 : 0;
     return [...analysis.signs, ...analysis.marks].filter((s) => s.id === id).length;
   }
-  function findSignsInReading(words3, id) {
+  function findSignsInReading(words4, id) {
     query2(id);
-    return words3.flatMap((word, wordIndex) => {
+    return words4.flatMap((word, wordIndex) => {
       const count = occurrences(word.signAnalysis ?? analyzeSourceSigns(word.sourceHebrew), id);
       return count ? [{ word, wordIndex, occurrenceId: word.id, sourceWordId: word.sourceWordId ?? word.id, count }] : [];
     });
@@ -6731,22 +6731,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // source-word-windows.js
   function sourceTimingPolicy(recording) {
-    const words3 = recording?.words ?? [], withheld = () => ({ kind: "withheld", eligibleWords: 0, withheldWords: words3.length, windows: /* @__PURE__ */ new Map(), ambiguities: [] });
-    if (recording?.status === "aligned") return { kind: "original-aligned", eligibleWords: words3.length, withheldWords: 0, ambiguities: [] };
-    const starts = recording?.rawStarts, count = words3.reduce((n, w) => n + (w.sourceWords?.length ?? 0), 0);
-    if (recording?.status !== "timing-review" || !words3.length || !Array.isArray(starts) || count !== recording.sourceWordCount || starts.length !== count || starts.some((t) => !Number.isFinite(t) || t < 0) || words3.some((w) => !w.sourceWords?.length)) return withheld();
+    const words4 = recording?.words ?? [], withheld = () => ({ kind: "withheld", eligibleWords: 0, withheldWords: words4.length, windows: /* @__PURE__ */ new Map(), ambiguities: [] });
+    if (recording?.status === "aligned") return { kind: "original-aligned", eligibleWords: words4.length, withheldWords: 0, ambiguities: [] };
+    const starts = recording?.rawStarts, count = words4.reduce((n, w) => n + (w.sourceWords?.length ?? 0), 0);
+    if (recording?.status !== "timing-review" || !words4.length || !Array.isArray(starts) || count !== recording.sourceWordCount || starts.length !== count || starts.some((t) => !Number.isFinite(t) || t < 0) || words4.some((w) => !w.sourceWords?.length)) return withheld();
     const faults = [];
     for (let i = 0; i < starts.length - 1; i++) if (starts[i] >= starts[i + 1]) faults.push({ kind: "non-increasing", sourceIndex: i, before: starts[i], after: starts[i + 1] });
     if (!faults.length || recording.issues?.length !== faults.length || faults.some((f, i) => Object.keys(f).some((k) => f[k] !== recording.issues[i][k]))) return withheld();
     const ambiguities = faults.map((f) => ({ ...f, lowSeconds: Math.min(f.before, f.after), highSeconds: Math.max(f.before, f.after) })), windows = /* @__PURE__ */ new Map();
     let offset = 0;
-    for (const word of words3) {
+    for (const word of words4) {
       const sourceStartIndex = offset;
       offset += word.sourceWords.length;
       const startSeconds = starts[sourceStartIndex], endSeconds = offset < starts.length ? starts[offset] : null;
       if ((endSeconds === null || endSeconds > startSeconds) && !ambiguities.some((a) => startSeconds <= a.highSeconds && (endSeconds === null || endSeconds >= a.lowSeconds))) windows.set(word.id, { startSeconds, endSeconds, sourceStartIndex, sourceEndIndex: offset < starts.length ? offset : null, timingPolicy: "partial-original-windows-v1" });
     }
-    return { kind: "partial-original-windows", eligibleWords: windows.size, withheldWords: words3.length - windows.size, windows, ambiguities };
+    return { kind: "partial-original-windows", eligibleWords: windows.size, withheldWords: words4.length - windows.size, windows, ambiguities };
   }
   function originalWordWindow(recording, word, policy = sourceTimingPolicy(recording)) {
     const canonical3 = recording?.words?.[word?.referenceIndex];
@@ -6804,9 +6804,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (!window2) throw Error(`${entry.recording.title} has unreliable source timings at ${entry.word.id}. This word is withheld; selections crossing it cannot play. Use the complete recording without timed highlights.`);
       return { ...entry, word: { ...entry.word, ...window2 } };
     }
-    selection(words3, start, end) {
-      if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end < start || end >= words3.length) throw Error("Choose a valid reference span.");
-      return words3.slice(start, end + 1).map((word) => {
+    selection(words4, start, end) {
+      if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end < start || end >= words4.length) throw Error("Choose a valid reference span.");
+      return words4.slice(start, end + 1).map((word) => {
         const entry = this.timedAt(word);
         return { ...entry.word, occurrenceId: word.id, wordIndex: word.index };
       });
@@ -7706,10 +7706,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     locations(word) {
       return this.byWord.get(word.sourceWordId ?? word.id) ?? [];
     }
-    excerpt(words3) {
+    excerpt(words4) {
       const sections = [];
       let section = null;
-      for (const word of words3) {
+      for (const word of words4) {
         if (!this.locations(word).length) throw Error(`Scroll layout unavailable for ${word.sourceWordId ?? word.id}.`);
         if (!section || section.id !== word.sectionId) {
           section = { id: word.sectionId, words: [] };
@@ -7756,7 +7756,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // scroll-layout-ui.js
   var linkedWordIds = (element) => (element.dataset.linkedWords ?? element.dataset.word ?? "").split(" ").filter(Boolean);
   var marksWord = (element, id) => id !== null && linkedWordIds(element).includes(id);
-  var writtenUnitClass = (words3) => words3.length > 1 ? "multiple" : words3[0].signAnalysis.className ?? "";
+  var writtenUnitClass = (words4) => words4.length > 1 ? "multiple" : words4[0].signAnalysis.className ?? "";
   function scrollPane(rows2, { makeButton }) {
     const pane = document.createElement("div");
     pane.className = "scroll-lines-pane";
@@ -8655,8 +8655,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
   }
   var nullFields = ["phonemes", "syllableAlignment", "musicalNotes", "independentReview"];
-  function createWordTimingDraft(record, coverage, words3) {
-    if (!coverage || !Array.isArray(words3) || !words3.length || words3.length > 1e3) throw Error("A source passage with at most 1,000 words is required.");
+  function createWordTimingDraft(record, coverage, words4) {
+    if (!coverage || !Array.isArray(words4) || !words4.length || words4.length > 1e3) throw Error("A source passage with at most 1,000 words is required.");
     return {
       format: "tropetrain-word-timing-draft-v1",
       status: "draft",
@@ -8665,7 +8665,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       timingBasis: "personal-unreviewed",
       sourceEditionCompared: false,
       ...Object.fromEntries(nullFields.map((k) => [k, null])),
-      words: words3.map((w) => ({ id: w.sourceWordId ?? w.id, hebrew: w.sourceHebrew, start: null, end: null }))
+      words: words4.map((w) => ({ id: w.sourceWordId ?? w.id, hebrew: w.sourceHebrew, start: null, end: null }))
     };
   }
   function validateWordTimingDraft(value, expected) {
@@ -9672,15 +9672,173 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } };
   }
 
+  // khan-pronunciation-data.js
+  var KHAN_PRONUNCIATION = { "schema": "tropetrain-published-pronunciation-v1", "revision": 1, "id": "khan-2020-genesis-1-1-13", "title": "Khan’s published Tiberian transcriptions · Genesis 1:1–13", "source": { "author": "Geoffrey Khan", "title": "The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I", "year": 2020, "chapter": "I.5.4.1", "printedPages": [614, 615, 616, 617, 618, 619, 620], "url": "https://doi.org/10.11647/OBP.0163.05", "publisherPage": "https://www.openbookpublishers.com/books/10.11647/obp.0163/chapters/10.11647/obp.0163.05", "mirror": "https://commons.wikimedia.org/wiki/File:The_Tiberian_Pronunciation_Tradition_of_Biblical_Hebrew,_Volume_I.pdf", "originalPdfBytes": 9857295, "originalPdfSha256": "bcab644037f62795041c3c6e6e37f1c1eb28f29d147b6d2c4409fd6bc3c0da24", "license": "CC-BY-4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/", "attribution": "Geoffrey Khan (2020), The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I, §I.5.4.1, pp.614–620, https://doi.org/10.11647/OBP.0163.05. CC BY4.0. Word links and reflow by the TropeTrain reconstruction; no endorsement implied.", "changes": "Literal phonetic text reflowed by printed word boundaries; footnote numbers retained separately. Source intra-word line-break hyphen in v9 omitted when rejoining the same word; no phonetic symbol, stress, length or gemination regularized. Reader Hebrew is the unchanged UXLC preferred reading, not a replacement transcription of the source’s marks.", "singleColumnPrinciple": "Printed p614 explicitly states that one reading is given when both streams pronounce a verse the same." }, "styles": [{ "id": "forte-lene", "label": "Tiberian · dagesh forte–lene", "sourceOrder": 1, "recordingIds": ["foreman-gen-lene-spoken", "foreman-gen-lene-melodic"] }, { "id": "extended-forte", "label": "Tiberian · extended dagesh forte", "sourceOrder": 2, "recordingIds": ["foreman-gen-extended-spoken", "foreman-gen-extended-melodic"] }], "verses": [{ "id": "gen-1-1", "chapter": 1, "verse": 1, "columns": [{ "id": "khan-gen-1-1-c1", "column": 1, "printedPage": 615, "text": "baʀ̟eːˈʃiːiθ bɔːˈʀ̟ɔː ʔɛloːˈhiːim ˈʔeːeθ haʃʃɔːˈmaːjim veˈʔeːeθ hɔːˈʔɔːʀ̟ɛsˁ", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-1-1", "readerHebrew": "בְּרֵאשִׁ֖ית", "printedConsonants": "בראשית", "join": "", "text": "baʀ̟eːˈʃiːiθ", "start": 0, "end": 12, "footnotes": [6], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-2", "readerHebrew": "בָּרָ֣א", "printedConsonants": "ברא", "join": " ", "text": "bɔːˈʀ̟ɔː", "start": 13, "end": 21, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-3", "readerHebrew": "אֱלֹהִ֑ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 22, "end": 33, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-4", "readerHebrew": "אֵ֥ת", "printedConsonants": "את", "join": " ", "text": "ˈʔeːeθ", "start": 34, "end": 40, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-5", "readerHebrew": "הַשָּׁמַ֖יִם", "printedConsonants": "השמים", "join": " ", "text": "haʃʃɔːˈmaːjim", "start": 41, "end": 54, "footnotes": [7], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-6", "readerHebrew": "וְאֵ֥ת", "printedConsonants": "ואת", "join": " ", "text": "veˈʔeːeθ", "start": 55, "end": 63, "footnotes": [8], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-7", "readerHebrew": "הָאָֽרֶץ׃", "printedConsonants": "הארץ", "join": " ", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 64, "end": 76, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-1-c2", "column": 2, "printedPage": 615, "text": "bbaʀ̟eːˈʃiːiθ bbɔːˈʀ̟ɔː ʔɛloːˈhiːim ˈʔeːeθ haʃʃɔːˈmaːjim veˈʔeːeθ hɔːˈʔɔːʀ̟ɛsˁ", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-1-1", "readerHebrew": "בְּרֵאשִׁ֖ית", "printedConsonants": "בראשית", "join": "", "text": "bbaʀ̟eːˈʃiːiθ", "start": 0, "end": 13, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-2", "readerHebrew": "בָּרָ֣א", "printedConsonants": "ברא", "join": " ", "text": "bbɔːˈʀ̟ɔː", "start": 14, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-3", "readerHebrew": "אֱלֹהִ֑ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 24, "end": 35, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-4", "readerHebrew": "אֵ֥ת", "printedConsonants": "את", "join": " ", "text": "ˈʔeːeθ", "start": 36, "end": 42, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-5", "readerHebrew": "הַשָּׁמַ֖יִם", "printedConsonants": "השמים", "join": " ", "text": "haʃʃɔːˈmaːjim", "start": 43, "end": 56, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-6", "readerHebrew": "וְאֵ֥ת", "printedConsonants": "ואת", "join": " ", "text": "veˈʔeːeθ", "start": 57, "end": 65, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-1-7", "readerHebrew": "הָאָֽרֶץ׃", "printedConsonants": "הארץ", "join": " ", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 66, "end": 78, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-2", "chapter": 1, "verse": 2, "columns": [{ "id": "khan-gen-1-2-c1", "column": 1, "printedPage": 615, "text": "vɔhɔːˈʔɔːʀ̟ɛsˁ hɔːɔjˈθɔː ˈθoːhuː vɔːˈvoːhuː voˈħoːʃɛχ ʕal-pʰaˈneː θoˈhoːom vaˈʀ̟uːwaħ ʔɛloːˈhiːim maʀ̟aːˈħɛːfɛθ ʕal-pʰaˈneː hamˈmɔːjim", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-2-1", "readerHebrew": "וְהָאָ֗רֶץ", "printedConsonants": "והארץ", "join": "", "text": "vɔhɔːˈʔɔːʀ̟ɛsˁ", "start": 0, "end": 14, "footnotes": [9], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-2", "readerHebrew": "הָיְתָ֥ה", "printedConsonants": "היתה", "join": " ", "text": "hɔːɔjˈθɔː", "start": 15, "end": 24, "footnotes": [10], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-3", "readerHebrew": "תֹ֙הוּ֙", "printedConsonants": "תהו", "join": " ", "text": "ˈθoːhuː", "start": 25, "end": 32, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-4", "readerHebrew": "וָבֹ֔הוּ", "printedConsonants": "ובהו", "join": " ", "text": "vɔːˈvoːhuː", "start": 33, "end": 43, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-5", "readerHebrew": "וְחֹ֖שֶׁךְ", "printedConsonants": "וחשך", "join": " ", "text": "voˈħoːʃɛχ", "start": 44, "end": 53, "footnotes": [11], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-6", "readerHebrew": "עַל־", "printedConsonants": "על", "join": " ", "text": "ʕal", "start": 54, "end": 57, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-7", "readerHebrew": "פְּנֵ֣י", "printedConsonants": "פני", "join": "-", "text": "pʰaˈneː", "start": 58, "end": 65, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-8", "readerHebrew": "תְה֑וֹם", "printedConsonants": "תהום", "join": " ", "text": "θoˈhoːom", "start": 66, "end": 74, "footnotes": [12], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-9", "readerHebrew": "וְר֣וּחַ", "printedConsonants": "ורוח", "join": " ", "text": "vaˈʀ̟uːwaħ", "start": 75, "end": 85, "footnotes": [13], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-10", "readerHebrew": "אֱלֹהִ֔ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 86, "end": 97, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-11", "readerHebrew": "מְרַחֶ֖פֶת", "printedConsonants": "מרחפת", "join": " ", "text": "maʀ̟aːˈħɛːfɛθ", "start": 98, "end": 111, "footnotes": [14], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-12", "readerHebrew": "עַל־", "printedConsonants": "על", "join": " ", "text": "ʕal", "start": 112, "end": 115, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-13", "readerHebrew": "פְּנֵ֥י", "printedConsonants": "פני", "join": "-", "text": "pʰaˈneː", "start": 116, "end": 123, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-14", "readerHebrew": "הַמָּֽיִם׃", "printedConsonants": "המים", "join": " ", "text": "hamˈmɔːjim", "start": 124, "end": 134, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-2-c2", "column": 2, "printedPage": 616, "text": "vɔhɔːˈʔɔːʀ̟ɛsˁ hɔːɔjˈθɔː ˈθoːhuː vɔːˈvoːhuː voˈħoːʃɛχ ʕal-ppʰaˈneː θoˈhoːom vaˈʀ̟uːwaħ ʔɛloːˈhiːim maʀ̟aːˈħɛːfɛθ ʕal-ppʰaˈneː hamˈmɔːjim", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-2-1", "readerHebrew": "וְהָאָ֗רֶץ", "printedConsonants": "והארץ", "join": "", "text": "vɔhɔːˈʔɔːʀ̟ɛsˁ", "start": 0, "end": 14, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-2", "readerHebrew": "הָיְתָ֥ה", "printedConsonants": "היתה", "join": " ", "text": "hɔːɔjˈθɔː", "start": 15, "end": 24, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-3", "readerHebrew": "תֹ֙הוּ֙", "printedConsonants": "תהו", "join": " ", "text": "ˈθoːhuː", "start": 25, "end": 32, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-4", "readerHebrew": "וָבֹ֔הוּ", "printedConsonants": "ובהו", "join": " ", "text": "vɔːˈvoːhuː", "start": 33, "end": 43, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-5", "readerHebrew": "וְחֹ֖שֶׁךְ", "printedConsonants": "וחשך", "join": " ", "text": "voˈħoːʃɛχ", "start": 44, "end": 53, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-6", "readerHebrew": "עַל־", "printedConsonants": "על", "join": " ", "text": "ʕal", "start": 54, "end": 57, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-7", "readerHebrew": "פְּנֵ֣י", "printedConsonants": "פני", "join": "-", "text": "ppʰaˈneː", "start": 58, "end": 66, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-8", "readerHebrew": "תְה֑וֹם", "printedConsonants": "תהום", "join": " ", "text": "θoˈhoːom", "start": 67, "end": 75, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-9", "readerHebrew": "וְר֣וּחַ", "printedConsonants": "ורוח", "join": " ", "text": "vaˈʀ̟uːwaħ", "start": 76, "end": 86, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-10", "readerHebrew": "אֱלֹהִ֔ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 87, "end": 98, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-11", "readerHebrew": "מְרַחֶ֖פֶת", "printedConsonants": "מרחפת", "join": " ", "text": "maʀ̟aːˈħɛːfɛθ", "start": 99, "end": 112, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-12", "readerHebrew": "עַל־", "printedConsonants": "על", "join": " ", "text": "ʕal", "start": 113, "end": 116, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-13", "readerHebrew": "פְּנֵ֥י", "printedConsonants": "פני", "join": "-", "text": "ppʰaˈneː", "start": 117, "end": 125, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-2-14", "readerHebrew": "הַמָּֽיִם׃", "printedConsonants": "המים", "join": " ", "text": "hamˈmɔːjim", "start": 126, "end": 136, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-3", "chapter": 1, "verse": 3, "columns": [{ "id": "khan-gen-1-3-c1", "column": 1, "printedPage": 616, "text": "vaɟˈɟoːmɛʀ̟ ʔɛloːˈhiːim jiˈhiː ˈʔoːoʀ̟ ˌvaˑjhiː-ˈʔoːoʀ̟", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-3-1", "readerHebrew": "וַיֹּ֥אמֶר", "printedConsonants": "ויאמר", "join": "", "text": "vaɟˈɟoːmɛʀ̟", "start": 0, "end": 11, "footnotes": [15], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-3-2", "readerHebrew": "אֱלֹהִ֖ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 12, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-3-3", "readerHebrew": "יְהִ֣י", "printedConsonants": "יהי", "join": " ", "text": "jiˈhiː", "start": 24, "end": 30, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-3-4", "readerHebrew": "א֑וֹר", "printedConsonants": "אור", "join": " ", "text": "ˈʔoːoʀ̟", "start": 31, "end": 38, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-3-5", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 39, "end": 47, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-3-6", "readerHebrew": "אֽוֹר׃", "printedConsonants": "אור", "join": "-", "text": "ˈʔoːoʀ̟", "start": 48, "end": 55, "footnotes": [16], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "explicit-common-reading-per-source-p614" }, "extended-forte": { "column": 1, "basis": "explicit-common-reading-per-source-p614" } } }, { "id": "gen-1-4", "chapter": 1, "verse": 4, "columns": [{ "id": "khan-gen-1-4-c1", "column": 1, "printedPage": 616, "text": "vaɟˈɟaːaʀ̟ ʔɛloːˈhiːim ʔɛθ-hɔːˈʔoːoʀ̟ kʰiː-ˈtˁoːov vaɟɟavˈdeːel ʔɛloːˈhiːim beːen hɔːˈʔoːoʀ̟ wuˈveːen haːˈħoːʃɛχ", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-4-1", "readerHebrew": "וַיַּ֧רְא", "printedConsonants": "וירא", "join": "", "text": "vaɟˈɟaːaʀ̟", "start": 0, "end": 10, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-2", "readerHebrew": "אֱלֹהִ֛ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 11, "end": 22, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-3", "readerHebrew": "אֶת־", "printedConsonants": "את", "join": " ", "text": "ʔɛθ", "start": 23, "end": 26, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-4", "readerHebrew": "הָא֖וֹר", "printedConsonants": "האור", "join": "-", "text": "hɔːˈʔoːoʀ̟", "start": 27, "end": 37, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-5", "readerHebrew": "כִּי־", "printedConsonants": "כי", "join": " ", "text": "kʰiː", "start": 38, "end": 42, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-6", "readerHebrew": "ט֑וֹב", "printedConsonants": "טוב", "join": "-", "text": "ˈtˁoːov", "start": 43, "end": 50, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-7", "readerHebrew": "וַיַּבְדֵּ֣ל", "printedConsonants": "ויבדל", "join": " ", "text": "vaɟɟavˈdeːel", "start": 51, "end": 63, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-8", "readerHebrew": "אֱלֹהִ֔ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 64, "end": 75, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-9", "readerHebrew": "בֵּ֥ין", "printedConsonants": "בין", "join": " ", "text": "beːen", "start": 76, "end": 81, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-10", "readerHebrew": "הָא֖וֹר", "printedConsonants": "האור", "join": " ", "text": "hɔːˈʔoːoʀ̟", "start": 82, "end": 92, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-11", "readerHebrew": "וּבֵ֥ין", "printedConsonants": "ובין", "join": " ", "text": "wuˈveːen", "start": 93, "end": 101, "footnotes": [17], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-12", "readerHebrew": "הַחֹֽשֶׁךְ׃", "printedConsonants": "החשך", "join": " ", "text": "haːˈħoːʃɛχ", "start": 102, "end": 112, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-4-c2", "column": 2, "printedPage": 616, "text": "vaɟˈɟaːaʀ̟ ʔɛloːˈhiːim ʔɛθ-hɔːˈʔoːoʀ̟ kkʰiː-ˈtˁoːov vaɟɟavˈddeːel ʔɛloːˈhiːim bbeːen hɔːˈʔoːoʀ̟ wuˈveːen haːˈħoːʃɛχ", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-4-1", "readerHebrew": "וַיַּ֧רְא", "printedConsonants": "וירא", "join": "", "text": "vaɟˈɟaːaʀ̟", "start": 0, "end": 10, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-2", "readerHebrew": "אֱלֹהִ֛ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 11, "end": 22, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-3", "readerHebrew": "אֶת־", "printedConsonants": "את", "join": " ", "text": "ʔɛθ", "start": 23, "end": 26, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-4", "readerHebrew": "הָא֖וֹר", "printedConsonants": "האור", "join": "-", "text": "hɔːˈʔoːoʀ̟", "start": 27, "end": 37, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-5", "readerHebrew": "כִּי־", "printedConsonants": "כי", "join": " ", "text": "kkʰiː", "start": 38, "end": 43, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-6", "readerHebrew": "ט֑וֹב", "printedConsonants": "טוב", "join": "-", "text": "ˈtˁoːov", "start": 44, "end": 51, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-7", "readerHebrew": "וַיַּבְדֵּ֣ל", "printedConsonants": "ויבדל", "join": " ", "text": "vaɟɟavˈddeːel", "start": 52, "end": 65, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-8", "readerHebrew": "אֱלֹהִ֔ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 66, "end": 77, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-9", "readerHebrew": "בֵּ֥ין", "printedConsonants": "בין", "join": " ", "text": "bbeːen", "start": 78, "end": 84, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-10", "readerHebrew": "הָא֖וֹר", "printedConsonants": "האור", "join": " ", "text": "hɔːˈʔoːoʀ̟", "start": 85, "end": 95, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-11", "readerHebrew": "וּבֵ֥ין", "printedConsonants": "ובין", "join": " ", "text": "wuˈveːen", "start": 96, "end": 104, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-4-12", "readerHebrew": "הַחֹֽשֶׁךְ׃", "printedConsonants": "החשך", "join": " ", "text": "haːˈħoːʃɛχ", "start": 105, "end": 115, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-5", "chapter": 1, "verse": 5, "columns": [{ "id": "khan-gen-1-5-c1", "column": 1, "printedPage": 616, "text": "vaɟɟiq̟ˈʀ̟ɔː ʔɛloːˈhiːim lɔːˈʔoːoʀ̟ ˈjoːom valaːˈħoːʃɛχ ˈq̟ɔːʀ̟ɔː ˈlɔːɔjlɔː ˌvaˑjhiː-ˈʕɛːʀ̟ɛv ˌvaˑjhiː-ˈvoːq̟ɛʀ̟ ˈjoːom ʔɛːˈħɔːɔð", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-5-1", "readerHebrew": "וַיִּקְרָ֨א", "printedConsonants": "ויקרא", "join": "", "text": "vaɟɟiq̟ˈʀ̟ɔː", "start": 0, "end": 12, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-2", "readerHebrew": "אֱלֹהִ֤ים ׀", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 13, "end": 24, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-3", "readerHebrew": "לָאוֹר֙", "printedConsonants": "לאור", "join": " ", "text": "lɔːˈʔoːoʀ̟", "start": 25, "end": 35, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-4", "readerHebrew": "י֔וֹם", "printedConsonants": "יום", "join": " ", "text": "ˈjoːom", "start": 36, "end": 42, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-5", "readerHebrew": "וְלַחֹ֖שֶׁךְ", "printedConsonants": "ולחשך", "join": " ", "text": "valaːˈħoːʃɛχ", "start": 43, "end": 55, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-6", "readerHebrew": "קָ֣רָא", "printedConsonants": "קרא", "join": " ", "text": "ˈq̟ɔːʀ̟ɔː", "start": 56, "end": 65, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-7", "readerHebrew": "לָ֑יְלָה", "printedConsonants": "לילה", "join": " ", "text": "ˈlɔːɔjlɔː", "start": 66, "end": 75, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-8", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 76, "end": 84, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-9", "readerHebrew": "עֶ֥רֶב", "printedConsonants": "ערב", "join": "-", "text": "ˈʕɛːʀ̟ɛv", "start": 85, "end": 93, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-10", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 94, "end": 102, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-11", "readerHebrew": "בֹ֖קֶר", "printedConsonants": "בקר", "join": "-", "text": "ˈvoːq̟ɛʀ̟", "start": 103, "end": 112, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-12", "readerHebrew": "י֥וֹם", "printedConsonants": "יום", "join": " ", "text": "ˈjoːom", "start": 113, "end": 119, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-5-13", "readerHebrew": "אֶחָֽד׃", "printedConsonants": "אחד", "join": " ", "text": "ʔɛːˈħɔːɔð", "start": 120, "end": 129, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "explicit-common-reading-per-source-p614" }, "extended-forte": { "column": 1, "basis": "explicit-common-reading-per-source-p614" } } }, { "id": "gen-1-6", "chapter": 1, "verse": 6, "columns": [{ "id": "khan-gen-1-6-c1", "column": 1, "printedPage": 617, "text": "vaɟˈɟoːmɛʀ̟ ʔɛloːˈhiːim jiˈhiː ʀ̟ɔːˈq̟iːjaʕ baˈθoːoχ hamˈmɔːjim viːˈhiː mavˈdiːil ˈbeːen ˈmaːjim lɔːˈmɔːjim", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-6-1", "readerHebrew": "וַיֹּ֣אמֶר", "printedConsonants": "ויאמר", "join": "", "text": "vaɟˈɟoːmɛʀ̟", "start": 0, "end": 11, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-2", "readerHebrew": "אֱלֹהִ֔ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 12, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-3", "readerHebrew": "יְהִ֥י", "printedConsonants": "יהי", "join": " ", "text": "jiˈhiː", "start": 24, "end": 30, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-4", "readerHebrew": "רָקִ֖יעַ", "printedConsonants": "רקיע", "join": " ", "text": "ʀ̟ɔːˈq̟iːjaʕ", "start": 31, "end": 43, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-5", "readerHebrew": "בְּת֣וֹךְ", "printedConsonants": "בתוך", "join": " ", "text": "baˈθoːoχ", "start": 44, "end": 52, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-6", "readerHebrew": "הַמָּ֑יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmɔːjim", "start": 53, "end": 63, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-7", "readerHebrew": "וִיהִ֣י", "printedConsonants": "ויהי", "join": " ", "text": "viːˈhiː", "start": 64, "end": 71, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-8", "readerHebrew": "מַבְדִּ֔יל", "printedConsonants": "מבדיל", "join": " ", "text": "mavˈdiːil", "start": 72, "end": 81, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-9", "readerHebrew": "בֵּ֥ין", "printedConsonants": "בין", "join": " ", "text": "ˈbeːen", "start": 82, "end": 88, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-10", "readerHebrew": "מַ֖יִם", "printedConsonants": "מים", "join": " ", "text": "ˈmaːjim", "start": 89, "end": 96, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-11", "readerHebrew": "לָמָֽיִם׃", "printedConsonants": "למים", "join": " ", "text": "lɔːˈmɔːjim", "start": 97, "end": 107, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-6-c2", "column": 2, "printedPage": 617, "text": "vaɟˈɟoːmɛʀ̟ ʔɛloːˈhiːim jiˈhiː ʀ̟ɔːˈq̟iːjaʕ bbaˈθoːoχ hamˈmɔːjim viːˈhiː mavˈddiːil ˈbbeːen ˈmaːjim lɔːˈmɔːjim", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-6-1", "readerHebrew": "וַיֹּ֣אמֶר", "printedConsonants": "ויאמר", "join": "", "text": "vaɟˈɟoːmɛʀ̟", "start": 0, "end": 11, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-2", "readerHebrew": "אֱלֹהִ֔ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 12, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-3", "readerHebrew": "יְהִ֥י", "printedConsonants": "יהי", "join": " ", "text": "jiˈhiː", "start": 24, "end": 30, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-4", "readerHebrew": "רָקִ֖יעַ", "printedConsonants": "רקיע", "join": " ", "text": "ʀ̟ɔːˈq̟iːjaʕ", "start": 31, "end": 43, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-5", "readerHebrew": "בְּת֣וֹךְ", "printedConsonants": "בתוך", "join": " ", "text": "bbaˈθoːoχ", "start": 44, "end": 53, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-6", "readerHebrew": "הַמָּ֑יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmɔːjim", "start": 54, "end": 64, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-7", "readerHebrew": "וִיהִ֣י", "printedConsonants": "ויהי", "join": " ", "text": "viːˈhiː", "start": 65, "end": 72, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-8", "readerHebrew": "מַבְדִּ֔יל", "printedConsonants": "מבדיל", "join": " ", "text": "mavˈddiːil", "start": 73, "end": 83, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-9", "readerHebrew": "בֵּ֥ין", "printedConsonants": "בין", "join": " ", "text": "ˈbbeːen", "start": 84, "end": 91, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-10", "readerHebrew": "מַ֖יִם", "printedConsonants": "מים", "join": " ", "text": "ˈmaːjim", "start": 92, "end": 99, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-6-11", "readerHebrew": "לָמָֽיִם׃", "printedConsonants": "למים", "join": " ", "text": "lɔːˈmɔːjim", "start": 100, "end": 110, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-7", "chapter": 1, "verse": 7, "columns": [{ "id": "khan-gen-1-7-c1", "column": 1, "printedPage": 617, "text": "vaɟˈɟaːʕas ʔɛloːˈhiːim ʔɛθ-hɔːʀ̟ɔːˈq̟iːjaʕ vaɟɟavˈdeːel beːen hamˈmaːjim ʔaˈʃɛːɛʀ̟ mitˈtʰaːħaθ lɔːʀ̟ɔːˈq̟iːjaʕ wuˈveːen hamˈmaːjim ʔaˈʃɛːɛʀ̟ meːˈʕaːal lɔːʀ̟ɔːˈq̟iːjaʕ ˌvaˑjhiː-ˈχeːen", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-7-1", "readerHebrew": "וַיַּ֣עַשׂ", "printedConsonants": "ויעש", "join": "", "text": "vaɟˈɟaːʕas", "start": 0, "end": 10, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-2", "readerHebrew": "אֱלֹהִים֮", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 11, "end": 22, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-3", "readerHebrew": "אֶת־", "printedConsonants": "את", "join": " ", "text": "ʔɛθ", "start": 23, "end": 26, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-4", "readerHebrew": "הָרָקִיעַ֒", "printedConsonants": "הרקיע", "join": "-", "text": "hɔːʀ̟ɔːˈq̟iːjaʕ", "start": 27, "end": 42, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-5", "readerHebrew": "וַיַּבְדֵּ֗ל", "printedConsonants": "ויבדל", "join": " ", "text": "vaɟɟavˈdeːel", "start": 43, "end": 55, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-6", "readerHebrew": "בֵּ֤ין", "printedConsonants": "בין", "join": " ", "text": "beːen", "start": 56, "end": 61, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-7", "readerHebrew": "הַמַּ֙יִם֙", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 62, "end": 72, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-8", "readerHebrew": "אֲשֶׁר֙", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 73, "end": 82, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-9", "readerHebrew": "מִתַּ֣חַת", "printedConsonants": "מתחת", "join": " ", "text": "mitˈtʰaːħaθ", "start": 83, "end": 94, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-10", "readerHebrew": "לָרָקִ֔יעַ", "printedConsonants": "לרקיע", "join": " ", "text": "lɔːʀ̟ɔːˈq̟iːjaʕ", "start": 95, "end": 110, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-11", "readerHebrew": "וּבֵ֣ין", "printedConsonants": "ובין", "join": " ", "text": "wuˈveːen", "start": 111, "end": 119, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-12", "readerHebrew": "הַמַּ֔יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 120, "end": 130, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-13", "readerHebrew": "אֲשֶׁ֖ר", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 131, "end": 140, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-14", "readerHebrew": "מֵעַ֣ל", "printedConsonants": "מעל", "join": " ", "text": "meːˈʕaːal", "start": 141, "end": 150, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-15", "readerHebrew": "לָרָקִ֑יעַ", "printedConsonants": "לרקיע", "join": " ", "text": "lɔːʀ̟ɔːˈq̟iːjaʕ", "start": 151, "end": 166, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-16", "readerHebrew": "וֽ͏ַיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 167, "end": 175, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-17", "readerHebrew": "כֵֽן׃", "printedConsonants": "כן", "join": "-", "text": "ˈχeːen", "start": 176, "end": 182, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-7-c2", "column": 2, "printedPage": 617, "text": "vaɟˈɟaːʕas ʔɛloːˈhiːim ʔɛθ-hɔːʀ̟ɔːˈq̟iːjaʕ vaɟɟavˈddeːel bbeːen hamˈmaːjim ʔaˈʃɛːɛʀ̟ mitˈtʰaːħaθ lɔːʀ̟ɔːˈq̟iːjaʕ wuˈveːen hamˈmaːjim ʔaˈʃɛːɛʀ̟ meːˈʕaːal lɔːʀ̟ɔːˈq̟iːjaʕ ˌvaˑjhiː-ˈχeːen", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-7-1", "readerHebrew": "וַיַּ֣עַשׂ", "printedConsonants": "ויעש", "join": "", "text": "vaɟˈɟaːʕas", "start": 0, "end": 10, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-2", "readerHebrew": "אֱלֹהִים֮", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 11, "end": 22, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-3", "readerHebrew": "אֶת־", "printedConsonants": "את", "join": " ", "text": "ʔɛθ", "start": 23, "end": 26, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-4", "readerHebrew": "הָרָקִיעַ֒", "printedConsonants": "הרקיע", "join": "-", "text": "hɔːʀ̟ɔːˈq̟iːjaʕ", "start": 27, "end": 42, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-5", "readerHebrew": "וַיַּבְדֵּ֗ל", "printedConsonants": "ויבדל", "join": " ", "text": "vaɟɟavˈddeːel", "start": 43, "end": 56, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-6", "readerHebrew": "בֵּ֤ין", "printedConsonants": "בין", "join": " ", "text": "bbeːen", "start": 57, "end": 63, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-7", "readerHebrew": "הַמַּ֙יִם֙", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 64, "end": 74, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-8", "readerHebrew": "אֲשֶׁר֙", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 75, "end": 84, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-9", "readerHebrew": "מִתַּ֣חַת", "printedConsonants": "מתחת", "join": " ", "text": "mitˈtʰaːħaθ", "start": 85, "end": 96, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-10", "readerHebrew": "לָרָקִ֔יעַ", "printedConsonants": "לרקיע", "join": " ", "text": "lɔːʀ̟ɔːˈq̟iːjaʕ", "start": 97, "end": 112, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-11", "readerHebrew": "וּבֵ֣ין", "printedConsonants": "ובין", "join": " ", "text": "wuˈveːen", "start": 113, "end": 121, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-12", "readerHebrew": "הַמַּ֔יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 122, "end": 132, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-13", "readerHebrew": "אֲשֶׁ֖ר", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 133, "end": 142, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-14", "readerHebrew": "מֵעַ֣ל", "printedConsonants": "מעל", "join": " ", "text": "meːˈʕaːal", "start": 143, "end": 152, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-15", "readerHebrew": "לָרָקִ֑יעַ", "printedConsonants": "לרקיע", "join": " ", "text": "lɔːʀ̟ɔːˈq̟iːjaʕ", "start": 153, "end": 168, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-16", "readerHebrew": "וֽ͏ַיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 169, "end": 177, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-7-17", "readerHebrew": "כֵֽן׃", "printedConsonants": "כן", "join": "-", "text": "ˈχeːen", "start": 178, "end": 184, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-8", "chapter": 1, "verse": 8, "columns": [{ "id": "khan-gen-1-8-c1", "column": 1, "printedPage": 617, "text": "vaɟɟiq̟ˈʀ̟ɔː ʔɛloːˈhiːim ˌlɔːʀ̟ɔːˈq̟iːjaʕ ʃɔːˈmɔːjim ˌvaˑjhiː-ˈʕɛːʀ̟ev ˌvaˑjhiː-ˈvoːq̟ɛʀ̟ ˈjoːom ʃeːˈniː", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-8-1", "readerHebrew": "וַיִּקְרָ֧א", "printedConsonants": "ויקרא", "join": "", "text": "vaɟɟiq̟ˈʀ̟ɔː", "start": 0, "end": 12, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-2", "readerHebrew": "אֱלֹהִ֛ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 13, "end": 24, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-3", "readerHebrew": "לָֽרָקִ֖יעַ", "printedConsonants": "לרקיע", "join": " ", "text": "ˌlɔːʀ̟ɔːˈq̟iːjaʕ", "start": 25, "end": 41, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-4", "readerHebrew": "שָׁמָ֑יִם", "printedConsonants": "שמים", "join": " ", "text": "ʃɔːˈmɔːjim", "start": 42, "end": 52, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-5", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 53, "end": 61, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-6", "readerHebrew": "עֶ֥רֶב", "printedConsonants": "ערב", "join": "-", "text": "ˈʕɛːʀ̟ev", "start": 62, "end": 70, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-7", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 71, "end": 79, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-8", "readerHebrew": "בֹ֖קֶר", "printedConsonants": "בקר", "join": "-", "text": "ˈvoːq̟ɛʀ̟", "start": 80, "end": 89, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-9", "readerHebrew": "י֥וֹם", "printedConsonants": "יום", "join": " ", "text": "ˈjoːom", "start": 90, "end": 96, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-8-10", "readerHebrew": "שֵׁנִֽי׃", "printedConsonants": "שני", "join": " ", "text": "ʃeːˈniː", "start": 97, "end": 104, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "explicit-common-reading-per-source-p614" }, "extended-forte": { "column": 1, "basis": "explicit-common-reading-per-source-p614" } } }, { "id": "gen-1-9", "chapter": 1, "verse": 9, "columns": [{ "id": "khan-gen-1-9-c1", "column": 1, "printedPage": 618, "text": "vaɟˈɟoːmɛʀ̟ ʔɛloːˈhiːim jiq̟q̟ɔːˈvuː hamˈmaːjim mitˈtʰaːħaθ haʃʃɔːˈmaːjim ʔɛl-mɔːˈq̟oːom ʔɛːˈħɔːɔð vaθeːʀ̟ɔːˈʔɛː haɟɟabbɔːˈʃɔː ˌvaˑjhiː-ˈχeːen", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-9-1", "readerHebrew": "וַיֹּ֣אמֶר", "printedConsonants": "ויאמר", "join": "", "text": "vaɟˈɟoːmɛʀ̟", "start": 0, "end": 11, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-2", "readerHebrew": "אֱלֹהִ֗ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 12, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-3", "readerHebrew": "יִקָּו֨וּ", "printedConsonants": "יקוו", "join": " ", "text": "jiq̟q̟ɔːˈvuː", "start": 24, "end": 36, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-4", "readerHebrew": "הַמַּ֜יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 37, "end": 47, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-5", "readerHebrew": "מִתַּ֤חַת", "printedConsonants": "מתחת", "join": " ", "text": "mitˈtʰaːħaθ", "start": 48, "end": 59, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-6", "readerHebrew": "הַשָּׁמַ֙יִם֙", "printedConsonants": "השמים", "join": " ", "text": "haʃʃɔːˈmaːjim", "start": 60, "end": 73, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-7", "readerHebrew": "אֶל־", "printedConsonants": "אל", "join": " ", "text": "ʔɛl", "start": 74, "end": 77, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-8", "readerHebrew": "מָק֣וֹם", "printedConsonants": "מקום", "join": "-", "text": "mɔːˈq̟oːom", "start": 78, "end": 88, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-9", "readerHebrew": "אֶחָ֔ד", "printedConsonants": "אחד", "join": " ", "text": "ʔɛːˈħɔːɔð", "start": 89, "end": 98, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-10", "readerHebrew": "וְתֵרָאֶ֖ה", "printedConsonants": "ותראה", "join": " ", "text": "vaθeːʀ̟ɔːˈʔɛː", "start": 99, "end": 112, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-11", "readerHebrew": "הַיַּבָּשָׁ֑ה", "printedConsonants": "היבשה", "join": " ", "text": "haɟɟabbɔːˈʃɔː", "start": 113, "end": 126, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-12", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 127, "end": 135, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-9-13", "readerHebrew": "כֵֽן׃", "printedConsonants": "כן", "join": "-", "text": "ˈχeːen", "start": 136, "end": 142, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "explicit-common-reading-per-source-p614" }, "extended-forte": { "column": 1, "basis": "explicit-common-reading-per-source-p614" } } }, { "id": "gen-1-10", "chapter": 1, "verse": 10, "columns": [{ "id": "khan-gen-1-10-c1", "column": 1, "printedPage": 618, "text": "vaɟɟiq̟ˈʀ̟ɔː ʔɛloːˈhiːim laɟɟabbɔːˈʃɔː ˈʔɛːʀ̟ɛsˁ wulmiq̟ˈveː hamˈmaːjim q̟ɔːˈʀ̟ɔː jamˈmiːim vaɟˈɟaːaʀ̟ ʔɛloːˈhiːim kʰiː-ˈtˁoːov", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-10-1", "readerHebrew": "וַיִּקְרָ֨א", "printedConsonants": "ויקרא", "join": "", "text": "vaɟɟiq̟ˈʀ̟ɔː", "start": 0, "end": 12, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-2", "readerHebrew": "אֱלֹהִ֤ים ׀", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 13, "end": 24, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-3", "readerHebrew": "לַיַּבָּשָׁה֙", "printedConsonants": "ליבשה", "join": " ", "text": "laɟɟabbɔːˈʃɔː", "start": 25, "end": 38, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-4", "readerHebrew": "אֶ֔רֶץ", "printedConsonants": "ארץ", "join": " ", "text": "ˈʔɛːʀ̟ɛsˁ", "start": 39, "end": 48, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-5", "readerHebrew": "וּלְמִקְוֵ֥ה", "printedConsonants": "ולמקוה", "join": " ", "text": "wulmiq̟ˈveː", "start": 49, "end": 60, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-6", "readerHebrew": "הַמַּ֖יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 61, "end": 71, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-7", "readerHebrew": "קָרָ֣א", "printedConsonants": "קרא", "join": " ", "text": "q̟ɔːˈʀ̟ɔː", "start": 72, "end": 81, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-8", "readerHebrew": "יַמִּ֑ים", "printedConsonants": "ימים", "join": " ", "text": "jamˈmiːim", "start": 82, "end": 91, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-9", "readerHebrew": "וַיַּ֥רְא", "printedConsonants": "וירא", "join": " ", "text": "vaɟˈɟaːaʀ̟", "start": 92, "end": 102, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-10", "readerHebrew": "אֱלֹהִ֖ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 103, "end": 114, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-11", "readerHebrew": "כִּי־", "printedConsonants": "כי", "join": " ", "text": "kʰiː", "start": 115, "end": 119, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-12", "readerHebrew": "טֽוֹב׃", "printedConsonants": "טוב", "join": "-", "text": "ˈtˁoːov", "start": 120, "end": 127, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-10-c2", "column": 2, "printedPage": 618, "text": "vaɟɟiq̟ˈʀ̟ɔː ʔɛloːˈhiːim laɟɟabbɔːˈʃɔː ˈʔɛːʀ̟ɛsˁ wulmiq̟ˈveː hamˈmaːjim q̟ɔːˈʀ̟ɔː jamˈmiːim vaɟˈɟaːaʀ̟ ʔɛloːˈhiːim kkʰiː-ˈtˁoːov", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-10-1", "readerHebrew": "וַיִּקְרָ֨א", "printedConsonants": "ויקרא", "join": "", "text": "vaɟɟiq̟ˈʀ̟ɔː", "start": 0, "end": 12, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-2", "readerHebrew": "אֱלֹהִ֤ים ׀", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 13, "end": 24, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-3", "readerHebrew": "לַיַּבָּשָׁה֙", "printedConsonants": "ליבשה", "join": " ", "text": "laɟɟabbɔːˈʃɔː", "start": 25, "end": 38, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-4", "readerHebrew": "אֶ֔רֶץ", "printedConsonants": "ארץ", "join": " ", "text": "ˈʔɛːʀ̟ɛsˁ", "start": 39, "end": 48, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-5", "readerHebrew": "וּלְמִקְוֵ֥ה", "printedConsonants": "ולמקוה", "join": " ", "text": "wulmiq̟ˈveː", "start": 49, "end": 60, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-6", "readerHebrew": "הַמַּ֖יִם", "printedConsonants": "המים", "join": " ", "text": "hamˈmaːjim", "start": 61, "end": 71, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-7", "readerHebrew": "קָרָ֣א", "printedConsonants": "קרא", "join": " ", "text": "q̟ɔːˈʀ̟ɔː", "start": 72, "end": 81, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-8", "readerHebrew": "יַמִּ֑ים", "printedConsonants": "ימים", "join": " ", "text": "jamˈmiːim", "start": 82, "end": 91, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-9", "readerHebrew": "וַיַּ֥רְא", "printedConsonants": "וירא", "join": " ", "text": "vaɟˈɟaːaʀ̟", "start": 92, "end": 102, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-10", "readerHebrew": "אֱלֹהִ֖ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 103, "end": 114, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-11", "readerHebrew": "כִּי־", "printedConsonants": "כי", "join": " ", "text": "kkʰiː", "start": 115, "end": 120, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-10-12", "readerHebrew": "טֽוֹב׃", "printedConsonants": "טוב", "join": "-", "text": "ˈtˁoːov", "start": 121, "end": 128, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-11", "chapter": 1, "verse": 11, "columns": [{ "id": "khan-gen-1-11-c1", "column": 1, "printedPage": 619, "text": "vaɟˈɟoːmɛʀ̟ ʔɛloːˈhiːim ˌtʰaˑðˈʃeː hɔːˈʔɔːʀ̟ɛsˁ ˈdɛːʃɛː ˈʕeːsɛv mɑzˈrˁiːjaʕ ˈzɛːʀ̟aʕ ˈʕeːesˁ pʰaˈʀ̟iː ˈʕoːsɛˑ ppʰaˈʀ̟iː lamiːˈnoː ʔaˈʃɛːɛʀ̟ zɑrˁʕoː-ˈvoː ʕal-hɔːˈʔɔːʀ̟ɛsˁ ˌvaˑjhiː-ˈχeːen", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-11-1", "readerHebrew": "וַיֹּ֣אמֶר", "printedConsonants": "ויאמר", "join": "", "text": "vaɟˈɟoːmɛʀ̟", "start": 0, "end": 11, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-2", "readerHebrew": "אֱלֹהִ֗ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 12, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-3", "readerHebrew": "תַּֽדְשֵׁ֤א", "printedConsonants": "תדשא", "join": " ", "text": "ˌtʰaˑðˈʃeː", "start": 24, "end": 34, "footnotes": [18], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-4", "readerHebrew": "הָאָ֙רֶץ֙", "printedConsonants": "הארץ", "join": " ", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 35, "end": 47, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-5", "readerHebrew": "דֶּ֗שֶׁא", "printedConsonants": "דשא", "join": " ", "text": "ˈdɛːʃɛː", "start": 48, "end": 55, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-6", "readerHebrew": "עֵ֚שֶׂב", "printedConsonants": "עשב", "join": " ", "text": "ˈʕeːsɛv", "start": 56, "end": 63, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-7", "readerHebrew": "מַזְרִ֣יעַ", "printedConsonants": "מזריע", "join": " ", "text": "mɑzˈrˁiːjaʕ", "start": 64, "end": 75, "footnotes": [19], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-8", "readerHebrew": "זֶ֔רַע", "printedConsonants": "זרע", "join": " ", "text": "ˈzɛːʀ̟aʕ", "start": 76, "end": 84, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-9", "readerHebrew": "עֵ֣ץ", "printedConsonants": "עץ", "join": " ", "text": "ˈʕeːesˁ", "start": 85, "end": 92, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-10", "readerHebrew": "פְּרִ֞י", "printedConsonants": "פרי", "join": " ", "text": "pʰaˈʀ̟iː", "start": 93, "end": 101, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-11", "readerHebrew": "עֹ֤שֶׂה", "printedConsonants": "עשה", "join": " ", "text": "ˈʕoːsɛˑ", "start": 102, "end": 109, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-12", "readerHebrew": "פְּרִי֙", "printedConsonants": "פרי", "join": " ", "text": "ppʰaˈʀ̟iː", "start": 110, "end": 119, "footnotes": [20], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-13", "readerHebrew": "לְמִינ֔וֹ", "printedConsonants": "למינו", "join": " ", "text": "lamiːˈnoː", "start": 120, "end": 129, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-14", "readerHebrew": "אֲשֶׁ֥ר", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 130, "end": 139, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-15", "readerHebrew": "זַרְעוֹ־", "printedConsonants": "זרעו", "join": " ", "text": "zɑrˁʕoː", "start": 140, "end": 147, "footnotes": [21], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-16", "readerHebrew": "ב֖וֹ", "printedConsonants": "בו", "join": "-", "text": "ˈvoː", "start": 148, "end": 152, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-17", "readerHebrew": "עַל־", "printedConsonants": "על", "join": " ", "text": "ʕal", "start": 153, "end": 156, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-18", "readerHebrew": "הָאָ֑רֶץ", "printedConsonants": "הארץ", "join": "-", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 157, "end": 169, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-19", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 170, "end": 178, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-20", "readerHebrew": "כֵֽן׃", "printedConsonants": "כן", "join": "-", "text": "ˈχeːen", "start": 179, "end": 185, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-11-c2", "column": 2, "printedPage": 619, "text": "vaɟˈɟoːmɛʀ̟ ʔɛloːˈhiːim ˌttʰaˑðˈʃeː hɔːˈʔɔːʀ̟ɛsˁ ˈddɛːʃɛː ˈʕeːsɛv mɑzˈrˁiːjaʕ ˈzɛːʀ̟aʕ ˈʕeːesˁ ppʰaˈʀ̟iː ˈʕoːsɛˑ ppʰaˈʀ̟iː lamiːˈnoː ʔaˈʃɛːɛʀ̟ zɑrˁʕoː-ˈvoː ʕal-hɔːˈʔɔːʀ̟ɛsˁ ˌvaˑjhiː-ˈχeːen", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-11-1", "readerHebrew": "וַיֹּ֣אמֶר", "printedConsonants": "ויאמר", "join": "", "text": "vaɟˈɟoːmɛʀ̟", "start": 0, "end": 11, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-2", "readerHebrew": "אֱלֹהִ֗ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 12, "end": 23, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-3", "readerHebrew": "תַּֽדְשֵׁ֤א", "printedConsonants": "תדשא", "join": " ", "text": "ˌttʰaˑðˈʃeː", "start": 24, "end": 35, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-4", "readerHebrew": "הָאָ֙רֶץ֙", "printedConsonants": "הארץ", "join": " ", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 36, "end": 48, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-5", "readerHebrew": "דֶּ֗שֶׁא", "printedConsonants": "דשא", "join": " ", "text": "ˈddɛːʃɛː", "start": 49, "end": 57, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-6", "readerHebrew": "עֵ֚שֶׂב", "printedConsonants": "עשב", "join": " ", "text": "ˈʕeːsɛv", "start": 58, "end": 65, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-7", "readerHebrew": "מַזְרִ֣יעַ", "printedConsonants": "מזריע", "join": " ", "text": "mɑzˈrˁiːjaʕ", "start": 66, "end": 77, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-8", "readerHebrew": "זֶ֔רַע", "printedConsonants": "זרע", "join": " ", "text": "ˈzɛːʀ̟aʕ", "start": 78, "end": 86, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-9", "readerHebrew": "עֵ֣ץ", "printedConsonants": "עץ", "join": " ", "text": "ˈʕeːesˁ", "start": 87, "end": 94, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-10", "readerHebrew": "פְּרִ֞י", "printedConsonants": "פרי", "join": " ", "text": "ppʰaˈʀ̟iː", "start": 95, "end": 104, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-11", "readerHebrew": "עֹ֤שֶׂה", "printedConsonants": "עשה", "join": " ", "text": "ˈʕoːsɛˑ", "start": 105, "end": 112, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-12", "readerHebrew": "פְּרִי֙", "printedConsonants": "פרי", "join": " ", "text": "ppʰaˈʀ̟iː", "start": 113, "end": 122, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-13", "readerHebrew": "לְמִינ֔וֹ", "printedConsonants": "למינו", "join": " ", "text": "lamiːˈnoː", "start": 123, "end": 132, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-14", "readerHebrew": "אֲשֶׁ֥ר", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 133, "end": 142, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-15", "readerHebrew": "זַרְעוֹ־", "printedConsonants": "זרעו", "join": " ", "text": "zɑrˁʕoː", "start": 143, "end": 150, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-16", "readerHebrew": "ב֖וֹ", "printedConsonants": "בו", "join": "-", "text": "ˈvoː", "start": 151, "end": 155, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-17", "readerHebrew": "עַל־", "printedConsonants": "על", "join": " ", "text": "ʕal", "start": 156, "end": 159, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-18", "readerHebrew": "הָאָ֑רֶץ", "printedConsonants": "הארץ", "join": "-", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 160, "end": 172, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-19", "readerHebrew": "וַֽיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 173, "end": 181, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-11-20", "readerHebrew": "כֵֽן׃", "printedConsonants": "כן", "join": "-", "text": "ˈχeːen", "start": 182, "end": 188, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-12", "chapter": 1, "verse": 12, "columns": [{ "id": "khan-gen-1-12-c1", "column": 1, "printedPage": 619, "text": "vattʰoːˈsˁeː hɔːˈʔɔːʀ̟ɛsˁ ˈdɛːʃɛː ˈʕeːsɛv mɑzˈrˁiːjaʕ ˈzɛːʀ̟aʕ lamiːˈneːhuː veˈʕeːesˁ ˈʕoːsɛˑ ppʰaˈʀ̟iː ʔaˈʃɛːɛʀ̟ zɑrˁʕoː-ˈvoː lamiːˈneːhuː vaɟˈɟaːaʀ̟ ʔɛloːˈhiːim kʰiː-ˈtˁoːov", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-12-1", "readerHebrew": "וַתּוֹצֵ֨א", "printedConsonants": "ותוצא", "join": "", "text": "vattʰoːˈsˁeː", "start": 0, "end": 12, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-2", "readerHebrew": "הָאָ֜רֶץ", "printedConsonants": "הארץ", "join": " ", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 13, "end": 25, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-3", "readerHebrew": "דֶּ֠שֶׁא", "printedConsonants": "דשא", "join": " ", "text": "ˈdɛːʃɛː", "start": 26, "end": 33, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-4", "readerHebrew": "עֵ֣שֶׂב", "printedConsonants": "עשב", "join": " ", "text": "ˈʕeːsɛv", "start": 34, "end": 41, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-5", "readerHebrew": "מַזְרִ֤יעַ", "printedConsonants": "מזריע", "join": " ", "text": "mɑzˈrˁiːjaʕ", "start": 42, "end": 53, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-6", "readerHebrew": "זֶ֙רַע֙", "printedConsonants": "זרע", "join": " ", "text": "ˈzɛːʀ̟aʕ", "start": 54, "end": 62, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-7", "readerHebrew": "לְמִינֵ֔הוּ", "printedConsonants": "למינהו", "join": " ", "text": "lamiːˈneːhuː", "start": 63, "end": 75, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-8", "readerHebrew": "וְעֵ֧ץ", "printedConsonants": "ועץ", "join": " ", "text": "veˈʕeːesˁ", "start": 76, "end": 85, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-9", "readerHebrew": "עֹֽשֶׂה־", "printedConsonants": "עשה", "join": " ", "text": "ˈʕoːsɛˑ", "start": 86, "end": 93, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-10", "readerHebrew": "פְּרִ֛י", "printedConsonants": "פרי", "join": " ", "text": "ppʰaˈʀ̟iː", "start": 94, "end": 103, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-11", "readerHebrew": "אֲשֶׁ֥ר", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 104, "end": 113, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-12", "readerHebrew": "זַרְעוֹ־", "printedConsonants": "זרעו", "join": " ", "text": "zɑrˁʕoː", "start": 114, "end": 121, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-13", "readerHebrew": "ב֖וֹ", "printedConsonants": "בו", "join": "-", "text": "ˈvoː", "start": 122, "end": 126, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-14", "readerHebrew": "לְמִינֵ֑הוּ", "printedConsonants": "למינהו", "join": " ", "text": "lamiːˈneːhuː", "start": 127, "end": 139, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-15", "readerHebrew": "וַיַּ֥רְא", "printedConsonants": "וירא", "join": " ", "text": "vaɟˈɟaːaʀ̟", "start": 140, "end": 150, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-16", "readerHebrew": "אֱלֹהִ֖ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 151, "end": 162, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-17", "readerHebrew": "כִּי־", "printedConsonants": "כי", "join": " ", "text": "kʰiː", "start": 163, "end": 167, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-18", "readerHebrew": "טֽוֹב׃", "printedConsonants": "טוב", "join": "-", "text": "ˈtˁoːov", "start": 168, "end": 175, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }, { "id": "khan-gen-1-12-c2", "column": 2, "printedPage": 619, "text": "vattʰoːˈsˁeː hɔːˈʔɔːʀ̟ɛsˁ ˈddɛːʃɛː ˈʕeːsɛv mɑzˈrˁiːjaʕ ˈzɛːʀ̟aʕ lamiːˈneːhuː veˈʕeːesˁ ˈʕoːsɛˑ ppʰaˈʀ̟iː ʔaˈʃɛːɛʀ̟ zɑrˁʕoː-ˈvoː lamiːˈneːhuː vaɟˈɟaːaʀ̟ ʔɛloːˈhiːim kkʰiː-ˈtˁoːov", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-12-1", "readerHebrew": "וַתּוֹצֵ֨א", "printedConsonants": "ותוצא", "join": "", "text": "vattʰoːˈsˁeː", "start": 0, "end": 12, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-2", "readerHebrew": "הָאָ֜רֶץ", "printedConsonants": "הארץ", "join": " ", "text": "hɔːˈʔɔːʀ̟ɛsˁ", "start": 13, "end": 25, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-3", "readerHebrew": "דֶּ֠שֶׁא", "printedConsonants": "דשא", "join": " ", "text": "ˈddɛːʃɛː", "start": 26, "end": 34, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-4", "readerHebrew": "עֵ֣שֶׂב", "printedConsonants": "עשב", "join": " ", "text": "ˈʕeːsɛv", "start": 35, "end": 42, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-5", "readerHebrew": "מַזְרִ֤יעַ", "printedConsonants": "מזריע", "join": " ", "text": "mɑzˈrˁiːjaʕ", "start": 43, "end": 54, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-6", "readerHebrew": "זֶ֙רַע֙", "printedConsonants": "זרע", "join": " ", "text": "ˈzɛːʀ̟aʕ", "start": 55, "end": 63, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-7", "readerHebrew": "לְמִינֵ֔הוּ", "printedConsonants": "למינהו", "join": " ", "text": "lamiːˈneːhuː", "start": 64, "end": 76, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-8", "readerHebrew": "וְעֵ֧ץ", "printedConsonants": "ועץ", "join": " ", "text": "veˈʕeːesˁ", "start": 77, "end": 86, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-9", "readerHebrew": "עֹֽשֶׂה־", "printedConsonants": "עשה", "join": " ", "text": "ˈʕoːsɛˑ", "start": 87, "end": 94, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-10", "readerHebrew": "פְּרִ֛י", "printedConsonants": "פרי", "join": " ", "text": "ppʰaˈʀ̟iː", "start": 95, "end": 104, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-11", "readerHebrew": "אֲשֶׁ֥ר", "printedConsonants": "אשר", "join": " ", "text": "ʔaˈʃɛːɛʀ̟", "start": 105, "end": 114, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-12", "readerHebrew": "זַרְעוֹ־", "printedConsonants": "זרעו", "join": " ", "text": "zɑrˁʕoː", "start": 115, "end": 122, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-13", "readerHebrew": "ב֖וֹ", "printedConsonants": "בו", "join": "-", "text": "ˈvoː", "start": 123, "end": 127, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-14", "readerHebrew": "לְמִינֵ֑הוּ", "printedConsonants": "למינהו", "join": " ", "text": "lamiːˈneːhuː", "start": 128, "end": 140, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-15", "readerHebrew": "וַיַּ֥רְא", "printedConsonants": "וירא", "join": " ", "text": "vaɟˈɟaːaʀ̟", "start": 141, "end": 151, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-16", "readerHebrew": "אֱלֹהִ֖ים", "printedConsonants": "אלהים", "join": " ", "text": "ʔɛloːˈhiːim", "start": 152, "end": 163, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-17", "readerHebrew": "כִּי־", "printedConsonants": "כי", "join": " ", "text": "kkʰiː", "start": 164, "end": 169, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-12-18", "readerHebrew": "טֽוֹב׃", "printedConsonants": "טוב", "join": "-", "text": "ˈtˁoːov", "start": 170, "end": 177, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "first-printed-transcription" }, "extended-forte": { "column": 2, "basis": "second-printed-transcription" } } }, { "id": "gen-1-13", "chapter": 1, "verse": 13, "columns": [{ "id": "khan-gen-1-13-c1", "column": 1, "printedPage": 620, "text": "ˌvaˑjhiː-ˈʕɛːʀ̟ev ˌvaˑjhiː-ˈvoːq̟ɛʀ̟ ˈjoːom ʃaliːˈʃiː", "coordinateUnit": "UTF-16", "tokens": [{ "sourceWordId": "gen-1-13-1", "readerHebrew": "וֽ͏ַיְהִי־", "printedConsonants": "ויהי", "join": "", "text": "ˌvaˑjhiː", "start": 0, "end": 8, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-13-2", "readerHebrew": "עֶ֥רֶב", "printedConsonants": "ערב", "join": "-", "text": "ˈʕɛːʀ̟ev", "start": 9, "end": 17, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-13-3", "readerHebrew": "וֽ͏ַיְהִי־", "printedConsonants": "ויהי", "join": " ", "text": "ˌvaˑjhiː", "start": 18, "end": 26, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-13-4", "readerHebrew": "בֹ֖קֶר", "printedConsonants": "בקר", "join": "-", "text": "ˈvoːq̟ɛʀ̟", "start": 27, "end": 36, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-13-5", "readerHebrew": "י֥וֹם", "printedConsonants": "יום", "join": " ", "text": "ˈjoːom", "start": 37, "end": 43, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }, { "sourceWordId": "gen-1-13-6", "readerHebrew": "שְׁלִישִֽׁי׃", "printedConsonants": "שלישי", "join": " ", "text": "ʃaliːˈʃiː", "start": 44, "end": 53, "footnotes": [], "sourceMarkedHebrew": null, "sourceMarkEquivalence": null, "syllableRanges": null, "phonemes": null, "noteIds": null, "audioTimes": null, "review": null }] }], "readings": { "forte-lene": { "column": 1, "basis": "explicit-common-reading-per-source-p614" }, "extended-forte": { "column": 1, "basis": "explicit-common-reading-per-source-p614" } } }], "coverage": { "verses": 13, "words": 159, "styleWordLinks": 318, "printedColumns": 21, "sharedReadingVerses": [3, 5, 8, 9, 13], "wordsWithDifferentPrintedReadings": 18, "differentWordIds": ["gen-1-1-1", "gen-1-1-2", "gen-1-2-7", "gen-1-2-13", "gen-1-4-5", "gen-1-4-7", "gen-1-4-9", "gen-1-6-5", "gen-1-6-8", "gen-1-6-9", "gen-1-7-5", "gen-1-7-6", "gen-1-10-11", "gen-1-11-3", "gen-1-11-5", "gen-1-11-10", "gen-1-12-3", "gen-1-12-17"] }, "alignment": "Original complete word text only. Consonant sequences and order checked against the primary print; exact UXLC word IDs and marked reader forms retained. Printed source full-mark equivalence and individual syllable/letter/phone/time/note links remain unassigned.", "independentReview": null, "newSingingVoice": null, "completeGrammar": false, "kinnorAccentId": null, "sourcePack": { "file": "assets/pronunciation/khan-tiberian-genesis-sources.zip", "bytes": 311629, "sha256": "b1b4b0006e9e0c29c581595cf8e49a72b02120f4ea63b37d03fcafd49b0ed6eb", "contents": "Extracted source copyright page and complete printed pp614–620; attribution/change notice. Page extraction only; primary source typography and footnotes retained." } };
+
+  // khan-pronunciation.js
+  var freeze = (v) => {
+    if (v && typeof v === "object") {
+      Object.values(v).forEach(freeze);
+      Object.freeze(v);
+    }
+    return v;
+  };
+  var KHAN_PRONUNCIATION2 = freeze(KHAN_PRONUNCIATION);
+  var READER_PRONUNCIATION_SOURCES = freeze([
+    { id: "mam", name: "Phonetic MAM · selected text style", kind: "mam" },
+    ...KHAN_PRONUNCIATION.styles.map((s) => ({ id: "khan-" + s.id, name: s.label + " · Genesis1:1–13", kind: "published-word", reading: s.id }))
+  ]);
+  function readerPronunciationSource(id) {
+    const s = READER_PRONUNCIATION_SOURCES.find((s2) => s2.id === id);
+    if (!s) throw Error("Unknown reader pronunciation source; no replacement selected.");
+    return s;
+  }
+  var words2 = /* @__PURE__ */ new Map();
+  for (const verse of KHAN_PRONUNCIATION.verses) for (const token of verse.columns[0].tokens) words2.set(token.sourceWordId, { verse, token });
+  function khanWordEvidence(word, reading) {
+    if (!KHAN_PRONUNCIATION.styles.some((s) => s.id === reading)) throw Error("Unknown published Tiberian reading; no other reading substituted.");
+    if (!word || typeof word.id !== "string" || typeof word.sourceHebrew !== "string") throw Error("Choose an unchanged marked reader word.");
+    const sourceWordId = word.sourceWordId ?? word.id, hit = words2.get(sourceWordId);
+    const result = { schema: "tropetrain-published-pronunciation-word-v1", wordId: word.id, sourceWordId, hebrew: word.sourceHebrew, reading, status: "no-source-correspondence", sourceId: KHAN_PRONUNCIATION.id, source: KHAN_PRONUNCIATION.source, entries: [], syllableRanges: null, phonemes: null, noteIds: null, audioTimes: null, review: null, newSingingVoice: null };
+    if (!hit) return result;
+    if (hit.token.readerHebrew !== word.sourceHebrew) throw Error("Marked Hebrew changed; the published word link needs review.");
+    const reference = hit.verse.readings[reading], column = hit.verse.columns.find((c) => c.column === reference.column), token = column?.tokens.find((t) => t.sourceWordId === sourceWordId);
+    if (!token || token.readerHebrew !== word.sourceHebrew || column.text.slice(token.start, token.end) !== token.text) throw Error("Published transcription word or exact source range changed.");
+    return { ...result, status: "word-linked", entries: [{
+      kind: "published-phonetic-word",
+      sourceCellId: column.id,
+      sourceRow: hit.verse.verse,
+      sourceColumn: column.column,
+      sourceReference: reference.basis === "explicit-common-reading-per-source-p614" ? { column: 1, basis: reference.basis } : null,
+      sourceForm: false,
+      labels: [],
+      start: token.start,
+      end: token.end,
+      text: token.text,
+      printedPage: column.printedPage,
+      footnotes: token.footnotes,
+      sourceMarkedHebrew: null,
+      sourceMarkEquivalence: null,
+      parts: [{ sourceUnitId: column.id + "-" + sourceWordId + "-word", text: token.text, join: "", sourceStress: false, sourceMarks: [], hebrewClusterRanges: null, syllableRanges: null }]
+    }] };
+  }
+  function khanVerseForWord(word) {
+    const hit = words2.get(word?.sourceWordId ?? word?.id);
+    if (!hit) return null;
+    if (hit.token.readerHebrew !== word.sourceHebrew) throw Error("Marked Hebrew changed; the published verse link needs review.");
+    return hit.verse;
+  }
+
+  // khan-pronunciation-ui.js
+  function mountKhanPronunciation({ onChange = () => {
+  } } = {}) {
+    const $2 = (id) => document.getElementById(id), key = "tropetrain-reader-pronunciation-source-v1";
+    let chosen = "mam", word = null;
+    try {
+      const saved = JSON.parse(localStorage.getItem(key));
+      if (READER_PRONUNCIATION_SOURCES.some((s) => s.id === saved?.source)) chosen = saved.source;
+    } catch {
+    }
+    for (const s of READER_PRONUNCIATION_SOURCES) {
+      const o = document.createElement("option");
+      o.value = s.id;
+      o.textContent = s.name;
+      $2("reader-pronunciation-source").append(o);
+    }
+    $2("reader-pronunciation-source").value = chosen;
+    function draw() {
+      $2("khan-pronunciation-hebrew").textContent = word?.sourceHebrew ?? "";
+      $2("khan-pronunciation-hebrew").dataset.wordId = word?.sourceWordId ?? word?.id ?? "";
+      $2("khan-pronunciation-rows").replaceChildren();
+      $2("khan-pronunciation-verse").replaceChildren();
+      $2("khan-pronunciation-export").disabled = true;
+      $2("khan-pronunciation-download").hidden = true;
+      $2("khan-pronunciation-download").removeAttribute("href");
+      if (!word) {
+        $2("khan-pronunciation-status").textContent = "Choose a word in Genesis1:1–13 to compare the published readings.";
+        return;
+      }
+      try {
+        const verse = khanVerseForWord(word);
+        if (!verse) {
+          $2("khan-pronunciation-status").textContent = "No published transcription for this word in this source excerpt. Your reader source stays selected; no other style is substituted.";
+          return;
+        }
+        for (const style of KHAN_PRONUNCIATION2.styles) {
+          const report = khanWordEvidence(word, style.id), entry = report.entries[0], tr = document.createElement("tr");
+          tr.dataset.reading = style.id;
+          tr.classList.toggle("khan-selected-reading", chosen === "khan-" + style.id);
+          const name = document.createElement("th");
+          name.scope = "row";
+          name.textContent = style.label;
+          const text = document.createElement("td"), ipa = document.createElement("span");
+          ipa.lang = "und-fonipa";
+          ipa.dir = "ltr";
+          ipa.className = "khan-phonetic-text";
+          ipa.textContent = entry.text;
+          text.append(ipa);
+          const reference = document.createElement("small");
+          reference.textContent = `Printed p.${entry.printedPage}, transcription${entry.sourceColumn}${entry.sourceReference ? " · source explicitly gives one common reading for both streams" : ""}${entry.footnotes.length ? " · footnotes " + entry.footnotes.join(", ") : ""}`;
+          text.append(reference);
+          tr.append(name, text);
+          $2("khan-pronunciation-rows").append(tr);
+        }
+        for (const column of verse.columns) {
+          const box = document.createElement("p"), label2 = document.createElement("small"), text = document.createElement("span");
+          label2.textContent = `Genesis1:${verse.verse} · printed p.${column.printedPage} · transcription${column.column}`;
+          text.lang = "und-fonipa";
+          text.dir = "ltr";
+          text.className = "khan-phonetic-text";
+          text.textContent = "[" + column.text + "]";
+          box.append(label2, text);
+          $2("khan-pronunciation-verse").append(box);
+        }
+        $2("khan-pronunciation-status").textContent = `Both published readings linked to this complete Hebrew word. Reader source: ${readerPronunciationSource(chosen).name}. Syllable and note links, source full-mark equivalence and audio times remain unassigned.`;
+        $2("khan-pronunciation-export").disabled = false;
+      } catch (error) {
+        $2("khan-pronunciation-status").textContent = error.message;
+      }
+    }
+    $2("reader-pronunciation-source").addEventListener("change", () => {
+      const next = readerPronunciationSource($2("reader-pronunciation-source").value);
+      chosen = next.id;
+      try {
+        localStorage.setItem(key, JSON.stringify({ source: chosen }));
+      } catch {
+      }
+      draw();
+      onChange();
+    });
+    $2("khan-pronunciation-export").addEventListener("click", () => {
+      if (!word) return;
+      const reports = KHAN_PRONUNCIATION2.styles.map((s) => khanWordEvidence(word, s.id));
+      if (reports.some((r) => r.status !== "word-linked")) return;
+      const a = $2("khan-pronunciation-download");
+      a.href = "data:application/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ schema: "tropetrain-published-pronunciation-comparison-v1", wordId: word.id, sourceWordId: word.sourceWordId ?? word.id, hebrew: word.sourceHebrew, readerSource: chosen, reports, sourcePack: KHAN_PRONUNCIATION2.sourcePack }, null, 2) + "\n");
+      a.download = (word.sourceWordId ?? word.id) + "-published-tiberian-readings.json";
+      a.hidden = false;
+    });
+    return { showWord(value) {
+      word = value;
+      draw();
+    }, selected() {
+      return chosen !== "mam";
+    }, readerStatus() {
+      return readerPronunciationSource(chosen);
+    }, readerText(value) {
+      return khanWordEvidence(value, readerPronunciationSource(chosen).reading);
+    } };
+  }
+
   // historical-pronunciation.js
-  var freeze = (value) => {
+  var freeze2 = (value) => {
     if (value && typeof value === "object") {
-      Object.values(value).forEach(freeze);
+      Object.values(value).forEach(freeze2);
       Object.freeze(value);
     }
     return value;
   };
-  var HISTORICAL_ACCENT_SOURCE = freeze({
+  var HISTORICAL_ACCENT_SOURCE = freeze2({
     id: "kinnor-accent-help",
     version: "V5 r340 (2011) and preserved V6 6.0.428 help",
     manual: "https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s",
@@ -9699,7 +9857,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     observation("qamats-examples", qamats, `The examples illustrate ${qamatsSpelling} in Sabbath and blessed. This does not define all qamats classes or contexts.`),
     observation("tav-examples", tav, `The construct-form and Sabbath examples end in ${tavSpelling}. No complete consonant or gemination rules are given.`)
   ];
-  var HISTORICAL_ACCENT_PROFILES = freeze([
+  var HISTORICAL_ACCENT_PROFILES = freeze2([
     { id: "ashkenazi-traditional", label: "Ashkenazi Traditional", observations: common("oy", "o", "s") },
     { id: "ashkenazi-modern", label: "Ashkenazi Modern", observations: common("o", "o", "s") },
     { id: "sephardi", label: "Sephardi", observations: common("o", "a", "t") },
@@ -9955,14 +10113,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
 
   // pronunciation-phonology.js
-  var freeze2 = (value) => {
+  var freeze3 = (value) => {
     if (value && typeof value === "object") {
-      Object.values(value).forEach(freeze2);
+      Object.values(value).forEach(freeze3);
       Object.freeze(value);
     }
     return value;
   };
-  var PHONOLOGY_SOURCE = freeze2({
+  var PHONOLOGY_SOURCE = freeze3({
     id: "katz-1993-phonology",
     author: "Dovid Katz",
     title: "The Phonology of Ashkenazic",
@@ -9974,7 +10132,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     scanLimits: "The supplied scan repeats printed pages49and52; no rule here relies on missing page50.",
     scope: "Schematic Northeastern and Mideastern Formal Ashkenazic. Local variation remains; no equivalence to a Kinnor Accent label or reviewed singing voice is established."
   });
-  var PHONOLOGY_PROFILES = freeze2([
+  var PHONOLOGY_PROFILES = freeze3([
     { id: "katz-1993-northeastern-formal", label: "Northeastern Formal Ashkenazic · research", region: "northeastern" },
     { id: "katz-1993-mideastern-formal", label: "Mideastern Formal Ashkenazic · research", region: "mideastern" }
   ].map((p) => ({ ...p, sourceId: PHONOLOGY_SOURCE.id, status: "source-based-proposal", kinnorAccentId: null, playable: false, singingVoice: null, review: null })));
@@ -10443,13 +10601,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!written.length || written.some((r, i) => i && written[i - 1].end !== r.start)) throw Error("Pronunciation written ranges are not contiguous.");
     return { start: written[0].start, end: written.at(-1).end };
   }
-  function linkPronunciationScoreGroups(events2, words3, library, style) {
+  function linkPronunciationScoreGroups(events2, words4, library, style) {
     if (!PRONUNCIATION_STYLES.some((s) => s.id === style)) throw Error("Unsupported pronunciation text style.");
     const prepared = /* @__PURE__ */ new Map(), seen = /* @__PURE__ */ new Set();
     for (const event of events2) {
       if (seen.has(event.id)) throw Error("Duplicate score event ID.");
       seen.add(event.id);
-      const word = words3[event.wordIndex];
+      const word = words4[event.wordIndex];
       if (!word || word.id !== event.wordId || (event.sourceWordId ?? event.wordId) !== canonical(word)) throw Error("Score notes do not match their Hebrew word occurrences.");
       if (!prepared.has(word.id)) prepared.set(word.id, { word, ranges: scoreRanges(word), events: [] });
       const item = prepared.get(word.id), range = item.ranges.find((r) => r.syllableId === event.syllableId);
@@ -10592,7 +10750,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function appendReaderPronunciation(target, report) {
     target.replaceChildren();
-    target.lang = "en";
+    target.lang = report.schema === "tropetrain-published-pronunciation-word-v1" ? "und-fonipa" : "en";
     target.dir = "ltr";
     target.className = "reader-word-pronunciation";
     target.dataset.pronunciationStatus = report.status;
@@ -10607,6 +10765,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       line.className = "reader-pronunciation-entry";
       line.dataset.sourceCell = entry.sourceCellId;
       line.title = `Source row ${entry.sourceRow}, column ${entry.sourceColumn}${entry.sourceReference ? " · same transcription as column " + entry.sourceReference.column : ""}${entry.sourceForm ? " · source reading form; written range unresolved" : ""}. Source text only; independent linguistic review pending.`;
+      if (entry.kind === "published-phonetic-word") line.title = `Khan2020, printed p.${entry.printedPage}, transcription${entry.sourceColumn}${entry.sourceReference ? " · explicitly shared by both readings" : ""}. Complete printed word only; syllable, note and audio timing unassigned.`;
       const text = document.createElement("span");
       text.className = "reader-pronunciation-text";
       for (const part of entry.parts) {
@@ -10755,6 +10914,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     let style = pronunciationStyle(saved?.style), word = null, listening = false, library = null, error = null, lastKey = null, study = null;
     const readerCache = /* @__PURE__ */ new Map(), followCache = /* @__PURE__ */ new Map(), bookRequests = /* @__PURE__ */ new Map(), bookErrors = /* @__PURE__ */ new Map();
+    const publishedPronunciation = mountKhanPronunciation({ onChange });
     const historicalProfiles = mountHistoricalPronunciation();
     const phonologyPreview = mountPhonologyPreview();
     function requestBook(value) {
@@ -10963,6 +11123,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const current = JSON.stringify([style, word?.id, word?.sourceHebrew, word?.reference, listening, !!library, error]);
       if (current === lastKey) return;
       lastKey = current;
+      publishedPronunciation.showWord(word);
       historicalProfiles.show(null, word, style);
       phonologyPreview.show(null, word, style);
       $2("pronunciation-target").textContent = word ? `${word.reference} · word ${word.ordinal} · ${listening ? "listening word" : "selected word"}` : "Choose a Hebrew word.";
@@ -11136,7 +11297,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         listening = following;
         render2();
       },
+      readerStatus() {
+        return publishedPronunciation.selected() ? publishedPronunciation.readerStatus() : { kind: "mam", style, name: PRONUNCIATION_STYLES.find((s) => s.id === style).name, error };
+      },
       readerText(value) {
+        if (publishedPronunciation.selected()) return publishedPronunciation.readerText(value);
         if (!library || requestBook(value)) return null;
         library.at(value);
         const cacheKey = JSON.stringify([style, value.sourceWordId ?? value.id, value.sourceHebrew]);
@@ -11146,22 +11311,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         return { ...readerCache.get(cacheKey), wordId: value.id };
       },
-      followNote(event, words3) {
+      followNote(event, words4) {
         if (!library) return null;
-        const w = words3[event.wordIndex];
+        const w = words4[event.wordIndex];
         const cacheKey = JSON.stringify([style, event.id, event.wordId, event.sourceWordId, event.syllableId, event.syllable, w?.id, w?.sourceWordId, w?.sourceHebrew]);
         if (!followCache.has(cacheKey)) {
           if (followCache.size >= 256) followCache.delete(followCache.keys().next().value);
-          const link = linkPronunciationToNotes([event], words3, library, style).links[0];
+          const link = linkPronunciationToNotes([event], words4, library, style).links[0];
           followCache.set(cacheKey, pronunciationFollow(event, w, link, style));
         }
         return followCache.get(cacheKey);
       },
-      groupNotes(events2, words3) {
-        return library ? linkPronunciationScoreGroups(events2, words3, library, style) : null;
+      groupNotes(events2, words4) {
+        return library ? linkPronunciationScoreGroups(events2, words4, library, style) : null;
       },
-      linkNotes(events2, words3) {
-        return library ? linkPronunciationToNotes(events2, words3, library, style) : null;
+      linkNotes(events2, words4) {
+        return library ? linkPronunciationToNotes(events2, words4, library, style) : null;
       },
       timingStudy(value) {
         return library ? { style, study: library.study(value, style) } : null;
@@ -11267,9 +11432,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function practiceAudioMode(value) {
     return ["recorded", "measured"].includes(value) ? value : "instrument";
   }
-  function chantPracticePlan(library, words3, start, end) {
+  function chantPracticePlan(library, words4, start, end) {
     if (!library) throw Error("The recorded-chant catalog is loading.");
-    const rows2 = library.selection(words3, start, end), records = library.recordsFor(rows2);
+    const rows2 = library.selection(words4, start, end), records = library.recordsFor(rows2);
     return { rows: rows2, records, words: rows2.length, bytes: records.reduce((n, r) => n + r.audio.bytes, 0) };
   }
   function chantCoverage(library) {
@@ -12018,8 +12183,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // measured-practice.js
   var entries = new Map(pitchManifest.records.map((e) => [e.id, e]));
-  function measuredPracticePlan(library, words3, start, end) {
-    const plan2 = chantPracticePlan(library, words3, start, end);
+  function measuredPracticePlan(library, words4, start, end) {
+    const plan2 = chantPracticePlan(library, words4, start, end);
     for (const row of plan2.rows) {
       const source = entries.get(row.recordingId), record = library.byId.get(row.recordingId), duration = source?.durationSeconds, last = row.endSeconds ?? duration;
       const original = originalWordWindow(record, row, library.timingPolicy(record));
@@ -12661,11 +12826,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (!record) throw Error("Choose an available Haftarah source recording.");
       return record;
     }
-    selection(id, words3, start, end) {
+    selection(id, words4, start, end) {
       const record = this.record(id), map = this.wordMaps.get(id);
-      if (!Array.isArray(words3) || !Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end < start || end >= words3.length) throw Error("Choose a valid reader span.");
+      if (!Array.isArray(words4) || !Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end < start || end >= words4.length) throw Error("Choose a valid reader span.");
       if (record.status !== "source-timed") throw Error(`${record.title} has unreliable source word timings. Complete-recording playback remains available; no word boundary is repaired.`);
-      return words3.slice(start, end + 1).map((word) => {
+      return words4.slice(start, end + 1).map((word) => {
         const match = map.get(word.sourceWordId ?? word.id);
         if (!match) throw Error(`This reader span is not fully mapped to ${record.title}. Open this source reading, or use its complete recording. Unmatched forms stay unassigned.`);
         if (match.uxlcHebrew !== word.sourceHebrew) throw Error("The marked reader Hebrew changed; Haftarah source alignment requires review.");
@@ -13010,9 +13175,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   state.readingType = "torah";
   var passage2 = { ...passage, title: "Genesis 1:1–3", ranges: [structuredClone(defaultRange)] };
   var model = createReadingModel(passage2, state);
-  var { words: words2, bounds: bounds2, buildPlan: buildPlan2 } = model;
-  state.cursor = Math.min(state.cursor, words2.length - 1);
-  state.anchor = Math.min(state.anchor, words2.length - 1);
+  var { words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model;
+  state.cursor = Math.min(state.cursor, words3.length - 1);
+  state.anchor = Math.min(state.anchor, words3.length - 1);
   state.readerPage = 0;
   var corpus;
   var chooseEnd = false;
@@ -13105,7 +13270,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     onWord: (word) => {
       referenceActiveId = word?.occurrenceId ?? null;
       if (word && state.followPlayback) {
-        const page = Math.floor(words2[word.wordIndex].verseIndex / VERSE_PAGE);
+        const page = Math.floor(words3[word.wordIndex].verseIndex / VERSE_PAGE);
         if (page !== state.readerPage) {
           state.readerPage = page;
           renderReader();
@@ -13114,10 +13279,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("reference-active", marksWord(el3, referenceActiveId)));
       if (word) {
         renderRecordedWord(word);
-        pronunciationTools?.showWord(words2[word.wordIndex], { following: true });
-      } else pronunciationTools?.showWord(words2[state.cursor]);
+        pronunciationTools?.showWord(words3[word.wordIndex], { following: true });
+      } else pronunciationTools?.showWord(words3[state.cursor]);
       if (recordedPracticeRunning && state.practiceAudio === "measured" && word) {
-        const w = words2[word.wordIndex], summary = sourceContourStore.wordSummary(referenceLibrary.at(w), w);
+        const w = words3[word.wordIndex], summary = sourceContourStore.wordSummary(referenceLibrary.at(w), w);
         $("measured-tone-window").textContent = summary ? `${summary.hebrew} · ${summary.measuredFrameOnsets} measured / ${summary.totalFrameOnsets} frame onsets in this source word window. ${summary.measuredFrameOnsets ? "Only assigned measurement cells make tones." : "No measured frequency onset in this window; missing measurements do not establish silence."} No syllable timing is inferred.` : "";
       }
       if (word && recordedPracticeRunning) {
@@ -13173,15 +13338,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function persist() {
     if (!restoringReading) store("tropetrain-practice-v1", { ...state, ranges: passage2.ranges });
   }
-  var label = (i) => `${words2[i].chapter}:${words2[i].verse} · word ${words2[i].ordinal}`;
-  var fullLabel = (i) => `${words2[i].bookName} ${label(i)}`;
+  var label = (i) => `${words3[i].chapter}:${words3[i].verse} · word ${words3[i].ordinal}`;
+  var fullLabel = (i) => `${words3[i].bookName} ${label(i)}`;
   var say = (text) => {
     $("status").setAttribute("aria-live", "polite");
     $("status").textContent = text;
   };
   var player = new Player((event, cycle, progress, index) => {
     if (state.followPlayback) {
-      const page = Math.floor(words2[event.wordIndex].verseIndex / VERSE_PAGE);
+      const page = Math.floor(words3[event.wordIndex].verseIndex / VERSE_PAGE);
       if (page !== state.readerPage) {
         state.readerPage = page;
         renderReader();
@@ -13199,11 +13364,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     activeInstrumentEvent = event;
     setActive(event.wordId, event.id);
-    pronunciationTools?.showWord(words2[event.wordIndex], { following: true });
+    pronunciationTools?.showWord(words3[event.wordIndex], { following: true });
     $("progress").style.width = `${progress * 100}%`;
     $("status").textContent = `${state.repeat ? `Loop ${cycle + 1} · ` : ""}Playing ${label(event.wordIndex)} · ${eventPitchName(event)}`;
   }, () => {
-    pronunciationTools?.showWord(words2[state.cursor]);
+    pronunciationTools?.showWord(words3[state.cursor]);
     setActive(null, null);
     $("progress").style.width = "100%";
     say(`Finished at ${label(playingBounds[1])}.`);
@@ -13219,8 +13384,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function renderPronunciationFollow() {
     const hint = "Instrument notes can highlight source syllables with an exact marked-Hebrew match. This is text correspondence; a singing voice and acoustic syllable timing are pending.";
     let report = null, error = null;
-    if (activeInstrumentEvent) try {
-      report = pronunciationTools?.followNote(activeInstrumentEvent, words2);
+    const readerSource = pronunciationTools?.readerStatus();
+    if (activeInstrumentEvent && readerSource?.kind !== "published-word") try {
+      report = pronunciationTools?.followNote(activeInstrumentEvent, words3);
     } catch (e) {
       error = e.message;
     }
@@ -13236,6 +13402,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     status.dataset.event = activeInstrumentEvent?.id ?? "";
     status.dataset.followWord = activeInstrumentEvent?.wordId ?? "";
     status.dataset.followStatus = error ? "review-needed" : report?.status ?? (activeInstrumentEvent ? "loading" : "idle");
+    if (readerSource?.kind === "published-word") {
+      status.dataset.followStatus = "published-word-only";
+      status.textContent = "Published Tiberian text follows whole words. Syllable and note highlighting is unassigned for this source; the instrument and recordings keep their own pronunciation and melody.";
+      return;
+    }
     status.textContent = error ? `Pronunciation highlighting unavailable: ${error}` : !activeInstrumentEvent ? hint : !report ? "Loading source syllable correspondence…" : report.status === "exact-written-span" ? `${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map((u) => u.text))].join(" / ")} · exact written-span match. Text follows the instrument; no sung syllable is implied.` : `${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
   }
   function setActive(wordId, eventId) {
@@ -13258,7 +13429,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("chant-pitch-cancel").hidden = true;
     recordedPracticeRunning = false;
     chantPlayRequest++;
-    pronunciationTools?.showWord(words2[state.cursor]);
+    pronunciationTools?.showWord(words3[state.cursor]);
     if (!preservePattern) patternTools?.stop();
     if (!preserveVoiceStudy) voiceStudyTools?.stop();
     referenceLoadJob?.abort();
@@ -13303,7 +13474,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       state.cursor = index;
       state.anchor = index;
     }
-    state.readerPage = Math.floor(words2[index].verseIndex / VERSE_PAGE);
+    state.readerPage = Math.floor(words3[index].verseIndex / VERSE_PAGE);
     state.notePage = 0;
     state.staffPage = 0;
     render();
@@ -13383,9 +13554,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     b.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         e.preventDefault();
-        const i = Math.max(0, Math.min(words2.length - 1, e.key === "ArrowLeft" ? end.index + 1 : w.index - 1));
+        const i = Math.max(0, Math.min(words3.length - 1, e.key === "ArrowLeft" ? end.index + 1 : w.index - 1));
         selectWord(i, e.shiftKey);
-        [...document.querySelectorAll("[data-word]")].find((el3) => marksWord(el3, words2[i].id))?.focus();
+        [...document.querySelectorAll("[data-word]")].find((el3) => marksWord(el3, words3[i].id))?.focus();
       }
     });
     return b;
@@ -13407,7 +13578,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       $("reader").append(headings);
     }
     if (useScroll) {
-      const visible = words2.filter((w) => w.verseIndex >= first && w.verseIndex < last), rows2 = scrollLayout.excerpt(visible);
+      const visible = words3.filter((w) => w.verseIndex >= first && w.verseIndex < last), rows2 = scrollLayout.excerpt(visible);
       const pane = scrollPane(rows2, { makeButton: (piece) => wordButton(piece.words[0], true, piece) });
       if (state.view === "parallel") {
         const pair2 = document.createElement("div");
@@ -13433,7 +13604,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         line.className = "hebrew-line";
         line.lang = "he";
         line.dir = "rtl";
-        for (const word of words2.filter((w) => w.verseIndex === verseIndex)) line.append(wordButton(word, plain), document.createTextNode(" "));
+        for (const word of words3.filter((w) => w.verseIndex === verseIndex)) line.append(wordButton(word, plain), document.createTextNode(" "));
         lines.append(line);
       }
       row.append(lines);
@@ -13451,9 +13622,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderReaderPronunciation();
   }
   function renderReaderPronunciation() {
-    const buttons = [...$("reader").querySelectorAll(".hebrew-line .word")], source = pronunciationTools?.scoreStatus(), counts = { linked: 0, sourceForm: 0, combined: 0, unassigned: 0, review: 0 }, seen = /* @__PURE__ */ new Set();
+    const buttons = [...$("reader").querySelectorAll(".hebrew-line .word")], source = pronunciationTools?.readerStatus(), counts = { linked: 0, sourceForm: 0, combined: 0, unassigned: 0, review: 0 }, seen = /* @__PURE__ */ new Set();
     for (const [index, button] of buttons.entries()) {
-      const word = words2[Number(button.dataset.index)];
+      const word = words3[Number(button.dataset.index)];
       const oldId = button.dataset.pronunciationDescription;
       const described = (button.getAttribute("aria-describedby") ?? "").split(/\s+/).filter((id) => id && id !== oldId);
       if (!readerPronunciation) {
@@ -13511,7 +13682,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderPronunciationFollow();
   }
   function renderAlternatives(verses) {
-    const groups = sourceAlternatives(verses, words2), target = $("written-reading-rows");
+    const groups = sourceAlternatives(verses, words3), target = $("written-reading-rows");
     target.replaceChildren();
     $("written-reading-count").textContent = `${groups.length} group${groups.length === 1 ? "" : "s"} on this page`;
     for (const group of groups) {
@@ -13589,10 +13760,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     });
     $("selection-label").textContent = state.scope === "selection" ? `Selected ${fullLabel(start)} to ${fullLabel(end)}` : `Cursor: ${fullLabel(state.cursor)}`;
     $("span-preview").textContent = `${fullLabel(start)} to ${fullLabel(end)} · ${end - start + 1} word${end > start ? "s" : ""}`;
-    $("compact-span").textContent = `${words2[start].bookName} ${words2[start].chapter}:${words2[start].verse} · ${end - start + 1} words`;
+    $("compact-span").textContent = `${words3[start].bookName} ${words3[start].chapter}:${words3[start].verse} · ${end - start + 1} words`;
     $("end-selection").setAttribute("aria-pressed", String(chooseEnd));
     $("end-selection").textContent = chooseEnd ? "Click the last word" : "Choose span end";
-    const w = words2[state.cursor];
+    const w = words3[state.cursor];
     $("current-word").textContent = w.sourceHebrew;
     $("current-reference").textContent = `${w.reference} · word ${w.ordinal}`;
     $("accent-name").textContent = w.accent;
@@ -13638,15 +13809,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("reference-volume-value").textContent = `${state.referenceVolume}%`;
     referencePlayer.setVolume(state.referenceVolume / 100);
     if (!referenceLibrary) return;
-    const atCursor = referenceLibrary.at(words2[state.cursor]);
+    const atCursor = referenceLibrary.at(words3[state.cursor]);
     if (!keepChoice && !referencePlayer.running && !referencePlayer.starting) selectedReferenceId = atCursor?.recording.id ?? selectedReferenceId;
     selectedReferenceId ??= referenceLibrary.recordings[0].id;
     syncReferencePickers();
     const selected = referenceLibrary.byId.get(selectedReferenceId);
     try {
       const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
-      if (!words2.slice(start, end + 1).some((word) => referenceLibrary.at(word)?.recording.id === selected.id)) throw Error("The selected recording is outside this reader span. Open selected reading, or load and play its complete take.");
-      referencePlan = referenceLibrary.selection(words2, start, end);
+      if (!words3.slice(start, end + 1).some((word) => referenceLibrary.at(word)?.recording.id === selected.id)) throw Error("The selected recording is outside this reader span. Open selected reading, or load and play its complete take.");
+      referencePlan = referenceLibrary.selection(words3, start, end);
       referenceRequired = referenceLibrary.recordsFor(referencePlan);
       if (!referenceRequired.some((r) => r.id === selected.id)) throw Error("Open the selected reading to align a span, or load and play its complete recording.");
       const differences = referencePlan.filter((w) => w.comparison === "source-difference" || w.comparison === "source-boundaries").length;
@@ -13722,7 +13893,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     chantReady = false;
     for (const id of ["play", "compact-play", "chant-load"]) $(id).disabled = true;
     try {
-      chantPlan = sourceTimedPracticePlan(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
+      chantPlan = sourceTimedPracticePlan(referenceLibrary, words3, ...bounds2(state.cursor, state.anchor, state.scope));
     } catch (error) {
       $("chant-readiness").textContent = error.message;
       return;
@@ -13752,7 +13923,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const request = ++chantPlayRequest;
     let selected;
     try {
-      selected = sourceTimedPracticePlan(referenceLibrary, words2, ...bounds2(state.cursor, state.anchor, state.scope));
+      selected = sourceTimedPracticePlan(referenceLibrary, words3, ...bounds2(state.cursor, state.anchor, state.scope));
       if (state.practiceAudio !== "measured" && !(await Promise.all(selected.records.map((r) => referenceStore.has(r)))).every(Boolean)) throw Error("Load chant audio for this span first.");
     } catch (error) {
       if (request === chantPlayRequest) {
@@ -13787,10 +13958,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       const openWord = (id) => libraryAction(() => {
         applyRanges([{ id: "timing-review", ...gap.coverage, label: gap.title }]);
         state.scope = "word";
-        state.cursor = words2.findIndex((w) => (w.sourceWordId ?? w.id) === id);
+        state.cursor = words3.findIndex((w) => (w.sourceWordId ?? w.id) === id);
         if (state.cursor < 0) throw Error("The source word is outside this reading.");
         state.anchor = state.cursor;
-        state.readerPage = Math.floor(words2[state.cursor].verseIndex / VERSE_PAGE);
+        state.readerPage = Math.floor(words3[state.cursor].verseIndex / VERSE_PAGE);
         render();
       });
       button.addEventListener("click", () => libraryAction(() => applyRanges([{ id: "timing-review", ...gap.coverage, label: gap.title }])));
@@ -13882,7 +14053,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   async function refreshSignSearch({ reset = false } = {}) {
     const generation = ++findGeneration;
-    findWords = words2;
+    findWords = words3;
     if (reset) findPage = 0;
     $("sign-query").value = state.signQuery;
     $("find-scope").value = state.findScope;
@@ -13891,7 +14062,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("sign-previous").disabled = true;
     $("sign-next").disabled = true;
     try {
-      const hits = state.findScope === "torah" ? await findSignsInCorpus(await getCorpus(), state.signQuery) : findSignsInReading(words2, state.signQuery);
+      const hits = state.findScope === "torah" ? await findSignsInCorpus(await getCorpus(), state.signQuery) : findSignsInReading(words3, state.signQuery);
       if (generation !== findGeneration) return;
       findHits = hits;
       renderSignResults();
@@ -13920,15 +14091,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (state.findScope === "torah") libraryAction(() => {
           const point2 = { chapter: hit.word.chapter, verse: hit.word.verse };
           applyRanges([{ id: "sign-example", bookId: hit.word.bookId, start: point2, end: point2, label: "Sign example" }]);
-          const index = words2.findIndex((w) => (w.sourceWordId ?? w.id) === hit.sourceWordId);
+          const index = words3.findIndex((w) => (w.sourceWordId ?? w.id) === hit.sourceWordId);
           if (index >= 0) selectWord(index);
         });
         else {
-          const index = words2.findIndex((w) => w.id === hit.occurrenceId);
+          const index = words3.findIndex((w) => w.id === hit.occurrenceId);
           if (index >= 0) selectWord(index);
           else refreshSignSearch({ reset: true });
         }
-        const cursor = document.querySelector(`[data-word="${words2[state.cursor].id}"]`);
+        const cursor = document.querySelector(`[data-word="${words3[state.cursor].id}"]`);
         cursor?.focus();
         $("reader").scrollIntoView({ block: "start" });
       });
@@ -14014,12 +14185,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     let linkError = null;
     scorePronunciationReport = null;
     if (scorePronunciation) try {
-      scorePronunciationReport = pronunciationTools?.linkNotes(plan.slice(from, to), words2) ?? null;
+      scorePronunciationReport = pronunciationTools?.linkNotes(plan.slice(from, to), words3) ?? null;
     } catch (error) {
       linkError = error.message;
     }
     const linkMap = scorePronunciationReport ? new Map(scorePronunciationReport.links.map((l) => [l.eventId, l])) : null;
-    $("pitch-staff").innerHTML = staffMarkup(plan, words2, from, STAFF_PAGE, { pronunciationLinks: linkMap });
+    $("pitch-staff").innerHTML = staffMarkup(plan, words3, from, STAFF_PAGE, { pronunciationLinks: linkMap });
     const source = pronunciationTools?.scoreStatus();
     $("score-pronunciation-summary").textContent = !scorePronunciation ? "Pronunciation text on the score is hidden. Hebrew and musical settings are kept." : linkError ? `Score text links unavailable: ${linkError}` : source?.error ? source.error : !scorePronunciationReport ? "Loading pronunciation text for the score…" : `${source.name} · ${scorePronunciationReport.counts.linkedNotes} of ${scorePronunciationReport.counts.notes} notes on this page have pronunciation text matching their Hebrew syllable; ${scorePronunciationReport.counts.unlinkedNotes} remain unlinked. Repeated notes can share one source unit. Independent underlay review is pending.`;
     $("score-pronunciation-download").disabled = !scorePronunciationReport?.links.length;
@@ -14027,11 +14198,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("score-pronunciation-detail").textContent = !inspected ? "" : inspected.status === "unlinked" ? `${inspected.hebrew} · ${NOTE_LINK_REASONS[inspected.reason]}` : `${inspected.hebrew} · ${inspected.units.map((u) => `${u.text} (source row ${u.sourceRow}, column ${u.sourceColumn}${u.labels.length ? ", " + u.labels.join("/") : ""}${u.sharesNextConsonant ? ", shared consonant with next unit" : ""}${u.sharesPreviousConsonant ? ", shared consonant with previous unit" : ""})`).join(" / ")}. Exact written-span correspondence; no phoneme or acoustic timing is assigned.`;
     scoreGroupReport = null;
     try {
-      scoreGroupReport = pronunciationTools?.groupNotes(plan.filter((e) => e.wordId === words2[state.cursor]?.id), words2) ?? null;
+      scoreGroupReport = pronunciationTools?.groupNotes(plan.filter((e) => e.wordId === words3[state.cursor]?.id), words3) ?? null;
     } catch (error) {
       scoreGroupReport = { error: error.message, words: [] };
     }
-    renderPronunciationScoreGroups($("score-word-alignment-content"), scoreGroupReport, words2[state.cursor]);
+    renderPronunciationScoreGroups($("score-word-alignment-content"), scoreGroupReport, words3[state.cursor]);
     $("score-word-alignment-download").disabled = !scoreGroupReport?.words.length;
     $("staff-page-label").textContent = plan.length ? `Score notes ${from + 1}–${to} of ${plan.length}` : "No score notes in this span";
     $("staff-previous").disabled = from === 0;
@@ -14102,12 +14273,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const blob = data instanceof Blob ? data : new Blob([data], { type }), url = URL.createObjectURL(blob);
     exportUrls.set(id, url);
     $(id).href = url;
-    $(id).download = `tropetrain-${words2[bounds2(state.cursor, state.anchor, state.scope)[0]].sourceWordId ?? words2[state.cursor].id}-${state.tempo}bpm-${state.transpose}st.${extension}`;
+    $(id).download = `tropetrain-${words3[bounds2(state.cursor, state.anchor, state.scope)[0]].sourceWordId ?? words3[state.cursor].id}-${state.tempo}bpm-${state.transpose}st.${extension}`;
     $(id).hidden = false;
     return blob.size;
   }
   for (const type of ["musicxml", "midi"]) $("prepare-" + type).addEventListener("click", async () => {
-    const key = exportsKey, selected = plan, sourceWords = words2, context = exportContext(), button = $("prepare-" + type);
+    const key = exportsKey, selected = plan, sourceWords = words3, context = exportContext(), button = $("prepare-" + type);
     button.disabled = true;
     $("export-status").textContent = "Preparing " + (type === "midi" ? "MIDI notes" : "MusicXML score") + "…";
     try {
@@ -14247,7 +14418,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("transpose-value").textContent = `${state.transpose > 0 ? "+" : ""}${state.transpose} semitone${Math.abs(state.transpose) !== 1 ? "s" : ""}`;
     $("volume-value").textContent = `${state.volume}%`;
     $("passage-title").textContent = passage2.title;
-    $("word-count").textContent = `${passage2.verses.length} verse${passage2.verses.length === 1 ? "" : "s"} · ${words2.length} words`;
+    $("word-count").textContent = `${passage2.verses.length} verse${passage2.verses.length === 1 ? "" : "s"} · ${words3.length} words`;
     const printed = isPrintedScore(model.profile.id), baer = model.profile.id === BAER_SCORE.id;
     $("musical-source").value = state.melodyId;
     $("melody-name").textContent = model.profile.name;
@@ -14305,7 +14476,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderSequence();
     renderChantPractice();
     persist();
-    if (findWords !== words2 && state.findScope === "reading") refreshSignSearch({ reset: true });
+    if (findWords !== words3 && state.findScope === "reading") refreshSignSearch({ reset: true });
     combinationTools?.readingChanged();
     patternTools?.refresh();
     sourcePitchTools?.refresh();
@@ -14327,20 +14498,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     passage2 = nextPassage;
     model = nextModel;
     state.readingType = nextType;
-    ({ words: words2, bounds: bounds2, buildPlan: buildPlan2 } = model);
+    ({ words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model);
     const formRange = passage2.ranges.at(-1);
     syncReadingForm(nextType, formRange.bookId);
     for (const [id, value] of [["start-chapter", formRange.start.chapter], ["start-verse", formRange.start.verse], ["end-chapter", formRange.end.chapter], ["end-verse", formRange.end.verse]]) $(id).value = value;
-    state.cursor = restoreCursor && words2[restoreCursor.cursor] ? restoreCursor.cursor : 0;
-    state.anchor = restoreCursor && words2[restoreCursor.anchor] ? restoreCursor.anchor : state.cursor;
-    state.readerPage = Math.floor(words2[state.cursor].verseIndex / VERSE_PAGE);
+    state.cursor = restoreCursor && words3[restoreCursor.cursor] ? restoreCursor.cursor : 0;
+    state.anchor = restoreCursor && words3[restoreCursor.anchor] ? restoreCursor.anchor : state.cursor;
+    state.readerPage = Math.floor(words3[state.cursor].verseIndex / VERSE_PAGE);
     state.notePage = 0;
     state.staffPage = 0;
     chooseEnd = false;
     render();
     renderSections();
     if (remember) rememberReading();
-    const unresolved = words2.filter((w) => w.analysisStatus === "unsegmented").length;
+    const unresolved = words3.filter((w) => w.analysisStatus === "unsegmented").length;
     $("library-message").textContent = `Opened ${passage2.title}. ${unresolved ? `${unresolved} word${unresolved === 1 ? " has" : "s have"} unresolved syllable boundaries. ` : ""}Syllables are unreviewed; the recorded reference is separate.`;
     if (passage2.ranges.some((range) => range.divisionSource?.referenceMapping)) $("library-message").textContent += " Calendar and UXLC verse numbers differ here; inspect Source/UXLC verse numbering under Tutor assignments & sections.";
   }
@@ -14439,7 +14610,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       jump.textContent = "Go to section";
       jump.disabled = !!range.hidden;
       jump.addEventListener("click", () => {
-        const i = words2.findIndex((w) => w.sectionId === range.id);
+        const i = words3.findIndex((w) => w.sectionId === range.id);
         if (i >= 0) selectWord(i);
       });
       row.append(check2, title, name, jump);
@@ -14602,7 +14773,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     stop("Musical source changed.");
     state.melodyId = e.target.value;
     model = createReadingModel(passage2, state);
-    ({ words: words2, bounds: bounds2, buildPlan: buildPlan2 } = model);
+    ({ words: words3, bounds: bounds2, buildPlan: buildPlan2 } = model);
     state.notePage = 0;
     state.staffPage = 0;
     render();
@@ -14610,7 +14781,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   $("source-study-open").addEventListener("click", () => libraryAction(() => {
     state.melodyId = PRINTED_SCORE.id;
     applyRanges([{ id: "cohen-study", bookId: "gen", start: { chapter: 22, verse: 1 }, end: { chapter: 22, verse: 1 }, label: "Printed score context" }]);
-    state.anchor = words2.length - 1;
+    state.anchor = words3.length - 1;
     state.cursor = 0;
     state.scope = "selection";
     render();
@@ -14621,7 +14792,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.melodyId = COHEN_PROPHETICAL.id;
     state.practiceAudio = "instrument";
     applyRanges([{ id: "cohen-prophetical-study", bookId: "gen", start: { chapter: 22, verse: 1 }, end: { chapter: 22, verse: 1 }, label: "Cohen hypothetical prophetical example" }]);
-    state.anchor = words2.length - 1;
+    state.anchor = words3.length - 1;
     state.cursor = 0;
     state.scope = "selection";
     render();
@@ -14632,7 +14803,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.melodyId = BAER_SCORE.id;
     state.practiceAudio = "instrument";
     applyRanges([{ id: "baer-study", bookId: "gen", start: { chapter: 1, verse: 1 }, end: { chapter: 1, verse: 5 }, label: "Baer No939 worked example" }]);
-    state.anchor = words2.length - 1;
+    state.anchor = words3.length - 1;
     state.cursor = 0;
     state.scope = "selection";
     render();
@@ -14643,9 +14814,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     state.melodyId = BAER_HIGH_HOLIDAY.id;
     state.practiceAudio = "instrument";
     applyRanges([{ id: "baer-high-holiday", bookId: "gen", start: { chapter: 22, verse: 19 }, end: { chapter: 22, verse: 19 }, label: "Baer No113 second setting" }]);
-    state.anchor = words2.length - 1;
+    state.anchor = words3.length - 1;
     state.cursor = 0;
     state.scope = "selection";
+    render();
+    $("reader").focus();
+    $("practice").scrollIntoView();
+  }));
+  $("khan-pronunciation-open").addEventListener("click", () => libraryAction(() => {
+    applyRanges([{ id: "khan-pronunciation", bookId: "gen", start: { chapter: 1, verse: 1 }, end: { chapter: 1, verse: 13 }, label: "Published Tiberian pronunciation examples · Genesis1:1–13" }], { readingType: "torah" });
+    state.cursor = 0;
+    state.anchor = 0;
+    state.scope = "word";
     render();
     $("reader").focus();
     $("practice").scrollIntoView();
@@ -14756,9 +14936,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       vocalRange: { low: state.rangeLow, high: state.rangeHigh, mode: "advisory" },
       tempo: state.tempo,
       transpose: state.transpose,
-      startWordId: words2[start].id,
-      endWordId: words2[end].id,
-      words: words2.slice(start, end + 1),
+      startWordId: words3[start].id,
+      endWordId: words3[end].id,
+      words: words3.slice(start, end + 1),
       events: plan
     });
   });
@@ -14839,18 +15019,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       applyRanges([{ id: "combination-example", bookId: hit.word.bookId, start: point2, end: point2, label: "Source combination example" }]);
     });
     const ids = wholeTorah ? hit.sourceWordIds : hit.occurrenceIds;
-    const start = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids[0]);
-    const end = words2.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids.at(-1));
+    const start = words3.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids[0]);
+    const end = words3.findIndex((w) => (wholeTorah ? w.sourceWordId ?? w.id : w.id) === ids.at(-1));
     if (start < 0 || end < start) return;
     stop("Source combination selected. Press Play to hear the selected musical source.");
     state.anchor = end;
     state.cursor = start;
     state.scope = "selection";
-    state.readerPage = Math.floor(words2[start].verseIndex / VERSE_PAGE);
+    state.readerPage = Math.floor(words3[start].verseIndex / VERSE_PAGE);
     state.notePage = 0;
     state.staffPage = 0;
     render();
-    document.querySelector(`[data-word="${words2[start].id}"]`)?.focus();
+    document.querySelector(`[data-word="${words3[start].id}"]`)?.focus();
     $("reader").scrollIntoView({ block: "start" });
   } });
   patternTools = mountPatternStudy({ getSettings: () => state, beforePlay: () => stop("Listening to the printed pattern. Bible-word selection is kept.", { preservePattern: true }), findPattern: (id) => combinationTools.findPattern(id) });
@@ -14859,9 +15039,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderReaderPronunciation();
     syllableTimingTools?.refresh();
   } });
-  sourcePitchTools = mountSourcePitch({ getWord: () => words2[state.cursor], getReferences: () => referenceLibrary });
+  sourcePitchTools = mountSourcePitch({ getWord: () => words3[state.cursor], getReferences: () => referenceLibrary });
   syllableTimingTools = mountSyllableTiming({
-    getWord: () => words2[state.cursor],
+    getWord: () => words3[state.cursor],
     getPronunciation: (word) => pronunciationTools.timingStudy(word),
     getReferences: () => referenceLibrary,
     position: () => referencePlayer.running && !recordedPracticeRunning ? { recordingId: referencePlayer.currentSegment.recordingId, seconds: referencePlayer.now(), mode: referencePlayer.mode } : null,
@@ -14870,12 +15050,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     stop: () => stop(),
     audition: async ({ word, draft, span }) => {
       const previewRequest = ++chantPlayRequest;
-      const index = words2.findIndex((w) => w.id === word.id && w.sourceHebrew === word.sourceHebrew);
+      const index = words3.findIndex((w) => w.id === word.id && w.sourceHebrew === word.sourceHebrew);
       if (index < 0) throw Error("The selected reading changed; reopen this timing draft.");
-      const checked2 = sourceTimedPracticePlan(referenceLibrary, words2, index, index), row = checked2.rows[0];
+      const checked2 = sourceTimedPracticePlan(referenceLibrary, words3, index, index), row = checked2.rows[0];
       if (row.recordingId !== draft.source.recordingId || row.id !== draft.word.id || !(span.start >= draft.word.startSeconds && span.start < span.end && span.end <= draft.word.endSeconds)) throw Error("Draft interval differs from the unchanged source word.");
       if (!await referenceStore.has(checked2.records[0])) throw Error("Load the original recording before auditioning this interval.");
-      if (previewRequest !== chantPlayRequest || words2[index]?.id !== word.id || words2[index]?.sourceHebrew !== word.sourceHebrew) throw Error("Source preview was superseded by a stop or reading change.");
+      if (previewRequest !== chantPlayRequest || words3[index]?.id !== word.id || words3[index]?.sourceHebrew !== word.sourceHebrew) throw Error("Source preview was superseded by a stop or reading change.");
       stop("Listening to a personal source-syllable draft. Source pronunciation and timing remain unchanged.");
       referencePlayer.setRate(1);
       referencePlayer.setVolume(state.referenceVolume / 100);
@@ -14899,21 +15079,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     beforePlay: () => stop("Listening to a Haftarah source recording. Instrument settings and reader selection are kept.", { preserveHaftarah: true }),
     selection: () => {
       const [start, end] = bounds2(state.cursor, state.anchor, state.scope);
-      return { words: words2, start, end };
+      return { words: words3, start, end };
     },
     onOpen: (sections) => libraryAction(() => applyRanges(sections, { readingType: "haftarah" })),
     onWord: (word) => {
       const occurrence = word?.occurrenceId ?? null;
-      if (word && state.followPlayback && words2[word.wordIndex]?.id === occurrence) {
-        const page = Math.floor(words2[word.wordIndex].verseIndex / VERSE_PAGE);
+      if (word && state.followPlayback && words3[word.wordIndex]?.id === occurrence) {
+        const page = Math.floor(words3[word.wordIndex].verseIndex / VERSE_PAGE);
         if (page !== state.readerPage) {
           state.readerPage = page;
           renderReader();
         }
       }
       document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("haftarah-active", marksWord(el3, occurrence)));
-      if (word && words2[word.wordIndex]?.id === occurrence) pronunciationTools?.showWord(words2[word.wordIndex], { following: true });
-      else pronunciationTools?.showWord(words2[state.cursor]);
+      if (word && words3[word.wordIndex]?.id === occurrence) pronunciationTools?.showWord(words3[word.wordIndex], { following: true });
+      else pronunciationTools?.showWord(words3[state.cursor]);
     }
   });
   mountCalendar({ getCorpus, getReadingCorpus: getRepertoireCorpus, onOpen: (ranges, title, options) => {
@@ -14938,6 +15118,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     $("baer-study-open").disabled = false;
     $("baer-high-holiday-open").disabled = false;
     $("implicit-reading-open").disabled = false;
+    $("khan-pronunciation-open").disabled = false;
     $("prophetical-study-open").disabled = false;
     let restoreFailed = false;
     if (restore.ranges) {
