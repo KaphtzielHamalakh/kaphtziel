@@ -29,3 +29,8 @@ All597automated checks pass,0fail/0skip,10new. Public normal142and portable143ea
 Try: For independent pronunciation, open Genesis1:1, choose Instrument / Original demonstration01, enable Source syllable underlay and Show pronunciation text on score, then compare the Northeastern and Mideastern Formal Ashkenazic research sources: bɔ versus bu on the same marked Hebrew/notes. These remain incomplete research text, not singing voices. For new music, in Hear the pattern table choose Baer [1894] No105 first setting and Pazer upper/lower or Shalshelet. Enable the original80msgrace option; Shalshelet also requires the original two-pass repeat option. Press Play timing demonstration. Instrument volume is left0after tests; raise it for the instrumental study. Source repeat count, grace duration and fermata hold remain unspecified.
 
 The full reconstruction remains active/incomplete; printing deferred.
+
+
+### State inventory reconciliation
+
+The older baerFirstSettingPatterns summary was still carrying revision5counts. It now consistently records revision6:32pitch-transcribed figures,308physical components,292pitches,16rests,12physical grace notes,5alternative-bearing figures,37single-figure routes,31fully measured routes and6optional original timing routes. No literal source cell remains without components. All32still await contextual application and independent musical review;5retain unspecified grace timing. The exact prior revision5summary is retained separately as baerFirstSettingPatternsRevision5. Runtime and source notation are unchanged; this corrects saved inventory metadata only.
