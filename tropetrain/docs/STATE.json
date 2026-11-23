@@ -3,15 +3,15 @@
   "updated": "2026-11-23",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "e15fdd265752a33fc993792425ac9664cd034515",
+  "publishedCommit": "abe4cb5530115ed5a02a09b0ca2f266c18adbe4a",
   "nextTask": "Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. Complete four other Baer first-setting cells and resolve Telisha Qetana source-grace timing/application through evidence and independent review. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. Resolve its 2,195 withheld words through explicit source reading/variant evidence: 2,181 source-only forms,12 conflicting paths,2 combined words. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets.",
   "lastPassingTests": {
     "automated": 587,
     "newRegressionChecks": 9,
     "failed": 0,
     "skipped": 0,
-    "ui": "Final587 automated checks pass,0fail/0skip,9new functional tests. Local normal135and portable136each pass39UIchecks: all22previous musical-integrity checks plus17new pronunciation-note checks. Exact Genesis1:1marked words, NE bɔ versus ME bu on the same notes, both MAM source styles, profile changes during an advancing muted clock, note-reference JSON provenance/nulls, independent key/tempo, and pronunciation-only export invalidation with prepared MIDI retained all pass. Shared consonant/unknown markers, source-only CGJ, combined words, printed-score gaps, unavailable book categories and literal Khan text remain explicit. Repeated selection crosses groups, Loop2starts gen-11-4-11-mams1-n1 and stops at selectedword12. Allplayers stopped, instrument0, native media paused, consoles clear. Actual mobile319px root/scroll319 and staff285/1194 fit; desktop label bounds allfit and desktop/mobile screenshots visually inspected; viewport reset. Prepared JSON data was parsed, with no speaker listening or physical saved-file download claim.",
-    "scope": "local normal and portable; public verification pending"
+    "ui": "All587automated checks pass,0fail/0skip,9new. Public normal137and portable138each pass39native UI checks:22previous musical-integrity checks plus17new phonemic note-reference checks. Exact marked Genesis1:1, NE bɔ versus ME bu, both MAM styles, immutable notes with independent key/tempo/advisory range, advancing muted playback through profile changes, and parsed native prepared JSON provenance/nulls all pass. Pronunciation changes clear only its prepared note data while prepared MIDI stays intact. Shared/unknown/source-silent/proposed-loss markers, source-only CGJ, combined words, printed-score gaps, missing book categories and literal Khan streams retain their evidence. All three reader views retain selection; Loop2starts gen-11-4-11-mams1-n1 and playback stops at selectedword12. Actual319px root/scroll319 and staff285/1194 fit; desktop label bounds and desktop/mobile screenshots visually checked. Viewport reset, allplayers stopped, instrument0, native media paused and consoles clear. Prepared data is verified; no speaker-listening, qualified voice review or physical saved-file download claim.",
+    "scope": "public normal and portable; source-only/combined/conflicting gaps preserved; no speaker listening or physical saved-file download"
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -191,7 +191,7 @@
   },
   "workingIteration": {
     "version": "0.71.0",
-    "status": "local587checks_78UIchecks_pass_publication_pending",
+    "status": "published587checks_78publicUIchecks_full_goal_active",
     "baseline": "4d9c7d9b8f7e9a422e82a19ec08cd99991a5dc48",
     "previousGoalTurn": "Progress:v0.70published578checks_44publicchecks_1069exactfiles_saved",
     "newPublicVoice": null,
@@ -1855,7 +1855,7 @@
   "phonemicNoteReferences": {
     "version": "0.71.0",
     "record": "docs/PRONUNCIATION-NOTE-PROPOSALS.json",
-    "status": "final187chapter_fourCombination_audit_587tests_78localUIchecks_pass_publication_pending",
+    "status": "published187chapter_fourCombination_audit_587tests_78publicUIchecks",
     "profiles": [
       "katz-1993-northeastern-formal",
       "katz-1993-mideastern-formal"
