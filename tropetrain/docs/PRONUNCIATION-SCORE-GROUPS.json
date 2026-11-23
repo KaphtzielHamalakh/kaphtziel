@@ -344,7 +344,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "071afb7b2e9f096899856cae210e991ebcef1267575d2787af5a743d3c6cff89"
+      "sha256": "994b1b66e3756d719cec2c495a742c824da489adcebb036a78d1a7bd7b7655da"
     },
     {
       "path": "printed-score-data.js",
@@ -356,7 +356,7 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "8ff17ee3ef2c51cc5774e1eaab5ddcf397810e69be0f378b0cacfea7d9e21a6b"
+      "sha256": "f7aeca8cba2339712b2f5c6a8139f8b0eabe86439a715d3566c229d83bc69ff9"
     },
     {
       "path": "baer-high-holiday-data.js",
@@ -388,11 +388,11 @@
     },
     {
       "path": "cohen-prophetical-score.js",
-      "sha256": "c7d57e775237682716a2b5e31610edb2e212a2e0c8aeec54b0a2a3830b48c21f"
+      "sha256": "7075c1af39654da66aef7250d6d0ac4ad9c89f0d05a0fc6f6534bcf626661ae5"
     },
     {
       "path": "docs/COHEN-PROPHETICAL-SCORE.json",
-      "sha256": "527a291d53d0886c6c0ee25198e58597ecddebdaea9cdd6aa2bba3eb454f7ace"
+      "sha256": "38368c2d343ce8d4210a10f577e35035a89657b02e479207874d173ae2ac35ef"
     },
     {
       "path": "assets/scores/cohen-1902-prophetical-gen22.png",

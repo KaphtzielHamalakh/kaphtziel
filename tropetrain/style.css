@@ -151,3 +151,5 @@
 .pronunciation-span-active{outline:2px dashed #856219;outline-offset:2px;background:#fff0bf!important;text-decoration:none}
 .pronunciation-span-content{border-inline-start:3px dashed #856219;padding:.4rem .7rem;margin:.4rem 0;background:#fff8e7;overflow-wrap:anywhere}
 .pronunciation-span-content p{margin:.3rem 0}.pronunciation-span-content small{display:block;color:var(--soft)}
+
+.source-unresolved-mark{font:700 18px system-ui,sans-serif;text-anchor:middle;fill:#8e3b2f}

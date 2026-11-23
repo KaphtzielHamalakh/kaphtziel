@@ -9,6 +9,7 @@ for(const [i,w] of record.words.entries()){
   ids.add(n.id);bars[n.bar]+=n.quarterBeats+(n.restAfterBeats??0);
  }
 }
+if(JSON.stringify(record.notation.meterByBar)!==JSON.stringify([4,4,4,3,3,3,3,3,3,3,4,4,4]))throw Error('Cohen hypothetical source4/4continues through its complementary final bar.');
 if(JSON.stringify(record.words.flatMap(w=>w.notes))!==JSON.stringify(record.notes)||bars.some((n,i)=>Math.abs(n-expected[i])>1e-8))throw Error('Cohen hypothetical bar totals/source order disagree.');
 for(const [key,phases] of [['tieId',['start','stop']],['slurId',['start','stop']],['tupletId',['start','stop']]]){
  const groups=Map.groupBy(record.notes.filter(n=>n[key]),n=>n[key]);

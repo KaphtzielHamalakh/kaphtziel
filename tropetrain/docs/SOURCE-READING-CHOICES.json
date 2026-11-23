@@ -158,7 +158,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "071afb7b2e9f096899856cae210e991ebcef1267575d2787af5a743d3c6cff89"
+      "sha256": "994b1b66e3756d719cec2c495a742c824da489adcebb036a78d1a7bd7b7655da"
     }
   ],
   "method": "Explicit literal source labels select complete Hebrew columns consistently across both text styles, never a first-column guess. All source syllable/stress alternatives remain in originalStudy and sourceChoiceEvidence. Six maqaf-ending reading words include their own separator; exact complete-word ownership and original row offsets are retained. Displayed Hebrew/accents remain unchanged. Different reading spellings have null written syllable ranges. No source phones/timing/voice is assigned.",

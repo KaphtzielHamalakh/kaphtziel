@@ -1,0 +1,2715 @@
+{
+  "schema": "tropetrain-printed-verse-source-v1",
+  "id": "cohen-1902-gen22-penitential",
+  "revision": 1,
+  "source": {
+    "author": "Francis L. Cohen",
+    "articleAuthors": [
+      "Cyrus Adler",
+      "Francis L. Cohen"
+    ],
+    "title": "Cantillation",
+    "publication": "Jewish Encyclopedia, vol.III",
+    "year": 1902,
+    "printedPage": 547,
+    "pdfPage": 585,
+    "url": "https://www.jewishencyclopedia.com/articles/718",
+    "scanItem": "https://archive.org/details/jewishencyclopedia03sing",
+    "pdfSha1": "cbf09fe8bcf3a6349eac4c013bde04413f7b841d",
+    "performanceLabel": "Rather slower: without strict tempo.",
+    "scope": "The same Genesis22:1verse in the article's Penitential Days setting. A bounded written-pitch source study, not a complete HighHoliday or Kinnor melody system.",
+    "referenceDifference": "The actual Hebrew and Latin underlay identify Genesis22:1; the article prose instead says Gen.xxix. That inconsistent reference is retained as a source discrepancy.",
+    "ornamentStatus": "The small quarter-note shape and adjacent mark remain explicit. The mark's musical meaning/realization is unresolved; no historical timing or interpretation is inferred."
+  },
+  "scan": {
+    "file": "assets/scores/cohen-1902-penitential-gen22.png",
+    "bytes": 599742,
+    "sha256": "19fb6ed367c7340c90505b7788503b324b70400c4e940411bfadd1f04274c94b",
+    "changes": "Unretouched Poppler crop of one-based PDF585,scale4000,x80,y460,W2350,H1190. All four texted systems and separate untexted CODA retained in image; CODA excluded from events."
+  },
+  "secondScan": {
+    "file": "assets/scores/cohen-1902-page547.jpg",
+    "bytes": 146793,
+    "sha256": "b688cb547482708d6a1be106ae16a65762481d513e8e308717cae8bbf36aa570",
+    "url": "https://storage.googleapis.com/jewishencyclopedia/pages/HJ3J547S.jpg",
+    "changes": "None; publisher-linked faithful page scan, retained byte-for-byte. Website interface not copied."
+  },
+  "sourceRights": "Original1902publication public domain; faithful source scan. No modern recording or proprietary program asset.",
+  "transcriptionLicense": "CC0-1.0",
+  "review": "Manual transcription in progress from two faithful scans; independent musical, notation, underlay and phonological review pending. Unresolved source mark has no assigned meaning or realization.",
+  "notation": {
+    "key": "One sharp,F-sharp; three source C-sharp accidentals retained",
+    "barQuarterBeats": [
+      1,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      3
+    ],
+    "meterByBar": [
+      4,
+      4,
+      4,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4
+    ],
+    "pickupQuarterBeats": 1,
+    "quarterBeats": 41,
+    "measuredNotes": 49,
+    "smallNotes": 1,
+    "components": 50,
+    "rests": 6,
+    "restQuarterBeats": 2.75,
+    "tiedPairs": 0,
+    "slurs": 6,
+    "tuplets": 3,
+    "fermatas": 1,
+    "coda": "Separate untexted source CODA excluded; no words assigned.",
+    "unresolvedMarks": [
+      {
+        "id": "p547-small-note-mark",
+        "sourceComponentId": "cohen-p547-penitential-n011",
+        "description": "Printed mark above/left of the small C5quarter note; see original scan.",
+        "semanticKind": null,
+        "realization": null,
+        "review": null
+      }
+    ]
+  },
+  "words": [
+    {
+      "id": "gen-22-1-1",
+      "sourceHebrew": "וַיְהִ֗י",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n001",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 0.75,
+          "beatFraction": "3/4",
+          "bar": 0,
+          "system": 1,
+          "printedLyric": "Wa",
+          "location": "p547penitential example,system1,bar0,component1",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n002",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 0,
+          "system": 1,
+          "printedLyric": "ye",
+          "location": "p547penitential example,system1,bar0,component2",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n003",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "hi",
+          "location": "p547penitential example,system1,bar1,component3",
+          "rhythm": {
+            "type": "16th",
+            "dots": 1,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet-1",
+          "tupletPhase": "start",
+          "slurId": "hi-outer",
+          "slurPhase": "start",
+          "slurPlacement": "above"
+        },
+        {
+          "id": "cohen-p547-penitential-n004",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "E",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 76,
+          "quarterBeats": 0.08333333333333333,
+          "beatFraction": "1/12",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component4",
+          "rhythm": {
+            "type": "32nd",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet-1",
+          "tupletPhase": "continue"
+        },
+        {
+          "id": "cohen-p547-penitential-n005",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component5",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet-1",
+          "tupletPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-penitential-n006",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 72,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component6",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet-2",
+          "tupletPhase": "start"
+        },
+        {
+          "id": "cohen-p547-penitential-n007",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component7",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet-2",
+          "tupletPhase": "continue"
+        },
+        {
+          "id": "cohen-p547-penitential-n008",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component8",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hi-triplet-2",
+          "tupletPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-penitential-n009",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.75,
+          "beatFraction": "3/4",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component9",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n010",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component10",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n011",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "C",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 72,
+          "quarterBeats": null,
+          "beatFraction": null,
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component11",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "small-to-main",
+          "slurPhase": "start",
+          "slurPlacement": "below",
+          "smallNote": {
+            "kind": "unmeasured-small-quarter",
+            "printedSize": "small",
+            "slash": false,
+            "duration": null,
+            "stealTimePrevious": null,
+            "stealTimeFollowing": null,
+            "notationalInterpretation": null,
+            "previousComponentId": "cohen-p547-penitential-n010",
+            "nextComponentId": "cohen-p547-penitential-n012",
+            "unresolvedMarkIds": [
+              "p547-small-note-mark"
+            ]
+          },
+          "unresolvedMarks": [
+            {
+              "id": "p547-small-note-mark",
+              "sourceComponentId": "cohen-p547-penitential-n011",
+              "description": "Printed mark above/left of the small C5quarter note; see original scan.",
+              "semanticKind": null,
+              "realization": null,
+              "review": null
+            }
+          ]
+        },
+        {
+          "id": "cohen-p547-penitential-n012",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component12",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "small-to-main",
+          "slurPhase": "stop",
+          "slurPlacement": "below"
+        },
+        {
+          "id": "cohen-p547-penitential-n013",
+          "wordId": "gen-22-1-1",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.25,
+          "beatFraction": "1/4",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "",
+          "location": "p547penitential example,system1,bar1,component13",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.25,
+          "slurId": "hi-outer",
+          "slurPhase": "stop",
+          "slurPlacement": "above"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-2",
+      "sourceHebrew": "אַחַר֙",
+      "lengths": [
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n014",
+          "wordId": "gen-22-1-2",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 1,
+          "system": 1,
+          "printedLyric": "a",
+          "location": "p547penitential example,system1,bar1,component14",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n015",
+          "wordId": "gen-22-1-2",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 3.0,
+          "beatFraction": "3",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "har",
+          "location": "p547penitential example,system1,bar2,component15",
+          "rhythm": {
+            "type": "half",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-3",
+      "sourceHebrew": "הַדְּבָרִ֣ים",
+      "lengths": [
+        1,
+        1,
+        1,
+        3
+      ],
+      "stress": 3,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n016",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "ha",
+          "location": "p547penitential example,system1,bar2,component16",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 1,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hadeba-triplet",
+          "tupletPhase": "start",
+          "slurId": "hadeba",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-penitential-n017",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.16666666666666666,
+          "beatFraction": "1/6",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "de",
+          "location": "p547penitential example,system1,bar2,component17",
+          "rhythm": {
+            "type": "16th",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hadeba-triplet",
+          "tupletPhase": "continue"
+        },
+        {
+          "id": "cohen-p547-penitential-n018",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.3333333333333333,
+          "beatFraction": "1/3",
+          "bar": 2,
+          "system": 1,
+          "printedLyric": "ba",
+          "location": "p547penitential example,system1,bar2,component18",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 3,
+            "normal": 2
+          },
+          "tupletId": "hadeba-triplet",
+          "tupletPhase": "stop",
+          "slurId": "hadeba",
+          "slurPhase": "stop"
+        },
+        {
+          "id": "cohen-p547-penitential-n019",
+          "wordId": "gen-22-1-3",
+          "syllableIndex": 3,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 2.0,
+          "beatFraction": "2",
+          "bar": 3,
+          "system": 2,
+          "printedLyric": "rim",
+          "location": "p547penitential example,system2,bar3,component19",
+          "rhythm": {
+            "type": "half",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-4",
+      "sourceHebrew": "הָאֵ֔לֶּה",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n020",
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "midi": 73,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 3,
+          "system": 2,
+          "printedLyric": "ha",
+          "location": "p547penitential example,system2,bar3,component20",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n021",
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "el",
+          "location": "p547penitential example,system2,bar4,component21",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n022",
+          "wordId": "gen-22-1-4",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "leh",
+          "location": "p547penitential example,system2,bar4,component22",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-5",
+      "sourceHebrew": "וְהָ֣אֱלֹהִ֔ים",
+      "lengths": [
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "stress": 4,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n023",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 4,
+          "system": 2,
+          "printedLyric": "we",
+          "location": "p547penitential example,system2,bar4,component23",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n024",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 1.5,
+          "beatFraction": "3/2",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "ha",
+          "location": "p547penitential example,system2,bar5,component24",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n025",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "e",
+          "location": "p547penitential example,system2,bar5,component25",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n026",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 3,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "midi": 73,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 5,
+          "system": 2,
+          "printedLyric": "lo",
+          "location": "p547penitential example,system2,bar5,component26",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n027",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 4,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "him",
+          "location": "p547penitential example,system2,bar6,component27",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "him",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-penitential-n028",
+          "wordId": "gen-22-1-5",
+          "syllableIndex": 4,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "",
+          "location": "p547penitential example,system2,bar6,component28",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5,
+          "slurId": "him",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-6",
+      "sourceHebrew": "נִסָּ֖ה",
+      "lengths": [
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n029",
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 6,
+          "system": 2,
+          "printedLyric": "nis",
+          "location": "p547penitential example,system2,bar6,component29",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n030",
+          "wordId": "gen-22-1-6",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 1.5,
+          "beatFraction": "3/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "sah",
+          "location": "p547penitential example,system2,bar7,component30",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 1,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-7",
+      "sourceHebrew": "אֶת־",
+      "lengths": [
+        2
+      ],
+      "stress": null,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n031",
+          "wordId": "gen-22-1-7",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "et",
+          "location": "p547penitential example,system2,bar7,component31",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-8",
+      "sourceHebrew": "אַבְרָהָ֑ם",
+      "lengths": [
+        2,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n032",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "Ab",
+          "location": "p547penitential example,system2,bar7,component32",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n033",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 7,
+          "system": 2,
+          "printedLyric": "ra",
+          "location": "p547penitential example,system2,bar7,component33",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n034",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 8,
+          "system": 3,
+          "printedLyric": "ham",
+          "location": "p547penitential example,system3,bar8,component34",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "first-ham",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-penitential-n035",
+          "wordId": "gen-22-1-8",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 8,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547penitential example,system3,bar8,component35",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5,
+          "slurId": "first-ham",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-9",
+      "sourceHebrew": "וַיֹּ֣אמֶר",
+      "lengths": [
+        1,
+        2,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n036",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 8,
+          "system": 3,
+          "printedLyric": "way",
+          "location": "p547penitential example,system3,bar8,component36",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n037",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "yo",
+          "location": "p547penitential example,system3,bar9,component37",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n038",
+          "wordId": "gen-22-1-9",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "mer",
+          "location": "p547penitential example,system3,bar9,component38",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-10",
+      "sourceHebrew": "אֵלָ֔יו",
+      "lengths": [
+        1,
+        3
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n039",
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "C",
+            "alter": 1,
+            "octave": 5
+          },
+          "midi": 73,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 9,
+          "system": 3,
+          "printedLyric": "e",
+          "location": "p547penitential example,system3,bar9,component39",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n040",
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "law",
+          "location": "p547penitential example,system3,bar10,component40",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "slurId": "law",
+          "slurPhase": "start"
+        },
+        {
+          "id": "cohen-p547-penitential-n041",
+          "wordId": "gen-22-1-10",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "",
+          "location": "p547penitential example,system3,bar10,component41",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "restAfterBeats": 0.5,
+          "slurId": "law",
+          "slurPhase": "stop"
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-11",
+      "sourceHebrew": "אַבְרָהָ֖ם",
+      "lengths": [
+        2,
+        1,
+        2
+      ],
+      "stress": 2,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n042",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "Ab",
+          "location": "p547penitential example,system3,bar10,component42",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n043",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 10,
+          "system": 3,
+          "printedLyric": "ra",
+          "location": "p547penitential example,system3,bar10,component43",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n044",
+          "wordId": "gen-22-1-11",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "ham",
+          "location": "p547penitential example,system3,bar11,component44",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "fermata": {
+            "shape": "normal",
+            "placement": "above",
+            "duration": "unspecified"
+          },
+          "restAfterBeats": 0.5
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-12",
+      "sourceHebrew": "וַיֹּ֥אמֶר",
+      "lengths": [
+        1,
+        2,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n045",
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "way",
+          "location": "p547penitential example,system3,bar11,component45",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n046",
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "yo",
+          "location": "p547penitential example,system3,bar11,component46",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n047",
+          "wordId": "gen-22-1-12",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "mer",
+          "location": "p547penitential example,system3,bar11,component47",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "gen-22-1-13",
+      "sourceHebrew": "הִנֵּֽנִי׃",
+      "lengths": [
+        1,
+        1,
+        2
+      ],
+      "stress": 1,
+      "notes": [
+        {
+          "id": "cohen-p547-penitential-n048",
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 0,
+          "pitch": {
+            "step": "G",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 67,
+          "quarterBeats": 0.5,
+          "beatFraction": "1/2",
+          "bar": 11,
+          "system": 3,
+          "printedLyric": "hin",
+          "location": "p547penitential example,system3,bar11,component48",
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n049",
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 1,
+          "pitch": {
+            "step": "B",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 71,
+          "quarterBeats": 2.0,
+          "beatFraction": "2",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "ne",
+          "location": "p547penitential example,system4,bar12,component49",
+          "rhythm": {
+            "type": "half",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        },
+        {
+          "id": "cohen-p547-penitential-n050",
+          "wordId": "gen-22-1-13",
+          "syllableIndex": 2,
+          "pitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "quarterBeats": 1.0,
+          "beatFraction": "1",
+          "bar": 12,
+          "system": 4,
+          "printedLyric": "ni",
+          "location": "p547penitential example,system4,bar12,component50",
+          "rhythm": {
+            "type": "quarter",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "cohen-p547-penitential-n001",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 0.75,
+      "beatFraction": "3/4",
+      "bar": 0,
+      "system": 1,
+      "printedLyric": "Wa",
+      "location": "p547penitential example,system1,bar0,component1",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n002",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 0,
+      "system": 1,
+      "printedLyric": "ye",
+      "location": "p547penitential example,system1,bar0,component2",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n003",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "hi",
+      "location": "p547penitential example,system1,bar1,component3",
+      "rhythm": {
+        "type": "16th",
+        "dots": 1,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet-1",
+      "tupletPhase": "start",
+      "slurId": "hi-outer",
+      "slurPhase": "start",
+      "slurPlacement": "above"
+    },
+    {
+      "id": "cohen-p547-penitential-n004",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 76,
+      "quarterBeats": 0.08333333333333333,
+      "beatFraction": "1/12",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component4",
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet-1",
+      "tupletPhase": "continue"
+    },
+    {
+      "id": "cohen-p547-penitential-n005",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component5",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet-1",
+      "tupletPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-penitential-n006",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component6",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet-2",
+      "tupletPhase": "start"
+    },
+    {
+      "id": "cohen-p547-penitential-n007",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component7",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet-2",
+      "tupletPhase": "continue"
+    },
+    {
+      "id": "cohen-p547-penitential-n008",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component8",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hi-triplet-2",
+      "tupletPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-penitential-n009",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.75,
+      "beatFraction": "3/4",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component9",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n010",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component10",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n011",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "quarterBeats": null,
+      "beatFraction": null,
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component11",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "small-to-main",
+      "slurPhase": "start",
+      "slurPlacement": "below",
+      "smallNote": {
+        "kind": "unmeasured-small-quarter",
+        "printedSize": "small",
+        "slash": false,
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "notationalInterpretation": null,
+        "previousComponentId": "cohen-p547-penitential-n010",
+        "nextComponentId": "cohen-p547-penitential-n012",
+        "unresolvedMarkIds": [
+          "p547-small-note-mark"
+        ]
+      },
+      "unresolvedMarks": [
+        {
+          "id": "p547-small-note-mark",
+          "sourceComponentId": "cohen-p547-penitential-n011",
+          "description": "Printed mark above/left of the small C5quarter note; see original scan.",
+          "semanticKind": null,
+          "realization": null,
+          "review": null
+        }
+      ]
+    },
+    {
+      "id": "cohen-p547-penitential-n012",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component12",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "small-to-main",
+      "slurPhase": "stop",
+      "slurPlacement": "below"
+    },
+    {
+      "id": "cohen-p547-penitential-n013",
+      "wordId": "gen-22-1-1",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.25,
+      "beatFraction": "1/4",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "",
+      "location": "p547penitential example,system1,bar1,component13",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.25,
+      "slurId": "hi-outer",
+      "slurPhase": "stop",
+      "slurPlacement": "above"
+    },
+    {
+      "id": "cohen-p547-penitential-n014",
+      "wordId": "gen-22-1-2",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 1,
+      "system": 1,
+      "printedLyric": "a",
+      "location": "p547penitential example,system1,bar1,component14",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n015",
+      "wordId": "gen-22-1-2",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 3.0,
+      "beatFraction": "3",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "har",
+      "location": "p547penitential example,system1,bar2,component15",
+      "rhythm": {
+        "type": "half",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n016",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "ha",
+      "location": "p547penitential example,system1,bar2,component16",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hadeba-triplet",
+      "tupletPhase": "start",
+      "slurId": "hadeba",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-penitential-n017",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.16666666666666666,
+      "beatFraction": "1/6",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "de",
+      "location": "p547penitential example,system1,bar2,component17",
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hadeba-triplet",
+      "tupletPhase": "continue"
+    },
+    {
+      "id": "cohen-p547-penitential-n018",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.3333333333333333,
+      "beatFraction": "1/3",
+      "bar": 2,
+      "system": 1,
+      "printedLyric": "ba",
+      "location": "p547penitential example,system1,bar2,component18",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "tupletId": "hadeba-triplet",
+      "tupletPhase": "stop",
+      "slurId": "hadeba",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-penitential-n019",
+      "wordId": "gen-22-1-3",
+      "syllableIndex": 3,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 2.0,
+      "beatFraction": "2",
+      "bar": 3,
+      "system": 2,
+      "printedLyric": "rim",
+      "location": "p547penitential example,system2,bar3,component19",
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n020",
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "C",
+        "alter": 1,
+        "octave": 5
+      },
+      "midi": 73,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 3,
+      "system": 2,
+      "printedLyric": "ha",
+      "location": "p547penitential example,system2,bar3,component20",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n021",
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "el",
+      "location": "p547penitential example,system2,bar4,component21",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n022",
+      "wordId": "gen-22-1-4",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "leh",
+      "location": "p547penitential example,system2,bar4,component22",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5
+    },
+    {
+      "id": "cohen-p547-penitential-n023",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 4,
+      "system": 2,
+      "printedLyric": "we",
+      "location": "p547penitential example,system2,bar4,component23",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n024",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 1.5,
+      "beatFraction": "3/2",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "ha",
+      "location": "p547penitential example,system2,bar5,component24",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n025",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "e",
+      "location": "p547penitential example,system2,bar5,component25",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n026",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 3,
+      "pitch": {
+        "step": "C",
+        "alter": 1,
+        "octave": 5
+      },
+      "midi": 73,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 5,
+      "system": 2,
+      "printedLyric": "lo",
+      "location": "p547penitential example,system2,bar5,component26",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n027",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 4,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "him",
+      "location": "p547penitential example,system2,bar6,component27",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "him",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-penitential-n028",
+      "wordId": "gen-22-1-5",
+      "syllableIndex": 4,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "",
+      "location": "p547penitential example,system2,bar6,component28",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5,
+      "slurId": "him",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-penitential-n029",
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 6,
+      "system": 2,
+      "printedLyric": "nis",
+      "location": "p547penitential example,system2,bar6,component29",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n030",
+      "wordId": "gen-22-1-6",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 1.5,
+      "beatFraction": "3/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "sah",
+      "location": "p547penitential example,system2,bar7,component30",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n031",
+      "wordId": "gen-22-1-7",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "et",
+      "location": "p547penitential example,system2,bar7,component31",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n032",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "Ab",
+      "location": "p547penitential example,system2,bar7,component32",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n033",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 7,
+      "system": 2,
+      "printedLyric": "ra",
+      "location": "p547penitential example,system2,bar7,component33",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n034",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 8,
+      "system": 3,
+      "printedLyric": "ham",
+      "location": "p547penitential example,system3,bar8,component34",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "first-ham",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-penitential-n035",
+      "wordId": "gen-22-1-8",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 8,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547penitential example,system3,bar8,component35",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5,
+      "slurId": "first-ham",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-penitential-n036",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 8,
+      "system": 3,
+      "printedLyric": "way",
+      "location": "p547penitential example,system3,bar8,component36",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n037",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "yo",
+      "location": "p547penitential example,system3,bar9,component37",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n038",
+      "wordId": "gen-22-1-9",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "mer",
+      "location": "p547penitential example,system3,bar9,component38",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n039",
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "C",
+        "alter": 1,
+        "octave": 5
+      },
+      "midi": 73,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 9,
+      "system": 3,
+      "printedLyric": "e",
+      "location": "p547penitential example,system3,bar9,component39",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n040",
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "law",
+      "location": "p547penitential example,system3,bar10,component40",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "slurId": "law",
+      "slurPhase": "start"
+    },
+    {
+      "id": "cohen-p547-penitential-n041",
+      "wordId": "gen-22-1-10",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "",
+      "location": "p547penitential example,system3,bar10,component41",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "restAfterBeats": 0.5,
+      "slurId": "law",
+      "slurPhase": "stop"
+    },
+    {
+      "id": "cohen-p547-penitential-n042",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "Ab",
+      "location": "p547penitential example,system3,bar10,component42",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n043",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 10,
+      "system": 3,
+      "printedLyric": "ra",
+      "location": "p547penitential example,system3,bar10,component43",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n044",
+      "wordId": "gen-22-1-11",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "ham",
+      "location": "p547penitential example,system3,bar11,component44",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "fermata": {
+        "shape": "normal",
+        "placement": "above",
+        "duration": "unspecified"
+      },
+      "restAfterBeats": 0.5
+    },
+    {
+      "id": "cohen-p547-penitential-n045",
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "way",
+      "location": "p547penitential example,system3,bar11,component45",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n046",
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "yo",
+      "location": "p547penitential example,system3,bar11,component46",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n047",
+      "wordId": "gen-22-1-12",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "mer",
+      "location": "p547penitential example,system3,bar11,component47",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n048",
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 0,
+      "pitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "quarterBeats": 0.5,
+      "beatFraction": "1/2",
+      "bar": 11,
+      "system": 3,
+      "printedLyric": "hin",
+      "location": "p547penitential example,system3,bar11,component48",
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n049",
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 1,
+      "pitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "quarterBeats": 2.0,
+      "beatFraction": "2",
+      "bar": 12,
+      "system": 4,
+      "printedLyric": "ne",
+      "location": "p547penitential example,system4,bar12,component49",
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    },
+    {
+      "id": "cohen-p547-penitential-n050",
+      "wordId": "gen-22-1-13",
+      "syllableIndex": 2,
+      "pitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "quarterBeats": 1.0,
+      "beatFraction": "1",
+      "bar": 12,
+      "system": 4,
+      "printedLyric": "ni",
+      "location": "p547penitential example,system4,bar12,component50",
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "schema": "tropetrain-cohen-penitential-playback-audit-v1",
+  "revision": 1,
+  "profileId": "cohen-1902-gen22-penitential",
+  "words": 13,
+  "pitchedComponents": 50,
+  "measuredNotes": 49,
+  "measuredQuarterBeats": 41,
+  "smallNotes": 1,
+  "rests": 6,
+  "restQuarterBeats": 2.75,
+  "slurs": 6,
+  "tuplets": 3,
+  "unspecifiedFermatas": 1,
+  "unresolvedSourceMarks": [
+    {
+      "id": "p547-small-note-mark",
+      "sourceComponentId": "cohen-p547-penitential-n011",
+      "description": "Printed mark above/left of the small C5quarter note; see original scan.",
+      "semanticKind": null,
+      "realization": null,
+      "review": null
+    }
+  ],
+  "smallNoteStudy": {
+    "id": "original-small-quarter-study-80ms-v1",
+    "secondsPerNote": 0.08,
+    "label": "Original written-pitch study · 80 ms small note",
+    "status": "original-instrumental-demonstration",
+    "basis": "Adds 80 ms for the printed small C5 quarter note between unchanged measured source notes. The adjacent unresolved mark is not realized.",
+    "sourceDuration": null,
+    "stealTimePrevious": null,
+    "stealTimeFollowing": null,
+    "notationalInterpretation": null,
+    "unresolvedMarkRealization": null,
+    "historicalRealization": null,
+    "review": null,
+    "defaultEnabled": false
+  },
+  "durationAtQuarter60": 41.08,
+  "individualNoteTextStyles": {
+    "sephardic": {
+      "exact": {
+        "notes": 50,
+        "linkedNotes": 48,
+        "unlinkedNotes": 2
+      },
+      "common": {
+        "events": 50,
+        "eventsInCommonSpans": 50,
+        "eventsInDifferentDivisions": 2,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 36
+      },
+      "profiles": {
+        "katz-1993-northeastern-formal": {
+          "notes": 50,
+          "linkedNotes": 48,
+          "unlinkedNotes": 2,
+          "sourceEvents": 92,
+          "unassignedEvents": 2,
+          "sourceSilentEvents": 11,
+          "proposedAbsenceEvents": 7,
+          "sharedEvents": 6,
+          "review": null,
+          "voice": null,
+          "phonemes": null,
+          "audioTimes": null
+        },
+        "katz-1993-mideastern-formal": {
+          "notes": 50,
+          "linkedNotes": 48,
+          "unlinkedNotes": 2,
+          "sourceEvents": 92,
+          "unassignedEvents": 2,
+          "sourceSilentEvents": 11,
+          "proposedAbsenceEvents": 7,
+          "sharedEvents": 6,
+          "review": null,
+          "voice": null,
+          "phonemes": null,
+          "audioTimes": null
+        }
+      }
+    },
+    "ashkenazic": {
+      "exact": {
+        "notes": 50,
+        "linkedNotes": 48,
+        "unlinkedNotes": 2
+      },
+      "common": {
+        "events": 50,
+        "eventsInCommonSpans": 50,
+        "eventsInDifferentDivisions": 2,
+        "eventsWithoutCommonSpan": 0,
+        "groups": 36
+      },
+      "profiles": {
+        "katz-1993-northeastern-formal": {
+          "notes": 50,
+          "linkedNotes": 48,
+          "unlinkedNotes": 2,
+          "sourceEvents": 92,
+          "unassignedEvents": 2,
+          "sourceSilentEvents": 11,
+          "proposedAbsenceEvents": 7,
+          "sharedEvents": 6,
+          "review": null,
+          "voice": null,
+          "phonemes": null,
+          "audioTimes": null
+        },
+        "katz-1993-mideastern-formal": {
+          "notes": 50,
+          "linkedNotes": 48,
+          "unlinkedNotes": 2,
+          "sourceEvents": 92,
+          "unassignedEvents": 2,
+          "sourceSilentEvents": 11,
+          "proposedAbsenceEvents": 7,
+          "sharedEvents": 6,
+          "review": null,
+          "voice": null,
+          "phonemes": null,
+          "audioTimes": null
+        }
+      }
+    }
+  },
+  "sourceRecord": "docs/COHEN-PENITENTIAL-SCORE.json",
+  "sourcePrintRights": "1902publication public domain; faithful scans",
+  "transcriptionLicense": "CC0-1.0",
+  "pronunciationDataLicense": "CC-BY-SA-4.0",
+  "pronunciationAttribution": "Phonetic MAM by Benjamin Denckla; Hebrew Wikisource / Miqra according to the Masorah; assets/pronunciation/NOTICE.txt",
+  "historicalMusicalRealization": null,
+  "phonemes": null,
+  "audioTimes": null,
+  "singingVoice": null,
+  "independentReview": null,
+  "inputs": [
+    {
+      "path": "scripts/audit-cohen-penitential.mjs",
+      "sha256": "7ae5090745bed5f9bce847a5eba55a35247a245fa31db7f80a2f831cc2fdf650"
+    },
+    {
+      "path": "scripts/import-cohen-penitential.mjs",
+      "sha256": "e96c96a61c63c47d4a5760b135225e99dc02b272b195ec61fdb71b512a12ebce"
+    },
+    {
+      "path": "docs/COHEN-PENITENTIAL-SCORE.json",
+      "sha256": "6795c907c7c30909867c10feee9bbff05f6ba2f663cf3c327e331058bf4759c5"
+    },
+    {
+      "path": "cohen-penitential-data.js",
+      "sha256": "19349ef5bae8e6a46de6d1183a6f9e99d8dae9fefe04aa17ba0dde90fa34c5f6"
+    },
+    {
+      "path": "cohen-penitential-score.js",
+      "sha256": "4e5d6191d37b52b21ceb54a127cfc6aef314b9f07b8d7dca527b440f8b0112f5"
+    },
+    {
+      "path": "source-small-note.js",
+      "sha256": "ab4fc37a2b387183d3a3a30a060c5ad41053cc1d8be71e6cc12c9752fee9efcc"
+    },
+    {
+      "path": "source-grace.js",
+      "sha256": "70f8b6f4922218124877d88c4a38c3521da923169c44abbab9db4bddf85bc402"
+    },
+    {
+      "path": "printed-score-registry.js",
+      "sha256": "f7aeca8cba2339712b2f5c6a8139f8b0eabe86439a715d3566c229d83bc69ff9"
+    },
+    {
+      "path": "music.js",
+      "sha256": "994b1b66e3756d719cec2c495a742c824da489adcebb036a78d1a7bd7b7655da"
+    },
+    {
+      "path": "music-exports.js",
+      "sha256": "ae012ede55c11bc35604bb68ddf3691912ca8eb37b44d1581d5c0440d6e17cab"
+    },
+    {
+      "path": "score-data.js",
+      "sha256": "bc4a092e09396c47abce16050bf96552544903845e99c1011af57db29604960a"
+    },
+    {
+      "path": "staff.js",
+      "sha256": "355e79660bcdfbe6191d4bd4b7e9f97f0a1421603fee9e3ea150ca1fbf795d6f"
+    },
+    {
+      "path": "app.js",
+      "sha256": "ff42b81ea5807a19073fd68942bb2d3d6354b3a25d7781b47079487be8c863c6"
+    },
+    {
+      "path": "index.html",
+      "sha256": "c7c367a59858a9a5167fa717eb54b8162e4ce04e4550da4c52766e398b4cdae5"
+    },
+    {
+      "path": "assets/scores/cohen-1902-penitential-gen22.png",
+      "sha256": "19fb6ed367c7340c90505b7788503b324b70400c4e940411bfadd1f04274c94b"
+    },
+    {
+      "path": "assets/scores/cohen-1902-page547.jpg",
+      "sha256": "b688cb547482708d6a1be106ae16a65762481d513e8e308717cae8bbf36aa570"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
+    },
+    {
+      "path": "data/pronunciation/torah-segments.json.gz",
+      "sha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+    }
+  ],
+  "limits": "Literal written-pitch instrumental study, with explicit original80ms small-note policy and unresolved adjacent source mark left unrealized. Source small-note duration/stealing ratio/interpretation and fermata hold remain unassigned. MusicXML encodes the small quarter as an unmeasured grace element and retains the separate original performance clock in metadata; this does not resolve historical notation. Both MAMstyles/two incomplete phonemic profiles retain unchanged source paths without acoustic allocation. No fullHighHoliday/Kinnor system, voice, coda or accepted pronunciation realization."
+}

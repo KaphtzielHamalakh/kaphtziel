@@ -4,6 +4,8 @@ import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js
 import {PRINTED_SCORE} from './printed-score.js';
 import {BAER_SCORE} from './baer-score.js';
 import {COHEN_PROPHETICAL} from './cohen-prophetical-score.js';
+import {COHEN_PENITENTIAL} from './cohen-penitential-score.js';
+import {SMALL_NOTE_STUDY} from './source-small-note.js';
 import {BAER_HIGH_HOLIDAY} from './baer-high-holiday-score.js';
 import {isPrintedScore} from './printed-score-registry.js';
 import {beatLabel,eventPitchName} from './score-data.js';
@@ -94,6 +96,8 @@ $('score-pronunciation').checked=scorePronunciation;
 let pronunciationSpanFollowing=false;
 try{pronunciationSpanFollowing=JSON.parse(localStorage.getItem('tropetrain-pronunciation-span-follow-v1'))?.enabled===true;}catch{}
 $('pronunciation-span-follow').checked=pronunciationSpanFollowing;
+let smallNoteDemo=false;try{const saved=JSON.parse(localStorage.getItem('tropetrain-cohen-small-note-v1'));smallNoteDemo=saved?.policyId===SMALL_NOTE_STUDY.id&&saved.enabled===true;}catch{}
+$('printed-small-note-demo').checked=smallNoteDemo;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
 let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 let chantPlan=null,chantReady=false,chantGeneration=0,chantPlayRequest=0,recordedPracticeRunning=false,lastProcessedPitch=null,lastMeasuredTone=null;
@@ -586,7 +590,7 @@ function renderNotes(){
 }
 function renderSequence(){
   let unavailable=null;
-  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),state);}catch(error){plan=[];unavailable=error.message;}
+  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),{...state,smallNoteDemo});}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
   for(const id of ['play','compact-play'])$(id).disabled=isSourcePractice()?!chantReady:!!unavailable;
   $('musical-source-status').textContent=unavailable??(model.sourceSyllableUnderlay?model.sourceSyllableUnderlay.sourceReadingWords?'Original instrumental demonstration with consensus source syllables and documented source readings. Differing readings have word-level correspondence; displayed Hebrew and accents are unchanged, with no invented written syllable ranges.':SOURCE_SYLLABLE_UNDERLAY.summary:null)??model.profile.summary??(model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
@@ -630,6 +634,7 @@ function renderStaff(){
 function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
   return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+    ...(plan.some(e=>e.sourceSmallNote)?{smallNoteStudy:{...SMALL_NOTE_STUDY}}:{}),
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
     ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
     textSource:{...passage,verses:undefined},vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},
@@ -644,7 +649,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -722,6 +727,8 @@ function render(){
   $('passage-title').textContent=passage.title;$('word-count').textContent=`${passage.verses.length} verse${passage.verses.length===1?'':'s'} · ${words.length} words`;
   const printed=isPrintedScore(model.profile.id),baer=model.profile.id===BAER_SCORE.id;
   $('musical-source').value=state.melodyId;$('melody-name').textContent=model.profile.name;
+  $('printed-small-note-controls').hidden=!model.profile.requiresSmallNoteTiming;$('printed-small-note-demo').checked=smallNoteDemo;$('printed-small-note-demo').disabled=state.practiceAudio!=='instrument';
+  $('printed-small-note-status').textContent=smallNoteDemo?'Original written-pitch study enabled: 80 ms for the small quarter note, added between unchanged measured notes. The adjacent source mark is unresolved and not realized; historical interpretation, duration, fermata hold and musical review remain pending.':'This printed example contains a small quarter note with no assigned source duration and an unresolved adjacent mark. Enable the explicit original study to hear all written pitches; the mark remains unrealized. Other complete spans keep their measured notation.';
   $('scope').querySelector('option[value="source-unit"]').disabled=printed||!sourceSyllablesEnabled;
   $('source-syllables').checked=sourceSyllablesEnabled;$('source-syllables').disabled=printed;
   $('source-joint').checked=sourceJointEnabled;$('source-joint').disabled=printed||!sourceSyllablesEnabled||!sourceReadingsEnabled;
@@ -745,6 +752,12 @@ function render(){
     $('score-description').textContent='The staff, note list and exports use the same 145 source notes across Genesis 1:1–5. The two pronunciation text styles remain independent of these notes; differing source syllable divisions stay unlinked.';
     $('score-help').textContent='Click a note to go to its Hebrew word. '+BAER_SCORE.performanceNote+' Slurs keep distinct attacks; no ties or notes for other verses are inferred.';
     if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah chant keeps its own original melody and pronunciation. The separate Baer instrumental study is not the recording’s melody.';$('score-description').textContent='Instrument score only; no pitches have been transcribed from the recording. '+$('score-description').textContent;}
+  }
+  if(model.profile.id===COHEN_PENITENTIAL.id){
+    $('music-notice').textContent='Cohen’s penitential Genesis 22:1written-pitch study:49 measured notes and one small C5 quarter, with an unresolved adjacent mark. The optional original 80 ms small-note timing is not historical; the mark is not realized. All 13 Hebrew words/accents remain exact. No complete High Holiday system or singing voice.';
+    $('score-description').textContent='The staff and exports retain the source pitches, printed rhythms, six rests, six slurs, three tuplets and one unspecified fermata. A question mark flags the unresolved source mark; inspect the original scan. Independent notation, underlay and musical review is pending.';
+    $('score-help').textContent='The small printed quarter is shown at small size. Its optional80ms timing is an original study policy; no source duration or stealing ratio is assigned. MusicXML preserves it as an unmeasured grace element with the performance clock in metadata. The adjacent source mark remains unresolved/unrealized. Source fermata hold is unspecified; untexted coda omitted.';
+    if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah keeps its own recorded melody and pronunciation. The separate Cohen penitential written-pitch study is not this recording’s musical realization.';$('score-description').textContent='Instrument score only. '+$('score-description').textContent;}
   }
   if(model.profile.id===COHEN_PROPHETICAL.id){
     $('music-notice').textContent=COHEN_PROPHETICAL.description+' Independent transcription, musical and Hebrew underlay review remains pending.';
@@ -893,6 +906,7 @@ $('sign-classes').addEventListener('change',e=>{state.signClasses=e.target.check
 $('scroll-layout').addEventListener('change',e=>{state.scrollLayout=e.target.checked;render();});
 for(const query of SIGN_QUERIES){const option=document.createElement('option');option.value=query.id;option.textContent=query.name;$('sign-query').append(option);}
 for(const profile of melodyProfiles){const option=document.createElement('option');option.value=profile.id;option.textContent=profile.name;$('musical-source').append(option);}
+$('printed-small-note-demo').addEventListener('change',()=>{stop('Small-note study changed.');smallNoteDemo=$('printed-small-note-demo').checked;store('tropetrain-cohen-small-note-v1',{enabled:smallNoteDemo,policyId:SMALL_NOTE_STUDY.id});render();});
 $('musical-source').addEventListener('change',e=>{
   stop('Musical source changed.');state.melodyId=e.target.value;model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);state.notePage=0;state.staffPage=0;render();
 });
@@ -915,6 +929,11 @@ $('source-study-open').addEventListener('click',()=>libraryAction(()=>{
   applyRanges([{id:'cohen-study',bookId:'gen',start:{chapter:22,verse:1},end:{chapter:22,verse:1},label:'Printed score context'}]);
   state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();
   $('reader').focus();$('practice').scrollIntoView();
+}));
+$('cohen-penitential-open').addEventListener('click',()=>libraryAction(()=>{
+  state.melodyId=COHEN_PENITENTIAL.id;state.practiceAudio='instrument';
+  applyRanges([{id:'cohen-penitential-study',bookId:'gen',start:{chapter:22,verse:1},end:{chapter:22,verse:1},label:'Cohen penitential written-pitch example'}]);
+  state.anchor=words.length-1;state.cursor=0;state.scope='selection';render();$('reader').focus();$('practice').scrollIntoView();
 }));
 $('prophetical-study-open').addEventListener('click',()=>libraryAction(()=>{
   state.melodyId=COHEN_PROPHETICAL.id;state.practiceAudio='instrument';
@@ -1078,6 +1097,7 @@ getRepertoireCorpus().then(value=>{
   $('implicit-reading-open').disabled=false;
   $('khan-pronunciation-open').disabled=false;
   $('prophetical-study-open').disabled=false;
+  $('cohen-penitential-open').disabled=false;
   let restoreFailed=false;
   if(restore.ranges){try{applyRanges(restore.ranges,{remember:false,restoreCursor:restore,readingType:restore.readingType});}catch(error){restoreFailed=true;retainPracticeRecovery(error);$('library-message').textContent=`Saved reading could not be restored: ${error.message}`;}}
   restoringReading=restoreFailed;persist();

@@ -1,5 +1,6 @@
 import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
 import {validateGraceEvent} from './source-grace.js';
+import {validateSmallNoteEvent} from './source-small-note.js';
 export const escapeXml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 const gcd=(a,b)=>b?gcd(b,a%b):a;
 export function beatLabel(beats){
@@ -40,6 +41,7 @@ export function rhythmSpelling(beats){
 }
 export function eventRhythm(event){
   const r=event.sourceRhythm;
+  if(event.sourceSmallNote){validateSmallNoteEvent(event);return r;}
   if(event.sourceGrace){validateGraceEvent(event);return r;}
   if(!r)return rhythmSpelling(event.beats);
   const value={whole:4,half:2,quarter:1,eighth:.5,'16th':.25,'32nd':.125}[r.type];

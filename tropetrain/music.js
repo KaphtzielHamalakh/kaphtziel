@@ -6,6 +6,7 @@ import {PRINTED_SCORE} from './printed-score.js';
 import {PRINTED_SCORE_PROFILES,isPrintedScore,printedSourceWord} from './printed-score-registry.js';
 import {analyzeAccentContext} from './accent-context.js';
 import {SOURCE_SYLLABLE_UNDERLAY,SOURCE_SYLLABLE_GAPS,sourceSyllableWord} from './source-syllable-underlay.js';
+import {smallNoteStudyTiming} from './source-small-note.js';
 
 const syllableDrafts = [
   [[1,2,3],['bə','rē','shīt'],2], [[1,2],['bā','rā'],1], [[1,1,3],['e','lo','hīm'],2],
@@ -58,6 +59,9 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
         midi:n.midi,beats:n.quarterBeats,part:j+1,sourceLyric:n.printedLyric,sourceLocation:n.location,sourceBar:n.bar,sourceProfile:melodyId,sourceRhythm:n.rhythm,
         ...(n.pitch?{sourcePitch:n.pitch,sourceTranspose:0,sourceNoteId:n.id,sourceSystem:n.system}:{}),
         ...(n.fermata?{sourceFermata:n.fermata}:{}),
+        ...(n.smallNote?{sourceQuarterBeats:null,sourceSmallNote:structuredClone(n.smallNote)}:{}),
+        ...(n.unresolvedMarks?{sourceUnresolvedMarks:structuredClone(n.unresolvedMarks)}:{}),
+        ...(n.slurPlacement?{sourceSlurPlacement:n.slurPlacement}:{}),
         ...(n.slurId?{sourceSlurId:`${profile.notationGroupScope==='verse'?w.verseKey:w.id}-${n.slurId}`,sourceSlurPhase:n.slurPhase}:{}),
         ...(n.tupletId?{sourceTupletId:`${profile.notationGroupScope==='verse'?w.verseKey:w.id}-${n.tupletId}`,sourceTupletPhase:n.tupletPhase}:{}),
         ...(n.restAfterBeats?{sourceRestAfterBeats:n.restAfterBeats}:{}),
@@ -97,7 +101,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     let end=cursor;while(end+1<words.length&&words[end+1][field]===words[cursor][field])end++;
     return [cursor,end];
   }
-  function buildPlan(start,end,{tempo=84,transpose=0}={}){
+  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     const cut=sourceJointGroups.find(g=>g.wordIndices.some(i=>i>=start&&i<=end)&&!g.wordIndices.every(i=>i>=start&&i<=end));
@@ -109,8 +113,10 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     let beat=0;
     const selected=events.filter(e=>isJointEvent(e)?e.wordIndices.every(i=>i>=start&&i<=end):e.wordIndex>=start&&e.wordIndex<=end);
     return selected.map((e,index)=>{
-      const event={...e,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:e.beats*60/tempo,
-        ...(profile.preserveBoundaryRests&&index===selected.length-1&&e.sourceRestAfterBeats?{endingRestSeconds:e.sourceRestAfterBeats*60/tempo}:{})};beat+=e.beats+(e.sourceRestAfterBeats??0);return event;
+      const small=smallNoteStudyTiming(e,{tempo,smallNoteDemo}),beats=small?.beats??e.beats;
+      const event={...e,beats,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:small?.seconds??beats*60/tempo,
+        ...(small?{performanceTiming:small.performanceTiming}:{}),
+        ...(profile.preserveBoundaryRests&&index===selected.length-1&&e.sourceRestAfterBeats?{endingRestSeconds:e.sourceRestAfterBeats*60/tempo}:{})};beat+=beats+(e.sourceRestAfterBeats??0);return event;
     });
   }
   return {passage,words,events,bounds,buildPlan,profile,context:analyzeAccentContext(words),...(sourceJointGroups.length?{sourceJointGroups}:{}),

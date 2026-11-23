@@ -1,5 +1,5 @@
 import {isJointEvent,eventNavigationIndex} from './event-correspondence.js';
-import {scoreData,untextedScoreData,escapeXml as x,beatLabel,eventPitchName} from './score-data.js';
+import {scoreData,untextedScoreData,escapeXml as x,beatLabel,eventPitchName,rhythmSpelling} from './score-data.js';
 import {notePronunciationText} from './pronunciation-note-links.js';
 
 export const STAFF_PAGE=12;
@@ -33,9 +33,9 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
   svg+='<text class="music-symbol clef" x="24" y="90">\ue050</text>';
   if(from===0)for(const [i,rest] of (plan[0]?.sourceRestsBefore??[]).entries())svg+=restMarkup(rest,84+55*(i+.5),height,beatsY);
   for(const e of notes){
-    const grace=!!e.sourceGrace,up=e.y>=80,stemX=e.x+(up?(grace?4:5):-(grace?4:5)),stemEnd=e.y+(up?-(grace?24:32):(grace?24:32)),r=e.rhythm;
-    const word=untexted?null:`${e.word.reference} · ${isJointEvent(e)?'joint words '+e.correspondenceWords.map(w=>w.ordinal).join('–'):'word '+e.word.ordinal}`,name=(untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace?'unmeasured printed grace; original 80 ms instrumental timing demonstration':beatLabel(e.beats)+' beats'}`:`Go to ${word}; ${eventPitchName(e)}; ${beatLabel(e.beats)} beats; ${e.syllable}`)+(annotated?`; pronunciation text: ${e.pronunciationText??'unlinked'}; ${isJointEvent(e)?'joint source reading; both reader words together; no individual word allocation':e.sourceSyllableLink?.alignmentLevel==='source-reading-word'?'source reading syllable, word correspondence only; displayed '+e.word.sourceHebrew:'written-span correspondence only'}`:'');
-    svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${grace?` data-source-timing="unmeasured-grace" data-performance-timing="${x(e.performanceTiming.id)}"`: ""}${untexted?'':` data-word-index="${eventNavigationIndex(e)}"${isJointEvent(e)?` data-joint-group="${x(e.jointGroupId)}"`: ""}`}${isJointEvent(e)?' data-syllable-alignment="source-reading-group"':e.sourceSyllableLink?.alignmentLevel==='source-reading-word'?' data-syllable-alignment="source-reading-word"':''}${annotated?` data-pronunciation-status="${x(e.pronunciationLink?.status??'unlinked')}"`:''}${e.pronunciationLink?.phonology?` data-phonology-profile="${x(e.pronunciationLink.phonology.profileId)}"`:''} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="${height-15}" rx="5"/>`;
+    const grace=!!(e.sourceGrace||e.sourceSmallNote),up=e.y>=80,stemX=e.x+(up?(grace?4:5):-(grace?4:5)),stemEnd=e.y+(up?-(grace?24:32):(grace?24:32)),r=e.rhythm;
+    const word=untexted?null:`${e.word.reference} · ${isJointEvent(e)?'joint words '+e.correspondenceWords.map(w=>w.ordinal).join('–'):'word '+e.word.ordinal}`,name=(untexted?`Inspect ${e.sourceLabel}; ${eventPitchName(e)}; ${grace?'unmeasured printed grace; original 80 ms instrumental timing demonstration':beatLabel(e.beats)+' beats'}`:`Go to ${word}; ${eventPitchName(e)}; ${e.sourceSmallNote?"unmeasured printed small quarter; original 80 ms study":beatLabel(e.beats)+" beats"}; ${e.syllable}`)+(e.sourceSmallNote?'; printed small quarter; original 80 ms written-pitch study; adjacent unresolved source mark not realized':'')+(annotated?`; pronunciation text: ${e.pronunciationText??'unlinked'}; ${isJointEvent(e)?'joint source reading; both reader words together; no individual word allocation':e.sourceSyllableLink?.alignmentLevel==='source-reading-word'?'source reading syllable, word correspondence only; displayed '+e.word.sourceHebrew:'written-span correspondence only'}`:'');
+    svg+=`<g class="staff-note" role="button" tabindex="0" data-event="${x(e.id)}"${grace?` data-source-timing="${e.sourceSmallNote?"unmeasured-small-quarter":"unmeasured-grace"}" data-performance-timing="${x(e.performanceTiming.id)}"`: ""}${untexted?'':` data-word-index="${eventNavigationIndex(e)}"${isJointEvent(e)?` data-joint-group="${x(e.jointGroupId)}"`: ""}`}${isJointEvent(e)?' data-syllable-alignment="source-reading-group"':e.sourceSyllableLink?.alignmentLevel==='source-reading-word'?' data-syllable-alignment="source-reading-word"':''}${annotated?` data-pronunciation-status="${x(e.pronunciationLink?.status??'unlinked')}"`:''}${e.pronunciationLink?.phonology?` data-phonology-profile="${x(e.pronunciationLink.phonology.profileId)}"`:''} aria-label="${x(name)}"><title>${x(name)}</title><rect class="staff-hit" x="${e.x-e.width/2}" y="8" width="${e.width}" height="${height-15}" rx="5"/>`;
     for(const y of e.ledgers)svg+=`<line class="ledger" x1="${e.x-10}" x2="${e.x+10}" y1="${y}" y2="${y}"/>`;
     svg+=`<text class="music-symbol accidental" x="${e.x-22}" y="${e.y}">${e.pitch.alter===1?'\ue262':e.pitch.alter===-1?'\ue260':'\ue261'}</text><ellipse class="notehead${['whole','half'].includes(r.type)?' open-notehead':''}" cx="${e.x}" cy="${e.y}" rx="${grace?3.8:5.5}" ry="${grace?2.6:3.8}" transform="rotate(-20 ${e.x} ${e.y})"/>`;
     if(r.type!=='whole')svg+=`<line class="note-stroke" x1="${stemX}" x2="${stemX}" y1="${e.y}" y2="${stemEnd}"/>`;
@@ -51,11 +51,12 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
       if(e.sourceFermata.placement==='above')svg+=`<g class="staff-fermata" role="img" aria-label="Printed fermata; hold length unspecified"><path d="M${e.x-11} 36 Q${e.x} 12 ${e.x+11} 36"/><circle cx="${e.x}" cy="31" r="2.2"/></g>`;
       else{const y=Math.max(125,e.y+30);svg+=`<g class="staff-fermata below" role="img" aria-label="Printed inverted fermata below the staff; hold length unspecified"><path d="M${e.x-11} ${y} Q${e.x} ${y+24} ${e.x+11} ${y}"/><circle cx="${e.x}" cy="${y+5}" r="2.2"/></g>`;}
     }
+    if(e.sourceUnresolvedMarks?.length)svg+=`<text class="source-unresolved-mark" x="${e.x}" y="20" aria-label="Unresolved source mark; see original scan; not realized">?</text>`;
     svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(eventPitchName(e))}</text>`;
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="198" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.syllable)}</text>`;
     if(!untexted&&(e.continuation||e.continuedFromPrevious))svg+=`<line class="melisma-line" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="206" y2="206"/>`;
     if(annotated&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-pronunciation${e.pronunciationText===null?' unlinked':''}${e.pronunciationLink?.units.length&&e.pronunciationLink.units.every(u=>u.sourceStress)?' source-stressed':''}" x="${e.x}" y="229" lang="${e.pronunciationLink?.phonology?'und-fonipa':'en'}" xml:lang="${e.pronunciationLink?.phonology?'und-fonipa':'en'}" direction="ltr" unicode-bidi="plaintext">${x(e.pronunciationText??'unlinked')}</text>`;
-    svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace?`<tspan x="${e.x}" dy="-6">grace</tspan><tspan x="${e.x}" dy="14">demo 80 ms</tspan>`:beatLabel(e.beats)+' beats'}</text></g>`;
+    svg+=`<text class="staff-beats" x="${e.x}" y="${beatsY}">${grace?`<tspan x="${e.x}" dy="-6">${e.sourceSmallNote?"small note":"grace"}</tspan><tspan x="${e.x}" dy="14">${e.sourceSmallNote?"study":"demo"} 80 ms</tspan>`:beatLabel(e.beats)+' beats'}</text></g>`;
     // A bracket spans several notes. Keeping it outside the first note's
     // button prevents that button's accessible bounds covering its neighbours.
     for(const [direction,repeat,cx] of [['forward',e.sourceRepeatStart,e.x-e.width/2-18],['backward',e.sourceRepeatEnd,e.x+e.width/2+16]]){
@@ -71,6 +72,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
       const rests=e.sourceRestsAfter??[{beats:e.gapAfterBeats}];
       if(Math.abs(rests.reduce((n,r)=>n+r.beats,0)-e.gapAfterBeats)>1e-8)throw Error('Printed rest values and score gap disagree.');
       rests.forEach((rest,index)=>{
+       if(!rest.rhythm)rest={...rest,rhythm:rhythmSpelling(rest.beats)};
        const glyph=Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5',cx=e.x+e.width/2+e.gapWidth*(index+.5)/rests.length;
        if(rest.rhythm?.dots||['whole','half','16th','32nd'].includes(rest.rhythm?.type)){svg+=restMarkup(rest,cx,height,beatsY);return;}
        svg+=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="${height-15}" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text><text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
@@ -82,8 +84,15 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     }
     if(e.tieStop&&e.index===from&&from>0)svg+=`<path class="tie-arc" aria-label="Tie continued from previous page" d="M${e.x-e.width/2+5} ${e.y+9} Q${e.x-20} ${e.y+24} ${e.x-8} ${e.y+9}"/>`;
     if(e.sourceSlurPhase==='start'){
-      const end=notes.find(n=>n.sourceSlurId===e.sourceSlurId&&n.sourceSlurPhase==='stop');
-      if(end)svg+=`<path class="tie-arc source-slur" aria-label="Printed slur; notes remain distinct" d="M${e.x+8} ${e.y+10} Q${(e.x+end.x)/2} ${Math.max(e.y,end.y)+32} ${end.x-8} ${end.y+10}"/>`;
+      const end=notes.find(n=>n.sourceSlurId===e.sourceSlurId&&n.sourceSlurPhase==='stop'),above=e.sourceSlurPlacement==='above',direction=above?-1:1;
+      if(end){const extreme=above?Math.min(...notes.filter(n=>n.index>=e.index&&n.index<=end.index).map(n=>n.y)):Math.max(e.y,end.y);
+       svg+=`<path class="tie-arc source-slur" aria-label="Printed slur; notes remain distinct${above?'; above staff':''}" d="M${e.x+8} ${e.y+direction*10} Q${(e.x+end.x)/2} ${extreme+direction*32} ${end.x-8} ${end.y+direction*10}"/>`;
+      }else if(e.sourceSlurPlacement){
+       svg+=`<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${x(e.sourceSlurId)}" aria-label="Printed slur continues on next score page; notes remain distinct" d="M${e.x+8} ${e.y+direction*10} Q${(e.x+width)/2} ${e.y+direction*32} ${width-16} ${e.y+direction*10}"/>`;
+      }
+    }
+    if(e.sourceSlurPhase==='stop'&&e.sourceSlurPlacement&&!notes.some(n=>n.sourceSlurId===e.sourceSlurId&&n.sourceSlurPhase==='start')&&plan.slice(0,from).some(n=>n.sourceSlurId===e.sourceSlurId&&n.sourceSlurPhase==='start')){
+     const direction=e.sourceSlurPlacement==='above'?-1:1;svg+=`<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${x(e.sourceSlurId)}" aria-label="Printed slur continued from previous score page; notes remain distinct" d="M14 ${e.y+direction*10} Q${e.x/2} ${e.y+direction*32} ${e.x-8} ${e.y+direction*10}"/>`;
     }
     for(const slur of e.sourceSlurs??[]){
       if(slur.phase!=='start')continue;
