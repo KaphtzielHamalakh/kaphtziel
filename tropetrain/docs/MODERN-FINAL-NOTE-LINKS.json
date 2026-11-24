@@ -1,0 +1,297 @@
+{
+  "schema": "tropetrain-modern-final-consonants-note-audit-v1",
+  "revision": 1,
+  "source": {
+    "id": "phonikud-optional-final-consonants",
+    "author": "Yakov Kolani, Maxim Melichov, Cobi Calev and Morris Alper",
+    "title": "Phonikud optional word-final glottal/h cleanup · source-category adaptation",
+    "year": 2026,
+    "url": "https://github.com/phonikud/phonikud/blob/a29a75b473b0f132a0bbee41dad38763035211dc/phonikud/utils.py",
+    "commit": "a29a75b473b0f132a0bbee41dad38763035211dc",
+    "license": "CC-BY-4.0",
+    "files": {
+      "lexicon": "phonikud/lexicon.py",
+      "letterRules": "phonikud/hebrew.py",
+      "wordCleanup": "phonikud/utils.py"
+    },
+    "blobs": {
+      "lexicon": "d77243234b5df6bd67e2ed4c23f7a3c4a4d7c4f3",
+      "letterRules": "6db91fdc8aac4119709763053e3c8fc2de5cdf9f",
+      "wordCleanup": "0aeeb9415670b9db9aff21136c9813dc145ab034",
+      "license": "2f9844fb9ad34ab57e88a1edcef3cdc0be887b42"
+    },
+    "rights": "Phonikud code is CC BY4.0; adapted correspondences are attributed here and in the visible source link. No model, dataset or audio is imported.",
+    "scope": "Only the optional post_normalize final glottal-stop and h deletion rules, adapted to an exact complete single-word source branch. No whole-word phonemizer, suffix rule, ij cleanup, spoken-sheva decision, resyllabification, sound timing or singing voice is supplied. Multiword, source-only and collective boundaries remain unresolved.",
+    "scanLimits": "No scan. Original code sources and exact Git blobs are recorded; no source word or mark is normalized."
+  },
+  "profile": {
+    "id": "phonikud-modern-final-consonants",
+    "label": "Modern inventory · optional final loss · research",
+    "region": "modern-inventory",
+    "sourceId": "phonikud-optional-final-consonants",
+    "status": "source-based-inventory-adaptation",
+    "kinnorAccentId": null,
+    "playable": false,
+    "singingVoice": null,
+    "review": null,
+    "inventoryProfileId": "phonikud-modern-inventory",
+    "finalConsonantPolicy": "single-exact-source-word-terminal-glottal-h-v1"
+  },
+  "results": [
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם תחתון"
+      },
+      "sourceStyle": "sephardic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231981,
+      "linkedNotes": 231981,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20322,
+      "assignmentSha256": "4d8d1279168aab28400f45a782ee2a8d3b9e0628e2a01bc64e6a0ec4661c0a19"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם תחתון"
+      },
+      "sourceStyle": "ashkenazic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231981,
+      "linkedNotes": 231981,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20322,
+      "assignmentSha256": "4c2019738c6a7bd819ef904026979963233f1c1c156146e4f0def81f71781d03"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם עליון"
+      },
+      "sourceStyle": "sephardic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231981,
+      "linkedNotes": 231981,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20322,
+      "assignmentSha256": "80e8e8a8d25d70f9394a84b32ecf0567e75a8f8943d9468e6fc0a85dfd13220e"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ד",
+        "cantillation": "טעם עליון"
+      },
+      "sourceStyle": "ashkenazic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231981,
+      "linkedNotes": 231981,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20322,
+      "assignmentSha256": "05d4144081ef6da1b0efdd612f6c73a0a39d096472410903bfd0c0e579cc65fa"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם תחתון"
+      },
+      "sourceStyle": "sephardic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231982,
+      "linkedNotes": 231982,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20323,
+      "assignmentSha256": "5ee6f0aa99e3985ccfcd9cc8a86cc2cee5d6293a111f4ea92d1ef51e4e7d0cff"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם תחתון"
+      },
+      "sourceStyle": "ashkenazic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231982,
+      "linkedNotes": 231982,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20323,
+      "assignmentSha256": "2d0587b695d0f1a6d8a93fd08b432853c384067317bf4848730335d541c3743c"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם עליון"
+      },
+      "sourceStyle": "sephardic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231982,
+      "linkedNotes": 231982,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20323,
+      "assignmentSha256": "9cf4247199359543c1cf30c90e774d8cb152cfefebda8d5d34dd7e40bbed75a5"
+    },
+    {
+      "policy": {
+        "qamats": "קמץ-ס",
+        "cantillation": "טעם עליון"
+      },
+      "sourceStyle": "ashkenazic",
+      "chapters": 187,
+      "readerWords": 79985,
+      "individualWords": 79983,
+      "jointWords": 2,
+      "uncoveredWords": 0,
+      "notes": 231982,
+      "linkedNotes": 231982,
+      "jointNotes": 4,
+      "sharedEvents": 18205,
+      "noteReferences": 630732,
+      "unassignedEvents": 20323,
+      "assignmentSha256": "f501229cb0090205166bcbc854a48bc38fdd8eb9f3f8df88e341dccb61831270"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
+    },
+    {
+      "path": "data/pronunciation/torah-segments.json.gz",
+      "sha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/manifest.json",
+      "sha256": "d8797f3051f4d96f9175132dcf20e4c342b27b884211056c34652ab841516efe"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "docs/SOURCE-READING-CHOICES.json",
+      "sha256": "7f5ddabdf632ef93fd551fbb78bd8bdaa28bab4c489ab5769d6a8a56394f2d1d"
+    },
+    {
+      "path": "event-correspondence.js",
+      "sha256": "8619e78d4a01a1f5c842159e4cb1130230e7080bd0deacaa9450ca4dd582e083"
+    },
+    {
+      "path": "modern-phonology.js",
+      "sha256": "fa15490f6bece499f5e81b8762c0ae8bfeef87c60c4bdaf460df573159343c43"
+    },
+    {
+      "path": "music.js",
+      "sha256": "994b1b66e3756d719cec2c495a742c824da489adcebb036a78d1a7bd7b7655da"
+    },
+    {
+      "path": "pronunciation-note-proposals.js",
+      "sha256": "5917debe0f3183ce707210011d18bd7a791086142b3e5388f37658add6e8cc70"
+    },
+    {
+      "path": "pronunciation-phonology-reader.js",
+      "sha256": "45dfeda500da658c023a986b7ef99c9f3fc8c3b02dc5d52098ba7aca4e3f8390"
+    },
+    {
+      "path": "pronunciation-phonology.js",
+      "sha256": "492813473206d85a6c5ef5ce9e69cc3abc87b35b749a60b8e3a7b6978ca87753"
+    },
+    {
+      "path": "scripts/audit-inputs.mjs",
+      "sha256": "16512b506c93aa566ba85673d43e821746bb95ca03c4799a9aa047c3e14c621b"
+    },
+    {
+      "path": "scripts/audit-modern-final-note-links.mjs",
+      "sha256": "59e8405767443c0e56683acb4d2094468a0400d16e2261a2c0bf7cb7a2b160a1"
+    },
+    {
+      "path": "source-joint-note-links.js",
+      "sha256": "043ab5769f816a7218bacbce281d303da5b163feb1524ce1fe126a74ffc99308"
+    },
+    {
+      "path": "source-joint-syllables.js",
+      "sha256": "4322b6500ecd61dfea635cf721430925c7bb3bc24f7e7c11a9a6372356ba3dbb"
+    },
+    {
+      "path": "source-reading-choices.js",
+      "sha256": "db71fe569d380017309c872df84b6afd06af4658af7eaa29ba91bcfad52b1189"
+    },
+    {
+      "path": "source-syllable-underlay.js",
+      "sha256": "d95cc61128250326d74bde9c6fd4b725c22063a68753b73e6972a29cba8e2ac9"
+    }
+  ],
+  "method": "Both MAM source styles and every existing explicit qamats/cantillation reading policy across all187Torahchapters. The optional final-consonant research text policy is selected. Qualified individual source readings and the complete shared source word are opted in. All79985readerwords keep original strings and source word/group ownership. Actual original-demo notes retain pitches, rhythms, source syllables and clocks. Links are structural source-unit references, not phoneme-to-audio allocation.",
+  "invariants": {
+    "sourceStringsUnchanged": true,
+    "notesAndClocksUnchanged": true,
+    "sourceReadingChoicesRetained": true,
+    "sharedSourceWordUnsplit": true,
+    "acceptedPhonemes": null,
+    "enginePhones": null,
+    "acousticTiming": null,
+    "newSingingVoice": null,
+    "review": null
+  },
+  "pending": "Browser verification, qualified linguistic/cantorial review, remaining unknown phonology and actual singing delivery. Inventory correspondence supplies no Kinnor preset equivalence."
+}

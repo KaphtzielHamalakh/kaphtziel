@@ -1,0 +1,204 @@
+{
+  "schema": "tropetrain-modern-final-consonants-audit-v1",
+  "revision": 1,
+  "source": {
+    "id": "phonikud-optional-final-consonants",
+    "author": "Yakov Kolani, Maxim Melichov, Cobi Calev and Morris Alper",
+    "title": "Phonikud optional word-final glottal/h cleanup · source-category adaptation",
+    "year": 2026,
+    "url": "https://github.com/phonikud/phonikud/blob/a29a75b473b0f132a0bbee41dad38763035211dc/phonikud/utils.py",
+    "commit": "a29a75b473b0f132a0bbee41dad38763035211dc",
+    "license": "CC-BY-4.0",
+    "files": {
+      "lexicon": "phonikud/lexicon.py",
+      "letterRules": "phonikud/hebrew.py",
+      "wordCleanup": "phonikud/utils.py"
+    },
+    "blobs": {
+      "lexicon": "d77243234b5df6bd67e2ed4c23f7a3c4a4d7c4f3",
+      "letterRules": "6db91fdc8aac4119709763053e3c8fc2de5cdf9f",
+      "wordCleanup": "0aeeb9415670b9db9aff21136c9813dc145ab034",
+      "license": "2f9844fb9ad34ab57e88a1edcef3cdc0be887b42"
+    },
+    "rights": "Phonikud code is CC BY4.0; adapted correspondences are attributed here and in the visible source link. No model, dataset or audio is imported.",
+    "scope": "Only the optional post_normalize final glottal-stop and h deletion rules, adapted to an exact complete single-word source branch. No whole-word phonemizer, suffix rule, ij cleanup, spoken-sheva decision, resyllabification, sound timing or singing voice is supplied. Multiword, source-only and collective boundaries remain unresolved.",
+    "scanLimits": "No scan. Original code sources and exact Git blobs are recorded; no source word or mark is normalized."
+  },
+  "profile": {
+    "id": "phonikud-modern-final-consonants",
+    "label": "Modern inventory · optional final loss · research",
+    "region": "modern-inventory",
+    "sourceId": "phonikud-optional-final-consonants",
+    "status": "source-based-inventory-adaptation",
+    "kinnorAccentId": null,
+    "playable": false,
+    "singingVoice": null,
+    "review": null,
+    "inventoryProfileId": "phonikud-modern-inventory",
+    "finalConsonantPolicy": "single-exact-source-word-terminal-glottal-h-v1"
+  },
+  "results": [
+    {
+      "sourceStyle": "sephardic",
+      "groups": 68504,
+      "readerWords": 79985,
+      "individuallyOwnedWords": 79983,
+      "combinedWords": 2,
+      "sourceUnits": 194272,
+      "categoryReferences": 518726,
+      "events": 500476,
+      "sharedEvents": 18250,
+      "proposedReferences": 498348,
+      "unassignedReferences": 20378,
+      "unassignedCategories": {
+        "SHEVA_NA": 19557,
+        "HE_1MAPIQ": 657,
+        "AYIN_0DAG": 151,
+        "ALEF_1MAPIQ": 2,
+        "FPP_PATAX_MAPIQ_HE": 3,
+        "ALEF_SHURUQ_VOWEL": 6,
+        "HE_0MAPIQ_CON": 1,
+        "ALEF_0MAPIQ_CON": 1
+      },
+      "constituentPairs": 2316,
+      "pairCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308,
+        "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13
+      },
+      "optionalFinalLossReferences": 583,
+      "optionalFinalLossCategories": {
+        "AYIN_0DAG": 583
+      },
+      "sourceWordIdentitiesChecked": 79985,
+      "affectedReaderWords": 583,
+      "assignmentSha256": "14707b996321851ef873c1c6fec6771b6e562f1e16506f35a3be0b3cb36c2589"
+    },
+    {
+      "sourceStyle": "ashkenazic",
+      "groups": 68504,
+      "readerWords": 79985,
+      "individuallyOwnedWords": 79983,
+      "combinedWords": 2,
+      "sourceUnits": 194272,
+      "categoryReferences": 518726,
+      "events": 500476,
+      "sharedEvents": 18250,
+      "proposedReferences": 498348,
+      "unassignedReferences": 20378,
+      "unassignedCategories": {
+        "SHEVA_NA": 19557,
+        "HE_1MAPIQ": 657,
+        "AYIN_0DAG": 151,
+        "ALEF_1MAPIQ": 2,
+        "FPP_PATAX_MAPIQ_HE": 3,
+        "ALEF_SHURUQ_VOWEL": 6,
+        "HE_0MAPIQ_CON": 1,
+        "ALEF_0MAPIQ_CON": 1
+      },
+      "constituentPairs": 2316,
+      "pairCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308,
+        "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13
+      },
+      "optionalFinalLossReferences": 583,
+      "optionalFinalLossCategories": {
+        "AYIN_0DAG": 583
+      },
+      "sourceWordIdentitiesChecked": 79985,
+      "affectedReaderWords": 583,
+      "assignmentSha256": "88b201821e3f92c3a8c7f9dcca542c8c33e7145ff5b3b2d208ec4b589d74dd61"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "assets/pronunciation/phonikud-NOTICE.txt",
+      "sha256": "7020b70da1da8e71f530d0bf27598b9a92cc9756d567bf2c1fad615b362b521a"
+    },
+    {
+      "path": "assets/pronunciation/phonikud-code-reference.zip",
+      "sha256": "ab1f5969ec262ceaa86808a0bf3cf21b5320e13170c3f4364bc96c99d92377ed"
+    },
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
+    },
+    {
+      "path": "data/pronunciation/torah-segments.json.gz",
+      "sha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/manifest.json",
+      "sha256": "d8797f3051f4d96f9175132dcf20e4c342b27b884211056c34652ab841516efe"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "khan-pronunciation.js",
+      "sha256": "00c9174c8a18fb7a977fbbc67a52905d8cbe9254526d024ddddeda2c5af51503"
+    },
+    {
+      "path": "modern-phonology.js",
+      "sha256": "fa15490f6bece499f5e81b8762c0ae8bfeef87c60c4bdaf460df573159343c43"
+    },
+    {
+      "path": "pronunciation-note-proposals.js",
+      "sha256": "5917debe0f3183ce707210011d18bd7a791086142b3e5388f37658add6e8cc70"
+    },
+    {
+      "path": "pronunciation-phonology-reader.js",
+      "sha256": "45dfeda500da658c023a986b7ef99c9f3fc8c3b02dc5d52098ba7aca4e3f8390"
+    },
+    {
+      "path": "pronunciation-phonology.js",
+      "sha256": "492813473206d85a6c5ef5ce9e69cc3abc87b35b749a60b8e3a7b6978ca87753"
+    },
+    {
+      "path": "scripts/audit-inputs.mjs",
+      "sha256": "16512b506c93aa566ba85673d43e821746bb95ca03c4799a9aa047c3e14c621b"
+    },
+    {
+      "path": "scripts/audit-modern-final-consonants.mjs",
+      "sha256": "cf9e18cd09c471bdcf0108b541e0c747626a7209a53387af8f4a85d433a32688"
+    }
+  ],
+  "method": "Every preferred reader word is independently checked against the unchanged Torah corpus, then every source group/branch/category/shared event/range in each MAM text style is checked. Every fragment is also compared to the original modern inventory. Only previously unassigned ordinary terminal glottal/h consonants in complete exactly aligned single-word source branches may gain the optional deletion proposal; all other proposals stay exact. No original text is passed to the upstream phonemizer.",
+  "invariants": {
+    "originalCorpusWords": 79985,
+    "sourceStringsUnchanged": true,
+    "allSourceBranchesRetained": true,
+    "sourceSyllablesAndStressUnchanged": true,
+    "sharedHalvesOneEvent": true,
+    "acceptedPhonemes": null,
+    "acousticTimes": null,
+    "newSingingVoice": null,
+    "kinnorEquivalence": null,
+    "review": null
+  },
+  "pending": "This is not a complete modern spoken grammar. Written-vs-spoken sheva, source specials, other final/suffix processing, the optional ij rule and phonetic transitions remain unresolved. Joined, source-only and collective endings are withheld. Both older regional profiles and their44compound gaps are unchanged. Qualified linguistic/cantorial review and all six historical Kinnor grammars/voices remain pending."
+}

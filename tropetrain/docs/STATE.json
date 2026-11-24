@@ -193,9 +193,9 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.81.0",
-    "status": "published_verified_full_goal_active_incomplete",
-    "next": "Continue source-based word-aligned chanting across the entire Torah with independent melody and pronunciation. Prioritize reviewed phonological rules and reusable singing delivery, then full contextual melody realization from licensed scores/recordings. Resolve19,557written-vocal-sheva references, special/final categories and the two older regional profiles’44compound gaps only from sufficient primary evidence; keep all source alternatives/shared halves/complete shared words and original recording clocks exact. Review every claimed historical grammar/melody/voice independently; recovered menu/definition labels do not supply that review. Use the full retained feature roadmap; tutor/learning features follow musical accuracy, printing deferred. Preserve original iCloud checkout and required private cache; current authoritative source is /private/tmp/tropetrain-v81-worktree/tropetrain with a verified output snapshot under outputs/Development-v0.81/tropetrain. Do not restart accepted712regressions/438local/438publicUI absent a new change or concern. Never claim the full reconstruction complete from this increment."
+    "version": "0.82.0",
+    "status": "local_verified_publication_pending",
+    "next": "Finish complete new source/note audits and regression/packaging, verify actual normal/portable UI, then publish only tropetrain with connected GitHub, Pages and exact live bytes. Full original reconstruction scope remains active."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -2721,157 +2721,46 @@
     "olderPendingScope": 341
   },
   "privateDevelopment": {
-    "version": "0.81.0",
-    "status": "published_verified_full_goal_active_incomplete",
-    "checkout": "/private/tmp/tropetrain-v81-worktree/tropetrain",
-    "branch": "codex/tropetrain-v81",
-    "baseline": "e76b4fa10846581df85db1bdcfb62ed1854cb710",
-    "source": "Phonikud code CC BY4.0, pinned a29a75b473b0f132a0bbee41dad38763035211dc; inventory adaptation only",
-    "sourceStyles": 2,
-    "wordsPerStyle": 79985,
-    "sourceGroupsPerStyle": 68504,
-    "categoryReferencesPerStyle": 518726,
-    "proposedReferencesPerStyle": 497765,
-    "unassignedReferencesPerStyle": 20961,
-    "sameSyllablePairsPerStyle": 2316,
-    "legacyFullReportsUnchanged": 40,
+    "version": "0.82.0",
+    "status": "local_verified_publication_pending",
+    "checkout": "/private/tmp/tropetrain-v82-worktree/tropetrain",
+    "branch": "codex/tropetrain-v82",
+    "baseline": "ae3d46b05dfbfec62ccc36a7e4cca6c127b60cd6",
+    "source": "Existing pinned Phonikud CC BY4code, optional post_normalize terminal-glottal/h subset only",
     "targetedTests": {
-      "passed": 33,
-      "failed": 0,
-      "skipped": 0
+      "pass": 21,
+      "fail": 0,
+      "skip": 0
     },
+    "initialEligibleReferencesPerStyle": 583,
     "fullBuild": {
-      "packagingResumeExit": 0,
-      "fullSuiteExit": 0,
-      "initialCheckExit": 1,
-      "initialCheckReason": "ENOSPC; retained as failed attempt"
-    },
-    "localUi": {
-      "passed": 438,
-      "normal": 219,
-      "portable": 219,
-      "retainedPerDistribution": 196,
-      "modernPerDistribution": 19,
-      "layoutPerDistribution": 4,
-      "media": "short muted playback; stopped",
-      "nativePortableInspection": "frame limit; supported DOM snapshot fallback used"
-    },
-    "publicUi": {
-      "passed": 438,
-      "normal": 219,
-      "portable": 219,
-      "viewportReset": true,
-      "speakerReview": null
-    },
-    "publication": {
-      "codeCommit": "8245f8a047bd093c2613022530c01b4116479fdf",
-      "pagesRun": 45389555932,
-      "allThreeJobsSucceeded": true,
-      "publicChangedFilesExact": 36,
-      "publicChangedBytesExact": 140789832
-    },
-    "singingVoice": null,
-    "acceptedPhonemes": null,
-    "acousticTiming": null,
-    "review": null,
-    "pending": "Continue source-based word-aligned chanting across the entire Torah with independent melody and pronunciation. Prioritize reviewed phonological rules and reusable singing delivery, then full contextual melody realization from licensed scores/recordings. Resolve19,557written-vocal-sheva references, special/final categories and the two older regional profiles’44compound gaps only from sufficient primary evidence; keep all source alternatives/shared halves/complete shared words and original recording clocks exact. Review every claimed historical grammar/melody/voice independently; recovered menu/definition labels do not supply that review. Use the full retained feature roadmap; tutor/learning features follow musical accuracy, printing deferred. Preserve original iCloud checkout and required private cache; current authoritative source is /private/tmp/tropetrain-v81-worktree/tropetrain with a verified output snapshot under outputs/Development-v0.81/tropetrain. Do not restart accepted712regressions/438local/438publicUI absent a new change or concern. Never claim the full reconstruction complete from this increment.",
-    "fullTorahNoteAudit": {
-      "results": 8,
-      "policies": 4,
-      "sourceStyles": 2,
-      "chaptersPerResult": 187,
-      "wordsPerResult": 79985,
-      "individualWordsPerResult": 79983,
-      "jointWordsPerResult": 2,
-      "uncoveredWordsPerResult": 0,
-      "originalDemoNotesPerPolicy": [
-        231981,
-        231981,
-        231982,
-        231982
-      ],
-      "jointNotesPerResult": 4,
-      "sourceEventNoteReferencesPerResult": 630732,
-      "terminalStatus": 0,
-      "audioAllocation": null
-    },
-    "fullBuildAttempt": {
-      "session": 38338,
-      "exit": 1,
-      "sourceAuditsCompleted": true,
-      "failedStage": "Final portable HTML write",
-      "error": "ENOSPC",
-      "fullRegressionStarted": false,
-      "partialNewHtmlRemoved": true
-    },
-    "availableRegression": {
-      "passed": 328,
-      "failed": 0,
-      "skipped": 0,
-      "includedFiles": 41,
-      "session": 76961,
-      "exit": 0,
-      "excludedFilesByPortableNameFilter": 54
-    },
-    "focusedSourceAndPackagingTests": {
-      "sourceAuditChecks": 2,
-      "archiveCheck": 1,
-      "atomicWriterChecks": 3,
-      "failed": 0,
-      "skipped": 0
-    },
-    "normalBundle": {
-      "bytes": 34691245,
-      "sha256": "d09b53fe4f654a596e42d266bd3ca8af5be7b9c8f5e04d75f127883ee7d4e367",
-      "syntaxChecked": true,
-      "uiVerified": true
-    },
-    "portableArtifact": {
-      "bytes": 104612647,
-      "sha256": "ea39824ec5b106c0886bde21ce2cdd26f935cee44e57dbe732b49e711b3329a2"
-    },
-    "fullSuite": {
-      "session": 81149,
-      "passed": 712,
-      "failed": 0,
-      "skipped": 0,
+      "pass": 725,
+      "fail": 0,
+      "skip": 0,
+      "session": 46027,
       "exit": 0
     },
-    "previousNextTaskBeforePackagingFailure": "Resume private v0.81 packaging and full tests after disk space is available; supported browser reconnect is also pending. Source audit phase finished; do not repeat it without changed input hashes or a concern. Current normal bundle is complete, portable missing after removed partial ENOSPC output. Use recorded private resume/save-r2 helpers, not the stale r1 save gate. Finish private v0.81 modern inventory source/note audits, full build/packaging and supported normal/portable browser verification; save results before publication. Complete the341 pending v0.80 live checks when browser transport returns. Restore the supported browser transport and finish the341 pending live checks from the saved helpers; do not repeat accepted local392 or automated694 checks without a new change or concern. Preserve the old iCloud checkout, whose read failed before any mutation; use the verified v0.80 source/output and private Git cache until a guarded checkout sync can be completed. Then continue the prioritized musical and phonological work. Continue all six original historical pronunciation grammars/voices and independently controlled, word/syllable-aligned cantillation across the entire Torah, then the full retained tutor/learning inventory; printing deferred. The new2272patah/qamats–yod constituent pairs per MAM style are source-based proposals, with all phonetic transitions/quantity/phone/note/audio timing and review still null. Resolve44holam/shuruq–yod compound contexts,19557mobile-sheva references and special alef/mappiq from primary evidence without inventing a regional or Kinnor equivalence. Keep original marked Hebrew, stable/repeated IDs, source alternatives/shared halves, all1120Asael units perstyle/14unsplit compounds and all recordings/clocks/gaps/nulls exact. The two bounded Khan streams remain literal source text, not six Kinnor voices. All32literal Baer first-setting cells now have components; resolve independent transcription review, historical grace/repeat/fermata performance and contextual Bible-word application through evidence. Keep the five grace-bearing figures gated behind explicit original timing options. Any original instrumental timing choice must stay separate from historical source values. Complete contextual fitting from actual notation without invented historical grace/repeat durations. Privatev0.55MBROLAclock/curve diagnostic remains frozen. Do not replace the full goal with more unlisted bounded research views. Use the v0.70 consensus source-syllable playback foundation for qualified phoneme-to-note work. With explicit source qamats/upper-lower reading choices and the shared-source-word opt-in, all79985Torahwords now have structural source correspondence:79983individual and2jointly covered. Deu32:6retains one source pronunciation word across two written words; individual owners/written syllable ranges remain null and clipped playback fails closed. Keep complete source groups together. Continue toward qualified phoneme-to-note singing, independently sourced historical melody/pronunciation grammars, complete reviewed voices and the full retained learning inventory. Source text reading choices are not historical melody realizations. Never invent written spans or accepted phones; keep original demo timing separate from source timing. Build from the v0.71 exact source-unit-to-note references toward qualified phonetic and singing delivery. Note references remain structural: do not turn repeated notes or shared halves into repeated consonants, assign guessed sound times, or equate the two research profiles with the six Kinnor presets. Expand exact source phrase correspondence beyond the58,838currently matched words:1,305wholeverses remain withheld for changed marked text, word division or unvalidated source paths. Keep the original Hebrew/accents and source paths, and do not infer a musical realization from hierarchy metadata. The source-character recall exercise is an original learning tool, not a new musical realization. Continue prioritizing sourced phonology, reusable reviewed voices and full contextual melody fitting. Current recorded coverage is79194structural word intervals/79178within measured audio, with791timing-review and16duration-review words; older77174/2811figures are historical.",
-    "externalBlockAudit": {
-      "timeUtc": "2026-11-24 00:44",
-      "previousGoalTurn": "progress: implemented independent modern inventory, completed full-Torah source/note audits,328available regressions and6focused checks, atomic packaging recovery and32-file durable source overlay",
-      "currentAudit": "same supported browser blocker recurs for third consecutive goal turn; no user resource reply or external recovery",
-      "diskFreeBytes": 213536768,
-      "browser": "actual kernel idle reset observed; setup reinitialized once; list again returned transport closed before response",
-      "packaging": "initial ENOSPC remains unresolved; portable artifact missing; safe resume requires512MiB, user requested1GB",
-      "nativeCompressionProbe": {
-        "probe": "stock ditto CPIO stream, filesystem compression only",
-        "sourceBytes": 34680960,
-        "outputBytesExact": true,
-        "flags": 0,
-        "compressedFlag": false,
-        "allocatedStatBytes": 34684928,
-        "freeBefore": 205815808,
-        "freeAfter": 171294720,
-        "cpioExit": 0,
-        "dittoExit": 0
-      },
-      "probeOutcome": "Representative35MB bundle remained uncompressed/fully allocated under stock ditto extraction. Owned probe directory removed and all subprocesses terminal. No proven resource-preserving packaging path obtained.",
-      "requiredExternalChanges": [
-        "Free at least1GB disk space",
-        "Reopen supported in-app browser or restart Codex, then resume"
-      ],
-      "newPublication": null,
-      "goalCompletion": false,
-      "intendedGoalStatus": "blocked"
+    "publicUi": null,
+    "publication": null,
+    "acceptedPhonemes": null,
+    "acousticTimes": null,
+    "singingVoice": null,
+    "review": null,
+    "preliminaryNoteAudit": {
+      "session": 66002,
+      "exit": 0,
+      "acceptedAsFinal": false,
+      "reason": "Boundary guards changed during this preliminary run; full build must regenerate final evidence."
     },
-    "resourceResume": {
-      "date": "2026-11-24",
-      "userInstruction": "Continue",
-      "freeDiskGiB": 34,
-      "browserTool": "new unified cua_repl available; old8766tab server refuses connection; fresh preview pending",
-      "sourceAudits": "retained; helper revalidates input hashes before packaging"
-    }
+    "localUi": {
+      "passed": 210,
+      "normal": 105,
+      "portable": 105,
+      "scope": "Focused affected flows:22core,17note/export,19originalmodern,22joint,21newpolicy,4compact per distribution",
+      "viewportReset": true,
+      "media": "short muted stopped; no acoustic review"
+    },
+    "finalEligibleWordsPerStyle": 583,
+    "fullTorahNoteResults": 8
   }
 }

@@ -1,0 +1,171 @@
+{
+  "baseline": "ae3d46b05dfbfec62ccc36a7e4cca6c127b60cd6",
+  "rows": [
+    {
+      "id": "gen-1-1-1",
+      "style": "sephardic",
+      "sha256": "1c61c5e123e31fc23df90489d5053e7bf514ca67c8a9418af594a9131b2de539"
+    },
+    {
+      "id": "gen-1-1-1",
+      "style": "ashkenazic",
+      "sha256": "faed4ba215a7541cdb74e77e6bd84ba49f50ab83599e01d0ee3e3dae2af1f8da"
+    },
+    {
+      "id": "gen-1-1-2",
+      "style": "sephardic",
+      "sha256": "ed0f2b4a990ad4f03f704d37b3eacdb50bebc90079bf62cf2a918bec2d689460"
+    },
+    {
+      "id": "gen-1-1-2",
+      "style": "ashkenazic",
+      "sha256": "2e993804f35dd28f639a97c32f8487733d7a640599150735290c44c2f3fc8656"
+    },
+    {
+      "id": "deu-6-4-1",
+      "style": "sephardic",
+      "sha256": "1e8daa3cacc9f23e68723169aae6a70bec994dc362f25cfefe2664c79d37e3f1"
+    },
+    {
+      "id": "deu-6-4-1",
+      "style": "ashkenazic",
+      "sha256": "414b59748d1a9ab5a0228a191aa84f2b45518a2457e5928f5f8a53e32c735399"
+    },
+    {
+      "id": "gen-8-20-7",
+      "style": "sephardic",
+      "sha256": "f355139f4daee62236aba4ea30ca469a83dc2992db8393eac125553aee11be43"
+    },
+    {
+      "id": "gen-8-20-7",
+      "style": "ashkenazic",
+      "sha256": "10bc1c9dcb9e6560128b168cce59b72de86e91f1b6ebcea3221a4d13a4e3bee9"
+    },
+    {
+      "id": "gen-13-3-13",
+      "style": "sephardic",
+      "sha256": "bfbf68935ce919ee5c808332a89638e0ebfada41f333b9621d290e3cd5087c9d"
+    },
+    {
+      "id": "gen-13-3-13",
+      "style": "ashkenazic",
+      "sha256": "237cc4a8205a3fe1cd15d95e2b1155deb8c22d2f4672ea2bd0b3ddbcda4b2658"
+    },
+    {
+      "id": "deu-32-6-1",
+      "style": "sephardic",
+      "sha256": "79b8dca0b211068ad3cf517626d252a69a6c882a3a21ad5cfd64557b2973ab0d"
+    },
+    {
+      "id": "deu-32-6-1",
+      "style": "ashkenazic",
+      "sha256": "03727058fd11136effad467ede4942d782086d8bfc73780180287ea2c5a98089"
+    },
+    {
+      "id": "gen-2-15-9",
+      "style": "sephardic",
+      "sha256": "b4e9f72b68ff2ee55f0b4bc22c82a622e835fef005833d8566b832aff7e0477d"
+    },
+    {
+      "id": "gen-2-15-9",
+      "style": "ashkenazic",
+      "sha256": "90a7cef50f944bf75260b62fddf7bd0cdf43b71d98def2b73dd8d4b7d165504f"
+    },
+    {
+      "id": "gen-12-2-2",
+      "style": "sephardic",
+      "sha256": "751798e9336f69623d1f0ceda9a8087302bbb521055cf5f44164e91293329043"
+    },
+    {
+      "id": "gen-12-2-2",
+      "style": "ashkenazic",
+      "sha256": "ba0ffb0273601476fe52be7061f1eff071bcdc0243e51768d238116a1641e6a5"
+    },
+    {
+      "id": "exo-38-17-8",
+      "style": "sephardic",
+      "sha256": "deacb295f64ead3397f2285a260b5dd0a64e61bb978f99ee16a87435c137e14c"
+    },
+    {
+      "id": "exo-38-17-8",
+      "style": "ashkenazic",
+      "sha256": "0aefec4c93fb444e03a619164d6e92e556edafde53b55e636e666521289a41ba"
+    },
+    {
+      "id": "gen-32-18-6",
+      "style": "sephardic",
+      "sha256": "1a9385996e72510992310f6f6ac3861662299c442c651795ad117097f53ebd48"
+    },
+    {
+      "id": "gen-32-18-6",
+      "style": "ashkenazic",
+      "sha256": "84e77baa16074a56095012c51468b1bb0f601464890dd6096541f85e818e543e"
+    }
+  ],
+  "auditResults": [
+    {
+      "sourceStyle": "sephardic",
+      "groups": 68504,
+      "readerWords": 79985,
+      "individuallyOwnedWords": 79983,
+      "combinedWords": 2,
+      "sourceUnits": 194272,
+      "categoryReferences": 518726,
+      "events": 500476,
+      "sharedEvents": 18250,
+      "proposedReferences": 497765,
+      "unassignedReferences": 20961,
+      "unassignedCategories": {
+        "SHEVA_NA": 19557,
+        "AYIN_0DAG": 734,
+        "HE_1MAPIQ": 657,
+        "ALEF_1MAPIQ": 2,
+        "FPP_PATAX_MAPIQ_HE": 3,
+        "ALEF_SHURUQ_VOWEL": 6,
+        "HE_0MAPIQ_CON": 1,
+        "ALEF_0MAPIQ_CON": 1
+      },
+      "constituentPairs": 2316,
+      "pairCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308,
+        "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13
+      },
+      "sourceWordIdentitiesChecked": 79985,
+      "assignmentSha256": "79b3da41b8b57b2730c27be7122f16e78c94bddd328add9052cc9dfad41be0cc"
+    },
+    {
+      "sourceStyle": "ashkenazic",
+      "groups": 68504,
+      "readerWords": 79985,
+      "individuallyOwnedWords": 79983,
+      "combinedWords": 2,
+      "sourceUnits": 194272,
+      "categoryReferences": 518726,
+      "events": 500476,
+      "sharedEvents": 18250,
+      "proposedReferences": 497765,
+      "unassignedReferences": 20961,
+      "unassignedCategories": {
+        "SHEVA_NA": 19557,
+        "AYIN_0DAG": 734,
+        "HE_1MAPIQ": 657,
+        "ALEF_1MAPIQ": 2,
+        "FPP_PATAX_MAPIQ_HE": 3,
+        "ALEF_SHURUQ_VOWEL": 6,
+        "HE_0MAPIQ_CON": 1,
+        "ALEF_0MAPIQ_CON": 1
+      },
+      "constituentPairs": 2316,
+      "pairCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308,
+        "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13
+      },
+      "sourceWordIdentitiesChecked": 79985,
+      "assignmentSha256": "bdfb5b82aa885cec4ee4f5d62ffeaae3efc34c21d98fc79d9169c13294079eb3"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 // Original implementation of attributed linguistic facts. No source table or audio is copied.
 import {HISTORICAL_CATEGORY_INVENTORY as inventory} from './historical-pronunciation-categories.js';
 import {MAQAF_STRESS_SOURCE,sourceMaqafChain} from './pronunciation-stress.js';
-import {MODERN_PHONOLOGY_SOURCE,MODERN_PHONOLOGY_PROFILE,modernCorrespondence,modernVowelYodContext,modernSourceBoundary,modernEvidence,modernMissingSharedConsonant} from './modern-phonology.js';
+import {MODERN_PHONOLOGY_SOURCE,MODERN_PHONOLOGY_PROFILE,MODERN_FINAL_SOURCE,MODERN_FINAL_PROFILE,isModernPhonologyProfile,modernFinalCleanupContext,modernCorrespondence,modernVowelYodContext,modernSourceBoundary,modernEvidence,modernMissingSharedConsonant} from './modern-phonology.js';
 const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
 export const PHONOLOGY_SOURCE=freeze({id:'katz-1993-phonology',author:'Dovid Katz',title:'The Phonology of Ashkenazic',year:1993,
  book:'Hebrew in Ashkenaz: A Language in Exile, edited by Lewis Glinert',url:'https://www.dovidkatz.net/dovid/PDFLinguistics/1993b.pdf',
@@ -15,10 +15,10 @@ export const PHONOLOGY_PROFILES=freeze([
 ].map(p=>({...p,sourceId:PHONOLOGY_SOURCE.id,status:'source-based-proposal',kinnorAccentId:null,playable:false,singingVoice:null,review:null})));
 // Preserve the existing regional-profile export and audits. The full runtime
 // registry also includes the separately sourced modern inventory adaptation.
-export const ALL_PHONOLOGY_PROFILES=freeze([...PHONOLOGY_PROFILES,MODERN_PHONOLOGY_PROFILE]);
+export const ALL_PHONOLOGY_PROFILES=freeze([...PHONOLOGY_PROFILES,MODERN_PHONOLOGY_PROFILE,MODERN_FINAL_PROFILE]);
 const catalog=new Map(inventory.catalog.map(c=>[c.id,c]));
 export function phonologyProfile(id){const p=ALL_PHONOLOGY_PROFILES.find(p=>p.id===id);if(!p)throw Error('Unknown phonological research profile; no replacement selected.');return p;}
-export function phonologySourceForProfile(id){return phonologyProfile(id).sourceId===MODERN_PHONOLOGY_SOURCE.id?MODERN_PHONOLOGY_SOURCE:PHONOLOGY_SOURCE;}
+export function phonologySourceForProfile(id){const p=phonologyProfile(id);return p.sourceId===MODERN_FINAL_SOURCE.id?MODERN_FINAL_SOURCE:p.sourceId===MODERN_PHONOLOGY_SOURCE.id?MODERN_PHONOLOGY_SOURCE:PHONOLOGY_SOURCE;}
 const consonants={BET_0DAG:'v',BET_1DAG_QAL:'b',BET_1DAG_XAZAQ:'b',DALET_0DAG:'d',DALET_1DAG_QAL:'d',DALET_1DAG_XAZAQ:'d',
  FKAF_0DAG:'x',FKAF_1DAG_QAL:'k',FKAF_1DAG_XAZAQ:'k',FMEM_0DAG:'m',FNUN_0DAG:'n',FPE_0DAG:'f',FPE_1DAG_QAL:'p',FTSADI_0DAG:'t͡s',
  GIMEL_0DAG:'g',GIMEL_1DAG_QAL:'g',GIMEL_1DAG_XAZAQ:'g',HE_0MAPIQ_CON:'h',KAF_0DAG:'x',KAF_1DAG_QAL:'k',KAF_1DAG_XAZAQ:'k',
@@ -29,7 +29,7 @@ const consonants={BET_0DAG:'v',BET_1DAG_QAL:'b',BET_1DAG_XAZAQ:'b',DALET_0DAG:'d
 const proposal=(candidatePhonemes,rule,pages,reason=null,alternatives=null)=>({status:candidatePhonemes===null?'unassigned':'proposed',candidatePhonemes,rule,
  evidence:{sourceId:PHONOLOGY_SOURCE.id,printedPages:pages},reason,alternatives,phonemes:null,ipa:null,enginePhones:null,quantity:null,duration:null,noteIds:null,audioTimes:null,review:null});
 function realize(segment,context,profile){
- if(profile.id===MODERN_PHONOLOGY_PROFILE.id)return modernCorrespondence(segment,context);
+ if(isModernPhonologyProfile(profile))return modernCorrespondence(segment,context,profile);
  const id=segment.categoryId,kind=segment.kind,me=profile.region==='mideastern';
  if(kind==='silent-letter'||kind==='silent-vowel-sign')return proposal([],'source-silent-category',[69,71]);
  if(id==='ALEF_0MAPIQ_CON'||id==='AYIN_0DAG')return proposal([],'phonemic-guttural-loss',[69],'A phonetic glottal stop or lexical hiatus treatment is not assigned.');
@@ -81,8 +81,8 @@ function unitContext(unit,variant,units,maqaf,profile){
   closureBasis:'Original source categories before consonant loss and degemination; shared first halves close the preceding syllable.',
   beforeYodOrMappiq:tail.some(s=>['YOD_0DAG_CON','YOD_1DAG','YOD_0DAG_PART2_OF_DIPHTHONG','HE_1MAPIQ'].includes(s.categoryId)),
   primaryStress:unit.sourceStress?true:marked||maqafPrimary?false:null,stressBasis:unit.sourceStress?'explicit-source-primary':marked?'another-primary-in-same-source-word':maqafPrimary?'source-maqaf-primary-in-final-word':'not-established',maqafPrimary,
-  posttonicReduction:false,penultimateStressShift:false,vowelYod:profile.id===MODERN_PHONOLOGY_PROFILE.id?modernVowelYodContext(segments):vowelYodContext(segments),
-  ...(profile.id===MODERN_PHONOLOGY_PROFILE.id?{modernSourceBoundary:modernSourceBoundary(unit,segments,units)}:{})};
+  posttonicReduction:false,penultimateStressShift:false,vowelYod:isModernPhonologyProfile(profile)?modernVowelYodContext(segments):vowelYodContext(segments),
+  ...(isModernPhonologyProfile(profile)?{modernSourceBoundary:modernSourceBoundary(unit,segments,units)}:{})};
 }
 function compileRoute(study,row,cell,column,style,profile){
  const route={id:`${study.groupId}-${style}-r${row.number}-c${cell.column}-h${column}`,sourceRow:row.number,sourceColumn:cell.column,hebrewColumn:column,units:[],events:[],gaps:[]};
@@ -91,6 +91,7 @@ function compileRoute(study,row,cell,column,style,profile){
   const variant=unit.sourceSegments.variants.find(v=>v.hebrewColumn===column);
   if(!variant){route.gaps.push({reason:'incomplete-source-route',sourceUnitId:unit.id});continue;}
   const context=unitContext(unit,variant,cell.units,maqaf,profile);
+  if(profile.finalConsonantPolicy)context.modernFinalCleanup=modernFinalCleanupContext(study,cell,unit,variant);
   const record={sourceUnitId:unit.id,ownerWordId:unit.readerWordId,sourceText:unit.text,sourceStress:unit.sourceStress,sourceLabels:structuredClone(variant.sourceLabels),
    sourceHebrew:structuredClone(variant.sourceHebrew),readerRanges:structuredClone(variant.readerRanges),letterClusterBindings:structuredClone(variant.letterClusterBindings),context,fragments:[]};
   for(const segment of variant.segments){
@@ -106,12 +107,12 @@ function compileRoute(study,row,cell,column,style,profile){
   let members=[item];const s=fragment.source;
   if(s.part!=='whole'){
    const matches=flat.filter(other=>other.fragment.source.categoryId===s.categoryId&&other.unit.sourceUnitId===s.sharedWithUnitId&&other.fragment.source.sharedWithUnitId===unit.sourceUnitId&&other.fragment.source.part===(s.part==='first-half-shared'?'second-half-shared':'first-half-shared'));
-   if(matches.length!==1){fragment.proposal=profile.id===MODERN_PHONOLOGY_PROFILE.id?modernMissingSharedConsonant():proposal(null,'shared-consonant-counterpart-missing',[72],'A reciprocal source half is required; no second consonant or fallback is created.');route.gaps.push({reason:'shared-consonant-counterpart-missing',sourceSegmentIds:[s.id]});}
+   if(matches.length!==1){fragment.proposal=isModernPhonologyProfile(profile)?modernMissingSharedConsonant():proposal(null,'shared-consonant-counterpart-missing',[72],'A reciprocal source half is required; no second consonant or fallback is created.');route.gaps.push({reason:'shared-consonant-counterpart-missing',sourceSegmentIds:[s.id]});}
    else members=[item,matches[0]].sort((a,b)=>a.fragment.source.part==='first-half-shared'?-1:b.fragment.source.part==='first-half-shared'?1:0);
   }
   const eventId=members.map(m=>m.fragment.source.id).join('+'),event={id:eventId,sourceSegmentIds:members.map(m=>m.fragment.source.id),sourceUnitIds:members.map(m=>m.unit.sourceUnitId),
-   candidatePhonemes:fragment.proposal.candidatePhonemes,rule:category.geminate?profile.id===MODERN_PHONOLOGY_PROFILE.id?'modern-inventory-shared-consonant':'degemination':fragment.proposal.rule,
-   evidence:profile.id===MODERN_PHONOLOGY_PROFILE.id?structuredClone(fragment.proposal.evidence):{sourceId:PHONOLOGY_SOURCE.id,printedPages:category.geminate?[72]:fragment.proposal.evidence.printedPages},
+   candidatePhonemes:fragment.proposal.candidatePhonemes,rule:category.geminate?isModernPhonologyProfile(profile)?'modern-inventory-shared-consonant':'degemination':fragment.proposal.rule,
+   evidence:isModernPhonologyProfile(profile)?structuredClone(fragment.proposal.evidence):{sourceId:PHONOLOGY_SOURCE.id,printedPages:category.geminate?[72]:fragment.proposal.evidence.printedPages},
    phonemes:null,enginePhones:null,quantity:null,duration:null,noteIds:null,audioTimes:null,review:null};
   for(const m of members)m.fragment.eventId=eventId;
   route.events.push(event);
@@ -124,14 +125,14 @@ function compileRoute(study,row,cell,column,style,profile){
   if(unit.context.vowelYod){
    const ids=[unit.context.vowelYod.vowelSegmentId,unit.context.vowelYod.yodSegmentId],members=ids.map(id=>unit.fragments.find(f=>f.source.id===id));
    if(members.every(f=>f.proposal.candidatePhonemes!==null))unit.vowelYodProposal={sourceSegmentIds:ids,eventIds:members.map(f=>f.eventId),
-    candidatePhonemes:members.flatMap(f=>f.proposal.candidatePhonemes),evidence:profile.id===MODERN_PHONOLOGY_PROFILE.id?modernEvidence():{sourceId:PHONOLOGY_SOURCE.id,printedPages:[67,68,71]},
+    candidatePhonemes:members.flatMap(f=>f.proposal.candidatePhonemes),evidence:isModernPhonologyProfile(profile)?modernEvidence():{sourceId:PHONOLOGY_SOURCE.id,printedPages:[67,68,71]},
     status:'source-based-constituent-proposal',phonemes:null,enginePhones:null,quantity:null,duration:null,noteIds:null,audioTimes:null,review:null};
   }
-  if(unit.fragments.some(f=>f.source.kind==='diphthong-part'))route.gaps.push({reason:unit.vowelYodProposal?'vowel-yod-phonetics-needs-review':'unreviewed-diphthong-sequence',sourceUnitIds:[unit.sourceUnitId],evidence:profile.id===MODERN_PHONOLOGY_PROFILE.id?modernEvidence():{sourceId:PHONOLOGY_SOURCE.id,printedPages:[68,71]}});
+  if(unit.fragments.some(f=>f.source.kind==='diphthong-part'))route.gaps.push({reason:unit.vowelYodProposal?'vowel-yod-phonetics-needs-review':'unreviewed-diphthong-sequence',sourceUnitIds:[unit.sourceUnitId],evidence:isModernPhonologyProfile(profile)?modernEvidence():{sourceId:PHONOLOGY_SOURCE.id,printedPages:[68,71]}});
   const next=route.units[i+1];if(!next||unit.ownerWordId!==next.ownerWordId)continue;
   const end=unit.fragments.filter(f=>f.proposal.candidatePhonemes?.length).at(-1),start=next.fragments.find(f=>f.proposal.candidatePhonemes?.length);
   const onset=next.fragments.slice(0,next.fragments.findIndex(f=>isNucleus(f.source)));
-  if(end&&start&&isNucleus(end.source)&&isNucleus(start.source)&&onset.some(f=>['ALEF_0MAPIQ_CON','AYIN_0DAG'].includes(f.source.categoryId)&&(profile.id!==MODERN_PHONOLOGY_PROFILE.id||f.proposal.candidatePhonemes?.length===0)))route.gaps.push({reason:'hiatus-phonetics-needs-review',sourceUnitIds:[unit.sourceUnitId,next.sourceUnitId],evidence:profile.id===MODERN_PHONOLOGY_PROFILE.id?modernEvidence():{sourceId:PHONOLOGY_SOURCE.id,printedPages:[69]}});
+  if(end&&start&&isNucleus(end.source)&&isNucleus(start.source)&&onset.some(f=>['ALEF_0MAPIQ_CON','AYIN_0DAG'].includes(f.source.categoryId)&&(!isModernPhonologyProfile(profile)||f.proposal.candidatePhonemes?.length===0)))route.gaps.push({reason:'hiatus-phonetics-needs-review',sourceUnitIds:[unit.sourceUnitId,next.sourceUnitId],evidence:isModernPhonologyProfile(profile)?modernEvidence():{sourceId:PHONOLOGY_SOURCE.id,printedPages:[69]}});
  }
  return route;
 }
@@ -157,5 +158,5 @@ export function phonologyWordProposal(study,word,sourceStyle,profileId){
   counts:{routes:routes.length,categoryReferences:fragments.length,proposedReferences:fragments.filter(f=>f.proposal.candidatePhonemes!==null).length,unassignedReferences:fragments.filter(f=>f.proposal.candidatePhonemes===null).length,
    proposedEvents:routes.reduce((n,r)=>n+r.events.filter(e=>e.candidatePhonemes!==null).length,0),contextGaps:routes.reduce((n,r)=>n+r.gaps.length,0),reviewedRealizations:0},
   phonemes:null,notes:null,audioTimes:null,phonologicalReview:null,acousticReview:null,cantorialReview:null,playable:false,singingVoice:null,
-  limits:profile.id===MODERN_PHONOLOGY_PROFILE.id?'Modern inventory candidates adapted to original source categories, not the upstream whole-word phonemizer or a complete modern grammar. Written vocal sheva does not settle spoken sheva; special categories and final/suffix behavior remain unresolved. Original branches, Hebrew, source syllables, stress and shared consonants are retained. No quantity, engine phones, note/audio timing, singing voice or Kinnor equivalence is assigned. Independent linguistic and cantorial review is pending.':'Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending.'};
+  limits:profile.finalConsonantPolicy?MODERN_FINAL_SOURCE.scope+' Original Hebrew, branches, source syllables, stress and all note/recording clocks are retained; qualified review remains pending.':isModernPhonologyProfile(profile)?'Modern inventory candidates adapted to original source categories, not the upstream whole-word phonemizer or a complete modern grammar. Written vocal sheva does not settle spoken sheva; special categories and final/suffix behavior remain unresolved. Original branches, Hebrew, source syllables, stress and shared consonants are retained. No quantity, engine phones, note/audio timing, singing voice or Kinnor equivalence is assigned. Independent linguistic and cantorial review is pending.':'Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending.'};
 }

@@ -11202,6 +11202,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     singingVoice: null,
     review: null
   });
+  var MODERN_FINAL_SOURCE = Object.freeze({
+    ...MODERN_PHONOLOGY_SOURCE,
+    id: "phonikud-optional-final-consonants",
+    title: "Phonikud optional word-final glottal/h cleanup · source-category adaptation",
+    url: "https://github.com/phonikud/phonikud/blob/a29a75b473b0f132a0bbee41dad38763035211dc/phonikud/utils.py",
+    scope: "Only the optional post_normalize final glottal-stop and h deletion rules, adapted to an exact complete single-word source branch. No whole-word phonemizer, suffix rule, ij cleanup, spoken-sheva decision, resyllabification, sound timing or singing voice is supplied. Multiword, source-only and collective boundaries remain unresolved."
+  });
+  var MODERN_FINAL_PROFILE = Object.freeze({
+    ...MODERN_PHONOLOGY_PROFILE,
+    id: "phonikud-modern-final-consonants",
+    label: "Modern inventory · optional final loss · research",
+    sourceId: MODERN_FINAL_SOURCE.id,
+    inventoryProfileId: MODERN_PHONOLOGY_PROFILE.id,
+    finalConsonantPolicy: "single-exact-source-word-terminal-glottal-h-v1"
+  });
+  var isModernPhonologyProfile = (profile) => [MODERN_PHONOLOGY_PROFILE.id, MODERN_FINAL_PROFILE.id].includes(profile.id);
   var consonants2 = Object.freeze({
     BET_0DAG: "v",
     BET_1DAG_QAL: "b",
@@ -11296,13 +11312,33 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const meaningful = segments.filter((s) => !["silent-letter", "silent-vowel-sign"].includes(s.kind));
     return { finalUnitInSourceWord: last, terminalSegmentId: last === true ? meaningful.at(-1)?.id ?? null : null };
   }
-  function modernCorrespondence(segment, context) {
+  function modernFinalCleanupContext(study, cell, unit, variant) {
+    const ids = study.readerIds, source = study.sourceGroup, column = variant.hebrewColumn;
+    const complete = study.alignmentScope === "single-reader-word" && ids.length === 1 && source?.id === study.groupId && source.readerIds.length === 1 && source.readerIds[0] === ids[0] && source.readerHebrew[0] === study.readerHebrew[0] && !/[\s־-]/u.test(study.readerHebrew[0]) && !/[\s-]/u.test(cell.text) && cell.units.length > 0 && cell.units.every((u) => {
+      const ranges = u.sourceSegments.variants.find((v) => v.hebrewColumn === column)?.readerRanges;
+      return u.readerWordId === ids[0] && u.sourceBoundaryReaderWordId === ids[0] && Array.isArray(ranges) && ranges.some((r) => r.role === "written") && ranges.every((r) => r.readerWordId === ids[0] && ["written", "shared-consonant"].includes(r.role) && Number.isInteger(r.start) && Number.isInteger(r.end) && r.start >= 0 && r.start < r.end && r.end <= study.readerHebrew[0].length && study.readerHebrew[0].slice(r.start, r.end) === r.text);
+    });
+    const terminal = complete && cell.units.at(-1).id === unit.id ? variant.segments.at(-1) : null;
+    return {
+      sourceGroupId: study.groupId,
+      completeExactSingleSourceWord: complete,
+      terminalSegmentId: terminal?.part === "whole" ? terminal.id : null,
+      basis: "Complete original single-reader-word group; every source syllable in this branch has an exact written range. No maqaf, multiword/collective boundary, trailing source-silent category or shared half is treated as a terminal consonant."
+    };
+  }
+  function modernCorrespondence(segment, context, profile = MODERN_PHONOLOGY_PROFILE) {
     const id = segment.categoryId;
     if (["silent-letter", "silent-vowel-sign"].includes(segment.kind)) return { ...proposal([], "source-silent-category", "Explicit source silence is retained. Modern epenthesis or another spoken reading is not inferred."), evidence: { sourceId: "phonetic-mam-source-categories", sourceCommit: HISTORICAL_CATEGORY_INVENTORY.sourceCommit, inputSha256: HISTORICAL_CATEGORY_INVENTORY.inputSha256, license: HISTORICAL_CATEGORY_INVENTORY.license, printedPages: [] } };
     if (id === "SHEVA_NA" || id.startsWith("VARIKA_")) return proposal(null, "modern-spoken-sheva-unassigned", "Written vocal sheva does not determine modern spoken sheva. No invented Phonikud marker is inserted.");
     if (["ALEF_1MAPIQ", "HE_1MAPIQ", "ALEF_SHURUQ_VOWEL", "FPP_PATAX_MAPIQ_HE"].includes(id)) return proposal(null, "modern-special-category-unassigned", "The ordinary inventory does not establish this complete biblical source category or final/suffix treatment.");
-    if (["HE_0MAPIQ_CON", "ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(id) && (context.modernSourceBoundary.finalUnitInSourceWord === null || context.modernSourceBoundary.terminalSegmentId === segment.id))
+    if (["HE_0MAPIQ_CON", "ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(id) && (context.modernSourceBoundary.finalUnitInSourceWord === null || context.modernSourceBoundary.terminalSegmentId === segment.id)) {
+      if (profile.finalConsonantPolicy === MODERN_FINAL_PROFILE.finalConsonantPolicy && context.modernFinalCleanup?.completeExactSingleSourceWord === true && context.modernFinalCleanup.terminalSegmentId === segment.id)
+        return {
+          ...proposal([], "modern-optional-final-consonant-loss", "The source makes final glottal/h deletion optional. This proposal applies only at a complete exact standalone source-word ending; it is not source silence or a complete pronunciation grammar.", "wordCleanup"),
+          evidence: { ...modernEvidence("wordCleanup"), sourceId: MODERN_FINAL_SOURCE.id, sourceFunction: "post_normalize", sourceOption: "use_post_normalize", sourcePattern: id === "HE_0MAPIQ_CON" ? "h$" : "ʔ$" }
+        };
       return proposal(null, "modern-final-consonant-processing-unassigned", "Upstream word cleanup treats final h/glottal stops separately. No suffix or shared-word processing is guessed here.", "wordCleanup");
+    }
     if (consonants2[id]) return proposal([consonants2[id]], "modern-inventory-consonant");
     if (id === "YOD_0DAG_PART2_OF_DIPHTHONG" && context.vowelYod?.yodSegmentId === segment.id) return proposal(["j"], "modern-inventory-yod-constituent");
     if (pairVowels[id] && context.vowelYod?.vowelSegmentId === segment.id) return proposal([pairVowels[id]], "modern-inventory-vowel-constituent");
@@ -11337,7 +11373,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     { id: "katz-1993-northeastern-formal", label: "Northeastern Formal Ashkenazic · research", region: "northeastern" },
     { id: "katz-1993-mideastern-formal", label: "Mideastern Formal Ashkenazic · research", region: "mideastern" }
   ].map((p) => ({ ...p, sourceId: PHONOLOGY_SOURCE.id, status: "source-based-proposal", kinnorAccentId: null, playable: false, singingVoice: null, review: null })));
-  var ALL_PHONOLOGY_PROFILES = freeze2([...PHONOLOGY_PROFILES, MODERN_PHONOLOGY_PROFILE]);
+  var ALL_PHONOLOGY_PROFILES = freeze2([...PHONOLOGY_PROFILES, MODERN_PHONOLOGY_PROFILE, MODERN_FINAL_PROFILE]);
   var catalog = new Map(HISTORICAL_CATEGORY_INVENTORY.catalog.map((c) => [c.id, c]));
   function phonologyProfile(id) {
     const p = ALL_PHONOLOGY_PROFILES.find((p2) => p2.id === id);
@@ -11345,7 +11381,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return p;
   }
   function phonologySourceForProfile(id) {
-    return phonologyProfile(id).sourceId === MODERN_PHONOLOGY_SOURCE.id ? MODERN_PHONOLOGY_SOURCE : PHONOLOGY_SOURCE;
+    const p = phonologyProfile(id);
+    return p.sourceId === MODERN_FINAL_SOURCE.id ? MODERN_FINAL_SOURCE : p.sourceId === MODERN_PHONOLOGY_SOURCE.id ? MODERN_PHONOLOGY_SOURCE : PHONOLOGY_SOURCE;
   }
   var consonants3 = {
     BET_0DAG: "v",
@@ -11420,7 +11457,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     review: null
   });
   function realize(segment, context, profile) {
-    if (profile.id === MODERN_PHONOLOGY_PROFILE.id) return modernCorrespondence(segment, context);
+    if (isModernPhonologyProfile(profile)) return modernCorrespondence(segment, context, profile);
     const id = segment.categoryId, kind = segment.kind, me = profile.region === "mideastern";
     if (kind === "silent-letter" || kind === "silent-vowel-sign") return proposal2([], "source-silent-category", [69, 71]);
     if (id === "ALEF_0MAPIQ_CON" || id === "AYIN_0DAG") return proposal2([], "phonemic-guttural-loss", [69], "A phonetic glottal stop or lexical hiatus treatment is not assigned.");
@@ -11484,8 +11521,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       maqafPrimary,
       posttonicReduction: false,
       penultimateStressShift: false,
-      vowelYod: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernVowelYodContext(segments) : vowelYodContext(segments),
-      ...profile.id === MODERN_PHONOLOGY_PROFILE.id ? { modernSourceBoundary: modernSourceBoundary(unit, segments, units) } : {}
+      vowelYod: isModernPhonologyProfile(profile) ? modernVowelYodContext(segments) : vowelYodContext(segments),
+      ...isModernPhonologyProfile(profile) ? { modernSourceBoundary: modernSourceBoundary(unit, segments, units) } : {}
     };
   }
   function compileRoute(study, row, cell, column, style, profile) {
@@ -11498,6 +11535,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         continue;
       }
       const context = unitContext(unit, variant, cell.units, maqaf, profile);
+      if (profile.finalConsonantPolicy) context.modernFinalCleanup = modernFinalCleanupContext(study, cell, unit, variant);
       const record = {
         sourceUnitId: unit.id,
         ownerWordId: unit.readerWordId,
@@ -11528,7 +11566,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (s.part !== "whole") {
         const matches = flat.filter((other) => other.fragment.source.categoryId === s.categoryId && other.unit.sourceUnitId === s.sharedWithUnitId && other.fragment.source.sharedWithUnitId === unit.sourceUnitId && other.fragment.source.part === (s.part === "first-half-shared" ? "second-half-shared" : "first-half-shared"));
         if (matches.length !== 1) {
-          fragment.proposal = profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernMissingSharedConsonant() : proposal2(null, "shared-consonant-counterpart-missing", [72], "A reciprocal source half is required; no second consonant or fallback is created.");
+          fragment.proposal = isModernPhonologyProfile(profile) ? modernMissingSharedConsonant() : proposal2(null, "shared-consonant-counterpart-missing", [72], "A reciprocal source half is required; no second consonant or fallback is created.");
           route.gaps.push({ reason: "shared-consonant-counterpart-missing", sourceSegmentIds: [s.id] });
         } else members = [item, matches[0]].sort((a, b) => a.fragment.source.part === "first-half-shared" ? -1 : b.fragment.source.part === "first-half-shared" ? 1 : 0);
       }
@@ -11537,8 +11575,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         sourceSegmentIds: members.map((m) => m.fragment.source.id),
         sourceUnitIds: members.map((m) => m.unit.sourceUnitId),
         candidatePhonemes: fragment.proposal.candidatePhonemes,
-        rule: category.geminate ? profile.id === MODERN_PHONOLOGY_PROFILE.id ? "modern-inventory-shared-consonant" : "degemination" : fragment.proposal.rule,
-        evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? structuredClone(fragment.proposal.evidence) : { sourceId: PHONOLOGY_SOURCE.id, printedPages: category.geminate ? [72] : fragment.proposal.evidence.printedPages },
+        rule: category.geminate ? isModernPhonologyProfile(profile) ? "modern-inventory-shared-consonant" : "degemination" : fragment.proposal.rule,
+        evidence: isModernPhonologyProfile(profile) ? structuredClone(fragment.proposal.evidence) : { sourceId: PHONOLOGY_SOURCE.id, printedPages: category.geminate ? [72] : fragment.proposal.evidence.printedPages },
         phonemes: null,
         enginePhones: null,
         quantity: null,
@@ -11559,7 +11597,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           sourceSegmentIds: ids,
           eventIds: members.map((f) => f.eventId),
           candidatePhonemes: members.flatMap((f) => f.proposal.candidatePhonemes),
-          evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [67, 68, 71] },
+          evidence: isModernPhonologyProfile(profile) ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [67, 68, 71] },
           status: "source-based-constituent-proposal",
           phonemes: null,
           enginePhones: null,
@@ -11570,12 +11608,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           review: null
         };
       }
-      if (unit.fragments.some((f) => f.source.kind === "diphthong-part")) route.gaps.push({ reason: unit.vowelYodProposal ? "vowel-yod-phonetics-needs-review" : "unreviewed-diphthong-sequence", sourceUnitIds: [unit.sourceUnitId], evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [68, 71] } });
+      if (unit.fragments.some((f) => f.source.kind === "diphthong-part")) route.gaps.push({ reason: unit.vowelYodProposal ? "vowel-yod-phonetics-needs-review" : "unreviewed-diphthong-sequence", sourceUnitIds: [unit.sourceUnitId], evidence: isModernPhonologyProfile(profile) ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [68, 71] } });
       const next = route.units[i + 1];
       if (!next || unit.ownerWordId !== next.ownerWordId) continue;
       const end = unit.fragments.filter((f) => f.proposal.candidatePhonemes?.length).at(-1), start = next.fragments.find((f) => f.proposal.candidatePhonemes?.length);
       const onset = next.fragments.slice(0, next.fragments.findIndex((f) => isNucleus(f.source)));
-      if (end && start && isNucleus(end.source) && isNucleus(start.source) && onset.some((f) => ["ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(f.source.categoryId) && (profile.id !== MODERN_PHONOLOGY_PROFILE.id || f.proposal.candidatePhonemes?.length === 0))) route.gaps.push({ reason: "hiatus-phonetics-needs-review", sourceUnitIds: [unit.sourceUnitId, next.sourceUnitId], evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [69] } });
+      if (end && start && isNucleus(end.source) && isNucleus(start.source) && onset.some((f) => ["ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(f.source.categoryId) && (!isModernPhonologyProfile(profile) || f.proposal.candidatePhonemes?.length === 0))) route.gaps.push({ reason: "hiatus-phonetics-needs-review", sourceUnitIds: [unit.sourceUnitId, next.sourceUnitId], evidence: isModernPhonologyProfile(profile) ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [69] } });
     }
     return route;
   }
@@ -11634,7 +11672,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       cantorialReview: null,
       playable: false,
       singingVoice: null,
-      limits: profile.id === MODERN_PHONOLOGY_PROFILE.id ? "Modern inventory candidates adapted to original source categories, not the upstream whole-word phonemizer or a complete modern grammar. Written vocal sheva does not settle spoken sheva; special categories and final/suffix behavior remain unresolved. Original branches, Hebrew, source syllables, stress and shared consonants are retained. No quantity, engine phones, note/audio timing, singing voice or Kinnor equivalence is assigned. Independent linguistic and cantorial review is pending." : "Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending."
+      limits: profile.finalConsonantPolicy ? MODERN_FINAL_SOURCE.scope + " Original Hebrew, branches, source syllables, stress and all note/recording clocks are retained; qualified review remains pending." : isModernPhonologyProfile(profile) ? "Modern inventory candidates adapted to original source categories, not the upstream whole-word phonemizer or a complete modern grammar. Written vocal sheva does not settle spoken sheva; special categories and final/suffix behavior remain unresolved. Original branches, Hebrew, source syllables, stress and shared consonants are retained. No quantity, engine phones, note/audio timing, singing voice or Kinnor equivalence is assigned. Independent linguistic and cantorial review is pending." : "Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending."
     };
   }
 
@@ -12112,6 +12150,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       sourceLink.href = report.source.url;
       sourceLink.textContent = report.source.title;
       credit.append(sourceLink, document.createTextNode(report.source.license ? " · " + report.source.license + " · source-category adaptation; review pending." : " · attributed linguistic facts; review pending."));
+      if (report.profile.finalConsonantPolicy) {
+        const policy = document.createElement("p");
+        policy.className = "muted phonology-final-policy";
+        policy.textContent = "Optional word-final glottal/h loss: (∅) is a proposed deletion; ∅ is source silence. The proposal requires a complete, exactly aligned standalone source word. Joined, source-only and collective forms keep their unresolved endings. This option changes research text; singing and sound timing remain unassigned.";
+        credit.append(policy);
+      }
       const marked = document.createElement("b");
       marked.lang = "he";
       marked.dir = "rtl";
@@ -12140,7 +12184,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           li.append(source);
           const values = unit.fragments.map((f) => {
             const p = f.proposal, shared = f.source.part !== "whole";
-            return `${p.candidatePhonemes === null ? "? " + f.source.categoryId : p.candidatePhonemes.length ? p.candidatePhonemes.join("") : "∅"}${shared ? " [shared]" : ""}`;
+            return `${p.candidatePhonemes === null ? "? " + f.source.categoryId : p.candidatePhonemes.length ? p.candidatePhonemes.join("") : p.rule === "source-silent-category" ? "∅" : "(∅)"}${shared ? " [shared]" : ""}`;
           });
           const candidate = document.createElement("p");
           candidate.className = "phonology-candidate";
