@@ -4,18 +4,19 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "77e963141188b11acb9ad3977067aa0bc32bed1a",
-  "nextTask": "Continue the full reconstruction, prioritizing word-aligned melody and independent pronunciation before printing. Implement bounded original instrumental study of Idelsohn1929 No267 using the existing printed-figure tools. The private chart has26 indexed figures/groups,138pitchedcomponents and7rests. Keep21figures with complete written values distinct from5with timing/mark gaps. Preserve the combined Darga/Tebir group, explicit dotted subdivision/shared group, exact accidentals/slurs/rests and Fine/II positions; do not invent an automatic grammar, grace timing, locality or Kinnor equivalence. All musical/phonological review and Bible-word fitting remain null. The user permits clearly labelled instrumental demonstrations when reviewed melody/voice evidence is unavailable; unreviewed source study is not an accepted historical preset. Continue No268 Exodus12:21–22:39exact canonical word candidates across5systems; firstsystem has24notes/2rests for7words, with the smallC4ending unmeasured. Complete the remaining source systems and exact source syllable/word correspondence before any applied melody claim. Plain Latin index readings are not exact phonemes or replacement MAM syllables. Follow the NLI Berlin record990002552400205171/shelfY06705-06 lead without equating its91playlistpositions to original cylinder numbers; rights/identity/date discrepancy unresolved. Preserve the entire original feature inventory, Hebrew/CGJ/accents, repeated occurrence IDs, MAM stress/branches/shared-consonant/collective ownership and every null/review gap. Complete contextual melody systems and six independent historical pronunciation grammars/singing delivery across the whole Torah remain required. Private MBROLA diagnostics remain frozen. Source /private/tmp/tropetrain-v85-worktree/tropetrain; saved build outputs/Development-v0.85/tropetrain. Detailed private source work and release receipts are in work/audits/notation-capacity-0.85. Do not repeat accepted checks without a new change, failure or unresolved concern. Full goal active/incomplete.",
+  "nextTask": "Finish connected0.86publication and exact public normal/portable verification, then continue No268 Exodus12:21–22 word/source-syllable evidence and bounded instrumental score work. Preserve all39marked canonical word candidates and all nulls;88private pitches/8rests currently cover23word candidates, with one small-note duration unset and16words untranscribed. Preserve the full feature inventory and independent melody/pronunciation/voice/range/key/tempo. Complete contextual Torah systems, six complete historical pronunciation grammars and singing delivery remain pending; printing deferred. Portable headroom64335bytes requires lossless capacity work before more embedded sources. Full goal active.",
   "lastPassingTests": {
-    "automated": 749,
-    "newRegressionChecks": 0,
+    "automated": 760,
+    "newRegressionChecks": 11,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "localUiChecks": 340,
-    "publicUiChecks": 340,
-    "remainingPublicUiChecks": 0,
-    "ui": "749 automated checks pass, zero failed/cancelled/skipped. The six preliminary built corpus/catalogue/decoder/worker checks are included in the full coverage, not extra automated tests. Each finished normal and portable distribution passes164standard focused interface checks. Eight cross-distribution section-isolation checks and four brief actual-media checks bring the local total to340 and the public total to340. Playback is primarily muted; one brief1percent original-media probe per local/public normal build verifies actual advancement at original speed. Afterwards media is paused, volumes returned to zero, QA marks cleared, consoles clear and viewport reset. Exact marked Hebrew, source-only/combined/ambiguous gates, notes/exports, independent text/proposal styles/key/tempo/range, original recording groups and personal drafts retain their prior behavior. This is focused affected-flow verification, not a claim that every earlier UI flow was rerun or that cantorial/acoustic review occurred.",
-    "scope": "Focused source/software/browser checks; independent musical/linguistic/acoustic review not supplied."
+    "localUiChecks": 108,
+    "publicUiChecks": 0,
+    "remainingPublicUiChecks": 108,
+    "ui": "54 affected-flow desktop checks per normal/portable distribution; muted clocks, offline PCM, console clear; no acoustic/cantorial, physical file-dialog or narrow-screen review.",
+    "sourceAudits": "Completed existing full sequence; four stale page-hash reports refreshed, then frozen compiler and all760tests passed. Initial combined run had4stale input failures.",
+    "sourceInputPins": 296
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -193,11 +194,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": {
-    "version": "0.85.0",
-    "status": "published_public_verified_records_pending",
-    "next": "Continue the full reconstruction, prioritizing word-aligned melody and independent pronunciation before printing. Implement bounded original instrumental study of Idelsohn1929 No267 using the existing printed-figure tools. The private chart has26 indexed figures/groups,138pitchedcomponents and7rests. Keep21figures with complete written values distinct from5with timing/mark gaps. Preserve the combined Darga/Tebir group, explicit dotted subdivision/shared group, exact accidentals/slurs/rests and Fine/II positions; do not invent an automatic grammar, grace timing, locality or Kinnor equivalence. All musical/phonological review and Bible-word fitting remain null. The user permits clearly labelled instrumental demonstrations when reviewed melody/voice evidence is unavailable; unreviewed source study is not an accepted historical preset. Continue No268 Exodus12:21–22:39exact canonical word candidates across5systems; firstsystem has24notes/2rests for7words, with the smallC4ending unmeasured. Complete the remaining source systems and exact source syllable/word correspondence before any applied melody claim. Plain Latin index readings are not exact phonemes or replacement MAM syllables. Follow the NLI Berlin record990002552400205171/shelfY06705-06 lead without equating its91playlistpositions to original cylinder numbers; rights/identity/date discrepancy unresolved. Preserve the entire original feature inventory, Hebrew/CGJ/accents, repeated occurrence IDs, MAM stress/branches/shared-consonant/collective ownership and every null/review gap. Complete contextual melody systems and six independent historical pronunciation grammars/singing delivery across the whole Torah remain required. Private MBROLA diagnostics remain frozen. Source /private/tmp/tropetrain-v85-worktree/tropetrain; saved build outputs/Development-v0.85/tropetrain. Detailed private source work and release receipts are in work/audits/notation-capacity-0.85. Do not repeat accepted checks without a new change, failure or unresolved concern. Full goal active/incomplete."
-  },
+  "workingIteration": "0.86: No267 unreviewed instrumental written-figure study locally accepted; connected publication/public verification pending. Public0.85 remains accepted.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1090,9 +1087,9 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.64.0",
-    "codeCommit": "9f054ce4558235d972bcc1dfb2b5d1d76ed51f1a",
-    "tests": 538,
+    "version": "0.85.0",
+    "codeCommit": "77e963141188b11acb9ad3977067aa0bc32bed1a",
+    "tests": 749,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -2806,5 +2803,22 @@
     "sourceAssetsRemoved": 0,
     "canonicalProgramExact": true,
     "newMusicalRealizations": 0
+  },
+  "idelsohnWrittenFigures": {
+    "source": "Idelsohn1929 VolV No267, printed101/PDF104",
+    "record": "docs/IDELSOHN-NO267-PATTERNS.json",
+    "indexedFiguresOrGroups": 26,
+    "completeWrittenValueCandidates": 21,
+    "withheldFigures": 5,
+    "independentReview": null,
+    "bibleWordUnderlay": null,
+    "phonemes": null,
+    "kinnorEquivalent": null,
+    "status": "unreviewed instrumental study; not an accepted historical preset",
+    "eligiblePitchedNotes": 113,
+    "eligibleRests": 7,
+    "localUiChecks": 108,
+    "automatedChecks": 760,
+    "publicStatus": "pending"
   }
 }
