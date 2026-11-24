@@ -1,0 +1,318 @@
+{
+  "schema": "tropetrain-recording-group-word-draft-evidence-v1",
+  "revision": 1,
+  "source": {
+    "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+    "packetSha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9",
+    "rights": "Source timings CC-BY-SA-2.5; original audio and derived correspondence CC-BY-SA-3.0; PocketTorah / Not-a-Box Media Lab, Russel Neiss and Rabbi Charlie Schwartz."
+  },
+  "inputs": [
+    {
+      "path": "app.js",
+      "sha256": "8fd1b7ce17429a2813c346fe40a61109bf133db5e5fcafe8638fd9164d63639d"
+    },
+    {
+      "path": "data/pitch/manifest.json",
+      "sha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf"
+    },
+    {
+      "path": "data/references/torah-library.json.gz",
+      "sha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9"
+    },
+    {
+      "path": "data/references/torah-sources.zip",
+      "sha256": "8bd638f2ba7f959d0130edb05b0880558501dd11afa496ae6159c1663fdcade9"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/manifest.json",
+      "sha256": "d8797f3051f4d96f9175132dcf20e4c342b27b884211056c34652ab841516efe"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "index.html",
+      "sha256": "9d177e5e6627b3479c0d0e5300616217169629f658be1dafaf3a0c41b6584762"
+    },
+    {
+      "path": "measured-practice.js",
+      "sha256": "8ce5940ca3e37ba1449723b4d614ac2af818cf31ef4d1ffa559b2e2df8089f27"
+    },
+    {
+      "path": "recorded-reference.js",
+      "sha256": "707b4c368a205026d1efdc7d34a16af2c6f6da2ff5442acfeb51d618dae453ee"
+    },
+    {
+      "path": "recording-group-word-draft.js",
+      "sha256": "b99595566c8ac5a93bd5fe66ceccb60950360479deac27aae2ad5c4e81d65681"
+    },
+    {
+      "path": "recording-group-word-timing-ui.js",
+      "sha256": "db96c6d78bbd60aa9a5e191541068ee3cf30a3c0b2697e3c3e5739e4f73d5cf6"
+    },
+    {
+      "path": "recording-timing-group-pins.js",
+      "sha256": "694d03964a23a340d657afb455d422ac4cb4d5c1ca1430512fe8110a83945f77"
+    },
+    {
+      "path": "recording-timing-groups.js",
+      "sha256": "fe5794ba426a80d9256a425e997f09e9292317b99d2a3c25db02eca4c9a21990"
+    },
+    {
+      "path": "reference-library.js",
+      "sha256": "5d84a8f672fe88ccf4607ffc16eb66eedfb6229fcef49bb8b158aed7d24d8a78"
+    },
+    {
+      "path": "scripts/audit-inputs.mjs",
+      "sha256": "16512b506c93aa566ba85673d43e821746bb95ca03c4799a9aa047c3e14c621b"
+    },
+    {
+      "path": "scripts/audit-recording-group-word-drafts.mjs",
+      "sha256": "a0683292685325914ce831d66ba556cef12ac09ac8fab8987cacccff1170b1e3"
+    },
+    {
+      "path": "source-pitch-manifest.js",
+      "sha256": "3711fd92f911ad7c3354e7ba531c8d252bfc9cdd7f9eab60c5375ab9a5bcadc6"
+    },
+    {
+      "path": "source-pitch.js",
+      "sha256": "234486b80f955e38071ab7e3d181402a6dd08de64bd32540a53ebe88dc1c68ac"
+    },
+    {
+      "path": "source-word-windows.js",
+      "sha256": "db162b180775bba4728366099eb5be74044a893c9fdd6790ade8ae6dea650e58"
+    },
+    {
+      "path": "style.css",
+      "sha256": "71c37a12cf0fa7da51038deb6163f46775e2fab5b6a7591d939b318d54b8732c"
+    },
+    {
+      "path": "tests/source-word-windows-audit.py",
+      "sha256": "2b3631e5eef18bdf29e5aafcf0f86c36a5d73b11789a7d151861e09599cbd60b"
+    }
+  ],
+  "counts": {
+    "completeOriginalGroups": 5,
+    "blankPersonalWords": 43,
+    "personalBoundariesDistributed": 0,
+    "additionalIndividualSourceTimes": 0
+  },
+  "groups": [
+    {
+      "recordingId": "pt-portion-13-5",
+      "groupId": "pt-portion-13-5-timing-group-1",
+      "recordSha256": "50e9998d07c6ab3a699d554ae38b1570f3d903fa9dae4bf1a12b178b7dbc3fe6",
+      "audioSha1": "63a2fa3b6ce96feaf65f84ed4f4f5b6a216539eb",
+      "audioBytes": 1667344,
+      "measuredDurationSeconds": 416.8359375,
+      "measuredPcmSha256": "2b1d6ca5768d9ab21dd09ab2d2df15c65275e62f60fba1c568a0308f76437b4c",
+      "wordIds": [
+        "exo-3-18-11",
+        "exo-3-18-12",
+        "exo-3-18-13"
+      ],
+      "readerHebrew": [
+        "אֵלָיו֙",
+        "יְהוָ֞ה",
+        "אֱלֹהֵ֤י"
+      ],
+      "startSeconds": 66.136066,
+      "endSeconds": 69.14566,
+      "sourceWordTimes": null,
+      "personalWordTimes": null,
+      "syllableTimes": null,
+      "review": null
+    },
+    {
+      "recordingId": "pt-portion-13-7",
+      "groupId": "pt-portion-13-7-timing-group-1",
+      "recordSha256": "662d49c061ae7ce4c3486b2db6f4f786d0541870f33531f1c43c3a4be40e53b6",
+      "audioSha1": "c8d2a389ebbcb3d9302efd544ff49d73e7fcc969",
+      "audioBytes": 1390132,
+      "measuredDurationSeconds": 347.5330625,
+      "measuredPcmSha256": "dbbc628cad006e27b4390a736473be5f817eca776537168f21485ec65cbaa580",
+      "wordIds": [
+        "exo-5-14-5",
+        "exo-5-14-6",
+        "exo-5-14-7"
+      ],
+      "readerHebrew": [
+        "אֲשֶׁר־",
+        "שָׂ֣מוּ",
+        "עֲלֵהֶ֔ם"
+      ],
+      "startSeconds": 190.339458,
+      "endSeconds": 192.842418,
+      "sourceWordTimes": null,
+      "personalWordTimes": null,
+      "syllableTimes": null,
+      "review": null
+    },
+    {
+      "recordingId": "pt-portion-20-1",
+      "groupId": "pt-portion-20-1-timing-group-1",
+      "recordSha256": "2a4e48800cd3e6727ca320aa7994b5d0d1ed8657d1080ce36869682597e0f2bb",
+      "audioSha1": "d2bddc1fadaa8f16094fc5d71da4181fc186deef",
+      "audioBytes": 875833,
+      "measuredDurationSeconds": 218.958375,
+      "measuredPcmSha256": "8ba948a801ac54643e633678c28fb324c360453620bf746b1878e87d5f89c341",
+      "wordIds": [
+        "exo-28-12-13",
+        "exo-28-12-14",
+        "exo-28-12-15"
+      ],
+      "readerHebrew": [
+        "אַהֲרֹ֨ן",
+        "אֶת־",
+        "שְׁמוֹתָ֜ם"
+      ],
+      "startSeconds": 208.720148,
+      "endSeconds": 210.623931,
+      "sourceWordTimes": null,
+      "personalWordTimes": null,
+      "syllableTimes": null,
+      "review": null
+    },
+    {
+      "recordingId": "pt-portion-35-4",
+      "groupId": "pt-portion-35-4-timing-group-1",
+      "recordSha256": "c64f8ed299b8fbfc2e1d2ebe035a4dcb31b7128aa4a6f3a0c5b6a0be87519751",
+      "audioSha1": "4ce46cee995fd24e230a4ad4103dcceb7579b2c6",
+      "audioBytes": 2882550,
+      "measuredDurationSeconds": 720.613875,
+      "measuredPcmSha256": "056fee81f8b8d322fe54c3684a2dd0bfd10f8df54ffca2ef4ffbc715ce18b5f0",
+      "wordIds": [
+        "num-6-17-7",
+        "num-6-17-8",
+        "num-6-17-9"
+      ],
+      "readerHebrew": [
+        "עַ֖ל",
+        "סַ֣ל",
+        "הַמַּצּ֑וֹת"
+      ],
+      "startSeconds": 583.003133,
+      "endSeconds": 585.441228,
+      "sourceWordTimes": null,
+      "personalWordTimes": null,
+      "syllableTimes": null,
+      "review": null
+    },
+    {
+      "recordingId": "pt-portion-46-3",
+      "groupId": "pt-portion-46-3-timing-group-1",
+      "recordSha256": "1786d1c900468d76f4163c50378de818ef2ef01f4879320d4128d257795b9fbb",
+      "audioSha1": "aefd7330fb79425dffbf060a917c7eed85a8138d",
+      "audioBytes": 2566936,
+      "measuredDurationSeconds": 641.7240625,
+      "measuredPcmSha256": "21e4d94d6d2bc12beb1dfbf121d7b74c284c91fe6e7e92227a222b114cf3a221",
+      "wordIds": [
+        "deu-9-6-16",
+        "deu-9-6-17",
+        "deu-9-6-18",
+        "deu-9-7-1",
+        "deu-9-7-2",
+        "deu-9-7-3",
+        "deu-9-7-4",
+        "deu-9-7-5",
+        "deu-9-7-6",
+        "deu-9-7-7",
+        "deu-9-7-8",
+        "deu-9-7-9",
+        "deu-9-7-10",
+        "deu-9-7-11",
+        "deu-9-7-12",
+        "deu-9-7-13",
+        "deu-9-7-14",
+        "deu-9-7-15",
+        "deu-9-7-16",
+        "deu-9-7-17",
+        "deu-9-7-18",
+        "deu-9-7-19",
+        "deu-9-7-20",
+        "deu-9-7-21",
+        "deu-9-7-22",
+        "deu-9-7-23",
+        "deu-9-7-24",
+        "deu-9-7-25",
+        "deu-9-8-1",
+        "deu-9-8-2",
+        "deu-9-8-3"
+      ],
+      "readerHebrew": [
+        "קְשֵׁה־",
+        "עֹ֖רֶף",
+        "אָֽתָּה׃",
+        "זְכֹר֙",
+        "אַל־",
+        "תִּשְׁכַּ֔ח",
+        "אֵ֧ת",
+        "אֲשֶׁר־",
+        "הִקְצַ֛פְתָּ",
+        "אֶת־",
+        "יְהוָ֥ה",
+        "אֱלֹהֶ֖יךָ",
+        "בַּמִּדְבָּ֑ר",
+        "לְמִן־",
+        "הַיּ֞וֹם",
+        "אֲשֶׁר־",
+        "יָצָ֣אתָ ׀",
+        "מֵאֶ֣רֶץ",
+        "מִצְרַ֗יִם",
+        "עַד־",
+        "בֹּֽאֲכֶם֙",
+        "עַד־",
+        "הַמָּק֣וֹם",
+        "הַזֶּ֔ה",
+        "מַמְרִ֥ים",
+        "הֱיִיתֶ֖ם",
+        "עִם־",
+        "יְהוָֽה׃",
+        "וּבְחֹרֵ֥ב",
+        "הִקְצַפְתֶּ֖ם",
+        "אֶת־"
+      ],
+      "startSeconds": 103.877022,
+      "endSeconds": 140.224761,
+      "sourceWordTimes": null,
+      "personalWordTimes": null,
+      "syllableTimes": null,
+      "review": null
+    }
+  ],
+  "method": "The personal draft is rebuilt from the five pinned complete groups, unchanged source audio identity, measured duration, original ZIP outer bounds and exact marked corpus ownership. All personal boundaries start null. User marks must stay within the original group and follow source order without overlaps; unknown bounds are not filled. Import cannot certify phonemes, syllables, musical notes, source equivalence or review. Repeated reading occurrences retain separate drafts.",
+  "playback": "Original group review and personal word audition use the unchanged checksum-verified recording at original pitch and speed. Their source-word rows remain empty. A dotted personal highlight follows only explicitly entered draft bounds, never a repaired source timestamp. Muted-clock captures are labeled separately from source-audio playhead captures.",
+  "independentSettings": [
+    "melody",
+    "pronunciation text style",
+    "phonemic research profile",
+    "range",
+    "instrument transposition",
+    "instrument tempo",
+    "source recording pitch/speed"
+  ],
+  "phonemes": null,
+  "syllableTimes": null,
+  "singingVoice": null,
+  "acousticReview": null,
+  "musicalReview": null,
+  "phonologicalReview": null,
+  "limits": "This is an annotation and audition tool, not new accepted word timings or a historical melody/pronunciation realization. Main recorded/measured playback, source timings and all 748 count-mismatch and 16 duration-overflow gaps retain their existing gates."
+}

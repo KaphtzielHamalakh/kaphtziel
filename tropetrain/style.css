@@ -119,6 +119,7 @@
 .pronunciation-edition-forms{width:100%;border-collapse:collapse;table-layout:fixed;margin:1rem 0}.pronunciation-edition-forms th,.pronunciation-edition-forms td{border:1px solid var(--line,#d6d6cf);padding:.6rem;overflow-wrap:anywhere}.pronunciation-edition-forms td{font-family:'Noto Serif Hebrew',serif;font-size:1.35rem}
 
 #word-timing-review{margin-top:1.25rem}#word-timing-editor{margin-top:1rem}#word-timing-select{width:100%;max-width:100%}#word-timing-word{font:1.8rem 'Noto Serif Hebrew',serif}#word-timing-json{display:block;box-sizing:border-box;width:100%;max-width:100%;font:12px/1.5 monospace}#word-timing-id{overflow-wrap:anywhere}
+#recording-group-timing-review{margin-top:1.25rem}#recording-group-timing-select,#recording-group-timing-json{box-sizing:border-box;width:100%;max-width:100%}#recording-group-timing-json{display:block;font:12px/1.5 monospace}#recording-group-timing-word{font:1.8rem 'Noto Serif Hebrew',serif}#recording-group-timing-identity{overflow-wrap:anywhere}[data-word].timing-draft-active{outline:3px dotted #4d5985;outline-offset:3px;background:#eef0f6}
 
 .ipa-proposal{margin-block:.7rem;font:13px/1.6 system-ui,sans-serif;overflow-wrap:anywhere}.ipa-proposal dl{margin:.6rem 0}.ipa-proposal dt{font-weight:600}.ipa-proposal dd{margin-inline-start:1rem;margin-block-end:.7rem}.ipa-proposal small{display:block;color:var(--muted)}
 
