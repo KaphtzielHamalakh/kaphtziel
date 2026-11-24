@@ -42,6 +42,7 @@ import {appendReaderPronunciation} from './pronunciation-reader.js';
 import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-practice.js';
 import {RecordedPitchStore,pitchProcessingSupported} from './recorded-pitch-store.js';
 import {sourceTimedPracticePlan} from './measured-practice.js';
+import {createRecordingTimingGroups} from './recording-timing-groups.js';
 import {SourceContourStore,contourSupported} from './source-contour-store.js';
 import {mountSourcePitch} from './source-pitch-ui.js';
 import {mountSyllableTiming} from './syllable-timing-ui.js';
@@ -60,7 +61,7 @@ let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceJointEnabled=
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;sourceJointEnabled=saved?.allowJointSources===true;sourceReadingChoices=readingChoices(saved?.sourceReadingChoices??{});}catch{}
 function makeReadingModel(value,settings){return createReadingModel(value,{...settings,...(sourceSyllablesEnabled?{sourceUnderlay:sourceSyllableAdapter}:{})});}
 const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
-  rangeLow:60,rangeHigh:72,referenceVolume:0,chantRate:100,chantTranspose:0,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
+  rangeLow:60,rangeHigh:72,referenceVolume:0,chantRate:100,chantTranspose:0,recordingTimingGroups:false,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
 let restoredReadingType,originalPracticeText=null;
 try{
   originalPracticeText=localStorage.getItem('tropetrain-practice-v1');const saved=JSON.parse(originalPracticeText);
@@ -72,7 +73,7 @@ try{
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
     if(['word','source-unit','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
-    for(const key of ['repeat','groups','followPlayback','signClasses','scrollLayout'])if(typeof saved[key]==='boolean')state[key]=saved[key];
+    for(const key of ['repeat','groups','followPlayback','signClasses','scrollLayout','recordingTimingGroups'])if(typeof saved[key]==='boolean')state[key]=saved[key];
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
     if(Array.isArray(saved.ranges))state.ranges=saved.ranges;
@@ -102,7 +103,7 @@ $('pronunciation-span-follow').checked=pronunciationSpanFollowing;
 let smallNoteDemo=false;try{const saved=JSON.parse(localStorage.getItem('tropetrain-cohen-small-note-v1'));smallNoteDemo=saved?.policyId===SMALL_NOTE_STUDY.id&&saved.enabled===true;}catch{}
 $('printed-small-note-demo').checked=smallNoteDemo;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
-let referenceLibrary=null,selectedReferenceId=null,referenceActiveId=null,referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
+let referenceLibrary=null,recordingTimingGroups=null,recordingTimingGroupError=null,selectedReferenceId=null,referenceActiveIds=[],referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
 let chantPlan=null,chantReady=false,chantGeneration=0,chantPlayRequest=0,recordedPracticeRunning=false,lastProcessedPitch=null,lastMeasuredTone=null;
 const isSourcePractice=()=>state.practiceAudio==='recorded'||state.practiceAudio==='measured';
 const sourcePracticeName=()=>state.practiceAudio==='measured'?'Measured tones':'Recorded chant';
@@ -123,15 +124,26 @@ const sourceContourStore=new SourceContourStore({
 const chantPitchLabel=()=>state.practiceAudio==='measured'?`${state.chantTranspose>0?'+':''}${state.chantTranspose} semitones · measured tones` :state.chantTranspose===0?'original pitch requested':`${state.chantTranspose>0?'+':''}${state.chantTranspose} semitones · processed recording`;
 const referencePlayer=new RecordingPlayer($('reference-audio'),{
   onWord:word=>{
-    referenceActiveId=word?.occurrenceId??null;
+    referenceActiveIds=word?[word.occurrenceId]:[];
     if(word&&state.followPlayback){const page=Math.floor(words[word.wordIndex].verseIndex/VERSE_PAGE);if(page!==state.readerPage){state.readerPage=page;renderReader();}}
-    document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',marksWord(el,referenceActiveId)));
+    document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',referenceActiveIds.some(id=>marksWord(el,id))));
     if(word){renderRecordedWord(word);pronunciationTools?.showWord(words[word.wordIndex],{following:true});}else pronunciationTools?.showWord(words[state.cursor]);
     if(recordedPracticeRunning&&state.practiceAudio==='measured'&&word){
       const w=words[word.wordIndex],summary=sourceContourStore.wordSummary(referenceLibrary.at(w),w);
       $('measured-tone-window').textContent=summary?`${summary.hebrew} · ${summary.measuredFrameOnsets} measured / ${summary.totalFrameOnsets} frame onsets in this source word window. ${summary.measuredFrameOnsets?'Only assigned measurement cells make tones.':'No measured frequency onset in this window; missing measurements do not establish silence.'} No syllable timing is inferred.`:'';
     }
     if(word&&recordedPracticeRunning){$('status').textContent=`${sourcePracticeName()} · ${state.chantRate}% speed · ${chantPitchLabel()} · ${label(word.wordIndex)}${state.referenceVolume===0?' · muted clock':''}`;$('progress').style.width=`${100*(word.wordIndex-playingBounds[0]+1)/(playingBounds[1]-playingBounds[0]+1)}%`;}
+  },
+  onGroup:(group,clock)=>{
+    referenceActiveIds=group?.occurrenceIds??[];
+    if(group&&state.followPlayback){const page=Math.floor(words[group.firstIndex].verseIndex/VERSE_PAGE);if(page!==state.readerPage){state.readerPage=page;renderReader();}}
+    document.querySelectorAll('[data-word]').forEach(el=>el.classList.toggle('reference-active',referenceActiveIds.some(id=>marksWord(el,id))));
+    if(group){
+      $('reference-word').textContent=group.recordingHebrew.join(' ');
+      $('reference-word-label').textContent=`Complete recording timing group · ${group.wordIds.length} words · ${group.startSeconds.toFixed(6)}–${group.endSeconds.toFixed(6)} original seconds`;
+      $('reference-source-comparison').textContent='The whole group is highlighted together. Individual word and syllable times remain unassigned; source text, timestamps and recording remain unchanged.';
+      if(recordedPracticeRunning){$('status').textContent=`Recorded chant · complete timing group · ${group.wordIds.length} words together · ${Math.round(clock.progress*100)}% of group · individual word times unassigned${state.referenceVolume===0?' · muted clock':''}`;$('progress').style.width=`${clock.progress*100}%`;}
+    }
   },
   onEnd:()=>{$('reference-status').textContent='Reference playback finished. Your selection is kept.';say('Recorded reference finished. Your selection is kept.');recordedPracticeRunning=false;transportLabel(false);},
   onError:error=>{$('chant-pitch-cancel').hidden=true;if(state.practiceAudio==='measured'||state.chantTranspose!==0)$('chant-pitch-status').textContent=`Source preparation unavailable: ${error.message}`;$('reference-status').textContent=`Reference unavailable: ${error.message}`;recordedPracticeRunning=false;transportLabel(false);say(`${sourcePracticeName()} unavailable: ${error.message}`);renderReference({keepChoice:true});renderChantPractice();},
@@ -385,7 +397,7 @@ function updateSelection(){
   document.querySelectorAll('[data-word]').forEach(el=>{
     const i=Number(el.dataset.index),last=Number(el.dataset.endIndex??i),selected=last>=start&&i<=end;el.classList.toggle('selected',selected);el.classList.toggle('cursor',i<=state.cursor&&last>=state.cursor);
     el.classList.toggle('active',activeWordIds.some(id=>marksWord(el,id)));el.setAttribute('aria-pressed',String(selected));
-    el.classList.toggle('reference-active',marksWord(el,referenceActiveId));
+    el.classList.toggle('reference-active',referenceActiveIds.some(id=>marksWord(el,id)));
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${fullLabel(start)} to ${fullLabel(end)}`:`Cursor: ${fullLabel(state.cursor)}`;
   $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`+(state.scope==='source-unit'&&words[state.cursor].sourceJointGroup?' · complete shared pronunciation word; both written words play together'+(start<state.cursor?' including the word before the cursor':''):'');
@@ -451,8 +463,31 @@ function renderReference({keepChoice=false}={}){
     $('reference-remove').disabled=!!selected.audio.localFile||!selectedReady;
   }).catch(error=>{$('reference-storage').textContent=error.message;});
 }
+function renderRecordingTimingGroups(){
+  $('recording-group-controls').hidden=state.practiceAudio!=='recorded';
+  $('recording-groups').checked=state.recordingTimingGroups;
+  let group=null,message=recordingTimingGroupError??'Original recording timing groups are loading.';
+  if(recordingTimingGroups){
+    try{group=recordingTimingGroups.at(words,state.cursor);message=group?`${group.wordIds.length} words share one original ${group.startSeconds.toFixed(6)}–${group.endSeconds.toFixed(6)} second recording interval. Their individual word and syllable times are unassigned. Select the complete group to hear it together.`:'No complete ambiguous recording timing group at this cursor in the open section. Ordinary word timings keep their existing availability; a clipped group stays unavailable. Open the complete source reading if the group extends beyond this section.';}
+    catch(error){message=error.message;}
+  }
+  $('recording-group-status').textContent=message;
+  $('recording-group-select').disabled=!state.recordingTimingGroups||!group;
+}
+function selectedChantPlan(){
+  const limits=bounds(state.cursor,state.anchor,state.scope);
+  if(state.practiceAudio==='recorded'&&state.recordingTimingGroups){
+    if(!recordingTimingGroups)throw Error(recordingTimingGroupError??'Complete recording timing groups are loading.');
+    return recordingTimingGroups.plan(words,...limits,{allowTimingGroups:true});
+  }
+  return sourceTimedPracticePlan(referenceLibrary,words,...limits);
+}
+function chantPlanLabel(selected){
+  return selected.groups?.length?`${selected.timedWords} source-timed words + ${selected.groupWords} words in ${selected.groups.length} complete recording timing group(s). Individual group-word times remain unassigned.`:`${selected.words} source-timed word${selected.words===1?'':'s'}`;
+}
 function renderChantPractice(){
   const generation=++chantGeneration,tones=state.practiceAudio==='measured';
+  renderRecordingTimingGroups();
   $('chant-volume').value=state.referenceVolume;$('chant-volume-value').textContent=`${state.referenceVolume}%`;
   if(!isSourcePractice())return;
   $('chant-load').hidden=tones;$('chant-cancel').hidden=tones||!referenceLoadJob;
@@ -475,7 +510,7 @@ function renderChantPractice(){
   $('chant-speed').disabled=!referencePlayer.canPreservePitch;if(!referencePlayer.canPreservePitch)state.chantRate=100;$('chant-speed').value=state.chantRate;
   $('chant-speed-note').textContent=referencePlayer.canPreservePitch?'Percentage of source time, independent of instrument BPM and key. Pitch preservation is requested from the browser; processing can affect sound. Source word timings remain unchanged. Recording previews below always retain original speed.':'This browser lacks pitch-preserving speed control. Source practice uses100%.';
   chantPlan=null;chantReady=false;for(const id of ['play','compact-play','chant-load'])$(id).disabled=true;
-  try{chantPlan=sourceTimedPracticePlan(referenceLibrary,words,...bounds(state.cursor,state.anchor,state.scope));}
+  try{chantPlan=selectedChantPlan();}
   catch(error){$('chant-readiness').textContent=error.message;return;}
   const selected=chantPlan;
   if(tones){chantReady=supported;for(const id of ['play','compact-play'])$(id).disabled=!chantReady;$('chant-readiness').textContent=`${selected.words} source-timed word${selected.words===1?'':'s'} · ${selected.records.length} source measurement${selected.records.length===1?'':'s'}. ${supported?'Ready to prepare tones with Play. Measurement packets load locally or from this site; the portable build carries every packet.':'A browser with workers and gzip support is required.'} Estimated frequency and source-word acoustic review pending.`;return;}
@@ -485,20 +520,21 @@ function renderChantPractice(){
     const missing=selected.records.filter((_,i)=>!available[i]),bytes=missing.reduce((n,r)=>n+r.audio.bytes,0);chantReady=!missing.length;
     for(const id of ['play','compact-play'])$(id).disabled=!chantReady;
     $('chant-load').disabled=chantReady||!!referenceLoadJob;$('chant-load').textContent=missing.length?`Load chant audio · ${(bytes/1048576).toFixed(1)} MB`:'Chant audio ready';
-    $('chant-readiness').textContent=`${selected.words} source-timed word${selected.words===1?'':'s'} · ${selected.records.length} recording${selected.records.length===1?'':'s'}. ${referenceLoadJob?'Loading and verifying…':chantReady?'Ready for Play.':`${missing.length} recording${missing.length===1?'':'s'} to load.`} Acoustic review pending.`;
+    $('chant-readiness').textContent=`${chantPlanLabel(selected)} · ${selected.records.length} recording${selected.records.length===1?'':'s'}. ${referenceLoadJob?'Loading and verifying…':chantReady?'Ready for Play.':`${missing.length} recording${missing.length===1?'':'s'} to load.`} Acoustic review pending.`;
   }).catch(error=>{if(generation===chantGeneration)$('chant-readiness').textContent=error.message;});
 }
 async function playChantPractice(){
   stop(`Preparing the selected ${sourcePracticeName().toLowerCase()}.`);
   const request=++chantPlayRequest;let selected;
-  try{selected=sourceTimedPracticePlan(referenceLibrary,words,...bounds(state.cursor,state.anchor,state.scope));
+  try{selected=selectedChantPlan();
     if(state.practiceAudio!=='measured'&&!(await Promise.all(selected.records.map(r=>referenceStore.has(r)))).every(Boolean))throw Error('Load chant audio for this span first.');
   }catch(error){if(request===chantPlayRequest){say(error.message);renderChantPractice();}return;}
   if(request!==chantPlayRequest)return;
   playingBounds=bounds(state.cursor,state.anchor,state.scope);recordedPracticeRunning=true;
   try{referencePlayer.setRate(state.chantRate/100);}catch(error){recordedPracticeRunning=false;say(error.message);return;}
   referencePlayer.setVolume(state.referenceVolume/100);transportLabel(true);
-  await referencePlayer.play(selected.rows,state.repeat);
+  if(selected.segments)await referencePlayer.playSegments(selected.segments,state.repeat);
+  else await referencePlayer.play(selected.rows,state.repeat);
 }
 function renderChantCoverage(){
   const coverage=chantCoverage(referenceLibrary);
@@ -515,6 +551,14 @@ function renderChantCoverage(){
   }
 }
 $('practice-audio').addEventListener('change',e=>{stop('Practice audio changed.');state.practiceAudio=practiceAudioMode(e.target.value);render();});
+$('recording-groups').addEventListener('change',e=>{stop('Recording timing-group choice changed.');state.recordingTimingGroups=e.target.checked;persist();renderChantPractice();});
+$('recording-group-select').addEventListener('click',()=>{
+  try{
+    const group=recordingTimingGroups?.at(words,state.cursor);
+    if(state.practiceAudio!=='recorded'||!state.recordingTimingGroups||!group)throw Error('Enable complete recording timing groups and choose a complete group in this section.');
+    stop('Complete recording timing group selected. Press Play when ready.');state.cursor=group.firstIndex;state.anchor=group.lastIndex;state.scope='selection';state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;chooseEnd=false;render();$('reader').focus();
+  }catch(error){$('recording-group-status').textContent=error.message;}
+});
 $('chant-load').addEventListener('click',()=>{if(chantPlan){stop('Loading chant audio.');loadReferenceRecords(chantPlan.records);}});
 $('chant-cancel').addEventListener('click',()=>referenceLoadJob?.abort());
 $('chant-pitch').addEventListener('change',e=>{stop('Source pitch changed. Press Play to prepare it.');state.chantTranspose=Number(e.target.value);persist();renderChantPractice();});
@@ -1128,6 +1172,7 @@ getReferenceLibrary().then(value=>{
   for(const part of value.parts){const option=document.createElement('option');option.value=part.id;option.textContent=part.name;$('reference-portion').append(option);}
   $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${[...value.timingPolicies.values()].filter(p=>p.kind==='partial-original-windows').length} with partial original intervals · ${[...value.timingPolicies.values()].filter(p=>p.kind==='withheld').length} complete-take only`;
   $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
+  createRecordingTimingGroups(value).then(groups=>{recordingTimingGroups=groups;renderChantPractice();}).catch(error=>{recordingTimingGroupError=error.message;renderChantPractice();});
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';

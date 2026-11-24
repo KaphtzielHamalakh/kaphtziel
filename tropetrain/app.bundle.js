@@ -7904,6 +7904,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   var RecordingPlayer = class {
     constructor(media, { onWord = () => {
+    }, onGroup = () => {
     }, onEnd = () => {
     }, onError = () => {
     }, onLoading = () => {
@@ -7924,6 +7925,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.clock = clock;
       this.rate = 1;
       this.volume = Number.isFinite(media.volume) ? media.volume : 1;
+      this.onGroup = onGroup;
+      this.activeGroup = null;
       media.addEventListener("ended", () => {
         if (this.running && this.mode === "audio" && media.currentTime >= this.currentSegment.end) this.advance();
       });
@@ -7943,7 +7946,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       this.enabling = null;
       this.media.pause();
       this.cancelFrame(this.raf);
+      this.activeGroup = null;
       this.onWord(null);
+      this.onGroup(null);
     }
     get canPreservePitch() {
       return "preservesPitch" in this.media;
@@ -8081,7 +8086,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             this.advance();
             return;
           }
-          this.onWord(referenceWordAt(this.currentSegment, time));
+          const group = this.currentSegment.timingGroup;
+          if (group) {
+            if (this.activeGroup !== group) {
+              this.onWord(null);
+              this.activeGroup = group;
+            }
+            this.onGroup(group, { seconds: time, progress: (time - this.currentSegment.start) / (this.currentSegment.end - this.currentSegment.start) });
+          } else {
+            if (this.activeGroup) {
+              this.activeGroup = null;
+              this.onGroup(null);
+            }
+            this.onWord(referenceWordAt(this.currentSegment, time));
+          }
           this.raf = this.frame(tick);
         };
         tick();
@@ -14208,6 +14226,92 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   var sourceTimedPracticePlan = measuredPracticePlan;
 
+  // recording-timing-group-pins.js
+  var RECORDING_TIMING_GROUP_SOURCE = { "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd", "packetSha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9", "rights": "Source timings CC-BY-SA-2.5; original audio and derived correspondence CC-BY-SA-3.0; PocketTorah / Not-a-Box Media Lab, Russel Neiss and Rabbi Charlie Schwartz." };
+  var RECORDING_TIMING_GROUP_PINS = [{ "recordingId": "pt-portion-13-5", "recordSha256": "50e9998d07c6ab3a699d554ae38b1570f3d903fa9dae4bf1a12b178b7dbc3fe6", "groups": [{ "id": "pt-portion-13-5-timing-group-1", "wordIds": ["exo-3-18-11", "exo-3-18-12", "exo-3-18-13"], "readerHebrew": ["אֵלָיו֙", "יְהוָ֞ה", "אֱלֹהֵ֤י"], "sourceStartIndex": 52, "sourceEndIndex": 55, "startSeconds": 66.136066, "endSeconds": 69.14566 }] }, { "recordingId": "pt-portion-13-7", "recordSha256": "662d49c061ae7ce4c3486b2db6f4f786d0541870f33531f1c43c3a4be40e53b6", "groups": [{ "id": "pt-portion-13-7-timing-group-1", "wordIds": ["exo-5-14-5", "exo-5-14-6", "exo-5-14-7"], "readerHebrew": ["אֲשֶׁר־", "שָׂ֣מוּ", "עֲלֵהֶ֔ם"], "sourceStartIndex": 187, "sourceEndIndex": 190, "startSeconds": 190.339458, "endSeconds": 192.842418 }] }, { "recordingId": "pt-portion-20-1", "recordSha256": "2a4e48800cd3e6727ca320aa7994b5d0d1ed8657d1080ce36869682597e0f2bb", "groups": [{ "id": "pt-portion-20-1-timing-group-1", "wordIds": ["exo-28-12-13", "exo-28-12-14", "exo-28-12-15"], "readerHebrew": ["אַהֲרֹ֨ן", "אֶת־", "שְׁמוֹתָ֜ם"], "sourceStartIndex": 202, "sourceEndIndex": 205, "startSeconds": 208.720148, "endSeconds": 210.623931 }] }, { "recordingId": "pt-portion-35-4", "recordSha256": "c64f8ed299b8fbfc2e1d2ebe035a4dcb31b7128aa4a6f3a0c5b6a0be87519751", "groups": [{ "id": "pt-portion-35-4-timing-group-1", "wordIds": ["num-6-17-7", "num-6-17-8", "num-6-17-9"], "readerHebrew": ["עַ֖ל", "סַ֣ל", "הַמַּצּ֑וֹת"], "sourceStartIndex": 556, "sourceEndIndex": 559, "startSeconds": 583.003133, "endSeconds": 585.441228 }] }, { "recordingId": "pt-portion-46-3", "recordSha256": "1786d1c900468d76f4163c50378de818ef2ef01f4879320d4128d257795b9fbb", "groups": [{ "id": "pt-portion-46-3-timing-group-1", "wordIds": ["deu-9-6-16", "deu-9-6-17", "deu-9-6-18", "deu-9-7-1", "deu-9-7-2", "deu-9-7-3", "deu-9-7-4", "deu-9-7-5", "deu-9-7-6", "deu-9-7-7", "deu-9-7-8", "deu-9-7-9", "deu-9-7-10", "deu-9-7-11", "deu-9-7-12", "deu-9-7-13", "deu-9-7-14", "deu-9-7-15", "deu-9-7-16", "deu-9-7-17", "deu-9-7-18", "deu-9-7-19", "deu-9-7-20", "deu-9-7-21", "deu-9-7-22", "deu-9-7-23", "deu-9-7-24", "deu-9-7-25", "deu-9-8-1", "deu-9-8-2", "deu-9-8-3"], "readerHebrew": ["קְשֵׁה־", "עֹ֖רֶף", "אָֽתָּה׃", "זְכֹר֙", "אַל־", "תִּשְׁכַּ֔ח", "אֵ֧ת", "אֲשֶׁר־", "הִקְצַ֛פְתָּ", "אֶת־", "יְהוָ֥ה", "אֱלֹהֶ֖יךָ", "בַּמִּדְבָּ֑ר", "לְמִן־", "הַיּ֞וֹם", "אֲשֶׁר־", "יָצָ֣אתָ ׀", "מֵאֶ֣רֶץ", "מִצְרַ֗יִם", "עַד־", "בֹּֽאֲכֶם֙", "עַד־", "הַמָּק֣וֹם", "הַזֶּ֔ה", "מַמְרִ֥ים", "הֱיִיתֶ֖ם", "עִם־", "יְהוָֽה׃", "וּבְחֹרֵ֥ב", "הִקְצַפְתֶּ֖ם", "אֶת־"], "sourceStartIndex": 65, "sourceEndIndex": 96, "startSeconds": 103.877022, "endSeconds": 140.224761 }] }];
+
+  // recording-timing-groups.js
+  var sha2562 = async (text) => [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)))].map((b) => b.toString(16).padStart(2, "0")).join("");
+  var same5 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  var refuse = () => {
+    throw Error("The original recording timing-group source changed; complete groups are withheld.");
+  };
+  async function createRecordingTimingGroups(library) {
+    if (library?.source.originalCommit !== RECORDING_TIMING_GROUP_SOURCE.originalCommit || pitchManifest.referencePacketSha256 !== RECORDING_TIMING_GROUP_SOURCE.packetSha256) refuse();
+    const byWord = /* @__PURE__ */ new Map(), snapshots = /* @__PURE__ */ new Map();
+    for (const pin of RECORDING_TIMING_GROUP_PINS) {
+      const record = library?.byId.get(pin.recordingId), serialized = JSON.stringify(record);
+      if (!record || await sha2562(serialized) !== pin.recordSha256) refuse();
+      const measured = pitchManifest.records.find((r) => r.id === record.id), policy = sourceTimingPolicy(record);
+      if (policy.kind !== "partial-original-windows" || measured?.wordTiming !== record.status || measured.sourceAudio.sha1 !== record.audio.sha1 || measured.sourceAudio.bytes !== record.audio.bytes) refuse();
+      snapshots.set(record.id, { record, serialized });
+      let offset = 0;
+      const offsets = record.words.map((w) => {
+        const n = offset;
+        offset += w.sourceWords.length;
+        return n;
+      });
+      for (const group of pin.groups) {
+        const first = record.words.findIndex((w) => w.id === group.wordIds[0]), last = first + group.wordIds.length - 1, members = record.words.slice(first, last + 1);
+        if (first < 1 || last + 1 >= record.words.length || !same5(members.map((w) => w.id), group.wordIds) || !same5(members.map((w) => w.uxlcHebrew), group.readerHebrew) || members.some((w) => policy.windows.has(w.id) || w.startSeconds !== null || w.endSeconds !== null)) refuse();
+        const startIndex = offsets[first], endIndex = offsets[last + 1], start = record.rawStarts[startIndex], end = record.rawStarts[endIndex];
+        const faults = policy.ambiguities.filter((a) => start <= a.highSeconds && end >= a.lowSeconds);
+        if (!same5([startIndex, endIndex, start, end], [group.sourceStartIndex, group.sourceEndIndex, group.startSeconds, group.endSeconds]) || !Number.isFinite(start) || !Number.isFinite(end) || start < 0 || !(start < end && end <= measured.durationSeconds) || !faults.length || faults.some((a) => !(start < a.lowSeconds && a.highSeconds < end)) || record.rawStarts.slice(startIndex, endIndex).some((t) => t < start || t >= end) || !policy.windows.has(record.words[first - 1].id) || !policy.windows.has(record.words[last + 1].id)) refuse();
+        const source = { ...group, recordingId: record.id, referenceStartIndex: first, referenceEndIndex: last, timingSource: structuredClone(record.timingSource), sourceAudio: structuredClone(record.audio), sourceIssues: structuredClone(record.issues), measuredDurationSeconds: measured.durationSeconds };
+        for (const id of group.wordIds) {
+          if (byWord.has(id)) refuse();
+          byWord.set(id, source);
+        }
+      }
+    }
+    function at(words4, index) {
+      const word = words4[index], source = byWord.get(word?.sourceWordId ?? word?.id);
+      if (!source) return null;
+      const snapshot = snapshots.get(source.recordingId), record = library.byId.get(source.recordingId);
+      if (record !== snapshot.record || JSON.stringify(record) !== snapshot.serialized) refuse();
+      const position = source.wordIds.indexOf(word.sourceWordId ?? word.id), first = index - position, last = first + source.wordIds.length - 1, members = words4.slice(first, last + 1), section = word.sectionId;
+      if (first < 0 || last >= words4.length || members.length !== source.wordIds.length || typeof section !== "string" || !section) return null;
+      const occurrences2 = /* @__PURE__ */ new Set();
+      for (const [n, w] of members.entries()) {
+        const canonical7 = source.wordIds[n], entry = library.at(w), original = record.words[source.referenceStartIndex + n];
+        if ((w.sourceWordId ?? w.id) !== canonical7 || w.sourceHebrew !== source.readerHebrew[n] || w.index !== first + n || w.sectionId !== section || typeof w.id !== "string" || !w.id || occurrences2.has(w.id) || entry?.recording !== record || entry?.word !== original) return null;
+        occurrences2.add(w.id);
+      }
+      return { ...structuredClone(source), kind: "recording-timing-group", firstIndex: first, lastIndex: last, sectionId: section, occurrenceIds: members.map((w) => w.id), wordIndices: members.map((w) => w.index), recordingHebrew: members.map((w) => library.at(w).word.sourceHebrew), individualWordTimes: null, syllableTimes: null, phonemes: null, acousticReview: null, musicalReview: null };
+    }
+    function plan2(words4, start, end, { allowTimingGroups = false } = {}) {
+      if (!allowTimingGroups) return sourceTimedPracticePlan(library, words4, start, end);
+      if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end < start || end >= words4.length) throw Error("Choose a valid recording span.");
+      const rows2 = [], groups = [], segments = [], records = /* @__PURE__ */ new Map();
+      let pending = [];
+      const flush = () => {
+        if (pending.length) segments.push(...splitReferenceSegments(pending));
+        pending = [];
+      };
+      for (let index = start; index <= end; index++) {
+        const candidate = byWord.get(words4[index].sourceWordId ?? words4[index].id);
+        if (candidate) {
+          const group = at(words4, index);
+          if (!group || group.firstIndex !== index || group.lastIndex > end) throw Error("This span cuts an ambiguous recording timing group. Select its complete original group; individual word times remain unassigned.");
+          flush();
+          groups.push(group);
+          segments.push({ recordingId: group.recordingId, start: group.startSeconds, end: group.endSeconds, words: [], timingGroup: group });
+          records.set(group.recordingId, library.byId.get(group.recordingId));
+          index = group.lastIndex;
+        } else {
+          const single = sourceTimedPracticePlan(library, words4, index, index);
+          rows2.push(...single.rows);
+          pending.push(...single.rows);
+          for (const record of single.records) records.set(record.id, record);
+        }
+      }
+      flush();
+      const chosen = [...records.values()];
+      return { rows: rows2, groups, segments, records: chosen, words: end - start + 1, timedWords: rows2.length, groupWords: groups.reduce((n, g) => n + g.wordIds.length, 0), bytes: chosen.reduce((n, r) => n + r.audio.bytes, 0) };
+    }
+    return Object.freeze({ at, plan: plan2 });
+  }
+
   // source-contour.js
   var CONTOUR_RENDERING = Object.freeze({ revision: 1, sampleRate: 16e3, hop: 160, amplitude: 0.2, edgeFadeSamples: 32, maxFrames: 16e3 * 3600 });
   function contourSemitones(value) {
@@ -14599,16 +14703,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // syllable-group-timing.js
   var measurements2 = new Map(pitchManifest.records.map((r) => [r.id, r]));
-  var same5 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  var same6 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   var canonical6 = (w) => w.sourceWordId ?? w.id;
   function groupTimingChoices(study, group, words4, style) {
     if (!group || group.wordIds.length < 2 || new Set(group.wordIds).size !== group.wordIds.length || group.sourceGroupId !== study?.groupId || group.individualWordAllocation !== null || group.writtenSyllableRanges !== null || group.sourceTiming !== null || group.phonemes !== null || group.voice !== null || group.review !== null) throw Error("A complete unchanged shared source word is required.");
     const members = group.wordIndices.map((i) => words4[i]);
-    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical6(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same5(group.sourceWordIds, study.readerIds) || !same5(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
+    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical6(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same6(group.sourceWordIds, study.readerIds) || !same6(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
     const selected = validateJointStudy(chooseSourceStudy(study, group.sourceReadingChoices), group, style);
     if (selected.selectedStyle !== style) throw Error("Choose the current source text style.");
     if (group.navigationWordId !== members[0].id || group.navigationWordIndex !== members[0].index || group.source.sourceCommit !== study.sourceCommit || group.syllables.map((s) => s.sourceHebrew).join("") !== group.sourceReadingHebrew || group.syllables.some((s) => s.readerWordId !== null || s.writtenRange !== null || s.acousticTimes !== null)) throw Error("Shared source syllables or navigation changed.");
-    for (const path of group.paths.filter((p) => p.style === style)) if (path.sourceReadingHebrew !== group.sourceReadingHebrew || !same5(path.units.map((u) => [u.hebrew, u.sourceStress]), group.syllables.map((s) => [s.sourceHebrew, s.stress]))) throw Error("Shared source syllable text or stress changed.");
+    for (const path of group.paths.filter((p) => p.style === style)) if (path.sourceReadingHebrew !== group.sourceReadingHebrew || !same6(path.units.map((u) => [u.hebrew, u.sourceStress]), group.syllables.map((s) => [s.sourceHebrew, s.stress]))) throw Error("Shared source syllable text or stress changed.");
     return group.paths.filter((p) => p.style === style).map((path) => ({
       id: `r${path.sourceRow}-c${path.sourceColumn}`,
       row: path.sourceRow,
@@ -15323,6 +15427,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     referenceVolume: 0,
     chantRate: 100,
     chantTranspose: 0,
+    recordingTimingGroups: false,
     readerPage: 0,
     notePage: 0,
     staffPage: 0,
@@ -15345,7 +15450,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (Number.isInteger(saved[key]) && saved[key] >= min && saved[key] <= max) state[key] = saved[key];
       if (["pointed", "consonantal", "parallel"].includes(saved.view)) state.view = saved.view;
       if (["word", "source-unit", "group", "verse", "aliyah", "selection", "passage"].includes(saved.scope)) state.scope = saved.scope;
-      for (const key of ["repeat", "groups", "followPlayback", "signClasses", "scrollLayout"]) if (typeof saved[key] === "boolean") state[key] = saved[key];
+      for (const key of ["repeat", "groups", "followPlayback", "signClasses", "scrollLayout", "recordingTimingGroups"]) if (typeof saved[key] === "boolean") state[key] = saved[key];
       if (["reading", "torah"].includes(saved.findScope)) state.findScope = saved.findScope;
       if (SIGN_QUERIES.some((q) => q.id === saved.signQuery)) state.signQuery = saved.signQuery;
       if (Array.isArray(saved.ranges)) state.ranges = saved.ranges;
@@ -15420,8 +15525,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var scrollLayout = null;
   var scrollMessage = "Sourced scroll lines are loading.";
   var referenceLibrary = null;
+  var recordingTimingGroups = null;
+  var recordingTimingGroupError = null;
   var selectedReferenceId = null;
-  var referenceActiveId = null;
+  var referenceActiveIds = [];
   var referencePlan = null;
   var referenceRequired = [];
   var referenceReady = false;
@@ -15467,7 +15574,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var chantPitchLabel = () => state.practiceAudio === "measured" ? `${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones · measured tones` : state.chantTranspose === 0 ? "original pitch requested" : `${state.chantTranspose > 0 ? "+" : ""}${state.chantTranspose} semitones · processed recording`;
   var referencePlayer = new RecordingPlayer($("reference-audio"), {
     onWord: (word) => {
-      referenceActiveId = word?.occurrenceId ?? null;
+      referenceActiveIds = word ? [word.occurrenceId] : [];
       if (word && state.followPlayback) {
         const page = Math.floor(words3[word.wordIndex].verseIndex / VERSE_PAGE);
         if (page !== state.readerPage) {
@@ -15475,7 +15582,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           renderReader();
         }
       }
-      document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("reference-active", marksWord(el3, referenceActiveId)));
+      document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("reference-active", referenceActiveIds.some((id) => marksWord(el3, id))));
       if (word) {
         renderRecordedWord(word);
         pronunciationTools?.showWord(words3[word.wordIndex], { following: true });
@@ -15487,6 +15594,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (word && recordedPracticeRunning) {
         $("status").textContent = `${sourcePracticeName()} · ${state.chantRate}% speed · ${chantPitchLabel()} · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
         $("progress").style.width = `${100 * (word.wordIndex - playingBounds[0] + 1) / (playingBounds[1] - playingBounds[0] + 1)}%`;
+      }
+    },
+    onGroup: (group, clock) => {
+      referenceActiveIds = group?.occurrenceIds ?? [];
+      if (group && state.followPlayback) {
+        const page = Math.floor(words3[group.firstIndex].verseIndex / VERSE_PAGE);
+        if (page !== state.readerPage) {
+          state.readerPage = page;
+          renderReader();
+        }
+      }
+      document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("reference-active", referenceActiveIds.some((id) => marksWord(el3, id))));
+      if (group) {
+        $("reference-word").textContent = group.recordingHebrew.join(" ");
+        $("reference-word-label").textContent = `Complete recording timing group · ${group.wordIds.length} words · ${group.startSeconds.toFixed(6)}–${group.endSeconds.toFixed(6)} original seconds`;
+        $("reference-source-comparison").textContent = "The whole group is highlighted together. Individual word and syllable times remain unassigned; source text, timestamps and recording remain unchanged.";
+        if (recordedPracticeRunning) {
+          $("status").textContent = `Recorded chant · complete timing group · ${group.wordIds.length} words together · ${Math.round(clock.progress * 100)}% of group · individual word times unassigned${state.referenceVolume === 0 ? " · muted clock" : ""}`;
+          $("progress").style.width = `${clock.progress * 100}%`;
+        }
       }
     },
     onEnd: () => {
@@ -16051,7 +16178,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       el3.classList.toggle("cursor", i <= state.cursor && last >= state.cursor);
       el3.classList.toggle("active", activeWordIds.some((id) => marksWord(el3, id)));
       el3.setAttribute("aria-pressed", String(selected));
-      el3.classList.toggle("reference-active", marksWord(el3, referenceActiveId));
+      el3.classList.toggle("reference-active", referenceActiveIds.some((id) => marksWord(el3, id)));
     });
     $("selection-label").textContent = state.scope === "selection" ? `Selected ${fullLabel(start)} to ${fullLabel(end)}` : `Cursor: ${fullLabel(state.cursor)}`;
     $("span-preview").textContent = `${fullLabel(start)} to ${fullLabel(end)} · ${end - start + 1} word${end > start ? "s" : ""}` + (state.scope === "source-unit" && words3[state.cursor].sourceJointGroup ? " · complete shared pronunciation word; both written words play together" + (start < state.cursor ? " including the word before the cursor" : "") : "");
@@ -16152,8 +16279,35 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       $("reference-storage").textContent = error.message;
     });
   }
+  function renderRecordingTimingGroups() {
+    $("recording-group-controls").hidden = state.practiceAudio !== "recorded";
+    $("recording-groups").checked = state.recordingTimingGroups;
+    let group = null, message = recordingTimingGroupError ?? "Original recording timing groups are loading.";
+    if (recordingTimingGroups) {
+      try {
+        group = recordingTimingGroups.at(words3, state.cursor);
+        message = group ? `${group.wordIds.length} words share one original ${group.startSeconds.toFixed(6)}–${group.endSeconds.toFixed(6)} second recording interval. Their individual word and syllable times are unassigned. Select the complete group to hear it together.` : "No complete ambiguous recording timing group at this cursor in the open section. Ordinary word timings keep their existing availability; a clipped group stays unavailable. Open the complete source reading if the group extends beyond this section.";
+      } catch (error) {
+        message = error.message;
+      }
+    }
+    $("recording-group-status").textContent = message;
+    $("recording-group-select").disabled = !state.recordingTimingGroups || !group;
+  }
+  function selectedChantPlan() {
+    const limits = bounds2(state.cursor, state.anchor, state.scope);
+    if (state.practiceAudio === "recorded" && state.recordingTimingGroups) {
+      if (!recordingTimingGroups) throw Error(recordingTimingGroupError ?? "Complete recording timing groups are loading.");
+      return recordingTimingGroups.plan(words3, ...limits, { allowTimingGroups: true });
+    }
+    return sourceTimedPracticePlan(referenceLibrary, words3, ...limits);
+  }
+  function chantPlanLabel(selected) {
+    return selected.groups?.length ? `${selected.timedWords} source-timed words + ${selected.groupWords} words in ${selected.groups.length} complete recording timing group(s). Individual group-word times remain unassigned.` : `${selected.words} source-timed word${selected.words === 1 ? "" : "s"}`;
+  }
   function renderChantPractice() {
     const generation = ++chantGeneration, tones = state.practiceAudio === "measured";
+    renderRecordingTimingGroups();
     $("chant-volume").value = state.referenceVolume;
     $("chant-volume-value").textContent = `${state.referenceVolume}%`;
     if (!isSourcePractice()) return;
@@ -16189,7 +16343,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     chantReady = false;
     for (const id of ["play", "compact-play", "chant-load"]) $(id).disabled = true;
     try {
-      chantPlan = sourceTimedPracticePlan(referenceLibrary, words3, ...bounds2(state.cursor, state.anchor, state.scope));
+      chantPlan = selectedChantPlan();
     } catch (error) {
       $("chant-readiness").textContent = error.message;
       return;
@@ -16209,7 +16363,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       for (const id of ["play", "compact-play"]) $(id).disabled = !chantReady;
       $("chant-load").disabled = chantReady || !!referenceLoadJob;
       $("chant-load").textContent = missing.length ? `Load chant audio · ${(bytes / 1048576).toFixed(1)} MB` : "Chant audio ready";
-      $("chant-readiness").textContent = `${selected.words} source-timed word${selected.words === 1 ? "" : "s"} · ${selected.records.length} recording${selected.records.length === 1 ? "" : "s"}. ${referenceLoadJob ? "Loading and verifying…" : chantReady ? "Ready for Play." : `${missing.length} recording${missing.length === 1 ? "" : "s"} to load.`} Acoustic review pending.`;
+      $("chant-readiness").textContent = `${chantPlanLabel(selected)} · ${selected.records.length} recording${selected.records.length === 1 ? "" : "s"}. ${referenceLoadJob ? "Loading and verifying…" : chantReady ? "Ready for Play." : `${missing.length} recording${missing.length === 1 ? "" : "s"} to load.`} Acoustic review pending.`;
     }).catch((error) => {
       if (generation === chantGeneration) $("chant-readiness").textContent = error.message;
     });
@@ -16219,7 +16373,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const request = ++chantPlayRequest;
     let selected;
     try {
-      selected = sourceTimedPracticePlan(referenceLibrary, words3, ...bounds2(state.cursor, state.anchor, state.scope));
+      selected = selectedChantPlan();
       if (state.practiceAudio !== "measured" && !(await Promise.all(selected.records.map((r) => referenceStore.has(r)))).every(Boolean)) throw Error("Load chant audio for this span first.");
     } catch (error) {
       if (request === chantPlayRequest) {
@@ -16240,7 +16394,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     referencePlayer.setVolume(state.referenceVolume / 100);
     transportLabel(true);
-    await referencePlayer.play(selected.rows, state.repeat);
+    if (selected.segments) await referencePlayer.playSegments(selected.segments, state.repeat);
+    else await referencePlayer.play(selected.rows, state.repeat);
   }
   function renderChantCoverage() {
     const coverage = chantCoverage(referenceLibrary);
@@ -16279,6 +16434,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     stop("Practice audio changed.");
     state.practiceAudio = practiceAudioMode(e.target.value);
     render();
+  });
+  $("recording-groups").addEventListener("change", (e) => {
+    stop("Recording timing-group choice changed.");
+    state.recordingTimingGroups = e.target.checked;
+    persist();
+    renderChantPractice();
+  });
+  $("recording-group-select").addEventListener("click", () => {
+    try {
+      const group = recordingTimingGroups?.at(words3, state.cursor);
+      if (state.practiceAudio !== "recorded" || !state.recordingTimingGroups || !group) throw Error("Enable complete recording timing groups and choose a complete group in this section.");
+      stop("Complete recording timing group selected. Press Play when ready.");
+      state.cursor = group.firstIndex;
+      state.anchor = group.lastIndex;
+      state.scope = "selection";
+      state.readerPage = Math.floor(words3[state.cursor].verseIndex / VERSE_PAGE);
+      state.notePage = 0;
+      state.staffPage = 0;
+      chooseEnd = false;
+      render();
+      $("reader").focus();
+    } catch (error) {
+      $("recording-group-status").textContent = error.message;
+    }
   });
   $("chant-load").addEventListener("click", () => {
     if (chantPlan) {
@@ -17666,6 +17845,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     sourcePitchTools?.refresh();
     syllableTimingTools?.refresh();
     haftarahTools?.refresh();
+    createRecordingTimingGroups(value).then((groups) => {
+      recordingTimingGroups = groups;
+      renderChantPractice();
+    }).catch((error) => {
+      recordingTimingGroupError = error.message;
+      renderChantPractice();
+    });
   }).catch((error) => {
     $("reference-library-status").textContent = error.message;
   });
