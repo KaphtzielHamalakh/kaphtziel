@@ -14,7 +14,7 @@ const plan=(mode,options={})=>printedPatternPlan(mode,{sourceId:BAER_PATTERN_ID,
 
 test('Baer source inventory keeps32cells, twenty-seven measured figures and five source-timing/application gaps apart from the existing Cohen catalogue',()=>{
  assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(BAER_PATTERN_ROW.unavailable.length,0);
- assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.length,19);
+ assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.length,20);
  assert.equal(allPatternModes(BAER_PATTERN_ID).length,38);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,32); // one adjacent-column pair
  assert.equal(data.notes.length,308);assert.equal(data.notes.filter(n=>n.kind==='note').length,292);assert.equal(data.notes.filter(n=>n.kind==='rest').length,16);
  for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);if(f.status!=='unmeasured-grace')assert.equal(data.notes.some(n=>n.cell===f.id),false);else assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,f.unmeasuredGraceNotes);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);}

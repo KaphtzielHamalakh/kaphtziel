@@ -14,6 +14,7 @@ import './import-baer-high-holiday.mjs';
 import './import-printed-patterns.mjs';
 import './import-pattern-catalog.mjs';
 import './import-baer-patterns.mjs';
+import './import-idelsohn-patterns.mjs';
 import './import-calendar-examples.mjs';
 import './import-voice-studies.mjs';
 import './import-khan-pronunciation.mjs';
