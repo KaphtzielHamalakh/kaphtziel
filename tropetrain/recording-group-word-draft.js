@@ -67,8 +67,10 @@ export async function createRecordingGroupWordDrafts(library){
   }else if(kind!=='original-group')throw Error('Choose the complete original group or an explicitly bounded personal word.');
   return {record:library.byId.get(checked.source.recordingId),segment:{recordingId:checked.source.recordingId,start,end,words:[],recordingGroupReview:{reviewBasis:'original-recording-group-review',kind,groupId:checked.group.id,occurrenceId:word?.occurrenceId??null,hebrew:word?.hebrew??null,startSeconds:start,endSeconds:end,status:'personal-unreviewed',individualSourceWordTimes:null,syllableTimes:null,phonemes:null,review:null}}};
  }
- return Object.freeze({create,validate,setBoundaries,capture,preview,
-  parse(text,words,index){if(typeof text!=='string'||text.length>1000000)throw Error('Draft JSON must be smaller than 1 MB.');return validate(JSON.parse(text),words,index);},
-  key(value,words,index){const d=validate(value,words,index);return`tropetrain-recording-group-word-draft-v1:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify(d.group.occurrenceIds))}`;}
+ function parse(text,words,index){if(typeof text!=='string'||text.length>1000000)throw Error('Draft JSON must be smaller than 1 MB.');return validate(JSON.parse(text),words,index);}
+ return Object.freeze({create,validate,setBoundaries,capture,preview,parse,
+  key(value,words,index){const d=validate(value,words,index);return`tropetrain-recording-group-word-draft-v2:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify([d.group.sectionId,d.group.occurrenceIds]))}`;},
+  legacyKey(value,words,index){const d=validate(value,words,index);return`tropetrain-recording-group-word-draft-v1:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify(d.group.occurrenceIds))}`;},
+  restoreLegacy(text,words,index){try{return parse(text,words,index);}catch{return null;}}
  });
 }

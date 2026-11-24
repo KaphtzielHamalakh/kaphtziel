@@ -49,7 +49,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "9d177e5e6627b3479c0d0e5300616217169629f658be1dafaf3a0c41b6584762"
+      "sha256": "549d9a5edd9bc7f725b8d6fc7347c7755f68009462339ee7d9cd02d28bad2328"
     },
     {
       "path": "measured-practice.js",
@@ -61,11 +61,11 @@
     },
     {
       "path": "recording-group-word-draft.js",
-      "sha256": "b99595566c8ac5a93bd5fe66ceccb60950360479deac27aae2ad5c4e81d65681"
+      "sha256": "f6fa9efe04eb75ffaf660abf43033e94cf37fb788b23aabe61a14d514f515d22"
     },
     {
       "path": "recording-group-word-timing-ui.js",
-      "sha256": "db96c6d78bbd60aa9a5e191541068ee3cf30a3c0b2697e3c3e5739e4f73d5cf6"
+      "sha256": "334763d31749fe8de2392a1455bb26fb52532d7d80a918493368553ec7c8dc6f"
     },
     {
       "path": "recording-timing-group-pins.js",

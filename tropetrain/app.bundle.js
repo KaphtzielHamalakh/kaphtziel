@@ -14408,19 +14408,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       } else if (kind !== "original-group") throw Error("Choose the complete original group or an explicitly bounded personal word.");
       return { record: library.byId.get(checked2.source.recordingId), segment: { recordingId: checked2.source.recordingId, start, end, words: [], recordingGroupReview: { reviewBasis: "original-recording-group-review", kind, groupId: checked2.group.id, occurrenceId: word?.occurrenceId ?? null, hebrew: word?.hebrew ?? null, startSeconds: start, endSeconds: end, status: "personal-unreviewed", individualSourceWordTimes: null, syllableTimes: null, phonemes: null, review: null } } };
     }
+    function parse(text, words4, index) {
+      if (typeof text !== "string" || text.length > 1e6) throw Error("Draft JSON must be smaller than 1 MB.");
+      return validate(JSON.parse(text), words4, index);
+    }
     return Object.freeze({
       create,
       validate,
       setBoundaries,
       capture,
       preview,
-      parse(text, words4, index) {
-        if (typeof text !== "string" || text.length > 1e6) throw Error("Draft JSON must be smaller than 1 MB.");
-        return validate(JSON.parse(text), words4, index);
-      },
+      parse,
       key(value, words4, index) {
         const d = validate(value, words4, index);
+        return `tropetrain-recording-group-word-draft-v2:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify([d.group.sectionId, d.group.occurrenceIds]))}`;
+      },
+      legacyKey(value, words4, index) {
+        const d = validate(value, words4, index);
         return `tropetrain-recording-group-word-draft-v1:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify(d.group.occurrenceIds))}`;
+      },
+      restoreLegacy(text, words4, index) {
+        try {
+          return parse(text, words4, index);
+        } catch {
+          return null;
+        }
       }
     });
   }
@@ -14522,9 +14534,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         draft = service.create(words4, cursor);
         record = getReferences().byId.get(draft.source.recordingId);
         selected = Math.max(0, draft.words.findIndex((w) => w.occurrenceId === word.id));
-        let saved;
+        let saved, legacy = false;
         try {
           saved = localStorage.getItem(service.key(draft, words4, cursor));
+          if (!saved) {
+            const old = localStorage.getItem(service.legacyKey(draft, words4, cursor)), restored = old && service.restoreLegacy(old, words4, cursor);
+            if (restored) {
+              draft = restored;
+              legacy = true;
+            }
+          }
         } catch {
         }
         if (saved) {
@@ -14534,7 +14553,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           } catch (error) {
             message("Saved draft withheld: " + error.message);
           }
-        } else message("All personal word boundaries are blank. Listen to the complete original group, then enter or capture your own unreviewed marks.");
+        } else if (legacy) {
+          try {
+            localStorage.setItem(service.key(draft, words4, cursor), JSON.stringify(draft));
+            message("Personal draft restored for this exact recording group and section. Its older saved copy is retained; source times and review gaps are unchanged.");
+          } catch {
+            message("Personal draft restored for this exact section. Device saving is unavailable; prepare and copy the JSON to keep it.");
+          }
+        } else message("All personal word boundaries are blank for this reading section. Listen to the complete original group, then enter or capture your own unreviewed marks.");
         for (const [i, w] of draft.words.entries()) {
           const option = document.createElement("option");
           option.value = String(i);

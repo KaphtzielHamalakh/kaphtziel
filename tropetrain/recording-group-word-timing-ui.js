@@ -50,9 +50,10 @@ export function mountRecordingGroupWordTiming({getWords,getCursor,getDrafts,getR
   try{
    if(!service)throw Error('Original recording timing-group evidence is still loading.');
    draft=service.create(words,cursor);record=getReferences().byId.get(draft.source.recordingId);selected=Math.max(0,draft.words.findIndex(w=>w.occurrenceId===word.id));
-   let saved;try{saved=localStorage.getItem(service.key(draft,words,cursor));}catch{}
+   let saved,legacy=false;try{saved=localStorage.getItem(service.key(draft,words,cursor));if(!saved){const old=localStorage.getItem(service.legacyKey(draft,words,cursor)),restored=old&&service.restoreLegacy(old,words,cursor);if(restored){draft=restored;legacy=true;}}}catch{}
    if(saved){try{draft=service.parse(saved,words,cursor);message('Personal draft restored for this exact recording group and occurrence. All source times and review gaps remain unchanged.');}catch(error){message('Saved draft withheld: '+error.message);}}
-   else message('All personal word boundaries are blank. Listen to the complete original group, then enter or capture your own unreviewed marks.');
+   else if(legacy){try{localStorage.setItem(service.key(draft,words,cursor),JSON.stringify(draft));message('Personal draft restored for this exact recording group and section. Its older saved copy is retained; source times and review gaps are unchanged.');}catch{message('Personal draft restored for this exact section. Device saving is unavailable; prepare and copy the JSON to keep it.');}}
+   else message('All personal word boundaries are blank for this reading section. Listen to the complete original group, then enter or capture your own unreviewed marks.');
    for(const [i,w]of draft.words.entries()){const option=document.createElement('option');option.value=String(i);option.textContent=`${i+1} · ${w.hebrew}`;$('recording-group-timing-select').append(option);}
    $('recording-group-timing-window').textContent=`${record.title} · ${draft.words.length} words together · original ${draft.group.startSeconds.toFixed(6)}–${draft.group.endSeconds.toFixed(6)} seconds. Every original member-word time remains unassigned. These personal annotations do not establish pronunciation equivalence or a musical review.`;
    draw();const ready=await hasSource(record);if(current!==generation)return;available=ready;draw();
