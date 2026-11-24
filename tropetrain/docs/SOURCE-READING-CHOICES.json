@@ -146,7 +146,7 @@
     },
     {
       "path": "pronunciation-note-proposals.js",
-      "sha256": "e55ada09866fa250f51b9e5eae4a99e46874a18c2c7f7f4ec0fb3e00f6544f73"
+      "sha256": "5917debe0f3183ce707210011d18bd7a791086142b3e5388f37658add6e8cc70"
     },
     {
       "path": "pronunciation-reader.js",
@@ -154,7 +154,7 @@
     },
     {
       "path": "pronunciation-phonology.js",
-      "sha256": "fc4350e322f33b178ee8a414d2fde2070377b8eefaa23478efb3c42557182508"
+      "sha256": "59a10de1b2d10e7c650232791d0a864e233d6d826ac26e3aa0d06fe1922505b5"
     },
     {
       "path": "music.js",

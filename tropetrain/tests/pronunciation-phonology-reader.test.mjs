@@ -5,7 +5,7 @@ const j=n=>JSON.parse(gunzipSync(readFileSync(new URL('../data/pronunciation/'+n
 const word=id=>{const h=lib.byWord.get(id);return{id,sourceHebrew:h.group.readerHebrew[h.index]};},report=(id,p=0,style='sephardic')=>{const w=word(id);return project(w,lib.study(w,style),style,profiles[p].id);};
 
 test('independent phonemic reader profiles preserve marked words, original source syllables and stress in both text styles',()=>{
- const options=sources.filter(s=>s.kind==='phonemic-research');assert.deepEqual(options.map(o=>o.profileId),profiles.map(p=>p.id));assert.equal(sources.filter(s=>s.kind==='published-word').length,2);
+ const options=sources.filter(s=>s.kind==='phonemic-research');assert.deepEqual(options.map(o=>o.profileId),['katz-1993-northeastern-formal','katz-1993-mideastern-formal','phonikud-modern-inventory']);assert.equal(profiles.length,2);assert.equal(sources.filter(s=>s.kind==='published-word').length,2);
  for(const style of['sephardic','ashkenazic']){const a=report('gen-1-1-2',0,style),b=report('gen-1-1-2',1,style);assert.equal(a.hebrew,'בָּרָ֣א');assert.equal(b.hebrew,a.hebrew);assert.equal(a.entries[0].text,'bɔ · rɔ∅');assert.equal(b.entries[0].text,'bu · ru∅');assert.deepEqual(a.entries[0].parts.map(p=>p.sourceStress),[false,true]);assert.deepEqual(a.entries[0].parts.map(p=>p.hebrewClusterRanges),b.entries[0].parts.map(p=>p.hebrewClusterRanges));assert.equal(a.evidence.selectedTranscriptionStyle,style);}
 });
 test('shared source halves reference one candidate event while unresolved, source-silent and proposed absence remain distinct',()=>{

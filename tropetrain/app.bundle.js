@@ -2634,14 +2634,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (this.#consonantsCache) {
         return this.#consonantsCache;
       }
-      const consonants3 = this.chars.reduce((a, char) => {
+      const consonants4 = this.chars.reduce((a, char) => {
         const text = char.text;
         if (char.isConsonant && this.#isCharConsonant(text)) {
           a.push(text);
         }
         return a;
       }, []);
-      return this.#consonantsCache = consonants3;
+      return this.#consonantsCache = consonants4;
     }
     /**
      * Gets all consonant names in the cluster.
@@ -3256,14 +3256,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (this.#vowelsCache) {
         return this.#vowelsCache;
       }
-      const vowels3 = this.chars.reduce((a, char) => {
+      const vowels4 = this.chars.reduce((a, char) => {
         const text = char.text;
         if (char.isVowel && this.#isCharVowel(text)) {
           a.push(text);
         }
         return a;
       }, []);
-      return this.#vowelsCache = vowels3;
+      return this.#vowelsCache = vowels4;
     }
   };
   _a2 = Cluster;
@@ -3714,24 +3714,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           return structure2;
         }
       }
-      let [onset, nucleus, coda] = ["", "", ""];
+      let [onset, nucleus2, coda] = ["", "", ""];
       let i = 0;
       for (; i < first.chars.length && (first.chars[i].sequencePosition < 3 || first.chars[i].text === "ֽ"); i++) {
         onset += first.chars[i].text;
       }
       for (; i < first.chars.length && [3, 4].includes(first.chars[i].sequencePosition); i++) {
-        nucleus += first.chars[i].text;
+        nucleus2 += first.chars[i].text;
       }
       for (; i < first.chars.length; i++) {
         coda += first.chars[i].text;
       }
       let clusters_processed = 1;
       if (coda.length === 0 && heClusters.length > 1 && (heClusters[1].isShureq || heClusters[1].isMater)) {
-        nucleus += heClusters[1].text;
+        nucleus2 += heClusters[1].text;
         clusters_processed++;
       }
       coda += heClusters.slice(clusters_processed).map((c) => c.text).join("");
-      if (withGemination && coda.length === 0 && !/\u{05B0}/u.test(nucleus)) {
+      if (withGemination && coda.length === 0 && !/\u{05B0}/u.test(nucleus2)) {
         if (this.next instanceof _Syllable) {
           const nextOnset = this.next.onset;
           if (/\u{05BC}/u.test(nextOnset)) {
@@ -3739,7 +3739,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           }
         }
       }
-      const structure = [onset, nucleus, coda];
+      const structure = [onset, nucleus2, coda];
       if (withGemination) {
         this.#cachedStructureWithGemination = structure;
       } else {
@@ -3853,11 +3853,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (this.#vowelsCache) {
         return this.#vowelsCache;
       }
-      const nucleus = this.nucleus;
-      const noTaamim = removeTaamim(nucleus)[0];
+      const nucleus2 = this.nucleus;
+      const noTaamim = removeTaamim(nucleus2)[0];
       const shureq = sylVowelNameToCharMap.SHUREQ;
       const shureqPresentation = "וּ";
-      const vowels3 = noTaamim.replace(shureq, shureqPresentation).split("").reduce((a, v) => {
+      const vowels4 = noTaamim.replace(shureq, shureqPresentation).split("").reduce((a, v) => {
         if (this.#isCharKeyOfSyllableVowelCharToNameMap(v)) {
           a.push(v);
         }
@@ -3866,7 +3866,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         return a;
       }, []);
-      return this.#vowelsCache = vowels3;
+      return this.#vowelsCache = vowels4;
     }
     /**
      * Gets the {@link Word} to which the syllable belongs
@@ -3908,9 +3908,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const holemRegx = /\u{05B9}/u;
     const holemHaser = /\u{05BA}/u;
     const wawHolemRegX = /\u{05D5}\u{05B9}/u;
-    const vowels3 = /[\u{05B0}-\u{05BB}\u{05C7}]/u;
-    const vavHolemMale = new RegExp("(?<!" + vowels3.source + ")" + wawHolemRegX.source, "gu");
-    const vavHolemHaser = new RegExp("(?<=" + vowels3.source + ")" + wawRegX.source + taamim.source + "?" + holemRegx.source, "gu");
+    const vowels4 = /[\u{05B0}-\u{05BB}\u{05C7}]/u;
+    const vavHolemMale = new RegExp("(?<!" + vowels4.source + ")" + wawHolemRegX.source, "gu");
+    const vavHolemHaser = new RegExp("(?<=" + vowels4.source + ")" + wawRegX.source + taamim.source + "?" + holemRegx.source, "gu");
     if (options.holemHaser === "remove" && holemHaser.test(word)) {
       word = word.replace(holemHaser, "ֹ");
     }
@@ -10192,10 +10192,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     const decoded = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text();
     return validateWordSupport(JSON.parse(decoded), expected);
   }
-  function wordSupportContext(proposal2, index, seconds = 1) {
-    const word = proposal2?.words?.[index];
-    if (!word || seconds !== 1 || !Number.isFinite(proposal2.source?.duration) || proposal2.source.duration <= 0) throw Error("Choose a model-support word with one second of context.");
-    return { start: Math.max(0, word.modelSupport.start - seconds), end: Math.min(proposal2.source.duration, word.modelSupport.end + seconds) };
+  function wordSupportContext(proposal3, index, seconds = 1) {
+    const word = proposal3?.words?.[index];
+    if (!word || seconds !== 1 || !Number.isFinite(proposal3.source?.duration) || proposal3.source.duration <= 0) throw Error("Choose a model-support word with one second of context.");
+    return { start: Math.max(0, word.modelSupport.start - seconds), end: Math.min(proposal3.source.duration, word.modelSupport.end + seconds) };
   }
 
   // phonetic-word-summary.js
@@ -10321,8 +10321,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function vowelAnchorsAvailable(record) {
     return !!record && VOWEL_ANCHORS.records.some((r) => r.recordId === record.id && r.originalSha256 === record.audio.sha256);
   }
-  function validateVowelAnchors(value, draft, consonants3) {
-    const prior = validatePhoneticWords(consonants3, draft), entry = VOWEL_ANCHORS.records.find((r) => r.recordId === draft.source.id);
+  function validateVowelAnchors(value, draft, consonants4) {
+    const prior = validatePhoneticWords(consonants4, draft), entry = VOWEL_ANCHORS.records.find((r) => r.recordId === draft.source.id);
     if (!entry || value?.format !== "tropetrain-vowel-anchor-observations-v1" || value.revision !== 1 || value.status !== "unreviewed-structural-vowel-observations") throw Error("Only the checked structural vowel observations are available.");
     if (!same4(value.source, draft.source) || !same4(value.coverage, draft.coverage) || !same4(value.comparisonStyles, styles2)) throw Error("Vowel observations belong to a different original or marked passage.");
     if (!same4(value.model, prior.model) || !same4(value.analysisClock, prior.analysisClock) || value.inferenceRecipeSha256 !== prior.inferenceRecipeSha256 || value.sourceCommit !== prior.sourcePronunciation.commit || value.categoryInputSha256 !== prior.sourcePronunciation.categoryInputSha256 || value.priorConsonantProposalSha256 !== entry.priorConsonantProposalSha256 || value.baseSourcePackSha256 !== PHONETIC_WORDS.sourcePack.sha256 || value.orthographicSupportSourcePackSha256 !== VOWEL_ANCHORS.dependencies[1].sha256) throw Error("Vowel source, consonant provenance or original model clock changed.");
@@ -10389,13 +10389,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
     return structuredClone(value);
   }
-  async function loadVowelAnchors(record, draft, consonants3, { readPacket = loadVowelAnchorPacket } = {}) {
+  async function loadVowelAnchors(record, draft, consonants4, { readPacket = loadVowelAnchorPacket } = {}) {
     const entry = VOWEL_ANCHORS.records.find((r) => r.recordId === record.id && r.originalSha256 === record.audio.sha256);
     if (!entry) throw Error("No vowel observations exist for this original recording.");
     const bytes = await readPacket(entry.file), hash2 = [...new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))].map((x) => x.toString(16).padStart(2, "0")).join("");
     if (bytes.length !== entry.bytes || hash2 !== entry.sha256) throw Error("Vowel observation checksum differs from its source record.");
     const raw = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text();
-    return validateVowelAnchors(JSON.parse(raw), draft, consonants3);
+    return validateVowelAnchors(JSON.parse(raw), draft, consonants4);
   }
   function vowelWordView(packet, index, style) {
     if (!styles2.includes(style) || !Number.isInteger(index) || index < 0 || !packet.studies[style].words[index]) throw Error("Choose an unchanged source word and an existing MAM text style.");
@@ -10408,9 +10408,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // vowel-anchor-ui.js
   function mountVowelAnchorReview() {
     const $2 = (id) => document.getElementById(id), panel = $2("vowel-anchor-review"), cache = /* @__PURE__ */ new Map();
-    let generation = 0, record = null, draft = null, index = 0, consonants3 = null, packet = null;
+    let generation = 0, record = null, draft = null, index = 0, consonants4 = null, packet = null;
     function draw() {
-      const available = !!draft && !!consonants3 && vowelAnchorsAvailable(record);
+      const available = !!draft && !!consonants4 && vowelAnchorsAvailable(record);
       panel.hidden = !available;
       $2("vowel-anchor-hebrew").textContent = available ? draft.words[index].hebrew : "";
       $2("vowel-anchor-hebrew").dataset.wordId = available ? draft.words[index].id : "";
@@ -10481,8 +10481,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
     }
     $2("vowel-anchor-load").addEventListener("click", async () => {
-      if (!draft || !consonants3 || !vowelAnchorsAvailable(record)) return;
-      const current = generation, chosen = record, expected = draft, prior = consonants3;
+      if (!draft || !consonants4 || !vowelAnchorsAvailable(record)) return;
+      const current = generation, chosen = record, expected = draft, prior = consonants4;
       $2("vowel-anchor-load").disabled = true;
       $2("vowel-anchor-status").textContent = "Loading checked structural vowel observations…";
       try {
@@ -10508,8 +10508,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       record = nextRecord;
       draft = nextDraft;
       index = nextIndex;
-      consonants3 = nextConsonants;
-      if (draft && consonants3 && !packet && cache.has(record.id)) packet = validateVowelAnchors(cache.get(record.id), draft, consonants3);
+      consonants4 = nextConsonants;
+      if (draft && consonants4 && !packet && cache.has(record.id)) packet = validateVowelAnchors(cache.get(record.id), draft, consonants4);
       draw();
     } };
   }
@@ -10518,9 +10518,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   function mountPhoneticWordReview() {
     const $2 = (id) => document.getElementById(id), panel = $2("phonetic-word-review"), cache = /* @__PURE__ */ new Map();
     let generation = 0, record = null, draft = null, index = 0, packet = null;
-    const vowels3 = mountVowelAnchorReview();
+    const vowels4 = mountVowelAnchorReview();
     function draw() {
-      vowels3.select(record, draft, index, packet);
+      vowels4.select(record, draft, index, packet);
       const available = !!draft && phoneticWordsAvailable(record);
       panel.hidden = !available;
       $2("phonetic-word-hebrew").textContent = available ? draft.words[index].hebrew : "";
@@ -11176,6 +11176,143 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     };
   }
 
+  // modern-phonology.js
+  var MODERN_PHONOLOGY_SOURCE = Object.freeze({
+    id: "phonikud-modern-inventory",
+    author: "Yakov Kolani, Maxim Melichov, Cobi Calev and Morris Alper",
+    title: "Phonikud modern phoneme inventory · source-category adaptation",
+    year: 2026,
+    url: "https://github.com/phonikud/phonikud/tree/a29a75b473b0f132a0bbee41dad38763035211dc",
+    commit: "a29a75b473b0f132a0bbee41dad38763035211dc",
+    license: "CC-BY-4.0",
+    files: Object.freeze({ lexicon: "phonikud/lexicon.py", letterRules: "phonikud/hebrew.py", wordCleanup: "phonikud/utils.py" }),
+    blobs: Object.freeze({ lexicon: "d77243234b5df6bd67e2ed4c23f7a3c4a4d7c4f3", letterRules: "6db91fdc8aac4119709763053e3c8fc2de5cdf9f", wordCleanup: "0aeeb9415670b9db9aff21136c9813dc145ab034", license: "2f9844fb9ad34ab57e88a1edcef3cdc0be887b42" }),
+    rights: "Phonikud code is CC BY4.0; adapted correspondences are attributed here and in the visible source link. No model, dataset or audio is imported.",
+    scope: "Inventory correspondence at original MAM source categories. This is not the upstream whole-word phonemizer or a complete modern pronunciation grammar. Biblical marks are never passed as its invented annotations. Spoken sheva, special categories, final/suffix processing, quantity and acoustic realization remain unresolved.",
+    scanLimits: "No scan. Original code sources and exact Git blobs are recorded; no source word or mark is normalized."
+  });
+  var MODERN_PHONOLOGY_PROFILE = Object.freeze({
+    id: "phonikud-modern-inventory",
+    label: "Modern Hebrew inventory · research",
+    region: "modern-inventory",
+    sourceId: MODERN_PHONOLOGY_SOURCE.id,
+    status: "source-based-inventory-adaptation",
+    kinnorAccentId: null,
+    playable: false,
+    singingVoice: null,
+    review: null
+  });
+  var consonants2 = Object.freeze({
+    BET_0DAG: "v",
+    BET_1DAG_QAL: "b",
+    BET_1DAG_XAZAQ: "b",
+    DALET_0DAG: "d",
+    DALET_1DAG_QAL: "d",
+    DALET_1DAG_XAZAQ: "d",
+    FKAF_0DAG: "χ",
+    FKAF_1DAG_QAL: "k",
+    FKAF_1DAG_XAZAQ: "k",
+    FMEM_0DAG: "m",
+    FNUN_0DAG: "n",
+    FPE_0DAG: "f",
+    FPE_1DAG_QAL: "p",
+    FTSADI_0DAG: "ts",
+    GIMEL_0DAG: "ɡ",
+    GIMEL_1DAG_QAL: "ɡ",
+    GIMEL_1DAG_XAZAQ: "ɡ",
+    HE_0MAPIQ_CON: "h",
+    KAF_0DAG: "χ",
+    KAF_1DAG_QAL: "k",
+    KAF_1DAG_XAZAQ: "k",
+    LAMED_0DAG: "l",
+    LAMED_1DAG: "l",
+    MEM_0DAG: "m",
+    MEM_1DAG: "m",
+    NUN_0DAG: "n",
+    NUN_1DAG: "n",
+    PE_0DAG: "f",
+    PE_1DAG_QAL: "p",
+    PE_1DAG_XAZAQ: "p",
+    QOF_0DAG: "k",
+    QOF_1DAG: "k",
+    RESH_0DAG: "ʁ",
+    RESH_1DAG: "ʁ",
+    SAMEKH_0DAG: "s",
+    SAMEKH_1DAG: "s",
+    SIN_0DAG: "s",
+    SIN_1DAG: "s",
+    TAV_0DAG: "t",
+    TAV_1DAG_QAL: "t",
+    TAV_1DAG_XAZAQ: "t",
+    TET_0DAG: "t",
+    TET_1DAG: "t",
+    TRUESHIN_0DAG: "ʃ",
+    TRUESHIN_1DAG: "ʃ",
+    TSADI_0DAG: "ts",
+    TSADI_1DAG: "ts",
+    VAV_0DAGOSD_CON: "v",
+    VAV_1DAG: "v",
+    XET_0DAG: "χ",
+    YOD_0DAG_CON: "j",
+    YOD_1DAG: "j",
+    ZAYIN_0DAG: "z",
+    ZAYIN_1DAG: "z",
+    ALEF_0MAPIQ_CON: "ʔ",
+    AYIN_0DAG: "ʔ"
+  });
+  var vowels3 = Object.freeze({ PATAX: "a", XPATAX: "a", QAMATS_G: "a", QAMATS_Q: "o", XQAMATS: "o", SEGOL_V: "e", XSEGOL: "e", TSERE: "e", XIRIQ_G: "i", XIRIQ_Q: "i", XOLAM_HASER: "o", VAV_XOLAM: "o", SHURUQ: "u", QUBUTS: "u" });
+  var pairVowels = Object.freeze({ PATAX: "a", QAMATS_G: "a", VAV_XOLAM_PART1_OF_YOD_DIPHTHONG: "o", SHURUQ_PART1_OF_YOD_DIPHTHONG: "u" });
+  var modernEvidence = (file = "lexicon") => ({ sourceId: MODERN_PHONOLOGY_SOURCE.id, printedPages: [], file: MODERN_PHONOLOGY_SOURCE.files[file], gitBlob: MODERN_PHONOLOGY_SOURCE.blobs[file] });
+  var proposal = (candidatePhonemes, rule, reason = null, file = "lexicon") => ({
+    status: candidatePhonemes === null ? "unassigned" : "proposed",
+    candidatePhonemes,
+    rule,
+    evidence: modernEvidence(file),
+    reason,
+    alternatives: null,
+    phonemes: null,
+    ipa: null,
+    enginePhones: null,
+    quantity: null,
+    duration: null,
+    noteIds: null,
+    audioTimes: null,
+    review: null
+  });
+  var modernMissingSharedConsonant = () => proposal(null, "shared-consonant-counterpart-missing", "A reciprocal source half is required; no second consonant or fallback is created.");
+  var nucleus = (s) => s.kind === "vowel" || s.kind === "vowel-consonant-pair" || s.kind === "diphthong-part" && !s.categoryId.startsWith("YOD_");
+  function modernVowelYodContext(segments) {
+    const yod = segments.at(-1), vowel = segments.at(-2);
+    if (yod?.categoryId !== "YOD_0DAG_PART2_OF_DIPHTHONG" || yod.part !== "whole" || vowel?.part !== "whole" || !pairVowels[vowel.categoryId] || segments.filter(nucleus).length !== 1) return null;
+    return {
+      vowelSegmentId: vowel.id,
+      yodSegmentId: yod.id,
+      vowelCategoryId: vowel.categoryId,
+      basis: "Adjacent whole original source categories in one source syllable. Modern inventory monophthong and yod constituents only; the complete transition, timing and source-category adaptation require review."
+    };
+  }
+  function modernSourceBoundary(unit, segments, units) {
+    const last = unit.readerWordId === null ? null : units.filter((u) => u.readerWordId === unit.readerWordId).at(-1)?.id === unit.id;
+    const meaningful = segments.filter((s) => !["silent-letter", "silent-vowel-sign"].includes(s.kind));
+    return { finalUnitInSourceWord: last, terminalSegmentId: last === true ? meaningful.at(-1)?.id ?? null : null };
+  }
+  function modernCorrespondence(segment, context) {
+    const id = segment.categoryId;
+    if (["silent-letter", "silent-vowel-sign"].includes(segment.kind)) return { ...proposal([], "source-silent-category", "Explicit source silence is retained. Modern epenthesis or another spoken reading is not inferred."), evidence: { sourceId: "phonetic-mam-source-categories", sourceCommit: HISTORICAL_CATEGORY_INVENTORY.sourceCommit, inputSha256: HISTORICAL_CATEGORY_INVENTORY.inputSha256, license: HISTORICAL_CATEGORY_INVENTORY.license, printedPages: [] } };
+    if (id === "SHEVA_NA" || id.startsWith("VARIKA_")) return proposal(null, "modern-spoken-sheva-unassigned", "Written vocal sheva does not determine modern spoken sheva. No invented Phonikud marker is inserted.");
+    if (["ALEF_1MAPIQ", "HE_1MAPIQ", "ALEF_SHURUQ_VOWEL", "FPP_PATAX_MAPIQ_HE"].includes(id)) return proposal(null, "modern-special-category-unassigned", "The ordinary inventory does not establish this complete biblical source category or final/suffix treatment.");
+    if (["HE_0MAPIQ_CON", "ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(id) && (context.modernSourceBoundary.finalUnitInSourceWord === null || context.modernSourceBoundary.terminalSegmentId === segment.id))
+      return proposal(null, "modern-final-consonant-processing-unassigned", "Upstream word cleanup treats final h/glottal stops separately. No suffix or shared-word processing is guessed here.", "wordCleanup");
+    if (consonants2[id]) return proposal([consonants2[id]], "modern-inventory-consonant");
+    if (id === "YOD_0DAG_PART2_OF_DIPHTHONG" && context.vowelYod?.yodSegmentId === segment.id) return proposal(["j"], "modern-inventory-yod-constituent");
+    if (pairVowels[id] && context.vowelYod?.vowelSegmentId === segment.id) return proposal([pairVowels[id]], "modern-inventory-vowel-constituent");
+    if (segment.kind === "diphthong-part") return proposal(null, "modern-compound-context-unassigned", "A complete, terminal same-syllable source pair is required.");
+    if (vowels3[id]) return proposal([vowels3[id]], "modern-inventory-vowel");
+    if (id === "FPP_PATAX_XET") return proposal(["a", "χ"], "modern-furtive-patah-chet", null, "letterRules");
+    if (id === "FPP_PATAX_AYIN") return proposal(["a"], "modern-furtive-patah-ayin", null, "letterRules");
+    return proposal(null, "modern-category-unassigned", "No supported inventory correspondence.");
+  }
+
   // pronunciation-phonology.js
   var freeze2 = (value) => {
     if (value && typeof value === "object") {
@@ -11200,13 +11337,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     { id: "katz-1993-northeastern-formal", label: "Northeastern Formal Ashkenazic · research", region: "northeastern" },
     { id: "katz-1993-mideastern-formal", label: "Mideastern Formal Ashkenazic · research", region: "mideastern" }
   ].map((p) => ({ ...p, sourceId: PHONOLOGY_SOURCE.id, status: "source-based-proposal", kinnorAccentId: null, playable: false, singingVoice: null, review: null })));
+  var ALL_PHONOLOGY_PROFILES = freeze2([...PHONOLOGY_PROFILES, MODERN_PHONOLOGY_PROFILE]);
   var catalog = new Map(HISTORICAL_CATEGORY_INVENTORY.catalog.map((c) => [c.id, c]));
   function phonologyProfile(id) {
-    const p = PHONOLOGY_PROFILES.find((p2) => p2.id === id);
+    const p = ALL_PHONOLOGY_PROFILES.find((p2) => p2.id === id);
     if (!p) throw Error("Unknown phonological research profile; no replacement selected.");
     return p;
   }
-  var consonants2 = {
+  function phonologySourceForProfile(id) {
+    return phonologyProfile(id).sourceId === MODERN_PHONOLOGY_SOURCE.id ? MODERN_PHONOLOGY_SOURCE : PHONOLOGY_SOURCE;
+  }
+  var consonants3 = {
     BET_0DAG: "v",
     BET_1DAG_QAL: "b",
     BET_1DAG_XAZAQ: "b",
@@ -11262,7 +11403,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     ZAYIN_0DAG: "z",
     ZAYIN_1DAG: "z"
   };
-  var proposal = (candidatePhonemes, rule, pages, reason = null, alternatives = null) => ({
+  var proposal2 = (candidatePhonemes, rule, pages, reason = null, alternatives = null) => ({
     status: candidatePhonemes === null ? "unassigned" : "proposed",
     candidatePhonemes,
     rule,
@@ -11279,37 +11420,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     review: null
   });
   function realize(segment, context, profile) {
+    if (profile.id === MODERN_PHONOLOGY_PROFILE.id) return modernCorrespondence(segment, context);
     const id = segment.categoryId, kind = segment.kind, me = profile.region === "mideastern";
-    if (kind === "silent-letter" || kind === "silent-vowel-sign") return proposal([], "source-silent-category", [69, 71]);
-    if (id === "ALEF_0MAPIQ_CON" || id === "AYIN_0DAG") return proposal([], "phonemic-guttural-loss", [69], "A phonetic glottal stop or lexical hiatus treatment is not assigned.");
-    if (consonants2[id]) return proposal([consonants2[id]], "consonant-correspondence", [68, 69, 70, 72], id.startsWith("RESH") ? "Abstract /r/ only; an acoustic allophone is unassigned." : null);
-    if (id === "SHEVA_NA" || id.startsWith("VARIKA_")) return proposal(null, "mobile-sheva-needs-local-evidence", [74], "The source describes multiple formal sheva qualities; no exact regional target is selected.");
-    if (id === "YOD_0DAG_PART2_OF_DIPHTHONG" && context.vowelYod?.yodSegmentId === segment.id) return proposal(["j"], "postvocalic-yod-after-patah-or-qamats", [68, 71], "An abstract /j/ constituent after source patah or qamats. The complete phonetic transition, quantity and note allocation remain unassigned.");
-    if (kind === "diphthong-part") return proposal(null, "source-diphthong-sequence-needs-evidence", [67, 68, 69], "This source sequence needs a complete contextual correspondence; no vowel plus glide is guessed.");
-    if (id === "ALEF_1MAPIQ" || id === "HE_1MAPIQ" || id === "ALEF_SHURUQ_VOWEL") return proposal(null, "special-category-needs-evidence", [69, 70, 71], "This special source category needs an explicit regional realization.");
-    if (id === "FPP_PATAX_XET") return proposal(["a", "x"], "furtive-patah-and-chet", [67, 68, 70]);
-    if (id === "FPP_PATAX_AYIN") return proposal(["a"], "furtive-patah-and-ayin-loss", [67, 68, 69]);
-    if (id === "FPP_PATAX_MAPIQ_HE") return proposal(null, "furtive-patah-mappiq-needs-evidence", [67, 68, 71], "Patah quality /a/ is supported; the complete final consonant realization remains unassigned.");
-    if (id === "PATAX" || id === "XPATAX") return proposal(["a"], "patah-quality", [67, 68, 71]);
-    if (id === "XSEGOL") return proposal(["ɛ"], "hataf-segol-quality", [67, 68, 71]);
-    if (id === "XQAMATS" || id === "QAMATS_Q") return proposal(["ɔ"], "short-qamats-quality", [67, 68, 71]);
+    if (kind === "silent-letter" || kind === "silent-vowel-sign") return proposal2([], "source-silent-category", [69, 71]);
+    if (id === "ALEF_0MAPIQ_CON" || id === "AYIN_0DAG") return proposal2([], "phonemic-guttural-loss", [69], "A phonetic glottal stop or lexical hiatus treatment is not assigned.");
+    if (consonants3[id]) return proposal2([consonants3[id]], "consonant-correspondence", [68, 69, 70, 72], id.startsWith("RESH") ? "Abstract /r/ only; an acoustic allophone is unassigned." : null);
+    if (id === "SHEVA_NA" || id.startsWith("VARIKA_")) return proposal2(null, "mobile-sheva-needs-local-evidence", [74], "The source describes multiple formal sheva qualities; no exact regional target is selected.");
+    if (id === "YOD_0DAG_PART2_OF_DIPHTHONG" && context.vowelYod?.yodSegmentId === segment.id) return proposal2(["j"], "postvocalic-yod-after-patah-or-qamats", [68, 71], "An abstract /j/ constituent after source patah or qamats. The complete phonetic transition, quantity and note allocation remain unassigned.");
+    if (kind === "diphthong-part") return proposal2(null, "source-diphthong-sequence-needs-evidence", [67, 68, 69], "This source sequence needs a complete contextual correspondence; no vowel plus glide is guessed.");
+    if (id === "ALEF_1MAPIQ" || id === "HE_1MAPIQ" || id === "ALEF_SHURUQ_VOWEL") return proposal2(null, "special-category-needs-evidence", [69, 70, 71], "This special source category needs an explicit regional realization.");
+    if (id === "FPP_PATAX_XET") return proposal2(["a", "x"], "furtive-patah-and-chet", [67, 68, 70]);
+    if (id === "FPP_PATAX_AYIN") return proposal2(["a"], "furtive-patah-and-ayin-loss", [67, 68, 69]);
+    if (id === "FPP_PATAX_MAPIQ_HE") return proposal2(null, "furtive-patah-mappiq-needs-evidence", [67, 68, 71], "Patah quality /a/ is supported; the complete final consonant realization remains unassigned.");
+    if (id === "PATAX" || id === "XPATAX") return proposal2(["a"], "patah-quality", [67, 68, 71]);
+    if (id === "XSEGOL") return proposal2(["ɛ"], "hataf-segol-quality", [67, 68, 71]);
+    if (id === "XQAMATS" || id === "QAMATS_Q") return proposal2(["ɔ"], "short-qamats-quality", [67, 68, 71]);
     if (id === "QAMATS_G") {
-      if (!me) return proposal(["ɔ"], "northeastern-qamats", [67]);
-      if (context.historicalClosure === "unknown") return proposal(null, "mideastern-qamats-context-missing", [68, 71], "Historical syllable closure is unresolved.", ["u", "ɔ"]);
-      return proposal([context.historicalClosure === "closed" || context.beforeYodOrMappiq ? "ɔ" : "u"], "mideastern-qamats-context", [68, 71]);
+      if (!me) return proposal2(["ɔ"], "northeastern-qamats", [67]);
+      if (context.historicalClosure === "unknown") return proposal2(null, "mideastern-qamats-context-missing", [68, 71], "Historical syllable closure is unresolved.", ["u", "ɔ"]);
+      return proposal2([context.historicalClosure === "closed" || context.beforeYodOrMappiq ? "ɔ" : "u"], "mideastern-qamats-context", [68, 71]);
     }
     if (id === "SEGOL_V") {
-      if (!me) return proposal(["ɛ"], "northeastern-segol", [67]);
-      if (context.historicalClosure !== "closed" && context.maqafPrimary?.wordHasMeteg) return proposal(null, "mideastern-segol-maqaf-meteg-needs-evidence", [67, 68, 72, 73], "The joined group excludes a separate primary accent, but this word retains meteg. Secondary stress or full-vowel quality is not inferred.", ["ɛ", "ej"]);
-      if (context.historicalClosure === "closed" || context.primaryStress === false) return proposal(["ɛ"], "mideastern-segol-not-stressed-open", [67, 68, 72, 73]);
-      if (context.historicalClosure === "open" && context.primaryStress === true) return proposal(["ej"], "mideastern-segol-stressed-open", [67, 68, 72, 73]);
-      return proposal(null, "mideastern-segol-context-missing", [67, 68, 72, 73], "Historical open-syllable stress is not established.", ["ɛ", "ej"]);
+      if (!me) return proposal2(["ɛ"], "northeastern-segol", [67]);
+      if (context.historicalClosure !== "closed" && context.maqafPrimary?.wordHasMeteg) return proposal2(null, "mideastern-segol-maqaf-meteg-needs-evidence", [67, 68, 72, 73], "The joined group excludes a separate primary accent, but this word retains meteg. Secondary stress or full-vowel quality is not inferred.", ["ɛ", "ej"]);
+      if (context.historicalClosure === "closed" || context.primaryStress === false) return proposal2(["ɛ"], "mideastern-segol-not-stressed-open", [67, 68, 72, 73]);
+      if (context.historicalClosure === "open" && context.primaryStress === true) return proposal2(["ej"], "mideastern-segol-stressed-open", [67, 68, 72, 73]);
+      return proposal2(null, "mideastern-segol-context-missing", [67, 68, 72, 73], "Historical open-syllable stress is not established.", ["ɛ", "ej"]);
     }
-    if (id === "TSERE") return proposal([me ? "aj" : "ej"], "regional-tsere", [67, 68]);
-    if (id === "XOLAM_HASER" || id === "VAV_XOLAM") return proposal([me ? "ɔj" : "ej"], "regional-holam", [67, 68]);
-    if (id === "XIRIQ_G" || id === "XIRIQ_Q") return proposal(["i"], "hiriq-quality", [67, 68], "Vowel quantity and acoustic duration are unassigned.");
-    if (id === "SHURUQ" || id === "QUBUTS") return proposal([me ? "i" : "u"], "regional-shuruq-qubuts", [65, 67, 68], "Vowel quantity and acoustic duration are unassigned.");
-    return proposal(null, "category-needs-evidence", [], "No implemented source rule.");
+    if (id === "TSERE") return proposal2([me ? "aj" : "ej"], "regional-tsere", [67, 68]);
+    if (id === "XOLAM_HASER" || id === "VAV_XOLAM") return proposal2([me ? "ɔj" : "ej"], "regional-holam", [67, 68]);
+    if (id === "XIRIQ_G" || id === "XIRIQ_Q") return proposal2(["i"], "hiriq-quality", [67, 68], "Vowel quantity and acoustic duration are unassigned.");
+    if (id === "SHURUQ" || id === "QUBUTS") return proposal2([me ? "i" : "u"], "regional-shuruq-qubuts", [65, 67, 68], "Vowel quantity and acoustic duration are unassigned.");
+    return proposal2(null, "category-needs-evidence", [], "No implemented source rule.");
   }
   var isNucleus = (s) => s.kind === "vowel" || s.kind === "vowel-consonant-pair" || s.kind === "diphthong-part" && !s.categoryId.startsWith("YOD_");
   function vowelYodContext(segments) {
@@ -11322,7 +11464,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       basis: "Original adjacent whole source categories in one source syllable; Katz1993 pp.68,71 treats postvocalic yod as consonantal /j/. Source-category adaptation is a proposal requiring review."
     };
   }
-  function unitContext(unit, variant, units, maqaf) {
+  function unitContext(unit, variant, units, maqaf, profile) {
     const segments = variant.segments, nuclei = segments.map((s, i) => isNucleus(s) ? i : -1).filter((i) => i >= 0);
     const tail = nuclei.length === 1 ? segments.slice(nuclei[0] + 1) : [];
     const closed = tail.some((s) => s.kind === "consonant" || s.kind === "vowel-consonant-pair" || s.categoryId === "YOD_0DAG_PART2_OF_DIPHTHONG") || nuclei.length === 1 && segments[nuclei[0]].kind === "vowel-consonant-pair";
@@ -11342,7 +11484,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       maqafPrimary,
       posttonicReduction: false,
       penultimateStressShift: false,
-      vowelYod: vowelYodContext(segments)
+      vowelYod: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernVowelYodContext(segments) : vowelYodContext(segments),
+      ...profile.id === MODERN_PHONOLOGY_PROFILE.id ? { modernSourceBoundary: modernSourceBoundary(unit, segments, units) } : {}
     };
   }
   function compileRoute(study, row, cell, column, style, profile) {
@@ -11354,7 +11497,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         route.gaps.push({ reason: "incomplete-source-route", sourceUnitId: unit.id });
         continue;
       }
-      const context = unitContext(unit, variant, cell.units, maqaf);
+      const context = unitContext(unit, variant, cell.units, maqaf, profile);
       const record = {
         sourceUnitId: unit.id,
         ownerWordId: unit.readerWordId,
@@ -11385,7 +11528,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (s.part !== "whole") {
         const matches = flat.filter((other) => other.fragment.source.categoryId === s.categoryId && other.unit.sourceUnitId === s.sharedWithUnitId && other.fragment.source.sharedWithUnitId === unit.sourceUnitId && other.fragment.source.part === (s.part === "first-half-shared" ? "second-half-shared" : "first-half-shared"));
         if (matches.length !== 1) {
-          fragment.proposal = proposal(null, "shared-consonant-counterpart-missing", [72], "A reciprocal source half is required; no second consonant or fallback is created.");
+          fragment.proposal = profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernMissingSharedConsonant() : proposal2(null, "shared-consonant-counterpart-missing", [72], "A reciprocal source half is required; no second consonant or fallback is created.");
           route.gaps.push({ reason: "shared-consonant-counterpart-missing", sourceSegmentIds: [s.id] });
         } else members = [item, matches[0]].sort((a, b) => a.fragment.source.part === "first-half-shared" ? -1 : b.fragment.source.part === "first-half-shared" ? 1 : 0);
       }
@@ -11394,8 +11537,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         sourceSegmentIds: members.map((m) => m.fragment.source.id),
         sourceUnitIds: members.map((m) => m.unit.sourceUnitId),
         candidatePhonemes: fragment.proposal.candidatePhonemes,
-        rule: category.geminate ? "degemination" : fragment.proposal.rule,
-        evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: category.geminate ? [72] : fragment.proposal.evidence.printedPages },
+        rule: category.geminate ? profile.id === MODERN_PHONOLOGY_PROFILE.id ? "modern-inventory-shared-consonant" : "degemination" : fragment.proposal.rule,
+        evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? structuredClone(fragment.proposal.evidence) : { sourceId: PHONOLOGY_SOURCE.id, printedPages: category.geminate ? [72] : fragment.proposal.evidence.printedPages },
         phonemes: null,
         enginePhones: null,
         quantity: null,
@@ -11416,7 +11559,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           sourceSegmentIds: ids,
           eventIds: members.map((f) => f.eventId),
           candidatePhonemes: members.flatMap((f) => f.proposal.candidatePhonemes),
-          evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: [67, 68, 71] },
+          evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [67, 68, 71] },
           status: "source-based-constituent-proposal",
           phonemes: null,
           enginePhones: null,
@@ -11427,12 +11570,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           review: null
         };
       }
-      if (unit.fragments.some((f) => f.source.kind === "diphthong-part")) route.gaps.push({ reason: unit.vowelYodProposal ? "vowel-yod-phonetics-needs-review" : "unreviewed-diphthong-sequence", sourceUnitIds: [unit.sourceUnitId], evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: [68, 71] } });
+      if (unit.fragments.some((f) => f.source.kind === "diphthong-part")) route.gaps.push({ reason: unit.vowelYodProposal ? "vowel-yod-phonetics-needs-review" : "unreviewed-diphthong-sequence", sourceUnitIds: [unit.sourceUnitId], evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [68, 71] } });
       const next = route.units[i + 1];
       if (!next || unit.ownerWordId !== next.ownerWordId) continue;
       const end = unit.fragments.filter((f) => f.proposal.candidatePhonemes?.length).at(-1), start = next.fragments.find((f) => f.proposal.candidatePhonemes?.length);
       const onset = next.fragments.slice(0, next.fragments.findIndex((f) => isNucleus(f.source)));
-      if (end && start && isNucleus(end.source) && isNucleus(start.source) && onset.some((f) => ["ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(f.source.categoryId))) route.gaps.push({ reason: "hiatus-phonetics-needs-review", sourceUnitIds: [unit.sourceUnitId, next.sourceUnitId], evidence: { sourceId: PHONOLOGY_SOURCE.id, printedPages: [69] } });
+      if (end && start && isNucleus(end.source) && isNucleus(start.source) && onset.some((f) => ["ALEF_0MAPIQ_CON", "AYIN_0DAG"].includes(f.source.categoryId) && (profile.id !== MODERN_PHONOLOGY_PROFILE.id || f.proposal.candidatePhonemes?.length === 0))) route.gaps.push({ reason: "hiatus-phonetics-needs-review", sourceUnitIds: [unit.sourceUnitId, next.sourceUnitId], evidence: profile.id === MODERN_PHONOLOGY_PROFILE.id ? modernEvidence() : { sourceId: PHONOLOGY_SOURCE.id, printedPages: [69] } });
     }
     return route;
   }
@@ -11466,7 +11609,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       hebrew: word.sourceHebrew,
       selectedTranscriptionStyle: sourceStyle,
       profile: structuredClone(profile),
-      source: structuredClone(PHONOLOGY_SOURCE),
+      source: structuredClone(phonologySourceForProfile(profileId)),
       prosodySources: [structuredClone(MAQAF_STRESS_SOURCE)],
       sourceCommit: study?.sourceCommit ?? null,
       categoryInputSha256: study?.sourceSegments?.inputSha256 ?? null,
@@ -11491,7 +11634,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       cantorialReview: null,
       playable: false,
       singingVoice: null,
-      limits: "Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending."
+      limits: profile.id === MODERN_PHONOLOGY_PROFILE.id ? "Modern inventory candidates adapted to original source categories, not the upstream whole-word phonemizer or a complete modern grammar. Written vocal sheva does not settle spoken sheva; special categories and final/suffix behavior remain unresolved. Original branches, Hebrew, source syllables, stress and shared consonants are retained. No quantity, engine phones, note/audio timing, singing voice or Kinnor equivalence is assigned. Independent linguistic and cantorial review is pending." : "Phonemic candidates only, with all original branches and syllable/letter bindings retained. Unknown is distinct from source-silent. No penultimate stress shift, quantity, engine phones, note allocation or audio timing is assigned. Historical Kinnor labels remain separate. Independent linguistic and cantorial review is pending."
     };
   }
 
@@ -11507,7 +11650,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var READER_PRONUNCIATION_SOURCES = freeze3([
     { id: "mam", name: "Phonetic MAM · selected text style", kind: "mam" },
     ...KHAN_PRONUNCIATION.styles.map((s) => ({ id: "khan-" + s.id, name: s.label + " · Genesis1:1–13", kind: "published-word", reading: s.id })),
-    ...PHONOLOGY_PROFILES.map((p) => ({ id: p.id, name: p.label + " · phonemic text", kind: "phonemic-research", profileId: p.id }))
+    ...ALL_PHONOLOGY_PROFILES.map((p) => ({ id: p.id, name: p.label + " · phonemic text", kind: "phonemic-research", profileId: p.id }))
   ]);
   function readerPronunciationSource(id) {
     const s = READER_PRONUNCIATION_SOURCES.find((s2) => s2.id === id);
@@ -11936,13 +12079,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // pronunciation-phonology-ui.js
   function mountPhonologyPreview() {
     const $2 = (id) => document.getElementById(id), key = "tropetrain-phonology-preview-v1";
-    let profileId = PHONOLOGY_PROFILES[0].id, study = null, word = null, style = "sephardic", report = null;
+    let profileId = ALL_PHONOLOGY_PROFILES[0].id, study = null, word = null, style = "sephardic", report = null;
     try {
       const saved = JSON.parse(localStorage.getItem(key));
-      if (PHONOLOGY_PROFILES.some((p) => p.id === saved?.profileId)) profileId = saved.profileId;
+      if (ALL_PHONOLOGY_PROFILES.some((p) => p.id === saved?.profileId)) profileId = saved.profileId;
     } catch {
     }
-    for (const p of PHONOLOGY_PROFILES) {
+    for (const p of ALL_PHONOLOGY_PROFILES) {
       const option = document.createElement("option");
       option.value = p.id;
       option.textContent = p.label;
@@ -11963,6 +12106,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         $2("phonology-status").textContent = e.message;
         return;
       }
+      const credit = $2("phonology-source-credit");
+      credit.replaceChildren();
+      const sourceLink = document.createElement("a");
+      sourceLink.href = report.source.url;
+      sourceLink.textContent = report.source.title;
+      credit.append(sourceLink, document.createTextNode(report.source.license ? " · " + report.source.license + " · source-category adaptation; review pending." : " · attributed linguistic facts; review pending."));
       const marked = document.createElement("b");
       marked.lang = "he";
       marked.dir = "rtl";
@@ -12018,7 +12167,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           if (unit.vowelYodProposal) {
             const pair2 = document.createElement("small");
             pair2.className = "phonology-vowel-yod";
-            pair2.textContent = `Vowel–yod constituents: /${unit.vowelYodProposal.candidatePhonemes.join(" + ")}/ · Katz1993 pp.67–68,71. Same source syllable and two existing events; phonetic transition and singing remain unassigned.`;
+            pair2.textContent = `Vowel–yod constituents: /${unit.vowelYodProposal.candidatePhonemes.join(" + ")}/ · ${report.profile.region === "modern-inventory" ? "Phonikud inventory adaptation" : "Katz1993 pp.67–68,71"}. Same source syllable and two existing events; phonetic transition and singing remain unassigned.`;
             li.append(pair2);
           }
           const gaps = unit.fragments.filter((f) => f.proposal.candidatePhonemes === null).map((f) => f.proposal.reason);
@@ -12034,7 +12183,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         for (const gap of route.gaps) {
           const note = document.createElement("p");
           note.className = "muted";
-          note.textContent = gap.reason === "hiatus-phonetics-needs-review" ? "Adjacent vowels after consonant loss: phonetic hiatus treatment needs review." : gap.reason === "vowel-yod-phonetics-needs-review" ? "Patah/qamats and postvocalic yod have source-based constituent proposals. The phonetic transition, quantity and note timing still need review." : gap.reason === "unreviewed-diphthong-sequence" ? "The source vowel–yod sequence needs contextual evidence." : "A source route or shared consonant correspondence is incomplete.";
+          note.textContent = gap.reason === "hiatus-phonetics-needs-review" ? "Adjacent vowels after consonant loss: phonetic hiatus treatment needs review." : gap.reason === "vowel-yod-phonetics-needs-review" ? (report.profile.region === "modern-inventory" ? "Modern inventory constituents retain the original source vowel–yod pair." : "Patah/qamats and postvocalic yod have source-based constituent proposals.") + " The phonetic transition, quantity and note timing still need review." : gap.reason === "unreviewed-diphthong-sequence" ? "The source vowel–yod sequence needs contextual evidence." : "A source route or shared consonant correspondence is incomplete.";
           section.append(note);
         }
         $2("phonology-word").append(section);
@@ -12292,7 +12441,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       revision: 1,
       kind: "phonemic-research",
       profile: structuredClone(profile),
-      phonologySource: structuredClone(PHONOLOGY_SOURCE),
+      phonologySource: structuredClone(phonologySourceForProfile(profileId)),
       method: "Exact source-unit identity and unchanged marked-Hebrew ranges connect existing phonemic candidates to note references. All alternative routes and unallocated source units remain in wordEvidence. A shared consonant is one abstract source event with separate note references. Repeated word occurrences retain distinct note IDs. No phoneme onset, duration, melisma repetition or acoustic allocation is inferred.",
       limits: "Incomplete source-defined phonemic proposals only; no Kinnor Accent equivalence, accepted engine phones, singing voice or historical melody realization. Unknown, source silence, proposed loss and shared references remain distinct. Notes keep their original pitches, syllables and timing.",
       review: null,
@@ -12474,14 +12623,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     for (const item of common2.words) {
       const word = words4.find((w) => w.id === item.wordId);
       const different = item.groups.filter((g) => g.relation === "different-syllable-divisions");
-      const proposal2 = profileId && different.length ? readerPhonologyWord(word, library.study(word, style), style, profileId) : null;
+      const proposal3 = profileId && different.length ? readerPhonologyWord(word, library.study(word, style), style, profileId) : null;
       for (const group of different) {
         if (group.scoreSyllables.some((s) => !s.eventIds.length)) {
           gaps.push({ groupId: group.id, reason: "incomplete-score-span" });
           continue;
         }
         const ids = new Set(group.sourceUnits.map((u) => u.id));
-        const entries2 = proposal2 ? proposal2.entries.filter((e) => e.sourceRow === group.sourceRow && e.sourceColumn === group.sourceColumn && [...ids].every((id) => e.parts.some((p) => p.sourceUnitId === id))) : [null];
+        const entries2 = proposal3 ? proposal3.entries.filter((e) => e.sourceRow === group.sourceRow && e.sourceColumn === group.sourceColumn && [...ids].every((id) => e.parts.some((p) => p.sourceUnitId === id))) : [null];
         if (!entries2.length) {
           gaps.push({ groupId: group.id, reason: "no-phonemic-proposal-route" });
           continue;

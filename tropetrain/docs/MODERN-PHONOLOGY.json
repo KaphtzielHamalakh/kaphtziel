@@ -1,0 +1,184 @@
+{
+  "schema": "tropetrain-modern-inventory-audit-v1",
+  "revision": 1,
+  "source": {
+    "id": "phonikud-modern-inventory",
+    "author": "Yakov Kolani, Maxim Melichov, Cobi Calev and Morris Alper",
+    "title": "Phonikud modern phoneme inventory · source-category adaptation",
+    "year": 2026,
+    "url": "https://github.com/phonikud/phonikud/tree/a29a75b473b0f132a0bbee41dad38763035211dc",
+    "commit": "a29a75b473b0f132a0bbee41dad38763035211dc",
+    "license": "CC-BY-4.0",
+    "files": {
+      "lexicon": "phonikud/lexicon.py",
+      "letterRules": "phonikud/hebrew.py",
+      "wordCleanup": "phonikud/utils.py"
+    },
+    "blobs": {
+      "lexicon": "d77243234b5df6bd67e2ed4c23f7a3c4a4d7c4f3",
+      "letterRules": "6db91fdc8aac4119709763053e3c8fc2de5cdf9f",
+      "wordCleanup": "0aeeb9415670b9db9aff21136c9813dc145ab034",
+      "license": "2f9844fb9ad34ab57e88a1edcef3cdc0be887b42"
+    },
+    "rights": "Phonikud code is CC BY4.0; adapted correspondences are attributed here and in the visible source link. No model, dataset or audio is imported.",
+    "scope": "Inventory correspondence at original MAM source categories. This is not the upstream whole-word phonemizer or a complete modern pronunciation grammar. Biblical marks are never passed as its invented annotations. Spoken sheva, special categories, final/suffix processing, quantity and acoustic realization remain unresolved.",
+    "scanLimits": "No scan. Original code sources and exact Git blobs are recorded; no source word or mark is normalized."
+  },
+  "profile": {
+    "id": "phonikud-modern-inventory",
+    "label": "Modern Hebrew inventory · research",
+    "region": "modern-inventory",
+    "sourceId": "phonikud-modern-inventory",
+    "status": "source-based-inventory-adaptation",
+    "kinnorAccentId": null,
+    "playable": false,
+    "singingVoice": null,
+    "review": null
+  },
+  "results": [
+    {
+      "sourceStyle": "sephardic",
+      "groups": 68504,
+      "readerWords": 79985,
+      "individuallyOwnedWords": 79983,
+      "combinedWords": 2,
+      "sourceUnits": 194272,
+      "categoryReferences": 518726,
+      "events": 500476,
+      "sharedEvents": 18250,
+      "proposedReferences": 497765,
+      "unassignedReferences": 20961,
+      "unassignedCategories": {
+        "SHEVA_NA": 19557,
+        "AYIN_0DAG": 734,
+        "HE_1MAPIQ": 657,
+        "ALEF_1MAPIQ": 2,
+        "FPP_PATAX_MAPIQ_HE": 3,
+        "ALEF_SHURUQ_VOWEL": 6,
+        "HE_0MAPIQ_CON": 1,
+        "ALEF_0MAPIQ_CON": 1
+      },
+      "constituentPairs": 2316,
+      "pairCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308,
+        "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13
+      },
+      "sourceWordIdentitiesChecked": 79985,
+      "assignmentSha256": "79b3da41b8b57b2730c27be7122f16e78c94bddd328add9052cc9dfad41be0cc"
+    },
+    {
+      "sourceStyle": "ashkenazic",
+      "groups": 68504,
+      "readerWords": 79985,
+      "individuallyOwnedWords": 79983,
+      "combinedWords": 2,
+      "sourceUnits": 194272,
+      "categoryReferences": 518726,
+      "events": 500476,
+      "sharedEvents": 18250,
+      "proposedReferences": 497765,
+      "unassignedReferences": 20961,
+      "unassignedCategories": {
+        "SHEVA_NA": 19557,
+        "AYIN_0DAG": 734,
+        "HE_1MAPIQ": 657,
+        "ALEF_1MAPIQ": 2,
+        "FPP_PATAX_MAPIQ_HE": 3,
+        "ALEF_SHURUQ_VOWEL": 6,
+        "HE_0MAPIQ_CON": 1,
+        "ALEF_0MAPIQ_CON": 1
+      },
+      "constituentPairs": 2316,
+      "pairCategories": {
+        "QAMATS_G": 1964,
+        "PATAX": 308,
+        "VAV_XOLAM_PART1_OF_YOD_DIPHTHONG": 31,
+        "SHURUQ_PART1_OF_YOD_DIPHTHONG": 13
+      },
+      "sourceWordIdentitiesChecked": 79985,
+      "assignmentSha256": "bdfb5b82aa885cec4ee4f5d62ffeaae3efc34c21d98fc79d9169c13294079eb3"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "modern-phonology.js",
+      "sha256": "2754b52a3b64d653459bacdead22142a8c78338899946fa072725c62c04ff980"
+    },
+    {
+      "path": "pronunciation-phonology.js",
+      "sha256": "59a10de1b2d10e7c650232791d0a864e233d6d826ac26e3aa0d06fe1922505b5"
+    },
+    {
+      "path": "pronunciation-phonology-reader.js",
+      "sha256": "45dfeda500da658c023a986b7ef99c9f3fc8c3b02dc5d52098ba7aca4e3f8390"
+    },
+    {
+      "path": "pronunciation-note-proposals.js",
+      "sha256": "5917debe0f3183ce707210011d18bd7a791086142b3e5388f37658add6e8cc70"
+    },
+    {
+      "path": "khan-pronunciation.js",
+      "sha256": "00c9174c8a18fb7a977fbbc67a52905d8cbe9254526d024ddddeda2c5af51503"
+    },
+    {
+      "path": "scripts/audit-modern-phonology.mjs",
+      "sha256": "8acd88767370bab3464fe552b68d226e80c86db2c00a4d5e0c8909251b03ebd7"
+    },
+    {
+      "path": "assets/pronunciation/phonikud-code-reference.zip",
+      "sha256": "ab1f5969ec262ceaa86808a0bf3cf21b5320e13170c3f4364bc96c99d92377ed"
+    },
+    {
+      "path": "assets/pronunciation/phonikud-NOTICE.txt",
+      "sha256": "7020b70da1da8e71f530d0bf27598b9a92cc9756d567bf2c1fad615b362b521a"
+    },
+    {
+      "path": "data/pronunciation/torah-display.json.gz",
+      "sha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2"
+    },
+    {
+      "path": "data/pronunciation/torah-underlay.json.gz",
+      "sha256": "03960b75990d08f16c016234e4e4f03155023834249cfac2819da94ea2cd9153"
+    },
+    {
+      "path": "data/pronunciation/torah-segments.json.gz",
+      "sha256": "c008e04eb4edef3fbb9fed2bed8e09b879a74cdad72d43b4b9f69e53731e1094"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    }
+  ],
+  "method": "Every preferred reader word is independently checked against the unchanged Torah corpus, then every source group/branch/category/shared event/range in each MAM text style is checked. Only the ordinary code inventory and strict modern monophthong-yod constituent adaptation are proposed. No original text is passed to the upstream phonemizer.",
+  "invariants": {
+    "originalCorpusWords": 79985,
+    "sourceStringsUnchanged": true,
+    "allSourceBranchesRetained": true,
+    "sourceSyllablesAndStressUnchanged": true,
+    "sharedHalvesOneEvent": true,
+    "acceptedPhonemes": null,
+    "acousticTimes": null,
+    "newSingingVoice": null,
+    "kinnorEquivalence": null,
+    "review": null
+  },
+  "pending": "This is not a complete modern spoken grammar. Written-vs-spoken sheva, source specials, final/suffix processing and phonetic transitions remain unresolved. Both older regional profiles and their44compound gaps are unchanged. Qualified linguistic/cantorial review and all six historical Kinnor grammars/voices remain pending."
+}

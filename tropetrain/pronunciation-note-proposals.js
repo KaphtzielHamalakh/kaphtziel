@@ -4,7 +4,7 @@ import {readingStudyForWord} from './source-reading-choices.js';
 // Note references identify written syllables; they assign no acoustic delivery.
 import {linkPronunciationToNotes} from './pronunciation-note-links.js';
 import {readerPhonologyWord} from './pronunciation-phonology-reader.js';
-import {phonologyProfile,PHONOLOGY_SOURCE} from './pronunciation-phonology.js';
+import {phonologyProfile,phonologySourceForProfile} from './pronunciation-phonology.js';
 
 export function linkPronunciationProposalsToNotes(plan,words,library,style,profileId){
  const profile=phonologyProfile(profileId),base=linkPronunciationToNotes(plan,words,library,style);
@@ -43,7 +43,7 @@ export function linkPronunciationProposalsToNotes(plan,words,library,style,profi
    phonology:linked?{profileId,text:[...new Set(paths.map(p=>p.text))].join(' / '),paths,phonemes:null,enginePhones:null,quantity:null,duration:null,audioTimes:null,voice:null,review:null}:null};
  });
  const sourceEvents=[...events.values()];
- return {...base,format:'tropetrain-pronunciation-note-proposals-v1',revision:1,kind:'phonemic-research',profile:structuredClone(profile),phonologySource:structuredClone(PHONOLOGY_SOURCE),
+ return {...base,format:'tropetrain-pronunciation-note-proposals-v1',revision:1,kind:'phonemic-research',profile:structuredClone(profile),phonologySource:structuredClone(phonologySourceForProfile(profileId)),
   method:'Exact source-unit identity and unchanged marked-Hebrew ranges connect existing phonemic candidates to note references. All alternative routes and unallocated source units remain in wordEvidence. A shared consonant is one abstract source event with separate note references. Repeated word occurrences retain distinct note IDs. No phoneme onset, duration, melisma repetition or acoustic allocation is inferred.',
   limits:'Incomplete source-defined phonemic proposals only; no Kinnor Accent equivalence, accepted engine phones, singing voice or historical melody realization. Unknown, source silence, proposed loss and shared references remain distinct. Notes keep their original pitches, syllables and timing.',
   review:null,phonemes:null,enginePhones:null,audioTimes:null,voice:null,
