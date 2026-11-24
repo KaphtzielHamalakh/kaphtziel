@@ -1522,3 +1522,15 @@ The corrected storage key includes both section and occurrence identities. Older
 
 
 The real old-interface upgrade now passes5checks:exact draft/source/section preservation,no review promotion,no autoplay,and clearing does not resurrect the retained legacy copy. Two actual browser tabs pass8additional section-isolation checks:same canonical occurrence IDs but distinct section identities,blank new context,no legacy warning,independent saves,strict cross-section import refusal,independent clearing and no playback/console residue. All arbitrary QA marks cleared. The corrected normal compilation uses the official build plugins; final equivalence,749-check full run,finished portable and public acceptance remain pending. Source frozen at this checkpoint.
+
+
+## v0.85 notation capacity — private implementation, 2026-11-24
+
+The accepted public baseline is0.84.1, final records/main a3aa0dd8ab2cd0f74c6627156c2cc1618127472b; both Pages runs succeeded and23code/3record files match live. Its749automated/345local/340public checks remain the last accepted results.
+
+Additional musical source evidence needs space in the portable build, which was only123011bytes below the100MiB host limit. A private whitespace-only compilation experiment saves426508bytes from the existing34736465-byte normal bundle; identifier and syntax minification stay disabled. No source text, corpus, recording, score, pronunciation rule, worker bytes, musical behavior or feature is removed. Four existing distribution tests now accept insignificant assignment spacing while retaining their exact corpus/recording/worker decode checks and actual repertoire decoder execution. Official full build/regression, finished normal/portable GUI and any publication are pending.
+
+Continue the complete No267 notation inventory and recording identity/context research separately; the three-note candidate remains unaccepted, with word fitting, phonemes, contextual grammar, independent review and Kinnor equivalence null. This capacity change adds no musical preset or voice. Full original feature inventory retained; full reconstruction active/incomplete, printing deferred and private MBROLA diagnostics frozen.
+
+
+Six focused built-distribution checks pass: full Torah, whole recorded catalog, complete additional Hebrew library, actual built repertoire decoder with gzip refusal, embedded pitch-worker/WASM and embedded tone worker. The official preflight program is exactly the accepted0.84.1 program after identical whitespace normalization (comments excluded from that comparison); source data and behavior are unchanged. Full749-check run now required, then finished normal/portable and public GUI.

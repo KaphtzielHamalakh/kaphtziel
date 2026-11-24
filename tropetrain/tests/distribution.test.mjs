@@ -16,7 +16,7 @@ test('downloaded entry point uses a classic bundle instead of file-origin ES mod
 test('browser bundle embeds the same complete Torah data as the source corpus',()=>{
   const bundle=read('app.bundle.js');
   const manifest=JSON.parse(read('data/torah/manifest.json'));
-  const candidates=[...bundle.matchAll(/var encoded\w* = "(H4sI[A-Za-z0-9+/=]+)"/g)]
+  const candidates=[...bundle.matchAll(/var encoded\w*\s*=\s*"(H4sI[A-Za-z0-9+/=]+)"/g)]
     .map(match=>JSON.parse(gunzipSync(Buffer.from(match[1],'base64')).toString('utf8')))
     .filter(data=>data.manifest?.edition===manifest.edition&&Array.isArray(data.books)&&data.books.length===manifest.books.length&&data.books.every((book,i)=>book.id===manifest.books[i].id));
   assert.equal(candidates.length,1,'Exactly one complete Torah corpus is embedded, independently of other compressed data.');
@@ -54,7 +54,7 @@ test('standalone reference audio is losslessly embedded with source attribution 
 });
 
 test('whole-Torah source library survives lossless bundling and standalone embedding',()=>{
-  const bundle=read('app.bundle.js'),encoded=bundle.match(/var referenceEncoded = "([A-Za-z0-9+/=]+)"/);
+  const bundle=read('app.bundle.js'),encoded=bundle.match(/var referenceEncoded\s*=\s*"([A-Za-z0-9+/=]+)"/);
   assert.ok(encoded,'Packed reference library is embedded.');
   const original=readFileSync(new URL('../data/references/torah-library.json.gz',import.meta.url));
   assert.deepEqual(Buffer.from(encoded[1],'base64'),original);
