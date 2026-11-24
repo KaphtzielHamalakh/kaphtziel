@@ -58,15 +58,15 @@ export function recordingRate(value){
   return value;
 }
 export class RecordingPlayer {
-  constructor(media,{onWord=()=>{},onEnd=()=>{},onError=()=>{},onLoading=()=>{},onRecording=()=>{},resolveSource=null,clock=()=>performance.now()/1000,frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
+  constructor(media,{onWord=()=>{},onGroup=()=>{},onEnd=()=>{},onError=()=>{},onLoading=()=>{},onRecording=()=>{},resolveSource=null,clock=()=>performance.now()/1000,frame:queueFrame=callback=>requestAnimationFrame(callback),cancelFrame=handle=>cancelAnimationFrame(handle)}={}){
     this.media=media;this.onWord=onWord;this.onEnd=onEnd;this.onError=onError;this.onLoading=onLoading;this.onRecording=onRecording;this.resolveSource=resolveSource;this.frame=queueFrame;this.cancelFrame=cancelFrame;this.generation=0;this.running=false;this.starting=false;
-    this.clock=clock;this.rate=1;this.volume=Number.isFinite(media.volume)?media.volume:1;
+    this.clock=clock;this.rate=1;this.volume=Number.isFinite(media.volume)?media.volume:1;this.onGroup=onGroup;this.activeGroup=null;
     media.addEventListener('ended',()=>{if(this.running&&this.mode==='audio'&&media.currentTime>=this.currentSegment.end)this.advance();});
     media.addEventListener('error',()=>{if(this.running){this.stop();onError(Error('The recording could not be decoded or loaded.'));}});
   }
   stop(){
     this.generation++;this.running=false;this.starting=false;this.pending?.abort();this.pending=null;
-    this.enabling=null;this.media.pause();this.cancelFrame(this.raf);this.onWord(null);
+    this.enabling=null;this.media.pause();this.cancelFrame(this.raf);this.activeGroup=null;this.onWord(null);this.onGroup(null);
   }
   get canPreservePitch(){return 'preservesPitch' in this.media;}
   now(){return this.mode==='muted'?this.anchorPosition+Math.max(0,this.clock()-this.anchorClock)*this.rate:this.media.currentTime;}
@@ -125,7 +125,15 @@ export class RecordingPlayer {
       const tick=()=>{
         if(generation!==this.generation||!this.running)return;
         const time=this.now();if(time>=this.currentSegment.end){this.advance();return;}
-        this.onWord(referenceWordAt(this.currentSegment,time));this.raf=this.frame(tick);
+        const group=this.currentSegment.timingGroup;
+        if(group){
+          if(this.activeGroup!==group){this.onWord(null);this.activeGroup=group;}
+          this.onGroup(group,{seconds:time,progress:(time-this.currentSegment.start)/(this.currentSegment.end-this.currentSegment.start)});
+        }else{
+          if(this.activeGroup){this.activeGroup=null;this.onGroup(null);}
+          this.onWord(referenceWordAt(this.currentSegment,time));
+        }
+        this.raf=this.frame(tick);
       };tick();
     }catch(error){if(generation===this.generation){this.stop();if(error.name!=='AbortError')this.onError(error);}}
   }

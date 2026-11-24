@@ -193,9 +193,9 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.82.0",
-    "status": "published_verified_full_goal_active_incomplete",
-    "next": "Continue the full reconstruction, prioritizing sourced word-aligned chanting and independent pronunciation before printing. Investigate the remaining 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps using primary evidence. Inspect the recovered Idelsohn 1913/1917 scans in context before adopting any phonetic rule. Evaluate the private complete recorded-span design for 43 ambiguous words without inventing individual timings; 3 count-mismatch takes and 16 duration-overflow words remain withheld. Preserve exact Hebrew/accents/CGJ, source syllables/branches/shared ownership, original audio/clocks and every null/review gap. Continue full contextual melody systems, reusable singing delivery and the entire retained feature inventory. Current source /private/tmp/tropetrain-v82-worktree/tropetrain; verified saved build outputs/Development-v0.82/tropetrain. Do not repeat accepted checks absent a new change or unresolved concern. The full goal remains active and incomplete; printing deferred."
+    "version": "0.83.0",
+    "status": "local_verified_publication_pending",
+    "next": "Publish only tropetrain through connected GitHub, verify Pages/live bytes and run normal/portable public interface acceptance. Full reconstruction remains active and incomplete."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -2721,61 +2721,37 @@
     "olderPendingScope": 341
   },
   "privateDevelopment": {
-    "version": "0.82.0",
-    "status": "published_verified_full_goal_active_incomplete",
-    "checkout": "/private/tmp/tropetrain-v82-worktree/tropetrain",
-    "branch": "codex/tropetrain-v82",
-    "baseline": "ae3d46b05dfbfec62ccc36a7e4cca6c127b60cd6",
-    "source": "Existing pinned Phonikud CC BY4code, optional post_normalize terminal-glottal/h subset only",
+    "version": "0.83.0",
+    "status": "local_verified_publication_pending",
+    "checkout": "/private/tmp/tropetrain-v83-worktree/tropetrain",
+    "branch": "codex/tropetrain-v83",
+    "baseline": "0fef9cae1f4df6fd61c4c6ebb9c52dd902589ee9",
     "targetedTests": {
-      "pass": 21,
+      "pass": 22,
       "fail": 0,
       "skip": 0
     },
-    "initialEligibleReferencesPerStyle": 583,
+    "groups": 5,
+    "collectiveWords": 43,
+    "additionalIndividualWordTimes": 0,
     "fullBuild": {
-      "pass": 725,
-      "fail": 0,
-      "skip": 0,
-      "session": 46027,
-      "exit": 0
+      "session": 35548,
+      "exit": 0,
+      "passed": 735,
+      "failed": 0,
+      "skipped": 0
     },
-    "publicUi": {
-      "passed": 210,
-      "normal": 105,
-      "portable": 105,
+    "localUi": {
+      "passed": 226,
+      "normal": 113,
+      "portable": 113,
       "viewportReset": true,
       "speakerReview": null
     },
-    "publication": {
-      "commit": "d12d8e453493d9e865eff1151074c9ae9b3a7ad2",
-      "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45454093243",
-      "status": "success",
-      "allThreeJobsSucceeded": true,
-      "publicChangedFilesExact": 32,
-      "publicChangedBytesExact": 140815299
-    },
-    "acceptedPhonemes": null,
-    "acousticTimes": null,
+    "publicUi": null,
+    "publication": null,
     "singingVoice": null,
-    "review": null,
-    "preliminaryNoteAudit": {
-      "session": 66002,
-      "exit": 0,
-      "acceptedAsFinal": false,
-      "reason": "Boundary guards changed during this preliminary run; full build must regenerate final evidence."
-    },
-    "localUi": {
-      "passed": 210,
-      "normal": 105,
-      "portable": 105,
-      "scope": "Focused affected flows:22core,17note/export,19originalmodern,22joint,21newpolicy,4compact per distribution",
-      "viewportReset": true,
-      "media": "short muted stopped; no acoustic review"
-    },
-    "finalEligibleWordsPerStyle": 583,
-    "fullTorahNoteResults": 8,
-    "pending": "Continue the full reconstruction, prioritizing sourced word-aligned chanting and independent pronunciation before printing. Investigate the remaining 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps using primary evidence. Inspect the recovered Idelsohn 1913/1917 scans in context before adopting any phonetic rule. Evaluate the private complete recorded-span design for 43 ambiguous words without inventing individual timings; 3 count-mismatch takes and 16 duration-overflow words remain withheld. Preserve exact Hebrew/accents/CGJ, source syllables/branches/shared ownership, original audio/clocks and every null/review gap. Continue full contextual melody systems, reusable singing delivery and the entire retained feature inventory. Current source /private/tmp/tropetrain-v82-worktree/tropetrain; verified saved build outputs/Development-v0.82/tropetrain. Do not repeat accepted checks absent a new change or unresolved concern. The full goal remains active and incomplete; printing deferred."
+    "review": null
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2800,5 +2776,17 @@
       "docs/MODERN-FINAL-CONSONANTS.json",
       "docs/MODERN-FINAL-NOTE-LINKS.json"
     ]
+  },
+  "recordingTimingGroups": {
+    "status": "locally_verified_publication_pending",
+    "groups": 5,
+    "collectivelyCoveredWords": 43,
+    "additionalIndividualWordTimes": 0,
+    "individualWordTimes": null,
+    "syllableTimes": null,
+    "review": null,
+    "sourceAudioChanged": false,
+    "defaultEnabled": false,
+    "evidence": "docs/RECORDING-TIMING-GROUPS.json"
   }
 }

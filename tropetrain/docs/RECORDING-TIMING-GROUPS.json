@@ -1,0 +1,593 @@
+{
+  "schema": "tropetrain-recording-timing-groups-v1",
+  "revision": 1,
+  "source": {
+    "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
+    "packetSha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9",
+    "rights": "Source timings CC-BY-SA-2.5; original audio and derived correspondence CC-BY-SA-3.0; PocketTorah / Not-a-Box Media Lab, Russel Neiss and Rabbi Charlie Schwartz."
+  },
+  "inputs": [
+    {
+      "path": "data/pitch/manifest.json",
+      "sha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf"
+    },
+    {
+      "path": "data/references/torah-library.json.gz",
+      "sha256": "86b0256e2addfb17a7a094eb8cf579fe262e3a21dcf96c28de81edc257413ee9"
+    },
+    {
+      "path": "data/references/torah-sources.zip",
+      "sha256": "8bd638f2ba7f959d0130edb05b0880558501dd11afa496ae6159c1663fdcade9"
+    },
+    {
+      "path": "data/torah/deu.json",
+      "sha256": "97efdf0f574969aaa76e4b81f172368f5e5b8ae87de4d55a92c59c8ee25dcea0"
+    },
+    {
+      "path": "data/torah/exo.json",
+      "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "data/torah/lev.json",
+      "sha256": "5305459423600ede78e6435f6cce328fb9d852aedd778f9ad3d0301cd0dfb492"
+    },
+    {
+      "path": "data/torah/manifest.json",
+      "sha256": "d8797f3051f4d96f9175132dcf20e4c342b27b884211056c34652ab841516efe"
+    },
+    {
+      "path": "data/torah/num.json",
+      "sha256": "789f7a59c48a5ee7bd902038e95a80f50c7990c1cc47ac5effd668a73a6e0452"
+    },
+    {
+      "path": "measured-practice.js",
+      "sha256": "8ce5940ca3e37ba1449723b4d614ac2af818cf31ef4d1ffa559b2e2df8089f27"
+    },
+    {
+      "path": "recorded-practice.js",
+      "sha256": "6fe70971cbc03a8133de01d33b6b89290df923fc691aeafe0c495a414f59227a"
+    },
+    {
+      "path": "recorded-reference.js",
+      "sha256": "707b4c368a205026d1efdc7d34a16af2c6f6da2ff5442acfeb51d618dae453ee"
+    },
+    {
+      "path": "recording-timing-group-pins.js",
+      "sha256": "694d03964a23a340d657afb455d422ac4cb4d5c1ca1430512fe8110a83945f77"
+    },
+    {
+      "path": "recording-timing-groups.js",
+      "sha256": "fe5794ba426a80d9256a425e997f09e9292317b99d2a3c25db02eca4c9a21990"
+    },
+    {
+      "path": "reference-library.js",
+      "sha256": "5d84a8f672fe88ccf4607ffc16eb66eedfb6229fcef49bb8b158aed7d24d8a78"
+    },
+    {
+      "path": "scripts/audit-inputs.mjs",
+      "sha256": "16512b506c93aa566ba85673d43e821746bb95ca03c4799a9aa047c3e14c621b"
+    },
+    {
+      "path": "scripts/audit-recording-timing-groups.mjs",
+      "sha256": "e4f1a62ea6eb41b459bb0f76e144606af91d7a11fcff062d0f0e59f9cc39390f"
+    },
+    {
+      "path": "source-pitch-manifest.js",
+      "sha256": "3711fd92f911ad7c3354e7ba531c8d252bfc9cdd7f9eab60c5375ab9a5bcadc6"
+    },
+    {
+      "path": "source-pitch.js",
+      "sha256": "234486b80f955e38071ab7e3d181402a6dd08de64bd32540a53ebe88dc1c68ac"
+    },
+    {
+      "path": "source-word-windows.js",
+      "sha256": "db162b180775bba4728366099eb5be74044a893c9fdd6790ade8ae6dea650e58"
+    },
+    {
+      "path": "tests/source-word-windows-audit.py",
+      "sha256": "2b3631e5eef18bdf29e5aafcf0f86c36a5d73b11789a7d151861e09599cbd60b"
+    }
+  ],
+  "groups": [
+    {
+      "id": "pt-portion-13-5-timing-group-1",
+      "wordIds": [
+        "exo-3-18-11",
+        "exo-3-18-12",
+        "exo-3-18-13"
+      ],
+      "readerHebrew": [
+        "אֵלָיו֙",
+        "יְהוָ֞ה",
+        "אֱלֹהֵ֤י"
+      ],
+      "sourceStartIndex": 52,
+      "sourceEndIndex": 55,
+      "startSeconds": 66.136066,
+      "endSeconds": 69.14566,
+      "recordingId": "pt-portion-13-5",
+      "referenceStartIndex": 52,
+      "referenceEndIndex": 54,
+      "timingSource": {
+        "originalPath": "Webbrowser/content/torah/labels/Shemot-5.txt",
+        "gitBlob": "f6c4976846c8b312637f53f525ace21a9b9aabf6",
+        "sha256": "fd053643ce943ca09f4cc231f9013fe846cbe6a3ca4ec541d47defee5c85beeb",
+        "bytes": 4114
+      },
+      "sourceAudio": {
+        "url": "https://archive.org/download/PockettorahAudioFiles/Shemot-5.mp3",
+        "filename": "Shemot-5.mp3",
+        "sha1": "63a2fa3b6ce96feaf65f84ed4f4f5b6a216539eb",
+        "bytes": 1667344,
+        "source": "original",
+        "durationLabel": "06:56",
+        "localFile": null
+      },
+      "sourceIssues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 53,
+          "before": 67.122439,
+          "after": 67.122439
+        }
+      ],
+      "measuredDurationSeconds": 416.8359375,
+      "kind": "recording-timing-group",
+      "firstIndex": 52,
+      "lastIndex": 54,
+      "sectionId": "pt-portion-13-5",
+      "occurrenceIds": [
+        "exo-3-18-11",
+        "exo-3-18-12",
+        "exo-3-18-13"
+      ],
+      "wordIndices": [
+        52,
+        53,
+        54
+      ],
+      "recordingHebrew": [
+        "אֵלָיו֙",
+        "יְהוָ֞ה",
+        "אֱלֹהֵ֤י"
+      ],
+      "individualWordTimes": null,
+      "syllableTimes": null,
+      "phonemes": null,
+      "acousticReview": null,
+      "musicalReview": null
+    },
+    {
+      "id": "pt-portion-13-7-timing-group-1",
+      "wordIds": [
+        "exo-5-14-5",
+        "exo-5-14-6",
+        "exo-5-14-7"
+      ],
+      "readerHebrew": [
+        "אֲשֶׁר־",
+        "שָׂ֣מוּ",
+        "עֲלֵהֶ֔ם"
+      ],
+      "sourceStartIndex": 187,
+      "sourceEndIndex": 190,
+      "startSeconds": 190.339458,
+      "endSeconds": 192.842418,
+      "recordingId": "pt-portion-13-7",
+      "referenceStartIndex": 187,
+      "referenceEndIndex": 189,
+      "timingSource": {
+        "originalPath": "Webbrowser/content/torah/labels/Shemot-7.txt",
+        "gitBlob": "ae618d27854c4e247dd7b0da6f0d63e274937ac6",
+        "sha256": "6849e02ee132d16985809e4d7eaa9b268f1dda204eb28f4a014958a259b5f5f5",
+        "bytes": 3580
+      },
+      "sourceAudio": {
+        "url": "https://archive.org/download/PockettorahAudioFiles/Shemot-7.mp3",
+        "filename": "Shemot-7.mp3",
+        "sha1": "c8d2a389ebbcb3d9302efd544ff49d73e7fcc969",
+        "bytes": 1390132,
+        "source": "original",
+        "durationLabel": "05:47",
+        "localFile": null
+      },
+      "sourceIssues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 188,
+          "before": 191.070213,
+          "after": 191.070213
+        }
+      ],
+      "measuredDurationSeconds": 347.5330625,
+      "kind": "recording-timing-group",
+      "firstIndex": 187,
+      "lastIndex": 189,
+      "sectionId": "pt-portion-13-7",
+      "occurrenceIds": [
+        "exo-5-14-5",
+        "exo-5-14-6",
+        "exo-5-14-7"
+      ],
+      "wordIndices": [
+        187,
+        188,
+        189
+      ],
+      "recordingHebrew": [
+        "אֲשֶׁר־",
+        "שָׂ֣מוּ",
+        "עֲלֵהֶ֔ם"
+      ],
+      "individualWordTimes": null,
+      "syllableTimes": null,
+      "phonemes": null,
+      "acousticReview": null,
+      "musicalReview": null
+    },
+    {
+      "id": "pt-portion-20-1-timing-group-1",
+      "wordIds": [
+        "exo-28-12-13",
+        "exo-28-12-14",
+        "exo-28-12-15"
+      ],
+      "readerHebrew": [
+        "אַהֲרֹ֨ן",
+        "אֶת־",
+        "שְׁמוֹתָ֜ם"
+      ],
+      "sourceStartIndex": 202,
+      "sourceEndIndex": 205,
+      "startSeconds": 208.720148,
+      "endSeconds": 210.623931,
+      "recordingId": "pt-portion-20-1",
+      "referenceStartIndex": 202,
+      "referenceEndIndex": 204,
+      "timingSource": {
+        "originalPath": "Webbrowser/content/torah/labels/Tetzaveh-1.txt",
+        "gitBlob": "f067b2e23e26c41c3ac62650d96647b5104a91e6",
+        "sha256": "88764a7857b5491342077bf59a3aedf68903e40ccc3caf341a3e8d62ae0c79b6",
+        "bytes": 2210
+      },
+      "sourceAudio": {
+        "url": "https://archive.org/download/PockettorahAudioFiles/Tetzaveh-1.mp3",
+        "filename": "Tetzaveh-1.mp3",
+        "sha1": "d2bddc1fadaa8f16094fc5d71da4181fc186deef",
+        "bytes": 875833,
+        "source": "original",
+        "durationLabel": "03:38",
+        "localFile": null
+      },
+      "sourceIssues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 203,
+          "before": 208.954471,
+          "after": 208.954471
+        }
+      ],
+      "measuredDurationSeconds": 218.958375,
+      "kind": "recording-timing-group",
+      "firstIndex": 202,
+      "lastIndex": 204,
+      "sectionId": "pt-portion-20-1",
+      "occurrenceIds": [
+        "exo-28-12-13",
+        "exo-28-12-14",
+        "exo-28-12-15"
+      ],
+      "wordIndices": [
+        202,
+        203,
+        204
+      ],
+      "recordingHebrew": [
+        "אַהֲרֹ֨ן",
+        "אֶת־",
+        "שְׁמוֹתָ֜ם"
+      ],
+      "individualWordTimes": null,
+      "syllableTimes": null,
+      "phonemes": null,
+      "acousticReview": null,
+      "musicalReview": null
+    },
+    {
+      "id": "pt-portion-35-4-timing-group-1",
+      "wordIds": [
+        "num-6-17-7",
+        "num-6-17-8",
+        "num-6-17-9"
+      ],
+      "readerHebrew": [
+        "עַ֖ל",
+        "סַ֣ל",
+        "הַמַּצּ֑וֹת"
+      ],
+      "sourceStartIndex": 556,
+      "sourceEndIndex": 559,
+      "startSeconds": 583.003133,
+      "endSeconds": 585.441228,
+      "recordingId": "pt-portion-35-4",
+      "referenceStartIndex": 556,
+      "referenceEndIndex": 558,
+      "timingSource": {
+        "originalPath": "Webbrowser/content/torah/labels/Nasso-4.txt",
+        "gitBlob": "90b024a0503c4ac66d929a1d80c44503353c57d2",
+        "sha256": "aad7d78d9f1334808d0a645685ed5f25bf04e5222e49d25aff4878263f0d8bd4",
+        "bytes": 7454
+      },
+      "sourceAudio": {
+        "url": "https://archive.org/download/PockettorahAudioFiles/Nasso-4.mp3",
+        "filename": "Nasso-4.mp3",
+        "sha1": "4ce46cee995fd24e230a4ad4103dcceb7579b2c6",
+        "bytes": 2882550,
+        "source": "original",
+        "durationLabel": "12:00",
+        "localFile": null
+      },
+      "sourceIssues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 557,
+          "before": 584.8,
+          "after": 584.32667
+        }
+      ],
+      "measuredDurationSeconds": 720.613875,
+      "kind": "recording-timing-group",
+      "firstIndex": 556,
+      "lastIndex": 558,
+      "sectionId": "pt-portion-35-4",
+      "occurrenceIds": [
+        "num-6-17-7",
+        "num-6-17-8",
+        "num-6-17-9"
+      ],
+      "wordIndices": [
+        556,
+        557,
+        558
+      ],
+      "recordingHebrew": [
+        "עַ֖ל",
+        "סַ֣ל",
+        "הַמַּצּ֑וֹת"
+      ],
+      "individualWordTimes": null,
+      "syllableTimes": null,
+      "phonemes": null,
+      "acousticReview": null,
+      "musicalReview": null
+    },
+    {
+      "id": "pt-portion-46-3-timing-group-1",
+      "wordIds": [
+        "deu-9-6-16",
+        "deu-9-6-17",
+        "deu-9-6-18",
+        "deu-9-7-1",
+        "deu-9-7-2",
+        "deu-9-7-3",
+        "deu-9-7-4",
+        "deu-9-7-5",
+        "deu-9-7-6",
+        "deu-9-7-7",
+        "deu-9-7-8",
+        "deu-9-7-9",
+        "deu-9-7-10",
+        "deu-9-7-11",
+        "deu-9-7-12",
+        "deu-9-7-13",
+        "deu-9-7-14",
+        "deu-9-7-15",
+        "deu-9-7-16",
+        "deu-9-7-17",
+        "deu-9-7-18",
+        "deu-9-7-19",
+        "deu-9-7-20",
+        "deu-9-7-21",
+        "deu-9-7-22",
+        "deu-9-7-23",
+        "deu-9-7-24",
+        "deu-9-7-25",
+        "deu-9-8-1",
+        "deu-9-8-2",
+        "deu-9-8-3"
+      ],
+      "readerHebrew": [
+        "קְשֵׁה־",
+        "עֹ֖רֶף",
+        "אָֽתָּה׃",
+        "זְכֹר֙",
+        "אַל־",
+        "תִּשְׁכַּ֔ח",
+        "אֵ֧ת",
+        "אֲשֶׁר־",
+        "הִקְצַ֛פְתָּ",
+        "אֶת־",
+        "יְהוָ֥ה",
+        "אֱלֹהֶ֖יךָ",
+        "בַּמִּדְבָּ֑ר",
+        "לְמִן־",
+        "הַיּ֞וֹם",
+        "אֲשֶׁר־",
+        "יָצָ֣אתָ ׀",
+        "מֵאֶ֣רֶץ",
+        "מִצְרַ֗יִם",
+        "עַד־",
+        "בֹּֽאֲכֶם֙",
+        "עַד־",
+        "הַמָּק֣וֹם",
+        "הַזֶּ֔ה",
+        "מַמְרִ֥ים",
+        "הֱיִיתֶ֖ם",
+        "עִם־",
+        "יְהוָֽה׃",
+        "וּבְחֹרֵ֥ב",
+        "הִקְצַפְתֶּ֖ם",
+        "אֶת־"
+      ],
+      "sourceStartIndex": 65,
+      "sourceEndIndex": 96,
+      "startSeconds": 103.877022,
+      "endSeconds": 140.224761,
+      "recordingId": "pt-portion-46-3",
+      "referenceStartIndex": 65,
+      "referenceEndIndex": 95,
+      "timingSource": {
+        "originalPath": "Webbrowser/content/torah/labels/Eikev-3.txt",
+        "gitBlob": "a4ffb9944d939d6cae08adb80a8a7f3ac2c1394b",
+        "sha256": "0a9253a0123b3139cf791efc0598b00528fcf439ddac09863ae969808d4cdb70",
+        "bytes": 4813
+      },
+      "sourceAudio": {
+        "url": "https://archive.org/download/PockettorahAudioFiles/Eikev-3.mp3",
+        "filename": "Eikev-3.mp3",
+        "sha1": "aefd7330fb79425dffbf060a917c7eed85a8138d",
+        "bytes": 2566936,
+        "source": "original",
+        "durationLabel": "10:41",
+        "localFile": null
+      },
+      "sourceIssues": [
+        {
+          "kind": "non-increasing",
+          "sourceIndex": 66,
+          "before": 140.1,
+          "after": 105.177339
+        }
+      ],
+      "measuredDurationSeconds": 641.7240625,
+      "kind": "recording-timing-group",
+      "firstIndex": 65,
+      "lastIndex": 95,
+      "sectionId": "pt-portion-46-3",
+      "occurrenceIds": [
+        "deu-9-6-16",
+        "deu-9-6-17",
+        "deu-9-6-18",
+        "deu-9-7-1",
+        "deu-9-7-2",
+        "deu-9-7-3",
+        "deu-9-7-4",
+        "deu-9-7-5",
+        "deu-9-7-6",
+        "deu-9-7-7",
+        "deu-9-7-8",
+        "deu-9-7-9",
+        "deu-9-7-10",
+        "deu-9-7-11",
+        "deu-9-7-12",
+        "deu-9-7-13",
+        "deu-9-7-14",
+        "deu-9-7-15",
+        "deu-9-7-16",
+        "deu-9-7-17",
+        "deu-9-7-18",
+        "deu-9-7-19",
+        "deu-9-7-20",
+        "deu-9-7-21",
+        "deu-9-7-22",
+        "deu-9-7-23",
+        "deu-9-7-24",
+        "deu-9-7-25",
+        "deu-9-8-1",
+        "deu-9-8-2",
+        "deu-9-8-3"
+      ],
+      "wordIndices": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "recordingHebrew": [
+        "קְשֵׁה־",
+        "עֹ֖רֶף",
+        "אָֽתָּה׃",
+        "זְכֹר֙",
+        "אַל־",
+        "תִּשְׁכַּ֔ח",
+        "אֵ֧ת",
+        "אֲשֶׁר־",
+        "הִקְצַ֛פְתָּ",
+        "אֶת־",
+        "יְהוָ֥ה",
+        "אֱלֹהֶ֖יךָ",
+        "בַּמִּדְבָּ֑ר",
+        "לְמִן־",
+        "הַיּ֞וֹם",
+        "אֲשֶׁר־",
+        "יָצָ֣אתָ ׀",
+        "מֵאֶ֣רֶץ",
+        "מִצְרַ֗יִם",
+        "עַד־",
+        "בֹּֽאֲכֶם֙",
+        "עַד־",
+        "הַמָּק֣וֹם",
+        "הַזֶּ֔ה",
+        "מַמְרִ֥ים",
+        "הֱיִיתֶ֖ם",
+        "עִם־",
+        "יְהוָֽה׃",
+        "וּבְחֹרֵ֥ב",
+        "הִקְצַפְתֶּ֖ם",
+        "אֶת־"
+      ],
+      "individualWordTimes": null,
+      "syllableTimes": null,
+      "phonemes": null,
+      "acousticReview": null,
+      "musicalReview": null
+    }
+  ],
+  "counts": {
+    "completeTimingGroups": 5,
+    "collectivelyCoveredWords": 43,
+    "additionalIndividualWordTimes": 0,
+    "unchangedStructurallyTimedWords": 79194,
+    "unchangedDurationFittingWordWindows": 79178,
+    "countMismatchWordsStillWithheld": 748,
+    "durationOverflowWordsStillWithheld": 16
+  },
+  "method": "Only the five pinned equal-count original takes qualify. Every closed ambiguity run stays complete, bounded by unchanged strictly ordered source starts outside its faults; all internal word/syllable times remain unassigned. Original ZIP endpoints, complete source identity, original marked Torah and measured duration are checked. Opt-in recorded chant only; no interpolation, sorting, clamping or timing repair. No individual highlight inside a group.",
+  "review": {
+    "acoustic": null,
+    "musical": null,
+    "phonological": null
+  },
+  "limits": "Recorded-span access is not additional word-aligned timing, a new pronunciation voice or a complete contextual melody grammar. Fixed source performances retain their own voice, pronunciation, melody and clock. Measured tones, personal syllable drafts, 748 count-mismatch words and 16 duration-overflow words do not gain inferred boundaries."
+}
