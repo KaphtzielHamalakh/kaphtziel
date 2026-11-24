@@ -3,18 +3,18 @@
   "updated": "2026-11-24",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "8245f8a047bd093c2613022530c01b4116479fdf",
-  "nextTask": "Continue source-based word-aligned chanting across the entire Torah with independent melody and pronunciation. Prioritize reviewed phonological rules and reusable singing delivery, then full contextual melody realization from licensed scores/recordings. Resolve19,557written-vocal-sheva references, special/final categories and the two older regional profiles’44compound gaps only from sufficient primary evidence; keep all source alternatives/shared halves/complete shared words and original recording clocks exact. Review every claimed historical grammar/melody/voice independently; recovered menu/definition labels do not supply that review. Use the full retained feature roadmap; tutor/learning features follow musical accuracy, printing deferred. Preserve original iCloud checkout and required private cache; current authoritative source is /private/tmp/tropetrain-v81-worktree/tropetrain with a verified output snapshot under outputs/Development-v0.81/tropetrain. Do not restart accepted712regressions/438local/438publicUI absent a new change or concern. Never claim the full reconstruction complete from this increment.",
+  "publishedCommit": "d12d8e453493d9e865eff1151074c9ae9b3a7ad2",
+  "nextTask": "Continue the full reconstruction, prioritizing sourced word-aligned chanting and independent pronunciation before printing. Investigate the remaining 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps using primary evidence. Inspect the recovered Idelsohn 1913/1917 scans in context before adopting any phonetic rule. Evaluate the private complete recorded-span design for 43 ambiguous words without inventing individual timings; 3 count-mismatch takes and 16 duration-overflow words remain withheld. Preserve exact Hebrew/accents/CGJ, source syllables/branches/shared ownership, original audio/clocks and every null/review gap. Continue full contextual melody systems, reusable singing delivery and the entire retained feature inventory. Current source /private/tmp/tropetrain-v82-worktree/tropetrain; verified saved build outputs/Development-v0.82/tropetrain. Do not repeat accepted checks absent a new change or unresolved concern. The full goal remains active and incomplete; printing deferred.",
   "lastPassingTests": {
-    "automated": 712,
-    "newRegressionChecks": 18,
+    "automated": 725,
+    "newRegressionChecks": 13,
     "failed": 0,
     "skipped": 0,
-    "localUiChecks": 438,
-    "publicUiChecks": 438,
+    "localUiChecks": 210,
+    "publicUiChecks": 210,
     "remainingPublicUiChecks": 0,
-    "ui": "712 automated checks pass,0 failures/0 skips,18 new regression checks. Normal and portable each pass196 retained,19 modern inventory and4 compact-screen/keyboard checks:438 local and438 public UI checks. All public checks use the deployed v0.81 runtime. The former341 pending v0.80 public checks are superseded by this complete current-release scope.320px idle/active recall has no page or dialog overflow; viewport reset. Playback was short, muted and stopped, all media paused and browser consoles clear. No speaker listening, physical file-save or qualified acoustic/cantorial review is claimed.",
-    "scope": "Software/source correspondence and public UI verified; no acoustic or cantorial approval."
+    "ui": "725 automated checks passed, 0 failed and 0 skipped. Normal and portable each passed 105 focused affected-flow browser checks: 22 core playback, 17 note/export, 19 original modern, 22 shared-word, 21 new policy and 4 compact-screen/keyboard checks. Totals: 210 local and 210 public checks. This scope does not claim a rerun of all 438 prior UI checks. Exact source text, alternatives, null acoustic fields, repeat/occurrence IDs, independent controls, prepared MIDI, saved state and 320px recall passed. Playback was short, muted and stopped; all media paused, consoles clear and viewport reset. No speaker listening, physical file-save or qualified acoustic/cantorial review is claimed.",
+    "scope": "Focused affected-flow software and source correspondence, not acoustic or cantorial approval."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -53,7 +53,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_MAM_text_styles_two_incomplete_regional_profiles_one_modern_inventory_adaptation_two_bounded_Tiberian_streams_independent_full_reviewed_grammars_and_singing_voices_pending"
+      "status": "two_MAM_text_styles_two_incomplete_regional_profiles_modern_inventory_with_separate_optional_final_loss_two_bounded_Tiberian_streams_full_reviewed_historical_grammars_and_singing_voices_pending"
     },
     {
       "id": "melodies",
@@ -163,12 +163,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "8245f8a047bd093c2613022530c01b4116479fdf",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45389555932",
+    "commit": "d12d8e453493d9e865eff1151074c9ae9b3a7ad2",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45454093243",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 36,
-    "publicChangedBytesExact": 140789832
+    "publicChangedFilesExact": 32,
+    "publicChangedBytesExact": 140815299
   },
   "corpusImport": {
     "books": 5,
@@ -194,8 +194,8 @@
   },
   "workingIteration": {
     "version": "0.82.0",
-    "status": "local_verified_publication_pending",
-    "next": "Finish complete new source/note audits and regression/packaging, verify actual normal/portable UI, then publish only tropetrain with connected GitHub, Pages and exact live bytes. Full original reconstruction scope remains active."
+    "status": "published_verified_full_goal_active_incomplete",
+    "next": "Continue the full reconstruction, prioritizing sourced word-aligned chanting and independent pronunciation before printing. Investigate the remaining 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps using primary evidence. Inspect the recovered Idelsohn 1913/1917 scans in context before adopting any phonetic rule. Evaluate the private complete recorded-span design for 43 ambiguous words without inventing individual timings; 3 count-mismatch takes and 16 duration-overflow words remain withheld. Preserve exact Hebrew/accents/CGJ, source syllables/branches/shared ownership, original audio/clocks and every null/review gap. Continue full contextual melody systems, reusable singing delivery and the entire retained feature inventory. Current source /private/tmp/tropetrain-v82-worktree/tropetrain; verified saved build outputs/Development-v0.82/tropetrain. Do not repeat accepted checks absent a new change or unresolved concern. The full goal remains active and incomplete; printing deferred."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -2722,7 +2722,7 @@
   },
   "privateDevelopment": {
     "version": "0.82.0",
-    "status": "local_verified_publication_pending",
+    "status": "published_verified_full_goal_active_incomplete",
     "checkout": "/private/tmp/tropetrain-v82-worktree/tropetrain",
     "branch": "codex/tropetrain-v82",
     "baseline": "ae3d46b05dfbfec62ccc36a7e4cca6c127b60cd6",
@@ -2740,8 +2740,21 @@
       "session": 46027,
       "exit": 0
     },
-    "publicUi": null,
-    "publication": null,
+    "publicUi": {
+      "passed": 210,
+      "normal": 105,
+      "portable": 105,
+      "viewportReset": true,
+      "speakerReview": null
+    },
+    "publication": {
+      "commit": "d12d8e453493d9e865eff1151074c9ae9b3a7ad2",
+      "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45454093243",
+      "status": "success",
+      "allThreeJobsSucceeded": true,
+      "publicChangedFilesExact": 32,
+      "publicChangedBytesExact": 140815299
+    },
     "acceptedPhonemes": null,
     "acousticTimes": null,
     "singingVoice": null,
@@ -2761,6 +2774,31 @@
       "media": "short muted stopped; no acoustic review"
     },
     "finalEligibleWordsPerStyle": 583,
-    "fullTorahNoteResults": 8
+    "fullTorahNoteResults": 8,
+    "pending": "Continue the full reconstruction, prioritizing sourced word-aligned chanting and independent pronunciation before printing. Investigate the remaining 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps using primary evidence. Inspect the recovered Idelsohn 1913/1917 scans in context before adopting any phonetic rule. Evaluate the private complete recorded-span design for 43 ambiguous words without inventing individual timings; 3 count-mismatch takes and 16 duration-overflow words remain withheld. Preserve exact Hebrew/accents/CGJ, source syllables/branches/shared ownership, original audio/clocks and every null/review gap. Continue full contextual melody systems, reusable singing delivery and the entire retained feature inventory. Current source /private/tmp/tropetrain-v82-worktree/tropetrain; verified saved build outputs/Development-v0.82/tropetrain. Do not repeat accepted checks absent a new change or unresolved concern. The full goal remains active and incomplete; printing deferred."
+  },
+  "modernOptionalFinalConsonants": {
+    "id": "phonikud-modern-final-consonants",
+    "source": "Phonikud optional post_normalize terminal glottal/h subset; CC BY4.0; pinned a29a75b473b0f132a0bbee41dad38763035211dc",
+    "status": "published_research_text_only",
+    "ordinaryModernProfileUnchanged": true,
+    "regionalProfilesUnchanged": true,
+    "sourceStyles": 2,
+    "sourceReaderWordsPerStyle": 79985,
+    "eligibleFinalAyinWordsPerStyle": 583,
+    "eligibleFinalAyinReferencesPerStyle": 583,
+    "otherUnknownReferencesPerStyle": 20378,
+    "sourcePolicies": 4,
+    "noteAuditResults": 8,
+    "completeModernGrammar": false,
+    "kinnorAccentId": null,
+    "phonemes": null,
+    "audioTimes": null,
+    "singingVoice": null,
+    "review": null,
+    "evidence": [
+      "docs/MODERN-FINAL-CONSONANTS.json",
+      "docs/MODERN-FINAL-NOTE-LINKS.json"
+    ]
   }
 }
