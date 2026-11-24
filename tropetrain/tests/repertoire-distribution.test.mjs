@@ -7,7 +7,7 @@ import vm from 'node:vm';
 const read=name=>readFileSync(new URL('../'+name,import.meta.url),'utf8');
 test('normal and standalone bundles embed the exact complete additional Hebrew library without extra data requests',()=>{
   const bundle=read('app.bundle.js'),standalone=read('TropeTrain.html');
-  const encoded=bundle.match(/repertoireEncoded = "([A-Za-z0-9+/=]+)"/);assert.ok(encoded);
+  const encoded=bundle.match(/repertoireEncoded\s*=\s*"([A-Za-z0-9+/=]+)"/);assert.ok(encoded);
   const data=JSON.parse(gunzipSync(Buffer.from(encoded[1],'base64')));
   assert.deepEqual(data.manifest,JSON.parse(read('data/repertoire/manifest.json')));assert.equal(data.books.length,26);
   for(const book of data.books)assert.deepEqual(book,JSON.parse(read(`data/repertoire/${book.id}.json`)));
@@ -16,8 +16,8 @@ test('normal and standalone bundles embed the exact complete additional Hebrew l
 });
 
 test('the built repertoire decoder round-trips through Web Streams and explicitly refuses missing gzip support',async()=>{
-  const bundle=read('app.bundle.js'),repertoireEncoded=bundle.match(/repertoireEncoded = "([A-Za-z0-9+/=]+)"/)[1];
-  const decoder=bundle.match(/async function loadRepertoire\(\) \{[\s\S]*?\n  \}/)[0];
+  const bundle=read('app.bundle.js'),repertoireEncoded=bundle.match(/repertoireEncoded\s*=\s*"([A-Za-z0-9+/=]+)"/)[1];
+  const decoder=bundle.match(/async function loadRepertoire\(\)\s*\{[\s\S]*?\}(?=\s*var repertoireEncoded;)/)[0];
   const context={repertoireEncoded,atob,Uint8Array,Response,Blob,DecompressionStream};
   const loaded=await vm.runInNewContext('('+decoder+')()',context);
   assert.equal(JSON.stringify(loaded),gunzipSync(Buffer.from(repertoireEncoded,'base64')).toString());
