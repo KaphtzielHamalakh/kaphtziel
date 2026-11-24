@@ -189,11 +189,11 @@
     },
     {
       "path": "app.js",
-      "sha256": "03b61b6aa654019f9af6bf5ae9672be899e61dd453b412e9b18bc751eb193f45"
+      "sha256": "8fd1b7ce17429a2813c346fe40a61109bf133db5e5fcafe8638fd9164d63639d"
     },
     {
       "path": "index.html",
-      "sha256": "c5b7195e8993d18018d8448c8be5bfd4157611637a83b841554ebc97401fa409"
+      "sha256": "549d9a5edd9bc7f725b8d6fc7347c7755f68009462339ee7d9cd02d28bad2328"
     },
     {
       "path": "assets/scores/cohen-1902-penitential-gen22.png",

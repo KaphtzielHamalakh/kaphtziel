@@ -4,17 +4,18 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608",
-  "nextTask": "Continue word-aligned chanting and independent pronunciation before printing. Add an explicitly personal, initially blank original-recording group word-boundary draft so a reviewer can assign the 43 unknown individual intervals without changing source times, Hebrew or evidence. Keep bounds inside the pinned original group, actual measured recording identity and repeated occurrences separate; never auto-certify musical/phonological review. Continue primary source research for 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps. Read the complete Idelsohn 1917 text/example/notation context and phonogram metadata before any bounded transcription; the modern archive transfer has no established open reuse grant. Develop complete contextual melody grammars and reusable singing delivery only from sufficient licensed evidence and independent review. Preserve every original feature requirement and all null/review gaps. Current source /private/tmp/tropetrain-v83-worktree/tropetrain; saved build outputs/Development-v0.83/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete.",
+  "nextTask": "Continue word-aligned chanting and independent pronunciation before printing. Personal original-recording group drafts for all43words are now implemented; keep source times and all musical/phonological review null until actual review supports them. Continue full contextual melody grammars and independent six-profile pronunciation/singing delivery from sufficient reusable evidence. The new primary-source notes in work/audits/recording-group-word-drafts-0.84/PRIMARY-RESEARCH-2026-11-24.md identify original Idelsohn1914VolI and1929MoroccanVolV public-domain scans, phonetic/context/rhythm/quarter-tone limits and bounded score candidates; finish relevant prose and original example identities before transcription. In particular distinguish MoroccanNo267/No302row1 from comparative rows and unresolved prose numbering; do not silently equate them with Kinnor presets. Investigate the19557vocal-sheva references, special/final categories and both regional profiles44compound gaps while preserving MAMbranches/stress/shared consonant halves and exact collective ownership. Modern archive transfers still lack established open reuse rights. Preserve all original feature requirements and explicit null/review gaps. Current source /private/tmp/tropetrain-v84-worktree/tropetrain; saved build outputs/Development-v0.84/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete.",
   "lastPassingTests": {
-    "automated": 735,
-    "newRegressionChecks": 10,
+    "automated": 749,
+    "newRegressionChecks": 14,
     "failed": 0,
+    "cancelled": 0,
     "skipped": 0,
-    "localUiChecks": 226,
-    "publicUiChecks": 226,
-    "remainingPublicUiChecks": 0,
-    "ui": "735 automated checks pass, 0 failed and 0 skipped. Both normal and portable each pass 113 focused affected-flow interface checks: 7 original recorded-word, 25 group selection, 12 group playback, 4 compact-screen, 22 core playback, 22 shared-word and 21 retained optional-final pronunciation checks. Totals: 226 local and 226 public. This scope does not claim every prior UI check was rerun. Actual original audio loading/checksum, whole-group repeat, natural finish, Stop/Escape, option-off, exact Hebrew, repeated IDs, saved state without autoplay and independent text controls pass. All playback was short, muted and stopped; media paused, consoles clear and viewport reset. No speaker listening, physical download saving or qualified acoustic/cantorial review is claimed.",
-    "scope": "Focused software/source and browser verification; no acoustic/cantorial approval."
+    "localUiChecks": 345,
+    "publicUiChecks": 0,
+    "remainingPublicUiChecks": 340,
+    "ui": "749 automated checks pass, zero failed, cancelled or skipped. Each finished normal and portable distribution passes164focused interface checks:51new personal group-word editor checks and113retained affected-flow checks(22core,22shared-word,21optional-final pronunciation,7ordinary recorded-word,25recording-group selection,12group playback,4compact group layout). Totals345local(including5verifiedolder-interface upgrade,8cross-distribution section-isolation and4brief actual-media checks); public checks pending. All personal QA marks cleared; playback primarily muted, with one brief1percent original-media check per local/public normal build. All then stopped, volume returned to zero, media paused, consoles clear and viewport reset. Actual original checksum loading, bounded personal capture/audition, strict JSON import, repeated occurrence isolation and saved reload without autoplay pass. No speaker listening, physical download saving or qualified acoustic/cantorial approval is claimed. This scope does not claim every prior UI flow was rerun.",
+    "scope": "Focused source/software and browser checks; no acoustic/cantorial approval."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -48,7 +49,7 @@
     {
       "id": "playback",
       "description": "Word/group/verse/aliyah/reading/span and repeat",
-      "status": "79178_original_individual_windows_plus_5_opt_in_collective_recording_intervals_43_words_no_new_individual_times_735_checks_226_local_226_public_UI_verified"
+      "status": "79178_original_individual_windows_5_collective_groups_43_blank_personal_word_drafts_source_gaps_unchanged_749_checks_345_local_public_pending"
     },
     {
       "id": "pronunciations",
@@ -193,9 +194,9 @@
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
   "workingIteration": {
-    "version": "0.83.0",
-    "status": "published_verified_full_goal_active_incomplete",
-    "next": "Continue word-aligned chanting and independent pronunciation before printing. Add an explicitly personal, initially blank original-recording group word-boundary draft so a reviewer can assign the 43 unknown individual intervals without changing source times, Hebrew or evidence. Keep bounds inside the pinned original group, actual measured recording identity and repeated occurrences separate; never auto-certify musical/phonological review. Continue primary source research for 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps. Read the complete Idelsohn 1917 text/example/notation context and phonogram metadata before any bounded transcription; the modern archive transfer has no established open reuse grant. Develop complete contextual melody grammars and reusable singing delivery only from sufficient licensed evidence and independent review. Preserve every original feature requirement and all null/review gaps. Current source /private/tmp/tropetrain-v83-worktree/tropetrain; saved build outputs/Development-v0.83/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete."
+    "version": "0.84.1",
+    "status": "local_verified_publication_pending",
+    "next": "Continue word-aligned chanting and independent pronunciation before printing. Personal original-recording group drafts for all43words are now implemented; keep source times and all musical/phonological review null until actual review supports them. Continue full contextual melody grammars and independent six-profile pronunciation/singing delivery from sufficient reusable evidence. The new primary-source notes in work/audits/recording-group-word-drafts-0.84/PRIMARY-RESEARCH-2026-11-24.md identify original Idelsohn1914VolI and1929MoroccanVolV public-domain scans, phonetic/context/rhythm/quarter-tone limits and bounded score candidates; finish relevant prose and original example identities before transcription. In particular distinguish MoroccanNo267/No302row1 from comparative rows and unresolved prose numbering; do not silently equate them with Kinnor presets. Investigate the19557vocal-sheva references, special/final categories and both regional profiles44compound gaps while preserving MAMbranches/stress/shared consonant halves and exact collective ownership. Modern archive transfers still lack established open reuse rights. Preserve all original feature requirements and explicit null/review gaps. Current source /private/tmp/tropetrain-v84-worktree/tropetrain; saved build outputs/Development-v0.84/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -2721,51 +2722,26 @@
     "olderPendingScope": 341
   },
   "privateDevelopment": {
-    "version": "0.83.0",
-    "status": "published_verified_full_goal_active_incomplete",
-    "checkout": "/private/tmp/tropetrain-v83-worktree/tropetrain",
-    "branch": "codex/tropetrain-v83",
-    "baseline": "0fef9cae1f4df6fd61c4c6ebb9c52dd902589ee9",
+    "version": "0.84.0",
+    "status": "full_check_starting",
+    "checkout": "/private/tmp/tropetrain-v84-worktree/tropetrain",
+    "branch": "codex/tropetrain-v84",
+    "baseline": "8327d62136dc39ea91a81ffb91c0dc9f595e5a30",
     "targetedTests": {
-      "pass": 22,
-      "fail": 0,
-      "skip": 0
-    },
-    "groups": 5,
-    "collectiveWords": 43,
-    "additionalIndividualWordTimes": 0,
-    "fullBuild": {
-      "session": 35548,
-      "exit": 0,
-      "passed": 735,
+      "passed": 20,
       "failed": 0,
       "skipped": 0
     },
-    "localUi": {
-      "passed": 226,
-      "normal": 113,
-      "portable": 113,
-      "viewportReset": true,
-      "speakerReview": null
-    },
-    "publicUi": {
-      "passed": 226,
-      "normal": 113,
-      "portable": 113,
-      "viewportReset": true,
-      "speakerReview": null
-    },
-    "publication": {
-      "commit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608",
-      "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45464831033",
-      "status": "success",
-      "allThreeJobsSucceeded": true,
-      "publicChangedFilesExact": 23,
-      "publicChangedBytesExact": 140949587
-    },
+    "groups": 5,
+    "blankPersonalWords": 43,
+    "additionalIndividualSourceTimes": 0,
+    "earlyUiChecks": 51,
+    "fullBuild": null,
+    "localUi": null,
+    "publicUi": null,
+    "publication": null,
     "singingVoice": null,
-    "review": null,
-    "pending": "Continue word-aligned chanting and independent pronunciation before printing. Add an explicitly personal, initially blank original-recording group word-boundary draft so a reviewer can assign the 43 unknown individual intervals without changing source times, Hebrew or evidence. Keep bounds inside the pinned original group, actual measured recording identity and repeated occurrences separate; never auto-certify musical/phonological review. Continue primary source research for 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps. Read the complete Idelsohn 1917 text/example/notation context and phonogram metadata before any bounded transcription; the modern archive transfer has no established open reuse grant. Develop complete contextual melody grammars and reusable singing delivery only from sufficient licensed evidence and independent review. Preserve every original feature requirement and all null/review gaps. Current source /private/tmp/tropetrain-v83-worktree/tropetrain; saved build outputs/Development-v0.83/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete."
+    "review": null
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2803,5 +2779,17 @@
     "defaultEnabled": false,
     "evidence": "docs/RECORDING-TIMING-GROUPS.json",
     "publicCommit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608"
+  },
+  "recordingGroupWordDraft": {
+    "status": "local_verified_publication_pending",
+    "groups": 5,
+    "blankPersonalWords": 43,
+    "personalBoundariesDistributed": 0,
+    "additionalIndividualSourceTimes": 0,
+    "sourceTimesChanged": false,
+    "review": null,
+    "phonemes": null,
+    "syllableTimes": null,
+    "evidence": "docs/RECORDING-GROUP-WORD-DRAFT.json"
   }
 }

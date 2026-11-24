@@ -287,11 +287,11 @@
     },
     {
       "path": "app.js",
-      "sha256": "03b61b6aa654019f9af6bf5ae9672be899e61dd453b412e9b18bc751eb193f45"
+      "sha256": "8fd1b7ce17429a2813c346fe40a61109bf133db5e5fcafe8638fd9164d63639d"
     },
     {
       "path": "index.html",
-      "sha256": "c5b7195e8993d18018d8448c8be5bfd4157611637a83b841554ebc97401fa409"
+      "sha256": "549d9a5edd9bc7f725b8d6fc7347c7755f68009462339ee7d9cd02d28bad2328"
     },
     {
       "path": "music.js",
@@ -299,15 +299,15 @@
     },
     {
       "path": "style.css",
-      "sha256": "0154827a35e81b5cc9b15313a4844d7aabfb6285e4939435c8e8e001b09e87ea"
+      "sha256": "71c37a12cf0fa7da51038deb6163f46775e2fab5b6a7591d939b318d54b8732c"
     },
     {
       "path": "sw.js",
-      "sha256": "3a6f4ed605e6ce0a4a3877357af4039ca5cae5e7fb29d062abe18edbd06dd4db"
+      "sha256": "d70aca127801bfb0b7e3a410e41bde05e0c695741d409151a849b794de0250bb"
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "9b0521ef04cbfcd83213e3d86fefa5e3e2486438446d741008e9cfa43814c6c5"
+      "sha256": "8e0c28e7f2d331ab6864f3e00fa38bc2dd5bbd6b2ee8ecdbd4c43e62eb507857"
     },
     {
       "path": "assets/structure/oshb-torah-source.zip",

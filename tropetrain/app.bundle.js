@@ -121,7 +121,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   async function createSourcePhraseLibrary(corpus2, packet) {
     if (packet?.schema !== "tropetrain-source-phrases-v1" || packet.revision !== 1 || packet.source?.commit !== SOURCE_PHRASE_COMMIT || packet.source.license !== "CC-BY-4.0" || packet.source.musicalRealization !== null || packet.source.pronunciation !== null || packet.source.review !== null) throw Error("Unsupported source phrase provenance.");
     if (await sha256(packet) !== SOURCE_PHRASE_DATA.packetJsonSha256) throw Error("The pinned source phrase packet changed.");
-    const canonical7 = /* @__PURE__ */ new Map(), wordToVerse = /* @__PURE__ */ new Map();
+    const canonical8 = /* @__PURE__ */ new Map(), wordToVerse = /* @__PURE__ */ new Map();
     let count = 0;
     for (const bookId of bookIds) {
       const book = corpus2.byId?.get(bookId);
@@ -133,7 +133,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         if (!Array.isArray(record) || record.length !== 3 || !Number.isInteger(record[0]) || record[0] < 0 || record[0] > 4 || record[1] !== words4.length) throw Error("Source phrase verse correspondence changed.");
         if (record[0] === 0) validateRows(record[2], words4.length, bookId);
         else if (!Number.isInteger(record[2]) || record[2] < 0) throw Error("Invalid withheld source phrase record.");
-        canonical7.set(key, { words: copy(words4), status: record[0], rows: record[0] === 0 ? copy(record[2]) : null, bookId, chapter: Number(key.split("-")[1]), verse: Number(key.split("-")[2]) });
+        canonical8.set(key, { words: copy(words4), status: record[0], rows: record[0] === 0 ? copy(record[2]) : null, bookId, chapter: Number(key.split("-")[1]), verse: Number(key.split("-")[2]) });
         for (const [id] of words4) wordToVerse.set(id, key);
         count++;
       }
@@ -143,7 +143,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     function forWord(words4, cursor) {
       const target = words4?.[cursor];
       if (!target || target.index !== cursor) return { status: "unavailable", reason: "Choose a word in the current reading.", groups: [] };
-      const key = wordToVerse.get(target.sourceWordId ?? target.id), record = canonical7.get(key);
+      const key = wordToVerse.get(target.sourceWordId ?? target.id), record = canonical8.get(key);
       if (!record) return { status: "unavailable", reason: "Source phrase correspondence is currently checked for Torah only.", groups: [] };
       if (!record) return { status: "unavailable", reason: "The source has no checked verse correspondence.", groups: [] };
       if (typeof target.verseKey !== "string") return { status: "unavailable", reason: "The current verse occurrence is unavailable.", groups: [] };
@@ -8149,10 +8149,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return { kind: "partial-original-windows", eligibleWords: windows.size, withheldWords: words4.length - windows.size, windows, ambiguities };
   }
   function originalWordWindow(recording, word, policy = sourceTimingPolicy(recording)) {
-    const canonical7 = recording?.words?.[word?.referenceIndex];
-    if (!canonical7 || canonical7.id !== word.id || canonical7.uxlcHebrew !== word.uxlcHebrew) return null;
-    if (policy.kind === "original-aligned") return { startSeconds: canonical7.startSeconds, endSeconds: canonical7.endSeconds };
-    return policy.windows.get(canonical7.id) ?? null;
+    const canonical8 = recording?.words?.[word?.referenceIndex];
+    if (!canonical8 || canonical8.id !== word.id || canonical8.uxlcHebrew !== word.uxlcHebrew) return null;
+    if (policy.kind === "original-aligned") return { startSeconds: canonical8.startSeconds, endSeconds: canonical8.endSeconds };
+    return policy.windows.get(canonical8.id) ?? null;
   }
 
   // reference-library-data.js
@@ -14273,8 +14273,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (first < 0 || last >= words4.length || members.length !== source.wordIds.length || typeof section !== "string" || !section) return null;
       const occurrences2 = /* @__PURE__ */ new Set();
       for (const [n, w] of members.entries()) {
-        const canonical7 = source.wordIds[n], entry = library.at(w), original = record.words[source.referenceStartIndex + n];
-        if ((w.sourceWordId ?? w.id) !== canonical7 || w.sourceHebrew !== source.readerHebrew[n] || w.index !== first + n || w.sectionId !== section || typeof w.id !== "string" || !w.id || occurrences2.has(w.id) || entry?.recording !== record || entry?.word !== original) return null;
+        const canonical8 = source.wordIds[n], entry = library.at(w), original = record.words[source.referenceStartIndex + n];
+        if ((w.sourceWordId ?? w.id) !== canonical8 || w.sourceHebrew !== source.readerHebrew[n] || w.index !== first + n || w.sectionId !== section || typeof w.id !== "string" || !w.id || occurrences2.has(w.id) || entry?.recording !== record || entry?.word !== original) return null;
         occurrences2.add(w.id);
       }
       return { ...structuredClone(source), kind: "recording-timing-group", firstIndex: first, lastIndex: last, sectionId: section, occurrenceIds: members.map((w) => w.id), wordIndices: members.map((w) => w.index), recordingHebrew: members.map((w) => library.at(w).word.sourceHebrew), individualWordTimes: null, syllableTimes: null, phonemes: null, acousticReview: null, musicalReview: null };
@@ -14310,6 +14310,402 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       return { rows: rows2, groups, segments, records: chosen, words: end - start + 1, timedWords: rows2.length, groupWords: groups.reduce((n, g) => n + g.wordIds.length, 0), bytes: chosen.reduce((n, r) => n + r.audio.bytes, 0) };
     }
     return Object.freeze({ at, plan: plan2 });
+  }
+
+  // recording-group-word-draft.js
+  var clone2 = (value) => structuredClone(value);
+  var canonical5 = (word) => word.sourceWordId ?? word.id;
+  var bases = /* @__PURE__ */ new Set(["manual-entry", "source-playhead", "muted-clock"]);
+  var same6 = (a, b) => a === b || !!a && !!b && typeof a === "object" && typeof b === "object" && Array.isArray(a) === Array.isArray(b) && Object.keys(a).length === Object.keys(b).length && Object.keys(a).every((k) => Object.hasOwn(b, k) && same6(a[k], b[k]));
+  async function createRecordingGroupWordDrafts(library) {
+    const groups = await createRecordingTimingGroups(library), sourceSnapshot = JSON.stringify(library.source);
+    const measurements3 = new Map(RECORDING_TIMING_GROUP_PINS.map((pin) => {
+      const row = pitchManifest.records.find((r) => r.id === pin.recordingId);
+      return [pin.recordingId, JSON.stringify(row)];
+    }));
+    function create(words4, index) {
+      if (JSON.stringify(library.source) !== sourceSnapshot || pitchManifest.referencePacketSha256 !== RECORDING_TIMING_GROUP_SOURCE.packetSha256) throw Error("Original recording source identity changed; this draft is withheld.");
+      const group = groups.at(words4, index);
+      if (!group) throw Error("Open a complete original recording timing group in one section before drafting word boundaries.");
+      const record = library.byId.get(group.recordingId), measured = pitchManifest.records.find((r) => r.id === record.id), pin = RECORDING_TIMING_GROUP_PINS.find((p) => p.recordingId === record.id);
+      if (JSON.stringify(measured) !== measurements3.get(record.id)) throw Error("Original measured recording identity changed; this draft is withheld.");
+      return {
+        schema: "tropetrain-recording-group-word-draft-v1",
+        revision: 1,
+        status: "personal-unreviewed",
+        source: {
+          recordingId: record.id,
+          originalCommit: RECORDING_TIMING_GROUP_SOURCE.originalCommit,
+          referencePacketSha256: RECORDING_TIMING_GROUP_SOURCE.packetSha256,
+          recordSha256: pin.recordSha256,
+          audio: clone2(record.audio),
+          measuredDurationSeconds: measured.durationSeconds,
+          measuredPcmSha256: measured.pcmSha256,
+          measurementPacketSha256: measured.sha256,
+          timingSource: clone2(record.timingSource)
+        },
+        group: { id: group.id, sectionId: group.sectionId, wordIds: group.wordIds.slice(), occurrenceIds: group.occurrenceIds.slice(), readerHebrew: group.readerHebrew.slice(), sourceStartIndex: group.sourceStartIndex, sourceEndIndex: group.sourceEndIndex, startSeconds: group.startSeconds, endSeconds: group.endSeconds, individualWordTimes: null },
+        recordingAttribution: Object.fromEntries(["source", "creator", "projectCredits", "individualReader", "sourceUrl", "audioLicense", "timingLicense", "alignmentLicense", "originalCommit"].map((k) => [k, clone2(library.source[k] ?? null)])),
+        sourceEditionCompared: false,
+        recordedPronunciationEquivalent: null,
+        phonemes: null,
+        syllableAlignment: null,
+        musicalNotes: null,
+        independentReview: null,
+        words: words4.slice(group.firstIndex, group.lastIndex + 1).map((w) => {
+          const original = library.at(w).word;
+          return { id: canonical5(w), occurrenceId: w.id, hebrew: w.sourceHebrew, recordingHebrew: original.sourceHebrew, sourceComparison: original.comparison, sourceWords: clone2(original.sourceWords), originalStartSeconds: null, originalEndSeconds: null, start: null, end: null, startBasis: null, endBasis: null };
+        })
+      };
+    }
+    function validate(value, words4, index) {
+      const expected = create(words4, index);
+      if (!value || typeof value !== "object" || Array.isArray(value) || !Array.isArray(value.words) || value.words.length !== expected.words.length) throw Error("A complete personal recording-group word draft is required.");
+      const fixed = clone2(value);
+      let last = expected.group.startSeconds;
+      for (const [i, word] of value.words.entries()) {
+        if (!word || typeof word !== "object" || Array.isArray(word)) throw Error("Draft word identity changed.");
+        for (const key of ["start", "end"]) {
+          const n = word[key], basis = word[key + "Basis"];
+          if (n === null) {
+            if (basis !== null) throw Error("A blank boundary must have no annotation basis.");
+          } else {
+            if (typeof n !== "number" || !Number.isFinite(n) || n < expected.group.startSeconds || n > expected.group.endSeconds) throw Error("Personal word boundaries must stay inside the unchanged original group interval.");
+            if (!bases.has(basis)) throw Error("Word boundaries require a personal entry or playhead basis; review cannot be certified here.");
+            if (n < last) throw Error("Personal word boundaries must follow source order without overlaps. Clear an incorrect mark before replacing it.");
+            last = n;
+          }
+          fixed.words[i][key] = null;
+          fixed.words[i][key + "Basis"] = null;
+        }
+        if (word.start !== null && word.end !== null && word.start >= word.end) throw Error("A personal word end must follow its start.");
+      }
+      if (!same6(fixed, expected)) throw Error("Draft source, group, marked Hebrew, occurrence or unreviewed evidence fields changed.");
+      return clone2(value);
+    }
+    function setBoundaries(value, words4, index, wordIndex, values, basis = "manual-entry") {
+      const next = validate(value, words4, index);
+      if (!Number.isInteger(wordIndex) || wordIndex < 0 || wordIndex >= next.words.length || !values || Object.keys(values).some((k) => !["start", "end"].includes(k)) || !bases.has(basis)) throw Error("Choose a personal word boundary.");
+      for (const [key, n] of Object.entries(values)) {
+        next.words[wordIndex][key] = n;
+        next.words[wordIndex][key + "Basis"] = n === null ? null : basis;
+      }
+      return validate(next, words4, index);
+    }
+    function capture(value, words4, index, wordIndex, key, position) {
+      const checked2 = validate(value, words4, index);
+      if (!["start", "end"].includes(key) || !position || position.recordingId !== checked2.source.recordingId || position.groupId !== checked2.group.id || position.reviewBasis !== "original-recording-group-review" || !["audio", "muted"].includes(position.mode)) throw Error("Play this complete group or its personal draft in the original recording before capturing its playhead.");
+      return setBoundaries(checked2, words4, index, wordIndex, { [key]: position.seconds }, position.mode === "muted" ? "muted-clock" : "source-playhead");
+    }
+    function preview(value, words4, index, { kind, wordIndex } = {}) {
+      const checked2 = validate(value, words4, index);
+      let start = checked2.group.startSeconds, end = checked2.group.endSeconds, word = null;
+      if (kind === "word") {
+        word = Number.isInteger(wordIndex) ? checked2.words[wordIndex] : null;
+        if (!word || word.start === null || word.end === null) throw Error("Enter both personal boundaries before auditioning this draft word.");
+        start = word.start;
+        end = word.end;
+      } else if (kind !== "original-group") throw Error("Choose the complete original group or an explicitly bounded personal word.");
+      return { record: library.byId.get(checked2.source.recordingId), segment: { recordingId: checked2.source.recordingId, start, end, words: [], recordingGroupReview: { reviewBasis: "original-recording-group-review", kind, groupId: checked2.group.id, occurrenceId: word?.occurrenceId ?? null, hebrew: word?.hebrew ?? null, startSeconds: start, endSeconds: end, status: "personal-unreviewed", individualSourceWordTimes: null, syllableTimes: null, phonemes: null, review: null } } };
+    }
+    function parse(text, words4, index) {
+      if (typeof text !== "string" || text.length > 1e6) throw Error("Draft JSON must be smaller than 1 MB.");
+      return validate(JSON.parse(text), words4, index);
+    }
+    return Object.freeze({
+      create,
+      validate,
+      setBoundaries,
+      capture,
+      preview,
+      parse,
+      key(value, words4, index) {
+        const d = validate(value, words4, index);
+        return `tropetrain-recording-group-word-draft-v2:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify([d.group.sectionId, d.group.occurrenceIds]))}`;
+      },
+      legacyKey(value, words4, index) {
+        const d = validate(value, words4, index);
+        return `tropetrain-recording-group-word-draft-v1:${d.source.audio.sha1}:${d.group.id}:${encodeURIComponent(JSON.stringify(d.group.occurrenceIds))}`;
+      },
+      restoreLegacy(text, words4, index) {
+        try {
+          return parse(text, words4, index);
+        } catch {
+          return null;
+        }
+      }
+    });
+  }
+
+  // recording-group-word-timing-ui.js
+  function mountRecordingGroupWordTiming({ getWords, getCursor, getDrafts, getReferences, position, hasSource, loadSource, audition, stop: stop2, onSourceReady }) {
+    const $2 = (id) => document.getElementById(id), panel = $2("recording-group-timing-review");
+    let draft = null, selected = 0, record = null, available = false, loadJob = null, generation = 0, contextKey = null, contextWords = null;
+    const message = (text) => {
+      $2("recording-group-timing-status").textContent = text;
+    };
+    const clearExport = () => {
+      $2("recording-group-timing-json").value = "";
+      $2("recording-group-timing-download").hidden = true;
+      $2("recording-group-timing-download").removeAttribute("href");
+    };
+    const checked2 = () => getDrafts().validate(draft, getWords(), getCursor());
+    function follow(current = position()) {
+      const review = current && draft && current.reviewBasis === "original-recording-group-review" && current.groupId === draft.group.id && current.recordingId === draft.source.recordingId ? current : null;
+      const word = review?.kind === "word" ? draft.words.find((w) => w.occurrenceId === review.occurrenceId && w.hebrew === review.hebrew) : null;
+      document.querySelectorAll("[data-word]").forEach((el3) => el3.classList.toggle("timing-draft-active", !!word && marksWord(el3, word.occurrenceId)));
+      $2("recording-group-timing-clock").textContent = review ? `${review.kind === "word" ? "Personal draft word · " + review.hebrew : "Complete original group"} · ${review.seconds.toFixed(6)} source seconds${review.mode === "muted" ? " · muted clock; not evidence of a heard boundary" : ""}. ${word ? "The dotted highlight follows your draft, not an original word timestamp." : "No individual sounding word is assigned."}` : "Review playback is stopped. Personal marks do not change the original recording or its word-timing gaps.";
+    }
+    function save() {
+      clearExport();
+      try {
+        localStorage.setItem(getDrafts().key(draft, getWords(), getCursor()), JSON.stringify(checked2()));
+        message("Personal word draft saved on this device. Original source times, syllables and review status are unchanged.");
+      } catch (error) {
+        message("Draft could not be saved on this device: " + error.message + " Prepare and copy the JSON to retain valid annotations.");
+      }
+    }
+    function draw() {
+      $2("recording-group-timing-editor").hidden = !draft;
+      for (const action of ["load", "whole", "audition", "capture-start", "capture-end", "prepare", "import"]) $2(`recording-group-timing-${action}`).disabled = !draft || ["whole", "audition"].includes(action) && !available || action === "load" && (available || !!loadJob);
+      $2("recording-group-timing-cancel").hidden = !loadJob;
+      if (!draft) {
+        follow(null);
+        return;
+      }
+      const word = draft.words[selected];
+      $2("recording-group-timing-select").value = String(selected);
+      $2("recording-group-timing-word").textContent = word.hebrew;
+      $2("recording-group-timing-identity").textContent = `Canonical ${word.id} · occurrence ${word.occurrenceId}. Recording text: ${word.recordingHebrew} (${word.sourceComparison}). Original word times: unassigned.`;
+      for (const key of ["start", "end"]) {
+        const el3 = $2(`recording-group-timing-${key}`);
+        el3.value = word[key] ?? "";
+        el3.min = draft.group.startSeconds;
+        el3.max = draft.group.endSeconds;
+      }
+      $2("recording-group-timing-count").textContent = `${draft.words.filter((w) => w.start !== null && w.end !== null).length} / ${draft.words.length} words have two personal boundaries. No missing boundary is inferred.`;
+      $2("recording-group-timing-audition").disabled = !available || word.start === null || word.end === null;
+      $2("recording-group-timing-load").textContent = available ? "Original recording available" : `Load original recording · ${(record.audio.bytes / 1048576).toFixed(1)} MB`;
+      $2("recording-group-timing-previous").disabled = selected === 0;
+      $2("recording-group-timing-next").disabled = selected === draft.words.length - 1;
+      follow();
+    }
+    function pendingFields() {
+      const values = {};
+      for (const key of ["start", "end"]) {
+        const el3 = $2(`recording-group-timing-${key}`);
+        if (el3.validity.badInput) throw Error("Finish entering a valid source-second boundary.");
+        const value = el3.value === "" ? null : Number(el3.value);
+        if (value !== draft.words[selected][key]) values[key] = value;
+      }
+      return { changed: Object.keys(values).length > 0, next: getDrafts().setBoundaries(draft, getWords(), getCursor(), selected, values) };
+    }
+    function commitFields() {
+      const { changed, next } = pendingFields();
+      if (changed) {
+        stop2();
+        draft = next;
+        save();
+      }
+      return checked2();
+    }
+    async function refresh() {
+      const words4 = getWords(), cursor = getCursor(), word = words4[cursor], service = getDrafts(), key = JSON.stringify([panel.open, word?.id, word?.sourceHebrew, !!service]);
+      if (key === contextKey && words4 === contextWords) return;
+      contextKey = key;
+      contextWords = words4;
+      const current = ++generation;
+      loadJob?.abort();
+      loadJob = null;
+      if (position()?.reviewBasis === "original-recording-group-review") stop2();
+      draft = record = null;
+      available = false;
+      selected = 0;
+      clearExport();
+      $2("recording-group-timing-select").replaceChildren();
+      $2("recording-group-timing-window").textContent = "";
+      draw();
+      if (!panel.open) {
+        message("Open this panel at a complete original recording timing group to mark personal word boundaries.");
+        return;
+      }
+      try {
+        if (!service) throw Error("Original recording timing-group evidence is still loading.");
+        draft = service.create(words4, cursor);
+        record = getReferences().byId.get(draft.source.recordingId);
+        selected = Math.max(0, draft.words.findIndex((w) => w.occurrenceId === word.id));
+        let saved, legacy = false;
+        try {
+          saved = localStorage.getItem(service.key(draft, words4, cursor));
+          if (!saved) {
+            const old = localStorage.getItem(service.legacyKey(draft, words4, cursor)), restored = old && service.restoreLegacy(old, words4, cursor);
+            if (restored) {
+              draft = restored;
+              legacy = true;
+            }
+          }
+        } catch {
+        }
+        if (saved) {
+          try {
+            draft = service.parse(saved, words4, cursor);
+            message("Personal draft restored for this exact recording group and occurrence. All source times and review gaps remain unchanged.");
+          } catch (error) {
+            message("Saved draft withheld: " + error.message);
+          }
+        } else if (legacy) {
+          try {
+            localStorage.setItem(service.key(draft, words4, cursor), JSON.stringify(draft));
+            message("Personal draft restored for this exact recording group and section. Its older saved copy is retained; source times and review gaps are unchanged.");
+          } catch {
+            message("Personal draft restored for this exact section. Device saving is unavailable; prepare and copy the JSON to keep it.");
+          }
+        } else message("All personal word boundaries are blank for this reading section. Listen to the complete original group, then enter or capture your own unreviewed marks.");
+        for (const [i, w] of draft.words.entries()) {
+          const option = document.createElement("option");
+          option.value = String(i);
+          option.textContent = `${i + 1} · ${w.hebrew}`;
+          $2("recording-group-timing-select").append(option);
+        }
+        $2("recording-group-timing-window").textContent = `${record.title} · ${draft.words.length} words together · original ${draft.group.startSeconds.toFixed(6)}–${draft.group.endSeconds.toFixed(6)} seconds. Every original member-word time remains unassigned. These personal annotations do not establish pronunciation equivalence or a musical review.`;
+        draw();
+        const ready = await hasSource(record);
+        if (current !== generation) return;
+        available = ready;
+        draw();
+      } catch (error) {
+        if (current === generation) {
+          draft = record = null;
+          draw();
+          message(error.message);
+        }
+      }
+    }
+    panel.addEventListener("toggle", refresh);
+    function select(index) {
+      try {
+        commitFields();
+        if (position()?.kind === "word") stop2();
+        selected = index;
+        draw();
+      } catch (error) {
+        draw();
+        message(error.message);
+      }
+    }
+    $2("recording-group-timing-select").addEventListener("change", () => select(Number($2("recording-group-timing-select").value)));
+    for (const [action, delta] of [["previous", -1], ["next", 1]]) $2(`recording-group-timing-${action}`).addEventListener("click", () => select(selected + delta));
+    for (const key of ["start", "end"]) {
+      $2(`recording-group-timing-${key}`).addEventListener("input", () => {
+        clearExport();
+        message("Boundary edited. Leave the field, audition or prepare the draft to validate and save it.");
+        try {
+          const word = pendingFields().next.words[selected];
+          $2("recording-group-timing-audition").disabled = !available || word.start === null || word.end === null;
+        } catch {
+          $2("recording-group-timing-audition").disabled = true;
+        }
+      });
+      $2(`recording-group-timing-${key}`).addEventListener("change", () => {
+        try {
+          commitFields();
+        } catch (error) {
+          message(error.message);
+        }
+        draw();
+      });
+      $2(`recording-group-timing-capture-${key}`).addEventListener("click", () => {
+        try {
+          commitFields();
+          const current = position();
+          draft = getDrafts().capture(draft, getWords(), getCursor(), selected, key, current);
+          if (current.kind === "word") stop2();
+          save();
+          if (current.mode === "muted") message("Muted-clock mark saved as a personal draft; it is not evidence of a heard word boundary.");
+        } catch (error) {
+          message(error.message);
+        }
+        draw();
+      });
+    }
+    $2("recording-group-timing-clear").addEventListener("click", () => {
+      try {
+        stop2();
+        draft = getDrafts().setBoundaries(draft, getWords(), getCursor(), selected, { start: null, end: null });
+        save();
+        draw();
+      } catch (error) {
+        message(error.message);
+      }
+    });
+    $2("recording-group-timing-load").addEventListener("click", async () => {
+      if (loadJob || !record) return;
+      const source = record, current = generation, job = new AbortController();
+      loadJob = job;
+      draw();
+      message("Loading and checksum-checking the unchanged original recording…");
+      try {
+        await loadSource(source, job.signal);
+        if (current === generation && !job.signal.aborted) {
+          available = true;
+          message("Original recording loaded and checksum checked. Press Play complete original group when ready.");
+          onSourceReady();
+        }
+      } catch (error) {
+        if (current === generation) message(job.signal.aborted ? "Source loading cancelled." : error.message);
+      } finally {
+        if (loadJob === job) {
+          loadJob = null;
+          draw();
+        }
+      }
+    });
+    $2("recording-group-timing-cancel").addEventListener("click", () => loadJob?.abort());
+    async function play2(kind) {
+      const current = generation;
+      try {
+        commitFields();
+        draw();
+        await audition({ draft, kind, wordIndex: selected });
+        if (current === generation) message(kind === "word" ? "Auditioning a personal word interval in the unchanged chant. The dotted highlight follows your unreviewed boundaries." : "Playing the complete original group at original pitch and speed. No individual sounding word is assigned.");
+      } catch (error) {
+        if (current === generation) message(error.message);
+      }
+    }
+    $2("recording-group-timing-whole").addEventListener("click", () => play2("original-group"));
+    $2("recording-group-timing-audition").addEventListener("click", () => play2("word"));
+    $2("recording-group-timing-stop").addEventListener("click", () => stop2());
+    $2("recording-group-timing-prepare").addEventListener("click", () => {
+      try {
+        commitFields();
+        draw();
+        const text = JSON.stringify(checked2(), null, 2) + "\n";
+        $2("recording-group-timing-json").value = text;
+        const a = $2("recording-group-timing-download");
+        a.href = "data:application/json;charset=utf-8," + encodeURIComponent(text);
+        a.download = draft.group.id + "-personal-word-draft.json";
+        a.hidden = false;
+        message("Personal draft JSON prepared. Source text, word-time gaps, pronunciation evidence and independent review are unchanged.");
+      } catch (error) {
+        clearExport();
+        message("Draft not prepared: " + error.message);
+      }
+    });
+    $2("recording-group-timing-import").addEventListener("click", () => {
+      try {
+        const value = getDrafts().parse($2("recording-group-timing-json").value, getWords(), getCursor());
+        stop2();
+        draft = value;
+        save();
+        draw();
+        message("Personal draft imported for this exact original group and occurrence. Source word times remain unassigned; no review is certified.");
+      } catch (error) {
+        message("Draft not imported: " + error.message);
+      }
+    });
+    return { refresh, follow, cancelLoading() {
+      loadJob?.abort();
+    } };
   }
 
   // source-contour.js
@@ -14557,7 +14953,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   // syllable-timing-draft.js
   var measurements = new Map(pitchManifest.records.map((r) => [r.id, r]));
   var editable = ["start", "end", "startBasis", "endBasis"];
-  var canonical5 = (value) => JSON.stringify((function sort(x) {
+  var canonical6 = (value) => JSON.stringify((function sort(x) {
     return Array.isArray(x) ? x.map(sort) : x && typeof x === "object" ? Object.fromEntries(Object.keys(x).sort().map((k) => [k, sort(x[k])])) : x;
   })(value));
   var fixedUnit = (unit) => Object.fromEntries(Object.entries(unit).filter(([key]) => !editable.includes(key)));
@@ -14648,12 +15044,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     if (!value || typeof value !== "object" || Array.isArray(value)) throw Error("A syllable timing draft object is required.");
     if (!["tropetrain-syllable-timing-draft-v1", "tropetrain-syllable-timing-draft-v2"].includes(value.schema) || value.schema !== expected.schema || value.revision !== expected.revision || value.status !== "personal-unreviewed" || value.sourceEditionCompared !== false || ["phonemes", "musicalNotes", "independentReview"].some((k) => value[k] !== null)) throw Error("Only matching personal unreviewed syllable drafts are supported.");
     const fixed = (x) => ({ ...x, units: void 0 });
-    if (canonical5(fixed(value)) !== canonical5(fixed(expected))) throw Error("Draft source, marked Hebrew, occurrence, style, variant or review status differs.");
+    if (canonical6(fixed(value)) !== canonical6(fixed(expected))) throw Error("Draft source, marked Hebrew, occurrence, style, variant or review status differs.");
     if (!Array.isArray(value.units) || value.units.length !== expected.units.length) throw Error("Draft source syllable count differs.");
     const clean = structuredClone(expected), window2 = syllableTimingWindow(expected);
     let boundary = window2.startSeconds;
     for (const [index, unit] of value.units.entries()) {
-      if (!unit || canonical5(fixedUnit(unit)) !== canonical5(fixedUnit(expected.units[index]))) throw Error("Draft source syllables, written ranges, stress or shared consonants differ.");
+      if (!unit || canonical6(fixedUnit(unit)) !== canonical6(fixedUnit(expected.units[index]))) throw Error("Draft source syllables, written ranges, stress or shared consonants differ.");
       for (const key of ["start", "end"]) {
         const time = unit[key], basis = unit[key + "Basis"];
         if (time === null) {
@@ -14703,16 +15099,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
   // syllable-group-timing.js
   var measurements2 = new Map(pitchManifest.records.map((r) => [r.id, r]));
-  var same6 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-  var canonical6 = (w) => w.sourceWordId ?? w.id;
+  var same7 = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  var canonical7 = (w) => w.sourceWordId ?? w.id;
   function groupTimingChoices(study, group, words4, style) {
     if (!group || group.wordIds.length < 2 || new Set(group.wordIds).size !== group.wordIds.length || group.sourceGroupId !== study?.groupId || group.individualWordAllocation !== null || group.writtenSyllableRanges !== null || group.sourceTiming !== null || group.phonemes !== null || group.voice !== null || group.review !== null) throw Error("A complete unchanged shared source word is required.");
     const members = group.wordIndices.map((i) => words4[i]);
-    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical6(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same6(group.sourceWordIds, study.readerIds) || !same6(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
+    if (members.length !== group.wordIds.length || members.some((w, i) => !w || w.id !== group.wordIds[i] || canonical7(w) !== group.sourceWordIds[i] || w.sourceHebrew !== group.readerHebrew[i] || w.index !== group.wordIndices[i] || i && w.index !== members[i - 1].index + 1 || w.sectionId !== members[0].sectionId || w.verseKey !== members[0].verseKey) || !same7(group.sourceWordIds, study.readerIds) || !same7(group.readerHebrew, study.readerHebrew)) throw Error("Shared source word members, occurrences or marked Hebrew changed.");
     const selected = validateJointStudy(chooseSourceStudy(study, group.sourceReadingChoices), group, style);
     if (selected.selectedStyle !== style) throw Error("Choose the current source text style.");
     if (group.navigationWordId !== members[0].id || group.navigationWordIndex !== members[0].index || group.source.sourceCommit !== study.sourceCommit || group.syllables.map((s) => s.sourceHebrew).join("") !== group.sourceReadingHebrew || group.syllables.some((s) => s.readerWordId !== null || s.writtenRange !== null || s.acousticTimes !== null)) throw Error("Shared source syllables or navigation changed.");
-    for (const path of group.paths.filter((p) => p.style === style)) if (path.sourceReadingHebrew !== group.sourceReadingHebrew || !same6(path.units.map((u) => [u.hebrew, u.sourceStress]), group.syllables.map((s) => [s.sourceHebrew, s.stress]))) throw Error("Shared source syllable text or stress changed.");
+    for (const path of group.paths.filter((p) => p.style === style)) if (path.sourceReadingHebrew !== group.sourceReadingHebrew || !same7(path.units.map((u) => [u.hebrew, u.sourceStress]), group.syllables.map((s) => [s.sourceHebrew, s.stress]))) throw Error("Shared source syllable text or stress changed.");
     return group.paths.filter((p) => p.style === style).map((path) => ({
       id: `r${path.sourceRow}-c${path.sourceColumn}`,
       row: path.sourceRow,
@@ -15499,6 +15895,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   var sourcePitchTools = null;
   var syllableTimingTools = null;
   var haftarahTools = null;
+  var recordingGroupTimingTools = null;
+  var recordingGroupWordDrafts = null;
   var scorePronunciation = true;
   var scorePronunciationReport = null;
   var scoreGroupReport = null;
@@ -15595,6 +15993,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         $("status").textContent = `${sourcePracticeName()} · ${state.chantRate}% speed · ${chantPitchLabel()} · ${label(word.wordIndex)}${state.referenceVolume === 0 ? " · muted clock" : ""}`;
         $("progress").style.width = `${100 * (word.wordIndex - playingBounds[0] + 1) / (playingBounds[1] - playingBounds[0] + 1)}%`;
       }
+      recordingGroupTimingTools?.follow();
     },
     onGroup: (group, clock) => {
       referenceActiveIds = group?.occurrenceIds ?? [];
@@ -15615,6 +16014,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           $("progress").style.width = `${clock.progress * 100}%`;
         }
       }
+      recordingGroupTimingTools?.follow();
     },
     onEnd: () => {
       $("reference-status").textContent = "Reference playback finished. Your selection is kept.";
@@ -15801,6 +16201,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   }
   function stop(message = "Stopped. Your selection is kept.", { preservePattern = false, preserveVoiceStudy = false, preserveHaftarah = false } = {}) {
     syllableTimingTools?.cancelLoading();
+    recordingGroupTimingTools?.cancelLoading();
     if (!preserveHaftarah) haftarahTools?.stop();
     if (!$("chant-pitch-cancel").hidden) $("chant-pitch-status").textContent = "Preparation stopped. Original recordings are unchanged.";
     $("measured-tone-window").textContent = "";
@@ -17023,6 +17424,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     patternTools?.refresh();
     sourcePitchTools?.refresh();
     syllableTimingTools?.refresh();
+    recordingGroupTimingTools?.refresh();
     haftarahTools?.refresh();
   }
   function rememberReading() {
@@ -17677,6 +18079,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     renderReaderPronunciation();
     sourceRecallTools?.refreshPronunciation();
     syllableTimingTools?.refresh();
+    recordingGroupTimingTools?.follow();
   } });
   sourcePitchTools = mountSourcePitch({ getWord: () => words3[state.cursor], getReferences: () => referenceLibrary });
   syllableTimingTools = mountSyllableTiming({
@@ -17709,6 +18112,36 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       if (!referencePlayer.running) throw Error("The source interval could not start; review the recorded-reference status.");
     }
   });
+  recordingGroupTimingTools = mountRecordingGroupWordTiming({
+    getWords: () => words3,
+    getCursor: () => state.cursor,
+    getDrafts: () => recordingGroupWordDrafts,
+    getReferences: () => referenceLibrary,
+    position: () => {
+      if (!referencePlayer.running || recordedPracticeRunning) return null;
+      const segment = referencePlayer.currentSegment, review = segment.recordingGroupReview;
+      return review ? { ...review, recordingId: segment.recordingId, seconds: referencePlayer.now(), mode: referencePlayer.mode } : null;
+    },
+    hasSource: (record) => referenceStore.has(record),
+    loadSource: (record, signal) => referenceStore.load(record, { signal }),
+    stop: () => stop(),
+    onSourceReady: () => {
+      renderReference({ keepChoice: true });
+      renderChantPractice();
+    },
+    audition: async ({ draft, kind, wordIndex }) => {
+      const request = ++chantPlayRequest, preview = () => recordingGroupWordDrafts.preview(draft, words3, state.cursor, { kind, wordIndex });
+      const checked2 = preview();
+      if (!await referenceStore.has(checked2.record)) throw Error("Load the original recording before auditioning this draft.");
+      if (request !== chantPlayRequest) throw Error("Source preview was superseded by a stop or reading change.");
+      const current = preview();
+      stop("Listening to an unreviewed recording-group word draft. Original word times remain unassigned.");
+      referencePlayer.setRate(1);
+      referencePlayer.setVolume(state.referenceVolume / 100);
+      await referencePlayer.playSegments([current.segment], false);
+      if (!referencePlayer.running) throw Error("The original review interval could not start; review the recorded-reference status.");
+    }
+  });
   $("reader-pronunciation").addEventListener("change", () => {
     readerPronunciation = $("reader-pronunciation").checked;
     try {
@@ -17716,6 +18149,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     } catch {
     }
     renderReaderPronunciation();
+    recordingGroupTimingTools?.follow();
   });
   voiceStudyTools = mountVoiceStudies({
     beforePlay: () => stop("Listening to a source voice study. Bible-word selection is kept.", { preserveVoiceStudy: true }),
@@ -17851,6 +18285,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }).catch((error) => {
       recordingTimingGroupError = error.message;
       renderChantPractice();
+    });
+    createRecordingGroupWordDrafts(value).then((drafts) => {
+      recordingGroupWordDrafts = drafts;
+      recordingGroupTimingTools?.refresh();
+    }).catch((error) => {
+      $("recording-group-timing-status").textContent = error.message;
     });
   }).catch((error) => {
     $("reference-library-status").textContent = error.message;
