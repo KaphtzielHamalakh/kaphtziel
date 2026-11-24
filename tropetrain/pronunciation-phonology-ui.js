@@ -10,6 +10,7 @@ export function mountPhonologyPreview(){
   $('phonology-status').textContent='Choose a Hebrew word to compare source-based phonemic proposals.';if(!word)return;
   try{report=phonologyWordProposal(study,word,style,profileId);}catch(e){$('phonology-status').textContent=e.message;return;}
   const credit=$('phonology-source-credit');credit.replaceChildren();const sourceLink=document.createElement('a');sourceLink.href=report.source.url;sourceLink.textContent=report.source.title;credit.append(sourceLink,document.createTextNode(report.source.license?' · '+report.source.license+' · source-category adaptation; review pending.':' · attributed linguistic facts; review pending.'));
+  if(report.profile.finalConsonantPolicy){const policy=document.createElement('p');policy.className='muted phonology-final-policy';policy.textContent='Optional word-final glottal/h loss: (∅) is a proposed deletion; ∅ is source silence. The proposal requires a complete, exactly aligned standalone source word. Joined, source-only and collective forms keep their unresolved endings. This option changes research text; singing and sound timing remain unassigned.';credit.append(policy);}
   const marked=document.createElement('b');marked.lang='he';marked.dir='rtl';marked.textContent=report.hebrew;$('phonology-word').append(marked);
   $('phonology-status').textContent=report.sourceCategoryStatus==='source-categories-unavailable'?'No checked source categories for this word. The marked Hebrew is retained; no pronunciation is substituted.':`${report.counts.proposedReferences} of ${report.counts.categoryReferences} selected category references have phonemic proposals; ${report.counts.unassignedReferences} remain unassigned. ${report.counts.contextGaps} source-group sequence issue${report.counts.contextGaps===1?'':'s'} need review. All acoustic realizations remain unassigned.`;
   for(const route of report.routes){
@@ -23,7 +24,7 @@ export function mountPhonologyPreview(){
     const source=document.createElement('small');source.textContent=`Source ${unit.sourceText} · ${unit.readerRanges?'written Hebrew':'source Hebrew; written range unresolved'}${unit.ownerWordId===null?' · shared unsplit group':''}`;li.append(source);
     const values=unit.fragments.map(f=>{
      const p=f.proposal,shared=f.source.part!=='whole';
-     return `${p.candidatePhonemes===null?'? '+f.source.categoryId:p.candidatePhonemes.length?p.candidatePhonemes.join(''):'∅'}${shared?' [shared]':''}`;
+     return `${p.candidatePhonemes===null?'? '+f.source.categoryId:p.candidatePhonemes.length?p.candidatePhonemes.join(''):p.rule==='source-silent-category'?'∅':'(∅)'}${shared?' [shared]':''}`;
     });
     const candidate=document.createElement('p');candidate.className='phonology-candidate';candidate.textContent=values.join(' · ');li.append(candidate);
     const context=document.createElement('small');context.textContent=`Historical syllable ${unit.context.historicalClosure} · primary stress ${unit.context.primaryStress===null?'not established':unit.context.primaryStress?'marked':unit.context.maqafPrimary?'in the final joined word':'on another syllable'}`;li.append(context);
