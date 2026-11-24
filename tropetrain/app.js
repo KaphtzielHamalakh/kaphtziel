@@ -43,6 +43,8 @@ import {practiceAudioMode,chantPracticePlan,chantCoverage} from './recorded-prac
 import {RecordedPitchStore,pitchProcessingSupported} from './recorded-pitch-store.js';
 import {sourceTimedPracticePlan} from './measured-practice.js';
 import {createRecordingTimingGroups} from './recording-timing-groups.js';
+import {createRecordingGroupWordDrafts} from './recording-group-word-draft.js';
+import {mountRecordingGroupWordTiming} from './recording-group-word-timing-ui.js';
 import {SourceContourStore,contourSupported} from './source-contour-store.js';
 import {mountSourcePitch} from './source-pitch-ui.js';
 import {mountSyllableTiming} from './syllable-timing-ui.js';
@@ -93,7 +95,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null;
+let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -133,6 +135,7 @@ const referencePlayer=new RecordingPlayer($('reference-audio'),{
       $('measured-tone-window').textContent=summary?`${summary.hebrew} · ${summary.measuredFrameOnsets} measured / ${summary.totalFrameOnsets} frame onsets in this source word window. ${summary.measuredFrameOnsets?'Only assigned measurement cells make tones.':'No measured frequency onset in this window; missing measurements do not establish silence.'} No syllable timing is inferred.`:'';
     }
     if(word&&recordedPracticeRunning){$('status').textContent=`${sourcePracticeName()} · ${state.chantRate}% speed · ${chantPitchLabel()} · ${label(word.wordIndex)}${state.referenceVolume===0?' · muted clock':''}`;$('progress').style.width=`${100*(word.wordIndex-playingBounds[0]+1)/(playingBounds[1]-playingBounds[0]+1)}%`;}
+    recordingGroupTimingTools?.follow();
   },
   onGroup:(group,clock)=>{
     referenceActiveIds=group?.occurrenceIds??[];
@@ -144,6 +147,7 @@ const referencePlayer=new RecordingPlayer($('reference-audio'),{
       $('reference-source-comparison').textContent='The whole group is highlighted together. Individual word and syllable times remain unassigned; source text, timestamps and recording remain unchanged.';
       if(recordedPracticeRunning){$('status').textContent=`Recorded chant · complete timing group · ${group.wordIds.length} words together · ${Math.round(clock.progress*100)}% of group · individual word times unassigned${state.referenceVolume===0?' · muted clock':''}`;$('progress').style.width=`${clock.progress*100}%`;}
     }
+    recordingGroupTimingTools?.follow();
   },
   onEnd:()=>{$('reference-status').textContent='Reference playback finished. Your selection is kept.';say('Recorded reference finished. Your selection is kept.');recordedPracticeRunning=false;transportLabel(false);},
   onError:error=>{$('chant-pitch-cancel').hidden=true;if(state.practiceAudio==='measured'||state.chantTranspose!==0)$('chant-pitch-status').textContent=`Source preparation unavailable: ${error.message}`;$('reference-status').textContent=`Reference unavailable: ${error.message}`;recordedPracticeRunning=false;transportLabel(false);say(`${sourcePracticeName()} unavailable: ${error.message}`);renderReference({keepChoice:true});renderChantPractice();},
@@ -234,7 +238,7 @@ function setActive(wordId,eventId){
   renderPronunciationFollow();
 }
 function stop(message='Stopped. Your selection is kept.',{preservePattern=false,preserveVoiceStudy=false,preserveHaftarah=false}={}){
-  syllableTimingTools?.cancelLoading();if(!preserveHaftarah)haftarahTools?.stop();
+  syllableTimingTools?.cancelLoading();recordingGroupTimingTools?.cancelLoading();if(!preserveHaftarah)haftarahTools?.stop();
   if(!$('chant-pitch-cancel').hidden)$('chant-pitch-status').textContent='Preparation stopped. Original recordings are unchanged.';
   $('measured-tone-window').textContent='';
   $('chant-pitch-cancel').hidden=true;recordedPracticeRunning=false;chantPlayRequest++;pronunciationTools?.showWord(words[state.cursor]);
@@ -832,7 +836,7 @@ function render(){
   }
   $('practice-audio').value=state.practiceAudio;
   $('chant-practice').hidden=!isSourcePractice();
-  renderReader();renderSequence();renderChantPractice();sourcePhraseTools?.refresh();sourceRecallTools?.refresh();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
+  renderReader();renderSequence();renderChantPractice();sourcePhraseTools?.refresh();sourceRecallTools?.refresh();persist();if(findWords!==words&&state.findScope==='reading')refreshSignSearch({reset:true});combinationTools?.readingChanged();patternTools?.refresh();sourcePitchTools?.refresh();syllableTimingTools?.refresh();recordingGroupTimingTools?.refresh();haftarahTools?.refresh();
 }
 function rememberReading(){
   const key=ranges=>JSON.stringify(ranges.map(r=>({bookId:r.bookId,start:r.start,end:r.end,hidden:r.hidden})));
@@ -1100,7 +1104,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();sourceRecallTools?.refreshPronunciation();syllableTimingTools?.refresh();}});
+pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();sourceRecallTools?.refreshPronunciation();syllableTimingTools?.refresh();recordingGroupTimingTools?.follow();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
 syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getWords:()=>words,getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
   position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,
@@ -1122,7 +1126,25 @@ syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getWord
     if(!referencePlayer.running)throw Error('The source interval could not start; review the recorded-reference status.');
   }
 });
-$('reader-pronunciation').addEventListener('change',()=>{readerPronunciation=$('reader-pronunciation').checked;try{localStorage.setItem('tropetrain-reader-pronunciation-v1',JSON.stringify({enabled:readerPronunciation}));}catch{}renderReaderPronunciation();});
+recordingGroupTimingTools=mountRecordingGroupWordTiming({getWords:()=>words,getCursor:()=>state.cursor,getDrafts:()=>recordingGroupWordDrafts,getReferences:()=>referenceLibrary,
+  position:()=>{
+    if(!referencePlayer.running||recordedPracticeRunning)return null;
+    const segment=referencePlayer.currentSegment,review=segment.recordingGroupReview;
+    return review?{...review,recordingId:segment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null;
+  },
+  hasSource:record=>referenceStore.has(record),loadSource:(record,signal)=>referenceStore.load(record,{signal}),stop:()=>stop(),onSourceReady:()=>{renderReference({keepChoice:true});renderChantPractice();},
+  audition:async({draft,kind,wordIndex})=>{
+    const request=++chantPlayRequest,preview=()=>recordingGroupWordDrafts.preview(draft,words,state.cursor,{kind,wordIndex});
+    const checked=preview();
+    if(!await referenceStore.has(checked.record))throw Error('Load the original recording before auditioning this draft.');
+    if(request!==chantPlayRequest)throw Error('Source preview was superseded by a stop or reading change.');
+    const current=preview();
+    stop('Listening to an unreviewed recording-group word draft. Original word times remain unassigned.');
+    referencePlayer.setRate(1);referencePlayer.setVolume(state.referenceVolume/100);await referencePlayer.playSegments([current.segment],false);
+    if(!referencePlayer.running)throw Error('The original review interval could not start; review the recorded-reference status.');
+  }
+});
+$('reader-pronunciation').addEventListener('change',()=>{readerPronunciation=$('reader-pronunciation').checked;try{localStorage.setItem('tropetrain-reader-pronunciation-v1',JSON.stringify({enabled:readerPronunciation}));}catch{}renderReaderPronunciation();recordingGroupTimingTools?.follow();});
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
 haftarahTools=mountHaftarah({beforePlay:()=>stop('Listening to a Haftarah source recording. Instrument settings and reader selection are kept.',{preserveHaftarah:true}),
@@ -1173,6 +1195,7 @@ getReferenceLibrary().then(value=>{
   $('reference-library-status').textContent=`${value.parts.length} portions · ${value.recordings.length} recordings · ${value.source.audit.alignedRecordings} with source word timings · ${[...value.timingPolicies.values()].filter(p=>p.kind==='partial-original-windows').length} with partial original intervals · ${[...value.timingPolicies.values()].filter(p=>p.kind==='withheld').length} complete-take only`;
   $('reference-open').disabled=false;$('reference-portion').disabled=false;$('reference-aliyah').disabled=false;renderReference();renderChantCoverage();renderChantPractice();sourcePitchTools?.refresh();syllableTimingTools?.refresh();haftarahTools?.refresh();
   createRecordingTimingGroups(value).then(groups=>{recordingTimingGroups=groups;renderChantPractice();}).catch(error=>{recordingTimingGroupError=error.message;renderChantPractice();});
+  createRecordingGroupWordDrafts(value).then(drafts=>{recordingGroupWordDrafts=drafts;recordingGroupTimingTools?.refresh();}).catch(error=>{$('recording-group-timing-status').textContent=error.message;});
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
 if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';
