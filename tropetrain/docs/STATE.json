@@ -3,18 +3,18 @@
   "updated": "2026-11-24",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "d12d8e453493d9e865eff1151074c9ae9b3a7ad2",
-  "nextTask": "Continue the full reconstruction, prioritizing sourced word-aligned chanting and independent pronunciation before printing. Investigate the remaining 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps using primary evidence. Inspect the recovered Idelsohn 1913/1917 scans in context before adopting any phonetic rule. Evaluate the private complete recorded-span design for 43 ambiguous words without inventing individual timings; 3 count-mismatch takes and 16 duration-overflow words remain withheld. Preserve exact Hebrew/accents/CGJ, source syllables/branches/shared ownership, original audio/clocks and every null/review gap. Continue full contextual melody systems, reusable singing delivery and the entire retained feature inventory. Current source /private/tmp/tropetrain-v82-worktree/tropetrain; verified saved build outputs/Development-v0.82/tropetrain. Do not repeat accepted checks absent a new change or unresolved concern. The full goal remains active and incomplete; printing deferred.",
+  "publishedCommit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608",
+  "nextTask": "Continue word-aligned chanting and independent pronunciation before printing. Add an explicitly personal, initially blank original-recording group word-boundary draft so a reviewer can assign the 43 unknown individual intervals without changing source times, Hebrew or evidence. Keep bounds inside the pinned original group, actual measured recording identity and repeated occurrences separate; never auto-certify musical/phonological review. Continue primary source research for 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps. Read the complete Idelsohn 1917 text/example/notation context and phonogram metadata before any bounded transcription; the modern archive transfer has no established open reuse grant. Develop complete contextual melody grammars and reusable singing delivery only from sufficient licensed evidence and independent review. Preserve every original feature requirement and all null/review gaps. Current source /private/tmp/tropetrain-v83-worktree/tropetrain; saved build outputs/Development-v0.83/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete.",
   "lastPassingTests": {
-    "automated": 725,
-    "newRegressionChecks": 13,
+    "automated": 735,
+    "newRegressionChecks": 10,
     "failed": 0,
     "skipped": 0,
-    "localUiChecks": 210,
-    "publicUiChecks": 210,
+    "localUiChecks": 226,
+    "publicUiChecks": 226,
     "remainingPublicUiChecks": 0,
-    "ui": "725 automated checks passed, 0 failed and 0 skipped. Normal and portable each passed 105 focused affected-flow browser checks: 22 core playback, 17 note/export, 19 original modern, 22 shared-word, 21 new policy and 4 compact-screen/keyboard checks. Totals: 210 local and 210 public checks. This scope does not claim a rerun of all 438 prior UI checks. Exact source text, alternatives, null acoustic fields, repeat/occurrence IDs, independent controls, prepared MIDI, saved state and 320px recall passed. Playback was short, muted and stopped; all media paused, consoles clear and viewport reset. No speaker listening, physical file-save or qualified acoustic/cantorial review is claimed.",
-    "scope": "Focused affected-flow software and source correspondence, not acoustic or cantorial approval."
+    "ui": "735 automated checks pass, 0 failed and 0 skipped. Both normal and portable each pass 113 focused affected-flow interface checks: 7 original recorded-word, 25 group selection, 12 group playback, 4 compact-screen, 22 core playback, 22 shared-word and 21 retained optional-final pronunciation checks. Totals: 226 local and 226 public. This scope does not claim every prior UI check was rerun. Actual original audio loading/checksum, whole-group repeat, natural finish, Stop/Escape, option-off, exact Hebrew, repeated IDs, saved state without autoplay and independent text controls pass. All playback was short, muted and stopped; media paused, consoles clear and viewport reset. No speaker listening, physical download saving or qualified acoustic/cantorial review is claimed.",
+    "scope": "Focused software/source and browser verification; no acoustic/cantorial approval."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -48,7 +48,7 @@
     {
       "id": "playback",
       "description": "Word/group/verse/aliyah/reading/span and repeat",
-      "status": "published_79178duration_fitting_Torah_words_2020new_original_windows_791structural_and16duration_gaps_both_main_modes_459checks_public_normal_portable_verified"
+      "status": "79178_original_individual_windows_plus_5_opt_in_collective_recording_intervals_43_words_no_new_individual_times_735_checks_226_local_226_public_UI_verified"
     },
     {
       "id": "pronunciations",
@@ -163,12 +163,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "d12d8e453493d9e865eff1151074c9ae9b3a7ad2",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45454093243",
+    "commit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45464831033",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 32,
-    "publicChangedBytesExact": 140815299
+    "publicChangedFilesExact": 23,
+    "publicChangedBytesExact": 140949587
   },
   "corpusImport": {
     "books": 5,
@@ -194,8 +194,8 @@
   },
   "workingIteration": {
     "version": "0.83.0",
-    "status": "local_verified_publication_pending",
-    "next": "Publish only tropetrain through connected GitHub, verify Pages/live bytes and run normal/portable public interface acceptance. Full reconstruction remains active and incomplete."
+    "status": "published_verified_full_goal_active_incomplete",
+    "next": "Continue word-aligned chanting and independent pronunciation before printing. Add an explicitly personal, initially blank original-recording group word-boundary draft so a reviewer can assign the 43 unknown individual intervals without changing source times, Hebrew or evidence. Keep bounds inside the pinned original group, actual measured recording identity and repeated occurrences separate; never auto-certify musical/phonological review. Continue primary source research for 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps. Read the complete Idelsohn 1917 text/example/notation context and phonogram metadata before any bounded transcription; the modern archive transfer has no established open reuse grant. Develop complete contextual melody grammars and reusable singing delivery only from sufficient licensed evidence and independent review. Preserve every original feature requirement and all null/review gaps. Current source /private/tmp/tropetrain-v83-worktree/tropetrain; saved build outputs/Development-v0.83/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete."
   },
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
@@ -2722,7 +2722,7 @@
   },
   "privateDevelopment": {
     "version": "0.83.0",
-    "status": "local_verified_publication_pending",
+    "status": "published_verified_full_goal_active_incomplete",
     "checkout": "/private/tmp/tropetrain-v83-worktree/tropetrain",
     "branch": "codex/tropetrain-v83",
     "baseline": "0fef9cae1f4df6fd61c4c6ebb9c52dd902589ee9",
@@ -2748,10 +2748,24 @@
       "viewportReset": true,
       "speakerReview": null
     },
-    "publicUi": null,
-    "publication": null,
+    "publicUi": {
+      "passed": 226,
+      "normal": 113,
+      "portable": 113,
+      "viewportReset": true,
+      "speakerReview": null
+    },
+    "publication": {
+      "commit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608",
+      "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45464831033",
+      "status": "success",
+      "allThreeJobsSucceeded": true,
+      "publicChangedFilesExact": 23,
+      "publicChangedBytesExact": 140949587
+    },
     "singingVoice": null,
-    "review": null
+    "review": null,
+    "pending": "Continue word-aligned chanting and independent pronunciation before printing. Add an explicitly personal, initially blank original-recording group word-boundary draft so a reviewer can assign the 43 unknown individual intervals without changing source times, Hebrew or evidence. Keep bounds inside the pinned original group, actual measured recording identity and repeated occurrences separate; never auto-certify musical/phonological review. Continue primary source research for 19,557 vocal-sheva references, special/final categories and both regional profiles’ 44 compound gaps. Read the complete Idelsohn 1917 text/example/notation context and phonogram metadata before any bounded transcription; the modern archive transfer has no established open reuse grant. Develop complete contextual melody grammars and reusable singing delivery only from sufficient licensed evidence and independent review. Preserve every original feature requirement and all null/review gaps. Current source /private/tmp/tropetrain-v83-worktree/tropetrain; saved build outputs/Development-v0.83/tropetrain. Do not repeat accepted checks without a new change, failure or unresolved concern. The full reconstruction remains active/incomplete."
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2778,7 +2792,7 @@
     ]
   },
   "recordingTimingGroups": {
-    "status": "locally_verified_publication_pending",
+    "status": "published_verified_complete_original_intervals_only",
     "groups": 5,
     "collectivelyCoveredWords": 43,
     "additionalIndividualWordTimes": 0,
@@ -2787,6 +2801,7 @@
     "review": null,
     "sourceAudioChanged": false,
     "defaultEnabled": false,
-    "evidence": "docs/RECORDING-TIMING-GROUPS.json"
+    "evidence": "docs/RECORDING-TIMING-GROUPS.json",
+    "publicCommit": "4dbbe1c558cbff5bd3e43ac8662a95ddf2d6f608"
   }
 }
