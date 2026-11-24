@@ -2,10 +2,10 @@
   "name": "tropetrain",
   "private": true,
   "type": "module",
-  "version": "0.80.0",
+  "version": "0.81.0",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "check": "npm run build && npm test"
   },
   "devDependencies": {

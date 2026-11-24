@@ -6,5 +6,5 @@ test('normal and portable recall controls retain exact source evidence, unassign
  for(const key of ['melody','pronunciation','phonemes','audioTimes','singingVoice','musicalReview','phonologicalReview'])assert.equal(audit[key],null);
  for(const row of audit.inputs)assert.equal(createHash('sha256').update(read(row.path)).digest('hex'),row.sha256,row.path);
  for(const id of ['recall-dialog','recall-open','recall-question','recall-answer-word','recall-choices','recall-listen','recall-reveal','recall-next']){assert(html.includes('id="'+id+'"'));assert(normal.includes('id="'+id+'"'));}
- assert(html.includes('data:application/json;base64,'+raw.toString('base64')));assert(!html.includes('href="./docs/SOURCE-RECALL.json"'));assert(html.includes('v0.80.0'));assert(read('TropeTrain.html').length<100*1024*1024);
+ assert(html.includes('data:application/json;base64,'+raw.toString('base64')));assert(!html.includes('href="./docs/SOURCE-RECALL.json"'));assert(html.includes('v'+JSON.parse(read('package.json')).version));assert(read('TropeTrain.html').length<100*1024*1024);
 });

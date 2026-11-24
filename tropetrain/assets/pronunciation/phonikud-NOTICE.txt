@@ -1,0 +1,12 @@
+Phonikud modern phoneme inventory · original source-category adaptation
+
+Source: https://github.com/phonikud/phonikud/tree/a29a75b473b0f132a0bbee41dad38763035211dc
+Authors: Yakov Kolani, Maxim Melichov, Cobi Calev and Morris Alper.
+Phonikud: Overcoming Phonetic Underspecification for Hebrew Text-To-Speech, Interspeech2026. https://arxiv.org/abs/2506.12311
+Code license: Creative Commons Attribution4.0 International. https://creativecommons.org/licenses/by/4.0/
+
+The accompanying archive retains four unchanged code references, the original LICENSE and an original provenance manifest. No README, dataset, speech model or recording is redistributed. Dataset rights are separate.
+
+TropeTrain implements an original adaptation of the modern inventory to the existing Phonetic MAM source-category plans. It does not execute the upstream whole-word phonemizer, use its invented annotations, normalize biblical marks or select spoken-sheva/suffix decisions. Exact Hebrew, source syllables/stress/branches/shared consonants and musical controls are retained. Correspondence adaptation, phonetic transitions and linguistic/cantorial review remain pending. Accepted phonemes, engine phones, acoustic timing, singing voice and Kinnor equivalence remain unassigned. The source authors do not endorse this adaptation.
+
+Existing MAM source text/categories remain CC BY-SA4.0, separately attributed in NOTICE.txt. They are not relicensed by Phonikud.

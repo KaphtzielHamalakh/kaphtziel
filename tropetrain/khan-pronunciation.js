@@ -1,6 +1,6 @@
 // Literal published text, not a pronunciation generator or an acoustic alignment.
 import {KHAN_PRONUNCIATION as source} from './khan-pronunciation-data.js';
-import {PHONOLOGY_PROFILES} from './pronunciation-phonology.js';
+import {ALL_PHONOLOGY_PROFILES as PHONOLOGY_PROFILES} from './pronunciation-phonology.js';
 const freeze=v=>{if(v&&typeof v==='object'){Object.values(v).forEach(freeze);Object.freeze(v);}return v;};
 export const KHAN_PRONUNCIATION=freeze(source);
 export const READER_PRONUNCIATION_SOURCES=freeze([

@@ -1,0 +1,248 @@
+{
+  "publishedBaseline": "e76b4fa10846581df85db1bdcfb62ed1854cb710",
+  "serialization": "JSON.stringify complete previous published report; no new implementation used",
+  "rows": [
+    {
+      "id": "gen-1-1-1",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "1ceb2a281a28911b005785e3b5ad175bd9175c883ea01f5fb3bc2cf1f68728e7"
+    },
+    {
+      "id": "gen-1-1-1",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "ab94a8858e6d184d821c549d1b3308d6f5eb1add86bb09bdbce99cd42984bf87"
+    },
+    {
+      "id": "gen-1-1-1",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "404908580133001c673d133a550487c7958fc6361f41c252e300f6ba26c1e7d9"
+    },
+    {
+      "id": "gen-1-1-1",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "eb8abc4a2e8d4151270a237cd94fe60d76605e0dd8f690a37737fddf4a60b3ff"
+    },
+    {
+      "id": "gen-1-1-2",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "b1476eb8a014ee00130ebd9d455dbc749099e3877a35801ee108ea76bcda0d91"
+    },
+    {
+      "id": "gen-1-1-2",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "a31f476d5868379863430df0bd4460c78bb240d295533f2da090c8a1ad7274a6"
+    },
+    {
+      "id": "gen-1-1-2",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "4dd048827d73c9bcab3fb070428e46b46404e315d1103a6777b8b81f4f1d54da"
+    },
+    {
+      "id": "gen-1-1-2",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "e7702d29e903fd8ecaefb5223c6218d263d62295d5150727ef8565545607d13a"
+    },
+    {
+      "id": "gen-1-2-11",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "e7668cd099df5b14e671c458623e8811a1cfcae9d0e001704ab651ec0d6cbe5d"
+    },
+    {
+      "id": "gen-1-2-11",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "21c57910e74c9da41cbb890a998712fba571e8916e5c348eaf727f20647bb985"
+    },
+    {
+      "id": "gen-1-2-11",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "319fc4728b5a6c33fcd233fa4cb341dac83c3fe61c0252d58433764f796a4a87"
+    },
+    {
+      "id": "gen-1-2-11",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "e3f686791cd208a5a386d15fbd0fea58b21bf4bcee6b0b65f41d04b83faea0c1"
+    },
+    {
+      "id": "gen-3-22-21",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "3412974bddf1af89973835c69ba20c2490223230961a48e737cf4b79606b12f2"
+    },
+    {
+      "id": "gen-3-22-21",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "bab8f242a9f0a4951e933d03a91f2d02f855dcb169359667507cad1fc1de2239"
+    },
+    {
+      "id": "gen-3-22-21",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "43a24cf106ce1ba137b62db069b43cdf9e6a5fa2c98b58c7553d91886c19d2e7"
+    },
+    {
+      "id": "gen-3-22-21",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "00c359234706e98c497f2845992ccc09f7499c6b4a108497a4db75818f6ac55e"
+    },
+    {
+      "id": "gen-8-20-7",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "573bd7f1262be8c768a9d2a1b530ab3e0239a26e9c690df4908614998f0050f1"
+    },
+    {
+      "id": "gen-8-20-7",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "4fd8279516098d9fdf58ae41d9bf4c4363d6e213e155890fb9f4fb17beae2d30"
+    },
+    {
+      "id": "gen-8-20-7",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "59e8c59c4514bfedc67a74fd3a6b7c4061e98d140a2d6b55e21b96a41fcf491a"
+    },
+    {
+      "id": "gen-8-20-7",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "6fd3b4d130bb147a47f52a1ff0e6b4d27a02bf4485ed7b3887c07fdec5213f86"
+    },
+    {
+      "id": "gen-12-2-2",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "e40df6eaaf6bcb9ee3f86fee940cbf81d9704b12ea1452358abb066c86319ce0"
+    },
+    {
+      "id": "gen-12-2-2",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "8dbdafedef1e4f1d393dcc2159273935c712dc63332f54700481c6851360e084"
+    },
+    {
+      "id": "gen-12-2-2",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "35340053468c5aa841f94c83b6234a1b04e7f8afecb0dce0b0040600170e78cc"
+    },
+    {
+      "id": "gen-12-2-2",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "b0d62fc5d896ff5800c85604255f65ecce9bdec8b0a463e9470d5d9f5dc07e22"
+    },
+    {
+      "id": "gen-13-3-13",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "8542c37fc5468a5a711230b481ba4159a174d956d1cfc1af3736f8e512ffbafd"
+    },
+    {
+      "id": "gen-13-3-13",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "15fd48195d988d519cbf63abf6f23092b956a99bc70301dfc91ae4f7fe524e42"
+    },
+    {
+      "id": "gen-13-3-13",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "d138f800e07b7b8877042adab751a458614ee09bc37a84cb416a5f10f99c6fa2"
+    },
+    {
+      "id": "gen-13-3-13",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "6578e5e6ecfa573e61b978b6616f21eeaf2913b04645c18eeed0196e0ad0e91b"
+    },
+    {
+      "id": "exo-38-17-8",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "298fb01eb451c371f90c380aa64a0cf4529db9ee23519eabf9bae369fa0a48d2"
+    },
+    {
+      "id": "exo-38-17-8",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "e2541af3f88198ef2d5a809f50844a5200264956d0a1976b5f51608f8399f1d8"
+    },
+    {
+      "id": "exo-38-17-8",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "a7d99e17dcddb773c0685c21e8ec1f876c6b6f0e0bbbd4c7fc8b40d5a65beeff"
+    },
+    {
+      "id": "exo-38-17-8",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "500dd159a0074daef219b7ccec283072a8aeb65a4a92a2ca509cb3ec4375cdbe"
+    },
+    {
+      "id": "deu-6-4-1",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "90f2e70023145e951b29c5d9c95b212ede78a919cdc3958fde786f0a93912d91"
+    },
+    {
+      "id": "deu-6-4-1",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "fb05f05a2a4556b3e71bd1f2fd0374b21f9000dcbd61521efa66e93368d3972d"
+    },
+    {
+      "id": "deu-6-4-1",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "1aaac86fc0663ee505cfc349c29ddaa913dc5170790b449e835d6dedeaf598ac"
+    },
+    {
+      "id": "deu-6-4-1",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "e3dd6775f6a7e28b6cfa105429c40b6104bed8ac192397d11b93a4b147b603fb"
+    },
+    {
+      "id": "deu-32-6-1",
+      "style": "sephardic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "0092aee7925943f7ae0980db54e4f6fdc03d25aa12aa17d9b543cbe6dd6496cc"
+    },
+    {
+      "id": "deu-32-6-1",
+      "style": "sephardic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "60d1355db25ea32d68bbd3689707a6a0fc9076d0bbde71fa8eb9a7f8f0faa611"
+    },
+    {
+      "id": "deu-32-6-1",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-northeastern-formal",
+      "sha256": "69ac08072ab4b63e31b4e608012cc22398d8466f327f8b7c692904bd8db4ac99"
+    },
+    {
+      "id": "deu-32-6-1",
+      "style": "ashkenazic",
+      "profileId": "katz-1993-mideastern-formal",
+      "sha256": "33a3b562b8c8f26ee226de8f3d42956d3388774e478c2e643bd2fae665e90420"
+    }
+  ],
+  "publishedAuditResultsSha256": "beaa913966a732389bced462173eb0511e4930fa6049329f5a54f933b6bea1a3",
+  "publishedAuditResultRows": 4
+}
