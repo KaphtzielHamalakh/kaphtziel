@@ -3,8 +3,8 @@
   "updated": "2026-11-24",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "77e963141188b11acb9ad3977067aa0bc32bed1a",
-  "nextTask": "Finish connected0.86publication and exact public normal/portable verification, then continue No268 Exodus12:21–22 word/source-syllable evidence and bounded instrumental score work. Preserve all39marked canonical word candidates and all nulls;88private pitches/8rests currently cover23word candidates, with one small-note duration unset and16words untranscribed. Preserve the full feature inventory and independent melody/pronunciation/voice/range/key/tempo. Complete contextual Torah systems, six complete historical pronunciation grammars and singing delivery remain pending; printing deferred. Portable headroom64335bytes requires lossless capacity work before more embedded sources. Full goal active.",
+  "publishedCommit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
+  "nextTask": "Continue No268 Exodus12:21–22 word/source-syllable evidence and bounded instrumental score work. Preserve all39marked canonical word candidates and all nulls;88private pitches/8rests currently cover23word candidates, with one small-note duration unset and16words untranscribed. Preserve the full feature inventory and independent melody/pronunciation/voice/range/key/tempo. Complete contextual Torah systems, six complete historical pronunciation grammars and singing delivery remain pending; printing deferred. Portable headroom64335bytes requires lossless capacity work before more embedded sources. Full goal active.",
   "lastPassingTests": {
     "automated": 760,
     "newRegressionChecks": 11,
@@ -12,9 +12,9 @@
     "cancelled": 0,
     "skipped": 0,
     "localUiChecks": 108,
-    "publicUiChecks": 0,
-    "remainingPublicUiChecks": 108,
-    "ui": "54 affected-flow desktop checks per normal/portable distribution; muted clocks, offline PCM, console clear; no acoustic/cantorial, physical file-dialog or narrow-screen review.",
+    "publicUiChecks": 108,
+    "remainingPublicUiChecks": 0,
+    "ui": "54local checks per normal/portable app at1280;54public normal checks at1280 and54public portable checks at measured375×812. Source evidence uses semantic keyboard activation where inline links wrap. Muted clocks/offline PCM; no acoustic/cantorial or physical download-dialog/file-URL approval.",
     "sourceAudits": "Completed existing full sequence; four stale page-hash reports refreshed, then frozen compiler and all760tests passed. Initial combined run had4stale input failures.",
     "sourceInputPins": 296
   },
@@ -165,12 +165,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "77e963141188b11acb9ad3977067aa0bc32bed1a",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45497167473",
+    "commit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
+    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45508193733",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 19,
-    "publicChangedBytesExact": 140038427
+    "publicChangedFilesExact": 26,
+    "publicChangedBytesExact": 141899645
   },
   "corpusImport": {
     "books": 5,
@@ -194,7 +194,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.86: No267 unreviewed instrumental written-figure study locally accepted; connected publication/public verification pending. Public0.85 remains accepted.",
+  "workingIteration": "0.86 publicly accepted:21unreviewed No267instrumental studies/5withheld. Continue No268word/source-syllable alignment and complete independent pronunciation/melody evidence; full objective active/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1087,9 +1087,11 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.85.0",
-    "codeCommit": "77e963141188b11acb9ad3977067aa0bc32bed1a",
-    "tests": 749,
+    "version": "0.86.0",
+    "codeCommit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
+    "tests": 760,
+    "localUiChecks": 108,
+    "publicUiChecks": 108,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -2819,6 +2821,6 @@
     "eligibleRests": 7,
     "localUiChecks": 108,
     "automatedChecks": 760,
-    "publicStatus": "pending"
+    "publicStatus": "accepted software: unreviewed literal instrumental study; no historical realization/word fit/phonemes/voice accepted"
   }
 }
