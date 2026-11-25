@@ -15,6 +15,7 @@ import {NO266_IMAGE,NO266_EVIDENCE} from './idelsohn-no266-data.js';
 import {no266ChoiceContext} from './source-no266-performance.js';
 import {printedWordStudy,printedWordPhoto,printedUnitContext} from './printed-underlay.js';
 import {mountPrintedMamFitting} from './printed-mam-fitting-ui.js';
+import {mountNo266MamFitting} from './no266-mam-fitting-ui.js';
 import {PRINTED_UNDERLAY_IMAGE,PRINTED_UNDERLAY_EVIDENCE} from './printed-underlay-data.js';
 import {IDELSOHN_SCORE_IMAGE,IDELSOHN_SCORE_EVIDENCE} from './idelsohn-score-data.js';
 import {SMALL_EIGHTH_STUDY} from './source-small-eighth.js';
@@ -105,7 +106,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null;
+let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -212,7 +213,7 @@ function renderPronunciationFollow(){
     report=pronunciationTools?.followNote(activeInstrumentEvent,words);
     if(pronunciationSpanFollowing&&report?.status==='unlinked'&&report.reason==='different-syllable-boundaries')report=pronunciationTools?.followSpan(activeInstrumentEvent,words,plan)??report;
   }catch(e){error=e.message;}
-  if(activeInstrumentEvent&&model.profile.id===IDELSOHN_SCORE.id&&readerSource?.kind!=='published-word')try{report=printedFitTools?.follow(activeInstrumentEvent,words[activeInstrumentEvent.wordIndex],plan,$('pronunciation-style').value,readerSource?.kind)??null;}catch(e){error=e.message;}
+  if(activeInstrumentEvent&&readerSource?.kind!=='published-word')try{const tools=model.profile.id===IDELSOHN_SCORE.id?printedFitTools:model.profile.id===IDELSOHN_NO266.id?no266FitTools:null;report=tools?.follow(activeInstrumentEvent,words[activeInstrumentEvent.wordIndex],plan,$('pronunciation-style').value,readerSource?.kind)??report;}catch(e){error=e.message;}
   const unitIds=new Set(['exact-written-span','source-reading-word','source-reading-group','common-written-span','personal-printed-fit'].includes(report?.status)?report.units.map(u=>u.sourceUnitId):[]);
   for(const el of $('reader').querySelectorAll('.reader-word-pronunciation [data-source-unit]')){
     const button=el.closest('.pronunciation-word')?.querySelector('.word');
@@ -241,6 +242,7 @@ function renderPronunciationFollow(){
     const note=document.createElement('small');note.textContent=`Personal proposal · printed groups ${report.binding.printedStart}–${report.binding.printedEnd} / MAM units ${report.binding.mamStart}–${report.binding.mamEnd} · ${report.binding.origin==='manual'?'manual choice':'original project proposal'} · whole span only`;line.append(note);spanContent.append(line);return;
   }
   if(report?.status==='incomplete-personal-span'){status.textContent='This printed selection cuts your proposed fitting span. Select the complete word to preview the whole span. No pronunciation unit is assigned to this partial selection.';return;}
+  if(report?.status==='unassigned-source-group'){status.textContent='This parenthesized No266 note has no assigned source group. No personal fitting or pronunciation unit is attached to it.';return;}
   if(report?.status==='untexted-source-note'){status.textContent='This untexted source note has no fitting proposal. Pronunciation units remain unassigned.';return;}
   if(report?.status==='common-written-span'){
     status.textContent=`${readerSource.kind==='phonemic-research'?readerSource.name:pronunciationTools.scoreStatus().name} · complete shared Hebrew span. All source syllables in each displayed alternative follow together; individual note allocation and acoustic timing remain unassigned.`;
@@ -695,7 +697,7 @@ function renderPrintedSyllableFollow(){
   $('printed-syllable-follow').textContent=!e||e.sourceProfile!==IDELSOHN_SCORE.id?'':e.sourcePrintedSyllableIndex===null?'This small note has no printed syllable assignment.':`${words[e.wordIndex].reference} · word ${words[e.wordIndex].ordinal} · printed source syllable ${e.sourcePrintedSyllableIndex}. Original instrument timing; Hebrew/phoneme fitting unassigned.`;
 }
 function renderSequence(){
-  renderPrintedSyllableStudy();renderNo266GroupStudy();printedFitTools?.refresh();
+  renderPrintedSyllableStudy();renderNo266GroupStudy();printedFitTools?.refresh();no266FitTools?.refresh();
   let unavailable=null;
   try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),{...state,smallNoteDemo,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo,printedSyllableIndex:state.scope==='printed-syllable'?state.printedSyllableIndex:null,no266PrintedGroupIndex:state.scope==='printed-source-group'?state.no266PrintedGroupIndex:null});}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
@@ -742,7 +744,7 @@ function renderStaff(){
 }
 function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  return {personalPronunciationFitting:model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportContext()??null):null,title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+  return {personalPronunciationFitting:model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportContext()??null):null,...(model.profile.id===IDELSOHN_NO266.id?{personalNo266PronunciationFitting:no266FitTools?.exportContext()??null}:{}),title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(plan.some(e=>e.sourceSmallNote)?{smallNoteStudy:{...SMALL_NOTE_STUDY}}:{}),
     ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
@@ -764,7 +766,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.scope==='printed-syllable'?state.printedSyllableIndex:null,state.scope==='printed-source-group'?state.no266PrintedGroupIndex:null,model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportKey()??null):null,state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,!!model.profile.requiresSmallEighthTiming&&smallEighthDemo,model.profile.requiresNo266Choices?[no266ParentheticalDemo,no266SmallEighthDemo]:null,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.scope==='printed-syllable'?state.printedSyllableIndex:null,state.scope==='printed-source-group'?state.no266PrintedGroupIndex:null,model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportKey()??null):null,model.profile.id===IDELSOHN_NO266.id?(no266FitTools?.exportKey()??null):null,state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,!!model.profile.requiresSmallEighthTiming&&smallEighthDemo,model.profile.requiresNo266Choices?[no266ParentheticalDemo,no266SmallEighthDemo]:null,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -1144,6 +1146,7 @@ $('download').addEventListener('click',()=>{
     ...(pronunciationResearch?{pronunciationResearch}:{}),
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     personalPronunciationFitting:model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportContext()??null):null,
+    ...(model.profile.id===IDELSOHN_NO266.id?{personalNo266PronunciationFitting:no266FitTools?.exportContext()??null}:{}),
     ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
     ...(state.scope==='printed-source-group'?{printedNo266Group:no266PrintedGroupContext(plan)}:{}),
     ...(model.profile.wordOnly?{wordCorrespondence:'lexical-source-word-candidate',syllableMapping:null,phonemes:null,independentReview:null}:{}),
@@ -1197,8 +1200,9 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
-pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();sourceRecallTools?.refreshPronunciation();syllableTimingTools?.refresh();recordingGroupTimingTools?.follow();printedFitTools?.refresh();}});
+pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();sourceRecallTools?.refreshPronunciation();syllableTimingTools?.refresh();recordingGroupTimingTools?.follow();printedFitTools?.refresh();no266FitTools?.refresh();}});
 printedFitTools=mountPrintedMamFitting({getContext:()=>({word:words[state.cursor],profile:model.profile,printedIndex:state.printedSyllableIndex,style:$('pronunciation-style').value,practiceAudio:state.practiceAudio}),onChange:()=>{stop('Personal fitting draft changed. Source notes are unchanged.');exportsKey=null;render();},onWholeWord:()=>{stop('Whole word selected for the complete proposed span.');state.scope='word';state.notePage=0;state.staffPage=0;render();}});
+no266FitTools=mountNo266MamFitting({getContext:()=>({words,plan,word:words[state.cursor],profile:model.profile,printedIndex:state.no266PrintedGroupIndex,style:$('pronunciation-style').value,practiceAudio:state.practiceAudio}),onChange:()=>{stop('Personal No266 fitting changed. Source notes are unchanged.');exportsKey=null;render();},onWholeWord:()=>{stop('Whole No266 word selected for the complete proposed span.');state.scope='word';state.notePage=0;state.staffPage=0;render();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
 syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getWords:()=>words,getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
   position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,
