@@ -1,0 +1,58 @@
+{
+  "schema": "tropetrain-idelsohn-phonetic-key-v1",
+  "revision": 1,
+  "source": {
+    "title": "Hebräisch-orientalischer Melodienschatz, Band V: Gesänge der marokkanischen Juden",
+    "author": "Abraham Z. Idelsohn",
+    "publication": "Benjamin Harz, Berlin–Vienna,1929",
+    "url": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)",
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "originalRights": "IMSLP317924 catalogue PublicDomain",
+    "render": "Bundled Poppler pdftoppm, scale-to-x2200, grayscale; complete pages, JPEG quality85; no glyph redrawing/normalization."
+  },
+  "pages": [
+    {
+      "kind": "vowels",
+      "pdfPage": 5,
+      "printedPage": 2,
+      "image": "assets/scores/idelsohn-1929-phonetic-key-vowels.jpg",
+      "dimensions": [
+        2200,
+        3221
+      ],
+      "imageBytes": 698110,
+      "imageSha256": "de20a30fdc3ab1a47b9872e392a3ed15dfdc09e233cf71906cdbe441ef5bbae3"
+    },
+    {
+      "kind": "consonants",
+      "pdfPage": 6,
+      "printedPage": 3,
+      "image": "assets/scores/idelsohn-1929-phonetic-key-consonants.jpg",
+      "dimensions": [
+        2200,
+        3221
+      ],
+      "imageBytes": 471690,
+      "imageSha256": "e0c17c983ab831f9339f18fc8a1b1d78413d0cbe5c2e6081ce367fa3f86a410c"
+    }
+  ],
+  "sourceContext": {
+    "classification": "Pentateuchweise",
+    "printedPage": 4,
+    "pdfPage": 7,
+    "listedExamples": "263–270",
+    "status": "Literal source classification; independent musical interpretation pending."
+  },
+  "limits": [
+    "The author describes phonetic transcription as approximate in the printed p.2 footnote.",
+    "The consonant table distinguishes Fez and Mogador; No268 locality and performer remain unassigned.",
+    "These facsimiles preserve source glyphs. No Unicode/IPA transcription, phonological grammar, Kinnor equivalence or singing voice is supplied.",
+    "Printed p.5 discusses variable scale steps and microtonal inflections; modern12-TET instrumental study remains approximate."
+  ],
+  "phoneticUnicode": null,
+  "phonemes": null,
+  "source268Locality": null,
+  "source268Performer": null,
+  "acceptedUnderlayMapping": null,
+  "independentReview": null
+}
