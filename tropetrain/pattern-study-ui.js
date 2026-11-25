@@ -123,7 +123,10 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   });
   for(const id of ['pattern-source','pattern-mode','pattern-stop','pattern-find'])$(id).disabled=false;
   refresh();
-  return {stop,refresh,rangeChanged,setRepeat:value=>{player.repeat=value;},volumeChanged:()=>refresh()};
+  return {stop,refresh,rangeChanged,openFigure(sourceId,mode){
+    if(!PRINTED_PATTERN_SOURCES.some(r=>r.id===sourceId)||!allPatternModes(sourceId).some(m=>m.id===mode))throw Error('Choose a supplied printed figure.');
+    stop();$('pattern-source').value=sourceId;$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes(mode);refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});
+  },setRepeat:value=>{player.repeat=value;},volumeChanged:()=>refresh()};
 }
 
 export function patternEventDocument(row,mode,state,plan,writtenPlan){

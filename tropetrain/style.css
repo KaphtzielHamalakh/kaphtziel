@@ -165,3 +165,5 @@
 .printed-syllable-study{border-top:1px solid var(--line,#ddd);padding-top:1rem;margin-top:1rem}.printed-word-photo{display:block;width:100%;max-width:100%;background:#fff;border:1px solid #e5ddd4}.printed-syllable-study select,.printed-syllable-study button{max-width:100%}.printed-syllable-study button{margin-top:.5rem}
 
 #printed-fit-editor{margin-top:1rem;border-top:1px solid #d5cbbb;padding-top:.75rem}#printed-fit-editor select,#printed-fit-editor textarea{max-width:100%;width:100%;box-sizing:border-box}.printed-fit-actions{display:grid;gap:.4rem;margin:.75rem 0}#printed-fit-partitions{border-left:3px dotted #986c2d;padding-left:.5rem}#printed-fit-partitions p{margin:.35rem 0}.pronunciation-personal-fit-active{background:#f7e7bd;outline:2px dotted #8a5b18;border-radius:2px}#printed-fit-key-viewer img{max-width:none;height:auto}#printed-fit-message{font-size:.88rem}
+
+.word-pattern-results>li{margin:1rem 0;padding:.9rem;border:1px solid var(--line,#ddd);border-radius:4px;overflow-wrap:anywhere}.word-pattern-results p{margin:.45rem 0}.word-pattern-results .sign-result-word{font-family:'Noto Hebrew',serif;font-size:1.4rem;text-align:start}

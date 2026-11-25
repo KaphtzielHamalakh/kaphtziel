@@ -1,0 +1,13 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';import {restoredPortableHtml,portableProgramBytes,portableFileBytes} from './portable-artifact.mjs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url));
+test('finished word-context inspector preserves exact portable program, source audit links and current offline version',()=>{
+ const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),version=JSON.parse(read('package.json')).version;
+ assert.deepEqual(portableProgramBytes(read('TropeTrain.html')).bytes,read('app.bundle.js'));
+ for(const html of [normal,portable]){assert(html.includes('v'+version));for(const id of ['word-pattern-study','word-pattern-source','word-pattern-results','word-pattern-export','word-pattern-download'])assert(html.includes('id="'+id+'"'));assert(html.includes('No pitches are assigned to this word or its syllables.'));}
+ const name='docs/WORD-PATTERN-LOOKUPS.json';assert(normal.includes('href="./'+name+'"'));assert(portable.includes('data:application/json;base64,'+read(name).toString('base64')));assert(read('sw.js').toString().includes('./'+name));assert(read('sw.js').toString().includes('tropetrain-v96-word-pattern-lookups'));assert(portableFileBytes()<100*1024*1024);
+});
+test('whole Torah source-context inventory pins every input while retaining explicit musical gaps and all null assignments',()=>{
+ const r=JSON.parse(read('docs/WORD-PATTERN-LOOKUPS.json'));assert.equal(r.status,'encoded-sign-lookups-not-musical-coverage');assert.deepEqual(r.counts,{books:5,chapters:187,verses:5853,readerWords:79985,wordsWithSignLookups:64491,withheldSourceWords:680,wordsWithoutSuppliedLookup:14814,lookupRelations:287099,acceptedMusicalWordMappings:0,newSingingVoices:0});assert.equal(r.catalogue.figureLookups.length,82);assert.equal(r.catalogue.unmappedFigureModes.length,35);assert.equal(r.assignmentSha256,'fd23caa9d6fd78b132f47e574ae54d65996464bd2de3ac6c37dadaa5a66d7940');
+ for(const i of r.inputs)assert.equal(createHash('sha256').update(read(i.path)).digest('hex'),i.sha256,i.path);assert.equal(r.inputs.filter(i=>/^data\/torah\/(gen|exo|lev|num|deu)\.json$/.test(i.path)).length,5);
+ for(const e of r.catalogue.figureLookups){assert.equal(e.conditionApplicationVerified,false);for(const k of ['musicalWordAllocation','syllableUnderlay','phonemes','audioTimes','musicalReview'])assert.equal(e[k],null);assert(!e.sourceId.includes('idelsohn'));}for(const k of ['musicalWordAllocation','phonemes','audioTimes','musicalReview','kinnorEquivalence'])assert.equal(r[k],null);
+});

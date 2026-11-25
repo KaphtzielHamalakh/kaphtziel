@@ -42,6 +42,7 @@ import {ReferenceAudioStore} from './reference-audio-store.js';
 import {CONTEXT_ANALYSIS} from './accent-context.js';
 import {mountCombinationTools} from './combination-ui.js';
 import {mountPatternStudy} from './pattern-study-ui.js';
+import {mountWordPatterns} from './word-pattern-ui.js';
 import {getScrollLayout} from './scroll-layout.js';
 import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
 import {mountCalendar} from './calendar-ui.js';
@@ -106,7 +107,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null;
+let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,wordPatternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -605,7 +606,7 @@ $('chant-speed').addEventListener('change',e=>{
   catch(error){e.target.value=state.chantRate;say(error.message);}
 });
 function renderSourceSigns(word){
-  combinationTools?.showWord(word.index);
+  combinationTools?.showWord(word.index);wordPatternTools?.showWord(word.index);
   const analysis=word.signAnalysis;$('source-class').textContent=sourceClassLabel(analysis.className);
   $('source-sign-rows').replaceChildren();$('source-sign-warnings').replaceChildren();
   for(const sign of [...analysis.signs,...analysis.marks].sort((a,b)=>a.offset-b.offset)){
@@ -1200,6 +1201,7 @@ combinationTools=mountCombinationTools({getModel:()=>model,getCorpus,selectHit:(
   document.querySelector(`[data-word="${words[start].id}"]`)?.focus();$('reader').scrollIntoView({block:'start'});
 }});
 patternTools=mountPatternStudy({getSettings:()=>state,beforePlay:()=>stop('Listening to the printed pattern. Bible-word selection is kept.',{preservePattern:true}),findPattern:id=>combinationTools.findPattern(id)});
+wordPatternTools=mountWordPatterns({getModel:()=>model,onOpenFigure:(sourceId,mode)=>patternTools.openFigure(sourceId,mode),onExample:()=>libraryAction(()=>{applyRanges([{id:'printed-figure-example',bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:1},label:'Printed sign-context example'}],{readingType:'torah'});state.cursor=1;state.anchor=1;state.scope='word';render();$('word-pattern-study').open=true;$('word-pattern-study').scrollIntoView({block:'start'});})});
 pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport();renderStaff();renderReaderPronunciation();sourceRecallTools?.refreshPronunciation();syllableTimingTools?.refresh();recordingGroupTimingTools?.follow();printedFitTools?.refresh();no266FitTools?.refresh();}});
 printedFitTools=mountPrintedMamFitting({getContext:()=>({word:words[state.cursor],profile:model.profile,printedIndex:state.printedSyllableIndex,style:$('pronunciation-style').value,practiceAudio:state.practiceAudio}),onChange:()=>{stop('Personal fitting draft changed. Source notes are unchanged.');exportsKey=null;render();},onWholeWord:()=>{stop('Whole word selected for the complete proposed span.');state.scope='word';state.notePage=0;state.staffPage=0;render();}});
 no266FitTools=mountNo266MamFitting({getContext:()=>({words,plan,word:words[state.cursor],profile:model.profile,printedIndex:state.no266PrintedGroupIndex,style:$('pronunciation-style').value,practiceAudio:state.practiceAudio}),onChange:()=>{stop('Personal No266 fitting changed. Source notes are unchanged.');exportsKey=null;render();},onWholeWord:()=>{stop('Whole No266 word selected for the complete proposed span.');state.scope='word';state.notePage=0;state.staffPage=0;render();}});

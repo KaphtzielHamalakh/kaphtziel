@@ -33,6 +33,7 @@ import './audit-chant-coverage.mjs';
 import './audit-source-word-windows.mjs';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+execFileSync('node',[path.join(root,'scripts/audit-word-pattern-lookups.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-recording-timing-groups.mjs')],{stdio:'inherit'});
 execFileSync('node',[path.join(root,'scripts/audit-recording-group-word-drafts.mjs')],{stdio:'inherit'});
 execFileSync('python3',[path.join(root,'scripts/import-source-phrases.py')],{stdio:'inherit'});
@@ -230,6 +231,7 @@ const baerEvidence=await readFile(path.join(root,'docs/BAER-GENESIS-SCORE.json')
 const baerLinks=await readFile(path.join(root,'docs/BAER-NOTE-CORRESPONDENCE.json'),'utf8');
 const patternScan=await readFile(path.join(root,'assets/scores/cohen-1902-munah-revia.png'));
 const patternRow=await readFile(path.join(root,'assets/scores/cohen-1902-pentateuch-row-a.png'));
+const wordPatternEvidence=await readFile(path.join(root,'docs/WORD-PATTERN-LOOKUPS.json'),'utf8');
 const patternEvidence=await readFile(path.join(root,'docs/PRINTED-PATTERNS.json'),'utf8');
 const calendarEvidence=await readFile(path.join(root,'docs/CALENDAR-SOURCES.json'),'utf8');
 const calendarRelatedAudit=await readFile(path.join(root,'docs/CALENDAR-RELATED-AUDIT.json'),'utf8');
@@ -285,6 +287,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
  .replaceAll('href="./assets/scores/cohen-1902-munah-revia.png"',()=>`href="data:image/png;base64,${patternScan.toString('base64')}"`)
  .replace('src="./assets/scores/cohen-1902-pentateuch-row-a.png"',()=>`src="data:image/png;base64,${patternRow.toString('base64')}"`)
  .replaceAll('href="./assets/scores/cohen-1902-pentateuch-row-a.png"',()=>`href="data:image/png;base64,${patternRow.toString('base64')}"`)
+ .replaceAll('href="./docs/WORD-PATTERN-LOOKUPS.json"',()=>`href="data:application/json;base64,${Buffer.from(wordPatternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-PATTERNS.json"',()=>`href="data:application/json;base64,${Buffer.from(patternEvidence).toString('base64')}"`)
  .replaceAll('href="./docs/PRINTED-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(printedEvidence).toString('base64')}"`)
  .replaceAll('src="./assets/scores/baer-1894-genesis1.png"',()=>`src="data:image/png;base64,${baerScan.toString('base64')}"`)
