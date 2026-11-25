@@ -1,0 +1,2145 @@
+{
+  "schema": "tropetrain-idelsohn-printed-underlay-v1",
+  "revision": 1,
+  "id": "idelsohn-1929-no268-printed-underlay",
+  "status": "unreviewed-printed-syllable-group-and-word-photo-reference",
+  "sourceScoreRecord": "docs/IDELSOHN-NO268-SCORE.json",
+  "sourceScoreRecordSha256": "4d92c78aa90b7f2b44ea636b5690f1cda9031a5a050912b77ecb610cc35513cd",
+  "source": {
+    "sourcePdf": "work/audits/recording-group-word-drafts-0.84/sources/Idelsohn-1929-Moroccan-volume-V.pdf",
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "pdfPage": 105,
+    "renderer": "bundled Poppler pdftoppm",
+    "renderOptions": [
+      "-f105",
+      "-l105",
+      "-singlefile",
+      "-scale-to-x3600",
+      "-scale-to-y-1",
+      "-gray",
+      "-png"
+    ],
+    "fullPageDimensions": [
+      3600,
+      5271
+    ],
+    "cropBounds": [
+      140,
+      320,
+      3480,
+      2160
+    ],
+    "cropDimensions": [
+      3340,
+      1840
+    ],
+    "jpegQuality": 85,
+    "jpegBytes": 548395,
+    "jpegSha256": "7709cbfb106a9e4311f8154048c6c6432b8da93f4eab24ae6020c3d184ae1207",
+    "modifications": "Faithful rectangular source crop and JPEG encoding only; no glyph redrawing, normalization or reconstruction.",
+    "image": "assets/scores/idelsohn-1929-no268-underlay.jpg",
+    "imageDimensions": [
+      3340,
+      1840
+    ],
+    "imageBytes": 548395,
+    "imageSha256": "7709cbfb106a9e4311f8154048c6c6432b8da93f4eab24ae6020c3d184ae1207"
+  },
+  "words": [
+    {
+      "sourceWordId": "exo-12-21-1",
+      "sourceHebrew": "וַיִּקְרָ֥א",
+      "printedWordId": "idelsohn1929-268-system1-word1",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 420,
+        "y": 225,
+        "width": 352,
+        "height": 101
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word1-syllable1",
+          "sourceWordId": "exo-12-21-1",
+          "printedWordId": "idelsohn1929-268-system1-word1",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word1-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word1-syllable2",
+          "sourceWordId": "exo-12-21-1",
+          "printedWordId": "idelsohn1929-268-system1-word1",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word1-note2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word1-syllable3",
+          "sourceWordId": "exo-12-21-1",
+          "printedWordId": "idelsohn1929-268-system1-word1",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system1-word1-note3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-2",
+      "sourceHebrew": "מֹשֶׁ֛ה",
+      "printedWordId": "idelsohn1929-268-system1-word2",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 815,
+        "y": 225,
+        "width": 219,
+        "height": 101
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word2-syllable1",
+          "sourceWordId": "exo-12-21-2",
+          "printedWordId": "idelsohn1929-268-system1-word2",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word2-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word2-syllable2",
+          "sourceWordId": "exo-12-21-2",
+          "printedWordId": "idelsohn1929-268-system1-word2",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word2-note2",
+            "idelsohn1929-268-system1-word2-note3",
+            "idelsohn1929-268-system1-word2-note4",
+            "idelsohn1929-268-system1-word2-note5",
+            "idelsohn1929-268-system1-word2-note6"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-3",
+      "sourceHebrew": "לְכָל־",
+      "printedWordId": "idelsohn1929-268-system1-word3",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 1560,
+        "y": 225,
+        "width": 206,
+        "height": 101
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word3-syllable1",
+          "sourceWordId": "exo-12-21-3",
+          "printedWordId": "idelsohn1929-268-system1-word3",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word3-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word3-syllable2",
+          "sourceWordId": "exo-12-21-3",
+          "printedWordId": "idelsohn1929-268-system1-word3",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word3-note2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-4",
+      "sourceHebrew": "זִקְנֵ֥י",
+      "printedWordId": "idelsohn1929-268-system1-word4",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 1767,
+        "y": 225,
+        "width": 213,
+        "height": 101
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word4-syllable1",
+          "sourceWordId": "exo-12-21-4",
+          "printedWordId": "idelsohn1929-268-system1-word4",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word4-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word4-syllable2",
+          "sourceWordId": "exo-12-21-4",
+          "printedWordId": "idelsohn1929-268-system1-word4",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word4-note2",
+            "idelsohn1929-268-system1-word4-note3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-5",
+      "sourceHebrew": "יִשְׂרָאֵ֖ל",
+      "printedWordId": "idelsohn1929-268-system1-word5",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 2015,
+        "y": 225,
+        "width": 320,
+        "height": 101
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word5-syllable1",
+          "sourceWordId": "exo-12-21-5",
+          "printedWordId": "idelsohn1929-268-system1-word5",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word5-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word5-syllable2",
+          "sourceWordId": "exo-12-21-5",
+          "printedWordId": "idelsohn1929-268-system1-word5",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word5-note2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word5-syllable3",
+          "sourceWordId": "exo-12-21-5",
+          "printedWordId": "idelsohn1929-268-system1-word5",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system1-word5-note3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-6",
+      "sourceHebrew": "וַיֹּ֣אמֶר",
+      "printedWordId": "idelsohn1929-268-system1-word6",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 2420,
+        "y": 225,
+        "width": 400,
+        "height": 101
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word6-syllable1",
+          "sourceWordId": "exo-12-21-6",
+          "printedWordId": "idelsohn1929-268-system1-word6",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word6-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word6-syllable2",
+          "sourceWordId": "exo-12-21-6",
+          "printedWordId": "idelsohn1929-268-system1-word6",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word6-note2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word6-syllable3",
+          "sourceWordId": "exo-12-21-6",
+          "printedWordId": "idelsohn1929-268-system1-word6",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system1-word6-note3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-7",
+      "sourceHebrew": "אֲלֵהֶ֑ם",
+      "printedWordId": "idelsohn1929-268-system1-word7",
+      "sourceSystem": 1,
+      "wordCrop": {
+        "x": 2855,
+        "y": 225,
+        "width": 395,
+        "height": 101
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system1-word7-syllable1",
+          "sourceWordId": "exo-12-21-7",
+          "printedWordId": "idelsohn1929-268-system1-word7",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system1-word7-note1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word7-syllable2",
+          "sourceWordId": "exo-12-21-7",
+          "printedWordId": "idelsohn1929-268-system1-word7",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system1-word7-note2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system1-word7-syllable3",
+          "sourceWordId": "exo-12-21-7",
+          "printedWordId": "idelsohn1929-268-system1-word7",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system1-word7-note3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-8",
+      "sourceHebrew": "מִֽשְׁכ֗וּ",
+      "printedWordId": "idelsohn1929-268-system2-word1",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 288,
+        "y": 600,
+        "width": 262,
+        "height": 97
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word1-syllable1",
+          "sourceWordId": "exo-12-21-8",
+          "printedWordId": "idelsohn1929-268-system2-word1",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word1-syllable2",
+          "sourceWordId": "exo-12-21-8",
+          "printedWordId": "idelsohn1929-268-system2-word1",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system2-component3",
+            "idelsohn1929-268-system2-component4",
+            "idelsohn1929-268-system2-component5"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-9",
+      "sourceHebrew": "וּקְח֨וּ",
+      "printedWordId": "idelsohn1929-268-system2-word2",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 785,
+        "y": 600,
+        "width": 225,
+        "height": 97
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word2-syllable1",
+          "sourceWordId": "exo-12-21-9",
+          "printedWordId": "idelsohn1929-268-system2-word2",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component7"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word2-syllable2",
+          "sourceWordId": "exo-12-21-9",
+          "printedWordId": "idelsohn1929-268-system2-word2",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system2-component8"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-10",
+      "sourceHebrew": "לָכֶ֥ם",
+      "printedWordId": "idelsohn1929-268-system2-word3",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 1010,
+        "y": 600,
+        "width": 235,
+        "height": 97
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word3-syllable1",
+          "sourceWordId": "exo-12-21-10",
+          "printedWordId": "idelsohn1929-268-system2-word3",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component9"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word3-syllable2",
+          "sourceWordId": "exo-12-21-10",
+          "printedWordId": "idelsohn1929-268-system2-word3",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system2-component10"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-11",
+      "sourceHebrew": "צֹ֛אן",
+      "printedWordId": "idelsohn1929-268-system2-word4",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 1255,
+        "y": 600,
+        "width": 143,
+        "height": 97
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word4-syllable1",
+          "sourceWordId": "exo-12-21-11",
+          "printedWordId": "idelsohn1929-268-system2-word4",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component11",
+            "idelsohn1929-268-system2-component12",
+            "idelsohn1929-268-system2-component13",
+            "idelsohn1929-268-system2-component14",
+            "idelsohn1929-268-system2-component15"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-12",
+      "sourceHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "printedWordId": "idelsohn1929-268-system2-word5",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 1777,
+        "y": 600,
+        "width": 713,
+        "height": 97
+      },
+      "sourceSyllableCount": 6,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word5-syllable1",
+          "sourceWordId": "exo-12-21-12",
+          "printedWordId": "idelsohn1929-268-system2-word5",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component16"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word5-syllable2",
+          "sourceWordId": "exo-12-21-12",
+          "printedWordId": "idelsohn1929-268-system2-word5",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system2-component17"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word5-syllable3",
+          "sourceWordId": "exo-12-21-12",
+          "printedWordId": "idelsohn1929-268-system2-word5",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system2-component18"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word5-syllable4",
+          "sourceWordId": "exo-12-21-12",
+          "printedWordId": "idelsohn1929-268-system2-word5",
+          "index": 4,
+          "noteIds": [
+            "idelsohn1929-268-system2-component19"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word5-syllable5",
+          "sourceWordId": "exo-12-21-12",
+          "printedWordId": "idelsohn1929-268-system2-word5",
+          "index": 5,
+          "noteIds": [
+            "idelsohn1929-268-system2-component20",
+            "idelsohn1929-268-system2-component21"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word5-syllable6",
+          "sourceWordId": "exo-12-21-12",
+          "printedWordId": "idelsohn1929-268-system2-word5",
+          "index": 6,
+          "noteIds": [
+            "idelsohn1929-268-system2-component22"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-13",
+      "sourceHebrew": "וְשַׁחֲט֥וּ",
+      "printedWordId": "idelsohn1929-268-system2-word6",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 2490,
+        "y": 600,
+        "width": 400,
+        "height": 97
+      },
+      "sourceSyllableCount": 4,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word6-syllable1",
+          "sourceWordId": "exo-12-21-13",
+          "printedWordId": "idelsohn1929-268-system2-word6",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component23"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word6-syllable2",
+          "sourceWordId": "exo-12-21-13",
+          "printedWordId": "idelsohn1929-268-system2-word6",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system2-component24"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word6-syllable3",
+          "sourceWordId": "exo-12-21-13",
+          "printedWordId": "idelsohn1929-268-system2-word6",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system2-component25"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word6-syllable4",
+          "sourceWordId": "exo-12-21-13",
+          "printedWordId": "idelsohn1929-268-system2-word6",
+          "index": 4,
+          "noteIds": [
+            "idelsohn1929-268-system2-component26"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-21-14",
+      "sourceHebrew": "הַפָּֽסַח׃",
+      "printedWordId": "idelsohn1929-268-system2-word7",
+      "sourceSystem": 2,
+      "wordCrop": {
+        "x": 2890,
+        "y": 600,
+        "width": 407,
+        "height": 97
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system2-word7-syllable1",
+          "sourceWordId": "exo-12-21-14",
+          "printedWordId": "idelsohn1929-268-system2-word7",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system2-component27"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word7-syllable2",
+          "sourceWordId": "exo-12-21-14",
+          "printedWordId": "idelsohn1929-268-system2-word7",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system2-component28"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system2-word7-syllable3",
+          "sourceWordId": "exo-12-21-14",
+          "printedWordId": "idelsohn1929-268-system2-word7",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system2-component29"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-1",
+      "sourceHebrew": "וּלְקַחְתֶּ֞ם",
+      "printedWordId": "idelsohn1929-268-system3-word1",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 248,
+        "y": 978,
+        "width": 452,
+        "height": 94
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word1-syllable1",
+          "sourceWordId": "exo-12-22-1",
+          "printedWordId": "idelsohn1929-268-system3-word1",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component1"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word1-syllable2",
+          "sourceWordId": "exo-12-22-1",
+          "printedWordId": "idelsohn1929-268-system3-word1",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word1-syllable3",
+          "sourceWordId": "exo-12-22-1",
+          "printedWordId": "idelsohn1929-268-system3-word1",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system3-component3",
+            "idelsohn1929-268-system3-component4",
+            "idelsohn1929-268-system3-component5",
+            "idelsohn1929-268-system3-component6",
+            "idelsohn1929-268-system3-component7",
+            "idelsohn1929-268-system3-component8"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-2",
+      "sourceHebrew": "אֲגֻדַּ֣ת",
+      "printedWordId": "idelsohn1929-268-system3-word2",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 1215,
+        "y": 978,
+        "width": 318,
+        "height": 94
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word2-syllable1",
+          "sourceWordId": "exo-12-22-2",
+          "printedWordId": "idelsohn1929-268-system3-word2",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component11"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word2-syllable2",
+          "sourceWordId": "exo-12-22-2",
+          "printedWordId": "idelsohn1929-268-system3-word2",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component12"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word2-syllable3",
+          "sourceWordId": "exo-12-22-2",
+          "printedWordId": "idelsohn1929-268-system3-word2",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system3-component13"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-3",
+      "sourceHebrew": "אֵז֗וֹב",
+      "printedWordId": "idelsohn1929-268-system3-word3",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 1533,
+        "y": 978,
+        "width": 217,
+        "height": 94
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word3-syllable1",
+          "sourceWordId": "exo-12-22-3",
+          "printedWordId": "idelsohn1929-268-system3-word3",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component14"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word3-syllable2",
+          "sourceWordId": "exo-12-22-3",
+          "printedWordId": "idelsohn1929-268-system3-word3",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component15",
+            "idelsohn1929-268-system3-component16",
+            "idelsohn1929-268-system3-component17"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-4",
+      "sourceHebrew": "וּטְבַלְתֶּם֮",
+      "printedWordId": "idelsohn1929-268-system3-word4",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 1900,
+        "y": 978,
+        "width": 360,
+        "height": 94
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word4-syllable1",
+          "sourceWordId": "exo-12-22-4",
+          "printedWordId": "idelsohn1929-268-system3-word4",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component18"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word4-syllable2",
+          "sourceWordId": "exo-12-22-4",
+          "printedWordId": "idelsohn1929-268-system3-word4",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component19"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word4-syllable3",
+          "sourceWordId": "exo-12-22-4",
+          "printedWordId": "idelsohn1929-268-system3-word4",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system3-component20",
+            "idelsohn1929-268-system3-component21",
+            "idelsohn1929-268-system3-component22",
+            "idelsohn1929-268-system3-component23"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-5",
+      "sourceHebrew": "בַּדָּ֣ם",
+      "printedWordId": "idelsohn1929-268-system3-word5",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 2565,
+        "y": 978,
+        "width": 253,
+        "height": 94
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word5-syllable1",
+          "sourceWordId": "exo-12-22-5",
+          "printedWordId": "idelsohn1929-268-system3-word5",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component24"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word5-syllable2",
+          "sourceWordId": "exo-12-22-5",
+          "printedWordId": "idelsohn1929-268-system3-word5",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component25"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-6",
+      "sourceHebrew": "אֲשֶׁר־",
+      "printedWordId": "idelsohn1929-268-system3-word6",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 2840,
+        "y": 978,
+        "width": 148,
+        "height": 94
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word6-syllable1",
+          "sourceWordId": "exo-12-22-6",
+          "printedWordId": "idelsohn1929-268-system3-word6",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component26"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word6-syllable2",
+          "sourceWordId": "exo-12-22-6",
+          "printedWordId": "idelsohn1929-268-system3-word6",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component27"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-7",
+      "sourceHebrew": "בַּסַּף֒",
+      "printedWordId": "idelsohn1929-268-system3-word7",
+      "sourceSystem": 3,
+      "wordCrop": {
+        "x": 2988,
+        "y": 978,
+        "width": 287,
+        "height": 94
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system3-word7-syllable1",
+          "sourceWordId": "exo-12-22-7",
+          "printedWordId": "idelsohn1929-268-system3-word7",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system3-component28"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system3-word7-syllable2",
+          "sourceWordId": "exo-12-22-7",
+          "printedWordId": "idelsohn1929-268-system3-word7",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system3-component29"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-8",
+      "sourceHebrew": "וְהִגַּעְתֶּ֤ם",
+      "printedWordId": "idelsohn1929-268-system4-word1",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 318,
+        "y": 1340,
+        "width": 487,
+        "height": 111
+      },
+      "sourceSyllableCount": 4,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word1-syllable1",
+          "sourceWordId": "exo-12-22-8",
+          "printedWordId": "idelsohn1929-268-system4-word1",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word1-syllable2",
+          "sourceWordId": "exo-12-22-8",
+          "printedWordId": "idelsohn1929-268-system4-word1",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word1-syllable3",
+          "sourceWordId": "exo-12-22-8",
+          "printedWordId": "idelsohn1929-268-system4-word1",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system4-component4"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word1-syllable4",
+          "sourceWordId": "exo-12-22-8",
+          "printedWordId": "idelsohn1929-268-system4-word1",
+          "index": 4,
+          "noteIds": [
+            "idelsohn1929-268-system4-component5"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-9",
+      "sourceHebrew": "אֶל־",
+      "printedWordId": "idelsohn1929-268-system4-word2",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 810,
+        "y": 1340,
+        "width": 74,
+        "height": 111
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word2-syllable1",
+          "sourceWordId": "exo-12-22-9",
+          "printedWordId": "idelsohn1929-268-system4-word2",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component6"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-10",
+      "sourceHebrew": "הַמַּשְׁקוֹף֙",
+      "printedWordId": "idelsohn1929-268-system4-word3",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 884,
+        "y": 1340,
+        "width": 436,
+        "height": 111
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word3-syllable1",
+          "sourceWordId": "exo-12-22-10",
+          "printedWordId": "idelsohn1929-268-system4-word3",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component7"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word3-syllable2",
+          "sourceWordId": "exo-12-22-10",
+          "printedWordId": "idelsohn1929-268-system4-word3",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component8"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word3-syllable3",
+          "sourceWordId": "exo-12-22-10",
+          "printedWordId": "idelsohn1929-268-system4-word3",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system4-component9",
+            "idelsohn1929-268-system4-component10"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-11",
+      "sourceHebrew": "וְאֶל־",
+      "printedWordId": "idelsohn1929-268-system4-word4",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 1382,
+        "y": 1340,
+        "width": 243,
+        "height": 111
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word4-syllable1",
+          "sourceWordId": "exo-12-22-11",
+          "printedWordId": "idelsohn1929-268-system4-word4",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component11"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word4-syllable2",
+          "sourceWordId": "exo-12-22-11",
+          "printedWordId": "idelsohn1929-268-system4-word4",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component12"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-12",
+      "sourceHebrew": "שְׁתֵּ֣י",
+      "printedWordId": "idelsohn1929-268-system4-word5",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 1660,
+        "y": 1340,
+        "width": 140,
+        "height": 111
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word5-syllable1",
+          "sourceWordId": "exo-12-22-12",
+          "printedWordId": "idelsohn1929-268-system4-word5",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component13",
+            "idelsohn1929-268-system4-component14"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-13",
+      "sourceHebrew": "הַמְּזוּזֹ֔ת",
+      "printedWordId": "idelsohn1929-268-system4-word6",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 1800,
+        "y": 1340,
+        "width": 480,
+        "height": 111
+      },
+      "sourceSyllableCount": 4,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word6-syllable1",
+          "sourceWordId": "exo-12-22-13",
+          "printedWordId": "idelsohn1929-268-system4-word6",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component15"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word6-syllable2",
+          "sourceWordId": "exo-12-22-13",
+          "printedWordId": "idelsohn1929-268-system4-word6",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component16"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word6-syllable3",
+          "sourceWordId": "exo-12-22-13",
+          "printedWordId": "idelsohn1929-268-system4-word6",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system4-component17"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word6-syllable4",
+          "sourceWordId": "exo-12-22-13",
+          "printedWordId": "idelsohn1929-268-system4-word6",
+          "index": 4,
+          "noteIds": [
+            "idelsohn1929-268-system4-component18"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-14",
+      "sourceHebrew": "מִן־",
+      "printedWordId": "idelsohn1929-268-system4-word7",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 2280,
+        "y": 1340,
+        "width": 130,
+        "height": 111
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word7-syllable1",
+          "sourceWordId": "exo-12-22-14",
+          "printedWordId": "idelsohn1929-268-system4-word7",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component19"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-15",
+      "sourceHebrew": "הַדָּ֖ם",
+      "printedWordId": "idelsohn1929-268-system4-word8",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 2410,
+        "y": 1340,
+        "width": 288,
+        "height": 111
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word8-syllable1",
+          "sourceWordId": "exo-12-22-15",
+          "printedWordId": "idelsohn1929-268-system4-word8",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component20"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word8-syllable2",
+          "sourceWordId": "exo-12-22-15",
+          "printedWordId": "idelsohn1929-268-system4-word8",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component21"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-16",
+      "sourceHebrew": "אֲשֶׁ֣ר",
+      "printedWordId": "idelsohn1929-268-system4-word9",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 2715,
+        "y": 1340,
+        "width": 195,
+        "height": 111
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word9-syllable1",
+          "sourceWordId": "exo-12-22-16",
+          "printedWordId": "idelsohn1929-268-system4-word9",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component22"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word9-syllable2",
+          "sourceWordId": "exo-12-22-16",
+          "printedWordId": "idelsohn1929-268-system4-word9",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component23"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-17",
+      "sourceHebrew": "בַּסָּ֑ף",
+      "printedWordId": "idelsohn1929-268-system4-word10",
+      "sourceSystem": 4,
+      "wordCrop": {
+        "x": 2910,
+        "y": 1340,
+        "width": 360,
+        "height": 111
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system4-word10-syllable1",
+          "sourceWordId": "exo-12-22-17",
+          "printedWordId": "idelsohn1929-268-system4-word10",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system4-component24"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system4-word10-syllable2",
+          "sourceWordId": "exo-12-22-17",
+          "printedWordId": "idelsohn1929-268-system4-word10",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system4-component25"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-18",
+      "sourceHebrew": "וְאַתֶּ֗ם",
+      "printedWordId": "idelsohn1929-268-system5-word1",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 325,
+        "y": 1725,
+        "width": 405,
+        "height": 108
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word1-syllable1",
+          "sourceWordId": "exo-12-22-18",
+          "printedWordId": "idelsohn1929-268-system5-word1",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component2"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word1-syllable2",
+          "sourceWordId": "exo-12-22-18",
+          "printedWordId": "idelsohn1929-268-system5-word1",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system5-component3"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word1-syllable3",
+          "sourceWordId": "exo-12-22-18",
+          "printedWordId": "idelsohn1929-268-system5-word1",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system5-component4",
+            "idelsohn1929-268-system5-component5",
+            "idelsohn1929-268-system5-component6"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-19",
+      "sourceHebrew": "לֹ֥א",
+      "printedWordId": "idelsohn1929-268-system5-word2",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 920,
+        "y": 1725,
+        "width": 100,
+        "height": 108
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word2-syllable1",
+          "sourceWordId": "exo-12-22-19",
+          "printedWordId": "idelsohn1929-268-system5-word2",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component7"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-20",
+      "sourceHebrew": "תֵצְא֛וּ",
+      "printedWordId": "idelsohn1929-268-system5-word3",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 1080,
+        "y": 1725,
+        "width": 308,
+        "height": 108
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word3-syllable1",
+          "sourceWordId": "exo-12-22-20",
+          "printedWordId": "idelsohn1929-268-system5-word3",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component8"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word3-syllable2",
+          "sourceWordId": "exo-12-22-20",
+          "printedWordId": "idelsohn1929-268-system5-word3",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system5-component9"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word3-syllable3",
+          "sourceWordId": "exo-12-22-20",
+          "printedWordId": "idelsohn1929-268-system5-word3",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system5-component10",
+            "idelsohn1929-268-system5-component11",
+            "idelsohn1929-268-system5-component12",
+            "idelsohn1929-268-system5-component13",
+            "idelsohn1929-268-system5-component14"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-21",
+      "sourceHebrew": "אִ֥ישׁ",
+      "printedWordId": "idelsohn1929-268-system5-word4",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 1945,
+        "y": 1725,
+        "width": 95,
+        "height": 108
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word4-syllable1",
+          "sourceWordId": "exo-12-22-21",
+          "printedWordId": "idelsohn1929-268-system5-word4",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component15"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-22",
+      "sourceHebrew": "מִפֶּֽתַח־",
+      "printedWordId": "idelsohn1929-268-system5-word5",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 2040,
+        "y": 1725,
+        "width": 405,
+        "height": 108
+      },
+      "sourceSyllableCount": 3,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word5-syllable1",
+          "sourceWordId": "exo-12-22-22",
+          "printedWordId": "idelsohn1929-268-system5-word5",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component16"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word5-syllable2",
+          "sourceWordId": "exo-12-22-22",
+          "printedWordId": "idelsohn1929-268-system5-word5",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system5-component17"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word5-syllable3",
+          "sourceWordId": "exo-12-22-22",
+          "printedWordId": "idelsohn1929-268-system5-word5",
+          "index": 3,
+          "noteIds": [
+            "idelsohn1929-268-system5-component18"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-23",
+      "sourceHebrew": "בֵּית֖וֹ",
+      "printedWordId": "idelsohn1929-268-system5-word6",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 2445,
+        "y": 1725,
+        "width": 210,
+        "height": 108
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word6-syllable1",
+          "sourceWordId": "exo-12-22-23",
+          "printedWordId": "idelsohn1929-268-system5-word6",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component19"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word6-syllable2",
+          "sourceWordId": "exo-12-22-23",
+          "printedWordId": "idelsohn1929-268-system5-word6",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system5-component20"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-24",
+      "sourceHebrew": "עַד־",
+      "printedWordId": "idelsohn1929-268-system5-word7",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 2795,
+        "y": 1725,
+        "width": 135,
+        "height": 108
+      },
+      "sourceSyllableCount": 1,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word7-syllable1",
+          "sourceWordId": "exo-12-22-24",
+          "printedWordId": "idelsohn1929-268-system5-word7",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component22"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    },
+    {
+      "sourceWordId": "exo-12-22-25",
+      "sourceHebrew": "בֹּֽקֶר׃",
+      "printedWordId": "idelsohn1929-268-system5-word8",
+      "sourceSystem": 5,
+      "wordCrop": {
+        "x": 2930,
+        "y": 1725,
+        "width": 280,
+        "height": 108
+      },
+      "sourceSyllableCount": 2,
+      "printedUnicode": null,
+      "phonemes": null,
+      "acceptedMamSyllableMapping": null,
+      "independentReview": null,
+      "units": [
+        {
+          "id": "idelsohn1929-268-system5-word8-syllable1",
+          "sourceWordId": "exo-12-22-25",
+          "printedWordId": "idelsohn1929-268-system5-word8",
+          "index": 1,
+          "noteIds": [
+            "idelsohn1929-268-system5-component23"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        },
+        {
+          "id": "idelsohn1929-268-system5-word8-syllable2",
+          "sourceWordId": "exo-12-22-25",
+          "printedWordId": "idelsohn1929-268-system5-word8",
+          "index": 2,
+          "noteIds": [
+            "idelsohn1929-268-system5-component24"
+          ],
+          "printedUnicode": null,
+          "phonemes": null,
+          "acceptedMamSyllableMapping": null,
+          "independentReview": null,
+          "sourceUnitGlyphBounds": null
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "words": 39,
+    "sourceSyllableUnits": 93,
+    "textedPitchedComponents": 123,
+    "untextedSmallNotes": 2
+  },
+  "untextedNoteIds": [
+    "idelsohn1929-268-system1-word7-note4",
+    "idelsohn1929-268-system4-component26"
+  ],
+  "printedUnicode": null,
+  "phonemes": null,
+  "acceptedMamSyllableMapping": null,
+  "independentReview": null,
+  "sourceTiming": null,
+  "limits": [
+    "Photographic source windows retain original printed glyphs and may include hyphen separators. They are not Unicode transcription or IPA.",
+    "Source-note association follows the existing unreviewed printed-syllable ordinals. Hebrew/MAM syllables and pronunciation sources stay independent; no cross-source fit is accepted.",
+    "Two small C4eighths have no source syllable and remain outside these groups; no syllable, phoneme or historical duration is assigned.",
+    "Individual source-syllable character bounds are unassigned. The photo shows the complete printed word with its original separators; the selected ordinal identifies a note group, not a Unicode/IPA realization."
+  ],
+  "wordWindows": "Original complete word context windows; adjacent separators/notation can remain. These are not isolated phoneme glyphs or Unicode transcription."
+}

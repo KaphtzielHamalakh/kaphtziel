@@ -9,6 +9,8 @@ import {BAER_SCORE} from './baer-score.js';
 import {COHEN_PROPHETICAL} from './cohen-prophetical-score.js';
 import {COHEN_PENITENTIAL} from './cohen-penitential-score.js';
 import {IDELSOHN_SCORE} from './idelsohn-score.js';
+import {printedWordStudy,printedWordPhoto,printedUnitContext} from './printed-underlay.js';
+import {PRINTED_UNDERLAY_IMAGE,PRINTED_UNDERLAY_EVIDENCE} from './printed-underlay-data.js';
 import {IDELSOHN_SCORE_IMAGE,IDELSOHN_SCORE_EVIDENCE} from './idelsohn-score-data.js';
 import {SMALL_EIGHTH_STUDY} from './source-small-eighth.js';
 import {SMALL_NOTE_STUDY} from './source-small-note.js';
@@ -65,7 +67,7 @@ $('reader-pronunciation').checked=readerPronunciation;
 let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceJointEnabled=false,sourceReadingChoices=readingChoices(),sourceSyllableAdapter=null,sourceSyllableError=null,sourceSyllableRequest=0;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;sourceJointEnabled=saved?.allowJointSources===true;sourceReadingChoices=readingChoices(saved?.sourceReadingChoices??{});}catch{}
 function makeReadingModel(value,settings){return createReadingModel(value,{...settings,...(sourceSyllablesEnabled?{sourceUnderlay:sourceSyllableAdapter}:{})});}
-const state={cursor:0,anchor:0,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
+const state={cursor:0,anchor:0,printedSyllableIndex:1,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,chantRate:100,chantTranspose:0,recordingTimingGroups:false,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
 let restoredReadingType,originalPracticeText=null;
 try{
@@ -74,10 +76,10 @@ try{
     state.practiceAudio=practiceAudioMode(saved.practiceAudio);
     if(Number.isInteger(saved.chantTranspose)&&saved.chantTranspose>=-12&&saved.chantTranspose<=12)state.chantTranspose=saved.chantTranspose;
     if([50,65,75,85,100,115,125,150].includes(saved.chantRate))state.chantRate=saved.chantRate;
-    for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
+    for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['printedSyllableIndex',1,20],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
-    if(['word','source-unit','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
+    if(['word','printed-syllable','source-unit','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
     for(const key of ['repeat','groups','followPlayback','signClasses','scrollLayout','recordingTimingGroups'])if(typeof saved[key]==='boolean')state[key]=saved[key];
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
@@ -109,6 +111,7 @@ let smallNoteDemo=false;try{const saved=JSON.parse(localStorage.getItem('tropetr
 $('printed-small-note-demo').checked=smallNoteDemo;
 let smallEighthDemo=false;try{const saved=JSON.parse(localStorage.getItem('tropetrain-no268-small-eighth-v1'));smallEighthDemo=saved?.policyId===SMALL_EIGHTH_STUDY.id&&saved.enabled===true;}catch{}
 $('printed-small-eighth-demo').checked=smallEighthDemo;
+$('idelsohn-underlay-image').src=PRINTED_UNDERLAY_IMAGE;$('idelsohn-underlay-evidence').href=PRINTED_UNDERLAY_EVIDENCE;
 $('idelsohn-score-image').src=IDELSOHN_SCORE_IMAGE;$('idelsohn-score-evidence').href=IDELSOHN_SCORE_EVIDENCE;
 let scrollLayout=null,scrollMessage='Sourced scroll lines are loading.';
 let referenceLibrary=null,recordingTimingGroups=null,recordingTimingGroupError=null,selectedReferenceId=null,referenceActiveIds=[],referencePlan=null,referenceRequired=[],referenceReady=false,referenceUiGeneration=0,referenceLoadJob=null;
@@ -194,6 +197,7 @@ const player=new Player((event,cycle,progress,index)=>{
 },{onError:error=>stop(`Audio unavailable: ${error.message}`)});
 function transportLabel(running){$('play').innerHTML=running?'<span aria-hidden="true">▶</span> Restart':'<span aria-hidden="true">▶</span> Play';}
 function renderPronunciationFollow(){
+  renderPrintedSyllableFollow();
   const hint='Instrument notes can highlight source syllables with an exact marked-Hebrew match. This is text correspondence; a singing voice and acoustic syllable timing are pending.';
   let report=null,error=null;
   const readerSource=pronunciationTools?.readerStatus();
@@ -266,7 +270,7 @@ async function play(){
 function selectWord(index,extend=false){
   stop('Ready to listen.');
   if(extend||chooseEnd){state.cursor=index;state.scope='selection';chooseEnd=false;}
-  else{state.cursor=index;state.anchor=index;}
+  else{if(index!==state.cursor)state.printedSyllableIndex=1;state.cursor=index;state.anchor=index;}
   state.readerPage=Math.floor(words[index].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;render();
 }
 function setWordText(button,word,plain){
@@ -412,7 +416,7 @@ function updateSelection(){
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${fullLabel(start)} to ${fullLabel(end)}`:`Cursor: ${fullLabel(state.cursor)}`;
   $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`+(state.scope==='source-unit'&&words[state.cursor].sourceJointGroup?' · complete shared pronunciation word; both written words play together'+(start<state.cursor?' including the word before the cursor':''):'');
-  $('compact-span').textContent=`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · ${end-start+1} words`;
+  $('compact-span').textContent=state.scope==='printed-syllable'?`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · printed syllable ${state.printedSyllableIndex}`:`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · ${end-start+1} words`;
   $('end-selection').setAttribute('aria-pressed',String(chooseEnd));$('end-selection').textContent=chooseEnd?'Click the last word':'Choose span end';
   const w=words[state.cursor];$('current-word').textContent=w.sourceHebrew;$('current-reference').textContent=`${w.reference} · word ${w.ordinal}`;
   $('accent-name').textContent=w.accent;$('group-name').textContent=`Practice group ${w.group+1} · ${w.sourceWordId??w.id}`;
@@ -486,6 +490,7 @@ function renderRecordingTimingGroups(){
   $('recording-group-select').disabled=!state.recordingTimingGroups||!group;
 }
 function selectedChantPlan(){
+  if(state.scope==='printed-syllable')throw Error('Printed source syllables are an instrumental notation study. Choose a word, verse or other source-timed scope for the original recording. No recorded syllable times are assigned.');
   const limits=bounds(state.cursor,state.anchor,state.scope);
   if(state.practiceAudio==='recorded'&&state.recordingTimingGroups){
     if(!recordingTimingGroups)throw Error(recordingTimingGroupError??'Complete recording timing groups are loading.');
@@ -646,9 +651,27 @@ function renderNotes(){
   }
   $('note-page-label').textContent=plan.length?`Notes ${from+1}–${to} of ${plan.length}`:'No notes in this span';$('notes-previous').disabled=from===0;$('notes-next').disabled=to===plan.length;
 }
+function renderPrintedSyllableStudy(){
+  const source=model.profile.id===IDELSOHN_SCORE.id?printedWordStudy(words[state.cursor]):null,box=$('printed-syllable-study');
+  box.hidden=!source;$('scope').querySelector('option[value="printed-syllable"]').disabled=!source||state.practiceAudio!=='instrument';
+  if(!source){$('printed-syllable-photo').replaceChildren();return;}
+  state.printedSyllableIndex=Math.min(source.sourceSyllableCount,Math.max(1,state.printedSyllableIndex));
+  const select=$('printed-syllable-index');select.replaceChildren();
+  for(const unit of source.units){const option=document.createElement('option');option.value=unit.index;option.textContent=`Printed syllable ${unit.index} of ${source.sourceSyllableCount} · ${unit.noteIds.length} note${unit.noteIds.length===1?'':'s'}`;select.append(option);}
+  select.value=state.printedSyllableIndex;select.disabled=state.practiceAudio!=='instrument';$('printed-syllable-select').disabled=state.practiceAudio!=='instrument';
+  $('printed-syllable-word').textContent=`${words[state.cursor].reference} · word ${words[state.cursor].ordinal} · ${words[state.cursor].sourceHebrew}`;
+  $('printed-syllable-photo').innerHTML=printedWordPhoto(words[state.cursor]);
+  const untexted=model.events.filter(e=>e.wordId===words[state.cursor].id&&e.sourcePrintedSyllableIndex===null).length;
+  $('printed-syllable-status').textContent=`${source.sourceSyllableCount} indexed syllables in the original Latin underlay. Select one to isolate its written notes${untexted?`; ${untexted} untexted small note stays outside these groups`:''}. Hebrew/MAM syllable fitting, phonetic transcription and a singing voice remain unassigned.`;
+}
+function renderPrintedSyllableFollow(){
+  const e=activeEventId?activeInstrumentEvent:null;
+  $('printed-syllable-follow').textContent=!e||e.sourceProfile!==IDELSOHN_SCORE.id?'':e.sourcePrintedSyllableIndex===null?'This small note has no printed syllable assignment.':`${words[e.wordIndex].reference} · word ${words[e.wordIndex].ordinal} · printed source syllable ${e.sourcePrintedSyllableIndex}. Original instrument timing; Hebrew/phoneme fitting unassigned.`;
+}
 function renderSequence(){
+  renderPrintedSyllableStudy();
   let unavailable=null;
-  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),{...state,smallNoteDemo,smallEighthDemo});}catch(error){plan=[];unavailable=error.message;}
+  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),{...state,smallNoteDemo,smallEighthDemo,printedSyllableIndex:state.scope==='printed-syllable'?state.printedSyllableIndex:null});}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
   for(const id of ['play','compact-play'])$(id).disabled=isSourcePractice()?!chantReady:!!unavailable;
   $('musical-source-status').textContent=unavailable??(model.sourceSyllableUnderlay?model.sourceSyllableUnderlay.sourceReadingWords?'Original instrumental demonstration with consensus source syllables and documented source readings. Differing readings have word-level correspondence; displayed Hebrew and accents are unchanged, with no invented written syllable ranges.':SOURCE_SYLLABLE_UNDERLAY.summary:null)??model.profile.summary??(model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
@@ -696,6 +719,7 @@ function exportContext(){
   return {title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(plan.some(e=>e.sourceSmallNote)?{smallNoteStudy:{...SMALL_NOTE_STUDY}}:{}),
+    ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
     ...(model.profile.wordOnly?{wordCorrespondence:'lexical-source-word-candidate',syllableMapping:null,phonemes:null,independentReview:null}:{}),
     ...(plan.some(e=>e.sourceSmallEighth)?{smallEighthStudy:{...SMALL_EIGHTH_STUDY}}:{}),
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
@@ -712,7 +736,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,!!model.profile.requiresSmallEighthTiming&&smallEighthDemo,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.scope==='printed-syllable'?state.printedSyllableIndex:null,state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,!!model.profile.requiresSmallEighthTiming&&smallEighthDemo,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -1037,6 +1061,8 @@ $('implicit-reading-open').addEventListener('click',()=>libraryAction(()=>{
 }));
 for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
 for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
+$('printed-syllable-index').addEventListener('change',()=>{stop('Printed source syllable selected.');state.printedSyllableIndex=Number($('printed-syllable-index').value);state.scope='printed-syllable';state.notePage=0;state.staffPage=0;render();});
+$('printed-syllable-select').addEventListener('click',()=>{stop('Printed source syllable selected.');state.scope='printed-syllable';state.notePage=0;state.staffPage=0;render();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
 $('end-selection').addEventListener('click',()=>{chooseEnd=!chooseEnd;updateSelection();});
 for(const id of ['play','compact-play'])$(id).addEventListener('click',play);
@@ -1077,6 +1103,7 @@ $('download').addEventListener('click',()=>{
     ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
     ...(pronunciationResearch?{pronunciationResearch}:{}),
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
+    ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
     ...(model.profile.wordOnly?{wordCorrespondence:'lexical-source-word-candidate',syllableMapping:null,phonemes:null,independentReview:null}:{}),
     ...(plan.some(e=>e.sourceSmallEighth)?{smallEighthStudy:{...SMALL_EIGHTH_STUDY}}:{}),
     startWordId:words[start].id,endWordId:words[end].id,words:words.slice(start,end+1),events:plan};

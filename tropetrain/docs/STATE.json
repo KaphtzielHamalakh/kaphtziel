@@ -4,29 +4,21 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
-  "nextTask": "Continue full reconstruction, prioritizing qualified No268 source-word/syllable/ornament review, No267-to-No268 source-context comparisons and reusable recording/phonology evidence. Two privateCC-BY-SA Bo-fifth-aliyah originals and129-word blank review draft are saved externally; exact acoustic coverage/times andIdelsohnequivalence remain unaccepted. Preserve all21features/completion requirements and fullTorah text, all gaps/nulls, and independent melody/pronunciation/voice/range/key/tempo. Full contextual melody systems and six complete historical pronunciation grammars/singing delivery remain pending. Printing deferred; fullgoalactive.",
+  "nextTask": "Publish accepted0.88through connectedGitHub, verify Pages/exactliveassets and normal/portable interfaces, then continue qualified source-word/syllable/ornament review, independent pronunciation and reusable recording work. Preserve all21features/fullcompletionrequirements and fullTorah/marks/CGJ/stress/alternatives/sharedconsonants/collectiveDeu32:6/allgaps. PrivateNo267suffix andprinted-MAMcountcomparisons are leads, not contextual rules or phonetic fits. Six complete pronunciation/singing grammars and full contextual melody systems remain pending. Printing deferred;fullobjectiveactive.",
   "lastPassingTests": {
-    "automated": 775,
-    "newRegressionChecks": 15,
+    "automated": 781,
+    "newRegressionChecks": 6,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "fullCheckSession": 38161,
+    "fullCheckSession": 87466,
     "fullCheckExitCode": 0,
-    "localUiChecks": 164,
-    "publicUiChecks": 196,
-    "remainingPublicUiChecks": 0,
+    "localUiChecks": 206,
+    "publicUiChecks": 0,
     "sourceInputPins": 296,
-    "frozenSourceFiles": 325,
-    "priorAssetDataVendorFilesExact": 631,
-    "ui": "164local desktop/196public checks; public32at375×812. Consoles clear, players stopped, muted clocks; no acoustic/cantorial or physical file-dialog/file-URL review.",
-    "publicNormalUi": 82,
-    "publicPortableUi": 82,
-    "publicNarrowUi": 32,
-    "publicNarrowViewport": {
-      "width": 375,
-      "height": 812
-    }
+    "frozenSourceFiles": 340,
+    "priorAssetDataVendorFilesExact": 633,
+    "ui": "103checks each normal/portable, actual1280px. Muted, allmedia paused, clear consoles. No speaker/cantorial/narrow/file-dialog claim."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -211,7 +203,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.87 published/verified: bounded No268 Exodus12:21–22 source-word instrumental study and exact portable gzip.775automated/164local/196publicUI checks pass;32public checks at375×812. Full reconstruction active/incomplete; historical grammars and singing voices pending.",
+  "workingIteration": "0.88locallyaccepted:93printed-source syllable groups and independent reader pronunciation.781automated/206finishedlocalGUI pass;connectedpublication/publicQA pending. Fullobjectiveactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -2736,71 +2728,27 @@
     "olderPendingScope": 341
   },
   "privateDevelopment": {
-    "version": "0.87.0",
-    "status": "published_verified",
-    "checkout": "/private/tmp/tropetrain-v87-worktree/tropetrain",
-    "branch": "codex/tropetrain-v87",
-    "baseline": "cadac1157d6b64f6488a701d18d713e3d16cc91e",
-    "targetedTests": {
-      "passed": 20,
-      "failed": 0,
-      "skipped": 0
-    },
-    "groups": 5,
-    "blankPersonalWords": 43,
-    "additionalIndividualSourceTimes": 0,
-    "earlyUiChecks": 51,
+    "version": "0.88.0",
+    "status": "locally_accepted_public_pending",
+    "checkout": "/private/tmp/tropetrain-v88-worktree/tropetrain",
+    "branch": "codex/tropetrain-v88",
+    "baseline": "073f8045db97842fa3dd58209ad099c3952ad222",
     "fullBuild": {
-      "session": 38161,
+      "session": 87466,
       "exitCode": 0,
-      "tests": 775
+      "tests": 781
+    },
+    "interruptedPreflight": {
+      "session": 40210,
+      "exitCode": 130,
+      "reason": "Stopped before acceptance to correct same-word printed-group export identity."
     },
     "localUi": {
-      "normal": 82,
-      "portable": 82
+      "normal": 103,
+      "portable": 103
     },
-    "publicUi": {
-      "normal": 82,
-      "portable": 82,
-      "narrow": 32
-    },
-    "publication": "2369682d14cc06c30051c890c623b1a9cdb56bac",
-    "singingVoice": null,
-    "review": null,
-    "current": {
-      "version": "0.87.0",
-      "source": "/private/tmp/tropetrain-v87-worktree/tropetrain",
-      "portablePackaging": "Frozen full check775pass; exact gzip/SHA256 program recovery, visible damaged-copy startup failure,164finished local browser checks.",
-      "No268": {
-        "version": "0.87.0",
-        "sourceRecord": "docs/IDELSOHN-NO268-SCORE.json",
-        "exactWordCandidates": 39,
-        "pitchedNotes": 125,
-        "printedRests": 9,
-        "tuplets": 9,
-        "slurs": 11,
-        "knownWrittenQuarterBeats": 80.75,
-        "unmeasuredSmallC4Eighths": 2,
-        "sourceDuration": null,
-        "smallNoteRole": null,
-        "acceptedSyllableMappings": 0,
-        "phonemes": null,
-        "actualTuning": null,
-        "independentReview": null,
-        "kinnorEquivalent": null,
-        "sourceRecording": null,
-        "contextualGrammar": null,
-        "firstPlayableSpan": "Exodus12:21 words1–6,20pitches/2rests/15writtenquarterbeats",
-        "optionalOriginalTiming": "original-no268-small-eighth-80ms-v1;80msaddedforeachsmallC4betweenunchangedmeasurednotes;sourceunknownsremainnull",
-        "controls": "Independent main reader melody, pronunciation text, key, range, tempo and source recording; word-only correspondence does not fit Hebrew/MAM syllables."
-      },
-      "publicBaseline": "0.87.0",
-      "earlyUI": {
-        "passed": 27,
-        "normalPortable": "portable localhost, actual1280px, muted/clearconsole",
-        "public": null
-      }
-    }
+    "publicUi": null,
+    "publication": null
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2910,5 +2858,25 @@
     "publicStatus": "verified",
     "publicUiChecks": 84,
     "sourceWordCorrespondence": "candidate only; no accepted syllable/phoneme fitting"
+  },
+  "printedSourceSyllables": {
+    "version": "0.88.0",
+    "status": "locally-accepted-unreviewed-printed-notation-study",
+    "record": "docs/IDELSOHN-NO268-PRINTED-UNDERLAY.json",
+    "words": 39,
+    "groups": 93,
+    "textedPitches": 123,
+    "untextedPitches": 2,
+    "printedUnicode": null,
+    "individualGlyphBounds": null,
+    "acceptedMamSyllableMapping": null,
+    "phonemes": null,
+    "recordedSyllableTimes": null,
+    "independentReview": null,
+    "next": "Full build/regressions; final normal/portable UI, publish and verify live bytes/Pages. Keep all original21feature requirements and independent axes.",
+    "exportInvalidation": "Printed ordinal included in export identity; actual normal/portable GUI clears/regenerates MIDI/XML/WAV/JSON on group change.",
+    "localUiChecks": 42,
+    "automatedChecks": 781,
+    "publicStatus": "pending"
   }
 }
