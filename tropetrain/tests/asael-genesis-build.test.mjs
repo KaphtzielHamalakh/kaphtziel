@@ -12,5 +12,5 @@ test('normal and portable builds retain every new source byte and all four suppo
   const mime=n.endsWith('.zip')?'application/zip':n.endsWith('.txt')?'text/plain':'application/json';assert(portable.includes('data:'+mime+';base64,'+read(n).toString('base64')),n);
  }
  for(const r of ASAEL_GENESIS_WORD_SUPPORT.records)assert(program.includes(Buffer.from(read(r.file).toString('base64'))),r.file);
- const sw=read('sw.js').toString();assert(sw.includes('tropetrain-v95-genesis-recorded-melodies'));assert(!sw.includes('upload.wikimedia.org'));assert(portableFileBytes()<100*1024*1024);assert(104857600-portableFileBytes()>8*1024*1024);
+ const sw=read('sw.js').toString();assert(sw.includes('tropetrain-v96-word-pattern-lookups'));assert(!sw.includes('upload.wikimedia.org'));assert(portableFileBytes()<100*1024*1024);assert(104857600-portableFileBytes()>8*1024*1024);
 });

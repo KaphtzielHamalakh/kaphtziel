@@ -4,38 +4,34 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "4b862e1f37af82ea87eb714a3adb288b4080db74",
-  "nextTask": "Finishrecords-onlypublication/saveexactrelease/pointer. Continue broader contextualTorahmelody source-rulecoverage andindependentpronunciation/voice realizations fromlicensedprimaryevidence; preserveallsourceconditions/gaps/exactmarks/nullreview. Optional independent pitch/rate for sourcestudyrecordings couldreuseexistingtestedprocessor butmustkeepcanonicalsourceclocks andsourcepronunciations separate. All21features/6requirementsremainactive; printingdeferred.",
+  "nextTask": "Publish accepted v0.96 app-only through connected GitHub with fresh main lease, verify Pages/live bytes/non-editing public UI, finish records/save/pointer. Then continue source-specific contextual melody rules and six independent reviewed pronunciation/voice realizations; optional independent study-recording pitch/rate may reuse the existing processor while preserving source clocks. All21features/6requirements active; printing deferred.",
   "lastPassingTests": {
-    "automated": 858,
-    "newRegressionChecks": 7,
+    "automated": 867,
+    "newRegressionChecks": 9,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "buildCheckSession": 79646,
+    "buildCheckSession": 7117,
     "buildSucceeded": true,
     "exitCode": 0,
-    "localUiChecks": 180,
-    "localPerApp": 90,
-    "newLocalPerApp": 36,
-    "retainedPerApp": 54,
-    "publicUiChecks": 150,
-    "publicPhase": "accepted0.95",
-    "sourceInputPins": 419,
+    "localUiChecks": 74,
+    "localPerApp": 37,
+    "newLocalPerApp": 18,
+    "retainedPerApp": 19,
+    "finishedNewChecksPerApp": {
+      "normal": 19,
+      "portable": 19
+    },
+    "publicPhase": "pending0.96;previous0.95accepted",
+    "sourceInputPins": 445,
     "personalFittingSourcePins": {
-      "No266": 6,
-      "No268": 6
+      "PRINTED-MAM-FITTING-SOURCES.json": 6,
+      "IDELSOHN-NO266-MAM-PARTITIONS.json": 6
     },
-    "frozenImplementationFiles": 414,
-    "frozenSourceFiles": 438,
-    "priorAssetDataVendorFilesExact": 646,
-    "runtimeChangedAfterBuild": false,
-    "publicUiPerApp": {
-      "normal": 75,
-      "portable": 75
-    },
-    "pagesRun": 45626209924,
-    "liveCodeFiles": 35,
-    "liveCodeBytes": 137261164
+    "frozenImplementationFiles": 419,
+    "frozenSourceFiles": 444,
+    "priorAssetDataVendorFilesExact": 649,
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -129,7 +125,7 @@
     {
       "id": "analysis",
       "description": "Group colors, accent hierarchy, exceptions and rules inspector",
-      "status": "source_sign_and_adjacent_context_search_including_single_Yetib_and_explicit_Zaqef_lookup_candidates_browser_tested_full_hierarchy_pending"
+      "status": "word_to_printed_figure_sign_context_inspector_source_conditions_and_explicit_gaps_browser_tested_full_hierarchy_and_melodic_word_application_pending"
     },
     {
       "id": "curriculum",
@@ -217,7 +213,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.95published/verified858automated180local150publicUI; all5worddrafts/No266No268fittingspreserved. Finalrecordsfollow; fullgoalactive/incomplete.",
+  "workingIteration": "0.96local accepted:867automated74logical local UI checks; finished distributions newly verify18new+all-source-evidence checks each. Publication pending; full goal active/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3400,5 +3396,23 @@
     "allAudioMutedStopped": true,
     "portableRecords": 79,
     "portableLinks": 81
+  },
+  "wordPatternLookups": {
+    "record": "docs/WORD-PATTERN-LOOKUPS.json",
+    "status": "implemented_local_browser_tested_publication_pending; sign lookup only, not musical coverage",
+    "sourceRows": 19,
+    "relations": 82,
+    "queries": 28,
+    "wordsWithSignLookups": 64491,
+    "withheldWords": 680,
+    "withoutSuppliedLookup": 14814,
+    "acceptedMusicalWordMappings": 0,
+    "musicalReview": null,
+    "revision": 1,
+    "readerWords": 79985,
+    "withheldSourceWords": 680,
+    "wordsWithoutSuppliedLookup": 14814,
+    "lookupRelations": 287099,
+    "noQueryFigureModes": 35
   }
 }
