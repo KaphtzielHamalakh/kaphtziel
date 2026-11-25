@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -56,7 +57,7 @@ test('source display verse namespaces, assignment occurrences and changed-text r
  assert.throws(()=>new PronunciationLibrary({...data,groups:[data.groups[0],data.groups[0]]}),/Overlapping/);
 });
 test('source originals, provenance and correspondence survive both distributions losslessly',()=>{
- const html=bytes('TropeTrain.html').toString(),bundle=bytes('app.bundle.js').toString();
+ const html=restoredPortableHtml(bytes('TropeTrain.html')).toString(),bundle=bytes('app.bundle.js').toString();
  assert.ok(html.includes(bytes('data/pronunciation/torah-display.json.gz').toString('base64')));
  assert.ok(bundle.includes(bytes('data/pronunciation/torah-display.json.gz').toString('base64')));
  for(const name of ['assets/pronunciation/phonetic-mam-torah-sources.zip','docs/PRONUNCIATION-ALIGNMENT.json'])assert.ok(html.includes(bytes(name).toString('base64')));

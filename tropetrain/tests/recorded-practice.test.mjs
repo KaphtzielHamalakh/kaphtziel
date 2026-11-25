@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -10,7 +11,7 @@ const library=new ReferenceLibrary(JSON.parse(gunzipSync(read('data/references/t
 
 test('every Torah word stays mapped; exact source-timed coverage and all eight gaps are inspectable without inventing timestamps',()=>{
  const coverage=chantCoverage(library);assert.deepEqual(coverage,JSON.parse(read('docs/CHANT-COVERAGE.json')));
- assert.ok(read('TropeTrain.html').toString().includes(read('docs/CHANT-COVERAGE.json').toString('base64')));
+ assert.ok(restoredPortableHtml(read('TropeTrain.html')).toString().includes(read('docs/CHANT-COVERAGE.json').toString('base64')));
  assert.equal(coverage.words,79985);assert.equal(coverage.sourceTimedWords,79194);assert.equal(coverage.reviewWords,791);assert.equal(coverage.gaps.length,8);
  assert.equal(coverage.books.length,5);assert.equal(coverage.books[0].sourceTimedWords,20614);
  assert.equal(coverage.sourceTimedWords+coverage.reviewWords,coverage.words);

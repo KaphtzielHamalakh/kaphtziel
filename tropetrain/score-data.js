@@ -1,6 +1,7 @@
 import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
 import {validateGraceEvent} from './source-grace.js';
 import {validateSmallNoteEvent} from './source-small-note.js';
+import {validateSmallEighthEvent} from './source-small-eighth.js';
 export const escapeXml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 const gcd=(a,b)=>b?gcd(b,a%b):a;
 export function beatLabel(beats){
@@ -41,6 +42,7 @@ export function rhythmSpelling(beats){
 }
 export function eventRhythm(event){
   const r=event.sourceRhythm;
+  if(event.sourceSmallEighth){validateSmallEighthEvent(event);return r;}
   if(event.sourceSmallNote){validateSmallNoteEvent(event);return r;}
   if(event.sourceGrace){validateGraceEvent(event);return r;}
   if(!r)return rhythmSpelling(event.beats);
@@ -50,6 +52,7 @@ export function eventRhythm(event){
   return r;
 }
 export function scoreData(plan,words){
+  if(plan.some(e=>e.sourceWordCorrespondence))return wordSourceScoreData(plan,words);
   return plan.map((event,index)=>{
     const joint=isJointEvent(event)?jointEventCorrespondence(event,words):null,word=joint?.word??words[event.wordIndex];
     if(!word||!joint&&word.id!==event.wordId)throw Error('Score notes no longer match their source words.');
@@ -61,6 +64,16 @@ export function scoreData(plan,words){
     const gapAfterBeats=next?next.startBeat-event.startBeat-event.beats:(event.endingRestSeconds??0)*event.beats/event.durationSeconds;
     return {...event,word,...(joint?{correspondenceWords:joint.members,sourceJointGroup:joint.group}:{}),pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gapAfterBeats>1e-8?gapAfterBeats:0,continuation,extendsNext,syllabic};
   });
+}
+// A source may support a lexical word candidate without any Hebrew/MAM
+// syllable fitting. Keep those fields null; lyricText is a word display only.
+export function wordSourceScoreData(plan,words){
+ return plan.map((event,index)=>{
+  const word=words[event.wordIndex],link=event.sourceWordCorrespondence;
+  if(!word||word.id!==event.wordId||(word.sourceWordId??word.id)!==event.sourceWordId||word.sourceHebrew!==link?.sourceHebrew||link.sourceWordId!==event.sourceWordId||link.status!=='lexical-source-word-candidate'||link.independentReview!==null||link.acceptedSyllableMapping!==null||link.acceptedPhonemes!==null||event.syllableId!==null||event.syllable!==null||event.phonemes!==null)throw Error('Source-word score requires unchanged Hebrew, explicit candidate ownership and null syllable/phoneme/review fitting.');
+  const previous=plan[index-1],next=plan[index+1],gap=next?next.startBeat-event.startBeat-event.beats:event.endingRestBeats??0;
+  return {...event,word,sourceWordOnly:true,lyricText:word.sourceHebrew,lyricLevel:'source-word-candidate',syllabic:'single',pitch:eventPitchSpelling(event),rhythm:eventRhythm(event),gapAfterBeats:gap>1e-8?gap:0,continuation:previous?.wordId===event.wordId,extendsNext:next?.wordId===event.wordId};
+ });
 }
 // Printed pattern tables may label an accent without specifying a syllable
 // allocation. Keep that absence explicit; never manufacture Bible-word IDs,

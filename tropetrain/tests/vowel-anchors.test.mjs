@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';import{createHash}from'node:crypto';
 import{VOWEL_ANCHORS,loadVowelAnchors,validateVowelAnchors,vowelAnchorsAvailable,vowelWordView}from'../vowel-anchors.js';
 import{PHONETIC_WORDS}from'../phonetic-word.js';import{voiceRecording,voiceCoverage}from'../voice-studies.js';import{getCorpus}from'../library.js';import{createWordTimingDraft}from'../word-timing-draft.js';
@@ -60,6 +61,6 @@ test('unknown styles/originals and corrupt vowel packets cannot fall back or mod
 });
 
 test('normal and portable distributions expose opt-in vowel evidence without a synthesized pronunciation voice',()=>{
- const normal=read('index.html').toString(),portable=read('TropeTrain.html').toString();for(const id of['vowel-anchor-review','vowel-anchor-hebrew','vowel-anchor-caption-hebrew','vowel-anchor-load','vowel-anchor-rows','vowel-anchor-status']){assert(normal.includes(`id="${id}"`));assert(portable.includes(`id="${id}"`));}
- assert(portable.includes('href="data:application/zip;base64,'+read(VOWEL_ANCHORS.sourcePack.file).toString('base64')+'"'));assert(read('sw.js').toString().includes('ASAEL-VOWEL-ANCHORS.json'));assert(read('TropeTrain.html').length<100*1024*1024);
+ const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();for(const id of['vowel-anchor-review','vowel-anchor-hebrew','vowel-anchor-caption-hebrew','vowel-anchor-load','vowel-anchor-rows','vowel-anchor-status']){assert(normal.includes(`id="${id}"`));assert(portable.includes(`id="${id}"`));}
+ assert(portable.includes('href="data:application/zip;base64,'+read(VOWEL_ANCHORS.sourcePack.file).toString('base64')+'"'));assert(read('sw.js').toString().includes('ASAEL-VOWEL-ANCHORS.json'));assert(portableFileBytes()<100*1024*1024);
 });

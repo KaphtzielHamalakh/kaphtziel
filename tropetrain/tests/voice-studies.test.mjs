@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -33,7 +34,7 @@ test('two Tiberian pronunciation readings each have a distinct spoken and source
   assert.throws(()=>voiceRecording('bard-torah','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceRecording('seed-esther','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceStudy('invented'),/available/);
-  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential']);
+  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268']);
 });
 test('source selection and runtime URL resolution leave all Hebrew, marks, syllables and instrument events unchanged',()=>{
   const model=createReadingModel(passage),before=JSON.stringify(model.words),events=JSON.stringify(model.events);
@@ -101,7 +102,7 @@ test('a stale unmute promise does not block or clear a later generation’s soun
   f.player.stop();assert.equal(f.media.paused,true);
 });
 test('both distributions preserve the source catalog, explicit delivery labels, original Seed audio and complete rights notices',()=>{
-  const normal=bytes('index.html').toString(),standalone=bytes('TropeTrain.html').toString(),worker=bytes('sw.js').toString();
+  const normal=bytes('index.html').toString(),standalone=restoredPortableHtml(bytes('TropeTrain.html')).toString(),worker=bytes('sw.js').toString();
   for(const id of ['voice-study-choice','voice-study-pronunciation','voice-study-delivery','voice-study-start','voice-study-end','voice-study-volume','voice-study-stop'])assert.ok(normal.includes(`id="${id}"`));
   const embedded=standalone.match(/id="voice-study-audio" src="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);
   assert.ok(embedded);assert.deepEqual(Buffer.from(embedded[1],'base64'),bytes('assets/voice-studies/esther-seed.mp3'));

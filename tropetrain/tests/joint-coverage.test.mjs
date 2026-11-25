@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';import {ReferenceLibrary} from '../reference-library.js';import {JOINT_COVERAGE_SUMMARY} from '../joint-coverage-summary.js';
 const read=f=>readFileSync(new URL('../'+f,import.meta.url)),report=JSON.parse(read('docs/JOINT-CHANT-PRONUNCIATION.json')),library=new ReferenceLibrary(JSON.parse(gunzipSync(read('data/references/torah-library.json.gz'))));
 test('joint source coverage distinguishes written range, unit ownership and recording timing with complete counts',()=>{
@@ -13,5 +14,5 @@ test('every listed joint gap retains exact source IDs/marked Hebrew and final me
  assert.equal(open,370);assert.equal(report.terminalOnsets,375);assert.match(report.limits,/decoded media duration/);
 });
 test('joint evidence and summary are portable in the standalone without new data requests',()=>{
- const html=read('TropeTrain.html').toString(),bundle=read('app.bundle.js').toString();assert.ok(html.includes('data:application/json;base64,'+read('docs/JOINT-CHANT-PRONUNCIATION.json').toString('base64')));for(const artifact of [html,bundle]){const block=artifact.match(/(?:var|const) JOINT_COVERAGE_SUMMARY\s*=\s*(\{[^}]+\})/u)?.[1];assert.ok(block);assert.deepEqual(JSON.parse(block),JOINT_COVERAGE_SUMMARY);}assert.ok(read('index.html').toString().includes('joint-coverage-summary'));
+ const html=restoredPortableHtml(read('TropeTrain.html')).toString(),bundle=read('app.bundle.js').toString();assert.ok(html.includes('data:application/json;base64,'+read('docs/JOINT-CHANT-PRONUNCIATION.json').toString('base64')));for(const artifact of [html,bundle]){const block=artifact.match(/(?:var|const) JOINT_COVERAGE_SUMMARY\s*=\s*(\{[^}]+\})/u)?.[1];assert.ok(block);assert.deepEqual(JSON.parse(block),JOINT_COVERAGE_SUMMARY);}assert.ok(read('index.html').toString().includes('joint-coverage-summary'));
 });

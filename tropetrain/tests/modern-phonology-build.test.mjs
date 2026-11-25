@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{execFileSync}from'node:child_process';import{fileURLToPath}from'node:url';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url)),audit=p=>JSON.parse(read('docs/'+p+'.json'));
 test('the complete modern correspondence audit retains every original Torah word, branch and explicit phonology gap',()=>{
@@ -14,10 +15,10 @@ test('all four existing source-reading choices and both source text styles retai
  for(const field of ['acceptedPhonemes','enginePhones','acousticTiming','newSingingVoice','review'])assert.equal(r.invariants[field],null);
 });
 test('both distributions carry exact modern evidence, reusable code/license and visible attribution within the host size limit',()=>{
- const normal=read('index.html').toString(),portable=read('TropeTrain.html').toString(),worker=read('sw.js').toString(),bundle=read('app.bundle.js').toString();
+ const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),worker=read('sw.js').toString(),bundle=read('app.bundle.js').toString();
  for(const path of ['docs/MODERN-PHONOLOGY.json','docs/MODERN-PHONOLOGY-NOTE-LINKS.json','assets/pronunciation/phonikud-NOTICE.txt','assets/pronunciation/phonikud-code-reference.zip']){const mime=path.endsWith('.json')?'application/json':path.endsWith('.zip')?'application/zip':'text/plain';assert(normal.includes('href="./'+path+'"'));assert(worker.includes('./'+path));assert(portable.includes('data:'+mime+';base64,'+read(path).toString('base64')));assert(!portable.includes('href="./'+path+'"'));}
  for(const html of [normal,portable]){assert(html.includes('id="phonology-source-credit"'));assert(html.includes('https://github.com/phonikud/phonikud/tree/a29a75b473b0f132a0bbee41dad38763035211dc'));}
- assert(bundle.includes('Modern Hebrew inventory · research'));assert(read('TropeTrain.html').length<100*1024*1024);assert.equal(read('assets/pronunciation/phonikud-code-reference.zip').readUInt32LE(0),0x04034b50);
+ assert(bundle.includes('Modern Hebrew inventory · research'));assert(portableFileBytes()<100*1024*1024);assert.equal(read('assets/pronunciation/phonikud-code-reference.zip').readUInt32LE(0),0x04034b50);
 });
 test('the reference archive contains only the five independently pinned code/license blobs and original provenance, with no model, dataset, audio or README',()=>{
  const script=`import zipfile,json,hashlib,sys

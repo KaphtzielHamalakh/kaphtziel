@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url)),json=p=>JSON.parse(read(p));
 test('the full-Torah final-consonant audit is fresh and only the eligible ordinary final category gains a proposal',()=>{
@@ -13,8 +14,8 @@ test('all four reading policies keep every Torah word and original note linked w
  for(const k of ['acceptedPhonemes','enginePhones','acousticTiming','newSingingVoice','review'])assert.equal(a.invariants[k],null);
 });
 test('normal and portable builds expose the same optional policy and embed its exact source and note evidence',()=>{
- const index=read('index.html').toString(),bundle=read('app.bundle.js').toString(),portable=read('TropeTrain.html').toString(),version=json('package.json').version;
+ const index=read('index.html').toString(),bundle=read('app.bundle.js').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),version=json('package.json').version;
  assert(index.includes('v'+version));for(const text of[bundle,portable]){assert(text.includes('phonikud-modern-final-consonants'));assert(text.includes('modern-optional-final-consonant-loss'));assert(text.includes('Optional word-final glottal/h loss'));}
  for(const path of['docs/MODERN-FINAL-CONSONANTS.json','docs/MODERN-FINAL-NOTE-LINKS.json'])assert(portable.includes('data:application/json;base64,'+read(path).toString('base64')),path);
- assert(Buffer.byteLength(portable)<100*1024*1024);
+ assert(portableFileBytes()<100*1024*1024);
 });

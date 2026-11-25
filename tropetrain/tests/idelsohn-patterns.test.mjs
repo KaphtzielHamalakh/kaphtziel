@@ -1,3 +1,4 @@
+import {restoredPortableHtml} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -64,6 +65,6 @@ test('the real instrument renderer produces each distinct attack with leading/fi
  const p=plan('darga-row5',{tempo:120}),wav=await renderWav(p,{volume:.1,sampleRate:8000,createContext:(length,rate)=>new engine.OfflineAudioContext(1,length,rate)});assert.equal(wav.frames,10000);assert.equal(wav.bytes,20044);assert(wav.peak>0);const buf=await wav.blob.arrayBuffer(),v=new DataView(buf);for(let i=0;i<1800;i++)assert.equal(v.getInt16(44+i*2,true),0);assert.equal(soundingNotes(p).length,5);
 });
 test('normal and portable builds embed the exact pinned source record and crop without introducing an unsupported reader preset',()=>{
- for(const file of ['app.bundle.js','TropeTrain.html']){const s=read(file).toString();assert(s.includes(read(record.source.image).toString('base64')));assert(s.includes(read('docs/IDELSOHN-NO267-PATTERNS.json').toString('base64')));}
+ for(const file of ['app.bundle.js','TropeTrain.html']){const s=restoredPortableHtml(read(file));assert(s.includes(read(record.source.image).toString('base64')));assert(s.includes(read('docs/IDELSOHN-NO267-PATTERNS.json').toString('base64')));}
  const music=read('music.js').toString();assert.equal(music.includes(IDELSOHN_PATTERN_ID),false);assert.match(read('index.html').toString(),/Open Idelsohn No267 instrumental study/);
 });

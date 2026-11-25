@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';
 import {PronunciationLibrary} from '../pronunciation.js';import {sourceIpaEvidence,ipaFragment,IPA_PROPOSAL_SOURCE} from '../pronunciation-ipa.js';import {SOURCE_IPA_PROPOSAL} from '../pronunciation-ipa-data.js';
 const json=f=>JSON.parse(gunzipSync(readFileSync(new URL('../data/pronunciation/'+f+'.json.gz',import.meta.url)))),data=json('torah-display'),segments=json('torah-segments'),lib=new PronunciationLibrary(data,{underlay:json('torah-underlay'),segments});
@@ -27,5 +28,5 @@ test('changed marked Hebrew, wrong source, unknown categories and unsupported st
  const w=word('gen-1-1-1'),s=lib.study(w,'sephardic');assert.throws(()=>sourceIpaEvidence(s,{...w,sourceHebrew:w.sourceHebrew.replace('֖','')},'sephardic'),/marked Hebrew/);assert.throws(()=>sourceIpaEvidence({...s,sourceCommit:'wrong'},w,'sephardic'),/source/);assert.throws(()=>sourceIpaEvidence(s,w,'Galician'),/Unsupported/);assert.throws(()=>ipaFragment({categoryId:'invented',part:'whole'}),/category/);
 });
 test('the source proposal and unchanged GPLsource pack survive the portable build',()=>{
- const html=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'),doc=readFileSync(new URL('../docs/PRONUNCIATION-IPA-PROPOSAL.json',import.meta.url)),zip=readFileSync(new URL('../assets/pronunciation/ipa-proposal-sources.zip',import.meta.url));assert(html.includes(doc.toString('base64')));assert(html.includes(zip.toString('base64')));assert(html.includes('ipaParameterizedByTextStyle'));
+ const html=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8')),doc=readFileSync(new URL('../docs/PRONUNCIATION-IPA-PROPOSAL.json',import.meta.url)),zip=readFileSync(new URL('../assets/pronunciation/ipa-proposal-sources.zip',import.meta.url));assert(html.includes(doc.toString('base64')));assert(html.includes(zip.toString('base64')));assert(html.includes('ipaParameterizedByTextStyle'));
 });

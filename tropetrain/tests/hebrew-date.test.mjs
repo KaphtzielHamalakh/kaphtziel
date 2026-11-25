@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -63,7 +64,7 @@ test('unsupported or contradictory browser calendars disable Hebrew navigation e
  assert.throws(()=>new HebrewDateNavigator({DateTimeFormat:Contradictory}),/differs from the checked/);
 });
 test('standalone embeds date evidence and the original comparison source pack',async()=>{
- const html=await readFile(new URL('../TropeTrain.html',import.meta.url),'utf8');
+ const html=restoredPortableHtml(await readFile(new URL('../TropeTrain.html',import.meta.url),'utf8'));
  const evidence=await readFile(new URL('../docs/HEBREW-DATE-SOURCES.json',import.meta.url));const pack=await readFile(new URL('../'+sources.sourcePack.file,import.meta.url));
  assert(html.includes('data:application/json;base64,'+evidence.toString('base64')));assert(html.includes('data:application/zip;base64,'+pack.toString('base64')));
 });

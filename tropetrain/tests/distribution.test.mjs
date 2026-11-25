@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -33,7 +34,7 @@ test('page assets and offline cache use the release version to avoid mixed upgra
   assert.ok(html.includes(`v${version}`));
 });
 test('standalone HTML embeds runtime, source Hebrew, CSS and font',()=>{
-  const html=read('TropeTrain.html');
+  const html=restoredPortableHtml(read('TropeTrain.html'));
   assert.ok(!/<script[^>]+src=/.test(html),'Standalone script is embedded.');
   assert.ok(!/<link[^>]+rel="stylesheet"/.test(html),'Standalone CSS is embedded.');
   assert.match(html,/data:font\/ttf;base64,/);
@@ -45,7 +46,7 @@ test('standalone HTML embeds runtime, source Hebrew, CSS and font',()=>{
   assert.ok(html.includes(read('app.bundle.js').replaceAll('</script','<\\/script')),'Script contents survive HTML embedding without replacement-string expansion.');
 });
 test('standalone reference audio is losslessly embedded with source attribution and offline assets',()=>{
-  const html=read('TropeTrain.html'),worker=read('sw.js');
+  const html=restoredPortableHtml(read('TropeTrain.html')),worker=read('sw.js');
   const encoded=html.match(/id="reference-audio" src="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);
   assert.ok(encoded);assert.deepEqual(Buffer.from(encoded[1],'base64'),readFileSync(new URL('../assets/references/Bereshit-1.mp3',import.meta.url)));
   assert.match(html,/Not-a-Box Media Lab/);assert.match(html,/CC BY-SA 3\.0/);assert.match(html,/755c6e9918ba2021bba8b33c46db309c115620d6/);
@@ -59,11 +60,11 @@ test('whole-Torah source library survives lossless bundling and standalone embed
   const original=readFileSync(new URL('../data/references/torah-library.json.gz',import.meta.url));
   assert.deepEqual(Buffer.from(encoded[1],'base64'),original);
   const library=JSON.parse(gunzipSync(original));assert.equal(library.recordings.length,378);assert.equal(library.audit.readerWords,79985);
-  assert.ok(read('TropeTrain.html').includes(encoded[1]),'Standalone retains the complete source catalog without an extra network dependency.');
+  assert.ok(restoredPortableHtml(read('TropeTrain.html')).includes(encoded[1]),'Standalone retains the complete source catalog without an extra network dependency.');
 });
 
 test('standalone carries the full evidence map and roadmap without a sibling documentation folder',()=>{
- const html=read('TropeTrain.html'),roadmap=read('docs/RESEARCH.md').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+ const html=restoredPortableHtml(read('TropeTrain.html')),roadmap=read('docs/RESEARCH.md').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
  assert.ok(html.includes('href="#standalone-roadmap"'));assert.ok(html.includes('id="standalone-roadmap"'));
  assert.ok(html.includes(roadmap),'The full inventory and evidence survive moving the standalone file.');
  assert.ok(!html.includes('href="./docs/RESEARCH.md"'));

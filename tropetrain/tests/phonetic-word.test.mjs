@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';import{createHash}from'node:crypto';
 import{PHONETIC_WORDS,loadPhoneticWords,validatePhoneticWords,phoneticWordsAvailable,phoneticWordView}from'../phonetic-word.js';
 import{voiceRecording,voiceCoverage,VOICE_STUDIES}from'../voice-studies.js';import{getCorpus}from'../library.js';import{createWordTimingDraft}from'../word-timing-draft.js';
@@ -49,7 +50,7 @@ test('unknown source and corrupt packets cannot load a fallback pronunciation or
 });
 
 test('normal and portable distributions expose opt-in phonetic research and embed evidence without model weights',()=>{
- const normal=read('index.html').toString(),portable=read('TropeTrain.html').toString();
+ const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();
  for(const id of['phonetic-word-review','phonetic-word-hebrew','phonetic-word-load','phonetic-word-evidence','phonetic-word-context','phonetic-word-status']){assert(normal.includes(`id="${id}"`));assert(portable.includes(`id="${id}"`));}
- assert(portable.includes('href="data:application/zip;base64,'+read(PHONETIC_WORDS.sourcePack.file).toString('base64')+'"'));assert(!read('sw.js').toString().includes('model.safetensors'));assert(read('TropeTrain.html').length<100*1024*1024);
+ assert(portable.includes('href="data:application/zip;base64,'+read(PHONETIC_WORDS.sourcePack.file).toString('base64')+'"'));assert(!read('sw.js').toString().includes('model.safetensors'));assert(portableFileBytes()<100*1024*1024);
 });

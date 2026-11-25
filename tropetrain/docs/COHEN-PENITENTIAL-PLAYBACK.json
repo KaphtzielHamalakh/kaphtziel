@@ -169,31 +169,31 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "f7aeca8cba2339712b2f5c6a8139f8b0eabe86439a715d3566c229d83bc69ff9"
+      "sha256": "f540098ace81ae688c8e730c6817787ca04d07baaddaece431dbeb52891d376a"
     },
     {
       "path": "music.js",
-      "sha256": "994b1b66e3756d719cec2c495a742c824da489adcebb036a78d1a7bd7b7655da"
+      "sha256": "b5b655d895e8e5f0c102db552befb8c50dea571bd896b565e74abf24e5f94916"
     },
     {
       "path": "music-exports.js",
-      "sha256": "ae012ede55c11bc35604bb68ddf3691912ca8eb37b44d1581d5c0440d6e17cab"
+      "sha256": "ed4847487feea9a1e1827b6aa905a85c50e15146c298ddd565177d77f8823d58"
     },
     {
       "path": "score-data.js",
-      "sha256": "bc4a092e09396c47abce16050bf96552544903845e99c1011af57db29604960a"
+      "sha256": "94f6d63cb5c625e54a41faee82712ee036bc629c4fa2a237b718026e9dbdfae2"
     },
     {
       "path": "staff.js",
-      "sha256": "355e79660bcdfbe6191d4bd4b7e9f97f0a1421603fee9e3ea150ca1fbf795d6f"
+      "sha256": "988f1b2d042ff6aa4cac404e8e6bb3283f68738edc3523883959b4c70b74cb0e"
     },
     {
       "path": "app.js",
-      "sha256": "8fd1b7ce17429a2813c346fe40a61109bf133db5e5fcafe8638fd9164d63639d"
+      "sha256": "5f02ad0806a8cc118e98ed1d7a83ebf81162ce162e28f21d490c68a34d4f4b9e"
     },
     {
       "path": "index.html",
-      "sha256": "a90ba8437c2556cb665659a60ffab08b9cfecc63d76114fb3e1da42744da85e1"
+      "sha256": "68bbf72a278be720f2070607f91988487d092dacdeaae0f79939eaad5eef8c9d"
     },
     {
       "path": "assets/scores/cohen-1902-penitential-gen22.png",

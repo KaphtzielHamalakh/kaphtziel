@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';
 import {PronunciationLibrary} from '../pronunciation.js';import {ReferenceLibrary} from '../reference-library.js';
 import {sourceSyllableChoices,createSyllableTimingDraft,syllableTimingKey,validateSyllableTimingDraft,setSyllableBoundary,captureSyllableBoundary,parseSyllableTimingDraft,draftSyllableSpan} from '../syllable-timing-draft.js';
@@ -63,7 +64,7 @@ test('a completed draft cannot certify phonemes, notes, source edition or indepe
  const bad=structuredClone(d);bad.units[0].startBasis='verified';assert.throws(()=>validateSyllableTimingDraft(bad,d),/annotation basis/);assert.throws(()=>parseSyllableTimingDraft('x'.repeat(1000001),d),/smaller/);
 });
 test('portable and normal apps contain source timing controls, embedded format evidence and original-only preview routing',()=>{
- const normal=readFileSync(new URL('../index.html',import.meta.url),'utf8'),portable=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'),app=readFileSync(new URL('../app.js',import.meta.url),'utf8'),doc=readFileSync(new URL('../docs/SYLLABLE-TIMING-DRAFT.json',import.meta.url));
+ const normal=readFileSync(new URL('../index.html',import.meta.url),'utf8'),portable=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8')),app=readFileSync(new URL('../app.js',import.meta.url),'utf8'),doc=readFileSync(new URL('../docs/SYLLABLE-TIMING-DRAFT.json',import.meta.url));
  for(const id of ['syllable-timing-review','syllable-timing-unit','syllable-timing-variant','syllable-timing-capture-start','syllable-timing-audition','syllable-timing-json','syllable-timing-import','syllable-timing-download']){assert(normal.includes(`id="${id}"`));assert(portable.includes(`id="${id}"`));}
  assert(portable.includes(doc.toString('base64')));
 });

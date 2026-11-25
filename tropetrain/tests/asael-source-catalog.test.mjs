@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -91,12 +92,12 @@ test('the original72recordings and their settings remain intact while the archiv
 });
 
 test('normal and portable distributions expose the archive finder and retain source evidence while optional media is not preloaded',()=>{
-  const normal=read('index.html').toString(),portable=read('TropeTrain.html').toString(),sw=read('sw.js').toString();
+  const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),sw=read('sw.js').toString();
   for(const id of ['asael-source-finder','asael-source-book','asael-source-portion','asael-source-reading','asael-source-open','voice-study-catalog-note']){
     assert(normal.includes(`id="${id}"`));assert(portable.includes(`id="${id}"`));
   }
   assert(portable.includes('href="data:application/zip;base64,'+read(catalog.sourcePack.file).toString('base64')+'"'));
   assert(!sw.includes('upload.wikimedia.org'));assert.equal(catalog.counts.newAudioPayloadsBundled,0);
   assert.equal(catalog.counts.newWordTimings,0);assert.equal(catalog.counts.newReviewedSingingGrammars,0);
-  assert(read('TropeTrain.html').length<100*1024*1024,'Portable build must fit GitHub regular-file limit.');
+  assert(portableFileBytes()<100*1024*1024,'Portable build must fit GitHub regular-file limit.');
 });

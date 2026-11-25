@@ -7,6 +7,7 @@ import {PRINTED_SCORE_PROFILES,isPrintedScore,printedSourceWord} from './printed
 import {analyzeAccentContext} from './accent-context.js';
 import {SOURCE_SYLLABLE_UNDERLAY,SOURCE_SYLLABLE_GAPS,sourceSyllableWord} from './source-syllable-underlay.js';
 import {smallNoteStudyTiming} from './source-small-note.js';
+import {idelsohnWordEvents,idelsohnWordPlan} from './idelsohn-score.js';
 
 const syllableDrafts = [
   [[1,2,3],['bə','rē','shīt'],2], [[1,2],['bā','rā'],1], [[1,1,3],['e','lo','hīm'],2],
@@ -39,7 +40,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
   const words=raw.map((w,index)=>{
     const fixture=fixtures.get(w.sourceWordId??w.id),printed=printedSourceWord(w,melodyId);
     const sourceSyllables=sourceUnderlayEnabled?(sourceUnderlay===null?sourceSyllableWord(w,null):sourceUnderlay.word(w)):null;
-    const syllables=sourceSyllables?.status==='available'?sourceSyllables.syllables.map((s,i)=>({...s,id:`${w.id}-mams${i+1}`})):alignedSyllables(w,{fixture:printed?[printed.lengths,null,printed.stress]:fixture?.text===w.sourceHebrew?fixture.syllables:null});
+    const syllables=sourceSyllables?.status==='available'?sourceSyllables.syllables.map((s,i)=>({...s,id:`${w.id}-mams${i+1}`})):alignedSyllables(w,{fixture:printed&&!profile.wordOnly?[printed.lengths,null,printed.stress]:fixture?.text===w.sourceHebrew?fixture.syllables:null});
     const atVerseEnd=index===raw.length-1||raw[index+1].verseKey!==w.verseKey;
     const groupEnd=atVerseEnd||(!w.sourceHebrew.endsWith('־')&&/[\u0591-\u0595]/u.test(w.sourceHebrew));
     const signAnalysis=analyzeSourceSigns(w.sourceHebrew);
@@ -50,7 +51,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
   });
   const sourceJointGroups=sourceUnderlayEnabled?sourceUnderlay?.jointGroups?.(words)??[]:[];
   for(const group of sourceJointGroups)for(const i of group.wordIndices)words[i].sourceJointGroup=group;
-  const wordEvents=words.flatMap(w=>w.syllables.flatMap((s,i)=>{
+  const wordEvents=profile.wordOnly?idelsohnWordEvents(words):words.flatMap(w=>w.syllables.flatMap((s,i)=>{
     if(w.sourceSyllableUnderlay?.status==='unavailable')return [];
     if(isPrintedScore(melodyId)){
       const row=printedSourceWord(w,melodyId);if(!row)return [];
@@ -101,7 +102,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     let end=cursor;while(end+1<words.length&&words[end+1][field]===words[cursor][field])end++;
     return [cursor,end];
   }
-  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false}={}){
+  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     const cut=sourceJointGroups.find(g=>g.wordIndices.some(i=>i>=start&&i<=end)&&!g.wordIndices.every(i=>i>=start&&i<=end));
@@ -112,6 +113,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
       throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel??(melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5')}. Open that passage or choose the original demonstration. No notes are substituted.`);
     let beat=0;
     const selected=events.filter(e=>isJointEvent(e)?e.wordIndices.every(i=>i>=start&&i<=end):e.wordIndex>=start&&e.wordIndex<=end);
+    if(profile.wordOnly)return idelsohnWordPlan(selected,{tempo,transpose,smallEighthDemo});
     return selected.map((e,index)=>{
       const small=smallNoteStudyTiming(e,{tempo,smallNoteDemo}),beats=small?.beats??e.beats;
       const event={...e,beats,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:small?.seconds??beats*60/tempo,

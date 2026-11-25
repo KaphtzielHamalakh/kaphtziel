@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';
 import{VOICE_STUDIES,voiceStudy,voiceRecording,voiceCoverage,voiceAudioRecord,restoreVoicePreferences}from'../voice-studies.js';
 import{getCorpus}from'../library.js';import{createWordTimingDraft,parseWordTimingDraft,setWordBoundary}from'../word-timing-draft.js';
@@ -33,6 +34,6 @@ test('the larger rights index preserves redirected reading references and withho
  for(const r of[ash,isr])assert(index.files.some(f=>f.sha1===r.audio.sha1&&f.originalBytesVerifiedLocally));
 });
 test('both distributions offer a discoverable paired-study shortcut and embedded source rights while optional originals are loaded explicitly',()=>{
- const normal=read('index.html').toString(),portable=read('TropeTrain.html').toString(),sw=read('sw.js').toString();assert(normal.includes('id="asael-study-open"'));assert(portable.includes('id="asael-study-open"'));assert(portable.includes(read('docs/ASAEL-PAIRED-CHANT.json').toString('base64')));assert(portable.includes(read('docs/VOICE-STUDIES.json').toString('base64')));
+ const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),sw=read('sw.js').toString();assert(normal.includes('id="asael-study-open"'));assert(portable.includes('id="asael-study-open"'));assert(portable.includes(read('docs/ASAEL-PAIRED-CHANT.json').toString('base64')));assert(portable.includes(read('docs/VOICE-STUDIES.json').toString('base64')));
  assert(portable.includes(read('docs/ASAEL-CORPUS-SOURCE-INDEX.json').toString('base64')));for(const r of[ash,isr])assert(!sw.includes(r.audio.file));assert(normal.includes('separate, initially blank boundaries'));assert.equal(evidence.invariants.kinnorEquivalence,null);assert.equal(evidence.invariants.newSingingSynthesis,null);
 });

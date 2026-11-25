@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -67,7 +68,7 @@ test('legacy ambiguous claims, incompatible Hebrew editions and altered map meta
 });
 
 test('numbering evidence and licensed numeric data remain exact in standalone and offline builds',()=>{
-  const html=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'),worker=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
+  const html=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8')),worker=readFileSync(new URL('../sw.js',import.meta.url),'utf8');
   const embedded=[...html.matchAll(/href="data:application\/json;base64,([A-Za-z0-9+/=]+)"/g)].map(match=>Buffer.from(match[1],'base64').toString());
   for(const path of ['docs/TORAH-NUMBERING-SOURCES.json','data/calendar/torah-verse-numbering.json','docs/CALENDAR-RELATED-AUDIT.json']){
     assert.ok(embedded.includes(readFileSync(new URL('../'+path,import.meta.url),'utf8')));assert.ok(worker.includes('./'+path));assert.ok(!html.includes('href="./'+path+'"'));

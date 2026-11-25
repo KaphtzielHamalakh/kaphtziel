@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -39,7 +40,7 @@ test('lazy store coalesces requests, verifies bytes before decoding and retries 
  let attempts=0;const failed=new SourcePitchStore({read:async()=>{attempts++;return raw;},hash:async()=>attempts===1?'bad':entry.sha256,decode:async()=>data});await assert.rejects(failed.get(entry.id),/checksum failed/);assert.equal(await failed.get(entry.id),data);assert.equal(attempts,2);
 });
 test('portable distribution embeds every exact packet and evidence while normal view fetches on demand',()=>{
- const html=read('TropeTrain.html').toString(),embedded=JSON.parse(html.match(/<script id="source-pitch-packets" type="application\/json">([\s\S]*?)<\/script>/)[1]);assert.equal(Object.keys(embedded).length,378);
+ const html=restoredPortableHtml(read('TropeTrain.html')).toString(),embedded=JSON.parse(html.match(/<script id="source-pitch-packets" type="application\/json">([\s\S]*?)<\/script>/)[1]);assert.equal(Object.keys(embedded).length,378);
  for(const e of pitchManifest.records)assert.equal(hash(Buffer.from(embedded[e.id],'base64')),e.sha256);
  for(const name of ['SOURCE-PITCH-EVIDENCE','SOURCE-PITCH-SAMPLE-AUDIT'])assert.ok(html.includes(read('docs/'+name+'.json').toString('base64')));assert.ok(!read('index.html').toString().includes('id="source-pitch-packets"'));assert.match(read('sw.js').toString(),/data\/pitch\/pt-portion-01-1.json.gz/);
 });

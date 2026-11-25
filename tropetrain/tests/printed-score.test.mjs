@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -93,7 +94,7 @@ test('WAV sustains the printed tie like one note and preserves actual digital si
 test('both immutable source scans survive the self-contained distribution',()=>{
  for(const [file,id,sha,bytes] of [['cohen-1902-genesis22.png','printed-score-scan',record.scan.sha256,record.scan.bytes],['cohen-1902-alternate-score.png','printed-score-alternate',record.alternateScan.cropSha256,record.alternateScan.cropBytes]]){
   const raw=readFileSync(new URL('../assets/scores/'+file,import.meta.url));assert.equal(raw.length,bytes);assert.equal(createHash('sha256').update(raw).digest('hex'),sha);
-  const standalone=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8');
+  const standalone=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'));
   const encoded=standalone.match(new RegExp(`id="${id}" src="data:image/png;base64,([A-Za-z0-9+/=]+)"`));assert.ok(encoded);assert.ok(Buffer.from(encoded[1],'base64').equals(raw));
  }
 });

@@ -16,6 +16,7 @@ function identity(notes,context){
       ...(e.sourceProfile?{sourceProfile:e.sourceProfile,sourceLocation:e.sourceLocation,sourceBar:e.sourceBar,sourceLyric:e.sourceLyric,sourceRhythm:e.sourceRhythm,
         sourceRestAfterBeats:e.sourceRestAfterBeats,tieId:e.tieId,tieStart:e.tieStart,tieStop:e.tieStop,
         ...(e.sourceRestAfterBar!==undefined?{sourceRestAfterBar:e.sourceRestAfterBar}:{}),...(e.endingRestSeconds!==undefined?{endingRestSeconds:e.endingRestSeconds}:{})}:{}),
+      ...(e.sourceWordOnly?{sourceWordOnly:true,lyricText:e.lyricText,lyricLevel:e.lyricLevel,phonemes:null,sourceWordCorrespondence:e.sourceWordCorrespondence,sourcePrintedSyllableIndex:e.sourcePrintedSyllableIndex,sourceWrittenRhythm:e.sourceWrittenRhythm,sourceQuarterBeats:e.sourceQuarterBeats,sourceQuarterBeatFraction:e.sourceQuarterBeatFraction,sourceRestsBefore:e.sourceRestsBefore??[],sourceRestsAfter:e.sourceRestsAfter??[],performanceTempo:e.performanceTempo,...(e.sourceSmallEighth?{sourceSmallEighth:e.sourceSmallEighth,performanceTiming:e.performanceTiming}:{})}:{}),
       ...(e.sourceSmallNote?{sourceQuarterBeats:e.sourceQuarterBeats,sourceSmallNote:e.sourceSmallNote,sourceUnresolvedMarks:e.sourceUnresolvedMarks,performanceTiming:e.performanceTiming}:{}),
       ...(e.sourceSlurPlacement?{sourceSlurPlacement:e.sourceSlurPlacement}:{}),
       ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
@@ -58,18 +59,22 @@ export function musicXml(plan,words,context){
       xml+=`<direction><direction-type><words>${x(e.word.reference)}</words></direction-type></direction>`;
     }
     const gap=e.startBeat-beat;
-    if(gap>1e-7)xml+=`<note><rest/><duration>${Math.round(gap*DIVISIONS)}</duration>${durationNotation(gap)}</note>`;
+    if(gap>1e-7){
+      const written=e.sourceWordOnly?(index===0?e.sourceRestsBefore:notes[index-1].sourceRestsAfter)??[]:[];
+      if(e.sourceWordOnly&&Math.abs(written.reduce((n,r)=>n+r.beats,0)-gap)>1e-8)throw Error('Source-word export lost its individual printed rests.');
+      for(const rest of written.length?written:[{beats:gap}])xml+=`<note><rest/><duration>${Math.round(rest.beats*DIVISIONS)}</duration>${durationNotation(rest.beats,null,rest.rhythm)}</note>`;
+    }
     const p=e.pitch,accidental=p.alter===1?'sharp':p.alter===-1?'flat':'natural';
     if(p.octave<0)throw Error('MusicXML pitch octaves begin at C0.');
-    xml+=`<note id="note-${index+1}">${e.sourceSmallNote?'<grace slash="no"/>':''}<pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch>${e.sourceSmallNote?'':`<duration>${Math.round(e.beats*DIVISIONS)}</duration>`}${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,e.rhythm)}`;
+    xml+=`<note id="note-${index+1}">${e.sourceSmallNote?'<grace slash="no"/>':''}<pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch>${e.sourceSmallNote?'':`<duration>${Math.round(e.beats*DIVISIONS)}</duration>`}${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,e.sourceSmallEighth?rhythmSpelling(e.beats):e.rhythm)}`;
     const marks=(e.tieStop?'<tied type="stop"/>':'')+(e.tieStart?'<tied type="start"/>':'')+(e.sourceFermata?'<fermata type="upright">normal</fermata>':'')+(['start','stop'].includes(e.sourceSlurPhase)?`<slur type="${e.sourceSlurPhase}" number="${slurNumbers.get(e.sourceSlurId)}"${e.sourceSlurPlacement?` placement="${x(e.sourceSlurPlacement)}"`:""}/>`:'')+(['start','stop'].includes(e.sourceTupletPhase)?`<tuplet type="${e.sourceTupletPhase}" number="1"/>`:'');
-    if(marks||e.sourceUnresolvedMarks?.length)xml+=`<notations>${marks}${(e.sourceUnresolvedMarks??[]).map(mark=>`<other-notation type="single">${x(mark.id+": unresolved source mark; no realization assigned")}</other-notation>`).join('')}</notations>`;
+    if(marks||e.sourceSmallEighth||e.sourceUnresolvedMarks?.length)xml+=`<notations>${marks}${e.sourceSmallEighth?'<other-notation type="single">Printed small eighth; source role and duration unassigned. Exported duration is the optional original 80 ms instrumental study.</other-notation>':''}${(e.sourceUnresolvedMarks??[]).map(mark=>`<other-notation type="single">${x(mark.id+": unresolved source mark; no realization assigned")}</other-notation>`).join('')}</notations>`;
     const extension=e.extendsNext?(e.continuation?'continue':'start'):e.continuation?'stop':null;
-    xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric></note>`;
+    xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.lyricText??e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric></note>`;
     beat=e.startBeat+e.beats;
   });
   const endingRest=notes.at(-1).gapAfterBeats;
-  if(endingRest>0)xml+=`<note><rest/><duration>${Math.round(endingRest*DIVISIONS)}</duration>${durationNotation(endingRest)}</note>`;
+  if(endingRest>0)for(const rest of notes.at(-1).sourceWordOnly?notes.at(-1).sourceRestsAfter:[{beats:endingRest}])xml+=`<note><rest/><duration>${Math.round(rest.beats*DIVISIONS)}</duration>${durationNotation(rest.beats,null,rest.rhythm)}</note>`;
   return xml+'<barline location="right"><bar-style>light-heavy</bar-style></barline></measure></part></score-partwise>\n';
 }
 function join(parts){const result=new Uint8Array(parts.reduce((n,p)=>n+p.length,0));let offset=0;for(const p of parts){result.set(p,offset);offset+=p.length;}return result;}
@@ -86,7 +91,7 @@ export function midiFile(plan,words,context){
   let tick=0;
   for(const e of soundingNotes(notes)){
     const start=Math.round(e.startBeat*MIDI_PPQ),end=Math.round((e.startBeat+e.beats)*MIDI_PPQ);
-    meta(start-tick,1,e.id);if(!e.continuation)meta(0,5,e.syllable);
+    meta(start-tick,1,e.id);if(!e.continuation)meta(0,5,e.lyricText??e.syllable);
     parts.push(Uint8Array.of(0,0x90,e.midi,80),vlq(end-start),Uint8Array.of(0x80,e.midi,0));tick=end;
   }
   const end=Math.round(validatePlan(plan)*context.tempo/60*MIDI_PPQ);

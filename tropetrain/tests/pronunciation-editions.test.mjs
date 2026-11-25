@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {execFileSync} from 'node:child_process';
 import {PronunciationLibrary} from '../pronunciation.js';import {readerPronunciationWord} from '../pronunciation-reader.js';import {getCorpus} from '../library.js';import {createReadingModel} from '../music.js';import {linkPronunciationToNotes} from '../pronunciation-note-links.js';import {linkPronunciationScoreGroups} from '../pronunciation-score-groups.js';
 const root=new URL('../',import.meta.url),bytes=p=>readFileSync(new URL(p,root)),data=p=>JSON.parse(gunzipSync(bytes(p))),packet=data('data/pronunciation/torah-display.json.gz'),lib=new PronunciationLibrary(packet,{underlay:data('data/pronunciation/torah-underlay.json.gz'),segments:data('data/pronunciation/torah-segments.json.gz')}),record=JSON.parse(bytes('docs/PRONUNCIATION-EDITION-WORDS.json')),corpus=await getCorpus(),word=id=>{const hit=lib.byWord.get(id);return {id,sourceHebrew:hit.group.readerHebrew[hit.index]};};
@@ -43,6 +44,6 @@ test('primary Scripture projection chooses typed branches, reassembles formatted
  assert.match(execFileSync('python3',['-c',script],{cwd:new URL('scripts/',root),encoding:'utf8'}),/fixtures passed/);
 });
 test('both portable evidence files are exact and every new source unit retains null phonemes and sound times',()=>{
- const html=bytes('TropeTrain.html');for(const [path,mime] of [['docs/PRONUNCIATION-EDITION-WORDS.json','application/json'],['assets/pronunciation/mam-simple-torah-sources.zip','application/zip']])assert.ok(html.includes('data:'+mime+';base64,'+bytes(path).toString('base64')));
+ const html=restoredPortableHtml(bytes('TropeTrain.html'));for(const [path,mime] of [['docs/PRONUNCIATION-EDITION-WORDS.json','application/json'],['assets/pronunciation/mam-simple-torah-sources.zip','application/zip']])assert.ok(html.includes('data:'+mime+';base64,'+bytes(path).toString('base64')));
  for(const e of record.entries){const s=lib.study(word(e.readerIds[0]),'sephardic');for(const row of s.rows)for(const cells of Object.values(row.styles))for(const cell of cells)for(const u of cell.units){assert.equal(u.phonemes,null);assert.equal(u.noteIds,null);assert.equal(u.audioTimes,null);for(const v of u.sourceSegments.variants)for(const seg of v.segments){assert.equal(seg.phonemes,null);assert.equal(seg.audioTimes,null);}}}
 });

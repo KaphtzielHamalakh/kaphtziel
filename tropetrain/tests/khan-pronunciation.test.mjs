@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';
 import {KHAN_PRONUNCIATION as source,READER_PRONUNCIATION_SOURCES,readerPronunciationSource,khanWordEvidence,khanVerseForWord} from '../khan-pronunciation.js';
 import {getCorpus} from '../library.js';import {createReadingModel} from '../music.js';
@@ -73,7 +74,7 @@ test('all21 phonetic columns and the reusable source pack match pinned content a
 });
 
 test('distributed runtime and portable file retain all21 published source columns alongside the MAM source',()=>{
- const bundle=readFileSync(new URL('../app.bundle.js',import.meta.url),'utf8'),portable=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8');
+ const bundle=readFileSync(new URL('../app.bundle.js',import.meta.url),'utf8'),portable=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'));
  assert.ok(bundle.includes(source.id));
  for(const file of ['docs/KHAN-TIBERIAN-GENESIS.json',source.sourcePack.file])assert.ok(portable.includes(readFileSync(new URL('../'+file,import.meta.url)).toString('base64')),'Portable retains exact source evidence bytes.');
  assert.doesNotMatch(portable,/href="\.\/assets\/pronunciation\/khan-/);

@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -100,7 +101,7 @@ test('packed layout and original font/source attribution are lossless in the sta
  assert.equal(createHash('sha256').update(read('assets/ShlomoStam-OFL.txt')).digest('hex'),sources.font.licenseSha256);
  assert.match(read('assets/ShlomoStam-OFL.txt').toString(),/additional Reserved Font Name Shlomo/);
  assert.match(read('assets/layout/tikkun-MIT.txt').toString(),/Copyright \(c\) 2015 Akiva Gordon/);
- const html=read('TropeTrain.html').toString();assert.ok(html.includes(encoded));assert.ok(html.includes(font.toString('base64')));
+ const html=restoredPortableHtml(read('TropeTrain.html')).toString();assert.ok(html.includes(encoded));assert.ok(html.includes(font.toString('base64')));
  assert.ok(html.includes(read('assets/layout/tikkun-torah-sources.zip').toString('base64')));
  assert.ok(html.includes(Buffer.from(read('docs/SCROLL-SOURCES.json')).toString('base64')));
  assert.doesNotMatch(html,/href="\.\/(?:assets\/(?:ShlomoStam|layout)|docs\/SCROLL-SOURCES)/);

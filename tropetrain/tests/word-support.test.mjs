@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';import{createHash}from'node:crypto';
 import{WORD_SUPPORT,loadWordSupport,validateWordSupport,wordSupportAvailable,wordSupportContext}from'../word-support.js';
 import{voiceRecording,voiceCoverage,VOICE_STUDIES}from'../voice-studies.js';
@@ -54,8 +55,8 @@ test('a bad packet checksum is rejected before parsing or changing a personal dr
 });
 
 test('normal and portable UI present opt-in context review with the source evidence and without model weight downloads',()=>{
- const normal=read('index.html').toString(),portable=read('TropeTrain.html').toString(),sw=read('sw.js').toString();
+ const normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),sw=read('sw.js').toString();
  for(const id of ['word-support-panel','word-support-load','word-support-audition','word-support-word','word-support-status']){assert(normal.includes(`id="${id}"`));assert(portable.includes(`id="${id}"`));}
  assert(portable.includes('href="data:application/zip;base64,'+read(WORD_SUPPORT.sourcePack.file).toString('base64')+'"'));assert(!sw.includes('model.safetensors'));
- assert(read('TropeTrain.html').length<100*1024*1024);
+ assert(portableFileBytes()<100*1024*1024);
 });

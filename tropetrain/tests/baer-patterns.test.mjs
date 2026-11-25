@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -78,7 +79,7 @@ test('muted live player visits leading rest, notes, final rest and the next loop
 });
 
 test('both distributions embed the exact new source record and image bytes without altering the original Cohen catalogue',()=>{
- const bundle=read('app.bundle.js').toString(),portable=read('TropeTrain.html').toString();
+ const bundle=read('app.bundle.js').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();
  for(const spec of [...Object.values(data.source.pages),...Object.values(data.source.detailImages),data.source.contextImage])for(const html of [bundle,portable])assert.ok(html.includes(read(spec.image).toString('base64')),spec.image);
  assert.ok(portable.includes(read('docs/BAER-NO105-PATTERNS.json').toString('base64')));assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);
 });

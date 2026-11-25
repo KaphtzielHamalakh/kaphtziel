@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -48,7 +49,7 @@ test('festival books, repeated Maftir IDs and source provenance survive assignme
  assert.throws(()=>createReadingModel(p,{melodyId:'cohen-1902-gen22-ending'}).buildPlan(0,1),/covers only/);
 });
 test('standalone retains the calendar evidence and all independently checksummed examples',async()=>{
- const html=await readFile(new URL('../TropeTrain.html',import.meta.url),'utf8');
+ const html=restoredPortableHtml(await readFile(new URL('../TropeTrain.html',import.meta.url),'utf8'));
  const raw=await readFile(new URL('../docs/CALENDAR-SOURCES.json',import.meta.url));
  assert(html.includes('data:application/json;base64,'+raw.toString('base64')));
  for(const record of calendarExamples)assert(html.includes(record.sha256));

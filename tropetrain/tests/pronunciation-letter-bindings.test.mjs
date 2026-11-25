@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
 import {PronunciationLibrary} from '../pronunciation.js';import {bindPronunciationLetters} from '../pronunciation-letter-bindings.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url)),unpack=p=>JSON.parse(gunzipSync(read(p))),lib=new PronunciationLibrary(unpack('data/pronunciation/torah-display.json.gz'),{underlay:unpack('data/pronunciation/torah-underlay.json.gz'),segments:unpack('data/pronunciation/torah-segments.json.gz')});
@@ -34,6 +35,6 @@ test('cluster binding rejects changed marked strings, partial cluster endpoints,
  for(const bad of [[...segments,...segments],[{...segments[0],categoryId:'GIMEL'}],[{...segments[0],part:'first-half-shared'}],[{...segments[0],part:'unknown'}]])assert.throws(()=>bindPronunciationLetters(bad,underlay,categories,readerTexts));
 });
 test('both distributions carry exact cluster audit evidence and keep the existing playable style inventory',()=>{
- const html=read('TropeTrain.html').toString(),normal=read('index.html').toString();assert(html.includes(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json').toString('base64')));assert(normal.includes('href="./docs/PRONUNCIATION-LETTER-CLUSTERS.json"'));assert(read('sw.js').toString().includes('./docs/PRONUNCIATION-LETTER-CLUSTERS.json'));
+ const html=restoredPortableHtml(read('TropeTrain.html')).toString(),normal=read('index.html').toString();assert(html.includes(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json').toString('base64')));assert(normal.includes('href="./docs/PRONUNCIATION-LETTER-CLUSTERS.json"'));assert(read('sw.js').toString().includes('./docs/PRONUNCIATION-LETTER-CLUSTERS.json'));
  assert(read('pronunciation-segment-ui.js').toString().includes('Written Hebrew cluster'));assert.equal((normal.match(/value="galician"/gu)??[]).length,0);assert.equal(JSON.parse(read('docs/PRONUNCIATION-LETTER-CLUSTERS.json')).voice,null);
 });

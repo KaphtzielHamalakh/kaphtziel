@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
 import {PronunciationLibrary,PRONUNCIATION_STYLES} from '../pronunciation.js';import {readerPronunciationWord} from '../pronunciation-reader.js';import {readerLetterForms,groupReaderLetterForms} from '../pronunciation-word-alignment.js';import {getCorpus} from '../library.js';import {createReadingModel} from '../music.js';import {linkPronunciationToNotes} from '../pronunciation-note-links.js';import {linkPronunciationScoreGroups} from '../pronunciation-score-groups.js';
 const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root)),data=p=>JSON.parse(gunzipSync(read(p))),packet=data('data/pronunciation/torah-display.json.gz'),underlay=data('data/pronunciation/torah-underlay.json.gz'),segments=data('data/pronunciation/torah-segments.json.gz'),record=JSON.parse(read('docs/PRONUNCIATION-IMPLICIT-READING.json'));
@@ -45,6 +46,6 @@ test('all previous packet groups retain their exact canonical digest and the new
  assert.equal(packet.groups.filter(g=>g.readerIds.includes(word.id)).length,1);assert.equal(record.addedWords,1);
 });
 test('portable evidence retains the exact source reference and an explicit text-only example',()=>{
- const html=read('TropeTrain.html').toString(),normal=read('index.html').toString();for(const [path,mime] of [['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']])assert.ok(html.includes('data:'+mime+';base64,'+read(path).toString('base64')));
+ const html=restoredPortableHtml(read('TropeTrain.html')).toString(),normal=read('index.html').toString();for(const [path,mime] of [['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']])assert.ok(html.includes('data:'+mime+';base64,'+read(path).toString('base64')));
  assert.ok(normal.includes('id="implicit-reading-open"'));assert.match(record.review,/No extra yod is allocated/);assert.match(record.review,/singing voice/);
 });

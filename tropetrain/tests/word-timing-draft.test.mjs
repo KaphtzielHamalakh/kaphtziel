@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -75,7 +76,7 @@ test('separate included source originals resolve by hash and do not cross-wire S
   assert.equal(await store.has(VOICE_STUDIES.recordings.find(r=>r.id==='fellman-rh-2018-gen-22-2')),false);
 });
 test('normal and portable builds include exactly the original Genesis 22:1 verse preview and an explicit draft UI',()=>{
-  const normal=bytes('index.html').toString(),portable=bytes('TropeTrain.html').toString(),worker=bytes('sw.js').toString();
+  const normal=bytes('index.html').toString(),portable=restoredPortableHtml(bytes('TropeTrain.html')).toString(),worker=bytes('sw.js').toString();
   const match=portable.match(/data-included-verse="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);assert.ok(match);
   assert.deepEqual(Buffer.from(match[1],'base64'),bytes(record.audio.file));
   for(const id of ['word-timing-select','word-timing-capture-start','word-timing-capture-end','word-timing-audition','word-timing-import','word-timing-json'])assert.ok(normal.includes(`id="${id}"`));
