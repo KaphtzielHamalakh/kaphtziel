@@ -3,8 +3,8 @@
   "updated": "2026-11-24",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
-  "nextTask": "Publish accepted0.88through connectedGitHub, verify Pages/exactliveassets and normal/portable interfaces, then continue qualified source-word/syllable/ornament review, independent pronunciation and reusable recording work. Preserve all21features/fullcompletionrequirements and fullTorah/marks/CGJ/stress/alternatives/sharedconsonants/collectiveDeu32:6/allgaps. PrivateNo267suffix andprinted-MAMcountcomparisons are leads, not contextual rules or phonetic fits. Six complete pronunciation/singing grammars and full contextual melody systems remain pending. Printing deferred;fullobjectiveactive.",
+  "publishedCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
+  "nextTask": "Continue full reconstruction: qualified No268 source syllable/ornament/phonetic review, independent pronunciation and reusable word-aligned recording evidence before printing. PrivateNo267IItebir4note suffixes inside5note groups andNo26893printed/94MAMunits (שְׁתֵּ֣י mismatch) are reviewleads, not accepted mappings/rules. Bo5originals remain129blank-word review candidates with no confirmed acousticcoverage/Idelsohnequivalence. PubliccopyXML has unconfirmedauthenticity/version/rights; no notes imported. Preserve full21features/requirements, fullTorah/marks/CGJ/stress/alternatives/sharedconsonants/collectiveDeu32:6/allgaps and independent melody/pronunciation/voice/range/key/tempo/recording. Complete contextual Torahmelodies and six complete historical pronunciation/singing grammars remainpending. Printingdeferred;fullgoalactive.",
   "lastPassingTests": {
     "automated": 781,
     "newRegressionChecks": 6,
@@ -14,11 +14,19 @@
     "fullCheckSession": 87466,
     "fullCheckExitCode": 0,
     "localUiChecks": 206,
-    "publicUiChecks": 0,
+    "publicUiChecks": 206,
     "sourceInputPins": 296,
     "frozenSourceFiles": 340,
     "priorAssetDataVendorFilesExact": 633,
-    "ui": "103checks each normal/portable, actual1280px. Muted, allmedia paused, clear consoles. No speaker/cantorial/narrow/file-dialog claim."
+    "ui": "103checks each normal/portable, actual1280px. Muted, allmedia paused, clear consoles. No speaker/cantorial/narrow/file-dialog claim.",
+    "publicUiPerApp": {
+      "normal": 103,
+      "portable": 103
+    },
+    "pagesRun": 45534333483,
+    "liveCodeFiles": 38,
+    "liveCodeBytes": 142841958,
+    "sourceSavedGitFilesExact": 1204
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -167,19 +175,16 @@
     }
   },
   "lastDeployment": {
-    "commit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
-    "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45508193733",
-    "status": "verified_code; records-only receipt follows",
-    "allThreeJobsSucceeded": true,
-    "publicChangedFilesExact": 26,
-    "publicChangedBytesExact": 141899645,
-    "version": "0.87.0",
-    "codeCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
-    "pagesRun": 45520987290,
-    "pagesJobs": "all3success",
-    "liveChangedCodeFiles": 97,
-    "liveChangedCodeBytes": 141236497,
-    "publicUiChecks": 196
+    "version": "0.88.0",
+    "codeCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
+    "parent": "073f8045db97842fa3dd58209ad099c3952ad222",
+    "pagesRun": 45534333483,
+    "all3JobsSuccessful": true,
+    "liveCodeFilesExact": 38,
+    "liveCodeBytesExact": 142841958,
+    "publicUiChecks": 206,
+    "status": "code_published_verified_final_records_follow",
+    "outsideRootEntriesPreserved": 40
   },
   "corpusImport": {
     "books": 5,
@@ -203,7 +208,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.88locallyaccepted:93printed-source syllable groups and independent reader pronunciation.781automated/206finishedlocalGUI pass;connectedpublication/publicQA pending. Fullobjectiveactive/incomplete.",
+  "workingIteration": "0.88published/verified:93printed-source syllable groups, independent reader pronunciation and same-word export invalidation.781automated/206finishedlocal/206publicGUI checks pass. Fullgoalactive/incomplete; historicalmusical/phonologicalreview/completegrammars/singingvoices pending.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1096,9 +1101,9 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.87.0",
-    "codeCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
-    "tests": 775,
+    "version": "0.88.0",
+    "codeCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
+    "tests": 781,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -2720,16 +2725,26 @@
   },
   "localCheckoutStatus": "Original iCloud checkout preserved after pre-mutation read failures; verified private source/output and Git cache are current.",
   "publicBrowserFollowup": {
-    "status": "superseded_by_complete_v0.81_acceptance",
-    "completed": 438,
-    "remaining": 0,
-    "normalTab": "4",
-    "portableTab": "5",
-    "olderPendingScope": 341
+    "version": "0.88.0",
+    "tab": "37",
+    "url": "https://kaphtziel.com/tropetrain/?v=0.88.0#reader",
+    "wordId": "exo-12-21-2",
+    "printedSyllableIndex": 2,
+    "events": 5,
+    "displaySeconds": "3.21",
+    "scope": "printed-syllable",
+    "volume": 0,
+    "allMediaPaused": true,
+    "activeEvents": 0,
+    "actualWidth": 1280,
+    "rootScrollWidth": 1280,
+    "narrowChecksThisRelease": 0,
+    "screenshot": "outputs/Development-v0.88/public-syllable-study.jpg",
+    "noSpeakerOrCantorialReview": true
   },
   "privateDevelopment": {
     "version": "0.88.0",
-    "status": "locally_accepted_public_pending",
+    "status": "published_code_verified_final_records_follow",
     "checkout": "/private/tmp/tropetrain-v88-worktree/tropetrain",
     "branch": "codex/tropetrain-v88",
     "baseline": "073f8045db97842fa3dd58209ad099c3952ad222",
@@ -2747,8 +2762,18 @@
       "normal": 103,
       "portable": 103
     },
-    "publicUi": null,
-    "publication": null
+    "publicUi": {
+      "normal": 103,
+      "portable": 103
+    },
+    "publication": {
+      "codeCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
+      "pagesRun": 45534333483,
+      "liveFilesExact": 38,
+      "liveBytesExact": 142841958,
+      "nativeMainPush": false,
+      "uploadBranch": "codex/tropetrain-v88-upload"
+    }
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2861,7 +2886,7 @@
   },
   "printedSourceSyllables": {
     "version": "0.88.0",
-    "status": "locally-accepted-unreviewed-printed-notation-study",
+    "status": "published-unreviewed-printed-notation-study",
     "record": "docs/IDELSOHN-NO268-PRINTED-UNDERLAY.json",
     "words": 39,
     "groups": 93,
@@ -2877,6 +2902,7 @@
     "exportInvalidation": "Printed ordinal included in export identity; actual normal/portable GUI clears/regenerates MIDI/XML/WAV/JSON on group change.",
     "localUiChecks": 42,
     "automatedChecks": 781,
-    "publicStatus": "pending"
+    "publicStatus": "normal-and-portable-verified",
+    "publicUiChecks": 42
   }
 }
