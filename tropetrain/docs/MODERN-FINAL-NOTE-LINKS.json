@@ -230,7 +230,7 @@
     },
     {
       "path": "docs/SOURCE-READING-CHOICES.json",
-      "sha256": "837f6e8115b4b6c16401c13c09d3377ab830f66c8cd5d6be97581aa9388e1a84"
+      "sha256": "a0919d5ecdeeda5b8e53c3f3e07c090b3aafbccf8d518b3ee84ee5f6ef912c2a"
     },
     {
       "path": "event-correspondence.js",
@@ -242,7 +242,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "1cd7af67871f7881d9b3f7a0f788fe15a93cbb8a0832e624ff4321c94cf124fe"
+      "sha256": "f9f8b19ab16dde3135b9fe141115cc771143797248aafe960c6d87c029ff7236"
     },
     {
       "path": "pronunciation-note-proposals.js",

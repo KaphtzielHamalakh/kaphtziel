@@ -1,3 +1,4 @@
+import {restoredPortableHtml} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';import{createHash}from'node:crypto';import{execFileSync}from'node:child_process';
 import {PronunciationLibrary} from '../pronunciation.js';import {sourcePronunciationStudy} from '../pronunciation-structure.js';import {groupReaderLetterForms} from '../pronunciation-word-alignment.js';import {readerPronunciationWord} from '../pronunciation-reader.js';import{getCorpus}from'../library.js';import{createReadingModel}from'../music.js';import{linkPronunciationToNotes}from'../pronunciation-note-links.js';
 const raw=f=>readFileSync(new URL('../'+f,import.meta.url)),json=f=>JSON.parse(raw(f)),data=JSON.parse(gunzipSync(raw('data/pronunciation/torah-display.json.gz'))),underlay=JSON.parse(gunzipSync(raw('data/pronunciation/torah-underlay.json.gz'))),lib=new PronunciationLibrary(data,{underlay}),record=json('docs/PRONUNCIATION-WRITTEN-VARIANTS.json');
@@ -56,6 +57,6 @@ test('all old source groups keep their exact digest and prior literal/resolved w
  const audit=json('docs/PRONUNCIATION-WORD-ALIGNMENT.json');assert.equal(audit.styles.sephardic.baseLiteralAssignmentSha256,'2d11421fcb39794b35f0f98a83768592c1e4a66eb087e366f0c2e225cf743443');assert.equal(audit.styles.ashkenazic.baseAssignmentSha256,'361c7110e9729970f4c7c5cd4f829de849c006ccb28c21f4a2d451aa52124773');
 });
 test('new evidence is embedded unchanged in the standalone and does not add a melody or voice',()=>{
- const bytes=raw('docs/PRONUNCIATION-WRITTEN-VARIANTS.json');assert.ok(raw('TropeTrain.html').toString().includes('data:application/json;base64,'+bytes.toString('base64')));assert.match(record.review,/no equality of phonology/);assert.match(record.method,/no spelling normalization/);
+ const bytes=raw('docs/PRONUNCIATION-WRITTEN-VARIANTS.json');assert.ok(restoredPortableHtml(raw('TropeTrain.html')).toString().includes('data:application/json;base64,'+bytes.toString('base64')));assert.match(record.review,/no equality of phonology/);assert.match(record.method,/no spelling normalization/);
  const profiles=json('docs/STATE.json').features;assert.ok(profiles.find(f=>f.id==='pronunciations'));assert.equal(study('gen-13-3-13').rows[0].styles.sephardic[0].units[0].phonemes,null);
 });

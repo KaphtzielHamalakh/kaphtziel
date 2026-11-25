@@ -94,14 +94,14 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
   function bounds(cursor,anchor,scope){
     if(!words[cursor]||!words[anchor])throw Error('Choose a word in this reading.');
     if(scope==='selection')return [Math.min(cursor,anchor),Math.max(cursor,anchor)];
-    if(scope==='word'||scope==='printed-syllable')return [cursor,cursor];
+    if(scope==='word'||scope==='printed-syllable'||scope==='printed-source-group')return [cursor,cursor];
     if(scope==='source-unit'){const g=words[cursor].sourceJointGroup;return g?[g.wordIndices[0],g.wordIndices.at(-1)]:[cursor,cursor];}
     if(scope==='passage')return [cursor,words.length-1];
     const field=scope==='group'?'group':scope==='aliyah'?'sectionId':'verseKey';
     let end=cursor;while(end+1<words.length&&words[end+1][field]===words[cursor][field])end++;
     return [cursor,end];
   }
-  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false,no266SmallEighthDemo=false,no266ParentheticalDemo=false,printedSyllableIndex=null}={}){
+  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false,no266SmallEighthDemo=false,no266ParentheticalDemo=false,printedSyllableIndex=null,no266PrintedGroupIndex=null}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     const cut=sourceJointGroups.find(g=>g.wordIndices.some(i=>i>=start&&i<=end)&&!g.wordIndices.every(i=>i>=start&&i<=end));
@@ -111,9 +111,11 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     if(isPrintedScore(melodyId)&&words.slice(start,end+1).some(w=>!printedSourceWord(w,melodyId)))
       throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel??(melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5')}. Open that passage or choose the original demonstration. No notes are substituted.`);
     if(printedSyllableIndex!==null&&(profile.id!=='idelsohn-1929-vol5-no268'||start!==end||!Number.isInteger(printedSyllableIndex)||printedSyllableIndex<1))throw Error('Printed source syllable playback requires one covered No268 word and a positive printed ordinal.');
+    if(no266PrintedGroupIndex!==null&&(profile.id!=='idelsohn-1929-vol5-no266'||start!==end||!Number.isInteger(no266PrintedGroupIndex)||no266PrintedGroupIndex<1||printedSyllableIndex!==null))throw Error('No266 printed-group playback requires one covered No266 word and a separate positive source ordinal.');
     let beat=0;
     let selected=events.filter(e=>isJointEvent(e)?e.wordIndices.every(i=>i>=start&&i<=end):e.wordIndex>=start&&e.wordIndex<=end);
     if(printedSyllableIndex!==null){selected=selected.filter(e=>e.sourcePrintedSyllableIndex===printedSyllableIndex);if(!selected.length)throw Error('This word has no such printed source syllable. Untexted small notes have no syllable assignment.');}
+    if(no266PrintedGroupIndex!==null){selected=selected.filter(e=>e.sourcePrintedSyllableIndex===no266PrintedGroupIndex);if(!selected.length)throw Error('This word has no such No266 printed group. The parenthesized quarter has no group assignment.');}
     if(profile.wordOnly)return printedWordPlan(profile.id,selected,{tempo,transpose,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo});
     return selected.map((e,index)=>{
       const small=smallNoteStudyTiming(e,{tempo,smallNoteDemo}),beats=small?.beats??e.beats;
