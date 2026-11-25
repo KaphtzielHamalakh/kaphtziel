@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -46,7 +47,7 @@ test('generated source record and rendered original crop retain exact pinned byt
   const source=JSON.parse(readFileSync(new URL('../docs/PRINTED-PATTERNS.json',import.meta.url),'utf8'));
   assert.deepEqual(PRINTED_PATTERNS,source);assert.match(source.source.rights,/public domain/);assert.match(source.reviewStatus,/review pending/);
   const image=readFileSync(new URL('../'+source.source.image,import.meta.url));assert.equal(createHash('sha256').update(image).digest('hex'),source.source.imageSha256);
-  const html=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8');
+  const html=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'));
   assert.ok(html.includes(image.toString('base64')),'The standalone carries its printed pattern source.');
   const context=readFileSync(new URL('../'+source.source.contextImage.image,import.meta.url));
   assert.equal(createHash('sha256').update(context).digest('hex'),source.source.contextImage.sha256);

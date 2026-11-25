@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,availablePatternModes,printedPatternPlan,patternContextChoices,patternEvidence} from '../printed-patterns.js';import {eventPitchName} from '../score-data.js';import {staffMarkup} from '../staff.js';import {soundingNotes,validatePlan} from '../synthesis.js';import {Player} from '../audio.js';import {getCorpus} from '../library.js';import {findCombinationsInCorpus} from '../accent-context.js';import {createReadingModel,melodyProfiles} from '../music.js';import {passage} from '../passage.js';
 const read=f=>readFileSync(new URL('../'+f,import.meta.url)),rows=PRINTED_PATTERN_CATALOG.rows.slice(12),row=l=>rows.find(r=>r.id.includes('-I-'+l+'-')),plan=(l,mode='munah-etnahta',opts={})=>printedPatternPlan(mode,{sourceId:row(l).id,tempo:60,...opts});
@@ -6,7 +7,7 @@ test('six continued cadence records add twelve figures and34components while all
  assert.equal(rows.length,6);assert.equal(rows.reduce((n,r)=>n+r.record.notes.length,0),34);assert.equal(rows.flatMap(r=>r.unavailable).length,0);assert.equal(PRINTED_PATTERN_CATALOG.revision,3);
  const raw=JSON.parse(read('docs/PRINTED-PATTERN-CATALOG.json'));assert.equal(createHash('sha256').update(JSON.stringify(raw.rows.slice(0,12))).digest('hex'),'4a5fc220a42300cf9dce13e487c44f8dc786399e48ee153f24df4a84a8d82f33');
  for(const r of rows)assert.deepEqual(availablePatternModes(r.id).map(m=>m.id),['munah-etnahta','munah-before-etnahta','etnahta']);
- assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential']);
+ assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268']);
 });
 test('literal source pitches, repeated attacks and dotted/16th values match both page parts independently',()=>{
  for(const [letter,spec] of Object.entries(expected))for(const [key,mode] of [['m','munah-before-etnahta'],['e','etnahta']]){const p=plan(letter,mode);assert.deepEqual(p.map(e=>e.midi),spec[key][0]);assert.deepEqual(p.map(e=>e.beats),spec[key][1]);assert.equal(validatePlan(p),1.5);assert.equal(soundingNotes(p).length,p.length);assert.ok(p.every(e=>!e.tieId));}
@@ -27,7 +28,7 @@ test('six source fermatas engrave independently and never fabricate a fixed hold
 });
 test('both source page images are byte exact and both evidence links work without a substituted old row',()=>{
  const values=[['assets/scores/cohen-1902-etnahta-leading-p542.png','12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43'],['assets/scores/cohen-1902-etnahta-ending-p543.png','70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4']];
- for(const [file,sha] of values){assert.equal(createHash('sha256').update(read(file)).digest('hex'),sha);assert.deepEqual(Buffer.from(PATTERN_IMAGE_DATA[file].split(',')[1],'base64'),read(file));assert.ok(read('TropeTrain.html').toString().includes(PATTERN_IMAGE_DATA[file]));}
+ for(const [file,sha] of values){assert.equal(createHash('sha256').update(read(file)).digest('hex'),sha);assert.deepEqual(Buffer.from(PATTERN_IMAGE_DATA[file].split(',')[1],'base64'),read(file));assert.ok(restoredPortableHtml(read('TropeTrain.html')).toString().includes(PATTERN_IMAGE_DATA[file]));}
  assert.deepEqual(Buffer.from(patternEvidence(row('A').id,'continuation').bytes),read(values[1][0]));assert.deepEqual(Buffer.from(patternEvidence(row('A').id,'columns').bytes),read(values[0][0]));assert.throws(()=>patternEvidence(PRINTED_PATTERN_CATALOG.rows[0].id,'continuation'),/unavailable/);
 });
 test('cadence lookup selects the literal adjacent source context without applying untexted notes to Torah words',async()=>{

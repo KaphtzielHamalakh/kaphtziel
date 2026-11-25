@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';import {gunzipSync} from 'node:zlib';import {execFileSync} from 'node:child_process';
 import {HaftarahLibrary,restoreHaftarahPreferences,haftarahSections} from '../haftarah-reference.js';
 import {getRepertoireCorpus} from '../repertoire.js';import {ReferenceLibrary} from '../reference-library.js';import {splitReferenceSegments} from '../recorded-reference.js';import {RecordedPitchStore} from '../recorded-pitch-store.js';
@@ -72,7 +73,7 @@ test('zero Haftarah pitch bypasses processing and keeps the unchanged original m
  assert.equal(await store.url(record,{semitones:0}),'original-haftarah');assert.deepEqual(calls,[record.audio.sha1]);
 });
 test('normal and portable builds include the exact original Haftarah preview and reproducible source data',()=>{
- const normal=bytes('index.html').toString(),portable=bytes('TropeTrain.html').toString(),record=library.records[0],audio=bytes('assets/references/Bereshit-H.mp3');assert.equal(audio.length,record.audio.bytes);assert.equal(createHash('sha1').update(audio).digest('hex'),record.audio.sha1);assert.equal(createHash('sha256').update(audio).digest('hex'),record.audio.sha256);
+ const normal=bytes('index.html').toString(),portable=restoredPortableHtml(bytes('TropeTrain.html')).toString(),record=library.records[0],audio=bytes('assets/references/Bereshit-H.mp3');assert.equal(audio.length,record.audio.bytes);assert.equal(createHash('sha1').update(audio).digest('hex'),record.audio.sha1);assert.equal(createHash('sha256').update(audio).digest('hex'),record.audio.sha256);
  const match=portable.match(/<audio id="haftarah-audio" src="data:audio\/mpeg;base64,([A-Za-z0-9+/=]+)"/);assert(match);assert.deepEqual(Buffer.from(match[1],'base64'),audio);assert(portable.includes(bytes('data/references/haftarah-sources.zip').toString('base64')));assert(portable.includes(bytes('docs/HAFTARAH-PRACTICE.json').toString('base64')));
  for(const id of ['haftarah-choice','haftarah-open','haftarah-play','haftarah-whole','haftarah-pitch','haftarah-rate','haftarah-repeat','haftarah-volume','haftarah-cancel'])assert(normal.includes(`id="${id}"`));
 });

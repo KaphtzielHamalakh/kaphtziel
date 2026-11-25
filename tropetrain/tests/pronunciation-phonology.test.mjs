@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';
 import{PronunciationLibrary,PRONUNCIATION_STYLES}from'../pronunciation.js';import{PHONOLOGY_PROFILES as profiles,phonologyWordProposal as propose}from'../pronunciation-phonology.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url)),json=n=>JSON.parse(gunzipSync(read('data/pronunciation/'+n+'.json.gz'))),lib=new PronunciationLibrary(json('torah-display'),{underlay:json('torah-underlay'),segments:json('torah-segments')});
@@ -39,7 +40,7 @@ test('a broken shared-consonant reference is withheld in its own route without i
  const r=propose(s,w,'sephardic',profiles[0].id),halves=fragments(r).filter(f=>f.source.categoryId==='BET_1DAG_XAZAQ');assert.equal(halves.length,2);assert(halves.every(f=>f.proposal.candidatePhonemes===null));assert(r.routes[0].gaps.some(g=>g.reason==='shared-consonant-counterpart-missing'));assert(r.routes[0].events.filter(e=>e.sourceSegmentIds.some(id=>halves.some(f=>f.source.id===id))).every(e=>e.candidatePhonemes===null));
 });
 test('normal and portable builds expose independently labeled research proposals with embedded coverage evidence',()=>{
- const doc=read('docs/PRONUNCIATION-PHONOLOGY.json'),normal=read('index.html').toString(),portable=read('TropeTrain.html').toString();assert(normal.includes('id="phonology-profile"'));assert(normal.indexOf('id="phonology-study"')>normal.indexOf('id="historical-pronunciation-study"'));assert(portable.includes(doc.toString('base64')));assert(portable.includes('tropetrain-phonology-word-proposal-v1'));const audit=JSON.parse(doc);assert.equal(audit.results.length,4);assert(audit.results.every(m=>m.readerWords===79985&&m.unassignedReferences>0));assert.equal(audit.invariants.acousticRealizations,0);
+ const doc=read('docs/PRONUNCIATION-PHONOLOGY.json'),normal=read('index.html').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();assert(normal.includes('id="phonology-profile"'));assert(normal.indexOf('id="phonology-study"')>normal.indexOf('id="historical-pronunciation-study"'));assert(portable.includes(doc.toString('base64')));assert(portable.includes('tropetrain-phonology-word-proposal-v1'));const audit=JSON.parse(doc);assert.equal(audit.results.length,4);assert(audit.results.every(m=>m.readerWords===79985&&m.unassignedReferences>0));assert.equal(audit.invariants.acousticRealizations,0);
 });
 
 test('patah and qamats followed by source yod keep a two-constituent proposal within their original syllable',()=>{

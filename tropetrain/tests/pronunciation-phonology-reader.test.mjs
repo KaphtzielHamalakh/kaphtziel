@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';
 import{PronunciationLibrary}from'../pronunciation.js';import{PHONOLOGY_PROFILES as profiles}from'../pronunciation-phonology.js';import{readerPhonologyWord as project}from'../pronunciation-phonology-reader.js';
 import{READER_PRONUNCIATION_SOURCES as sources}from'../khan-pronunciation.js';import{getCorpus}from'../library.js';import{createReadingModel}from'../music.js';
@@ -41,5 +42,5 @@ test('every Torah word conserves owned route units in both research profiles and
  }
 });
 test('distributed reader clearly exposes research provenance and preserves the original published source streams',()=>{
- const normal=readFileSync(new URL('../index.html',import.meta.url),'utf8'),bundle=readFileSync(new URL('../app.bundle.js',import.meta.url),'utf8'),portable=readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8');assert(normal.includes('Inspect phonemic research evidence'));for(const text of[bundle,portable]){assert(text.includes('tropetrain-reader-phonology-proposal-v1'));assert(text.includes('proposed consonant loss'));assert(text.includes('phonemic-research-word'));assert(text.includes('tropetrain-published-pronunciation-word-v1'));}
+ const normal=readFileSync(new URL('../index.html',import.meta.url),'utf8'),bundle=readFileSync(new URL('../app.bundle.js',import.meta.url),'utf8'),portable=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8'));assert(normal.includes('Inspect phonemic research evidence'));for(const text of[bundle,portable]){assert(text.includes('tropetrain-reader-phonology-proposal-v1'));assert(text.includes('proposed consonant loss'));assert(text.includes('phonemic-research-word'));assert(text.includes('tropetrain-published-pronunciation-word-v1'));}
 });

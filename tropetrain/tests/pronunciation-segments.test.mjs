@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
 import {PronunciationLibrary} from '../pronunciation.js';import {getCorpus} from '../library.js';import {createReadingModel} from '../music.js';import {linkPronunciationToNotes} from '../pronunciation-note-links.js';
@@ -41,7 +42,7 @@ test('source rules leave musical plans, exact note links, all marked text and re
  model.buildPlan(0,103,{tempo:120,transpose:5});assert.equal(JSON.stringify({model,plan}),before);
 });
 test('normal and standalone bundles retain exact source rule data and evidence without extra playable styles',()=>{
- const bundle=bytes('app.bundle.js').toString(),html=bytes('TropeTrain.html').toString();assert.ok(bundle.includes(bytes('data/pronunciation/torah-segments.json.gz').toString('base64')));assert.ok(html.includes(bytes('data/pronunciation/torah-segments.json.gz').toString('base64')));
+ const bundle=bytes('app.bundle.js').toString(),html=restoredPortableHtml(bytes('TropeTrain.html')).toString();assert.ok(bundle.includes(bytes('data/pronunciation/torah-segments.json.gz').toString('base64')));assert.ok(html.includes(bytes('data/pronunciation/torah-segments.json.gz').toString('base64')));
  for(const name of ['PRONUNCIATION-SEGMENTS','PRONUNCIATION-SEGMENT-ALIGNMENT']){assert.ok(html.includes(bytes('docs/'+name+'.json').toString('base64')));assert.ok(bytes('sw.js').toString().includes('./docs/'+name+'.json'));}
  assert.match(bytes('index.html').toString(),/Why the pronunciation text changes/);assert.match(html,/No IPA, new singing voice or equivalence to Kinnor/);
 });

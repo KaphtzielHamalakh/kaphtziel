@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {PRINTED_PATTERN_CATALOG,availablePatternModes,printedPatternPlan,patternContextChoices,PATTERN_IMAGE_DATA} from '../printed-patterns.js';
 import {staffMarkup} from '../staff.js';import {eventPitchName,eventPitchSpelling} from '../score-data.js';import {validatePlan,soundingNotes} from '../synthesis.js';import {Player} from '../audio.js';import {createReadingModel,melodyProfiles} from '../music.js';import {passage} from '../passage.js';
@@ -14,7 +15,7 @@ test('checked source pitches, written sharps and literal note/rest durations rem
  for(const [letter,figures] of Object.entries(expected))for(const [mode,[pitches,beats]] of Object.entries(figures)){
   const notes=source(letter).record.notes.filter(n=>n.cell===mode);assert.deepEqual(notes.map(n=>n.midi),pitches);assert.deepEqual(notes.map(n=>n.quarterBeats),beats);assert.ok(notes.every(n=>n.sourceLocation.includes('p.541, row I.'+letter)));
  }
- assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential']);
+ assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268']);
 });
 test('separate source rests remain silent gaps and independently inspectable symbols, including the two Bagdad rests',()=>{
  const f=plan('F'),e=plan('E');assert.equal(f.length,4);assert.equal(validatePlan(f),3.5);assert.deepEqual(f[2].sourceRestsAfter.map(r=>r.beats),[.5,1]);assert.equal(f[3].startSeconds-(f[2].startSeconds+f[2].durationSeconds),1.5);
@@ -48,5 +49,5 @@ test('the muted player reports both rest intervals and the following note withou
 });
 test('the added source image is unchanged and embedded, and all legacy records keep their canonical data hash',()=>{
  const raw=JSON.parse(read('docs/PRINTED-PATTERN-CATALOG.json'));assert.equal(createHash('sha256').update(JSON.stringify(raw.rows.slice(0,6))).digest('hex'),'79888bc4c582f8f500425549ed2786ba5dd657877f643d53f3d95e57e70f89b7');
- const path='assets/scores/cohen-1902-conditional-p541.png',bytes=read(path),url=PATTERN_IMAGE_DATA[path];assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),'704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447');assert.ok(read('TropeTrain.html').toString().includes(url));
+ const path='assets/scores/cohen-1902-conditional-p541.png',bytes=read(path),url=PATTERN_IMAGE_DATA[path];assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),'704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447');assert.ok(restoredPortableHtml(read('TropeTrain.html')).toString().includes(url));
 });

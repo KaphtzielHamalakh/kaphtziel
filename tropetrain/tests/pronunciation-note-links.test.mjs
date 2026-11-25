@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
 import {PronunciationLibrary} from '../pronunciation.js';import {getCorpus} from '../library.js';import {createReadingModel} from '../music.js';import {linkPronunciationToNotes,notePronunciationText} from '../pronunciation-note-links.js';import {staffMarkup,staffNotes} from '../staff.js';import {soundingNotes} from '../synthesis.js';
 const read=f=>JSON.parse(gunzipSync(readFileSync(new URL('../'+f,import.meta.url))));const lib=new PronunciationLibrary(read('data/pronunciation/torah-display.json.gz'),{underlay:read('data/pronunciation/torah-underlay.json.gz')}),corpus=await getCorpus();
@@ -60,5 +61,5 @@ test('the full-Torah structural audit pins its source inputs and is embedded unc
  const raw=readFileSync(new URL('../docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json',import.meta.url)),r=JSON.parse(raw);assert.equal(r.words,79985);assert.equal(r.verses,5853);
  for(const input of r.inputs)assert.equal(createHash('sha256').update(readFileSync(new URL('../'+input.path,import.meta.url))).digest('hex'),input.sha256);
  for(const style of ['sephardic','ashkenazic']){assert.equal(r.originalDemo[style].notes,231178);assert.equal(r.originalDemo[style].linkedNotes,220525);assert.equal(r.originalDemo[style].wordsFullyLinked,74783);assert.equal(r.boundedPrintedGenesis22[style].linkedNotes,50);assert.equal(r.boundedPrintedGenesis22[style].unlinked.length,2);}
- assert.match(r.limits,/not a traditional melody/);assert.ok(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8').includes('data:application/json;base64,'+raw.toString('base64')));
+ assert.match(r.limits,/not a traditional melody/);assert.ok(restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8')).includes('data:application/json;base64,'+raw.toString('base64')));
 });

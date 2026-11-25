@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
 import {getCorpus,createAssignment,parseAssignment} from '../library.js';import {createReadingModel} from '../music.js';
 import {BAER_HIGH_HOLIDAY as profile,baerHighHolidayWord} from '../baer-high-holiday-score.js';
@@ -71,7 +72,7 @@ test('offline WAV includes the final half second of digital silence and matches 
  for(let i=252000;i<256000;i++)assert.equal(view.getInt16(44+i*2,true),0);
 });
 test('all three native-source crops and the exact note record remain portable with an explicitly bounded study button',()=>{
- const html=read('TropeTrain.html').toString(),normal=read('index.html').toString();for(const scan of record.scans){const raw=read(scan.file);assert.equal(raw.length,scan.bytes);assert.equal(createHash('sha256').update(raw).digest('hex'),scan.sha256);assert.ok(html.includes('data:image/png;base64,'+raw.toString('base64')));}
+ const html=restoredPortableHtml(read('TropeTrain.html')).toString(),normal=read('index.html').toString();for(const scan of record.scans){const raw=read(scan.file);assert.equal(raw.length,scan.bytes);assert.equal(createHash('sha256').update(raw).digest('hex'),scan.sha256);assert.ok(html.includes('data:image/png;base64,'+raw.toString('base64')));}
  assert.ok(html.includes('data:application/json;base64,'+read('docs/BAER-HIGH-HOLIDAY-SCORE.json').toString('base64')));assert.ok(normal.includes('id="baer-high-holiday-open"'));assert.match(record.source.scope,/bounded High Holiday/);assert.match(record.source.labelEvidence,/Preface pIX/);
  const audit=JSON.parse(read('docs/PRONUNCIATION-SCORE-GROUPS.json'));for(const style of ['sephardic','ashkenazic'])assert.equal(audit.boundedPrinted[profile.id][style].eventsInCommonSpans,46);
 });

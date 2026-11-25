@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -94,8 +95,8 @@ test('Torah source packet and computed pronunciation facts remain separate from 
 });
 
 test('normal and portable builds embed every new book and retain original source archive and audit',()=>{
- const bundle=bytes('app.bundle.js').toString(),portable=bytes('TropeTrain.html').toString(),normal=bytes('index.html').toString();
+ const bundle=bytes('app.bundle.js').toString(),portable=restoredPortableHtml(bytes('TropeTrain.html')).toString(),normal=bytes('index.html').toString();
  for(const b of summary.books){const encoded=bytes('data/pronunciation/repertoire/'+b.bookId+'.json.gz').toString('base64');assert.ok(bundle.includes(encoded),b.bookId);assert.ok(portable.includes(encoded),b.bookId);}
  assert.ok(portable.includes(bytes('assets/pronunciation/phonetic-mam-repertoire-sources.zip').toString('base64')));assert.ok(portable.includes(bytes('docs/PRONUNCIATION-REPERTOIRE-ALIGNMENT.json').toString('base64')));assert.ok(normal.includes('id="pronunciation-retry"'));
- assert.ok(portable.length<100*1024*1024,'Portable artifact remains publishable within GitHub single-file size limit.');
+ assert.ok(portableFileBytes()<100*1024*1024,'Portable artifact remains publishable within GitHub single-file size limit.');
 });

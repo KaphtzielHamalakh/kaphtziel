@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';
 import {ReferenceLibrary} from '../reference-library.js';import {sourceTimingPolicy,originalWordWindow} from '../source-word-windows.js';import {sourceTimedPracticePlan} from '../measured-practice.js';import {splitReferenceSegments} from '../recorded-reference.js';
 import {pitchManifest,pitchWordWindow,SourcePitchStore} from '../source-pitch.js';import {SourceContourStore} from '../source-contour-store.js';import {renderSourceContour} from '../source-contour.js';
@@ -58,5 +59,5 @@ test('portable evidence lists every original interval and every withheld word wi
  assert.equal(report.newOriginalWindows,2020);assert.equal(report.newDurationFittingWindows,2020);assert.equal(report.sourcePacketChanged,false);assert.equal(report.sourceStatusesChanged,false);assert.equal(report.inputs.packetSha256,sha(read('data/references/torah-library.json.gz')));assert.equal(report.inputs.policySha256,sha(read('source-word-windows.js')));
  assert.deepEqual(report.review,{acoustic:null,musical:null,linguistic:null});assert.equal(report.partialTakes.reduce((n,r)=>n+r.withheld.length,0),43);assert.equal(report.completeTakeOnly.reduce((n,r)=>n+r.withheld.length,0),748);
  for(const r of report.partialTakes){assert.deepEqual(r.withheld.map(w=>w.id),blocked[r.id]);assert.equal(r.originalWindows.length,lib.timingPolicy(r.id).eligibleWords);}
- assert(read('TropeTrain.html').toString().includes(read('docs/SOURCE-WORD-WINDOWS.json').toString('base64')));assert(read('index.html').toString().includes('href="./docs/SOURCE-WORD-WINDOWS.json"'));
+ assert(restoredPortableHtml(read('TropeTrain.html')).toString().includes(read('docs/SOURCE-WORD-WINDOWS.json').toString('base64')));assert(read('index.html').toString().includes('href="./docs/SOURCE-WORD-WINDOWS.json"'));
 });

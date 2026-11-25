@@ -1,5 +1,10 @@
 # TropeTrain · reconstruction in progress
 
+Working increment **v0.87.0** adds **Idelsohn No268 · Exodus12:21–22**, an unreviewed instrumental source-word study. Open **Idelsohn No268 · first six words**, raise **Instrument volume**, then **Play**. All39marked words remain in the reader. **Select both Exodus verses** gives125pitches/9rests after the separate optional **80ms small-eighth timing** choice. Source durations/roles remain unassigned; no Hebrew/MAM syllable or phoneme fitting is claimed. Pronunciation text, melody, key, range and tempo remain independent. Full Torah melody grammars, six historical pronunciation grammars and singing delivery remain pending. Printing deferred.
+
+775automated checks and164local desktop browser checks pass. Publication/public verification pending. See [v0.87 verification](docs/VERIFICATION-0.87.md) and [literal source evidence](docs/IDELSOHN-NO268-SCORE.json). The portable copy uses lossless exact-program gzip and retains every prior source.
+
+
 Published increment **v0.86.0** adds **21 unreviewed instrumental studies** from Idelsohn’s1929 No267chart. Five figures remain withheld. Open **Hear the pattern table → Open Idelsohn No267 instrumental study → Zar-qa**, raise **Instrument volume**, then **Play printed pattern**. Source image, exact JSON evidence and pending reasons are included. Hebrew words, pronunciation styles, melody selection, range, transpose and tempo remain independent. This chart has no reviewed Hebrew fitting or singing voice; complete Torah systems and six historical pronunciation grammars remain pending. Printing deferred.
 
 760automated checks,108local browser checks and108public browser checks pass. Public normal was tested at1280px and public portable at375×812. The live update is available at https://kaphtziel.com/tropetrain/?v=0.86.0#pattern-study. See [v0.86 verification](docs/VERIFICATION-0.86.md) and [source record](docs/IDELSOHN-NO267-PATTERNS.json).
@@ -257,3 +262,8 @@ Version0.60 adds optional acoustic word-support review for the two Asael Genesis
 
 
 v0.62adds optional structural vowel observations for the paired Asael Genesis1:1–2:3studies. Open Draft word boundaries → Phonetic word evidence, load it, then Vowel observations → Load vowel observations. Compare source syllables and raw model vowel text while changing the existing MAMpronunciation-text style independently of the recording. Missing matches, shared consonants and source-mark differences stay explicit. These observations do not certify sung vowels or times; all six historical voices/full contextual melody grammars remain pending.
+
+
+v0.87 development: Idelsohn No268 Exodus12:21–22 is a bounded, unreviewed instrumental source-word study. Open “Idelsohn No268 · first six words” for20pitches and2printed rests; all39marked words stay in the main reader. “Select both Exodus verses” requires the separate optional original80ms timing choice for two smallC4eighths, whose source durations and roles remain null. The full candidate has125pitches/9rests,9tuplets/11slurs and80.75known written quarterbeats. Whole-word correspondence does not assign Hebrew/MAM syllables, phonemes, historical tuning, a Kinnor equivalent, a contextual grammar or a singing voice. Pronunciation text, key, range and tempo remain independent. Exact source image and record are inspectable and portable; original1929print public domain, new transcriptionCC0.
+
+The portable file uses lossless gzip with byte counts and SHA256 checks before executing the exact normal program. It removes no source data or features. Missing browser support, corrupt transport, wrong recovered bytes or invalidUTF8 show a visible recovery link and do not execute the program. Hosted normal and portable browser compatibility is tested per release; file-dialog/file-URL behavior must be verified separately.

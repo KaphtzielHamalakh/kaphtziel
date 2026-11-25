@@ -1,3 +1,4 @@
+import {restoredPortableHtml} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
@@ -55,7 +56,7 @@ test('rendered instrumental ending has exact digital silence across both distinc
 
 test('five default-disabled source cells keep unassigned grace timing or explicit notation/application gaps',()=>{
  const pending=data.figures.filter(f=>f.status!=='transcribed');assert.deepEqual(pending.map(f=>f.id),['pashta-zaqef-after-predecessors','pazer','telisha-qetana','shalshelet','qarnei-yerah-pair']);for(const f of pending){assert.equal(f.review,null);assert.equal(f.wordApplication,null);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);if(f.status==='unmeasured-grace'){assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,f.unmeasuredGraceNotes);assert(data.notes.filter(n=>n.cell===f.id&&n.grace).every(n=>n.quarterBeats===null));}else assert.equal(data.notes.some(n=>n.cell===f.id),false);}
- for(const name of['app.bundle.js','TropeTrain.html'])assert(readFileSync(new URL('../'+name,import.meta.url),'utf8').includes('baer105-1w-section-ending-18'));
+ for(const name of['app.bundle.js','TropeTrain.html'])assert(restoredPortableHtml(readFileSync(new URL('../'+name,import.meta.url),'utf8')).includes('baer105-1w-section-ending-18'));
 });
 
 test('spanning tuplet decorations stay outside each interactive note button',()=>{

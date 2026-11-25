@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{gunzipSync}from'node:zlib';
 import{PronunciationLibrary,PRONUNCIATION_STYLES}from'../pronunciation.js';
 import{HISTORICAL_ACCENT_PROFILES as profiles,historicalAccentProfile,historicalProfileSpecification as spec,historicalWordEvidence as evidence}from'../historical-pronunciation.js';
@@ -33,5 +34,5 @@ test('unknown profiles/styles, altered accents and source categories refuse evid
  const r=evidence(null,{id:'isa-42-5-1',sourceHebrew:'כֹּֽה־'},'ashkenazic','galician');assert.equal(r.sourceCategoryStatus,'source-categories-unavailable');assert.equal(r.hebrew,'כֹּֽה־');assert.deepEqual(r.units,[]);assert.equal(r.playable,false);
 });
 test('both builds include the six-profile evidence while the main pronunciation controls retain two text styles and no historical singing presets',()=>{
- const doc=read('docs/HISTORICAL-PRONUNCIATION-PROFILES.json'),normal=read('index.html').toString(),html=read('TropeTrain.html').toString(),bundle=read('app.bundle.js').toString();assert.equal(JSON.parse(doc).profiles.length,6);assert(html.includes(doc.toString('base64')));assert(normal.includes('id="historical-accent-profile"'));assert(bundle.includes('tropetrain-historical-pronunciation-word-evidence-v1'));assert(html.includes('unassigned-pronunciation-rule'));assert(read('sw.js').toString().includes('./docs/HISTORICAL-PRONUNCIATION-PROFILES.json'));
+ const doc=read('docs/HISTORICAL-PRONUNCIATION-PROFILES.json'),normal=read('index.html').toString(),html=restoredPortableHtml(read('TropeTrain.html')).toString(),bundle=read('app.bundle.js').toString();assert.equal(JSON.parse(doc).profiles.length,6);assert(html.includes(doc.toString('base64')));assert(normal.includes('id="historical-accent-profile"'));assert(bundle.includes('tropetrain-historical-pronunciation-word-evidence-v1'));assert(html.includes('unassigned-pronunciation-rule'));assert(read('sw.js').toString().includes('./docs/HISTORICAL-PRONUNCIATION-PROFILES.json'));
 });

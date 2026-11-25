@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -77,8 +78,8 @@ test('changed accents and invalid source boundaries are refused; assignment occu
 });
 
 test('both distributions embed all26 checked underlays and their audits within the portable file limit',()=>{
- const bundle=read('app.bundle.js').toString(),portable=read('TropeTrain.html').toString();
+ const bundle=read('app.bundle.js').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();
  for(const info of facts.books){const encoded=read(`data/pronunciation/repertoire-underlay/${info.bookId}.json.gz`).toString('base64');assert.ok(bundle.includes(encoded),info.bookId);assert.ok(portable.includes(encoded),info.bookId);}
  for(const name of ['PRONUNCIATION-REPERTOIRE-UNDERLAY','PRONUNCIATION-REPERTOIRE-UNDERLAY-ALIGNMENT'])assert.ok(portable.includes(read('docs/'+name+'.json').toString('base64')));
- assert.ok(Buffer.byteLength(portable)<100*1024*1024);
+ assert.ok(portableFileBytes()<100*1024*1024);
 });

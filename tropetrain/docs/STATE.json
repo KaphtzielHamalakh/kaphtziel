@@ -4,19 +4,22 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
-  "nextTask": "Continue No268 Exodus12:21–22 word/source-syllable evidence and bounded instrumental score work. Preserve all39marked canonical word candidates and all nulls;88private pitches/8rests currently cover23word candidates, with one small-note duration unset and16words untranscribed. Preserve the full feature inventory and independent melody/pronunciation/voice/range/key/tempo. Complete contextual Torah systems, six complete historical pronunciation grammars and singing delivery remain pending; printing deferred. Portable headroom64335bytes requires lossless capacity work before more embedded sources. Full goal active.",
+  "nextTask": "Publish accepted0.87through connectedGitHub, verify Pages/exactliveassets and both public interfaces, then continue No268 source-word/syllable/ornament review, reusable recording alignment and complete contextual Torah melody/independent pronunciation research. Preserve all21features/requirements and all historical review gaps. Printing deferred; full objective active.",
   "lastPassingTests": {
-    "automated": 760,
-    "newRegressionChecks": 11,
+    "automated": 775,
+    "newRegressionChecks": 15,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "localUiChecks": 108,
-    "publicUiChecks": 108,
-    "remainingPublicUiChecks": 0,
-    "ui": "54local checks per normal/portable app at1280;54public normal checks at1280 and54public portable checks at measured375×812. Source evidence uses semantic keyboard activation where inline links wrap. Muted clocks/offline PCM; no acoustic/cantorial or physical download-dialog/file-URL approval.",
-    "sourceAudits": "Completed existing full sequence; four stale page-hash reports refreshed, then frozen compiler and all760tests passed. Initial combined run had4stale input failures.",
-    "sourceInputPins": 296
+    "fullCheckSession": 38161,
+    "fullCheckExitCode": 0,
+    "localUiChecks": 164,
+    "publicUiChecks": 0,
+    "remainingPublicUiChecks": 164,
+    "sourceInputPins": 296,
+    "frozenSourceFiles": 325,
+    "priorAssetDataVendorFilesExact": 631,
+    "ui": "82checks each normal/portable, actual1280px; requested375px did not resize local tabs. Muted, paused, clear consoles. No acoustic/cantorial/file-dialog/narrow-screen claim."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -194,7 +197,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.86 publicly accepted:21unreviewed No267instrumental studies/5withheld. Continue No268word/source-syllable alignment and complete independent pronunciation/melody evidence; full objective active/incomplete.",
+  "workingIteration": "0.87 locally accepted: No268 bounded instrumental word study and lossless portable packaging.775automated/164localUI checks pass. Connected publication/public verification pending; public0.86 remains accepted.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -2721,11 +2724,11 @@
     "olderPendingScope": 341
   },
   "privateDevelopment": {
-    "version": "0.84.0",
-    "status": "full_check_starting",
-    "checkout": "/private/tmp/tropetrain-v84-worktree/tropetrain",
-    "branch": "codex/tropetrain-v84",
-    "baseline": "8327d62136dc39ea91a81ffb91c0dc9f595e5a30",
+    "version": "0.87.0",
+    "status": "locally_accepted_public_pending",
+    "checkout": "/private/tmp/tropetrain-v87-worktree/tropetrain",
+    "branch": "codex/tropetrain-v87",
+    "baseline": "cadac1157d6b64f6488a701d18d713e3d16cc91e",
     "targetedTests": {
       "passed": 20,
       "failed": 0,
@@ -2735,12 +2738,53 @@
     "blankPersonalWords": 43,
     "additionalIndividualSourceTimes": 0,
     "earlyUiChecks": 51,
-    "fullBuild": null,
-    "localUi": null,
+    "fullBuild": {
+      "session": 38161,
+      "exitCode": 0,
+      "tests": 775
+    },
+    "localUi": {
+      "normal": 82,
+      "portable": 82
+    },
     "publicUi": null,
     "publication": null,
     "singingVoice": null,
-    "review": null
+    "review": null,
+    "current": {
+      "version": "0.87.0",
+      "source": "/private/tmp/tropetrain-v87-worktree/tropetrain",
+      "portablePackaging": "Frozen full check775pass; exact gzip/SHA256 program recovery, visible damaged-copy startup failure,164finished local browser checks.",
+      "No268": {
+        "version": "0.87.0",
+        "sourceRecord": "docs/IDELSOHN-NO268-SCORE.json",
+        "exactWordCandidates": 39,
+        "pitchedNotes": 125,
+        "printedRests": 9,
+        "tuplets": 9,
+        "slurs": 11,
+        "knownWrittenQuarterBeats": 80.75,
+        "unmeasuredSmallC4Eighths": 2,
+        "sourceDuration": null,
+        "smallNoteRole": null,
+        "acceptedSyllableMappings": 0,
+        "phonemes": null,
+        "actualTuning": null,
+        "independentReview": null,
+        "kinnorEquivalent": null,
+        "sourceRecording": null,
+        "contextualGrammar": null,
+        "firstPlayableSpan": "Exodus12:21 words1–6,20pitches/2rests/15writtenquarterbeats",
+        "optionalOriginalTiming": "original-no268-small-eighth-80ms-v1;80msaddedforeachsmallC4betweenunchangedmeasurednotes;sourceunknownsremainnull",
+        "controls": "Independent main reader melody, pronunciation text, key, range, tempo and source recording; word-only correspondence does not fit Hebrew/MAM syllables."
+      },
+      "publicBaseline": "0.86.0",
+      "earlyUI": {
+        "passed": 27,
+        "normalPortable": "portable localhost, actual1280px, muted/clearconsole",
+        "public": null
+      }
+    }
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2822,5 +2866,31 @@
     "localUiChecks": 108,
     "automatedChecks": 760,
     "publicStatus": "accepted software: unreviewed literal instrumental study; no historical realization/word fit/phonemes/voice accepted"
+  },
+  "idelsohnExodusWordStudy": {
+    "version": "0.87.0",
+    "sourceRecord": "docs/IDELSOHN-NO268-SCORE.json",
+    "exactWordCandidates": 39,
+    "pitchedNotes": 125,
+    "printedRests": 9,
+    "tuplets": 9,
+    "slurs": 11,
+    "knownWrittenQuarterBeats": 80.75,
+    "unmeasuredSmallC4Eighths": 2,
+    "sourceDuration": null,
+    "smallNoteRole": null,
+    "acceptedSyllableMappings": 0,
+    "phonemes": null,
+    "actualTuning": null,
+    "independentReview": null,
+    "kinnorEquivalent": null,
+    "sourceRecording": null,
+    "contextualGrammar": null,
+    "firstPlayableSpan": "Exodus12:21 words1–6,20pitches/2rests/15writtenquarterbeats",
+    "optionalOriginalTiming": "original-no268-small-eighth-80ms-v1;80msaddedforeachsmallC4betweenunchangedmeasurednotes;sourceunknownsremainnull",
+    "controls": "Independent main reader melody, pronunciation text, key, range, tempo and source recording; word-only correspondence does not fit Hebrew/MAM syllables.",
+    "localUiChecks": 56,
+    "automatedChecks": 775,
+    "publicStatus": "pending"
   }
 }

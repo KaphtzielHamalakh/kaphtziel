@@ -1,3 +1,4 @@
+import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {gunzipSync} from 'node:zlib';import {createHash} from 'node:crypto';
 import {getCorpus} from '../library.js';import {createReadingModel} from '../music.js';import {PronunciationLibrary} from '../pronunciation.js';import {linkPronunciationScoreGroups as link} from '../pronunciation-score-groups.js';import {linkPronunciationToNotes} from '../pronunciation-note-links.js';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url)),data=p=>JSON.parse(gunzipSync(read(p))),lib=new PronunciationLibrary(data('data/pronunciation/torah-display.json.gz'),{underlay:data('data/pronunciation/torah-underlay.json.gz'),segments:data('data/pronunciation/torah-segments.json.gz')}),corpus=await getCorpus();
@@ -46,5 +47,5 @@ test('full Torah audit preserves Hebrew/events, bounds both printed examples and
  const bytes=read('docs/PRONUNCIATION-SCORE-GROUPS.json'),r=JSON.parse(bytes);assert.equal(r.words,79985);assert.equal(r.verses,5853);assert.equal(r.markedWordSha256,'e7491f5d7f89cc94bb4e39b63e42d53b8219d1970846839f4822df4c3bc1728c');assert.equal(r.originalDemoEventSha256,'6870929024d0c2289f7d9ef1879a7908ac0ee04280c528d64c89d85956f4ba3d');
  for(const input of r.inputs)assert.equal(createHash('sha256').update(read(input.path)).digest('hex'),input.sha256);
  for(const style of ['sephardic','ashkenazic']){assert.equal(r.originalDemo[style].events,231178);assert.equal(r.boundedPrinted['cohen-1902-gen22-ending'][style].eventsInCommonSpans,52);assert.equal(r.boundedPrinted['baer-1894-gen1-1-5'][style].eventsInCommonSpans,145);}
- assert.ok(read('TropeTrain.html').includes('data:application/json;base64,'+bytes.toString('base64')));
+ assert.ok(restoredPortableHtml(read('TropeTrain.html')).includes('data:application/json;base64,'+bytes.toString('base64')));
 });
