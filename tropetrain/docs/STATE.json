@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "65176f31d19b8105071f4693dc81a91d1a79750b",
-  "nextTask": "Publish tested95app-onlyfreshconnectedmainlease/verifyPages/livebytes/public75nonediting UIeach (29new+46prior), preserveall5sourceworddraftsandNo266No268fittings, savefinalrecords/pointer. Thenprioritize fullTorahmelody/independentpronunciation/voices; optional separate processedpitch/speed for source-studyrecordings may reuseexistingprocessor withstrictoriginalclockmapping. No newreviewedgrammar/voice; all21+6 retained,printingdeferred.",
+  "publishedCommit": "4b862e1f37af82ea87eb714a3adb288b4080db74",
+  "nextTask": "Finishrecords-onlypublication/saveexactrelease/pointer. Continue broader contextualTorahmelody source-rulecoverage andindependentpronunciation/voice realizations fromlicensedprimaryevidence; preserveallsourceconditions/gaps/exactmarks/nullreview. Optional independent pitch/rate for sourcestudyrecordings couldreuseexistingtestedprocessor butmustkeepcanonicalsourceclocks andsourcepronunciations separate. All21features/6requirementsremainactive; printingdeferred.",
   "lastPassingTests": {
     "automated": 858,
     "newRegressionChecks": 7,
@@ -18,8 +18,8 @@
     "localPerApp": 90,
     "newLocalPerApp": 36,
     "retainedPerApp": 54,
-    "publicUiChecks": 0,
-    "publicPhase": "pending0.95; accepted0.94retained",
+    "publicUiChecks": 150,
+    "publicPhase": "accepted0.95",
     "sourceInputPins": 419,
     "personalFittingSourcePins": {
       "No266": 6,
@@ -28,7 +28,14 @@
     "frozenImplementationFiles": 414,
     "frozenSourceFiles": 438,
     "priorAssetDataVendorFilesExact": 646,
-    "runtimeChangedAfterBuild": false
+    "runtimeChangedAfterBuild": false,
+    "publicUiPerApp": {
+      "normal": 75,
+      "portable": 75
+    },
+    "pagesRun": 45626209924,
+    "liveCodeFiles": 35,
+    "liveCodeBytes": 137261164
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -177,14 +184,14 @@
     }
   },
   "lastDeployment": {
-    "version": "0.94.0",
-    "codeCommit": "65176f31d19b8105071f4693dc81a91d1a79750b",
-    "parent": "c51c69f8172bb53a43039ec731c3ad456c26eeda",
-    "pagesRun": 45617859398,
+    "version": "0.95.0",
+    "codeCommit": "4b862e1f37af82ea87eb714a3adb288b4080db74",
+    "parent": "894df15f82ced7a7dde70c4860bc46b2890c3766",
+    "pagesRun": 45626209924,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 38,
-    "liveCodeBytesExact": 137561483,
-    "publicUiChecks": 92,
+    "liveCodeFilesExact": 35,
+    "liveCodeBytesExact": 137261164,
+    "publicUiChecks": 150,
     "outsideRootEntriesPreserved": 40,
     "status": "code_published_verified_final_records_follow"
   },
@@ -210,7 +217,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.95fullbuild858automated/180localUIpassed/frozenandpreserved, publication/publicnoneditingQA next; fullgoalactive/incomplete.",
+  "workingIteration": "0.95published/verified858automated180local150publicUI; all5worddrafts/No266No268fittingspreserved. Finalrecordsfollow; fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3351,5 +3358,47 @@
     "serverStoppedCacheChecks": 4,
     "newNativeDecoderChecks": 1,
     "nativeDecoderVolumePercent": 1
+  },
+  "publicV95Acceptance": {
+    "apps": {
+      "normal": {
+        "checks": 75,
+        "parts": {
+          "matrix": 13,
+          "support": 10,
+          "independence": 6,
+          "prior-passages": 16,
+          "prior-support-playback": 12,
+          "prior-withheld": 7,
+          "prior-independence": 5,
+          "prior-evidence": 1,
+          "prior-opening": 5
+        },
+        "publicWordAndFittingDraftsPreserved": true
+      },
+      "portable": {
+        "checks": 75,
+        "parts": {
+          "matrix": 13,
+          "support": 10,
+          "independence": 6,
+          "prior-passages": 16,
+          "prior-support-playback": 12,
+          "prior-withheld": 7,
+          "prior-independence": 5,
+          "prior-evidence": 1,
+          "prior-opening": 5
+        },
+        "publicWordAndFittingDraftsPreserved": true
+      }
+    },
+    "checks": 150,
+    "perApp": 75,
+    "newNonEditingPerApp": 29,
+    "retainedNonEditingPerApp": 46,
+    "personalDraftEditsPerformed": false,
+    "allAudioMutedStopped": true,
+    "portableRecords": 79,
+    "portableLinks": 81
   }
 }
