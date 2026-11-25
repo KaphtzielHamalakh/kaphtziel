@@ -9,7 +9,7 @@
   "inputs": [
     {
       "path": "app.js",
-      "sha256": "5f02ad0806a8cc118e98ed1d7a83ebf81162ce162e28f21d490c68a34d4f4b9e"
+      "sha256": "bcc23bdbc1054273c4b717ef186434d7f7594a09de36b6c0a0da5dd0b4085772"
     },
     {
       "path": "data/pitch/manifest.json",
@@ -49,7 +49,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "68bbf72a278be720f2070607f91988487d092dacdeaae0f79939eaad5eef8c9d"
+      "sha256": "14a4f743e11ce5e396ccba1e93e3fc264dbd1d36ac72462363c7c283a6a2d9d2"
     },
     {
       "path": "measured-practice.js",
@@ -101,7 +101,7 @@
     },
     {
       "path": "style.css",
-      "sha256": "71c37a12cf0fa7da51038deb6163f46775e2fab5b6a7591d939b318d54b8732c"
+      "sha256": "0939224c0d2d073dc495efbfe42a697cff86491c249048b977ab8dbb4f14883b"
     },
     {
       "path": "tests/source-word-windows-audit.py",

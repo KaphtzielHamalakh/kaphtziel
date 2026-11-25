@@ -1,0 +1,7 @@
+import {PRINTED_UNDERLAY_RECORD,PRINTED_UNDERLAY_IMAGE} from './printed-underlay-data.js';
+import {escapeXml as x} from './score-data.js';
+const words=new Map(PRINTED_UNDERLAY_RECORD.words.map(w=>[w.sourceWordId,w]));
+export function printedWordStudy(word){if(!word)return null;const source=words.get(word?.sourceWordId??word?.id);return source?.sourceHebrew===word.sourceHebrew?source:null;}
+export function printedWordPhoto(word,{height=110}={}){const source=printedWordStudy(word);if(!source)return '';const b=source.wordCrop;return `<svg xmlns="http://www.w3.org/2000/svg" class="printed-word-photo" viewBox="${b.x} ${b.y} ${b.width} ${b.height}" height="${height}" role="img" aria-label="Original printed word context for ${x(word.sourceHebrew)}; ${source.sourceSyllableCount} indexed source syllables. Unicode phonetic transcription and Hebrew syllable fitting unassigned."><image href="${PRINTED_UNDERLAY_IMAGE}" x="0" y="0" width="3340" height="1840"/></svg>`;}
+export function printedUnitContext(plan){if(!plan.length||plan.some(e=>e.sourceProfile!=='idelsohn-1929-vol5-no268'||e.sourcePrintedSyllableIndex===null)||new Set(plan.map(e=>e.sourcePrintedSyllableId)).size!==1)return null;return {id:plan[0].sourcePrintedSyllableId,sourceWordId:plan[0].sourceWordId,printedOrdinal:plan[0].sourcePrintedSyllableIndex,noteIds:plan.map(e=>e.sourceNoteId),hebrewSyllableId:null,phonemes:null,independentReview:null};}
+export {PRINTED_UNDERLAY_RECORD};

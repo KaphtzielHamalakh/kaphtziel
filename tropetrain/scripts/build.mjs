@@ -17,6 +17,7 @@ import './import-pattern-catalog.mjs';
 import './import-baer-patterns.mjs';
 import './import-idelsohn-patterns.mjs';
 import './import-idelsohn-score.mjs';
+import './import-printed-underlay.mjs';
 import './import-calendar-examples.mjs';
 import './import-voice-studies.mjs';
 import './import-khan-pronunciation.mjs';
