@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "1911acd919e9fba80a258a396ca6fc20f288202b",
-  "nextTask": "Publish tested No266 app-only increment with fresh connected main lease, verify Pages/live bytes and both public builds while preserving personal drafts. Then restore portable headroom without losing evidence and continue source-specific No266 ordinal study, contextual Torah melodies and six independent pronunciation/singing grammars. All21features/6requirements retained; printing deferred.",
+  "publishedCommit": "b4a37752300a88ef955ad97867b27b47eb684362",
+  "nextTask": "Recover portable headroom losslessly without dropping any evidence: private73JSONlinks estimate saves~9.99MB with exact roundtrips; preserve per-record SHA/UTF8/bytes and original hrefs before ready. Then expose95No266 source ordinals separately from No268/MAM, retaining unassigned parenthesis membership and texted small ordinal2; continue reusable source-specific contextual Torah melody/pronunciation/singing work. All21features/6requirements active, printingdeferred. Publicpersonalbindings preserved; no native mainpush.",
   "lastPassingTests": {
     "automated": 811,
     "newRegressionChecks": 12,
@@ -19,13 +19,22 @@
     "finalTestsExitCode": 0,
     "localUiChecks": 346,
     "localPerApp": 173,
-    "publicUiChecks": 0,
-    "publicPhase": "pending0.91; prior0.90 had238checks",
+    "publicUiChecks": 292,
+    "publicPhase": "accepted0.91",
     "sourceInputPins": 322,
     "personalFittingSourcePins": 6,
     "frozenSourceFiles": 365,
     "priorAssetDataVendorFilesExact": 638,
-    "runtimeChangedAfterBuild": false
+    "runtimeChangedAfterBuild": false,
+    "publicUiPerApp": {
+      "normal": 146,
+      "portable": 146
+    },
+    "pagesRun": 45570948421,
+    "liveCodeFiles": 48,
+    "liveCodeBytes": 146548309,
+    "sourceSavedGitFilesExact": 1233,
+    "ui": "173eachlocal/146eachpublic.27new+16small+103prior each;26personalfit+1sourceisolation localonly.1280px/muted/stopped/consoleclear;no narrow/filedialog/acousticclaim."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -174,14 +183,14 @@
     }
   },
   "lastDeployment": {
-    "version": "0.89.0",
-    "codeCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
-    "parent": "15523604b3a78d26d7a4de7a0717596e8c95091f",
-    "pagesRun": 45545483726,
+    "version": "0.91.0",
+    "codeCommit": "b4a37752300a88ef955ad97867b27b47eb684362",
+    "parent": "d7bdeb4dae76d9259f8d2d607d8a8fc4e5aaeea7",
+    "pagesRun": 45570948421,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 30,
-    "liveCodeBytesExact": 147966754,
-    "publicUiChecks": 258,
+    "liveCodeFilesExact": 48,
+    "liveCodeBytesExact": 146548309,
+    "publicUiChecks": 292,
     "status": "code_published_verified_final_records_follow",
     "outsideRootEntriesPreserved": 40
   },
@@ -207,7 +216,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.91 local accepted:811 final automated/346local UI checks pass; full generated build succeeded, four stale roster expectations corrected only in tests. Connected publication/public acceptance pending. Full goal active/incomplete.",
+  "workingIteration": "0.91 published/accepted:811final automated,346local and292public GUI checks pass. Allsource/asset/plan/exports preserved; finalfourrecords publication follows. Full21feature reconstruction active/incomplete; printingdeferred.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3003,7 +3012,7 @@
     "newAcceptedHistoricalRealizations": 0
   },
   "privateV91EarlyVerification": {
-    "phase": "full-generated-build-and-final-suite-and-local-GUI-passed",
+    "phase": "published-local-and-public-accepted",
     "automatedFullCheckSession": 84538,
     "localChecks": 346,
     "perApp": 173,
@@ -3018,12 +3027,12 @@
     "priorStaffXmlMidiOutputsExact": 189,
     "audio": "muted and stopped",
     "narrowViewport": false,
-    "published": false,
+    "published": true,
     "newAcceptedTraditionalRealizations": 0,
     "newAcceptedSingingVoices": 0
   },
   "privateV91LocalAcceptance": {
-    "phase": "local-passed-publication-pending",
+    "phase": "published-and-accepted",
     "automated": 811,
     "localUi": 346,
     "newUiPerApp": 27,
@@ -3031,5 +3040,49 @@
     "independentReview": null,
     "newAcceptedTraditionalRealizations": 0,
     "newAcceptedSingingVoices": 0
+  },
+  "publicV91Acceptance": {
+    "codeCommit": "b4a37752300a88ef955ad97867b27b47eb684362",
+    "pagesRun": 45570948421,
+    "publicUi": {
+      "normal": {
+        "parts": {
+          "new": 27,
+          "small": 16,
+          "patterns": 54,
+          "score": 28,
+          "units": 21
+        },
+        "checks": 146,
+        "personalBindingsEdited": false,
+        "followPreferenceRestored": true
+      },
+      "portable": {
+        "parts": {
+          "new": 27,
+          "small": 16,
+          "patterns": 54,
+          "score": 28,
+          "units": 21
+        },
+        "checks": 146,
+        "personalBindingsEdited": false,
+        "followPreferenceRestored": true
+      }
+    },
+    "publicChecks": 292,
+    "localChecks": 346,
+    "automatedChecks": 811,
+    "liveFilesExact": 48,
+    "liveBytesExact": 146548309,
+    "canonicalCodeFilesExact": 1233,
+    "finalTab": "49",
+    "actualWidth": 1280,
+    "frozenSources": 365,
+    "inputPins": 322,
+    "personalFittingSourcePins": 6,
+    "personalDraftEditsOnPublicOrigin": false,
+    "previewClosed": true,
+    "noNewReviewedHistoricalVoiceOrGrammar": true
   }
 }
