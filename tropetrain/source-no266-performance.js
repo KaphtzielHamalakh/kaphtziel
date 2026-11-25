@@ -1,0 +1,23 @@
+// Original, source-specific choices. Neither certifies a historical performance.
+import {NO266_RECORD} from './idelsohn-no266-data.js';
+export const NO266_SMALL_EIGHTH_STUDY=Object.freeze({id:'original-no266-final-small-eighth-80ms-v1',milliseconds:80,sourceDuration:null,sourceRole:null,stealingRatio:null,policy:'Original 80 ms for the final printed small C4 eighth, in source order; retain its printed ordinal2 and all measured values. No Hebrew/MAM phonetic fitting or historical timing asserted.'});
+export const NO266_PARENTHESIS_STUDY=Object.freeze({id:'original-no266-parenthesized-quarter-inclusion-v1',literalQuarterBeats:1,sourceRole:null,sourceMandatoryPerformance:null,sourceDurationSeconds:null,policy:'Original literal-inclusion study: play the parenthesized A4 with its written quarter value. Source performance role and source-group membership remain unassigned; no omission or extra role inferred.'});
+const smallId='idelsohn1929-266-system5-component29',parentId='idelsohn1929-266-system3-component19',record=new Map(NO266_RECORD.components.map(c=>[c.id,c])),equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+function sourceEvent(e,kind){
+ const c=record.get(kind==='small'?smallId:parentId),r=e.sourceWordCorrespondence;
+ if(e.sourceProfile!==NO266_RECORD.id||e.sourceNoteId!==c.id||e.id!==`${e.wordId}-no266-${c.id}`||typeof e.wordId!=='string'||!e.wordId||e.sourceWordId!==c.candidateWordId||e.sourcePieceId!==c.sourcePieceId||e.sourceSystem!==c.sourceSystem||e.sourcePdfPage!==104||e.sourcePage!==101||!equal(e.sourcePitch,c.sourcePitch)||!equal(e.sourceWrittenRhythm,c.rhythm)||!equal(e.sourceRhythm,c.rhythm)||e.sourcePrintedSyllableIndex!==c.sourcePrintedSyllableIndex||e.sourceQuarterBeats!==c.quarterBeats||!equal(e.sourceQuarterBeatFraction,c.quarterBeatFraction)||!Number.isInteger(e.sourceTranspose)||Math.abs(e.sourceTranspose)>36||e.midi!==c.midi+e.sourceTranspose||['syllableId','syllable','phonemes','independentReview','sourceActualTuning'].some(k=>e[k]!==null)||r?.status!=='lexical-source-word-candidate'||r.sourceWordId!==c.candidateWordId||r.sourceHebrew!==c.exactMarkedHebrew||['independentReview','acceptedSyllableMapping','acceptedPhonemes'].some(k=>r[k]!==null)||e.sourceSmallEighth||e.sourcePatternSmallEighth||e.sourceSmallNote||e.sourceGrace)throw Error('No266 performance study lost its exact source identity, marked word, glyph, pitch, printed ordinal or unassigned phonetic/review fields.');
+ const mark=kind==='small'?e.sourceNo266SmallEighth:e.sourceNo266Parenthetical;
+ if(!equal(mark,kind==='small'?c.printedSmallNote:c.sourceParenthetical)||(kind==='small'?e.sourceNo266Parenthetical:e.sourceNo266SmallEighth))throw Error('No266 source marker no longer matches its exact independent pending source fact.');
+ return c;
+}
+export function no266StudyTiming(e,{tempo,no266SmallEighthDemo=false,no266ParentheticalDemo=false}={}){
+ if(!e.sourceNo266SmallEighth&&!e.sourceNo266Parenthetical)return null;
+ if(!Number.isFinite(tempo)||tempo<=0)throw Error('Invalid No266 study tempo.');
+ if(e.sourceNo266SmallEighth){sourceEvent(e,'small');if(no266SmallEighthDemo!==true)throw Error('No266 final small C4 eighth has no assigned duration. Choose its separate optional original 80 ms study. The printed second group is not a Hebrew/MAM phonetic fit.');return {beats:.08*tempo/60,seconds:.08,performanceTiming:NO266_SMALL_EIGHTH_STUDY};}
+ sourceEvent(e,'parent');if(no266ParentheticalDemo!==true)throw Error('No266 parenthesized A4 quarter has an unassigned performance role. Choose its separate optional original literal-inclusion study before playing this word.');return {beats:1,seconds:60/tempo,performanceTiming:NO266_PARENTHESIS_STUDY};
+}
+export function validateNo266PerformanceEvent(e){
+ const kind=e.sourceNo266SmallEighth?'small':'parent';sourceEvent(e,kind);const timing=kind==='small'?NO266_SMALL_EIGHTH_STUDY:NO266_PARENTHESIS_STUDY;
+ if(!Number.isFinite(e.performanceTempo)||e.performanceTempo<=0||!equal(e.performanceTiming,timing)||Math.abs(e.beats-(kind==='small'?.08*e.performanceTempo/60:1))>1e-10||Math.abs(e.durationSeconds-(kind==='small'?.08:60/e.performanceTempo))>1e-10)throw Error('No266 source choice requires its own exact original policy and independent user tempo.');return e;
+}
+export function no266ChoiceContext(plan){const small=plan.some(e=>e.sourceNo266SmallEighth),parent=plan.some(e=>e.sourceNo266Parenthetical);return small||parent?{status:'original-instrumental-choices-not-historical-performance',smallEighth:small?NO266_SMALL_EIGHTH_STUDY:null,parenthesizedQuarter:parent?NO266_PARENTHESIS_STUDY:null,sourcePerformanceRole:null,phonemes:null,voice:null,independentReview:null}:null;}

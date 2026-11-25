@@ -3,11 +3,10 @@ import { passage as defaultPassage } from './passage.js';
 import { alignedSyllables } from './syllables.js';
 import {analyzeSourceSigns} from './accents.js';
 import {PRINTED_SCORE} from './printed-score.js';
-import {PRINTED_SCORE_PROFILES,isPrintedScore,printedSourceWord} from './printed-score-registry.js';
+import {PRINTED_SCORE_PROFILES,isPrintedScore,printedSourceWord,printedWordEvents,printedWordPlan} from './printed-score-registry.js';
 import {analyzeAccentContext} from './accent-context.js';
 import {SOURCE_SYLLABLE_UNDERLAY,SOURCE_SYLLABLE_GAPS,sourceSyllableWord} from './source-syllable-underlay.js';
 import {smallNoteStudyTiming} from './source-small-note.js';
-import {idelsohnWordEvents,idelsohnWordPlan} from './idelsohn-score.js';
 
 const syllableDrafts = [
   [[1,2,3],['bə','rē','shīt'],2], [[1,2],['bā','rā'],1], [[1,1,3],['e','lo','hīm'],2],
@@ -51,7 +50,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
   });
   const sourceJointGroups=sourceUnderlayEnabled?sourceUnderlay?.jointGroups?.(words)??[]:[];
   for(const group of sourceJointGroups)for(const i of group.wordIndices)words[i].sourceJointGroup=group;
-  const wordEvents=profile.wordOnly?idelsohnWordEvents(words):words.flatMap(w=>w.syllables.flatMap((s,i)=>{
+  const wordEvents=profile.wordOnly?printedWordEvents(profile.id,words):words.flatMap(w=>w.syllables.flatMap((s,i)=>{
     if(w.sourceSyllableUnderlay?.status==='unavailable')return [];
     if(isPrintedScore(melodyId)){
       const row=printedSourceWord(w,melodyId);if(!row)return [];
@@ -102,7 +101,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     let end=cursor;while(end+1<words.length&&words[end+1][field]===words[cursor][field])end++;
     return [cursor,end];
   }
-  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false,printedSyllableIndex=null}={}){
+  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false,no266SmallEighthDemo=false,no266ParentheticalDemo=false,printedSyllableIndex=null}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     const cut=sourceJointGroups.find(g=>g.wordIndices.some(i=>i>=start&&i<=end)&&!g.wordIndices.every(i=>i>=start&&i<=end));
@@ -111,11 +110,11 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     if(blocked)throw Error(`${blocked.reference} · word ${blocked.ordinal}: ${SOURCE_SYLLABLE_GAPS[blocked.sourceSyllableUnderlay.reason]} Choose a covered span or turn off source syllable underlay. No notes were substituted.`);
     if(isPrintedScore(melodyId)&&words.slice(start,end+1).some(w=>!printedSourceWord(w,melodyId)))
       throw Error(`This printed-score study covers only the unchanged words of ${profile.coverageLabel??(melodyId===PRINTED_SCORE.id?'Genesis 22:1':'Genesis 1:1–5')}. Open that passage or choose the original demonstration. No notes are substituted.`);
-    if(printedSyllableIndex!==null&&(!profile.wordOnly||start!==end||!Number.isInteger(printedSyllableIndex)||printedSyllableIndex<1))throw Error('Printed source syllable playback requires one covered No268 word and a positive printed ordinal.');
+    if(printedSyllableIndex!==null&&(profile.id!=='idelsohn-1929-vol5-no268'||start!==end||!Number.isInteger(printedSyllableIndex)||printedSyllableIndex<1))throw Error('Printed source syllable playback requires one covered No268 word and a positive printed ordinal.');
     let beat=0;
     let selected=events.filter(e=>isJointEvent(e)?e.wordIndices.every(i=>i>=start&&i<=end):e.wordIndex>=start&&e.wordIndex<=end);
     if(printedSyllableIndex!==null){selected=selected.filter(e=>e.sourcePrintedSyllableIndex===printedSyllableIndex);if(!selected.length)throw Error('This word has no such printed source syllable. Untexted small notes have no syllable assignment.');}
-    if(profile.wordOnly)return idelsohnWordPlan(selected,{tempo,transpose,smallEighthDemo});
+    if(profile.wordOnly)return printedWordPlan(profile.id,selected,{tempo,transpose,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo});
     return selected.map((e,index)=>{
       const small=smallNoteStudyTiming(e,{tempo,smallNoteDemo}),beats=small?.beats??e.beats;
       const event={...e,beats,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:small?.seconds??beats*60/tempo,

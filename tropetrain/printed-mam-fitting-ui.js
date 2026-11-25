@@ -1,4 +1,4 @@
-import {blankFittingDraft,validateFittingDraft,parseFittingDraft,serializeFittingDraft,saveFitting,clearWordFittings,fillBlankWordProposals,fittingCoverage,fittingWord,fitBinding,fittingFollow,fittingExport} from './printed-mam-fitting.js';
+import {isFittingProfile,blankFittingDraft,validateFittingDraft,parseFittingDraft,serializeFittingDraft,saveFitting,clearWordFittings,fillBlankWordProposals,fittingCoverage,fittingWord,fitBinding,fittingFollow,fittingExport} from './printed-mam-fitting.js';
 import {FIT_SOURCE_EVIDENCE,FIT_KEY_IMAGES} from './printed-mam-fit-data.js';
 const STORAGE='tropetrain-personal-printed-mam-fit-v1',RETAINED=STORAGE+'-retained';
 export function mountPrintedMamFitting({getContext,onChange=()=>{},onWholeWord=()=>{}}){
@@ -10,7 +10,7 @@ export function mountPrintedMamFitting({getContext,onChange=()=>{},onWholeWord=(
  function commit(next,label){validateFittingDraft(next);previous=draft;draft=next;revision++;message=label;persist();refresh();onChange();}
  function options(select,rows,value){select.replaceChildren();for(const [v,text]of rows){const o=document.createElement('option');o.value=v;o.textContent=text;select.append(o);}select.value=value??'';}
  function refresh(){
-  const c=getContext(),w=c.profile?.wordOnly?fittingWord(c.word):null,box=$('printed-fit-editor');box.hidden=!w;$('printed-fit-enabled').checked=enabled;$('printed-fit-enabled').disabled=c.practiceAudio!=='instrument';
+  const c=getContext(),w=isFittingProfile(c.profile)?fittingWord(c.word):null,box=$('printed-fit-editor');box.hidden=!w;$('printed-fit-enabled').checked=enabled;$('printed-fit-enabled').disabled=c.practiceAudio!=='instrument';
   const coverage=fittingCoverage(draft);$('printed-fit-coverage').textContent=`${coverage.proposedPrintedGroups} of 93 printed groups · ${coverage.proposedMamUnits} of 94 MAM units · ${coverage.wordsWithProposals} of 39 words have personal proposals. Accepted source fittings: 0. Missing groups remain unassigned.`;
   $('printed-fit-message').textContent=message;$('printed-fit-undo').disabled=previous===null;
   const retained=recovery??(()=>{try{return localStorage.getItem(RETAINED);}catch{return null;}})();$('printed-fit-recovery').hidden=retained===null;if(retained!==null)$('printed-fit-recovery-save').href='data:application/json;charset=utf-8,'+encodeURIComponent(retained);
@@ -35,5 +35,5 @@ export function mountPrintedMamFitting({getContext,onChange=()=>{},onWholeWord=(
  $('printed-fit-import').addEventListener('click',()=>{try{commit(parseFittingDraft($('printed-fit-json').value),'Personal fitting JSON imported against the exact current sources; no review was certified.');}catch(e){message='Import refused; current fitting kept: '+e.message;refresh();}});
  for(const i of [0,1])$('printed-fit-open-key-'+i).addEventListener('click',()=>{$('printed-fit-key-title').textContent=i===0?'Original vowel key':'Original consonant key';$('printed-fit-key-caption').textContent=`Idelsohn1929 · printed page ${i+2} / PDF${i+5} · original glyphs; phonetic interpretation remains unreviewed.`;for(const j of [0,1])$('printed-fit-key-'+j).hidden=j!==i;$('printed-fit-key-viewer').showModal();});
  $('printed-fit-key-close').addEventListener('click',()=>$('printed-fit-key-viewer').close());
- refresh();return {refresh,get revision(){return revision;},get enabled(){return enabled;},exportKey(){return JSON.stringify([enabled,draft.bindings]);},exportContext(){return draft.bindings.length?fittingExport(draft,{enabled}):null;},follow(event,word,plan,style,readerKind){if(!enabled||readerKind==='published-word')return null;return fittingFollow(event,word,plan,draft,style);}};
+ refresh();return {refresh,get revision(){return revision;},get enabled(){return enabled;},exportKey(){return isFittingProfile(getContext().profile)?JSON.stringify([enabled,draft.bindings]):null;},exportContext(){return isFittingProfile(getContext().profile)&&draft.bindings.length?fittingExport(draft,{enabled}):null;},follow(event,word,plan,style,readerKind){if(!isFittingProfile(getContext().profile)||!enabled||readerKind==='published-word')return null;return fittingFollow(event,word,plan,draft,style);}};
 }

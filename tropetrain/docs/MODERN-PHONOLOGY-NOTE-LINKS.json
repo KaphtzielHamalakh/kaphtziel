@@ -228,7 +228,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "8c9b48373bc925a9dbf2c52824c3d370f90d1a7e51b0902792cb5f292fce3515"
+      "sha256": "1cd7af67871f7881d9b3f7a0f788fe15a93cbb8a0832e624ff4321c94cf124fe"
     },
     {
       "path": "scripts/audit-modern-note-links.mjs",

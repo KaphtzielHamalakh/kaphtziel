@@ -1,0 +1,5993 @@
+{
+  "schema": "tropetrain-idelsohn-no266-word-study-v1",
+  "id": "idelsohn-1929-vol5-no266",
+  "revision": 1,
+  "status": "unreviewed-candidate-literal-transcription-and-source-word-correspondence",
+  "source": {
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "sourceBookCommunityLabel": "Moroccan volume title",
+    "narrowerLocality": null,
+    "performer": null,
+    "sourceRecording": null,
+    "originalRights": "IMSLP item317924 catalogue PublicDomain",
+    "newTranscriptionRights": "CC0-1.0",
+    "title": "Hebräisch-orientalischer Melodienschatz, BandV: Gesänge der marokkanischen Juden",
+    "author": "Abraham Z.Idelsohn",
+    "publication": "Benjamin Harz, Berlin–Vienna,1929",
+    "url": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)",
+    "pdfUrl": "https://s9.imslp.org/files/imglnks/usimg/d/d4/IMSLP317924-PMLP507681-Ges%C3%A4nge_der_marokkanischen_Juden.pdf",
+    "item": 266,
+    "pdfPage": 104,
+    "printedPage": 101,
+    "passage": "Exodus12:21–22",
+    "passageIdentification": "Explicit printed Exod.XII21–22 caption and all39lexical source-word candidates.",
+    "image": "assets/scores/idelsohn-1929-no266.jpg",
+    "imageBytes": 170458,
+    "imageSha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6",
+    "imageDimensions": [
+      1390,
+      745
+    ],
+    "renderRecipe": {
+      "program": "Poppler pdftoppm",
+      "pdfPage": 104,
+      "dpi": 260,
+      "x": 30,
+      "y": 540,
+      "width": 1390,
+      "height": 745,
+      "format": "JPEG",
+      "limits": "Faithful rectangular render; no glyph repair/normalization. Fullpage and400/600dpi details retained privately for review."
+    },
+    "keySignature": "Treble clef, one flat(B-flat); explicit naturals retained. Unbarred-system B-natural carry is a documented candidate convention, not independently reviewed tuning.",
+    "sourceTempo": null,
+    "actualTuning": null
+  },
+  "corpus": {
+    "file": "data/torah/exo.json",
+    "sha256": "111c4f918e1be28c8a1b1d42b76545285ac82e8b82582b80251bc019e13e6a21",
+    "readerWords": 39,
+    "canonicalMarkedTextChanged": false
+  },
+  "words": [
+    {
+      "id": "exo-12-21-1",
+      "sourceWordId": "exo-12-21-1",
+      "sourceHebrew": "וַיִּקְרָ֥א",
+      "printedWordId": "idelsohn1929-266-exo-12-21-1",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece1",
+          "sourceSystem": 1,
+          "sourcePosition": 1,
+          "candidateWordId": "exo-12-21-1",
+          "noteIds": [
+            "idelsohn1929-266-system1-component1",
+            "idelsohn1929-266-system1-component2",
+            "idelsohn1929-266-system1-component3"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-2",
+      "sourceWordId": "exo-12-21-2",
+      "sourceHebrew": "מֹשֶׁ֛ה",
+      "printedWordId": "idelsohn1929-266-exo-12-21-2",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece2",
+          "sourceSystem": 1,
+          "sourcePosition": 2,
+          "candidateWordId": "exo-12-21-2",
+          "noteIds": [
+            "idelsohn1929-266-system1-component4",
+            "idelsohn1929-266-system1-component5",
+            "idelsohn1929-266-system1-component6",
+            "idelsohn1929-266-system1-component7",
+            "idelsohn1929-266-system1-component8",
+            "idelsohn1929-266-system1-component9"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-3",
+      "sourceWordId": "exo-12-21-3",
+      "sourceHebrew": "לְכָל־",
+      "printedWordId": "idelsohn1929-266-exo-12-21-3",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece3",
+          "sourceSystem": 1,
+          "sourcePosition": 3,
+          "candidateWordId": "exo-12-21-3",
+          "noteIds": [
+            "idelsohn1929-266-system1-component10",
+            "idelsohn1929-266-system1-component11"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-4",
+      "sourceWordId": "exo-12-21-4",
+      "sourceHebrew": "זִקְנֵ֥י",
+      "printedWordId": "idelsohn1929-266-exo-12-21-4",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece4",
+          "sourceSystem": 1,
+          "sourcePosition": 4,
+          "candidateWordId": "exo-12-21-4",
+          "noteIds": [
+            "idelsohn1929-266-system1-component12",
+            "idelsohn1929-266-system1-component13"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-5",
+      "sourceWordId": "exo-12-21-5",
+      "sourceHebrew": "יִשְׂרָאֵ֖ל",
+      "printedWordId": "idelsohn1929-266-exo-12-21-5",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece5",
+          "sourceSystem": 1,
+          "sourcePosition": 5,
+          "candidateWordId": "exo-12-21-5",
+          "noteIds": [
+            "idelsohn1929-266-system1-component14",
+            "idelsohn1929-266-system1-component15",
+            "idelsohn1929-266-system1-component16",
+            "idelsohn1929-266-system1-component17"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-6",
+      "sourceWordId": "exo-12-21-6",
+      "sourceHebrew": "וַיֹּ֣אמֶר",
+      "printedWordId": "idelsohn1929-266-exo-12-21-6",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece6",
+          "sourceSystem": 1,
+          "sourcePosition": 6,
+          "candidateWordId": "exo-12-21-6",
+          "noteIds": [
+            "idelsohn1929-266-system1-component18",
+            "idelsohn1929-266-system1-component19",
+            "idelsohn1929-266-system1-component20"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-7",
+      "sourceWordId": "exo-12-21-7",
+      "sourceHebrew": "אֲלֵהֶ֑ם",
+      "printedWordId": "idelsohn1929-266-exo-12-21-7",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece7",
+          "sourceSystem": 1,
+          "sourcePosition": 7,
+          "candidateWordId": "exo-12-21-7",
+          "noteIds": [
+            "idelsohn1929-266-system1-component21",
+            "idelsohn1929-266-system1-component22",
+            "idelsohn1929-266-system1-component23"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-8",
+      "sourceWordId": "exo-12-21-8",
+      "sourceHebrew": "מִֽשְׁכ֗וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-21-8",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece8",
+          "sourceSystem": 1,
+          "sourcePosition": 8,
+          "candidateWordId": "exo-12-21-8",
+          "noteIds": [
+            "idelsohn1929-266-system1-component24"
+          ]
+        },
+        {
+          "id": "idelsohn1929-266-system2-piece1",
+          "sourceSystem": 2,
+          "sourcePosition": 1,
+          "candidateWordId": "exo-12-21-8",
+          "noteIds": [
+            "idelsohn1929-266-system2-component1",
+            "idelsohn1929-266-system2-component2",
+            "idelsohn1929-266-system2-component3",
+            "idelsohn1929-266-system2-component4",
+            "idelsohn1929-266-system2-component5"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-9",
+      "sourceWordId": "exo-12-21-9",
+      "sourceHebrew": "וּקְח֨וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-21-9",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system2-piece2",
+          "sourceSystem": 2,
+          "sourcePosition": 2,
+          "candidateWordId": "exo-12-21-9",
+          "noteIds": [
+            "idelsohn1929-266-system2-component6",
+            "idelsohn1929-266-system2-component7",
+            "idelsohn1929-266-system2-component8"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-10",
+      "sourceWordId": "exo-12-21-10",
+      "sourceHebrew": "לָכֶ֥ם",
+      "printedWordId": "idelsohn1929-266-exo-12-21-10",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system2-piece3",
+          "sourceSystem": 2,
+          "sourcePosition": 3,
+          "candidateWordId": "exo-12-21-10",
+          "noteIds": [
+            "idelsohn1929-266-system2-component9",
+            "idelsohn1929-266-system2-component10"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-11",
+      "sourceWordId": "exo-12-21-11",
+      "sourceHebrew": "צֹ֛אן",
+      "printedWordId": "idelsohn1929-266-exo-12-21-11",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system2-piece4",
+          "sourceSystem": 2,
+          "sourcePosition": 4,
+          "candidateWordId": "exo-12-21-11",
+          "noteIds": [
+            "idelsohn1929-266-system2-component11",
+            "idelsohn1929-266-system2-component12",
+            "idelsohn1929-266-system2-component13",
+            "idelsohn1929-266-system2-component14",
+            "idelsohn1929-266-system2-component15"
+          ]
+        }
+      ],
+      "printedGroupCount": 1,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-12",
+      "sourceWordId": "exo-12-21-12",
+      "sourceHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "printedWordId": "idelsohn1929-266-exo-12-21-12",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system2-piece5",
+          "sourceSystem": 2,
+          "sourcePosition": 5,
+          "candidateWordId": "exo-12-21-12",
+          "noteIds": [
+            "idelsohn1929-266-system2-component16",
+            "idelsohn1929-266-system2-component17",
+            "idelsohn1929-266-system2-component18",
+            "idelsohn1929-266-system2-component19",
+            "idelsohn1929-266-system2-component20",
+            "idelsohn1929-266-system2-component21",
+            "idelsohn1929-266-system2-component22"
+          ]
+        }
+      ],
+      "printedGroupCount": 6,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-13",
+      "sourceWordId": "exo-12-21-13",
+      "sourceHebrew": "וְשַׁחֲט֥וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-21-13",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system2-piece6",
+          "sourceSystem": 2,
+          "sourcePosition": 6,
+          "candidateWordId": "exo-12-21-13",
+          "noteIds": [
+            "idelsohn1929-266-system2-component23",
+            "idelsohn1929-266-system2-component24",
+            "idelsohn1929-266-system2-component25",
+            "idelsohn1929-266-system2-component26"
+          ]
+        }
+      ],
+      "printedGroupCount": 4,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-21-14",
+      "sourceWordId": "exo-12-21-14",
+      "sourceHebrew": "הַפָּֽסַח׃",
+      "printedWordId": "idelsohn1929-266-exo-12-21-14",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system2-piece7",
+          "sourceSystem": 2,
+          "sourcePosition": 7,
+          "candidateWordId": "exo-12-21-14",
+          "noteIds": [
+            "idelsohn1929-266-system2-component27",
+            "idelsohn1929-266-system2-component28",
+            "idelsohn1929-266-system2-component29"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-1",
+      "sourceWordId": "exo-12-22-1",
+      "sourceHebrew": "וּלְקַחְתֶּ֞ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-1",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system3-piece1",
+          "sourceSystem": 3,
+          "sourcePosition": 1,
+          "candidateWordId": "exo-12-22-1",
+          "noteIds": [
+            "idelsohn1929-266-system3-component1",
+            "idelsohn1929-266-system3-component2",
+            "idelsohn1929-266-system3-component3",
+            "idelsohn1929-266-system3-component4",
+            "idelsohn1929-266-system3-component5",
+            "idelsohn1929-266-system3-component6",
+            "idelsohn1929-266-system3-component7"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-2",
+      "sourceWordId": "exo-12-22-2",
+      "sourceHebrew": "אֲגֻדַּ֣ת",
+      "printedWordId": "idelsohn1929-266-exo-12-22-2",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system3-piece2",
+          "sourceSystem": 3,
+          "sourcePosition": 2,
+          "candidateWordId": "exo-12-22-2",
+          "noteIds": [
+            "idelsohn1929-266-system3-component8",
+            "idelsohn1929-266-system3-component9",
+            "idelsohn1929-266-system3-component10"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-3",
+      "sourceWordId": "exo-12-22-3",
+      "sourceHebrew": "אֵז֗וֹב",
+      "printedWordId": "idelsohn1929-266-exo-12-22-3",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system3-piece3",
+          "sourceSystem": 3,
+          "sourcePosition": 3,
+          "candidateWordId": "exo-12-22-3",
+          "noteIds": [
+            "idelsohn1929-266-system3-component11",
+            "idelsohn1929-266-system3-component12",
+            "idelsohn1929-266-system3-component13",
+            "idelsohn1929-266-system3-component14",
+            "idelsohn1929-266-system3-component15",
+            "idelsohn1929-266-system3-component16"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-4",
+      "sourceWordId": "exo-12-22-4",
+      "sourceHebrew": "וּטְבַלְתֶּם֮",
+      "printedWordId": "idelsohn1929-266-exo-12-22-4",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system3-piece4",
+          "sourceSystem": 3,
+          "sourcePosition": 4,
+          "candidateWordId": "exo-12-22-4",
+          "noteIds": [
+            "idelsohn1929-266-system3-component17",
+            "idelsohn1929-266-system3-component18",
+            "idelsohn1929-266-system3-component19",
+            "idelsohn1929-266-system3-component20",
+            "idelsohn1929-266-system3-component21",
+            "idelsohn1929-266-system3-component22",
+            "idelsohn1929-266-system3-component23"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-5",
+      "sourceWordId": "exo-12-22-5",
+      "sourceHebrew": "בַּדָּ֣ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-5",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system3-piece5",
+          "sourceSystem": 3,
+          "sourcePosition": 5,
+          "candidateWordId": "exo-12-22-5",
+          "noteIds": [
+            "idelsohn1929-266-system3-component24"
+          ]
+        },
+        {
+          "id": "idelsohn1929-266-system4-piece1",
+          "sourceSystem": 4,
+          "sourcePosition": 1,
+          "candidateWordId": "exo-12-22-5",
+          "noteIds": [
+            "idelsohn1929-266-system4-component1",
+            "idelsohn1929-266-system4-component2"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-6",
+      "sourceWordId": "exo-12-22-6",
+      "sourceHebrew": "אֲשֶׁר־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-6",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece2",
+          "sourceSystem": 4,
+          "sourcePosition": 2,
+          "candidateWordId": "exo-12-22-6",
+          "noteIds": [
+            "idelsohn1929-266-system4-component3",
+            "idelsohn1929-266-system4-component4"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-7",
+      "sourceWordId": "exo-12-22-7",
+      "sourceHebrew": "בַּסַּף֒",
+      "printedWordId": "idelsohn1929-266-exo-12-22-7",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece3",
+          "sourceSystem": 4,
+          "sourcePosition": 3,
+          "candidateWordId": "exo-12-22-7",
+          "noteIds": [
+            "idelsohn1929-266-system4-component5",
+            "idelsohn1929-266-system4-component6"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-8",
+      "sourceWordId": "exo-12-22-8",
+      "sourceHebrew": "וְהִגַּעְתֶּ֤ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-8",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece4",
+          "sourceSystem": 4,
+          "sourcePosition": 4,
+          "candidateWordId": "exo-12-22-8",
+          "noteIds": [
+            "idelsohn1929-266-system4-component8",
+            "idelsohn1929-266-system4-component9",
+            "idelsohn1929-266-system4-component10",
+            "idelsohn1929-266-system4-component11"
+          ]
+        }
+      ],
+      "printedGroupCount": 4,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-9",
+      "sourceWordId": "exo-12-22-9",
+      "sourceHebrew": "אֶל־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-9",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece5",
+          "sourceSystem": 4,
+          "sourcePosition": 5,
+          "candidateWordId": "exo-12-22-9",
+          "noteIds": [
+            "idelsohn1929-266-system4-component12"
+          ]
+        }
+      ],
+      "printedGroupCount": 1,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-10",
+      "sourceWordId": "exo-12-22-10",
+      "sourceHebrew": "הַמַּשְׁקוֹף֙",
+      "printedWordId": "idelsohn1929-266-exo-12-22-10",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece6",
+          "sourceSystem": 4,
+          "sourcePosition": 6,
+          "candidateWordId": "exo-12-22-10",
+          "noteIds": [
+            "idelsohn1929-266-system4-component13",
+            "idelsohn1929-266-system4-component14",
+            "idelsohn1929-266-system4-component15"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-11",
+      "sourceWordId": "exo-12-22-11",
+      "sourceHebrew": "וְאֶל־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-11",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece7",
+          "sourceSystem": 4,
+          "sourcePosition": 7,
+          "candidateWordId": "exo-12-22-11",
+          "noteIds": [
+            "idelsohn1929-266-system4-component16",
+            "idelsohn1929-266-system4-component17"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-12",
+      "sourceWordId": "exo-12-22-12",
+      "sourceHebrew": "שְׁתֵּ֣י",
+      "printedWordId": "idelsohn1929-266-exo-12-22-12",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece8",
+          "sourceSystem": 4,
+          "sourcePosition": 8,
+          "candidateWordId": "exo-12-22-12",
+          "noteIds": [
+            "idelsohn1929-266-system4-component18",
+            "idelsohn1929-266-system4-component19"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-13",
+      "sourceWordId": "exo-12-22-13",
+      "sourceHebrew": "הַמְּזוּזֹ֔ת",
+      "printedWordId": "idelsohn1929-266-exo-12-22-13",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece9",
+          "sourceSystem": 4,
+          "sourcePosition": 9,
+          "candidateWordId": "exo-12-22-13",
+          "noteIds": [
+            "idelsohn1929-266-system4-component20",
+            "idelsohn1929-266-system4-component21",
+            "idelsohn1929-266-system4-component22",
+            "idelsohn1929-266-system4-component23"
+          ]
+        }
+      ],
+      "printedGroupCount": 4,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-14",
+      "sourceWordId": "exo-12-22-14",
+      "sourceHebrew": "מִן־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-14",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece10",
+          "sourceSystem": 4,
+          "sourcePosition": 10,
+          "candidateWordId": "exo-12-22-14",
+          "noteIds": [
+            "idelsohn1929-266-system4-component24"
+          ]
+        }
+      ],
+      "printedGroupCount": 1,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-15",
+      "sourceWordId": "exo-12-22-15",
+      "sourceHebrew": "הַדָּ֖ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-15",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system4-piece11",
+          "sourceSystem": 4,
+          "sourcePosition": 11,
+          "candidateWordId": "exo-12-22-15",
+          "noteIds": [
+            "idelsohn1929-266-system4-component25",
+            "idelsohn1929-266-system4-component26"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-16",
+      "sourceWordId": "exo-12-22-16",
+      "sourceHebrew": "אֲשֶׁ֣ר",
+      "printedWordId": "idelsohn1929-266-exo-12-22-16",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece1",
+          "sourceSystem": 5,
+          "sourcePosition": 1,
+          "candidateWordId": "exo-12-22-16",
+          "noteIds": [
+            "idelsohn1929-266-system5-component1",
+            "idelsohn1929-266-system5-component2"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-17",
+      "sourceWordId": "exo-12-22-17",
+      "sourceHebrew": "בַּסָּ֑ף",
+      "printedWordId": "idelsohn1929-266-exo-12-22-17",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece2",
+          "sourceSystem": 5,
+          "sourcePosition": 2,
+          "candidateWordId": "exo-12-22-17",
+          "noteIds": [
+            "idelsohn1929-266-system5-component3",
+            "idelsohn1929-266-system5-component4"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-18",
+      "sourceWordId": "exo-12-22-18",
+      "sourceHebrew": "וְאַתֶּ֗ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-18",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece3",
+          "sourceSystem": 5,
+          "sourcePosition": 3,
+          "candidateWordId": "exo-12-22-18",
+          "noteIds": [
+            "idelsohn1929-266-system5-component5",
+            "idelsohn1929-266-system5-component6",
+            "idelsohn1929-266-system5-component7",
+            "idelsohn1929-266-system5-component8",
+            "idelsohn1929-266-system5-component9",
+            "idelsohn1929-266-system5-component10",
+            "idelsohn1929-266-system5-component11"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-19",
+      "sourceWordId": "exo-12-22-19",
+      "sourceHebrew": "לֹ֥א",
+      "printedWordId": "idelsohn1929-266-exo-12-22-19",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece4",
+          "sourceSystem": 5,
+          "sourcePosition": 4,
+          "candidateWordId": "exo-12-22-19",
+          "noteIds": [
+            "idelsohn1929-266-system5-component12",
+            "idelsohn1929-266-system5-component13"
+          ]
+        }
+      ],
+      "printedGroupCount": 1,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-20",
+      "sourceWordId": "exo-12-22-20",
+      "sourceHebrew": "תֵצְא֛וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-22-20",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece5",
+          "sourceSystem": 5,
+          "sourcePosition": 5,
+          "candidateWordId": "exo-12-22-20",
+          "noteIds": [
+            "idelsohn1929-266-system5-component14",
+            "idelsohn1929-266-system5-component15",
+            "idelsohn1929-266-system5-component16",
+            "idelsohn1929-266-system5-component17",
+            "idelsohn1929-266-system5-component18",
+            "idelsohn1929-266-system5-component19",
+            "idelsohn1929-266-system5-component20"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-21",
+      "sourceWordId": "exo-12-22-21",
+      "sourceHebrew": "אִ֥ישׁ",
+      "printedWordId": "idelsohn1929-266-exo-12-22-21",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece6",
+          "sourceSystem": 5,
+          "sourcePosition": 6,
+          "candidateWordId": "exo-12-22-21",
+          "noteIds": [
+            "idelsohn1929-266-system5-component21"
+          ]
+        }
+      ],
+      "printedGroupCount": 1,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-22",
+      "sourceWordId": "exo-12-22-22",
+      "sourceHebrew": "מִפֶּֽתַח־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-22",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece7",
+          "sourceSystem": 5,
+          "sourcePosition": 7,
+          "candidateWordId": "exo-12-22-22",
+          "noteIds": [
+            "idelsohn1929-266-system5-component22",
+            "idelsohn1929-266-system5-component23",
+            "idelsohn1929-266-system5-component24"
+          ]
+        }
+      ],
+      "printedGroupCount": 3,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-23",
+      "sourceWordId": "exo-12-22-23",
+      "sourceHebrew": "בֵּית֖וֹ",
+      "printedWordId": "idelsohn1929-266-exo-12-22-23",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece8",
+          "sourceSystem": 5,
+          "sourcePosition": 8,
+          "candidateWordId": "exo-12-22-23",
+          "noteIds": [
+            "idelsohn1929-266-system5-component25",
+            "idelsohn1929-266-system5-component26"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-24",
+      "sourceWordId": "exo-12-22-24",
+      "sourceHebrew": "עַד־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-24",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece9",
+          "sourceSystem": 5,
+          "sourcePosition": 9,
+          "candidateWordId": "exo-12-22-24",
+          "noteIds": [
+            "idelsohn1929-266-system5-component27"
+          ]
+        }
+      ],
+      "printedGroupCount": 1,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "exo-12-22-25",
+      "sourceWordId": "exo-12-22-25",
+      "sourceHebrew": "בֹּֽקֶר׃",
+      "printedWordId": "idelsohn1929-266-exo-12-22-25",
+      "sourcePieces": [
+        {
+          "id": "idelsohn1929-266-system5-piece10",
+          "sourceSystem": 5,
+          "sourcePosition": 10,
+          "candidateWordId": "exo-12-22-25",
+          "noteIds": [
+            "idelsohn1929-266-system5-component28",
+            "idelsohn1929-266-system5-component29"
+          ]
+        }
+      ],
+      "printedGroupCount": 2,
+      "printedPhoneticUnicode": null,
+      "acceptedMamSyllableMapping": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    }
+  ],
+  "sourcePieces": [
+    {
+      "id": "idelsohn1929-266-system1-piece1",
+      "sourceSystem": 1,
+      "sourcePosition": 1,
+      "candidateWordId": "exo-12-21-1",
+      "noteIds": [
+        "idelsohn1929-266-system1-component1",
+        "idelsohn1929-266-system1-component2",
+        "idelsohn1929-266-system1-component3"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece2",
+      "sourceSystem": 1,
+      "sourcePosition": 2,
+      "candidateWordId": "exo-12-21-2",
+      "noteIds": [
+        "idelsohn1929-266-system1-component4",
+        "idelsohn1929-266-system1-component5",
+        "idelsohn1929-266-system1-component6",
+        "idelsohn1929-266-system1-component7",
+        "idelsohn1929-266-system1-component8",
+        "idelsohn1929-266-system1-component9"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece3",
+      "sourceSystem": 1,
+      "sourcePosition": 3,
+      "candidateWordId": "exo-12-21-3",
+      "noteIds": [
+        "idelsohn1929-266-system1-component10",
+        "idelsohn1929-266-system1-component11"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece4",
+      "sourceSystem": 1,
+      "sourcePosition": 4,
+      "candidateWordId": "exo-12-21-4",
+      "noteIds": [
+        "idelsohn1929-266-system1-component12",
+        "idelsohn1929-266-system1-component13"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece5",
+      "sourceSystem": 1,
+      "sourcePosition": 5,
+      "candidateWordId": "exo-12-21-5",
+      "noteIds": [
+        "idelsohn1929-266-system1-component14",
+        "idelsohn1929-266-system1-component15",
+        "idelsohn1929-266-system1-component16",
+        "idelsohn1929-266-system1-component17"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece6",
+      "sourceSystem": 1,
+      "sourcePosition": 6,
+      "candidateWordId": "exo-12-21-6",
+      "noteIds": [
+        "idelsohn1929-266-system1-component18",
+        "idelsohn1929-266-system1-component19",
+        "idelsohn1929-266-system1-component20"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece7",
+      "sourceSystem": 1,
+      "sourcePosition": 7,
+      "candidateWordId": "exo-12-21-7",
+      "noteIds": [
+        "idelsohn1929-266-system1-component21",
+        "idelsohn1929-266-system1-component22",
+        "idelsohn1929-266-system1-component23"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system1-piece8",
+      "sourceSystem": 1,
+      "sourcePosition": 8,
+      "candidateWordId": "exo-12-21-8",
+      "noteIds": [
+        "idelsohn1929-266-system1-component24"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece1",
+      "sourceSystem": 2,
+      "sourcePosition": 1,
+      "candidateWordId": "exo-12-21-8",
+      "noteIds": [
+        "idelsohn1929-266-system2-component1",
+        "idelsohn1929-266-system2-component2",
+        "idelsohn1929-266-system2-component3",
+        "idelsohn1929-266-system2-component4",
+        "idelsohn1929-266-system2-component5"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece2",
+      "sourceSystem": 2,
+      "sourcePosition": 2,
+      "candidateWordId": "exo-12-21-9",
+      "noteIds": [
+        "idelsohn1929-266-system2-component6",
+        "idelsohn1929-266-system2-component7",
+        "idelsohn1929-266-system2-component8"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece3",
+      "sourceSystem": 2,
+      "sourcePosition": 3,
+      "candidateWordId": "exo-12-21-10",
+      "noteIds": [
+        "idelsohn1929-266-system2-component9",
+        "idelsohn1929-266-system2-component10"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece4",
+      "sourceSystem": 2,
+      "sourcePosition": 4,
+      "candidateWordId": "exo-12-21-11",
+      "noteIds": [
+        "idelsohn1929-266-system2-component11",
+        "idelsohn1929-266-system2-component12",
+        "idelsohn1929-266-system2-component13",
+        "idelsohn1929-266-system2-component14",
+        "idelsohn1929-266-system2-component15"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece5",
+      "sourceSystem": 2,
+      "sourcePosition": 5,
+      "candidateWordId": "exo-12-21-12",
+      "noteIds": [
+        "idelsohn1929-266-system2-component16",
+        "idelsohn1929-266-system2-component17",
+        "idelsohn1929-266-system2-component18",
+        "idelsohn1929-266-system2-component19",
+        "idelsohn1929-266-system2-component20",
+        "idelsohn1929-266-system2-component21",
+        "idelsohn1929-266-system2-component22"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece6",
+      "sourceSystem": 2,
+      "sourcePosition": 6,
+      "candidateWordId": "exo-12-21-13",
+      "noteIds": [
+        "idelsohn1929-266-system2-component23",
+        "idelsohn1929-266-system2-component24",
+        "idelsohn1929-266-system2-component25",
+        "idelsohn1929-266-system2-component26"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system2-piece7",
+      "sourceSystem": 2,
+      "sourcePosition": 7,
+      "candidateWordId": "exo-12-21-14",
+      "noteIds": [
+        "idelsohn1929-266-system2-component27",
+        "idelsohn1929-266-system2-component28",
+        "idelsohn1929-266-system2-component29"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system3-piece1",
+      "sourceSystem": 3,
+      "sourcePosition": 1,
+      "candidateWordId": "exo-12-22-1",
+      "noteIds": [
+        "idelsohn1929-266-system3-component1",
+        "idelsohn1929-266-system3-component2",
+        "idelsohn1929-266-system3-component3",
+        "idelsohn1929-266-system3-component4",
+        "idelsohn1929-266-system3-component5",
+        "idelsohn1929-266-system3-component6",
+        "idelsohn1929-266-system3-component7"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system3-piece2",
+      "sourceSystem": 3,
+      "sourcePosition": 2,
+      "candidateWordId": "exo-12-22-2",
+      "noteIds": [
+        "idelsohn1929-266-system3-component8",
+        "idelsohn1929-266-system3-component9",
+        "idelsohn1929-266-system3-component10"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system3-piece3",
+      "sourceSystem": 3,
+      "sourcePosition": 3,
+      "candidateWordId": "exo-12-22-3",
+      "noteIds": [
+        "idelsohn1929-266-system3-component11",
+        "idelsohn1929-266-system3-component12",
+        "idelsohn1929-266-system3-component13",
+        "idelsohn1929-266-system3-component14",
+        "idelsohn1929-266-system3-component15",
+        "idelsohn1929-266-system3-component16"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system3-piece4",
+      "sourceSystem": 3,
+      "sourcePosition": 4,
+      "candidateWordId": "exo-12-22-4",
+      "noteIds": [
+        "idelsohn1929-266-system3-component17",
+        "idelsohn1929-266-system3-component18",
+        "idelsohn1929-266-system3-component19",
+        "idelsohn1929-266-system3-component20",
+        "idelsohn1929-266-system3-component21",
+        "idelsohn1929-266-system3-component22",
+        "idelsohn1929-266-system3-component23"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system3-piece5",
+      "sourceSystem": 3,
+      "sourcePosition": 5,
+      "candidateWordId": "exo-12-22-5",
+      "noteIds": [
+        "idelsohn1929-266-system3-component24"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece1",
+      "sourceSystem": 4,
+      "sourcePosition": 1,
+      "candidateWordId": "exo-12-22-5",
+      "noteIds": [
+        "idelsohn1929-266-system4-component1",
+        "idelsohn1929-266-system4-component2"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece2",
+      "sourceSystem": 4,
+      "sourcePosition": 2,
+      "candidateWordId": "exo-12-22-6",
+      "noteIds": [
+        "idelsohn1929-266-system4-component3",
+        "idelsohn1929-266-system4-component4"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece3",
+      "sourceSystem": 4,
+      "sourcePosition": 3,
+      "candidateWordId": "exo-12-22-7",
+      "noteIds": [
+        "idelsohn1929-266-system4-component5",
+        "idelsohn1929-266-system4-component6"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece4",
+      "sourceSystem": 4,
+      "sourcePosition": 4,
+      "candidateWordId": "exo-12-22-8",
+      "noteIds": [
+        "idelsohn1929-266-system4-component8",
+        "idelsohn1929-266-system4-component9",
+        "idelsohn1929-266-system4-component10",
+        "idelsohn1929-266-system4-component11"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece5",
+      "sourceSystem": 4,
+      "sourcePosition": 5,
+      "candidateWordId": "exo-12-22-9",
+      "noteIds": [
+        "idelsohn1929-266-system4-component12"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece6",
+      "sourceSystem": 4,
+      "sourcePosition": 6,
+      "candidateWordId": "exo-12-22-10",
+      "noteIds": [
+        "idelsohn1929-266-system4-component13",
+        "idelsohn1929-266-system4-component14",
+        "idelsohn1929-266-system4-component15"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece7",
+      "sourceSystem": 4,
+      "sourcePosition": 7,
+      "candidateWordId": "exo-12-22-11",
+      "noteIds": [
+        "idelsohn1929-266-system4-component16",
+        "idelsohn1929-266-system4-component17"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece8",
+      "sourceSystem": 4,
+      "sourcePosition": 8,
+      "candidateWordId": "exo-12-22-12",
+      "noteIds": [
+        "idelsohn1929-266-system4-component18",
+        "idelsohn1929-266-system4-component19"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece9",
+      "sourceSystem": 4,
+      "sourcePosition": 9,
+      "candidateWordId": "exo-12-22-13",
+      "noteIds": [
+        "idelsohn1929-266-system4-component20",
+        "idelsohn1929-266-system4-component21",
+        "idelsohn1929-266-system4-component22",
+        "idelsohn1929-266-system4-component23"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece10",
+      "sourceSystem": 4,
+      "sourcePosition": 10,
+      "candidateWordId": "exo-12-22-14",
+      "noteIds": [
+        "idelsohn1929-266-system4-component24"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system4-piece11",
+      "sourceSystem": 4,
+      "sourcePosition": 11,
+      "candidateWordId": "exo-12-22-15",
+      "noteIds": [
+        "idelsohn1929-266-system4-component25",
+        "idelsohn1929-266-system4-component26"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece1",
+      "sourceSystem": 5,
+      "sourcePosition": 1,
+      "candidateWordId": "exo-12-22-16",
+      "noteIds": [
+        "idelsohn1929-266-system5-component1",
+        "idelsohn1929-266-system5-component2"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece2",
+      "sourceSystem": 5,
+      "sourcePosition": 2,
+      "candidateWordId": "exo-12-22-17",
+      "noteIds": [
+        "idelsohn1929-266-system5-component3",
+        "idelsohn1929-266-system5-component4"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece3",
+      "sourceSystem": 5,
+      "sourcePosition": 3,
+      "candidateWordId": "exo-12-22-18",
+      "noteIds": [
+        "idelsohn1929-266-system5-component5",
+        "idelsohn1929-266-system5-component6",
+        "idelsohn1929-266-system5-component7",
+        "idelsohn1929-266-system5-component8",
+        "idelsohn1929-266-system5-component9",
+        "idelsohn1929-266-system5-component10",
+        "idelsohn1929-266-system5-component11"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece4",
+      "sourceSystem": 5,
+      "sourcePosition": 4,
+      "candidateWordId": "exo-12-22-19",
+      "noteIds": [
+        "idelsohn1929-266-system5-component12",
+        "idelsohn1929-266-system5-component13"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece5",
+      "sourceSystem": 5,
+      "sourcePosition": 5,
+      "candidateWordId": "exo-12-22-20",
+      "noteIds": [
+        "idelsohn1929-266-system5-component14",
+        "idelsohn1929-266-system5-component15",
+        "idelsohn1929-266-system5-component16",
+        "idelsohn1929-266-system5-component17",
+        "idelsohn1929-266-system5-component18",
+        "idelsohn1929-266-system5-component19",
+        "idelsohn1929-266-system5-component20"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece6",
+      "sourceSystem": 5,
+      "sourcePosition": 6,
+      "candidateWordId": "exo-12-22-21",
+      "noteIds": [
+        "idelsohn1929-266-system5-component21"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece7",
+      "sourceSystem": 5,
+      "sourcePosition": 7,
+      "candidateWordId": "exo-12-22-22",
+      "noteIds": [
+        "idelsohn1929-266-system5-component22",
+        "idelsohn1929-266-system5-component23",
+        "idelsohn1929-266-system5-component24"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece8",
+      "sourceSystem": 5,
+      "sourcePosition": 8,
+      "candidateWordId": "exo-12-22-23",
+      "noteIds": [
+        "idelsohn1929-266-system5-component25",
+        "idelsohn1929-266-system5-component26"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece9",
+      "sourceSystem": 5,
+      "sourcePosition": 9,
+      "candidateWordId": "exo-12-22-24",
+      "noteIds": [
+        "idelsohn1929-266-system5-component27"
+      ]
+    },
+    {
+      "id": "idelsohn1929-266-system5-piece10",
+      "sourceSystem": 5,
+      "sourcePosition": 10,
+      "candidateWordId": "exo-12-22-25",
+      "noteIds": [
+        "idelsohn1929-266-system5-component28",
+        "idelsohn1929-266-system5-component29"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "idelsohn1929-266-system1-component1",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-1",
+      "exactMarkedHebrew": "וַיִּקְרָ֥א",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component2",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-1",
+      "exactMarkedHebrew": "וַיִּקְרָ֥א",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component3",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-1",
+      "exactMarkedHebrew": "וַיִּקְרָ֥א",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component4",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-2",
+      "exactMarkedHebrew": "מֹשֶׁ֛ה",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component5",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-2",
+      "exactMarkedHebrew": "מֹשֶׁ֛ה",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component6",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-2",
+      "exactMarkedHebrew": "מֹשֶׁ֛ה",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system1-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component7",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-2",
+      "exactMarkedHebrew": "מֹשֶׁ֛ה",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system1-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component8",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-2",
+      "exactMarkedHebrew": "מֹשֶׁ֛ה",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system1-piece2",
+      "slur": {
+        "id": "idelsohn1929-266-system1-slur1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system1-component9",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-2",
+      "exactMarkedHebrew": "מֹשֶׁ֛ה",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece2",
+      "slur": {
+        "id": "idelsohn1929-266-system1-slur1",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system1-component10",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-3",
+      "exactMarkedHebrew": "לְכָל־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component11",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-3",
+      "exactMarkedHebrew": "לְכָל־",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component12",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-4",
+      "exactMarkedHebrew": "זִקְנֵ֥י",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component13",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-4",
+      "exactMarkedHebrew": "זִקְנֵ֥י",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component14",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-5",
+      "exactMarkedHebrew": "יִשְׂרָאֵ֖ל",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component15",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-5",
+      "exactMarkedHebrew": "יִשְׂרָאֵ֖ל",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component16",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-5",
+      "exactMarkedHebrew": "יִשְׂרָאֵ֖ל",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "sourcePieceId": "idelsohn1929-266-system1-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component17",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-5",
+      "exactMarkedHebrew": "יִשְׂרָאֵ֖ל",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system1-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component18",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-6",
+      "exactMarkedHebrew": "וַיֹּ֣אמֶר",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system1-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component19",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-6",
+      "exactMarkedHebrew": "וַיֹּ֣אמֶר",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component20",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-6",
+      "exactMarkedHebrew": "וַיֹּ֣אמֶר",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component21",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-7",
+      "exactMarkedHebrew": "אֲלֵהֶ֑ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component22",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-7",
+      "exactMarkedHebrew": "אֲלֵהֶ֑ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system1-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component23",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-7",
+      "exactMarkedHebrew": "אֲלֵהֶ֑ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system1-component24",
+      "kind": "note",
+      "sourceSystem": 1,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-8",
+      "exactMarkedHebrew": "מִֽשְׁכ֗וּ",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system1-piece8"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component1",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-8",
+      "exactMarkedHebrew": "מִֽשְׁכ֗וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system2-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur2",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component2",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-8",
+      "exactMarkedHebrew": "מִֽשְׁכ֗וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system2-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur2",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component3",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-8",
+      "exactMarkedHebrew": "מִֽשְׁכ֗וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "sourcePieceId": "idelsohn1929-266-system2-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur2",
+        "phase": "middle"
+      },
+      "accidentalEvidence": "Explicit printed natural on the B4 staff position, cancelling the one-flat key signature."
+    },
+    {
+      "id": "idelsohn1929-266-system2-component4",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-8",
+      "exactMarkedHebrew": "מִֽשְׁכ֗וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system2-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur2",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component5",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-8",
+      "exactMarkedHebrew": "מִֽשְׁכ֗וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur2",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component6",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-9",
+      "exactMarkedHebrew": "וּקְח֨וּ",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system2-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component7",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-9",
+      "exactMarkedHebrew": "וּקְח֨וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system2-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component8",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-9",
+      "exactMarkedHebrew": "וּקְח֨וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component9",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-10",
+      "exactMarkedHebrew": "לָכֶ֥ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component10",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-10",
+      "exactMarkedHebrew": "לָכֶ֥ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component11",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-11",
+      "exactMarkedHebrew": "צֹ֛אן",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component12",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-11",
+      "exactMarkedHebrew": "צֹ֛אן",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system2-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component13",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-11",
+      "exactMarkedHebrew": "צֹ֛אן",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system2-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component14",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-11",
+      "exactMarkedHebrew": "צֹ֛אן",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system2-piece4",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur3",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component15",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-11",
+      "exactMarkedHebrew": "צֹ֛אן",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece4",
+      "slur": {
+        "id": "idelsohn1929-266-system2-slur3",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component16",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component17",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component18",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component19",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 4,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component20",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 5,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component21",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 6,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component22",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-12",
+      "exactMarkedHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "sourcePrintedSyllableIndex": 6,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component23",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-13",
+      "exactMarkedHebrew": "וְשַׁחֲט֥וּ",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system2-piece6",
+      "tuplet": {
+        "id": "idelsohn1929-266-system2-tuplet1",
+        "phase": "start",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component24",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-13",
+      "exactMarkedHebrew": "וְשַׁחֲט֥וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system2-piece6",
+      "tuplet": {
+        "id": "idelsohn1929-266-system2-tuplet1",
+        "phase": "middle",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component25",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-13",
+      "exactMarkedHebrew": "וְשַׁחֲט֥וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system2-piece6",
+      "tuplet": {
+        "id": "idelsohn1929-266-system2-tuplet1",
+        "phase": "end",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system2-component26",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-13",
+      "exactMarkedHebrew": "וְשַׁחֲט֥וּ",
+      "sourcePrintedSyllableIndex": 4,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system2-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component27",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-14",
+      "exactMarkedHebrew": "הַפָּֽסַח׃",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system2-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component28",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-14",
+      "exactMarkedHebrew": "הַפָּֽסַח׃",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component29",
+      "kind": "note",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-21-14",
+      "exactMarkedHebrew": "הַפָּֽסַח׃",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system2-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system2-component30",
+      "kind": "rest",
+      "sourceSystem": 2,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": null,
+      "exactMarkedHebrew": null,
+      "sourcePrintedSyllableIndex": null,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "idelsohn1929-266-system3-component1",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component2",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component3",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur4",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component4",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur4",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component5",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur4",
+        "phase": "middle"
+      },
+      "accidentalEvidence": "Explicit printed natural on the B4 staff position, cancelling the one-flat key signature."
+    },
+    {
+      "id": "idelsohn1929-266-system3-component6",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur4",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component7",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-1",
+      "exactMarkedHebrew": "וּלְקַחְתֶּ֞ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece1",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur4",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component8",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-2",
+      "exactMarkedHebrew": "אֲגֻדַּ֣ת",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system3-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component9",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-2",
+      "exactMarkedHebrew": "אֲגֻדַּ֣ת",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system3-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component10",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-2",
+      "exactMarkedHebrew": "אֲגֻדַּ֣ת",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component11",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-3",
+      "exactMarkedHebrew": "אֵז֗וֹב",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component12",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-3",
+      "exactMarkedHebrew": "אֵז֗וֹב",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system3-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur5",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component13",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-3",
+      "exactMarkedHebrew": "אֵז֗וֹב",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system3-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur5",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component14",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-3",
+      "exactMarkedHebrew": "אֵז֗וֹב",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "sourcePieceId": "idelsohn1929-266-system3-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur5",
+        "phase": "middle"
+      },
+      "accidentalEvidence": "Explicit printed natural on the B4 staff position, cancelling the one-flat key signature."
+    },
+    {
+      "id": "idelsohn1929-266-system3-component15",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-3",
+      "exactMarkedHebrew": "אֵז֗וֹב",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system3-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur5",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component16",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-3",
+      "exactMarkedHebrew": "אֵז֗וֹב",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur5",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component17",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component18",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system3-component19",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": null,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4",
+      "sourceParenthetical": {
+        "enclosure": "parentheses",
+        "sourceRole": null,
+        "mandatoryPerformance": null,
+        "writtenQuarterBeats": 1,
+        "limits": "The A4 quarter is parenthesized between the bal and tem source fragments. Its performance role and precise source-group membership remain unassigned. A separate original literal-inclusion choice is required before instrument playback includes it."
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component20",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4",
+      "tuplet": {
+        "id": "idelsohn1929-266-system3-tuplet2",
+        "phase": "start",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component21",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4",
+      "tuplet": {
+        "id": "idelsohn1929-266-system3-tuplet2",
+        "phase": "middle",
+        "printedNumber": 3
+      },
+      "accidentalEvidence": "Candidate B-natural carry from the earlier explicit B-natural in the same unbarred source system; no intervening flat or barline. Source editorial-convention review remains pending.",
+      "accidentalConventionReview": null
+    },
+    {
+      "id": "idelsohn1929-266-system3-component22",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4",
+      "tuplet": {
+        "id": "idelsohn1929-266-system3-tuplet2",
+        "phase": "end",
+        "printedNumber": 3
+      },
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur6",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component23",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-4",
+      "exactMarkedHebrew": "וּטְבַלְתֶּם֮",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system3-piece4",
+      "slur": {
+        "id": "idelsohn1929-266-system3-slur6",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system3-component24",
+      "kind": "note",
+      "sourceSystem": 3,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-5",
+      "exactMarkedHebrew": "בַּדָּ֣ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system3-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component1",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-5",
+      "exactMarkedHebrew": "בַּדָּ֣ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system4-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component2",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-5",
+      "exactMarkedHebrew": "בַּדָּ֣ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system4-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component3",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-6",
+      "exactMarkedHebrew": "אֲשֶׁר־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system4-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component4",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-6",
+      "exactMarkedHebrew": "אֲשֶׁר־",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system4-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component5",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-7",
+      "exactMarkedHebrew": "בַּסַּף֒",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system4-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component6",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-7",
+      "exactMarkedHebrew": "בַּסַּף֒",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component7",
+      "kind": "rest",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": null,
+      "exactMarkedHebrew": null,
+      "sourcePrintedSyllableIndex": null,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "idelsohn1929-266-system4-component8",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-8",
+      "exactMarkedHebrew": "וְהִגַּעְתֶּ֤ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component9",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-8",
+      "exactMarkedHebrew": "וְהִגַּעְתֶּ֤ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component10",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-8",
+      "exactMarkedHebrew": "וְהִגַּעְתֶּ֤ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component11",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-8",
+      "exactMarkedHebrew": "וְהִגַּעְתֶּ֤ם",
+      "sourcePrintedSyllableIndex": 4,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system4-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component12",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-9",
+      "exactMarkedHebrew": "אֶל־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system4-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component13",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-10",
+      "exactMarkedHebrew": "הַמַּשְׁקוֹף֙",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "sourcePieceId": "idelsohn1929-266-system4-piece6",
+      "accidentalEvidence": "Explicit printed natural on the B4 staff position, cancelling the one-flat key signature."
+    },
+    {
+      "id": "idelsohn1929-266-system4-component14",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-10",
+      "exactMarkedHebrew": "הַמַּשְׁקוֹף֙",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system4-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component15",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-10",
+      "exactMarkedHebrew": "הַמַּשְׁקוֹף֙",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component16",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-11",
+      "exactMarkedHebrew": "וְאֶל־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component17",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-11",
+      "exactMarkedHebrew": "וְאֶל־",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece7"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component18",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-12",
+      "exactMarkedHebrew": "שְׁתֵּ֣י",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece8"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component19",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-12",
+      "exactMarkedHebrew": "שְׁתֵּ֣י",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece8"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component20",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-13",
+      "exactMarkedHebrew": "הַמְּזוּזֹ֔ת",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.16666666666666666,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 6
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system4-piece9",
+      "tuplet": {
+        "id": "idelsohn1929-266-system4-tuplet3",
+        "phase": "start",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system4-component21",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-13",
+      "exactMarkedHebrew": "הַמְּזוּזֹ֔ת",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.16666666666666666,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 6
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system4-piece9",
+      "tuplet": {
+        "id": "idelsohn1929-266-system4-tuplet3",
+        "phase": "middle",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system4-component22",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-13",
+      "exactMarkedHebrew": "הַמְּזוּזֹ֔ת",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.16666666666666666,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 6
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system4-piece9",
+      "tuplet": {
+        "id": "idelsohn1929-266-system4-tuplet3",
+        "phase": "end",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system4-component23",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-13",
+      "exactMarkedHebrew": "הַמְּזוּזֹ֔ת",
+      "sourcePrintedSyllableIndex": 4,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece9"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component24",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-14",
+      "exactMarkedHebrew": "מִן־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece10"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component25",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-15",
+      "exactMarkedHebrew": "הַדָּ֖ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece11"
+    },
+    {
+      "id": "idelsohn1929-266-system4-component26",
+      "kind": "note",
+      "sourceSystem": 4,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-15",
+      "exactMarkedHebrew": "הַדָּ֖ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system4-piece11"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component1",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-16",
+      "exactMarkedHebrew": "אֲשֶׁ֣ר",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component2",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-16",
+      "exactMarkedHebrew": "אֲשֶׁ֣ר",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system5-piece1"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component3",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-17",
+      "exactMarkedHebrew": "בַּסָּ֑ף",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component4",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-17",
+      "exactMarkedHebrew": "בַּסָּ֑ף",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece2"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component5",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component6",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component7",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur7",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component8",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur7",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component9",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur7",
+        "phase": "middle"
+      },
+      "accidentalEvidence": "Explicit printed natural on the B4 staff position, cancelling the one-flat key signature."
+    },
+    {
+      "id": "idelsohn1929-266-system5-component10",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur7",
+        "phase": "middle"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component11",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-18",
+      "exactMarkedHebrew": "וְאַתֶּ֗ם",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece3",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur7",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component12",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-19",
+      "exactMarkedHebrew": "לֹ֥א",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourcePieceId": "idelsohn1929-266-system5-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component13",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-19",
+      "exactMarkedHebrew": "לֹ֥א",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece4"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component14",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component15",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component16",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component17",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component18",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component19",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur8",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component20",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-20",
+      "exactMarkedHebrew": "תֵצְא֛וּ",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece5",
+      "slur": {
+        "id": "idelsohn1929-266-system5-slur8",
+        "phase": "end"
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component21",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-21",
+      "exactMarkedHebrew": "אִ֥ישׁ",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece6"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component22",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-22",
+      "exactMarkedHebrew": "מִפֶּֽתַח־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.16666666666666666,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 6
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece7",
+      "tuplet": {
+        "id": "idelsohn1929-266-system5-tuplet4",
+        "phase": "start",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component23",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-22",
+      "exactMarkedHebrew": "מִפֶּֽתַח־",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 3
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece7",
+      "tuplet": {
+        "id": "idelsohn1929-266-system5-tuplet4",
+        "phase": "middle",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component24",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-22",
+      "exactMarkedHebrew": "מִפֶּֽתַח־",
+      "sourcePrintedSyllableIndex": 3,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.16666666666666666,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 6
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece7",
+      "tuplet": {
+        "id": "idelsohn1929-266-system5-tuplet4",
+        "phase": "end",
+        "printedNumber": 3
+      }
+    },
+    {
+      "id": "idelsohn1929-266-system5-component25",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-23",
+      "exactMarkedHebrew": "בֵּית֖וֹ",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourcePieceId": "idelsohn1929-266-system5-piece8"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component26",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-23",
+      "exactMarkedHebrew": "בֵּית֖וֹ",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system5-piece8"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component27",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-24",
+      "exactMarkedHebrew": "עַד־",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "sixteenth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.375,
+      "quarterBeatFraction": {
+        "numerator": 3,
+        "denominator": 8
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePieceId": "idelsohn1929-266-system5-piece9"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component28",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-25",
+      "exactMarkedHebrew": "בֹּֽקֶר׃",
+      "sourcePrintedSyllableIndex": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "quarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePieceId": "idelsohn1929-266-system5-piece10"
+    },
+    {
+      "id": "idelsohn1929-266-system5-component29",
+      "kind": "note",
+      "sourceSystem": 5,
+      "sourcePdfPage": 104,
+      "sourcePrintedPage": 101,
+      "candidateWordId": "exo-12-22-25",
+      "exactMarkedHebrew": "בֹּֽקֶר׃",
+      "sourcePrintedSyllableIndex": 2,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": null,
+      "quarterBeatFraction": null,
+      "acceptedMamSyllableId": null,
+      "acceptedPhonemes": null,
+      "independentReview": null,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "sourcePieceId": "idelsohn1929-266-system5-piece10",
+      "printedSmallNote": {
+        "type": "eighth",
+        "slash": null,
+        "role": null,
+        "sourceDuration": null,
+        "stealingRatio": null,
+        "limits": "Small C4 eighth aligns with the second printed group of the final word. Source duration and ornament role remain unassigned. Printed ordinal is not a Hebrew/MAM phonetic mapping."
+      }
+    }
+  ],
+  "tuplets": [
+    {
+      "id": "idelsohn1929-266-system2-tuplet1",
+      "sourceSystem": 2,
+      "printedNumber": 3,
+      "componentIds": [
+        "idelsohn1929-266-system2-component23",
+        "idelsohn1929-266-system2-component24",
+        "idelsohn1929-266-system2-component25"
+      ],
+      "writtenTypes": [
+        "eighth",
+        "eighth",
+        "eighth"
+      ],
+      "literal3to2QuarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "historicalTimingReview": null,
+      "limits": "Conventional literal3:2 instrument reading, regular user tempo; no adjustment of unequal written values or claim of historical timing."
+    },
+    {
+      "id": "idelsohn1929-266-system3-tuplet2",
+      "sourceSystem": 3,
+      "printedNumber": 3,
+      "componentIds": [
+        "idelsohn1929-266-system3-component20",
+        "idelsohn1929-266-system3-component21",
+        "idelsohn1929-266-system3-component22"
+      ],
+      "writtenTypes": [
+        "eighth",
+        "eighth",
+        "eighth"
+      ],
+      "literal3to2QuarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "historicalTimingReview": null,
+      "limits": "Conventional literal3:2 instrument reading, regular user tempo; no adjustment of unequal written values or claim of historical timing."
+    },
+    {
+      "id": "idelsohn1929-266-system4-tuplet3",
+      "sourceSystem": 4,
+      "printedNumber": 3,
+      "componentIds": [
+        "idelsohn1929-266-system4-component20",
+        "idelsohn1929-266-system4-component21",
+        "idelsohn1929-266-system4-component22"
+      ],
+      "writtenTypes": [
+        "sixteenth",
+        "sixteenth",
+        "sixteenth"
+      ],
+      "literal3to2QuarterBeatFraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "historicalTimingReview": null,
+      "limits": "Conventional literal3:2 instrument reading, regular user tempo; no adjustment of unequal written values or claim of historical timing."
+    },
+    {
+      "id": "idelsohn1929-266-system5-tuplet4",
+      "sourceSystem": 5,
+      "printedNumber": 3,
+      "componentIds": [
+        "idelsohn1929-266-system5-component22",
+        "idelsohn1929-266-system5-component23",
+        "idelsohn1929-266-system5-component24"
+      ],
+      "writtenTypes": [
+        "sixteenth",
+        "eighth",
+        "sixteenth"
+      ],
+      "literal3to2QuarterBeatFraction": {
+        "numerator": 2,
+        "denominator": 3
+      },
+      "historicalTimingReview": null,
+      "limits": "Conventional literal3:2 instrument reading, regular user tempo; no adjustment of unequal written values or claim of historical timing."
+    }
+  ],
+  "slurs": [
+    {
+      "id": "idelsohn1929-266-system1-slur1",
+      "componentIds": [
+        "idelsohn1929-266-system1-component8",
+        "idelsohn1929-266-system1-component9"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system2-slur2",
+      "componentIds": [
+        "idelsohn1929-266-system2-component1",
+        "idelsohn1929-266-system2-component2",
+        "idelsohn1929-266-system2-component3",
+        "idelsohn1929-266-system2-component4",
+        "idelsohn1929-266-system2-component5"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system2-slur3",
+      "componentIds": [
+        "idelsohn1929-266-system2-component14",
+        "idelsohn1929-266-system2-component15"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system3-slur4",
+      "componentIds": [
+        "idelsohn1929-266-system3-component3",
+        "idelsohn1929-266-system3-component4",
+        "idelsohn1929-266-system3-component5",
+        "idelsohn1929-266-system3-component6",
+        "idelsohn1929-266-system3-component7"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system3-slur5",
+      "componentIds": [
+        "idelsohn1929-266-system3-component12",
+        "idelsohn1929-266-system3-component13",
+        "idelsohn1929-266-system3-component14",
+        "idelsohn1929-266-system3-component15",
+        "idelsohn1929-266-system3-component16"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system3-slur6",
+      "componentIds": [
+        "idelsohn1929-266-system3-component22",
+        "idelsohn1929-266-system3-component23"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system5-slur7",
+      "componentIds": [
+        "idelsohn1929-266-system5-component7",
+        "idelsohn1929-266-system5-component8",
+        "idelsohn1929-266-system5-component9",
+        "idelsohn1929-266-system5-component10",
+        "idelsohn1929-266-system5-component11"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    },
+    {
+      "id": "idelsohn1929-266-system5-slur8",
+      "componentIds": [
+        "idelsohn1929-266-system5-component19",
+        "idelsohn1929-266-system5-component20"
+      ],
+      "sourceKind": "slur",
+      "tie": false
+    }
+  ],
+  "counts": {
+    "words": 39,
+    "physicalWordPieces": 41,
+    "pitches": 131,
+    "rests": 2,
+    "components": 133,
+    "printedGroups": 95,
+    "source32ndNotes": 10,
+    "tuplets": 4,
+    "slurs": 8,
+    "ties": 0,
+    "dottedNotes": 16,
+    "smallNotesWithUnassignedDuration": 1,
+    "parenthesizedQuartersWithUnassignedRole": 1,
+    "knownQuarterBeatFraction": {
+      "numerator": 1429,
+      "denominator": 24
+    }
+  },
+  "independentReview": null,
+  "acceptedWordFits": null,
+  "acceptedMamSyllableMapping": null,
+  "acceptedPhonemes": null,
+  "printedPhoneticUnicode": null,
+  "actualTuning": null,
+  "sourceRecording": null,
+  "sourceTempo": null,
+  "kinnorEquivalent": null,
+  "contextualGrammar": null,
+  "limits": [
+    "New candidate transcription/lexical source-word study only; no reviewed traditional realization or full Torah grammar.",
+    "Preserve all marked Hebrew,39word IDs, two cross-system words, source rests,32nd glyphs, dots, slurs, unequal tuplets and explicit/null source fields.",
+    "Printed source-group ordinals do not certify Hebrew/MAM syllable or phoneme fitting; raw Latin Unicode is unassigned.",
+    "The parenthesized A4 quarter has unknown performance role and source-group membership. Do not silently add/omit it in playback; original literal-inclusion choice is separate from source facts.",
+    "The final small C4 eighth aligns with final-word printed ordinal2; its duration/ornament role/stealing ratio remain unassigned. Do not apply the untexted No268/No267 guard.",
+    "The unequal printed3 figure16th/eighth/16th is retained exactly. Conventional3:2 instrument timing is not regularized into an easier metrical total.",
+    "Modern12-TET instrument pitches, regular user tempo and articulation are approximations. No source recording, reviewed voice, narrower locality/performer or Kinnor equivalence established."
+  ]
+}

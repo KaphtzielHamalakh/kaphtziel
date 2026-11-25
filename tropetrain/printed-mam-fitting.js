@@ -8,6 +8,7 @@ const canonical=w=>w?.sourceWordId??w?.id;
 const wordOrder=new Map(FIT_SOURCES.words.map((w,i)=>[w.sourceWordId,i]));
 const origins=new Set(['manual','original-ordinal-proposal','original-whole-word-proposal']);
 export const FIT_IDENTITY=Object.freeze({sourceRecord:'docs/PRINTED-MAM-FITTING-SOURCES.json',sourceSha256:FIT_SOURCES_SHA256,printedScoreId:FIT_SOURCES.printedScoreId,printedUnderlayId:FIT_SOURCES.printedUnderlayId,mamSourceCommit:FIT_SOURCES.mamSource.sourceCommit,sourceInputs:copy(FIT_SOURCES.sources),markedWords:FIT_SOURCES.words.map(w=>[w.sourceWordId,w.sourceHebrew])});
+export const isFittingProfile=profile=>profile?.id===FIT_IDENTITY.printedScoreId;
 const rootKeys=['schema','revision','source','bindings','acceptedMapping','phonemes','audioTimes','voice','review'];
 const bindingKeys=['sourceWordId','printedStart','printedEnd','mamStart','mamEnd','origin','comment'];
 function keys(value,expected,label){if(!value||typeof value!=='object'||Array.isArray(value)||!equal(Object.keys(value).sort(),[...expected].sort()))throw Error(label+' has unexpected or missing fields.');}
