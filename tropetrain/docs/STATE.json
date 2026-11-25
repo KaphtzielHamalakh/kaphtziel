@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "adeda5a8a99879687bc15f3c4ca61dca81ad3b32",
-  "nextTask": "Publish tested0.94 app-only withfreshconnectedmainlease; verifyPages/livebytes andownedpublicnormal/portable withouteditingNo266/No268orwordtimingdrafts. Savefinalrecords/pointer. Nextbroaderdifferentmelody: source-specificItamarMalkaMoroccan/IsraeliGenesis2:4–19 originalverified, pendingreview; fullTorahcontextualgrammars/sixvoices remainrequired, printingdeferred.",
+  "publishedCommit": "65176f31d19b8105071f4693dc81a91d1a79750b",
+  "nextTask": "Finishrecords-onlypublication/savedrelease/pointer. Next broaderdifferentmelody: ItamarMalka catalogedMoroccanmelody/IsraelipronunciationGenesis2:4–19, originalmetadata/bytes/nativeclockverified privately. Establishsource-content/edition andsource-specificreaderbinding withblankdrafts/unreviewedcontexts, notnewgrammar. Continue fullTorahcontextualmelody andsixindependentlyreviewedpronunciation/singingrealizations; preserveall21features/6requirements, exactHebrew/sourcegaps/drafts. Printingdeferred.",
   "lastPassingTests": {
     "automated": 851,
     "newRegressionChecks": 7,
@@ -18,8 +18,8 @@
     "localPerApp": 54,
     "newLocalPerApp": 49,
     "priorOpeningPerApp": 5,
-    "publicUiChecks": 0,
-    "publicPhase": "pending0.94;accepted0.93 retained",
+    "publicUiChecks": 92,
+    "publicPhase": "accepted0.94",
     "sourceInputPins": 415,
     "personalFittingSourcePins": {
       "No266": 6,
@@ -33,7 +33,14 @@
     "initialCompoundExitCode": 1,
     "initialSuitePass": 850,
     "initialDistributionFailures": 1,
-    "finalTestsSession": 51909
+    "finalTestsSession": 51909,
+    "publicUiPerApp": {
+      "normal": 46,
+      "portable": 46
+    },
+    "pagesRun": 45617859398,
+    "liveCodeFiles": 38,
+    "liveCodeBytes": 137561483
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -182,14 +189,14 @@
     }
   },
   "lastDeployment": {
-    "version": "0.93.0",
-    "codeCommit": "adeda5a8a99879687bc15f3c4ca61dca81ad3b32",
-    "parent": "f602313d574203595df9661f9717a6fcd7a78243",
-    "pagesRun": 45602563245,
+    "version": "0.94.0",
+    "codeCommit": "65176f31d19b8105071f4693dc81a91d1a79750b",
+    "parent": "c51c69f8172bb53a43039ec731c3ad456c26eeda",
+    "pagesRun": 45617859398,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 31,
-    "liveCodeBytesExact": 137011302,
-    "publicUiChecks": 362,
+    "liveCodeFilesExact": 38,
+    "liveCodeBytesExact": 137561483,
+    "publicUiChecks": 92,
     "outsideRootEntriesPreserved": 40,
     "status": "code_published_verified_final_records_follow"
   },
@@ -215,7 +222,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.94localaccepted851automated/108localUI, frozen/preserved; publishapp-only/Pages/livebytes/publicnoneditingUI andsave. Fullgoalactive/incomplete.",
+  "workingIteration": "0.94published/verified851automated108local92public UI checks plus4server-stoppedcache/4native decoder; publicword/fittingdraftspreserved. Finalrecords follow; fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3178,7 +3185,7 @@
     "musicalReview": null,
     "voice": null,
     "inferenceSession": 16045,
-    "status": "fullbuild-and-local-accepted",
+    "status": "published-and-public-accepted",
     "readerRecordings": 4,
     "researchWordOccurrences": 2974,
     "withheldDiscrepantRecordings": 6,
@@ -3237,5 +3244,39 @@
     "review": null,
     "localServerOfflineChecks": 4,
     "nativeDecoderChecks": 4
+  },
+  "publicV94Acceptance": {
+    "apps": {
+      "normal": {
+        "checks": 46,
+        "parts": {
+          "passages": 16,
+          "support-playback": 12,
+          "withheld": 7,
+          "independence": 5,
+          "evidence": 1,
+          "prior-opening": 5
+        },
+        "wordDraftsAndBothPersonalFittingsPreserved": true
+      },
+      "portable": {
+        "checks": 46,
+        "parts": {
+          "passages": 16,
+          "support-playback": 12,
+          "withheld": 7,
+          "independence": 5,
+          "evidence": 1,
+          "prior-opening": 5
+        },
+        "wordDraftsAndBothPersonalFittingsPreserved": true
+      }
+    },
+    "checks": 92,
+    "perApp": 46,
+    "allMutedStopped": true,
+    "publicBoundaryOrFittingEditsPerformed": false,
+    "portableRecords": 77,
+    "portableLinks": 79
   }
 }
