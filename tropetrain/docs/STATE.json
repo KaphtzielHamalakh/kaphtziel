@@ -3,31 +3,31 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
-  "nextTask": "Run frozen official full build/check, finished normal/portable regression UI and source preservation, then connected app-only publication/Pages/live bytes/public nondestructive UI. All21features/6requirements/fullTorah/marks/CGJ/stress/branches/shared consonants/collective Deu32:6/gaps retained; printing deferred. No new historical melody/voice accepted.",
+  "publishedCommit": "1911acd919e9fba80a258a396ca6fc20f288202b",
+  "nextTask": "Continue No266 five-system Exodus12:21–22 source transcription/context comparison with No268, preserving all marked Hebrew/source divisions and unresolved low small-note facts. Seek source-specific musical/underlay/ornament/tuning review and reusable matching performances, then broader contextual Torah rules and six independent pronunciation/singing grammars. All21roadmap features/6completionrequirements remain active; printing deferred. Preserve personaldrafts in publicQA; no native mainpush.",
   "lastPassingTests": {
-    "automated": 790,
+    "automated": 799,
     "newRegressionChecks": 9,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "fullCheckSession": 65799,
+    "fullCheckSession": 91401,
     "fullCheckExitCode": 0,
-    "localUiChecks": 258,
-    "publicUiChecks": 258,
-    "sourceInputPins": 296,
+    "localUiChecks": 290,
+    "publicUiChecks": 238,
+    "sourceInputPins": 306,
     "personalFittingSourcePins": 6,
-    "frozenSourceFiles": 350,
-    "priorAssetDataVendorFilesExact": 635,
-    "ui": "129eachnormal/portable,26new+103prior. Actual1280px, muted/paused/consolesclear; no narrow/filedialog/acousticclaim.",
+    "frozenSourceFiles": 355,
+    "priorAssetDataVendorFilesExact": 638,
+    "ui": "145eachlocal(16new+103prior+26personalfit);119eachpublic(16new+103prior), personalbindings untouched/followrestored.1280px,muted/paused/consolesclear;no narrow/filedialog/acousticclaim.",
     "publicUiPerApp": {
-      "normal": 129,
-      "portable": 129
+      "normal": 119,
+      "portable": 119
     },
-    "pagesRun": 45545483726,
-    "liveCodeFiles": 30,
-    "liveCodeBytes": 147966754,
-    "sourceSavedGitFilesExact": 1216
+    "pagesRun": 45553580539,
+    "liveCodeFiles": 26,
+    "liveCodeBytes": 144055683,
+    "sourceSavedGitFilesExact": 1222
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -71,7 +71,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32_Cohen_and32_literal_Baer_figures_27measured_5unmeasured_grace_optional_original_timing_complete_contextual_grammars_and_review_pending"
+      "status": "32_Cohen_and32_literal_Baer_figures_plus21_No267_written_figures_and2_optional_original_small_eighth_studies_No268_39word_instrumental_source_study_all5_No267raw_gaps_pending_3alwayswithheld_complete_contextual_grammars_and_review_pending"
     },
     {
       "id": "singing",
@@ -2960,9 +2960,9 @@
       "fail": 4,
       "reason": "stale generated input hashes; official build required"
     },
-    "published": false,
+    "published": true,
     "fullGoal": "active/incomplete",
-    "phase": "full-local-accepted-publication-pending"
+    "phase": "published-local-and-public-accepted"
   },
   "privateV90LocalAcceptance": {
     "version": "0.90.0",
@@ -2979,6 +2979,26 @@
     "frozenSourceFiles": 355,
     "acceptedAssetsDataVendorExact": 638,
     "newHistoricalRealization": null,
-    "newVoice": null
+    "newVoice": null,
+    "phase": "published-and-accepted"
+  },
+  "latestMusicalIncrement": {
+    "version": "0.90.0",
+    "source": "Idelsohn1929VolVNo267,printed101/PDF104",
+    "originalSmallNoteStudies": [
+      "paseq",
+      "jetib"
+    ],
+    "defaultWrittenValueFigures": 21,
+    "sourcePendingFigures": 5,
+    "stillWithheldWithAllOptions": 3,
+    "sourceDuration": null,
+    "ornamentRole": null,
+    "wordOrPhonemeFit": null,
+    "voice": null,
+    "independentReview": null,
+    "performancePolicy": "separate opt-in original80ms in sourceorder; measuredvalues unchanged",
+    "newAcceptedHistoricalRealizations": 0,
+    "newAcceptedSingingVoices": 0
   }
 }
