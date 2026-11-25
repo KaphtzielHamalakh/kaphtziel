@@ -1,0 +1,249 @@
+{
+  "schema": "tropetrain-no266-source-word-playback-audit-v1",
+  "revision": 1,
+  "status": "unreviewed-instrumental-source-word-study-not-a-tradition-or-voice",
+  "inputs": [
+    {
+      "path": "scripts/import-idelsohn-no266-score.mjs",
+      "sha256": "20d58fe6a10a143d390791da0361f46ac40e5f4c94a36a408fa08a2b27cddb38"
+    },
+    {
+      "path": "scripts/audit-idelsohn-no266.mjs",
+      "sha256": "dcdb1ca5e88e1e43e529a831b132ae44a9f1bd1daf0a62966d89d458518b4450"
+    },
+    {
+      "path": "docs/IDELSOHN-NO266-SCORE.json",
+      "sha256": "5380640ab43a4982241abcb35aad74a21e5fe025f523769b01cb4bc7a238e893"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no266.jpg",
+      "sha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6"
+    },
+    {
+      "path": "idelsohn-no266-score.js",
+      "sha256": "6013f621ba9499b3be79297b4cca861673ac9590d0151f582d5d09bad34c10b9"
+    },
+    {
+      "path": "source-no266-performance.js",
+      "sha256": "beb504dee16de672a30dcd675b1489c75a6b704d6b1996418ff3549b1a29fc9e"
+    },
+    {
+      "path": "printed-score-registry.js",
+      "sha256": "b924da1f35c372c8b27077a962910a056f2362e7331e08ef017de57cf676791b"
+    },
+    {
+      "path": "music.js",
+      "sha256": "1cd7af67871f7881d9b3f7a0f788fe15a93cbb8a0832e624ff4321c94cf124fe"
+    },
+    {
+      "path": "score-data.js",
+      "sha256": "88d4c255b3507c7c99804ef117162170db217124c62cfd253ecf9592f3d497e4"
+    },
+    {
+      "path": "staff.js",
+      "sha256": "43fa1e79fc7dccabffd4888192c3d9bfe5a5b0547bd58c1ac1e1474ff65560bf"
+    },
+    {
+      "path": "music-exports.js",
+      "sha256": "a894e683ef8f955546288f85a5cfadefbb6fb3fe8d6fe6866b00b05ca5d1e5b4"
+    },
+    {
+      "path": "printed-mam-fitting.js",
+      "sha256": "07eb8c27f5467c7ccdb0d6145ac82ecfd048cf653abb5ef44a53128397f9c05c"
+    },
+    {
+      "path": "printed-mam-fitting-ui.js",
+      "sha256": "e15da010a6568f543c5b09087eecdae1a8b3a4bd463e152bdcd7ba0eb436702e"
+    },
+    {
+      "path": "app.js",
+      "sha256": "c3a21b2d13c6c399da7a45492e9fefb83194eee664d03b9b2176c9b6962dda7b"
+    },
+    {
+      "path": "index.html",
+      "sha256": "b6d237be7b3c51e512556115a486e9b34e4aea37df3dc17e974ffc1fa6416aa2"
+    },
+    {
+      "path": "docs/PRINTED-MAM-FITTING-SOURCES.json",
+      "sha256": "60b39e7ee50297d6f5390405200e2e5d9363000d526ff198f5750accffb7bb62"
+    }
+  ],
+  "source": {
+    "record": "docs/IDELSOHN-NO266-SCORE.json",
+    "recordSha256": "5380640ab43a4982241abcb35aad74a21e5fe025f523769b01cb4bc7a238e893",
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "pdfPage": 104,
+    "printedPage": 101,
+    "image": "assets/scores/idelsohn-1929-no266.jpg",
+    "imageSha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6",
+    "rights": "IMSLP item317924 catalogue PublicDomain",
+    "url": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)",
+    "renderRecipe": {
+      "program": "Poppler pdftoppm",
+      "pdfPage": 104,
+      "dpi": 260,
+      "x": 30,
+      "y": 540,
+      "width": 1390,
+      "height": 745,
+      "format": "JPEG",
+      "limits": "Faithful rectangular render; no glyph repair/normalization. Fullpage and400/600dpi details retained privately for review."
+    }
+  },
+  "counts": {
+    "words": 39,
+    "physicalWordPieces": 41,
+    "pitches": 131,
+    "rests": 2,
+    "components": 133,
+    "printedGroups": 95,
+    "source32ndNotes": 10,
+    "tuplets": 4,
+    "slurs": 8,
+    "ties": 0,
+    "dottedNotes": 16,
+    "smallNotesWithUnassignedDuration": 1,
+    "parenthesizedQuartersWithUnassignedRole": 1,
+    "knownQuarterBeatFraction": {
+      "numerator": 1429,
+      "denominator": 24
+    }
+  },
+  "playbackAt84": {
+    "firstSixWords": {
+      "notes": 20,
+      "seconds": 5.089285714285714,
+      "originalChoices": null
+    },
+    "firstVerse": {
+      "notes": 53,
+      "rests": 1,
+      "seconds": 16.249999999999996,
+      "originalChoices": null
+    },
+    "fullExample": {
+      "notes": 131,
+      "rests": 2,
+      "seconds": 42.609761904761896,
+      "originalChoices": {
+        "status": "original-instrumental-choices-not-historical-performance",
+        "smallEighth": {
+          "id": "original-no266-final-small-eighth-80ms-v1",
+          "milliseconds": 80,
+          "sourceDuration": null,
+          "sourceRole": null,
+          "stealingRatio": null,
+          "policy": "Original 80 ms for the final printed small C4 eighth, in source order; retain its printed ordinal2 and all measured values. No Hebrew/MAM phonetic fitting or historical timing asserted."
+        },
+        "parenthesizedQuarter": {
+          "id": "original-no266-parenthesized-quarter-inclusion-v1",
+          "literalQuarterBeats": 1,
+          "sourceRole": null,
+          "sourceMandatoryPerformance": null,
+          "sourceDurationSeconds": null,
+          "policy": "Original literal-inclusion study: play the parenthesized A4 with its written quarter value. Source performance role and source-group membership remain unassigned; no omission or extra role inferred."
+        },
+        "sourcePerformanceRole": null,
+        "phonemes": null,
+        "voice": null,
+        "independentReview": null
+      }
+    }
+  },
+  "independence": {
+    "same39MarkedWordsDifferentSources": true,
+    "noFallbackToNo268": true,
+    "personalNo268FittingApplicable": false,
+    "printedNo266Groups": 95,
+    "printedNo268Groups": 93,
+    "existingMamUnits": 94,
+    "acceptedNo266SyllableLinks": null,
+    "phonemes": null,
+    "voice": null,
+    "musicalReview": null,
+    "phoneticReview": null
+  },
+  "originalChoices": {
+    "defaultEnabled": false,
+    "parenthesizedQuarter": {
+      "id": "original-no266-parenthesized-quarter-inclusion-v1",
+      "literalQuarterBeats": 1,
+      "sourceRole": null,
+      "sourceMandatoryPerformance": null,
+      "sourceDurationSeconds": null,
+      "policy": "Original literal-inclusion study: play the parenthesized A4 with its written quarter value. Source performance role and source-group membership remain unassigned; no omission or extra role inferred."
+    },
+    "finalSmallEighth": {
+      "id": "original-no266-final-small-eighth-80ms-v1",
+      "milliseconds": 80,
+      "sourceDuration": null,
+      "sourceRole": null,
+      "stealingRatio": null,
+      "policy": "Original 80 ms for the final printed small C4 eighth, in source order; retain its printed ordinal2 and all measured values. No Hebrew/MAM phonetic fitting or historical timing asserted."
+    }
+  },
+  "crossSystemWords": [
+    {
+      "sourceWordId": "exo-12-21-8",
+      "sourceHebrew": "מִֽשְׁכ֗וּ",
+      "pieces": [
+        {
+          "id": "idelsohn1929-266-system1-piece8",
+          "system": 1,
+          "noteIds": [
+            "idelsohn1929-266-system1-component24"
+          ]
+        },
+        {
+          "id": "idelsohn1929-266-system2-piece1",
+          "system": 2,
+          "noteIds": [
+            "idelsohn1929-266-system2-component1",
+            "idelsohn1929-266-system2-component2",
+            "idelsohn1929-266-system2-component3",
+            "idelsohn1929-266-system2-component4",
+            "idelsohn1929-266-system2-component5"
+          ]
+        }
+      ],
+      "impliedLineBreakSilence": null,
+      "impliedTie": null
+    },
+    {
+      "sourceWordId": "exo-12-22-5",
+      "sourceHebrew": "בַּדָּ֣ם",
+      "pieces": [
+        {
+          "id": "idelsohn1929-266-system3-piece5",
+          "system": 3,
+          "noteIds": [
+            "idelsohn1929-266-system3-component24"
+          ]
+        },
+        {
+          "id": "idelsohn1929-266-system4-piece1",
+          "system": 4,
+          "noteIds": [
+            "idelsohn1929-266-system4-component1",
+            "idelsohn1929-266-system4-component2"
+          ]
+        }
+      ],
+      "impliedLineBreakSilence": null,
+      "impliedTie": null
+    }
+  ],
+  "formatReference": {
+    "url": "https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/notehead/",
+    "claim": "MusicXML notehead parentheses=yes preserves printed parentheses without assigning a performance role."
+  },
+  "limits": [
+    "New candidate transcription/lexical source-word study only; no reviewed traditional realization or full Torah grammar.",
+    "Preserve all marked Hebrew,39word IDs, two cross-system words, source rests,32nd glyphs, dots, slurs, unequal tuplets and explicit/null source fields.",
+    "Printed source-group ordinals do not certify Hebrew/MAM syllable or phoneme fitting; raw Latin Unicode is unassigned.",
+    "The parenthesized A4 quarter has unknown performance role and source-group membership. Do not silently add/omit it in playback; original literal-inclusion choice is separate from source facts.",
+    "The final small C4 eighth aligns with final-word printed ordinal2; its duration/ornament role/stealing ratio remain unassigned. Do not apply the untexted No268/No267 guard.",
+    "The unequal printed3 figure16th/eighth/16th is retained exactly. Conventional3:2 instrument timing is not regularized into an easier metrical total.",
+    "Modern12-TET instrument pitches, regular user tempo and articulation are approximations. No source recording, reviewed voice, narrower locality/performer or Kinnor equivalence established."
+  ]
+}

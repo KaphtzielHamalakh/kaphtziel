@@ -4,30 +4,28 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "1911acd919e9fba80a258a396ca6fc20f288202b",
-  "nextTask": "Continue No266 five-system Exodus12:21–22 source transcription/context comparison with No268, preserving all marked Hebrew/source divisions and unresolved low small-note facts. Seek source-specific musical/underlay/ornament/tuning review and reusable matching performances, then broader contextual Torah rules and six independent pronunciation/singing grammars. All21roadmap features/6completionrequirements remain active; printing deferred. Preserve personaldrafts in publicQA; no native mainpush.",
+  "nextTask": "Publish tested No266 app-only increment with fresh connected main lease, verify Pages/live bytes and both public builds while preserving personal drafts. Then restore portable headroom without losing evidence and continue source-specific No266 ordinal study, contextual Torah melodies and six independent pronunciation/singing grammars. All21features/6requirements retained; printing deferred.",
   "lastPassingTests": {
-    "automated": 799,
-    "newRegressionChecks": 9,
+    "automated": 811,
+    "newRegressionChecks": 12,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "fullCheckSession": 91401,
-    "fullCheckExitCode": 0,
-    "localUiChecks": 290,
-    "publicUiChecks": 238,
-    "sourceInputPins": 306,
+    "buildCheckSession": 84538,
+    "buildSucceeded": true,
+    "initialCompoundCheckExitCode": 1,
+    "initialRosterExpectationFailures": 4,
+    "finalTestsSession": 62985,
+    "finalTestsExitCode": 0,
+    "localUiChecks": 346,
+    "localPerApp": 173,
+    "publicUiChecks": 0,
+    "publicPhase": "pending0.91; prior0.90 had238checks",
+    "sourceInputPins": 322,
     "personalFittingSourcePins": 6,
-    "frozenSourceFiles": 355,
+    "frozenSourceFiles": 365,
     "priorAssetDataVendorFilesExact": 638,
-    "ui": "145eachlocal(16new+103prior+26personalfit);119eachpublic(16new+103prior), personalbindings untouched/followrestored.1280px,muted/paused/consolesclear;no narrow/filedialog/acousticclaim.",
-    "publicUiPerApp": {
-      "normal": 119,
-      "portable": 119
-    },
-    "pagesRun": 45553580539,
-    "liveCodeFiles": 26,
-    "liveCodeBytes": 144055683,
-    "sourceSavedGitFilesExact": 1222
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -71,7 +69,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32_Cohen_and32_literal_Baer_figures_plus21_No267_written_figures_and2_optional_original_small_eighth_studies_No268_39word_instrumental_source_study_all5_No267raw_gaps_pending_3alwayswithheld_complete_contextual_grammars_and_review_pending"
+      "status": "32_Cohen_32_Baer_21_No267_written_figures_2_original_No267_small_options_No268_and_No266_separate_39word_source_studies_complete_contextual_grammars_and_review_pending"
     },
     {
       "id": "singing",
@@ -111,7 +109,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "four_bounded_literal_scores_independent_pronunciation_text_common_spans_cross_word_slurs_tuplets_and_final_rests_tested_no_new_singing"
+      "status": "seven_bounded_source_specific_scores_with_independent_pronunciation_text_No26695_groups_not_phonetically_fitted_No268_personal_fitting_isolated_no_new_singing"
     },
     {
       "id": "display",
@@ -209,7 +207,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.90private:2strictly original No267small-eighth timing studies implemented;19focused tests/189priorplancomparisons pass. Browser/fullbuild/publicationpending; public0.89accepted, fullgoalactive/incomplete.",
+  "workingIteration": "0.91 local accepted:811 final automated/346local UI checks pass; full generated build succeeded, four stale roster expectations corrected only in tests. Connected publication/public acceptance pending. Full goal active/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -2983,22 +2981,55 @@
     "phase": "published-and-accepted"
   },
   "latestMusicalIncrement": {
-    "version": "0.90.0",
-    "source": "Idelsohn1929VolVNo267,printed101/PDF104",
-    "originalSmallNoteStudies": [
-      "paseq",
-      "jetib"
+    "version": "0.91.0",
+    "source": "Idelsohn1929VolVNo266,printed101/PDF104",
+    "markedWords": 39,
+    "pitches": 131,
+    "rests": 2,
+    "printedGroups": 95,
+    "firstSix84Seconds": 5.089285714285714,
+    "firstVerse84Seconds": 16.25,
+    "full84Seconds": 42.6097619047619,
+    "defaultOriginalChoices": false,
+    "originalChoices": [
+      "parenthesized-quarter-literal-inclusion",
+      "final-small-eighth80ms"
     ],
-    "defaultWrittenValueFigures": 21,
-    "sourcePendingFigures": 5,
-    "stillWithheldWithAllOptions": 3,
-    "sourceDuration": null,
-    "ornamentRole": null,
-    "wordOrPhonemeFit": null,
+    "parenthesizedRole": null,
+    "smallEighthSourceDuration": null,
+    "acceptedSyllableOrPhonemeFit": null,
     "voice": null,
     "independentReview": null,
-    "performancePolicy": "separate opt-in original80ms in sourceorder; measuredvalues unchanged",
-    "newAcceptedHistoricalRealizations": 0,
+    "newAcceptedHistoricalRealizations": 0
+  },
+  "privateV91EarlyVerification": {
+    "phase": "full-generated-build-and-final-suite-and-local-GUI-passed",
+    "automatedFullCheckSession": 84538,
+    "localChecks": 346,
+    "perApp": 173,
+    "newNo266ChecksPerApp": 27,
+    "localFittingIsolationPerApp": 1,
+    "priorSmallPatternChecksPerApp": 16,
+    "priorPatternScoreUnitChecksPerApp": 103,
+    "personalFitChecksLocalOnlyPerApp": 26,
+    "priorAssetsExact": 638,
+    "priorFullPlansExact": 63,
+    "priorWordPlansExact": 1539,
+    "priorStaffXmlMidiOutputsExact": 189,
+    "audio": "muted and stopped",
+    "narrowViewport": false,
+    "published": false,
+    "newAcceptedTraditionalRealizations": 0,
+    "newAcceptedSingingVoices": 0
+  },
+  "privateV91LocalAcceptance": {
+    "phase": "local-passed-publication-pending",
+    "automated": 811,
+    "localUi": 346,
+    "newUiPerApp": 27,
+    "sourceAudit": "docs/IDELSOHN-NO266-PLAYBACK.json",
+    "independentReview": null,
+    "newAcceptedTraditionalRealizations": 0,
     "newAcceptedSingingVoices": 0
   }
 }

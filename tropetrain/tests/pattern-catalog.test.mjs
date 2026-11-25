@@ -63,7 +63,7 @@ test('source choice, transposition, pace and range leave marked Hebrew, pronunci
   assert.equal(row.record.pronunciation,null);assert.equal(row.record.syllableUnderlay,null);
  }
  assert.equal(JSON.stringify(rows),records);assert.equal(JSON.stringify(model),before);
- assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268']);
+ assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268','idelsohn-1929-vol5-no266']);
 });
 test('all seven source images and both source records are exact and portable in the standalone',()=>{
  const html=restoredPortableHtml(bytes('TropeTrain.html')).toString();assert.equal(Object.keys(PATTERN_IMAGE_DATA).length,7);
