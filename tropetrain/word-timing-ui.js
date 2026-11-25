@@ -81,6 +81,7 @@ export function mountWordTimingDraft({position,onAudition}){
     async select(nextRecord,coverage){
       const keepOpen=panel.open&&JSON.stringify(draft?.coverage)===JSON.stringify(coverage);
       const current=++generation;record=nextRecord;draft=null;support=null;selected=0;available=false;draw();
+      $('word-timing-source-status').textContent=nextRecord.catalogPassageEvidence?(coverage?'Catalog passage candidate. These exact reader words follow the source catalog; recording content and edition correspondence are unreviewed. Automatic support does not fill heard boundaries.':'The source passage is withheld because documentary and acoustic evidence disagree. No corrected passage or word draft is assigned.'):'';
       $('word-timing-json').value='';$('word-timing-select').replaceChildren();
       $('word-support-status').textContent='';
       $('word-timing-empty').hidden=!!coverage;panel.open=keepOpen;

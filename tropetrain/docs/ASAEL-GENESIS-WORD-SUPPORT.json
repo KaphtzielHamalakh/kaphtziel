@@ -1,0 +1,98 @@
+{
+  "format": "tropetrain-asael-genesis-word-support-catalog-v1",
+  "revision": 1,
+  "status": "unreviewed-model-support",
+  "retrieved": "2026-11-25",
+  "records": [
+    {
+      "recordId": "asael-catalog-2460-17",
+      "file": "data/references/asael-word-support/asael-catalog-2460-17.json.gz",
+      "bytes": 15374,
+      "sha256": "c4bf07311d47d79d23b315b825b4ad278e0bafefc231ecd3e3d26d735917e194",
+      "words": 217,
+      "originalSha256": "22f1a28e7b5b185e1b757db661c7f97cb29dbdf463307d6463245227eabeaae1"
+    },
+    {
+      "recordId": "asael-catalog-2460-18",
+      "file": "data/references/asael-word-support/asael-catalog-2460-18.json.gz",
+      "bytes": 15015,
+      "sha256": "95cbbfd68c3e89e44e4086012255c0a5290846c4a3e6eccdf345650952f3ffc2",
+      "words": 217,
+      "originalSha256": "18b10830ca234a5b9d2324552b9628ffc74cec28bf4e39656ea8f1679a8cf4aa"
+    },
+    {
+      "recordId": "asael-catalog-2460-53",
+      "file": "data/references/asael-word-support/asael-catalog-2460-53.json.gz",
+      "bytes": 14889,
+      "sha256": "c1388cb49b87d2f43ac7bb261522effafcd2657b26d90686d50f2e08977a8b20",
+      "words": 216,
+      "originalSha256": "2a469ea134056b24ce0cf28c5a058b7b53fd38a957a04daefcfef7d0f0dbf2bf"
+    },
+    {
+      "recordId": "asael-catalog-2460-54",
+      "file": "data/references/asael-word-support/asael-catalog-2460-54.json.gz",
+      "bytes": 14588,
+      "sha256": "c9dea06df38101d096e992e4518280f4cb23e3ad91fac669e77067f21a27c4e7",
+      "words": 216,
+      "originalSha256": "c90c5419852d8db5fb3ccb314f806b6327466e3ca697d4ba771ab49081f5880c"
+    }
+  ],
+  "sourcePack": {
+    "file": "assets/voice-studies/asael-genesis-passage-sources.zip",
+    "bytes": 445716,
+    "sha256": "644f57d6ebab54043fabb79fd3446620c249b1cbddac45d2f2718256fecb79dd"
+  },
+  "inputs": [
+    {
+      "path": "assets/voice-studies/asael-genesis-passage-sources.zip",
+      "sha256": "644f57d6ebab54043fabb79fd3446620c249b1cbddac45d2f2718256fecb79dd"
+    },
+    {
+      "path": "docs/ASAEL-SOURCE-CATALOG.json",
+      "sha256": "b78864c68872a9a7e9e82cefebbb7334f76a89b0ba11ca7c2b95237447b34055"
+    }
+  ],
+  "model": {
+    "id": "imvladikon/wav2vec2-large-xlsr-53-hebrew",
+    "revision": "3dd308dda70b20507a6920b459052635973ae3cd",
+    "weightSha256": "ccb343830f577a24d1c7aa866a459ac93fbc00bd205abb1b90728cf1f767e0da",
+    "license": "Apache-2.0"
+  },
+  "diagnostics": {
+    "asael-catalog-2460-17": {
+      "CER": 0.4930817610062893,
+      "WER": 0.8940092165898618,
+      "allDirect": 66,
+      "noDirect": 5
+    },
+    "asael-catalog-2460-18": {
+      "CER": 0.25534591194968553,
+      "WER": 0.6405529953917051,
+      "allDirect": 118,
+      "noDirect": 0
+    },
+    "asael-catalog-2460-53": {
+      "CER": 0.4879594423320659,
+      "WER": 0.9120370370370371,
+      "allDirect": 75,
+      "noDirect": 15
+    },
+    "asael-catalog-2460-54": {
+      "CER": 0.2826362484157161,
+      "WER": 0.6435185185185185,
+      "allDirect": 125,
+      "noDirect": 8
+    }
+  },
+  "withheldRecordings": [
+    "asael-catalog-2460-25",
+    "asael-catalog-2460-26",
+    "asael-catalog-2460-32",
+    "asael-catalog-2460-33",
+    "asael-catalog-2460-39",
+    "asael-catalog-2460-40"
+  ],
+  "purpose": "Optional one-second-context audition and manual review of catalog passage candidates. No word boundaries are filled or certified.",
+  "review": null,
+  "newSingingVoice": null
+}
