@@ -10,6 +10,7 @@ import {COHEN_PROPHETICAL} from './cohen-prophetical-score.js';
 import {COHEN_PENITENTIAL} from './cohen-penitential-score.js';
 import {IDELSOHN_SCORE} from './idelsohn-score.js';
 import {IDELSOHN_NO266} from './idelsohn-no266-score.js';
+import {no266PrintedWordStudy,no266PrintedGroupContext} from './no266-printed-groups.js';
 import {NO266_IMAGE,NO266_EVIDENCE} from './idelsohn-no266-data.js';
 import {no266ChoiceContext} from './source-no266-performance.js';
 import {printedWordStudy,printedWordPhoto,printedUnitContext} from './printed-underlay.js';
@@ -71,7 +72,7 @@ $('reader-pronunciation').checked=readerPronunciation;
 let sourceSyllablesEnabled=false,sourceReadingsEnabled=false,sourceJointEnabled=false,sourceReadingChoices=readingChoices(),sourceSyllableAdapter=null,sourceSyllableError=null,sourceSyllableRequest=0;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-source-syllables-v1'));sourceSyllablesEnabled=saved?.enabled===true;sourceReadingsEnabled=saved?.allowSourceReadings===true;sourceJointEnabled=saved?.allowJointSources===true;sourceReadingChoices=readingChoices(saved?.sourceReadingChoices??{});}catch{}
 function makeReadingModel(value,settings){return createReadingModel(value,{...settings,...(sourceSyllablesEnabled?{sourceUnderlay:sourceSyllableAdapter}:{})});}
-const state={cursor:0,anchor:0,printedSyllableIndex:1,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
+const state={cursor:0,anchor:0,printedSyllableIndex:1,no266PrintedGroupIndex:1,view:'pointed',scrollLayout:false,scope:'group',tempo:84,transpose:0,volume:70,repeat:false,groups:true,signClasses:false,signQuery:'etnahta',findScope:'reading',
   rangeLow:60,rangeHigh:72,referenceVolume:0,chantRate:100,chantTranspose:0,recordingTimingGroups:false,readerPage:0,notePage:0,staffPage:0,followPlayback:true,ranges:null,melodyId:'original-demo-01',practiceAudio:'instrument',readingType:'torah'};
 let restoredReadingType,originalPracticeText=null;
 try{
@@ -80,10 +81,10 @@ try{
     state.practiceAudio=practiceAudioMode(saved.practiceAudio);
     if(Number.isInteger(saved.chantTranspose)&&saved.chantTranspose>=-12&&saved.chantTranspose<=12)state.chantTranspose=saved.chantTranspose;
     if([50,65,75,85,100,115,125,150].includes(saved.chantRate))state.chantRate=saved.chantRate;
-    for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['printedSyllableIndex',1,20],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
+    for(const [key,min,max] of [['cursor',0,1000000],['anchor',0,1000000],['printedSyllableIndex',1,20],['no266PrintedGroupIndex',1,20],['tempo',40,160],['transpose',-12,12],['volume',0,100],['referenceVolume',0,100],['rangeLow',36,84],['rangeHigh',36,84],['readerPage',0,100000]])
       if(Number.isInteger(saved[key])&&saved[key]>=min&&saved[key]<=max)state[key]=saved[key];
     if(['pointed','consonantal','parallel'].includes(saved.view))state.view=saved.view;
-    if(['word','printed-syllable','source-unit','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
+    if(['word','printed-syllable','printed-source-group','source-unit','group','verse','aliyah','selection','passage'].includes(saved.scope))state.scope=saved.scope;
     for(const key of ['repeat','groups','followPlayback','signClasses','scrollLayout','recordingTimingGroups'])if(typeof saved[key]==='boolean')state[key]=saved[key];
     if(['reading','torah'].includes(saved.findScope))state.findScope=saved.findScope;
     if(SIGN_QUERIES.some(q=>q.id===saved.signQuery))state.signQuery=saved.signQuery;
@@ -286,7 +287,7 @@ async function play(){
 function selectWord(index,extend=false){
   stop('Ready to listen.');
   if(extend||chooseEnd){state.cursor=index;state.scope='selection';chooseEnd=false;}
-  else{if(index!==state.cursor)state.printedSyllableIndex=1;state.cursor=index;state.anchor=index;}
+  else{if(index!==state.cursor){state.printedSyllableIndex=1;state.no266PrintedGroupIndex=1;}state.cursor=index;state.anchor=index;}
   state.readerPage=Math.floor(words[index].verseIndex/VERSE_PAGE);state.notePage=0;state.staffPage=0;render();
 }
 function setWordText(button,word,plain){
@@ -432,7 +433,7 @@ function updateSelection(){
   });
   $('selection-label').textContent=state.scope==='selection'?`Selected ${fullLabel(start)} to ${fullLabel(end)}`:`Cursor: ${fullLabel(state.cursor)}`;
   $('span-preview').textContent=`${fullLabel(start)} to ${fullLabel(end)} · ${end-start+1} word${end>start?'s':''}`+(state.scope==='source-unit'&&words[state.cursor].sourceJointGroup?' · complete shared pronunciation word; both written words play together'+(start<state.cursor?' including the word before the cursor':''):'');
-  $('compact-span').textContent=state.scope==='printed-syllable'?`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · printed syllable ${state.printedSyllableIndex}`:`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · ${end-start+1} words`;
+  $('compact-span').textContent=state.scope==='printed-source-group'?`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · No266 printed group ${state.no266PrintedGroupIndex}`:state.scope==='printed-syllable'?`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · printed syllable ${state.printedSyllableIndex}`:`${words[start].bookName} ${words[start].chapter}:${words[start].verse} · ${end-start+1} words`;
   $('end-selection').setAttribute('aria-pressed',String(chooseEnd));$('end-selection').textContent=chooseEnd?'Click the last word':'Choose span end';
   const w=words[state.cursor];$('current-word').textContent=w.sourceHebrew;$('current-reference').textContent=`${w.reference} · word ${w.ordinal}`;
   $('accent-name').textContent=w.accent;$('group-name').textContent=`Practice group ${w.group+1} · ${w.sourceWordId??w.id}`;
@@ -506,6 +507,7 @@ function renderRecordingTimingGroups(){
   $('recording-group-select').disabled=!state.recordingTimingGroups||!group;
 }
 function selectedChantPlan(){
+  if(state.scope==='printed-source-group')throw Error('No266 printed groups are an instrumental source study. Choose a word or other source-timed scope for recordings. No recorded group times are assigned.');
   if(state.scope==='printed-syllable')throw Error('Printed source syllables are an instrumental notation study. Choose a word, verse or other source-timed scope for the original recording. No recorded syllable times are assigned.');
   const limits=bounds(state.cursor,state.anchor,state.scope);
   if(state.practiceAudio==='recorded'&&state.recordingTimingGroups){
@@ -680,14 +682,22 @@ function renderPrintedSyllableStudy(){
   const untexted=model.events.filter(e=>e.wordId===words[state.cursor].id&&e.sourcePrintedSyllableIndex===null).length;
   $('printed-syllable-status').textContent=`${source.sourceSyllableCount} indexed syllables in the original Latin underlay. Select one to isolate its written notes${untexted?`; ${untexted} untexted small note stays outside these groups`:''}. Hebrew/MAM syllable fitting, phonetic transcription and a singing voice remain unassigned.`;
 }
+function renderNo266GroupStudy(){
+  const source=model.profile.id===IDELSOHN_NO266.id?no266PrintedWordStudy(words[state.cursor]):null,box=$('no266-group-study');box.hidden=!source;$('scope').querySelector('option[value="printed-source-group"]').disabled=!source||state.practiceAudio!=='instrument';
+  if(!source)return;state.no266PrintedGroupIndex=Math.min(source.printedGroupCount,Math.max(1,state.no266PrintedGroupIndex));const select=$('no266-group-index');select.replaceChildren();
+  for(const group of source.groups){const option=document.createElement('option');option.value=group.ordinal;option.textContent=`Printed group ${group.ordinal} of ${source.printedGroupCount} · ${group.sourceNoteIds.length} note${group.sourceNoteIds.length===1?'':'s'}`;select.append(option);}select.value=state.no266PrintedGroupIndex;select.disabled=state.practiceAudio!=='instrument';$('no266-group-select').disabled=state.practiceAudio!=='instrument';
+  $('no266-group-word').textContent=`${words[state.cursor].reference} · word ${words[state.cursor].ordinal} · ${words[state.cursor].sourceHebrew}`;
+  $('no266-group-status').textContent=`${source.printedGroupCount} printed groups in this source word. Selecting a group isolates only its source notes and following printed rests. ${source.unassignedSourceNoteIds.length?'The parenthesized quarter has no assigned group and stays outside every group selection; whole-word playback requires its separate original inclusion choice. ':''}${source.groups.some(g=>g.sourceNoteIds.some(id=>model.events.some(e=>e.sourceNoteId===id&&e.sourceNo266SmallEighth)))?'The final small C4 is in group 2 and needs the separate original 80 ms choice. ':''}The reader highlights the complete Hebrew word candidate; no MAM unit or phoneme is assigned.`;
+}
 function renderPrintedSyllableFollow(){
   const e=activeEventId?activeInstrumentEvent:null;
+  $('no266-group-follow').textContent=!e||e.sourceProfile!==IDELSOHN_NO266.id?'':e.sourcePrintedSyllableIndex===null?'This parenthesized note has no printed-group assignment.':`${words[e.wordIndex].reference} · word ${words[e.wordIndex].ordinal} · No266 printed group ${e.sourcePrintedSyllableIndex}. Whole-word correspondence only; Hebrew/MAM fitting remains unassigned.`;
   $('printed-syllable-follow').textContent=!e||e.sourceProfile!==IDELSOHN_SCORE.id?'':e.sourcePrintedSyllableIndex===null?'This small note has no printed syllable assignment.':`${words[e.wordIndex].reference} · word ${words[e.wordIndex].ordinal} · printed source syllable ${e.sourcePrintedSyllableIndex}. Original instrument timing; Hebrew/phoneme fitting unassigned.`;
 }
 function renderSequence(){
-  renderPrintedSyllableStudy();printedFitTools?.refresh();
+  renderPrintedSyllableStudy();renderNo266GroupStudy();printedFitTools?.refresh();
   let unavailable=null;
-  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),{...state,smallNoteDemo,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo,printedSyllableIndex:state.scope==='printed-syllable'?state.printedSyllableIndex:null});}catch(error){plan=[];unavailable=error.message;}
+  try{if(state.scope==='source-unit'&&(!sourceSyllablesEnabled||!model.sourceSyllableUnderlay))throw Error('Whole source pronunciation word requires source syllable underlay in the original instrumental demonstration. Choose another scope for this mode.');plan=buildPlan(...bounds(state.cursor,state.anchor,state.scope),{...state,smallNoteDemo,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo,printedSyllableIndex:state.scope==='printed-syllable'?state.printedSyllableIndex:null,no266PrintedGroupIndex:state.scope==='printed-source-group'?state.no266PrintedGroupIndex:null});}catch(error){plan=[];unavailable=error.message;}
   for(const id of ['download','prepare-musicxml','prepare-midi'])$(id).disabled=!!unavailable;
   for(const id of ['play','compact-play'])$(id).disabled=isSourcePractice()?!chantReady:!!unavailable;
   $('musical-source-status').textContent=unavailable??(model.sourceSyllableUnderlay?model.sourceSyllableUnderlay.sourceReadingWords?'Original instrumental demonstration with consensus source syllables and documented source readings. Differing readings have word-level correspondence; displayed Hebrew and accents are unchanged, with no invented written syllable ranges.':SOURCE_SYLLABLE_UNDERLAY.summary:null)??model.profile.summary??(model.profile.id===BAER_SCORE.id?'Printed Genesis 1:1–5 · Baer [1894], No. 939 · source transcription, review pending · six unspecified fermatas · regularized recitative timing.':model.profile.id===PRINTED_SCORE.id?'Printed Genesis 22:1 · source transcription, review pending · printed rests/ties · regularized tempo · no added coda.':'Original demonstration · newly composed pitches; syllables unreviewed.');
@@ -736,6 +746,7 @@ function exportContext(){
     ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(plan.some(e=>e.sourceSmallNote)?{smallNoteStudy:{...SMALL_NOTE_STUDY}}:{}),
     ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
+    ...(state.scope==='printed-source-group'?{printedNo266Group:no266PrintedGroupContext(plan)}:{}),
     ...(model.profile.wordOnly?{wordCorrespondence:'lexical-source-word-candidate',syllableMapping:null,phonemes:null,independentReview:null}:{}),
     ...(plan.some(e=>e.sourceSmallEighth)?{smallEighthStudy:{...SMALL_EIGHTH_STUDY}}:{}),
     ...(no266ChoiceContext(plan)?{no266OriginalChoices:no266ChoiceContext(plan)}:{}),
@@ -753,7 +764,7 @@ function clearExports(){
   $('export-status').textContent='';$('prepare-wav').disabled=false;$('cancel-wav').hidden=true;
 }
 function updateExportSummary(){
-  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.scope==='printed-syllable'?state.printedSyllableIndex:null,model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportKey()??null):null,state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,!!model.profile.requiresSmallEighthTiming&&smallEighthDemo,model.profile.requiresNo266Choices?[no266ParentheticalDemo,no266SmallEighthDemo]:null,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
+  const key=JSON.stringify([passage.ranges,bounds(state.cursor,state.anchor,state.scope),state.scope==='printed-syllable'?state.printedSyllableIndex:null,state.scope==='printed-source-group'?state.no266PrintedGroupIndex:null,model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportKey()??null):null,state.melodyId,!!model.profile.requiresSmallNoteTiming&&smallNoteDemo,!!model.profile.requiresSmallEighthTiming&&smallEighthDemo,model.profile.requiresNo266Choices?[no266ParentheticalDemo,no266SmallEighthDemo]:null,model.sourceSyllableUnderlay?.id??null,model.sourceSyllableUnderlay?.availableWords??null,model.sourceSyllableUnderlay?.sourceReadingChoices??null,model.sourceSyllableUnderlay?.allowJointSources??false,state.tempo,state.transpose,state.volume,sourcePhraseTools?.matchSelection()?.id??null]);
   if(key!==exportsKey){clearExports();exportsKey=key;}
   try{
     const s=wavSummary(plan);
@@ -1021,7 +1032,7 @@ $('printed-small-eighth-demo').addEventListener('change',()=>{stop('Small-eighth
 $('printed-small-note-demo').addEventListener('change',()=>{stop('Small-note study changed.');smallNoteDemo=$('printed-small-note-demo').checked;store('tropetrain-cohen-small-note-v1',{enabled:smallNoteDemo,policyId:SMALL_NOTE_STUDY.id});render();});
 for(const id of ['no266-parenthetical-demo','no266-small-eighth-demo'])$(id).addEventListener('change',()=>{stop('No266 original study choice changed. Source facts are unchanged.');no266ParentheticalDemo=$('no266-parenthetical-demo').checked;no266SmallEighthDemo=$('no266-small-eighth-demo').checked;render();});
 $('musical-source').addEventListener('change',e=>{
-  stop('Musical source changed.');no266ParentheticalDemo=false;no266SmallEighthDemo=false;state.melodyId=e.target.value;if(state.scope==='printed-syllable'&&state.melodyId!==IDELSOHN_SCORE.id)state.scope='word';model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);state.notePage=0;state.staffPage=0;render();
+  stop('Musical source changed.');no266ParentheticalDemo=false;no266SmallEighthDemo=false;state.melodyId=e.target.value;if(state.scope==='printed-syllable'&&state.melodyId!==IDELSOHN_SCORE.id)state.scope='word';if(state.scope==='printed-source-group'&&state.melodyId!==IDELSOHN_NO266.id)state.scope='word';model=makeReadingModel(passage,state);({words,bounds,buildPlan}=model);state.notePage=0;state.staffPage=0;render();
 });
 async function prepareSourceSyllables(){
  const request=++sourceSyllableRequest;sourceSyllableError=null;stop('Syllable underlay changed.');
@@ -1061,7 +1072,7 @@ function openIdelsohnScore(all=false){libraryAction(()=>{
 });}
 $('idelsohn-score-open').addEventListener('click',()=>openIdelsohnScore());
 $('idelsohn-score-all').addEventListener('click',()=>openIdelsohnScore(true));
-function openNo266Score(all=false){libraryAction(()=>{stop('No266 source opened. Original study choices start off.');no266ParentheticalDemo=false;no266SmallEighthDemo=false;state.melodyId=IDELSOHN_NO266.id;state.practiceAudio='instrument';applyRanges([{id:'idelsohn-no266',bookId:'exo',start:{chapter:12,verse:21},end:{chapter:12,verse:22},label:'Idelsohn No266 source-word study'}],{readingType:'torah'});state.cursor=0;state.anchor=all===true?words.length-1:all==='verse'?13:5;state.scope='selection';render();$('reader').focus();$('practice').scrollIntoView();});}
+function openNo266Score(all=false){libraryAction(()=>{stop('No266 source opened. Original study choices start off.');no266ParentheticalDemo=false;no266SmallEighthDemo=false;state.no266PrintedGroupIndex=1;state.melodyId=IDELSOHN_NO266.id;state.practiceAudio='instrument';applyRanges([{id:'idelsohn-no266',bookId:'exo',start:{chapter:12,verse:21},end:{chapter:12,verse:22},label:'Idelsohn No266 source-word study'}],{readingType:'torah'});state.cursor=0;state.anchor=all===true?words.length-1:all==='verse'?13:5;state.scope='selection';render();$('reader').focus();$('practice').scrollIntoView();});}
 $('no266-score-open').addEventListener('click',()=>openNo266Score());$('no266-score-verse').addEventListener('click',()=>openNo266Score('verse'));$('no266-score-all').addEventListener('click',()=>openNo266Score(true));
 
 $('baer-study-open').addEventListener('click',()=>libraryAction(()=>{
@@ -1087,6 +1098,9 @@ $('implicit-reading-open').addEventListener('click',()=>libraryAction(()=>{
 }));
 for(const [id,key] of [['sign-query','signQuery'],['find-scope','findScope']])$(id).addEventListener('change',e=>{state[key]=e.target.value;persist();refreshSignSearch({reset:true});});
 for(const [id,delta] of [['sign-previous',-1],['sign-next',1]])$(id).addEventListener('click',()=>{findPage+=delta;renderSignResults();});
+$('no266-group-index').addEventListener('change',()=>{stop('No266 printed group selected.');state.no266PrintedGroupIndex=Number($('no266-group-index').value);state.scope='printed-source-group';state.notePage=0;state.staffPage=0;render();});
+$('no266-group-select').addEventListener('click',()=>{stop('No266 printed group selected.');state.scope='printed-source-group';state.notePage=0;state.staffPage=0;render();});
+$('no266-group-whole-word').addEventListener('click',()=>{stop('Whole No266 word selected.');state.scope='word';state.notePage=0;state.staffPage=0;render();});
 $('printed-syllable-index').addEventListener('change',()=>{stop('Printed source syllable selected.');state.printedSyllableIndex=Number($('printed-syllable-index').value);state.scope='printed-syllable';state.notePage=0;state.staffPage=0;render();});
 $('printed-syllable-select').addEventListener('click',()=>{stop('Printed source syllable selected.');state.scope='printed-syllable';state.notePage=0;state.staffPage=0;render();});
 $('scope').addEventListener('change',e=>{stop('Ready to listen.');state.scope=e.target.value;state.notePage=0;render();});
@@ -1131,6 +1145,7 @@ $('download').addEventListener('click',()=>{
     vocalRange:{low:state.rangeLow,high:state.rangeHigh,mode:'advisory'},tempo:state.tempo,transpose:state.transpose,
     personalPronunciationFitting:model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportContext()??null):null,
     ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
+    ...(state.scope==='printed-source-group'?{printedNo266Group:no266PrintedGroupContext(plan)}:{}),
     ...(model.profile.wordOnly?{wordCorrespondence:'lexical-source-word-candidate',syllableMapping:null,phonemes:null,independentReview:null}:{}),
     ...(plan.some(e=>e.sourceSmallEighth)?{smallEighthStudy:{...SMALL_EIGHTH_STUDY}}:{}),
     ...(no266ChoiceContext(plan)?{no266OriginalChoices:no266ChoiceContext(plan)}:{}),

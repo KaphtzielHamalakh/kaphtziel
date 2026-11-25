@@ -1,0 +1,2302 @@
+{
+  "format": "tropetrain-no266-printed-groups-v1",
+  "revision": 1,
+  "status": "candidate-printed-source-ordinals-not-hebrew-or-phonetic-syllables",
+  "source": {
+    "id": "idelsohn-1929-vol5-no266",
+    "revision": 1,
+    "record": "docs/IDELSOHN-NO266-SCORE.json",
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "printedPage": 101,
+    "pdfPage": 104,
+    "image": "assets/scores/idelsohn-1929-no266.jpg",
+    "imageSha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6",
+    "originalRights": "IMSLP item317924 catalogue PublicDomain"
+  },
+  "counts": {
+    "words": 39,
+    "printedGroups": 95,
+    "groupedPitches": 130,
+    "unassignedPitches": 1
+  },
+  "words": [
+    {
+      "sourceWordId": "exo-12-21-1",
+      "sourceHebrew": "וַיִּקְרָ֥א",
+      "printedWordId": "idelsohn1929-266-exo-12-21-1",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-1-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component1"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-1-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component2"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-1-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component3"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-2",
+      "sourceHebrew": "מֹשֶׁ֛ה",
+      "printedWordId": "idelsohn1929-266-exo-12-21-2",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-2-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component4"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-2-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component5",
+            "idelsohn1929-266-system1-component6",
+            "idelsohn1929-266-system1-component7",
+            "idelsohn1929-266-system1-component8",
+            "idelsohn1929-266-system1-component9"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-3",
+      "sourceHebrew": "לְכָל־",
+      "printedWordId": "idelsohn1929-266-exo-12-21-3",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-3-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component10"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-3-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component11"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-4",
+      "sourceHebrew": "זִקְנֵ֥י",
+      "printedWordId": "idelsohn1929-266-exo-12-21-4",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-4-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component12"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-4-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component13"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-5",
+      "sourceHebrew": "יִשְׂרָאֵ֖ל",
+      "printedWordId": "idelsohn1929-266-exo-12-21-5",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-5-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component14"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-5-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component15"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-5-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component16",
+            "idelsohn1929-266-system1-component17"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-6",
+      "sourceHebrew": "וַיֹּ֣אמֶר",
+      "printedWordId": "idelsohn1929-266-exo-12-21-6",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-6-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component18"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-6-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component19"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-6-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component20"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-7",
+      "sourceHebrew": "אֲלֵהֶ֑ם",
+      "printedWordId": "idelsohn1929-266-exo-12-21-7",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-7-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component21"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-7-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component22"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-7-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component23"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-8",
+      "sourceHebrew": "מִֽשְׁכ֗וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-21-8",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-8-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system1-component24"
+          ],
+          "sourceSystemNumbers": [
+            1
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system1-piece8"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-8-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component1",
+            "idelsohn1929-266-system2-component2",
+            "idelsohn1929-266-system2-component3",
+            "idelsohn1929-266-system2-component4",
+            "idelsohn1929-266-system2-component5"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-9",
+      "sourceHebrew": "וּקְח֨וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-21-9",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-9-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component6"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-9-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component7"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-9-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component8"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-10",
+      "sourceHebrew": "לָכֶ֥ם",
+      "printedWordId": "idelsohn1929-266-exo-12-21-10",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-10-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component9"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-10-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component10"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-11",
+      "sourceHebrew": "צֹ֛אן",
+      "printedWordId": "idelsohn1929-266-exo-12-21-11",
+      "printedGroupCount": 1,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-11-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component11",
+            "idelsohn1929-266-system2-component12",
+            "idelsohn1929-266-system2-component13",
+            "idelsohn1929-266-system2-component14",
+            "idelsohn1929-266-system2-component15"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-12",
+      "sourceHebrew": "לְמִשְׁפְּחֹתֵיכֶ֖ם",
+      "printedWordId": "idelsohn1929-266-exo-12-21-12",
+      "printedGroupCount": 6,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-12-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component16"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-12-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component17"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-12-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component18"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-12-printed4",
+          "ordinal": 4,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component19"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-12-printed5",
+          "ordinal": 5,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component20"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-12-printed6",
+          "ordinal": 6,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component21",
+            "idelsohn1929-266-system2-component22"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-13",
+      "sourceHebrew": "וְשַׁחֲט֥וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-21-13",
+      "printedGroupCount": 4,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-13-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component23"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-13-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component24"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-13-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component25"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-13-printed4",
+          "ordinal": 4,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component26"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-21-14",
+      "sourceHebrew": "הַפָּֽסַח׃",
+      "printedWordId": "idelsohn1929-266-exo-12-21-14",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-21-14-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component27"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-14-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component28"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-21-14-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system2-component29"
+          ],
+          "sourceSystemNumbers": [
+            2
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system2-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-1",
+      "sourceHebrew": "וּלְקַחְתֶּ֞ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-1",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-1-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component1"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-1-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component2"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-1-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component3",
+            "idelsohn1929-266-system3-component4",
+            "idelsohn1929-266-system3-component5",
+            "idelsohn1929-266-system3-component6",
+            "idelsohn1929-266-system3-component7"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-2",
+      "sourceHebrew": "אֲגֻדַּ֣ת",
+      "printedWordId": "idelsohn1929-266-exo-12-22-2",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-2-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component8"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-2-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component9"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-2-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component10"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-3",
+      "sourceHebrew": "אֵז֗וֹב",
+      "printedWordId": "idelsohn1929-266-exo-12-22-3",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-3-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component11"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-3-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component12",
+            "idelsohn1929-266-system3-component13",
+            "idelsohn1929-266-system3-component14",
+            "idelsohn1929-266-system3-component15",
+            "idelsohn1929-266-system3-component16"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-4",
+      "sourceHebrew": "וּטְבַלְתֶּם֮",
+      "printedWordId": "idelsohn1929-266-exo-12-22-4",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-4-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component17"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-4-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component18"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-4-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component20",
+            "idelsohn1929-266-system3-component21",
+            "idelsohn1929-266-system3-component22",
+            "idelsohn1929-266-system3-component23"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [
+        "idelsohn1929-266-system3-component19"
+      ],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-5",
+      "sourceHebrew": "בַּדָּ֣ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-5",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-5-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system3-component24"
+          ],
+          "sourceSystemNumbers": [
+            3
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system3-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-5-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component1",
+            "idelsohn1929-266-system4-component2"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-6",
+      "sourceHebrew": "אֲשֶׁר־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-6",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-6-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component3"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-6-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component4"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-7",
+      "sourceHebrew": "בַּסַּף֒",
+      "printedWordId": "idelsohn1929-266-exo-12-22-7",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-7-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component5"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-7-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component6"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-8",
+      "sourceHebrew": "וְהִגַּעְתֶּ֤ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-8",
+      "printedGroupCount": 4,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-8-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component8"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-8-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component9"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-8-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component10"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-8-printed4",
+          "ordinal": 4,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component11"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-9",
+      "sourceHebrew": "אֶל־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-9",
+      "printedGroupCount": 1,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-9-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component12"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-10",
+      "sourceHebrew": "הַמַּשְׁקוֹף֙",
+      "printedWordId": "idelsohn1929-266-exo-12-22-10",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-10-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component13"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-10-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component14"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-10-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component15"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-11",
+      "sourceHebrew": "וְאֶל־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-11",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-11-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component16"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-11-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component17"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-12",
+      "sourceHebrew": "שְׁתֵּ֣י",
+      "printedWordId": "idelsohn1929-266-exo-12-22-12",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-12-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component18"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece8"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-12-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component19"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece8"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-13",
+      "sourceHebrew": "הַמְּזוּזֹ֔ת",
+      "printedWordId": "idelsohn1929-266-exo-12-22-13",
+      "printedGroupCount": 4,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-13-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component20"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece9"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-13-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component21"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece9"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-13-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component22"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece9"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-13-printed4",
+          "ordinal": 4,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component23"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece9"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-14",
+      "sourceHebrew": "מִן־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-14",
+      "printedGroupCount": 1,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-14-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component24"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece10"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-15",
+      "sourceHebrew": "הַדָּ֖ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-15",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-15-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component25"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece11"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-15-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system4-component26"
+          ],
+          "sourceSystemNumbers": [
+            4
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system4-piece11"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-16",
+      "sourceHebrew": "אֲשֶׁ֣ר",
+      "printedWordId": "idelsohn1929-266-exo-12-22-16",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-16-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component1"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-16-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component2"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece1"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-17",
+      "sourceHebrew": "בַּסָּ֑ף",
+      "printedWordId": "idelsohn1929-266-exo-12-22-17",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-17-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component3"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-17-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component4"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece2"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-18",
+      "sourceHebrew": "וְאַתֶּ֗ם",
+      "printedWordId": "idelsohn1929-266-exo-12-22-18",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-18-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component5"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-18-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component6"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-18-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component7",
+            "idelsohn1929-266-system5-component8",
+            "idelsohn1929-266-system5-component9",
+            "idelsohn1929-266-system5-component10",
+            "idelsohn1929-266-system5-component11"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece3"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-19",
+      "sourceHebrew": "לֹ֥א",
+      "printedWordId": "idelsohn1929-266-exo-12-22-19",
+      "printedGroupCount": 1,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-19-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component12",
+            "idelsohn1929-266-system5-component13"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece4"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-20",
+      "sourceHebrew": "תֵצְא֛וּ",
+      "printedWordId": "idelsohn1929-266-exo-12-22-20",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-20-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component14"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-20-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component15"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-20-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component16",
+            "idelsohn1929-266-system5-component17",
+            "idelsohn1929-266-system5-component18",
+            "idelsohn1929-266-system5-component19",
+            "idelsohn1929-266-system5-component20"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece5"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-21",
+      "sourceHebrew": "אִ֥ישׁ",
+      "printedWordId": "idelsohn1929-266-exo-12-22-21",
+      "printedGroupCount": 1,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-21-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component21"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece6"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-22",
+      "sourceHebrew": "מִפֶּֽתַח־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-22",
+      "printedGroupCount": 3,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-22-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component22"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-22-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component23"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-22-printed3",
+          "ordinal": 3,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component24"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece7"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-23",
+      "sourceHebrew": "בֵּית֖וֹ",
+      "printedWordId": "idelsohn1929-266-exo-12-22-23",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-23-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component25"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece8"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-23-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component26"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece8"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-24",
+      "sourceHebrew": "עַד־",
+      "printedWordId": "idelsohn1929-266-exo-12-22-24",
+      "printedGroupCount": 1,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-24-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component27"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece9"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "sourceWordId": "exo-12-22-25",
+      "sourceHebrew": "בֹּֽקֶר׃",
+      "printedWordId": "idelsohn1929-266-exo-12-22-25",
+      "printedGroupCount": 2,
+      "groups": [
+        {
+          "id": "idelsohn1929-266-exo-12-22-25-printed1",
+          "ordinal": 1,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component28"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece10"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        },
+        {
+          "id": "idelsohn1929-266-exo-12-22-25-printed2",
+          "ordinal": 2,
+          "sourceNoteIds": [
+            "idelsohn1929-266-system5-component29"
+          ],
+          "sourceSystemNumbers": [
+            5
+          ],
+          "sourcePieceIds": [
+            "idelsohn1929-266-system5-piece10"
+          ],
+          "printedPhoneticUnicode": null,
+          "hebrewSyllableFit": null,
+          "mamFit": null,
+          "phonemes": null,
+          "independentReview": null
+        }
+      ],
+      "unassignedSourceNoteIds": [],
+      "unassignedGroupMembership": null,
+      "acceptedMamSyllableFit": null,
+      "phonemes": null,
+      "independentReview": null
+    }
+  ],
+  "printedPhoneticUnicode": null,
+  "acceptedHebrewOrMamSyllableFit": null,
+  "phonemes": null,
+  "voice": null,
+  "independentReview": null,
+  "limits": "Printed ordinals preserve source-note membership only. They do not assign Hebrew/MAM syllables, phonetic Unicode or recorded times. The parenthesized quarter has no assigned group membership and stays outside all group selections; whole-word playback keeps its separate original inclusion guard. The final small C4 belongs to printed group2 but requires its own original80ms choice. Source pitches/rests/tuplets/slurs and exact marked Hebrew remain unchanged.",
+  "inputs": [
+    {
+      "path": "scripts/import-no266-printed-groups.mjs",
+      "sha256": "b3d5cc633951529bf2d71e5cfa552636ccb22ab9d2b09b64fa6d30a8105c4391"
+    },
+    {
+      "path": "no266-printed-groups.js",
+      "sha256": "25fae5da2b0e468d606ad1e2a122cb9c8faf9139d03f42ebc9572fac8635b0b8"
+    },
+    {
+      "path": "docs/IDELSOHN-NO266-SCORE.json",
+      "sha256": "5380640ab43a4982241abcb35aad74a21e5fe025f523769b01cb4bc7a238e893"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no266.jpg",
+      "sha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6"
+    }
+  ]
+}

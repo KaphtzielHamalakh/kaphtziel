@@ -1,0 +1,1914 @@
+{
+  "format": "tropetrain-portable-evidence-audit-v1",
+  "status": "lossless-packaging-only-no-musical-review-or-new-voice",
+  "inputs": [
+    {
+      "path": "app.bundle.js",
+      "sha256": "5c973512468015b79e29e407e8387dd99448ac538c55282bda4e911d7fc3e803"
+    },
+    {
+      "path": "data/calendar/torah-verse-numbering.json",
+      "sha256": "c168e3d73ddef6737dfe12639b412b972be6522252435f3de825d64171524112"
+    },
+    {
+      "path": "docs/ASAEL-CORPUS-SOURCE-INDEX.json",
+      "sha256": "63ca410799b3f07784d73613edccfe49591f268ca7338f43266726a7e601ebb9"
+    },
+    {
+      "path": "docs/ASAEL-PAIRED-CHANT.json",
+      "sha256": "7266290970af1ed893a27e1afcb568ab550f0a82af9e0b8479383d894bc8a692"
+    },
+    {
+      "path": "docs/ASAEL-PHONETIC-WORDS.json",
+      "sha256": "42ee253e76cc0848f4803d7819678000665d86a4c40ac394e3f8a1e7bb2bc05a"
+    },
+    {
+      "path": "docs/ASAEL-SOURCE-CATALOG.json",
+      "sha256": "b78864c68872a9a7e9e82cefebbb7334f76a89b0ba11ca7c2b95237447b34055"
+    },
+    {
+      "path": "docs/ASAEL-VOWEL-ANCHORS.json",
+      "sha256": "a62abe5956a60d8e894775714fcc84ea014e0076dc4430691ad4013b351ac6ac"
+    },
+    {
+      "path": "docs/ASAEL-WORD-SUPPORT.json",
+      "sha256": "78610e4b8366d73607eb7d7a58bd65efd2b0111e9e44c3b51d65ec937a14dfc1"
+    },
+    {
+      "path": "docs/BAER-GENESIS-SCORE.json",
+      "sha256": "88fcdabec7eeffe7d342a7f721dfacc8b56b29d10fc84f6dc038c66077c46045"
+    },
+    {
+      "path": "docs/BAER-HIGH-HOLIDAY-SCORE.json",
+      "sha256": "7132ab7fdae6fe23d6363b735a88e86eefa14fc19e92265a9b0061c5b1aead68"
+    },
+    {
+      "path": "docs/BAER-NOTE-CORRESPONDENCE.json",
+      "sha256": "583895a5f588e622d110ca0a354eb948d1d3414440f418e52d35df14692bb3c2"
+    },
+    {
+      "path": "docs/CALENDAR-RELATED-AUDIT.json",
+      "sha256": "b976e4e6a96d6c746f20975c717fb918428023e6eb87600f61b95c5468dac604"
+    },
+    {
+      "path": "docs/CALENDAR-SOURCES.json",
+      "sha256": "ea113eed634e973753f63361503a29b0234ff66939549ab15ee8d2cd2f57d7ec"
+    },
+    {
+      "path": "docs/CHANT-COVERAGE.json",
+      "sha256": "877bb9e01e39d914ea7c4b808a4aad8ef3a8184d4bf133a505bf7364735e7026"
+    },
+    {
+      "path": "docs/COHEN-PENITENTIAL-PLAYBACK.json",
+      "sha256": "1c15b66c5fdb2e5b66701daa3950a96d98e9978af6df6a573531c86cfa7dce44"
+    },
+    {
+      "path": "docs/COHEN-PENITENTIAL-SCORE.json",
+      "sha256": "6795c907c7c30909867c10feee9bbff05f6ba2f663cf3c327e331058bf4759c5"
+    },
+    {
+      "path": "docs/COHEN-PROPHETICAL-SCORE.json",
+      "sha256": "38368c2d343ce8d4210a10f577e35035a89657b02e479207874d173ae2ac35ef"
+    },
+    {
+      "path": "docs/HAFTARAH-PRACTICE.json",
+      "sha256": "c1f8ff7ac90f9704eefe169381d0763ae879401635cedadd0b5259528b8f9ad6"
+    },
+    {
+      "path": "docs/HAFTARAH-REFERENCE-AUDIT.json",
+      "sha256": "2a7688df11faa726f8853876e5fe5eb4abb92ea311bba8cedf0c0a46bdcb45e7"
+    },
+    {
+      "path": "docs/HEBREW-DATE-SOURCES.json",
+      "sha256": "a49e8630163a7c059eaca83b81f580966203ef992563deff350f24d8f33c40c7"
+    },
+    {
+      "path": "docs/HISTORICAL-PRONUNCIATION-PROFILES.json",
+      "sha256": "8ab4d30145ef8cb4a35a49ad724eac5307c50c5ea33736f3de9c7f1f9b850b0e"
+    },
+    {
+      "path": "docs/IDELSOHN-NO266-GROUPS.json",
+      "sha256": "d974804f830ee60170ef459a6d00d82738c7ab236611853319df72588f35c601"
+    },
+    {
+      "path": "docs/IDELSOHN-NO266-PLAYBACK.json",
+      "sha256": "f2ac1a156f18c508bc4b2892c8750be95e1a03085e82b1a34b30d29b0931d6ba"
+    },
+    {
+      "path": "docs/IDELSOHN-NO267-SMALL-NOTE-STUDY.json",
+      "sha256": "335147adb44e09f55f522c01cc63a9fdca1bdfde6ec6470f97d19e369699405f"
+    },
+    {
+      "path": "docs/IDELSOHN-NO268-SCORE.json",
+      "sha256": "4d92c78aa90b7f2b44ea636b5690f1cda9031a5a050912b77ecb610cc35513cd"
+    },
+    {
+      "path": "docs/JOINT-CHANT-PRONUNCIATION.json",
+      "sha256": "7db29ad604162c34d56e4a64f6e26a4abce63aac871fc07fa9a414781cf76fa6"
+    },
+    {
+      "path": "docs/KHAN-TIBERIAN-GENESIS.json",
+      "sha256": "a1a80d4fe28571065b4fabeaddc2c09e3ace9047f5baf4f713271be4f44ef782"
+    },
+    {
+      "path": "docs/MEASURED-TONE-COVERAGE.json",
+      "sha256": "176f568f1c2f3ec337a1612bbb42d3143f569ec1ae94da362844b2f35b3a2dc5"
+    },
+    {
+      "path": "docs/MEASURED-TONES.json",
+      "sha256": "0d1d0cec1f732b6e741380fd96e6adbc8181c19bd71a35d0e87a78dd0e10f853"
+    },
+    {
+      "path": "docs/MODERN-FINAL-CONSONANTS.json",
+      "sha256": "a7f05bc648cab208430029f6a2258c6d20fdff1e78c41aea493ffcc140d8009d"
+    },
+    {
+      "path": "docs/MODERN-FINAL-NOTE-LINKS.json",
+      "sha256": "eb8345d3e473f4db83c8bcc6148664741b4619ad5b31b9c06fe933f64da3419e"
+    },
+    {
+      "path": "docs/MODERN-PHONOLOGY-NOTE-LINKS.json",
+      "sha256": "d9a2ce6670312a34ce0536040f2120dcd95becff5d068f7c4430d9d62a7771b6"
+    },
+    {
+      "path": "docs/MODERN-PHONOLOGY.json",
+      "sha256": "5d71c25b256d468a80b0cbc47a3d34b1e02ee48bc4d626d2987be427ea0909da"
+    },
+    {
+      "path": "docs/PRINTED-PATTERNS.json",
+      "sha256": "b9a9bede0ab728e6011e0dff7a81f80298607b380804941d8aaf3b7690f816c3"
+    },
+    {
+      "path": "docs/PRINTED-SCORE.json",
+      "sha256": "ee63cd33849ad37cb64e025033858634a4ce64179aea24422b88f420fe022580"
+    },
+    {
+      "path": "docs/PRONUNCIATION-ALIGNMENT.json",
+      "sha256": "a2d839c2e482e27bd111b103ead91c8f6804c0acdd4f943ff3b1e684ef81216f"
+    },
+    {
+      "path": "docs/PRONUNCIATION-EDITION-WORDS.json",
+      "sha256": "cae5df17fd74297b48ddcb10d61267eed7d1a364377e52e2f5b20ccf832261f6"
+    },
+    {
+      "path": "docs/PRONUNCIATION-IMPLICIT-READING.json",
+      "sha256": "570c4e33607f388dfdab03c6619c209a83714b292a1cb4b58612e93ce78e392b"
+    },
+    {
+      "path": "docs/PRONUNCIATION-IPA-COVERAGE.json",
+      "sha256": "b5adba213ffa36e81bd52c9ae473f3fe28bfb02dd1caacc83d365725d68915e1"
+    },
+    {
+      "path": "docs/PRONUNCIATION-IPA-PROPOSAL.json",
+      "sha256": "d07ce41aad87f9959c5666c1fba2966b60bad07f11c7badfc7477bfcbe35f52b"
+    },
+    {
+      "path": "docs/PRONUNCIATION-LETTER-CLUSTERS.json",
+      "sha256": "f1dcc72f04f3ad48184c3c8a5cb52ee3d0ab2010c1f81dfb9479f39ef2a254a5"
+    },
+    {
+      "path": "docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json",
+      "sha256": "dc0344836dd140f5474e2f566faf9951c26c6953225859eadf515d6aafaf00dc"
+    },
+    {
+      "path": "docs/PRONUNCIATION-NOTE-PROPOSALS.json",
+      "sha256": "f671cd0f591bf2e91710a7931ffb73f52d1a8813d14f05d0c2b36298c59462f4"
+    },
+    {
+      "path": "docs/PRONUNCIATION-PHONOLOGY.json",
+      "sha256": "3158485fc5e56a0a135e82d00b8b1ee1b1affce08057fb314a6b518fcc2b4488"
+    },
+    {
+      "path": "docs/PRONUNCIATION-REPERTOIRE-ALIGNMENT.json",
+      "sha256": "2619f1eb6151d2f951574257565dd77af9648ee71e70ccddf7d13e9a3605c2fc"
+    },
+    {
+      "path": "docs/PRONUNCIATION-REPERTOIRE-UNDERLAY-ALIGNMENT.json",
+      "sha256": "cbe6fd61ed26f611bbc823d9874b13770a193b1498ceb34f2ff68815ea0ea657"
+    },
+    {
+      "path": "docs/PRONUNCIATION-REPERTOIRE-UNDERLAY.json",
+      "sha256": "63bb2b2fb217868a8b767e958a6449447686a4396329db7a057040e30ed076cb"
+    },
+    {
+      "path": "docs/PRONUNCIATION-SCORE-GROUPS.json",
+      "sha256": "0cc5e968005ec3ac953769b61e37ecc81a81fc75e1a502b9d48297403f88c3cf"
+    },
+    {
+      "path": "docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json",
+      "sha256": "22749d073b822828eeff1c605ff8acd7921c11eec83db6015bff4c67bb42bb89"
+    },
+    {
+      "path": "docs/PRONUNCIATION-SEGMENTS.json",
+      "sha256": "d18a8194dbaff62f293d02f4d9ec03f5c33e94a02b4e32112558ddc3c9e37bfb"
+    },
+    {
+      "path": "docs/PRONUNCIATION-SPAN-FOLLOW.json",
+      "sha256": "7fbc6856a6de2d7ba0b004680ef30baf6297ab793894705943a3a9ffc146ffda"
+    },
+    {
+      "path": "docs/PRONUNCIATION-UNDERLAY.json",
+      "sha256": "e988b74ab9d79ee66174170a5dbe71c083d281d992eed6cf73f3b7a0fad53fbc"
+    },
+    {
+      "path": "docs/PRONUNCIATION-WRITTEN-VARIANTS.json",
+      "sha256": "f68e86a836df0b788a615511e279b330e1d67b6d569a6d596e79b87202715316"
+    },
+    {
+      "path": "docs/RECORDED-PITCH-PROCESSING.json",
+      "sha256": "6bf92e602cd805f1c1ae2fb3d746da405e6b33b2040938c19ef7cec48f662d87"
+    },
+    {
+      "path": "docs/RECORDING-GROUP-WORD-DRAFT.json",
+      "sha256": "225804496155915eae3e0f734d689d95f784a1b413567ecb6fba17e50bb4404a"
+    },
+    {
+      "path": "docs/RECORDING-TIMING-GROUPS.json",
+      "sha256": "ef82e0a51bb0c584a2e9eb2aaceea9d9edad7bf1b7a0cb465ae93916442af3ec"
+    },
+    {
+      "path": "docs/REPERTOIRE-AUDIT.json",
+      "sha256": "eb7b9a157c5bf256294ea9a20d7c9569fc374455e317440625dd296856fb6337"
+    },
+    {
+      "path": "docs/REPERTOIRE-SOURCES.json",
+      "sha256": "eb5bb5014f3ac366606283f0d854a8ec0756b659eeb93cd9570bf3f321ab9bcf"
+    },
+    {
+      "path": "docs/SCROLL-SOURCES.json",
+      "sha256": "01e1af9f69631ebd01df42fdf0de411f3b7cccbd469fa4ab94f400c93496400f"
+    },
+    {
+      "path": "docs/SINGING-SOURCE-RESEARCH.json",
+      "sha256": "dc0640a373e7899f0c5938ed9f9792ae352fed72ec4e2f1d109987adafbc4f62"
+    },
+    {
+      "path": "docs/SOURCE-DURATION-REVIEW.json",
+      "sha256": "3e94149325ab57f236515f704ed87657197124183e6230353779710a710fb805"
+    },
+    {
+      "path": "docs/SOURCE-GROUP-TIMING.json",
+      "sha256": "5a1d6c575f533a475118a42f6da5fe98a588f9219e0c3a86f3a5fe0cd8621ea3"
+    },
+    {
+      "path": "docs/SOURCE-JOINT-PLAYBACK.json",
+      "sha256": "a97d70ae8ace9524dfbf9dfda9b157c3d8ee85c481c61b8b2f2e34b7f7b39c28"
+    },
+    {
+      "path": "docs/SOURCE-PHRASE-PLAYBACK.json",
+      "sha256": "86d096dfe6a3856db767da7fad1142686fe6c5add0bde5b54f98e9f4f69e980f"
+    },
+    {
+      "path": "docs/SOURCE-PHRASES.json",
+      "sha256": "21e2a9d612c1e6048a2c50425d74ef95e6c607fa93539a11685c6c824690d9cf"
+    },
+    {
+      "path": "docs/SOURCE-PITCH-EVIDENCE.json",
+      "sha256": "63f6b7d7c8f03cdb52b01ff11c44cd3e01502f277e1dedf739a7c394d0ff39b6"
+    },
+    {
+      "path": "docs/SOURCE-PITCH-SAMPLE-AUDIT.json",
+      "sha256": "36a7fc6ffd054f713c95d493c3e19524507bbf7da3ac4d1ce2ce615e81952c64"
+    },
+    {
+      "path": "docs/SOURCE-READING-CHOICES.json",
+      "sha256": "a0919d5ecdeeda5b8e53c3f3e07c090b3aafbccf8d518b3ee84ee5f6ef912c2a"
+    },
+    {
+      "path": "docs/SOURCE-READING-PLAYBACK.json",
+      "sha256": "79d0fb89edd250858d8e3c48c6e3d7695d8d706f6ec5859dc5aa8a2fe1c2c1ba"
+    },
+    {
+      "path": "docs/SOURCE-RECALL.json",
+      "sha256": "99593016a4fa90edd8b1ebc3388b2fd64561e2d9fe126965b1969f81add923a3"
+    },
+    {
+      "path": "docs/SOURCE-SYLLABLE-PLAYBACK.json",
+      "sha256": "2d38e22ef19fab5ef2c592a502af5daa6b6af98d75199047d5463ba36d9e899b"
+    },
+    {
+      "path": "docs/SOURCE-WORD-WINDOWS.json",
+      "sha256": "a5f57d1c8b142219e09bc632dc9d1509e99f47f3c5c5029ace20941c449ac806"
+    },
+    {
+      "path": "docs/SYLLABLE-TIMING-DRAFT.json",
+      "sha256": "af1cd22e6a7f5ca36a2cbfa0893f605894d5d955754d861ce8f650247036ec33"
+    },
+    {
+      "path": "docs/TORAH-NUMBERING-SOURCES.json",
+      "sha256": "4671b32335688357ad3c6edf20e3f532143181d16bcac3a99ad30c01907bd62c"
+    },
+    {
+      "path": "docs/VOICE-STUDIES.json",
+      "sha256": "5dd2681e5cc5315e8a3c6c37a09dd34022e945f2ed9d5ba70e9ce05048eba462"
+    },
+    {
+      "path": "index.html",
+      "sha256": "50677621fd9533a5b708930446710f2d00da73056ce7e16b8099652c916bbb86"
+    },
+    {
+      "path": "portable-evidence-loader.js",
+      "sha256": "01a5179ffb320e27ec0aa6bb605cf6e164f040c241d6ab5f87830aea767eabc8"
+    },
+    {
+      "path": "portable-program-loader.js",
+      "sha256": "02ef7b77a1b1fb569d3a8e1da1a820ffd68cc93ce44e892c23ca40657b916717"
+    },
+    {
+      "path": "scripts/audit-portable-evidence.mjs",
+      "sha256": "9f31cb3e20e9fede81f7889102ee8b87d31c3fc9488d4b5c0eb80a3ecf7f970f"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "761942223124d4944a76bf7888489345f5902c66e4b1a5078935e0fa9de55ba2"
+    },
+    {
+      "path": "scripts/pack-portable-evidence.mjs",
+      "sha256": "e32acdd58cefbc25afb9c85b02d1d99df9387b20e34327eb52adc66c0edff027"
+    },
+    {
+      "path": "scripts/pack-portable-program.mjs",
+      "sha256": "df452bc97869b1f6b0c3a38e7419af051ec891a70e1e7ada6f54eadfba54c1cc"
+    }
+  ],
+  "records": [
+    {
+      "id": "0",
+      "bytes": 3515,
+      "sha256": "a49e8630163a7c059eaca83b81f580966203ef992563deff350f24d8f33c40c7",
+      "base64Bytes": 4688,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/HEBREW-DATE-SOURCES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "1",
+      "bytes": 5705,
+      "sha256": "ea113eed634e973753f63361503a29b0234ff66939549ab15ee8d2cd2f57d7ec",
+      "base64Bytes": 7608,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/CALENDAR-SOURCES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "2",
+      "bytes": 91154,
+      "sha256": "b976e4e6a96d6c746f20975c717fb918428023e6eb87600f61b95c5468dac604",
+      "base64Bytes": 121540,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/CALENDAR-RELATED-AUDIT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "3",
+      "bytes": 3166,
+      "sha256": "4671b32335688357ad3c6edf20e3f532143181d16bcac3a99ad30c01907bd62c",
+      "base64Bytes": 4224,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/TORAH-NUMBERING-SOURCES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "4",
+      "bytes": 17726,
+      "sha256": "c168e3d73ddef6737dfe12639b412b972be6522252435f3de825d64171524112",
+      "base64Bytes": 23636,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "data/calendar/torah-verse-numbering.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "5",
+      "bytes": 9361,
+      "sha256": "7fbc6856a6de2d7ba0b004680ef30baf6297ab793894705943a3a9ffc146ffda",
+      "base64Bytes": 12484,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-SPAN-FOLLOW.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "6",
+      "bytes": 81004,
+      "sha256": "01e1af9f69631ebd01df42fdf0de411f3b7cccbd469fa4ab94f400c93496400f",
+      "base64Bytes": 108008,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SCROLL-SOURCES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "7",
+      "bytes": 98392,
+      "sha256": "21e2a9d612c1e6048a2c50425d74ef95e6c607fa93539a11685c6c824690d9cf",
+      "base64Bytes": 131192,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-PHRASES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "8",
+      "bytes": 8558,
+      "sha256": "86d096dfe6a3856db767da7fad1142686fe6c5add0bde5b54f98e9f4f69e980f",
+      "base64Bytes": 11412,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-PHRASE-PLAYBACK.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "9",
+      "bytes": 7359,
+      "sha256": "99593016a4fa90edd8b1ebc3388b2fd64561e2d9fe126965b1969f81add923a3",
+      "base64Bytes": 9812,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-RECALL.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "10",
+      "bytes": 3350,
+      "sha256": "570c4e33607f388dfdab03c6619c209a83714b292a1cb4b58612e93ce78e392b",
+      "base64Bytes": 4468,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-IMPLICIT-READING.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "11",
+      "bytes": 36584,
+      "sha256": "63bb2b2fb217868a8b767e958a6449447686a4396329db7a057040e30ed076cb",
+      "base64Bytes": 48780,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-REPERTOIRE-UNDERLAY.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "12",
+      "bytes": 26209,
+      "sha256": "cbe6fd61ed26f611bbc823d9874b13770a193b1498ceb34f2ff68815ea0ea657",
+      "base64Bytes": 34948,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-REPERTOIRE-UNDERLAY-ALIGNMENT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "13",
+      "bytes": 4823,
+      "sha256": "d18a8194dbaff62f293d02f4d9ec03f5c33e94a02b4e32112558ddc3c9e37bfb",
+      "base64Bytes": 6432,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-SEGMENTS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "14",
+      "bytes": 3087,
+      "sha256": "22749d073b822828eeff1c605ff8acd7921c11eec83db6015bff4c67bb42bb89",
+      "base64Bytes": 4116,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-SEGMENT-ALIGNMENT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "15",
+      "bytes": 4023,
+      "sha256": "f1dcc72f04f3ad48184c3c8a5cb52ee3d0ab2010c1f81dfb9479f39ef2a254a5",
+      "base64Bytes": 5364,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-LETTER-CLUSTERS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "16",
+      "bytes": 31579,
+      "sha256": "d07ce41aad87f9959c5666c1fba2966b60bad07f11c7badfc7477bfcbe35f52b",
+      "base64Bytes": 42108,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-IPA-PROPOSAL.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "17",
+      "bytes": 3547,
+      "sha256": "b5adba213ffa36e81bd52c9ae473f3fe28bfb02dd1caacc83d365725d68915e1",
+      "base64Bytes": 4732,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-IPA-COVERAGE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "18",
+      "bytes": 4195,
+      "sha256": "dc0640a373e7899f0c5938ed9f9792ae352fed72ec4e2f1d109987adafbc4f62",
+      "base64Bytes": 5596,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SINGING-SOURCE-RESEARCH.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "19",
+      "bytes": 187387,
+      "sha256": "a2d839c2e482e27bd111b103ead91c8f6804c0acdd4f943ff3b1e684ef81216f",
+      "base64Bytes": 249852,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-ALIGNMENT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "20",
+      "bytes": 38563,
+      "sha256": "f68e86a836df0b788a615511e279b330e1d67b6d569a6d596e79b87202715316",
+      "base64Bytes": 51420,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-WRITTEN-VARIANTS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "21",
+      "bytes": 208363,
+      "sha256": "cae5df17fd74297b48ddcb10d61267eed7d1a364377e52e2f5b20ccf832261f6",
+      "base64Bytes": 277820,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-EDITION-WORDS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "22",
+      "bytes": 1437993,
+      "sha256": "2619f1eb6151d2f951574257565dd77af9648ee71e70ccddf7d13e9a3605c2fc",
+      "base64Bytes": 1917324,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-REPERTOIRE-ALIGNMENT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "23",
+      "bytes": 1274,
+      "sha256": "e988b74ab9d79ee66174170a5dbe71c083d281d992eed6cf73f3b7a0fad53fbc",
+      "base64Bytes": 1700,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-UNDERLAY.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "24",
+      "bytes": 171155,
+      "sha256": "a1a80d4fe28571065b4fabeaddc2c09e3ace9047f5baf4f713271be4f44ef782",
+      "base64Bytes": 228208,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/KHAN-TIBERIAN-GENESIS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "25",
+      "bytes": 219083,
+      "sha256": "8ab4d30145ef8cb4a35a49ad724eac5307c50c5ea33736f3de9c7f1f9b850b0e",
+      "base64Bytes": 292112,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/HISTORICAL-PRONUNCIATION-PROFILES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "26",
+      "bytes": 12993,
+      "sha256": "3158485fc5e56a0a135e82d00b8b1ee1b1affce08057fb314a6b518fcc2b4488",
+      "base64Bytes": 17324,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-PHONOLOGY.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "27",
+      "bytes": 7175,
+      "sha256": "5d71c25b256d468a80b0cbc47a3d34b1e02ee48bc4d626d2987be427ea0909da",
+      "base64Bytes": 9568,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/MODERN-PHONOLOGY.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "28",
+      "bytes": 8750,
+      "sha256": "d9a2ce6670312a34ce0536040f2120dcd95becff5d068f7c4430d9d62a7771b6",
+      "base64Bytes": 11668,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/MODERN-PHONOLOGY-NOTE-LINKS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "29",
+      "bytes": 8220,
+      "sha256": "a7f05bc648cab208430029f6a2258c6d20fdff1e78c41aea493ffcc140d8009d",
+      "base64Bytes": 10960,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/MODERN-FINAL-CONSONANTS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "30",
+      "bytes": 10592,
+      "sha256": "eb8345d3e473f4db83c8bcc6148664741b4619ad5b31b9c06fe933f64da3419e",
+      "base64Bytes": 14124,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/MODERN-FINAL-NOTE-LINKS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "31",
+      "bytes": 21370,
+      "sha256": "6bf92e602cd805f1c1ae2fb3d746da405e6b33b2040938c19ef7cec48f662d87",
+      "base64Bytes": 28496,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/RECORDED-PITCH-PROCESSING.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "32",
+      "bytes": 2333,
+      "sha256": "0d1d0cec1f732b6e741380fd96e6adbc8181c19bd71a35d0e87a78dd0e10f853",
+      "base64Bytes": 3112,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/MEASURED-TONES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "33",
+      "bytes": 5221,
+      "sha256": "176f568f1c2f3ec337a1612bbb42d3143f569ec1ae94da362844b2f35b3a2dc5",
+      "base64Bytes": 6964,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/MEASURED-TONE-COVERAGE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "34",
+      "bytes": 4342,
+      "sha256": "63f6b7d7c8f03cdb52b01ff11c44cd3e01502f277e1dedf739a7c394d0ff39b6",
+      "base64Bytes": 5792,
+      "links": 2,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-PITCH-EVIDENCE.json"
+      ],
+      "anchorIds": [
+        null,
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "35",
+      "bytes": 17048,
+      "sha256": "ef82e0a51bb0c584a2e9eb2aaceea9d9edad7bf1b7a0cb465ae93916442af3ec",
+      "base64Bytes": 22732,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/RECORDING-TIMING-GROUPS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "36",
+      "bytes": 2081,
+      "sha256": "3e94149325ab57f236515f704ed87657197124183e6230353779710a710fb805",
+      "base64Bytes": 2776,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-DURATION-REVIEW.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "37",
+      "bytes": 67485,
+      "sha256": "d974804f830ee60170ef459a6d00d82738c7ab236611853319df72588f35c601",
+      "base64Bytes": 89980,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/IDELSOHN-NO266-GROUPS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "38",
+      "bytes": 26946,
+      "sha256": "2d38e22ef19fab5ef2c592a502af5daa6b6af98d75199047d5463ba36d9e899b",
+      "base64Bytes": 35928,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-SYLLABLE-PLAYBACK.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "39",
+      "bytes": 5802,
+      "sha256": "79d0fb89edd250858d8e3c48c6e3d7695d8d706f6ec5859dc5aa8a2fe1c2c1ba",
+      "base64Bytes": 7736,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-READING-PLAYBACK.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "40",
+      "bytes": 11965,
+      "sha256": "a97d70ae8ace9524dfbf9dfda9b157c3d8ee85c481c61b8b2f2e34b7f7b39c28",
+      "base64Bytes": 15956,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-JOINT-PLAYBACK.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "41",
+      "bytes": 5748,
+      "sha256": "a0919d5ecdeeda5b8e53c3f3e07c090b3aafbccf8d518b3ee84ee5f6ef912c2a",
+      "base64Bytes": 7664,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-READING-CHOICES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "42",
+      "bytes": 27493,
+      "sha256": "2a7688df11faa726f8853876e5fe5eb4abb92ea311bba8cedf0c0a46bdcb45e7",
+      "base64Bytes": 36660,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/HAFTARAH-REFERENCE-AUDIT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "43",
+      "bytes": 4872,
+      "sha256": "c1f8ff7ac90f9704eefe169381d0763ae879401635cedadd0b5259528b8f9ad6",
+      "base64Bytes": 6496,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/HAFTARAH-PRACTICE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "44",
+      "bytes": 7103,
+      "sha256": "7266290970af1ed893a27e1afcb568ab550f0a82af9e0b8479383d894bc8a692",
+      "base64Bytes": 9472,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/ASAEL-PAIRED-CHANT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "45",
+      "bytes": 991148,
+      "sha256": "63ca410799b3f07784d73613edccfe49591f268ca7338f43266726a7e601ebb9",
+      "base64Bytes": 1321532,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/ASAEL-CORPUS-SOURCE-INDEX.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "46",
+      "bytes": 2954493,
+      "sha256": "b78864c68872a9a7e9e82cefebbb7334f76a89b0ba11ca7c2b95237447b34055",
+      "base64Bytes": 3939324,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/ASAEL-SOURCE-CATALOG.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "47",
+      "bytes": 146633,
+      "sha256": "5dd2681e5cc5315e8a3c6c37a09dd34022e945f2ed9d5ba70e9ce05048eba462",
+      "base64Bytes": 195512,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/VOICE-STUDIES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "48",
+      "bytes": 2346,
+      "sha256": "78610e4b8366d73607eb7d7a58bd65efd2b0111e9e44c3b51d65ec937a14dfc1",
+      "base64Bytes": 3128,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/ASAEL-WORD-SUPPORT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "49",
+      "bytes": 42274,
+      "sha256": "a62abe5956a60d8e894775714fcc84ea014e0076dc4430691ad4013b351ac6ac",
+      "base64Bytes": 56368,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/ASAEL-VOWEL-ANCHORS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "50",
+      "bytes": 5307,
+      "sha256": "42ee253e76cc0848f4803d7819678000665d86a4c40ac394e3f8a1e7bb2bc05a",
+      "base64Bytes": 7076,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/ASAEL-PHONETIC-WORDS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "51",
+      "bytes": 10993,
+      "sha256": "225804496155915eae3e0f734d689d95f784a1b413567ecb6fba17e50bb4404a",
+      "base64Bytes": 14660,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/RECORDING-GROUP-WORD-DRAFT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "52",
+      "bytes": 5323,
+      "sha256": "af1cd22e6a7f5ca36a2cbfa0893f605894d5d955754d861ce8f650247036ec33",
+      "base64Bytes": 7100,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SYLLABLE-TIMING-DRAFT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "53",
+      "bytes": 42748,
+      "sha256": "5a1d6c575f533a475118a42f6da5fe98a588f9219e0c3a86f3a5fe0cd8621ea3",
+      "base64Bytes": 57000,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-GROUP-TIMING.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "54",
+      "bytes": 165339,
+      "sha256": "36a7fc6ffd054f713c95d493c3e19524507bbf7da3ac4d1ce2ce615e81952c64",
+      "base64Bytes": 220452,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-PITCH-SAMPLE-AUDIT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "55",
+      "bytes": 1882,
+      "sha256": "7db29ad604162c34d56e4a64f6e26a4abce63aac871fc07fa9a414781cf76fa6",
+      "base64Bytes": 2512,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/JOINT-CHANT-PRONUNCIATION.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "56",
+      "bytes": 7656,
+      "sha256": "877bb9e01e39d914ea7c4b808a4aad8ef3a8184d4bf133a505bf7364735e7026",
+      "base64Bytes": 10208,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/CHANT-COVERAGE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "57",
+      "bytes": 319818,
+      "sha256": "a5f57d1c8b142219e09bc632dc9d1509e99f47f3c5c5029ace20941c449ac806",
+      "base64Bytes": 426424,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/SOURCE-WORD-WINDOWS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "58",
+      "bytes": 48263,
+      "sha256": "ee63cd33849ad37cb64e025033858634a4ce64179aea24422b88f420fe022580",
+      "base64Bytes": 64352,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRINTED-SCORE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "59",
+      "bytes": 67624,
+      "sha256": "6795c907c7c30909867c10feee9bbff05f6ba2f663cf3c327e331058bf4759c5",
+      "base64Bytes": 90168,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/COHEN-PENITENTIAL-SCORE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "60",
+      "bytes": 7569,
+      "sha256": "1c15b66c5fdb2e5b66701daa3950a96d98e9978af6df6a573531c86cfa7dce44",
+      "base64Bytes": 10092,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/COHEN-PENITENTIAL-PLAYBACK.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "61",
+      "bytes": 68624,
+      "sha256": "38368c2d343ce8d4210a10f577e35035a89657b02e479207874d173ae2ac35ef",
+      "base64Bytes": 91500,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/COHEN-PROPHETICAL-SCORE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "62",
+      "bytes": 89693,
+      "sha256": "4d92c78aa90b7f2b44ea636b5690f1cda9031a5a050912b77ecb610cc35513cd",
+      "base64Bytes": 119592,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/IDELSOHN-NO268-SCORE.json"
+      ],
+      "anchorIds": [
+        "idelsohn-score-evidence"
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "63",
+      "bytes": 170383,
+      "sha256": "88fcdabec7eeffe7d342a7f721dfacc8b56b29d10fc84f6dc038c66077c46045",
+      "base64Bytes": 227180,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/BAER-GENESIS-SCORE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "64",
+      "bytes": 7645,
+      "sha256": "583895a5f588e622d110ca0a354eb948d1d3414440f418e52d35df14692bb3c2",
+      "base64Bytes": 10196,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/BAER-NOTE-CORRESPONDENCE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "65",
+      "bytes": 9302,
+      "sha256": "f2ac1a156f18c508bc4b2892c8750be95e1a03085e82b1a34b30d29b0931d6ba",
+      "base64Bytes": 12404,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/IDELSOHN-NO266-PLAYBACK.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "66",
+      "bytes": 65054,
+      "sha256": "7132ab7fdae6fe23d6363b735a88e86eefa14fc19e92265a9b0061c5b1aead68",
+      "base64Bytes": 86740,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/BAER-HIGH-HOLIDAY-SCORE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "67",
+      "bytes": 10666,
+      "sha256": "335147adb44e09f55f522c01cc63a9fdca1bdfde6ec6470f97d19e369699405f",
+      "base64Bytes": 14224,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/IDELSOHN-NO267-SMALL-NOTE-STUDY.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "68",
+      "bytes": 4921,
+      "sha256": "b9a9bede0ab728e6011e0dff7a81f80298607b380804941d8aaf3b7690f816c3",
+      "base64Bytes": 6564,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRINTED-PATTERNS.json"
+      ],
+      "anchorIds": [
+        "pattern-record-link"
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "69",
+      "bytes": 6205,
+      "sha256": "dc0344836dd140f5474e2f566faf9951c26c6953225859eadf515d6aafaf00dc",
+      "base64Bytes": 8276,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-NOTE-CORRESPONDENCE.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "70",
+      "bytes": 7910,
+      "sha256": "f671cd0f591bf2e91710a7931ffb73f52d1a8813d14f05d0c2b36298c59462f4",
+      "base64Bytes": 10548,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-NOTE-PROPOSALS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "71",
+      "bytes": 12370,
+      "sha256": "0cc5e968005ec3ac953769b61e37ecc81a81fc75e1a502b9d48297403f88c3cf",
+      "base64Bytes": 16496,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/PRONUNCIATION-SCORE-GROUPS.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "72",
+      "bytes": 9559,
+      "sha256": "eb5bb5014f3ac366606283f0d854a8ec0756b659eeb93cd9570bf3f321ab9bcf",
+      "base64Bytes": 12748,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/REPERTOIRE-SOURCES.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    },
+    {
+      "id": "73",
+      "bytes": 5238,
+      "sha256": "eb7b9a157c5bf256294ea9a20d7c9569fc374455e317440625dd296856fb6337",
+      "base64Bytes": 6984,
+      "links": 1,
+      "canonicalSourcePaths": [
+        "docs/REPERTOIRE-AUDIT.json"
+      ],
+      "anchorIds": [
+        null
+      ],
+      "allSourceBytesExact": true
+    }
+  ],
+  "recordCount": 74,
+  "linkCount": 75,
+  "evidencePacketProof": {
+    "format": "tropetrain-portable-evidence-v1",
+    "encoding": "gzip+base64",
+    "packetBytes": 11002575,
+    "packetSha256": "5ea47129556de803d0273d50c835d44f6fa14c9754c1c0784d5b25823446e9a3",
+    "gzipBytes": 1009699,
+    "gzipSha256": "845d9d26401afaa39a3977ca6aa6e039d613d0350ea2ffbf4d0fccd163be51bd",
+    "linkCount": 75,
+    "records": [
+      {
+        "id": "0",
+        "bytes": 3515,
+        "sha256": "a49e8630163a7c059eaca83b81f580966203ef992563deff350f24d8f33c40c7",
+        "base64Bytes": 4688,
+        "links": 1
+      },
+      {
+        "id": "1",
+        "bytes": 5705,
+        "sha256": "ea113eed634e973753f63361503a29b0234ff66939549ab15ee8d2cd2f57d7ec",
+        "base64Bytes": 7608,
+        "links": 1
+      },
+      {
+        "id": "2",
+        "bytes": 91154,
+        "sha256": "b976e4e6a96d6c746f20975c717fb918428023e6eb87600f61b95c5468dac604",
+        "base64Bytes": 121540,
+        "links": 1
+      },
+      {
+        "id": "3",
+        "bytes": 3166,
+        "sha256": "4671b32335688357ad3c6edf20e3f532143181d16bcac3a99ad30c01907bd62c",
+        "base64Bytes": 4224,
+        "links": 1
+      },
+      {
+        "id": "4",
+        "bytes": 17726,
+        "sha256": "c168e3d73ddef6737dfe12639b412b972be6522252435f3de825d64171524112",
+        "base64Bytes": 23636,
+        "links": 1
+      },
+      {
+        "id": "5",
+        "bytes": 9361,
+        "sha256": "7fbc6856a6de2d7ba0b004680ef30baf6297ab793894705943a3a9ffc146ffda",
+        "base64Bytes": 12484,
+        "links": 1
+      },
+      {
+        "id": "6",
+        "bytes": 81004,
+        "sha256": "01e1af9f69631ebd01df42fdf0de411f3b7cccbd469fa4ab94f400c93496400f",
+        "base64Bytes": 108008,
+        "links": 1
+      },
+      {
+        "id": "7",
+        "bytes": 98392,
+        "sha256": "21e2a9d612c1e6048a2c50425d74ef95e6c607fa93539a11685c6c824690d9cf",
+        "base64Bytes": 131192,
+        "links": 1
+      },
+      {
+        "id": "8",
+        "bytes": 8558,
+        "sha256": "86d096dfe6a3856db767da7fad1142686fe6c5add0bde5b54f98e9f4f69e980f",
+        "base64Bytes": 11412,
+        "links": 1
+      },
+      {
+        "id": "9",
+        "bytes": 7359,
+        "sha256": "99593016a4fa90edd8b1ebc3388b2fd64561e2d9fe126965b1969f81add923a3",
+        "base64Bytes": 9812,
+        "links": 1
+      },
+      {
+        "id": "10",
+        "bytes": 3350,
+        "sha256": "570c4e33607f388dfdab03c6619c209a83714b292a1cb4b58612e93ce78e392b",
+        "base64Bytes": 4468,
+        "links": 1
+      },
+      {
+        "id": "11",
+        "bytes": 36584,
+        "sha256": "63bb2b2fb217868a8b767e958a6449447686a4396329db7a057040e30ed076cb",
+        "base64Bytes": 48780,
+        "links": 1
+      },
+      {
+        "id": "12",
+        "bytes": 26209,
+        "sha256": "cbe6fd61ed26f611bbc823d9874b13770a193b1498ceb34f2ff68815ea0ea657",
+        "base64Bytes": 34948,
+        "links": 1
+      },
+      {
+        "id": "13",
+        "bytes": 4823,
+        "sha256": "d18a8194dbaff62f293d02f4d9ec03f5c33e94a02b4e32112558ddc3c9e37bfb",
+        "base64Bytes": 6432,
+        "links": 1
+      },
+      {
+        "id": "14",
+        "bytes": 3087,
+        "sha256": "22749d073b822828eeff1c605ff8acd7921c11eec83db6015bff4c67bb42bb89",
+        "base64Bytes": 4116,
+        "links": 1
+      },
+      {
+        "id": "15",
+        "bytes": 4023,
+        "sha256": "f1dcc72f04f3ad48184c3c8a5cb52ee3d0ab2010c1f81dfb9479f39ef2a254a5",
+        "base64Bytes": 5364,
+        "links": 1
+      },
+      {
+        "id": "16",
+        "bytes": 31579,
+        "sha256": "d07ce41aad87f9959c5666c1fba2966b60bad07f11c7badfc7477bfcbe35f52b",
+        "base64Bytes": 42108,
+        "links": 1
+      },
+      {
+        "id": "17",
+        "bytes": 3547,
+        "sha256": "b5adba213ffa36e81bd52c9ae473f3fe28bfb02dd1caacc83d365725d68915e1",
+        "base64Bytes": 4732,
+        "links": 1
+      },
+      {
+        "id": "18",
+        "bytes": 4195,
+        "sha256": "dc0640a373e7899f0c5938ed9f9792ae352fed72ec4e2f1d109987adafbc4f62",
+        "base64Bytes": 5596,
+        "links": 1
+      },
+      {
+        "id": "19",
+        "bytes": 187387,
+        "sha256": "a2d839c2e482e27bd111b103ead91c8f6804c0acdd4f943ff3b1e684ef81216f",
+        "base64Bytes": 249852,
+        "links": 1
+      },
+      {
+        "id": "20",
+        "bytes": 38563,
+        "sha256": "f68e86a836df0b788a615511e279b330e1d67b6d569a6d596e79b87202715316",
+        "base64Bytes": 51420,
+        "links": 1
+      },
+      {
+        "id": "21",
+        "bytes": 208363,
+        "sha256": "cae5df17fd74297b48ddcb10d61267eed7d1a364377e52e2f5b20ccf832261f6",
+        "base64Bytes": 277820,
+        "links": 1
+      },
+      {
+        "id": "22",
+        "bytes": 1437993,
+        "sha256": "2619f1eb6151d2f951574257565dd77af9648ee71e70ccddf7d13e9a3605c2fc",
+        "base64Bytes": 1917324,
+        "links": 1
+      },
+      {
+        "id": "23",
+        "bytes": 1274,
+        "sha256": "e988b74ab9d79ee66174170a5dbe71c083d281d992eed6cf73f3b7a0fad53fbc",
+        "base64Bytes": 1700,
+        "links": 1
+      },
+      {
+        "id": "24",
+        "bytes": 171155,
+        "sha256": "a1a80d4fe28571065b4fabeaddc2c09e3ace9047f5baf4f713271be4f44ef782",
+        "base64Bytes": 228208,
+        "links": 1
+      },
+      {
+        "id": "25",
+        "bytes": 219083,
+        "sha256": "8ab4d30145ef8cb4a35a49ad724eac5307c50c5ea33736f3de9c7f1f9b850b0e",
+        "base64Bytes": 292112,
+        "links": 1
+      },
+      {
+        "id": "26",
+        "bytes": 12993,
+        "sha256": "3158485fc5e56a0a135e82d00b8b1ee1b1affce08057fb314a6b518fcc2b4488",
+        "base64Bytes": 17324,
+        "links": 1
+      },
+      {
+        "id": "27",
+        "bytes": 7175,
+        "sha256": "5d71c25b256d468a80b0cbc47a3d34b1e02ee48bc4d626d2987be427ea0909da",
+        "base64Bytes": 9568,
+        "links": 1
+      },
+      {
+        "id": "28",
+        "bytes": 8750,
+        "sha256": "d9a2ce6670312a34ce0536040f2120dcd95becff5d068f7c4430d9d62a7771b6",
+        "base64Bytes": 11668,
+        "links": 1
+      },
+      {
+        "id": "29",
+        "bytes": 8220,
+        "sha256": "a7f05bc648cab208430029f6a2258c6d20fdff1e78c41aea493ffcc140d8009d",
+        "base64Bytes": 10960,
+        "links": 1
+      },
+      {
+        "id": "30",
+        "bytes": 10592,
+        "sha256": "eb8345d3e473f4db83c8bcc6148664741b4619ad5b31b9c06fe933f64da3419e",
+        "base64Bytes": 14124,
+        "links": 1
+      },
+      {
+        "id": "31",
+        "bytes": 21370,
+        "sha256": "6bf92e602cd805f1c1ae2fb3d746da405e6b33b2040938c19ef7cec48f662d87",
+        "base64Bytes": 28496,
+        "links": 1
+      },
+      {
+        "id": "32",
+        "bytes": 2333,
+        "sha256": "0d1d0cec1f732b6e741380fd96e6adbc8181c19bd71a35d0e87a78dd0e10f853",
+        "base64Bytes": 3112,
+        "links": 1
+      },
+      {
+        "id": "33",
+        "bytes": 5221,
+        "sha256": "176f568f1c2f3ec337a1612bbb42d3143f569ec1ae94da362844b2f35b3a2dc5",
+        "base64Bytes": 6964,
+        "links": 1
+      },
+      {
+        "id": "34",
+        "bytes": 4342,
+        "sha256": "63f6b7d7c8f03cdb52b01ff11c44cd3e01502f277e1dedf739a7c394d0ff39b6",
+        "base64Bytes": 5792,
+        "links": 2
+      },
+      {
+        "id": "35",
+        "bytes": 17048,
+        "sha256": "ef82e0a51bb0c584a2e9eb2aaceea9d9edad7bf1b7a0cb465ae93916442af3ec",
+        "base64Bytes": 22732,
+        "links": 1
+      },
+      {
+        "id": "36",
+        "bytes": 2081,
+        "sha256": "3e94149325ab57f236515f704ed87657197124183e6230353779710a710fb805",
+        "base64Bytes": 2776,
+        "links": 1
+      },
+      {
+        "id": "37",
+        "bytes": 67485,
+        "sha256": "d974804f830ee60170ef459a6d00d82738c7ab236611853319df72588f35c601",
+        "base64Bytes": 89980,
+        "links": 1
+      },
+      {
+        "id": "38",
+        "bytes": 26946,
+        "sha256": "2d38e22ef19fab5ef2c592a502af5daa6b6af98d75199047d5463ba36d9e899b",
+        "base64Bytes": 35928,
+        "links": 1
+      },
+      {
+        "id": "39",
+        "bytes": 5802,
+        "sha256": "79d0fb89edd250858d8e3c48c6e3d7695d8d706f6ec5859dc5aa8a2fe1c2c1ba",
+        "base64Bytes": 7736,
+        "links": 1
+      },
+      {
+        "id": "40",
+        "bytes": 11965,
+        "sha256": "a97d70ae8ace9524dfbf9dfda9b157c3d8ee85c481c61b8b2f2e34b7f7b39c28",
+        "base64Bytes": 15956,
+        "links": 1
+      },
+      {
+        "id": "41",
+        "bytes": 5748,
+        "sha256": "a0919d5ecdeeda5b8e53c3f3e07c090b3aafbccf8d518b3ee84ee5f6ef912c2a",
+        "base64Bytes": 7664,
+        "links": 1
+      },
+      {
+        "id": "42",
+        "bytes": 27493,
+        "sha256": "2a7688df11faa726f8853876e5fe5eb4abb92ea311bba8cedf0c0a46bdcb45e7",
+        "base64Bytes": 36660,
+        "links": 1
+      },
+      {
+        "id": "43",
+        "bytes": 4872,
+        "sha256": "c1f8ff7ac90f9704eefe169381d0763ae879401635cedadd0b5259528b8f9ad6",
+        "base64Bytes": 6496,
+        "links": 1
+      },
+      {
+        "id": "44",
+        "bytes": 7103,
+        "sha256": "7266290970af1ed893a27e1afcb568ab550f0a82af9e0b8479383d894bc8a692",
+        "base64Bytes": 9472,
+        "links": 1
+      },
+      {
+        "id": "45",
+        "bytes": 991148,
+        "sha256": "63ca410799b3f07784d73613edccfe49591f268ca7338f43266726a7e601ebb9",
+        "base64Bytes": 1321532,
+        "links": 1
+      },
+      {
+        "id": "46",
+        "bytes": 2954493,
+        "sha256": "b78864c68872a9a7e9e82cefebbb7334f76a89b0ba11ca7c2b95237447b34055",
+        "base64Bytes": 3939324,
+        "links": 1
+      },
+      {
+        "id": "47",
+        "bytes": 146633,
+        "sha256": "5dd2681e5cc5315e8a3c6c37a09dd34022e945f2ed9d5ba70e9ce05048eba462",
+        "base64Bytes": 195512,
+        "links": 1
+      },
+      {
+        "id": "48",
+        "bytes": 2346,
+        "sha256": "78610e4b8366d73607eb7d7a58bd65efd2b0111e9e44c3b51d65ec937a14dfc1",
+        "base64Bytes": 3128,
+        "links": 1
+      },
+      {
+        "id": "49",
+        "bytes": 42274,
+        "sha256": "a62abe5956a60d8e894775714fcc84ea014e0076dc4430691ad4013b351ac6ac",
+        "base64Bytes": 56368,
+        "links": 1
+      },
+      {
+        "id": "50",
+        "bytes": 5307,
+        "sha256": "42ee253e76cc0848f4803d7819678000665d86a4c40ac394e3f8a1e7bb2bc05a",
+        "base64Bytes": 7076,
+        "links": 1
+      },
+      {
+        "id": "51",
+        "bytes": 10993,
+        "sha256": "225804496155915eae3e0f734d689d95f784a1b413567ecb6fba17e50bb4404a",
+        "base64Bytes": 14660,
+        "links": 1
+      },
+      {
+        "id": "52",
+        "bytes": 5323,
+        "sha256": "af1cd22e6a7f5ca36a2cbfa0893f605894d5d955754d861ce8f650247036ec33",
+        "base64Bytes": 7100,
+        "links": 1
+      },
+      {
+        "id": "53",
+        "bytes": 42748,
+        "sha256": "5a1d6c575f533a475118a42f6da5fe98a588f9219e0c3a86f3a5fe0cd8621ea3",
+        "base64Bytes": 57000,
+        "links": 1
+      },
+      {
+        "id": "54",
+        "bytes": 165339,
+        "sha256": "36a7fc6ffd054f713c95d493c3e19524507bbf7da3ac4d1ce2ce615e81952c64",
+        "base64Bytes": 220452,
+        "links": 1
+      },
+      {
+        "id": "55",
+        "bytes": 1882,
+        "sha256": "7db29ad604162c34d56e4a64f6e26a4abce63aac871fc07fa9a414781cf76fa6",
+        "base64Bytes": 2512,
+        "links": 1
+      },
+      {
+        "id": "56",
+        "bytes": 7656,
+        "sha256": "877bb9e01e39d914ea7c4b808a4aad8ef3a8184d4bf133a505bf7364735e7026",
+        "base64Bytes": 10208,
+        "links": 1
+      },
+      {
+        "id": "57",
+        "bytes": 319818,
+        "sha256": "a5f57d1c8b142219e09bc632dc9d1509e99f47f3c5c5029ace20941c449ac806",
+        "base64Bytes": 426424,
+        "links": 1
+      },
+      {
+        "id": "58",
+        "bytes": 48263,
+        "sha256": "ee63cd33849ad37cb64e025033858634a4ce64179aea24422b88f420fe022580",
+        "base64Bytes": 64352,
+        "links": 1
+      },
+      {
+        "id": "59",
+        "bytes": 67624,
+        "sha256": "6795c907c7c30909867c10feee9bbff05f6ba2f663cf3c327e331058bf4759c5",
+        "base64Bytes": 90168,
+        "links": 1
+      },
+      {
+        "id": "60",
+        "bytes": 7569,
+        "sha256": "1c15b66c5fdb2e5b66701daa3950a96d98e9978af6df6a573531c86cfa7dce44",
+        "base64Bytes": 10092,
+        "links": 1
+      },
+      {
+        "id": "61",
+        "bytes": 68624,
+        "sha256": "38368c2d343ce8d4210a10f577e35035a89657b02e479207874d173ae2ac35ef",
+        "base64Bytes": 91500,
+        "links": 1
+      },
+      {
+        "id": "62",
+        "bytes": 89693,
+        "sha256": "4d92c78aa90b7f2b44ea636b5690f1cda9031a5a050912b77ecb610cc35513cd",
+        "base64Bytes": 119592,
+        "links": 1
+      },
+      {
+        "id": "63",
+        "bytes": 170383,
+        "sha256": "88fcdabec7eeffe7d342a7f721dfacc8b56b29d10fc84f6dc038c66077c46045",
+        "base64Bytes": 227180,
+        "links": 1
+      },
+      {
+        "id": "64",
+        "bytes": 7645,
+        "sha256": "583895a5f588e622d110ca0a354eb948d1d3414440f418e52d35df14692bb3c2",
+        "base64Bytes": 10196,
+        "links": 1
+      },
+      {
+        "id": "65",
+        "bytes": 9302,
+        "sha256": "f2ac1a156f18c508bc4b2892c8750be95e1a03085e82b1a34b30d29b0931d6ba",
+        "base64Bytes": 12404,
+        "links": 1
+      },
+      {
+        "id": "66",
+        "bytes": 65054,
+        "sha256": "7132ab7fdae6fe23d6363b735a88e86eefa14fc19e92265a9b0061c5b1aead68",
+        "base64Bytes": 86740,
+        "links": 1
+      },
+      {
+        "id": "67",
+        "bytes": 10666,
+        "sha256": "335147adb44e09f55f522c01cc63a9fdca1bdfde6ec6470f97d19e369699405f",
+        "base64Bytes": 14224,
+        "links": 1
+      },
+      {
+        "id": "68",
+        "bytes": 4921,
+        "sha256": "b9a9bede0ab728e6011e0dff7a81f80298607b380804941d8aaf3b7690f816c3",
+        "base64Bytes": 6564,
+        "links": 1
+      },
+      {
+        "id": "69",
+        "bytes": 6205,
+        "sha256": "dc0344836dd140f5474e2f566faf9951c26c6953225859eadf515d6aafaf00dc",
+        "base64Bytes": 8276,
+        "links": 1
+      },
+      {
+        "id": "70",
+        "bytes": 7910,
+        "sha256": "f671cd0f591bf2e91710a7931ffb73f52d1a8813d14f05d0c2b36298c59462f4",
+        "base64Bytes": 10548,
+        "links": 1
+      },
+      {
+        "id": "71",
+        "bytes": 12370,
+        "sha256": "0cc5e968005ec3ac953769b61e37ecc81a81fc75e1a502b9d48297403f88c3cf",
+        "base64Bytes": 16496,
+        "links": 1
+      },
+      {
+        "id": "72",
+        "bytes": 9559,
+        "sha256": "eb5bb5014f3ac366606283f0d854a8ec0756b659eeb93cd9570bf3f321ab9bcf",
+        "base64Bytes": 12748,
+        "links": 1
+      },
+      {
+        "id": "73",
+        "bytes": 5238,
+        "sha256": "eb7b9a157c5bf256294ea9a20d7c9569fc374455e317440625dd296856fb6337",
+        "base64Bytes": 6984,
+        "links": 1
+      }
+    ]
+  },
+  "all73OrMoreCanonicalEvidenceRecordsRetained": true,
+  "allSourceBytesExact": true,
+  "strictUtf8Validated": true,
+  "sourceNullsAndHebrewUnchanged": true,
+  "normalProgram": {
+    "bytes": 38961168,
+    "sha256": "5c973512468015b79e29e407e8387dd99448ac538c55282bda4e911d7fc3e803"
+  },
+  "historicalRealizationsAdded": 0,
+  "singingVoicesAdded": 0
+}
