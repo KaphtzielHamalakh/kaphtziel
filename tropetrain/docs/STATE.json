@@ -4,43 +4,31 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "65176f31d19b8105071f4693dc81a91d1a79750b",
-  "nextTask": "Finishrecords-onlypublication/savedrelease/pointer. Next broaderdifferentmelody: ItamarMalka catalogedMoroccanmelody/IsraelipronunciationGenesis2:4–19, originalmetadata/bytes/nativeclockverified privately. Establishsource-content/edition andsource-specificreaderbinding withblankdrafts/unreviewedcontexts, notnewgrammar. Continue fullTorahcontextualmelody andsixindependentlyreviewedpronunciation/singingrealizations; preserveall21features/6requirements, exactHebrew/sourcegaps/drafts. Printingdeferred.",
+  "nextTask": "Publish tested95app-onlyfreshconnectedmainlease/verifyPages/livebytes/public75nonediting UIeach (29new+46prior), preserveall5sourceworddraftsandNo266No268fittings, savefinalrecords/pointer. Thenprioritize fullTorahmelody/independentpronunciation/voices; optional separate processedpitch/speed for source-studyrecordings may reuseexistingprocessor withstrictoriginalclockmapping. No newreviewedgrammar/voice; all21+6 retained,printingdeferred.",
   "lastPassingTests": {
-    "automated": 851,
+    "automated": 858,
     "newRegressionChecks": 7,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "buildCheckSession": 76238,
+    "buildCheckSession": 79646,
     "buildSucceeded": true,
     "exitCode": 0,
-    "localUiChecks": 108,
-    "localPerApp": 54,
-    "newLocalPerApp": 49,
-    "priorOpeningPerApp": 5,
-    "publicUiChecks": 92,
-    "publicPhase": "accepted0.94",
-    "sourceInputPins": 415,
+    "localUiChecks": 180,
+    "localPerApp": 90,
+    "newLocalPerApp": 36,
+    "retainedPerApp": 54,
+    "publicUiChecks": 0,
+    "publicPhase": "pending0.95; accepted0.94retained",
+    "sourceInputPins": 419,
     "personalFittingSourcePins": {
       "No266": 6,
       "No268": 6
     },
-    "frozenImplementationFiles": 409,
-    "frozenSourceFiles": 431,
-    "priorAssetDataVendorFilesExact": 640,
-    "runtimeChangedAfterBuild": true,
-    "runtimeChangeScope": "sw.js two precache URLs only; compiledprogram/index/styleunchanged",
-    "initialCompoundExitCode": 1,
-    "initialSuitePass": 850,
-    "initialDistributionFailures": 1,
-    "finalTestsSession": 51909,
-    "publicUiPerApp": {
-      "normal": 46,
-      "portable": 46
-    },
-    "pagesRun": 45617859398,
-    "liveCodeFiles": 38,
-    "liveCodeBytes": 137561483
+    "frozenImplementationFiles": 414,
+    "frozenSourceFiles": 438,
+    "priorAssetDataVendorFilesExact": 646,
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -222,7 +210,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.94published/verified851automated108local92public UI checks plus4server-stoppedcache/4native decoder; publicword/fittingdraftspreserved. Finalrecords follow; fullgoalactive/incomplete.",
+  "workingIteration": "0.95fullbuild858automated/180localUIpassed/frozenandpreserved, publication/publicnoneditingQA next; fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3278,5 +3266,90 @@
     "publicBoundaryOrFittingEditsPerformed": false,
     "portableRecords": 77,
     "portableLinks": 79
+  },
+  "privateV95Research": {
+    "additionalOriginalsVerified": 1,
+    "recordId": "itamar-genesis-2-4-19",
+    "sourceOriginalBytes": 969896,
+    "newBundledAudio": 0,
+    "comparisonPerformances": 3,
+    "newReaderCandidateWords": 217,
+    "unsupportedCombinations": 1,
+    "sourceEditionCompared": false,
+    "newReviewedMelodyGrammars": 0,
+    "newSingingVoices": 0,
+    "inferenceSession": 70358,
+    "inferenceTerminal": 0,
+    "characterErrorRate": 0.3836477987421384,
+    "wordsWithNoDirectLetterSupport": 6,
+    "acceptedWordTimes": null,
+    "phonemes": null,
+    "musicalReview": null,
+    "sourcePackSha256": "be3bd1e8adf819f447dec5c5407ac02e22fcbbc6a84e05da249109d59dd4afcf"
+  },
+  "privateV95Preflight": {
+    "focusedSourceCoreChecks": 19,
+    "artifactCoreDistributionChecks": 15,
+    "earlyNormalUiChecks": 8,
+    "earlyOriginalLoadedAndHashVerified": true,
+    "publicDraftEdits": false,
+    "fullGeneratedCheck": "about-to-start",
+    "expectedCompleteTests": 858
+  },
+  "privateV95LocalAcceptance": {
+    "apps": {
+      "normal": {
+        "parts": {
+          "matrix": 13,
+          "support": 10,
+          "independence": 6,
+          "drafts": 7,
+          "prior-passages": 16,
+          "prior-support-playback": 12,
+          "prior-withheld": 7,
+          "prior-independence": 5,
+          "prior-evidence": 1,
+          "prior-drafts": 8,
+          "prior-opening": 5
+        },
+        "checks": 90,
+        "newComparisonChecks": 36,
+        "retainedSourceChecks": 54,
+        "new36AndEvidenceRerunOnFinishedBuild": true,
+        "retained53ChecksReuseIdenticalFrozenProgram": true
+      },
+      "portable": {
+        "parts": {
+          "matrix": 13,
+          "support": 10,
+          "independence": 6,
+          "drafts": 7,
+          "prior-passages": 16,
+          "prior-support-playback": 12,
+          "prior-withheld": 7,
+          "prior-independence": 5,
+          "prior-evidence": 1,
+          "prior-drafts": 8,
+          "prior-opening": 5
+        },
+        "checks": 90,
+        "newComparisonChecks": 36,
+        "retainedSourceChecks": 54,
+        "new36AndEvidenceRerunOnFinishedBuild": true,
+        "retained53ChecksReuseIdenticalFrozenProgram": true
+      }
+    },
+    "totalChecks": 180,
+    "perApp": 90,
+    "newPerApp": 36,
+    "retainedPerApp": 54,
+    "draftEditsOnly": "localhost8799; allownword0marks cleared afterward",
+    "publicDraftEdits": false,
+    "audio": "muted/stopped except separate explicit native decoder check",
+    "portableRecords": 79,
+    "portableLinks": 81,
+    "serverStoppedCacheChecks": 4,
+    "newNativeDecoderChecks": 1,
+    "nativeDecoderVolumePercent": 1
   }
 }
