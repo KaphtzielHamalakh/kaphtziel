@@ -4,29 +4,22 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
-  "nextTask": "Continue full reconstruction: qualified No268 source syllable/ornament/phonetic review, independent pronunciation and reusable word-aligned recording evidence before printing. PrivateNo267IItebir4note suffixes inside5note groups andNo26893printed/94MAMunits (שְׁתֵּ֣י mismatch) are reviewleads, not accepted mappings/rules. Bo5originals remain129blank-word review candidates with no confirmed acousticcoverage/Idelsohnequivalence. PubliccopyXML has unconfirmedauthenticity/version/rights; no notes imported. Preserve full21features/requirements, fullTorah/marks/CGJ/stress/alternatives/sharedconsonants/collectiveDeu32:6/allgaps and independent melody/pronunciation/voice/range/key/tempo/recording. Complete contextual Torahmelodies and six complete historical pronunciation/singing grammars remainpending. Printingdeferred;fullgoalactive.",
+  "nextTask": "Publish accepted0.89through connectedGitHub, verify Pages/livebytes andnormal/portableUI, then continue source-pinned contextual melody/phonetic/recording review. Preserve all21features/completionrequirements/fullTorah andexactmarks/CGJ/stress/branches/sharedconsonants/collectiveDeu32:6/allgaps. Personaldisplayfitting isnotaccepted phoneticunderlay;6complete pronunciation/singing grammars andfullcontextualmelodies pending. PrivateTevircontext/Berlinrecordingleads remainunreviewed, no recordingimport. Printingdeferred;fullgoalactive.",
   "lastPassingTests": {
-    "automated": 781,
-    "newRegressionChecks": 6,
+    "automated": 790,
+    "newRegressionChecks": 9,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "fullCheckSession": 87466,
+    "fullCheckSession": 65799,
     "fullCheckExitCode": 0,
-    "localUiChecks": 206,
-    "publicUiChecks": 206,
+    "localUiChecks": 258,
+    "publicUiChecks": 0,
     "sourceInputPins": 296,
-    "frozenSourceFiles": 340,
-    "priorAssetDataVendorFilesExact": 633,
-    "ui": "103checks each normal/portable, actual1280px. Muted, allmedia paused, clear consoles. No speaker/cantorial/narrow/file-dialog claim.",
-    "publicUiPerApp": {
-      "normal": 103,
-      "portable": 103
-    },
-    "pagesRun": 45534333483,
-    "liveCodeFiles": 38,
-    "liveCodeBytes": 142841958,
-    "sourceSavedGitFilesExact": 1204
+    "personalFittingSourcePins": 6,
+    "frozenSourceFiles": 350,
+    "priorAssetDataVendorFilesExact": 635,
+    "ui": "129eachnormal/portable,26new+103prior. Actual1280px, muted/paused/consolesclear; no narrow/filedialog/acousticclaim."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -208,7 +201,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.88published/verified:93printed-source syllable groups, independent reader pronunciation and same-word export invalidation.781automated/206finishedlocal/206publicGUI checks pass. Fullgoalactive/incomplete; historicalmusical/phonologicalreview/completegrammars/singingvoices pending.",
+  "workingIteration": "0.89locally accepted:personal No268/MAMfitting,790automated/258finishedlocalGUI pass. Connectedpublication/publicQA pending;fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -2743,37 +2736,26 @@
     "noSpeakerOrCantorialReview": true
   },
   "privateDevelopment": {
-    "version": "0.88.0",
-    "status": "published_code_verified_final_records_follow",
-    "checkout": "/private/tmp/tropetrain-v88-worktree/tropetrain",
-    "branch": "codex/tropetrain-v88",
-    "baseline": "073f8045db97842fa3dd58209ad099c3952ad222",
+    "version": "0.89.0",
+    "status": "locally_accepted_public_pending",
+    "checkout": "/private/tmp/tropetrain-v89-worktree/tropetrain",
+    "branch": "codex/tropetrain-v89",
+    "baseline": "15523604b3a78d26d7a4de7a0717596e8c95091f",
     "fullBuild": {
-      "session": 87466,
+      "session": 65799,
       "exitCode": 0,
-      "tests": 781
-    },
-    "interruptedPreflight": {
-      "session": 40210,
-      "exitCode": 130,
-      "reason": "Stopped before acceptance to correct same-word printed-group export identity."
+      "tests": 790,
+      "pass": 790,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
     },
     "localUi": {
-      "normal": 103,
-      "portable": 103
+      "normal": 129,
+      "portable": 129
     },
-    "publicUi": {
-      "normal": 103,
-      "portable": 103
-    },
-    "publication": {
-      "codeCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
-      "pagesRun": 45534333483,
-      "liveFilesExact": 38,
-      "liveBytesExact": 142841958,
-      "nativeMainPush": false,
-      "uploadBranch": "codex/tropetrain-v88-upload"
-    }
+    "publicUi": null,
+    "publication": null
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2904,5 +2886,21 @@
     "automatedChecks": 781,
     "publicStatus": "normal-and-portable-verified",
     "publicUiChecks": 42
+  },
+  "personalPrintedMamFitting": {
+    "version": "0.89.0",
+    "status": "locally-accepted-personal-proposal-unreviewed",
+    "sourceWords": 39,
+    "printedGroups": 93,
+    "mamUnits": 94,
+    "acceptedMappings": 0,
+    "phonemes": null,
+    "audioTimes": null,
+    "voice": null,
+    "review": null,
+    "preliminaryUiChecks": 52,
+    "localUiChecks": 52,
+    "automatedChecks": 790,
+    "publicStatus": "pending"
   }
 }
