@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "b4a37752300a88ef955ad97867b27b47eb684362",
-  "nextTask": "Publish tested0.92 app-only with freshconnected mainlease, verifyPages/livebytes andbothpublicapps preservingpersonalbindings. Continue source-specific contextualmelodies/independentpronunciation/singing evidence. All21features/6requirements retained, printingdeferred.",
+  "publishedCommit": "47c76969ee98a0d36f10e272a5c5e4f3cec635fd",
+  "nextTask": "Complete records-onlypublication/savedrelease/pointer, then continue source-specificNo266personaldisplayfitting with separateboundstorage/identity, broaderreusablecontextualmelodies andindependentpronunciation/singing review. No268drafts/marks/gaps/nulls remainexact. All21features/6requirements active; printingdeferred.",
   "lastPassingTests": {
     "automated": 829,
     "newRegressionChecks": 18,
@@ -20,13 +20,20 @@
     "localUiChecks": 400,
     "localPerApp": 200,
     "negativeStartupBrowserChecks": 1,
-    "publicUiChecks": 0,
-    "publicPhase": "pending0.92;prior0.91accepted292",
+    "publicUiChecks": 346,
+    "publicPhase": "accepted0.92",
     "sourceInputPins": 408,
     "personalFittingSourcePins": 6,
     "frozenSourceFiles": 379,
     "priorAssetDataVendorFilesExact": 639,
-    "runtimeChangedAfterBuild": false
+    "runtimeChangedAfterBuild": false,
+    "publicUiPerApp": {
+      "normal": 173,
+      "portable": 173
+    },
+    "pagesRun": 45587913094,
+    "liveCodeFiles": 44,
+    "liveCodeBytes": 136178738
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -175,16 +182,16 @@
     }
   },
   "lastDeployment": {
-    "version": "0.91.0",
-    "codeCommit": "b4a37752300a88ef955ad97867b27b47eb684362",
-    "parent": "d7bdeb4dae76d9259f8d2d607d8a8fc4e5aaeea7",
-    "pagesRun": 45570948421,
+    "version": "0.92.0",
+    "codeCommit": "47c76969ee98a0d36f10e272a5c5e4f3cec635fd",
+    "parent": "551d34a5d4e6f6b70d196b3217d5580bf5a077b3",
+    "pagesRun": 45587913094,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 48,
-    "liveCodeBytesExact": 146548309,
-    "publicUiChecks": 292,
-    "status": "code_published_verified_final_records_follow",
-    "outsideRootEntriesPreserved": 40
+    "liveCodeFilesExact": 44,
+    "liveCodeBytesExact": 136178738,
+    "publicUiChecks": 346,
+    "outsideRootEntriesPreserved": 40,
+    "status": "code_published_verified_final_records_follow"
   },
   "corpusImport": {
     "books": 5,
@@ -208,7 +215,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.92 localaccepted:829automated/400localUI+1negative corruption. Finishedprogram matches earlyGUI; fresh27newchecks perapp onfullbuild. Connectedpublication/publicacceptancepending. Fullgoalactive/incomplete.",
+  "workingIteration": "0.92published/verified:829automated,400local+1negative,346publicUIchecks; publicbindingsunchanged/followrestored; both95groups130pitches swept. Finalrecords follow; fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3086,5 +3093,17 @@
     "portableRecords": 74,
     "portableLinks": 75,
     "portableHeadroomBytes": 9670975
+  },
+  "publicV92Acceptance": {
+    "publicUi": 346,
+    "perApp": 173,
+    "all95GroupsEach": true,
+    "portableRecords": 74,
+    "portableLinks": 75,
+    "bindingEditsPerformed": false,
+    "followPreferencesRestored": true,
+    "review": null,
+    "voice": null,
+    "acceptedPhoneticFit": null
   }
 }
