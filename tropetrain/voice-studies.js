@@ -1,9 +1,11 @@
 import {VOICE_STUDIES} from './voice-study-data.js';
 import {ASAEL_SOURCE_CATALOG} from './asael-source-catalog-data.js';
 import {withAsaelPassageEvidence} from './asael-passage-records.js';
+import {GENESIS_MELODY_COMPARISON} from './genesis-melody-comparison-data.js';
 export {VOICE_STUDIES};
-export const VOICE_SOURCE_STUDIES=[...VOICE_STUDIES.studies,...ASAEL_SOURCE_CATALOG.studies];
-export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence);
+export const VOICE_FEATURED_STUDIES=[...VOICE_STUDIES.studies,GENESIS_MELODY_COMPARISON.study];
+export const VOICE_SOURCE_STUDIES=[...VOICE_FEATURED_STUDIES,...ASAEL_SOURCE_CATALOG.studies];
+export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording);
 
 export function voiceStudy(id){
   const study=VOICE_SOURCE_STUDIES.find(s=>s.id===id);
@@ -14,9 +16,14 @@ export function voiceRecording(studyId,pronunciationId,deliveryId){
   const study=voiceStudy(studyId);
   if(!study.pronunciations.some(p=>p.id===pronunciationId)||!study.deliveries.some(d=>d.id===deliveryId))
     throw Error('This source does not provide that pronunciation and delivery.');
-  const recording=VOICE_SOURCE_RECORDINGS.find(r=>r.studyId===studyId&&r.pronunciationId===pronunciationId&&r.deliveryId===deliveryId);
+  const recording=VOICE_SOURCE_RECORDINGS.find(r=>(r.studyId===studyId||study.recordingIds?.includes(r.id))&&r.pronunciationId===pronunciationId&&r.deliveryId===deliveryId);
   if(!recording)throw Error('This source performance is unavailable.');
   return recording;
+}
+export function voiceChoices(studyId,pronunciationId,deliveryId){
+  const study=voiceStudy(studyId),provided=(p,d)=>{try{voiceRecording(studyId,p,d);return true;}catch{return false;}};
+  return {pronunciations:study.pronunciations.map(p=>({...p,disabled:!provided(p.id,deliveryId)})),
+    deliveries:study.deliveries.map(d=>({...d,disabled:!provided(pronunciationId,d.id)}))};
 }
 export function voiceAudioRecord(recording,base){
   return {...recording,title:`${voiceStudy(recording.studyId).name} · ${recording.deliveryId}`,audio:{...recording.audio,
@@ -47,7 +54,7 @@ export function restoreVoicePreferences(saved){
     const span=saved.spans?.[candidate.id];if(!span)continue;
     try{const checked=voiceSpan(span.start,span.end,candidate.audio.estimatedDurationSeconds);spans[candidate.id]={start:checked.start,end:span.end===null?null:checked.end};}catch{}
   }
-  return {...defaults,studyId:record.studyId,pronunciationId:record.pronunciationId,deliveryId:record.deliveryId,
+  return {...defaults,studyId:saved.studyId,pronunciationId:record.pronunciationId,deliveryId:record.deliveryId,
     volume:Number.isInteger(saved.volume)&&saved.volume>=0&&saved.volume<=100?saved.volume:0,
     repeat:typeof saved.repeat==='boolean'?saved.repeat:false,spans};
 }

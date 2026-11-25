@@ -1,8 +1,9 @@
 import {WORD_SUPPORT} from './word-support-summary.js';
 import {ASAEL_GENESIS_WORD_SUPPORT} from './asael-genesis-word-support-summary.js';
+import {GENESIS_MELODY_WORD_SUPPORT} from './genesis-melody-word-support-summary.js';
 import {loadWordSupportPacket} from './word-support-data.js';
 export {WORD_SUPPORT};
-const supportEntries=[...WORD_SUPPORT.records,...ASAEL_GENESIS_WORD_SUPPORT.records];
+const supportEntries=[...WORD_SUPPORT.records,...ASAEL_GENESIS_WORD_SUPPORT.records,...GENESIS_MELODY_WORD_SUPPORT.records];
 
 export function wordSupportAvailable(record){return supportEntries.some(r=>r.recordId===record.id&&r.originalSha256===record.audio.sha256);}
 

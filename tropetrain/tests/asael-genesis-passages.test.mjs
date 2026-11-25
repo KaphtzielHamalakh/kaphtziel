@@ -19,7 +19,7 @@ test('new evidence retains exact original catalog and all source nulls while exp
  assert.equal(sha(read(report.sourcePack.file)),report.sourcePack.sha256);assert.equal(report.sourcePack.bytes,read(report.sourcePack.file).length);
  assert.deepEqual(report.counts,{additionalOriginalsVerified:10,originalBytesVerified:18651128,readerCandidateRecordings:4,readerCandidatePassages:2,readerCandidateWordOccurrences:866,withheldDiscrepantRecordings:6,newBundledAudio:0,newApprovedWordTimes:0,newReviewedPronunciationGrammars:0,newSingingVoices:0});
  assert.equal(sha(read('docs/ASAEL-SOURCE-CATALOG.json')),report.inputs.find(p=>p.path.endsWith('ASAEL-SOURCE-CATALOG.json')).sha256);
- assert.equal(VOICE_STUDIES.recordings.length,72);assert.equal(VOICE_SOURCE_RECORDINGS.length,916);assert(rawCatalog.recordings.every(r=>r.coverage===null&&r.originalBytesVerifiedLocally===false));
+ assert.equal(VOICE_STUDIES.recordings.length,72);assert.equal(VOICE_SOURCE_RECORDINGS.length,917);assert(rawCatalog.recordings.every(r=>r.coverage===null&&r.originalBytesVerifiedLocally===false));
  for(const k of ['acceptedSourceEditionComparison','acceptedWordTimes','phonemes','musicalReview','newVoice','kinnorEquivalence'])assert.equal(report[k],null);
 });
 

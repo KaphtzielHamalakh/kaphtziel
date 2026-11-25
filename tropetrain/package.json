@@ -2,7 +2,7 @@
   "name": "tropetrain",
   "private": true,
   "type": "module",
-  "version": "0.94.0",
+  "version": "0.95.0",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",

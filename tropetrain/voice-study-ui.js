@@ -1,4 +1,4 @@
-import {VOICE_STUDIES,voiceStudy,voiceRecording,voiceAudioRecord,voiceCoverage,voiceCoverageLabel,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
+import {VOICE_STUDIES,VOICE_FEATURED_STUDIES,voiceStudy,voiceRecording,voiceChoices,voiceAudioRecord,voiceCoverage,voiceCoverageLabel,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
 import {VoiceStudyPlayer} from './voice-study-player.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
 import {mountWordTimingDraft} from './word-timing-ui.js';
@@ -29,7 +29,7 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     if(active)$('voice-study-status').textContent='Recording stopped. Reader word selection is unchanged.';
   }
   function options(id,items,value){
-    $(id).replaceChildren();for(const item of items){const option=document.createElement('option');option.value=item.id;option.textContent=item.name;$(id).append(option);}
+    $(id).replaceChildren();for(const item of items){const option=document.createElement('option');option.value=item.id;option.textContent=item.name;option.disabled=!!item.disabled;$(id).append(option);}
     $(id).value=value;
   }
   async function readiness(){
@@ -86,11 +86,11 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     readiness();
   }
   function studyOptions(){
-    const items=[...VOICE_STUDIES.studies];if(!items.some(s=>s.id===prefs.studyId))items.push(voiceStudy(prefs.studyId));
+    const items=[...VOICE_FEATURED_STUDIES];if(!items.some(s=>s.id===prefs.studyId))items.push(voiceStudy(prefs.studyId));
     options('voice-study-choice',items,prefs.studyId);
   }
   studyOptions();
-  const populate=()=>{const s=voiceStudy(prefs.studyId);options('voice-study-pronunciation',s.pronunciations,prefs.pronunciationId);options('voice-study-delivery',s.deliveries,prefs.deliveryId);};
+  const populate=()=>{const s=voiceStudy(prefs.studyId),choices=voiceChoices(prefs.studyId,prefs.pronunciationId,prefs.deliveryId);options('voice-study-pronunciation',choices.pronunciations,prefs.pronunciationId);options('voice-study-delivery',choices.deliveries,prefs.deliveryId);$('voice-study-combination-status').textContent=s.combinationStatus??'';};
   populate();render();
   function chooseStudy(id){
     prefs.studyId=id;const s=voiceStudy(prefs.studyId);
@@ -99,9 +99,10 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
   }
   $('voice-study-choice').addEventListener('change',()=>chooseStudy($('voice-study-choice').value));
   $('asael-study-open').addEventListener('click',()=>chooseStudy('asael-bereshit'));
+  $('genesis-melody-comparison-open').addEventListener('click',()=>chooseStudy('genesis-2-4-19-source-comparison'));
   mountAsaelSourceFinder({selectedStudy:prefs.studyId,onChooseStudy:chooseStudy});
   for(const [id,field] of [['voice-study-pronunciation','pronunciationId'],['voice-study-delivery','deliveryId']])
-    $(id).addEventListener('change',()=>{prefs[field]=$(id).value;render();});
+    $(id).addEventListener('change',()=>{prefs[field]=$(id).value;populate();render();});
   for(const id of ['voice-study-start','voice-study-end'])$(id).addEventListener('change',saveSpan);
   $('voice-study-whole').addEventListener('click',()=>{prefs.spans[record.id]={start:0,end:null};render();});
   $('voice-study-repeat').addEventListener('change',()=>{prefs.repeat=$('voice-study-repeat').checked;player.repeat=prefs.repeat;persist();});
