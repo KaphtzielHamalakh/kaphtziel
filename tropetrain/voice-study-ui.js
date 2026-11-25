@@ -57,7 +57,7 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     const delivery=study.deliveries.find(d=>d.id===prefs.deliveryId);
     $('voice-study-kind').textContent=delivery.kind==='spoken'?'Spoken pronunciation study · without melody':'Chanted reference · recorded voice';
     $('voice-study-description').textContent=study.description;$('voice-study-limits').textContent=study.limits;
-    $('voice-study-coverage').textContent=`${voiceCoverageLabel(record)?voiceCoverageLabel(record)+' · ':''}${study.coverageStatus}`;
+    $('voice-study-coverage').textContent=`${voiceCoverageLabel(record)?voiceCoverageLabel(record)+' · ':''}${record.coverageStatus??study.coverageStatus}`;
     const uploadYear=record.sourceUploadYear??(record.studyId==='asael-bereshit'?record.year:null);
     $('voice-study-creator').textContent=`${record.performer} · ${uploadYear?`source upload ${uploadYear} · performance date not established`:record.year??'performance date not established'}`;
     $('voice-study-source').href=record.sourceUrl;$('voice-study-source').textContent='Original performance source';
@@ -66,9 +66,9 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     $('voice-study-hash-label').textContent=record.audio.sha256?'Selected original SHA-256:':'Selected original SHA-1 (checked on loading):';
     $('voice-study-hash').textContent=record.audio.sha256??record.audio.sha1;
     const note=study.catalogNotes?.find(n=>n.recordId===record.id)?.text;
-    $('voice-study-catalog-note').textContent=note?`Catalog passage note, retained as written: ${note}. Source boundaries and edition correspondence require review.`:'';
+    $('voice-study-catalog-note').textContent=note?`Catalog passage note, retained as written: ${note}. ${record.catalogPassageEvidence?.discrepancy??'Source boundaries and edition correspondence require review.'}`:'';
     $('voice-study-catalog-note').hidden=!note;
-    $('voice-study-open').disabled=!voiceCoverage(record);$('voice-study-open').textContent=voiceCoverage(record)?`Open ${voiceCoverageLabel(record)} text`:
+    $('voice-study-open').disabled=!voiceCoverage(record);$('voice-study-open').textContent=voiceCoverage(record)?`${record.catalogPassageEvidence?'Open catalog passage · ': 'Open '}${voiceCoverageLabel(record)} text${record.catalogPassageEvidence?' · unreviewed':''}`:
       record.sourceCatalogRow?'Passage mapping pending':'Table names · no Bible passage mapping';
     $('voice-study-delivery-label').textContent=study.deliveryLabel??'Recorded delivery';
     $('voice-study-volume').value=prefs.volume;$('voice-study-volume-value').textContent=`${prefs.volume}%`;

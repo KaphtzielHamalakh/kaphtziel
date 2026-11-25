@@ -1,11 +1,15 @@
 import {WORD_SUPPORT} from './word-support-summary.js';
+import {ASAEL_GENESIS_WORD_SUPPORT} from './asael-genesis-word-support-summary.js';
 import {loadWordSupportPacket} from './word-support-data.js';
 export {WORD_SUPPORT};
+const supportEntries=[...WORD_SUPPORT.records,...ASAEL_GENESIS_WORD_SUPPORT.records];
 
-export function wordSupportAvailable(record){return WORD_SUPPORT.records.some(r=>r.recordId===record.id&&r.originalSha256===record.audio.sha256);}
+export function wordSupportAvailable(record){return supportEntries.some(r=>r.recordId===record.id&&r.originalSha256===record.audio.sha256);}
 
 export function validateWordSupport(value,expected){
   if(value?.format!=='tropetrain-word-support-v1'||value.status!=='unreviewed-model-support')throw Error('Only unreviewed model support is available.');
+  if(value.sourceEditionCompared!==undefined&&value.sourceEditionCompared!==false)throw Error('Model support cannot certify a source-edition comparison.');
+  if(value.sourcePassageStatus!==undefined&&value.sourcePassageStatus!=='catalog-candidate-not-content-reviewed')throw Error('The catalog passage remains an unreviewed candidate.');
   for(const key of ['id','bytes','sha1','sha256','duration'])if(value.source?.[key]!==expected.source[key])throw Error('Model support belongs to a different source recording.');
   if(JSON.stringify(value.coverage)!==JSON.stringify(expected.coverage)||!Array.isArray(value.words)||value.words.length!==expected.words.length)throw Error('Model support passage differs from the unchanged reader text.');
   for(const key of ['timedWords','syllableAlignment','phonemes','musicalNotes','independentReview'])if(value[key]!==null)throw Error('Model support cannot certify timing, phonemes or review.');
@@ -25,7 +29,7 @@ export function validateWordSupport(value,expected){
 }
 
 export async function loadWordSupport(record,expected,{readPacket=loadWordSupportPacket}={}){
-  const entry=WORD_SUPPORT.records.find(r=>r.recordId===record.id&&r.originalSha256===record.audio.sha256);
+  const entry=supportEntries.find(r=>r.recordId===record.id&&r.originalSha256===record.audio.sha256);
   if(!entry)throw Error('No automatic word-support study exists for this original.');
   const bytes=await readPacket(entry.file),hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
   if(bytes.length!==entry.bytes||hash!==entry.sha256)throw Error('Word-support packet checksum differs from its source record.');

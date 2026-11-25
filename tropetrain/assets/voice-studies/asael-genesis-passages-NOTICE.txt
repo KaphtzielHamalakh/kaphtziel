@@ -1,0 +1,33 @@
+Asael Genesis passage candidates and acoustic research (2026-11-25)
+
+Primary catalog: Hebrew Wikisource contributors, Miqra according to the Masorah /
+Vayavinu Bamikra / Parashat Bereshit, page2460, revision2898373:
+https://he.wikisource.org/w/index.php?oldid=2898373
+Catalog material: CC BY-SA4.0, https://creativecommons.org/licenses/by-sa/4.0/
+
+Ten unchanged original Ogg Vorbis recordings are explicitly cataloged as Asael
+(עשהאל), with source melody and pronunciation labels kept separately.
+Commons file pages individually identify CC BY-SA3.0 (GFDL migration=relicense):
+https://creativecommons.org/licenses/by-sa/3.0/
+Original URLs, page revisions, byte counts, SHA1, SHA256 and decoded clocks are
+retained in docs/ASAEL-GENESIS-PASSAGES.json and the pinned source pack.
+No original audio is included in this new pack. The app loads unchanged sources
+on request and verifies their checksums before playback. No endorsement implied.
+
+Acoustic model: imvladikon/wav2vec2-large-xlsr-53-hebrew, revision
+3dd308dda70b20507a6920b459052635973ae3cd, Apache-2.0.
+https://huggingface.co/imvladikon/wav2vec2-large-xlsr-53-hebrew
+The original model card, model-input hashes and research code are in the pack.
+Weights are not redistributed. Decoding/resampling is analysis only; original
+audio is unchanged, and no sound output or speech synthesis is generated.
+
+New project code and proposals: CC0. Hebrew reader text remains the exact
+Tanach.us UXLC text with its existing provenance and license; no recognizer
+spelling replaces the text, accents, joiners, stress or word identifiers.
+
+Two source-stated passage candidates remain unreviewed. Three other catalog
+ranges conflict with approximate recognizer evidence and stay withheld; no
+corrected passage is assigned. Model support is not approved word/syllable
+timing, phonemes, musical notes, a complete tradition or a singing voice.
+Independent source-content, edition, pronunciation and cantorial review remain
+pending. The original full feature inventory is retained.

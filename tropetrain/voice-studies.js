@@ -1,8 +1,9 @@
 import {VOICE_STUDIES} from './voice-study-data.js';
 import {ASAEL_SOURCE_CATALOG} from './asael-source-catalog-data.js';
+import {withAsaelPassageEvidence} from './asael-passage-records.js';
 export {VOICE_STUDIES};
 export const VOICE_SOURCE_STUDIES=[...VOICE_STUDIES.studies,...ASAEL_SOURCE_CATALOG.studies];
-export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings];
+export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence);
 
 export function voiceStudy(id){
   const study=VOICE_SOURCE_STUDIES.find(s=>s.id===id);

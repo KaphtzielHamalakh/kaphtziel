@@ -1,4 +1,5 @@
 import {ASAEL_SOURCE_CATALOG} from './asael-source-catalog-data.js';
+import {asaelPassageEvidence,asaelPassageLabel} from './asael-passage-records.js';
 
 export function sourceCatalogPortions(bookId){return ASAEL_SOURCE_CATALOG.portions.filter(p=>p.bookId===bookId);}
 export function sourceCatalogReadings(portionId){return ASAEL_SOURCE_CATALOG.readings.filter(r=>r.portionId===portionId);}
@@ -16,9 +17,13 @@ export function mountAsaelSourceFinder({selectedStudy,onChooseStudy}){
   options('asael-source-book',books,portion.bookId);
   function draw(){
     options('asael-source-portion',sourceCatalogPortions(portion.bookId),portion.id);
-    options('asael-source-reading',sourceCatalogReadings(portion.id),reading.id);
+    options('asael-source-reading',sourceCatalogReadings(portion.id).map(r=>{
+      const evidence=r.recordIds.map(asaelPassageEvidence).find(Boolean);
+      return {...r,name:r.name+(evidence?.readerCoverage?' · '+asaelPassageLabel(evidence.readerCoverage)+' · catalog candidate':evidence?' · passage mapping withheld':'')};
+    }),reading.id);
     const rows=reading.sourceRowIds.map(id=>catalog.rows.find(row=>row.id===id));
-    $('asael-source-selection').textContent=`${portion.bookName} · ${portion.name} · ${reading.name} · ${rows.length} original ${rows.length===1?'performance':'performances'} listed. Choose this study to inspect its recorded pronunciation choices, source license and loading size.`;
+    const evidence=reading.recordIds.map(asaelPassageEvidence).find(Boolean);
+    $('asael-source-selection').textContent=`${portion.bookName} · ${portion.name} · ${reading.name} · ${rows.length} original ${rows.length===1?'performance':'performances'} listed. ${evidence?.readerCoverage?'Open '+asaelPassageLabel(evidence.readerCoverage)+' beside the original. The catalog passage and word timings remain unreviewed.':evidence?'Its catalog range conflicts with acoustic evidence; reader mapping stays withheld, with no corrected range assigned.':'Choose this study to inspect its recorded pronunciation choices, source license and loading size.'}`;
     $('asael-source-page').href=portion.sourceUrl;
     try{localStorage.setItem(key,JSON.stringify({readingId:reading.id}));}catch{}
   }
