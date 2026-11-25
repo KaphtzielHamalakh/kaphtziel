@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
-  "nextTask": "Continue fullreconstruction: source-pinned contextual melody/phonetic/stress/ornament/tuning review and reusable word-aligned recording evidence beforeprinting. Preserve all21features/fullrequirements, fullTorah/marks/CGJ/stress/alternatives/sharedconsonants/collectiveDeu32:6/gaps and independentmelody/pronunciation/voice/range/key/tempo/recording. Personal39word/93printed/94MAMfitting defaultblank/off, originalproposalunreviewed, notaccepted underlay/voice. Private3Tevircomparison hasB-flat4versusA4 endings; followingEtnahta/verseending iscontextonly, no provedrule. OriginalBerlinNr71reference linksHOMIIp35/No40, notdirectNo268; numbering/identity/rights unresolved, noaudioimport. InspectNo267pending figures without inventing source timing, tuplet membership ormarkroles. Sixcomplete pronunciation/singinggrammars/fullcontextualTorahsystems remainpending. Printingdeferred;fullgoalactive.",
+  "nextTask": "Run frozen official full build/check, finished normal/portable regression UI and source preservation, then connected app-only publication/Pages/live bytes/public nondestructive UI. All21features/6requirements/fullTorah/marks/CGJ/stress/branches/shared consonants/collective Deu32:6/gaps retained; printing deferred. No new historical melody/voice accepted.",
   "lastPassingTests": {
     "automated": 790,
     "newRegressionChecks": 9,
@@ -209,7 +209,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.89published/verified:personal No268/MAMfitting,790automated/258local/258publicGUIpass. Originalproposals remainunreviewed, acceptedfit/phonemes/voicepending;fullgoalactive/incomplete.",
+  "workingIteration": "0.90private:2strictly original No267small-eighth timing studies implemented;19focused tests/189priorplancomparisons pass. Browser/fullbuild/publicationpending; public0.89accepted, fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -2934,5 +2934,51 @@
     "automatedChecks": 790,
     "publicStatus": "normal-and-portable-verified",
     "publicUiChecks": 52
+  },
+  "privatePatternSmallEighthStudy": {
+    "version": "0.90.0",
+    "status": "private-implemented-browser-unverified",
+    "sourcePendingFigures": 5,
+    "defaultWrittenValueFigures": 21,
+    "originalOptInFigures": 2,
+    "remainingWithheldWithAllOptions": 3,
+    "sourceDuration": null,
+    "sourceRole": null,
+    "acceptedUnderlay": null,
+    "phonemes": null,
+    "voice": null,
+    "review": null
+  },
+  "privateV90EarlyVerification": {
+    "automatedFocused": 9,
+    "priorNo267": 11,
+    "priorWrittenPlansExact": 189,
+    "earlyLocalBrowserChecks": 32,
+    "preflight": {
+      "tests": 798,
+      "pass": 794,
+      "fail": 4,
+      "reason": "stale generated input hashes; official build required"
+    },
+    "published": false,
+    "fullGoal": "active/incomplete",
+    "phase": "full-local-accepted-publication-pending"
+  },
+  "privateV90LocalAcceptance": {
+    "version": "0.90.0",
+    "automated": 799,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "fullCheckSession": 91401,
+    "exitCode": 0,
+    "localUiChecks": 290,
+    "perApp": 145,
+    "newPerApp": 16,
+    "sourceInputPins": 306,
+    "frozenSourceFiles": 355,
+    "acceptedAssetsDataVendorExact": 638,
+    "newHistoricalRealization": null,
+    "newVoice": null
   }
 }
