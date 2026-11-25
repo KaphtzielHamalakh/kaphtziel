@@ -3,8 +3,8 @@
   "updated": "2026-11-24",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
-  "nextTask": "Publish accepted0.87through connectedGitHub, verify Pages/exactliveassets and both public interfaces, then continue No268 source-word/syllable/ornament review, reusable recording alignment and complete contextual Torah melody/independent pronunciation research. Preserve all21features/requirements and all historical review gaps. Printing deferred; full objective active.",
+  "publishedCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
+  "nextTask": "Continue full reconstruction, prioritizing qualified No268 source-word/syllable/ornament review, No267-to-No268 source-context comparisons and reusable recording/phonology evidence. Two privateCC-BY-SA Bo-fifth-aliyah originals and129-word blank review draft are saved externally; exact acoustic coverage/times andIdelsohnequivalence remain unaccepted. Preserve all21features/completion requirements and fullTorah text, all gaps/nulls, and independent melody/pronunciation/voice/range/key/tempo. Full contextual melody systems and six complete historical pronunciation grammars/singing delivery remain pending. Printing deferred; fullgoalactive.",
   "lastPassingTests": {
     "automated": 775,
     "newRegressionChecks": 15,
@@ -14,12 +14,19 @@
     "fullCheckSession": 38161,
     "fullCheckExitCode": 0,
     "localUiChecks": 164,
-    "publicUiChecks": 0,
-    "remainingPublicUiChecks": 164,
+    "publicUiChecks": 196,
+    "remainingPublicUiChecks": 0,
     "sourceInputPins": 296,
     "frozenSourceFiles": 325,
     "priorAssetDataVendorFilesExact": 631,
-    "ui": "82checks each normal/portable, actual1280px; requested375px did not resize local tabs. Muted, paused, clear consoles. No acoustic/cantorial/file-dialog/narrow-screen claim."
+    "ui": "164local desktop/196public checks; public32at375×812. Consoles clear, players stopped, muted clocks; no acoustic/cantorial or physical file-dialog/file-URL review.",
+    "publicNormalUi": 82,
+    "publicPortableUi": 82,
+    "publicNarrowUi": 32,
+    "publicNarrowViewport": {
+      "width": 375,
+      "height": 812
+    }
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -170,10 +177,17 @@
   "lastDeployment": {
     "commit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
     "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/45508193733",
-    "status": "success",
+    "status": "verified_code; records-only receipt follows",
     "allThreeJobsSucceeded": true,
     "publicChangedFilesExact": 26,
-    "publicChangedBytesExact": 141899645
+    "publicChangedBytesExact": 141899645,
+    "version": "0.87.0",
+    "codeCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
+    "pagesRun": 45520987290,
+    "pagesJobs": "all3success",
+    "liveChangedCodeFiles": 97,
+    "liveChangedCodeBytes": 141236497,
+    "publicUiChecks": 196
   },
   "corpusImport": {
     "books": 5,
@@ -197,7 +211,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.87 locally accepted: No268 bounded instrumental word study and lossless portable packaging.775automated/164localUI checks pass. Connected publication/public verification pending; public0.86 remains accepted.",
+  "workingIteration": "0.87 published/verified: bounded No268 Exodus12:21–22 source-word instrumental study and exact portable gzip.775automated/164local/196publicUI checks pass;32public checks at375×812. Full reconstruction active/incomplete; historical grammars and singing voices pending.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1090,11 +1104,9 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.86.0",
-    "codeCommit": "e926ef56bc3c9cb12bcb8d824b911df8f01edff0",
-    "tests": 760,
-    "localUiChecks": 108,
-    "publicUiChecks": 108,
+    "version": "0.87.0",
+    "codeCommit": "2369682d14cc06c30051c890c623b1a9cdb56bac",
+    "tests": 775,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -2725,7 +2737,7 @@
   },
   "privateDevelopment": {
     "version": "0.87.0",
-    "status": "locally_accepted_public_pending",
+    "status": "published_verified",
     "checkout": "/private/tmp/tropetrain-v87-worktree/tropetrain",
     "branch": "codex/tropetrain-v87",
     "baseline": "cadac1157d6b64f6488a701d18d713e3d16cc91e",
@@ -2747,8 +2759,12 @@
       "normal": 82,
       "portable": 82
     },
-    "publicUi": null,
-    "publication": null,
+    "publicUi": {
+      "normal": 82,
+      "portable": 82,
+      "narrow": 32
+    },
+    "publication": "2369682d14cc06c30051c890c623b1a9cdb56bac",
     "singingVoice": null,
     "review": null,
     "current": {
@@ -2778,7 +2794,7 @@
         "optionalOriginalTiming": "original-no268-small-eighth-80ms-v1;80msaddedforeachsmallC4betweenunchangedmeasurednotes;sourceunknownsremainnull",
         "controls": "Independent main reader melody, pronunciation text, key, range, tempo and source recording; word-only correspondence does not fit Hebrew/MAM syllables."
       },
-      "publicBaseline": "0.86.0",
+      "publicBaseline": "0.87.0",
       "earlyUI": {
         "passed": 27,
         "normalPortable": "portable localhost, actual1280px, muted/clearconsole",
@@ -2891,6 +2907,8 @@
     "controls": "Independent main reader melody, pronunciation text, key, range, tempo and source recording; word-only correspondence does not fit Hebrew/MAM syllables.",
     "localUiChecks": 56,
     "automatedChecks": 775,
-    "publicStatus": "pending"
+    "publicStatus": "verified",
+    "publicUiChecks": 84,
+    "sourceWordCorrespondence": "candidate only; no accepted syllable/phoneme fitting"
   }
 }
