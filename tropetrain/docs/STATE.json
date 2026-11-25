@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "47c76969ee98a0d36f10e272a5c5e4f3cec635fd",
-  "nextTask": "Publish tested0.93 app-only using freshconnectedmainlease; verifyPages/livebytes andpublicnormal/portable withouteditingpersonalbindings. Finishsavedprogress/records; continue broaderreusablecontextualmelodies/independentpronunciationandsinging. All21features/6requirements retained; printingdeferred.",
+  "publishedCommit": "adeda5a8a99879687bc15f3c4ca61dca81ad3b32",
+  "nextTask": "Finishrecords-onlypublication/savedrelease/pointer, then broadercontextualmelody research andindependentpronunciation/voicework withsource-specificreview. Preserveallnotes,sourcepartitions,marks,gaps,nulls andbothpersonalfitstores. All21features/6requirements remainactive; printingdeferred.",
   "lastPassingTests": {
     "automated": 844,
     "newRegressionChecks": 15,
@@ -17,8 +17,8 @@
     "localUiChecks": 466,
     "localPerApp": 233,
     "freshNewUiPerApp": 33,
-    "publicUiChecks": 0,
-    "publicPhase": "pending0.93;accepted0.92retained",
+    "publicUiChecks": 362,
+    "publicPhase": "accepted0.93",
     "sourceInputPins": 409,
     "personalFittingSourcePins": {
       "No268": 6,
@@ -26,7 +26,14 @@
     },
     "frozenSourceFiles": 387,
     "priorAssetDataVendorFilesExact": 639,
-    "runtimeChangedAfterBuild": false
+    "runtimeChangedAfterBuild": false,
+    "publicUiPerApp": {
+      "normal": 181,
+      "portable": 181
+    },
+    "pagesRun": 45602563245,
+    "liveCodeFiles": 31,
+    "liveCodeBytes": 137011302
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -110,7 +117,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "seven_bounded_source_specific_scores_with_independent_pronunciation_text_No26695_groups_not_phonetically_fitted_No268_personal_fitting_isolated_no_new_singing"
+      "status": "seven_bounded_source_specific_scores_independent_pronunciation_text_No266_and_No268_separate_personal_display_fitting_no_accepted_phonetic_fit_or_new_voice"
     },
     {
       "id": "display",
@@ -175,14 +182,14 @@
     }
   },
   "lastDeployment": {
-    "version": "0.92.0",
-    "codeCommit": "47c76969ee98a0d36f10e272a5c5e4f3cec635fd",
-    "parent": "551d34a5d4e6f6b70d196b3217d5580bf5a077b3",
-    "pagesRun": 45587913094,
+    "version": "0.93.0",
+    "codeCommit": "adeda5a8a99879687bc15f3c4ca61dca81ad3b32",
+    "parent": "f602313d574203595df9661f9717a6fcd7a78243",
+    "pagesRun": 45602563245,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 44,
-    "liveCodeBytesExact": 136178738,
-    "publicUiChecks": 346,
+    "liveCodeFilesExact": 31,
+    "liveCodeBytesExact": 137011302,
+    "publicUiChecks": 362,
     "outsideRootEntriesPreserved": 40,
     "status": "code_published_verified_final_records_follow"
   },
@@ -208,7 +215,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.93 localaccepted844automated/466localUI; publishapp-only thenPages/livebytes andnon-destructivepublicchecks. No268/No266drafts isolated; fullgoalactive/incomplete.",
+  "workingIteration": "0.93published/verified844automated466local362publicUIchecks; No266/No268drafts unchanged/followrestored; both95groups swept. Finalrecords follow; fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3130,5 +3137,33 @@
     "audioTimes": null,
     "review": null,
     "voice": null
+  },
+  "publicV93Acceptance": {
+    "publicUi": 362,
+    "perApp": 181,
+    "newNonEditingPerApp": 8,
+    "all95GroupsEach": true,
+    "portableRecords": 75,
+    "portableLinks": 76,
+    "No266AndNo268BindingEditsPerformed": false,
+    "followPreferencesRestored": true,
+    "review": null,
+    "voice": null,
+    "acceptedPhoneticFit": null
+  },
+  "latestAlignmentIncrement": {
+    "version": "0.93.0",
+    "source": "IdelsohnNo266 and independently computed MAM partitions",
+    "words": 39,
+    "printedGroups": 95,
+    "mamUnits": 94,
+    "status": "unreviewed-personal-display-proposals",
+    "stableIdentity": "source-word plus reading section; actualreaderIDs unchanged",
+    "acceptedMapping": null,
+    "individualNoteAllocation": null,
+    "phonemes": null,
+    "audioTimes": null,
+    "voice": null,
+    "review": null
   }
 }
