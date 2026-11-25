@@ -1,0 +1,10 @@
+No266/MAM independent source partitions and personal display proposals
+
+Abraham Z. Idelsohn, Gesänge der marokkanischen Juden (1929), VolV No266, printed101/PDF104: original print catalogued Public Domain. Faithful source image and candidate note/group correspondence retain all limits in docs/IDELSOHN-NO266-SCORE.json and docs/IDELSOHN-NO266-GROUPS.json. The parenthesized quarter has no source-group assignment; the final small C4 belongs to printed group2 but its historical role/duration stay unknown. Instrument timing choices remain separate original demonstrations.
+
+MAM pronunciation computation and source data: Benjamin Denckla, Hebrew Wikisource Miqra according to the Masorah; source display/underlay/segments under CC-BY-SA4.0. Reused MAM word units, two text-style paths, branches, stress, shared consonants and exact written ranges are unchanged. Existing notices and original computation source packs remain available. New correspondence data: CC-BY-SA4.0. New software: CC0-1.0. No endorsement implied.
+
+Personal drafts are original unreviewed display choices, initially blank and off for each exact reading section and its marked word occurrences. No268 drafts and musical material are not transferred. Equal source-group counts are not phonetic evidence. Only complete proposed spans follow together. Accepted fitting, phonetic Unicode, phonemes, individual note allocation, acoustic times, historical voices and review remain unassigned. See docs/IDELSOHN-NO266-MAM-PARTITIONS.json for exact source hashes and limits.
+
+CC-BY-SA4.0: https://creativecommons.org/licenses/by-sa/4.0/
+Original print catalogue: https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)

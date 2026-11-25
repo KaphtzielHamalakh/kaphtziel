@@ -5,7 +5,7 @@
   <title>TropeTrain · Cantillation practice · Kaphtziel Studios</title>
   <meta name="description" content="An independent cantillation trainer reconstruction. Explore Torah, Prophets and the five scrolls with an original instrumental demonstration, a full Torah recorded-reference library and a bounded printed-score study, aligned notes and Hebrew practice views.">
   <link rel="canonical" href="https://kaphtziel.com/tropetrain/">
-  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.92.0">
+  <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="./style.css?v=0.93.0">
 </head>
 <body>
   <div id="startup-status" class="startup-status" role="status">Starting the reader… If it does not open, <a href="https://kaphtziel.com/tropetrain/">use the live trainer</a>.</div>
@@ -123,6 +123,23 @@
           <label for="no266-group-index">Choose a printed No266 group</label><select id="no266-group-index"></select>
           <button id="no266-group-select" type="button">Select this printed group</button><button id="no266-group-whole-word" type="button">Select the whole word</button>
           <p id="no266-group-status" class="muted"></p><p id="no266-group-follow" class="muted" role="status"></p>
+          <details id="no266-fit-editor" hidden><summary>Fit No266 pronunciation text · personal draft</summary>
+            <p>Your personal proposal links complete printed groups to complete MAM text spans. Accepted source fitting, individual note allocation, sung phones and recorded syllable times remain unassigned.</p>
+            <label><input id="no266-fit-enabled" type="checkbox"> Follow my No266 fitting during instrument playback</label><p id="no266-fit-section" class="muted"></p>
+            <p class="muted">Show pronunciation text under the Hebrew words to see your proposed follow. The two MAM text styles, phonemic research text, melody, range, key and tempo remain independent. Recordings keep their original pronunciation and timing.</p>
+            <p id="no266-fit-coverage" class="muted"></p><button id="no266-fit-starter" type="button">Fill blank No266 words · original proposal</button>
+            <p class="muted">The optional project proposal uses source order where counts agree and the entire word where they differ. Equal counts alone do not establish phonetic identity. Words with any manual choice are kept.</p>
+            <p id="no266-fit-word" lang="he" dir="rtl"></p><p id="no266-fit-counts" class="muted"></p><div id="no266-fit-partitions"></div>
+            <label for="no266-fit-from">First No266 printed group</label><select id="no266-fit-from"></select><label for="no266-fit-to">Last No266 printed group</label><select id="no266-fit-to"></select>
+            <label for="no266-fit-mam-from">First No266 MAM unit</label><select id="no266-fit-mam-from"></select><label for="no266-fit-mam-to">Last No266 MAM unit</label><select id="no266-fit-mam-to"></select>
+            <label for="no266-fit-comment">Personal No266 review note</label><textarea id="no266-fit-comment" rows="2" maxlength="500"></textarea>
+            <div class="printed-fit-actions"><button id="no266-fit-save" type="button">Save this No266 fitting</button><button id="no266-fit-whole-word" type="button">Select whole No266 word for a complete span</button><button id="no266-fit-clear-word" type="button">Clear this No266 word’s fittings</button><button id="no266-fit-undo" type="button" disabled>Undo last No266 fitting change</button><button id="no266-fit-clear" type="button">Clear my No266 fitting draft</button></div>
+            <p id="no266-fit-current"></p><p id="no266-fit-message" role="status"></p><p class="muted">Saving replaces complete fittings that overlap these printed groups. Gaps stay unassigned. A selection that cuts a combined fitting has no pronunciation-span highlight. The parenthesized quarter remains outside every source group.</p>
+            <details id="no266-fit-json-details"><summary>Save or import No266 fitting JSON</summary><button id="no266-fit-export" type="button">Prepare personal No266 fitting JSON</button><a id="no266-fit-download" download="personal-no266-mam-fitting.json" hidden>Save personal No266 fitting draft</a><label for="no266-fit-json">Personal No266 fitting JSON</label><textarea id="no266-fit-json" rows="8" maxlength="350000"></textarea><button id="no266-fit-import" type="button">Import No266 fitting JSON</button></details>
+            <details id="no266-fit-recovery" hidden><summary>No266 stored copy kept for recovery</summary><a id="no266-fit-recovery-save" download="retained-no266-fitting.json">Save the retained original No266 copy</a></details>
+            <p><a id="no266-fit-source-evidence" download="no266-mam-source-partitions.json">Save exact No266 and MAM source partitions</a> · <a id="no266-fit-partitions-record" href="./docs/IDELSOHN-NO266-MAM-PARTITIONS.json">Source references and limits</a></p>
+            <p class="muted">Original Idelsohn1929 print: public domain. MAM source data: Benjamin Denckla, Hebrew Wikisource, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA4.0</a>. New code: CC0. <a href="./assets/pronunciation/no266-mam-fitting-NOTICE.txt">Attribution and study limits</a>.</p>
+          </details>
           <p class="muted">These 95 source ordinals keep their own notes. Hebrew/MAM syllables, phonetic transcription and recorded group times are unassigned. Pronunciation text stays independent.</p>
           <a href="#idelsohn-no266-study">Inspect the complete No266 notation</a> · <a href="./docs/IDELSOHN-NO266-GROUPS.json" download="no266-printed-groups.json">Save source groups and provenance</a>
         </div>
@@ -397,7 +414,7 @@
       <details id="event-details"><summary>Inspect aligned note events <span id="event-count"></span></summary><div class="table-scroll"><table><thead><tr><th>Word ID</th><th>Hebrew syllable / fit</th><th>Note</th><th>MIDI</th><th>Beat</th><th>Beats</th><th>Seconds</th></tr></thead><tbody id="event-rows"></tbody></table></div></details>
     </section>
     <section class="evidence" id="evidence"><div><p class="eyebrow">An independent reconstruction</p><h2>Know what you’re hearing.</h2><p>This independent reconstruction follows the documented teaching workflow of Kinnor’s desktop TropeTrainer. It does not reproduce Kinnor’s recordings, synthesis engine or musical repertoire.</p><a href="./docs/RESEARCH.md">Read the evidence map & full roadmap</a><p><a href="./docs/REPERTOIRE-SOURCES.json">Prophets and five-scroll text provenance</a> · <a href="./docs/REPERTOIRE-AUDIT.json">Source correspondence audit</a></p></div><div class="evidence-cards"><article><span class="tag">Documented</span><h3>The practice workflow</h3><p>Word, group, verse and span playback; repeat; independent pitch and speed; pointed and parallel views. Verified against the <a href="https://doczz.net/doc/4581174/to-read-the-tropetrainer-v5-installation-and-user-s">2011 V5 manual</a>, pp. 44–52.</p></article><article><span class="tag">Approximate</span><h3>The musical demonstration</h3><p>Newly composed pitches and draft syllabification. Group guides mark selected major divisions, not the complete accent hierarchy. Optional sourced scroll lines use written UXLC letters, a licensed scribal font and flagged edition differences. Typeset widths remain approximate; scrolls vary.</p></article><article><span class="tag">Next evidence needed</span><h3>A reviewed musical realization</h3><p>PocketTorah recordings and the bounded printed-score study provide source references. Independent melody rules, syllable-aligned transcription, named-reader attribution for this file and pronunciation review remain pending. Historical menu labels alone do not establish musical realizations.</p></article></div></section>
-    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.92.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
+    <footer><span>Kaphtziel Studios · TropeTrain <span id="build-version">v0.93.0</span></span><p>Hebrew: <a href="https://www.tanach.us/License.html">Tanach.us UXLC 2.6 (27.7)</a> · <a href="./assets/OFL.txt">Noto Serif Hebrew / OFL</a> · <a href="./assets/havarotjs-LICENSE.txt">havarotjs / MIT</a> · <a href="./assets/Bravura-OFL.txt">Bravura / OFL</a> · <a href="./assets/ShlomoStam-OFL.txt">Shlomo Stam / OFL</a> · <a href="./assets/layout/tikkun-MIT.txt">tikkun.io layout / MIT</a> · Original demo music: CC0</p><p id="offline-status">Local audio · no account required</p></footer>
   </main>
   <div class="compact-transport" aria-label="Quick playback"><span id="compact-span">Genesis 1:1–3</span><button id="compact-play" class="primary" aria-label="Play selected span">▶ Play</button><button id="compact-stop" aria-label="Stop playback">Stop</button><a href="#playback-controls">Controls</a></div>
   <script>
@@ -409,7 +426,7 @@
     });
   </script>
   <dialog id="printed-fit-key-viewer" class="source-viewer" aria-labelledby="printed-fit-key-title"><header><h2 id="printed-fit-key-title">Original pronunciation key</h2><button id="printed-fit-key-close" type="button">Close source key</button></header><p id="printed-fit-key-caption"></p><div class="source-viewer-body"><img id="printed-fit-key-0" hidden alt="Original Idelsohn vowel key and transcription qualification, printed page 2"><img id="printed-fit-key-1" hidden alt="Original Idelsohn regional consonant key, printed page 3"></div></dialog>
-  <script defer src="./app.bundle.js?v=0.92.0"></script>
+  <script defer src="./app.bundle.js?v=0.93.0"></script>
 
 </body>
 </html>

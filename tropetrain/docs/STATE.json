@@ -4,36 +4,29 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "47c76969ee98a0d36f10e272a5c5e4f3cec635fd",
-  "nextTask": "Complete records-onlypublication/savedrelease/pointer, then continue source-specificNo266personaldisplayfitting with separateboundstorage/identity, broaderreusablecontextualmelodies andindependentpronunciation/singing review. No268drafts/marks/gaps/nulls remainexact. All21features/6requirements active; printingdeferred.",
+  "nextTask": "Publish tested0.93 app-only using freshconnectedmainlease; verifyPages/livebytes andpublicnormal/portable withouteditingpersonalbindings. Finishsavedprogress/records; continue broaderreusablecontextualmelodies/independentpronunciationandsinging. All21features/6requirements retained; printingdeferred.",
   "lastPassingTests": {
-    "automated": 829,
-    "newRegressionChecks": 18,
+    "automated": 844,
+    "newRegressionChecks": 15,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "buildCheckSession": 15181,
+    "buildCheckSession": 51342,
     "buildSucceeded": true,
-    "initialCompoundCheckExitCode": 1,
-    "initialDistributionAssertionFailures": 1,
-    "finalTestsSession": 84709,
-    "finalTestsExitCode": 0,
-    "localUiChecks": 400,
-    "localPerApp": 200,
-    "negativeStartupBrowserChecks": 1,
-    "publicUiChecks": 346,
-    "publicPhase": "accepted0.92",
-    "sourceInputPins": 408,
-    "personalFittingSourcePins": 6,
-    "frozenSourceFiles": 379,
-    "priorAssetDataVendorFilesExact": 639,
-    "runtimeChangedAfterBuild": false,
-    "publicUiPerApp": {
-      "normal": 173,
-      "portable": 173
+    "exitCode": 0,
+    "localUiChecks": 466,
+    "localPerApp": 233,
+    "freshNewUiPerApp": 33,
+    "publicUiChecks": 0,
+    "publicPhase": "pending0.93;accepted0.92retained",
+    "sourceInputPins": 409,
+    "personalFittingSourcePins": {
+      "No268": 6,
+      "No266": 6
     },
-    "pagesRun": 45587913094,
-    "liveCodeFiles": 44,
-    "liveCodeBytes": 136178738
+    "frozenSourceFiles": 387,
+    "priorAssetDataVendorFilesExact": 639,
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -215,7 +208,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.92published/verified:829automated,400local+1negative,346publicUIchecks; publicbindingsunchanged/followrestored; both95groups130pitches swept. Finalrecords follow; fullgoalactive/incomplete.",
+  "workingIteration": "0.93 localaccepted844automated/466localUI; publishapp-only thenPages/livebytes andnon-destructivepublicchecks. No268/No266drafts isolated; fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3105,5 +3098,37 @@
     "review": null,
     "voice": null,
     "acceptedPhoneticFit": null
+  },
+  "privateV93EarlyVerification": {
+    "focusedAutomated": 45,
+    "coreStore": 22,
+    "newRegressionTests": 15,
+    "newUiPerApp": 33,
+    "newLocalUi": 66,
+    "sourceGroups": 95,
+    "mamUnits": 94,
+    "stableIdentity": "source-word plus reading section; actualreaderIDs unchanged",
+    "exportField": "personalNo266PronunciationFitting, separate fromlegacyNo268field",
+    "review": null,
+    "phonemes": null,
+    "voice": null,
+    "sourceTimes": null,
+    "status": "fullbuild-and-local-accepted"
+  },
+  "privateV93LocalAcceptance": {
+    "automated": 844,
+    "localUi": 466,
+    "perApp": 233,
+    "newUiPerApp": 33,
+    "printedGroups": 95,
+    "mamUnits": 94,
+    "portableRecords": 75,
+    "portableLinks": 76,
+    "portableHeadroomBytes": 9589121,
+    "acceptedMapping": null,
+    "phonemes": null,
+    "audioTimes": null,
+    "review": null,
+    "voice": null
   }
 }

@@ -1570,3 +1570,11 @@ No new historical realization or source recording is claimed.95source-ordinal gr
 
 
 2026-11-25NLIprimary cataloguelead: [IdelsohnarchiveMUS0004A07–10](https://www.nli.org.il/he/scores/NNL_MUSIC_AL990035718350205171/NLI) describes English/HebrewVolVintroduction proofs including a southernFranceappendix; not known tocontainNo266notation or a matchingperformance. Itempermitsalluses/cataloguespublicdomaininIsraelwithregionalcaution. CDcollection990032555780205171hasrestrictedcopying; MoroccanJobPh2052isnotExodus12:21–22. No newaudio/facsimile/phoneticfit/review imported.
+
+
+## No266 personal display fitting · private v0.93
+
+No new historical phonetic evidence is inferred. The independent source partition record keeps95No266groups/94MAMunits, the unassigned parenthesized quarter and the final small note’s separate original timing choice. Personal proposals are original, blank/off by default and explicitly unreviewed. Stable fitting occurrence identity uses source-word plus reading-section identity; actual reader IDs, Hebrew, accents and source MAM alternatives remain untouched. No268 bindings are neither copied nor migrated. Source SHA validation remains strict; retained recovery data are never promoted to accepted fitting. Source review and reusable matching performance remain pending. See docs/IDELSOHN-NO266-MAM-PARTITIONS.json and assets/pronunciation/no266-mam-fitting-NOTICE.txt for exact reuse and provenance.
+
+
+2026-11-25 source permissions follow-up: [Malin, “Ethnography and Analysis in the Study of Jewish Music” (AAWM7/2,2019)](https://journal.iftawm.org/previous/vol7no2/malin2/) permits reading and noncommercial distribution of the complete credited article, but its publisher prohibits modification, sampling/remixing and separating accompanying media. It is a reference, not a source of reusable extracted recordings or derivative singing material for this app. No clips/scores were copied. The previously documented [2016 JMRC paper](https://jewish-music.huji.ac.il/media/2302/download?attachment=) remains a research lead; score/recording reuse permission is still unestablished. Practitioner interviews in a publication do not review this project’s transcriptions or authorize a new preset. Continue broader contextual melody and reusable pronunciation/voice research.
