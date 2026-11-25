@@ -1,6 +1,7 @@
 import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
 import {validateGraceEvent} from './source-grace.js';
 import {validateSmallNoteEvent} from './source-small-note.js';
+import {validatePatternSmallEighthEvent} from './source-pattern-small-eighth.js';
 import {validateSmallEighthEvent} from './source-small-eighth.js';
 export const escapeXml=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 const gcd=(a,b)=>b?gcd(b,a%b):a;
@@ -42,6 +43,7 @@ export function rhythmSpelling(beats){
 }
 export function eventRhythm(event){
   const r=event.sourceRhythm;
+  if(event.sourcePatternSmallEighth){validatePatternSmallEighthEvent(event);return r;}
   if(event.sourceSmallEighth){validateSmallEighthEvent(event);return r;}
   if(event.sourceSmallNote){validateSmallNoteEvent(event);return r;}
   if(event.sourceGrace){validateGraceEvent(event);return r;}

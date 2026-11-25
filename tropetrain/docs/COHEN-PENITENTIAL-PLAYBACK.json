@@ -181,11 +181,11 @@
     },
     {
       "path": "score-data.js",
-      "sha256": "94f6d63cb5c625e54a41faee82712ee036bc629c4fa2a237b718026e9dbdfae2"
+      "sha256": "85c63401afc6f0aefe16f69f7f0c87aff1b6743e8b15443d3b9cfb523691b71a"
     },
     {
       "path": "staff.js",
-      "sha256": "296672134da862e9a62e9fa3da9384141098f8c125d95ff74c2a1d50c41dd660"
+      "sha256": "bc1f18a8694cf7615a2f74176dec759c46a259b7cbeb729a5337feb9c377aa57"
     },
     {
       "path": "app.js",
@@ -193,7 +193,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "a8f7e3c52100148a7bca0c9cd54f62ff4fb735a3f1ca4a9a71fa1dd22a46d2de"
+      "sha256": "352136737ebca248bb1886f90a81255197419172df43de12e9325c8fc6cf9739"
     },
     {
       "path": "assets/scores/cohen-1902-penitential-gen22.png",

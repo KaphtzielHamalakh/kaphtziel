@@ -1,0 +1,329 @@
+{
+  "schema": "tropetrain-no267-original-small-note-study-v1",
+  "revision": 1,
+  "status": "original-opt-in-instrument-timing-not-a-historical-realization",
+  "inputs": [
+    {
+      "path": "scripts/audit-pattern-small-eighth.mjs",
+      "sha256": "3861f8feda3db880bd37de58f221e1c680de9a040ceee7b943ab5059d57fba3e"
+    },
+    {
+      "path": "source-pattern-small-eighth.js",
+      "sha256": "0d6ebfbb295608dd4cac9f416c7985834ca38b6f6227be573aea88b462a5bcce"
+    },
+    {
+      "path": "idelsohn-patterns.js",
+      "sha256": "d5b638e14526ee3b6cb86da9cc5451353632cc5ec8db4c5f15aa01e1ac70a483"
+    },
+    {
+      "path": "printed-patterns.js",
+      "sha256": "aee6cd945398a15eb9010771014652c761bb333ad8dfc9fda6fc1a4b937ddf8b"
+    },
+    {
+      "path": "pattern-study-ui.js",
+      "sha256": "60c2904c87e0d3f492b1875452dfa7eeb1e816e8a9e114fb98b7ed20c27fa7fd"
+    },
+    {
+      "path": "score-data.js",
+      "sha256": "85c63401afc6f0aefe16f69f7f0c87aff1b6743e8b15443d3b9cfb523691b71a"
+    },
+    {
+      "path": "staff.js",
+      "sha256": "bc1f18a8694cf7615a2f74176dec759c46a259b7cbeb729a5337feb9c377aa57"
+    },
+    {
+      "path": "index.html",
+      "sha256": "352136737ebca248bb1886f90a81255197419172df43de12e9325c8fc6cf9739"
+    },
+    {
+      "path": "docs/IDELSOHN-NO267-PATTERNS.json",
+      "sha256": "afd141cd96079ba659904c9a7a86e1af65a6c793381961bcc3c1fd695bb85840"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no267.jpg",
+      "sha256": "e52f2ac9d40678437f565dc6ae4c66db54ea004f33349313febd9d02bd74c887"
+    }
+  ],
+  "source": {
+    "id": "idelsohn-1929-vol5-no267",
+    "record": "docs/IDELSOHN-NO267-PATTERNS.json",
+    "recordSha256": "afd141cd96079ba659904c9a7a86e1af65a6c793381961bcc3c1fd695bb85840",
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "pdfPage": 104,
+    "printedPage": 101,
+    "image": "assets/scores/idelsohn-1929-no267.jpg",
+    "imageSha256": "e52f2ac9d40678437f565dc6ae4c66db54ea004f33349313febd9d02bd74c887",
+    "rights": "IMSLP item317924 catalogue PublicDomain",
+    "url": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)"
+  },
+  "newCodeRights": "CC0-1.0",
+  "figures": [
+    {
+      "id": "idelsohn1929-267-paseq",
+      "labelIndexReading": "paseq",
+      "labelNotExactPhonetics": true,
+      "sourceStatus": "pending",
+      "sourceLocation": "No267, printed p.101 / PDF104, row3, figure/group5",
+      "sourceComponents": [
+        {
+          "id": "idelsohn1929-267-row3-5-1",
+          "kind": "note",
+          "quarterBeats": 0.5,
+          "quarterBeatFraction": {
+            "numerator": 1,
+            "denominator": 2
+          },
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "sourcePdfPage": 104,
+          "sourcePrintedPage": 101,
+          "sourcePitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69
+        },
+        {
+          "id": "idelsohn1929-267-row3-5-2",
+          "kind": "note",
+          "quarterBeats": 0.5,
+          "quarterBeatFraction": {
+            "numerator": 1,
+            "denominator": 2
+          },
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "sourcePdfPage": 104,
+          "sourcePrintedPage": 101,
+          "sourcePitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "slurs": [
+            {
+              "id": "idelsohn1929-267-row3-5-slur-2-3",
+              "phase": "start"
+            }
+          ]
+        },
+        {
+          "id": "idelsohn1929-267-row3-5-3",
+          "kind": "note",
+          "quarterBeats": null,
+          "quarterBeatFraction": null,
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "sourcePdfPage": 104,
+          "sourcePrintedPage": 101,
+          "sourcePitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "slurs": [
+            {
+              "id": "idelsohn1929-267-row3-5-slur-2-3",
+              "phase": "end"
+            }
+          ],
+          "printedSmallNote": {
+            "type": "eighth",
+            "slash": null,
+            "role": null,
+            "sourceDuration": null,
+            "stealingRatio": null,
+            "limits": "Small printed note; source performance timing and ornament role are unassigned."
+          }
+        }
+      ],
+      "measuredQuarterBeats": 1,
+      "sourceTotalDuration": null,
+      "sourceSmallNoteRole": null,
+      "sourceSmallNoteDuration": null,
+      "originalInstrumentTiming": {
+        "id": "original-no267-small-eighth-80ms-v1",
+        "milliseconds": 80,
+        "sourceDuration": null,
+        "sourceRole": null,
+        "stealingRatio": null,
+        "policy": "Add 80 ms for the unmeasured small eighth in source order; retain every measured value. Original instrumental timing, not historical performance."
+      },
+      "instrumentSecondsAt84": 0.7942857142857143,
+      "acceptedWordUnderlay": null,
+      "acceptedSyllableUnderlay": null,
+      "phonemes": null,
+      "voice": null,
+      "recordedTiming": null,
+      "actualTuning": null,
+      "modernAccentEquivalent": null,
+      "kinnorEquivalent": null,
+      "independentReview": null
+    },
+    {
+      "id": "idelsohn1929-267-jetib",
+      "labelIndexReading": "jetib",
+      "labelNotExactPhonetics": true,
+      "sourceStatus": "pending",
+      "sourceLocation": "No267, printed p.101 / PDF104, row4, figure/group1",
+      "sourceComponents": [
+        {
+          "id": "idelsohn1929-267-row4-1-1",
+          "kind": "note",
+          "quarterBeats": 0.5,
+          "quarterBeatFraction": {
+            "numerator": 1,
+            "denominator": 2
+          },
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "sourcePdfPage": 104,
+          "sourcePrintedPage": 101,
+          "sourcePitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74
+        },
+        {
+          "id": "idelsohn1929-267-row4-1-2",
+          "kind": "note",
+          "quarterBeats": 0.5,
+          "quarterBeatFraction": {
+            "numerator": 1,
+            "denominator": 2
+          },
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "sourcePdfPage": 104,
+          "sourcePrintedPage": 101,
+          "sourcePitch": {
+            "step": "D",
+            "alter": 0,
+            "octave": 5
+          },
+          "midi": 74,
+          "slurs": [
+            {
+              "id": "idelsohn1929-267-row4-1-slur-2-3",
+              "phase": "start"
+            }
+          ]
+        },
+        {
+          "id": "idelsohn1929-267-row4-1-3",
+          "kind": "note",
+          "quarterBeats": null,
+          "quarterBeatFraction": null,
+          "rhythm": {
+            "type": "eighth",
+            "dots": 0,
+            "actual": 1,
+            "normal": 1
+          },
+          "sourcePdfPage": 104,
+          "sourcePrintedPage": 101,
+          "sourcePitch": {
+            "step": "A",
+            "alter": 0,
+            "octave": 4
+          },
+          "midi": 69,
+          "slurs": [
+            {
+              "id": "idelsohn1929-267-row4-1-slur-2-3",
+              "phase": "end"
+            }
+          ],
+          "printedSmallNote": {
+            "type": "eighth",
+            "slash": null,
+            "role": null,
+            "sourceDuration": null,
+            "stealingRatio": null,
+            "limits": "Small printed note; performance timing and ornament classification unassigned."
+          }
+        }
+      ],
+      "measuredQuarterBeats": 1,
+      "sourceTotalDuration": null,
+      "sourceSmallNoteRole": null,
+      "sourceSmallNoteDuration": null,
+      "originalInstrumentTiming": {
+        "id": "original-no267-small-eighth-80ms-v1",
+        "milliseconds": 80,
+        "sourceDuration": null,
+        "sourceRole": null,
+        "stealingRatio": null,
+        "policy": "Add 80 ms for the unmeasured small eighth in source order; retain every measured value. Original instrumental timing, not historical performance."
+      },
+      "instrumentSecondsAt84": 0.7942857142857143,
+      "acceptedWordUnderlay": null,
+      "acceptedSyllableUnderlay": null,
+      "phonemes": null,
+      "voice": null,
+      "recordedTiming": null,
+      "actualTuning": null,
+      "modernAccentEquivalent": null,
+      "kinnorEquivalent": null,
+      "independentReview": null
+    }
+  ],
+  "counts": {
+    "defaultWrittenValueFigures": 21,
+    "sourcePendingFigures": 5,
+    "additionalOriginalSmallNoteStudies": 2,
+    "figuresStillWithheldWithAllOptions": 3,
+    "sourceComponentsInOriginalStudies": 6,
+    "smallNotes": 2,
+    "acceptedHistoricalDurations": 0,
+    "acceptedWordOrPhonemeFits": 0
+  },
+  "stillWithheld": [
+    {
+      "id": "idelsohn1929-267-shofar-mehuppakh",
+      "reason": "Unresolved triplet span; surrounding durations remain unset. Playback is withheld; no replacement timing is supplied."
+    },
+    {
+      "id": "idelsohn1929-267-maarikh-tarha-row3",
+      "reason": "Unresolved triplet span; surrounding durations remain unset. Playback is withheld; no replacement timing is supplied."
+    },
+    {
+      "id": "idelsohn1929-267-zaqef-gadol",
+      "reason": "Unresolved leading horizontal mark; kind and duration remain unset. Playback is withheld; no replacement timing is supplied."
+    }
+  ],
+  "voice": null,
+  "independentReview": null,
+  "limits": [
+    "Default playback still withholds all five unresolved source figures. Only these two exact small-note figures have a separate original timing option.",
+    "The final small eighth has no assigned historical duration, slash, ornament role or stealing ratio. It is not identified as a grace.",
+    "Measured values and distinct source attacks/slur remain unchanged; the extra80ms is a project choice in source order, independent of tempo, key, range and pronunciation text.",
+    "The two unresolved tuplet spans and leading horizontal mark remain withheld for all options.",
+    "No Bible word, syllable, phoneme, recording, modern accent, Kinnor preset, full contextual melody grammar or singing voice is supplied."
+  ]
+}
