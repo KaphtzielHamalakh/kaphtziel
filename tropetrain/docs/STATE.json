@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "4b862e1f37af82ea87eb714a3adb288b4080db74",
-  "nextTask": "Publish accepted v0.96 app-only through connected GitHub with fresh main lease, verify Pages/live bytes/non-editing public UI, finish records/save/pointer. Then continue source-specific contextual melody rules and six independent reviewed pronunciation/voice realizations; optional independent study-recording pitch/rate may reuse the existing processor while preserving source clocks. All21features/6requirements active; printing deferred.",
+  "publishedCommit": "ef666583c48f873220cb51fc212f24458b4b968f",
+  "nextTask": "Continue source-specific contextual Torah melody rules and six independently reviewed pronunciation/voice realizations from reusable primary evidence. The new word/context inspector exposes unreviewed conditions and explicit gaps without assigning notes. A useful next playback increment is independent source-study pitch/rate using the existing processor while preserving canonical source clocks and all personal drafts; it is an adjunct, not a substitute for complete melody/phonology. All21features/6completion requirements stay active; printing deferred/private voice labs frozen.",
   "lastPassingTests": {
     "automated": 867,
     "newRegressionChecks": 9,
@@ -22,7 +22,7 @@
       "normal": 19,
       "portable": 19
     },
-    "publicPhase": "pending0.96;previous0.95accepted",
+    "publicPhase": "accepted0.96",
     "sourceInputPins": 445,
     "personalFittingSourcePins": {
       "PRINTED-MAM-FITTING-SOURCES.json": 6,
@@ -31,7 +31,15 @@
     "frozenImplementationFiles": 419,
     "frozenSourceFiles": 444,
     "priorAssetDataVendorFilesExact": 649,
-    "runtimeChangedAfterBuild": false
+    "runtimeChangedAfterBuild": false,
+    "publicUiChecks": 74,
+    "publicUiPerApp": {
+      "normal": 37,
+      "portable": 37
+    },
+    "pagesRun": 45638035100,
+    "liveCodeFiles": 31,
+    "liveCodeBytes": 137692348
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -180,16 +188,16 @@
     }
   },
   "lastDeployment": {
-    "version": "0.95.0",
-    "codeCommit": "4b862e1f37af82ea87eb714a3adb288b4080db74",
-    "parent": "894df15f82ced7a7dde70c4860bc46b2890c3766",
-    "pagesRun": 45626209924,
+    "version": "0.96.0",
+    "codeCommit": "ef666583c48f873220cb51fc212f24458b4b968f",
+    "parent": "41468479d694091fa5c6f5e2bf7e8a54b29740f0",
+    "pagesRun": 45638035100,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 35,
-    "liveCodeBytesExact": 137261164,
-    "publicUiChecks": 150,
+    "liveCodeFilesExact": 31,
+    "liveCodeBytesExact": 137692348,
+    "publicUiChecks": 74,
     "outsideRootEntriesPreserved": 40,
-    "status": "code_published_verified_final_records_follow"
+    "status": "code_published_live_and_browser_verified"
   },
   "corpusImport": {
     "books": 5,
@@ -213,7 +221,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.96local accepted:867automated74logical local UI checks; finished distributions newly verify18new+all-source-evidence checks each. Publication pending; full goal active/incomplete.",
+  "workingIteration": "0.96published/verified867automated74local74publicUI; all5worddrafts/No266No268fittingspreserved. Fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3399,7 +3407,7 @@
   },
   "wordPatternLookups": {
     "record": "docs/WORD-PATTERN-LOOKUPS.json",
-    "status": "implemented_local_browser_tested_publication_pending; sign lookup only, not musical coverage",
+    "status": "published_browser_verified; encoded sign contexts only, not musical word coverage",
     "sourceRows": 19,
     "relations": 82,
     "queries": 28,

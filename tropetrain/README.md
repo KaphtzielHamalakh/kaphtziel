@@ -300,3 +300,14 @@ The portable file uses lossless gzip with byte counts and SHA256 checks before e
 
 
 Version0.96 adds **Printed figures for this word’s context** beside the reader’s source-sign tools. Open its Genesis1:1example (word2, בָּרָ֣א), filter a printed source and choose **Open printed figure**. The separate instrumental table retains its existing Play/Stop controls. Context lookup is not word-to-note fitting: exact Hebrew/accents stay in the reader, source conditions remain unreviewed, and no singing voice or complete tradition is inferred. **Prepare context lookup record** exposes the original context/IDs and null musical assignments.
+
+
+Published0.96: [open the context inspector](https://kaphtziel.com/tropetrain/?v=0.96.0#word-pattern-study).867automated tests,74local and74public logical UI checks pass. Personal timing/fitting drafts are preserved. Full reconstruction remains active/incomplete; source-rule fitting and six reviewed singing voices remain pending.
+
+Run the saved release locally:
+
+```sh
+python3 -m http.server 8800 --bind 127.0.0.1 --directory "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.96"
+```
+
+Open http://127.0.0.1:8800/tropetrain/; this command is provided for the user and has not been started by the agent.
