@@ -3,8 +3,8 @@
   "updated": "2026-11-24",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
-  "nextTask": "Publish accepted0.89through connectedGitHub, verify Pages/livebytes andnormal/portableUI, then continue source-pinned contextual melody/phonetic/recording review. Preserve all21features/completionrequirements/fullTorah andexactmarks/CGJ/stress/branches/sharedconsonants/collectiveDeu32:6/allgaps. Personaldisplayfitting isnotaccepted phoneticunderlay;6complete pronunciation/singing grammars andfullcontextualmelodies pending. PrivateTevircontext/Berlinrecordingleads remainunreviewed, no recordingimport. Printingdeferred;fullgoalactive.",
+  "publishedCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
+  "nextTask": "Continue fullreconstruction: source-pinned contextual melody/phonetic/stress/ornament/tuning review and reusable word-aligned recording evidence beforeprinting. Preserve all21features/fullrequirements, fullTorah/marks/CGJ/stress/alternatives/sharedconsonants/collectiveDeu32:6/gaps and independentmelody/pronunciation/voice/range/key/tempo/recording. Personal39word/93printed/94MAMfitting defaultblank/off, originalproposalunreviewed, notaccepted underlay/voice. Private3Tevircomparison hasB-flat4versusA4 endings; followingEtnahta/verseending iscontextonly, no provedrule. OriginalBerlinNr71reference linksHOMIIp35/No40, notdirectNo268; numbering/identity/rights unresolved, noaudioimport. InspectNo267pending figures without inventing source timing, tuplet membership ormarkroles. Sixcomplete pronunciation/singinggrammars/fullcontextualTorahsystems remainpending. Printingdeferred;fullgoalactive.",
   "lastPassingTests": {
     "automated": 790,
     "newRegressionChecks": 9,
@@ -14,12 +14,20 @@
     "fullCheckSession": 65799,
     "fullCheckExitCode": 0,
     "localUiChecks": 258,
-    "publicUiChecks": 0,
+    "publicUiChecks": 258,
     "sourceInputPins": 296,
     "personalFittingSourcePins": 6,
     "frozenSourceFiles": 350,
     "priorAssetDataVendorFilesExact": 635,
-    "ui": "129eachnormal/portable,26new+103prior. Actual1280px, muted/paused/consolesclear; no narrow/filedialog/acousticclaim."
+    "ui": "129eachnormal/portable,26new+103prior. Actual1280px, muted/paused/consolesclear; no narrow/filedialog/acousticclaim.",
+    "publicUiPerApp": {
+      "normal": 129,
+      "portable": 129
+    },
+    "pagesRun": 45545483726,
+    "liveCodeFiles": 30,
+    "liveCodeBytes": 147966754,
+    "sourceSavedGitFilesExact": 1216
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -168,14 +176,14 @@
     }
   },
   "lastDeployment": {
-    "version": "0.88.0",
-    "codeCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
-    "parent": "073f8045db97842fa3dd58209ad099c3952ad222",
-    "pagesRun": 45534333483,
+    "version": "0.89.0",
+    "codeCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
+    "parent": "15523604b3a78d26d7a4de7a0717596e8c95091f",
+    "pagesRun": 45545483726,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 38,
-    "liveCodeBytesExact": 142841958,
-    "publicUiChecks": 206,
+    "liveCodeFilesExact": 30,
+    "liveCodeBytesExact": 147966754,
+    "publicUiChecks": 258,
     "status": "code_published_verified_final_records_follow",
     "outsideRootEntriesPreserved": 40
   },
@@ -201,7 +209,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.89locally accepted:personal No268/MAMfitting,790automated/258finishedlocalGUI pass. Connectedpublication/publicQA pending;fullgoalactive/incomplete.",
+  "workingIteration": "0.89published/verified:personal No268/MAMfitting,790automated/258local/258publicGUIpass. Originalproposals remainunreviewed, acceptedfit/phonemes/voicepending;fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1094,9 +1102,9 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.88.0",
-    "codeCommit": "62f950a5284c7bc0ab7df719fbfe116b7a81e37c",
-    "tests": 781,
+    "version": "0.89.0",
+    "codeCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
+    "tests": 790,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -2718,26 +2726,39 @@
   },
   "localCheckoutStatus": "Original iCloud checkout preserved after pre-mutation read failures; verified private source/output and Git cache are current.",
   "publicBrowserFollowup": {
-    "version": "0.88.0",
-    "tab": "37",
-    "url": "https://kaphtziel.com/tropetrain/?v=0.88.0#reader",
-    "wordId": "exo-12-21-2",
-    "printedSyllableIndex": 2,
-    "events": 5,
-    "displaySeconds": "3.21",
-    "scope": "printed-syllable",
-    "volume": 0,
-    "allMediaPaused": true,
     "activeEvents": 0,
-    "actualWidth": 1280,
-    "rootScrollWidth": 1280,
-    "narrowChecksThisRelease": 0,
-    "screenshot": "outputs/Development-v0.88/public-syllable-study.jpg",
-    "noSpeakerOrCantorialReview": true
+    "allMediaPaused": true,
+    "coverage": "0 of 93 printed groups · 0 of 94 MAM units · 0 of 39 words have personal proposals. Accepted source fittings: 0. Missing groups remain unassigned.",
+    "editorOpen": true,
+    "events": "5 events · 3.21 s",
+    "index": 2,
+    "patternActive": 0,
+    "personalFittingEnabled": false,
+    "readerSource": "mam",
+    "repeat": false,
+    "scope": "printed-syllable",
+    "scrollWidth": 1280,
+    "smallEighth": false,
+    "status": "Printed source syllable selected.",
+    "style": "sephardic",
+    "version": "v0.89.0",
+    "volume": 0,
+    "width": 1280,
+    "tab": "41",
+    "url": "https://kaphtziel.com/tropetrain/?v=0.89.0",
+    "wordId": "exo-12-21-2",
+    "screenshot": "outputs/Development-v0.89/public-personal-fitting.jpg",
+    "closedLocal": [
+      "39",
+      "40"
+    ],
+    "closedPublicPortable": "42",
+    "browserCompleteEmitted": true,
+    "noNewNarrowOrAcousticClaim": true
   },
   "privateDevelopment": {
     "version": "0.89.0",
-    "status": "locally_accepted_public_pending",
+    "status": "published_code_verified_final_records_follow",
     "checkout": "/private/tmp/tropetrain-v89-worktree/tropetrain",
     "branch": "codex/tropetrain-v89",
     "baseline": "15523604b3a78d26d7a4de7a0717596e8c95091f",
@@ -2754,8 +2775,18 @@
       "normal": 129,
       "portable": 129
     },
-    "publicUi": null,
-    "publication": null
+    "publicUi": {
+      "normal": 129,
+      "portable": 129
+    },
+    "publication": {
+      "codeCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
+      "pagesRun": 45545483726,
+      "liveFilesExact": 30,
+      "liveBytesExact": 147966754,
+      "nativeMainPush": false,
+      "uploadBranch": "codex/tropetrain-v89-upload"
+    }
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -2889,7 +2920,7 @@
   },
   "personalPrintedMamFitting": {
     "version": "0.89.0",
-    "status": "locally-accepted-personal-proposal-unreviewed",
+    "status": "published-unreviewed-personal-display-proposals",
     "sourceWords": 39,
     "printedGroups": 93,
     "mamUnits": 94,
@@ -2901,6 +2932,7 @@
     "preliminaryUiChecks": 52,
     "localUiChecks": 52,
     "automatedChecks": 790,
-    "publicStatus": "pending"
+    "publicStatus": "normal-and-portable-verified",
+    "publicUiChecks": 52
   }
 }
