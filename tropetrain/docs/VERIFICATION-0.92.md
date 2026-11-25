@@ -1,4 +1,10 @@
-# TropeTrain0.92 · local acceptance, publication pending
+# TropeTrain0.92 · published and verified
+
+Connected code47c76969ee98a0d36f10e272a5c5e4f3cec635fd (parent551d34a5d4e6f6b70d196b3217d5580bf5a077b3); Pages45587913094,all3jobs successful. All44changed livefiles/136178738bytes match the tested release via systemcurl/defaultTLS. Only/tropetrain changed;40outside rootentries preserved. Bothpublicapps pass173checks each/346total:27newNo266group/evidence,27priorNo266,16small,103priorpattern/No268/groups. All95No266selectors/130assignedpitches swept each. Publicpersonalbindings/coverage/JSONinput remain unchanged; followpreferences restored. Local400checks plus1damaged-copy startupcheck; final829automated pass,0fail/cancel/skip. Fullgeneratedbuild succeeded; itsinitial828pass/1fail was onelegacyphysical-href assertion now independentlyrestoring the same exactsourcebytes; runtimeunchanged. Final records publication follows, with no executable/browserasset changes after acceptance.
+
+Publicnormal49 is ready at https://kaphtziel.com/tropetrain/?v=0.92.0#idelsohn-no266-study, No266Exodus12:21word2 מֹשֶׁ֛ה,printedgroup2,fiveattacks/1.34seconds at84BPM,key0,independentMAMreadertextvisible. Originalchoicesoff,repeatfalse,volume0,allplayersstopped. RaiseInstrumentvolume andPlay. Portable75sourcehrefs retain74canonicalJSONrecords; the dynamicpatternrecord link is selectedthrough itsvisibledefault row before comparison. No source/recording/notice removed. Historicalsource identity/markedHebrew documented; musicaltranscription/lexicalfit/modern12TET/regularizedtiming remaincandidate/approximate. Review/acceptedphoneticfit/sourcevoice/fullcontextualgrammar remainpending. All21features/6requirements active; fullappincomplete,printingdeferred.
+
+## Local acceptance record
 
 Adds separate No266 printed-source group practice:95groups/130assigned pitches across39unchanged marked Hebrew word candidates. Parenthesized A4quarter remains outside all groups; full-word literal-inclusion guard unchanged. The final small C4eighth belongs to group2 but source duration/role remain null; its separate original80ms choice is still required. No26695groups, No26893groups and MAM94units retain independent partitions. No268 personal fitting cannot transfer to No266. Recorded/measured modes refuse invented group times.
 
