@@ -3,8 +3,8 @@
   "updated": "2026-11-26",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "506206814931d9b3dc76f94d959d846575d761f3",
-  "nextTask": "Finish v0.99 source-linked Chukat word-study acceptance/publication, then continue actual word/syllable/stress and complete contextual melody/pronunciation realizations across the full Torah. Do not treat the linked text division, unprompted chapter anchors or constrained model path as reviewed recording endpoints/edition/word timing. Preserve all21features/all6completionrequirements, original1183recordings/IDs/clocks and existing drafts. Printing deferred/private voice labs frozen.",
+  "publishedCommit": "98c0bc200c5215f469a2c4ae7c26d16966397cc1",
+  "nextTask": "Continue source-specific performance/edition/word/syllable/stress validation for the Chukat and other reusable recordings; derive full contextual cantillation and six independent pronunciation realizations only with sourced underlay and musical/phonological review. Linked reading divisions and model target support do not verify performed endpoints, all word occurrences or heard boundaries. Preserve all21features/all6completionrequirements, all1183original record facts/drafts and independent melody/pronunciation/range/key/BPM. Printing deferred; private voice labs frozen.",
   "lastPassingTests": {
     "automated": 892,
     "failed": 0,
@@ -31,7 +31,21 @@
     "portableCanonicalLinks": 86,
     "stoppedLocalPreviewReloadAndFiveCachedRecordings": true,
     "externalNetworkingDisabledDuringCacheCheck": false,
-    "publicPhase": "pending0.99"
+    "publicPhase": "accepted0.99",
+    "publicUiChecks": 96,
+    "publicUiPerApp": {
+      "normal": 48,
+      "portable": 48
+    },
+    "newPublicPerApp": 29,
+    "allTenPublicWordDraftsUnchanged": true,
+    "bothPublicFittingGuardsUnchangedAndFollowRestored": true,
+    "priorFiveSourceListeningSpansRestored": true,
+    "personalBoundaryEditsPerformed": false,
+    "pagesRun": 45859299816,
+    "liveCodeFiles": 43,
+    "liveCodeBytes": 146120842,
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -3459,7 +3473,7 @@
   "chukatLinkedWordStudy": {
     "record": "docs/CHUKAT-SOURCE-PASSAGES.json",
     "support": "docs/CHUKAT-WORD-SUPPORT.json",
-    "status": "local_accepted_public_pending",
+    "status": "published_live_and_browser_verified_unreviewed_word_model_support",
     "sourceRecordings": 5,
     "candidateReaderWords": 255,
     "candidateRange": "Numbers19:1–17",
@@ -3472,6 +3486,7 @@
     "newReviewedMelodyGrammars": 0,
     "newSingingVoices": 0,
     "sourceEditionCompared": false,
-    "review": null
+    "review": null,
+    "newAcceptedWordTimes": 0
   }
 }
