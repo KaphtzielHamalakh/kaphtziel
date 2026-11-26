@@ -1,21 +1,22 @@
 import {getCorpus} from './library.js';
-import {createWordTimingDraft,parseWordTimingDraft,setWordBoundary,draftWordSpan} from './word-timing-draft.js';
+import {recordingIdentity,createWordTimingDraft,parseWordTimingDraft,setWordBoundary,draftWordSpan} from './word-timing-draft.js';
 import {wordSupportAvailable,loadWordSupport,wordSupportContext,validateWordSupport} from './word-support.js';
+import {mountObservedWordCues} from './observed-word-cues-ui.js';
 import {mountPhoneticWordReview} from './phonetic-word-ui.js';
 
 export function mountWordTimingDraft({position,onAudition}){
   const $=id=>document.getElementById(id),panel=$('word-timing-review');
   let generation=0,draft=null,record=null,selected=0,available=false,retainedWordId=null,support=null;
   const supportCache=new Map();
-  const phonetic=mountPhoneticWordReview();
-  const key=()=>`tropetrain-word-timing-draft-v1:${record.audio.sha256}`;
+  const phonetic=mountPhoneticWordReview(),observed=mountObservedWordCues({onAudition});
+  const key=()=>`tropetrain-word-timing-draft-v1:${recordingIdentity(record).sha256}`;
   const message=text=>{$('word-timing-status').textContent=text;};
   function save(){
     try{localStorage.setItem(key(),JSON.stringify(draft));message('Draft saved on this device. Source edition, musical notes and phonology remain unreviewed.');}
     catch{message('Device storage unavailable. Copy the draft JSON to retain these annotations.');}
   }
   function draw(){
-    phonetic.select(record,draft,selected);
+    phonetic.select(record,draft,selected);observed.select(record,draft,selected,available);
     const word=draft?.words[selected];$('word-timing-editor').hidden=!word;
     $('word-support-panel').hidden=!word||!wordSupportAvailable(record);
     if(!word)return;
@@ -86,7 +87,7 @@ export function mountWordTimingDraft({position,onAudition}){
     async select(nextRecord,coverage){
       const keepOpen=panel.open&&JSON.stringify(draft?.coverage)===JSON.stringify(coverage);
       const current=++generation;record=nextRecord;draft=null;support=null;selected=0;available=false;draw();
-      $('word-timing-source-status').textContent=nextRecord.linkedSourcePassageEvidence?'Linked reading candidate. The companion text lists Numbers 19:1–17; exact recording endpoints and text-edition correspondence remain unreviewed. Automatic hints never fill heard boundaries.':nextRecord.catalogPassageEvidence?(coverage?'Catalog passage candidate. These exact reader words follow the source catalog; recording content and edition correspondence are unreviewed. Automatic support does not fill heard boundaries.':'The source passage is withheld because documentary and acoustic evidence disagree. No corrected passage or word draft is assigned.'):'';
+      $('word-timing-source-status').textContent=nextRecord.linkedSourcePassageEvidence?.wordTimingNotice??(nextRecord.linkedSourcePassageEvidence?'Linked reading candidate. The companion text lists Numbers 19:1–17; exact recording endpoints and text-edition correspondence remain unreviewed. Automatic hints never fill heard boundaries.':nextRecord.catalogPassageEvidence?(coverage?'Catalog passage candidate. These exact reader words follow the source catalog; recording content and edition correspondence are unreviewed. Automatic support does not fill heard boundaries.':'The source passage is withheld because documentary and acoustic evidence disagree. No corrected passage or word draft is assigned.'):'');
       $('word-timing-json').value='';$('word-timing-select').replaceChildren();
       $('word-support-status').textContent='';
       $('word-timing-empty').hidden=!!coverage;panel.open=keepOpen;

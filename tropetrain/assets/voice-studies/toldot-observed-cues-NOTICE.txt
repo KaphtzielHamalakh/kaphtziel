@@ -1,0 +1,6 @@
+Toldot source-linked reader and sparse listening cues. No approved word times.
+Audio: Asael own recording, CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Af_Genesis_Toledot-6_Asael.oga . Unchanged original not bundled.
+Wikisource source pages/metadata: CC BY-SA 4.0, source revisions in candidate-evidence.json and primary responses. Canonical reader words retain their project source attribution.
+Model cards: wav2vec2 Hebrew Apache-2.0; Teamim publisher labels MIT. No weights or model repository code bundled. Possible training overlap; silence emitted Hebrew. Model output is not review.
+Project-derived observation data and source adaptation: CC BY-SA 4.0, with original audio attribution retained. Original project analysis code: MIT.
+Reproduction: pinned model IDs/revisions and hashes, raw recognition/token clocks, candidate bindings, whole-Torah exact context observations and predeclared recipe are supplied. Obtain original unchanged audio and pinned model tokenizer files separately. Rebuild all79985marked reader words from the app and bind source paths in recipe to the included relative research files. Analysis is untrimmed mono float32 at16kHz; source/model identities and analysis hash are retained. No physical onsets or word tails are inferred. Full inference/matrix reproduction requires the separately pinned models and audio, not bundled here.

@@ -1,6 +1,7 @@
+import {sourceRecordingSha256} from './source-recording-identity.js';
 // Personal review annotations. This format cannot certify linguistic or musical evidence.
 export function recordingIdentity(record){
-  return {id:record.id,bytes:record.audio.bytes,sha1:record.audio.sha1,sha256:record.audio.sha256,
+  return {id:record.id,bytes:record.audio.bytes,sha1:record.audio.sha1,sha256:sourceRecordingSha256(record),
     duration:record.audio.estimatedDurationSeconds};
 }
 const nullFields=['phonemes','syllableAlignment','musicalNotes','independentReview'];
