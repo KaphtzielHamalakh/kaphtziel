@@ -1,0 +1,153 @@
+{
+  "format": "tropetrain-torah-observed-cues-summary-v1",
+  "status": "unreviewed-listening-cues",
+  "sourcePack": {
+    "file": "assets/references/torah-observed-cues-sources.zip",
+    "bytes": 251317,
+    "sha256": "e7ca0ae5a56b90101122a249c2267075fc44189a62bcb2b62a6ca4e44438713a"
+  },
+  "records": [
+    {
+      "recordId": "pt-portion-20-3",
+      "title": "Tetzaveh · aliyah 3",
+      "source": {
+        "id": "pt-portion-20-3",
+        "bytes": 922645,
+        "sha1": "da3e321dc0501d755038a7eaa6cbccfa9874b649",
+        "sha256": "e1fb3e4c3326bafb0d0d99b8e7294d6d85cbd1869f2a58ef03db59970354157d",
+        "duration": 230.6611875
+      },
+      "candidateCoverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 28,
+          "verse": 31
+        },
+        "end": {
+          "chapter": 28,
+          "verse": 43
+        }
+      },
+      "originalTimingSourceSha256": "f45411ede6f20b555222e951677723d5d0ff29bbfc145b24175bbec5f1f6edf8",
+      "readerWords": 182,
+      "agreedListeningCues": 49,
+      "wordsWithoutCue": 133,
+      "counts": {
+        "no-complete-ctc-letter-anchor": 133,
+        "agreed-listening-cue": 49
+      },
+      "defaultReviewWordId": "exo-28-32-1",
+      "defaultReviewHebrew": "וְהָיָ֥ה",
+      "defaultReviewPoint": 11.079999923706055,
+      "packet": {
+        "file": "data/references/torah-observed-cues/pt-portion-20-3.json.gz",
+        "bytes": 32251,
+        "sha256": "9e546346beb2bf3e4682d39613f6ba0d9c1f062a51d7b71d67fc98ae657a251f"
+      }
+    },
+    {
+      "recordId": "pt-portion-13-7",
+      "title": "Shemot · aliyah 7",
+      "source": {
+        "id": "pt-portion-13-7",
+        "bytes": 1390132,
+        "sha1": "c8d2a389ebbcb3d9302efd544ff49d73e7fcc969",
+        "sha256": "b927a0674cbf7b73ad2a3f40ead20bb6eb38af36ddc2914a7ff31b304fc3f55d",
+        "duration": 347.5330625
+      },
+      "candidateCoverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 5,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 6,
+          "verse": 1
+        }
+      },
+      "originalTimingSourceSha256": "6849e02ee132d16985809e4d7eaa9b268f1dda204eb28f4a014958a259b5f5f5",
+      "readerWords": 335,
+      "agreedListeningCues": 12,
+      "wordsWithoutCue": 323,
+      "counts": {
+        "no-complete-ctc-letter-anchor": 323,
+        "agreed-listening-cue": 12
+      },
+      "defaultReviewWordId": "exo-5-14-5",
+      "defaultReviewHebrew": "אֲשֶׁר־",
+      "defaultReviewPoint": 190.7199993133545,
+      "packet": {
+        "file": "data/references/torah-observed-cues/pt-portion-13-7.json.gz",
+        "bytes": 30246,
+        "sha256": "830827410c167f74165ec558e1461c1b6d3fdf1532201fcb7b33044b0a8d9044"
+      }
+    }
+  ],
+  "readerWords": 517,
+  "agreedListeningCues": 61,
+  "wordsWithoutCue": 456,
+  "rules": {
+    "literalLetters": 12,
+    "wholeWords": 3,
+    "uniqueEightLetterWholeTorahContext": true,
+    "maxInterModelPointDifferenceSeconds": 0.75,
+    "minimumLocalRmsDbfs": -55,
+    "edgeExclusionSeconds": 0.25,
+    "overlapOccurrenceClusterDiameterSeconds": 0.75,
+    "selectCtcObservation": "most interior to its source chunk, deterministic tie by earliest chunk, never closest to whisper",
+    "retainAllClusterObservations": true,
+    "conflictingOccurrenceClusters": "withhold",
+    "listeningContextSecondsEachSide": 2
+  },
+  "models": {
+    "ctc": {
+      "id": "AladdinChen/trans-local-speech-models",
+      "revision": "0e71ea441210e387a1b8b997a8481bb0b73e1baa",
+      "license": "MIT"
+    },
+    "whisper": {
+      "id": "cantillation/Teamim-large-v3-turbo_WeightDecay-0.005_Augmented_WithSRT_date-15-04-2025",
+      "revision": "38885a17bb3c369f91c701913051655f1066e0f4",
+      "license": "MIT-model-card"
+    }
+  },
+  "controls": [
+    {
+      "family": "ctc",
+      "case": "zero-signal-control",
+      "rawModelText": "",
+      "rawHebrewLetters": "",
+      "literalAnchorCount": 0,
+      "rawTokenCount": 4,
+      "sha256": "1a3ebed13a5deaaadd00a22139a041f8e6cf16c65c75963a53fa92d555218388"
+    },
+    {
+      "family": "ctc",
+      "case": "seeded-noise-control",
+      "rawModelText": "",
+      "rawHebrewLetters": "",
+      "literalAnchorCount": 0,
+      "rawTokenCount": 8,
+      "sha256": "fff2694ae9c25903522bbd3212443e7de4c6969c847336de4911b648a1dd1732"
+    },
+    {
+      "family": "whisper",
+      "case": "zero-signal-control",
+      "rawModelText": "בשֽר׃",
+      "rawHebrewLetters": "בשר",
+      "literalAnchorCount": 0,
+      "rawTokenCount": 11,
+      "sha256": "24abb1af89a6b50c13645d4ae330d2fddf396bf45e5608d91bbdbcc83941f197"
+    }
+  ],
+  "priorFailedSilenceControl": "בשֽר׃",
+  "old807TimingGatesChanged": false,
+  "acceptedWordTimes": null,
+  "phonemes": null,
+  "syllableAlignment": null,
+  "musicalNotes": null,
+  "newVoice": null,
+  "review": null,
+  "limits": "Sparse source-only research listening points, never heard onsets or word durations. Every overlapping observation retained; conflicting clocks withheld. Original text, accents and timing issues unchanged; frontend mismatch, failed chant-model silence control and training uncertainty retained. No independent pronunciation style or historical melody grammar is synthesized."
+}
