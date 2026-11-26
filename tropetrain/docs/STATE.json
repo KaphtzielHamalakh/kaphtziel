@@ -3,8 +3,8 @@
   "updated": "2026-11-26",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "b8f1ee149cae51fc8c5e3807c4eabe0bc78e8376",
-  "nextTask": "Publish locally accepted0.102.0 through connectedGitHubmainlease/forcefalse preserving40outsideentries; verifyPages/allchangedlivebytes, bothpublicapps and13worddraft/2fitting/5span guards, canonicalsave. Then continue source-onlyShemot1/Shmini6 timing-gap evidence and complete contextual melody/six independent reviewed pronunciation grammars/voices. All21features/6requirementsACTIVE/INCOMPLETE; printingwaits; oldvoicelabsfrozen.",
+  "publishedCommit": "795230d720d4f95d8d129785c8de5ba8a6ddea0d",
+  "nextTask": "Continue source-only evidence for Shemot aliyah 1, Shmini aliyah 6 and the remaining original timing gates. Preserve all original Hebrew/accents, clocks, source errors and nulls. Prioritize contextual melody rules, heard word/syllable correspondence and independently reviewed pronunciation grammars/voices. Before larger portable additions, investigate lossless sharing of duplicate source images while retaining every canonical byte. All 21 features and six completion requirements remain active/incomplete; printing waits; older private voice labs remain frozen.",
   "lastPassingTests": {
     "automated": 917,
     "failed": 0,
@@ -33,10 +33,17 @@
     "retainedAssetDataVendorFilesExact": 664,
     "priorReportResultsAndNullsExact": 113,
     "allMediaStoppedAndMuted": true,
-    "publicPhase": "pending0.102.0",
+    "publicPhase": "accepted0.102.0",
     "sourceInputPins": 599,
     "reportInputPins": 233,
-    "frozenImplementationFiles": 450
+    "frozenImplementationFiles": 450,
+    "publicUiChecks": 142,
+    "publicNormalUiChecks": 71,
+    "publicPortableUiChecks": 71,
+    "publicMarkedWordsPerEdition": 517,
+    "publicDraftsPreservedPerEdition": 13,
+    "publicScoreFittingsPreservedPerEdition": 2,
+    "publicSavedSpansPreservedPerEdition": 5
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -185,18 +192,15 @@
     }
   },
   "lastDeployment": {
-    "version": "0.100.1",
-    "codeCommit": "1be257146360348f0ca1384ccb9f291dc02192e4",
-    "previousCodeCommit": "9962b0eb5cb75e52967afb50cc00f2f0d18a5d86",
-    "pagesRun": 45876477849,
+    "version": "0.102.0",
+    "codeCommit": "795230d720d4f95d8d129785c8de5ba8a6ddea0d",
+    "pagesRun": 45896756902,
     "all3JobsSuccessful": true,
-    "initialCodeLiveFilesExact": 32,
-    "initialCodeLiveBytesExact": 145703703,
-    "patchLiveFilesExact": 24,
-    "patchLiveBytesExact": 101242726,
-    "publicUiChecks": 108,
+    "codeLiveFilesExact": 41,
+    "codeLiveBytesExact": 146884689,
+    "publicUiChecks": 142,
     "outsideRootEntriesPreserved": 40,
-    "status": "code_published_live_normal_and_portable_browser_verified"
+    "status": "code_published_live_normal_and_portable_browser_verified; final_metadata_receipt_follows"
   },
   "corpusImport": {
     "books": 5,
@@ -220,7 +224,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.100.1published/live verified:901automated,118local,108publicchecks.1157exactreaderwords/12existingrecordings/4rangeslinked.12canonicaldrafts/bothfittings/5spanspreservedbothapps;allmedia stopped/volume0. Fullgoalactive/incomplete.",
+  "workingIteration": "0.102.0 published and live verified: 917 automated tests, 143 local and 142 public functional checks; 61 optional unreviewed listening cues / 517 marked words. All drafts/fittings/spans preserved. Full objective active/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1113,9 +1117,9 @@
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
   "lastPublishedIteration": {
-    "version": "0.89.0",
-    "codeCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
-    "tests": 790,
+    "version": "0.102.0",
+    "codeCommit": "795230d720d4f95d8d129785c8de5ba8a6ddea0d",
+    "tests": 917,
     "voiceAccepted": false,
     "fullObjective": "active_incomplete"
   },
@@ -2768,36 +2772,16 @@
     "noNewNarrowOrAcousticClaim": true
   },
   "privateDevelopment": {
-    "version": "0.89.0",
-    "status": "published_code_verified_final_records_follow",
-    "checkout": "/private/tmp/tropetrain-v89-worktree/tropetrain",
-    "branch": "codex/tropetrain-v89",
-    "baseline": "15523604b3a78d26d7a4de7a0717596e8c95091f",
-    "fullBuild": {
-      "session": 65799,
-      "exitCode": 0,
-      "tests": 790,
-      "pass": 790,
-      "fail": 0,
-      "cancelled": 0,
-      "skipped": 0
-    },
-    "localUi": {
-      "normal": 129,
-      "portable": 129
-    },
-    "publicUi": {
-      "normal": 129,
-      "portable": 129
-    },
-    "publication": {
-      "codeCommit": "9bd978254d507a3038f4830c859cd1c89872eac0",
-      "pagesRun": 45545483726,
-      "liveFilesExact": 30,
-      "liveBytesExact": 147966754,
-      "nativeMainPush": false,
-      "uploadBranch": "codex/tropetrain-v89-upload"
-    }
+    "version": "0.102.0",
+    "status": "code_published_live_verified_final_records_follow",
+    "checkout": "/private/tmp/tropetrain-v102-worktree/tropetrain",
+    "privateCodeCommit": "e9b919b47df435222e6b1b6a05942ef9d4758d82",
+    "savedBuild": "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.102/tropetrain",
+    "uploadBranch": "codex/tropetrain-v102-upload",
+    "nativeMainPush": false,
+    "automated": 917,
+    "localUiChecks": 143,
+    "publicUiChecks": 142
   },
   "modernOptionalFinalConsonants": {
     "id": "phonikud-modern-final-consonants",
@@ -3609,7 +3593,7 @@
     "newIndependentSingingVoices": 0
   },
   "torahObservedCues": {
-    "status": "locally_accepted_publication_pending",
+    "status": "published_live_normal_and_portable_verified_unreviewed",
     "sourceRecordings": 2,
     "candidateReaderWords": 517,
     "ctcWindows": 51,
@@ -3630,5 +3614,34 @@
     "TetzavehCues": 49,
     "ShemotCues": 12,
     "independentlyRecomputedLiteralObservations": 131
+  },
+  "publicV102Acceptance": {
+    "version": "0.102.0",
+    "codeCommit": "795230d720d4f95d8d129785c8de5ba8a6ddea0d",
+    "normalFunctionalChecks": 71,
+    "portableFunctionalChecks": 71,
+    "publicFunctionalChecks": 142,
+    "wordStatesPerEdition": 517,
+    "cuesPerEdition": 61,
+    "explicitNoCuesPerEdition": 456,
+    "portableCanonicalRecords": 86,
+    "portableEvidenceLinks": 89,
+    "newSourcePackAndNoticeExact": true,
+    "draftsPreservedPerEdition": 13,
+    "fittingsPreservedPerEdition": 2,
+    "sourceSpansPreservedPerEdition": 5,
+    "publicBoundaryEditsImportsOrClears": false,
+    "allMediaStoppedAndMuted": true,
+    "closedOwnPublicPortable": "31",
+    "deliverableTab": "15",
+    "publicScreenshot": "public-v102-listening-study.jpg",
+    "liveCodeFilesExact": 41,
+    "liveCodeBytesExact": 146884689,
+    "pagesRun": 45896756902,
+    "all3PagesJobsSuccessful": true,
+    "historicalMusicalReview": null,
+    "acceptedWordTimes": 0,
+    "newIndependentSingingVoices": 0,
+    "fullObjective": "active_incomplete"
   }
 }
