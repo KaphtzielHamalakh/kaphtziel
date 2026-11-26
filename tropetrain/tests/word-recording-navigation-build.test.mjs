@@ -5,5 +5,5 @@ test('normal and portable readers expose the same exact-word comparison with opt
  const physical=read('TropeTrain.html'),normal=read('index.html').toString(),portable=restoredPortableHtml(physical).toString();
  assert.deepEqual(portableProgramBytes(physical).bytes,read('app.bundle.js'));
  for(const html of [normal,portable]){for(const id of ['word-recording-study','word-recording-status','word-recording-choice','word-recording-open','word-recording-example'])assert(html.includes('id="'+id+'"'));assert(html.includes('id="word-recording-open" type="button" hidden disabled'));assert(html.includes('Opening a study does not play or download audio.'));assert(html.includes('href="#word-recording-study"'));}
- assert(read('sw.js').toString().includes('tropetrain-v101-toldot-listening-cues'));assert(!read('sw.js').toString().includes('model.safetensors'));assert(100*1024*1024-portableFileBytes(physical)>4*1024*1024);
+ assert(read('sw.js').toString().includes('tropetrain-v102-torah-listening-cues'));assert(!read('sw.js').toString().includes('model.safetensors'));assert(100*1024*1024-portableFileBytes(physical)>4*1024*1024);
 });

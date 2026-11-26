@@ -38,6 +38,8 @@ import {SIGN_ANALYSIS,sourceClassLabel} from './accents.js';
 import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.js';
 import {RecordingPlayer} from './recorded-reference.js';
 import {getReferenceLibrary} from './reference-library.js';
+import {TORAH_OBSERVED_CUES} from './torah-observed-cues-summary.js';
+import {mountReferenceObservedCues} from './torah-observed-cues-ui.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
 import {CONTEXT_ANALYSIS} from './accent-context.js';
 import {mountCombinationTools} from './combination-ui.js';
@@ -109,7 +111,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,wordPatternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null,wordRecordingNavigator=null,wordRecordingTools=null;
+let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,wordPatternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null,wordRecordingNavigator=null,wordRecordingTools=null,referenceCueTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -481,6 +483,8 @@ function renderReference({keepChoice=false}={}){
   if(!keepChoice&&!referencePlayer.running&&!referencePlayer.starting)selectedReferenceId=atCursor?.recording.id??selectedReferenceId;
   selectedReferenceId??=referenceLibrary.recordings[0].id;syncReferencePickers();
   const selected=referenceLibrary.byId.get(selectedReferenceId);
+  const cueWord=atCursor?.recording.id===selected.id?words[state.cursor]:null;
+  referenceCueTools?.select(selected,cueWord,false);
   try{
     const [start,end]=bounds(state.cursor,state.anchor,state.scope);
     if(!words.slice(start,end+1).some(word=>referenceLibrary.at(word)?.recording.id===selected.id))throw Error('The selected recording is outside this reader span. Open selected reading, or load and play its complete take.');
@@ -499,6 +503,7 @@ function renderReference({keepChoice=false}={}){
     const size=missing.reduce((n,r)=>n+r.audio.bytes,0);$('reference-load').textContent=missing.length?`Load ${missing.length} recording${missing.length===1?'':'s'} · ${(size/1048576).toFixed(1)} MB`:'Recordings loaded';
     $('reference-storage').textContent=selected.audio.localFile?'Opening recording included with the app.':selectedReady?(referenceStore.saved.has(selected.audio.sha1)?'Selected recording saved on this device.':'Selected recording loaded for this session.'):`Selected recording needs a ${(selected.audio.bytes/1048576).toFixed(1)} MB download. Files are checksum-checked before use and saved on this device when storage is available.`;
     $('reference-remove').disabled=!!selected.audio.localFile||!selectedReady;
+    referenceCueTools?.select(selected,cueWord,selectedReady);
   }).catch(error=>{$('reference-storage').textContent=error.message;});
 }
 function renderRecordingTimingGroups(){
@@ -1209,6 +1214,26 @@ pronunciationTools=mountPronunciationStudy({onChange:()=>{clearNoteEventExport()
 printedFitTools=mountPrintedMamFitting({getContext:()=>({word:words[state.cursor],profile:model.profile,printedIndex:state.printedSyllableIndex,style:$('pronunciation-style').value,practiceAudio:state.practiceAudio}),onChange:()=>{stop('Personal fitting draft changed. Source notes are unchanged.');exportsKey=null;render();},onWholeWord:()=>{stop('Whole word selected for the complete proposed span.');state.scope='word';state.notePage=0;state.staffPage=0;render();}});
 no266FitTools=mountNo266MamFitting({getContext:()=>({words,plan,word:words[state.cursor],profile:model.profile,printedIndex:state.no266PrintedGroupIndex,style:$('pronunciation-style').value,practiceAudio:state.practiceAudio}),onChange:()=>{stop('Personal No266 fitting changed. Source notes are unchanged.');exportsKey=null;render();},onWholeWord:()=>{stop('Whole No266 word selected for the complete proposed span.');state.scope='word';state.notePage=0;state.staffPage=0;render();}});
 sourcePitchTools=mountSourcePitch({getWord:()=>words[state.cursor],getReferences:()=>referenceLibrary});
+referenceCueTools=mountReferenceObservedCues({onAudition:async(record,word,context)=>{
+  const request=++chantPlayRequest;
+  if(!await referenceStore.has(record))throw Error('Load the original recording before auditioning a research cue.');
+  const current=words[state.cursor];
+  if(request!==chantPlayRequest||selectedReferenceId!==record.id||current?.id!==word.id||current.sourceHebrew!==word.sourceHebrew)throw Error('The cue audition was superseded by a stop or reading change.');
+  stop('Listening to a research cue with context. Original word timings remain unchanged.');
+  referencePlayer.setRate(1);referencePlayer.setVolume(state.referenceVolume/100);
+  await referencePlayer.playSegments([{recordingId:record.id,start:context.start,end:context.end,words:[]}],false);
+  if(!referencePlayer.running)throw Error('The original context could not start; review the recorded-reference status.');
+}});
+for(const study of TORAH_OBSERVED_CUES.records){
+  const button=document.createElement('button');button.id='reference-cues-open-'+study.recordId;button.textContent=`Open ${study.title} listening study · unreviewed`;
+  button.addEventListener('click',()=>libraryAction(()=>{
+    applyRanges([{id:'reference-listening-study',...study.candidateCoverage,label:study.title}],{readingType:'torah'});
+    state.cursor=words.findIndex(w=>(w.sourceWordId??w.id)===study.defaultReviewWordId);
+    if(state.cursor<0)throw Error('The source-study word is outside this reading.');
+    state.anchor=state.cursor;state.scope='word';state.readerPage=Math.floor(words[state.cursor].verseIndex/VERSE_PAGE);selectedReferenceId=study.recordId;render();
+    $('reference-cues-panel').open=true;$('reference-cues-panel').scrollIntoView({block:'center'});
+  }));$('reference-cues-examples').append(button);
+}
 syllableTimingTools=mountSyllableTiming({getWord:()=>words[state.cursor],getWords:()=>words,getPronunciation:word=>pronunciationTools.timingStudy(word),getReferences:()=>referenceLibrary,
   position:()=>referencePlayer.running&&!recordedPracticeRunning?{recordingId:referencePlayer.currentSegment.recordingId,seconds:referencePlayer.now(),mode:referencePlayer.mode}:null,
   hasSource:record=>referenceStore.has(record),loadSource:(record,signal)=>referenceStore.load(record,{signal}),stop:()=>stop(),
