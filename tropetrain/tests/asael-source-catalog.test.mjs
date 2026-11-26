@@ -83,7 +83,7 @@ test('archive choices resolve original absolute URLs and restore separate source
 });
 
 test('the original72recordings and their settings remain intact while the archive uses on-demand checksum verification',async()=>{
-  assert.equal(VOICE_STUDIES.recordings.length,72);assert.equal(VOICE_SOURCE_STUDIES.length,656);assert.equal(VOICE_SOURCE_RECORDINGS.length,917);
+  assert.equal(VOICE_STUDIES.recordings.length,72);assert.equal(VOICE_SOURCE_STUDIES.length,933);assert.equal(VOICE_SOURCE_RECORDINGS.length,1183);
   assert.deepEqual(VOICE_STUDIES,JSON.parse(read('docs/VOICE-STUDIES.json')));
   const original=catalog.recordings[0],record=voiceAudioRecord(original,'https://kaphtziel.com/tropetrain/');let fetched=0;
   const store=new ReferenceAudioStore({cache:{keys:async()=>[],get:async()=>null,put:async()=>{}},fetchFile:async()=>{fetched++;return{ok:true,arrayBuffer:async()=>new ArrayBuffer(10)};}});

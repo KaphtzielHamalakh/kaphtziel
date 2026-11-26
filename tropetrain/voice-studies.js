@@ -2,10 +2,11 @@ import {VOICE_STUDIES} from './voice-study-data.js';
 import {ASAEL_SOURCE_CATALOG} from './asael-source-catalog-data.js';
 import {withAsaelPassageEvidence} from './asael-passage-records.js';
 import {GENESIS_MELODY_COMPARISON} from './genesis-melody-comparison-data.js';
+import {SOURCE_READERS} from './source-readers-data.js';
 export {VOICE_STUDIES};
-export const VOICE_FEATURED_STUDIES=[...VOICE_STUDIES.studies,GENESIS_MELODY_COMPARISON.study];
-export const VOICE_SOURCE_STUDIES=[...VOICE_FEATURED_STUDIES,...ASAEL_SOURCE_CATALOG.studies];
-export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording);
+export const VOICE_FEATURED_STUDIES=[...VOICE_STUDIES.studies,GENESIS_MELODY_COMPARISON.study,SOURCE_READERS.studies.find(s=>s.id===SOURCE_READERS.featuredStudyId)];
+export const VOICE_SOURCE_STUDIES=[...VOICE_FEATURED_STUDIES,...ASAEL_SOURCE_CATALOG.studies,...SOURCE_READERS.studies.filter(s=>s.id!==SOURCE_READERS.featuredStudyId)];
+export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording,SOURCE_READERS.recordings);
 
 export function voiceStudy(id){
   const study=VOICE_SOURCE_STUDIES.find(s=>s.id===id);
@@ -19,6 +20,14 @@ export function voiceRecording(studyId,pronunciationId,deliveryId){
   const recording=VOICE_SOURCE_RECORDINGS.find(r=>(r.studyId===studyId||study.recordingIds?.includes(r.id))&&r.pronunciationId===pronunciationId&&r.deliveryId===deliveryId);
   if(!recording)throw Error('This source performance is unavailable.');
   return recording;
+}
+// Enumerate actual provided pairs; a choice never substitutes a missing pair.
+export function voiceCombinations(studyId){
+  const study=voiceStudy(studyId);
+  return VOICE_SOURCE_RECORDINGS.filter(r=>r.studyId===studyId||study.recordingIds?.includes(r.id)).map(r=>({
+    id:r.id,pronunciationId:r.pronunciationId,deliveryId:r.deliveryId,
+    name:`${study.deliveries.find(d=>d.id===r.deliveryId).name} · ${study.pronunciations.find(p=>p.id===r.pronunciationId).name}`
+  }));
 }
 export function voiceChoices(studyId,pronunciationId,deliveryId){
   const study=voiceStudy(studyId),provided=(p,d)=>{try{voiceRecording(studyId,p,d);return true;}catch{return false;}};

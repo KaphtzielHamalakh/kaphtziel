@@ -1,7 +1,8 @@
-import {VOICE_STUDIES,VOICE_FEATURED_STUDIES,voiceStudy,voiceRecording,voiceChoices,voiceAudioRecord,voiceCoverage,voiceCoverageLabel,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
+import {VOICE_STUDIES,VOICE_FEATURED_STUDIES,voiceStudy,voiceRecording,voiceChoices,voiceCombinations,voiceAudioRecord,voiceCoverage,voiceCoverageLabel,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
 import {VoiceStudyPlayer} from './voice-study-player.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
 import {mountWordTimingDraft} from './word-timing-ui.js';
+import {SOURCE_READERS,mountSourceReaderFinder} from './source-readers.js';
 import {mountAsaelSourceFinder} from './asael-source-finder.js';
 
 export function mountVoiceStudies({beforePlay,onOpenText}){
@@ -57,6 +58,7 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     const delivery=study.deliveries.find(d=>d.id===prefs.deliveryId);
     $('voice-study-kind').textContent=delivery.kind==='spoken'?'Spoken pronunciation study · without melody':'Chanted reference · recorded voice';
     $('voice-study-description').textContent=study.description;$('voice-study-limits').textContent=study.limits;
+    $('voice-study-source-conflict').textContent=record.sourceLabelConflict??'';$('voice-study-source-conflict').hidden=!record.sourceLabelConflict;
     $('voice-study-coverage').textContent=`${voiceCoverageLabel(record)?voiceCoverageLabel(record)+' · ':''}${record.coverageStatus??study.coverageStatus}`;
     const uploadYear=record.sourceUploadYear??(record.studyId==='asael-bereshit'?record.year:null);
     $('voice-study-creator').textContent=`${record.performer} · ${uploadYear?`source upload ${uploadYear} · performance date not established`:record.year??'performance date not established'}`;
@@ -74,7 +76,17 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     $('voice-study-volume').value=prefs.volume;$('voice-study-volume-value').textContent=`${prefs.volume}%`;
     $('voice-study-repeat').checked=prefs.repeat;player.setVolume(prefs.volume/100);
     $('voice-study-status').textContent='Choose a span in seconds, then Play. The reader’s musical settings and Hebrew selection stay separate.';
-    showSpan();readiness();persist();
+    showSpan();recordingOptions();readiness();persist();
+  }
+  function recordingOptions(){
+    const pairs=voiceCombinations(prefs.studyId),container=$('voice-study-recordings');
+    container.replaceChildren();$('voice-study-recording-choices').hidden=pairs.length<2;
+    for(const pair of pairs){
+      const button=document.createElement('button');button.type='button';button.textContent=pair.name;
+      button.setAttribute('aria-pressed',String(pair.id===record.id));
+      button.addEventListener('click',()=>{prefs.pronunciationId=pair.pronunciationId;prefs.deliveryId=pair.deliveryId;populate();render();});
+      container.append(button);
+    }
   }
   function readSpan(){
     const start=$('voice-study-start').value===''?NaN:Number($('voice-study-start').value),end=$('voice-study-end').value===''?null:Number($('voice-study-end').value);
@@ -95,11 +107,13 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
   function chooseStudy(id){
     prefs.studyId=id;const s=voiceStudy(prefs.studyId);
     studyOptions();
-    prefs.pronunciationId=s.pronunciations[0].id;prefs.deliveryId=s.deliveries[0].id;populate();render();
+    const first=voiceCombinations(s.id)[0];prefs.pronunciationId=first.pronunciationId;prefs.deliveryId=first.deliveryId;populate();render();
   }
   $('voice-study-choice').addEventListener('change',()=>chooseStudy($('voice-study-choice').value));
   $('asael-study-open').addEventListener('click',()=>chooseStudy('asael-bereshit'));
   $('genesis-melody-comparison-open').addEventListener('click',()=>chooseStudy('genesis-2-4-19-source-comparison'));
+  $('nombody-chukat-open').addEventListener('click',()=>chooseStudy(SOURCE_READERS.featuredStudyId));
+  mountSourceReaderFinder({selectedStudy:prefs.studyId,onChooseStudy:chooseStudy});
   mountAsaelSourceFinder({selectedStudy:prefs.studyId,onChooseStudy:chooseStudy});
   for(const [id,field] of [['voice-study-pronunciation','pronunciationId'],['voice-study-delivery','deliveryId']])
     $(id).addEventListener('change',()=>{prefs[field]=$(id).value;populate();render();});

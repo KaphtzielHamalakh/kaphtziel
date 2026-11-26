@@ -12,7 +12,7 @@ test('licensed original and separate catalog labels retain exact pinned metadata
 });
 
 test('comparison references the existing Asael identities without duplicates or draft rebinding',()=>{
- assert.equal(VOICE_STUDIES.recordings.length,72);assert.equal(VOICE_STUDIES.studies.length,5);assert.equal(VOICE_FEATURED_STUDIES.length,6);assert.equal(VOICE_SOURCE_RECORDINGS.length,917);assert.equal(new Set(VOICE_SOURCE_RECORDINGS.map(r=>r.id)).size,917);
+ assert.equal(VOICE_STUDIES.recordings.length,72);assert.equal(VOICE_STUDIES.studies.length,5);assert.equal(VOICE_FEATURED_STUDIES.length,7);assert.equal(VOICE_SOURCE_RECORDINGS.length,1183);assert.equal(new Set(VOICE_SOURCE_RECORDINGS.map(r=>r.id)).size,1183);
  for(const pronunciation of['ashkenazic','israeli']){const a=record(pronunciation,'ashkenazic'),canonical=voiceRecording('asael-source-2460-674615654d',pronunciation+'-as-recorded','ashkenazic-melody');assert.equal(a,canonical);assert.equal(a.studyId,'asael-source-2460-674615654d');assert.deepEqual(draft(a),draft(canonical));const edit=setWordBoundary(setWordBoundary(draft(a),0,'start',.1),0,'end',.8);assert.deepEqual(parseWordTimingDraft(JSON.stringify(edit),draft(canonical)),edit);}
 });
 
