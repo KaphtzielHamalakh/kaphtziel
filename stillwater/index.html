@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="A quiet scroll through wisdom traditions, with a notebook for what stays with you.">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Stillwater">
+<title>Stillwater · A quiet scroll</title><link rel="canonical" href="https://kaphtziel.com/stillwater/"><link rel="icon" href="./mark.svg"><link rel="manifest" href="./app.webmanifest"><link rel="stylesheet" href="./style.css"><script defer src="./data.js"></script><script defer src="./library-batch.js"></script><script defer src="./approved-sourcebook.js"></script><script defer src="./app.js"></script><script defer src="./attune-data.js"></script><script defer src="./practice.js"></script>
+</head><body class="social">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="top-inner"><button type="button" class="brand" id="home" aria-label="Stillwater home"><img src="./mark.svg" alt=""><span>Stillwater</span></button><button type="button" class="round" id="info" aria-label="About Stillwater">?</button></div></header>
+<main id="main" tabindex="-1">
+<section id="feedPage" aria-labelledby="welcome">
+<h1 class="sr-only" id="welcome">Stillwater feed</h1>
+<div class="controls"><div class="searchbar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.7"/><path d="m15 15 4.5 4.5"/></svg><label class="sr-only" for="feedSearch">Search the feed</label><input id="feedSearch" type="search" placeholder="Search authors, passages, traditions"></div><div id="filters" class="chips" aria-label="Filter by tradition"></div></div>
+<div class="section-line"><span id="feedLabel">Your feed</span><button type="button" class="quiet" id="surprise"></button></div>
+<div id="feedResume" class="feed-resume" hidden></div>
+<div id="feed" class="cards"></div><div id="feedEnd" class="end"></div>
+</section>
+<section id="practicePage" hidden aria-labelledby="practiceTitle">
+  <div class="practice-intro"><div><p class="eyebrow">FROM YOUR ATTUNE LIBRARY</p><h1 id="practiceTitle">Practice</h1><p>Pick a guided meditation and take a few minutes to sit.</p></div></div>
+  <div class="practice-player" id="practicePlayer" hidden><div><strong id="practicePlaying"></strong><span id="practiceDeckMeta"></span></div><audio id="practiceAudio" controls preload="none" aria-label="Meditation playback"></audio><p id="practiceAudioStatus" role="status" hidden></p><a id="practiceOriginal" target="_blank" rel="noopener noreferrer">Open original audio</a></div>
+  <div class="practice-tools"><label for="practiceSearch" class="sr-only">Find a meditation</label><input id="practiceSearch" type="search" placeholder="Find a meditation…"><div id="practiceFilters" class="practice-filters" aria-label="Filter meditations"></div></div>
+  <div class="section-line"><span id="practiceCount"></span></div><div id="practiceTracks" class="practice-tracks"></div>
+  <p class="practice-source">From Attune’s Sanctuary Library · <a href="https://archive.org/details/shamanic-tunneling-spirit-guide" target="_blank" rel="noopener noreferrer">See the audio collection</a></p>
+</section>
+<section id="notesPage" hidden aria-labelledby="notebookTitle">
+<div class="intro notebook-intro"><div><p class="eyebrow">YOUR PRIVATE COLLECTION</p><h1 id="notebookTitle">Notebook</h1><p>Save a passage. Add what it brought up for you.</p></div></div>
+<div class="notebook-tools"><label class="sr-only" for="noteSearch">Search your notebook</label><input id="noteSearch" type="search" placeholder="Search saved passages and notes…"><div class="row"><button type="button" class="small secondary" id="export">Export notebook</button><button type="button" class="small secondary" id="importCode">Add a shared card</button><label class="small secondary file">Import backup<input id="importFile" type="file" accept=".json,application/json"></label></div></div>
+<div class="section-line"><span id="noteCount"></span></div><div id="notebook" class="cards"></div></section>
+</main>
+<footer><nav aria-label="Main navigation"><button type="button" id="tabFeed" aria-current="page"></button><button type="button" id="tabPractice"></button><button type="button" id="tabNotes"></button></nav></footer>
+<dialog id="modal" aria-labelledby="dialogTitle"><div class="sheet-head"><h2 id="dialogTitle"></h2><button type="button" id="close" class="round" aria-label="Close"></button></div><div id="dialogBody"></div></dialog>
+<div id="status" role="status" aria-live="polite"></div>
+</body></html>
