@@ -1,4 +1,6 @@
 import {VOICE_STUDIES,VOICE_FEATURED_STUDIES,voiceStudy,voiceRecording,voiceChoices,voiceCombinations,voiceAudioRecord,voiceCoverage,voiceCoverageLabel,voiceSpan,restoreVoicePreferences} from './voice-studies.js';
+import {sourceRecordingSha256} from './source-recording-identity.js';
+import {TOLDOT_OBSERVED_CUES} from './toldot-passage-records.js';
 import {CHUKAT_SOURCE_PASSAGES} from './chukat-passage-records.js';
 import {VoiceStudyPlayer} from './voice-study-player.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
@@ -66,14 +68,14 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     $('voice-study-source').href=record.sourceUrl;$('voice-study-source').textContent='Original performance source';
     $('voice-study-book').href=study.sourceUrl;$('voice-study-book').textContent=study.sourceTitle;
     $('voice-study-license').href=record.license.url;$('voice-study-license').textContent=record.license.id;
-    $('voice-study-hash-label').textContent=record.audio.sha256?'Selected original SHA-256:':'Selected original SHA-1 (checked on loading):';
-    $('voice-study-hash').textContent=record.audio.sha256??record.audio.sha1;
+    $('voice-study-hash-label').textContent=sourceRecordingSha256(record)?'Selected original SHA-256:':'Selected original SHA-1 (checked on loading):';
+    $('voice-study-hash').textContent=sourceRecordingSha256(record)??record.audio.sha1;
     const note=study.catalogNotes?.find(n=>n.recordId===record.id)?.text;
     $('voice-study-catalog-note').textContent=note?`Catalog passage note, retained as written: ${note}. ${record.catalogPassageEvidence?.discrepancy??'Source boundaries and edition correspondence require review.'}`:'';
     $('voice-study-catalog-note').hidden=!note;
     $('voice-study-open').disabled=!voiceCoverage(record);$('voice-study-open').textContent=voiceCoverage(record)?`${record.linkedSourcePassageEvidence?'Open linked text candidate · ':record.catalogPassageEvidence?'Open catalog passage · ': 'Open '}${voiceCoverageLabel(record)} text${record.catalogPassageEvidence||record.linkedSourcePassageEvidence?' · unreviewed':''}`:
       record.sourceCatalogRow?'Passage mapping pending':'Table names · no Bible passage mapping';
-    if(record.linkedSourcePassageEvidence)$('voice-study-open').textContent='Open Numbers 19:1–17 text candidate · unreviewed';
+    if(record.linkedSourcePassageEvidence)$('voice-study-open').textContent=record.linkedSourcePassageEvidence.textOpenLabel??'Open Numbers 19:1–17 text candidate · unreviewed';
     $('voice-study-delivery-label').textContent=study.deliveryLabel??'Recorded delivery';
     $('voice-study-volume').value=prefs.volume;$('voice-study-volume-value').textContent=`${prefs.volume}%`;
     $('voice-study-repeat').checked=prefs.repeat;player.setVolume(prefs.volume/100);
@@ -117,6 +119,11 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
   $('chukat-word-study-open').addEventListener('click',()=>{
     if(prefs.studyId!==SOURCE_READERS.featuredStudyId)chooseStudy(SOURCE_READERS.featuredStudyId);
     timing.selectWord(CHUKAT_SOURCE_PASSAGES.defaultReviewWordId);$('word-timing-review').open=true;$('word-timing-select').focus();
+  });
+  $('toldot-word-study-open').addEventListener('click',async()=>{
+    if(prefs.studyId!==TOLDOT_OBSERVED_CUES.studyId)chooseStudy(TOLDOT_OBSERVED_CUES.studyId);
+    const epoch=renderEpoch;await timingReady;if(epoch!==renderEpoch)return;
+    timing.selectWord(TOLDOT_OBSERVED_CUES.defaultReviewWordId);$('word-timing-review').open=true;$('word-timing-select').focus();
   });
   $('nombody-chukat-open').addEventListener('click',()=>chooseStudy(SOURCE_READERS.featuredStudyId));
   mountSourceReaderFinder({selectedStudy:prefs.studyId,onChooseStudy:chooseStudy});
