@@ -1,6 +1,6 @@
-# v0.100 · Exact reader word to recording comparison
+# v0.100.1 · Exact reader word to recording comparison
 
-Software acceptance complete for this increment:901/901automated checks,103local UI checks,40corrected-distribution rechecks and20first-visit cached-reload checks. Publication/live/public upgrade checks pending. Full reconstruction ACTIVE/INCOMPLETE.
+Software acceptance complete for this increment:901/901automated checks,118local UIchecks(49normal,49portable,20first-visitcached). Publication/live/public upgrade checks pending. Full reconstruction ACTIVE/INCOMPLETE.
 
 1157unchanged marked reader words link to12existing source recordings across four passage ranges. No new recording, word timing proposal, approved boundary, phoneme, historical melody system or independent singing voice is added. All661retained assets/data/vendor files and112prior report results/nulls stay exact. The5-case private domain benchmark completed, including its failed silence control.
 
@@ -27,3 +27,8 @@ All21features/all6completionrequirements remain active. No new historical melody
 Target runtime0.100.0, public0.99.0unchanged. Five focused navigation tests pass, plus the new normal/portable contract is part of the still-running original full check48204. Normal53/portable50UIchecks passed, including22retained checks per app. Source preservation:661asset/data/vendorfiles exact,112prior report results/nulls exact after excluding only refreshed top-level input pins;360input-pin occurrences checked; both personal fitting source closures retain6pins. Runtime/source bytes are frozen for comparison with the final original build.
 
 The private domain benchmark completed all5cases/458.9283seconds after full3.235GBmodel verification. Silence emitted a Hebrew word; source outputs and token clocks remain research, with no new807gap hints accepted. No audio output or source-audio upload. Publicdraft/fitting/span guards, Pages/live/publicUIandcanonicalsave remain pending. Full21features/6completionrequirements remain active/incomplete.
+
+
+## Live display finding and0.100.1patch
+
+The0.100.0connected code9962b0eb5cb75e52967afb50cc00f2f0d18a5d86deployed in Pages45874320642,all3jobs successful.32livefiles/145703703decodedbytes match exactly;53live-normalchecks pass,12canonicalsource drafts andbothfittings are unchanged and5listening spans restored. Actual visibility observation caught a scoped study-label display rule overriding its hidden attribute.0.100.1adds a specific hidden selector, changes no normal-program byte and versions its assets/cache for a clean update. Full suite55077passes901/901afterbuild97975. Normal49/portable49andfresh127.0.0.1first-visitcached20checks pass, including actual visibility and12blankdraft comparisons. Preview9265stopped143. Original103localUIchecks retain the identical program’s personal-boundary navigation/reload/own-source/clear proof. PatchPages/live/publicbothapps/finalcanonicalsavepending.
