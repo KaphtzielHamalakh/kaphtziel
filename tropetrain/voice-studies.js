@@ -3,10 +3,11 @@ import {ASAEL_SOURCE_CATALOG} from './asael-source-catalog-data.js';
 import {withAsaelPassageEvidence} from './asael-passage-records.js';
 import {GENESIS_MELODY_COMPARISON} from './genesis-melody-comparison-data.js';
 import {SOURCE_READERS} from './source-readers-data.js';
+import {withChukatPassageEvidence} from './chukat-passage-records.js';
 export {VOICE_STUDIES};
 export const VOICE_FEATURED_STUDIES=[...VOICE_STUDIES.studies,GENESIS_MELODY_COMPARISON.study,SOURCE_READERS.studies.find(s=>s.id===SOURCE_READERS.featuredStudyId)];
 export const VOICE_SOURCE_STUDIES=[...VOICE_FEATURED_STUDIES,...ASAEL_SOURCE_CATALOG.studies,...SOURCE_READERS.studies.filter(s=>s.id!==SOURCE_READERS.featuredStudyId)];
-export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording,SOURCE_READERS.recordings);
+export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording,SOURCE_READERS.recordings).map(withChukatPassageEvidence);
 
 export function voiceStudy(id){
   const study=VOICE_SOURCE_STUDIES.find(s=>s.id===id);
@@ -38,7 +39,7 @@ export function voiceAudioRecord(recording,base){
   return {...recording,title:`${voiceStudy(recording.studyId).name} · ${recording.deliveryId}`,audio:{...recording.audio,
     url:new URL(recording.audio.file,base).href,localFile:recording.id==='seed-esther-2011'?recording.audio.filename:null}};
 }
-export function voiceCoverage(record){return record.coverage??voiceStudy(record.studyId).coverage;}
+export function voiceCoverage(record){return record.coverage??record.linkedSourcePassageEvidence?.candidateCoverage??voiceStudy(record.studyId).coverage;}
 export function voiceCoverageLabel(record){
   if(record.coverageLabel)return record.coverageLabel;
   const coverage=voiceCoverage(record);if(!coverage)return null;

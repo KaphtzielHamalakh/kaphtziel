@@ -1,0 +1,46 @@
+import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{execFileSync}from'node:child_process';
+import{CHUKAT_SOURCE_PASSAGES as report,withChukatPassageEvidence}from'../chukat-passage-records.js';import{CHUKAT_WORD_SUPPORT as summary}from'../chukat-word-support-summary.js';import{VOICE_SOURCE_RECORDINGS,voiceStudy,voiceRecording,voiceCoverage,voiceChoices,voiceCombinations,restoreVoicePreferences}from'../voice-studies.js';import{getCorpus}from'../library.js';import{createWordTimingDraft,setWordBoundary,parseWordTimingDraft}from'../word-timing-draft.js';import{wordSupportAvailable,loadWordSupport,validateWordSupport,wordSupportContext}from'../word-support.js';
+const read=n=>readFileSync(new URL('../'+n,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),ids=new Set(report.recordings.map(r=>r.recordId)),records=VOICE_SOURCE_RECORDINGS.filter(r=>ids.has(r.id)),corpus=await getCorpus(),words=corpus.passage([{...report.candidateCoverage,id:'candidate'}]).verses.flatMap(v=>v.words),draft=r=>createWordTimingDraft(r,voiceCoverage(r),words);
+
+test('primary companion division is explicit while the original recording captions/bounds and review remain unconfirmed',()=>{
+ assert.deepEqual(report,JSON.parse(read('docs/CHUKAT-SOURCE-PASSAGES.json')));assert.deepEqual(summary,JSON.parse(read('docs/CHUKAT-WORD-SUPPORT.json')));assert.equal(sha(read(report.sourcePack.file)),report.sourcePack.sha256);assert.equal(read(report.sourcePack.file).length,report.sourcePack.bytes);execFileSync('python3',['scripts/import-chukat-word-studies.py','--check']);
+ assert.deepEqual(report.explicitFirstReadingVerseReferences,Array.from({length:17},(_,i)=>({chapter:19,verse:i+1})));assert.deepEqual(report.candidateCoverage,{bookId:'num',start:{chapter:19,verse:1},end:{chapter:19,verse:17}});assert(report.primarySources.some(s=>s.pageId===383749&&s.revision===1006441));assert(report.primarySources.some(s=>s.pageId===1716552&&s.revision===2851642));
+ for(const k of['actualRecordingCoverage','directNumericRecordingCaption','acceptedWordTimes','phonemes','musicalReview','phonologicalReview','kinnorEquivalence'])assert.equal(report[k],null);assert.equal(report.sourceEditionCompared,false);
+ for(const r of report.recordings){assert.equal(r.directNumericRecordingNote,null);assert.equal(r.actualRecordingBoundsConfirmed,false);assert.equal(r.sourceCatalogRevision,2898409);assert.equal(r.chapterContentCandidate.bookId,'num');assert.equal(r.chapterContentCandidate.chapter,19);assert(r.chapterContentCandidate.uniqueAcrossAllTorah>=20);}
+});
+
+test('all1183 original recording values/order/IDs/clocks remain exact after removing only the five derived candidate annotations',()=>{
+ assert.equal(VOICE_SOURCE_RECORDINGS.length,1183);assert.equal(records.length,5);assert.equal(new Set(VOICE_SOURCE_RECORDINGS.map(r=>r.id)).size,1183);
+ const original=VOICE_SOURCE_RECORDINGS.map(r=>{if(!ids.has(r.id))return r;const{linkedSourcePassageEvidence,coverageLabel,coverageStatus,...raw}=r;return raw;});assert.equal(sha(JSON.stringify(original)),'f64aa79e6d7ed6280f6e8102b88cf08d99af293969058e4d76012aa88e7d5b78');assert.equal(sha(JSON.stringify(VOICE_SOURCE_RECORDINGS.slice(0,917))),'d22dc8f3b930fa0707fb1302001ce138ac1b3d24c314d63b85fed57073feb981');
+ for(const r of records){assert.equal(r.coverage,null);assert.deepEqual(voiceCoverage(r),report.candidateCoverage);assert.equal(r.linkedSourcePassageEvidence.actualRecordingBoundsConfirmed,false);assert.match(r.coverageLabel,/candidate.*unreviewed/);assert.match(r.coverageStatus,/exact recording endpoints.*unreviewed/);assert.equal(withChukatPassageEvidence(original.find(x=>x.id===r.id)).id,r.id);}
+ assert.equal(voiceStudy(report.studyId).coverage,null);
+});
+
+test('255 exact marked words and initially blank personal boundaries are shared across five performances without rebinding drafts',()=>{
+ assert.equal(words.length,255);assert.equal(words[0].id,'num-19-1-1');assert.equal(words[0].sourceHebrew,'וַיְדַבֵּ֣ר');assert.equal(words.at(-1).id,'num-19-17-11');assert.equal(words.at(-1).sourceHebrew,'כֶּֽלִי׃');
+ const drafts=records.map(draft);for(const d of drafts){assert.deepEqual(d.words,drafts[0].words);assert(d.words.every(w=>w.start===null&&w.end===null));assert.equal(d.sourceEditionCompared,false);assert.equal(d.independentReview,null);assert(d.words.some(w=>w.id===report.defaultReviewWordId&&w.hebrew==='שֶׁ֥בַע'));}
+ for(let a=0;a<5;a++)for(let b=0;b<5;b++)if(a!==b){const edit=setWordBoundary(setWordBoundary(drafts[a],0,'start',.1),0,'end',.8);assert.throws(()=>parseWordTimingDraft(JSON.stringify(edit),drafts[b]),/different source recording/);}
+});
+
+test('five checksummed packets preserve their own original source clock and explicit model gaps without approved times',async()=>{
+ assert.deepEqual(summary.counts,{recordings:5,readerWordsPerCandidate:255,modelIntervals:1275,independentExactWordObservations:141,independentDistinctWords:80,wordsWithoutDirectLetterSupport:56,acceptedWordTimes:0,newReviewedMelodyGrammars:0,newSingingVoices:0});let total=0,missing=0;
+ for(const r of records){assert(wordSupportAvailable(r));const entry=summary.records.find(e=>e.recordId===r.id);assert.equal(sha(read(entry.file)),entry.sha256);const expected=draft(r),v=await loadWordSupport(r,expected);assert.equal(v.words.length,255);assert.deepEqual(v.words.map(w=>({id:w.id,hebrew:w.hebrew})),expected.words.map(w=>({id:w.id,hebrew:w.hebrew})));assert.equal(v.source.duration,r.audio.estimatedDurationSeconds);assert.equal(v.sourceEditionCompared,false);assert.equal(v.sourcePassageStatus,'linked-reading-candidate-not-content-reviewed');assert.equal(v.clock.analysisRate,16000);let last=0;
+  for(const w of v.words){assert(w.modelSupport.start>=last&&w.modelSupport.end<=v.source.duration);last=w.modelSupport.end;assert.equal(w.approvedBoundary,null);assert.equal(w.review,null);assert.equal(typeof w.evidence.independentWholeTorahGreedyLiteralWordAnchor,'boolean');missing+=w.evidence.lettersWithArgmaxSupport===0;total++;}
+  assert.equal(v.words.filter(w=>w.evidence.lettersWithArgmaxSupport===0).length,entry.wordsWithoutDirectLetterSupport);for(const k of['timedWords','syllableAlignment','phonemes','musicalNotes','independentReview'])assert.equal(v[k],null);assert(expected.words.every(w=>w.start===null&&w.end===null));
+ }
+ assert.equal(total,1275);assert.equal(missing,56);
+});
+
+test('the same שֶׁ֥בַע review word uses five distinct source intervals, with context rather than asserted physical boundaries',async()=>{
+ const spans=[];for(const r of records){const v=await loadWordSupport(r,draft(r)),i=v.words.findIndex(w=>w.id===report.defaultReviewWordId),w=v.words[i],s=wordSupportContext(v,i);assert.equal(w.hebrew,'שֶׁ֥בַע');assert.equal(w.evidence.lettersWithArgmaxSupport,3);assert.equal(w.evidence.targetLetters,3);assert.equal(w.approvedBoundary,null);assert.equal(s.start,w.modelSupport.start-1);assert.equal(s.end,w.modelSupport.end+1);spans.push(w.modelSupport);assert.throws(()=>wordSupportContext(v,i,2),/one second/);}
+ assert.equal(new Set(spans.map(s=>s.start)).size,5);assert.equal(new Set(records.map(r=>r.audio.sha256)).size,5);
+});
+
+test('wrong source, altered packet, false source review and confirmed timings remain rejected',async()=>{
+ const a=records[0],b=records[1],expected=draft(a),v=await loadWordSupport(a,expected);assert.throws(()=>validateWordSupport(v,draft(b)),/different source recording/);let changed=structuredClone(v);changed.sourceEditionCompared=true;assert.throws(()=>validateWordSupport(changed,expected),/cannot certify/);changed=structuredClone(v);changed.sourcePassageStatus='confirmed';assert.throws(()=>validateWordSupport(changed,expected),/unreviewed candidate/);changed=structuredClone(v);changed.words[0].approvedBoundary={start:0,end:1};assert.throws(()=>validateWordSupport(changed,expected),/unreviewed/);changed=structuredClone(v);changed.phonemes=[];assert.throws(()=>validateWordSupport(changed,expected),/cannot certify/);const entry=summary.records[0],bytes=Uint8Array.from(read(entry.file));bytes[8]^=1;await assert.rejects(loadWordSupport(a,expected,{readPacket:async()=>bytes}),/checksum/);
+});
+
+test('real source pairs, conflicting pronunciation claims and source-specific listening spans restore without fallback',()=>{
+ const pairs=voiceCombinations(report.studyId);assert.equal(pairs.length,5);const spans=Object.fromEntries(records.map((r,i)=>[r.id,{start:i+.125,end:i+2}]));for(const r of records){const p=restoreVoicePreferences({studyId:report.studyId,pronunciationId:r.pronunciationId,deliveryId:r.deliveryId,volume:0,repeat:false,spans});assert.equal(voiceRecording(p.studyId,p.pronunciationId,p.deliveryId).id,r.id);assert.deepEqual(p.spans,spans);}
+ const mixed=records.find(r=>r.sourcePronunciationLabel==='מעורב'),sephardic=records.find(r=>r.sourcePronunciationLabel==='ספרדי');assert(mixed.sourceLabelConflict.includes('MAM catalog says מעורב')&&mixed.sourceLabelConflict.includes('Commons description says Ashkenazi'));assert.throws(()=>voiceRecording(report.studyId,sephardic.pronunciationId,mixed.deliveryId),/unavailable/);assert(voiceChoices(report.studyId,sephardic.pronunciationId,sephardic.deliveryId).deliveries.find(d=>d.id===mixed.deliveryId).disabled);
+});

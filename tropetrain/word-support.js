@@ -2,15 +2,16 @@ import {WORD_SUPPORT} from './word-support-summary.js';
 import {ASAEL_GENESIS_WORD_SUPPORT} from './asael-genesis-word-support-summary.js';
 import {GENESIS_MELODY_WORD_SUPPORT} from './genesis-melody-word-support-summary.js';
 import {loadWordSupportPacket} from './word-support-data.js';
+import {CHUKAT_WORD_SUPPORT} from './chukat-word-support-summary.js';
 export {WORD_SUPPORT};
-const supportEntries=[...WORD_SUPPORT.records,...ASAEL_GENESIS_WORD_SUPPORT.records,...GENESIS_MELODY_WORD_SUPPORT.records];
+const supportEntries=[...WORD_SUPPORT.records,...ASAEL_GENESIS_WORD_SUPPORT.records,...GENESIS_MELODY_WORD_SUPPORT.records,...CHUKAT_WORD_SUPPORT.records];
 
 export function wordSupportAvailable(record){return supportEntries.some(r=>r.recordId===record.id&&r.originalSha256===record.audio.sha256);}
 
 export function validateWordSupport(value,expected){
   if(value?.format!=='tropetrain-word-support-v1'||value.status!=='unreviewed-model-support')throw Error('Only unreviewed model support is available.');
   if(value.sourceEditionCompared!==undefined&&value.sourceEditionCompared!==false)throw Error('Model support cannot certify a source-edition comparison.');
-  if(value.sourcePassageStatus!==undefined&&value.sourcePassageStatus!=='catalog-candidate-not-content-reviewed')throw Error('The catalog passage remains an unreviewed candidate.');
+  if(value.sourcePassageStatus!==undefined&&!['catalog-candidate-not-content-reviewed','linked-reading-candidate-not-content-reviewed'].includes(value.sourcePassageStatus))throw Error('The catalog passage remains an unreviewed candidate.');
   for(const key of ['id','bytes','sha1','sha256','duration'])if(value.source?.[key]!==expected.source[key])throw Error('Model support belongs to a different source recording.');
   if(JSON.stringify(value.coverage)!==JSON.stringify(expected.coverage)||!Array.isArray(value.words)||value.words.length!==expected.words.length)throw Error('Model support passage differs from the unchanged reader text.');
   for(const key of ['timedWords','syllableAlignment','phonemes','musicalNotes','independentReview'])if(value[key]!==null)throw Error('Model support cannot certify timing, phonemes or review.');

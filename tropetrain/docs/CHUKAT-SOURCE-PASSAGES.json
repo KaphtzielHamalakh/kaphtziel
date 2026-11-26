@@ -1,0 +1,248 @@
+{
+  "schema": "tropetrain-chukat-linked-reading-candidate-v1",
+  "revision": 1,
+  "studyId": "reader-study-aaf27b444b96",
+  "candidateCoverage": {
+    "bookId": "num",
+    "start": {
+      "chapter": 19,
+      "verse": 1
+    },
+    "end": {
+      "chapter": 19,
+      "verse": 17
+    }
+  },
+  "candidateLabel": "Numbers19:1–17 · linked source reading · unreviewed",
+  "sourceType": "shared-project-companion-text-division-with-independent-unprompted-chapter-anchors",
+  "primarySources": [
+    {
+      "title": "מקרא ותרגום ורש\"י/ספר במדבר/פרשת חוקת",
+      "pageId": 383749,
+      "revision": 1006441,
+      "url": "https://he.wikisource.org/w/index.php?oldid=1006441"
+    },
+    {
+      "title": "פרשת חוקת ראשון",
+      "pageId": 1716552,
+      "revision": 2851642,
+      "url": "https://he.wikisource.org/w/index.php?oldid=2851642"
+    },
+    {
+      "title": "תבנית:ויבינו במקרא/פרשת השבוע",
+      "pageId": 2921,
+      "revision": 1386611,
+      "url": "https://he.wikisource.org/w/index.php?oldid=1386611"
+    }
+  ],
+  "explicitFirstReadingVerseReferences": [
+    {
+      "chapter": 19,
+      "verse": 1
+    },
+    {
+      "chapter": 19,
+      "verse": 2
+    },
+    {
+      "chapter": 19,
+      "verse": 3
+    },
+    {
+      "chapter": 19,
+      "verse": 4
+    },
+    {
+      "chapter": 19,
+      "verse": 5
+    },
+    {
+      "chapter": 19,
+      "verse": 6
+    },
+    {
+      "chapter": 19,
+      "verse": 7
+    },
+    {
+      "chapter": 19,
+      "verse": 8
+    },
+    {
+      "chapter": 19,
+      "verse": 9
+    },
+    {
+      "chapter": 19,
+      "verse": 10
+    },
+    {
+      "chapter": 19,
+      "verse": 11
+    },
+    {
+      "chapter": 19,
+      "verse": 12
+    },
+    {
+      "chapter": 19,
+      "verse": 13
+    },
+    {
+      "chapter": 19,
+      "verse": 14
+    },
+    {
+      "chapter": 19,
+      "verse": 15
+    },
+    {
+      "chapter": 19,
+      "verse": 16
+    },
+    {
+      "chapter": 19,
+      "verse": 17
+    }
+  ],
+  "recordings": [
+    {
+      "recordId": "reader-original-0a2a902e4be4",
+      "catalogRowId": "reader-row-9021fe358abe",
+      "sourceCatalogPage": 154480,
+      "sourceCatalogRevision": 2898409,
+      "sourceCatalogHeading": "ראשון",
+      "directNumericRecordingNote": null,
+      "chapterContentCandidate": {
+        "bookId": "num",
+        "chapter": 19,
+        "distinctAnchors": 59,
+        "uniqueAcrossAllTorah": 36
+      },
+      "actualRecordingBoundsConfirmed": false,
+      "sourceEditionCompared": false,
+      "acceptedWordTimes": null,
+      "review": null
+    },
+    {
+      "recordId": "reader-original-676f51dd54a7",
+      "catalogRowId": "reader-row-0d0df0a5cd4b",
+      "sourceCatalogPage": 154480,
+      "sourceCatalogRevision": 2898409,
+      "sourceCatalogHeading": "ראשון",
+      "directNumericRecordingNote": null,
+      "chapterContentCandidate": {
+        "bookId": "num",
+        "chapter": 19,
+        "distinctAnchors": 94,
+        "uniqueAcrossAllTorah": 47
+      },
+      "actualRecordingBoundsConfirmed": false,
+      "sourceEditionCompared": false,
+      "acceptedWordTimes": null,
+      "review": null
+    },
+    {
+      "recordId": "reader-original-834c110d4e46",
+      "catalogRowId": "reader-row-5e03aaa882cf",
+      "sourceCatalogPage": 154480,
+      "sourceCatalogRevision": 2898409,
+      "sourceCatalogHeading": "ראשון",
+      "directNumericRecordingNote": null,
+      "chapterContentCandidate": {
+        "bookId": "num",
+        "chapter": 19,
+        "distinctAnchors": 57,
+        "uniqueAcrossAllTorah": 34
+      },
+      "actualRecordingBoundsConfirmed": false,
+      "sourceEditionCompared": false,
+      "acceptedWordTimes": null,
+      "review": null
+    },
+    {
+      "recordId": "reader-original-4d00551edb36",
+      "catalogRowId": "reader-row-00c21cec0622",
+      "sourceCatalogPage": 154480,
+      "sourceCatalogRevision": 2898409,
+      "sourceCatalogHeading": "ראשון",
+      "directNumericRecordingNote": null,
+      "chapterContentCandidate": {
+        "bookId": "num",
+        "chapter": 19,
+        "distinctAnchors": 64,
+        "uniqueAcrossAllTorah": 28
+      },
+      "actualRecordingBoundsConfirmed": false,
+      "sourceEditionCompared": false,
+      "acceptedWordTimes": null,
+      "review": null
+    },
+    {
+      "recordId": "reader-original-e2da86b0106f",
+      "catalogRowId": "reader-row-e7383732c9d5",
+      "sourceCatalogPage": 154480,
+      "sourceCatalogRevision": 2898409,
+      "sourceCatalogHeading": "ראשון",
+      "directNumericRecordingNote": null,
+      "chapterContentCandidate": {
+        "bookId": "num",
+        "chapter": 19,
+        "distinctAnchors": 60,
+        "uniqueAcrossAllTorah": 26
+      },
+      "actualRecordingBoundsConfirmed": false,
+      "sourceEditionCompared": false,
+      "acceptedWordTimes": null,
+      "review": null
+    }
+  ],
+  "catalogSourcePack": "assets/voice-studies/asael-catalog-sources.zip",
+  "catalogSourceSha256": "de8b5333e1663723ef94c8ee0123ccdea24e8c4f08dd780cb42124f395c733f9",
+  "sourceReaderPack": {
+    "file": "assets/voice-studies/source-readers-sources.zip",
+    "bytes": 65868,
+    "sha256": "b796202a8f59dc138836310a09eeed55ba697f1e3fda01083401f90a6e8f861b"
+  },
+  "primaryRequest": {
+    "url": "https://he.wikisource.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=revisions&rvprop=ids%7Ccontent&rvslots=main&titles=%D7%AA%D7%91%D7%A0%D7%99%D7%AA%3A%D7%95%D7%99%D7%91%D7%99%D7%A0%D7%95+%D7%91%D7%9E%D7%A7%D7%A8%D7%90%2F%D7%A4%D7%A8%D7%A9%D7%AA+%D7%94%D7%A9%D7%91%D7%95%D7%A2%7C%D7%9E%D7%A7%D7%A8%D7%90+%D7%A2%D7%9C+%D7%A4%D7%99+%D7%94%D7%9E%D7%A1%D7%95%D7%A8%D7%94%2F%D7%A4%D7%A8%D7%A9%D7%AA+%D7%97%D7%95%D7%A7%D7%AA%7C%D7%9E%D7%A7%D7%A8%D7%90+%D7%95%D7%AA%D7%A8%D7%92%D7%95%D7%9D+%D7%95%D7%A8%D7%A9%22%D7%99%2F%D7%A1%D7%A4%D7%A8+%D7%91%D7%9E%D7%93%D7%91%D7%A8%2F%D7%A4%D7%A8%D7%A9%D7%AA+%D7%97%D7%95%D7%A7%D7%AA%7C%D7%A4%D7%A8%D7%A9%D7%AA+%D7%97%D7%95%D7%A7%D7%AA+%D7%A8%D7%90%D7%A9%D7%95%D7%9F",
+    "bytes": 10519,
+    "sha256": "7e1f4568d23a31299f655f03946144f21547d8ee92262f9c456e9d724c13dcc3",
+    "requestedTitles": [
+      "תבנית:ויבינו במקרא/פרשת השבוע",
+      "מקרא על פי המסורה/פרשת חוקת",
+      "מקרא ותרגום ורש\"י/ספר במדבר/פרשת חוקת",
+      "פרשת חוקת ראשון"
+    ]
+  },
+  "actualRecordingCoverage": null,
+  "directNumericRecordingCaption": null,
+  "sourceEditionCompared": false,
+  "acceptedWordTimes": null,
+  "phonemes": null,
+  "musicalReview": null,
+  "phonologicalReview": null,
+  "kinnorEquivalence": null,
+  "limits": [
+    "The companion text view explicitly lists Numbers19:1–17 underראשון; the daily view agrees. These are textual source views, not independent performance reviews.",
+    "The original audio catalog has only a first-reading heading, with no numeric note. That fact remains unchanged.",
+    "Independent source-only recognition ranks Numbers19highest across all79985canonical Torah words; its endpoint evidence is incomplete.",
+    "The derived range is a reader candidate for listening review, not confirmed full recording coverage or an edition comparison. No approved word/syllable/phoneme times or full melody/voice grammar is inferred."
+  ],
+  "sourcePack": {
+    "file": "assets/voice-studies/chukat-word-sources.zip",
+    "bytes": 383825,
+    "sha256": "76605ca188a61f38a7957077f8b6063528ad153efc71262779816e77ab326923"
+  },
+  "defaultReviewWordId": "num-19-4-13",
+  "readerWords": 255,
+  "status": "linked-reading-candidate-not-content-reviewed",
+  "counts": {
+    "recordings": 5,
+    "readerWords": 255,
+    "confirmedRecordingBounds": 0,
+    "acceptedWordTimes": 0,
+    "newReviewedGrammars": 0,
+    "newVoices": 0
+  }
+}
