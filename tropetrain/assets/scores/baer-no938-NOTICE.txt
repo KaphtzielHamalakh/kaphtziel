@@ -1,0 +1,14 @@
+Abraham Baer, Baal t’fillah oder Der practische Vorbeter, third expanded edition [1894], No938, printed p209 (PDFpage254): Die Intonation der Accente (נגינות) nach sephardischem Ritus.
+
+Original nineteenth-century print: public domain. Institutional source: Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main.
+https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537
+Institutional digitization policy permits unrestricted public-domain digitization reuse, with the policy’s stated exceptions; no separate restriction for this print was found:
+https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy
+
+The complete institutional3000px JPEG is unchanged. The PNG is an unretouched lossless crop showing the heading, complete No938table and surrounding printed context. Exact URL, canvas, crop rectangle, byte counts and SHA256pins are in docs/BAER-NO938-PATTERNS.json. Original-source metadata: CC0under institutional policy. New literal note/rhythm transcription and adapter: original project material, CC0-1.0. No endorsement implied.
+
+Baer’s contents credits Nos937–943to S.Naumbourg’s Agudas Schirim. The African/Moroccan asterisk on p209belongs to No937Lecha Dodi above; this project does not transfer that label to No938. The actual No938caption says Sephardic. This identifies a printed source, not a Kinnor preset or a verified full regional tradition.
+
+The27groups chant accent names.144normal-sized written notes,25slurs,4printed3:2triplet groups and all source divisions are retained. Printed accent illustrations remain in the raster; they are not sounded as fermatas, ornaments or dynamics. Candidate modern accidental carry is local to each printed division. No regular meter, actual historical tuning, expressive recitation or pronunciation is inferred.
+
+Instrumental written-value transcription: unreviewed. Modern12TET, quarter-note tempo and triangle articulation are approximations. Biblical word/syllable/phoneme fitting, modern sign correspondence, contextual rules, audio times, musical review, singing voice and Kinnor equivalence remain unassigned. Separate figures are retained even where pitches/rhythms coincide. This supplies neither27modern accent equivalents nor27melody systems. The adjacent No939Genesis1:1–5worked example is a separate source object, not an automatically applied rule.

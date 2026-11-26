@@ -1,3 +1,5 @@
+import {SEPHARDIC_PATTERN_ROW,SEPHARDIC_PATTERN_IMAGES,SEPHARDIC_PATTERN_RECORDS} from './sephardic-pattern-data.js';
+import {SEPHARDIC_PATTERN_ID,sephardicPatternModes,sephardicPatternSource,sephardicPatternPlan} from './sephardic-patterns.js';
 import {BAER_PATTERN_ROW,BAER_PATTERN_IMAGES,BAER_PATTERN_RECORDS} from './baer-pattern-data.js';
 import {IDELSOHN_PATTERN_ROW,IDELSOHN_PATTERN_IMAGES,IDELSOHN_PATTERN_RECORDS} from './idelsohn-pattern-data.js';
 import {hasPatternSmallEighthStudy} from './source-pattern-small-eighth.js';
@@ -6,16 +8,18 @@ import {BAER_PATTERN_ID,baerPatternModes,baerPatternSource,baerPatternPlan} from
 import {PRINTED_PATTERNS} from './printed-pattern-data.js';
 import {PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA} from './pattern-catalog-data.js';
 export {PRINTED_PATTERNS,PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,PATTERN_RECORD_DATA};
-export const PRINTED_PATTERN_SOURCES=Object.freeze([...PRINTED_PATTERN_CATALOG.rows,BAER_PATTERN_ROW,IDELSOHN_PATTERN_ROW]);
-export const patternImage=path=>IDELSOHN_PATTERN_IMAGES[path]??BAER_PATTERN_IMAGES[path]??PATTERN_IMAGE_DATA[path];
-export const patternRecord=path=>IDELSOHN_PATTERN_RECORDS[path]??BAER_PATTERN_RECORDS[path]??PATTERN_RECORD_DATA[path];
-export function allPatternModes(sourceId){return sourceId===IDELSOHN_PATTERN_ID?idelsohnPatternModes():sourceId===BAER_PATTERN_ID?baerPatternModes():availablePatternModes(sourceId);}
+export const PRINTED_PATTERN_SOURCES=Object.freeze([...PRINTED_PATTERN_CATALOG.rows,BAER_PATTERN_ROW,IDELSOHN_PATTERN_ROW,SEPHARDIC_PATTERN_ROW]);
+export const patternImage=path=>SEPHARDIC_PATTERN_IMAGES[path]??IDELSOHN_PATTERN_IMAGES[path]??BAER_PATTERN_IMAGES[path]??PATTERN_IMAGE_DATA[path];
+export const patternRecord=path=>SEPHARDIC_PATTERN_RECORDS[path]??IDELSOHN_PATTERN_RECORDS[path]??BAER_PATTERN_RECORDS[path]??PATTERN_RECORD_DATA[path];
+export function allPatternModes(sourceId){return sourceId===SEPHARDIC_PATTERN_ID?sephardicPatternModes():sourceId===IDELSOHN_PATTERN_ID?idelsohnPatternModes():sourceId===BAER_PATTERN_ID?baerPatternModes():availablePatternModes(sourceId);}
 export function patternSource(id=PRINTED_PATTERNS.id,mode){
+ if(id===SEPHARDIC_PATTERN_ID)return sephardicPatternSource(mode);
  if(id===BAER_PATTERN_ID)return baerPatternSource(mode);
  if(id===IDELSOHN_PATTERN_ID)return idelsohnPatternSource(mode);
  const row=PRINTED_PATTERN_CATALOG.rows.find(r=>r.id===id);if(!row)throw Error('Choose a checked printed source row.');return row;
 }
 export function availablePatternModes(sourceId=PRINTED_PATTERNS.id,{graceDemo=false,repeatDemo=false,smallPatternDemo=false}={}){
+ if(sourceId===SEPHARDIC_PATTERN_ID)return sephardicPatternModes();
  if(sourceId===IDELSOHN_PATTERN_ID)return idelsohnPatternModes().filter(m=>m.status==='written-values'||smallPatternDemo===true&&hasPatternSmallEighthStudy(m));
  if(sourceId===BAER_PATTERN_ID)return baerPatternModes().filter(m=>(m.status==='transcribed'||graceDemo===true&&m.status==='unmeasured-grace')&&(!m.repeat||repeatDemo===true));
  const cells=new Set(patternSource(sourceId).record.notes.map(n=>n.cell));
@@ -41,6 +45,7 @@ export const PATTERN_MODES=Object.freeze([
   {id:'etnahta',name:'Etnaḥta · in printed Munaḥ–Etnaḥta (p.543)'}
 ]);
 export function patternContextChoices(sourceId,mode){
+ if(sourceId===SEPHARDIC_PATTERN_ID)return []; // Printed name groups are not a verified modern-sign or Bible-word rule.
  if(sourceId===IDELSOHN_PATTERN_ID)return []; // Source index labels do not establish modern sign equivalence.
  if(sourceId===BAER_PATTERN_ID)return mode==='munah-revia-pair'?[{label:'Encoded Munaḥ → Revia lookup only; no automatic melodic application',ids:['munah','revia']}]:BAER_PATTERN_ROW.record.matchingQueries[baerPatternModes().find(m=>m.id===mode)?.sourceFigureId??mode]??[];
  const record=patternSource(sourceId).record;
@@ -48,6 +53,7 @@ export function patternContextChoices(sourceId,mode){
  return record.matchingQueries?.[mode]??[{label:'Source combination',ids:record.matchingQuery}];
 }
 export function printedPatternPlan(mode='pair',{tempo=84,transpose=0,sourceId=PRINTED_PATTERNS.id,graceDemo=false,repeatDemo=false,smallPatternDemo=false}={}){
+ if(sourceId===SEPHARDIC_PATTERN_ID)return sephardicPatternPlan(mode,{tempo,transpose});
  if(sourceId===IDELSOHN_PATTERN_ID)return idelsohnPatternPlan(mode,{tempo,transpose,smallPatternDemo});
  if(sourceId===BAER_PATTERN_ID)return baerPatternPlan(mode,{tempo,transpose,graceDemo,repeatDemo});
  if(!PATTERN_MODES.some(m=>m.id===mode))throw Error('Choose a printed pattern.');

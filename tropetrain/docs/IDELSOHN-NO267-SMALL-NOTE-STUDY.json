@@ -17,11 +17,11 @@
     },
     {
       "path": "printed-patterns.js",
-      "sha256": "aee6cd945398a15eb9010771014652c761bb333ad8dfc9fda6fc1a4b937ddf8b"
+      "sha256": "9c5ba2eb9c83c0c81a71c0a2b28b02521e240ac986f5f057d8fb20c8e73fe5c8"
     },
     {
       "path": "pattern-study-ui.js",
-      "sha256": "770f7569e5e00396faa788fdb85bd11d0ec683e6d9b84d60e13bcf5b510015a8"
+      "sha256": "1fe27333f0639556ca6111f3301c394bac889a5b0a30984910cd861b730e4f85"
     },
     {
       "path": "score-data.js",
@@ -33,7 +33,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "523126cafd6fcbaef52677f0af1c00fc440fdd807334b313c0dfbac4311613b3"
+      "sha256": "d2a0d997ed0f42afe56c762038f65f87664b0da498e2517541a8d64dc8cfe45c"
     },
     {
       "path": "docs/IDELSOHN-NO267-PATTERNS.json",

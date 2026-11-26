@@ -4,42 +4,32 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "ef666583c48f873220cb51fc212f24458b4b968f",
-  "nextTask": "Continue source-specific contextual Torah melody rules and six independently reviewed pronunciation/voice realizations from reusable primary evidence. The new word/context inspector exposes unreviewed conditions and explicit gaps without assigning notes. A useful next playback increment is independent source-study pitch/rate using the existing processor while preserving canonical source clocks and all personal drafts; it is an adjunct, not a substitute for complete melody/phonology. All21features/6completion requirements stay active; printing deferred/private voice labs frozen.",
+  "nextTask": "Publish accepted0.97 app-only via connected fresh main lease, Pages/live and public non-editing acceptance, then save records. Continue source-specific contextual Torah melody rules, word/syllable fitting from reusable evidence and six reviewed independent pronunciation grammars/voices. Newly located NaumbourgNo62p103 permits explicit edition comparison with BaerNo938; no unverified aliases/word rules inferred. All21features/6requirements active; printing deferred/private voice labs frozen.",
   "lastPassingTests": {
-    "automated": 867,
+    "automated": 876,
     "newRegressionChecks": 9,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "buildCheckSession": 7117,
+    "buildCheckSession": 39915,
+    "initialCheckExitCode": 1,
+    "testRunSession": 27935,
     "buildSucceeded": true,
     "exitCode": 0,
-    "localUiChecks": 74,
-    "localPerApp": 37,
-    "newLocalPerApp": 18,
-    "retainedPerApp": 19,
-    "finishedNewChecksPerApp": {
-      "normal": 19,
-      "portable": 19
-    },
-    "publicPhase": "accepted0.96",
-    "sourceInputPins": 445,
+    "localUiChecks": 108,
+    "localPerApp": 54,
+    "newLocalPerApp": 17,
+    "retainedPerApp": 37,
+    "publicPhase": "pending0.97",
+    "sourceInputPins": 449,
     "personalFittingSourcePins": {
       "PRINTED-MAM-FITTING-SOURCES.json": 6,
       "IDELSOHN-NO266-MAM-PARTITIONS.json": 6
     },
-    "frozenImplementationFiles": 419,
-    "frozenSourceFiles": 444,
+    "frozenImplementationFiles": 424,
+    "frozenSourceFiles": 450,
     "priorAssetDataVendorFilesExact": 649,
-    "runtimeChangedAfterBuild": false,
-    "publicUiChecks": 74,
-    "publicUiPerApp": {
-      "normal": 37,
-      "portable": 37
-    },
-    "pagesRun": 45638035100,
-    "liveCodeFiles": 31,
-    "liveCodeBytes": 137692348
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -83,7 +73,7 @@
     {
       "id": "melodies",
       "description": "All recovered original melody systems by reading type, source and review",
-      "status": "32_Cohen_32_Baer_21_No267_written_figures_2_original_No267_small_options_No268_and_No266_separate_39word_source_studies_complete_contextual_grammars_and_review_pending"
+      "status": "32_Cohen_32_Baer_No105_21_No267_27_BaerNo938_source_name_figures_and_separate_bounded_texted_scores_complete_contextual_Torah_grammars_and_cantorial_review_pending"
     },
     {
       "id": "singing",
@@ -221,7 +211,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.96published/verified867automated74local74publicUI; all5worddrafts/No266No268fittingspreserved. Fullgoalactive/incomplete.",
+  "workingIteration": "0.97full local acceptance;876automated/108normal-UI checks; connected publication pending. Full reconstruction active/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3421,6 +3411,25 @@
     "withheldSourceWords": 680,
     "wordsWithoutSuppliedLookup": 14814,
     "lookupRelations": 287099,
-    "noQueryFigureModes": 35
+    "noQueryFigureModes": 62
+  },
+  "baerSephardicTable": {
+    "record": "docs/BAER-NO938-PATTERNS.json",
+    "figures": 27,
+    "components": 144,
+    "slurs": 25,
+    "triplets": 4,
+    "quarterBeats": 122,
+    "writtenMidiRange": [
+      65,
+      81
+    ],
+    "wordApplication": null,
+    "modernSignCorrespondence": null,
+    "review": null,
+    "status": "implemented_local_browser_tested_publication_pending",
+    "directHashStartupFindGuard": "verified_disabled_without_modern_mapping",
+    "earlierPrint": "Naumbourg1874No62p103",
+    "earlierPrintComponentEquivalence": null
   }
 }

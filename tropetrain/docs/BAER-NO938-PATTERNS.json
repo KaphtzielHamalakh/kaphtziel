@@ -1,0 +1,4665 @@
+{
+  "schema": "tropetrain-baer-no938-patterns-v1",
+  "revision": 1,
+  "id": "baer-1894-no938-sephardic-table",
+  "name": "Baer [1894] No938 · printed Sephardic accent table",
+  "studyStatus": "Unreviewed instrumental source-name intonations, not a complete Bible-word melody system.",
+  "source": {
+    "author": "Abraham Baer",
+    "title": "Baal t’fillah oder Der practische Vorbeter",
+    "edition": "Third expanded edition [1894]",
+    "number": 938,
+    "page": 209,
+    "pdfPage": 254,
+    "heading": "Die Intonation der Accente (נגינות) nach sephardischem Ritus.",
+    "tableTitleHebrew": "זרקא",
+    "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "manifest": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/manifest",
+    "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853793",
+    "imageAlt": "Baer [1894] No938 p209: complete printed Sephardic accent-name intonation table, with source context retained.",
+    "institution": "Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main",
+    "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853793/full/3000,/0/default.jpg",
+    "originalRasterBytes": 1299639,
+    "originalRasterSha256": "381821206980e39ea31f19ea969a0ccf0c38361f3759eedcd77f6fdee83cbe4a",
+    "originalRasterWidth": 3000,
+    "originalRasterHeight": 4403,
+    "pdfSha256": "cfaf8cedc6d2027f800136f35315d34ce03724eab9744a978a282ae0451bd87f",
+    "image": "assets/scores/baer-no938-table-p209.png",
+    "contextImage": {
+      "image": "assets/scores/baer-no938-p209.jpg",
+      "imageBytes": 1299639,
+      "imageSha256": "381821206980e39ea31f19ea969a0ccf0c38361f3759eedcd77f6fdee83cbe4a"
+    },
+    "crop": [
+      160,
+      2570,
+      2800,
+      3970
+    ],
+    "cropPixels": "Unretouched lossless PNG crop from the pinned institutional JPEG; includes the table heading, all27groups and surrounding printed context.",
+    "cropImage": {
+      "image": "assets/scores/baer-no938-table-p209.png",
+      "imageBytes": 871473,
+      "imageSha256": "940c0bc69543461912b60da64d050f8ff257edf7ddc096a9d84e7046f5dc5fb7"
+    },
+    "rights": "Original nineteenth-century print public domain; Frankfurt institutional digitization policy permits unrestricted public-domain digitization reuse. New literal transcription CC0-1.0.",
+    "rightsUrl": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+    "upstreamCredit": "Baer contents pXL credits Nos937–943 to S. Naumbourg’s Agudas Schirim; The credited earlier table has been located: Naumbourg1874, No62 printedp103. It is a comparison source, not an independent musical review.",
+    "footnoteScope": "The African/Moroccan footnote’s asterisk attaches to No937 Lecha Dodi above. It does not establish a Moroccan label for No938; the actual No938 heading says Sephardic."
+  },
+  "upstreamComparison": {
+    "label": "103",
+    "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/1359162/canvas/1359318",
+    "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/1359318/full/3000,/0/default.jpg",
+    "bytes": 1410082,
+    "sha256": "2332f4458079f7c1074bf621683fe950b281d57682a4683ead2a48d534920f20",
+    "width": 3000,
+    "height": 4594,
+    "title": "Recueil de chants religieux et populaires des Israélites",
+    "author": "Samuel Naumbourg",
+    "date": 1874,
+    "printedPage": 103,
+    "number": 62,
+    "heading": "TABLE DES ACCENTS TONIQUES DU RITE DES SEFARDIM",
+    "publicationUrl": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/1359162",
+    "rightsUrl": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+    "status": "Located and visually inspected primary credited table, not an independent transcription/cantorial review. No musical values were copied into BaerNo938 from this source.",
+    "finding": "The earlier print places the same caption sequence across six staff lines, and explicitly labels the second Sof pasouk form VARIANTE. The following No63 is a Genesis chapterI worked example. BaerNo938 remains the authoritative playable edition; detailed edition differences and accepted modern sign aliases remain unassigned.",
+    "componentEquivalence": null,
+    "modernSignAliases": null,
+    "review": null
+  },
+  "sourceKey": {
+    "label": "No key signature or meter printed. Candidate local accidental carry follows each printed division; historical tuning remains unassigned.",
+    "keySignature": [],
+    "fifths": 0,
+    "mode": null,
+    "meter": null
+  },
+  "scope": "Literal27printed accent-name intonation groups on p209, associated with the following No939Genesis1:1–5 worked example. No arbitrary Bible-word application, named Kinnor preset or complete tradition grammar is asserted.",
+  "figures": [
+    {
+      "id": "no938-zarqa",
+      "name": "Sar-ka",
+      "sourceFigureId": "zarqa",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "Sar-ka",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 6,
+      "sourceQuarterBeats": 5.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-segol",
+      "name": "Se-gol",
+      "sourceFigureId": "segol",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "Se-gol",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 3.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-munach-first",
+      "name": "Mu-nach · first printed group",
+      "sourceFigureId": "munach-first",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "Mu-nach · first printed group",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 3.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-holech",
+      "name": "Ho-lech",
+      "sourceFigureId": "holech",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "Ho-lech",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 4,
+      "sourceQuarterBeats": 4.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-revia",
+      "name": "R’bi-a",
+      "sourceFigureId": "revia",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "R’bi-a",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 4,
+      "sourceQuarterBeats": 3.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-mahpakh",
+      "name": "Mah-pach",
+      "sourceFigureId": "mahpakh",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "Mah-pach",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 4,
+      "sourceQuarterBeats": 4.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-pashta",
+      "name": "Pasch-ta",
+      "sourceFigureId": "pashta",
+      "page": 209,
+      "row": 1,
+      "status": "transcribed",
+      "sourceCaptionReading": "Pasch-ta",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 3.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-zaqef-katon",
+      "name": "Za-kef Ka-ton",
+      "sourceFigureId": "zaqef-katon",
+      "page": 209,
+      "row": 2,
+      "status": "transcribed",
+      "sourceCaptionReading": "Za-kef Ka-ton",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 4,
+      "sourceQuarterBeats": 2.0,
+      "sourceDivisions": 1,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-zaqef-gadol",
+      "name": "Za-kef Ga-dol",
+      "sourceFigureId": "zaqef-gadol",
+      "page": 209,
+      "row": 2,
+      "status": "transcribed",
+      "sourceCaptionReading": "Za-kef Ga-dol",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 6,
+      "sourceQuarterBeats": 6.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-mercha",
+      "name": "Mer’cha",
+      "sourceFigureId": "mercha",
+      "page": 209,
+      "row": 2,
+      "status": "transcribed",
+      "sourceCaptionReading": "Mer’cha",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 2,
+      "sourceQuarterBeats": 2.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-tipcha",
+      "name": "Tip’cha",
+      "sourceFigureId": "tipcha",
+      "page": 209,
+      "row": 2,
+      "status": "transcribed",
+      "sourceCaptionReading": "Tip’cha",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 3.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-munach-second",
+      "name": "Munach · second printed group",
+      "sourceFigureId": "munach-second",
+      "page": 209,
+      "row": 2,
+      "status": "transcribed",
+      "sourceCaptionReading": "Munach · second printed group",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 2,
+      "sourceQuarterBeats": 3.0,
+      "sourceDivisions": 1,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-etnahta",
+      "name": "Et-nach-ta",
+      "sourceFigureId": "etnahta",
+      "page": 209,
+      "row": 2,
+      "status": "transcribed",
+      "sourceCaptionReading": "Et-nach-ta",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 3.0,
+      "sourceDivisions": 1,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-pazer",
+      "name": "Pa-zer",
+      "sourceFigureId": "pazer",
+      "page": 209,
+      "row": 3,
+      "status": "transcribed",
+      "sourceCaptionReading": "Pa-zer",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 10,
+      "sourceQuarterBeats": 6.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-telisha-qtana",
+      "name": "T’li-scha k’ta-nah",
+      "sourceFigureId": "telisha-qtana",
+      "page": 209,
+      "row": 3,
+      "status": "transcribed",
+      "sourceCaptionReading": "T’li-scha k’ta-nah",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 10,
+      "sourceQuarterBeats": 6.25,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-telisha-gedola",
+      "name": "T’li-scha g’do-lah",
+      "sourceFigureId": "telisha-gedola",
+      "page": 209,
+      "row": 3,
+      "status": "transcribed",
+      "sourceCaptionReading": "T’li-scha g’do-lah",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 10,
+      "sourceQuarterBeats": 6.25,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-kadma",
+      "name": "Kad-ma",
+      "sourceFigureId": "kadma",
+      "page": 209,
+      "row": 3,
+      "status": "transcribed",
+      "sourceCaptionReading": "Kad-ma",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 4,
+      "sourceQuarterBeats": 4.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-azla",
+      "name": "Az-la",
+      "sourceFigureId": "azla",
+      "page": 209,
+      "row": 4,
+      "status": "transcribed",
+      "sourceCaptionReading": "Az-la",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 4.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-gershayim",
+      "name": "Gerscha-jim",
+      "sourceFigureId": "gershayim",
+      "page": 209,
+      "row": 4,
+      "status": "transcribed",
+      "sourceCaptionReading": "Gerscha-jim",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 7,
+      "sourceQuarterBeats": 6.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-geresh",
+      "name": "Ge-resch",
+      "sourceFigureId": "geresh",
+      "page": 209,
+      "row": 4,
+      "status": "transcribed",
+      "sourceCaptionReading": "Ge-resch",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 6,
+      "sourceQuarterBeats": 5.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-darga",
+      "name": "Dar-ga",
+      "sourceFigureId": "darga",
+      "page": 209,
+      "row": 4,
+      "status": "transcribed",
+      "sourceCaptionReading": "Dar-ga",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 8,
+      "sourceQuarterBeats": 5.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-tevir",
+      "name": "De-bir",
+      "sourceFigureId": "tevir",
+      "page": 209,
+      "row": 4,
+      "status": "transcribed",
+      "sourceCaptionReading": "De-bir",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 8,
+      "sourceQuarterBeats": 5.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-yetib",
+      "name": "J’tib",
+      "sourceFigureId": "yetib",
+      "page": 209,
+      "row": 5,
+      "status": "transcribed",
+      "sourceCaptionReading": "J’tib",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 3.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-pesik",
+      "name": "P’sik",
+      "sourceFigureId": "pesik",
+      "page": 209,
+      "row": 5,
+      "status": "transcribed",
+      "sourceCaptionReading": "P’sik",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 3,
+      "sourceQuarterBeats": 4.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-sof-pasuq-first",
+      "name": "Sof pa-suk · first printed form",
+      "sourceFigureId": "sof-pasuq-first",
+      "page": 209,
+      "row": 5,
+      "status": "transcribed",
+      "sourceCaptionReading": "Sof pa-suk · first printed form",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 4,
+      "sourceQuarterBeats": 5.0,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-sof-pasuq-second",
+      "name": "Sof pa-suk · second printed form",
+      "sourceFigureId": "sof-pasuq-second",
+      "page": 209,
+      "row": 5,
+      "status": "transcribed",
+      "sourceCaptionReading": "Sof pa-suk · second printed form",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 8,
+      "sourceQuarterBeats": 6.0,
+      "sourceDivisions": 3,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    },
+    {
+      "id": "no938-shalshelet",
+      "name": "Schalsche-leth",
+      "sourceFigureId": "shalshelet",
+      "page": 209,
+      "row": 5,
+      "status": "transcribed",
+      "sourceCaptionReading": "Schalsche-leth",
+      "captionStatus": "Editorial reading of the printed romanized caption; facsimile is authoritative, not a pronunciation transcription.",
+      "sourceComponentCount": 13,
+      "sourceQuarterBeats": 6.5,
+      "sourceDivisions": 2,
+      "modernAccentEquivalent": null,
+      "wordApplication": null,
+      "syllableUnderlay": null,
+      "phonemes": null,
+      "audioTimes": null,
+      "actualTuning": null,
+      "actualTiming": null,
+      "review": null
+    }
+  ],
+  "notes": [
+    {
+      "id": "baer938-zarqa-1",
+      "cell": "no938-zarqa",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Sar-ka, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-zarqa-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-zarqa-2",
+      "cell": "no938-zarqa",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Sar-ka, printed component 2",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-zarqa-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-zarqa-3",
+      "cell": "no938-zarqa",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Sar-ka, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-zarqa-tuplet-1",
+        "phase": "start"
+      },
+      "slur": {
+        "id": "no938-zarqa-slur-2",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zarqa-4",
+      "cell": "no938-zarqa",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Sar-ka, printed component 4",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-zarqa-tuplet-1",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "no938-zarqa-slur-2",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zarqa-5",
+      "cell": "no938-zarqa",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Sar-ka, printed component 5",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-zarqa-tuplet-1",
+        "phase": "stop"
+      },
+      "slur": {
+        "id": "no938-zarqa-slur-2",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zarqa-6",
+      "cell": "no938-zarqa",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Sar-ka, printed component 6",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-zarqa-slur-2",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-segol-1",
+      "cell": "no938-segol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Se-gol, printed component 1",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-segol-2",
+      "cell": "no938-segol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Se-gol, printed component 2",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-segol-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-segol-3",
+      "cell": "no938-segol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Se-gol, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-segol-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-munach-first-1",
+      "cell": "no938-munach-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mu-nach · first printed group, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-munach-first-2",
+      "cell": "no938-munach-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mu-nach · first printed group, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-munach-first-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-munach-first-3",
+      "cell": "no938-munach-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mu-nach · first printed group, printed component 3",
+      "midi": 76,
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-munach-first-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-holech-1",
+      "cell": "no938-holech",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Ho-lech, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-holech-2",
+      "cell": "no938-holech",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Ho-lech, printed component 2",
+      "midi": 65,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-holech-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-holech-3",
+      "cell": "no938-holech",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Ho-lech, printed component 3",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-holech-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-holech-4",
+      "cell": "no938-holech",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Ho-lech, printed component 4",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-holech-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-revia-1",
+      "cell": "no938-revia",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, R’bi-a, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-revia-2",
+      "cell": "no938-revia",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, R’bi-a, printed component 2",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-revia-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-revia-3",
+      "cell": "no938-revia",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, R’bi-a, printed component 3",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-revia-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-revia-4",
+      "cell": "no938-revia",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, R’bi-a, printed component 4",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-mahpakh-1",
+      "cell": "no938-mahpakh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mah-pach, printed component 1",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-mahpakh-2",
+      "cell": "no938-mahpakh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mah-pach, printed component 2",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-mahpakh-3",
+      "cell": "no938-mahpakh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mah-pach, printed component 3",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-mahpakh-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-mahpakh-4",
+      "cell": "no938-mahpakh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Mah-pach, printed component 4",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-mahpakh-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pashta-1",
+      "cell": "no938-pashta",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Pasch-ta, printed component 1",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-pashta-2",
+      "cell": "no938-pashta",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Pasch-ta, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pashta-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-pashta-3",
+      "cell": "no938-pashta",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 1,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 1, Pasch-ta, printed component 3",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pashta-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-zaqef-katon-1",
+      "cell": "no938-zaqef-katon",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ka-ton, printed component 1",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-zaqef-katon-tuplet-1",
+        "phase": "start"
+      },
+      "slur": {
+        "id": "no938-zaqef-katon-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zaqef-katon-2",
+      "cell": "no938-zaqef-katon",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ka-ton, printed component 2",
+      "midi": 66,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-zaqef-katon-tuplet-1",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "no938-zaqef-katon-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zaqef-katon-3",
+      "cell": "no938-zaqef-katon",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ka-ton, printed component 3",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "modern_local_carry_within_printed_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-zaqef-katon-tuplet-1",
+        "phase": "stop"
+      },
+      "slur": {
+        "id": "no938-zaqef-katon-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zaqef-katon-4",
+      "cell": "no938-zaqef-katon",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ka-ton, printed component 4",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-zaqef-gadol-1",
+      "cell": "no938-zaqef-gadol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ga-dol, printed component 1",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-zaqef-gadol-2",
+      "cell": "no938-zaqef-gadol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ga-dol, printed component 2",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-zaqef-gadol-3",
+      "cell": "no938-zaqef-gadol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ga-dol, printed component 3",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-zaqef-gadol-4",
+      "cell": "no938-zaqef-gadol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ga-dol, printed component 4",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-zaqef-gadol-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zaqef-gadol-5",
+      "cell": "no938-zaqef-gadol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ga-dol, printed component 5",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-zaqef-gadol-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-zaqef-gadol-6",
+      "cell": "no938-zaqef-gadol",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Za-kef Ga-dol, printed component 6",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-zaqef-gadol-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-mercha-1",
+      "cell": "no938-mercha",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Mer’cha, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-mercha-2",
+      "cell": "no938-mercha",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Mer’cha, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-tipcha-1",
+      "cell": "no938-tipcha",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Tip’cha, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-tipcha-2",
+      "cell": "no938-tipcha",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Tip’cha, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tipcha-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tipcha-3",
+      "cell": "no938-tipcha",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Tip’cha, printed component 3",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tipcha-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-munach-second-1",
+      "cell": "no938-munach-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Munach · second printed group, printed component 1",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-munach-second-2",
+      "cell": "no938-munach-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Munach · second printed group, printed component 2",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "modern_local_carry_within_printed_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-etnahta-1",
+      "cell": "no938-etnahta",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Et-nach-ta, printed component 1",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-etnahta-2",
+      "cell": "no938-etnahta",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Et-nach-ta, printed component 2",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "modern_local_carry_within_printed_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-etnahta-3",
+      "cell": "no938-etnahta",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 2,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 2, Et-nach-ta, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-pazer-1",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-pazer-2",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-3",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 3",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-4",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 4",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-5",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 5",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-6",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 6",
+      "midi": 76,
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-7",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 7",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-8",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 8",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-9",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 9,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 9",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pazer-10",
+      "cell": "no938-pazer",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 10,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Pa-zer, printed component 10",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pazer-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-telisha-qtana-1",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-qtana-2",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-qtana-3",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-qtana-4",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 4",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-qtana-5",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 5",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-qtana-6",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 6",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.375,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-qtana-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-qtana-7",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 7",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-qtana-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-qtana-8",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 8",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-qtana-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-qtana-9",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 9,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 9",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-qtana-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-qtana-10",
+      "cell": "no938-telisha-qtana",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 10,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha k’ta-nah, printed component 10",
+      "midi": 65,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-qtana-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-gedola-1",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-gedola-2",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-gedola-3",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-gedola-4",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 4",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-gedola-5",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 5",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-telisha-gedola-6",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 6",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.375,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-gedola-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-gedola-7",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 7",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.125,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-gedola-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-gedola-8",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 8",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-gedola-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-gedola-9",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 9,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 9",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-gedola-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-telisha-gedola-10",
+      "cell": "no938-telisha-gedola",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 10,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, T’li-scha g’do-lah, printed component 10",
+      "midi": 65,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-telisha-gedola-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-kadma-1",
+      "cell": "no938-kadma",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Kad-ma, printed component 1",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-kadma-2",
+      "cell": "no938-kadma",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Kad-ma, printed component 2",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-kadma-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-kadma-3",
+      "cell": "no938-kadma",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Kad-ma, printed component 3",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-kadma-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-kadma-4",
+      "cell": "no938-kadma",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 3,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 3, Kad-ma, printed component 4",
+      "midi": 76,
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-kadma-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-azla-1",
+      "cell": "no938-azla",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Az-la, printed component 1",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-azla-2",
+      "cell": "no938-azla",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Az-la, printed component 2",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-azla-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-azla-3",
+      "cell": "no938-azla",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Az-la, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-azla-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-gershayim-1",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-gershayim-2",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 2",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-gershayim-3",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 3",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-gershayim-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-gershayim-4",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 4",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-gershayim-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-gershayim-5",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 5",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-gershayim-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-gershayim-6",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 6",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-gershayim-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-gershayim-7",
+      "cell": "no938-gershayim",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Gerscha-jim, printed component 7",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-gershayim-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-geresh-1",
+      "cell": "no938-geresh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Ge-resch, printed component 1",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-geresh-2",
+      "cell": "no938-geresh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Ge-resch, printed component 2",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-geresh-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-geresh-3",
+      "cell": "no938-geresh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Ge-resch, printed component 3",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-geresh-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-geresh-4",
+      "cell": "no938-geresh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Ge-resch, printed component 4",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-geresh-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-geresh-5",
+      "cell": "no938-geresh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Ge-resch, printed component 5",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-geresh-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-geresh-6",
+      "cell": "no938-geresh",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Ge-resch, printed component 6",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-geresh-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-1",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-darga-2",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-3",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 3",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-4",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 4",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-5",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 5",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-darga-tuplet-1",
+        "phase": "start"
+      },
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-6",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 6",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-darga-tuplet-1",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-7",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 7",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-darga-tuplet-1",
+        "phase": "stop"
+      },
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-darga-8",
+      "cell": "no938-darga",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, Dar-ga, printed component 8",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-darga-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-tevir-1",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-tevir-2",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tevir-3",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 3",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tevir-4",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 4",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tevir-5",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 5",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tevir-6",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 6",
+      "midi": 65,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tevir-7",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 7",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-tevir-8",
+      "cell": "no938-tevir",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 4,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 4, De-bir, printed component 8",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-tevir-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-yetib-1",
+      "cell": "no938-yetib",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, J’tib, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-yetib-2",
+      "cell": "no938-yetib",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, J’tib, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-yetib-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-yetib-3",
+      "cell": "no938-yetib",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, J’tib, printed component 3",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-yetib-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-pesik-1",
+      "cell": "no938-pesik",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, P’sik, printed component 1",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-pesik-2",
+      "cell": "no938-pesik",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, P’sik, printed component 2",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pesik-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-pesik-3",
+      "cell": "no938-pesik",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, P’sik, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-pesik-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-first-1",
+      "cell": "no938-sof-pasuq-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · first printed form, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-sof-pasuq-first-2",
+      "cell": "no938-sof-pasuq-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · first printed form, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-sof-pasuq-first-3",
+      "cell": "no938-sof-pasuq-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · first printed form, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-sof-pasuq-first-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-first-4",
+      "cell": "no938-sof-pasuq-first",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · first printed form, printed component 4",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-sof-pasuq-first-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-second-1",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 1",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-sof-pasuq-second-2",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 2",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-sof-pasuq-second-3",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-sof-pasuq-second-slur-1",
+        "phase": "start",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-second-4",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 4",
+      "midi": 68,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-sof-pasuq-second-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-second-5",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 3,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 5",
+      "midi": 66,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph #. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-sof-pasuq-second-tuplet-1",
+        "phase": "start"
+      },
+      "slur": {
+        "id": "no938-sof-pasuq-second-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-second-6",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 3,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 6",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-sof-pasuq-second-tuplet-1",
+        "phase": "continue"
+      },
+      "slur": {
+        "id": "no938-sof-pasuq-second-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-second-7",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 3,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 7",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "tuplet": {
+        "id": "no938-sof-pasuq-second-tuplet-1",
+        "phase": "stop"
+      },
+      "slur": {
+        "id": "no938-sof-pasuq-second-slur-1",
+        "phase": "continue",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-sof-pasuq-second-8",
+      "cell": "no938-sof-pasuq-second",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 3,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Sof pa-suk · second printed form, printed component 8",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-sof-pasuq-second-slur-1",
+        "phase": "stop",
+        "placement": "below"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-1",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 1,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 1",
+      "midi": 65,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "accidentalEvidence": "explicit_printed_accidental; explicit glyph n. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-shalshelet-2",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 1,
+      "sourceComponentOrdinal": 2,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 2",
+      "midi": 65,
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "modern_local_carry_within_printed_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned."
+    },
+    {
+      "id": "baer938-shalshelet-3",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 3,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 3",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "start",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-4",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 4,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 4",
+      "midi": 67,
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-5",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 5,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 5",
+      "midi": 69,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-6",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 6,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 6",
+      "midi": 71,
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-7",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 7,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 7",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-8",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 8,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 8",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-9",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 9,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 9",
+      "midi": 76,
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-10",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 10,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 10",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-11",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 11,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 11",
+      "midi": 72,
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-12",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 12,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 12",
+      "midi": 74,
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "continue",
+        "placement": "above"
+      }
+    },
+    {
+      "id": "baer938-shalshelet-13",
+      "cell": "no938-shalshelet",
+      "kind": "note",
+      "sourcePage": 209,
+      "sourceRow": 5,
+      "sourceBar": 2,
+      "sourceComponentOrdinal": 13,
+      "sourceLocation": "Baer [1894], No938 p209, staff 5, Schalsche-leth, printed component 13",
+      "midi": 81,
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 5
+      },
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1.0,
+      "accidentalEvidence": "no_signature_natural_in_this_division; explicit glyph none. Candidate modern written-pitch reading; actual tuning and musical review remain unassigned.",
+      "slur": {
+        "id": "no938-shalshelet-slur-1",
+        "phase": "stop",
+        "placement": "above"
+      }
+    }
+  ],
+  "matchingQueries": {},
+  "pronunciation": null,
+  "syllableUnderlay": null,
+  "phonemes": null,
+  "audioTimes": null,
+  "wordApplication": null,
+  "review": null,
+  "kinnorEquivalence": null,
+  "actualTuning": null,
+  "actualTiming": null,
+  "applicationIssue": "Printed accent-name intonation and adjacent worked example do not establish arbitrary Hebrew-word fitting. Modern accent correspondences and contextual applicability remain unset, including Holech/Azla/Kadma/P’sik.",
+  "graphicMarks": "Printed accent illustrations are retained in the source raster. They are not interpreted as fermatas, ornaments, dynamics or word-stress allocations. Source musical slurs and explicit3:2tuplets are transcribed separately.",
+  "timing": "Written values are rendered at the selected quarter-note tempo with modern12TET/triangle sound. Expressive recitation, articulation and actual historical tuning remain unreviewed.",
+  "limits": [
+    "All144components are draft literal readings pending independent source/transcription and cantorial review.",
+    "Figures remain separate even when notes coincide. No note is allocated to a Hebrew word, syllable or phoneme.",
+    "27printed groups do not mean27distinct modern accent signs or27complete melody systems.",
+    "No unknown historical pronunciation or singing voice is synthesized.",
+    "No source family or country label is inferred from the neighboring No937footnote."
+  ]
+}

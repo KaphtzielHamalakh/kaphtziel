@@ -1,5 +1,9 @@
 # TropeTrain · reconstruction in progress
 
+Version **v0.97.0** adds **Printed Sephardic source figures · Baer No938**:27unreviewed instrumental accent-name figures/144source notes. Open the new link, choose **Sar-ka**, raise **Instrument volume**, then **Play printed pattern**:sixattacks/5quarterbeats/3.57s at84BPM. **Schalsche-leth** keeps its highA5; range remains advisory. Compare the separate **Genesis1:1–5 · No939** worked example for52unchanged Hebrew words/145notes; no automatic word fit is inferred. Both MAM text styles, reader pronunciation profiles, melody, key, tempo and range stay independent. Source images, literal notes, review gaps and credited Naumbourg1874No62comparison are included. **876automated/108local browser checks pass**; publication/public acceptance are recorded in [v0.97 verification](docs/VERIFICATION-0.97.md). [Open the source study](https://kaphtziel.com/tropetrain/?v=0.97.0#sephardic-pattern-study). Full contextualTorahsystems/sixreviewed singing voices remain pending; printing deferred.
+
+Version **v0.96.0** added the word-to-printed-figure sign-context inspector; documentary lookups do not allocate notes to words. All retained context outcomes/marks/IDs and prior source assets remain unchanged in0.97.
+
 Published increment **v0.95.0** adds **Compare Genesis 2:4–19 recorded melodies**. Choose **Israeli · source label**, then select the cataloged Ashkenazic/Asael or Moroccan/Itamar Malka melody. Asael’s Ashkenazic-pronunciation performance remains separate; no corresponding Moroccan recording is supplied. Each unchanged original keeps its own voice/clock/drafts. Exact Hebrew/accents stay intact. Optional word locations are unreviewed and never fill boundaries. Six words have no direct model-letter support. 858automated,180local and150public UI checks pass. [Open the live comparison](https://kaphtziel.com/tropetrain/?v=0.95.0#genesis-melody-comparison-open). [Evidence](docs/GENESIS-MELODY-COMPARISON.json). Full historical grammars/singing voices remain pending; printing deferred.
 
 Published increment **v0.94.0** adds paired chant passage candidates **Genesis2:4–19** and**5:25–6:8**. Choose **Explore Asael’s parashah source archive → Genesis → בְּרֵאשִׁית → שני · Genesis2:4–19 · catalog candidate → Choose this source study**. Select the source pronunciation separately, open its candidate Hebrew text and load the original. Raise **Study recording volume** and play, or use **Draft word boundaries → Automatic word support → Load automatic word study → Audition support with context**. Source originals retain their own music/clocks; text styles/key/tempo/range stay separate. Personal marks start blank and model support never fills approved boundaries. Six conflicting recordings stay unmapped without source correction. **851automated,108local and92public UI checks pass**. [Open the live trainer](https://kaphtziel.com/tropetrain/?v=0.94.0#asael-source-finder). [Verification](docs/VERIFICATION-0.94.md). Full Torah melody grammars and reviewed pronunciation voices remain pending; printing deferred.
@@ -13,7 +17,7 @@ Published increment **v0.91.0** adds the separate **Idelsohn No266 · Exodus 12:
 To run this saved release locally after acceptance:
 
 ```sh
-python3 -m http.server 8800 --bind 127.0.0.1 --directory "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.95"
+python3 -m http.server 8800 --bind 127.0.0.1 --directory "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.97"
 ```
 
 Open `http://127.0.0.1:8800/tropetrain/`. The checked-in bundle needs no installation; use another free port if 8800 is already serving an app.
