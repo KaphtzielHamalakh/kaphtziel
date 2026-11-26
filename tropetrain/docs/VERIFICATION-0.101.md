@@ -1,4 +1,4 @@
-# v0.101 · locally accepted Toldot sparse listening cues
+# v0.101 · published Toldot sparse listening cues
 
 910automatedtests pass after correctivebuild57538/fullsuite88209. Initialoriginalcheck40609completedsourcephases butfailed6staleHTMLinputpin assertions(904/910); sixboundedproducer audits were rerun,old112results/nulls unchanged,distributions rebuilt. Wholeoriginalcommandnotrerunaftercorrection.
 
@@ -8,4 +8,6 @@ Original1183canonicalrecords/IDs/order/fields remainexact afterremoving onlythre
 
 Sourcefacts: unchangedAsaeloriginal2594755bytes,Commonsrevision785815758/CCBYSA3.0; companiontext383721/revision1006294lists23versesGenesis27:28–28:4. Actualperformedendpoints/editionremainunreviewed. Two no-target-transcript recognizers pluspredeclareduniquecontext/clock/activitygatesleaveonly3listeningpoints. Everywordextent/approvedtime/phoneme/note/reviewremainsnull. Failedsilencecontrolandpossibletrainingoverlapretained. No PocketTorah clocks transferred; original807gatesunchanged.
 
-Publication/Pages/livebodies/publicbothappguardchecks andcanonicalsavepending. Full21features/6completionrequirements ACTIVE/INCOMPLETE;sixreviewedpronunciationgrammars/voicesandcompletehistoricalmelodyrealizationspending. Printingdeferred;oldprivatevoicelabsfrozen.
+Published code b8f1ee149cae51fc8c5e3807c4eabe0bc78e8376; Pages45885826195/all3jobs successful;48changedlivefiles/146012981decodedbytes exact. Bothpublicapps59functionalchecks each;12oldcanonicalworddrafts/2fittings/5spansunchangedperapp. No public boundaryedits/imports/clears. Canonicalcode1343filescopied/rehashed; finalfourmetadatafiles andoutsideappreceipt/canonicalproof follow. Full21features/6completionrequirements ACTIVE/INCOMPLETE;sixreviewedpronunciationgrammars/voicesandcompletehistoricalmelodyrealizationspending. Printingdeferred;oldprivatevoicelabsfrozen.
+
+Fresh closure587sourceinputpins/232unique reportinputs;440implementationfilesfrozen. Normalprogram and portable source evidence remainexactafterpublicQA. Screenshot andprogress/resume are saved with Development-v0.101. Fullgoalremainsactive/incomplete.
