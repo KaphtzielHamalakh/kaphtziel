@@ -3,8 +3,8 @@
   "updated": "2026-11-25",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "ef666583c48f873220cb51fc212f24458b4b968f",
-  "nextTask": "Publish accepted0.97 app-only via connected fresh main lease, Pages/live and public non-editing acceptance, then save records. Continue source-specific contextual Torah melody rules, word/syllable fitting from reusable evidence and six reviewed independent pronunciation grammars/voices. Newly located NaumbourgNo62p103 permits explicit edition comparison with BaerNo938; no unverified aliases/word rules inferred. All21features/6requirements active; printing deferred/private voice labs frozen.",
+  "publishedCommit": "51fae2bf80e7a15358742f8f9740a0483a266218",
+  "nextTask": "Continue full source-specific contextual Torah melody realizations, independent pronunciation grammars/singing voices and all21roadmap features. Use the located NaumbourgNo62p103/BaerNo938/No939 primary material for explicit edition/alias/word-underlay research without inferring unsupported rules. Add only evidence-supported musical applications; preserved source-study pitch/rate may be an adjunct. Printing deferred; private voice labs frozen. Do not claim full app complete while all6completionrequirements remain.",
   "lastPassingTests": {
     "automated": 876,
     "newRegressionChecks": 9,
@@ -20,7 +20,7 @@
     "localPerApp": 54,
     "newLocalPerApp": 17,
     "retainedPerApp": 37,
-    "publicPhase": "pending0.97",
+    "publicPhase": "accepted0.97",
     "sourceInputPins": 449,
     "personalFittingSourcePins": {
       "PRINTED-MAM-FITTING-SOURCES.json": 6,
@@ -29,7 +29,15 @@
     "frozenImplementationFiles": 424,
     "frozenSourceFiles": 450,
     "priorAssetDataVendorFilesExact": 649,
-    "runtimeChangedAfterBuild": false
+    "runtimeChangedAfterBuild": false,
+    "publicUiChecks": 108,
+    "publicUiPerApp": {
+      "normal": 54,
+      "portable": 54
+    },
+    "pagesRun": 45753464572,
+    "liveCodeFiles": 39,
+    "liveCodeBytes": 148999270
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -178,14 +186,14 @@
     }
   },
   "lastDeployment": {
-    "version": "0.96.0",
-    "codeCommit": "ef666583c48f873220cb51fc212f24458b4b968f",
-    "parent": "41468479d694091fa5c6f5e2bf7e8a54b29740f0",
-    "pagesRun": 45638035100,
+    "version": "0.97.0",
+    "codeCommit": "51fae2bf80e7a15358742f8f9740a0483a266218",
+    "parent": "fcb01956a97397e3952570e7e03378ed5b7866a8",
+    "pagesRun": 45753464572,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 31,
-    "liveCodeBytesExact": 137692348,
-    "publicUiChecks": 74,
+    "liveCodeFilesExact": 39,
+    "liveCodeBytesExact": 148999270,
+    "publicUiChecks": 108,
     "outsideRootEntriesPreserved": 40,
     "status": "code_published_live_and_browser_verified"
   },
@@ -211,7 +219,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.97full local acceptance;876automated/108normal-UI checks; connected publication pending. Full reconstruction active/incomplete.",
+  "workingIteration": "0.97published/live verified876automated108local108publicUI;27newBaerNo938source-name figures and direct-startup fix. All5worddrafts/bothfittings preserved. Fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3427,7 +3435,7 @@
     "wordApplication": null,
     "modernSignCorrespondence": null,
     "review": null,
-    "status": "implemented_local_browser_tested_publication_pending",
+    "status": "published_live_and_browser_verified_unreviewed_literal_instrumental_study",
     "directHashStartupFindGuard": "verified_disabled_without_modern_mapping",
     "earlierPrint": "Naumbourg1874No62p103",
     "earlierPrintComponentEquivalence": null
