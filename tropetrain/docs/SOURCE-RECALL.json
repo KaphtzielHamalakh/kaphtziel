@@ -221,15 +221,15 @@
     },
     {
       "path": "index.html",
-      "sha256": "be1f0e4de01c4dd538668e1fa7c4f994c0ebe01b238ff304d2d92e6761880da1"
+      "sha256": "51e8127a92d3b928a4157a78cd2c6c90954d9ed14b41eaf744b327d8ff4ba3aa"
     },
     {
       "path": "style.css",
-      "sha256": "eaa0743de10c43e448225d2480f2ab851ca05e5e4ec1a2f0c6172f75b2845647"
+      "sha256": "8b4d652c9f697b000f4cd3c1f49b49698ca9fda01b5d82c040a7d5541aa103dc"
     },
     {
       "path": "sw.js",
-      "sha256": "85da7f4c776db981c78a1653f48ffd54cd7db6c9a8569c23a2c06e6cf8c3aa4e"
+      "sha256": "93d52318d3577dda77bfc18b88be4fa5e981268c17e0c73922da22c9eac947f1"
     },
     {
       "path": "scripts/build.mjs",
