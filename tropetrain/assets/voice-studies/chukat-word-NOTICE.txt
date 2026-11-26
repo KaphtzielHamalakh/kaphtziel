@@ -1,0 +1,24 @@
+Chukat recorded word study — source-linked reader candidates, revision1, 2026-11-26
+
+The five unchanged recordings remain the original Commons files cataloged as Nombody, attributed on their original pages to Joshua Hosseinof, own work / PD-self. Their exact byte counts, source SHA1/SHA256, creator attribution, original file-page revisions and independent melody/pronunciation labels remain in SOURCE-READERS.json. The Ashkenazic entry retains both conflicting pronunciation claims (catalog: mixed; Commons description: Ashkenazi). No new audio payload, model weights, recording edit, missing combination or singing voice is bundled.
+
+Textual range evidence: Hebrew Wikisource contributors, CC BY-SA4.0. Companion text page מקרא ותרגום ורש"י/ספר במדבר/פרשת חוקת, page383749/revision1006441, explicitly lists Numbers19:1–17 under ראשון. The daily text view פרשת חוקת ראשון, page1716552/revision2851642, lists the same references. The audio catalog page154480/revision2898409 has only a ראשון heading and EMPTY numeric recording notes. Its shared page-header template2921/revision1386611 links the text views. These are textual source facts, not two independent performance reviews. Exact recording endpoints and source-edition correspondence remain unreviewed; actual recording coverage stays null. No numeric recording caption is fabricated.
+
+Primary text URLs:
+https://he.wikisource.org/w/index.php?oldid=1006441
+https://he.wikisource.org/w/index.php?oldid=2851642
+https://he.wikisource.org/w/index.php?oldid=1386611
+https://he.wikisource.org/w/index.php?oldid=2898409
+CC BY-SA4.0: https://creativecommons.org/licenses/by-sa/4.0/
+PD-self source dedication: https://commons.wikimedia.org/wiki/Template:PD-self
+
+New original analysis: source-only recognition was run on all five unchanged originals WITHOUT expected text, language model or Torah transcript input. An analysis-only consonant search over all79985canonical Torah words ranked Numbers19highest for every source. Original Hebrew, accents, qere/ketiv, IDs and original model hypotheses remain unchanged. Exact8letter contexts unique across allTorah support141independent complete-word observations/80distinctwords; weak/missing model support is not proof a word is absent in the recording. Endpoint evidence is incomplete.
+
+Subsequent constrained CTC hypotheses use the companion reading candidate's255exact marked reader words, separately against each original. A constrained path must fit every target token: it does NOT prove every word occurs or that its physical boundaries are correct. The1275model intervals remain unreviewed;56word observations have no directly supported model letters. Original-word/syllable times, phonemes, musical notes, source edition and independent review stay unassigned. No personal boundary is filled. Audition adds one second of context to each side; consonant onsets and sung tails require listening review.
+
+Model: imvladikon/wav2vec2-large-xlsr-53-hebrew, revision3dd308dda70b20507a6920b459052635973ae3cd, model-card Apache2.0; exact model weights SHA256 ccb343830f577a24d1c7aa866a459ac93fbc00bd205abb1b90728cf1f767e0da. It is a modern speech recognizer, NOT a chanting voice or a reviewed pronunciation model. No reported model WER or chant-accuracy claim is supplied. Card and metadata are retained in the pinned research pack; weights are not included.
+https://huggingface.co/imvladikon/wav2vec2-large-xlsr-53-hebrew/tree/3dd308dda70b20507a6920b459052635973ae3cd
+
+Decoding/resampling: soundfile0.13.1/libsndfile1.2.2. The two original channels are sample-identical; channel0 retained without mixing or information loss, untrimmed origin0. Rational scipy resample_poly/Kaiser5/constant padding to16000Hz is an analysis copy only. Single CPU thread; no sound output.15second retained model chunks/2second context, source-wide feature normalization,320sample stride/400sample convolution support. No source duration fitting, guessed codec offset or timestamp interpolation.
+
+The source pack retains exact raw primary responses, per-file SHA/rights facts, unprompted hypotheses, source-only chapter discovery, canonical255word bindings, constrained proposals and original recipes. Raw probability matrices, the duplicate fullTorah search index, weights and audio are not bundled; exact input hashes and reproducible provenance remain. Reflow/derived records by this reconstruction; no reader, project, publisher or model-author endorsement or cantorial review is implied. Complete contextual melodies, six independent reviewed historical pronunciation grammars/voices and full reconstruction remain pending.

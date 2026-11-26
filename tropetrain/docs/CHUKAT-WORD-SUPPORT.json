@@ -1,0 +1,84 @@
+{
+  "format": "tropetrain-chukat-word-support-v1",
+  "revision": 1,
+  "status": "unreviewed-model-support",
+  "records": [
+    {
+      "recordId": "reader-original-0a2a902e4be4",
+      "file": "data/references/chukat-word-support/reader-original-0a2a902e4be4.json.gz",
+      "bytes": 18113,
+      "sha256": "894cb2465a0ddfe195e17c0273d8ddf9590411c9721709b7c5025bbacc96f934",
+      "words": 255,
+      "originalSha256": "cc2b8ed98d3b81efa98bc8d463673a2839ec39f6a1a56fbac202ace06cf8d4ee",
+      "wordsWithoutDirectLetterSupport": 6,
+      "independentLiteralWordAnchors": 35
+    },
+    {
+      "recordId": "reader-original-676f51dd54a7",
+      "file": "data/references/chukat-word-support/reader-original-676f51dd54a7.json.gz",
+      "bytes": 18089,
+      "sha256": "93b7b6fda43901282c2dbd0010879d33f87b6ee1856a55f8dc59021d50bef216",
+      "words": 255,
+      "originalSha256": "c461b3b4bc592f4fdaa5cb19f8ad3dd8416600e1757213696b80730cfd57316d",
+      "wordsWithoutDirectLetterSupport": 7,
+      "independentLiteralWordAnchors": 32
+    },
+    {
+      "recordId": "reader-original-834c110d4e46",
+      "file": "data/references/chukat-word-support/reader-original-834c110d4e46.json.gz",
+      "bytes": 18004,
+      "sha256": "ada3b807460f7b87f4cd5be2497876f5f6ebe1cc27745f1ee345bbf93e5c9391",
+      "words": 255,
+      "originalSha256": "bd2e3e267e9d165678e7f0365cc1f963f8dfbb230c64830bc88b6530dde6d7f3",
+      "wordsWithoutDirectLetterSupport": 10,
+      "independentLiteralWordAnchors": 27
+    },
+    {
+      "recordId": "reader-original-4d00551edb36",
+      "file": "data/references/chukat-word-support/reader-original-4d00551edb36.json.gz",
+      "bytes": 18184,
+      "sha256": "eb3015363e0ad9fb26509d3c5de8d691daf4aa73bc06c2276c6a2dc9e4d4b8c0",
+      "words": 255,
+      "originalSha256": "f8103a18bc06de539b5307256d407657b8188902adb2c7b614b9ba9e41b8318b",
+      "wordsWithoutDirectLetterSupport": 20,
+      "independentLiteralWordAnchors": 20
+    },
+    {
+      "recordId": "reader-original-e2da86b0106f",
+      "file": "data/references/chukat-word-support/reader-original-e2da86b0106f.json.gz",
+      "bytes": 18125,
+      "sha256": "72d3c85d4636799cef0730554a2d1fd23b6066083ed5fd794e5a21e90e9bc50b",
+      "words": 255,
+      "originalSha256": "5fbab557cbbda1490b2f150e8b5ad4abe729de89abb8f5b3f3945c4fe31fc553",
+      "wordsWithoutDirectLetterSupport": 13,
+      "independentLiteralWordAnchors": 27
+    }
+  ],
+  "sourcePack": {
+    "file": "assets/voice-studies/chukat-word-sources.zip",
+    "bytes": 383825,
+    "sha256": "76605ca188a61f38a7957077f8b6063528ad153efc71262779816e77ab326923"
+  },
+  "model": {
+    "id": "imvladikon/wav2vec2-large-xlsr-53-hebrew",
+    "revision": "3dd308dda70b20507a6920b459052635973ae3cd",
+    "weightSha256": "ccb343830f577a24d1c7aa866a459ac93fbc00bd205abb1b90728cf1f767e0da",
+    "license": "Apache-2.0"
+  },
+  "counts": {
+    "recordings": 5,
+    "readerWordsPerCandidate": 255,
+    "modelIntervals": 1275,
+    "independentExactWordObservations": 141,
+    "independentDistinctWords": 80,
+    "wordsWithoutDirectLetterSupport": 56,
+    "acceptedWordTimes": 0,
+    "newReviewedMelodyGrammars": 0,
+    "newSingingVoices": 0
+  },
+  "sourcePassageStatus": "linked-reading-candidate-not-content-reviewed",
+  "sourceEditionCompared": false,
+  "review": null,
+  "newSingingVoice": null,
+  "limits": "Primary companion text explicitly lists this reading; exact recording bounds/edition stay unreviewed. Unprompted source recognition supports Numbers19as a chapter; subsequent constrained255word paths are hypotheses, not proof all words occur or physical boundaries. Every original keeps its own clock and initially blank personal draft."
+}
