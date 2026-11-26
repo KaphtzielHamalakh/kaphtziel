@@ -3,8 +3,8 @@
   "updated": "2026-11-26",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "51fae2bf80e7a15358742f8f9740a0483a266218",
-  "nextTask": "Publish and verify the accepted v0.98 reader-source update, then continue source-specific passage/edition/word/syllable/stress validation of reusable chant and full contextual Torah melody systems with six independent reviewed pronunciation grammars/voices. Preserve all21features/all6completionrequirements. Printing deferred; private voice labs frozen.",
+  "publishedCommit": "506206814931d9b3dc76f94d959d846575d761f3",
+  "nextTask": "Continue actual source-specific passage/edition/word/syllable/stress validation for the reusable Chukat and other reader recordings, then full contextual Torah melody realizations and six independent reviewed pronunciation grammars/voices. Keep the complete21feature roadmap and6completionrequirements active. Do not infer verse bounds from aliquot headings or synthesize missing recorded pairs. Improve new-feature discovery/loading as an adjunct; printing deferred/private voice labs frozen.",
   "lastPassingTests": {
     "automated": 884,
     "failed": 0,
@@ -33,7 +33,19 @@
     "portableCanonicalLinks": 84,
     "stoppedLocalPreviewReloadAndFiveCachedRecordings": true,
     "externalNetworkingDisabledDuringCacheCheck": false,
-    "publicPhase": "pending0.98"
+    "publicPhase": "accepted0.98",
+    "publicUiChecks": 88,
+    "publicUiPerApp": {
+      "normal": 44,
+      "portable": 44
+    },
+    "allFivePublicWordDraftsUnchanged": true,
+    "bothPublicFittingGuardsUnchangedAndFollowRestored": true,
+    "personalBoundaryEditsPerformed": false,
+    "pagesRun": 45847385955,
+    "liveCodeFiles": 36,
+    "liveCodeBytes": 147545501,
+    "runtimeChangedAfterBuild": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -3438,7 +3450,7 @@
   },
   "sourceReaders": {
     "record": "docs/SOURCE-READERS.json",
-    "status": "local_accepted_public_pending",
+    "status": "published_live_and_browser_verified_fixed_source_recordings_unreviewed_music_and_coverage",
     "catalogRows": 281,
     "sourceReadings": 277,
     "canonicalFiles": 267,
