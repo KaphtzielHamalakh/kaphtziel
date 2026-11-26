@@ -3,8 +3,8 @@
   "updated": "2026-11-26",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "1be257146360348f0ca1384ccb9f291dc02192e4",
-  "nextTask": "Publish and live-verify the locally accepted0.101.0Toldotlisteningstudy, protect all12publicworddrafts/2fittings/5listeningspans, verifyPages/livebodyhashes andnormal/portableUI, thensavecanonicaloutputs/resume. Continue fullTorah807gapresearch (5of25fullsourcewindows saved), contextual melody andsixindependent reviewed pronunciation grammars/voices. Full21features/6completionrequirements ACTIVE/INCOMPLETE; printingdeferred; privatevoicelabsfrozen.",
+  "publishedCommit": "b8f1ee149cae51fc8c5e3807c4eabe0bc78e8376",
+  "nextTask": "Resume private source-only full-window recognition from5/25savedwindows(Tetzaveh3/Shemot7), CPU1/nice10/offline/noaudio, preserving completedclips andfailedsilencecontrol. Searchall79985Torahwords withoutdecodersuppliedpassage; require uniquecontext, acoustic/activity/uncertainty andcross-source evidence before any sparse listeningcue. Never transfer clocks or autofill807legacygaps. Continue reusable contextualmelody rules andsixindependent reviewed pronunciation grammars/voices; all21features/6requirements active. Printingdeferred; oldprivatevoicelabsfrozen. Currentrelease0.101.0published/normalportableliveverified; canonicalsave/finalreceipt outsideapp follow.",
   "lastPassingTests": {
     "automated": 910,
     "failed": 0,
@@ -27,7 +27,29 @@
     "exactPortableCachedReload": true,
     "correctivePortableUiRechecks": 10,
     "allMediaStoppedAndMuted": true,
-    "publicPhase": "pending"
+    "publicPhase": "accepted0.101.0",
+    "sourceInputPins": 587,
+    "reportInputPins": 232,
+    "frozenImplementationFiles": 440,
+    "retainedAssetDataVendorFilesExact": 661,
+    "priorReportResultsAndNullsExact": 112,
+    "portableCanonicalRecords": 85,
+    "portableCanonicalLinks": 88,
+    "physicalPortableHeadroomBytes": 4764735,
+    "publicUiChecks": 118,
+    "publicUiPerApp": {
+      "normal": 59,
+      "portable": 59
+    },
+    "publicCanonicalDraftsGuardedPerApp": 12,
+    "publicFittingsGuardedPerApp": 2,
+    "publicListeningSpansGuardedPerApp": 5,
+    "publicBoundaryEditsPerformed": false,
+    "allOldDraftsFittingsSpansUnchangedBothApps": true,
+    "pagesRun": 45885826195,
+    "liveChangedFilesExact": 48,
+    "liveDecodedBytesExact": 146012981,
+    "runtimeChangedAfterFinalTests": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -3474,9 +3496,9 @@
     "newAcceptedWordTimes": 0
   },
   "torahTimingGapResearch": {
-    "status": "private_research_domain_benchmark_queued_not_a_playable_release",
-    "privateTargetVersion": "0.100",
-    "currentAcceptedRuntime": "0.99.0",
+    "status": "private_full_source_windows_checkpointed_research_only",
+    "privateTargetVersion": "0.101",
+    "currentAcceptedRuntime": "0.101.0",
     "legacyIndividualWordGaps": 807,
     "originalCountMismatchWords": 748,
     "originalNonIncreasingGroupWords": 43,
@@ -3513,13 +3535,27 @@
     "newPhonemes": null,
     "newSyllableTimes": null,
     "newReviewedMelodyGrammars": 0,
-    "newSingingVoices": 0
+    "newSingingVoices": 0,
+    "fullSourceWindowResearch": {
+      "expectedWindows": 25,
+      "completedWindows": 5,
+      "sourceRecordings": 2,
+      "status": "stopped_by_agent_for_release_resource_priority_resumable",
+      "sourceAudioSentToNetwork": false,
+      "audioOutput": false,
+      "sourceTranscriptSupplied": false,
+      "completedObservationsRetained": true,
+      "acceptedWordTimes": 0,
+      "review": null
+    },
+    "alternateSparseListeningCues": 3,
+    "alternateWordExtentsInferred": false
   },
   "readerWordRecordingNavigation": {
-    "status": "published_normal_portable_and_first_visit_cache_verified",
-    "unchangedReaderWords": 1157,
-    "existingRecordings": 12,
-    "passageRanges": 4,
+    "status": "published_normal_portable_and_cache_verified",
+    "unchangedReaderWords": 1515,
+    "existingRecordings": 13,
+    "passageRanges": 5,
     "newTimingProposals": 0,
     "newAcceptedWordTimes": 0,
     "newSingingVoices": 0,
@@ -3531,8 +3567,10 @@
     },
     "correctedDistributionUiChecks": 40,
     "finalFirstVisitCachedChecks": 20,
-    "version": "0.100.1",
-    "singleOrUnavailableStudyChooserVisuallyHidden": true
+    "version": "0.101.0",
+    "singleOrUnavailableStudyChooserVisuallyHidden": true,
+    "publicUiPerApp": 59,
+    "sourceReadingMembershipCertifiesPerformedCoverage": false
   },
   "domainRecognitionBenchmark": {
     "status": "complete_research_only_negative_control_failed",
@@ -3548,7 +3586,7 @@
     "review": null
   },
   "toldotObservedCues": {
-    "status": "accepted_local_normal_portable_and_cache_publication_pending",
+    "status": "published_normal_portable_cache_and_live_verified",
     "recordId": "asael-catalog-183403-30",
     "candidateReaderWords": 358,
     "agreedListeningCues": 3,
@@ -3569,6 +3607,17 @@
       "stoppedPreviewNormalCache": 23,
       "exactPortableCachedReload": true,
       "correctivePortableRechecks": 10
-    }
+    },
+    "version": "0.101.0",
+    "publicUiChecks": {
+      "normal": 59,
+      "portable": 59
+    },
+    "sourceDigestSeparatelyBound": true,
+    "canonicalOriginalCoverageStillNull": true,
+    "canonicalOriginalSha256StillNull": true,
+    "sourceClockFitted": false,
+    "newReviewedMelodyGrammars": 0,
+    "newIndependentSingingVoices": 0
   }
 }
