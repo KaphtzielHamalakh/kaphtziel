@@ -4,48 +4,47 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "98c0bc200c5215f469a2c4ae7c26d16966397cc1",
-  "nextTask": "Continue source-specific performance/edition/word/syllable/stress validation for the Chukat and other reusable recordings; derive full contextual cantillation and six independent pronunciation realizations only with sourced underlay and musical/phonological review. Linked reading divisions and model target support do not verify performed endpoints, all word occurrences or heard boundaries. Preserve all21features/all6completionrequirements, all1183original record facts/drafts and independent melody/pronunciation/range/key/BPM. Printing deferred; private voice labs frozen.",
+  "nextTask": "Finish0.100connected publication/live/public UI and12draft/2fit/5span upgrade guards, save final canonical output. Then continue source-only807gap research using independent anchors and explicit acoustic/uncertainty gates: the new chant model failed its silence control, so never infer accepted boundaries from decoder output. Investigate the two difficult full sources and alternate Toldot ending; preserve original timing gates/marked Hebrew. Full contextual melody systems and six independently reviewed pronunciation grammars/voices remain primary; all21features/6completionrequirements active, printing deferred, old voice labs frozen.",
   "lastPassingTests": {
-    "automated": 892,
+    "automated": 901,
     "failed": 0,
     "cancelled": 0,
     "skipped": 0,
-    "buildCheckSession": 27952,
-    "completeOriginalCheck": true,
     "buildSucceeded": true,
-    "sourceInputPins": 566,
+    "originalSourceBuildPhasesCompleted": true,
+    "initialFullCheckSession": 48204,
+    "initialFullCheckExit": 1,
+    "resolvedInitialFailure": "old cache asset URLs; corrected and two affected input audits regenerated",
+    "finalBuildSession": 45164,
+    "finalBuildExit": 0,
+    "fullFinalTestSession": 34423,
+    "fullFinalTestExit": 0,
+    "freshWholeOriginalCheckAfterCacheFixRun": false,
+    "sourceInputPins": 571,
     "reportInputPins": 231,
+    "frozenImplementationFiles": 432,
+    "retainedAssetDataVendorFilesExact": 661,
+    "priorReportResultsAndNullsExact": 112,
     "personalFittingSourcePins": {
-      "PRINTED-MAM-FITTING-SOURCES.json": 6,
-      "IDELSOHN-NO266-MAM-PARTITIONS.json": 6
+      "No268": 6,
+      "No266": 6
     },
-    "frozenImplementationFiles": 427,
-    "priorAssetDataVendorFilesExact": 654,
-    "acceptedSourceResultsExact": 110,
-    "localUiChecks": 112,
-    "localPerApp": 56,
-    "newLocalPerApp": 37,
-    "retainedPerApp": 19,
-    "earlyFinalRuntimeExact": true,
+    "normalPortableProgramExact": true,
     "portableCanonicalRecords": 84,
     "portableCanonicalLinks": 86,
-    "stoppedLocalPreviewReloadAndFiveCachedRecordings": true,
-    "externalNetworkingDisabledDuringCacheCheck": false,
-    "publicPhase": "accepted0.99",
-    "publicUiChecks": 96,
-    "publicUiPerApp": {
-      "normal": 48,
-      "portable": 48
+    "localUiChecks": 103,
+    "localPerApp": {
+      "normal": 53,
+      "portable": 50
     },
-    "newPublicPerApp": 29,
-    "allTenPublicWordDraftsUnchanged": true,
-    "bothPublicFittingGuardsUnchangedAndFollowRestored": true,
-    "priorFiveSourceListeningSpansRestored": true,
-    "personalBoundaryEditsPerformed": false,
-    "pagesRun": 45859299816,
-    "liveCodeFiles": 43,
-    "liveCodeBytes": 146120842,
-    "runtimeChangedAfterBuild": false
+    "correctedDistributionUiRechecks": 40,
+    "firstVisitCachedReloadChecks": 20,
+    "externalNetworkingDisabledDuringCacheCheck": false,
+    "publicPhase": "pending0.100upgrade",
+    "publicCanonicalDraftsGuarded": 12,
+    "publicFittingsGuarded": 2,
+    "publicListeningSpansGuarded": 5,
+    "publicBoundaryEditsPerformed": false
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -227,7 +226,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.97published/live verified876automated108local108publicUI;27newBaerNo938source-name figures and direct-startup fix. All5worddrafts/bothfittings preserved. Fullgoalactive/incomplete.",
+  "workingIteration": "0.100software complete for this increment:901automated tests passed,103localinterfacechecks plus40distributionrechecks and20first-visitofflinechecks passed; saved/publishing next. Full reconstructionactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3488,5 +3487,76 @@
     "sourceEditionCompared": false,
     "review": null,
     "newAcceptedWordTimes": 0
+  },
+  "torahTimingGapResearch": {
+    "status": "private_research_domain_benchmark_queued_not_a_playable_release",
+    "privateTargetVersion": "0.100",
+    "currentAcceptedRuntime": "0.99.0",
+    "legacyIndividualWordGaps": 807,
+    "originalCountMismatchWords": 748,
+    "originalNonIncreasingGroupWords": 43,
+    "originalDurationOverflowWords": 16,
+    "originalSourcesPinned": 9,
+    "unchangedMarkedCandidateWords": 3169,
+    "completeUnpromptedSourceObservations": 9,
+    "leadingChapterMatchesCatalogBookAndChapterSpan": 7,
+    "unreliableChapterMatches": 2,
+    "newForcedWordHintsProduced": false,
+    "alternateRecordingId": "asael-catalog-183403-30",
+    "alternateOriginalBytes": 2594755,
+    "alternateOriginalSha256": "5b612c91c7b921c9de0fe18a6aefe4243b505656524445f71733353564203880",
+    "alternateLinkedTextCandidate": {
+      "bookId": "gen",
+      "start": {
+        "chapter": 27,
+        "verse": 28
+      },
+      "end": {
+        "chapter": 28,
+        "verse": 4
+      }
+    },
+    "alternateActualRecordingCoverage": null,
+    "newModel": "cantillation/Teamim-large-v3-turbo_WeightDecay-0.005_Augmented_WithSRT_date-15-04-2025",
+    "newModelRevision": "38885a17bb3c369f91c701913051655f1066e0f4",
+    "newModelLicense": "MIT as explicitly published",
+    "modelTrainingAndEvaluationDetailsIncomplete": true,
+    "benchmarkHeldOutFromTraining": null,
+    "originalReferencePacketChanged": false,
+    "originalTimingGatesChanged": false,
+    "newAcceptedWordTimes": 0,
+    "newPhonemes": null,
+    "newSyllableTimes": null,
+    "newReviewedMelodyGrammars": 0,
+    "newSingingVoices": 0
+  },
+  "readerWordRecordingNavigation": {
+    "status": "implemented_901automated_and_local_UI_passed_publication_pending",
+    "unchangedReaderWords": 1157,
+    "existingRecordings": 12,
+    "passageRanges": 4,
+    "newTimingProposals": 0,
+    "newAcceptedWordTimes": 0,
+    "newSingingVoices": 0,
+    "review": null,
+    "localUiChecks": {
+      "normal": 53,
+      "portable": 50
+    },
+    "correctedDistributionUiChecks": 40,
+    "finalFirstVisitCachedChecks": 20
+  },
+  "domainRecognitionBenchmark": {
+    "status": "complete_research_only_negative_control_failed",
+    "cases": 5,
+    "modelRevision": "38885a17bb3c369f91c701913051655f1066e0f4",
+    "license": "MIT_model_card",
+    "weightsBundledInApp": false,
+    "sourceTranscriptSupplied": false,
+    "zeroSignalOutput": "בשֽר׃",
+    "negativeControlPassed": false,
+    "trainingHeldOut": null,
+    "newWordHintsAccepted": 0,
+    "review": null
   }
 }

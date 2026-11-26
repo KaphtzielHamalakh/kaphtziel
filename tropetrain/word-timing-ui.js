@@ -78,9 +78,10 @@ export function mountWordTimingDraft({position,onAudition}){
   });
   return {
     setAvailable(value){available=value;draw();},
-    selectWord(wordId){
-      retainedWordId=wordId;if(!draft)return false;const index=draft.words.findIndex(w=>w.id===wordId);
-      if(index<0)return false;selected=index;draw();return true;
+    selectWord(wordId,expectedHebrew){
+      const index=draft?.words.findIndex(w=>w.id===wordId)??-1;
+      if(expectedHebrew!==undefined&&(index<0||draft.words[index].hebrew!==expectedHebrew))return false;
+      retainedWordId=wordId;if(index<0)return false;selected=index;draw();return true;
     },
     async select(nextRecord,coverage){
       const keepOpen=panel.open&&JSON.stringify(draft?.coverage)===JSON.stringify(coverage);
