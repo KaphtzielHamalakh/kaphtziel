@@ -3,8 +3,8 @@
   "updated": "2026-11-26",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "9962b0eb5cb75e52967afb50cc00f2f0d18a5d86",
-  "nextTask": "Publish tested0.100.1display/cache-version patch on connectedGitHub main andverifyPages/livebytes/publicnormal+portable with12canonicaldraft/2fitting/5span guards, then save all1330canonicalfiles/finalrecords. Continue807gap source research with the failed silence control explicit; no accepted word times from recognizer output. Full contextual Torah melodies and six independently reviewed pronunciation grammars/voices remain primary; all21features/6completionrequirements active, printing deferred and prior voice labs frozen.",
+  "publishedCommit": "1be257146360348f0ca1384ccb9f291dc02192e4",
+  "nextTask": "Continue source-preserving word-aligned chanting for807gatedTorahwords. First examine the licensed AsaelToldot6alternate: primarycompaniontext bindsGenesis27:28–28:4/358exactreaderwords and unprompted anchors include28:4; add only source-candidate navigation/blank review if justified, never transfer original timings. The domain recognizer failed silence control; retain raw output and require acoustic/uncertainty gates plus independent evidence before unreviewed listening proposals. Investigate difficult full Tetzaveh3/Shemot7sources. In parallel with necessary software, continue reusable complete contextual melody and six independent reviewed pronunciation grammar/voice research; all21features/6completionrequirements active, printing deferred, old voice labs frozen.",
   "lastPassingTests": {
     "automated": 901,
     "failed": 0,
@@ -41,7 +41,7 @@
     "correctedDistributionUiRechecks": 40,
     "firstVisitCachedReloadChecks": 20,
     "externalNetworkingDisabledDuringCacheCheck": false,
-    "publicPhase": "0.100.0normal53passed;0.100.1patchpending",
+    "publicPhase": "accepted0.100.1",
     "publicCanonicalDraftsGuarded": 12,
     "publicFittingsGuarded": 2,
     "publicListeningSpansGuarded": 5,
@@ -49,7 +49,19 @@
     "publicCanonicalDraftsUnchangedAcrossUpgrade": 12,
     "publicFittingsUnchangedAndFollowRestored": 2,
     "publicPriorListeningSpansRestored": 5,
-    "normalProgramUnchangedSinceAccepted0_100": true
+    "normalProgramUnchangedSinceAccepted0_100": true,
+    "publicUiChecks": 108,
+    "publicUiPerApp": {
+      "normal": 54,
+      "portable": 54
+    },
+    "allTwelvePublicWordDraftsUnchangedBothApps": true,
+    "bothPublicFittingGuardsUnchangedAndFollowRestoredBothApps": true,
+    "priorFiveSourceListeningSpansRestoredBothApps": true,
+    "personalBoundaryEditsPerformed": false,
+    "allMediaStoppedAndMuted": true,
+    "runtimeChangedAfterFinalTests": false,
+    "pagesRun": 45876477849
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -198,16 +210,18 @@
     }
   },
   "lastDeployment": {
-    "version": "0.97.0",
-    "codeCommit": "51fae2bf80e7a15358742f8f9740a0483a266218",
-    "parent": "fcb01956a97397e3952570e7e03378ed5b7866a8",
-    "pagesRun": 45753464572,
+    "version": "0.100.1",
+    "codeCommit": "1be257146360348f0ca1384ccb9f291dc02192e4",
+    "previousCodeCommit": "9962b0eb5cb75e52967afb50cc00f2f0d18a5d86",
+    "pagesRun": 45876477849,
     "all3JobsSuccessful": true,
-    "liveCodeFilesExact": 39,
-    "liveCodeBytesExact": 148999270,
+    "initialCodeLiveFilesExact": 32,
+    "initialCodeLiveBytesExact": 145703703,
+    "patchLiveFilesExact": 24,
+    "patchLiveBytesExact": 101242726,
     "publicUiChecks": 108,
     "outsideRootEntriesPreserved": 40,
-    "status": "code_published_live_and_browser_verified"
+    "status": "code_published_live_normal_and_portable_browser_verified"
   },
   "corpusImport": {
     "books": 5,
@@ -231,7 +245,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.100.1patch ready:901automated/118localUIchecks passed; actual study chooser visibility fixed; same exact normal program as0.100.0.0.100.0live-normal53checks/drafts12/fittings2/spans5passed. Patchpublication/publicportableacceptancepending. Fullgoalactive/incomplete.",
+  "workingIteration": "0.100.1published/live verified:901automated,118local,108publicchecks.1157exactreaderwords/12existingrecordings/4rangeslinked.12canonicaldrafts/bothfittings/5spanspreservedbothapps;allmedia stopped/volume0. Fullgoalactive/incomplete.",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3536,7 +3550,7 @@
     "newSingingVoices": 0
   },
   "readerWordRecordingNavigation": {
-    "status": "patch_901automated_118local_UI_passed_publication_pending",
+    "status": "published_normal_portable_and_first_visit_cache_verified",
     "unchangedReaderWords": 1157,
     "existingRecordings": 12,
     "passageRanges": 4,
