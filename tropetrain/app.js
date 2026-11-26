@@ -47,6 +47,8 @@ import {getScrollLayout} from './scroll-layout.js';
 import {scrollPane,marksWord,writtenUnitClass} from './scroll-layout-ui.js';
 import {mountCalendar} from './calendar-ui.js';
 import {mountVoiceStudies} from './voice-study-ui.js';
+import {createWordRecordingNavigator} from './word-recording-navigation.js';
+import {mountWordRecordingNavigation} from './word-recording-navigation-ui.js';
 import {mountPronunciationStudy} from './pronunciation-ui.js';
 import {NOTE_LINK_REASONS} from './pronunciation-note-links.js';
 import {renderPronunciationScoreGroups} from './pronunciation-score-groups-ui.js';
@@ -97,7 +99,7 @@ try{
 }catch{}
 const restore={cursor:state.cursor,anchor:state.anchor,readerPage:state.readerPage,ranges:state.ranges,readingType:restoredReadingType};
 state.readingType='torah';
-let passage={...openingPassage,title:'Genesis 1:1–3',ranges:[structuredClone(defaultRange)]};
+let passage={...openingPassage,title:'Genesis 1:1–3',ranges:[structuredClone(defaultRange)],verses:openingPassage.verses.map(v=>({...v,words:v.words.map(w=>({...w,bookId:'gen',kind:'w'}))}))};
 let model=makeReadingModel(passage,state),{words,bounds,buildPlan}=model;
 state.cursor=Math.min(state.cursor,words.length-1);state.anchor=Math.min(state.anchor,words.length-1);state.readerPage=0;
 let corpus,chooseEnd=false,plan=[],activeId=null,activeWordIds=[],activeEventId=null,activeInstrumentEvent=null,playingBounds=null;
@@ -107,7 +109,7 @@ let practiceRecoveryRecord=null;try{practiceRecoveryRecord=latestPracticeRecover
 let exportsKey=null,wavJob=null;
 const exportUrls=new Map();
 let findGeneration=0,findHits=[],findPage=0,findWords=null;
-let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,wordPatternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null;
+let sourceRecallTools=null,sourcePhraseTools=null,combinationTools=null,patternTools=null,wordPatternTools=null,voiceStudyTools=null,pronunciationTools=null,sourcePitchTools=null,syllableTimingTools=null,haftarahTools=null,recordingGroupTimingTools=null,recordingGroupWordDrafts=null,printedFitTools=null,no266FitTools=null,wordRecordingNavigator=null,wordRecordingTools=null;
 let scorePronunciation=true,scorePronunciationReport=null,scoreGroupReport=null,inspectedScoreEventId=null;
 try{const saved=JSON.parse(localStorage.getItem('tropetrain-score-pronunciation-v1'));if(typeof saved?.enabled==='boolean')scorePronunciation=saved.enabled;}catch{}
 $('score-pronunciation').checked=scorePronunciation;
@@ -446,6 +448,7 @@ function updateSelection(){
   $('alignment-status').textContent=w.sourceSyllableUnderlay?w.sourceSyllableUnderlay.status==='available'?w.sourceSyllableUnderlay.alignmentLevel==='source-reading-word'?`${w.syllables.length} source reading syllables · ${w.sourceSyllableUnderlay.sourceReadingHebrew} · word-level correspondence only; displayed Hebrew unchanged, written syllable ranges unassigned`:`${w.syllables.length} source syllables · exact written spans and stress agreed by both MAM text styles · review pending`:`Source syllable underlay unavailable: ${SOURCE_SYLLABLE_GAPS[w.sourceSyllableUnderlay.reason]}`:w.analysisStatus==='unsegmented'?'Syllable boundaries unresolved; word shown as one aligned unit.':`${w.syllables.length} draft syllables · ${w.analysisStatus==='draft-manual'?'manual fixture':'automatic analysis'} · not reader-reviewed`;
   if(w.sourceJointGroup)$('alignment-status').textContent=`${w.sourceJointGroup.syllables.length} shared source syllables · ${w.sourceJointGroup.sourceReadingHebrew} · complete group only; both written words together, no individual syllable allocation`;
   pronunciationTools?.showWord(w);
+  wordRecordingTools?.refresh();
   renderSourceSigns(w);
   renderReference();
 }
@@ -1247,6 +1250,9 @@ recordingGroupTimingTools=mountRecordingGroupWordTiming({getWords:()=>words,getC
 $('reader-pronunciation').addEventListener('change',()=>{readerPronunciation=$('reader-pronunciation').checked;try{localStorage.setItem('tropetrain-reader-pronunciation-v1',JSON.stringify({enabled:readerPronunciation}));}catch{}renderReaderPronunciation();recordingGroupTimingTools?.follow();});
 voiceStudyTools=mountVoiceStudies({beforePlay:()=>stop('Listening to a source voice study. Bible-word selection is kept.',{preserveVoiceStudy:true}),
   onOpenText:range=>libraryAction(()=>applyRanges([{id:'voice-study-text',...range,label:'Source voice-study passage'}],{readingType:'torah'}))});
+wordRecordingTools=mountWordRecordingNavigation({getWord:()=>words[state.cursor],getNavigator:()=>wordRecordingNavigator,
+  openStudy:target=>voiceStudyTools.openWordStudy(target),stop:()=>stop('Opening the selected word in a recording study. Press Play when ready.'),
+  onExample:()=>libraryAction(()=>{applyRanges([{id:'word-recording-example',bookId:'gen',start:{chapter:1,verse:1},end:{chapter:1,verse:3},label:'Word recording comparison'}],{readingType:'torah'});state.cursor=0;state.anchor=0;state.scope='word';state.readerPage=0;render();})});
 haftarahTools=mountHaftarah({beforePlay:()=>stop('Listening to a Haftarah source recording. Instrument settings and reader selection are kept.',{preserveHaftarah:true}),
   selection:()=>{const [start,end]=bounds(state.cursor,state.anchor,state.scope);return {words,start,end};},
   onOpen:sections=>libraryAction(()=>applyRanges(sections,{readingType:'haftarah'})),
@@ -1276,6 +1282,7 @@ render();renderSections();renderPickers();showPracticeRecovery();if(state.findSc
 getRepertoireCorpus().then(value=>{
   getSourcePhraseLibrary(value).then(library=>{sourcePhraseTools.setLibrary(library);exportsKey=null;updateExportSummary();}).catch(error=>sourcePhraseTools.unavailable(error));
   corpus=value;syncReadingForm('torah','gen');$('reading-type').disabled=false;$('book').disabled=false;
+  try{wordRecordingNavigator=createWordRecordingNavigator(value);wordRecordingTools.refresh();$('word-recording-example').disabled=false;}catch(error){wordRecordingTools.unavailable(error);}
   $('library-status').textContent='31 books · 606 chapters · text available offline';$('open-reading').disabled=false;
   $('source-study-open').disabled=false;
   $('baer-study-open').disabled=false;$('idelsohn-score-open').disabled=false;$('idelsohn-score-all').disabled=false;$('no266-score-open').disabled=false;$('no266-score-verse').disabled=false;$('no266-score-all').disabled=false;

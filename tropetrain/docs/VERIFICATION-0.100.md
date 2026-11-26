@@ -1,0 +1,29 @@
+# v0.100 · Exact reader word to recording comparison
+
+Software acceptance complete for this increment:901/901automated checks,103local UI checks,40corrected-distribution rechecks and20first-visit cached-reload checks. Publication/live/public upgrade checks pending. Full reconstruction ACTIVE/INCOMPLETE.
+
+1157unchanged marked reader words link to12existing source recordings across four passage ranges. No new recording, word timing proposal, approved boundary, phoneme, historical melody system or independent singing voice is added. All661retained assets/data/vendor files and112prior report results/nulls stay exact. The5-case private domain benchmark completed, including its failed silence control.
+
+The initial original check completed all source-build phases and failed one old cache-URL assertion(897/898). Corrective builds regenerated both affected source-input audits, fixed versioned first-visit navigation fallback and passed the final complete901-test suite. A fresh whole original command after this cache-only correction was not rerun; unchanged source results and571fresh input pins were verified. Normal program/index/CSS/roadmap match the earlier accepted UI bytes; current portable evidence matches84records/86links exactly.
+
+
+## 2026-11-26 · v0.100 private Torah timing-gap research
+
+Accepted/public runtime remains v0.99.0. This is a research checkpoint, not a new playable release or new accepted word timing. The source audit now binds all 807 gated Torah words: 748 in three word-count-mismatch takes, 43 in five non-increasing timing groups, and 16 in Genesis 28:4 whose original starts exceed the measured duration. Nine unmodified PocketTorah MP3s and all 3169 exact marked reader words in their catalogued ranges are pinned. Original WLC strings, Unicode marks, issue records and timestamps remain intact. No personal draft was changed.
+
+The initial source-only recognizer ran all nine full originals on one CPU thread, without a transcript prompt or sound output. A full-Torah search over all 79985 words finds a leading chapter within the catalogued book/chapter span in seven sources. Two have no reliable leading match; several others have sparse anchors. This changes the next step: do not force or publish807word locations from that pass. All model errors, null reviews and missing evidence are retained. Independent chapter agreement is diagnostic, not performance/edition/phonological approval.
+
+Source preparation checked six stereo and three mono originals. The stereo channels differ and are not claimed interchangeable. New unclipped float32 mono analysis copies retain their explicit channel conversion and the complete frame count of separately reproduced original16bit measurements; all nine older PCM/WAV hashes reproduce exactly. Original bytes remain unchanged. Soundfile and afconvert duration observations differ by at most36.99microseconds here; physical onset and browser-clock equivalence are still unreviewed.
+
+A separately verified alternate, Asael's Af Genesis Toledot-6 Asael.oga (CC BY-SA3.0, artistAsael/creditMyrecord), has2594755originalbytes/SHA2565b612c91c7b921c9de0fe18a6aefe4243b505656524445f71733353564203880. Its original audio catalog page183403/revision2898448 has a ששי heading and an empty numeric note. Linked companion text page383721/revision1006294 explicitly lists23verses, Genesis27:28–28:4, via the shared header2921/revision1386611. This is a text candidate; exact performance endpoints and edition remain unreviewed. Source-only recognition independently finds strong chapter27and28anchors, but no source or model time is approved. No original PocketTorah time is transferred to the alternate.
+
+A licensed chant-specific recognizer is being prepared for a five-case offline benchmark: two difficult opening clips, both Toldot closing clips, and a zero-signal control. The selected publisher revision is38885a17bb3c369f91c701913051655f1066e0f4, with an explicitMIT model-card label; only standard Transformers data/configuration and safetensors weights are allowed. Repository code without a license is not imported. The model card leaves training/evaluation details incomplete and reports a different metric from the institution's headline best result; do not transfer the headline accuracy to this checkpoint. Training overlap with these source recordings is possible. Predicted words, accents or token clocks must never replace original Hebrew, source timings or musical review.
+
+All21features/all6completionrequirements remain active. No new historical melody realization, complete pronunciation grammar, accepted phoneme/syllable timing or singing voice is claimed. Printing stays deferred. The current download/benchmark handles and reproducible evidence are saved in the private audit resume record; no v0.100runtime/browser acceptance or publication has occurred.
+
+
+## Local software acceptance checkpoint
+
+Target runtime0.100.0, public0.99.0unchanged. Five focused navigation tests pass, plus the new normal/portable contract is part of the still-running original full check48204. Normal53/portable50UIchecks passed, including22retained checks per app. Source preservation:661asset/data/vendorfiles exact,112prior report results/nulls exact after excluding only refreshed top-level input pins;360input-pin occurrences checked; both personal fitting source closures retain6pins. Runtime/source bytes are frozen for comparison with the final original build.
+
+The private domain benchmark completed all5cases/458.9283seconds after full3.235GBmodel verification. Silence emitted a Hebrew word; source outputs and token clocks remain research, with no new807gap hints accepted. No audio output or source-audio upload. Publicdraft/fitting/span guards, Pages/live/publicUIandcanonicalsave remain pending. Full21features/6completionrequirements remain active/incomplete.

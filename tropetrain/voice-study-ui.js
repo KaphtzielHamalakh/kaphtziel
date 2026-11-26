@@ -9,7 +9,7 @@ import {mountAsaelSourceFinder} from './asael-source-finder.js';
 export function mountVoiceStudies({beforePlay,onOpenText}){
   const $=id=>document.getElementById(id),key='tropetrain-voice-studies-v1';
   let saved;try{saved=JSON.parse(localStorage.getItem(key));}catch{}
-  const prefs=restoreVoicePreferences(saved);let record,study,runtimeRecord,loading=null,opening=false,request=0;
+  const prefs=restoreVoicePreferences(saved);let record,study,runtimeRecord,loading=null,opening=false,request=0,renderEpoch=0,timingReady=Promise.resolve();
   const media=$('voice-study-audio'),audioBase=$('voice-studies').dataset.audioBase||location.href;
   const included=VOICE_STUDIES.recordings.find(r=>r.id==='fellman-rh-2018-gen-22-1');
   const store=new ReferenceAudioStore({openingUrl:media.getAttribute('src'),includedUrls:{[included.audio.sha1]:$('voice-studies').dataset.includedVerse}});
@@ -54,8 +54,8 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     $('voice-study-position').textContent=`Source duration about ${time(record.audio.estimatedDurationSeconds)}. No word or syllable timing is assigned.`;
   }
   function render(){
-    stop();study=voiceStudy(prefs.studyId);record=voiceRecording(prefs.studyId,prefs.pronunciationId,prefs.deliveryId);runtimeRecord=voiceAudioRecord(record,audioBase);
-    playhead=null;timing.select(record,voiceCoverage(record));
+    renderEpoch++;stop();study=voiceStudy(prefs.studyId);record=voiceRecording(prefs.studyId,prefs.pronunciationId,prefs.deliveryId);runtimeRecord=voiceAudioRecord(record,audioBase);
+    playhead=null;timingReady=timing.select(record,voiceCoverage(record));
     const delivery=study.deliveries.find(d=>d.id===prefs.deliveryId);
     $('voice-study-kind').textContent=delivery.kind==='spoken'?'Spoken pronunciation study · without melody':'Chanted reference · recorded voice';
     $('voice-study-description').textContent=study.description;$('voice-study-limits').textContent=study.limits;
@@ -152,5 +152,15 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
   $('voice-study-stop').addEventListener('click',()=>{stop();$('voice-study-status').textContent='Recording stopped. Reader word selection is unchanged.';readiness();});
   $('voice-study-remove').addEventListener('click',async()=>{const selected=runtimeRecord;stop();await store.remove(selected);$('voice-study-status').textContent='Saved copy removed. Load it again when needed.';readiness();});
   $('voice-study-open').addEventListener('click',()=>{if(voiceCoverage(record))onOpenText(structuredClone(voiceCoverage(record)));});
-  return {stop,get running(){return opening||player.running||player.starting;},get loading(){return !!loading;}};
+  return {stop,async openWordStudy({word,study:target,isCurrent=()=>true}){
+    if(!isCurrent())throw Error('The selected reader word changed. Choose its recording study again.');
+    const supplied=voiceCombinations(target.id),preferred=target.recordIds.includes(record?.id)?record.id:target.recordIds[0],pair=supplied.find(p=>p.id===preferred);
+    if(!pair)throw Error('This source study does not supply the requested recording.');
+    if(prefs.studyId!==target.id||record.id!==preferred){prefs.studyId=target.id;prefs.pronunciationId=pair.pronunciationId;prefs.deliveryId=pair.deliveryId;studyOptions();populate();render();}
+    const epoch=renderEpoch;await timingReady;
+    if(epoch!==renderEpoch||!isCurrent())throw Error('The reader word or source choice changed. Open its study again.');
+    if(!timing.selectWord(word.id,word.hebrew))throw Error('This exact marked reader word is not available in the selected source draft.');
+    $('word-timing-review').open=true;$('word-timing-select').focus();
+    return {wordId:word.id,recordId:record.id,studyId:prefs.studyId};
+  },get running(){return opening||player.running||player.starting;},get loading(){return !!loading;}};
 }
