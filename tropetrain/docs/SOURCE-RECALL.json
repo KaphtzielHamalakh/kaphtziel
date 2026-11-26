@@ -221,7 +221,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "523126cafd6fcbaef52677f0af1c00fc440fdd807334b313c0dfbac4311613b3"
+      "sha256": "d2a0d997ed0f42afe56c762038f65f87664b0da498e2517541a8d64dc8cfe45c"
     },
     {
       "path": "style.css",
@@ -229,11 +229,11 @@
     },
     {
       "path": "sw.js",
-      "sha256": "4d9f8f3ebe0251c8df7034300b0195e5d07d52bdf21ced5327cfe99294614652"
+      "sha256": "76c2c955b6c77fe777e47764811123a15b1639f020064141c42d3b16aac68ca2"
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "35574a16c80d1db51e2df8c5f379f0b09800567b31fc892d224dc224042d91fc"
+      "sha256": "098d2b0fc758529db64dc81114c7b1de0634edc8d01c7db96eba37a1037ed033"
     },
     {
       "path": "data/torah/gen.json",

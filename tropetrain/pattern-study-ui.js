@@ -1,3 +1,4 @@
+import {SEPHARDIC_PATTERN_ID} from './sephardic-patterns.js';
 import {REPEAT_DEMO} from './source-repeat.js';
 import {BAER_PATTERN_ID,baerPatternWrittenPlan} from './baer-patterns.js';
 import {GRACE_DEMO} from './source-grace.js';
@@ -28,7 +29,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     setActive(rest?.id??null);$('pattern-status').textContent=`${player.repeat?`Loop ${cycle+1} · `:''}Printed rest${rest?` · component ${rest.sourceComponentNumber} · ${beatLabel(rest.beats)} quarter-note beats`:''}.`;
   },{onError:error=>{stop();$('pattern-status').textContent=`Pattern audio unavailable: ${error.message}`;}});
   function inspect(event){
-    selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation}${event.sourceVariant?' · '+event.sourceVariant.label:''} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`}${event.sourcePatternSmallEighth?' · unmeasured printed small eighth · original instrumental timing: 80 ms; source duration, ornament role and stealing ratio unassigned.':event.sourceGrace?' · unmeasured printed grace · original instrumental demonstration: 80 ms; source duration and stealing ratios remain unspecified.':` · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.`}${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''}${event.sourceFermata?' Printed fermata: the hold length is unspecified. Playback regularizes the written duration.':''}${event.sourceAccidentalEvidence?' '+event.sourceAccidentalEvidence:''} No syllable or phoneme allocation is asserted.`;
+    selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation}${event.sourceVariant?' · '+event.sourceVariant.label:''} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`}${event.sourcePatternSmallEighth?' · unmeasured printed small eighth · original instrumental timing: 80 ms; source duration, ornament role and stealing ratio unassigned.':event.sourceGrace?' · unmeasured printed grace · original instrumental demonstration: 80 ms; source duration and stealing ratios remain unspecified.':` · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.`}${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''}${event.sourceFermata?' Printed fermata: the hold length is unspecified. Playback regularizes the written duration.':''}${event.sourceAccidentalEvidence?' '+event.sourceAccidentalEvidence.replaceAll('_',' '):''} No syllable or phoneme allocation is asserted.`;
   }
   function stop(message='Printed pattern stopped.'){
     const wasRunning=player.running||starting;request++;starting=false;player.stop();setActive(null);$('pattern-status').setAttribute('aria-live','polite');
@@ -55,7 +56,8 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     $('pattern-play').textContent=unmeasured||smallCandidate?'Play timing demonstration':'Play printed pattern';
     $('pattern-settings').textContent=`Uses instrument controls above: ${state.tempo} BPM · transpose ${state.transpose>0?'+':''}${state.transpose} · instrument volume ${state.volume}%. Fixed recordings and the Bible reading’s musical source are separate.`;
     player.setVolume(state.volume/100);if(key===settingsKey)return;stop('Pattern settings changed. Press Play printed pattern to hear them.');settingsKey=key;populateContexts();
-    $('pattern-selected-source').textContent=`${row.label}. ${record.sourceKey}`;
+    $('pattern-selected-source').textContent=`${row.label}. ${typeof record.sourceKey==='object'?record.sourceKey.label:record.sourceKey}`;
+    $('sephardic-pattern-companion').hidden=sourceId!==SEPHARDIC_PATTERN_ID;
     const principle=record.notationPrinciple;$('pattern-alternatives').hidden=!principle;
     if(principle)$('pattern-preface-link').href=patternImage(principle.source.file);else $('pattern-preface-link').removeAttribute('href');
     const cells=[...new Set(record.notes.map(n=>n.cell))].map(c=>allPatternModes(sourceId).find(m=>m.id===c)?.name??c);
@@ -88,6 +90,9 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   for(const row of PRINTED_PATTERN_SOURCES){const option=document.createElement('option');option.value=row.id;option.textContent=row.label;$('pattern-source').append(option);}
   $('pattern-source').value=PRINTED_PATTERN_SOURCES.some(r=>r.id===saved?.sourceId)?saved.sourceId:PRINTED_PATTERNS.id;
   populateModes(saved?.mode??'pair');
+  const openSephardic=()=>{$('pattern-source').value=SEPHARDIC_PATTERN_ID;$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('no938-zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});};
+  $('sephardic-pattern-open').addEventListener('click',openSephardic);$('sephardic-pattern-open').disabled=false;
+  for(const a of document.querySelectorAll('a[href="#sephardic-pattern-study"]'))a.addEventListener('click',openSephardic);if(location.hash==='#sephardic-pattern-study')openSephardic();
   $('idelsohn-pattern-open').addEventListener('click',()=>{$('pattern-source').value='idelsohn-1929-vol5-no267';$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('idelsohn1929-267-zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});});
   $('pattern-source').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes($('pattern-mode').value);refresh();remember();});
   $('pattern-mode').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;refresh();remember();});
@@ -121,7 +126,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     refresh();if(!plan.length)return;const state=getSettings(),row=patternSource($('pattern-source').value,$('pattern-mode').value),record=patternEventDocument(row,$('pattern-mode').value,state,plan,writtenPlan);
     const a=$('pattern-export-link');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(record,null,2));a.hidden=false;a.click();
   });
-  for(const id of ['pattern-source','pattern-mode','pattern-stop','pattern-find'])$(id).disabled=false;
+  for(const id of ['pattern-source','pattern-mode','pattern-stop'])$(id).disabled=false;
   refresh();
   return {stop,refresh,rangeChanged,openFigure(sourceId,mode){
     if(!PRINTED_PATTERN_SOURCES.some(r=>r.id===sourceId)||!allPatternModes(sourceId).some(m=>m.id===mode))throw Error('Choose a supplied printed figure.');
