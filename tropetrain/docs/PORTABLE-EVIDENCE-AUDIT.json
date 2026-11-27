@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "app.bundle.js",
-      "sha256": "44cc1ab1f661d9d0bba9de312f6bd83bb25c572648a9250fcea36517b6934e8c"
+      "sha256": "ec18b133ad92c42f79e07017536fb63a93604d0afda3fd9e0d925711e47edebb"
     },
     {
       "path": "data/calendar/torah-verse-numbering.json",
@@ -80,7 +80,7 @@
     },
     {
       "path": "docs/COHEN-PENITENTIAL-PLAYBACK.json",
-      "sha256": "6f82a22c7129f4e24f39a5a6d8e45a7bdbdf80a73e734fe6fb3d920f37fa00de"
+      "sha256": "2a2c48f04bf2be7b602b91f155a6fe99b663ad0838ec5b66088abef2d666ef68"
     },
     {
       "path": "docs/COHEN-PENITENTIAL-SCORE.json",
@@ -124,11 +124,11 @@
     },
     {
       "path": "docs/IDELSOHN-NO266-PLAYBACK.json",
-      "sha256": "fdccc9172197401faeb955fbff3952978322720f0a0f391ca2eab5d4ac3a0d88"
+      "sha256": "6ac424f22e28f85ac35e2473c5b3b884a87a6f852f2f8bc55afa4d2beeed7554"
     },
     {
       "path": "docs/IDELSOHN-NO267-SMALL-NOTE-STUDY.json",
-      "sha256": "0e7f93ae849f1193662c01800dcf66ea9295682ecc2ac968c0a2a2cb71660dda"
+      "sha256": "9fe14806440cba06dee9171e09a05b88d73393d56f4bd486ca26504a3524e119"
     },
     {
       "path": "docs/IDELSOHN-NO268-SCORE.json",
@@ -252,7 +252,7 @@
     },
     {
       "path": "docs/RECORDING-GROUP-WORD-DRAFT.json",
-      "sha256": "ce5a722500bf22e24f7ce7d818a901db09a093fa8c4d4b0a8a6eef0d2a2af5e9"
+      "sha256": "4b4d4d6cca83e0e6317bc2ab1d744de78433a7757bc99097c9667bd47b6344ae"
     },
     {
       "path": "docs/RECORDING-TIMING-GROUPS.json",
@@ -288,7 +288,7 @@
     },
     {
       "path": "docs/SOURCE-PHRASE-PLAYBACK.json",
-      "sha256": "d4f5a7074805ff78be119a34cedeeb6cad2f90f26f5cadc0696ed4281c6c0b79"
+      "sha256": "4247d1ff2e6263b840201ca644b57e289ad69944fb7231a699815106cdd4e143"
     },
     {
       "path": "docs/SOURCE-PHRASES.json",
@@ -316,7 +316,7 @@
     },
     {
       "path": "docs/SOURCE-RECALL.json",
-      "sha256": "5fd02b9954a4d6b5968509e8b7bce68f6519850c8ae90527fe6ce7ad5799925b"
+      "sha256": "fd0cde53f520b7d7fe3fa4d7f67a3c06b355a989046f11a7d832ad593ebc6aa4"
     },
     {
       "path": "docs/SOURCE-SYLLABLE-PLAYBACK.json",
@@ -340,7 +340,7 @@
     },
     {
       "path": "docs/TORAH-OBSERVED-CUES.json",
-      "sha256": "9a867228c9a0990cec2f7b6562c346a96f830a43e103303461951d0906b7e0c6"
+      "sha256": "9b39c9f05fe8a5c3b64f9ce49229c5f5c92c6be11e4de2972b800b8069e54307"
     },
     {
       "path": "docs/VOICE-STUDIES.json",
@@ -352,23 +352,27 @@
     },
     {
       "path": "index.html",
-      "sha256": "630799a3ab4d5d7c89945c8c632fa0222c85e0f3c4370aec55cf5e3f83262bf4"
+      "sha256": "f1615a50ef1d78a71fbdbf3abff76ed64abab573d467e63d3464606b8828cb07"
     },
     {
       "path": "portable-evidence-loader.js",
       "sha256": "01a5179ffb320e27ec0aa6bb605cf6e164f040c241d6ab5f87830aea767eabc8"
     },
     {
+      "path": "portable-program-images.js",
+      "sha256": "ca32831ab0e220a4e516ef9ec8f401adffc06f4def388f41535a61fd6b16478f"
+    },
+    {
       "path": "portable-program-loader.js",
-      "sha256": "02ef7b77a1b1fb569d3a8e1da1a820ffd68cc93ce44e892c23ca40657b916717"
+      "sha256": "04e5c45d3b4556d73a9ba881b2628c9eaa6f8227113f0bf12c3a7e8491190c47"
     },
     {
       "path": "scripts/audit-portable-evidence.mjs",
-      "sha256": "9f31cb3e20e9fede81f7889102ee8b87d31c3fc9488d4b5c0eb80a3ecf7f970f"
+      "sha256": "05fca3ca6c20a3bdfbb136167966c7476da65a0e9294be219225aa30f502bd72"
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "50152ff7298db737cca6bcb9eead46927ad64808069470b6f0242dc28c1a44a6"
+      "sha256": "d6d768fa5baf7f3e2e63caa2b460abfd1e7e862d85d8d6e1442558e67d5e7ebc"
     },
     {
       "path": "scripts/pack-portable-evidence.mjs",
@@ -376,7 +380,11 @@
     },
     {
       "path": "scripts/pack-portable-program.mjs",
-      "sha256": "df452bc97869b1f6b0c3a38e7419af051ec891a70e1e7ada6f54eadfba54c1cc"
+      "sha256": "1e9ad6a3a903d936a59ac0783d10e869c43509fa4ce469945f62c753d5b5665c"
+    },
+    {
+      "path": "scripts/share-program-images.mjs",
+      "sha256": "28515fd6416bc032a980187706ca7880f02ed13e51161c849335de5f8fc9c78d"
     }
   ],
   "records": [
@@ -495,7 +503,7 @@
     {
       "id": "8",
       "bytes": 8558,
-      "sha256": "d4f5a7074805ff78be119a34cedeeb6cad2f90f26f5cadc0696ed4281c6c0b79",
+      "sha256": "4247d1ff2e6263b840201ca644b57e289ad69944fb7231a699815106cdd4e143",
       "base64Bytes": 11412,
       "links": 1,
       "canonicalSourcePaths": [
@@ -509,7 +517,7 @@
     {
       "id": "9",
       "bytes": 7359,
-      "sha256": "5fd02b9954a4d6b5968509e8b7bce68f6519850c8ae90527fe6ce7ad5799925b",
+      "sha256": "fd0cde53f520b7d7fe3fa4d7f67a3c06b355a989046f11a7d832ad593ebc6aa4",
       "base64Bytes": 9812,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1240,7 +1248,7 @@
     {
       "id": "61",
       "bytes": 10993,
-      "sha256": "ce5a722500bf22e24f7ce7d818a901db09a093fa8c4d4b0a8a6eef0d2a2af5e9",
+      "sha256": "4b4d4d6cca83e0e6317bc2ab1d744de78433a7757bc99097c9667bd47b6344ae",
       "base64Bytes": 14660,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1337,9 +1345,9 @@
     },
     {
       "id": "68",
-      "bytes": 5221,
-      "sha256": "9a867228c9a0990cec2f7b6562c346a96f830a43e103303461951d0906b7e0c6",
-      "base64Bytes": 6964,
+      "bytes": 10285,
+      "sha256": "9b39c9f05fe8a5c3b64f9ce49229c5f5c92c6be11e4de2972b800b8069e54307",
+      "base64Bytes": 13716,
       "links": 1,
       "canonicalSourcePaths": [
         "docs/TORAH-OBSERVED-CUES.json"
@@ -1380,7 +1388,7 @@
     {
       "id": "71",
       "bytes": 7569,
-      "sha256": "6f82a22c7129f4e24f39a5a6d8e45a7bdbdf80a73e734fe6fb3d920f37fa00de",
+      "sha256": "2a2c48f04bf2be7b602b91f155a6fe99b663ad0838ec5b66088abef2d666ef68",
       "base64Bytes": 10092,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1450,7 +1458,7 @@
     {
       "id": "76",
       "bytes": 9302,
-      "sha256": "fdccc9172197401faeb955fbff3952978322720f0a0f391ca2eab5d4ac3a0d88",
+      "sha256": "6ac424f22e28f85ac35e2473c5b3b884a87a6f852f2f8bc55afa4d2beeed7554",
       "base64Bytes": 12404,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1492,7 +1500,7 @@
     {
       "id": "79",
       "bytes": 10666,
-      "sha256": "0e7f93ae849f1193662c01800dcf66ea9295682ecc2ac968c0a2a2cb71660dda",
+      "sha256": "9fe14806440cba06dee9171e09a05b88d73393d56f4bd486ca26504a3524e119",
       "base64Bytes": 14224,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1593,10 +1601,10 @@
   "evidencePacketProof": {
     "format": "tropetrain-portable-evidence-v1",
     "encoding": "gzip+base64",
-    "packetBytes": 14154455,
-    "packetSha256": "df5d8c4173c11b8470f51c8710f5b14d0fd2b68b519552560aea6ae63683310f",
-    "gzipBytes": 1241492,
-    "gzipSha256": "8308d12b73c5e22924cf9d6a2e643a6f5ebd86e85be12ff03a17f8c16301ef08",
+    "packetBytes": 14161207,
+    "packetSha256": "27b63ef9eea4050d9a41a6a3c09f3be92a74729130edd7e53096bda5f0361934",
+    "gzipBytes": 1243461,
+    "gzipSha256": "78f3799d6f43e7e9435080a0713a48e7cccccb2f047f9f3d97df5b2782f46d5a",
     "linkCount": 89,
     "records": [
       {
@@ -1658,14 +1666,14 @@
       {
         "id": "8",
         "bytes": 8558,
-        "sha256": "d4f5a7074805ff78be119a34cedeeb6cad2f90f26f5cadc0696ed4281c6c0b79",
+        "sha256": "4247d1ff2e6263b840201ca644b57e289ad69944fb7231a699815106cdd4e143",
         "base64Bytes": 11412,
         "links": 1
       },
       {
         "id": "9",
         "bytes": 7359,
-        "sha256": "5fd02b9954a4d6b5968509e8b7bce68f6519850c8ae90527fe6ce7ad5799925b",
+        "sha256": "fd0cde53f520b7d7fe3fa4d7f67a3c06b355a989046f11a7d832ad593ebc6aa4",
         "base64Bytes": 9812,
         "links": 1
       },
@@ -2029,7 +2037,7 @@
       {
         "id": "61",
         "bytes": 10993,
-        "sha256": "ce5a722500bf22e24f7ce7d818a901db09a093fa8c4d4b0a8a6eef0d2a2af5e9",
+        "sha256": "4b4d4d6cca83e0e6317bc2ab1d744de78433a7757bc99097c9667bd47b6344ae",
         "base64Bytes": 14660,
         "links": 1
       },
@@ -2077,9 +2085,9 @@
       },
       {
         "id": "68",
-        "bytes": 5221,
-        "sha256": "9a867228c9a0990cec2f7b6562c346a96f830a43e103303461951d0906b7e0c6",
-        "base64Bytes": 6964,
+        "bytes": 10285,
+        "sha256": "9b39c9f05fe8a5c3b64f9ce49229c5f5c92c6be11e4de2972b800b8069e54307",
+        "base64Bytes": 13716,
         "links": 1
       },
       {
@@ -2099,7 +2107,7 @@
       {
         "id": "71",
         "bytes": 7569,
-        "sha256": "6f82a22c7129f4e24f39a5a6d8e45a7bdbdf80a73e734fe6fb3d920f37fa00de",
+        "sha256": "2a2c48f04bf2be7b602b91f155a6fe99b663ad0838ec5b66088abef2d666ef68",
         "base64Bytes": 10092,
         "links": 1
       },
@@ -2134,7 +2142,7 @@
       {
         "id": "76",
         "bytes": 9302,
-        "sha256": "fdccc9172197401faeb955fbff3952978322720f0a0f391ca2eab5d4ac3a0d88",
+        "sha256": "6ac424f22e28f85ac35e2473c5b3b884a87a6f852f2f8bc55afa4d2beeed7554",
         "base64Bytes": 12404,
         "links": 1
       },
@@ -2155,7 +2163,7 @@
       {
         "id": "79",
         "bytes": 10666,
-        "sha256": "0e7f93ae849f1193662c01800dcf66ea9295682ecc2ac968c0a2a2cb71660dda",
+        "sha256": "9fe14806440cba06dee9171e09a05b88d73393d56f4bd486ca26504a3524e119",
         "base64Bytes": 14224,
         "links": 1
       },
@@ -2208,8 +2216,8 @@
   "strictUtf8Validated": true,
   "sourceNullsAndHebrewUnchanged": true,
   "normalProgram": {
-    "bytes": 43983247,
-    "sha256": "44cc1ab1f661d9d0bba9de312f6bd83bb25c572648a9250fcea36517b6934e8c"
+    "bytes": 44093215,
+    "sha256": "ec18b133ad92c42f79e07017536fb63a93604d0afda3fd9e0d925711e47edebb"
   },
   "historicalRealizationsAdded": 0,
   "singingVoicesAdded": 0

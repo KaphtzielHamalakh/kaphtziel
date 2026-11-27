@@ -82,11 +82,90 @@
         "bytes": 30246,
         "sha256": "830827410c167f74165ec558e1461c1b6d3fdf1532201fcb7b33044b0a8d9044"
       }
+    },
+    {
+      "recordId": "pt-portion-13-1",
+      "title": "Shemot · aliyah 1",
+      "source": {
+        "id": "pt-portion-13-1",
+        "bytes": 749923,
+        "sha1": "e3b058b2e8a2d45f324176b229a283c915f63ee6",
+        "sha256": "2db44fb21930d7f435142f6cbc3c7ad2b161b7ecd3417e3f9168ec49ed07dcba",
+        "duration": 187.4808125
+      },
+      "candidateCoverage": {
+        "bookId": "exo",
+        "start": {
+          "chapter": 1,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 1,
+          "verse": 17
+        }
+      },
+      "originalTimingSourceSha256": "c67b3ad32dbfd1fef33268f4d270bb1f2968a98a587eebfd2c8e6547a5e4986d",
+      "readerWords": 181,
+      "agreedListeningCues": 12,
+      "wordsWithoutCue": 169,
+      "counts": {
+        "no-complete-ctc-letter-anchor": 169,
+        "agreed-listening-cue": 12
+      },
+      "defaultReviewWordId": "exo-1-12-9",
+      "defaultReviewHebrew": "מִפְּנֵ֖י",
+      "defaultReviewPoint": 117.0,
+      "packet": {
+        "file": "data/references/torah-observed-cues/pt-portion-13-1.json.gz",
+        "bytes": 20000,
+        "sha256": "d6838d44d9ba432c4010717fe102b814baa40546410e3bf4ea3772f45cda50c2"
+      },
+      "evidenceSetId": "remaining-count-studies-0.103"
+    },
+    {
+      "recordId": "pt-portion-26-6",
+      "title": "Shmini · aliyah 6",
+      "source": {
+        "id": "pt-portion-26-6",
+        "bytes": 1746965,
+        "sha1": "d84f259ee198b7dccc7f04538ca0b2f0df938900",
+        "sha256": "a454cdf3e568f97adfdc3b0d7583f41c517ed3a4b572de64387bbeffdd55dbd9",
+        "duration": 436.7411875
+      },
+      "candidateCoverage": {
+        "bookId": "lev",
+        "start": {
+          "chapter": 11,
+          "verse": 1
+        },
+        "end": {
+          "chapter": 11,
+          "verse": 32
+        }
+      },
+      "originalTimingSourceSha256": "6f88bfc4753fb3e8eb5b7130fd8c1a612d4b2f7b752798ad6153209ef96df544",
+      "readerWords": 385,
+      "agreedListeningCues": 82,
+      "wordsWithoutCue": 303,
+      "counts": {
+        "no-complete-ctc-letter-anchor": 302,
+        "agreed-listening-cue": 82,
+        "no-complete-whisper-letter-anchor": 1
+      },
+      "defaultReviewWordId": "lev-11-2-1",
+      "defaultReviewHebrew": "דַּבְּר֛וּ",
+      "defaultReviewPoint": 10.399999618530273,
+      "packet": {
+        "file": "data/references/torah-observed-cues/pt-portion-26-6.json.gz",
+        "bytes": 59504,
+        "sha256": "5f99486d93d25de818cae1ac45db5c01f8916dea517dfb62ce5ee44ebf89aa94"
+      },
+      "evidenceSetId": "remaining-count-studies-0.103"
     }
   ],
-  "readerWords": 517,
-  "agreedListeningCues": 61,
-  "wordsWithoutCue": 456,
+  "readerWords": 1083,
+  "agreedListeningCues": 155,
+  "wordsWithoutCue": 928,
   "rules": {
     "literalLetters": 12,
     "wholeWords": 3,
@@ -149,5 +228,74 @@
   "musicalNotes": null,
   "newVoice": null,
   "review": null,
-  "limits": "Sparse source-only research listening points, never heard onsets or word durations. Every overlapping observation retained; conflicting clocks withheld. Original text, accents and timing issues unchanged; frontend mismatch, failed chant-model silence control and training uncertainty retained. No independent pronunciation style or historical melody grammar is synthesized."
+  "limits": "Sparse source-only research listening points, never heard onsets or word durations. Every overlapping observation retained; conflicting clocks withheld. Original text, accents and timing issues unchanged; frontend mismatch, failed chant-model silence control and training uncertainty retained. No independent pronunciation style or historical melody grammar is synthesized.",
+  "evidenceSets": [
+    {
+      "id": "remaining-count-studies-0.103",
+      "sourcePack": {
+        "file": "assets/references/torah-count-studies-sources.zip",
+        "bytes": 619747,
+        "sha256": "5862c1173692c2ccf1e6c9f60605cc90f069225da0c83165884bbfa01e3bf9da"
+      },
+      "rules": {
+        "literalLetters": 12,
+        "wholeWords": 3,
+        "uniqueEightLetterWholeTorahContext": true,
+        "maxInterModelPointDifferenceSeconds": 0.75,
+        "minimumLocalRmsDbfs": -55,
+        "edgeExclusionSeconds": 0.25,
+        "overlapOccurrenceClusterDiameterSeconds": 0.75,
+        "selectCtcObservation": "most interior to its source chunk, deterministic tie by earliest chunk, never closest to whisper",
+        "retainAllClusterObservations": true,
+        "conflictingOccurrenceClusters": "withhold",
+        "listeningContextSecondsEachSide": 2
+      },
+      "models": {
+        "ctc": {
+          "id": "AladdinChen/trans-local-speech-models",
+          "revision": "0e71ea441210e387a1b8b997a8481bb0b73e1baa",
+          "license": "MIT"
+        },
+        "whisper": {
+          "id": "cantillation/Teamim-large-v3-turbo_WeightDecay-0.005_Augmented_WithSRT_date-15-04-2025",
+          "revision": "38885a17bb3c369f91c701913051655f1066e0f4",
+          "license": "MIT-model-card"
+        }
+      },
+      "controls": [
+        {
+          "family": "ctc",
+          "case": "zero-signal-control",
+          "rawModelText": "",
+          "rawHebrewLetters": "",
+          "literalAnchorCount": 0,
+          "rawTokenCount": 4,
+          "sha256": "758c159f6dfd2ca761e10a66da8da38712b493d332c4c240ee12d0ea5a304d1d"
+        },
+        {
+          "family": "ctc",
+          "case": "seeded-noise-control",
+          "rawModelText": "",
+          "rawHebrewLetters": "",
+          "literalAnchorCount": 0,
+          "rawTokenCount": 8,
+          "sha256": "3b5bea680a9114501794ee0cffd597a750b71747b442aa837bf3be894f83059e"
+        },
+        {
+          "family": "whisper",
+          "case": "zero-signal-control",
+          "rawModelText": "בשֽר׃",
+          "rawHebrewLetters": "בשר",
+          "literalAnchorCount": 0,
+          "rawTokenCount": 11,
+          "sha256": "a6b7cfd177a048ca0b0108878167ca27585c18bad9f5228ca6c6b42da4de58cc"
+        }
+      ],
+      "readerWords": 566,
+      "agreedListeningCues": 94,
+      "wordsWithoutCue": 472,
+      "priorFailedSilenceControl": "בשֽר׃",
+      "old807TimingGatesChanged": false
+    }
+  ]
 }

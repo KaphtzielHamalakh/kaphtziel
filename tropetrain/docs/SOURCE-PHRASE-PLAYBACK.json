@@ -291,7 +291,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "630799a3ab4d5d7c89945c8c632fa0222c85e0f3c4370aec55cf5e3f83262bf4"
+      "sha256": "f1615a50ef1d78a71fbdbf3abff76ed64abab573d467e63d3464606b8828cb07"
     },
     {
       "path": "music.js",
@@ -303,11 +303,11 @@
     },
     {
       "path": "sw.js",
-      "sha256": "8f2748732f51be8ddb39d70ef0254c7c685cb167c59bfe48f8ff8bbba4ce9638"
+      "sha256": "7228c251dfa465135601a74e3991dd1a80e1bb0b3a4204d6f78418cc55b073a0"
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "50152ff7298db737cca6bcb9eead46927ad64808069470b6f0242dc28c1a44a6"
+      "sha256": "d6d768fa5baf7f3e2e63caa2b460abfd1e7e862d85d8d6e1442558e67d5e7ebc"
     },
     {
       "path": "assets/structure/oshb-torah-source.zip",

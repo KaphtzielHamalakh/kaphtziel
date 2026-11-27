@@ -4,11 +4,13 @@ import json,hashlib,zipfile,gzip,sys,math,re
 ROOT=Path(__file__).resolve().parent.parent
 PACK=ROOT/'assets/references/torah-observed-cues-sources.zip'
 PACK_SHA='e7ca0ae5a56b90101122a249c2267075fc44189a62bcb2b62a6ca4e44438713a'
+COUNT_PACK=ROOT/'assets/references/torah-count-studies-sources.zip'
+COUNT_PACK_SHA='5862c1173692c2ccf1e6c9f60605cc90f069225da0c83165884bbfa01e3bf9da'
 sha=lambda b:hashlib.sha256(b).hexdigest();encode=lambda v:(json.dumps(v,ensure_ascii=False,indent=2,allow_nan=False)+'\n').encode()
-def generate():
- raw=PACK.read_bytes();assert sha(raw)==PACK_SHA
+def generate(*,pack=PACK,pack_sha=PACK_SHA,record_ids=('pt-portion-20-3','pt-portion-13-7'),expected_families=(51,25)):
+ raw=pack.read_bytes();assert sha(raw)==pack_sha
  outputs={};records=[]
- with zipfile.ZipFile(PACK)as z:
+ with zipfile.ZipFile(pack)as z:
   manifest=json.loads(z.read('manifest.json'));assert manifest['format']=='tropetrain-torah-observed-cues-source-pack-v1'and manifest['readerWords']==79985 and manifest['noAudioOrWeights']is True
   assert manifest['storageFormat']=='exact-utf8-files-json-v1';container=z.read('files.json');assert len(container)==manifest['filesContainer']['bytes']and sha(container)==manifest['filesContainer']['sha256'];files=json.loads(container);assert set(files)=={f['file']for f in manifest['files']}
   get=lambda name:files[name].encode('utf8')
@@ -22,10 +24,10 @@ def generate():
    if not f['file'].startswith('observations/')or f['file'].endswith('/recipe.json'):continue
    v=json.loads(get(f['file']));family=f['file'].split('/')[1];family_counts[family]+=1;assert v['complete']and v['expectedTranscript']is None and v['recognitionPrompt']is None and v['knownPassageSentToDecoder']is False
    raw_values[f['sha256']]=v
-  assert family_counts=={'ctc':51,'whisper':25}
+  assert family_counts=={'ctc':expected_families[0],'whisper':expected_families[1]}
   reference=json.loads(gzip.decompress((ROOT/'data/references/torah-library.json.gz').read_bytes()));by_id={r['id']:r for r in reference['recordings']}
   shared_models=None;shared_controls=None
-  for rid in ['pt-portion-20-3','pt-portion-13-7']:
+  for rid in record_ids:
    v=json.loads(get('studies/'+rid+'.json'));r=by_id[rid];assert r==json.loads(get('reference-records/'+rid+'.json'))
    bindings=json.loads(get('reader-bindings/'+rid+'.json'));assert v['source']['sha1']==r['audio']['sha1']and v['source']['bytes']==r['audio']['bytes']and v['candidateCoverage']==r['coverage']==bindings['catalogCoverage']
    assert sha(get('original-timings/'+rid+'.txt'))==r['timingSource']['sha256'];assert v['source']['sha256']==bindings['sourceOriginalSha256']
@@ -63,12 +65,26 @@ def generate():
    original=raw_values[control['sha256']];assert original['identity']['recordId']is None and original['rawModelText']==control['rawModelText'];assert control['literalAnchorCount']==0
    if control['family']=='ctc':assert control['rawHebrewLetters']==''
   old_zero=json.loads(get('research/prior-failed-zero-control.json'));assert old_zero['rawModelText']=='בשֽר׃'
-  report={'format':'tropetrain-torah-observed-cues-summary-v1','status':'unreviewed-listening-cues','sourcePack':{'file':str(PACK.relative_to(ROOT)),'bytes':len(raw),'sha256':PACK_SHA},'records':records,'readerWords':sum(r['readerWords']for r in records),'agreedListeningCues':sum(r['agreedListeningCues']for r in records),'wordsWithoutCue':sum(r['wordsWithoutCue']for r in records),'rules':rules,'models':shared_models,'controls':shared_controls,'priorFailedSilenceControl':old_zero['rawModelText'],'old807TimingGatesChanged':False,'acceptedWordTimes':None,'phonemes':None,'syllableAlignment':None,'musicalNotes':None,'newVoice':None,'review':None,'limits':'Sparse source-only research listening points, never heard onsets or word durations. Every overlapping observation retained; conflicting clocks withheld. Original text, accents and timing issues unchanged; frontend mismatch, failed chant-model silence control and training uncertainty retained. No independent pronunciation style or historical melody grammar is synthesized.'}
+  report={'format':'tropetrain-torah-observed-cues-summary-v1','status':'unreviewed-listening-cues','sourcePack':{'file':str(pack.relative_to(ROOT)),'bytes':len(raw),'sha256':pack_sha},'records':records,'readerWords':sum(r['readerWords']for r in records),'agreedListeningCues':sum(r['agreedListeningCues']for r in records),'wordsWithoutCue':sum(r['wordsWithoutCue']for r in records),'rules':rules,'models':shared_models,'controls':shared_controls,'priorFailedSilenceControl':old_zero['rawModelText'],'old807TimingGatesChanged':False,'acceptedWordTimes':None,'phonemes':None,'syllableAlignment':None,'musicalNotes':None,'newVoice':None,'review':None,'limits':'Sparse source-only research listening points, never heard onsets or word durations. Every overlapping observation retained; conflicting clocks withheld. Original text, accents and timing issues unchanged; frontend mismatch, failed chant-model silence control and training uncertainty retained. No independent pronunciation style or historical melody grammar is synthesized.'}
   outputs['docs/TORAH-OBSERVED-CUES.json']=encode(report);outputs['torah-observed-cues-summary.js']=('// Generated source-only research evidence; no approved word timings.\nexport const TORAH_OBSERVED_CUES='+json.dumps(report,ensure_ascii=False,separators=(',',':'))+';\n').encode()
  return outputs
-outputs=generate()
-if '--check'in sys.argv:
- for name,b in outputs.items():assert (ROOT/name).read_bytes()==b,name+' is stale'
-else:
- for name,b in outputs.items():p=ROOT/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
-print('Source listening cues reproduced; unchanged marked words, original clocks, null boundaries and retained controls.')
+def generate_all():
+ outputs=generate();original=json.loads(outputs['docs/TORAH-OBSERVED-CUES.json'])
+ extra=generate(pack=COUNT_PACK,pack_sha=COUNT_PACK_SHA,record_ids=('pt-portion-13-1','pt-portion-26-6'),expected_families=(55,27))
+ second=json.loads(extra['docs/TORAH-OBSERVED-CUES.json']);owner='remaining-count-studies-0.103'
+ report={**original,'records':original['records']+[{**r,'evidenceSetId':owner}for r in second['records']],
+  'evidenceSets':[{'id':owner,**{k:second[k]for k in ['sourcePack','rules','models','controls','readerWords','agreedListeningCues','wordsWithoutCue','priorFailedSilenceControl','old807TimingGatesChanged']}}]}
+ for key in ['readerWords','agreedListeningCues','wordsWithoutCue']:report[key]=original[key]+second[key]
+ for name,b in extra.items():
+  if name not in ['docs/TORAH-OBSERVED-CUES.json','torah-observed-cues-summary.js']:
+   assert name not in outputs;outputs[name]=b
+ outputs['docs/TORAH-OBSERVED-CUES.json']=encode(report)
+ outputs['torah-observed-cues-summary.js']=('// Generated source-only research evidence; no approved word timings.\nexport const TORAH_OBSERVED_CUES='+json.dumps(report,ensure_ascii=False,separators=(',',':'))+';\n').encode()
+ return outputs
+if __name__=='__main__':
+ outputs=generate_all()
+ if '--check'in sys.argv:
+  for name,b in outputs.items():assert (ROOT/name).read_bytes()==b,name+' is stale'
+ else:
+  for name,b in outputs.items():p=ROOT/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
+ print('Source listening cues reproduced; unchanged marked words, original clocks, null boundaries and separate retained controls for each experiment.')
