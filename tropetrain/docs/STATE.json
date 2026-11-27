@@ -3,8 +3,8 @@
   "updated": "2026-11-27",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "f912bc6a23e60df2f983b5617157a56e899ab76b",
-  "nextTask": "Publish tested107app-only increment using fresh connected main lease; verify all Pages jobs/live bytes/both public editions and full practice exports; save complete canonical build and final records. Then continue source-backed contextual word/stress underlay and pronunciation/voice evidence before printing. No complete musical grammar, reviewed underlay or independent singing voice is claimed.",
+  "publishedCommit": "35af1e8b566d740ac429f34ee0b655b8f9ea0f34",
+  "nextTask": "Continue source-backed contextual Bible-word/stress/syllable underlay and reusable pronunciation/voice evidence. Preserve independently styled pronunciation data, existing Hebrew/accents/source ownership, all recorded studies and source boundaries. No automatic arbitrary-word melody rule or new singing voice without evidence/review. Printing waits; full21feature/sixrequirement goal active.",
   "lastPassingTests": {
     "version": "0.107.0",
     "automated": 972,
@@ -19,7 +19,7 @@
     "sourceFocusedTests": 43,
     "transportFocusedTests": 28,
     "localUiChecks": 396,
-    "publicUiChecks": null,
+    "publicUiChecks": 396,
     "perEditionFunctionalChecks": 198,
     "newPatternRoutesPerEdition": 42,
     "newComponentInspectionsPerEdition": 303,
@@ -47,7 +47,12 @@
     "allMediaStoppedAndMuted": true,
     "actualNativeWavFilesPerEdition": 13,
     "browserCancellationActuallyInFlightObserved": false,
-    "newSingingVoices": 0
+    "newSingingVoices": 0,
+    "publicDraftExportsPreservedPerEdition": 15,
+    "publicCanonicalFittingsPreservedPerEdition": 2,
+    "publicListeningBookmarksPreservedPerEdition": 7,
+    "liveFilesExact": 48,
+    "liveDecodedBytesExact": 152188186
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -196,15 +201,15 @@
     }
   },
   "lastDeployment": {
-    "commit": "f912bc6a23e60df2f983b5617157a56e899ab76b",
-    "pagesRun": 46066177652,
-    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46066177652",
+    "commit": "35af1e8b566d740ac429f34ee0b655b8f9ea0f34",
+    "pagesRun": 46075267901,
+    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46075267901",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "all53ChangedLiveFilesExact": true,
-    "publicUiChecks": 354,
-    "privateCodeCommit": "c052c24bf9a0226d7669a937ba9fb9893e06e1be",
-    "testedAppTree": "548fc30942529a8e36148647eaff70798e863899",
+    "all48ChangedLiveFilesExact": true,
+    "publicUiChecks": 396,
+    "privateCodeCommit": "a8228e861201b62173738b172b7ac001f8cfc91f",
+    "testedAppTree": "10fe384f4335666ac0fc0fb0dc606e9e7d374c30",
     "finalReleaseRecordPublication": "separate metadata follow-up; exact final receipt retained outside the app"
   },
   "corpusImport": {
@@ -1121,7 +1126,7 @@
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
-  "lastPublishedIteration": "0.106.0",
+  "lastPublishedIteration": "0.107.0",
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
     "publicRuntimeVersion": "0.52.0",
@@ -3442,7 +3447,7 @@
   },
   "currentCandidate": {
     "version": "0.107.0",
-    "status": "local_accepted_publication_pending",
+    "status": "published_public396_accepted",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4527,7 +4532,7 @@
     "liveDecodedBytesExact": 152300652
   },
   "privateV107Development": {
-    "status": "local_accepted_publication_pending",
+    "status": "published_public396_accepted",
     "basePrivateCommit": "a2e592bb57e1ed4bd355aca103e43f38f3c93a02",
     "baseAppTree": "58846b33d8bcb79b965fc6b95fdaea4daa5fdb52",
     "old149NotesAnd22FiguresExact": true,
@@ -4556,7 +4561,7 @@
       "curlExitAfterStop": 7
     },
     "fullBuild": "passed972",
-    "publication": "next",
+    "publication": "published_verified",
     "sourceFocusedTests": 43,
     "sourceMetadataCorrection": "Pazer measured beats are3.75per path, not the sum6.25of mutually exclusive logical components. Actual playback plans unchanged.",
     "localUiChecks": 396,
@@ -4575,6 +4580,126 @@
       "drafts": 15,
       "fittings": 2,
       "bookmarks": 7
-    }
+    },
+    "publicUiChecks": 396
+  },
+  "acceptedV107PassingTests": {
+    "version": "0.107.0",
+    "automated": 972,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "buildSucceeded": true,
+    "allOriginalSourceBuildPhasesCompleted": true,
+    "fullCommand": "npm run check",
+    "fullCheckSession": 41726,
+    "fullCheckExit": 0,
+    "sourceFocusedTests": 43,
+    "transportFocusedTests": 28,
+    "localUiChecks": 396,
+    "publicUiChecks": 396,
+    "perEditionFunctionalChecks": 198,
+    "newPatternRoutesPerEdition": 42,
+    "newComponentInspectionsPerEdition": 303,
+    "uniqueNewComponents": 236,
+    "cacheUiChecks": 92,
+    "networkingDisabledForCacheTest": false,
+    "portableCanonicalRecords": 90,
+    "portableCanonicalLinks": 93,
+    "sourceImagesExact": 3,
+    "fullResolutionLinksExact": 6,
+    "newSourceCropsExact": 6,
+    "physicalPortableHeadroomBytes": 4736600,
+    "reserveBytes": 4194304,
+    "retainedAssetDataVendorFilesExact": 691,
+    "priorRevisedManualExactInArchive": true,
+    "priorReportResultsAndNullsExact": 116,
+    "reportInputPins": 405,
+    "protectedAlgorithmsExact": 20,
+    "oldCueWordStatesExhaustivelyRepeated": false,
+    "oldCompanionAndToldotWordStatesExhaustivelyRepeated": false,
+    "localManualFixtureChecks": 0,
+    "localDraftExportsAfterCacheExact": 15,
+    "localFullFittingExportsAfterCacheExact": 2,
+    "localListeningBookmarksAfterCacheExact": 7,
+    "allMediaStoppedAndMuted": true,
+    "actualNativeWavFilesPerEdition": 13,
+    "browserCancellationActuallyInFlightObserved": false,
+    "newSingingVoices": 0,
+    "publicDraftExportsPreservedPerEdition": 15,
+    "publicCanonicalFittingsPreservedPerEdition": 2,
+    "publicListeningBookmarksPreservedPerEdition": 7,
+    "liveFilesExact": 48,
+    "liveDecodedBytesExact": 152188186
+  },
+  "publicV107Acceptance": {
+    "version": "0.107.0",
+    "connectedCodeCommit": "35af1e8b566d740ac429f34ee0b655b8f9ea0f34",
+    "checks": 396,
+    "perEdition": 198,
+    "counts": {
+      "normal": {
+        "patterns": 63,
+        "wav": 22,
+        "navigation": 25,
+        "toldot": 14,
+        "companion": 19,
+        "cues": 29,
+        "opening": 5,
+        "passages": 16,
+        "withheld": 5
+      },
+      "portable": {
+        "patterns": 63,
+        "wav": 22,
+        "navigation": 25,
+        "toldot": 14,
+        "companion": 19,
+        "cues": 29,
+        "opening": 5,
+        "passages": 16,
+        "withheld": 5
+      }
+    },
+    "newRoutesPerEdition": 42,
+    "noteRestMembershipsEach": 303,
+    "uniqueSourceComponents": 236,
+    "sourceEvidenceEach": 14,
+    "uiJsonExportsEach": 9,
+    "actualNativeOfflineWavsEach": 13,
+    "canonicalRecords": 90,
+    "canonicalLinks": 93,
+    "retainedImages": 3,
+    "fullResolutionLinks": 6,
+    "all15CompleteDrafts2FullFittings7BookmarksExactBothEditions": true,
+    "manualBoundaryFittingImportClearOrBookmarkEdits": false,
+    "old657Companion358Toldot1083CueStatesNewlyExhaustive": false,
+    "allLiveAudioMutedStopped": true,
+    "devicePlayback": false,
+    "publicDeliverable": "28",
+    "ownClosed": [
+      "25",
+      "26",
+      "27",
+      "29"
+    ],
+    "protected": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "9",
+      "14",
+      "22"
+    ],
+    "screenshot": "public-v107-third-row-score.jpg",
+    "newMusicalReview": null,
+    "newWordFitting": null,
+    "newSingingVoice": null,
+    "pagesRun": 46075267901,
+    "allThreeJobsSucceeded": true,
+    "liveFilesExact": 48,
+    "liveDecodedBytesExact": 152188186
   }
 }
