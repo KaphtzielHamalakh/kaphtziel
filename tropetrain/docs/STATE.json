@@ -3,8 +3,8 @@
   "updated": "2026-11-27",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "84545b8107e6315a8df159c2f5db96ee6cb83706",
-  "nextTask": "Publish the locally accepted0.106app-only increment through connected GitHub/freshmain expectedSHA lease; verify Pages/jobs/exact live bytes/public normal+portable177checks each and15drafts/2fullfittings/7bookmarks. Save full canonical build and finalrelease records. Then continue seven unresolved source figures, contextual word/stress/syllable fitting and sourced independent pronunciation research. Full21features/sixrequirements active; printing deferred; privatevoice labs frozen.",
+  "publishedCommit": "f912bc6a23e60df2f983b5617157a56e899ab76b",
+  "nextTask": "Continue seven explicitly unresolved third-row notation figures using the pinned native institutional sources, then contextual Bible-word/stress/syllable fitting with independent musical evidence; retain all29source columns and existing first/second-row realizations. Continue reusable independent pronunciation/singing research without reopening frozen privatevoice labs or advertising unsupported voices. Before adding larger data, preserve every source/evidence byte and unchanged4MiBportable reserve;106has164831bytes above reserve. Keep full21features/sixrequirements active; printing deferred. Resume exact published/canonical records from current audit.",
   "lastPassingTests": {
     "version": "0.106.0",
     "automated": 957,
@@ -18,7 +18,7 @@
     "fullCheckExit": 0,
     "focusedTests": 102,
     "localUiChecks": 354,
-    "publicUiChecks": "pending",
+    "publicUiChecks": 354,
     "perEditionFunctionalChecks": 177,
     "newPatternRoutesPerEdition": 28,
     "withheldSourceChoicesPerEdition": 7,
@@ -44,7 +44,12 @@
     "localListeningBookmarksAfterCacheExact": 7,
     "allMediaStoppedAndMuted": true,
     "nativeBrowserWavChecksPerEdition": 13,
-    "browserCancellationActuallyInFlightObserved": false
+    "browserCancellationActuallyInFlightObserved": false,
+    "publicDraftExportsPreservedPerEdition": 15,
+    "publicCanonicalFittingsPreservedPerEdition": 2,
+    "publicListeningBookmarksPreservedPerEdition": 7,
+    "liveFilesExact": 53,
+    "liveDecodedBytesExact": 152300652
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -193,13 +198,16 @@
     }
   },
   "lastDeployment": {
-    "version": "0.105.0",
-    "commit": "84545b8107e6315a8df159c2f5db96ee6cb83706",
-    "url": "https://kaphtziel.com/tropetrain/?v=0.105.0#baer-second-pattern-study",
-    "pagesRun": 46056364251,
-    "pagesConclusion": "success",
-    "outsideRootEntriesPreserved": 41,
-    "publicAccepted": true
+    "commit": "f912bc6a23e60df2f983b5617157a56e899ab76b",
+    "pagesRun": 46066177652,
+    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46066177652",
+    "status": "success",
+    "allThreeJobsSucceeded": true,
+    "all53ChangedLiveFilesExact": true,
+    "publicUiChecks": 354,
+    "privateCodeCommit": "c052c24bf9a0226d7669a937ba9fb9893e06e1be",
+    "testedAppTree": "548fc30942529a8e36148647eaff70798e863899",
+    "finalReleaseRecordPublication": "separate metadata follow-up; exact final receipt retained outside the app"
   },
   "corpusImport": {
     "books": 5,
@@ -223,7 +231,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "v0.104 accepted:931automated,240local/240publicfunctional,21localmanual/38stopped-previewcache checks.657newmarkedwords/sevenpages peredition; thirteen old draft exports/two fullfittings/sevenbookmarks exact. Complete musical and singing-voice review pending.",
+  "workingIteration": "0.106.0",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -1115,13 +1123,7 @@
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
-  "lastPublishedIteration": {
-    "version": "0.104.0",
-    "codeCommit": "9294f9d794f374ac6f1b4d06d44fec115109e9c1",
-    "tests": 931,
-    "voiceAccepted": false,
-    "fullObjective": "active_incomplete"
-  },
+  "lastPublishedIteration": "0.106.0",
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
     "publicRuntimeVersion": "0.52.0",
@@ -3442,7 +3444,7 @@
   },
   "currentCandidate": {
     "version": "0.106.0",
-    "status": "local_accepted_957automated_354browser_92cache_publication_pending",
+    "status": "published_and_public_browser_verified",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4411,7 +4413,7 @@
         "roadmapFeatures": 21,
         "completionRequirements": 6
       },
-      "publication": "pending"
+      "publication": "published_and_public_verified"
     }
   },
   "baerThirdSettingPatterns": {
@@ -4430,5 +4432,50 @@
     "phonemes": null,
     "singingVoice": null,
     "record": "docs/BAER-NO105-THIRD-PATTERNS.json"
+  },
+  "publicV106Acceptance": {
+    "codeCommit": "f912bc6a23e60df2f983b5617157a56e899ab76b",
+    "pagesRun": 46066177652,
+    "allThreeJobsSucceeded": true,
+    "liveChangedFiles": 53,
+    "liveDecodedBytes": 152300652,
+    "perEditionFunctionalChecks": 177,
+    "publicTotalChecks": 354,
+    "sourceRoutesPerEdition": 28,
+    "withheldChoicesPerEdition": 7,
+    "componentInspectionsPerEdition": 177,
+    "uniqueComponents": 149,
+    "portableCanonicalRecords": 89,
+    "portableLinks": 92,
+    "retainedCompleteImages": 3,
+    "retainedFullResolutionLinks": 6,
+    "retainedResearchAssets": 6,
+    "newSourceNoticeExact": true,
+    "nativeBrowserWavChecksPerEdition": 13,
+    "actualEndingPcmFrames": 149625,
+    "actualEndingWavBytes": 299294,
+    "sampleRate": 22050,
+    "allWrittenRestsDigitallySilent": true,
+    "pronunciationAndRangeDoNotChangePcm": true,
+    "newSingingVoices": 0,
+    "all15Drafts2Fittings7BookmarksExactBothEditions": true,
+    "allAudioStoppedMuted": true,
+    "ownDeliverableTab": "22",
+    "closedOwnTabs": [
+      "19",
+      "20",
+      "21",
+      "23"
+    ],
+    "protectedTabs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "9",
+      "14"
+    ],
+    "all21Features6RequirementsActive": true
   }
 }
