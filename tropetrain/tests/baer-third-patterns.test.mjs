@@ -13,8 +13,8 @@ import {renderWav} from '../wav.js';
 import {availablePatternModes,patternContextChoices,printedPatternPlan,PRINTED_PATTERN_SOURCES} from '../printed-patterns.js';
 import {wordPatternCatalogue} from '../word-pattern-lookups.js';
 const data=row.record,read=p=>readFileSync(new URL('../'+p,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),p=(id,o={})=>plan(id,{tempo:60,transpose:0,...o});
-test('all29third-row columns remain in the private inventory; unresolved7supply no fabricated routes, fitting or voices',()=>{
- assert.equal(data.figures.length,29);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,21);assert.equal(data.figures.filter(f=>f.status==='unmeasured-grace').length,1);assert.equal(data.figures.filter(f=>f.status==='unresolved-route').length,7);assert.equal(data.notes.length,149);assert.equal(modes().length,35);assert.deepEqual(data.figures.map(f=>f.id),parent.record.figures.map(f=>f.id));
+test('all29third-row columns have unreviewed literal routes; unknown choices supply no fitting or voices',()=>{
+ assert.equal(data.figures.length,29);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(data.figures.filter(f=>f.status==='unmeasured-grace').length,2);assert.equal(data.figures.filter(f=>f.status==='unresolved-route').length,0);assert.equal(data.notes.length,236);assert.equal(modes().length,42);assert.deepEqual(data.figures.map(f=>f.id),parent.record.figures.map(f=>f.id));assert.throws(()=>p('not-a-source-figure',{graceDemo:true,repeatDemo:true}));
  for(const f of data.figures.filter(f=>f.status==='unresolved-route')){assert.equal(f.realizedComponents,0);assert.equal(f.coherentMonophonicRoutes,0);assert.match(f.pending,/require|inspect|resolution|resolved/i);assert.throws(()=>p(f.id,{graceDemo:true,repeatDemo:true}),/awaits literal notation/);}
  for(const k of['review','wordApplication','pronunciation','syllableUnderlay','phonemes'])assert.equal(data[k],null);assert.deepEqual(data.matchingQueries,{});assert(data.figures.every(f=>f.sourceSetting==='3. W.'&&f.review===null&&f.wordApplication===null));
 });
@@ -33,7 +33,7 @@ test('Segol sharp belongs only to its lower alternative; plainMunah keeps ordina
 test('every resolved route retains monophonic clocks and null word/phoneme fields; unmeasured grace timing remains opt-in and independent',()=>{
  let routes=0;
  for(const m of modes().filter(m=>m.status!=='unresolved-route')){if(m.status==='unmeasured-grace')assert.throws(()=>p(m.id),/unmeasured|timing review/);const a=p(m.id,{graceDemo:true}),b=p(m.id,{graceDemo:true,tempo:120,transpose:1});routes++;assert.equal(a.length,b.length);validatePlan(a);validatePlan(b);for(let i=0;i<a.length;i++){assert.equal(b[i].id,a[i].id);assert.equal(b[i].midi,a[i].midi+1);assert.deepEqual(b[i].sourcePitch,a[i].sourcePitch);for(const k of['wordId','sourceWordId','syllableId','syllable','phonemes'])assert.equal(a[i][k],null);assert.equal(b[i].durationSeconds,a[i].sourceGrace?.kind==='unmeasured'?.08:a[i].durationSeconds/2);}}
- assert.equal(routes,28);
+ assert.equal(routes,42);
 });
 test('new equal-pitch printed ties retain source components and hold attacks; all interior/final rests remain exact',async()=>{
  const q=p('telisha-qetana'),ending=p('section-ending');assert.equal(q.length,7);assert.equal(soundingNotes(q).length,6);assert(q.at(-2).tieStart&&q.at(-1).tieStop);assert.equal(q.at(-1).midi,60);assert.equal(printedPatternBeats(q),5.25);
@@ -48,8 +48,8 @@ test('all38first-setting and35second-setting accepted event plans remain exact',
  const a=baerPatternModes().map(m=>({mode:m.id,plan:baerPatternPlan(m.id,{tempo:60,transpose:0,graceDemo:true,repeatDemo:true})})),b=baerSecondPatternModes().map(m=>({mode:m.id,plan:baerSecondPatternPlan(m.id,{tempo:60,transpose:0,graceDemo:true})}));assert.equal(a.length,38);assert.equal(b.length,35);assert.equal(sha(JSON.stringify(a)),'afd9a5f31d41ea34a4023132d977207d9445f992bd1893d77637616984bd249f');assert.equal(sha(JSON.stringify(b)),'3d3d652173deaaa6d72ea20dfba2fae5477e785501b9f564d5254c8ac5c9b42b');assert.equal(sha(JSON.stringify([...a,...b].map(({mode,plan})=>({mode,sounding:soundingNotes(plan)})))),'3e629a1312d21fe55c79bc59ae4c13f3e139f2ef978e3f249b9f4004c6ca297a');
 });
 
-test('third-row catalogue choices remain manual, all seven gaps fail closed and every prior lookup/unmapped entry remains exact',()=>{
- const id=row.id,c=wordPatternCatalogue();assert.equal(PRINTED_PATTERN_SOURCES.find(r=>r.id===id)?.id,id);assert.equal(availablePatternModes(id).length,27);assert.equal(availablePatternModes(id,{graceDemo:true}).length,28);
- assert.equal(c.entries.length,82);assert.equal(sha(JSON.stringify(c.entries)),'f4020aa821e5b248c641d947753575d179b6f0586f64b36196fc5aeabb567824');assert.equal(sha(JSON.stringify(c.unmapped.slice(0,97))),'555a6bdcf842c93237ef8e3888e097306d1ca7cff7dad404f6736b9a58014838');assert.equal(c.unmapped.length,132);assert(c.unmapped.slice(97).every(x=>x.sourceId===id));
+test('third-row catalogue choices remain manual, unmeasured graces fail closed and every prior lookup/unmapped entry remains exact',()=>{
+ const id=row.id,c=wordPatternCatalogue();assert.equal(PRINTED_PATTERN_SOURCES.find(r=>r.id===id)?.id,id);assert.equal(availablePatternModes(id).length,39);assert.equal(availablePatternModes(id,{graceDemo:true}).length,42);
+ assert.equal(c.entries.length,82);assert.equal(sha(JSON.stringify(c.entries)),'f4020aa821e5b248c641d947753575d179b6f0586f64b36196fc5aeabb567824');assert.equal(sha(JSON.stringify(c.unmapped.slice(0,97))),'555a6bdcf842c93237ef8e3888e097306d1ca7cff7dad404f6736b9a58014838');assert.equal(c.unmapped.length,139);assert(c.unmapped.slice(97).every(x=>x.sourceId===id));
  for(const m of modes()){assert.deepEqual(patternContextChoices(id,m.id),[]);if(m.status==='unresolved-route'){assert(!availablePatternModes(id,{graceDemo:true,repeatDemo:true,smallPatternDemo:true}).some(x=>x.id===m.id));assert.throws(()=>printedPatternPlan(m.id,{sourceId:id,graceDemo:true,repeatDemo:true}),/awaits literal notation/);}else assert.deepEqual(printedPatternPlan(m.id,{sourceId:id,tempo:60,transpose:0,graceDemo:true}),p(m.id,{graceDemo:true}));}
 });

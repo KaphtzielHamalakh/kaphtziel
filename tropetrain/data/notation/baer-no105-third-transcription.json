@@ -1,6 +1,6 @@
 {
   "format": "tropetrain-baer-third-setting-transcription-v1",
-  "status": "unreviewed-literal-study-with-unresolved-figures",
+  "status": "unreviewed-literal-study-all-ordinary-figures-with-explicit-unmeasured-graces",
   "sourceSetting": "3. W.",
   "parentSecondSetting": {
     "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
@@ -83,21 +83,33 @@
     },
     {
       "page": 34,
-      "file": "baer-no105-third-p34.png",
+      "file": "baer-no105-third-p34-complete.png",
       "rect": [
         200,
         1010,
         2800,
-        1210
+        1275
       ],
-      "bytes": 150353,
-      "sha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc",
+      "bytes": 195373,
+      "sha256": "019c59d252912b3c2ee0a20f91fb22442641d061fb8c564bbaa3192ba630ee5a",
       "mode": "L",
       "size": [
         2600,
         200
       ],
-      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+      "derivation": "Lossless unretouched grayscale crop from pinned3000px institutional raster; bottom extended to1275to retain the entire lower Darga slur. Adjacent staff fragments remain context. Prior excerpt and exact source revision are retained.",
+      "previousExcerpt": {
+        "file": "assets/scores/baer-no105-third-p34.png",
+        "bytes": 150353,
+        "sha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc",
+        "rect": [
+          200,
+          1010,
+          2800,
+          1210
+        ],
+        "reason": "Earlier lower boundary crossed the previously unresolved Darga slur; original bytes retained in revision1source delta."
+      }
     },
     {
       "page": 35,
@@ -665,19 +677,138 @@
     },
     {
       "id": "mahpakh-pashta-zaqef",
-      "method": "inspection-pending",
+      "method": "written",
+      "notes": [
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "E4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper-stem line",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            9,
+            11,
+            15,
+            16,
+            17
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower-stem line",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            10,
+            12,
+            13,
+            14,
+            17
+          ]
+        }
+      ],
+      "expectedBeats": 6,
       "sourceMeter": "6/8",
-      "pending": "The source is fully written, with paired heads and an unpaired quarter in the second bar. Coherent route membership and common-head roles still require resolution; no second-row notes or guessed timeline is substituted.",
+      "notationLimit": "The initial eighth is a pickup; the first full bar has six eighths and the closing bar has five, together twelve eighths. The central second-bar A4 belongs to the lower beamed eighth pair, not a common quarter. Each printed stem line is separate.",
       "sourceInspection": {
-        "unresolved": "Whether the central unpaired A4 quarter is common or belongs to one alternative, and the continuation of the G4/F4 stem lines.",
+        "nativeRasterPage": 31,
         "region3000": [
           1690,
-          1015,
+          1000,
           2400,
-          1210
+          1225
         ],
-        "nativeRasterPage": 31,
-        "notesOrRoutesAccepted": false
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "barQuarterBeats": [
+          0.5,
+          3,
+          2.5
+        ],
+        "routeNotesPerBar": [
+          1,
+          6,
+          5
+        ]
       }
     },
     {
@@ -819,11 +950,122 @@
     },
     {
       "id": "munah-etnahta",
-      "method": "inspection-pending",
-      "pending": "The high numeral3and upper secondary-beamed group are retained. Lower-line stem values, common-head roles and reconvergence remain unresolved; no guessed route or tuplet is played.",
+      "method": "written",
+      "notes": [
+        [
+          "F5",
+          "q"
+        ],
+        [
+          "A4",
+          "s3"
+        ],
+        [
+          "A4",
+          "s"
+        ],
+        [
+          "D5",
+          "s3"
+        ],
+        [
+          "G4",
+          "s3"
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "D4",
+          "s"
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C4",
+          "e"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper sixteenth-triplet line",
+          "components": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            8,
+            11,
+            12
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower ordinary-sixteenth line",
+          "components": [
+            1,
+            3,
+            6,
+            7,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "expectedBeats": 3.5,
+      "tuplets": [
+        [
+          2,
+          4,
+          5
+        ]
+      ],
+      "sharedHeads": [
+        {
+          "members": [
+            2,
+            3
+          ],
+          "reason": "One A4 head carries the upper three-in-two sixteenth group and lower ordinary-sixteenth beam; preserve different durations."
+        },
+        {
+          "members": [
+            5,
+            6
+          ],
+          "reason": "The G4 head closes the upper sixteenth triplet and lower ordinary-sixteenth pair; their logical durations differ."
+        }
+      ],
+      "notationLimit": "The high3belongs to the upper double-beamed three-in-two sixteenths only. The following D4 eighth is common; upper F4 eighth is an alternative to lower D4/G4 sixteenths. Common F4/C4 eighths close both paths.",
       "sourceInspection": {
         "nativeRasterPage": 32,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          2070,
+          980,
+          2460,
+          1260
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null
       }
     },
     {
@@ -874,11 +1116,147 @@
     },
     {
       "id": "pazer",
-      "method": "inspection-pending",
-      "pending": "The small slashed head and differently stemmed alternatives require route-specific measured anchors. Their exact membership remains unresolved; neither historical grace timing nor an invented path is supplied.",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "F4",
+          "q"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "F5",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "C5",
+          "q"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "D5",
+          "g"
+        ],
+        [
+          "C5",
+          "e",
+          1
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper eighth-note line",
+          "components": [
+            1,
+            3,
+            4,
+            5,
+            7,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower quarter-and-eighth line",
+          "components": [
+            2,
+            6,
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "expectedBeats": 3.75,
+      "sharedHeads": [
+        {
+          "members": [
+            1,
+            2
+          ],
+          "reason": "The opening F4 physical head has an upper eighth and lower quarter stem."
+        },
+        {
+          "members": [
+            7,
+            8
+          ],
+          "reason": "The C5 head has an upper eighth and lower quarter stem; both paths reconverge on the final measured A4 eighth."
+        }
+      ],
+      "arcs": [
+        {
+          "members": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "starts": [
+            1,
+            2
+          ],
+          "stops": [
+            11
+          ],
+          "placement": "below"
+        }
+      ],
+      "graceGroups": [
+        {
+          "members": [
+            10
+          ],
+          "previous": 9,
+          "next": 11,
+          "slash": true
+        }
+      ],
+      "notationLimit": "The small slashed D5 before the dotted C5 has no measured duration. Both stem paths contain three measured quarter beats before that barline, then the common unmeasured grace and dotted eighth. Any80ms realization is an explicitly original instrument demonstration.",
       "sourceInspection": {
         "nativeRasterPage": 33,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          780,
+          970,
+          1400,
+          1260
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "measuredQuarterBeatsBeforeGrace": 3,
+        "measuredFinalQuarterBeats": 0.75
       }
     },
     {
@@ -995,29 +1373,414 @@
     },
     {
       "id": "azla-geresh",
-      "method": "inspection-pending",
-      "pending": "Dense doubled heads, rapid beams and the explicit accidental still require coherent upper/lower route assignment. No chord, guessed duration or same-name second-row substitution is played.",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "C5",
+          "s"
+        ],
+        [
+          "B4",
+          "s"
+        ],
+        [
+          "D5",
+          "s"
+        ],
+        [
+          "C5",
+          "s"
+        ],
+        [
+          "C5",
+          "q"
+        ],
+        [
+          "A4",
+          "q"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper final C5 line",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower final A4 line",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8
+          ]
+        }
+      ],
+      "expectedBeats": 3,
+      "accidentals": {
+        "4": "explicit_natural_in_third_row_cancels_key_B_flat"
+      },
+      "stemEvidence": {
+        "3": "Shared C5 head: matching two-beam upper and lower stems.",
+        "4": "Shared B-natural head and explicit natural: matching upper/lower sixteenth stems.",
+        "5": "Shared D5 head: matching upper/lower sixteenth stems.",
+        "6": "Shared C5 head: matching upper/lower sixteenth stems."
+      },
+      "notationLimit": "Both two-beam groups contain the same four sixteenths C5/B-natural4/D5/C5; the last quarter heads C5/A4 are the alternatives. No third beam or tuplet numeral is present.",
       "sourceInspection": {
         "nativeRasterPage": 34,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          900,
+          960,
+          1340,
+          1230
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null
       }
     },
     {
       "id": "gershayim",
-      "method": "inspection-pending",
-      "pending": "Doubled heads and unequal beam groups require confirmed route membership and accidental ownership. All printed rests remain visible; no replacement melody is supplied.",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "B4",
+          "s"
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "D5",
+          "s"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "C5",
+          "q"
+        ],
+        [
+          "A4",
+          "q"
+        ],
+        [
+          "R",
+          "q"
+        ],
+        [
+          "R",
+          "q"
+        ],
+        [
+          "R",
+          "e"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper C5/B-natural/D5 line",
+          "components": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            9,
+            11,
+            12,
+            13
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower A4/G4/F4 line",
+          "components": [
+            1,
+            2,
+            4,
+            6,
+            8,
+            10,
+            11,
+            12,
+            13
+          ]
+        }
+      ],
+      "expectedBeats": 5.5,
+      "accidentals": {
+        "5": "explicit_natural_in_upper_third_row_cancels_key_B_flat"
+      },
+      "arcs": [
+        {
+          "members": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "starts": [
+            3,
+            4
+          ],
+          "stops": [
+            9,
+            10
+          ],
+          "placement": "below"
+        }
+      ],
+      "notationLimit": "The rapid group starts with one eighth, followed by two sixteenths in each line. The natural belongs only to upper B4; the lower notes are G4/F4. Two quarter rests and an eighth rest after the final quarter are retained.",
       "sourceInspection": {
         "nativeRasterPage": 34,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          1320,
+          960,
+          1810,
+          1260
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "trailingRestQuarterBeats": [
+          1,
+          1,
+          0.5
+        ]
       }
     },
     {
       "id": "darga-tevir",
-      "method": "inspection-pending",
-      "pending": "The differently beamed alternatives and written flat/natural signs still require exact note, duration and route ownership. No source pitch or accidental is guessed from the second row.",
+      "method": "written",
+      "notes": [
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "e"
+        ],
+        [
+          "Bb4",
+          "s"
+        ],
+        [
+          "A4",
+          "s"
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "F4",
+          "q"
+        ],
+        [
+          "R",
+          "s"
+        ],
+        [
+          "E4",
+          "s"
+        ],
+        [
+          "E4",
+          "s"
+        ],
+        [
+          "Eb4",
+          "s"
+        ],
+        [
+          "D4",
+          "s"
+        ],
+        [
+          "D4",
+          "s"
+        ],
+        [
+          "C4",
+          "s"
+        ],
+        [
+          "E4",
+          "s"
+        ],
+        [
+          "F4",
+          "q"
+        ],
+        [
+          "D4",
+          "q"
+        ],
+        [
+          "R",
+          "e"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper C5 pickup and E-flat line",
+          "components": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            14,
+            16,
+            17,
+            19
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower F4 pickup and D4/C4 line",
+          "components": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            15,
+            16,
+            18,
+            19
+          ]
+        }
+      ],
+      "expectedBeats": 6,
+      "accidentals": {
+        "4": "key_B_flat_after_the_printed_barline",
+        "12": "explicit_flat_in_upper_third_row",
+        "16": "explicit_natural_in_third_row_cancels_upper_E_flat"
+      },
+      "arcs": [
+        {
+          "members": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "placement": "above"
+        },
+        {
+          "members": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "starts": [
+            11
+          ],
+          "stops": [
+            16
+          ],
+          "placement": "below"
+        }
+      ],
+      "stemEvidence": {
+        "3": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group.",
+        "4": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group.",
+        "5": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group.",
+        "6": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group.",
+        "7": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group."
+      },
+      "notationLimit": "Only the pickup, middle two heads of the second four-sixteenth group and final quarter have separate pitches. Preserve the written sixteenth rest/E4 sixteenth before the barline, upper E-flat and explicit common E-natural, and final eighth rest. The first descending B is B-flat from the key after a barline.",
       "sourceInspection": {
         "nativeRasterPage": 34,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          1790,
+          960,
+          2620,
+          1245
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "quarterBeatSegments": [
+          0.5,
+          3,
+          2.5
+        ],
+        "restsQuarterBeats": [
+          0.25,
+          0.5
+        ]
       }
     },
     {
@@ -1060,11 +1823,112 @@
     },
     {
       "id": "sof-pasuq",
-      "method": "inspection-pending",
-      "pending": "Shared opening heads carry different stem groups before the common ending. The full coherent routes remain unresolved; no guessed attacks or omitted head are supplied.",
+      "method": "written",
+      "notes": [
+        [
+          "G4",
+          "x"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "A4",
+          "x"
+        ],
+        [
+          "A4",
+          "s"
+        ],
+        [
+          "A4",
+          "q"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "D4",
+          "e"
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper two-thirty-second line",
+          "components": [
+            1,
+            3,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower two-sixteenth line",
+          "components": [
+            2,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "expectedVariantBeats": {
+        "upper": 2.25,
+        "lower": 2.5
+      },
+      "sharedHeads": [
+        {
+          "members": [
+            3,
+            4
+          ],
+          "reason": "The A4 physical head closes an upper three-beam thirty-second pair and lower two-beam sixteenth pair. Their durations and resulting cell extents are different."
+        }
+      ],
+      "arcs": [
+        {
+          "members": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "starts": [
+            1,
+            2
+          ],
+          "stops": [
+            3,
+            4
+          ],
+          "placement": "above"
+        },
+        [
+          6,
+          7
+        ]
+      ],
+      "notationLimit": "The upper opening pair has three beams and the lower pair two; no tuplet numeral is printed. The paths have unequal written extents2.25and2.5quarter beats and are not padded. Common A4 quarter and A4/D4 eighths remain separate attacks under the printed slur.",
       "sourceInspection": {
         "nativeRasterPage": 35,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          590,
+          920,
+          1180,
+          1230
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "sourceVariantQuarterBeats": {
+          "upper": 2.25,
+          "lower": 2.5
+        }
       }
     },
     {
@@ -1135,5 +1999,14 @@
       ],
       "notationLimit": "Retain both interior eighth rests and final eighth rest. The two adjacent equal-pitch arc pairs C5 and D4 are written ties; keep source components and hold the sounding pitch."
     }
-  ]
+  ],
+  "previousRevision": {
+    "record": "docs/BAER-NO105-THIRD-PATTERNS-R1.json",
+    "recordSha256": "3fad9153d3a0d05d396718dbce06e9026941e374013fe6e566e9938ad62cd81d",
+    "sourceDelta": "assets/scores/baer-no105-third-r1-sources.zip",
+    "sourceDeltaSha256": "89d1cbb7f3a8a3e2263ce60fe0dc85030ee679650ab858cba8bdf4b8dc7bdf84",
+    "sourceDeltaBytes": 176891,
+    "revision": 1,
+    "scope": "Exact earlier source record and changed-source delta retained for comparison; not a complete app distribution."
+  }
 }

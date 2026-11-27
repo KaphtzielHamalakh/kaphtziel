@@ -1,0 +1,5626 @@
+{
+  "schema": "tropetrain-baer-third-setting-patterns-v1",
+  "id": "baer-1894-no105-third-setting",
+  "revision": 1,
+  "name": "Baer [1894] No105 · third printed ordinary-Torah setting",
+  "inputs": [
+    {
+      "path": "data/notation/baer-no105-third-transcription.json",
+      "sha256": "ba41f883243457d26f45e0de7076b64789f81db72619d3bc0566dad88a9f5350"
+    },
+    {
+      "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
+      "sha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+    },
+    {
+      "path": "scripts/import-baer-third-patterns.mjs",
+      "sha256": "4d44ab04ff1fb8fd813985f03a15873efe906cae1803f1d842021f63c8a768f2"
+    },
+    {
+      "path": "baer-notation.js",
+      "sha256": "717a2a2fd3977ea7c9524e9c8b97e4f887c598829223fb73ecb29aa6c6c6aad7"
+    },
+    {
+      "path": "source-grace.js",
+      "sha256": "70f8b6f4922218124877d88c4a38c3521da923169c44abbab9db4bddf85bc402"
+    },
+    {
+      "path": "source-repeat.js",
+      "sha256": "0ba66b9822733fd0b69cabcb110d6df55756f5e8238e072c59d3595d7f7db425"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p30.png",
+      "sha256": "ccdd718083062da513f832073d06e0ced5887f17f999c4b116d930ccd5bc25e4"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p30.png",
+      "sha256": "c592fcabf3446504414ccbad20dbc558adff3ebfe518d3786b26b373cfbfd30b"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p31.png",
+      "sha256": "e1cfcc33fe5724e8350b6475c51deef374be844d840e10ed8c3da0dfcbdab778"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p31.png",
+      "sha256": "3b0f49607bb5c5b890918593ccd8283e21728678ecc30a9bc339ddbae1a57134"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p32.png",
+      "sha256": "291d786d41819c2836f36f79e892ec051e18e384aa39adffb705cfd23641ef73"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p32.png",
+      "sha256": "5dacfd8b20b87bbefd973c64736aa97c30270ef6364c543f42fb0992af5dca40"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p33.png",
+      "sha256": "e9987d53d5d3ef1238eb93fd08953b264cccda23cc9b050a9e554770e226bc18"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p33.png",
+      "sha256": "5ad3a5ff630be80cd4d5c7cd1f90b622d1d1df9679a79c44538e121ac7a3a40a"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p34.png",
+      "sha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p34.png",
+      "sha256": "3744a5b8b79020a847c207332796a69bd147e01c007853d3d9c9e22d70154a03"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p35.png",
+      "sha256": "d10f92f32e33aa721b6bd4ff0dafb7655d52ef7d291c46d6f2145ee87dc12771"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p35.png",
+      "sha256": "0015362157913ee37b7c4d18da23c2cdebd30e3d224a3f19f8e807d70ab1b39c"
+    },
+    {
+      "path": "assets/scores/baer-preface-IX-alternatives.png",
+      "sha256": "17ac5b0858a3b07f54fc2abfd2ce18ee8e3b70639e32733936704b0b046b2531"
+    }
+  ],
+  "inspectionStatus": "unreviewed-literal-study-with-unresolved-figures",
+  "nativeSourceRasters": [
+    {
+      "page": 30,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3868,/0/default.jpg",
+      "bytes": 1986870,
+      "sha256": "312de46fe6f9caedcf7730e5511111b93e234b0cc98af7ed523b1931506957d1",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 31,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3868,/0/default.jpg",
+      "bytes": 2457520,
+      "sha256": "1a2ab32dcbf2b3e931251d8ec5688b4d48aff6620b94db202c77d817fc38d655",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 32,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3868,/0/default.jpg",
+      "bytes": 2489353,
+      "sha256": "7b6bbffcf3cad8eb37ce653dc0a56fd6a53188f71cace7d11c7fbd1c5deba133",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 33,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3868,/0/default.jpg",
+      "bytes": 2414367,
+      "sha256": "638ad78ac2028d9ae9e34b239cc50479136f3a92b09391e0f31f63b6bb065a17",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 34,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3868,/0/default.jpg",
+      "bytes": 2549527,
+      "sha256": "061137b81adebe828635590a056f57b03084d7049342398f8ac71396e4a08cb7",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 35,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3868,/0/default.jpg",
+      "bytes": 2391083,
+      "sha256": "03bc25ba2a96d12154afbc8f2c4cf15d5c3e8e76ae210c1d0bfc7da71cc076a1",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    }
+  ],
+  "source": {
+    "title": "Baal t’fillah oder Der practische Vorbeter",
+    "author": "Abraham Baer",
+    "edition": "Third expanded edition [1894]",
+    "titleRecord": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "manifest": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/manifest",
+    "institution": "Universitätsbibliothek Johann Christian Senckenberg, Frankfurt am Main",
+    "digitizationPolicy": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+    "rights": "Original nineteenth-century print public domain; institutional digitization policy permits unrestricted public-domain digitization reuse. New literal component transcription CC0-1.0. Qualified musical/transcription review pending.",
+    "pages": {
+      "30": {
+        "page": "30",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853614",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3000,/0/default.jpg",
+        "bytes": 1281858,
+        "sha256": "f65cc9ea41f7fc1dfb59db4dd46a40f645a63571f2cf7b6c8d1ca498b158b54b",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          900,
+          1145,
+          2800,
+          1315
+        ],
+        "inspectionCropFile": "page-30-first.png",
+        "image": "assets/scores/baer-no105-third-p30.png",
+        "imageSha256": "ccdd718083062da513f832073d06e0ced5887f17f999c4b116d930ccd5bc25e4",
+        "imageBytes": 93871,
+        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3000,/0/default.jpg",
+        "contextImage": {
+          "image": "assets/scores/baer-no105-second-p30.png",
+          "imageBytes": 111895,
+          "imageSha256": "c592fcabf3446504414ccbad20dbc558adff3ebfe518d3786b26b373cfbfd30b",
+          "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        }
+      },
+      "31": {
+        "page": "31",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853615",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3000,/0/default.jpg",
+        "bytes": 1560317,
+        "sha256": "ac7b5034d91a14659c74da061c2a63bc1efce4cff5baba7b7db69436bbc57657",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          0,
+          1015,
+          2800,
+          1210
+        ],
+        "inspectionCropFile": "page-31-first.png",
+        "image": "assets/scores/baer-no105-third-p31.png",
+        "imageSha256": "e1cfcc33fe5724e8350b6475c51deef374be844d840e10ed8c3da0dfcbdab778",
+        "imageBytes": 134569,
+        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3000,/0/default.jpg",
+        "contextImage": {
+          "image": "assets/scores/baer-no105-second-p31.png",
+          "imageBytes": 112712,
+          "imageSha256": "3b0f49607bb5c5b890918593ccd8283e21728678ecc30a9bc339ddbae1a57134",
+          "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        }
+      },
+      "32": {
+        "page": "32",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853616",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3000,/0/default.jpg",
+        "bytes": 1545567,
+        "sha256": "2632d6d938ddddc5983d8c6d14708bc20facb613e8a0bedd0646fb9dea205329",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          200,
+          1000,
+          2850,
+          1245
+        ],
+        "inspectionCropFile": "page-32-first.png",
+        "image": "assets/scores/baer-no105-third-p32.png",
+        "imageSha256": "291d786d41819c2836f36f79e892ec051e18e384aa39adffb705cfd23641ef73",
+        "imageBytes": 140300,
+        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3000,/0/default.jpg",
+        "contextImage": {
+          "image": "assets/scores/baer-no105-second-p32.png",
+          "imageBytes": 148030,
+          "imageSha256": "5dacfd8b20b87bbefd973c64736aa97c30270ef6364c543f42fb0992af5dca40",
+          "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        }
+      },
+      "33": {
+        "page": "33",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853617",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3000,/0/default.jpg",
+        "bytes": 1540653,
+        "sha256": "6c2b6b85eb5100129fb0b187a6370d26050de9bacdf3764a699438858b2a47b7",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          200,
+          1035,
+          2800,
+          1245
+        ],
+        "inspectionCropFile": "page-33-first.png",
+        "image": "assets/scores/baer-no105-third-p33.png",
+        "imageSha256": "e9987d53d5d3ef1238eb93fd08953b264cccda23cc9b050a9e554770e226bc18",
+        "imageBytes": 140048,
+        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3000,/0/default.jpg",
+        "contextImage": {
+          "image": "assets/scores/baer-no105-second-p33.png",
+          "imageBytes": 120694,
+          "imageSha256": "5ad3a5ff630be80cd4d5c7cd1f90b622d1d1df9679a79c44538e121ac7a3a40a",
+          "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        }
+      },
+      "34": {
+        "page": "34",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853618",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3000,/0/default.jpg",
+        "bytes": 1607174,
+        "sha256": "cddc69600f4817aa0f1181ded9782b952384a8e9eb116220cb6ae27158fa0ba4",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          200,
+          1010,
+          2800,
+          1210
+        ],
+        "inspectionCropFile": "page-34-first.png",
+        "image": "assets/scores/baer-no105-third-p34.png",
+        "imageSha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc",
+        "imageBytes": 150353,
+        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3000,/0/default.jpg",
+        "contextImage": {
+          "image": "assets/scores/baer-no105-second-p34.png",
+          "imageBytes": 149721,
+          "imageSha256": "3744a5b8b79020a847c207332796a69bd147e01c007853d3d9c9e22d70154a03",
+          "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        }
+      },
+      "35": {
+        "page": "35",
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853619",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3000,/0/default.jpg",
+        "bytes": 1501929,
+        "sha256": "1bd4dc8c9b7badb30fb9508a4642d3d2b2b6ee0ae669d50837a4d43a7c2170e9",
+        "width": 3000,
+        "height": 4403,
+        "inspectionCrop": [
+          200,
+          965,
+          2800,
+          1165
+        ],
+        "inspectionCropFile": "page-35-first.png",
+        "image": "assets/scores/baer-no105-third-p35.png",
+        "imageSha256": "d10f92f32e33aa721b6bd4ff0dafb7655d52ef7d291c46d6f2145ee87dc12771",
+        "imageBytes": 122514,
+        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3000,/0/default.jpg",
+        "contextImage": {
+          "image": "assets/scores/baer-no105-second-p35.png",
+          "imageBytes": 172942,
+          "imageSha256": "0015362157913ee37b7c4d18da23c2cdebd30e3d224a3f19f8e807d70ab1b39c",
+          "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        }
+      }
+    },
+    "contextImage": {
+      "image": "assets/scores/baer-no105-second-p30.png",
+      "imageBytes": 111895,
+      "imageSha256": "c592fcabf3446504414ccbad20dbc558adff3ebfe518d3786b26b373cfbfd30b",
+      "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+    },
+    "image": "assets/scores/baer-no105-first-p30.png",
+    "page": 30,
+    "caption": "Third printed ordinary-Torah setting3.W. Manual notation inspection in progress; unresolved routes remain withheld.",
+    "detailImages": {},
+    "setting": "3. W.",
+    "printedPages": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ],
+    "imageAlt": "Unretouched excerpt of Baer No105 third printed ordinary-Torah setting; adjacent staff fragments remain context."
+  },
+  "sourceKey": "One printed flat: B-flat. Written pitches are retained; instrumental tuning is12-TET.",
+  "notationPrinciple": {
+    "source": {
+      "title": "Baer third expanded edition [1894], retained preface, printed IX",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853551/full/3000,/0/default.jpg",
+      "sourceBytes": 1163016,
+      "sourceSha256": "04be69eb6098cf4af60f0323012d0986dbb3fe68e6e481c60fc2bbb2700d88e3",
+      "sourceSize": [
+        3000,
+        4403
+      ],
+      "crop": [
+        180,
+        650,
+        2820,
+        1150
+      ],
+      "file": "assets/scores/baer-preface-IX-alternatives.png",
+      "bytes": 268701,
+      "sha256": "17ac5b0858a3b07f54fc2abfd2ce18ee8e3b70639e32733936704b0b046b2531",
+      "derivation": "Lossless unretouched crop from the exact primary3000px institutional raster; surrounding complete page retained privately.",
+      "rights": "Nineteenth-century public-domain print; institutional unrestricted digitization reuse policy.",
+      "review": null
+    },
+    "sourcePage": "IX",
+    "literalGerman": "Ebenso sind die doppelten Notenreihen auf einem Liniensystem nur als zwei verschiedene Weisen zu betrachten, wenn sie nicht mit „Chor“ bezeichnet sind.",
+    "english": "Two note lines on a single staff are to be treated as two different melodies unless marked Chor.",
+    "application": "Preserve coherent upper/lower alternatives in the third printed setting; common heads reconverge, and no alternatives are sounded as chords. Independent musical review remains pending.",
+    "translationReview": null,
+    "musicalReview": null
+  },
+  "figures": [
+    {
+      "id": "zarqa",
+      "name": "Sar-ko · Zarqa",
+      "page": 30,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "contextPending": "Three beamed eighths C5/A4/F4 carry the printed3; native3868px raster confirms one beam, distinct from the following four16ths. The source key supplies B-flat, not B-natural.",
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper-stem line",
+          "componentIds": [
+            "baer105-3w-zarqa-1",
+            "baer105-3w-zarqa-2",
+            "baer105-3w-zarqa-4",
+            "baer105-3w-zarqa-5",
+            "baer105-3w-zarqa-6",
+            "baer105-3w-zarqa-7",
+            "baer105-3w-zarqa-8",
+            "baer105-3w-zarqa-9",
+            "baer105-3w-zarqa-10",
+            "baer105-3w-zarqa-11",
+            "baer105-3w-zarqa-12"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower initial quarter-stem line",
+          "componentIds": [
+            "baer105-3w-zarqa-3",
+            "baer105-3w-zarqa-4",
+            "baer105-3w-zarqa-5",
+            "baer105-3w-zarqa-6",
+            "baer105-3w-zarqa-7",
+            "baer105-3w-zarqa-8",
+            "baer105-3w-zarqa-9",
+            "baer105-3w-zarqa-10",
+            "baer105-3w-zarqa-11",
+            "baer105-3w-zarqa-12"
+          ]
+        }
+      ],
+      "realizedComponents": 12,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 4
+    },
+    {
+      "id": "segol",
+      "name": "se-gol · Segol",
+      "page": 30,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "contextPending": "The final rest is a quarter. Retain the three written beats; do not pad to common time or sound both alternatives together.",
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper E4 line",
+          "componentIds": [
+            "baer105-3w-segol-1",
+            "baer105-3w-segol-2",
+            "baer105-3w-segol-4",
+            "baer105-3w-segol-5",
+            "baer105-3w-segol-6"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower F-sharp line",
+          "componentIds": [
+            "baer105-3w-segol-1",
+            "baer105-3w-segol-3",
+            "baer105-3w-segol-4",
+            "baer105-3w-segol-5",
+            "baer105-3w-segol-6"
+          ]
+        }
+      ],
+      "realizedComponents": 6,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 3
+    },
+    {
+      "id": "munah-plain",
+      "name": "Mu-nach · plain source column",
+      "page": 30,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper triplet line",
+          "componentIds": [
+            "baer105-3w-munah-plain-1",
+            "baer105-3w-munah-plain-2",
+            "baer105-3w-munah-plain-4",
+            "baer105-3w-munah-plain-6",
+            "baer105-3w-munah-plain-8",
+            "baer105-3w-munah-plain-9",
+            "baer105-3w-munah-plain-10"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower eighth-note line",
+          "componentIds": [
+            "baer105-3w-munah-plain-1",
+            "baer105-3w-munah-plain-3",
+            "baer105-3w-munah-plain-5",
+            "baer105-3w-munah-plain-7",
+            "baer105-3w-munah-plain-9",
+            "baer105-3w-munah-plain-10"
+          ]
+        }
+      ],
+      "realizedComponents": 10,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 4
+    },
+    {
+      "id": "munah-before-revia",
+      "name": "Munach · before Revia",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper F4 head",
+          "componentIds": [
+            "baer105-3w-munah-before-revia-1",
+            "baer105-3w-munah-before-revia-2"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower E4 head",
+          "componentIds": [
+            "baer105-3w-munah-before-revia-1",
+            "baer105-3w-munah-before-revia-3"
+          ]
+        }
+      ],
+      "realizedComponents": 3,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 1
+    },
+    {
+      "id": "revia",
+      "name": "r’wi-a · Revia",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "contextPending": "The opening upper-line arc is retained only on its literal upper endpoints. No lower-line arc endpoint or tie is invented; independent articulation review remains pending.",
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper eighth-and-sixteenth line",
+          "componentIds": [
+            "baer105-3w-revia-1",
+            "baer105-3w-revia-2",
+            "baer105-3w-revia-3",
+            "baer105-3w-revia-6",
+            "baer105-3w-revia-7",
+            "baer105-3w-revia-8",
+            "baer105-3w-revia-9",
+            "baer105-3w-revia-10",
+            "baer105-3w-revia-11"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower eighth-note line",
+          "componentIds": [
+            "baer105-3w-revia-4",
+            "baer105-3w-revia-5",
+            "baer105-3w-revia-6",
+            "baer105-3w-revia-7",
+            "baer105-3w-revia-8",
+            "baer105-3w-revia-9",
+            "baer105-3w-revia-10",
+            "baer105-3w-revia-11"
+          ]
+        }
+      ],
+      "realizedComponents": 11,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 4
+    },
+    {
+      "id": "munah-four-glyphs",
+      "name": "Munach · before four printed signs",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "dto-whole",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "printedDitto": {
+        "scope": "The whole third-row cell is marked dto.",
+        "parentCell": "munah-four-glyphs",
+        "parentComponents": [
+          "baer105-2w-munah-four-glyphs-1",
+          "baer105-2w-munah-four-glyphs-2",
+          "baer105-2w-munah-four-glyphs-3",
+          "baer105-2w-munah-four-glyphs-4",
+          "baer105-2w-munah-four-glyphs-5"
+        ]
+      },
+      "realizedComponents": 5,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "munah-before-mahpakh",
+      "name": "Munach · before Mahpakh",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "dto-whole",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "printedDitto": {
+        "scope": "The whole third-row cell is marked dto.",
+        "parentCell": "munah-before-mahpakh",
+        "parentComponents": [
+          "baer105-2w-munah-before-mahpakh-1",
+          "baer105-2w-munah-before-mahpakh-2",
+          "baer105-2w-munah-before-mahpakh-3",
+          "baer105-2w-munah-before-mahpakh-4",
+          "baer105-2w-munah-before-mahpakh-5",
+          "baer105-2w-munah-before-mahpakh-6",
+          "baer105-2w-munah-before-mahpakh-7",
+          "baer105-2w-munah-before-mahpakh-8"
+        ]
+      },
+      "realizedComponents": 8,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "munah-before-merkha-tevir",
+      "name": "Munach · before Mercha / Tevir",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "dto-whole",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "printedDitto": {
+        "scope": "The whole third-row cell is marked dto.",
+        "parentCell": "munah-before-merkha-tevir",
+        "parentComponents": [
+          "baer105-2w-munah-before-merkha-tevir-1",
+          "baer105-2w-munah-before-merkha-tevir-2",
+          "baer105-2w-munah-before-merkha-tevir-3",
+          "baer105-2w-munah-before-merkha-tevir-4",
+          "baer105-2w-munah-before-merkha-tevir-5"
+        ]
+      },
+      "realizedComponents": 5,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "mahpakh-pashta-zaqef",
+      "name": "Mahpach → paschto → sokef koton",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "The source is fully written, with paired heads and an unpaired quarter in the second bar. Coherent route membership and common-head roles still require resolution; no second-row notes or guessed timeline is substituted.",
+      "sourceInspection": {
+        "unresolved": "Whether the central unpaired A4 quarter is common or belongs to one alternative, and the continuation of the G4/F4 stem lines.",
+        "region3000": [
+          1690,
+          1015,
+          2400,
+          1210
+        ],
+        "nativeRasterPage": 31,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "zakef-gadol",
+      "name": "Sokef godol · Zaqef gadol",
+      "page": 31,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "contextPending": "The A4/C4 group has two beams, then a single beam to F4. Native inspection retains16ths; staff lines are not an extra beam.",
+      "realizedComponents": 6,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 3
+    },
+    {
+      "id": "mahpakh-pashta-without-zaqef",
+      "name": "Mahpach → paschto · ohne qaton",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written-prefix-dto-tail",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "sourceCondition": {
+        "literal": "ohne קטן",
+        "english": "without qaton",
+        "modernPredicate": null
+      },
+      "printedDitto": {
+        "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
+        "parentCell": "mahpakh-pashta-without-zaqef",
+        "parentComponents": [
+          "baer105-2w-mahpakh-pashta-without-zaqef-2",
+          "baer105-2w-mahpakh-pashta-without-zaqef-3",
+          "baer105-2w-mahpakh-pashta-without-zaqef-4",
+          "baer105-2w-mahpakh-pashta-without-zaqef-5",
+          "baer105-2w-mahpakh-pashta-without-zaqef-6",
+          "baer105-2w-mahpakh-pashta-without-zaqef-7",
+          "baer105-2w-mahpakh-pashta-without-zaqef-8"
+        ]
+      },
+      "realizedComponents": 8,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "pashta-zaqef-one-word",
+      "name": "Paschto koton · auf einem Worte",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written-prefix-dto-tail",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "sourceCondition": {
+        "literal": "auf einem Worte",
+        "english": "on one word",
+        "modernPredicate": null
+      },
+      "printedDitto": {
+        "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
+        "parentCell": "pashta-zaqef-one-word",
+        "parentComponents": [
+          "baer105-2w-pashta-zaqef-one-word-2",
+          "baer105-2w-pashta-zaqef-one-word-3",
+          "baer105-2w-pashta-zaqef-one-word-4",
+          "baer105-2w-pashta-zaqef-one-word-5",
+          "baer105-2w-pashta-zaqef-one-word-6",
+          "baer105-2w-pashta-zaqef-one-word-7",
+          "baer105-2w-pashta-zaqef-one-word-8",
+          "baer105-2w-pashta-zaqef-one-word-9"
+        ]
+      },
+      "realizedComponents": 9,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "pashta-alone",
+      "name": "Paschto · allein",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written-prefix-dto-tail",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "printedDitto": {
+        "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
+        "parentCell": "pashta-alone",
+        "parentComponents": [
+          "baer105-2w-pashta-alone-2",
+          "baer105-2w-pashta-alone-3"
+        ]
+      },
+      "realizedComponents": 3,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "pashta-zaqef-after-predecessors",
+      "name": "Paschto koton · after printed predecessors",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unmeasured-grace",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written-prefix-dto-tail",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "printedDitto": {
+        "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
+        "parentCell": "pashta-zaqef-after-predecessors",
+        "parentComponents": [
+          "baer105-2w-pashta-zaqef-after-predecessors-2",
+          "baer105-2w-pashta-zaqef-after-predecessors-3",
+          "baer105-2w-pashta-zaqef-after-predecessors-4",
+          "baer105-2w-pashta-zaqef-after-predecessors-5",
+          "baer105-2w-pashta-zaqef-after-predecessors-6"
+        ]
+      },
+      "unmeasuredGraceComponents": 1,
+      "unmeasuredGraceNotes": 1,
+      "sourceMeasuredQuarterBeats": 3,
+      "pending": "This source route includes an unmeasured printed grace, directly written or preserved by a literal dto reference. Source duration and stealing ratio remain unspecified. Only the separately chosen original 80 ms instrumental timing demonstration can play it; no historical timing or word allocation is approved.",
+      "realizedComponents": 6,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "merkha-tipha",
+      "name": "Mercho → Tipcho",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper final A4 head",
+          "componentIds": [
+            "baer105-3w-merkha-tipha-1",
+            "baer105-3w-merkha-tipha-2",
+            "baer105-3w-merkha-tipha-3",
+            "baer105-3w-merkha-tipha-4",
+            "baer105-3w-merkha-tipha-5",
+            "baer105-3w-merkha-tipha-6"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower final F4 head",
+          "componentIds": [
+            "baer105-3w-merkha-tipha-1",
+            "baer105-3w-merkha-tipha-2",
+            "baer105-3w-merkha-tipha-3",
+            "baer105-3w-merkha-tipha-4",
+            "baer105-3w-merkha-tipha-5",
+            "baer105-3w-merkha-tipha-7"
+          ]
+        }
+      ],
+      "realizedComponents": 7,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 3.5
+    },
+    {
+      "id": "munah-etnahta",
+      "name": "Munach → esnachto",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "The high numeral3and upper secondary-beamed group are retained. Lower-line stem values, common-head roles and reconvergence remain unresolved; no guessed route or tuplet is played.",
+      "sourceInspection": {
+        "nativeRasterPage": 32,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "merkha-tevir",
+      "name": "Mercho → t’wir",
+      "page": 32,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written-prefix-dto-tail",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "printedDitto": {
+        "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
+        "parentCell": "merkha-tevir",
+        "parentComponents": [
+          "baer105-2w-merkha-tevir-2",
+          "baer105-2w-merkha-tevir-3",
+          "baer105-2w-merkha-tevir-4",
+          "baer105-2w-merkha-tevir-5",
+          "baer105-2w-merkha-tevir-6",
+          "baer105-2w-merkha-tevir-7"
+        ]
+      },
+      "realizedComponents": 7,
+      "coherentMonophonicRoutes": 1
+    },
+    {
+      "id": "merkha-silluq",
+      "name": "Mercho → si-luk · sof po-suk",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "realizedComponents": 7,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 3
+    },
+    {
+      "id": "pazer",
+      "name": "Poser · Pazer",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "The small slashed head and differently stemmed alternatives require route-specific measured anchors. Their exact membership remains unresolved; neither historical grace timing nor an invented path is supplied.",
+      "sourceInspection": {
+        "nativeRasterPage": 33,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "telisha-qetana",
+      "name": "T’lischo k’ta-noh",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "contextPending": "Two adjacent equal C4 dotted quarters are linked by the printed arc across the bar; retain both written components with a held pitch, not a fabricated new attack.",
+      "realizedComponents": 7,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 5.25
+    },
+    {
+      "id": "telisha-gedola",
+      "name": "T’lischo g’do-loh",
+      "page": 33,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "realizedComponents": 6,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 3
+    },
+    {
+      "id": "qadma-azla",
+      "name": "Kadmo → w’aslo",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "realizedComponents": 5,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 3
+    },
+    {
+      "id": "azla-geresh",
+      "name": "Aslo → ge-resch",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "Dense doubled heads, rapid beams and the explicit accidental still require coherent upper/lower route assignment. No chord, guessed duration or same-name second-row substitution is played.",
+      "sourceInspection": {
+        "nativeRasterPage": 34,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "gershayim",
+      "name": "Gerschajim",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "Doubled heads and unequal beam groups require confirmed route membership and accidental ownership. All printed rests remain visible; no replacement melody is supplied.",
+      "sourceInspection": {
+        "nativeRasterPage": 34,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "darga-tevir",
+      "name": "Dargo → t’wir",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "The differently beamed alternatives and written flat/natural signs still require exact note, duration and route ownership. No source pitch or accidental is guessed from the second row.",
+      "sourceInspection": {
+        "nativeRasterPage": 34,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "yetiv",
+      "name": "J’siv · Yetiv",
+      "page": 34,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "realizedComponents": 3,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 2.5
+    },
+    {
+      "id": "paseq",
+      "name": "P’sik · Paseq",
+      "page": 35,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "realizedComponents": 3,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 2
+    },
+    {
+      "id": "sof-pasuq",
+      "name": "Sof po-suk · Schluss",
+      "page": 35,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "unresolved-route",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "inspection-pending",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "pending": "Shared opening heads carry different stem groups before the common ending. The full coherent routes remain unresolved; no guessed attacks or omitted head are supplied.",
+      "sourceInspection": {
+        "nativeRasterPage": 35,
+        "notesOrRoutesAccepted": false
+      },
+      "realizedComponents": 0,
+      "coherentMonophonicRoutes": 0
+    },
+    {
+      "id": "section-ending",
+      "name": "Mercho → tipcho → sof po-suk · printed ending",
+      "page": 35,
+      "sourceSection": "No105 ordinary Torah table",
+      "sourceSetting": "3. W.",
+      "status": "transcribed",
+      "review": null,
+      "wordApplication": null,
+      "transcriptionMethod": "written",
+      "sourceReference": {
+        "manualPath": "data/notation/baer-no105-third-transcription.json",
+        "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      },
+      "contextPending": "Retain both interior eighth rests and final eighth rest. The two adjacent equal-pitch arc pairs C5 and D4 are written ties; keep source components and hold the sounding pitch.",
+      "realizedComponents": 12,
+      "coherentMonophonicRoutes": 1,
+      "literalQuarterBeats": 9.5
+    }
+  ],
+  "notes": [
+    {
+      "id": "baer105-3w-zarqa-1",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-zarqa-2",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePrintedHead": {
+        "id": "baer105-3w-zarqa-printed-head-2",
+        "reason": "The G4 head has an upper eighth and lower quarter stem. The lower route begins on that quarter; it does not add the preceding upper F4."
+      }
+    },
+    {
+      "id": "baer105-3w-zarqa-3",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePrintedHead": {
+        "id": "baer105-3w-zarqa-printed-head-2",
+        "reason": "The G4 head has an upper eighth and lower quarter stem. The lower route begins on that quarter; it does not add the preceding upper F4."
+      }
+    },
+    {
+      "id": "baer105-3w-zarqa-4",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-zarqa-5",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-zarqa-6",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "tuplet": {
+        "id": "baer105-3w-zarqa-tuplet-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-3w-zarqa-7",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "tuplet": {
+        "id": "baer105-3w-zarqa-tuplet-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-3w-zarqa-8",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "tuplet": {
+        "id": "baer105-3w-zarqa-tuplet-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-3w-zarqa-9",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-zarqa-10",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-zarqa-11",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-zarqa-12",
+      "cell": "zarqa",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., zarqa, realized component 12",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slurs": [
+        {
+          "id": "baer105-3w-zarqa-arc-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-segol-1",
+      "cell": "segol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., segol, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-segol-2",
+      "cell": "segol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., segol, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64
+    },
+    {
+      "id": "baer105-3w-segol-3",
+      "cell": "segol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., segol, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 1,
+        "octave": 4
+      },
+      "midi": 66,
+      "accidentalEvidence": "Explicit source sharp applies to the lower F4 alternative only."
+    },
+    {
+      "id": "baer105-3w-segol-4",
+      "cell": "segol",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., segol, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-segol-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-segol-5",
+      "cell": "segol",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., segol, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-segol-arc-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-segol-6",
+      "cell": "segol",
+      "kind": "rest",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., segol, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-plain-1",
+      "cell": "munah-plain",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-plain-2",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-munah-plain-3",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-munah-plain-4",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "tuplet": {
+        "id": "baer105-3w-munah-plain-tuplet-1",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-3w-munah-plain-5",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-munah-plain-6",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-3w-munah-plain-tuplet-1",
+        "phase": "continue"
+      },
+      "sourcePrintedHead": {
+        "id": "baer105-3w-munah-plain-printed-head-6",
+        "reason": "One G4 head carries an upper triplet-eighth stem and lower ordinary-eighth stem; preserve different logical durations."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-plain-7",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePrintedHead": {
+        "id": "baer105-3w-munah-plain-printed-head-6",
+        "reason": "One G4 head carries an upper triplet-eighth stem and lower ordinary-eighth stem; preserve different logical durations."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-plain-8",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-3w-munah-plain-tuplet-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-3w-munah-plain-9",
+      "cell": "munah-plain",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-munah-plain-10",
+      "cell": "munah-plain",
+      "kind": "rest",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 30,
+      "sourceLocation": "Baer [1894], p.30, third setting 3. W., munah-plain, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-revia-1",
+      "cell": "munah-before-revia",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-revia, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-revia-2",
+      "cell": "munah-before-revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-revia, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-munah-before-revia-3",
+      "cell": "munah-before-revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-revia, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64
+    },
+    {
+      "id": "baer105-3w-revia-1",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-revia-arc-1",
+          "phase": "start",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-revia-2",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slurs": [
+        {
+          "id": "baer105-3w-revia-arc-1",
+          "phase": "continue",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-revia-3",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-revia-arc-1",
+          "phase": "stop",
+          "placement": "above"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-revia-printed-head-3",
+        "reason": "The final A4 in the opening alternative has upper16th and lower eighth stems."
+      }
+    },
+    {
+      "id": "baer105-3w-revia-4",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-revia-5",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePrintedHead": {
+        "id": "baer105-3w-revia-printed-head-3",
+        "reason": "The final A4 in the opening alternative has upper16th and lower eighth stems."
+      }
+    },
+    {
+      "id": "baer105-3w-revia-6",
+      "cell": "revia",
+      "kind": "rest",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-revia-7",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-revia-8",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-revia-arc-2",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-revia-9",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-revia-arc-2",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-revia-10",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-3w-revia-arc-2",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-revia-11",
+      "cell": "revia",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., revia, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-munah-four-glyphs-1",
+      "cell": "munah-four-glyphs",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-four-glyphs, realized component 1; literal dto refers to second-setting component baer105-2w-munah-four-glyphs-1",
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-four-glyphs-1",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-four-glyphs-1"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-four-glyphs-2",
+      "cell": "munah-four-glyphs",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-four-glyphs, realized component 2; literal dto refers to second-setting component baer105-2w-munah-four-glyphs-2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-3w-munah-four-glyphs-slur-1",
+        "phase": "start"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-four-glyphs-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-four-glyphs-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-four-glyphs-3",
+      "cell": "munah-four-glyphs",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-four-glyphs, realized component 3; literal dto refers to second-setting component baer105-2w-munah-four-glyphs-3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slur": {
+        "id": "baer105-3w-munah-four-glyphs-slur-1",
+        "phase": "continue"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-four-glyphs-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-four-glyphs-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-four-glyphs-4",
+      "cell": "munah-four-glyphs",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-four-glyphs, realized component 4; literal dto refers to second-setting component baer105-2w-munah-four-glyphs-4",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slur": {
+        "id": "baer105-3w-munah-four-glyphs-slur-1",
+        "phase": "stop"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-four-glyphs-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-four-glyphs-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-four-glyphs-5",
+      "cell": "munah-four-glyphs",
+      "kind": "rest",
+      "quarterBeats": 2,
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-four-glyphs, realized component 5; literal dto refers to second-setting component baer105-2w-munah-four-glyphs-5",
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-four-glyphs-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-four-glyphs-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-1",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 1; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-1",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-1",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-1"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-2",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 2; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-mahpakh-phrase",
+          "phase": "start",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-3",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 3; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-3",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "tuplet": {
+        "id": "baer105-3w-munah-mahpakh-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-mahpakh-phrase",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-4",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 4; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-3w-munah-mahpakh-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-mahpakh-phrase",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-5",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 5; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-5",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-3w-munah-mahpakh-triplet",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-mahpakh-phrase",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-6",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 6; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-6",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-mahpakh-phrase",
+          "phase": "continue",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-6",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-6"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-7",
+      "cell": "munah-before-mahpakh",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 7; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-7",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-mahpakh-phrase",
+          "phase": "stop",
+          "placement": "above",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-7",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-7"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-mahpakh-8",
+      "cell": "munah-before-mahpakh",
+      "kind": "rest",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-mahpakh, realized component 8; literal dto refers to second-setting component baer105-2w-munah-before-mahpakh-8",
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-mahpakh-8",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-mahpakh-8"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-merkha-tevir-1",
+      "cell": "munah-before-merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-merkha-tevir, realized component 1; literal dto refers to second-setting component baer105-2w-munah-before-merkha-tevir-1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-merkha-tevir-1",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-merkha-tevir-1"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-merkha-tevir-2",
+      "cell": "munah-before-merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-merkha-tevir, realized component 2; literal dto refers to second-setting component baer105-2w-munah-before-merkha-tevir-2",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "tuplet": {
+        "id": "baer105-3w-munah-merkha-triplet",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-merkha-phrase",
+          "phase": "start",
+          "placement": "below",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-merkha-tevir-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-merkha-tevir-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-merkha-tevir-3",
+      "cell": "munah-before-merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-merkha-tevir, realized component 3; literal dto refers to second-setting component baer105-2w-munah-before-merkha-tevir-3",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-3w-munah-merkha-triplet",
+        "phase": "continue"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-merkha-phrase",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-merkha-tevir-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-merkha-tevir-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-merkha-tevir-4",
+      "cell": "munah-before-merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.3333333333333333,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-merkha-tevir, realized component 4; literal dto refers to second-setting component baer105-2w-munah-before-merkha-tevir-4",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-3w-munah-merkha-triplet",
+        "phase": "stop"
+      },
+      "tie": {
+        "id": "baer105-3w-munah-merkha-G4-tie",
+        "phase": "start"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-merkha-phrase",
+          "phase": "continue",
+          "placement": "below",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-merkha-tevir-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-merkha-tevir-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-munah-before-merkha-tevir-5",
+      "cell": "munah-before-merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 2,
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., munah-before-merkha-tevir, realized component 5; literal dto refers to second-setting component baer105-2w-munah-before-merkha-tevir-5",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tie": {
+        "id": "baer105-3w-munah-merkha-G4-tie",
+        "phase": "stop"
+      },
+      "slurs": [
+        {
+          "id": "baer105-3w-munah-merkha-phrase",
+          "phase": "stop",
+          "placement": "below",
+          "lane": 1
+        }
+      ],
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-munah-before-merkha-tevir-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-munah-before-merkha-tevir-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-zakef-gadol-1",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., zakef-gadol, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-zakef-gadol-2",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., zakef-gadol, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-zakef-gadol-3",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., zakef-gadol, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-zakef-gadol-4",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., zakef-gadol, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-zakef-gadol-5",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., zakef-gadol, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60
+    },
+    {
+      "id": "baer105-3w-zakef-gadol-6",
+      "cell": "zakef-gadol",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., zakef-gadol, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-1",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 1",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-2",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 2; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-2",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-3",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 3; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-4",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 4; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-4",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-5",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 5; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-5",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-6",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 6; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-6",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-6",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-6"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-7",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 7; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-7",
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-7",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-7"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-without-zaqef-8",
+      "cell": "mahpakh-pashta-without-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., mahpakh-pashta-without-zaqef, realized component 8; literal dto refers to second-setting component baer105-2w-mahpakh-pashta-without-zaqef-8",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "fermata": {
+        "shape": "normal",
+        "placement": "below",
+        "duration": "unspecified"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-8",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-mahpakh-pashta-without-zaqef-8"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-1",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-2",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 2; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-3",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 3; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-3",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-4",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 4; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-3w-pashta-zaqef-one-word-slur-1",
+        "phase": "start"
+      },
+      "tuplet": {
+        "id": "baer105-3w-pashta-zaqef-one-word-triplet-1",
+        "phase": "start"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-5",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 5; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-5",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slur": {
+        "id": "baer105-3w-pashta-zaqef-one-word-slur-1",
+        "phase": "continue"
+      },
+      "tuplet": {
+        "id": "baer105-3w-pashta-zaqef-one-word-triplet-1",
+        "phase": "continue"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-6",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 6; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-6",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-3w-pashta-zaqef-one-word-slur-1",
+        "phase": "continue"
+      },
+      "tuplet": {
+        "id": "baer105-3w-pashta-zaqef-one-word-triplet-1",
+        "phase": "stop"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-6",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-6"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-7",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 7; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-7",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slur": {
+        "id": "baer105-3w-pashta-zaqef-one-word-slur-1",
+        "phase": "continue"
+      },
+      "tuplet": {
+        "id": "baer105-3w-pashta-zaqef-one-word-triplet-2",
+        "phase": "start"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-7",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-7"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-8",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 8; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-8",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-3w-pashta-zaqef-one-word-slur-1",
+        "phase": "continue"
+      },
+      "tuplet": {
+        "id": "baer105-3w-pashta-zaqef-one-word-triplet-2",
+        "phase": "continue"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-8",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-8"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-one-word-9",
+      "cell": "pashta-zaqef-one-word",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-one-word, realized component 9; literal dto refers to second-setting component baer105-2w-pashta-zaqef-one-word-9",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "fermata": {
+        "shape": "normal",
+        "placement": "above",
+        "duration": "unspecified"
+      },
+      "slur": {
+        "id": "baer105-3w-pashta-zaqef-one-word-slur-1",
+        "phase": "stop"
+      },
+      "tuplet": {
+        "id": "baer105-3w-pashta-zaqef-one-word-triplet-2",
+        "phase": "stop"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-one-word-9",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-one-word-9"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-alone-1",
+      "cell": "pashta-alone",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-alone, realized component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-alone-2",
+      "cell": "pashta-alone",
+      "kind": "note",
+      "quarterBeats": 1.5,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-alone, realized component 2; literal dto refers to second-setting component baer105-2w-pashta-alone-2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slur": {
+        "id": "baer105-3w-pashta-alone-slur-1",
+        "phase": "start"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-alone-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-alone-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-alone-3",
+      "cell": "pashta-alone",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-alone, realized component 3; literal dto refers to second-setting component baer105-2w-pashta-alone-3",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slur": {
+        "id": "baer105-3w-pashta-alone-slur-1",
+        "phase": "stop"
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-alone-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-alone-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-after-predecessors-1",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-after-predecessors, realized component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-after-predecessors-2",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-after-predecessors, realized component 2; literal dto refers to second-setting component baer105-2w-pashta-zaqef-after-predecessors-2",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-after-predecessors-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-after-predecessors-3",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-after-predecessors, realized component 3; literal dto refers to second-setting component baer105-2w-pashta-zaqef-after-predecessors-3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-after-predecessors-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-after-predecessors-4",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-after-predecessors, realized component 4; literal dto refers to second-setting component baer105-2w-pashta-zaqef-after-predecessors-4",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-after-predecessors-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-after-predecessors-5",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-after-predecessors, realized component 5; literal dto refers to second-setting component baer105-2w-pashta-zaqef-after-predecessors-5",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-3w-pashta-zaqef-after-predecessors-5-group",
+        "order": 1,
+        "count": 1,
+        "previousComponentId": "baer105-3w-pashta-zaqef-after-predecessors-4",
+        "nextComponentId": "baer105-3w-pashta-zaqef-after-predecessors-6",
+        "duration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "slash": true,
+        "printedSize": "small",
+        "printedBeams": 1
+      },
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-after-predecessors-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-pashta-zaqef-after-predecessors-6",
+      "cell": "pashta-zaqef-after-predecessors",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., pashta-zaqef-after-predecessors, realized component 6; literal dto refers to second-setting component baer105-2w-pashta-zaqef-after-predecessors-6",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-6",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-pashta-zaqef-after-predecessors-6"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-1",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-2",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-3",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-4",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-5",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-6",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-merkha-tipha-7",
+      "cell": "merkha-tipha",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tipha, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-1",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-2",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 2; literal dto refers to second-setting component baer105-2w-merkha-tevir-2",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-merkha-tevir-2",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-merkha-tevir-2"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-3",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 3; literal dto refers to second-setting component baer105-2w-merkha-tevir-3",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-merkha-tevir-3",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-merkha-tevir-3"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-4",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 4; literal dto refers to second-setting component baer105-2w-merkha-tevir-4",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-merkha-tevir-4",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-merkha-tevir-4"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-5",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 5; literal dto refers to second-setting component baer105-2w-merkha-tevir-5",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-merkha-tevir-5",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-merkha-tevir-5"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-6",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 6; literal dto refers to second-setting component baer105-2w-merkha-tevir-6",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-merkha-tevir-6",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-merkha-tevir-6"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-tevir-7",
+      "cell": "merkha-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., merkha-tevir, realized component 7; literal dto refers to second-setting component baer105-2w-merkha-tevir-7",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "sourceNotation": {
+        "method": "literal-dto-reference",
+        "sourceSetting": "3. W.",
+        "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
+        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentComponentId": "baer105-2w-merkha-tevir-7",
+        "transitiveSourceNotation": {
+          "method": "literal-dto-reference",
+          "sourceSetting": "2. W.",
+          "parentRecord": "docs/BAER-NO105-PATTERNS.json",
+          "parentSha256": "f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089",
+          "parentComponentId": "baer105-1w-merkha-tevir-7"
+        }
+      }
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-1",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-2",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-3",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-4",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-5",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-6",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-merkha-silluq-7",
+      "cell": "merkha-silluq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., merkha-silluq, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-1",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-2",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-3",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-4",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-5",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-6",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 1.5,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "tie": {
+        "id": "baer105-3w-telisha-qetana-tie-6-7",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-3w-telisha-qetana-7",
+      "cell": "telisha-qetana",
+      "kind": "note",
+      "quarterBeats": 1.5,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-qetana, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "tie": {
+        "id": "baer105-3w-telisha-qetana-tie-6-7",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-3w-telisha-gedola-1",
+      "cell": "telisha-gedola",
+      "kind": "rest",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-gedola, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-telisha-gedola-2",
+      "cell": "telisha-gedola",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-gedola, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-telisha-gedola-3",
+      "cell": "telisha-gedola",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-gedola, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-telisha-gedola-4",
+      "cell": "telisha-gedola",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-gedola, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-telisha-gedola-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-telisha-gedola-5",
+      "cell": "telisha-gedola",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-gedola, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-telisha-gedola-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-telisha-gedola-6",
+      "cell": "telisha-gedola",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., telisha-gedola, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-telisha-gedola-arc-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-qadma-azla-1",
+      "cell": "qadma-azla",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., qadma-azla, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-qadma-azla-2",
+      "cell": "qadma-azla",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., qadma-azla, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-qadma-azla-3",
+      "cell": "qadma-azla",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., qadma-azla, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-qadma-azla-4",
+      "cell": "qadma-azla",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., qadma-azla, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-qadma-azla-5",
+      "cell": "qadma-azla",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., qadma-azla, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-yetiv-1",
+      "cell": "yetiv",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., yetiv, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-yetiv-2",
+      "cell": "yetiv",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., yetiv, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-yetiv-3",
+      "cell": "yetiv",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., yetiv, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 77
+    },
+    {
+      "id": "baer105-3w-paseq-1",
+      "cell": "paseq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., paseq, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-paseq-2",
+      "cell": "paseq",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., paseq, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-paseq-3",
+      "cell": "paseq",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., paseq, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-1",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-section-ending-2",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-section-ending-3",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-section-ending-4",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 1.5,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "tie": {
+        "id": "baer105-3w-section-ending-tie-4-5",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-5",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "tie": {
+        "id": "baer105-3w-section-ending-tie-4-5",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-6",
+      "cell": "section-ending",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-7",
+      "cell": "section-ending",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-8",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-section-ending-9",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-section-ending-10",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 1.5,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "tie": {
+        "id": "baer105-3w-section-ending-tie-10-11",
+        "phase": "start"
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-11",
+      "cell": "section-ending",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "tie": {
+        "id": "baer105-3w-section-ending-tie-10-11",
+        "phase": "stop"
+      }
+    },
+    {
+      "id": "baer105-3w-section-ending-12",
+      "cell": "section-ending",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., section-ending, realized component 12",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    }
+  ],
+  "matchingQueries": {},
+  "scope": "All29ordinary-table columns of the third printed setting on30–35 are retained. Unresolved route or ornament figures stay explicitly withheld; this manual inspection is still in progress. The distinct No111rare-sign section on36 is not assigned to this setting. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
+  "timing": "Written values at regular user quarter-note BPM; recitative timing, tuning and interpretation remain unreviewed. Any directly written or referenced unmeasured grace requires a separately chosen original timing demonstration. Unknown route membership supplies no replacement music.",
+  "pronunciation": null,
+  "syllableUnderlay": null,
+  "phonemes": null,
+  "review": null,
+  "wordApplication": null,
+  "limits": [
+    "No arbitrary Bible-word, stressed-syllable or phoneme fitting.",
+    "No reviewed performance, historical tuning, complete cantorial grammar or independent singing voice.",
+    "Literal dto references retain exact parent component IDs and input hashes; shared source notation is not an independently reviewed transcription.",
+    "Upper/lower source lines are coherent monophonic alternatives, never combined chords.",
+    "Modern-sign context queries and rare-sign third-setting correspondence remain unassigned."
+  ]
+}

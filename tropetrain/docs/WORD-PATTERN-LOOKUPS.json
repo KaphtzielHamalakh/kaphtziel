@@ -793,7 +793,14 @@
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "mahpakh-pashta-zaqef",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Mahpach → paschto → sokef koton · notation pending",
+        "figureLabel": "Mahpach → paschto → sokef koton · upper-stem line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "mahpakh-pashta-zaqef:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mahpach → paschto → sokef koton · lower-stem line",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
@@ -849,7 +856,14 @@
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "munah-etnahta",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Munach → esnachto · notation pending",
+        "figureLabel": "Munach → esnachto · upper sixteenth-triplet line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-etnahta:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach → esnachto · lower ordinary-sixteenth line",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
@@ -870,7 +884,14 @@
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "pazer",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Poser · Pazer · notation pending",
+        "figureLabel": "Poser · Pazer · upper eighth-note line · unmeasured grace · optional demo",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "pazer:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Poser · Pazer · lower quarter-and-eighth line · unmeasured grace · optional demo",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
@@ -898,21 +919,42 @@
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "azla-geresh",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Aslo → ge-resch · notation pending",
+        "figureLabel": "Aslo → ge-resch · upper final C5 line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "azla-geresh:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Aslo → ge-resch · lower final A4 line",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "gershayim",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Gerschajim · notation pending",
+        "figureLabel": "Gerschajim · upper C5/B-natural/D5 line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "gershayim:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Gerschajim · lower A4/G4/F4 line",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "darga-tevir",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Dargo → t’wir · notation pending",
+        "figureLabel": "Dargo → t’wir · upper C5 pickup and E-flat line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "darga-tevir:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Dargo → t’wir · lower F4 pickup and D4/C4 line",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
@@ -933,7 +975,14 @@
         "sourceId": "baer-1894-no105-third-setting",
         "modeId": "sof-pasuq",
         "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
-        "figureLabel": "Sof po-suk · Schluss · notation pending",
+        "figureLabel": "Sof po-suk · Schluss · upper two-thirty-second line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "sof-pasuq:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Sof po-suk · Schluss · lower two-sixteenth line",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       },
       {
@@ -8102,23 +8151,23 @@
   "inputs": [
     {
       "path": "baer-third-patterns.js",
-      "sha256": "87667d6829be3239f61d6881b1918db8c9a366a55ea11c3281bb7429519fb991"
+      "sha256": "22663b7935068b0213816519192e37bd0353b75ccf9cac342631c7edf81c3a8a"
     },
     {
       "path": "baer-third-pattern-data.js",
-      "sha256": "507533f8fc76d2c4cb29cd5b301bd06bdd607b2ad07b2a1a9472db7f427929dd"
+      "sha256": "552afea22b559d7bac1b93f0fc1ec56c2c28633c219e911bd01fe0dcd6b96556"
     },
     {
       "path": "docs/BAER-NO105-THIRD-PATTERNS.json",
-      "sha256": "3fad9153d3a0d05d396718dbce06e9026941e374013fe6e566e9938ad62cd81d"
+      "sha256": "24f82e9c50db45bb70c9b4e78b20249f9d398436034605ec1291e831b45f44ff"
     },
     {
       "path": "data/notation/baer-no105-third-transcription.json",
-      "sha256": "ba41f883243457d26f45e0de7076b64789f81db72619d3bc0566dad88a9f5350"
+      "sha256": "6de643dc871c0125de5834ab3030331553274de4c3c5dffc8097678d6a0c355a"
     },
     {
       "path": "scripts/import-baer-third-patterns.mjs",
-      "sha256": "4d44ab04ff1fb8fd813985f03a15873efe906cae1803f1d842021f63c8a768f2"
+      "sha256": "07ce544a826d6c8f4c6d19b042d0a7c6774cfa76cec086c236bf9f0489c8e319"
     },
     {
       "path": "baer-second-patterns.js",

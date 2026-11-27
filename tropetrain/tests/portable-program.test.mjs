@@ -4,7 +4,7 @@ import {createHash,webcrypto} from 'node:crypto';
 import {gzipSync} from 'node:zlib';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-import {packPortableProgram,encodePortableProgramBytes} from '../scripts/pack-portable-program.mjs';
+import {packPortableProgram,encodePortableProgramBytes,encodePortableProgramBytes93} from '../scripts/pack-portable-program.mjs';
 import {startPortableProgram} from '../portable-program-loader.js';
 import {portableProgramBytes,restoredPortableHtml} from './portable-artifact.mjs';
 import {decodePortableProgramTransport} from '../scripts/decode-portable-program.mjs';
@@ -18,7 +18,7 @@ test('HTML-safe transport round trips all byte values, four-byte extremes and ev
 });
 function fixture(program='globalThis.sample={hebrew:"אֽ͏ָהֳלוֹ֙ בְּרֵאשִׁ֖ית",phonemes:null,review:null};'){
  const packed=packPortableProgram(program),{proof}=packed,gzip=portableProgramBytes(packed.markup).gzip,nodes=new Map(),context={},executed=[];
- const make=tag=>({tag,hidden:true,textContent:'',children:[],setAttribute(k,v){this[k]=v;},appendChild(n){this.children.push(n);}}),status=make('p');nodes.set('startup-status',status);nodes.set('portable-program-data',{textContent:encodePortableProgramBytes(gzip)});nodes.set('portable-program-proof',{textContent:JSON.stringify(proof)});
+ const make=tag=>({tag,hidden:true,textContent:'',children:[],setAttribute(k,v){this[k]=v;},appendChild(n){this.children.push(n);}}),status=make('p');nodes.set('startup-status',status);nodes.set('portable-program-data',{textContent:encodePortableProgramBytes93(gzip)});nodes.set('portable-program-proof',{textContent:JSON.stringify(proof)});
  const doc={getElementById:id=>nodes.get(id),createElement:make,body:{appendChild(n){executed.push(n.textContent);vm.runInNewContext(n.textContent,context);}}};
  return {packed,program,proof,gzip,doc,nodes,status,context,executed,options:{document:doc,subtle:webcrypto.subtle}};
 }
@@ -30,7 +30,7 @@ test('the same inline loader emitted in the artifact starts once using only its 
 });
 test('corrupted and missing packets never execute a partial program and expose a usable live-trainer recovery link',async()=>{
  for(const kind of ['missing','changed-byte','malformed-proof']){
-  const f=fixture();if(kind==='missing')f.nodes.delete('portable-program-data');else if(kind==='changed-byte'){const b=Buffer.from(f.gzip);b[15]^=1;f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes(b);}else f.nodes.get('portable-program-proof').textContent='{';
+  const f=fixture();if(kind==='missing')f.nodes.delete('portable-program-data');else if(kind==='changed-byte'){const b=Buffer.from(f.gzip);b[15]^=1;f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes93(b);}else f.nodes.get('portable-program-proof').textContent='{';
   const result=await startPortableProgram(null,f.options);assert.equal(result.started,false,kind);assert.equal(f.executed.length,0);assert.equal(f.status.hidden,false);assert.equal(f.status.role,'alert');assert.match(f.status.textContent,/Download a fresh copy/);assert.equal(f.status.children[0].href,'https://kaphtziel.com/tropetrain/');
  }
 });
@@ -42,7 +42,7 @@ test('legacy base64 programs still start with identical bytes and the same integ
 });
 test('nonalphabet data, overflow, nonzero padding and mismatched format/encoding never execute',async()=>{
  for(const kind of['character','overflow','padding','format']){
-  const f=fixture();let p={...f.proof};
+  const f=fixture();let p={...f.proof,format:'tropetrain-portable-program-v2',encoding:'gzip+html-base85'};f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes(f.gzip);
   if(kind==='character'){const n=f.nodes.get('portable-program-data');n.textContent='<'+n.textContent.slice(1);}
   if(kind==='overflow')f.nodes.get('portable-program-data').textContent='~~~~~'+f.nodes.get('portable-program-data').textContent.slice(5);
   if(kind==='padding'){p.gzipBytes=1;p.gzipSha256=sha(Buffer.from([1]));f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes(Buffer.from([1,0,0,1]));}
@@ -51,17 +51,34 @@ test('nonalphabet data, overflow, nonzero padding and mismatched format/encoding
  }
 });
 test('truncated gzip with a matching transport hash still fails decompression before execution',async()=>{
- const f=fixture(),bytes=f.gzip.subarray(0,-8),proof={...f.proof,gzipBytes:bytes.length,gzipSha256:sha(bytes)};f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes(bytes);const r=await startPortableProgram(proof,f.options);assert.equal(r.started,false);assert.equal(f.executed.length,0);
+ const f=fixture(),bytes=f.gzip.subarray(0,-8),proof={...f.proof,gzipBytes:bytes.length,gzipSha256:sha(bytes)};f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes93(bytes);const r=await startPortableProgram(proof,f.options);assert.equal(r.started,false);assert.equal(f.executed.length,0);
 });
 test('decoded size and SHA gates reject extra, missing or changed program bytes',async()=>{
  for(const change of [{programBytes:1},{programBytes:200000},{programSha256:'0'.repeat(64)}]){const f=fixture('globalThis.value="'+'x'.repeat(40000)+'";'),r=await startPortableProgram({...f.proof,...change},f.options);assert.equal(r.started,false);assert.equal(f.executed.length,0);}
 });
 test('valid gzip carrying invalid UTF8 is withheld instead of normalizing source characters',async()=>{
- const f=fixture(),bytes=Buffer.from([0xc3,0x28]),gzip=gzipSync(bytes);f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes(gzip);const r=await startPortableProgram({...f.proof,programBytes:bytes.length,programSha256:sha(bytes),gzipBytes:gzip.length,gzipSha256:sha(gzip)},f.options);assert.equal(r.started,false);assert.equal(f.executed.length,0);
+ const f=fixture(),bytes=Buffer.from([0xc3,0x28]),gzip=gzipSync(bytes);f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes93(gzip);const r=await startPortableProgram({...f.proof,programBytes:bytes.length,programSha256:sha(bytes),gzipBytes:gzip.length,gzipSha256:sha(gzip)},f.options);assert.equal(r.started,false);assert.equal(f.executed.length,0);
 });
 test('logical artifact assertions restore only the program while preserving the exact rest of the page and safe script closing text',()=>{
  const program='globalThis.value="</script>אֽ͏ָהֳלוֹ֙";',packed=packPortableProgram(program),html='<p>בָּרָ֣א</p>'+packed.markup+'<footer>notices</footer>',restored=restoredPortableHtml(html);assert.equal(restored,'<p>בָּרָ֣א</p><script>'+program.replaceAll('</script','<\\/script')+'</script><footer>notices</footer>');
 });
 test('actual portable artifact independently decodes to the complete normal program byte for byte, within the physical host limit',()=>{
  const html=readFileSync(new URL('../TropeTrain.html',import.meta.url)),normal=readFileSync(new URL('../app.bundle.js',import.meta.url)),decoded=portableProgramBytes(html);assert.deepEqual(decoded.bytes,normal);assert(html.length<100*1024*1024);assert(!/<script[^>]+src=/.test(html.toString()));assert(!/<link[^>]+rel="stylesheet"/.test(html.toString()));assert.equal(sha(normal),decoded.proof.programSha256);assert(decoded.proof.gzipBytes<normal.length);
+});
+
+
+test('legacy base85 copies retain the same program and integrity gates under the v3 loader',async()=>{
+ const f=fixture();f.nodes.get('portable-program-data').textContent=encodePortableProgramBytes(f.gzip);const r=await startPortableProgram({...f.proof,format:'tropetrain-portable-program-v2',encoding:'gzip+html-base85'},f.options);assert(r.started);assert.deepEqual(f.executed,[f.program]);
+});
+test('base93 fixed byte vectors, all two-byte inputs and every short tail match an independent BigInt reading',()=>{
+ const alphabet=Array.from({length:94},(_,i)=>String.fromCharCode(i+33)).filter(x=>x!=='<').join('');
+ const reference=bytes=>{let value=0n;for(let i=bytes.length-1;i>=0;i--)value=value*256n+BigInt(bytes[i]);let count=bytes.length*8,out='';while(count>=14){const low=Number(value%8192n),width=low>456?13:14,digit=Number(value%2n**BigInt(width));out+=alphabet[digit%93]+alphabet[Math.floor(digit/93)];value/=2n**BigInt(width);count-=width;}if(count){const tail=Number(value);out+=alphabet[tail%93];if(count>7||tail>92)out+=alphabet[Math.floor(tail/93)];}return out;};
+ for(const[bytes,expected]of[[[0],'!!'],[[1],'"!'],[[92],'~!'],[[93],'!"'],[[255],'g#'],[[0,0],'!!!'],[[255,255],'(z('],[[0,1],'h#!'],[[0,2],'Q&!']])assert.equal(encodePortableProgramBytes93(Buffer.from(bytes)),expected);
+ for(let value=0;value<65536;value++){const bytes=Buffer.from([value&255,value>>>8]),encoded=encodePortableProgramBytes93(bytes);assert.equal(encoded,reference(bytes));assert.deepEqual(decodePortableProgramTransport(encoded,{format:'tropetrain-portable-program-v3',encoding:'gzip+html-base93',gzipBytes:2}),bytes);}
+ for(let n=1;n<200;n++){const bytes=Buffer.from(Array.from({length:n},(_,i)=>(n*113+i*197)%256)),encoded=encodePortableProgramBytes93(bytes);assert.equal(encoded,reference(bytes));assert(!encoded.includes('<'));assert.equal(Buffer.byteLength(encoded),encoded.length);assert.deepEqual(decodePortableProgramTransport(encoded,{format:'tropetrain-portable-program-v3',encoding:'gzip+html-base93',gzipBytes:n}),bytes);}
+});
+test('base93 rejects noncanonical short tails and zero/nonzero padding before decompression',async()=>{
+ for(const[bytes,encoded]of[[[0],'!'],[[0],'!!!'],[[0],'~#'],[[0,0],'!!!!'],[[0,0],'!!%'],[[0,0],'!!<'],[[0,0],'!! ']]){
+  const proof={format:'tropetrain-portable-program-v3',encoding:'gzip+html-base93',gzipBytes:bytes.length};assert.throws(()=>decodePortableProgramTransport(encoded,proof));const f=fixture();f.nodes.get('portable-program-data').textContent=encoded;const r=await startPortableProgram({...f.proof,...proof,gzipSha256:sha(Buffer.from(bytes))},f.options);assert.equal(r.started,false);assert.equal(f.executed.length,0);
+ }
 });
