@@ -26,7 +26,11 @@ export function soundingNotes(plan){
         throw Error('A printed tie has mismatched pitch, syllable or timing.');
       i++;last=next;beats+=next.beats;end=next.startSeconds+next.durationSeconds;ids.push(next.id);
     }
-    result.push(ids.length===1?first:{...first,beats,durationSeconds:end-first.startSeconds,notationEventIds:ids});
+    // A final continuation can own a written rest after the held pitch. Keep
+    // that tail when the sounding plan is remeasured for offline batches.
+    result.push(ids.length===1?first:{...first,beats,durationSeconds:end-first.startSeconds,notationEventIds:ids,
+      ...(last.endingRestSeconds!==undefined?{endingRestSeconds:last.endingRestSeconds}:{}),
+      ...(last.endingRestBeats!==undefined?{endingRestBeats:last.endingRestBeats}:{})});
   }
   return result;
 }

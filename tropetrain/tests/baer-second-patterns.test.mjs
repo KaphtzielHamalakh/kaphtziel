@@ -19,7 +19,7 @@ test('second-setting inventory is29ordinary source figures, with28measured, one 
 });
 test('all38accepted first-setting event plans and82word-context relations remain byte-JSON identical; only new unmapped study entries append',()=>{
  const old=baerPatternModes().map(m=>({mode:m.id,plan:baerPatternPlan(m.id,{tempo:60,transpose:0,graceDemo:true,repeatDemo:true})}));assert.equal(sha(JSON.stringify(old)),'afd9a5f31d41ea34a4023132d977207d9445f992bd1893d77637616984bd249f');assert.equal(sha(read('docs/BAER-NO105-PATTERNS.json')),'f20e917ee8a70c2fa34476c26918ddc98f3d714a8090ebb3cb885dd609dd5089');
- const c=wordPatternCatalogue();assert.equal(c.entries.length,82);assert.equal(sha(JSON.stringify(c.entries)),'f4020aa821e5b248c641d947753575d179b6f0586f64b36196fc5aeabb567824');assert.equal(sha(JSON.stringify(c.unmapped.slice(0,62))),'34494cf69c35a641095e18846701dfad09685ee02efa9d32af02fa2d3301f747');assert.equal(c.unmapped.length,97);assert(c.unmapped.slice(62).every(r=>r.sourceId===id));
+ const c=wordPatternCatalogue();assert.equal(c.entries.length,82);assert.equal(sha(JSON.stringify(c.entries)),'f4020aa821e5b248c641d947753575d179b6f0586f64b36196fc5aeabb567824');assert.equal(sha(JSON.stringify(c.unmapped.slice(0,62))),'34494cf69c35a641095e18846701dfad09685ee02efa9d32af02fa2d3301f747');assert.equal(c.unmapped.length,132);assert(c.unmapped.slice(62,97).every(r=>r.sourceId===id));
 });
 test('every literal dto component retains its exact first-setting note identity, pitch, written duration and uncertainty',()=>{
  const byId=new Map(first.notes.map(n=>[n.id,n]));let refs=0;

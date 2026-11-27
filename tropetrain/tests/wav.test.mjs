@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import engine from 'web-audio-engine';
 import {renderWav,wavSummary,pcm16,audioBatches} from '../wav.js';
 import {buildPlan,frequency} from '../music.js';
-import {scheduleInstrument} from '../synthesis.js';
+import {scheduleInstrument,soundingNotes} from '../synthesis.js';
 const createContext=(length,rate)=>new engine.OfflineAudioContext(1,length,rate);
 const tone=(midi=69,duration=1)=>[{midi,startSeconds:0,durationSeconds:duration}];
 function fundamental(samples,rate){
@@ -29,6 +29,20 @@ test('WAV transposition changes pitch while duration stays fixed; longer notes k
 test('zero instrument volume produces actual digital silence',async()=>{
   const r=await renderWav(buildPlan(0,6),{createContext,volume:0});assert.equal(r.peak,0);
   assert.ok((await samplesOf(r)).every(v=>v===0));
+});
+test('a final tied continuation retains the trailing rest and exact WAV payload length',async()=>{
+  const plan=Object.freeze([
+    Object.freeze({id:'held-start',midi:60,beats:1,startSeconds:.5,durationSeconds:1,tieId:'held',tieStart:true,wordId:null,syllableId:null}),
+    Object.freeze({id:'held-end',midi:60,beats:1,startSeconds:1.5,durationSeconds:1,tieId:'held',tieStop:true,wordId:null,syllableId:null,endingRestSeconds:.75,endingRestBeats:.75})
+  ]),before=JSON.stringify(plan),sounding=soundingNotes(plan);
+  assert.equal(sounding.length,1);assert.equal(sounding[0].durationSeconds,2);
+  assert.equal(sounding[0].endingRestSeconds,.75);assert.equal(sounding[0].endingRestBeats,.75);
+  const result=await renderWav(plan,{createContext,sampleRate:8000}),raw=await result.blob.arrayBuffer(),view=new DataView(raw);
+  assert.equal(result.frames,26000);assert.equal(raw.byteLength,44+26000*2);
+  assert.equal(view.getUint32(4,true)+8,raw.byteLength);assert.equal(view.getUint32(40,true),raw.byteLength-44);
+  const samples=await samplesOf(result);
+  assert(samples.slice(0,3900).every(v=>v===0));assert(samples.slice(20800,25600).every(v=>v===0));
+  assert(samples.slice(4800,11200).some(v=>Math.abs(v)>.01));assert.equal(JSON.stringify(plan),before);
 });
 test('long WAV rendering batches at note boundaries and matches one-context rendering',async()=>{
   const plan=Array.from({length:70},(_,i)=>({midi:60+i%8,startSeconds:i*.41,durationSeconds:.41})),batches=[...audioBatches(plan)];
