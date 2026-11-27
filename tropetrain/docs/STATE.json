@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-27T18:46:23.308204+00:00",
+  "updated": "2026-11-27T19:34:54.976530+00:00",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "9294f9d794f374ac6f1b4d06d44fec115109e9c1",
-  "nextTask": "Publish the tested v0.105 app-only tree through a fresh connected main lease; verify Pages, exact live files, both public editions and all15draft/2fitting/7bookmark states; save full canonical build and release records. Continue source-specific musical and independent pronunciation work; full21features/sixrequirements remain active and printing deferred.",
+  "publishedCommit": "84545b8107e6315a8df159c2f5db96ee6cb83706",
+  "nextTask": "Continue source-specific cantillation and independent pronunciation work, prioritizing remaining literal ordinary-Torah settings, contextual phrase realizations and reviewed marked-word/syllable/stress/phoneme alignment. No invented grammar or singing presets. All21features/sixrequirements remain active; printing deferred.",
   "lastPassingTests": {
     "version": "0.105.0",
     "automated": 945,
@@ -19,7 +19,7 @@
     "focusedTests": 80,
     "additionalCatalogueTests": 14,
     "localUiChecks": 328,
-    "publicUiChecks": null,
+    "publicUiChecks": 328,
     "perEditionFunctionalChecks": 164,
     "newPatternRoutesPerEdition": 35,
     "newComponentInspectionsPerEdition": 253,
@@ -42,7 +42,12 @@
     "localDraftExportsAfterCacheExact": 15,
     "localFullFittingExportsAfterCacheExact": 2,
     "localListeningBookmarksAfterCacheExact": 7,
-    "allMediaStoppedAndMuted": true
+    "allMediaStoppedAndMuted": true,
+    "publicDraftExportsPreservedPerEdition": 15,
+    "publicCanonicalFittingsPreservedPerEdition": 2,
+    "publicListeningBookmarksPreservedPerEdition": 7,
+    "liveFilesExact": 57,
+    "liveDecodedBytesExact": 149983063
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -191,10 +196,10 @@
     }
   },
   "lastDeployment": {
-    "version": "0.104.0",
-    "commit": "9294f9d794f374ac6f1b4d06d44fec115109e9c1",
-    "url": "https://kaphtziel.com/tropetrain/?v=0.104.0#genesis-companion-studies",
-    "pagesRun": 46045640269,
+    "version": "0.105.0",
+    "commit": "84545b8107e6315a8df159c2f5db96ee6cb83706",
+    "url": "https://kaphtziel.com/tropetrain/?v=0.105.0#baer-second-pattern-study",
+    "pagesRun": 46056364251,
     "pagesConclusion": "success",
     "outsideRootEntriesPreserved": 41,
     "publicAccepted": true
@@ -2971,20 +2976,19 @@
     "phase": "published-and-accepted"
   },
   "latestMusicalIncrement": {
-    "version": "0.92.0",
-    "source": "Idelsohn1929VolVNo266,printed101/PDF104",
-    "printedSourceGroups": 95,
-    "markedWords": 39,
-    "assignedPitches": 130,
-    "unassignedParentPitches": 1,
-    "mosheGroup2Attacks": 5,
-    "mosheGroup2Beats": 1.875,
-    "mosheGroup2Seconds84": 1.3392857142857142,
-    "acceptedHebrewOrMamFit": null,
+    "version": "0.105.0",
+    "source": "BaerNo105second setting2.W.,printed30–35",
+    "figures": 29,
+    "realizedComponents": 218,
+    "coherentRoutes": 35,
+    "measuredFigures": 28,
+    "unmeasuredGraceFigures": 1,
+    "wordFitting": null,
+    "syllableUnderlay": null,
     "phonemes": null,
-    "voice": null,
-    "independentReview": null,
-    "newAcceptedHistoricalRealizations": 0
+    "qualifiedReview": null,
+    "newVoice": null,
+    "next": "Inspect remaining ordinary settings and reusable phrase/word-underlay evidence before implementing contextual rules. Preserve source boundaries, alternatives and nulls."
   },
   "privateV91EarlyVerification": {
     "phase": "published-local-and-public-accepted",
@@ -3441,7 +3445,7 @@
   },
   "currentCandidate": {
     "version": "0.105.0",
-    "status": "local_accepted_publication_pending",
+    "status": "published_and_public_accepted",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4155,7 +4159,7 @@
   },
   "privateV105Development": {
     "version": "0.105.0",
-    "status": "full945_local328_cache66_passed_publication_pending",
+    "status": "published_public328_accepted",
     "basePrivateCommit": "7a12168929253c660082008945c94549a340c762",
     "source": "/private/tmp/tropetrain-v105-worktree/tropetrain",
     "sourceScope": "BaerNo105second setting2.W.29ordinary figures,printed30–35;No111raresection separate",
@@ -4169,7 +4173,7 @@
     "transportBrowserPreflightChecks": 20,
     "finalFullCheckPending": false,
     "finalBrowserAcceptancePending": false,
-    "publicationPending": true,
+    "publicationPending": false,
     "sourceReview": null,
     "newSingingVoice": null,
     "figures": 29,
@@ -4194,7 +4198,8 @@
     },
     "programBytes": 45644886,
     "portableBytes": 99433314,
-    "portableHeadroom": 5424286
+    "portableHeadroom": 5424286,
+    "publicUiChecks": 328
   },
   "acceptedV104PassingTests": {
     "version": "0.104.0",
@@ -4238,5 +4243,64 @@
     "allMediaStoppedAndMuted": true,
     "liveFilesExact": 47,
     "liveDecodedBytesExact": 146972731
+  },
+  "publicV105Acceptance": {
+    "version": "0.105.0",
+    "codeCommit": "84545b8107e6315a8df159c2f5db96ee6cb83706",
+    "checks": 328,
+    "perEditionChecks": 164,
+    "counts": {
+      "normal": {
+        "PATTERNS": 51,
+        "NAVIGATION": 25,
+        "TOLDOT": 14,
+        "COMPANION": 19,
+        "RETAINED-CUES": 29,
+        "opening": 5,
+        "passages": 16,
+        "withheld": 5
+      },
+      "portable": {
+        "PATTERNS": 51,
+        "NAVIGATION": 25,
+        "TOLDOT": 14,
+        "COMPANION": 19,
+        "RETAINED-CUES": 29,
+        "opening": 5,
+        "passages": 16,
+        "withheld": 5
+      }
+    },
+    "newRoutesPerEdition": 35,
+    "newComponentInspectionsPerEdition": 253,
+    "newUniqueComponentsPerEdition": 218,
+    "sourceEvidenceItemsPerEdition": 14,
+    "eventExportsPerEdition": 4,
+    "canonicalPortableRecords": 88,
+    "canonicalPortableLinks": 91,
+    "researchAssetsExact": 6,
+    "newNoticeExact": true,
+    "retained657Companion358Toldot1083CueWordStatesNewlyExhaustive": false,
+    "practicePreservationEach": {
+      "completeDraftExports": 15,
+      "completeCanonicalFittingExports": 2,
+      "bookmarks": 7,
+      "boundaryFittingOrBookmarkEdits": false,
+      "fullCanonicalRawRecoverySavedPrivately": true
+    },
+    "audioStoppedAndMuted": true,
+    "publicDeliverableTab": "14",
+    "ownPortableTabClosed": "18",
+    "protectedOriginalTabs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "9"
+    ],
+    "screenshot": "public-v105-second-setting.jpg",
+    "newReviewedMelodyGrammar": null,
+    "newSingingVoice": null
   }
 }
