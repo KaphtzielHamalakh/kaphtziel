@@ -13,10 +13,21 @@ export function encodePortableProgramBytes(bytes){
  }
  parts.push(part);return parts.join('');
 }
+export function encodePortableProgramBytes93(bytes){
+ // Two printable ASCII digits carry thirteen bits, or fourteen for the
+ // 457 remaining values. Excluding '<' keeps the raw script carrier inert.
+ const alphabet=Array.from({length:94},(_,i)=>String.fromCharCode(i+33)).filter(c=>c!=='<').join(''),parts=[];let part='',bits=0,count=0;
+ for(const byte of bytes){
+  bits|=byte<<count;count+=8;
+  if(count>13){let value=bits&8191;const width=value>456?13:14;if(width===14)value=bits&16383;bits>>>=width;count-=width;part+=alphabet[value%93]+alphabet[Math.floor(value/93)];if(part.length>=40000){parts.push(part);part='';}}
+ }
+ if(count){part+=alphabet[bits%93];if(count>7||bits>92)part+=alphabet[Math.floor(bits/93)];}
+ parts.push(part);return parts.join('');
+}
 // Compress only the exact external program. Preserve the page, source records,
 // images, notices and canonical code bytes; no identifier/syntax changes.
 export function packPortableProgram(program){
- const bytes=Buffer.from(program,'utf8'),gzip=gzipSync(bytes,{level:9}),proof={format:'tropetrain-portable-program-v2',encoding:'gzip+html-base85',programBytes:bytes.length,programSha256:sha(bytes),gzipBytes:gzip.length,gzipSha256:sha(gzip)};
- const markup='<script id="portable-program-proof" type="application/json">'+JSON.stringify(proof)+'</script><script id="portable-program-data" type="application/octet-stream">'+encodePortableProgramBytes(gzip)+'</script><script id="portable-program-loader">('+startPortableProgram.toString()+')(null,{beforeStart:async({program})=>{const images=await ('+restorePortableProgramImages.toString()+')(program);const evidence=await ('+restorePortableEvidence.toString()+')();return {...evidence,sharedImages:images};}});</script>';
+ const bytes=Buffer.from(program,'utf8'),gzip=gzipSync(bytes,{level:9}),proof={format:'tropetrain-portable-program-v3',encoding:'gzip+html-base93',programBytes:bytes.length,programSha256:sha(bytes),gzipBytes:gzip.length,gzipSha256:sha(gzip)};
+ const markup='<script id="portable-program-proof" type="application/json">'+JSON.stringify(proof)+'</script><script id="portable-program-data" type="application/octet-stream">'+encodePortableProgramBytes93(gzip)+'</script><script id="portable-program-loader">('+startPortableProgram.toString()+')(null,{beforeStart:async({program})=>{const images=await ('+restorePortableProgramImages.toString()+')(program);const evidence=await ('+restorePortableEvidence.toString()+')();return {...evidence,sharedImages:images};}});</script>';
  return {markup,proof,savedProgramBytes:bytes.length-Buffer.byteLength(markup)};
 }

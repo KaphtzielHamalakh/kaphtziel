@@ -2,14 +2,26 @@
 export async function startPortableProgram(proof=null,{document:doc=globalThis.document,inflate=globalThis.DecompressionStream,subtle=globalThis.crypto?.subtle,beforeStart=null}={}){
  try{
   proof??=JSON.parse(doc.getElementById('portable-program-proof')?.textContent??'');
-  const legacy=proof?.format==='tropetrain-portable-program-v1'&&proof.encoding==='gzip+base64',compact=proof?.format==='tropetrain-portable-program-v2'&&proof.encoding==='gzip+html-base85';
-  if((!legacy&&!compact)||!Number.isSafeInteger(proof.programBytes)||proof.programBytes<1||proof.programBytes>256*1024*1024||!Number.isSafeInteger(proof.gzipBytes)||proof.gzipBytes<1||proof.gzipBytes>128*1024*1024||!['programSha256','gzipSha256'].every(k=>/^[a-f0-9]{64}$/.test(proof[k])))throw Error('Invalid portable program record.');
+  const legacy=proof?.format==='tropetrain-portable-program-v1'&&proof.encoding==='gzip+base64',compact=proof?.format==='tropetrain-portable-program-v2'&&proof.encoding==='gzip+html-base85',dense=proof?.format==='tropetrain-portable-program-v3'&&proof.encoding==='gzip+html-base93';
+  if((!legacy&&!compact&&!dense)||!Number.isSafeInteger(proof.programBytes)||proof.programBytes<1||proof.programBytes>256*1024*1024||!Number.isSafeInteger(proof.gzipBytes)||proof.gzipBytes<1||proof.gzipBytes>128*1024*1024||!['programSha256','gzipSha256'].every(k=>/^[a-f0-9]{64}$/.test(proof[k])))throw Error('Invalid portable program record.');
   if(typeof inflate!=='function'||!subtle)throw Error('This browser cannot open the compressed program.');
   const encoded=doc.getElementById('portable-program-data')?.textContent?.trim();
-  if(!encoded||encoded.length!==(legacy?Math.ceil(proof.gzipBytes/3)*4:Math.ceil(proof.gzipBytes/4)*5))throw Error('Incomplete portable program.');
+  if(!encoded||(dense?encoded.length<Math.ceil(proof.gzipBytes*8/14)*2-1||encoded.length>Math.ceil(proof.gzipBytes*8/13)*2:encoded.length!==(legacy?Math.ceil(proof.gzipBytes/3)*4:Math.ceil(proof.gzipBytes/4)*5)))throw Error('Incomplete portable program.');
   let gzip;
   if(legacy)gzip=Uint8Array.from(atob(encoded),c=>c.charCodeAt(0));
-  else{
+  else if(dense){
+   const digit=code=>{if(code<33||code>126||code===60)throw Error('Invalid portable program encoding.');return code-33-(code>60?1:0);};
+   gzip=new Uint8Array(proof.gzipBytes);let bits=0,count=0,consumed=0,out=0;
+   const append=byte=>{if(out>=gzip.length)throw Error('Portable program encoding exceeds its recorded length.');gzip[out++]=byte;};
+   let i=0;for(;i+1<encoded.length;i+=2){
+    const value=digit(encoded.charCodeAt(i))+93*digit(encoded.charCodeAt(i+1)),remaining=proof.gzipBytes*8-consumed;
+    if(remaining<14&&(i+2!==encoded.length||remaining<1||(remaining<=7&&value<=92)||value>=2**remaining))throw Error('Noncanonical portable program padding.');
+    const width=(value&8191)>456?13:14;bits|=value<<count;count+=width;consumed+=width;
+    while(count>=8){append(bits&255);bits>>>=8;count-=8;}
+   }
+   if(i<encoded.length){const value=digit(encoded.charCodeAt(i)),remaining=proof.gzipBytes*8-consumed;if(remaining<1||remaining>7||value>=2**remaining)throw Error('Noncanonical portable program padding.');bits|=value<<count;append(bits&255);bits>>>=8;}
+   if(out!==gzip.length||bits!==0)throw Error('Noncanonical portable program padding.');
+  }else{
    // The fixed alphabet excludes '<', so arbitrary payloads cannot form HTML
    // script/comment markup. Four original bytes occupy five ASCII characters.
    const alphabet='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;:=>?@^_`{|}~',digits=new Int16Array(128);digits.fill(-1);

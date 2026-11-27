@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "app.bundle.js",
-      "sha256": "a201cb2dcfb5fd6584ab43ec4b5a5c7b6aaa6fd802c1493d637cbdd49cb956ea"
+      "sha256": "9e23b676462c976c4c83f74304d0e0136499246dca6fef2f103cf13d0f8b94b5"
     },
     {
       "path": "assets/scores/cohen-1902-munah-revia.png",
@@ -20,7 +20,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "6a2fe8739f73bc2b36be46d049cda272bede35f0bca5a677e307320622bba4a8"
+      "sha256": "74981c36399cdbadaadf8d562a55c41c2282cb989b370c2503c1f5631d39dd5a"
     },
     {
       "path": "portable-program-images.js",
@@ -28,7 +28,7 @@
     },
     {
       "path": "portable-program-loader.js",
-      "sha256": "c761f8bd9acbd0952f0c8808aed6b6c16f0a510866a05df02243d858c0bc4157"
+      "sha256": "80a4960f810e628385da3a36c67afc85bd36b9676e70f186c5e8cd4de9cf2c4d"
     },
     {
       "path": "scripts/audit-portable-program-images.mjs",
@@ -36,15 +36,15 @@
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "a6be9b23746861b8f76fddbe79508b7ead88e9099bd2dccfb9a0c5629b7e28c1"
+      "sha256": "0653caa2a3e35b9a7c3f28875fbc03baa51f20554ba5857696a88000b6f0604b"
     },
     {
       "path": "scripts/decode-portable-program.mjs",
-      "sha256": "56f89acbb0fe35942b266548db342e5c63b5b12a60121ca99639f1804432bf44"
+      "sha256": "7f62152bb9741d5821fe9418ddbac64e75164f129e7e9fe81a6d6b7ff0898307"
     },
     {
       "path": "scripts/pack-portable-program.mjs",
-      "sha256": "d1cc522458110159f38c713ebcbaa38f839be4016d235657e2561311916b5572"
+      "sha256": "6c187627951875244933cfb0f2ff467934b16119e7ae2fdf533bbca0fc5cd669"
     },
     {
       "path": "scripts/share-program-images.mjs",
@@ -94,8 +94,8 @@
   ],
   "imageCount": 3,
   "completeSourceImagesRetained": true,
-  "normalProgramBytes": 47063683,
-  "normalProgramSha256": "a201cb2dcfb5fd6584ab43ec4b5a5c7b6aaa6fd802c1493d637cbdd49cb956ea",
+  "normalProgramBytes": 47267198,
+  "normalProgramSha256": "9e23b676462c976c4c83f74304d0e0136499246dca6fef2f103cf13d0f8b94b5",
   "avoidedDuplicateDataUriBytes": 1116047,
   "historicalRealizationsAdded": 0,
   "singingVoicesAdded": 0

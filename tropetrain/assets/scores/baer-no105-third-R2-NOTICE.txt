@@ -1,0 +1,9 @@
+Baer No105 third printed ordinary-Torah setting · literal draft revision2.
+
+Abraham Baer, Baal t’fillah / Der practische Vorbeter, third expanded/revised edition, Frankfurt: Kauffmann [1894]. Institutional title: https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537 . Reuse policy: https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy . Nineteenth-century public-domain print; unrestricted institutional public-domain digitization reuse. New original transcription/software: CC0-1.0. No endorsement or qualified musical review is implied.
+
+All29ordinary source columns now retain literal draft routes. Six earlier excerpts remain byte-exact. Page34has an additional unretouched grayscale excerpt extended below the complete lower Darga slur; its earlier crop and exact revision1record/manual/compiler/notice are retained in the source delta archive. Native3868×5677sources and original3000px rasters remain hash-pinned. Geometric aids and source inspection are not musical approval. Original149components remain unchanged; the seven formerly withheld figures add87logical components with separate stem paths.
+
+Two figures contain unmeasured graces. They remain unavailable by default; the separately chosen original80msinstrumental demonstration is not a historical duration. Sofpasuq’s two lines retain unequal written extents without padding. Printed accidentals, rests, arcs and literal second/first-row ditto lineage remain explicit. No111rare-sign settings remain a separate source section.
+
+This is unreviewed instrumental source notation, not a complete contextual Torah melody grammar, Kinnor preset or singing voice. Bible-word/stress/syllable/phoneme fitting, historical timing/tuning and independent transcription/musical review remain pending. Modern12TET/regular BPM/instrument articulation are approximations. The revision1source delta requires its listed unchanged input closure; it is not a runnable distribution.

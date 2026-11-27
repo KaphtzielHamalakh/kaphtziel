@@ -1,12 +1,12 @@
 {
   "schema": "tropetrain-baer-third-setting-patterns-v1",
   "id": "baer-1894-no105-third-setting",
-  "revision": 1,
+  "revision": 2,
   "name": "Baer [1894] No105 · third printed ordinary-Torah setting",
   "inputs": [
     {
       "path": "data/notation/baer-no105-third-transcription.json",
-      "sha256": "ba41f883243457d26f45e0de7076b64789f81db72619d3bc0566dad88a9f5350"
+      "sha256": "6de643dc871c0125de5834ab3030331553274de4c3c5dffc8097678d6a0c355a"
     },
     {
       "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
@@ -14,7 +14,7 @@
     },
     {
       "path": "scripts/import-baer-third-patterns.mjs",
-      "sha256": "4d44ab04ff1fb8fd813985f03a15873efe906cae1803f1d842021f63c8a768f2"
+      "sha256": "07ce544a826d6c8f4c6d19b042d0a7c6774cfa76cec086c236bf9f0489c8e319"
     },
     {
       "path": "baer-notation.js",
@@ -27,6 +27,14 @@
     {
       "path": "source-repeat.js",
       "sha256": "0ba66b9822733fd0b69cabcb110d6df55756f5e8238e072c59d3595d7f7db425"
+    },
+    {
+      "path": "docs/BAER-NO105-THIRD-PATTERNS-R1.json",
+      "sha256": "3fad9153d3a0d05d396718dbce06e9026941e374013fe6e566e9938ad62cd81d"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-r1-sources.zip",
+      "sha256": "89d1cbb7f3a8a3e2263ce60fe0dc85030ee679650ab858cba8bdf4b8dc7bdf84"
     },
     {
       "path": "assets/scores/baer-no105-third-p30.png",
@@ -61,8 +69,8 @@
       "sha256": "5ad3a5ff630be80cd4d5c7cd1f90b622d1d1df9679a79c44538e121ac7a3a40a"
     },
     {
-      "path": "assets/scores/baer-no105-third-p34.png",
-      "sha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc"
+      "path": "assets/scores/baer-no105-third-p34-complete.png",
+      "sha256": "019c59d252912b3c2ee0a20f91fb22442641d061fb8c564bbaa3192ba630ee5a"
     },
     {
       "path": "assets/scores/baer-no105-second-p34.png",
@@ -81,7 +89,16 @@
       "sha256": "17ac5b0858a3b07f54fc2abfd2ce18ee8e3b70639e32733936704b0b046b2531"
     }
   ],
-  "inspectionStatus": "unreviewed-literal-study-with-unresolved-figures",
+  "inspectionStatus": "unreviewed-literal-study-all-ordinary-figures-with-explicit-unmeasured-graces",
+  "previousRevision": {
+    "record": "docs/BAER-NO105-THIRD-PATTERNS-R1.json",
+    "recordSha256": "3fad9153d3a0d05d396718dbce06e9026941e374013fe6e566e9938ad62cd81d",
+    "sourceDelta": "assets/scores/baer-no105-third-r1-sources.zip",
+    "sourceDeltaSha256": "89d1cbb7f3a8a3e2263ce60fe0dc85030ee679650ab858cba8bdf4b8dc7bdf84",
+    "sourceDeltaBytes": 176891,
+    "revision": 1,
+    "scope": "Exact earlier source record and changed-source delta retained for comparison; not a complete app distribution."
+  },
   "nativeSourceRasters": [
     {
       "page": 30,
@@ -281,19 +298,31 @@
           200,
           1010,
           2800,
-          1210
+          1275
         ],
         "inspectionCropFile": "page-34-first.png",
-        "image": "assets/scores/baer-no105-third-p34.png",
-        "imageSha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc",
-        "imageBytes": 150353,
-        "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context.",
+        "image": "assets/scores/baer-no105-third-p34-complete.png",
+        "imageSha256": "019c59d252912b3c2ee0a20f91fb22442641d061fb8c564bbaa3192ba630ee5a",
+        "imageBytes": 195373,
+        "derivation": "Lossless unretouched grayscale crop from pinned3000px institutional raster; bottom extended to1275to retain the entire lower Darga slur. Adjacent staff fragments remain context. Prior excerpt and exact source revision are retained.",
         "sourceImageUrl": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3000,/0/default.jpg",
         "contextImage": {
           "image": "assets/scores/baer-no105-second-p34.png",
           "imageBytes": 149721,
           "imageSha256": "3744a5b8b79020a847c207332796a69bd147e01c007853d3d9c9e22d70154a03",
           "purpose": "Immediate preceding second-row notation for literal dto references; its canonical record retains the first-row context and complete transitive references."
+        },
+        "previousExcerpt": {
+          "file": "assets/scores/baer-no105-third-p34.png",
+          "bytes": 150353,
+          "sha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc",
+          "rect": [
+            200,
+            1010,
+            2800,
+            1210
+          ],
+          "reason": "Earlier lower boundary crossed the previously unresolved Darga slur; original bytes retained in revision1source delta."
         }
       },
       "35": {
@@ -332,7 +361,7 @@
     },
     "image": "assets/scores/baer-no105-first-p30.png",
     "page": 30,
-    "caption": "Third printed ordinary-Torah setting3.W. Manual notation inspection in progress; unresolved routes remain withheld.",
+    "caption": "Third printed ordinary-Torah setting3.W. All29ordinary source figures have literal draft routes; unmeasured graces require explicit original timing.",
     "detailImages": {},
     "setting": "3. W.",
     "printedPages": [
@@ -706,29 +735,79 @@
       "page": 31,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "transcribed",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "The source is fully written, with paired heads and an unpaired quarter in the second bar. Coherent route membership and common-head roles still require resolution; no second-row notes or guessed timeline is substituted.",
+      "sourceMeter": "6/8",
+      "contextPending": "The initial eighth is a pickup; the first full bar has six eighths and the closing bar has five, together twelve eighths. The central second-bar A4 belongs to the lower beamed eighth pair, not a common quarter. Each printed stem line is separate.",
       "sourceInspection": {
-        "unresolved": "Whether the central unpaired A4 quarter is common or belongs to one alternative, and the continuation of the G4/F4 stem lines.",
+        "nativeRasterPage": 31,
         "region3000": [
           1690,
-          1015,
+          1000,
           2400,
-          1210
+          1225
         ],
-        "nativeRasterPage": 31,
-        "notesOrRoutesAccepted": false
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "barQuarterBeats": [
+          0.5,
+          3,
+          2.5
+        ],
+        "routeNotesPerBar": [
+          1,
+          6,
+          5
+        ]
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper-stem line",
+          "componentIds": [
+            "baer105-3w-mahpakh-pashta-zaqef-1",
+            "baer105-3w-mahpakh-pashta-zaqef-2",
+            "baer105-3w-mahpakh-pashta-zaqef-3",
+            "baer105-3w-mahpakh-pashta-zaqef-4",
+            "baer105-3w-mahpakh-pashta-zaqef-5",
+            "baer105-3w-mahpakh-pashta-zaqef-6",
+            "baer105-3w-mahpakh-pashta-zaqef-7",
+            "baer105-3w-mahpakh-pashta-zaqef-9",
+            "baer105-3w-mahpakh-pashta-zaqef-11",
+            "baer105-3w-mahpakh-pashta-zaqef-15",
+            "baer105-3w-mahpakh-pashta-zaqef-16",
+            "baer105-3w-mahpakh-pashta-zaqef-17"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower-stem line",
+          "componentIds": [
+            "baer105-3w-mahpakh-pashta-zaqef-1",
+            "baer105-3w-mahpakh-pashta-zaqef-2",
+            "baer105-3w-mahpakh-pashta-zaqef-3",
+            "baer105-3w-mahpakh-pashta-zaqef-4",
+            "baer105-3w-mahpakh-pashta-zaqef-5",
+            "baer105-3w-mahpakh-pashta-zaqef-6",
+            "baer105-3w-mahpakh-pashta-zaqef-8",
+            "baer105-3w-mahpakh-pashta-zaqef-10",
+            "baer105-3w-mahpakh-pashta-zaqef-12",
+            "baer105-3w-mahpakh-pashta-zaqef-13",
+            "baer105-3w-mahpakh-pashta-zaqef-14",
+            "baer105-3w-mahpakh-pashta-zaqef-17"
+          ]
+        }
+      ],
+      "realizedComponents": 17,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 6
     },
     {
       "id": "zakef-gadol",
@@ -933,22 +1012,60 @@
       "page": 32,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "transcribed",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "The high numeral3and upper secondary-beamed group are retained. Lower-line stem values, common-head roles and reconvergence remain unresolved; no guessed route or tuplet is played.",
+      "contextPending": "The high3belongs to the upper double-beamed three-in-two sixteenths only. The following D4 eighth is common; upper F4 eighth is an alternative to lower D4/G4 sixteenths. Common F4/C4 eighths close both paths.",
       "sourceInspection": {
         "nativeRasterPage": 32,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          2070,
+          980,
+          2460,
+          1260
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper sixteenth-triplet line",
+          "componentIds": [
+            "baer105-3w-munah-etnahta-1",
+            "baer105-3w-munah-etnahta-2",
+            "baer105-3w-munah-etnahta-4",
+            "baer105-3w-munah-etnahta-5",
+            "baer105-3w-munah-etnahta-7",
+            "baer105-3w-munah-etnahta-8",
+            "baer105-3w-munah-etnahta-11",
+            "baer105-3w-munah-etnahta-12"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower ordinary-sixteenth line",
+          "componentIds": [
+            "baer105-3w-munah-etnahta-1",
+            "baer105-3w-munah-etnahta-3",
+            "baer105-3w-munah-etnahta-6",
+            "baer105-3w-munah-etnahta-7",
+            "baer105-3w-munah-etnahta-9",
+            "baer105-3w-munah-etnahta-10",
+            "baer105-3w-munah-etnahta-11",
+            "baer105-3w-munah-etnahta-12"
+          ]
+        }
+      ],
+      "realizedComponents": 12,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 3.5
     },
     {
       "id": "merkha-tevir",
@@ -1005,22 +1122,68 @@
       "page": 33,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "unmeasured-grace",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "The small slashed head and differently stemmed alternatives require route-specific measured anchors. Their exact membership remains unresolved; neither historical grace timing nor an invented path is supplied.",
+      "contextPending": "The small slashed D5 before the dotted C5 has no measured duration. Both stem paths contain three measured quarter beats before that barline, then the common unmeasured grace and dotted eighth. Any80ms realization is an explicitly original instrument demonstration.",
       "sourceInspection": {
         "nativeRasterPage": 33,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          780,
+          970,
+          1400,
+          1260
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "measuredQuarterBeatsBeforeGrace": 3,
+        "measuredFinalQuarterBeats": 0.75
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper eighth-note line",
+          "componentIds": [
+            "baer105-3w-pazer-1",
+            "baer105-3w-pazer-3",
+            "baer105-3w-pazer-4",
+            "baer105-3w-pazer-5",
+            "baer105-3w-pazer-7",
+            "baer105-3w-pazer-9",
+            "baer105-3w-pazer-10",
+            "baer105-3w-pazer-11"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower quarter-and-eighth line",
+          "componentIds": [
+            "baer105-3w-pazer-2",
+            "baer105-3w-pazer-6",
+            "baer105-3w-pazer-8",
+            "baer105-3w-pazer-9",
+            "baer105-3w-pazer-10",
+            "baer105-3w-pazer-11"
+          ]
+        }
+      ],
+      "unmeasuredGraceComponents": 1,
+      "unmeasuredGraceNotes": 1,
+      "sourceMeasuredQuarterBeats": 3.75,
+      "pending": "This source route includes an unmeasured printed grace, directly written or preserved by a literal dto reference. Source duration and stealing ratio remain unspecified. Only the separately chosen original 80 ms instrumental timing demonstration can play it; no historical timing or word allocation is approved.",
+      "sourceMeasuredQuarterBeatsByVariant": {
+        "upper": 3.75,
+        "lower": 3.75
+      },
+      "realizedComponents": 11,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 3.75
     },
     {
       "id": "telisha-qetana",
@@ -1086,22 +1249,58 @@
       "page": 34,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "transcribed",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "Dense doubled heads, rapid beams and the explicit accidental still require coherent upper/lower route assignment. No chord, guessed duration or same-name second-row substitution is played.",
+      "contextPending": "Both two-beam groups contain the same four sixteenths C5/B-natural4/D5/C5; the last quarter heads C5/A4 are the alternatives. No third beam or tuplet numeral is present.",
       "sourceInspection": {
         "nativeRasterPage": 34,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          900,
+          960,
+          1340,
+          1230
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper final C5 line",
+          "componentIds": [
+            "baer105-3w-azla-geresh-1",
+            "baer105-3w-azla-geresh-2",
+            "baer105-3w-azla-geresh-3",
+            "baer105-3w-azla-geresh-4",
+            "baer105-3w-azla-geresh-5",
+            "baer105-3w-azla-geresh-6",
+            "baer105-3w-azla-geresh-7"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower final A4 line",
+          "componentIds": [
+            "baer105-3w-azla-geresh-1",
+            "baer105-3w-azla-geresh-2",
+            "baer105-3w-azla-geresh-3",
+            "baer105-3w-azla-geresh-4",
+            "baer105-3w-azla-geresh-5",
+            "baer105-3w-azla-geresh-6",
+            "baer105-3w-azla-geresh-8"
+          ]
+        }
+      ],
+      "realizedComponents": 8,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 3
     },
     {
       "id": "gershayim",
@@ -1109,22 +1308,67 @@
       "page": 34,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "transcribed",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "Doubled heads and unequal beam groups require confirmed route membership and accidental ownership. All printed rests remain visible; no replacement melody is supplied.",
+      "contextPending": "The rapid group starts with one eighth, followed by two sixteenths in each line. The natural belongs only to upper B4; the lower notes are G4/F4. Two quarter rests and an eighth rest after the final quarter are retained.",
       "sourceInspection": {
         "nativeRasterPage": 34,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          1320,
+          960,
+          1810,
+          1260
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "trailingRestQuarterBeats": [
+          1,
+          1,
+          0.5
+        ]
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper C5/B-natural/D5 line",
+          "componentIds": [
+            "baer105-3w-gershayim-1",
+            "baer105-3w-gershayim-2",
+            "baer105-3w-gershayim-3",
+            "baer105-3w-gershayim-5",
+            "baer105-3w-gershayim-7",
+            "baer105-3w-gershayim-9",
+            "baer105-3w-gershayim-11",
+            "baer105-3w-gershayim-12",
+            "baer105-3w-gershayim-13"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower A4/G4/F4 line",
+          "componentIds": [
+            "baer105-3w-gershayim-1",
+            "baer105-3w-gershayim-2",
+            "baer105-3w-gershayim-4",
+            "baer105-3w-gershayim-6",
+            "baer105-3w-gershayim-8",
+            "baer105-3w-gershayim-10",
+            "baer105-3w-gershayim-11",
+            "baer105-3w-gershayim-12",
+            "baer105-3w-gershayim-13"
+          ]
+        }
+      ],
+      "realizedComponents": 13,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 5.5
     },
     {
       "id": "darga-tevir",
@@ -1132,22 +1376,83 @@
       "page": 34,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "transcribed",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "The differently beamed alternatives and written flat/natural signs still require exact note, duration and route ownership. No source pitch or accidental is guessed from the second row.",
+      "contextPending": "Only the pickup, middle two heads of the second four-sixteenth group and final quarter have separate pitches. Preserve the written sixteenth rest/E4 sixteenth before the barline, upper E-flat and explicit common E-natural, and final eighth rest. The first descending B is B-flat from the key after a barline.",
       "sourceInspection": {
         "nativeRasterPage": 34,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          1790,
+          960,
+          2620,
+          1245
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "quarterBeatSegments": [
+          0.5,
+          3,
+          2.5
+        ],
+        "restsQuarterBeats": [
+          0.25,
+          0.5
+        ]
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper C5 pickup and E-flat line",
+          "componentIds": [
+            "baer105-3w-darga-tevir-1",
+            "baer105-3w-darga-tevir-3",
+            "baer105-3w-darga-tevir-4",
+            "baer105-3w-darga-tevir-5",
+            "baer105-3w-darga-tevir-6",
+            "baer105-3w-darga-tevir-7",
+            "baer105-3w-darga-tevir-8",
+            "baer105-3w-darga-tevir-9",
+            "baer105-3w-darga-tevir-10",
+            "baer105-3w-darga-tevir-11",
+            "baer105-3w-darga-tevir-12",
+            "baer105-3w-darga-tevir-14",
+            "baer105-3w-darga-tevir-16",
+            "baer105-3w-darga-tevir-17",
+            "baer105-3w-darga-tevir-19"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower F4 pickup and D4/C4 line",
+          "componentIds": [
+            "baer105-3w-darga-tevir-2",
+            "baer105-3w-darga-tevir-3",
+            "baer105-3w-darga-tevir-4",
+            "baer105-3w-darga-tevir-5",
+            "baer105-3w-darga-tevir-6",
+            "baer105-3w-darga-tevir-7",
+            "baer105-3w-darga-tevir-8",
+            "baer105-3w-darga-tevir-9",
+            "baer105-3w-darga-tevir-10",
+            "baer105-3w-darga-tevir-11",
+            "baer105-3w-darga-tevir-13",
+            "baer105-3w-darga-tevir-15",
+            "baer105-3w-darga-tevir-16",
+            "baer105-3w-darga-tevir-18",
+            "baer105-3w-darga-tevir-19"
+          ]
+        }
+      ],
+      "realizedComponents": 19,
+      "coherentMonophonicRoutes": 2,
+      "literalQuarterBeats": 6
     },
     {
       "id": "yetiv",
@@ -1193,22 +1498,61 @@
       "page": 35,
       "sourceSection": "No105 ordinary Torah table",
       "sourceSetting": "3. W.",
-      "status": "unresolved-route",
+      "status": "transcribed",
       "review": null,
       "wordApplication": null,
-      "transcriptionMethod": "inspection-pending",
+      "transcriptionMethod": "written",
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
         "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
       },
-      "pending": "Shared opening heads carry different stem groups before the common ending. The full coherent routes remain unresolved; no guessed attacks or omitted head are supplied.",
+      "contextPending": "The upper opening pair has three beams and the lower pair two; no tuplet numeral is printed. The paths have unequal written extents2.25and2.5quarter beats and are not padded. Common A4 quarter and A4/D4 eighths remain separate attacks under the printed slur.",
       "sourceInspection": {
         "nativeRasterPage": 35,
-        "notesOrRoutesAccepted": false
+        "region3000": [
+          590,
+          920,
+          1180,
+          1230
+        ],
+        "literalDraftRoutesAccepted": true,
+        "musicalReview": null,
+        "sourceVariantQuarterBeats": {
+          "upper": 2.25,
+          "lower": 2.5
+        }
       },
-      "realizedComponents": 0,
-      "coherentMonophonicRoutes": 0
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper two-thirty-second line",
+          "componentIds": [
+            "baer105-3w-sof-pasuq-1",
+            "baer105-3w-sof-pasuq-3",
+            "baer105-3w-sof-pasuq-5",
+            "baer105-3w-sof-pasuq-6",
+            "baer105-3w-sof-pasuq-7"
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower two-sixteenth line",
+          "componentIds": [
+            "baer105-3w-sof-pasuq-2",
+            "baer105-3w-sof-pasuq-4",
+            "baer105-3w-sof-pasuq-5",
+            "baer105-3w-sof-pasuq-6",
+            "baer105-3w-sof-pasuq-7"
+          ]
+        }
+      ],
+      "literalVariantQuarterBeats": {
+        "upper": 2.25,
+        "lower": 2.5
+      },
+      "realizedComponents": 7,
+      "coherentMonophonicRoutes": 2
     },
     {
       "id": "section-ending",
@@ -3097,6 +3441,414 @@
       }
     },
     {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-1",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-2",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-3",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-4",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-5",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-6",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-7",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-8",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-9",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-10",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-11",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-12",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 12",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-13",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 13",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-14",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 14",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-15",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 15",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-16",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 16",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-mahpakh-pashta-zaqef-17",
+      "cell": "mahpakh-pashta-zaqef",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 31,
+      "sourceLocation": "Baer [1894], p.31, third setting 3. W., mahpakh-pashta-zaqef, realized component 17",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
       "id": "baer105-3w-zakef-gadol-1",
       "cell": "zakef-gadol",
       "kind": "note",
@@ -4333,6 +5085,322 @@
       "midi": 65
     },
     {
+      "id": "baer105-3w-munah-etnahta-1",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 77
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-2",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "tuplet": {
+        "id": "baer105-3w-munah-etnahta-tuplet-1",
+        "phase": "start"
+      },
+      "sourcePrintedHead": {
+        "id": "baer105-3w-munah-etnahta-printed-head-2",
+        "reason": "One A4 head carries the upper three-in-two sixteenth group and lower ordinary-sixteenth beam; preserve different durations."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-3",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "sourcePrintedHead": {
+        "id": "baer105-3w-munah-etnahta-printed-head-2",
+        "reason": "One A4 head carries the upper three-in-two sixteenth group and lower ordinary-sixteenth beam; preserve different durations."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-4",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "tuplet": {
+        "id": "baer105-3w-munah-etnahta-tuplet-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-5",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.16666666666666666,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "tuplet": {
+        "id": "baer105-3w-munah-etnahta-tuplet-1",
+        "phase": "stop"
+      },
+      "sourcePrintedHead": {
+        "id": "baer105-3w-munah-etnahta-printed-head-5",
+        "reason": "The G4 head closes the upper sixteenth triplet and lower ordinary-sixteenth pair; their logical durations differ."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-6",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "sourcePrintedHead": {
+        "id": "baer105-3w-munah-etnahta-printed-head-5",
+        "reason": "The G4 head closes the upper sixteenth triplet and lower ordinary-sixteenth pair; their logical durations differ."
+      }
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-7",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-8",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-9",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-10",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-11",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-munah-etnahta-12",
+      "cell": "munah-etnahta",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 32,
+      "sourceLocation": "Baer [1894], p.32, third setting 3. W., munah-etnahta, realized component 12",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60
+    },
+    {
       "id": "baer105-3w-merkha-tevir-1",
       "cell": "merkha-tevir",
       "kind": "note",
@@ -4727,6 +5795,377 @@
         "octave": 4
       },
       "midi": 65
+    },
+    {
+      "id": "baer105-3w-pazer-1",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-pazer-printed-head-1",
+        "reason": "The opening F4 physical head has an upper eighth and lower quarter stem."
+      }
+    },
+    {
+      "id": "baer105-3w-pazer-2",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-pazer-printed-head-1",
+        "reason": "The opening F4 physical head has an upper eighth and lower quarter stem."
+      }
+    },
+    {
+      "id": "baer105-3w-pazer-3",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-pazer-4",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-pazer-5",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 77,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-pazer-6",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-pazer-7",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-pazer-printed-head-7",
+        "reason": "The C5 head has an upper eighth and lower quarter stem; both paths reconverge on the final measured A4 eighth."
+      }
+    },
+    {
+      "id": "baer105-3w-pazer-8",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-pazer-printed-head-7",
+        "reason": "The C5 head has an upper eighth and lower quarter stem; both paths reconverge on the final measured A4 eighth."
+      }
+    },
+    {
+      "id": "baer105-3w-pazer-9",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-pazer-10",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": null,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "grace": {
+        "kind": "unmeasured",
+        "groupId": "baer105-3w-pazer-grace-1",
+        "previousComponentId": "baer105-3w-pazer-9",
+        "nextComponentId": "baer105-3w-pazer-11",
+        "order": 1,
+        "count": 1,
+        "duration": null,
+        "stealTimeFollowing": null,
+        "stealTimePrevious": null,
+        "printedSize": "small",
+        "slash": true,
+        "printedBeams": 1
+      }
+    },
+    {
+      "id": "baer105-3w-pazer-11",
+      "cell": "pazer",
+      "kind": "note",
+      "quarterBeats": 0.75,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 33,
+      "sourceLocation": "Baer [1894], p.33, third setting 3. W., pazer, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-pazer-arc-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
     },
     {
       "id": "baer105-3w-telisha-qetana-1",
@@ -5184,6 +6623,1090 @@
       "midi": 72
     },
     {
+      "id": "baer105-3w-azla-geresh-1",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-azla-geresh-2",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-azla-geresh-3",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared C5 head: matching two-beam upper and lower stems."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-azla-geresh-4",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared B-natural head and explicit natural: matching upper/lower sixteenth stems."
+      },
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "accidentalEvidence": "explicit_natural_in_third_row_cancels_key_B_flat"
+    },
+    {
+      "id": "baer105-3w-azla-geresh-5",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared D5 head: matching upper/lower sixteenth stems."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74
+    },
+    {
+      "id": "baer105-3w-azla-geresh-6",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared C5 head: matching upper/lower sixteenth stems."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-azla-geresh-7",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-azla-geresh-8",
+      "cell": "azla-geresh",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., azla-geresh, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-gershayim-1",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-gershayim-2",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-gershayim-3",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-4",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-5",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "B",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 71,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "accidentalEvidence": "explicit_natural_in_upper_third_row_cancels_key_B_flat"
+    },
+    {
+      "id": "baer105-3w-gershayim-6",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-7",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-8",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-9",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-10",
+      "cell": "gershayim",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-gershayim-arc-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-gershayim-11",
+      "cell": "gershayim",
+      "kind": "rest",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-gershayim-12",
+      "cell": "gershayim",
+      "kind": "rest",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 12",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-gershayim-13",
+      "cell": "gershayim",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., gershayim, realized component 13",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-darga-tevir-1",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72
+    },
+    {
+      "id": "baer105-3w-darga-tevir-2",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-darga-tevir-3",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-1",
+          "phase": "start",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-4",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group."
+      },
+      "sourcePitch": {
+        "step": "B",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 70,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-1",
+          "phase": "continue",
+          "placement": "above"
+        }
+      ],
+      "accidentalEvidence": "key_B_flat_after_the_printed_barline"
+    },
+    {
+      "id": "baer105-3w-darga-tevir-5",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-1",
+          "phase": "continue",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-6",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-1",
+          "phase": "continue",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-7",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W.",
+        "stemEvidence": "Shared head with matching upper/lower written values: one eighth then four sixteenths in the first descending group."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-1",
+          "phase": "continue",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-8",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 8",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-1",
+          "phase": "stop",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-9",
+      "cell": "darga-tevir",
+      "kind": "rest",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 9",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
+      "id": "baer105-3w-darga-tevir-10",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 10",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64
+    },
+    {
+      "id": "baer105-3w-darga-tevir-11",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 11",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-2",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-12",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 12",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": -1,
+        "octave": 4
+      },
+      "midi": 63,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-2",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "accidentalEvidence": "explicit_flat_in_upper_third_row"
+    },
+    {
+      "id": "baer105-3w-darga-tevir-13",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 13",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-2",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-14",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 14",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-2",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-15",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 15",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-2",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-darga-tevir-16",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 16",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "slurs": [
+        {
+          "id": "baer105-3w-darga-tevir-arc-2",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ],
+      "accidentalEvidence": "explicit_natural_in_third_row_cancels_upper_E_flat"
+    },
+    {
+      "id": "baer105-3w-darga-tevir-17",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 17",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65
+    },
+    {
+      "id": "baer105-3w-darga-tevir-18",
+      "cell": "darga-tevir",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 18",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62
+    },
+    {
+      "id": "baer105-3w-darga-tevir-19",
+      "cell": "darga-tevir",
+      "kind": "rest",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 34,
+      "sourceLocation": "Baer [1894], p.34, third setting 3. W., darga-tevir, realized component 19",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      }
+    },
+    {
       "id": "baer105-3w-yetiv-1",
       "cell": "yetiv",
       "kind": "note",
@@ -5320,6 +7843,224 @@
         "method": "written-third-row",
         "sourceSetting": "3. W."
       }
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-1",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.125,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 1",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "slurs": [
+        {
+          "id": "baer105-3w-sof-pasuq-arc-1",
+          "phase": "start",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-2",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 2",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "slurs": [
+        {
+          "id": "baer105-3w-sof-pasuq-arc-1",
+          "phase": "start",
+          "placement": "above"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-3",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.125,
+      "rhythm": {
+        "type": "32nd",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 3",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-sof-pasuq-arc-1",
+          "phase": "stop",
+          "placement": "above"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-sof-pasuq-printed-head-3",
+        "reason": "The A4 physical head closes an upper three-beam thirty-second pair and lower two-beam sixteenth pair. Their durations and resulting cell extents are different."
+      }
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-4",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.25,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 4",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-sof-pasuq-arc-1",
+          "phase": "stop",
+          "placement": "above"
+        }
+      ],
+      "sourcePrintedHead": {
+        "id": "baer105-3w-sof-pasuq-printed-head-3",
+        "reason": "The A4 physical head closes an upper three-beam thirty-second pair and lower two-beam sixteenth pair. Their durations and resulting cell extents are different."
+      }
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-5",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 1,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 5",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-6",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 6",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "slurs": [
+        {
+          "id": "baer105-3w-sof-pasuq-arc-2",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "id": "baer105-3w-sof-pasuq-7",
+      "cell": "sof-pasuq",
+      "kind": "note",
+      "quarterBeats": 0.5,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "sourcePage": 35,
+      "sourceLocation": "Baer [1894], p.35, third setting 3. W., sof-pasuq, realized component 7",
+      "sourceNotation": {
+        "method": "written-third-row",
+        "sourceSetting": "3. W."
+      },
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 62,
+      "slurs": [
+        {
+          "id": "baer105-3w-sof-pasuq-arc-2",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
     },
     {
       "id": "baer105-3w-section-ending-1",
@@ -5609,7 +8350,7 @@
     }
   ],
   "matchingQueries": {},
-  "scope": "All29ordinary-table columns of the third printed setting on30–35 are retained. Unresolved route or ornament figures stay explicitly withheld; this manual inspection is still in progress. The distinct No111rare-sign section on36 is not assigned to this setting. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
+  "scope": "All29ordinary-table columns of the third printed setting on30–35 retain literal draft components and coherent alternatives. Two figures include unmeasured graces whose historical timing stays unassigned. The distinct No111rare-sign section on36 is not assigned to this setting. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
   "timing": "Written values at regular user quarter-note BPM; recitative timing, tuning and interpretation remain unreviewed. Any directly written or referenced unmeasured grace requires a separately chosen original timing demonstration. Unknown route membership supplies no replacement music.",
   "pronunciation": null,
   "syllableUnderlay": null,
