@@ -697,6 +697,251 @@
         "sourceLabel": "Baer [1894] · No105 · second printed setting · unreviewed",
         "figureLabel": "Mercho → tipcho → sof po-suk · printed ending",
         "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "zarqa",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Sar-ko · Zarqa · upper-stem line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "zarqa:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Sar-ko · Zarqa · lower initial quarter-stem line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "segol",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "se-gol · Segol · upper E4 line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "segol:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "se-gol · Segol · lower F-sharp line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-plain",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mu-nach · plain source column · upper triplet line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-plain:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mu-nach · plain source column · lower eighth-note line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-before-revia",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach · before Revia · upper F4 head",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-before-revia:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach · before Revia · lower E4 head",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "revia",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "r’wi-a · Revia · upper eighth-and-sixteenth line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "revia:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "r’wi-a · Revia · lower eighth-note line",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-four-glyphs",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach · before four printed signs",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-before-mahpakh",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach · before Mahpakh",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-before-merkha-tevir",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach · before Mercha / Tevir",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "mahpakh-pashta-zaqef",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mahpach → paschto → sokef koton · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "zakef-gadol",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Sokef godol · Zaqef gadol",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "mahpakh-pashta-without-zaqef",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mahpach → paschto · ohne qaton",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "pashta-zaqef-one-word",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Paschto koton · auf einem Worte",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "pashta-alone",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Paschto · allein",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "pashta-zaqef-after-predecessors",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Paschto koton · after printed predecessors · unmeasured grace · optional demo",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "merkha-tipha",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mercho → Tipcho · upper final A4 head",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "merkha-tipha:lower",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mercho → Tipcho · lower final F4 head",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "munah-etnahta",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Munach → esnachto · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "merkha-tevir",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mercho → t’wir",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "merkha-silluq",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mercho → si-luk · sof po-suk",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "pazer",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Poser · Pazer · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "telisha-qetana",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "T’lischo k’ta-noh",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "telisha-gedola",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "T’lischo g’do-loh",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "qadma-azla",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Kadmo → w’aslo",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "azla-geresh",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Aslo → ge-resch · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "gershayim",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Gerschajim · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "darga-tevir",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Dargo → t’wir · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "yetiv",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "J’siv · Yetiv",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "paseq",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "P’sik · Paseq",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "sof-pasuq",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Sof po-suk · Schluss · notation pending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
+      },
+      {
+        "sourceId": "baer-1894-no105-third-setting",
+        "modeId": "section-ending",
+        "sourceLabel": "Baer [1894] · No105 · third printed setting · draft source study",
+        "figureLabel": "Mercho → tipcho → sof po-suk · printed ending",
+        "reason": "No checked modern sign lookup is supplied for this figure. Its manual source study is unchanged."
       }
     ],
     "figureLookups": [
@@ -7856,6 +8101,26 @@
   "assignmentSha256": "fd23caa9d6fd78b132f47e574ae54d65996464bd2de3ac6c37dadaa5a66d7940",
   "inputs": [
     {
+      "path": "baer-third-patterns.js",
+      "sha256": "87667d6829be3239f61d6881b1918db8c9a366a55ea11c3281bb7429519fb991"
+    },
+    {
+      "path": "baer-third-pattern-data.js",
+      "sha256": "507533f8fc76d2c4cb29cd5b301bd06bdd607b2ad07b2a1a9472db7f427929dd"
+    },
+    {
+      "path": "docs/BAER-NO105-THIRD-PATTERNS.json",
+      "sha256": "3fad9153d3a0d05d396718dbce06e9026941e374013fe6e566e9938ad62cd81d"
+    },
+    {
+      "path": "data/notation/baer-no105-third-transcription.json",
+      "sha256": "ba41f883243457d26f45e0de7076b64789f81db72619d3bc0566dad88a9f5350"
+    },
+    {
+      "path": "scripts/import-baer-third-patterns.mjs",
+      "sha256": "4d44ab04ff1fb8fd813985f03a15873efe906cae1803f1d842021f63c8a768f2"
+    },
+    {
       "path": "baer-second-patterns.js",
       "sha256": "d89392051dfe03c3e0636691aac6f38f95769b6a30953ed5f9a17c7e5ca9cbdb"
     },
@@ -7889,7 +8154,7 @@
     },
     {
       "path": "printed-patterns.js",
-      "sha256": "1e58bff0f5cb8312629307dd3839908a7d29fd5c1792eefdce73e557ef0289d2"
+      "sha256": "1198d1b9314c175257dc953ed4136ab4cda9622867b5b7b38c0d2748b3cd62ae"
     },
     {
       "path": "baer-patterns.js",
@@ -8004,7 +8269,8 @@
     "Printed conditions, source alternatives, unresolved graces/repeats and syllable allocation remain pending; no missing realization is supplied.",
     "No checked modern-sign queries are provided for IdelsohnNo267 or BaerNo938, which remain manual charts.",
     "Ordinary Torah source tables are not offered as Haftarah or scroll realizations.",
-    "The35new second-setting routes are manual source studies only, with no additional modern-sign query or musical-word assignment."
+    "The35new second-setting routes are manual source studies only, with no additional modern-sign query or musical-word assignment.",
+    "The35third-row chart choices include seven explicitly unresolved figure slots and28draft routes. No additional modern-sign query or musical-word assignment is supplied."
   ],
   "musicalWordAllocation": null,
   "phonemes": null,

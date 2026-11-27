@@ -1,5 +1,6 @@
 import {SEPHARDIC_PATTERN_ID} from './sephardic-patterns.js';
 import {BAER_SECOND_PATTERN_ID} from './baer-second-patterns.js';
+import {BAER_THIRD_PATTERN_ID} from './baer-third-patterns.js';
 import {REPEAT_DEMO} from './source-repeat.js';
 import {BAER_PATTERN_ID,baerPatternWrittenPlan} from './baer-patterns.js';
 import {GRACE_DEMO} from './source-grace.js';
@@ -11,12 +12,18 @@ import {staffMarkup} from './staff.js';
 import {beatLabel,eventPitchName} from './score-data.js';
 import {soundingNotes} from './synthesis.js';
 import {printedPatternRange} from './pattern-range.js';
+import {renderWav} from './wav.js';
 
 export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   const $=id=>document.getElementById(id),preferenceKey='tropetrain-pattern-study-v1';
-  let plan=[],writtenPlan=[],settingsKey=null,selectedId=null,starting=false,request=0,saved,activeId=null;
+  let plan=[],writtenPlan=[],settingsKey=null,selectedId=null,starting=false,request=0,saved,activeId=null,waveController=null,waveRequest=0;
   try{saved=JSON.parse(localStorage.getItem(preferenceKey));}catch{}
-  function clearExport(){const link=$('pattern-export-link');link.hidden=true;link.removeAttribute('href');}
+  function clearExport(){
+    waveRequest++;waveController?.abort();waveController=null;
+    for(const id of ['pattern-export-link','pattern-wav-link']){const link=$(id);link.hidden=true;link.removeAttribute('href');}
+    $('pattern-wav-prepare').disabled=!plan.length;
+    $('pattern-wav-status').textContent='Prepare the selected printed notes and rests as an instrumental WAV. Export does not play audio.';
+  }
   function rangeChanged(){clearExport();const s=getSettings();$('pattern-range').textContent=printedPatternRange(plan,s.rangeLow,s.rangeHigh).text;}
   const setActive=id=>{
     if(activeId===id)return;activeId=id;const container=$('pattern-staff');let current;
@@ -33,6 +40,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     selectedId=event.id;$('pattern-note-detail').textContent=`${event.sourceLocation}${event.sourceVariant?' · '+event.sourceVariant.label:''} · ${event.kind==='rest'?`${event.rhythm.type} rest`:eventPitchName(event)+` (MIDI ${event.midi})`}${event.sourcePatternSmallEighth?' · unmeasured printed small eighth · original instrumental timing: 80 ms; source duration, ornament role and stealing ratio unassigned.':event.sourceGrace?' · unmeasured printed grace · original instrumental demonstration: 80 ms; source duration and stealing ratios remain unspecified.':` · ${beatLabel(event.beats)} quarter-note beats · ${event.durationSeconds.toFixed(3)} seconds.`}${event.tieStart||event.tieStop?' Printed tie: hold this pitch without a new attack.':''}${event.sourceRestsAfter?.length?' Followed by printed rest values: '+event.sourceRestsAfter.map(r=>beatLabel(r.beats)).join(' + ')+'.':''}${event.sourceFermata?' Printed fermata: the hold length is unspecified. Playback regularizes the written duration.':''}${event.sourceAccidentalEvidence?' '+event.sourceAccidentalEvidence.replaceAll('_',' '):''} No syllable or phoneme allocation is asserted.`;
   }
   function stop(message='Printed pattern stopped.'){
+    if(waveController){waveRequest++;waveController.abort();waveController=null;$('pattern-wav-prepare').disabled=!plan.length;$('pattern-wav-status').textContent='WAV preparation stopped. Your source and musical controls are kept.';}
     const wasRunning=player.running||starting;request++;starting=false;player.stop();setActive(null);$('pattern-status').setAttribute('aria-live','polite');
     if(wasRunning)$('pattern-status').textContent=message;
   }
@@ -77,7 +85,7 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
     $('pattern-record-link').href=patternRecord(row.recordPath??'docs/PRINTED-PATTERN-CATALOG.json');
     $('pattern-primary-link').href=record.source.url;$('pattern-rights').textContent=record.source.rights??'Original printed source public domain; new literal transcription CC0. Independent review pending.';
     const supported=availablePatternModes(sourceId,{graceDemo,repeatDemo,smallPatternDemo}).some(m=>m.id===mode);
-    $('pattern-play').disabled=!supported;$('pattern-download').disabled=!supported;
+    $('pattern-play').disabled=!supported;$('pattern-download').disabled=!supported;$('pattern-wav-prepare').disabled=!supported;
     if(!supported){plan=[];writtenPlan=[];rangeChanged();$('pattern-staff').replaceChildren();$('pattern-summary').textContent='Choose a transcribed printed figure. Pending cells supply no replacement music.';$('pattern-note-detail').textContent='';$('pattern-status').textContent=smallCandidate?'Choose the separate optional original 80 ms small-eighth study to hear this figure; historical duration and ornament role remain unassigned.':unmeasured?'Choose the optional original timing demonstration'+(record.selectedFigure?.repeat?' and two-pass repeat demonstration':'')+' to hear this figure. Source grace durations and numeric repeat count remain unspecified.':record.selectedFigure?.pending??'Choose supported columns for this source row.';return;}
     plan=printedPatternPlan(mode,{...state,sourceId,graceDemo,repeatDemo,smallPatternDemo});writtenPlan=sourceId===BAER_PATTERN_ID?baerPatternWrittenPlan(mode,{...state,graceDemo}):plan;$('pattern-staff').innerHTML=staffMarkup(writtenPlan,[],0,writtenPlan.length,{untexted:true});
     $('pattern-summary').textContent=plan.some(e=>e.sourcePatternSmallEighth)?`${plan.length} distinct source attacks · 1 unmeasured small eighth. Original instrumental study: 80 ms for that small note, plus 1 unchanged measured quarter-note beat · ${printedPatternDuration(plan).toFixed(2)} seconds. Printed order and slur retained; source duration, ornament role, word/phoneme fitting and historical review remain unassigned.`:plan.some(e=>e.sourceGrace)?`${plan.length} ${record.selectedFigure?.repeat?"playback component occurrences":"printed components"} · ${plan.filter(e=>e.sourceGrace).length} ${record.selectedFigure?.repeat?"grace-note occurrences":"unmeasured grace notes"}. Original instrumental demonstration: 80 ms per grace added between ${beatLabel(plan.filter(e=>!e.sourceGrace).reduce((b,e)=>b+e.beats,0))} unchanged measured quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds. Source grace durations remain unspecified; no word or phoneme fitting is assigned.`:`${plan[0].sourceComponentCount??plan.length} printed components · ${printedPatternRests(plan).length} rests · ${soundingNotes(plan).length} sounding attacks · ${beatLabel(printedPatternBeats(plan))} quarter-note beats · ${printedPatternDuration(plan).toFixed(2)} seconds.${plan.some(e=>e.sourceFermata)?' Printed fermata hold length is unspecified; playback uses the written duration.':''} Ties hold pitches; slurs keep distinct attacks.`;
@@ -97,6 +105,9 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   const openSecond=()=>{$('pattern-source').value=BAER_SECOND_PATTERN_ID;$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});};
   $('baer-second-pattern-open').addEventListener('click',openSecond);$('baer-second-pattern-open').disabled=false;
   for(const a of document.querySelectorAll('a[href="#baer-second-pattern-study"]'))a.addEventListener('click',openSecond);if(location.hash==='#baer-second-pattern-study')openSecond();
+  const openThird=()=>{$('pattern-source').value=BAER_THIRD_PATTERN_ID;$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});};
+  $('baer-third-pattern-open').addEventListener('click',openThird);$('baer-third-pattern-open').disabled=false;
+  for(const a of document.querySelectorAll('a[href="#baer-third-pattern-study"]'))a.addEventListener('click',openThird);if(location.hash==='#baer-third-pattern-study')openThird();
   $('idelsohn-pattern-open').addEventListener('click',()=>{$('pattern-source').value='idelsohn-1929-vol5-no267';$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('idelsohn1929-267-zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});});
   $('pattern-source').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes($('pattern-mode').value);refresh();remember();});
   $('pattern-mode').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;refresh();remember();});
@@ -129,6 +140,21 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   $('pattern-download').addEventListener('click',()=>{
     refresh();if(!plan.length)return;const state=getSettings(),row=patternSource($('pattern-source').value,$('pattern-mode').value),record=patternEventDocument(row,$('pattern-mode').value,state,plan,writtenPlan);
     const a=$('pattern-export-link');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(record,null,2));a.hidden=false;a.click();
+  });
+  $('pattern-wav-prepare').addEventListener('click',async()=>{
+    refresh();if(!plan.length)return;
+    const current=++waveRequest,controller=new AbortController(),state=getSettings(),exportPlan=plan,sourceId=$('pattern-source').value,mode=$('pattern-mode').value;
+    waveController=controller;$('pattern-wav-prepare').disabled=true;$('pattern-wav-status').textContent='Preparing instrumental WAV…';
+    try{
+      const result=await renderWav(exportPlan,{volume:state.volume/100,signal:controller.signal,onProgress:value=>{if(current===waveRequest)$('pattern-wav-status').textContent=`Preparing instrumental WAV · ${Math.round(value*100)}%`;}});
+      if(current!==waveRequest)return;
+      const bytes=new Uint8Array(await result.blob.arrayBuffer()),chunks=[];
+      if(current!==waveRequest||controller.signal.aborted)return;
+      for(let offset=0;offset<bytes.length;offset+=32768)chunks.push(String.fromCharCode(...bytes.subarray(offset,offset+32768)));
+      const link=$('pattern-wav-link');link.href='data:audio/wav;base64,'+btoa(chunks.join(''));link.download=`tropetrain-${sourceId}-${mode.replaceAll(':','-')}.wav`;link.hidden=false;
+      $('pattern-wav-status').textContent=`Prepared ${result.duration.toFixed(2)} seconds · ${Math.ceil(bytes.length/1024)} KB instrumental WAV · instrument volume ${state.volume}%.${state.volume===0?' This file is silent; raise Instrument volume and prepare again for sound.':''}${exportPlan.some(e=>e.sourceGrace)?' Includes the separately chosen original 80 ms grace timing; historical duration remains unassigned.':''} Source word and pronunciation fitting remain unassigned.`;
+    }catch(error){if(current===waveRequest)$('pattern-wav-status').textContent=error.name==='AbortError'?'WAV preparation stopped.':`Pattern WAV unavailable: ${error.message}`;}
+    finally{if(current===waveRequest){waveController=null;$('pattern-wav-prepare').disabled=!plan.length;}}
   });
   for(const id of ['pattern-source','pattern-mode','pattern-stop'])$(id).disabled=false;
   refresh();

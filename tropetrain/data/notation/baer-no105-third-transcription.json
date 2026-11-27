@@ -1,0 +1,1139 @@
+{
+  "format": "tropetrain-baer-third-setting-transcription-v1",
+  "status": "unreviewed-literal-study-with-unresolved-figures",
+  "sourceSetting": "3. W.",
+  "parentSecondSetting": {
+    "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
+    "sha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+    "revision": 1,
+    "purpose": "Only literal dto marks refer to the immediate preceding second row. Its first-row references retain their full transitive provenance; no same-name borrowing."
+  },
+  "sourceCrops": [
+    {
+      "page": 30,
+      "file": "baer-no105-third-p30.png",
+      "rect": [
+        900,
+        1145,
+        2800,
+        1315
+      ],
+      "bytes": 93871,
+      "sha256": "ccdd718083062da513f832073d06e0ced5887f17f999c4b116d930ccd5bc25e4",
+      "mode": "L",
+      "size": [
+        1900,
+        170
+      ],
+      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+    },
+    {
+      "page": 31,
+      "file": "baer-no105-third-p31.png",
+      "rect": [
+        0,
+        1015,
+        2800,
+        1210
+      ],
+      "bytes": 134569,
+      "sha256": "e1cfcc33fe5724e8350b6475c51deef374be844d840e10ed8c3da0dfcbdab778",
+      "mode": "L",
+      "size": [
+        2800,
+        195
+      ],
+      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+    },
+    {
+      "page": 32,
+      "file": "baer-no105-third-p32.png",
+      "rect": [
+        200,
+        1000,
+        2850,
+        1245
+      ],
+      "bytes": 140300,
+      "sha256": "291d786d41819c2836f36f79e892ec051e18e384aa39adffb705cfd23641ef73",
+      "mode": "L",
+      "size": [
+        2650,
+        245
+      ],
+      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+    },
+    {
+      "page": 33,
+      "file": "baer-no105-third-p33.png",
+      "rect": [
+        200,
+        1035,
+        2800,
+        1245
+      ],
+      "bytes": 140048,
+      "sha256": "e9987d53d5d3ef1238eb93fd08953b264cccda23cc9b050a9e554770e226bc18",
+      "mode": "L",
+      "size": [
+        2600,
+        210
+      ],
+      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+    },
+    {
+      "page": 34,
+      "file": "baer-no105-third-p34.png",
+      "rect": [
+        200,
+        1010,
+        2800,
+        1210
+      ],
+      "bytes": 150353,
+      "sha256": "46f3e52916577de7bbf13ca3e745ad4f58eb5900de4a857bccb2b94e0e75cddc",
+      "mode": "L",
+      "size": [
+        2600,
+        200
+      ],
+      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+    },
+    {
+      "page": 35,
+      "file": "baer-no105-third-p35.png",
+      "rect": [
+        200,
+        965,
+        2800,
+        1165
+      ],
+      "bytes": 122514,
+      "sha256": "d10f92f32e33aa721b6bd4ff0dafb7655d52ef7d291c46d6f2145ee87dc12771",
+      "mode": "L",
+      "size": [
+        2600,
+        200
+      ],
+      "derivation": "Lossless unretouched pixel-exact crop from the pinned3000px institutional primary raster; PNG compression changes no pixels. Neighboring fragments remain context."
+    }
+  ],
+  "sourceRasters": [
+    {
+      "page": "30",
+      "bytes": 1281858,
+      "sha256": "f65cc9ea41f7fc1dfb59db4dd46a40f645a63571f2cf7b6c8d1ca498b158b54b",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3000,/0/default.jpg"
+    },
+    {
+      "page": "31",
+      "bytes": 1560317,
+      "sha256": "ac7b5034d91a14659c74da061c2a63bc1efce4cff5baba7b7db69436bbc57657",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3000,/0/default.jpg"
+    },
+    {
+      "page": "32",
+      "bytes": 1545567,
+      "sha256": "2632d6d938ddddc5983d8c6d14708bc20facb613e8a0bedd0646fb9dea205329",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3000,/0/default.jpg"
+    },
+    {
+      "page": "33",
+      "bytes": 1540653,
+      "sha256": "6c2b6b85eb5100129fb0b187a6370d26050de9bacdf3764a699438858b2a47b7",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3000,/0/default.jpg"
+    },
+    {
+      "page": "34",
+      "bytes": 1607174,
+      "sha256": "cddc69600f4817aa0f1181ded9782b952384a8e9eb116220cb6ae27158fa0ba4",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3000,/0/default.jpg"
+    },
+    {
+      "page": "35",
+      "bytes": 1501929,
+      "sha256": "1bd4dc8c9b7badb30fb9508a4642d3d2b2b6ee0ae669d50837a4d43a7c2170e9",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3000,/0/default.jpg"
+    }
+  ],
+  "nativeSourceRasters": [
+    {
+      "page": 30,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853614/full/3868,/0/default.jpg",
+      "bytes": 1986870,
+      "sha256": "312de46fe6f9caedcf7730e5511111b93e234b0cc98af7ed523b1931506957d1",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 31,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853615/full/3868,/0/default.jpg",
+      "bytes": 2457520,
+      "sha256": "1a2ab32dcbf2b3e931251d8ec5688b4d48aff6620b94db202c77d817fc38d655",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 32,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853616/full/3868,/0/default.jpg",
+      "bytes": 2489353,
+      "sha256": "7b6bbffcf3cad8eb37ce653dc0a56fd6a53188f71cace7d11c7fbd1c5deba133",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 33,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853617/full/3868,/0/default.jpg",
+      "bytes": 2414367,
+      "sha256": "638ad78ac2028d9ae9e34b239cc50479136f3a92b09391e0f31f63b6bb065a17",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 34,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853618/full/3868,/0/default.jpg",
+      "bytes": 2549527,
+      "sha256": "061137b81adebe828635590a056f57b03084d7049342398f8ac71396e4a08cb7",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    },
+    {
+      "page": 35,
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853619/full/3868,/0/default.jpg",
+      "bytes": 2391083,
+      "sha256": "03bc25ba2a96d12154afbc8f2c4cf15d5c3e8e76ae210c1d0bfc7da71cc076a1",
+      "size": [
+        3868,
+        5677
+      ],
+      "purpose": "Native primary raster for manual third-row notation inspection; no optical or qualified musical approval."
+    }
+  ],
+  "review": null,
+  "bibleWordApplication": null,
+  "syllables": null,
+  "phonemes": null,
+  "singingVoice": null,
+  "figures": [
+    {
+      "id": "zarqa",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "G4",
+          "q"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "Bb4",
+          "e"
+        ],
+        [
+          "C5",
+          "e3"
+        ],
+        [
+          "A4",
+          "e3"
+        ],
+        [
+          "F4",
+          "e3"
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "E4",
+          "s"
+        ],
+        [
+          "D4",
+          "s"
+        ]
+      ],
+      "expectedBeats": 4,
+      "arcs": [
+        [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ],
+      "tuplets": [
+        [
+          6,
+          7,
+          8
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper-stem line",
+          "components": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower initial quarter-stem line",
+          "components": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "sharedHeads": [
+        {
+          "members": [
+            2,
+            3
+          ],
+          "reason": "The G4 head has an upper eighth and lower quarter stem. The lower route begins on that quarter; it does not add the preceding upper F4."
+        }
+      ],
+      "notationLimit": "Three beamed eighths C5/A4/F4 carry the printed3; native3868px raster confirms one beam, distinct from the following four16ths. The source key supplies B-flat, not B-natural."
+    },
+    {
+      "id": "segol",
+      "method": "written",
+      "notes": [
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "E4",
+          "e"
+        ],
+        [
+          "F#4",
+          "e"
+        ],
+        [
+          "A4",
+          "e",
+          1
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "R",
+          "q"
+        ]
+      ],
+      "expectedBeats": 3,
+      "arcs": [
+        [
+          4,
+          5
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper E4 line",
+          "components": [
+            1,
+            2,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower F-sharp line",
+          "components": [
+            1,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "accidentals": {
+        "3": "Explicit source sharp applies to the lower F4 alternative only."
+      },
+      "notationLimit": "The final rest is a quarter. Retain the three written beats; do not pad to common time or sound both alternatives together."
+    },
+    {
+      "id": "munah-plain",
+      "method": "written",
+      "notes": [
+        [
+          "R",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "F4",
+          "e3"
+        ],
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "G4",
+          "e3"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "A4",
+          "e3"
+        ],
+        [
+          "F4",
+          "q"
+        ],
+        [
+          "R",
+          "q"
+        ]
+      ],
+      "expectedBeats": 4,
+      "tuplets": [
+        [
+          4,
+          6,
+          8
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper triplet line",
+          "components": [
+            1,
+            2,
+            4,
+            6,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower eighth-note line",
+          "components": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            10
+          ]
+        }
+      ],
+      "sharedHeads": [
+        {
+          "members": [
+            6,
+            7
+          ],
+          "reason": "One G4 head carries an upper triplet-eighth stem and lower ordinary-eighth stem; preserve different logical durations."
+        }
+      ]
+    },
+    {
+      "id": "munah-before-revia",
+      "method": "written",
+      "notes": [
+        [
+          "R",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "E4",
+          "e"
+        ]
+      ],
+      "expectedBeats": 1,
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper F4 head",
+          "components": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower E4 head",
+          "components": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revia",
+      "method": "written",
+      "notes": [
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "Bb4",
+          "s"
+        ],
+        [
+          "A4",
+          "s"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "R",
+          "e",
+          1
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "E4",
+          "s"
+        ],
+        [
+          "D4",
+          "q"
+        ]
+      ],
+      "expectedBeats": 4,
+      "arcs": [
+        {
+          "members": [
+            1,
+            2,
+            3
+          ],
+          "placement": "above"
+        },
+        [
+          8,
+          9,
+          10
+        ]
+      ],
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper eighth-and-sixteenth line",
+          "components": [
+            1,
+            2,
+            3,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower eighth-note line",
+          "components": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "sharedHeads": [
+        {
+          "members": [
+            3,
+            5
+          ],
+          "reason": "The final A4 in the opening alternative has upper16th and lower eighth stems."
+        }
+      ],
+      "notationLimit": "The opening upper-line arc is retained only on its literal upper endpoints. No lower-line arc endpoint or tie is invented; independent articulation review remains pending."
+    },
+    {
+      "id": "munah-four-glyphs",
+      "method": "dto-whole"
+    },
+    {
+      "id": "munah-before-mahpakh",
+      "method": "dto-whole"
+    },
+    {
+      "id": "munah-before-merkha-tevir",
+      "method": "dto-whole"
+    },
+    {
+      "id": "mahpakh-pashta-zaqef",
+      "method": "inspection-pending",
+      "sourceMeter": "6/8",
+      "pending": "The source is fully written, with paired heads and an unpaired quarter in the second bar. Coherent route membership and common-head roles still require resolution; no second-row notes or guessed timeline is substituted.",
+      "sourceInspection": {
+        "unresolved": "Whether the central unpaired A4 quarter is common or belongs to one alternative, and the continuation of the G4/F4 stem lines.",
+        "region3000": [
+          1690,
+          1015,
+          2400,
+          1210
+        ],
+        "nativeRasterPage": 31,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "zakef-gadol",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "F4",
+          "q"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "A4",
+          "s"
+        ],
+        [
+          "C4",
+          "s"
+        ],
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "expectedBeats": 3,
+      "notationLimit": "The A4/C4 group has two beams, then a single beam to F4. Native inspection retains16ths; staff lines are not an extra beam."
+    },
+    {
+      "id": "mahpakh-pashta-without-zaqef",
+      "method": "written-prefix-dto-tail",
+      "prefix": [
+        [
+          "A4",
+          "e"
+        ]
+      ],
+      "parentStart": 1
+    },
+    {
+      "id": "pashta-zaqef-one-word",
+      "method": "written-prefix-dto-tail",
+      "prefix": [
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "parentStart": 1
+    },
+    {
+      "id": "pashta-alone",
+      "method": "written-prefix-dto-tail",
+      "prefix": [
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "parentStart": 1
+    },
+    {
+      "id": "pashta-zaqef-after-predecessors",
+      "method": "written-prefix-dto-tail",
+      "prefix": [
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "parentStart": 1
+    },
+    {
+      "id": "merkha-tipha",
+      "method": "written",
+      "notes": [
+        [
+          "C4",
+          "e"
+        ],
+        [
+          "G4",
+          "q"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "expectedBeats": 3.5,
+      "variants": [
+        {
+          "id": "upper",
+          "label": "upper final A4 head",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower final F4 head",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "munah-etnahta",
+      "method": "inspection-pending",
+      "pending": "The high numeral3and upper secondary-beamed group are retained. Lower-line stem values, common-head roles and reconvergence remain unresolved; no guessed route or tuplet is played.",
+      "sourceInspection": {
+        "nativeRasterPage": 32,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "merkha-tevir",
+      "method": "written-prefix-dto-tail",
+      "prefix": [
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "parentStart": 1
+    },
+    {
+      "id": "merkha-silluq",
+      "method": "written",
+      "notes": [
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "F4",
+          "e"
+        ]
+      ],
+      "expectedBeats": 3
+    },
+    {
+      "id": "pazer",
+      "method": "inspection-pending",
+      "pending": "The small slashed head and differently stemmed alternatives require route-specific measured anchors. Their exact membership remains unresolved; neither historical grace timing nor an invented path is supplied.",
+      "sourceInspection": {
+        "nativeRasterPage": 33,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "telisha-qetana",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "G4",
+          "e",
+          1
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "D4",
+          "e"
+        ],
+        [
+          "C4",
+          "q",
+          1
+        ],
+        [
+          "C4",
+          "q",
+          1
+        ]
+      ],
+      "expectedBeats": 5.25,
+      "ties": [
+        [
+          6,
+          7
+        ]
+      ],
+      "notationLimit": "Two adjacent equal C4 dotted quarters are linked by the printed arc across the bar; retain both written components with a held pitch, not a fabricated new attack."
+    },
+    {
+      "id": "telisha-gedola",
+      "method": "written",
+      "notes": [
+        [
+          "R",
+          "s"
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "A4",
+          "e",
+          1
+        ],
+        [
+          "G4",
+          "s"
+        ],
+        [
+          "F4",
+          "q"
+        ]
+      ],
+      "expectedBeats": 3,
+      "arcs": [
+        [
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "id": "qadma-azla",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "e",
+          1
+        ],
+        [
+          "F4",
+          "s"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "q"
+        ]
+      ],
+      "expectedBeats": 3
+    },
+    {
+      "id": "azla-geresh",
+      "method": "inspection-pending",
+      "pending": "Dense doubled heads, rapid beams and the explicit accidental still require coherent upper/lower route assignment. No chord, guessed duration or same-name second-row substitution is played.",
+      "sourceInspection": {
+        "nativeRasterPage": 34,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "gershayim",
+      "method": "inspection-pending",
+      "pending": "Doubled heads and unequal beam groups require confirmed route membership and accidental ownership. All printed rests remain visible; no replacement melody is supplied.",
+      "sourceInspection": {
+        "nativeRasterPage": 34,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "darga-tevir",
+      "method": "inspection-pending",
+      "pending": "The differently beamed alternatives and written flat/natural signs still require exact note, duration and route ownership. No source pitch or accidental is guessed from the second row.",
+      "sourceInspection": {
+        "nativeRasterPage": 34,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "yetiv",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "q"
+        ],
+        [
+          "F5",
+          "q"
+        ]
+      ],
+      "expectedBeats": 2.5
+    },
+    {
+      "id": "paseq",
+      "method": "written",
+      "notes": [
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "A4",
+          "q"
+        ],
+        [
+          "R",
+          "e"
+        ]
+      ],
+      "expectedBeats": 2
+    },
+    {
+      "id": "sof-pasuq",
+      "method": "inspection-pending",
+      "pending": "Shared opening heads carry different stem groups before the common ending. The full coherent routes remain unresolved; no guessed attacks or omitted head are supplied.",
+      "sourceInspection": {
+        "nativeRasterPage": 35,
+        "notesOrRoutesAccepted": false
+      }
+    },
+    {
+      "id": "section-ending",
+      "method": "written",
+      "notes": [
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "A4",
+          "q"
+        ],
+        [
+          "F4",
+          "e"
+        ],
+        [
+          "C5",
+          "q",
+          1
+        ],
+        [
+          "C5",
+          "q"
+        ],
+        [
+          "R",
+          "e"
+        ],
+        [
+          "R",
+          "e"
+        ],
+        [
+          "G4",
+          "e"
+        ],
+        [
+          "A4",
+          "e"
+        ],
+        [
+          "D4",
+          "q",
+          1
+        ],
+        [
+          "D4",
+          "q"
+        ],
+        [
+          "R",
+          "e"
+        ]
+      ],
+      "expectedBeats": 9.5,
+      "ties": [
+        [
+          4,
+          5
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "notationLimit": "Retain both interior eighth rests and final eighth rest. The two adjacent equal-pitch arc pairs C5 and D4 are written ties; keep source components and hold the sounding pitch."
+    }
+  ]
+}
