@@ -1,4 +1,5 @@
-const withoutToldot=r=>{if(r.id!=='asael-catalog-183403-30')return r;const{linkedSourcePassageEvidence,coverageLabel,coverageStatus,...raw}=r;return raw;};
+import {previousCompanionRecord} from './previous-companion-record.mjs';
+const withoutToldot=record=>{const r=previousCompanionRecord(record);if(r.id!=='asael-catalog-183403-30')return r;const{linkedSourcePassageEvidence,coverageLabel,coverageStatus,...raw}=r;return raw;};
 import test from 'node:test';import assert from 'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{execFileSync}from'node:child_process';
 import{SOURCE_READERS as c,readerCatalogPortions,readerCatalogReadings}from'../source-readers.js';
 import{VOICE_SOURCE_RECORDINGS,VOICE_SOURCE_STUDIES,VOICE_FEATURED_STUDIES,voiceStudy,voiceRecording,voiceChoices,voiceCombinations,voiceCoverage,restoreVoicePreferences}from'../voice-studies.js';

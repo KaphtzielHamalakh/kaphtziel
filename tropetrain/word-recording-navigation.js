@@ -1,6 +1,7 @@
 import {VOICE_SOURCE_STUDIES,VOICE_SOURCE_RECORDINGS,VOICE_FEATURED_STUDIES,voiceCombinations,voiceCoverage} from './voice-studies.js';
 import {wordSupportAvailable} from './word-support.js';
 import {observedWordCuesAvailable} from './observed-word-cues.js';
+import {genesisCompanionPassageAvailable} from './genesis-companion-passages.js';
 
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const identity=w=>({id:w.sourceWordId??w.id,hebrew:w.sourceHebrew,bookId:w.bookId,chapter:w.chapter,verse:w.verse,ordinal:w.ordinal,kind:w.kind});
@@ -14,7 +15,7 @@ function choices(entries){
 // what was sung or supplies a timing, pronunciation, musical rule or missing pair.
 export function createWordRecordingNavigator(corpus){
  if(!corpus?.passage)throw Error('The source reader is not ready for word comparison.');
- const byWord=new Map(),records=new Map(VOICE_SOURCE_RECORDINGS.map(r=>[r.id,r])),eligible=new Set(VOICE_SOURCE_RECORDINGS.filter(r=>wordSupportAvailable(r)||observedWordCuesAvailable(r)).map(r=>r.id)),ranges=new Map(),sourceIds=new Set();
+ const byWord=new Map(),records=new Map(VOICE_SOURCE_RECORDINGS.map(r=>[r.id,r])),eligible=new Set(VOICE_SOURCE_RECORDINGS.filter(r=>wordSupportAvailable(r)||observedWordCuesAvailable(r)||genesisCompanionPassageAvailable(r)).map(r=>r.id)),ranges=new Map(),sourceIds=new Set();
  for(const study of VOICE_SOURCE_STUDIES){
   const grouped=new Map();
   for(const pair of voiceCombinations(study.id)){

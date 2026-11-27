@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-27",
+  "updated": "2026-11-27T17:54:22.690035+00:00",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "aa59b583c6c9e0287819c6f1e64314b296c46df9",
-  "nextTask": "Continue full-Torah contextual melody and independent pronunciation work. Inspect exact reusable companion-text verse references for the pinned catalog before further reader mapping; 195 literal paired readings are not complete paired Torah coverage. Keep all six completion requirements open; printing waits.",
+  "nextTask": "Publish the locally accepted v0.104 app only using a fresh connected GitHub lease; verify Pages jobs, all changed decoded live bytes, both public browser editions,13 old draft exports,2 complete fitting exports and7 bookmarks. Save the complete canonical app and final release receipts. Then continue reviewed melody and independent pronunciation work; full21features/6requirements remain active, printing deferred.",
   "lastPassingTests": {
     "version": "0.103.0",
     "automated": 925,
@@ -3452,8 +3452,8 @@
     "browserClockAccounting": "All5match original decoded duration plus half the unchanged Vorbis small block within1microsecond; actual deltas2.9026–11.6103ms retained separately. No source timestamps changed."
   },
   "currentCandidate": {
-    "version": "0.103.0",
-    "status": "published_public_accepted",
+    "version": "0.104.0",
+    "status": "private_source_implemented_focused_passed_build_pending",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -3868,5 +3868,133 @@
     "portableSha256": "4c6efa73c7e6f15cbdedebc4fca9f7d59c23700479aadbfc2d05a951d694beff",
     "canonicalCodeFilesVerified": 1367,
     "finalMetadataPublicationReceipt": "Recorded outside the application tree to avoid a self-referential final commit claim."
+  },
+  "privateV104Development": {
+    "source": "/private/tmp/tropetrain-v104-worktree/tropetrain",
+    "basePrivateCommit": "3809c7ee742ef84390af4197c7f467d81b473861",
+    "basePublishedCommit": "7c572027553955caac05e8e22954dc2801d953b9",
+    "focusedTestsPass": 44,
+    "initialFocusedFailure": "One retained test module could not import havarotjs in the new worktree; npmci from lockfile/offline cache restored21packages, complete focused28tests pass.",
+    "companionPrimaryPages": 54,
+    "rawPrimaryResponseBytes": 475097,
+    "literalHeadingMatches": 373,
+    "literalPairedHeadingMatches": 108,
+    "literalSourcePairs": 195,
+    "catalogReadings": 651,
+    "specialDecalogueCallsUnexpanded": 23,
+    "numericEditionCoverageNotClaimed": true,
+    "existingSourceObservationsReused": 6,
+    "sourceCandidateAdmissions": 2,
+    "sourceCandidateWithheld": 4,
+    "additionalUnchangedReaderWords": 657,
+    "comparisonIndexWords": 2172,
+    "comparisonIndexOriginals": 15,
+    "comparisonIndexRanges": 7,
+    "newApprovedWordTimes": 0,
+    "newVoices": 0,
+    "sourcePack": {
+      "file": "assets/voice-studies/genesis-companion-sources.zip",
+      "bytes": 211336,
+      "sha256": "380b5b8a69cb0d72edb6500a675527246f9a431d90381b83e62f7bdd31d4a625",
+      "logicalFiles": 43,
+      "physicalFiles": 5,
+      "allBytesRechecked": true
+    },
+    "buildPending": false,
+    "browserPending": false,
+    "publicationPending": true,
+    "initialFullCheck": {
+      "session": 34288,
+      "exit": 1,
+      "allSourcePhasesAndCompilerCompleted": true,
+      "tests": 931,
+      "pass": 928,
+      "fail": 3,
+      "reason": "Three old registry-fingerprint checks had not separated the two new derived reader annotations. Full comparison found only coverageStatus, linkedSourcePassageEvidence and coverageLabel changed on those two; frozen source fingerprints retained."
+    },
+    "targetedPreservationTestsPass": 16,
+    "archiveLogicalFilesReproduced": 43,
+    "archiveAnalysesReproducedByteExact": 2,
+    "finalFullCheckPending": false,
+    "preUpgradePrivateRecoveryExports": {
+      "wordDrafts": 13,
+      "fullFittings": 2,
+      "recordingBookmarks": 7
+    },
+    "archiveRecipeCorrectionInstalled": true,
+    "finalFullCheck": {
+      "session": 12015,
+      "exit": 0,
+      "tests": 931,
+      "pass": 931,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "publicBeforeGuard": {
+      "ownTab": "9",
+      "draftRecoveryExports": 13,
+      "canonicalFittingRecoveryExports": 2,
+      "recordingBookmarks": 7,
+      "noBoundaryFittingOrBookmarkEdits": true
+    },
+    "localAcceptance": {
+      "version": "0.104.0",
+      "acceptedAt": "2026-11-27T17:54:22.690035+00:00",
+      "automated": 931,
+      "localFunctionalChecks": 240,
+      "functionalPerEdition": 120,
+      "newMarkedWordStatesPerEdition": 657,
+      "newReaderPagesPerEdition": 7,
+      "oldToldotWordStatesPerEdition": 358,
+      "retainedCueControlsPerEdition": 29,
+      "oldCueWordStatesExhaustivelyRepeated": false,
+      "localManualFixtureChecks": 21,
+      "stoppedPreviewCacheChecks": 38,
+      "networkingDisabled": false,
+      "previewServer": {
+        "session": 46213,
+        "terminalExit": 130,
+        "port": 54016,
+        "directCurlExit": 7
+      },
+      "canonicalEvidenceRecords": 87,
+      "canonicalEvidenceLinks": 90,
+      "sourceImagesPerEdition": 3,
+      "portableFullResolutionLinks": 6,
+      "retainedAndNewResearchAssetsExact": 6,
+      "sourcePreservation": {
+        "retainedAssetsDataVendor": 672,
+        "retainedReportResultsAndNulls": 115,
+        "currentInputPins": 371,
+        "protectedAlgorithms": 10,
+        "timingGates": 807,
+        "fittingClosures": 2,
+        "sourcesPerFitting": 6,
+        "roadmapFeatures": 21,
+        "completionRequirements": 6
+      },
+      "preUpgradeRawRecovery": {
+        "drafts": 13,
+        "fittings": 2,
+        "bookmarks": 7,
+        "refreshedWithoutPracticeEdits": true
+      },
+      "allAudioMutedAndStopped": true,
+      "artifacts": {
+        "app.bundle.js": {
+          "bytes": 44105537,
+          "sha256": "56f507848a70bdae6a0d5af2ced3b38e170153463d74353474b7df0045744a37"
+        },
+        "TropeTrain.html": {
+          "bytes": 100655329,
+          "sha256": "80486e4b5c28e255a9983c95c755f9ea4b9af44e490e1b0feb816be403654e82"
+        }
+      },
+      "portableHeadroom": 4202271,
+      "minimumReserve": 4194304,
+      "aboveReserve": 7967,
+      "publicAcceptancePending": true
+    }
   }
 }

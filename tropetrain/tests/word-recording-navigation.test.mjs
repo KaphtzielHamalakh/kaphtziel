@@ -10,10 +10,12 @@ import {ASAEL_GENESIS_WORD_SUPPORT} from '../asael-genesis-word-support-summary.
 import {GENESIS_MELODY_WORD_SUPPORT} from '../genesis-melody-word-support-summary.js';
 import {TOLDOT_OBSERVED_CUES} from '../toldot-observed-cues-summary.js';
 import {CHUKAT_WORD_SUPPORT} from '../chukat-word-support-summary.js';
+import {GENESIS_COMPANION_PASSAGES} from '../genesis-companion-passages.js';
 import {passage as opening} from '../passage.js';
 const corpus=await getCorpus(),navigator=createWordRecordingNavigator(corpus),before=JSON.stringify(VOICE_SOURCE_RECORDINGS);
 const entries=[...WORD_SUPPORT.records,...ASAEL_GENESIS_WORD_SUPPORT.records,...GENESIS_MELODY_WORD_SUPPORT.records,...CHUKAT_WORD_SUPPORT.records];
 entries.push({recordId:TOLDOT_OBSERVED_CUES.recordId,...TOLDOT_OBSERVED_CUES.packet});
+entries.push(...GENESIS_COMPANION_PASSAGES.records.map(r=>({recordId:r.recordId,...r.readerBindingsPacket})));
 const packets=entries.map(e=>({recordId:e.recordId,value:JSON.parse(gunzipSync(readFileSync(new URL('../'+e.file,import.meta.url))))}));
 const expected=new Map();for(const {recordId,value} of packets)for(const w of value.words){if(!expected.has(w.id))expected.set(w.id,{hebrew:w.hebrew,records:new Set()});const e=expected.get(w.id);assert.equal(e.hebrew,w.hebrew);e.records.add(recordId);}
 function word(bookId,chapter,verse,ordinal=1){return corpus.passage([{id:'test',bookId,start:{chapter,verse},end:{chapter,verse}}]).verses[0].words[ordinal-1];}
@@ -25,7 +27,7 @@ test('every fast opening-fixture word has the exact preferred Genesis identity u
 });
 
 test('whole Torah navigation matches every supplied packet word exactly and withholds all other comparisons',()=>{
- assert.deepEqual(navigator.counts,{words:1515,recordings:13,passageRanges:5});assert.equal(expected.size,1515);assert.equal(packets.length,13);
+ assert.deepEqual(navigator.counts,{words:2172,recordings:15,passageRanges:7});assert.equal(expected.size,2172);assert.equal(packets.length,15);
  let count=0,covered=0;for(const bookId of ['gen','exo','lev','num','deu']){
   const book=corpus.books.find(b=>b.id===bookId),last=book.chapters.at(-1);
   for(const w of corpus.passage([{id:'whole',bookId,start:{chapter:1,verse:1},end:{chapter:last.number,verse:last.verses.at(-1).number}}]).verses.flatMap(v=>v.words)){
@@ -34,7 +36,7 @@ test('whole Torah navigation matches every supplied packet word exactly and with
    for(const study of match.studies){assert.equal(study.review,null);const actual=new Set(voiceCombinations(study.id).map(r=>r.id));assert(study.recordIds.every(id=>actual.has(id)));}
   }
  }
- assert.equal(count,79985);assert.equal(covered,1515);assert.equal(JSON.stringify(VOICE_SOURCE_RECORDINGS),before);
+ assert.equal(count,79985);assert.equal(covered,2172);assert.equal(JSON.stringify(VOICE_SOURCE_RECORDINGS),before);
 });
 
 test('changed letters, accents, CGJ, reference and word identity fail closed without replacing reader text',()=>{
@@ -52,7 +54,7 @@ test('repeated assignment occurrences retain canonical word identity and never m
 });
 
 test('actual supplied source views remain distinct and duplicate subsets do not hide the three-recording comparison',()=>{
- const cases=[['gen',1,1,2],['gen',2,4,3],['gen',5,25,2],['num',19,4,5],['gen',28,4,1]];
+ const cases=[['gen',1,1,2],['gen',2,4,3],['gen',5,25,2],['num',19,4,5],['gen',28,4,1],['gen',2,20,1],['gen',3,22,1]];
  for(const [b,c,v,n] of cases){const w=word(b,c,v),match=navigator.forWord(w);assert.equal(match.studies.length,1);assert.equal(match.studies[0].recordIds.length,n);assert.equal(match.recordings.length,n);assert.equal(navigator.verify(w,match.studies[0].id).word.id,w.id);}
  assert.throws(()=>navigator.verify(word('gen',1,1),navigator.forWord(word('num',19,4)).studies[0].id));assert.throws(()=>createWordRecordingNavigator(null));
 });
