@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "app.bundle.js",
-      "sha256": "56f507848a70bdae6a0d5af2ced3b38e170153463d74353474b7df0045744a37"
+      "sha256": "e62baa635530681245ff34ab613c354dcebfd47d8ff14b4316d446a7e47fff8e"
     },
     {
       "path": "assets/scores/cohen-1902-munah-revia.png",
@@ -20,7 +20,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "72ff27daa4098a82711ae9c6fc0afa9cf5dd02a8a16eb22209d44b50b862444d"
+      "sha256": "63cd35b30492ec402d86c19440abc33e64204910411cbf0054847b8bb6df02fa"
     },
     {
       "path": "portable-program-images.js",
@@ -28,19 +28,23 @@
     },
     {
       "path": "portable-program-loader.js",
-      "sha256": "04e5c45d3b4556d73a9ba881b2628c9eaa6f8227113f0bf12c3a7e8491190c47"
+      "sha256": "c761f8bd9acbd0952f0c8808aed6b6c16f0a510866a05df02243d858c0bc4157"
     },
     {
       "path": "scripts/audit-portable-program-images.mjs",
-      "sha256": "04e653f456df20b462d6cf106fa9632f7b3fc27e934863c4791429fb63e7d9a2"
+      "sha256": "959620917ea6289d1770d83bb819e4627f6f5ade7168c4f0a10d949f78a03b7f"
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "eaf89d6c010a39f057c49f021ffc6642a0e6c3c4a01c9fe610c68ae6e6217a7e"
+      "sha256": "39cedf54e5895095a492857bbe6e6627eae2f1ec9450cdc7e6a3d12de4a0f05c"
+    },
+    {
+      "path": "scripts/decode-portable-program.mjs",
+      "sha256": "56f89acbb0fe35942b266548db342e5c63b5b12a60121ca99639f1804432bf44"
     },
     {
       "path": "scripts/pack-portable-program.mjs",
-      "sha256": "1e9ad6a3a903d936a59ac0783d10e869c43509fa4ce469945f62c753d5b5665c"
+      "sha256": "d1cc522458110159f38c713ebcbaa38f839be4016d235657e2561311916b5572"
     },
     {
       "path": "scripts/share-program-images.mjs",
@@ -90,8 +94,8 @@
   ],
   "imageCount": 3,
   "completeSourceImagesRetained": true,
-  "normalProgramBytes": 44105537,
-  "normalProgramSha256": "56f507848a70bdae6a0d5af2ced3b38e170153463d74353474b7df0045744a37",
+  "normalProgramBytes": 45644886,
+  "normalProgramSha256": "e62baa635530681245ff34ab613c354dcebfd47d8ff14b4316d446a7e47fff8e",
   "avoidedDuplicateDataUriBytes": 1116047,
   "historicalRealizationsAdded": 0,
   "singingVoicesAdded": 0

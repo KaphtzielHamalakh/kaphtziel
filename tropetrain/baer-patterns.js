@@ -16,7 +16,10 @@ export function baerPatternSource(mode){
 }
 export function baerPatternWrittenPlan(mode,options={}){return baerPatternPlan(mode,{...options,written:true});}
 export function baerPatternPlan(mode,{tempo=84,transpose=0,graceDemo=false,repeatDemo=false,written=false}={}){
- const row=baerPatternSource(mode),record=row.record,figure=record.selectedFigure;
+ return baerPatternPlanForSource(baerPatternSource(mode),{tempo,transpose,graceDemo,repeatDemo,written});
+}
+export function baerPatternPlanForSource(row,{tempo=84,transpose=0,graceDemo=false,repeatDemo=false,written=false}={}){
+ const record=row.record,figure=record.selectedFigure;
  if(!figure)throw Error('Choose a printed pattern.');
  if(figure.status!=='transcribed'&&!(figure.status==='unmeasured-grace'&&graceDemo===true))throw Error('This source figure awaits literal notation or timing review. An unmeasured-grace figure requires the optional original instrumental timing demonstration.');
  if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid pattern tempo or key.');
@@ -32,7 +35,8 @@ export function baerPatternPlan(mode,{tempo=84,transpose=0,graceDemo=false,repea
   const grace=graceDemoTiming(c,{tempo,graceDemo}),beats=grace?.beats??c.quarterBeats;
   const common={id:occurrence.repeatPass?`${c.id}-pass-${occurrence.repeatPass}`:c.id,...(figure.repeat?{sourceComponentId:c.id,...repetition}:{}),sourceProfile:record.id,sourceRevision:record.revision,sourcePage:c.sourcePage,sourceLocation:c.sourceLocation,sourceLabel:record.figures.find(f=>f.id===c.cell).name,sourceComponentNumber:i+1,sourceComponentCount:components.length,sourceCell:c.cell,beats,startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:grace?.seconds??beats*60/tempo,
    ...(grace?{sourceQuarterBeats:null,sourceGrace:grace.sourceGrace,performanceTiming:grace.performanceTiming}:{}),
-   ...(figure.sourceVariant?{sourceVariant:Object.freeze({id:figure.sourceVariant.id,label:figure.sourceVariant.label,figureId:figure.sourceFigureId})}:{}),...(c.sourceBar?{sourceBar:c.sourceBar}:{})};
+   ...(figure.sourceVariant?{sourceVariant:Object.freeze({id:figure.sourceVariant.id,label:figure.sourceVariant.label,figureId:figure.sourceFigureId})}:{}),...(c.sourceBar?{sourceBar:c.sourceBar}:{}),
+   ...(c.sourceNotation?{sourceNotation:Object.freeze({...c.sourceNotation})}:{}),...(c.sourcePrintedHead?{sourcePrintedHead:Object.freeze({...c.sourcePrintedHead})}:{})};
   if(c.kind==='rest'){
    const rest={...common,kind:'rest',rhythm:{...c.rhythm}};
    if(plan.length)(plan.at(-1).sourceRestsAfter??=[]).push(rest);else before.push(rest);

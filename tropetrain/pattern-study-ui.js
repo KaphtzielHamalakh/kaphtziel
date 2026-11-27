@@ -1,4 +1,5 @@
 import {SEPHARDIC_PATTERN_ID} from './sephardic-patterns.js';
+import {BAER_SECOND_PATTERN_ID} from './baer-second-patterns.js';
 import {REPEAT_DEMO} from './source-repeat.js';
 import {BAER_PATTERN_ID,baerPatternWrittenPlan} from './baer-patterns.js';
 import {GRACE_DEMO} from './source-grace.js';
@@ -93,6 +94,9 @@ export function mountPatternStudy({getSettings,beforePlay,findPattern}){
   const openSephardic=()=>{$('pattern-source').value=SEPHARDIC_PATTERN_ID;$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('no938-zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});};
   $('sephardic-pattern-open').addEventListener('click',openSephardic);$('sephardic-pattern-open').disabled=false;
   for(const a of document.querySelectorAll('a[href="#sephardic-pattern-study"]'))a.addEventListener('click',openSephardic);if(location.hash==='#sephardic-pattern-study')openSephardic();
+  const openSecond=()=>{$('pattern-source').value=BAER_SECOND_PATTERN_ID;$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});};
+  $('baer-second-pattern-open').addEventListener('click',openSecond);$('baer-second-pattern-open').disabled=false;
+  for(const a of document.querySelectorAll('a[href="#baer-second-pattern-study"]'))a.addEventListener('click',openSecond);if(location.hash==='#baer-second-pattern-study')openSecond();
   $('idelsohn-pattern-open').addEventListener('click',()=>{$('pattern-source').value='idelsohn-1929-vol5-no267';$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes('idelsohn1929-267-zarqa');refresh();remember();$('pattern-study-heading').scrollIntoView({block:'start'});});
   $('pattern-source').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;populateModes($('pattern-mode').value);refresh();remember();});
   $('pattern-mode').addEventListener('change',()=>{$('pattern-grace-demo').checked=false;$('pattern-repeat-demo').checked=false;$('pattern-small-eighth-demo').checked=false;refresh();remember();});

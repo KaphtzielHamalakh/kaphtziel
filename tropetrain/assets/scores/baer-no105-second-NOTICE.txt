@@ -1,0 +1,30 @@
+Baer No105, second printed ordinary-Torah setting (2. W.), printed pp30–35
+
+Abraham Baer, Baal t'fillah oder Der practische Vorbeter, third expanded
+edition [1894], Kauffmann, Frankfurt am Main. Digitization:
+Universitaetsbibliothek Johann Christian Senckenberg, Frankfurt am Main.
+https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537
+https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/manifest
+Institutional digitization policy:
+https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy
+
+The nineteenth-century print is public domain. The institutional policy
+permits unrestricted reuse of public-domain digitizations, with exceptions
+for separately identified collections. Original raster URLs, bytes and
+SHA256, and exact lossless crop rectangles are retained in the source record.
+The six new excerpts preserve every cropped pixel without retouching.
+Existing first-row excerpts and the preface excerpt remain unchanged.
+
+New manual transcription, reference resolution and software: CC0-1.0.
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Literal dto references preserve their first-setting component identities.
+Shared heads, different stem durations, coherent upper/lower alternatives,
+rests, tuplets and the one unmeasured grace remain distinct. A referenced
+first-row passage is not a second independent transcription or review.
+Modern 12TET tuning, regular user tempo and instrumental articulation are
+approximations. The optional 80ms grace timing is an original demonstration,
+not historical performance evidence. No arbitrary Hebrew-word/syllable or
+phoneme fitting, full contextual melody grammar, Kinnor preset equivalence,
+new singing voice or independent musical review is claimed. The separate
+No111 rare-sign settings on p36 have not been assigned to this second row.
