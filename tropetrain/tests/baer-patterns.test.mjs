@@ -15,7 +15,7 @@ const plan=(mode,options={})=>printedPatternPlan(mode,{sourceId:BAER_PATTERN_ID,
 
 test('Baer source inventory keeps32cells, twenty-seven measured figures and five source-timing/application gaps apart from the existing Cohen catalogue',()=>{
  assert.equal(data.figures.length,32);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(BAER_PATTERN_ROW.unavailable.length,0);
- assert.equal(PRINTED_PATTERN_SOURCES.at(-1).id,'baer-1894-no938-sephardic-table');assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.filter(r=>r.id!=='baer-1894-no938-sephardic-table').length,20);
+ assert.equal(PRINTED_PATTERN_SOURCES.at(-2).id,'baer-1894-no938-sephardic-table');assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);assert.equal(PRINTED_PATTERN_SOURCES.filter(r=>!['baer-1894-no938-sephardic-table','baer-1894-no105-second-setting'].includes(r.id)).length,20);
  assert.equal(allPatternModes(BAER_PATTERN_ID).length,38);assert.equal(availablePatternModes(BAER_PATTERN_ID).length,32); // one adjacent-column pair
  assert.equal(data.notes.length,308);assert.equal(data.notes.filter(n=>n.kind==='note').length,292);assert.equal(data.notes.filter(n=>n.kind==='rest').length,16);
  for(const f of data.figures.filter(f=>f.status!=='transcribed')){assert.ok(f.pending);if(f.status!=='unmeasured-grace')assert.equal(data.notes.some(n=>n.cell===f.id),false);else assert.equal(data.notes.filter(n=>n.cell===f.id&&n.grace).length,f.unmeasuredGraceNotes);assert.throws(()=>plan(f.id),/awaits literal notation or timing review/);}
@@ -81,5 +81,5 @@ test('muted live player visits leading rest, notes, final rest and the next loop
 test('both distributions embed the exact new source record and image bytes without altering the original Cohen catalogue',()=>{
  const bundle=read('app.bundle.js').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();
  for(const spec of [...Object.values(data.source.pages),...Object.values(data.source.detailImages),data.source.contextImage])for(const html of [bundle,portable])assert.ok(html.includes(read(spec.image).toString('base64')),spec.image);
- assert.ok(portable.includes(read('docs/BAER-NO105-PATTERNS.json').toString('base64')));assert.equal(PRINTED_PATTERN_SOURCES.at(-1).id,'baer-1894-no938-sephardic-table');assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);
+ assert.ok(portable.includes(read('docs/BAER-NO105-PATTERNS.json').toString('base64')));assert.equal(PRINTED_PATTERN_SOURCES.at(-2).id,'baer-1894-no938-sephardic-table');assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);
 });
