@@ -1,0 +1,98 @@
+{
+  "format": "tropetrain-portable-program-images-audit-v1",
+  "status": "lossless-packaging-no-musical-change",
+  "inputs": [
+    {
+      "path": "app.bundle.js",
+      "sha256": "ec18b133ad92c42f79e07017536fb63a93604d0afda3fd9e0d925711e47edebb"
+    },
+    {
+      "path": "assets/scores/cohen-1902-munah-revia.png",
+      "sha256": "c9e04c0a65734ed720c5b04e8d4eaf01a4191ea27b31ff01ad0af7b6b2aafb1a"
+    },
+    {
+      "path": "assets/scores/cohen-1902-pentateuch-row-a.png",
+      "sha256": "7f278f564da55a6c72053a1fcd1d6b21932b05e979b8579d0ff28411d5c28c6b"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no268.jpg",
+      "sha256": "3238419f17b2add9caea810c7ed87e3ea236952d77f36b97df2d0b4c0434963b"
+    },
+    {
+      "path": "index.html",
+      "sha256": "f1615a50ef1d78a71fbdbf3abff76ed64abab573d467e63d3464606b8828cb07"
+    },
+    {
+      "path": "portable-program-images.js",
+      "sha256": "ca32831ab0e220a4e516ef9ec8f401adffc06f4def388f41535a61fd6b16478f"
+    },
+    {
+      "path": "portable-program-loader.js",
+      "sha256": "04e5c45d3b4556d73a9ba881b2628c9eaa6f8227113f0bf12c3a7e8491190c47"
+    },
+    {
+      "path": "scripts/audit-portable-program-images.mjs",
+      "sha256": "04e653f456df20b462d6cf106fa9632f7b3fc27e934863c4791429fb63e7d9a2"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "d6d768fa5baf7f3e2e63caa2b460abfd1e7e862d85d8d6e1442558e67d5e7ebc"
+    },
+    {
+      "path": "scripts/pack-portable-program.mjs",
+      "sha256": "1e9ad6a3a903d936a59ac0783d10e869c43509fa4ce469945f62c753d5b5665c"
+    },
+    {
+      "path": "scripts/share-program-images.mjs",
+      "sha256": "28515fd6416bc032a980187706ca7880f02ed13e51161c849335de5f8fc9c78d"
+    }
+  ],
+  "records": [
+    {
+      "id": "0",
+      "bytes": 522167,
+      "sha256": "3238419f17b2add9caea810c7ed87e3ea236952d77f36b97df2d0b4c0434963b",
+      "dataUriBytes": 696247,
+      "dataUriSha256": "9a0a58d610567d9b33e41b1ddf52d9f876a443218d08eabdf9d6bc67d5820b5f",
+      "uses": 1,
+      "canonicalSourcePath": "assets/scores/idelsohn-1929-no268.jpg",
+      "elementIds": [
+        "idelsohn-score-image"
+      ],
+      "allOriginalBytesExact": true
+    },
+    {
+      "id": "1",
+      "bytes": 59275,
+      "sha256": "c9e04c0a65734ed720c5b04e8d4eaf01a4191ea27b31ff01ad0af7b6b2aafb1a",
+      "dataUriBytes": 79058,
+      "dataUriSha256": "1af30602ed4f057f8cc22e9f7e7692eab5874c2b9c91c92e41765d2e87e6fd22",
+      "uses": 1,
+      "canonicalSourcePath": "assets/scores/cohen-1902-munah-revia.png",
+      "elementIds": [
+        "pattern-source-scan"
+      ],
+      "allOriginalBytesExact": true
+    },
+    {
+      "id": "2",
+      "bytes": 255540,
+      "sha256": "7f278f564da55a6c72053a1fcd1d6b21932b05e979b8579d0ff28411d5c28c6b",
+      "dataUriBytes": 340742,
+      "dataUriSha256": "c12c884401851f7f62b5e6bbd615b55db609be4ae85110a1eadee8a9ffbd3128",
+      "uses": 1,
+      "canonicalSourcePath": "assets/scores/cohen-1902-pentateuch-row-a.png",
+      "elementIds": [
+        "pattern-context-scan"
+      ],
+      "allOriginalBytesExact": true
+    }
+  ],
+  "imageCount": 3,
+  "completeSourceImagesRetained": true,
+  "normalProgramBytes": 44093215,
+  "normalProgramSha256": "ec18b133ad92c42f79e07017536fb63a93604d0afda3fd9e0d925711e47edebb",
+  "avoidedDuplicateDataUriBytes": 1116047,
+  "historicalRealizationsAdded": 0,
+  "singingVoicesAdded": 0
+}

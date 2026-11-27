@@ -18,7 +18,13 @@ export function portableProgramBytes(raw){
  assert(m,'Actual portable program envelope is present');const proof=JSON.parse(m[1]),gzip=Buffer.from(m[2],'base64');assert.equal(proof.format,'tropetrain-portable-program-v1');assert.equal(proof.encoding,'gzip+base64');assert.equal(gzip.length,proof.gzipBytes);assert.equal(sha(gzip),proof.gzipSha256);const bytes=gunzipSync(gzip);assert.equal(bytes.length,proof.programBytes);assert.equal(sha(bytes),proof.programSha256);assert.equal(new TextDecoder('utf-8',{fatal:true}).decode(bytes),bytes.toString('utf8'));return {bytes,proof,match:m};
 }
 export function restoredPortableHtml(raw){
- const html=restoredPortableEvidenceHtml(raw);if(!html.includes('<script id="portable-program-proof"'))return html;
+ let html=restoredPortableEvidenceHtml(raw);if(!html.includes('<script id="portable-program-proof"'))return html;
+ const decoded=portableProgramBytes(html),images=html.match(/<script id="portable-program-images-proof" type="application\/json">([^<]+)<\/script>/);
+ if(images){
+  const proof=JSON.parse(images[1]);assert.equal(proof.format,'tropetrain-portable-program-images-v1');assert.equal(proof.programBytes,decoded.bytes.length);assert.equal(proof.programSha256,sha(decoded.bytes));
+  const candidates=[...new Set(decoded.bytes.toString().match(/data:image\/[a-z+.-]+;base64,[A-Za-z0-9+/]+={0,2}/g)??[])],records=proof.records.map((r,i)=>{assert.equal(r.id,String(i));const uri=candidates.find(value=>sha(Buffer.from(value))===r.dataUriSha256);assert(uri,'Complete original image exists in the independently decoded program');const bytes=Buffer.from(uri.split(',')[1],'base64');assert.equal(bytes.length,r.bytes);assert.equal(sha(bytes),r.sha256);assert.equal(Buffer.byteLength(uri),r.dataUriBytes);return {...r,uri};}),counts=records.map(()=>0);
+  html=html.replace(images[0],'').replace(/data-portable-program-image="([0-9]+)"/g,(_,id)=>{const r=records[Number(id)];assert(r&&r.id===id);counts[Number(id)]++;return 'src="'+r.uri+'"';});assert.deepEqual(counts,records.map(r=>r.uses));assert.equal(counts.reduce((n,v)=>n+v,0),proof.imageCount);
+ }
  const {bytes,match}=portableProgramBytes(html);return html.slice(0,match.index)+'<script>'+bytes.toString('utf8').replaceAll('</script','<\\/script')+'</script>'+html.slice(match.index+match[0].length);
 }
 

@@ -2,15 +2,17 @@ import {TORAH_OBSERVED_CUES as summary} from './torah-observed-cues-summary.js';
 import {loadWordSupportPacket} from './word-support-data.js';
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const choose=values=>[...values].sort((a,b)=>b.chunkInteriorSeconds-a.chunkInteriorSeconds||a.sourceSampleRange[0]-b.sourceSampleRange[0]||b.exactContext.letters-a.exactContext.letters||a.point-b.point)[0];
+const evidenceFor=study=>study?.evidenceSetId?summary.evidenceSets?.find(e=>e.id===study.evidenceSetId):summary;
 export function referenceObservedCueStudy(record){
  const study=summary.records.find(s=>s.recordId===record?.id);
- if(!study||record.audio?.sha1!==study.source.sha1||record.audio.bytes!==study.source.bytes||!same(record.coverage,study.candidateCoverage)||record.timingSource?.sha256!==study.originalTimingSourceSha256)return null;
+ if(!study||!evidenceFor(study)||record.audio?.sha1!==study.source.sha1||record.audio.bytes!==study.source.bytes||!same(record.coverage,study.candidateCoverage)||record.timingSource?.sha256!==study.originalTimingSourceSha256)return null;
  return study;
 }
 export function validateReferenceObservedCues(value,record){
  const study=referenceObservedCueStudy(record);
  if(!study||value?.format!=='tropetrain-source-observed-cues-v1'||value.status!=='unreviewed-listening-cues'||value.recordId!==record.id||!same(value.source,study.source))throw Error('Listening cues belong to a different original recording.');
- if(!same(value.candidateCoverage,study.candidateCoverage)||!same(value.rules,summary.rules)||!same(value.models,summary.models)||!same(value.controls,summary.controls)||value.wholeTorahSearchWords!==79985||value.frontendMismatchRetained!==true)throw Error('The source-only listening-cue evidence differs.');
+ const evidence=evidenceFor(study);
+ if(!same(value.candidateCoverage,study.candidateCoverage)||!same(value.rules,evidence.rules)||!same(value.models,evidence.models)||!same(value.controls,evidence.controls)||value.wholeTorahSearchWords!==79985||value.frontendMismatchRetained!==true)throw Error('The source-only listening-cue evidence differs.');
  if(value.sourceClockFitted!==false||value.sourceEditionCompared!==false||value.wordDurationInferred!==false||value.boundaryAutofill!==false||['actualRecordingCoverage','acceptedWordTimes','phonemes','syllableAlignment','musicalNotes','newVoice','review','trainingHeldOut'].some(k=>value[k]!==null))throw Error('Research cues cannot certify word timing, music or pronunciation.');
  if(!Array.isArray(value.words)||value.words.length!==record.words.length||value.words.length!==study.readerWords)throw Error('Listening-cue word count differs from this reading.');
  let count=0;

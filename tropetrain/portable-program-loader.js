@@ -13,7 +13,7 @@ export async function startPortableProgram(proof=null,{document:doc=globalThis.d
   if(length!==proof.programBytes)throw Error('Incomplete recovered program.');
   const bytes=new Uint8Array(length);let offset=0;for(const part of parts){bytes.set(part,offset);offset+=part.byteLength;}
   if(await sha(bytes)!==proof.programSha256)throw Error('Recovered program checksum changed.');
-  const program=new TextDecoder('utf-8',{fatal:true}).decode(bytes);if(beforeStart!==null&&typeof beforeStart!=='function')throw Error('Invalid portable initialization hook.');const evidence=beforeStart?await beforeStart():null,script=doc.createElement('script');script.id='portable-recovered-program';script.textContent=program;doc.body.appendChild(script);
+  const program=new TextDecoder('utf-8',{fatal:true}).decode(bytes);if(beforeStart!==null&&typeof beforeStart!=='function')throw Error('Invalid portable initialization hook.');const evidence=beforeStart?await beforeStart({program}):null,script=doc.createElement('script');script.id='portable-recovered-program';script.textContent=program;doc.body.appendChild(script);
   return {started:true,bytes:length,sha256:proof.programSha256,...(evidence?{evidence}:{})};
  }catch(error){
   const status=doc.getElementById('startup-status');
