@@ -1,5 +1,5 @@
 'use strict';
-const C=window.STILL_CARDS, byId=new Map(C.map(c=>[c.id,c])), $=id=>document.getElementById(id);
+const catalog=window.STILL_CARDS, byId=new Map(catalog.map(c=>[c.id,c])), $=id=>document.getElementById(id);
 const STORE='stillwater-notebook-v1', batch=10;
 const attrs={feed:'<path d="M3 5h18M3 12h18M3 19h18"/>',book:'<path d="M4 5h7a3 3 0 0 1 3 3v13a3 3 0 0 0-3-3H4zM14 8a3 3 0 0 1 3-3h3v13h-3a3 3 0 0 0-3 3"/>',save:'<path d="M6 4h12v17l-6-4-6 4z"/>',share:'<path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/>',spark:'<path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z"/>', pin:'<path d="m13 3 8 8-3 1-3 5-3-1-5 5-1-1 5-5-1-3 5-3z"/>',pen:'<path d="m4 16 12-12 4 4L8 20H4zM14 6l4 4"/>'};
 const icon=k=>'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round">'+attrs[k]+'</svg>';
@@ -10,13 +10,44 @@ const PROGRESS='stillwater-feed-position-v1';
 let lastRead='';
 try{lastRead=localStorage.getItem(PROGRESS)||'';}catch(e){}
 const resumeId=lastRead;
+const ORDER='stillwater-feed-order-v1', RESUME_ORDER='stillwater-resume-order-v1';
+function shuffled(items){
+ const out=items.slice();
+ for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}
+ return out;
+}
+function previousOrder(storageKey){
+ try{const ids=JSON.parse(localStorage.getItem(storageKey)||'[]');return Array.isArray(ids)?Array.from(new Set(ids)).filter(id=>byId.has(id)):[];}catch(e){return [];}
+}
+function rememberOrder(order,storageKey=ORDER){
+ try{localStorage.setItem(storageKey,JSON.stringify(order.map(c=>c.id)));}catch(e){}
+}
+function freshOrder(exclude){
+ const recent=new Set(exclude.slice(0,batch));
+ return [...shuffled(catalog.filter(c=>!recent.has(c.id))),...shuffled(catalog.filter(c=>recent.has(c.id)))];
+}
+const previous=previousOrder(ORDER);
+const resumeOrder=previousOrder(RESUME_ORDER);
+let C=freshOrder(previous);
+rememberOrder(C);
+function restoreOrder(ids){
+ const known=new Set(ids);
+ return [...ids.map(id=>byId.get(id)),...C.filter(c=>!known.has(c.id))];
+}
 function showResume(){
  const row=$('feedResume'), next=byId.get(resumeId);
- row.replaceChildren();row.hidden=group!=='All'||!!$('feedSearch').value.trim()||!next;
+ row.replaceChildren();row.hidden=group!=='All'||!!$('feedSearch').value.trim();
  if(row.hidden)return;
- row.append(btn('Continue where you left off','small secondary',()=>{
+ row.append(btn('Fresh mix','small secondary',()=>{
+   C=freshOrder(C.map(c=>c.id));rememberOrder(C);limit=batch;renderFeed();
+   window.scrollTo(0,0);
+   $('feedResume').querySelector('button')?.focus({preventScroll:true});
+ }));
+ if(next)row.append(btn('Continue where you left off','small secondary',()=>{
+   if(resumeOrder.length){C=restoreOrder(resumeOrder);rememberOrder(C);}
    const i=C.findIndex(c=>c.id===resumeId);
-   if(i>=limit){ limit=Math.min(C.length,Math.ceil((i+1)/batch)*batch);renderFeed({append:true}); }
+   limit=Math.min(C.length,Math.max(batch,Math.ceil((i+1)/batch)*batch));
+   renderFeed();
    focusCard(resumeId);
  }));
 }
@@ -28,7 +59,7 @@ function watchReading(cards){
    if(!candidates.length || window.scrollY<150)return;
    const id=candidates.at(-1).target.dataset.card;
    if(id===lastRead)return;
-   lastRead=id;try{localStorage.setItem(PROGRESS,id);}catch(e){}
+   lastRead=id;try{localStorage.setItem(PROGRESS,id);rememberOrder(C,RESUME_ORDER);}catch(e){}
  },{threshold:[.62]});
  for(const n of cards)readingObserver.observe(n);
 }
@@ -74,7 +105,7 @@ function card(c,mode='feed'){
  if(mode==='notes'&&shelf[c.id]?.note)inner.append(el('p','note-preview',shelf[c.id].note));
  n.append(inner);return n;
 }
-function renderFilters(){const n=$('filters');for(const type of ['All',...new Set(C.map(c=>c.group))]){const b=btn('','chip',()=>{group=type;limit=batch;syncFilters();renderFeed();});b.dataset.group=type;
+function renderFilters(){const n=$('filters');for(const type of ['All',...new Set(catalog.map(c=>c.group))]){const b=btn('','chip',()=>{group=type;limit=batch;syncFilters();renderFeed();});b.dataset.group=type;
  const mark=el('span','filter-mark',glyph(type));mark.setAttribute('aria-hidden','true');
  b.append(mark,el('span','filter-name',type==='All'?'For you':type));n.append(b);}syncFilters();}
 function syncFilters(){for(const b of $('filters').children)b.setAttribute('aria-pressed',String(group===b.dataset.group));}
