@@ -10,6 +10,7 @@ import{VOICE_STUDIES,VOICE_SOURCE_RECORDINGS,voiceCoverage,voiceRecording,voiceS
 import{getCorpus}from'../library.js';
 import{createWordTimingDraft,setWordBoundary,parseWordTimingDraft}from'../word-timing-draft.js';
 import{WORD_SUPPORT,wordSupportAvailable,loadWordSupport,validateWordSupport,wordSupportContext}from'../word-support.js';
+import{GENESIS_COMPANION_PASSAGES}from'../genesis-companion-passages.js';
 const read=n=>readFileSync(new URL('../'+n,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),corpus=await getCorpus();
 const candidates=report.records.filter(r=>r.readerCoverage),derived=id=>VOICE_SOURCE_RECORDINGS.find(r=>r.id===id);
 const sourceWords=r=>corpus.passage([{...voiceCoverage(r),id:'test-source'}]).verses.flatMap(v=>v.words);
@@ -34,14 +35,15 @@ test('candidate recordings preserve documented independent labels and exact mark
  const fifth=report.records.find(r=>r.catalogPassageNote==='ה,יט-כו');assert.equal(fifth.readerCoverage,null);assert.equal(fifth.correctedCoverage,null);
 });
 
-test('all six discrepant recordings and the earlier disputed sixth range keep reader mapping and support withheld',async()=>{
+test('original discrepancies remain intact; only separately qualified companion candidates can supply a different reader range',async()=>{
+ const qualified=new Set(GENESIS_COMPANION_PASSAGES.records.map(r=>r.recordId));
  for(const p of report.records.filter(r=>!r.readerCoverage)){
-  const r=derived(p.recordId);assert.equal(voiceCoverage(r),null);assert.match(r.coverageStatus,/withheld/);assert.equal(r.catalogPassageEvidence.correctedCoverage,null);assert.equal(wordSupportAvailable(r),false);assert.match(p.discrepancy,/unreviewed recognizer/);assert.equal(r.audio.sha256,p.sha256);
-  assert.throws(()=>createWordTimingDraft(r,voiceCoverage(r),[{id:'gen-1-1-1',sourceHebrew:'בְּרֵאשִׁ֖ית'}]),/source passage/);
+  const r=derived(p.recordId);assert.equal(r.coverage,null);if(qualified.has(r.id)){assert(voiceCoverage(r));assert.match(r.coverageStatus,/Companion text candidate/);}else{assert.equal(voiceCoverage(r),null);assert.match(r.coverageStatus,/withheld/);assert.throws(()=>createWordTimingDraft(r,voiceCoverage(r),[{id:'gen-1-1-1',sourceHebrew:'בְּרֵאשִׁ֖ית'}]),/source passage/);}
+  assert.equal(r.catalogPassageEvidence.correctedCoverage,null);assert.equal(wordSupportAvailable(r),false);assert.match(p.discrepancy,/unreviewed recognizer/);assert.equal(r.audio.sha256,p.sha256);
   await assert.rejects(loadWordSupport(r,{source:{}}),/No automatic/);
  }
  for(const p of report.previouslyUnresolvedRows){assert.equal(voiceCoverage(derived(p.recordId)),null);assert.equal(p.readerCoverage,null);assert.equal(p.correctedCoverage,null);}
- const covered=new Set(candidates.map(p=>p.recordId));assert(rawCatalog.recordings.filter(r=>!covered.has(r.id)&&r.id!=='asael-catalog-183403-30').every(r=>voiceCoverage(derived(r.id))===null));
+ const covered=new Set([...candidates.map(p=>p.recordId),...qualified]);assert(rawCatalog.recordings.filter(r=>!covered.has(r.id)&&r.id!=='asael-catalog-183403-30').every(r=>voiceCoverage(derived(r.id))===null));
 });
 
 test('source-specific runtime mapping refuses altered media identity, revision, labels, license and performer',()=>{

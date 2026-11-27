@@ -1,7 +1,8 @@
 import test from'node:test';import assert from'node:assert/strict';import{readFileSync}from'node:fs';import{createHash}from'node:crypto';import{TOLDOT_OBSERVED_CUES as report}from'../toldot-observed-cues-summary.js';import{VOICE_SOURCE_RECORDINGS}from'../voice-studies.js';import{restoredPortableHtml,portableProgramBytes,portableFileBytes}from'./portable-artifact.mjs';
+import {previousCompanionRecord} from './previous-companion-record.mjs';
 const read=n=>readFileSync(new URL('../'+n,import.meta.url));
-test('every accepted original source record is unchanged after removing only this release’s single derived reader annotation',()=>{
- const original=VOICE_SOURCE_RECORDINGS.map(r=>{if(r.id!==report.recordId)return r;const{linkedSourcePassageEvidence,coverageLabel,coverageStatus,...raw}=r;return raw;});assert.equal(original.length,1183);assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'62cbbac06f720d148113ef9990c0f8c53c99300f56cb0a8d1ddac7b7058e6581');
+test('the accepted pre-Toldot source registry fingerprint is preserved after separating documented reader annotations',()=>{
+ const original=VOICE_SOURCE_RECORDINGS.map(previousCompanionRecord).map(r=>{if(r.id!==report.recordId)return r;const{linkedSourcePassageEvidence,coverageLabel,coverageStatus,...raw}=r;return raw;});assert.equal(original.length,1183);assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'62cbbac06f720d148113ef9990c0f8c53c99300f56cb0a8d1ddac7b7058e6581');
 });
 test('normal and portable editions expose sparse cue controls, pinned evidence and opt-in original audio with no model weights',()=>{
  const physical=read('TropeTrain.html'),normal=read('index.html').toString(),portable=restoredPortableHtml(physical).toString(),program=portableProgramBytes(physical).bytes;assert.deepEqual(program,read('app.bundle.js'));

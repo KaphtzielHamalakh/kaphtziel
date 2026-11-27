@@ -2,6 +2,7 @@ import {VOICE_STUDIES,VOICE_FEATURED_STUDIES,voiceStudy,voiceRecording,voiceChoi
 import {sourceRecordingSha256} from './source-recording-identity.js';
 import {TOLDOT_OBSERVED_CUES} from './toldot-passage-records.js';
 import {CHUKAT_SOURCE_PASSAGES} from './chukat-passage-records.js';
+import {GENESIS_COMPANION_PASSAGES} from './genesis-companion-passages.js';
 import {VoiceStudyPlayer} from './voice-study-player.js';
 import {ReferenceAudioStore} from './reference-audio-store.js';
 import {mountWordTimingDraft} from './word-timing-ui.js';
@@ -124,6 +125,14 @@ export function mountVoiceStudies({beforePlay,onOpenText}){
     if(prefs.studyId!==TOLDOT_OBSERVED_CUES.studyId)chooseStudy(TOLDOT_OBSERVED_CUES.studyId);
     const epoch=renderEpoch;await timingReady;if(epoch!==renderEpoch)return;
     timing.selectWord(TOLDOT_OBSERVED_CUES.defaultReviewWordId);$('word-timing-review').open=true;$('word-timing-select').focus();
+  });
+  for(const candidate of GENESIS_COMPANION_PASSAGES.records)$('genesis-companion-open-'+candidate.recordId).addEventListener('click',async()=>{
+    const pair=voiceCombinations(candidate.studyId).find(p=>p.id===candidate.recordId);
+    if(!pair)return;
+    prefs.studyId=candidate.studyId;prefs.pronunciationId=pair.pronunciationId;prefs.deliveryId=pair.deliveryId;studyOptions();populate();render();
+    const epoch=renderEpoch;await timingReady;if(epoch!==renderEpoch)return;
+    if(!timing.selectWord(candidate.firstWordId))return;
+    $('word-timing-review').open=true;$('word-timing-select').focus();
   });
   $('nombody-chukat-open').addEventListener('click',()=>chooseStudy(SOURCE_READERS.featuredStudyId));
   mountSourceReaderFinder({selectedStudy:prefs.studyId,onChooseStudy:chooseStudy});

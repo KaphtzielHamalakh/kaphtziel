@@ -5,11 +5,12 @@ import {GENESIS_MELODY_COMPARISON} from './genesis-melody-comparison-data.js';
 import {SOURCE_READERS} from './source-readers-data.js';
 import {withChukatPassageEvidence} from './chukat-passage-records.js';
 import {withToldotPassageEvidence} from './toldot-passage-records.js';
+import {withGenesisCompanionPassageEvidence} from './genesis-companion-passages.js';
 import {sourceRecordingSha256} from './source-recording-identity.js';
 export {VOICE_STUDIES};
 export const VOICE_FEATURED_STUDIES=[...VOICE_STUDIES.studies,GENESIS_MELODY_COMPARISON.study,SOURCE_READERS.studies.find(s=>s.id===SOURCE_READERS.featuredStudyId)];
 export const VOICE_SOURCE_STUDIES=[...VOICE_FEATURED_STUDIES,...ASAEL_SOURCE_CATALOG.studies,...SOURCE_READERS.studies.filter(s=>s.id!==SOURCE_READERS.featuredStudyId)];
-export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording,SOURCE_READERS.recordings).map(withChukatPassageEvidence).map(withToldotPassageEvidence);
+export const VOICE_SOURCE_RECORDINGS=[...VOICE_STUDIES.recordings,...ASAEL_SOURCE_CATALOG.recordings].map(withAsaelPassageEvidence).concat(GENESIS_MELODY_COMPARISON.recording,SOURCE_READERS.recordings).map(withChukatPassageEvidence).map(withToldotPassageEvidence).map(withGenesisCompanionPassageEvidence);
 
 export function voiceStudy(id){
   const study=VOICE_SOURCE_STUDIES.find(s=>s.id===id);
