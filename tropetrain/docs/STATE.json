@@ -3,8 +3,8 @@
   "updated": "2026-11-27",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "795230d720d4f95d8d129785c8de5ba8a6ddea0d",
-  "nextTask": "Publish the locally accepted0.103app only through connectedGitHub, with freshmainlease and allcurrentoutsideentries preserved(41at early44e910read). VerifyPages/livebytes/publicnormal+portableUI and13draft/2fitting/5publicspan preservation, then canonicalsave/finalrecords. Continue fullTorah contextualmelodies/independentpronunciation work; printing waits.",
+  "publishedCommit": "aa59b583c6c9e0287819c6f1e64314b296c46df9",
+  "nextTask": "Continue full-Torah contextual melody and independent pronunciation work. Inspect exact reusable companion-text verse references for the pinned catalog before further reader mapping; 195 literal paired readings are not complete paired Torah coverage. Keep all six completion requirements open; printing waits.",
   "lastPassingTests": {
     "version": "0.103.0",
     "automated": 925,
@@ -42,7 +42,15 @@
     "fittingStatesAreEmptyAndUnchecked": true,
     "privateDistinctListeningSpanFixturesPreservedPerEdition": 5,
     "allMediaStoppedAndMuted": true,
-    "publicPhase": "publication_pending"
+    "publicPhase": "accepted_live_v103",
+    "publicUiChecks": 206,
+    "publicNormalUiChecks": 103,
+    "publicPortableUiChecks": 103,
+    "liveFilesExact": 51,
+    "liveDecodedBytesExact": 147126575,
+    "publicDraftExportsPreservedPerEdition": 13,
+    "publicEmptyUncheckedFittingsPreservedPerEdition": 2,
+    "publicListeningBookmarksPreservedPerEdition": 5
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -191,15 +199,13 @@
     }
   },
   "lastDeployment": {
-    "version": "0.102.0",
-    "codeCommit": "795230d720d4f95d8d129785c8de5ba8a6ddea0d",
-    "pagesRun": 45896756902,
-    "all3JobsSuccessful": true,
-    "codeLiveFilesExact": 41,
-    "codeLiveBytesExact": 146884689,
-    "publicUiChecks": 142,
-    "outsideRootEntriesPreserved": 40,
-    "status": "code_published_live_normal_and_portable_browser_verified; final_metadata_receipt_follows"
+    "version": "0.103.0",
+    "commit": "aa59b583c6c9e0287819c6f1e64314b296c46df9",
+    "url": "https://kaphtziel.com/tropetrain/?v=0.103.0#torah-listening-studies",
+    "pagesRun": 46028641687,
+    "pagesConclusion": "success",
+    "outsideRootEntriesPreserved": 41,
+    "publicAccepted": true
   },
   "corpusImport": {
     "books": 5,
@@ -3445,7 +3451,11 @@
     "browserSourceChecks": 5,
     "browserClockAccounting": "All5match original decoded duration plus half the unchanged Vorbis small block within1microsecond; actual deltas2.9026–11.6103ms retained separately. No source timestamps changed."
   },
-  "currentCandidate": "0.103.0",
+  "currentCandidate": {
+    "version": "0.103.0",
+    "status": "published_public_accepted",
+    "goal": "active_incomplete"
+  },
   "chukatLinkedWordStudy": {
     "record": "docs/CHUKAT-SOURCE-PASSAGES.json",
     "support": "docs/CHUKAT-WORD-SUPPORT.json",
@@ -3800,5 +3810,63 @@
     "TetzavehCues": 49,
     "ShemotCues": 12,
     "independentlyRecomputedLiteralObservations": 131
+  },
+  "publicV103Acceptance": {
+    "version": "0.103.0",
+    "codeCommit": "aa59b583c6c9e0287819c6f1e64314b296c46df9",
+    "normalFunctionalChecks": 103,
+    "portableFunctionalChecks": 103,
+    "totalFunctionalChecks": 206,
+    "wordStatesPerEdition": 1083,
+    "pagesPerEdition": 12,
+    "cuesPerEdition": 155,
+    "noCuesPerEdition": 928,
+    "sourceImagesExactPerEdition": 3,
+    "portableFullResolutionLinksExact": 6,
+    "portableCanonicalRecordsExact": 86,
+    "portableCanonicalLinksExact": 89,
+    "portableStudyArchivesAndNoticesExact": 4,
+    "draftExportsPreservedPerEdition": 13,
+    "emptyUncheckedFittingsPreservedPerEdition": 2,
+    "publicListeningBookmarksPreservedPerEdition": 5,
+    "publicBoundaryFittingOrBookmarkEdits": false,
+    "finalAllAudioMutedAndStopped": true,
+    "privateCodeCommit": "65d54b55e052b82f19efca1a4a407c79baead4ab",
+    "testedAppTree": "a70c7b4e15e1402ec2b6ea1d99ed93b4da34b39e",
+    "mainParent": "de6278581701759c038330013424b1a005638d64",
+    "outsideRootEntriesPreserved": 41,
+    "pages": {
+      "id": 46028641687,
+      "head": "aa59b583c6c9e0287819c6f1e64314b296c46df9",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46028641687",
+      "jobs": [
+        {
+          "id": 140606458412,
+          "name": "build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 140606881285,
+          "name": "report-build-status",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 140606881549,
+          "name": "deploy",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "liveFiles": 51,
+    "liveDecodedBytes": 147126575,
+    "normalProgramSha256": "ec18b133ad92c42f79e07017536fb63a93604d0afda3fd9e0d925711e47edebb",
+    "portableSha256": "4c6efa73c7e6f15cbdedebc4fca9f7d59c23700479aadbfc2d05a951d694beff",
+    "canonicalCodeFilesVerified": 1367,
+    "finalMetadataPublicationReceipt": "Recorded outside the application tree to avoid a self-referential final commit claim."
   }
 }
