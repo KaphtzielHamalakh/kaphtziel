@@ -1,8 +1,8 @@
 # TropeTrain
 
-**v0.113.0 — locally accepted; publication pending.** Adds a partial Tiberian consonant inventory as an independent research text source throughout Torah word bindings. It preserves source syllables, shared consonants, marked Hebrew and all musical settings. Vowels and contextual phonetics remain unresolved; no new singing voice or complete reviewed grammar is claimed.
+**v0.113.0 — published and browser tested.** Adds a partial Tiberian consonant inventory as an independent research text source throughout Torah word bindings. It preserves source syllables, shared consonants, marked Hebrew and all musical settings. Vowels and contextual phonetics remain unresolved; no new singing voice or complete reviewed grammar is claimed.
 
-**1,055 tests pass.** Normal/portable interfaces compare nine cases across all five Torah books, retain all eight reader-source choices and keep pronunciation text, melody, range guide, key and tempo independent. [Verification and limits](docs/VERIFICATION-0.113.md).
+**1,055 tests pass in the corrected full suite.** Normal/portable interfaces compare nine cases across all five Torah books, retain all eight reader-source choices and keep pronunciation text, melody, range guide, key and tempo independent. [Verification and limits](docs/VERIFICATION-0.113.md).
 
 Try **Reader pronunciation source → Tiberian consonant inventory · partial research**, then enable **Show pronunciation text**. In Genesis24:49 select **אֲדֹנִ֖י** (word8) and inspect **Pronunciation rules preview · research**; select the same profile in that panel to see source bindings and unknowns. The existing **measured words2–20** button opens the instrumental passage; raise Instrument volume and Play. [Open TropeTrain](https://kaphtziel.com/tropetrain/?v=0.113.0#phonology-study).
 

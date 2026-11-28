@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
-  "nextTask": "Publish locally accepted113 app-only with connected GitHub and an expected-head lease; verify Pages/live files, both public editions and15timingdrafts/2fittings/7spans; save complete canonical113 and four final metadata overlays. Continue complete sourced/reviewed Torah melody grammars and independent pronunciation/singing systems. The partial Tiberian inventory leaves vowels/contextual phonetics and qualified review pending. Preserve all21features/sixrequirements. Printing waits/privatevoice labs frozen.",
+  "nextTask": "Continue sourced/reviewed whole-Torah melody systems and independent pronunciation/singing. Partial Tiberian consonants still need vowel/contextual-phonetic rules, MAM-to-Tiberian lexical/variant comparison and qualified review. Current v0.113 deployment and canonical finalization receipts are saved outside the app in outputs/Development-v0.113/RESUME.md and work/audits/tiberian-consonant-proposals-0.113/CHECKPOINT.json; consult those before repeating publication. Preserve all21features/sixrequirements; printing deferred/privatevoice labs frozen.",
   "lastPassingTests": {
     "version": "0.113.0",
     "command": "npm run check (build passed, four stale count assertions failed); corrected entire npm test",
@@ -12,7 +12,8 @@
     "pass": 1055,
     "fail": 0,
     "fullSuite": true,
-    "receipt": "docs/VERIFICATION-0.113.md"
+    "receipt": "docs/VERIFICATION-0.113.md",
+    "firstCheckCorrection": "Four old embedded-evidence count assertions95→97; runtime and compiled artifact bytes unchanged. Original check failure retained, corrected whole npm test passes."
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -6893,9 +6894,56 @@
     },
     "browserPreparedFilePcmBytesVerified": false,
     "heardMusicalReview": false,
-    "publication": "pending",
+    "publication": "connected_code_live_browser_verified",
     "fullGoal": "active_incomplete",
     "printing": "deferred",
-    "privateVoiceLabs": "frozen"
+    "privateVoiceLabs": "frozen",
+    "publicAcceptance": {
+      "version": "0.113.0",
+      "bothEditionsAccepted": true,
+      "casesPerEdition": 9,
+      "sourceStylesPerCase": 2,
+      "independentReaderSourceChoices": 8,
+      "markedHebrewSourceBindingsAndAvailableMusicalClocksExact": true,
+      "partialConsonantUnknownsAndSourceGeminationRetained": true,
+      "allFourNewPortableEvidenceBodiesExact": true,
+      "all378OriginalPitchPacketsActualPortableDomExact": true,
+      "retainedGen24PlansSmallNoteGateAndFollowing": true,
+      "fullRawDraftsExactPerEdition": 15,
+      "canonicalFittingsExactPerEdition": 2,
+      "listeningSpansExactPerEdition": 7,
+      "allFiveVolumesZeroAndMediaPaused": true,
+      "noBrowserErrorsOrOuterOverflow": true,
+      "browserPreparedFilePcmBytesVerified": false,
+      "heardMusicalReview": false,
+      "publicNetworkOffClaimed": false,
+      "localStoppedServerCache": "LOCAL-STOPPED-SERVER-CACHE.json",
+      "fullGoal": "active_incomplete"
+    },
+    "connectedCodePublication": {
+      "connectedCommit": "43bf815a8e519a538beb72b44e575e77785afe10",
+      "appTree": "58873972baa050a904971bd2e958e7138801fad8",
+      "rootTree": "946165e2e66bdc9695f973d2a80d66720112190c",
+      "privateCodeCommit": "8865ec00edd7eb71c21a2a196c730253d8568938",
+      "expectedParent": "03bde2b70be920ff6b7cf1b6bca8833875197abd",
+      "outsideEntriesPreserved": 42,
+      "all42OutsideEntriesModesTypesAndShasExact": true,
+      "expectedHeadLease": true,
+      "mainRefReadbackVerified": true,
+      "objectUpload": {
+        "session": 11808,
+        "exit": 0,
+        "branch": "codex/tropetrain-v113-upload"
+      },
+      "scope": "tropetrain-only",
+      "pagesAndLive": "pending"
+    },
+    "codePagesRun": 46157088561,
+    "liveCode": {
+      "count": 65,
+      "bytes": 134916518,
+      "allExact": true,
+      "connectedCommit": "43bf815a8e519a538beb72b44e575e77785afe10"
+    }
   }
 }
