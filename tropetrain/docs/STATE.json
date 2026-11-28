@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
-  "nextTask": "Publish acceptedv109 app only through connected GitHub; fresh outside-tree preservation/expected-head lease, Pages/liveexactbytes/publicnormal+portableUI and all15drafts/2fittings/7spans versus privatev108baseline. Complete canonical109save and finalrecords. Continue evidence-led word-aligned chanting/pronunciation toward fullroadmap; no invented voices/grammars. Never browser download waits. Printing deferred; private voice labs frozen.",
+  "nextTask": "Finish metadata-only connected publication/Pages/live verification and exact canonical1445-file overlay; then continue full21feature/sixrequirement reconstruction. Authenticate the newly found TaamimFlow extracted-file claim/version/rights without adopting unlicensed data; pursue reusable reviewed word/syllable/phoneme/music realizations and independent singing styles. Preserve all sources/offline capability while improving large first-load delivery. Printing deferred; private voice labs frozen. Never browser download waits.",
   "lastPassingTests": {
     "version": "0.109.0",
     "automated": 1002,
@@ -58,7 +58,10 @@
     "nativePreparedExportFileBytesVerified": false,
     "newSingingVoices": 0,
     "musicalListeningReview": null,
-    "publicUiAcceptance": "pending"
+    "publicUiAcceptance": "both_editions_passed",
+    "publicDraftExportsPreservedPerEdition": 15,
+    "publicFittingsPreservedPerEdition": 2,
+    "publicListeningSpansPreservedPerEdition": 7
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -3455,7 +3458,7 @@
   },
   "currentCandidate": {
     "version": "0.109.0",
-    "status": "local_browser_cache_source_accepted_publication_pending",
+    "status": "published_code_pages_live_public_ui_practice_accepted",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4966,9 +4969,9 @@
     "singingVoice": null,
     "compiledOutputs": "109 independently decoded and browser/cache accepted",
     "browser": "not started",
-    "publication": "pending",
+    "publication": "code_published_verified",
     "compressionExperiments": "accepted exact build-only lossless packing",
-    "phase": "local_accepted_publication_next",
+    "phase": "published_pages_live_public_ui_practice_accepted",
     "transportFocusedChecks": 25,
     "versionPackageCache": "109 staged",
     "newCompressionBrowserDependency": false,
@@ -5059,7 +5062,11 @@
       "evidenceLinks": 96,
       "evidencePacketBytes": 15267564,
       "evidenceGzipBytes": 1286072
-    }
+    },
+    "connectedCodeCommit": "05b72348f890641376ef1ef42e499f2cddd837ae",
+    "codePagesRun": 46121200010,
+    "publicAcceptance": "both editions accepted; final release-record deployment pending",
+    "canonicalCandidateFiles": 1445
   },
   "acceptedV108PassingTests": {
     "version": "0.108.0",
@@ -5104,5 +5111,85 @@
     "nativePreparedExportFileBytesVerified": false,
     "musicalListeningReview": null,
     "publicUiAcceptance": "passed; see publicV108Acceptance"
+  },
+  "publicV109Acceptance": {
+    "version": "0.109.0",
+    "connectedCodeCommit": "05b72348f890641376ef1ef42e499f2cddd837ae",
+    "pagesRun": 46121200010,
+    "liveFilesExact": 61,
+    "liveDecodedBytesExact": 150256148,
+    "pathsPerEdition": 2,
+    "pagesPerEdition": 10,
+    "routeNotes": [
+      57,
+      55
+    ],
+    "restsPerPath": 6,
+    "sevenTextSourcesPreserveAll17MarksAndEvents": true,
+    "allNewPlaybackBoundaryRepeatViewsFollowingChecksPassed": true,
+    "allFourPreparedWavsDecode448875Frames": true,
+    "nativeBrowserPreparedFilePcmBytesVerified": false,
+    "musicalListeningReview": null,
+    "newVoices": 0,
+    "retainedNo111Checks": [
+      17,
+      19
+    ],
+    "retainedNavigationChecks": [
+      25,
+      25
+    ],
+    "retainedOpeningAndWithheldChecksPerEdition": [
+      5,
+      5
+    ],
+    "retainedPatternChecksPerEdition": 46,
+    "retainedRoutesPerEdition": 42,
+    "portableRecords": 93,
+    "portableLinks": 96,
+    "all15FullDrafts2FullFittings7SpansExactBothEditions": true,
+    "errorsNormal": [],
+    "errorsPortable": [],
+    "final": {
+      "allMediaPaused": true,
+      "follow": true,
+      "noOuterOverflow": true,
+      "passage": "Deuteronomy 11:21",
+      "source": "baer-1894-no46-deu11-21-upper",
+      "version": "v0.109.0",
+      "volumes": [
+        {
+          "id": "chant-volume",
+          "value": "0"
+        },
+        {
+          "id": "volume",
+          "value": "0"
+        },
+        {
+          "id": "haftarah-volume",
+          "value": "0"
+        },
+        {
+          "id": "voice-study-volume",
+          "value": "0"
+        },
+        {
+          "id": "reference-volume",
+          "value": "0"
+        }
+      ]
+    },
+    "deliverableTab": "4",
+    "closedOwnTabs": [
+      "7",
+      "8",
+      "9"
+    ],
+    "protectedTabs": [
+      "1"
+    ],
+    "screenshot": "public-no46-word-aligned.jpg",
+    "goal": "active_incomplete"
   }
 }
