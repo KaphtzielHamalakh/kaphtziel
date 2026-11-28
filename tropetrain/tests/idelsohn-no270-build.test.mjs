@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {NO270_RECORD as record} from '../idelsohn-no270-data.js';
+import {portableProgramBytes,portableEvidenceBytes,restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex');
+test('finished No270 editions retain the complete marked source candidate, primary image and explicit review limits',()=>{
+ const raw=read('TropeTrain.html'),normal=read('app.bundle.js'),portable=restoredPortableHtml(raw),html=read('index.html').toString(),sw=read('sw.js').toString();
+ assert.deepEqual(portableProgramBytes(raw).bytes,normal);
+ assert.deepEqual(JSON.parse(read('docs/IDELSOHN-NO270-WORD-CANDIDATES.json')),record);
+ for(const p of record.inputs)assert.equal(sha(read(p.path)),p.sha256,p.path);
+ for(const body of [html,portable])for(const id of ['idelsohn-no270-study','no270-score-open','no270-score-all','no270-score-image'])assert(body.includes('id="'+id+'"'));
+ assert(normal.includes(Buffer.from(record.id)));assert.equal(record.counts.notes,75);assert.equal(record.words.length,27);
+ const evidence=portableEvidenceBytes(raw);assert.equal(evidence.records.length,94);assert.equal(evidence.proof.linkCount,97);assert(evidence.records.some(r=>r.bytes.equals(read('docs/IDELSOHN-NO270-WORD-CANDIDATES.json'))));
+ for(const path of [record.source.image,'docs/IDELSOHN-NO270-WORD-CANDIDATES.json','assets/scores/idelsohn-no270-NOTICE.txt'])assert(sw.includes('./'+path));
+ const imageTag=portable.match(/<img\b[^>]*\bid="no270-score-image"[^>]*>/)?.[0];assert(imageTag);assert(imageTag.includes('src="data:image/webp;base64,'+read(record.source.image).toString('base64')+'"'));
+ assert(portable.includes('data:text/plain;base64,'+read('assets/scores/idelsohn-no270-NOTICE.txt').toString('base64')));
+ assert(sw.includes('tropetrain-v111-idelsohn-no270-quarter-tones'));assert(portableFileBytes()<=100*1024*1024-4*1024*1024);
+ for(const key of ['review','acceptedSyllableMapping','phonemes','singingVoice','completeTraditionGrammar','kinnorPreset'])assert.equal(record[key],null);
+});

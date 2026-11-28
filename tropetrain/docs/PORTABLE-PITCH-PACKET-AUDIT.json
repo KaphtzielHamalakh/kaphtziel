@@ -1,0 +1,1547 @@
+{
+  "format": "tropetrain-portable-pitch-packet-audit-v1",
+  "version": "0.111.0",
+  "packet": {
+    "format": "tropetrain-source-pitch-packets-v1",
+    "encoding": "gzip+html-base93",
+    "recordCount": 378,
+    "packetBytes": 31132915,
+    "packetSha256": "79f13baf49ca823cd3f63cfe6e1bda83e89a737f4b652f5c7ef0f0a5806ffc18",
+    "gzipBytes": 23420967,
+    "gzipSha256": "7a18b9b1c2d5eb21f213902eee404966bc841876174d681231ac7471f635a7c7"
+  },
+  "physicalCarrierBytes": 28701167,
+  "exactOriginalJsonRestoredBeforeProgram": true,
+  "records": [
+    {
+      "id": "pt-portion-01-1",
+      "file": "data/pitch/pt-portion-01-1.json.gz"
+    },
+    {
+      "id": "pt-portion-01-2",
+      "file": "data/pitch/pt-portion-01-2.json.gz"
+    },
+    {
+      "id": "pt-portion-01-3",
+      "file": "data/pitch/pt-portion-01-3.json.gz"
+    },
+    {
+      "id": "pt-portion-01-4",
+      "file": "data/pitch/pt-portion-01-4.json.gz"
+    },
+    {
+      "id": "pt-portion-01-5",
+      "file": "data/pitch/pt-portion-01-5.json.gz"
+    },
+    {
+      "id": "pt-portion-01-6",
+      "file": "data/pitch/pt-portion-01-6.json.gz"
+    },
+    {
+      "id": "pt-portion-01-7",
+      "file": "data/pitch/pt-portion-01-7.json.gz"
+    },
+    {
+      "id": "pt-portion-02-1",
+      "file": "data/pitch/pt-portion-02-1.json.gz"
+    },
+    {
+      "id": "pt-portion-02-2",
+      "file": "data/pitch/pt-portion-02-2.json.gz"
+    },
+    {
+      "id": "pt-portion-02-3",
+      "file": "data/pitch/pt-portion-02-3.json.gz"
+    },
+    {
+      "id": "pt-portion-02-4",
+      "file": "data/pitch/pt-portion-02-4.json.gz"
+    },
+    {
+      "id": "pt-portion-02-5",
+      "file": "data/pitch/pt-portion-02-5.json.gz"
+    },
+    {
+      "id": "pt-portion-02-6",
+      "file": "data/pitch/pt-portion-02-6.json.gz"
+    },
+    {
+      "id": "pt-portion-02-7",
+      "file": "data/pitch/pt-portion-02-7.json.gz"
+    },
+    {
+      "id": "pt-portion-03-1",
+      "file": "data/pitch/pt-portion-03-1.json.gz"
+    },
+    {
+      "id": "pt-portion-03-2",
+      "file": "data/pitch/pt-portion-03-2.json.gz"
+    },
+    {
+      "id": "pt-portion-03-3",
+      "file": "data/pitch/pt-portion-03-3.json.gz"
+    },
+    {
+      "id": "pt-portion-03-4",
+      "file": "data/pitch/pt-portion-03-4.json.gz"
+    },
+    {
+      "id": "pt-portion-03-5",
+      "file": "data/pitch/pt-portion-03-5.json.gz"
+    },
+    {
+      "id": "pt-portion-03-6",
+      "file": "data/pitch/pt-portion-03-6.json.gz"
+    },
+    {
+      "id": "pt-portion-03-7",
+      "file": "data/pitch/pt-portion-03-7.json.gz"
+    },
+    {
+      "id": "pt-portion-04-1",
+      "file": "data/pitch/pt-portion-04-1.json.gz"
+    },
+    {
+      "id": "pt-portion-04-2",
+      "file": "data/pitch/pt-portion-04-2.json.gz"
+    },
+    {
+      "id": "pt-portion-04-3",
+      "file": "data/pitch/pt-portion-04-3.json.gz"
+    },
+    {
+      "id": "pt-portion-04-4",
+      "file": "data/pitch/pt-portion-04-4.json.gz"
+    },
+    {
+      "id": "pt-portion-04-5",
+      "file": "data/pitch/pt-portion-04-5.json.gz"
+    },
+    {
+      "id": "pt-portion-04-6",
+      "file": "data/pitch/pt-portion-04-6.json.gz"
+    },
+    {
+      "id": "pt-portion-04-7",
+      "file": "data/pitch/pt-portion-04-7.json.gz"
+    },
+    {
+      "id": "pt-portion-05-1",
+      "file": "data/pitch/pt-portion-05-1.json.gz"
+    },
+    {
+      "id": "pt-portion-05-2",
+      "file": "data/pitch/pt-portion-05-2.json.gz"
+    },
+    {
+      "id": "pt-portion-05-3",
+      "file": "data/pitch/pt-portion-05-3.json.gz"
+    },
+    {
+      "id": "pt-portion-05-4",
+      "file": "data/pitch/pt-portion-05-4.json.gz"
+    },
+    {
+      "id": "pt-portion-05-5",
+      "file": "data/pitch/pt-portion-05-5.json.gz"
+    },
+    {
+      "id": "pt-portion-05-6",
+      "file": "data/pitch/pt-portion-05-6.json.gz"
+    },
+    {
+      "id": "pt-portion-05-7",
+      "file": "data/pitch/pt-portion-05-7.json.gz"
+    },
+    {
+      "id": "pt-portion-06-1",
+      "file": "data/pitch/pt-portion-06-1.json.gz"
+    },
+    {
+      "id": "pt-portion-06-2",
+      "file": "data/pitch/pt-portion-06-2.json.gz"
+    },
+    {
+      "id": "pt-portion-06-3",
+      "file": "data/pitch/pt-portion-06-3.json.gz"
+    },
+    {
+      "id": "pt-portion-06-4",
+      "file": "data/pitch/pt-portion-06-4.json.gz"
+    },
+    {
+      "id": "pt-portion-06-5",
+      "file": "data/pitch/pt-portion-06-5.json.gz"
+    },
+    {
+      "id": "pt-portion-06-6",
+      "file": "data/pitch/pt-portion-06-6.json.gz"
+    },
+    {
+      "id": "pt-portion-06-7",
+      "file": "data/pitch/pt-portion-06-7.json.gz"
+    },
+    {
+      "id": "pt-portion-07-1",
+      "file": "data/pitch/pt-portion-07-1.json.gz"
+    },
+    {
+      "id": "pt-portion-07-2",
+      "file": "data/pitch/pt-portion-07-2.json.gz"
+    },
+    {
+      "id": "pt-portion-07-3",
+      "file": "data/pitch/pt-portion-07-3.json.gz"
+    },
+    {
+      "id": "pt-portion-07-4",
+      "file": "data/pitch/pt-portion-07-4.json.gz"
+    },
+    {
+      "id": "pt-portion-07-5",
+      "file": "data/pitch/pt-portion-07-5.json.gz"
+    },
+    {
+      "id": "pt-portion-07-6",
+      "file": "data/pitch/pt-portion-07-6.json.gz"
+    },
+    {
+      "id": "pt-portion-07-7",
+      "file": "data/pitch/pt-portion-07-7.json.gz"
+    },
+    {
+      "id": "pt-portion-08-1",
+      "file": "data/pitch/pt-portion-08-1.json.gz"
+    },
+    {
+      "id": "pt-portion-08-2",
+      "file": "data/pitch/pt-portion-08-2.json.gz"
+    },
+    {
+      "id": "pt-portion-08-3",
+      "file": "data/pitch/pt-portion-08-3.json.gz"
+    },
+    {
+      "id": "pt-portion-08-4",
+      "file": "data/pitch/pt-portion-08-4.json.gz"
+    },
+    {
+      "id": "pt-portion-08-5",
+      "file": "data/pitch/pt-portion-08-5.json.gz"
+    },
+    {
+      "id": "pt-portion-08-6",
+      "file": "data/pitch/pt-portion-08-6.json.gz"
+    },
+    {
+      "id": "pt-portion-08-7",
+      "file": "data/pitch/pt-portion-08-7.json.gz"
+    },
+    {
+      "id": "pt-portion-09-1",
+      "file": "data/pitch/pt-portion-09-1.json.gz"
+    },
+    {
+      "id": "pt-portion-09-2",
+      "file": "data/pitch/pt-portion-09-2.json.gz"
+    },
+    {
+      "id": "pt-portion-09-3",
+      "file": "data/pitch/pt-portion-09-3.json.gz"
+    },
+    {
+      "id": "pt-portion-09-4",
+      "file": "data/pitch/pt-portion-09-4.json.gz"
+    },
+    {
+      "id": "pt-portion-09-5",
+      "file": "data/pitch/pt-portion-09-5.json.gz"
+    },
+    {
+      "id": "pt-portion-09-6",
+      "file": "data/pitch/pt-portion-09-6.json.gz"
+    },
+    {
+      "id": "pt-portion-09-7",
+      "file": "data/pitch/pt-portion-09-7.json.gz"
+    },
+    {
+      "id": "pt-portion-10-1",
+      "file": "data/pitch/pt-portion-10-1.json.gz"
+    },
+    {
+      "id": "pt-portion-10-2",
+      "file": "data/pitch/pt-portion-10-2.json.gz"
+    },
+    {
+      "id": "pt-portion-10-3",
+      "file": "data/pitch/pt-portion-10-3.json.gz"
+    },
+    {
+      "id": "pt-portion-10-4",
+      "file": "data/pitch/pt-portion-10-4.json.gz"
+    },
+    {
+      "id": "pt-portion-10-5",
+      "file": "data/pitch/pt-portion-10-5.json.gz"
+    },
+    {
+      "id": "pt-portion-10-6",
+      "file": "data/pitch/pt-portion-10-6.json.gz"
+    },
+    {
+      "id": "pt-portion-10-7",
+      "file": "data/pitch/pt-portion-10-7.json.gz"
+    },
+    {
+      "id": "pt-portion-11-1",
+      "file": "data/pitch/pt-portion-11-1.json.gz"
+    },
+    {
+      "id": "pt-portion-11-2",
+      "file": "data/pitch/pt-portion-11-2.json.gz"
+    },
+    {
+      "id": "pt-portion-11-3",
+      "file": "data/pitch/pt-portion-11-3.json.gz"
+    },
+    {
+      "id": "pt-portion-11-4",
+      "file": "data/pitch/pt-portion-11-4.json.gz"
+    },
+    {
+      "id": "pt-portion-11-5",
+      "file": "data/pitch/pt-portion-11-5.json.gz"
+    },
+    {
+      "id": "pt-portion-11-6",
+      "file": "data/pitch/pt-portion-11-6.json.gz"
+    },
+    {
+      "id": "pt-portion-11-7",
+      "file": "data/pitch/pt-portion-11-7.json.gz"
+    },
+    {
+      "id": "pt-portion-12-1",
+      "file": "data/pitch/pt-portion-12-1.json.gz"
+    },
+    {
+      "id": "pt-portion-12-2",
+      "file": "data/pitch/pt-portion-12-2.json.gz"
+    },
+    {
+      "id": "pt-portion-12-3",
+      "file": "data/pitch/pt-portion-12-3.json.gz"
+    },
+    {
+      "id": "pt-portion-12-4",
+      "file": "data/pitch/pt-portion-12-4.json.gz"
+    },
+    {
+      "id": "pt-portion-12-5",
+      "file": "data/pitch/pt-portion-12-5.json.gz"
+    },
+    {
+      "id": "pt-portion-12-6",
+      "file": "data/pitch/pt-portion-12-6.json.gz"
+    },
+    {
+      "id": "pt-portion-12-7",
+      "file": "data/pitch/pt-portion-12-7.json.gz"
+    },
+    {
+      "id": "pt-portion-13-1",
+      "file": "data/pitch/pt-portion-13-1.json.gz"
+    },
+    {
+      "id": "pt-portion-13-2",
+      "file": "data/pitch/pt-portion-13-2.json.gz"
+    },
+    {
+      "id": "pt-portion-13-3",
+      "file": "data/pitch/pt-portion-13-3.json.gz"
+    },
+    {
+      "id": "pt-portion-13-4",
+      "file": "data/pitch/pt-portion-13-4.json.gz"
+    },
+    {
+      "id": "pt-portion-13-5",
+      "file": "data/pitch/pt-portion-13-5.json.gz"
+    },
+    {
+      "id": "pt-portion-13-6",
+      "file": "data/pitch/pt-portion-13-6.json.gz"
+    },
+    {
+      "id": "pt-portion-13-7",
+      "file": "data/pitch/pt-portion-13-7.json.gz"
+    },
+    {
+      "id": "pt-portion-14-1",
+      "file": "data/pitch/pt-portion-14-1.json.gz"
+    },
+    {
+      "id": "pt-portion-14-2",
+      "file": "data/pitch/pt-portion-14-2.json.gz"
+    },
+    {
+      "id": "pt-portion-14-3",
+      "file": "data/pitch/pt-portion-14-3.json.gz"
+    },
+    {
+      "id": "pt-portion-14-4",
+      "file": "data/pitch/pt-portion-14-4.json.gz"
+    },
+    {
+      "id": "pt-portion-14-5",
+      "file": "data/pitch/pt-portion-14-5.json.gz"
+    },
+    {
+      "id": "pt-portion-14-6",
+      "file": "data/pitch/pt-portion-14-6.json.gz"
+    },
+    {
+      "id": "pt-portion-14-7",
+      "file": "data/pitch/pt-portion-14-7.json.gz"
+    },
+    {
+      "id": "pt-portion-15-1",
+      "file": "data/pitch/pt-portion-15-1.json.gz"
+    },
+    {
+      "id": "pt-portion-15-2",
+      "file": "data/pitch/pt-portion-15-2.json.gz"
+    },
+    {
+      "id": "pt-portion-15-3",
+      "file": "data/pitch/pt-portion-15-3.json.gz"
+    },
+    {
+      "id": "pt-portion-15-4",
+      "file": "data/pitch/pt-portion-15-4.json.gz"
+    },
+    {
+      "id": "pt-portion-15-5",
+      "file": "data/pitch/pt-portion-15-5.json.gz"
+    },
+    {
+      "id": "pt-portion-15-6",
+      "file": "data/pitch/pt-portion-15-6.json.gz"
+    },
+    {
+      "id": "pt-portion-15-7",
+      "file": "data/pitch/pt-portion-15-7.json.gz"
+    },
+    {
+      "id": "pt-portion-16-1",
+      "file": "data/pitch/pt-portion-16-1.json.gz"
+    },
+    {
+      "id": "pt-portion-16-2",
+      "file": "data/pitch/pt-portion-16-2.json.gz"
+    },
+    {
+      "id": "pt-portion-16-3",
+      "file": "data/pitch/pt-portion-16-3.json.gz"
+    },
+    {
+      "id": "pt-portion-16-4",
+      "file": "data/pitch/pt-portion-16-4.json.gz"
+    },
+    {
+      "id": "pt-portion-16-5",
+      "file": "data/pitch/pt-portion-16-5.json.gz"
+    },
+    {
+      "id": "pt-portion-16-6",
+      "file": "data/pitch/pt-portion-16-6.json.gz"
+    },
+    {
+      "id": "pt-portion-16-7",
+      "file": "data/pitch/pt-portion-16-7.json.gz"
+    },
+    {
+      "id": "pt-portion-17-1",
+      "file": "data/pitch/pt-portion-17-1.json.gz"
+    },
+    {
+      "id": "pt-portion-17-2",
+      "file": "data/pitch/pt-portion-17-2.json.gz"
+    },
+    {
+      "id": "pt-portion-17-3",
+      "file": "data/pitch/pt-portion-17-3.json.gz"
+    },
+    {
+      "id": "pt-portion-17-4",
+      "file": "data/pitch/pt-portion-17-4.json.gz"
+    },
+    {
+      "id": "pt-portion-17-5",
+      "file": "data/pitch/pt-portion-17-5.json.gz"
+    },
+    {
+      "id": "pt-portion-17-6",
+      "file": "data/pitch/pt-portion-17-6.json.gz"
+    },
+    {
+      "id": "pt-portion-17-7",
+      "file": "data/pitch/pt-portion-17-7.json.gz"
+    },
+    {
+      "id": "pt-portion-18-1",
+      "file": "data/pitch/pt-portion-18-1.json.gz"
+    },
+    {
+      "id": "pt-portion-18-2",
+      "file": "data/pitch/pt-portion-18-2.json.gz"
+    },
+    {
+      "id": "pt-portion-18-3",
+      "file": "data/pitch/pt-portion-18-3.json.gz"
+    },
+    {
+      "id": "pt-portion-18-4",
+      "file": "data/pitch/pt-portion-18-4.json.gz"
+    },
+    {
+      "id": "pt-portion-18-5",
+      "file": "data/pitch/pt-portion-18-5.json.gz"
+    },
+    {
+      "id": "pt-portion-18-6",
+      "file": "data/pitch/pt-portion-18-6.json.gz"
+    },
+    {
+      "id": "pt-portion-18-7",
+      "file": "data/pitch/pt-portion-18-7.json.gz"
+    },
+    {
+      "id": "pt-portion-19-1",
+      "file": "data/pitch/pt-portion-19-1.json.gz"
+    },
+    {
+      "id": "pt-portion-19-2",
+      "file": "data/pitch/pt-portion-19-2.json.gz"
+    },
+    {
+      "id": "pt-portion-19-3",
+      "file": "data/pitch/pt-portion-19-3.json.gz"
+    },
+    {
+      "id": "pt-portion-19-4",
+      "file": "data/pitch/pt-portion-19-4.json.gz"
+    },
+    {
+      "id": "pt-portion-19-5",
+      "file": "data/pitch/pt-portion-19-5.json.gz"
+    },
+    {
+      "id": "pt-portion-19-6",
+      "file": "data/pitch/pt-portion-19-6.json.gz"
+    },
+    {
+      "id": "pt-portion-19-7",
+      "file": "data/pitch/pt-portion-19-7.json.gz"
+    },
+    {
+      "id": "pt-portion-20-1",
+      "file": "data/pitch/pt-portion-20-1.json.gz"
+    },
+    {
+      "id": "pt-portion-20-2",
+      "file": "data/pitch/pt-portion-20-2.json.gz"
+    },
+    {
+      "id": "pt-portion-20-3",
+      "file": "data/pitch/pt-portion-20-3.json.gz"
+    },
+    {
+      "id": "pt-portion-20-4",
+      "file": "data/pitch/pt-portion-20-4.json.gz"
+    },
+    {
+      "id": "pt-portion-20-5",
+      "file": "data/pitch/pt-portion-20-5.json.gz"
+    },
+    {
+      "id": "pt-portion-20-6",
+      "file": "data/pitch/pt-portion-20-6.json.gz"
+    },
+    {
+      "id": "pt-portion-20-7",
+      "file": "data/pitch/pt-portion-20-7.json.gz"
+    },
+    {
+      "id": "pt-portion-21-1",
+      "file": "data/pitch/pt-portion-21-1.json.gz"
+    },
+    {
+      "id": "pt-portion-21-2",
+      "file": "data/pitch/pt-portion-21-2.json.gz"
+    },
+    {
+      "id": "pt-portion-21-3",
+      "file": "data/pitch/pt-portion-21-3.json.gz"
+    },
+    {
+      "id": "pt-portion-21-4",
+      "file": "data/pitch/pt-portion-21-4.json.gz"
+    },
+    {
+      "id": "pt-portion-21-5",
+      "file": "data/pitch/pt-portion-21-5.json.gz"
+    },
+    {
+      "id": "pt-portion-21-6",
+      "file": "data/pitch/pt-portion-21-6.json.gz"
+    },
+    {
+      "id": "pt-portion-21-7",
+      "file": "data/pitch/pt-portion-21-7.json.gz"
+    },
+    {
+      "id": "pt-portion-22-1",
+      "file": "data/pitch/pt-portion-22-1.json.gz"
+    },
+    {
+      "id": "pt-portion-22-2",
+      "file": "data/pitch/pt-portion-22-2.json.gz"
+    },
+    {
+      "id": "pt-portion-22-3",
+      "file": "data/pitch/pt-portion-22-3.json.gz"
+    },
+    {
+      "id": "pt-portion-22-4",
+      "file": "data/pitch/pt-portion-22-4.json.gz"
+    },
+    {
+      "id": "pt-portion-22-5",
+      "file": "data/pitch/pt-portion-22-5.json.gz"
+    },
+    {
+      "id": "pt-portion-22-6",
+      "file": "data/pitch/pt-portion-22-6.json.gz"
+    },
+    {
+      "id": "pt-portion-22-7",
+      "file": "data/pitch/pt-portion-22-7.json.gz"
+    },
+    {
+      "id": "pt-portion-23-1",
+      "file": "data/pitch/pt-portion-23-1.json.gz"
+    },
+    {
+      "id": "pt-portion-23-2",
+      "file": "data/pitch/pt-portion-23-2.json.gz"
+    },
+    {
+      "id": "pt-portion-23-3",
+      "file": "data/pitch/pt-portion-23-3.json.gz"
+    },
+    {
+      "id": "pt-portion-23-4",
+      "file": "data/pitch/pt-portion-23-4.json.gz"
+    },
+    {
+      "id": "pt-portion-23-5",
+      "file": "data/pitch/pt-portion-23-5.json.gz"
+    },
+    {
+      "id": "pt-portion-23-6",
+      "file": "data/pitch/pt-portion-23-6.json.gz"
+    },
+    {
+      "id": "pt-portion-23-7",
+      "file": "data/pitch/pt-portion-23-7.json.gz"
+    },
+    {
+      "id": "pt-portion-24-1",
+      "file": "data/pitch/pt-portion-24-1.json.gz"
+    },
+    {
+      "id": "pt-portion-24-2",
+      "file": "data/pitch/pt-portion-24-2.json.gz"
+    },
+    {
+      "id": "pt-portion-24-3",
+      "file": "data/pitch/pt-portion-24-3.json.gz"
+    },
+    {
+      "id": "pt-portion-24-4",
+      "file": "data/pitch/pt-portion-24-4.json.gz"
+    },
+    {
+      "id": "pt-portion-24-5",
+      "file": "data/pitch/pt-portion-24-5.json.gz"
+    },
+    {
+      "id": "pt-portion-24-6",
+      "file": "data/pitch/pt-portion-24-6.json.gz"
+    },
+    {
+      "id": "pt-portion-24-7",
+      "file": "data/pitch/pt-portion-24-7.json.gz"
+    },
+    {
+      "id": "pt-portion-25-1",
+      "file": "data/pitch/pt-portion-25-1.json.gz"
+    },
+    {
+      "id": "pt-portion-25-2",
+      "file": "data/pitch/pt-portion-25-2.json.gz"
+    },
+    {
+      "id": "pt-portion-25-3",
+      "file": "data/pitch/pt-portion-25-3.json.gz"
+    },
+    {
+      "id": "pt-portion-25-4",
+      "file": "data/pitch/pt-portion-25-4.json.gz"
+    },
+    {
+      "id": "pt-portion-25-5",
+      "file": "data/pitch/pt-portion-25-5.json.gz"
+    },
+    {
+      "id": "pt-portion-25-6",
+      "file": "data/pitch/pt-portion-25-6.json.gz"
+    },
+    {
+      "id": "pt-portion-25-7",
+      "file": "data/pitch/pt-portion-25-7.json.gz"
+    },
+    {
+      "id": "pt-portion-26-1",
+      "file": "data/pitch/pt-portion-26-1.json.gz"
+    },
+    {
+      "id": "pt-portion-26-2",
+      "file": "data/pitch/pt-portion-26-2.json.gz"
+    },
+    {
+      "id": "pt-portion-26-3",
+      "file": "data/pitch/pt-portion-26-3.json.gz"
+    },
+    {
+      "id": "pt-portion-26-4",
+      "file": "data/pitch/pt-portion-26-4.json.gz"
+    },
+    {
+      "id": "pt-portion-26-5",
+      "file": "data/pitch/pt-portion-26-5.json.gz"
+    },
+    {
+      "id": "pt-portion-26-6",
+      "file": "data/pitch/pt-portion-26-6.json.gz"
+    },
+    {
+      "id": "pt-portion-26-7",
+      "file": "data/pitch/pt-portion-26-7.json.gz"
+    },
+    {
+      "id": "pt-portion-27-1",
+      "file": "data/pitch/pt-portion-27-1.json.gz"
+    },
+    {
+      "id": "pt-portion-27-2",
+      "file": "data/pitch/pt-portion-27-2.json.gz"
+    },
+    {
+      "id": "pt-portion-27-3",
+      "file": "data/pitch/pt-portion-27-3.json.gz"
+    },
+    {
+      "id": "pt-portion-27-4",
+      "file": "data/pitch/pt-portion-27-4.json.gz"
+    },
+    {
+      "id": "pt-portion-27-5",
+      "file": "data/pitch/pt-portion-27-5.json.gz"
+    },
+    {
+      "id": "pt-portion-27-6",
+      "file": "data/pitch/pt-portion-27-6.json.gz"
+    },
+    {
+      "id": "pt-portion-27-7",
+      "file": "data/pitch/pt-portion-27-7.json.gz"
+    },
+    {
+      "id": "pt-portion-28-1",
+      "file": "data/pitch/pt-portion-28-1.json.gz"
+    },
+    {
+      "id": "pt-portion-28-2",
+      "file": "data/pitch/pt-portion-28-2.json.gz"
+    },
+    {
+      "id": "pt-portion-28-3",
+      "file": "data/pitch/pt-portion-28-3.json.gz"
+    },
+    {
+      "id": "pt-portion-28-4",
+      "file": "data/pitch/pt-portion-28-4.json.gz"
+    },
+    {
+      "id": "pt-portion-28-5",
+      "file": "data/pitch/pt-portion-28-5.json.gz"
+    },
+    {
+      "id": "pt-portion-28-6",
+      "file": "data/pitch/pt-portion-28-6.json.gz"
+    },
+    {
+      "id": "pt-portion-28-7",
+      "file": "data/pitch/pt-portion-28-7.json.gz"
+    },
+    {
+      "id": "pt-portion-29-1",
+      "file": "data/pitch/pt-portion-29-1.json.gz"
+    },
+    {
+      "id": "pt-portion-29-2",
+      "file": "data/pitch/pt-portion-29-2.json.gz"
+    },
+    {
+      "id": "pt-portion-29-3",
+      "file": "data/pitch/pt-portion-29-3.json.gz"
+    },
+    {
+      "id": "pt-portion-29-4",
+      "file": "data/pitch/pt-portion-29-4.json.gz"
+    },
+    {
+      "id": "pt-portion-29-5",
+      "file": "data/pitch/pt-portion-29-5.json.gz"
+    },
+    {
+      "id": "pt-portion-29-6",
+      "file": "data/pitch/pt-portion-29-6.json.gz"
+    },
+    {
+      "id": "pt-portion-29-7",
+      "file": "data/pitch/pt-portion-29-7.json.gz"
+    },
+    {
+      "id": "pt-portion-30-1",
+      "file": "data/pitch/pt-portion-30-1.json.gz"
+    },
+    {
+      "id": "pt-portion-30-2",
+      "file": "data/pitch/pt-portion-30-2.json.gz"
+    },
+    {
+      "id": "pt-portion-30-3",
+      "file": "data/pitch/pt-portion-30-3.json.gz"
+    },
+    {
+      "id": "pt-portion-30-4",
+      "file": "data/pitch/pt-portion-30-4.json.gz"
+    },
+    {
+      "id": "pt-portion-30-5",
+      "file": "data/pitch/pt-portion-30-5.json.gz"
+    },
+    {
+      "id": "pt-portion-30-6",
+      "file": "data/pitch/pt-portion-30-6.json.gz"
+    },
+    {
+      "id": "pt-portion-30-7",
+      "file": "data/pitch/pt-portion-30-7.json.gz"
+    },
+    {
+      "id": "pt-portion-31-1",
+      "file": "data/pitch/pt-portion-31-1.json.gz"
+    },
+    {
+      "id": "pt-portion-31-2",
+      "file": "data/pitch/pt-portion-31-2.json.gz"
+    },
+    {
+      "id": "pt-portion-31-3",
+      "file": "data/pitch/pt-portion-31-3.json.gz"
+    },
+    {
+      "id": "pt-portion-31-4",
+      "file": "data/pitch/pt-portion-31-4.json.gz"
+    },
+    {
+      "id": "pt-portion-31-5",
+      "file": "data/pitch/pt-portion-31-5.json.gz"
+    },
+    {
+      "id": "pt-portion-31-6",
+      "file": "data/pitch/pt-portion-31-6.json.gz"
+    },
+    {
+      "id": "pt-portion-31-7",
+      "file": "data/pitch/pt-portion-31-7.json.gz"
+    },
+    {
+      "id": "pt-portion-32-1",
+      "file": "data/pitch/pt-portion-32-1.json.gz"
+    },
+    {
+      "id": "pt-portion-32-2",
+      "file": "data/pitch/pt-portion-32-2.json.gz"
+    },
+    {
+      "id": "pt-portion-32-3",
+      "file": "data/pitch/pt-portion-32-3.json.gz"
+    },
+    {
+      "id": "pt-portion-32-4",
+      "file": "data/pitch/pt-portion-32-4.json.gz"
+    },
+    {
+      "id": "pt-portion-32-5",
+      "file": "data/pitch/pt-portion-32-5.json.gz"
+    },
+    {
+      "id": "pt-portion-32-6",
+      "file": "data/pitch/pt-portion-32-6.json.gz"
+    },
+    {
+      "id": "pt-portion-32-7",
+      "file": "data/pitch/pt-portion-32-7.json.gz"
+    },
+    {
+      "id": "pt-portion-33-1",
+      "file": "data/pitch/pt-portion-33-1.json.gz"
+    },
+    {
+      "id": "pt-portion-33-2",
+      "file": "data/pitch/pt-portion-33-2.json.gz"
+    },
+    {
+      "id": "pt-portion-33-3",
+      "file": "data/pitch/pt-portion-33-3.json.gz"
+    },
+    {
+      "id": "pt-portion-33-4",
+      "file": "data/pitch/pt-portion-33-4.json.gz"
+    },
+    {
+      "id": "pt-portion-33-5",
+      "file": "data/pitch/pt-portion-33-5.json.gz"
+    },
+    {
+      "id": "pt-portion-33-6",
+      "file": "data/pitch/pt-portion-33-6.json.gz"
+    },
+    {
+      "id": "pt-portion-33-7",
+      "file": "data/pitch/pt-portion-33-7.json.gz"
+    },
+    {
+      "id": "pt-portion-34-1",
+      "file": "data/pitch/pt-portion-34-1.json.gz"
+    },
+    {
+      "id": "pt-portion-34-2",
+      "file": "data/pitch/pt-portion-34-2.json.gz"
+    },
+    {
+      "id": "pt-portion-34-3",
+      "file": "data/pitch/pt-portion-34-3.json.gz"
+    },
+    {
+      "id": "pt-portion-34-4",
+      "file": "data/pitch/pt-portion-34-4.json.gz"
+    },
+    {
+      "id": "pt-portion-34-5",
+      "file": "data/pitch/pt-portion-34-5.json.gz"
+    },
+    {
+      "id": "pt-portion-34-6",
+      "file": "data/pitch/pt-portion-34-6.json.gz"
+    },
+    {
+      "id": "pt-portion-34-7",
+      "file": "data/pitch/pt-portion-34-7.json.gz"
+    },
+    {
+      "id": "pt-portion-35-1",
+      "file": "data/pitch/pt-portion-35-1.json.gz"
+    },
+    {
+      "id": "pt-portion-35-2",
+      "file": "data/pitch/pt-portion-35-2.json.gz"
+    },
+    {
+      "id": "pt-portion-35-3",
+      "file": "data/pitch/pt-portion-35-3.json.gz"
+    },
+    {
+      "id": "pt-portion-35-4",
+      "file": "data/pitch/pt-portion-35-4.json.gz"
+    },
+    {
+      "id": "pt-portion-35-5",
+      "file": "data/pitch/pt-portion-35-5.json.gz"
+    },
+    {
+      "id": "pt-portion-35-6",
+      "file": "data/pitch/pt-portion-35-6.json.gz"
+    },
+    {
+      "id": "pt-portion-35-7",
+      "file": "data/pitch/pt-portion-35-7.json.gz"
+    },
+    {
+      "id": "pt-portion-36-1",
+      "file": "data/pitch/pt-portion-36-1.json.gz"
+    },
+    {
+      "id": "pt-portion-36-2",
+      "file": "data/pitch/pt-portion-36-2.json.gz"
+    },
+    {
+      "id": "pt-portion-36-3",
+      "file": "data/pitch/pt-portion-36-3.json.gz"
+    },
+    {
+      "id": "pt-portion-36-4",
+      "file": "data/pitch/pt-portion-36-4.json.gz"
+    },
+    {
+      "id": "pt-portion-36-5",
+      "file": "data/pitch/pt-portion-36-5.json.gz"
+    },
+    {
+      "id": "pt-portion-36-6",
+      "file": "data/pitch/pt-portion-36-6.json.gz"
+    },
+    {
+      "id": "pt-portion-36-7",
+      "file": "data/pitch/pt-portion-36-7.json.gz"
+    },
+    {
+      "id": "pt-portion-37-1",
+      "file": "data/pitch/pt-portion-37-1.json.gz"
+    },
+    {
+      "id": "pt-portion-37-2",
+      "file": "data/pitch/pt-portion-37-2.json.gz"
+    },
+    {
+      "id": "pt-portion-37-3",
+      "file": "data/pitch/pt-portion-37-3.json.gz"
+    },
+    {
+      "id": "pt-portion-37-4",
+      "file": "data/pitch/pt-portion-37-4.json.gz"
+    },
+    {
+      "id": "pt-portion-37-5",
+      "file": "data/pitch/pt-portion-37-5.json.gz"
+    },
+    {
+      "id": "pt-portion-37-6",
+      "file": "data/pitch/pt-portion-37-6.json.gz"
+    },
+    {
+      "id": "pt-portion-37-7",
+      "file": "data/pitch/pt-portion-37-7.json.gz"
+    },
+    {
+      "id": "pt-portion-38-1",
+      "file": "data/pitch/pt-portion-38-1.json.gz"
+    },
+    {
+      "id": "pt-portion-38-2",
+      "file": "data/pitch/pt-portion-38-2.json.gz"
+    },
+    {
+      "id": "pt-portion-38-3",
+      "file": "data/pitch/pt-portion-38-3.json.gz"
+    },
+    {
+      "id": "pt-portion-38-4",
+      "file": "data/pitch/pt-portion-38-4.json.gz"
+    },
+    {
+      "id": "pt-portion-38-5",
+      "file": "data/pitch/pt-portion-38-5.json.gz"
+    },
+    {
+      "id": "pt-portion-38-6",
+      "file": "data/pitch/pt-portion-38-6.json.gz"
+    },
+    {
+      "id": "pt-portion-38-7",
+      "file": "data/pitch/pt-portion-38-7.json.gz"
+    },
+    {
+      "id": "pt-portion-39-1",
+      "file": "data/pitch/pt-portion-39-1.json.gz"
+    },
+    {
+      "id": "pt-portion-39-2",
+      "file": "data/pitch/pt-portion-39-2.json.gz"
+    },
+    {
+      "id": "pt-portion-39-3",
+      "file": "data/pitch/pt-portion-39-3.json.gz"
+    },
+    {
+      "id": "pt-portion-39-4",
+      "file": "data/pitch/pt-portion-39-4.json.gz"
+    },
+    {
+      "id": "pt-portion-39-5",
+      "file": "data/pitch/pt-portion-39-5.json.gz"
+    },
+    {
+      "id": "pt-portion-39-6",
+      "file": "data/pitch/pt-portion-39-6.json.gz"
+    },
+    {
+      "id": "pt-portion-39-7",
+      "file": "data/pitch/pt-portion-39-7.json.gz"
+    },
+    {
+      "id": "pt-portion-40-1",
+      "file": "data/pitch/pt-portion-40-1.json.gz"
+    },
+    {
+      "id": "pt-portion-40-2",
+      "file": "data/pitch/pt-portion-40-2.json.gz"
+    },
+    {
+      "id": "pt-portion-40-3",
+      "file": "data/pitch/pt-portion-40-3.json.gz"
+    },
+    {
+      "id": "pt-portion-40-4",
+      "file": "data/pitch/pt-portion-40-4.json.gz"
+    },
+    {
+      "id": "pt-portion-40-5",
+      "file": "data/pitch/pt-portion-40-5.json.gz"
+    },
+    {
+      "id": "pt-portion-40-6",
+      "file": "data/pitch/pt-portion-40-6.json.gz"
+    },
+    {
+      "id": "pt-portion-40-7",
+      "file": "data/pitch/pt-portion-40-7.json.gz"
+    },
+    {
+      "id": "pt-portion-41-1",
+      "file": "data/pitch/pt-portion-41-1.json.gz"
+    },
+    {
+      "id": "pt-portion-41-2",
+      "file": "data/pitch/pt-portion-41-2.json.gz"
+    },
+    {
+      "id": "pt-portion-41-3",
+      "file": "data/pitch/pt-portion-41-3.json.gz"
+    },
+    {
+      "id": "pt-portion-41-4",
+      "file": "data/pitch/pt-portion-41-4.json.gz"
+    },
+    {
+      "id": "pt-portion-41-5",
+      "file": "data/pitch/pt-portion-41-5.json.gz"
+    },
+    {
+      "id": "pt-portion-41-6",
+      "file": "data/pitch/pt-portion-41-6.json.gz"
+    },
+    {
+      "id": "pt-portion-41-7",
+      "file": "data/pitch/pt-portion-41-7.json.gz"
+    },
+    {
+      "id": "pt-portion-42-1",
+      "file": "data/pitch/pt-portion-42-1.json.gz"
+    },
+    {
+      "id": "pt-portion-42-2",
+      "file": "data/pitch/pt-portion-42-2.json.gz"
+    },
+    {
+      "id": "pt-portion-42-3",
+      "file": "data/pitch/pt-portion-42-3.json.gz"
+    },
+    {
+      "id": "pt-portion-42-4",
+      "file": "data/pitch/pt-portion-42-4.json.gz"
+    },
+    {
+      "id": "pt-portion-42-5",
+      "file": "data/pitch/pt-portion-42-5.json.gz"
+    },
+    {
+      "id": "pt-portion-42-6",
+      "file": "data/pitch/pt-portion-42-6.json.gz"
+    },
+    {
+      "id": "pt-portion-42-7",
+      "file": "data/pitch/pt-portion-42-7.json.gz"
+    },
+    {
+      "id": "pt-portion-43-1",
+      "file": "data/pitch/pt-portion-43-1.json.gz"
+    },
+    {
+      "id": "pt-portion-43-2",
+      "file": "data/pitch/pt-portion-43-2.json.gz"
+    },
+    {
+      "id": "pt-portion-43-3",
+      "file": "data/pitch/pt-portion-43-3.json.gz"
+    },
+    {
+      "id": "pt-portion-43-4",
+      "file": "data/pitch/pt-portion-43-4.json.gz"
+    },
+    {
+      "id": "pt-portion-43-5",
+      "file": "data/pitch/pt-portion-43-5.json.gz"
+    },
+    {
+      "id": "pt-portion-43-6",
+      "file": "data/pitch/pt-portion-43-6.json.gz"
+    },
+    {
+      "id": "pt-portion-43-7",
+      "file": "data/pitch/pt-portion-43-7.json.gz"
+    },
+    {
+      "id": "pt-portion-44-1",
+      "file": "data/pitch/pt-portion-44-1.json.gz"
+    },
+    {
+      "id": "pt-portion-44-2",
+      "file": "data/pitch/pt-portion-44-2.json.gz"
+    },
+    {
+      "id": "pt-portion-44-3",
+      "file": "data/pitch/pt-portion-44-3.json.gz"
+    },
+    {
+      "id": "pt-portion-44-4",
+      "file": "data/pitch/pt-portion-44-4.json.gz"
+    },
+    {
+      "id": "pt-portion-44-5",
+      "file": "data/pitch/pt-portion-44-5.json.gz"
+    },
+    {
+      "id": "pt-portion-44-6",
+      "file": "data/pitch/pt-portion-44-6.json.gz"
+    },
+    {
+      "id": "pt-portion-44-7",
+      "file": "data/pitch/pt-portion-44-7.json.gz"
+    },
+    {
+      "id": "pt-portion-45-1",
+      "file": "data/pitch/pt-portion-45-1.json.gz"
+    },
+    {
+      "id": "pt-portion-45-2",
+      "file": "data/pitch/pt-portion-45-2.json.gz"
+    },
+    {
+      "id": "pt-portion-45-3",
+      "file": "data/pitch/pt-portion-45-3.json.gz"
+    },
+    {
+      "id": "pt-portion-45-4",
+      "file": "data/pitch/pt-portion-45-4.json.gz"
+    },
+    {
+      "id": "pt-portion-45-5",
+      "file": "data/pitch/pt-portion-45-5.json.gz"
+    },
+    {
+      "id": "pt-portion-45-6",
+      "file": "data/pitch/pt-portion-45-6.json.gz"
+    },
+    {
+      "id": "pt-portion-45-7",
+      "file": "data/pitch/pt-portion-45-7.json.gz"
+    },
+    {
+      "id": "pt-portion-46-1",
+      "file": "data/pitch/pt-portion-46-1.json.gz"
+    },
+    {
+      "id": "pt-portion-46-2",
+      "file": "data/pitch/pt-portion-46-2.json.gz"
+    },
+    {
+      "id": "pt-portion-46-3",
+      "file": "data/pitch/pt-portion-46-3.json.gz"
+    },
+    {
+      "id": "pt-portion-46-4",
+      "file": "data/pitch/pt-portion-46-4.json.gz"
+    },
+    {
+      "id": "pt-portion-46-5",
+      "file": "data/pitch/pt-portion-46-5.json.gz"
+    },
+    {
+      "id": "pt-portion-46-6",
+      "file": "data/pitch/pt-portion-46-6.json.gz"
+    },
+    {
+      "id": "pt-portion-46-7",
+      "file": "data/pitch/pt-portion-46-7.json.gz"
+    },
+    {
+      "id": "pt-portion-47-1",
+      "file": "data/pitch/pt-portion-47-1.json.gz"
+    },
+    {
+      "id": "pt-portion-47-2",
+      "file": "data/pitch/pt-portion-47-2.json.gz"
+    },
+    {
+      "id": "pt-portion-47-3",
+      "file": "data/pitch/pt-portion-47-3.json.gz"
+    },
+    {
+      "id": "pt-portion-47-4",
+      "file": "data/pitch/pt-portion-47-4.json.gz"
+    },
+    {
+      "id": "pt-portion-47-5",
+      "file": "data/pitch/pt-portion-47-5.json.gz"
+    },
+    {
+      "id": "pt-portion-47-6",
+      "file": "data/pitch/pt-portion-47-6.json.gz"
+    },
+    {
+      "id": "pt-portion-47-7",
+      "file": "data/pitch/pt-portion-47-7.json.gz"
+    },
+    {
+      "id": "pt-portion-48-1",
+      "file": "data/pitch/pt-portion-48-1.json.gz"
+    },
+    {
+      "id": "pt-portion-48-2",
+      "file": "data/pitch/pt-portion-48-2.json.gz"
+    },
+    {
+      "id": "pt-portion-48-3",
+      "file": "data/pitch/pt-portion-48-3.json.gz"
+    },
+    {
+      "id": "pt-portion-48-4",
+      "file": "data/pitch/pt-portion-48-4.json.gz"
+    },
+    {
+      "id": "pt-portion-48-5",
+      "file": "data/pitch/pt-portion-48-5.json.gz"
+    },
+    {
+      "id": "pt-portion-48-6",
+      "file": "data/pitch/pt-portion-48-6.json.gz"
+    },
+    {
+      "id": "pt-portion-48-7",
+      "file": "data/pitch/pt-portion-48-7.json.gz"
+    },
+    {
+      "id": "pt-portion-49-1",
+      "file": "data/pitch/pt-portion-49-1.json.gz"
+    },
+    {
+      "id": "pt-portion-49-2",
+      "file": "data/pitch/pt-portion-49-2.json.gz"
+    },
+    {
+      "id": "pt-portion-49-3",
+      "file": "data/pitch/pt-portion-49-3.json.gz"
+    },
+    {
+      "id": "pt-portion-49-4",
+      "file": "data/pitch/pt-portion-49-4.json.gz"
+    },
+    {
+      "id": "pt-portion-49-5",
+      "file": "data/pitch/pt-portion-49-5.json.gz"
+    },
+    {
+      "id": "pt-portion-49-6",
+      "file": "data/pitch/pt-portion-49-6.json.gz"
+    },
+    {
+      "id": "pt-portion-49-7",
+      "file": "data/pitch/pt-portion-49-7.json.gz"
+    },
+    {
+      "id": "pt-portion-50-1",
+      "file": "data/pitch/pt-portion-50-1.json.gz"
+    },
+    {
+      "id": "pt-portion-50-2",
+      "file": "data/pitch/pt-portion-50-2.json.gz"
+    },
+    {
+      "id": "pt-portion-50-3",
+      "file": "data/pitch/pt-portion-50-3.json.gz"
+    },
+    {
+      "id": "pt-portion-50-4",
+      "file": "data/pitch/pt-portion-50-4.json.gz"
+    },
+    {
+      "id": "pt-portion-50-5",
+      "file": "data/pitch/pt-portion-50-5.json.gz"
+    },
+    {
+      "id": "pt-portion-50-6",
+      "file": "data/pitch/pt-portion-50-6.json.gz"
+    },
+    {
+      "id": "pt-portion-50-7",
+      "file": "data/pitch/pt-portion-50-7.json.gz"
+    },
+    {
+      "id": "pt-portion-51-1",
+      "file": "data/pitch/pt-portion-51-1.json.gz"
+    },
+    {
+      "id": "pt-portion-51-2",
+      "file": "data/pitch/pt-portion-51-2.json.gz"
+    },
+    {
+      "id": "pt-portion-51-3",
+      "file": "data/pitch/pt-portion-51-3.json.gz"
+    },
+    {
+      "id": "pt-portion-51-4",
+      "file": "data/pitch/pt-portion-51-4.json.gz"
+    },
+    {
+      "id": "pt-portion-51-5",
+      "file": "data/pitch/pt-portion-51-5.json.gz"
+    },
+    {
+      "id": "pt-portion-51-6",
+      "file": "data/pitch/pt-portion-51-6.json.gz"
+    },
+    {
+      "id": "pt-portion-51-7",
+      "file": "data/pitch/pt-portion-51-7.json.gz"
+    },
+    {
+      "id": "pt-portion-52-1",
+      "file": "data/pitch/pt-portion-52-1.json.gz"
+    },
+    {
+      "id": "pt-portion-52-2",
+      "file": "data/pitch/pt-portion-52-2.json.gz"
+    },
+    {
+      "id": "pt-portion-52-3",
+      "file": "data/pitch/pt-portion-52-3.json.gz"
+    },
+    {
+      "id": "pt-portion-52-4",
+      "file": "data/pitch/pt-portion-52-4.json.gz"
+    },
+    {
+      "id": "pt-portion-52-5",
+      "file": "data/pitch/pt-portion-52-5.json.gz"
+    },
+    {
+      "id": "pt-portion-52-6",
+      "file": "data/pitch/pt-portion-52-6.json.gz"
+    },
+    {
+      "id": "pt-portion-52-7",
+      "file": "data/pitch/pt-portion-52-7.json.gz"
+    },
+    {
+      "id": "pt-portion-53-1",
+      "file": "data/pitch/pt-portion-53-1.json.gz"
+    },
+    {
+      "id": "pt-portion-53-2",
+      "file": "data/pitch/pt-portion-53-2.json.gz"
+    },
+    {
+      "id": "pt-portion-53-3",
+      "file": "data/pitch/pt-portion-53-3.json.gz"
+    },
+    {
+      "id": "pt-portion-53-4",
+      "file": "data/pitch/pt-portion-53-4.json.gz"
+    },
+    {
+      "id": "pt-portion-53-5",
+      "file": "data/pitch/pt-portion-53-5.json.gz"
+    },
+    {
+      "id": "pt-portion-53-6",
+      "file": "data/pitch/pt-portion-53-6.json.gz"
+    },
+    {
+      "id": "pt-portion-53-7",
+      "file": "data/pitch/pt-portion-53-7.json.gz"
+    },
+    {
+      "id": "pt-portion-54-1",
+      "file": "data/pitch/pt-portion-54-1.json.gz"
+    },
+    {
+      "id": "pt-portion-54-2",
+      "file": "data/pitch/pt-portion-54-2.json.gz"
+    },
+    {
+      "id": "pt-portion-54-3",
+      "file": "data/pitch/pt-portion-54-3.json.gz"
+    },
+    {
+      "id": "pt-portion-54-4",
+      "file": "data/pitch/pt-portion-54-4.json.gz"
+    },
+    {
+      "id": "pt-portion-54-5",
+      "file": "data/pitch/pt-portion-54-5.json.gz"
+    },
+    {
+      "id": "pt-portion-54-6",
+      "file": "data/pitch/pt-portion-54-6.json.gz"
+    },
+    {
+      "id": "pt-portion-54-7",
+      "file": "data/pitch/pt-portion-54-7.json.gz"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "scripts/pack-portable-pitch-packets.mjs",
+      "sha256": "715f4784ec98afa0363c81d259d8a8459f7d9ea333a4b0ddc25189dfd76aa9da"
+    },
+    {
+      "path": "portable-pitch-packet-loader.js",
+      "sha256": "1a5b9fb8f3ef1fe21ccec8e1cd9d5ad0fcec45f1e4cd3f9b6bebe3856abad7cd"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "04f7bdf7f01d47683ff4150e0451f0977f7a2e33aef0edc84b581be01e3719dd"
+    },
+    {
+      "path": "data/pitch/manifest.json",
+      "sha256": "1008b998e3a5ba417f7d1d531463910cf09e0732a1aeaf25ea0b20cc0ebdbddf"
+    }
+  ]
+}

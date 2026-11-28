@@ -1,9 +1,9 @@
 {
   "format": "tropetrain-portable-build-compression-v1",
-  "version": "0.110.0",
+  "version": "0.111.0",
   "library": "@gfx/zopfli@1.0.15",
   "license": "Apache-2.0",
-  "browserDecoder": "unchanged program/evidence gzip and legacy envelopes; separate bounded original-image packet",
+  "browserDecoder": "unchanged program/evidence gzip and legacy envelopes; separate bounded original-image and original-pitch-data packets",
   "records": {
     "torah": {
       "inputBytes": 5570155,
@@ -36,10 +36,10 @@
       "browserCodec": "existing gzip decoder; no new browser dependency"
     },
     "program": {
-      "inputBytes": 32351664,
-      "inputSha256": "05d7c33895953d2bf569d732c8ad5f6486a0ccbca025d645011b6d77d2f302ac",
-      "gzipBytes": 18506629,
-      "gzipSha256": "cae779055e5da098857dd8533da4f435a65cd9d615479162a2f998aa29a5455b",
+      "inputBytes": 32414225,
+      "inputSha256": "6178ff0a3bdfce3c51e987cfd800a8fce994dd264f2691452ae8d6d627c258be",
+      "gzipBytes": 18515723,
+      "gzipSha256": "446c2d8b216b25f22be460f6c06ec8e7d9b4b138e0680fdbc26af4c2a2454f28",
       "exactRecoveredBytes": true,
       "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
       "options": {
@@ -51,10 +51,10 @@
       "browserCodec": "existing gzip decoder; no new browser dependency"
     },
     "evidence": {
-      "inputBytes": 15267564,
-      "inputSha256": "b13251fb7842e826b8452b2648f06f7f3381e57be87e123903eccec85520395c",
-      "gzipBytes": 1285896,
-      "gzipSha256": "2da884dd7869d36d1f827f386b2b8021d6605e08f1e78dd2cb535cf076cbfa22",
+      "inputBytes": 15372399,
+      "inputSha256": "a6be119858feeb8b912709fa68d5be6ae6cf9770ce75ed59c36841fbd948626b",
+      "gzipBytes": 1295617,
+      "gzipSha256": "bcd3f043daddd221810650d30fe7300567f89fe2d2c6574edd92c3feff84795e",
       "exactRecoveredBytes": true,
       "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
       "options": {
@@ -79,20 +79,37 @@
       },
       "license": "Apache-2.0",
       "browserCodec": "existing gzip decoder; no new browser dependency"
+    },
+    "pitchPackets": {
+      "format": "tropetrain-source-pitch-packets-v1",
+      "encoding": "gzip+html-base93",
+      "recordCount": 378,
+      "packetBytes": 31132915,
+      "packetSha256": "79f13baf49ca823cd3f63cfe6e1bda83e89a737f4b652f5c7ef0f0a5806ffc18",
+      "gzipBytes": 23420967,
+      "gzipSha256": "7a18b9b1c2d5eb21f213902eee404966bc841876174d681231ac7471f635a7c7"
     }
   },
-  "portableHtmlBytes": 100610879,
+  "portableHtmlBytes": 98432625,
   "hostLimitBytes": 104857600,
-  "physicalHeadroomBytes": 4246721,
+  "physicalHeadroomBytes": 6424975,
   "unchangedPhysicalReserveBytes": 4194304,
   "inputs": [
+    {
+      "path": "scripts/pack-portable-pitch-packets.mjs",
+      "sha256": "715f4784ec98afa0363c81d259d8a8459f7d9ea333a4b0ddc25189dfd76aa9da"
+    },
+    {
+      "path": "portable-pitch-packet-loader.js",
+      "sha256": "1a5b9fb8f3ef1fe21ccec8e1cd9d5ad0fcec45f1e4cd3f9b6bebe3856abad7cd"
+    },
     {
       "path": "scripts/compress-build-gzip.mjs",
       "sha256": "e96e2d3eb28254dc1d603299947c5b3fd45c4c97858c642f0eb8226a0f2a5188"
     },
     {
       "path": "scripts/pack-portable-program.mjs",
-      "sha256": "387c3280c9664703ad9415f3f97330d02338d5e9ca28763a9effbd5d7f6ac653"
+      "sha256": "c49be9b1fbfa8be26c37977a28b78915ba18a154dea8448c496f4fb78240f535"
     },
     {
       "path": "scripts/pack-portable-evidence.mjs",
@@ -100,15 +117,15 @@
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "7cd2cb5a2ddffe2d416324b5dbf1dfec9a83b538fc15bfeaab6b91008748cef7"
+      "sha256": "04f7bdf7f01d47683ff4150e0451f0977f7a2e33aef0edc84b581be01e3719dd"
     },
     {
       "path": "package.json",
-      "sha256": "642cdcfefe869b3f1218f3d987e227e9c59fc11f01589b6c37b3b3078a737be2"
+      "sha256": "20575e02e909a12d75a5bd968f3b9d470a2edceecfda6287a508a4a2c754b984"
     },
     {
       "path": "package-lock.json",
-      "sha256": "1e02b0f13e2fc2841d774abac7ef6e6ccaff5fda0fa8ce8a6b48162ca7abf784"
+      "sha256": "c22508b47a71fdd42835d22e4f655a7d79a937a2d84a9d51e5052b5bb2ada653"
     }
   ]
 }

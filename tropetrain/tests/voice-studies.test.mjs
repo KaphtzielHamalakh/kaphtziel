@@ -34,7 +34,7 @@ test('two Tiberian pronunciation readings each have a distinct spoken and source
   assert.throws(()=>voiceRecording('bard-torah','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceRecording('seed-esther','forte-lene','spoken'),/does not provide/);
   assert.throws(()=>voiceStudy('invented'),/available/);
-  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268','idelsohn-1929-vol5-no266','baer-1894-no111-gen2-3-upper','baer-1894-no111-gen2-3-lower','baer-1894-no111-exo13-21-written','baer-1894-no46-deu11-21-upper','baer-1894-no46-deu11-21-lower']);
+  assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268','idelsohn-1929-vol5-no266','baer-1894-no111-gen2-3-upper','baer-1894-no111-gen2-3-lower','baer-1894-no111-exo13-21-written','baer-1894-no46-deu11-21-upper','baer-1894-no46-deu11-21-lower','idelsohn-1929-vol5-no270-gen25-19-20']);
 });
 test('source selection and runtime URL resolution leave all Hebrew, marks, syllables and instrument events unchanged',()=>{
   const model=createReadingModel(passage),before=JSON.stringify(model.words),events=JSON.stringify(model.events);

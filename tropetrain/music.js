@@ -1,3 +1,4 @@
+import {pitchSpelling,spelledPitchName} from './pitch.js';
 import {isJointEvent,eventNavigationIndex} from './event-correspondence.js';
 import { passage as defaultPassage } from './passage.js';
 import { alignedSyllables } from './syllables.js';
@@ -25,7 +26,7 @@ const fixtures=new Map(fixtureWords.map((w,i)=>[w.id,{text:w.sourceHebrew,syllab
 export const melody=Object.freeze({id:'original-demo-01',revision:1,name:'Original demonstration 01',status:'original, unreviewed',license:'CC0-1.0',description:'A newly composed note fixture for playback and alignment. No historical or communal attribution.'});
 export const consonantal=text=>text.replace(/[\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u200d\u034f]/gu,'');
 export const frequency=midi=>440*2**((midi-69)/12);
-export const noteName=midi=>['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'][((midi%12)+12)%12]+(Math.floor(midi/12)-1);
+export const noteName=midi=>Number.isInteger(midi)?['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'][((midi%12)+12)%12]+(Math.floor(midi/12)-1):spelledPitchName(pitchSpelling(midi));
 export const melodyProfiles=Object.freeze([melody,...PRINTED_SCORE_PROFILES]);
 export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={}){
   const profile=melodyProfiles.find(p=>p.id===melodyId);

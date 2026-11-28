@@ -28,7 +28,7 @@ test('score spellings cover every semitone and preserve exact demonstration dura
   for(let midi=12;midi<=127;midi++){const p=pitchSpelling(midi);assert.equal((p.octave+1)*12+offsets[p.step]+p.alter,midi);}
   const values={whole:4,half:2,quarter:1,eighth:.5,'16th':.25,'32nd':.125};
   for(const beats of [.125,.25,.5,.6,.75,.9,1,1.5,2,3,4]){const r=rhythmSpelling(beats);assert.ok(Math.abs(values[r.type]*(r.dots?1.5:1)*r.normal/r.actual-beats)<1e-9);}
-  assert.throws(()=>pitchSpelling(60.5),/integer MIDI/);
+  assert.throws(()=>pitchSpelling(60.25),/integer MIDI/);
 });
 test('staff notes retain source syllables, MIDI values, duration and note navigation through transposition',()=>{
   const original=buildPlan(0,6),raised=buildPlan(0,6,{transpose:1}),a=staffNotes(original,words),b=staffNotes(raised,words);

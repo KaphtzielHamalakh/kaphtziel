@@ -1,3 +1,4 @@
+import {pitchSpelling,spelledPitchName} from './pitch.js';
 import {validateNo266PerformanceEvent} from './source-no266-performance.js';
 import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
 import {validateGraceEvent} from './source-grace.js';
@@ -11,22 +12,17 @@ export function beatLabel(beats){
   for(const [n,d] of [[1,3],[1,6],[2,3],[5,6]])if(Math.abs(beats-n/d)<1e-8)return `${n}/${d}`;
   return String(Number(beats.toFixed(6)));
 }
-export function pitchSpelling(midi){
-  if(!Number.isInteger(midi)||midi<0||midi>127)throw Error('This score exporter currently requires integer MIDI pitches.');
-  const [step,alter]=[['C',0],['C',1],['D',0],['E',-1],['E',0],['F',0],['F',1],['G',0],['A',-1],['A',0],['B',-1],['B',0]][midi%12];
-  const octave=Math.floor(midi/12)-1,position=octave*7+'CDEFGAB'.indexOf(step);
-  return {step,alter,octave,position};
-}
+export {pitchSpelling};
 // Preserve a checked printed accidental spelling at the original source key.
 export function eventPitchSpelling(event){
  const p=event.sourcePitch;
  if(!p||event.sourceTranspose!==0)return pitchSpelling(event.midi);
- if(!'CDEFGAB'.includes(p.step)||p.step.length!==1||![-1,0,1].includes(p.alter)||!Number.isInteger(p.octave))throw Error('Invalid printed pitch spelling.');
+ if(!'CDEFGAB'.includes(p.step)||p.step.length!==1||![-1,-.5,0,.5,1].includes(p.alter)||!Number.isInteger(p.octave))throw Error('Invalid printed pitch spelling.');
  const expected=(p.octave+1)*12+{C:0,D:2,E:4,F:5,G:7,A:9,B:11}[p.step]+p.alter;
  if(expected!==event.midi)throw Error('Printed pitch spelling and sounding MIDI disagree.');
  return {...p,position:p.octave*7+'CDEFGAB'.indexOf(p.step)};
 }
-export function eventPitchName(event){const p=eventPitchSpelling(event);return p.step+(p.alter===1?'♯':p.alter===-1?'♭':'')+p.octave;}
+export function eventPitchName(event){return spelledPitchName(eventPitchSpelling(event));}
 export function rhythmSpelling(beats){
   if(!Number.isFinite(beats)||beats<=0)throw Error('Invalid score duration.');
   for(const [type,value] of [['whole',4],['half',2],['quarter',1],['eighth',.5],['16th',.25],['32nd',.125]]){

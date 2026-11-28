@@ -1,5 +1,12 @@
 # TropeTrain
 
+**v0.111.0 — local browser acceptance complete; publication pending.** Adds Idelsohn’s1929 No270 Genesis25:19–20 as a clearly labeled instrumental candidate:27 unchanged marked words,75notes and nominal quarter-tone pitches. Melody, pronunciation text, guide range, transposition and tempo remain independent. The source and locality attribution are documented; accidental carry, phonetic reading, syllable fitting and actual historical intonation still need qualified review.
+
+**1,037 automated tests pass in the corrected full suite.** Both normal and portable editions pass playback, stops, repeat, all seven score pages, seven independent pronunciation-text choices, export preparation and reopening with the preview stopped. All previous asset/data/vendor files and musical exports remain exact. The portable file is98.43MB with the unchanged4MiBreserve. [Verification and limits](docs/VERIFICATION-0.111.md).
+
+Try **New → Quarter-tone Genesis study · Idelsohn No270 → Select both No270 Genesis verses**. Raise **Instrument volume**, enable **Follow playback**, then **Play**. The full passage is Genesis25:19–20. [Open TropeTrain](https://kaphtziel.com/tropetrain/?v=0.111.0#idelsohn-no270-study). Run the complete saved `Development-v0.111` folder with `python3 -m http.server 8820 --bind 127.0.0.1`, then open `http://127.0.0.1:8820/tropetrain/`. Full reconstruction remains active; complete contextual Torah systems, reviewed independent singing pronunciations and voices remain pending. Printing waits.
+
+
 **v0.110.0 — published and verified in both public browser editions.** The normal program is smaller (32.35MB versus47.19MB) because34 source images load separately. All originals remain in the self-contained portable edition and the normal offline cache. The source viewer now reports loading/readiness, and offline status confirms the current saved version.
 
 **1,020 automated tests pass after five old image-location assertions were corrected.** Both browser editions retain the marked Hebrew, independent pronunciation text, source music and cached source images. The first full build succeeded; the corrected complete test suite passed without changing runtime or compiled files. [Validation details](docs/VERIFICATION-0.110.md).
