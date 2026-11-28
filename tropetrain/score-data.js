@@ -1,3 +1,4 @@
+import {validateGen24SmallNoteEvent} from './source-gen24-performance.js';
 import {pitchSpelling,spelledPitchName} from './pitch.js';
 import {validateNo266PerformanceEvent} from './source-no266-performance.js';
 import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
@@ -41,6 +42,7 @@ export function rhythmSpelling(beats){
 }
 export function eventRhythm(event){
   const r=event.sourceRhythm;
+  if(event.sourceGen24SmallNote){validateGen24SmallNoteEvent(event);return r;}
   if(event.sourceNo111Grace){validateNo111GraceEvent(event);return r;}
   if(event.sourceNo266SmallEighth||event.sourceNo266Parenthetical){validateNo266PerformanceEvent(event);return r;}
   if(event.sourcePatternSmallEighth){validatePatternSmallEighthEvent(event);return r;}

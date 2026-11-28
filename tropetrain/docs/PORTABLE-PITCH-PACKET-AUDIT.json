@@ -1,6 +1,6 @@
 {
   "format": "tropetrain-portable-pitch-packet-audit-v1",
-  "version": "0.111.0",
+  "version": "0.112.0",
   "packet": {
     "format": "tropetrain-source-pitch-packets-v1",
     "encoding": "gzip+html-base93",
@@ -1537,7 +1537,7 @@
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "04f7bdf7f01d47683ff4150e0451f0977f7a2e33aef0edc84b581be01e3719dd"
+      "sha256": "7714709f2b25643975efaa10094335a660ae568d685b6c5ba9e3ace4d559b17e"
     },
     {
       "path": "data/pitch/manifest.json",

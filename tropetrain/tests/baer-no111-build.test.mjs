@@ -23,7 +23,7 @@ test('both finished editions retain the bounded No111 controls, exact source/cor
  // Profile IDs are constructed at runtime; the canonical source record is literal.
  // All three complete IDs and their dispatch are checked through the actual UI.
  assert(normal.includes(Buffer.from(record.id)));
- const evidence=portableEvidenceBytes(raw);assert.equal(evidence.records.length,94);assert.equal(evidence.proof.linkCount,97);
+ const evidence=portableEvidenceBytes(raw);assert.equal(evidence.records.length,95);assert.equal(evidence.proof.linkCount,98);
  for(const path of ['docs/BAER-NO111-WORD-CANDIDATES.json','docs/BAER-NUMBERING-CORRECTION.json']){
   assert(html.includes('href="./'+path+'"'));assert(evidence.records.some(r=>r.bytes.equals(read(path))));assert(sw.includes('./'+path));
  }
@@ -32,6 +32,6 @@ test('both finished editions retain the bounded No111 controls, exact source/cor
  }
  const image='assets/scores/baer-1894-no111-torah.webp',uri='data:image/webp;base64,'+read(image).toString('base64');
  assert(portable.includes('id="no111-score-image" src="'+uri+'"'));assert(portable.includes('data-embedded-image="no111-score-image"'));assert(sw.includes('./'+image));
- const sharedLinks=[...portable.matchAll(/<a\b[^>]*\bdata-embedded-image="([^"]+)"[^>]*>/g)].map(m=>m[1]).sort();assert.deepEqual(sharedLinks,["cohen-penitential-second-scan","cohen-penitential-second-scan","printed-score-scan","baer-score-scan","pattern-source-scan","pattern-context-scan","no111-score-image","no46-score-image","no270-score-image"].sort());assert.equal(read(image).length,279744);assert.equal(sha(read(image)),record.source.scan.imageSha256);
- assert(portableFileBytes()<=100*1024*1024-4*1024*1024);assert(sw.includes('tropetrain-v111-idelsohn-no270-quarter-tones'));
+ const sharedLinks=[...portable.matchAll(/<a\b[^>]*\bdata-embedded-image="([^"]+)"[^>]*>/g)].map(m=>m[1]).sort();assert.deepEqual(sharedLinks,["cohen-penitential-second-scan","cohen-penitential-second-scan","printed-score-scan","baer-score-scan","pattern-source-scan","pattern-context-scan","no111-score-image","no46-score-image","no270-score-image","gen24-score-image"].sort());assert.equal(read(image).length,279744);assert.equal(sha(read(image)),record.source.scan.imageSha256);
+ assert(portableFileBytes()<=100*1024*1024-4*1024*1024);assert(sw.includes('tropetrain-v112-idelsohn-gen24-word-study'));
 });

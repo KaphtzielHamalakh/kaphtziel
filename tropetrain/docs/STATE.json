@@ -4,15 +4,15 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
-  "nextTask": "Continue evidence-led word-aligned chanting and independent pronunciation across the Torah. Review the No270 quarter-sharp carry and Latin glyph readings before accepted syllable/phoneme fitting. Inspect the separate Genesis24:49 example on printed103/PDF106 and confirm its caption/context before transcription; do not merge it with Genesis25:19–20 or infer a complete Gibraltar/Kinnor grammar. Seek reusable reviewed whole-Torah scores/recordings and independent singing pronunciations. Preserve all21feature identities/sixcompletion requirements, exact marked Hebrew/IDs and personal drafts. Use pinned original-program archives and prior TaamimFlow reconciliation; do not rediscover or adopt unlicensed extracted data. Printing waits and private voice labs stay frozen.",
+  "nextTask": "Publish locally accepted112 app-only with connected GitHub and expected-head lease; verify Pages/live bodies/both public editions and15drafts/2fittings/7spans; save complete canonical112 plus four final metadata overlays. Then continue sourced word-aligned chant/independent pronunciation across Torah. Gen24 small-note role/timing, source Latin reading, syllable/phoneme fitting and qualified review remain unassigned. Preserve all21features/sixrequirements. Printing deferred; private voice labs frozen.",
   "lastPassingTests": {
-    "version": "0.111.0",
-    "command": "npm test",
-    "tests": 1037,
-    "pass": 1037,
+    "version": "0.112.0",
+    "command": "npm run check",
+    "tests": 1046,
+    "pass": 1046,
     "fail": 0,
     "fullSuite": true,
-    "receipt": "docs/VERIFICATION-0.111.md"
+    "receipt": "docs/VERIFICATION-0.112.md"
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -190,7 +190,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.111.0",
+  "workingIteration": "0.112.0",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -5967,5 +5967,245 @@
     "newSingingVoices": 0,
     "qualifiedReview": null,
     "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. The final commit, Pages/live results and complete canonical certificate with four exact overlays are recorded in the external RELEASE and RESUME records."
+  },
+  "privateV112Development": {
+    "source": "Idelsohn1929 VolV,unnumbered Genesis24:49,printed103/PDF106",
+    "words": 20,
+    "noteCandidates": 56,
+    "measuredNotes": 55,
+    "LatinGroupIndices": 38,
+    "systems": 2,
+    "tuplets": 1,
+    "slurs": 5,
+    "rests": 0,
+    "measuredQuarterBeats": 30.5,
+    "smallNote": {
+      "component": 8,
+      "midi": 69,
+      "type": "eighth",
+      "slash": false,
+      "role": null,
+      "sourceDuration": null,
+      "optionalOriginalSeconds": 0.08
+    },
+    "sourceLocalityAttribution": null,
+    "acceptedSyllableMapping": null,
+    "phonemes": null,
+    "singingVoice": null,
+    "completeGrammar": null,
+    "review": null,
+    "focusedTests": {
+      "pass": 11,
+      "fail": 0
+    },
+    "priorPreservation": {
+      "profiles": 13,
+      "events": 838,
+      "completePlansMusicXmlMidiByteExact": true,
+      "staffSvgByteExact": 192
+    },
+    "phase": "source/compiler/provider/UI authored; full build/browser/publication pending",
+    "localAcceptance": {
+      "version": "0.112.0",
+      "source": "Unnumbered Genesis24:49, Idelsohn1929 printed103/PDF106; excludes Neviim/No271 below",
+      "markedWords": 20,
+      "notes": 56,
+      "measuredNotes": 55,
+      "LatinGroupIndices": 38,
+      "systems": 2,
+      "triplets": 1,
+      "slurs": 5,
+      "rests": 0,
+      "measuredQuarterBeats": 30.5,
+      "measuredRemainder": {
+        "words": 19,
+        "notes": 46,
+        "quarterBeats": 26
+      },
+      "unmeasuredSmallEighth": {
+        "component": 8,
+        "sourcePitch": "A4",
+        "sourceRole": null,
+        "sourceDuration": null,
+        "optionalOriginalAddedSeconds": 0.08,
+        "explicitOptInRequired": true,
+        "fixedWhenTempoChanges": true
+      },
+      "localityAttribution": null,
+      "independentReview": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "singingVoice": null,
+      "completeTraditionGrammar": null,
+      "kinnorPreset": null,
+      "normalAndPortableAccepted": true,
+      "scorePages": 5,
+      "pronunciationTextChoices": 7,
+      "melodyPronunciationGuideRangeKeyTempoIndependent": true,
+      "wordGroupVerseStopsRepeatViewsFollowing": true,
+      "nativeWavFramesAt84Bpm22050Hz": {
+        "measuredRemainder": 409500,
+        "completeWithOriginal80ms": 482139
+      },
+      "browserPreparedFilePcmBytesVerified": false,
+      "heardMusicalReview": false,
+      "all378OriginalPitchPacketsActualPortableDomExact": true,
+      "all34PriorImagesBothEditionsAndCached": true,
+      "servedImages": {
+        "count": 36,
+        "bytes": 11390490,
+        "allExact": true
+      },
+      "stoppedPreview": {
+        "session": 54737,
+        "exit": 0,
+        "connectionRefusedExit": 7
+      },
+      "preservation": {
+        "base": "c56050f2e5da87d3fe1b3345ee8f045259b9c090",
+        "allPriorAssetsDataVendorExact": 707,
+        "allPriorSemanticReportsExactExcludingInputPins": 122,
+        "currentInputPinsExact": 469,
+        "unchangedRootRuntimeFiles": 210,
+        "all21FeatureIdentitiesAndSixCompletionRequirementsExact": true,
+        "priorPrintedProfiles": 13,
+        "priorEvents": 838,
+        "allPriorPlansXmlMidiAnd192SvgExact": true,
+        "newIndependentMusicalReviews": 0,
+        "newSingingVoices": 0
+      },
+      "artifacts": [
+        {
+          "path": "app.bundle.js",
+          "bytes": 32466050,
+          "sha256": "79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d"
+        },
+        {
+          "path": "TropeTrain.html",
+          "bytes": 98584142,
+          "sha256": "cdb68c10e2bd40f58720d5fa6a3993db741ac7ff38150091686b38f76e9a8f10"
+        }
+      ],
+      "portableHeadroomBytes": 6273458,
+      "unchangedPortableReserveBytes": 4194304,
+      "fullCheck": {
+        "session": 17491,
+        "exit": 0,
+        "command": "npm run check",
+        "buildSucceeded": true,
+        "tests": 1046,
+        "pass": 1046,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "durationMs": 723240.754875,
+        "failures": []
+      },
+      "publication": "pending",
+      "fullGoal": "active_incomplete",
+      "printing": "deferred",
+      "privateVoiceLabs": "frozen"
+    }
+  },
+  "currentCandidate112": {
+    "version": "0.112.0",
+    "source": "Unnumbered Genesis24:49, Idelsohn1929 printed103/PDF106; excludes Neviim/No271 below",
+    "markedWords": 20,
+    "notes": 56,
+    "measuredNotes": 55,
+    "LatinGroupIndices": 38,
+    "systems": 2,
+    "triplets": 1,
+    "slurs": 5,
+    "rests": 0,
+    "measuredQuarterBeats": 30.5,
+    "measuredRemainder": {
+      "words": 19,
+      "notes": 46,
+      "quarterBeats": 26
+    },
+    "unmeasuredSmallEighth": {
+      "component": 8,
+      "sourcePitch": "A4",
+      "sourceRole": null,
+      "sourceDuration": null,
+      "optionalOriginalAddedSeconds": 0.08,
+      "explicitOptInRequired": true,
+      "fixedWhenTempoChanges": true
+    },
+    "localityAttribution": null,
+    "independentReview": null,
+    "acceptedSyllableMapping": null,
+    "phonemes": null,
+    "singingVoice": null,
+    "completeTraditionGrammar": null,
+    "kinnorPreset": null,
+    "normalAndPortableAccepted": true,
+    "scorePages": 5,
+    "pronunciationTextChoices": 7,
+    "melodyPronunciationGuideRangeKeyTempoIndependent": true,
+    "wordGroupVerseStopsRepeatViewsFollowing": true,
+    "nativeWavFramesAt84Bpm22050Hz": {
+      "measuredRemainder": 409500,
+      "completeWithOriginal80ms": 482139
+    },
+    "browserPreparedFilePcmBytesVerified": false,
+    "heardMusicalReview": false,
+    "all378OriginalPitchPacketsActualPortableDomExact": true,
+    "all34PriorImagesBothEditionsAndCached": true,
+    "servedImages": {
+      "count": 36,
+      "bytes": 11390490,
+      "allExact": true
+    },
+    "stoppedPreview": {
+      "session": 54737,
+      "exit": 0,
+      "connectionRefusedExit": 7
+    },
+    "preservation": {
+      "base": "c56050f2e5da87d3fe1b3345ee8f045259b9c090",
+      "allPriorAssetsDataVendorExact": 707,
+      "allPriorSemanticReportsExactExcludingInputPins": 122,
+      "currentInputPinsExact": 469,
+      "unchangedRootRuntimeFiles": 210,
+      "all21FeatureIdentitiesAndSixCompletionRequirementsExact": true,
+      "priorPrintedProfiles": 13,
+      "priorEvents": 838,
+      "allPriorPlansXmlMidiAnd192SvgExact": true,
+      "newIndependentMusicalReviews": 0,
+      "newSingingVoices": 0
+    },
+    "artifacts": [
+      {
+        "path": "app.bundle.js",
+        "bytes": 32466050,
+        "sha256": "79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d"
+      },
+      {
+        "path": "TropeTrain.html",
+        "bytes": 98584142,
+        "sha256": "cdb68c10e2bd40f58720d5fa6a3993db741ac7ff38150091686b38f76e9a8f10"
+      }
+    ],
+    "portableHeadroomBytes": 6273458,
+    "unchangedPortableReserveBytes": 4194304,
+    "fullCheck": {
+      "session": 17491,
+      "exit": 0,
+      "command": "npm run check",
+      "buildSucceeded": true,
+      "tests": 1046,
+      "pass": 1046,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 723240.754875,
+      "failures": []
+    },
+    "publication": "pending",
+    "fullGoal": "active_incomplete",
+    "printing": "deferred",
+    "privateVoiceLabs": "frozen"
   }
 }

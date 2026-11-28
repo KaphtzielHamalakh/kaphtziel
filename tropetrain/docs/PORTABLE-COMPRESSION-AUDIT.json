@@ -1,6 +1,6 @@
 {
   "format": "tropetrain-portable-build-compression-v1",
-  "version": "0.111.0",
+  "version": "0.112.0",
   "library": "@gfx/zopfli@1.0.15",
   "license": "Apache-2.0",
   "browserDecoder": "unchanged program/evidence gzip and legacy envelopes; separate bounded original-image and original-pitch-data packets",
@@ -36,10 +36,10 @@
       "browserCodec": "existing gzip decoder; no new browser dependency"
     },
     "program": {
-      "inputBytes": 32414225,
-      "inputSha256": "6178ff0a3bdfce3c51e987cfd800a8fce994dd264f2691452ae8d6d627c258be",
-      "gzipBytes": 18515723,
-      "gzipSha256": "446c2d8b216b25f22be460f6c06ec8e7d9b4b138e0680fdbc26af4c2a2454f28",
+      "inputBytes": 32466050,
+      "inputSha256": "79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d",
+      "gzipBytes": 18523893,
+      "gzipSha256": "43914e440fa78625c83aee3172ba7267fa00e5315d1cabbf782a4d10d1c207cf",
       "exactRecoveredBytes": true,
       "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
       "options": {
@@ -51,10 +51,10 @@
       "browserCodec": "existing gzip decoder; no new browser dependency"
     },
     "evidence": {
-      "inputBytes": 15372399,
-      "inputSha256": "a6be119858feeb8b912709fa68d5be6ae6cf9770ce75ed59c36841fbd948626b",
-      "gzipBytes": 1295617,
-      "gzipSha256": "bcd3f043daddd221810650d30fe7300567f89fe2d2c6574edd92c3feff84795e",
+      "inputBytes": 15450014,
+      "inputSha256": "847e642c88e08c5f240a1cef2195aef84b4dd1a8dbc20962fc0484a0ac8146f4",
+      "gzipBytes": 1302738,
+      "gzipSha256": "dff5ec7ee3429ad5914fefaae0e877ce881fc8685fb884b29b2622025a9a1d99",
       "exactRecoveredBytes": true,
       "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
       "options": {
@@ -90,9 +90,9 @@
       "gzipSha256": "7a18b9b1c2d5eb21f213902eee404966bc841876174d681231ac7471f635a7c7"
     }
   },
-  "portableHtmlBytes": 98432625,
+  "portableHtmlBytes": 98584142,
   "hostLimitBytes": 104857600,
-  "physicalHeadroomBytes": 6424975,
+  "physicalHeadroomBytes": 6273458,
   "unchangedPhysicalReserveBytes": 4194304,
   "inputs": [
     {
@@ -117,15 +117,15 @@
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "04f7bdf7f01d47683ff4150e0451f0977f7a2e33aef0edc84b581be01e3719dd"
+      "sha256": "7714709f2b25643975efaa10094335a660ae568d685b6c5ba9e3ace4d559b17e"
     },
     {
       "path": "package.json",
-      "sha256": "20575e02e909a12d75a5bd968f3b9d470a2edceecfda6287a508a4a2c754b984"
+      "sha256": "6dca8bbbb9b1a2da3bc550608b676ef6f899b3eb29c8edef5143a6e14354d57a"
     },
     {
       "path": "package-lock.json",
-      "sha256": "c22508b47a71fdd42835d22e4f655a7d79a937a2d84a9d51e5052b5bb2ada653"
+      "sha256": "5a1ba48ff4221037fc34ae9c3744a2110ed8f17e4a813954a0d0f419b8511263"
     }
   ]
 }

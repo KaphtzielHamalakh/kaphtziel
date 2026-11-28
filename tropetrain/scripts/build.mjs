@@ -27,6 +27,7 @@ import './import-baer-third-patterns.mjs';
 import './import-baer-no111.mjs';
 import './import-baer-no46.mjs';
 import './import-idelsohn-no270.mjs';
+import './import-idelsohn-gen24.mjs';
 import './import-sephardic-patterns.mjs';
 import './import-idelsohn-patterns.mjs';
 import './audit-pattern-small-eighth.mjs';
@@ -335,6 +336,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
 for(const scan of highHolidayScans)standalone=standalone.replaceAll(`src="./${scan.file}"`,()=>`src="data:image/png;base64,${scan.raw.toString('base64')}"`);
 standalone=standalone.replaceAll('href="./docs/BAER-HIGH-HOLIDAY-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(highHolidayEvidence).toString('base64')}"`);
 for(const [relative,mime] of [
+ ['docs/IDELSOHN-GEN24-WORD-CANDIDATES.json','application/json'],['assets/scores/idelsohn-gen24-NOTICE.txt','text/plain'],['assets/scores/idelsohn-1929-gen24-49-p103.webp','image/webp'],
  ['docs/IDELSOHN-NO270-WORD-CANDIDATES.json','application/json'],['assets/scores/idelsohn-no270-NOTICE.txt','text/plain'],['assets/scores/idelsohn-1929-no270-gen25.webp','image/webp'],
  ['docs/BAER-NO46-WORD-CANDIDATES.json','application/json'],['assets/scores/baer-no46-NOTICE.txt','text/plain'],['assets/scores/baer-1894-no46-deu11-21.webp','image/webp'],
  ['docs/BAER-NO111-WORD-CANDIDATES.json','application/json'],['docs/BAER-NUMBERING-CORRECTION.json','application/json'],['assets/scores/baer-1894-numbering-before-correction.zip','application/zip'],['assets/scores/baer-no111-NOTICE.txt','text/plain'],['assets/scores/baer-1894-no111-torah.webp','image/webp'],

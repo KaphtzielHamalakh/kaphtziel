@@ -1,0 +1,2259 @@
+{
+  "format": "tropetrain-idelsohn-gen24-word-candidates-v1",
+  "revision": 1,
+  "id": "idelsohn-1929-vol5-gen24-49-p103",
+  "title": "Genesis24:49 · Idelsohn1929 printed103 · unnumbered word candidates",
+  "review": null,
+  "acceptedSyllableMapping": null,
+  "phonemes": null,
+  "singingVoice": null,
+  "completeTraditionGrammar": null,
+  "kinnorPreset": null,
+  "source": {
+    "author": "Abraham Z.Idelsohn",
+    "title": "Hebräisch-orientalischer Melodienschatz, BandV: Gesänge der marokkanischen Juden",
+    "publication": "Benjamin Harz, Berlin–Vienna,1929",
+    "item": null,
+    "printedPage": 103,
+    "pdfPage": 106,
+    "passageCaption": "Gen.XXIV49",
+    "sourceLocalityLabel": null,
+    "localityEvidence": "Unnumbered Torah example immediately above the Neviim heading and No271. Nearby No269/270 Gibraltar attribution is documentary context, not independent attribution or qualified review of this unnumbered example.",
+    "performer": null,
+    "recording": null,
+    "url": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)",
+    "pdfUrl": "https://s9.imslp.org/files/imglnks/usimg/d/d4/IMSLP317924-PMLP507681-Ges%C3%A4nge_der_marokkanischen_Juden.pdf",
+    "pdfBytes": 45429508,
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "originalRights": "IMSLP317924 catalogue PublicDomain, rechecked2026-11-28",
+    "newTranscriptionRights": "CC0-1.0",
+    "key": {
+      "clef": "treble",
+      "fifths": -1,
+      "alterations": {
+        "B": -1
+      }
+    },
+    "image": "assets/scores/idelsohn-1929-gen24-49-p103.webp",
+    "imageBytes": 92680,
+    "imageSha256": "91b89f59f9114f35295e587862bb437aff944e24da08455ea27acdc8619254c9",
+    "imageDimensions": [
+      1206,
+      280
+    ],
+    "render": {
+      "renderer": "Poppler pdftoppm",
+      "pdfPage": 106,
+      "dpi": 240,
+      "x": 72,
+      "y": 100,
+      "width": 1206,
+      "height": 280,
+      "encoding": "Lossless WebP from unchanged RGB render; all pixels compared to PNG",
+      "glyphRepair": false
+    },
+    "previousNumber": 270,
+    "nextNumber": 271,
+    "separatePreviousPageExample": "Genesis25:19–20,printed102/PDF105; not included in this separate profile",
+    "nextSectionExcluded": "Neviim (Prophets), No271 and following"
+  },
+  "pitchReading": {
+    "actualHistoricalTuning": null,
+    "modernInstrumentTuning": "12-TET nominal written pitches, not historical intonation approval",
+    "quarterToneMarks": 0,
+    "review": null
+  },
+  "rhythmReading": {
+    "quarterNoteTempo": null,
+    "sourceMeter": null,
+    "expressiveTiming": null,
+    "literalValuesRegularizedForInstrument": true,
+    "rests": 0,
+    "printedSmallNotes": 1,
+    "smallNoteSourceRole": null,
+    "smallNoteSourceDuration": null,
+    "noExtraPauseAtSystemBreak": true
+  },
+  "printedSourceSignShapes": {
+    "status": "Facsimile authoritative; no added durations or articulation inferred from separately printed sign shapes",
+    "canonicalHebrewMarksPreserved": true
+  },
+  "bookId": "gen",
+  "start": {
+    "chapter": 24,
+    "verse": 49
+  },
+  "end": {
+    "chapter": 24,
+    "verse": 49
+  },
+  "words": [
+    {
+      "id": "gen-24-49-1",
+      "sourceHebrew": "וְ֠עַתָּה",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "‘at",
+        "ta"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-2",
+      "sourceHebrew": "אִם־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "im"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-3",
+      "sourceHebrew": "יֶשְׁכֶ֨ם",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "jes",
+        "ḵem"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-4",
+      "sourceHebrew": "עֹשִׂ֜ים",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘ô",
+        "sim"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-5",
+      "sourceHebrew": "חֶ֧סֶד",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "ḥe",
+        "sed"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-6",
+      "sourceHebrew": "וֽ͏ֶאֱמֶ֛ת",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "ĕ",
+        "met"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-7",
+      "sourceHebrew": "אֶת־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "et"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-8",
+      "sourceHebrew": "אֲדֹנִ֖י",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘ă",
+        "dô",
+        "ni"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-9",
+      "sourceHebrew": "הַגִּ֣ידוּ",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "hag",
+        "gi",
+        "du"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-10",
+      "sourceHebrew": "לִ֑י",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "li"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-11",
+      "sourceHebrew": "וְאִם־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "im"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-12",
+      "sourceHebrew": "לֹ֕א",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "lô"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-13",
+      "sourceHebrew": "הַגִּ֣ידוּ",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "hag",
+        "gi",
+        "du"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-14",
+      "sourceHebrew": "לִ֔י",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "li"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-15",
+      "sourceHebrew": "וְאֶפְנֶ֥ה",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "ef",
+        "ne"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-16",
+      "sourceHebrew": "עַל־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘al"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-17",
+      "sourceHebrew": "יָמִ֖ין",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "jĕ",
+        "min"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-18",
+      "sourceHebrew": "א֥וֹ",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "ô"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-19",
+      "sourceHebrew": "עַל־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘al"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-20",
+      "sourceHebrew": "שְׂמֹֽאל׃",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "sĕ",
+        "môl"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    }
+  ],
+  "components": [
+    {
+      "number": 1,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c01",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component1",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "wĕ",
+      "slurs": []
+    },
+    {
+      "number": 2,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c02",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component2",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "‘at",
+      "slurs": []
+    },
+    {
+      "number": 3,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "ed",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c03",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component3",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": []
+    },
+    {
+      "number": 4,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c04",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component4",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": []
+    },
+    {
+      "number": 5,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c05",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component5",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": []
+    },
+    {
+      "number": 6,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c06",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component6",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": []
+    },
+    {
+      "number": 7,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c07",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component7",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-1",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "small-e",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c08",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component8",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": null,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ],
+      "smallNote": {
+        "type": "eighth",
+        "slash": false,
+        "role": null,
+        "sourceDuration": null,
+        "stealTimePrevious": null,
+        "stealTimeFollowing": null,
+        "review": null
+      }
+    },
+    {
+      "number": 9,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c09",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component9",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-1",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "q",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c10",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component10",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-1",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ta",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-1",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 2,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c11",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component11",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-2",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "im",
+      "slurs": []
+    },
+    {
+      "number": 12,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 3,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c12",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component12",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-3",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "jes",
+      "slurs": []
+    },
+    {
+      "number": 13,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "ed",
+      "wordOrdinal": 3,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c13",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component13",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-3",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "ḵem",
+      "slurs": []
+    },
+    {
+      "number": 14,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "s",
+      "wordOrdinal": 4,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c14",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component14",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-4",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "‘ô",
+      "slurs": []
+    },
+    {
+      "number": 15,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 4,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c15",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component15",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-4",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "sim",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-2",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 4,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c16",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component16",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-4",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "sim",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-2",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c17",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component17",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-5",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "ḥe",
+      "slurs": []
+    },
+    {
+      "number": 18,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c18",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component18",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-5",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "ḥe",
+      "slurs": []
+    },
+    {
+      "number": 19,
+      "kind": "note",
+      "system": 1,
+      "head": "D5",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c19",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component19",
+      "sourcePitch": {
+        "step": "D",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 74,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-5",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "ḥe",
+      "slurs": []
+    },
+    {
+      "number": 20,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c20",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component20",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-5",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "sed",
+      "slurs": []
+    },
+    {
+      "number": 21,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c21",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component21",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "wĕ",
+      "slurs": []
+    },
+    {
+      "number": 22,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c22",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component22",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "ĕ",
+      "slurs": []
+    },
+    {
+      "number": 23,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "ed",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c23",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component23",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "met",
+      "slurs": []
+    },
+    {
+      "number": 24,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c24",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component24",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "met",
+      "slurs": []
+    },
+    {
+      "number": 25,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c25",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component25",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "met",
+      "slurs": []
+    },
+    {
+      "number": 26,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c26",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component26",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "met",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-3",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c27",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component27",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-6",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "met",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-3",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e3",
+      "wordOrdinal": 7,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c28",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component28",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "candidateWordId": "gen-24-49-7",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "et",
+      "slurs": [],
+      "tuplet": {
+        "id": "idelsohnGen24-triplet-1",
+        "phase": "start"
+      }
+    },
+    {
+      "number": 29,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e3",
+      "wordOrdinal": 8,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c29",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component29",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "candidateWordId": "gen-24-49-8",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "‘ă",
+      "slurs": [],
+      "tuplet": {
+        "id": "idelsohnGen24-triplet-1",
+        "phase": "continue"
+      }
+    },
+    {
+      "number": 30,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e3",
+      "wordOrdinal": 8,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c30",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system1,component30",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 3,
+        "normal": 2
+      },
+      "quarterBeats": 0.3333333333333333,
+      "candidateWordId": "gen-24-49-8",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "dô",
+      "slurs": [],
+      "tuplet": {
+        "id": "idelsohnGen24-triplet-1",
+        "phase": "stop"
+      }
+    },
+    {
+      "number": 31,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "ed",
+      "wordOrdinal": 8,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c31",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component31",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-8",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ni",
+      "slurs": []
+    },
+    {
+      "number": 32,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 9,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c32",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component32",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-9",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "hag",
+      "slurs": []
+    },
+    {
+      "number": 33,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "e",
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c33",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component33",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-9",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "gi",
+      "slurs": []
+    },
+    {
+      "number": 34,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "e",
+      "wordOrdinal": 9,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c34",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component34",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-9",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "du",
+      "slurs": []
+    },
+    {
+      "number": 35,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 10,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c35",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component35",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-10",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "li",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-4",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "kind": "note",
+      "system": 2,
+      "head": "C4",
+      "writtenCode": "e",
+      "wordOrdinal": 10,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c36",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component36",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-10",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "li",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-4",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 11,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c37",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component37",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-11",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "wĕ",
+      "slurs": []
+    },
+    {
+      "number": 38,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 11,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c38",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component38",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-11",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "im",
+      "slurs": []
+    },
+    {
+      "number": 39,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "ed",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c39",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component39",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-12",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "lô",
+      "slurs": []
+    },
+    {
+      "number": 40,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c40",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component40",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-12",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "lô",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-5",
+          "phase": "start",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "kind": "note",
+      "system": 2,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c41",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component41",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-12",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "lô",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-5",
+          "phase": "continue",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "ed",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c42",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component42",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-12",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "lô",
+      "slurs": [
+        {
+          "id": "idelsohnGen24-slur-5",
+          "phase": "stop",
+          "placement": "below"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 13,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c43",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component43",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-13",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "hag",
+      "slurs": []
+    },
+    {
+      "number": 44,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "ed",
+      "wordOrdinal": 13,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c44",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component44",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 1,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.75,
+      "candidateWordId": "gen-24-49-13",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "gi",
+      "slurs": []
+    },
+    {
+      "number": 45,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 13,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c45",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component45",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-13",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "du",
+      "slurs": []
+    },
+    {
+      "number": 46,
+      "kind": "note",
+      "system": 2,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 14,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c46",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component46",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-14",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "li",
+      "slurs": []
+    },
+    {
+      "number": 47,
+      "kind": "note",
+      "system": 2,
+      "head": "C4",
+      "writtenCode": "s",
+      "wordOrdinal": 15,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c47",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component47",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-15",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "wĕ",
+      "slurs": []
+    },
+    {
+      "number": 48,
+      "kind": "note",
+      "system": 2,
+      "head": "C4",
+      "writtenCode": "s",
+      "wordOrdinal": 15,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c48",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component48",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 60,
+      "rhythm": {
+        "type": "16th",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.25,
+      "candidateWordId": "gen-24-49-15",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "ef",
+      "slurs": []
+    },
+    {
+      "number": 49,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "q",
+      "wordOrdinal": 15,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c49",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component49",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-15",
+      "sourcePrintedGroupIndex": 3,
+      "sourcePrintedLyric": "ne",
+      "slurs": []
+    },
+    {
+      "number": 50,
+      "kind": "note",
+      "system": 2,
+      "head": "E4",
+      "writtenCode": "e",
+      "wordOrdinal": 16,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c50",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component50",
+      "sourcePitch": {
+        "step": "E",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 64,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-16",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "‘al",
+      "slurs": []
+    },
+    {
+      "number": 51,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "e",
+      "wordOrdinal": 17,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c51",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component51",
+      "sourcePitch": {
+        "step": "F",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 65,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-17",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "jĕ",
+      "slurs": []
+    },
+    {
+      "number": 52,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 17,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c52",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component52",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-17",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "min",
+      "slurs": []
+    },
+    {
+      "number": 53,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 18,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c53",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component53",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "quarter",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 1,
+      "candidateWordId": "gen-24-49-18",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "ô",
+      "slurs": []
+    },
+    {
+      "number": 54,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "e",
+      "wordOrdinal": 19,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c54",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component54",
+      "sourcePitch": {
+        "step": "G",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 67,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-19",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "‘al",
+      "slurs": []
+    },
+    {
+      "number": 55,
+      "kind": "note",
+      "system": 2,
+      "head": "C5",
+      "writtenCode": "e",
+      "wordOrdinal": 20,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c55",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component55",
+      "sourcePitch": {
+        "step": "C",
+        "alter": 0,
+        "octave": 5
+      },
+      "midi": 72,
+      "rhythm": {
+        "type": "eighth",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 0.5,
+      "candidateWordId": "gen-24-49-20",
+      "sourcePrintedGroupIndex": 1,
+      "sourcePrintedLyric": "sĕ",
+      "slurs": []
+    },
+    {
+      "number": 56,
+      "kind": "note",
+      "system": 2,
+      "head": "A4",
+      "writtenCode": "h",
+      "wordOrdinal": 20,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null,
+      "id": "idelsohnGen24-c56",
+      "sourceBar": 1,
+      "sourceLocation": "Idelsohn1929 printed103/PDF106,Gen24:49,system2,component56",
+      "sourcePitch": {
+        "step": "A",
+        "alter": 0,
+        "octave": 4
+      },
+      "midi": 69,
+      "rhythm": {
+        "type": "half",
+        "dots": 0,
+        "actual": 1,
+        "normal": 1
+      },
+      "quarterBeats": 2,
+      "candidateWordId": "gen-24-49-20",
+      "sourcePrintedGroupIndex": 2,
+      "sourcePrintedLyric": "môl",
+      "slurs": []
+    }
+  ],
+  "tuplets": [
+    {
+      "id": "triplet-1",
+      "members": [
+        28,
+        29,
+        30
+      ],
+      "actual": 3,
+      "normal": 2
+    }
+  ],
+  "slurs": [
+    {
+      "id": "slur-1",
+      "members": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-2",
+      "members": [
+        15,
+        16
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-3",
+      "members": [
+        26,
+        27
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-4",
+      "members": [
+        35,
+        36
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-5",
+      "members": [
+        40,
+        41,
+        42
+      ],
+      "placement": "below"
+    }
+  ],
+  "sourceSystemCounts": [
+    30,
+    26
+  ],
+  "evidenceStatus": "Literal source draft. Independent transcription, small-note role, Latin glyph, word/phonetic fitting and cantorial review pending.",
+  "counts": {
+    "notes": 56,
+    "measuredNotes": 55,
+    "unmeasuredSmallEighths": 1,
+    "rests": 0,
+    "words": 20,
+    "printedGroupIndices": 38,
+    "systems": 2,
+    "tuplets": 1,
+    "slurs": 5,
+    "measuredQuarterBeats": 30.5,
+    "firstSystemMeasuredQuarterBeats": 14,
+    "secondSystemMeasuredQuarterBeats": 16.5,
+    "measuredRemainderNotes": 46,
+    "measuredRemainderQuarterBeats": 26
+  },
+  "inputs": [
+    {
+      "path": "data/notation/idelsohn-gen24-transcription.json",
+      "sha256": "45439765b522f0c42d0fecfc4d62488902aff2905f8c9c0a7ada01336504076e"
+    },
+    {
+      "path": "scripts/import-idelsohn-gen24.mjs",
+      "sha256": "808364f4c2f76e3fcc728412195f359db6f78889ca7ad236bbdc8087a702c904"
+    },
+    {
+      "path": "idelsohn-gen24-score.js",
+      "sha256": "e712b1944e53805d053ca86e28ac1ada5e56fa35fee3089b23317b9cfb4ac4e3"
+    },
+    {
+      "path": "source-gen24-performance.js",
+      "sha256": "fee0ff86c7ce5546036b98be8e867cc2241928bb472dd9055e01f3134684c87e"
+    },
+    {
+      "path": "score-data.js",
+      "sha256": "8b94f1c4e094652e7b4d91cac37d95699a93e7d7a3c35c54ae13094e172a1386"
+    },
+    {
+      "path": "staff.js",
+      "sha256": "7986d46b7544b618c48ba7a01f16b5a61e702140c4147463958c4ef5321ba2e4"
+    },
+    {
+      "path": "music-exports.js",
+      "sha256": "23ebf32f654483ea0f2c4fe6741a77007e56565812efac438147efd83fb2e52f"
+    },
+    {
+      "path": "index.html",
+      "sha256": "6878b98ff9f8b3a1ecbc9d5137bdec40d8ce836297ed1d41caf700573c32eb93"
+    },
+    {
+      "path": "printed-score-registry.js",
+      "sha256": "b691bdfc4adb249902502278d7d9cb20b132cdc9e1086c172b90a813f6fd1eb8"
+    },
+    {
+      "path": "assets/scores/idelsohn-gen24-NOTICE.txt",
+      "sha256": "bd07bee4081b7723d15ac305ef8be5ffefd012eb9c850004a98feb89451d2dcb"
+    },
+    {
+      "path": "data/torah/gen.json",
+      "sha256": "86eb265491f8a70c031f8ffc888cf2c539f29ad64c5b66e7d8cba5c3e3b1eaba"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-gen24-49-p103.webp",
+      "sha256": "91b89f59f9114f35295e587862bb437aff944e24da08455ea27acdc8619254c9"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+Idelsohn: unnumbered Genesis24:49 example, printed103 / PDF106
+
+Abraham Z.Idelsohn, Hebräisch-orientalischer Melodienschatz, volumeV,
+Gesänge der marokkanischen Juden, Benjamin Harz,1929. IMSLP317924
+catalogue identifies this print as Public Domain. New transcription/code:CC0-1.0.
+https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)
+
+The faithful1206x280crop is a lossless WebP encoding of the unchanged RGB
+Poppler render (PDF106,240dpi,x72,y100,W1206,H280). All pixels compared
+to PNG; no glyph repair. The caption and both complete systems are retained.
+
+This unnumbered example is separate from Genesis25:19–20 on the preceding
+page and from the Neviim heading/No271 below. Nearby Gibraltar attribution
+for Nos269/270 supplies documentary context; independent attribution of
+this unnumbered example, a complete melody grammar or a Kinnor preset
+is not claimed.
+
+56printed-note candidates/20unchanged marked UXLC words/38visual Latin
+group indices.55measured notes total30.5quarterbeats. One small A4 eighth
+has no assigned source duration or ornament role. It stays outside the
+measured clock. Optional80ms is original project instrument timing added
+between unchanged measured notes; no historical stealing ratio is inferred.
+MusicXML small-note/grace encoding represents the printed glyph, not an
+approved historical ornament function. The source-role field remains null.
+
+Original Latin glyphs remain authoritative in the facsimile. Index readings,
+diacritics, exact word ownership, Hebrew/MAM syllable/phoneme fitting,
+actual historical intonation/phrasing and musical/linguistic review are
+unassigned. No singing voice, sound-specific pronunciation or complete
+tradition is realized. Reader pronunciation text/range/key/tempo remain
+independent. A qualified source/Latin/small-note review plus a reusable
+sung Genesis24:49 recording with corresponding alignment would allow
+replacing these explicit unknowns.

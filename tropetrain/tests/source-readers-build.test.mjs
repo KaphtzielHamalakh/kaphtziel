@@ -5,5 +5,5 @@ test('both finished distributions expose actual source recordings with exact por
  assert.deepEqual(portableProgramBytes(physical).bytes,read('app.bundle.js'));
  for(const html of[normal,portable]){assert(html.includes('v'+version));for(const id of['nombody-chukat-open','source-reader-finder','source-reader-book','source-reader-portion','source-reader-reading','source-reader-open','voice-study-recordings','voice-study-source-conflict'])assert(html.includes('id="'+id+'"'));assert(html.includes('Available recorded combinations'));assert(html.includes('exact verse coverage, pronunciation claims and melody realizations await review'));}
  for(const [path,mime]of[['docs/SOURCE-READERS.json','application/json'],['assets/voice-studies/source-readers-sources.zip','application/zip'],['assets/voice-studies/source-readers-NOTICE.txt','text/plain']]){assert(normal.includes('href="./'+path+'"'));assert(portable.includes('data:'+mime+';base64,'+read(path).toString('base64')));assert(read('sw.js').toString().includes('./'+path));}
- assert(read('sw.js').toString().includes('tropetrain-v111-idelsohn-no270-quarter-tones'));assert(portableFileBytes(physical)<100*1024*1024);
+ assert(read('sw.js').toString().includes('tropetrain-v112-idelsohn-gen24-word-study'));assert(portableFileBytes(physical)<100*1024*1024);
 });

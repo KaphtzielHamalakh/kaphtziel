@@ -344,7 +344,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "471fb6f38cd39099471c2b43c7fec667682d3c3d8956d682399d21774aeb54e6"
+      "sha256": "e78f54b6655473d800d4bea2854ad057ed4f56edf4453b64d00cab3b2d97a6db"
     },
     {
       "path": "printed-score-data.js",
@@ -356,7 +356,7 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "250e6cc8ea4a8f9bef8290e80943dcbd0b59e199b04bf4bf87126b173819e5b9"
+      "sha256": "b691bdfc4adb249902502278d7d9cb20b132cdc9e1086c172b90a813f6fd1eb8"
     },
     {
       "path": "baer-high-holiday-data.js",

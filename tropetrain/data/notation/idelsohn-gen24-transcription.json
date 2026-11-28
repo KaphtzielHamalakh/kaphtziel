@@ -1,0 +1,974 @@
+{
+  "format": "tropetrain-idelsohn-gen24-transcription-v1",
+  "revision": 1,
+  "id": "idelsohn-1929-vol5-gen24-49-p103",
+  "title": "Genesis24:49 · Idelsohn1929 printed103 · unnumbered word candidates",
+  "review": null,
+  "acceptedSyllableMapping": null,
+  "phonemes": null,
+  "singingVoice": null,
+  "completeTraditionGrammar": null,
+  "kinnorPreset": null,
+  "source": {
+    "author": "Abraham Z.Idelsohn",
+    "title": "Hebräisch-orientalischer Melodienschatz, BandV: Gesänge der marokkanischen Juden",
+    "publication": "Benjamin Harz, Berlin–Vienna,1929",
+    "item": null,
+    "printedPage": 103,
+    "pdfPage": 106,
+    "passageCaption": "Gen.XXIV49",
+    "sourceLocalityLabel": null,
+    "localityEvidence": "Unnumbered Torah example immediately above the Neviim heading and No271. Nearby No269/270 Gibraltar attribution is documentary context, not independent attribution or qualified review of this unnumbered example.",
+    "performer": null,
+    "recording": null,
+    "url": "https://imslp.org/wiki/Thesaurus_of_Oriental_Hebrew_Melodies_(Idelsohn,_Abraham_Zevi)",
+    "pdfUrl": "https://s9.imslp.org/files/imglnks/usimg/d/d4/IMSLP317924-PMLP507681-Ges%C3%A4nge_der_marokkanischen_Juden.pdf",
+    "pdfBytes": 45429508,
+    "pdfSha256": "0ab0c051dc4d5c6f2e61a20edf254c492fb2abd0045c6fcb8edd727e107789df",
+    "originalRights": "IMSLP317924 catalogue PublicDomain, rechecked2026-11-28",
+    "newTranscriptionRights": "CC0-1.0",
+    "key": {
+      "clef": "treble",
+      "fifths": -1,
+      "alterations": {
+        "B": -1
+      }
+    },
+    "image": "assets/scores/idelsohn-1929-gen24-49-p103.webp",
+    "imageBytes": 92680,
+    "imageSha256": "91b89f59f9114f35295e587862bb437aff944e24da08455ea27acdc8619254c9",
+    "imageDimensions": [
+      1206,
+      280
+    ],
+    "render": {
+      "renderer": "Poppler pdftoppm",
+      "pdfPage": 106,
+      "dpi": 240,
+      "x": 72,
+      "y": 100,
+      "width": 1206,
+      "height": 280,
+      "encoding": "Lossless WebP from unchanged RGB render; all pixels compared to PNG",
+      "glyphRepair": false
+    },
+    "previousNumber": 270,
+    "nextNumber": 271,
+    "separatePreviousPageExample": "Genesis25:19–20,printed102/PDF105; not included in this separate profile",
+    "nextSectionExcluded": "Neviim (Prophets), No271 and following"
+  },
+  "pitchReading": {
+    "actualHistoricalTuning": null,
+    "modernInstrumentTuning": "12-TET nominal written pitches, not historical intonation approval",
+    "quarterToneMarks": 0,
+    "review": null
+  },
+  "rhythmReading": {
+    "quarterNoteTempo": null,
+    "sourceMeter": null,
+    "expressiveTiming": null,
+    "literalValuesRegularizedForInstrument": true,
+    "rests": 0,
+    "printedSmallNotes": 1,
+    "smallNoteSourceRole": null,
+    "smallNoteSourceDuration": null,
+    "noExtraPauseAtSystemBreak": true
+  },
+  "printedSourceSignShapes": {
+    "status": "Facsimile authoritative; no added durations or articulation inferred from separately printed sign shapes",
+    "canonicalHebrewMarksPreserved": true
+  },
+  "bookId": "gen",
+  "start": {
+    "chapter": 24,
+    "verse": 49
+  },
+  "end": {
+    "chapter": 24,
+    "verse": 49
+  },
+  "words": [
+    {
+      "id": "gen-24-49-1",
+      "sourceHebrew": "וְ֠עַתָּה",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "‘at",
+        "ta"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-2",
+      "sourceHebrew": "אִם־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "im"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-3",
+      "sourceHebrew": "יֶשְׁכֶ֨ם",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "jes",
+        "ḵem"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-4",
+      "sourceHebrew": "עֹשִׂ֜ים",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘ô",
+        "sim"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-5",
+      "sourceHebrew": "חֶ֧סֶד",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "ḥe",
+        "sed"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-6",
+      "sourceHebrew": "וֽ͏ֶאֱמֶ֛ת",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "ĕ",
+        "met"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-7",
+      "sourceHebrew": "אֶת־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "et"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-8",
+      "sourceHebrew": "אֲדֹנִ֖י",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘ă",
+        "dô",
+        "ni"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-9",
+      "sourceHebrew": "הַגִּ֣ידוּ",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "hag",
+        "gi",
+        "du"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-10",
+      "sourceHebrew": "לִ֑י",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "li"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-11",
+      "sourceHebrew": "וְאִם־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "im"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-12",
+      "sourceHebrew": "לֹ֕א",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "lô"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-13",
+      "sourceHebrew": "הַגִּ֣ידוּ",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "hag",
+        "gi",
+        "du"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-14",
+      "sourceHebrew": "לִ֔י",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "li"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-15",
+      "sourceHebrew": "וְאֶפְנֶ֥ה",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "wĕ",
+        "ef",
+        "ne"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-16",
+      "sourceHebrew": "עַל־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘al"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-17",
+      "sourceHebrew": "יָמִ֖ין",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "jĕ",
+        "min"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-18",
+      "sourceHebrew": "א֥וֹ",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "ô"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-19",
+      "sourceHebrew": "עַל־",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "‘al"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    },
+    {
+      "id": "gen-24-49-20",
+      "sourceHebrew": "שְׂמֹֽאל׃",
+      "reference": "Genesis24:49",
+      "printedUnits": [
+        "sĕ",
+        "môl"
+      ],
+      "printedUnitReading": "Unreviewed visual Latin group-index reading; phonetic/diacritic Unicode interpretation is not accepted; original glyphs authoritative in facsimile",
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "independentReview": null
+    }
+  ],
+  "components": [
+    {
+      "number": 1,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 2,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 3,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "ed",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 4,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 5,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 6,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 7,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 8,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "small-e",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 9,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 10,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "q",
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 11,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 2,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 12,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 3,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 13,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "ed",
+      "wordOrdinal": 3,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 14,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "s",
+      "wordOrdinal": 4,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 15,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 4,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 16,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 4,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 17,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 18,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 19,
+      "kind": "note",
+      "system": 1,
+      "head": "D5",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 20,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "e",
+      "wordOrdinal": 5,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 21,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 22,
+      "kind": "note",
+      "system": 1,
+      "head": "C5",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 23,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "ed",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 24,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 25,
+      "kind": "note",
+      "system": 1,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 26,
+      "kind": "note",
+      "system": 1,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 27,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 6,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 28,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e3",
+      "wordOrdinal": 7,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 29,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e3",
+      "wordOrdinal": 8,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 30,
+      "kind": "note",
+      "system": 1,
+      "head": "A4",
+      "writtenCode": "e3",
+      "wordOrdinal": 8,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 31,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "ed",
+      "wordOrdinal": 8,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 32,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 9,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 33,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "e",
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 34,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "e",
+      "wordOrdinal": 9,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 35,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 10,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 36,
+      "kind": "note",
+      "system": 2,
+      "head": "C4",
+      "writtenCode": "e",
+      "wordOrdinal": 10,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 37,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 11,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 38,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 11,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 39,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "ed",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 40,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "s",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 41,
+      "kind": "note",
+      "system": 2,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 42,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "ed",
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 43,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 13,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 44,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "ed",
+      "wordOrdinal": 13,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 45,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "s",
+      "wordOrdinal": 13,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 46,
+      "kind": "note",
+      "system": 2,
+      "head": "A4",
+      "writtenCode": "q",
+      "wordOrdinal": 14,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 47,
+      "kind": "note",
+      "system": 2,
+      "head": "C4",
+      "writtenCode": "s",
+      "wordOrdinal": 15,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 48,
+      "kind": "note",
+      "system": 2,
+      "head": "C4",
+      "writtenCode": "s",
+      "wordOrdinal": 15,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 49,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "q",
+      "wordOrdinal": 15,
+      "printedUnitIndex": 3,
+      "writtenAccidental": null
+    },
+    {
+      "number": 50,
+      "kind": "note",
+      "system": 2,
+      "head": "E4",
+      "writtenCode": "e",
+      "wordOrdinal": 16,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 51,
+      "kind": "note",
+      "system": 2,
+      "head": "F4",
+      "writtenCode": "e",
+      "wordOrdinal": 17,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 52,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 17,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    },
+    {
+      "number": 53,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "q",
+      "wordOrdinal": 18,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 54,
+      "kind": "note",
+      "system": 2,
+      "head": "G4",
+      "writtenCode": "e",
+      "wordOrdinal": 19,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 55,
+      "kind": "note",
+      "system": 2,
+      "head": "C5",
+      "writtenCode": "e",
+      "wordOrdinal": 20,
+      "printedUnitIndex": 1,
+      "writtenAccidental": null
+    },
+    {
+      "number": 56,
+      "kind": "note",
+      "system": 2,
+      "head": "A4",
+      "writtenCode": "h",
+      "wordOrdinal": 20,
+      "printedUnitIndex": 2,
+      "writtenAccidental": null
+    }
+  ],
+  "tuplets": [
+    {
+      "id": "triplet-1",
+      "members": [
+        28,
+        29,
+        30
+      ],
+      "actual": 3,
+      "normal": 2
+    }
+  ],
+  "slurs": [
+    {
+      "id": "slur-1",
+      "members": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-2",
+      "members": [
+        15,
+        16
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-3",
+      "members": [
+        26,
+        27
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-4",
+      "members": [
+        35,
+        36
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-5",
+      "members": [
+        40,
+        41,
+        42
+      ],
+      "placement": "below"
+    }
+  ],
+  "sourceSystemCounts": [
+    30,
+    26
+  ],
+  "evidenceStatus": "Literal source draft. Independent transcription, small-note role, Latin glyph, word/phonetic fitting and cantorial review pending."
+}
