@@ -1,0 +1,5 @@
+Build-only gzip compression: @gfx/zopfli1.0.15, Copyright2017FUJI Goro (gfx), and statically linked GoogleZopfli, ApacheLicense2.0.
+Primary wrapper: https://github.com/gfx/universal-zopfli-js
+Primary compressor: https://github.com/google/zopfli
+Exact npm package integrity is pinned in package-lock.json. The encoder is a development dependency. No new compression decoder, wasm, singing voice or phonetic rule is delivered to the browser. Browser gzip streams recover exact original program/corpus/evidence bytes, checked independently.
+The generated compressed data does not replace, normalize or omit source text, source images, null results, rights notices or historical revisions. Runtime transport formats and bounds remain unchanged.

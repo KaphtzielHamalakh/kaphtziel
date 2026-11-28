@@ -1868,7 +1868,7 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "a89774bb5082d1da5f8d03adc73d14d3d27e70946cfdd4662f8bd346c5f70a03"
+      "sha256": "aa1c05243754c58e028b649ad51937b09ceb23980023c84a073f4bf56b4a638a"
     },
     {
       "path": "score-data.js",
@@ -1876,11 +1876,11 @@
     },
     {
       "path": "staff.js",
-      "sha256": "194461528e9798025780d2011c696be27f2c08c0f663a995a9e6e20047544d31"
+      "sha256": "fdc7d43da52accd221b607438a851ee91f4c588c80cc3a4ae1301a0632ce867e"
     },
     {
       "path": "music-exports.js",
-      "sha256": "96f4d03cfb51325bed51a460d69d1fe5898b4c0916337b61b79f45862cf87316"
+      "sha256": "3e91e9e3c5dd990250c4eaa762d7ca46026f1997d40a11eb5e79c0219f635968"
     },
     {
       "path": "source-grace.js",

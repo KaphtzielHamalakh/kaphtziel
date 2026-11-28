@@ -2,13 +2,14 @@ import {build} from 'esbuild';
 import {readFile,writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
-import {gzipSync} from 'node:zlib';
+import {compressBuildGzip} from './compress-build-gzip.mjs';
+import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {shareEmbeddedImages} from './share-embedded-images.mjs';
 import {shareProgramImages} from './share-program-images.mjs';
 import {writePortableArtifact} from './write-portable.mjs';
 import {packPortableProgram} from './pack-portable-program.mjs';
-import {packPortableEvidence} from './pack-portable-evidence.mjs';
+import {packPortableEvidenceWithCompression} from './pack-portable-evidence.mjs';
 import {auditPortableEvidence} from './audit-portable-evidence.mjs';
 import {auditPortableProgramImages} from './audit-portable-program-images.mjs';
 import './import-printed-score.mjs';
@@ -22,6 +23,7 @@ import './import-baer-patterns.mjs';
 import './import-baer-second-patterns.mjs';
 import './import-baer-third-patterns.mjs';
 import './import-baer-no111.mjs';
+import './import-baer-no46.mjs';
 import './import-sephardic-patterns.mjs';
 import './import-idelsohn-patterns.mjs';
 import './audit-pattern-small-eighth.mjs';
@@ -109,10 +111,12 @@ const license=await readFile(path.join(root,'node_modules/havarotjs/LICENSE'),'u
 const manifest=JSON.parse(await readFile(path.join(root,'data/torah/manifest.json'),'utf8'));
 const books=await Promise.all(manifest.books.map(b=>readFile(path.join(root,'data/torah',b.file),'utf8').then(JSON.parse)));
 const corpus=JSON.stringify({manifest,books});
-const encoded=gzipSync(corpus,{level:9}).toString('base64');
+const corpusCompression=await compressBuildGzip(corpus);
+const encoded=corpusCompression.gzip.toString('base64');
 const repertoireManifest=JSON.parse(await readFile(path.join(root,'data/repertoire/manifest.json'),'utf8'));
 const repertoireBooks=await Promise.all(repertoireManifest.books.map(b=>readFile(path.join(root,'data/repertoire',b.file),'utf8').then(JSON.parse)));
-const repertoireEncoded=gzipSync(JSON.stringify({manifest:repertoireManifest,books:repertoireBooks}),{level:9}).toString('base64');
+const repertoireCompression=await compressBuildGzip(JSON.stringify({manifest:repertoireManifest,books:repertoireBooks}));
+const repertoireEncoded=repertoireCompression.gzip.toString('base64');
 const underlayEncoded=(await readFile(path.join(root,'data/pronunciation/torah-underlay.json.gz'))).toString('base64');
 const segmentsEncoded=(await readFile(path.join(root,'data/pronunciation/torah-segments.json.gz'))).toString('base64');
 const pronunciationRepertoireSummary=JSON.parse((await readFile(path.join(root,'pronunciation-repertoire-summary.js'),'utf8')).split('export const PRONUNCIATION_REPERTOIRE_SUMMARY=')[1].trim().replace(/;$/,''));
@@ -198,7 +202,8 @@ await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife'
 }]});
 const html=await readFile(path.join(root,'index.html'),'utf8');
 const script=await readFile(path.join(root,'app.bundle.js'),'utf8');
-const portableProgram=packPortableProgram(script);
+const programCompression=await compressBuildGzip(script);
+const portableProgram=packPortableProgram(script,{compressedGzip:programCompression.gzip});
 const font=await readFile(path.join(root,'assets/NotoSerifHebrew.ttf'));
 await writeFile(path.join(root,'assets/havarotjs-LICENSE.txt'),license);
 const fontLicense=await readFile(path.join(root,'assets/OFL.txt'),'utf8');
@@ -321,6 +326,7 @@ let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${versio
 for(const scan of highHolidayScans)standalone=standalone.replaceAll(`src="./${scan.file}"`,()=>`src="data:image/png;base64,${scan.raw.toString('base64')}"`);
 standalone=standalone.replaceAll('href="./docs/BAER-HIGH-HOLIDAY-SCORE.json"',()=>`href="data:application/json;base64,${Buffer.from(highHolidayEvidence).toString('base64')}"`);
 for(const [relative,mime] of [
+ ['docs/BAER-NO46-WORD-CANDIDATES.json','application/json'],['assets/scores/baer-no46-NOTICE.txt','text/plain'],['assets/scores/baer-1894-no46-deu11-21.webp','image/webp'],
  ['docs/BAER-NO111-WORD-CANDIDATES.json','application/json'],['docs/BAER-NUMBERING-CORRECTION.json','application/json'],['assets/scores/baer-1894-numbering-before-correction.zip','application/zip'],['assets/scores/baer-no111-NOTICE.txt','text/plain'],['assets/scores/baer-1894-no111-torah.webp','image/webp'],
  ['docs/BAER-NO105-THIRD-PATTERNS-R1.json','application/json'],['assets/scores/baer-no105-third-r1-sources.zip','application/zip'],['assets/scores/baer-no105-third-R2-NOTICE.txt','text/plain'],['docs/BAER-NO105-THIRD-PATTERNS.json','application/json'],['assets/scores/baer-no105-third-NOTICE.txt','text/plain'],['docs/BAER-NO105-SECOND-PATTERNS.json','application/json'],['assets/scores/baer-no105-second-NOTICE.txt','text/plain'],['docs/GENESIS-COMPANION-PASSAGES.json','application/json'],['assets/voice-studies/genesis-companion-sources.zip','application/zip'],['assets/voice-studies/genesis-companion-NOTICE.txt','text/plain'],['assets/references/torah-count-studies-sources.zip','application/zip'],['assets/references/torah-count-studies-NOTICE.txt','text/plain'],['docs/TORAH-OBSERVED-CUES.json','application/json'],['assets/references/torah-observed-cues-sources.zip','application/zip'],['assets/references/torah-observed-cues-NOTICE.txt','text/plain'],['docs/TOLDOT-OBSERVED-CUES.json','application/json'],['assets/voice-studies/toldot-observed-cues-sources.zip','application/zip'],['assets/voice-studies/toldot-observed-cues-NOTICE.txt','text/plain'],['docs/CHUKAT-SOURCE-PASSAGES.json','application/json'],['docs/CHUKAT-WORD-SUPPORT.json','application/json'],['assets/voice-studies/chukat-word-sources.zip','application/zip'],['assets/voice-studies/chukat-word-NOTICE.txt','text/plain'],['docs/SOURCE-READERS.json','application/json'],['assets/voice-studies/source-readers-sources.zip','application/zip'],['assets/voice-studies/source-readers-NOTICE.txt','text/plain'],['docs/BAER-NO938-PATTERNS.json','application/json'],['assets/scores/baer-no938-NOTICE.txt','text/plain'],['docs/GENESIS-MELODY-COMPARISON.json','application/json'],['docs/GENESIS-MELODY-WORD-SUPPORT.json','application/json'],['assets/voice-studies/genesis-melody-comparison-sources.zip','application/zip'],['assets/voice-studies/genesis-melody-comparison-NOTICE.txt','text/plain'],['docs/ASAEL-GENESIS-PASSAGES.json','application/json'],['docs/ASAEL-GENESIS-WORD-SUPPORT.json','application/json'],['assets/voice-studies/asael-genesis-passage-sources.zip','application/zip'],['assets/voice-studies/asael-genesis-passages-NOTICE.txt','text/plain'],['docs/IDELSOHN-NO267-SMALL-NOTE-STUDY.json','application/json'],['docs/IDELSOHN-NO266-PLAYBACK.json','application/json'],['docs/IDELSOHN-NO266-GROUPS.json','application/json'],['docs/IDELSOHN-NO266-MAM-PARTITIONS.json','application/json'],['assets/pronunciation/no266-mam-fitting-NOTICE.txt','text/plain'],['assets/pronunciation/printed-mam-fitting-NOTICE.txt','text/plain'],['assets/scores/idelsohn-no268-NOTICE.txt','text/plain'],['docs/IDELSOHN-NO268-SCORE.json','application/json'],['assets/scores/idelsohn-1929-no268.jpg','image/jpeg'],['docs/RECORDING-GROUP-WORD-DRAFT.json','application/json'],['docs/RECORDING-TIMING-GROUPS.json','application/json'],['docs/MODERN-FINAL-CONSONANTS.json','application/json'],['docs/MODERN-FINAL-NOTE-LINKS.json','application/json'],['docs/MODERN-PHONOLOGY.json','application/json'],['docs/MODERN-PHONOLOGY-NOTE-LINKS.json','application/json'],['assets/pronunciation/phonikud-NOTICE.txt','text/plain'],['assets/pronunciation/phonikud-code-reference.zip','application/zip'],['docs/SOURCE-RECALL.json','application/json'],['docs/SOURCE-PHRASES.json','application/json'],['docs/SOURCE-PHRASE-PLAYBACK.json','application/json'],['assets/structure/NOTICE.txt','text/plain'],['docs/COHEN-PENITENTIAL-PLAYBACK.json','application/json'],['docs/COHEN-PENITENTIAL-SCORE.json','application/json'],['assets/scores/cohen-1902-penitential-gen22.png','image/png'],['assets/scores/cohen-1902-page547.jpg','image/jpeg'],['docs/PRONUNCIATION-SPAN-FOLLOW.json','application/json'],['docs/SOURCE-GROUP-TIMING.json','application/json'],['docs/SOURCE-JOINT-PLAYBACK.json','application/json'],['docs/SOURCE-READING-CHOICES.json','application/json'],['docs/SOURCE-READING-PLAYBACK.json','application/json'],['docs/PRONUNCIATION-NOTE-PROPOSALS.json','application/json'],['docs/SOURCE-SYLLABLE-PLAYBACK.json','application/json'],['docs/KHAN-TIBERIAN-GENESIS.json','application/json'],['assets/pronunciation/khan-tiberian-genesis-sources.zip','application/zip'],['docs/ASAEL-VOWEL-ANCHORS.json','application/json'],['assets/voice-studies/asael-vowel-anchor-sources.zip','application/zip'],['docs/ASAEL-PHONETIC-WORDS.json','application/json'],['assets/voice-studies/asael-phonetic-word-sources.zip','application/zip'],['docs/ASAEL-WORD-SUPPORT.json','application/json'],['assets/voice-studies/asael-word-support-sources.zip','application/zip'],['docs/ASAEL-SOURCE-CATALOG.json','application/json'],['assets/voice-studies/asael-catalog-sources.zip','application/zip'],['docs/ASAEL-CORPUS-SOURCE-INDEX.json','application/json'],['docs/ASAEL-PAIRED-CHANT.json','application/json'],['docs/PRONUNCIATION-PHONOLOGY.json','application/json'],['docs/HISTORICAL-PRONUNCIATION-PROFILES.json','application/json'],['docs/PRONUNCIATION-REPERTOIRE-UNDERLAY.json','application/json'],['docs/PRONUNCIATION-REPERTOIRE-UNDERLAY-ALIGNMENT.json','application/json'],['assets/pronunciation/phonetic-mam-repertoire-sources.zip','application/zip'],['docs/PRONUNCIATION-REPERTOIRE-ALIGNMENT.json','application/json'],['docs/HAFTARAH-PRACTICE.json','application/json'],['docs/HAFTARAH-REFERENCE-AUDIT.json','application/json'],['data/references/haftarah-sources.zip','application/zip'],['docs/SYLLABLE-TIMING-DRAFT.json','application/json'],['docs/PRONUNCIATION-IPA-COVERAGE.json','application/json'],['docs/SINGING-SOURCE-RESEARCH.json','application/json'],['docs/SOURCE-DURATION-REVIEW.json','application/json'],['docs/PRONUNCIATION-IPA-PROPOSAL.json','application/json'],['assets/pronunciation/ipa-proposal-sources.zip','application/zip'],['docs/MEASURED-TONES.json','application/json'],['docs/MEASURED-TONE-COVERAGE.json','application/json'],['docs/RECORDED-PITCH-PROCESSING.json','application/json'],['vendor/signalsmith-stretch/NOTICE.txt','text/plain'],['vendor/signalsmith-stretch/LICENSE.txt','text/plain'],['docs/PRONUNCIATION-IMPLICIT-READING.json','application/json'],['assets/pronunciation/implicit-reading-source.zip','application/zip']]){
  const bytes=await readFile(path.join(root,relative)),embedded=`data:${mime};base64,${bytes.toString('base64')}`;standalone=standalone.replaceAll(`href="./${relative}"`,()=>`href="${embedded}"`);
@@ -329,8 +335,12 @@ for(const [relative,mime] of [
 const sharedImages=shareEmbeddedImages(standalone);standalone=sharedImages.html;
 const programImages=shareProgramImages(standalone,script);standalone=programImages.html;
 console.log(`Reused ${sharedImages.count} embedded original-image links, saving ${sharedImages.savedBytes} bytes without changing image data.`);
-const packedEvidence=packPortableEvidence(standalone);standalone=packedEvidence.html;
-await writePortableArtifact(root,standalone);
+let evidenceCompression;
+const packedEvidence=await packPortableEvidenceWithCompression(standalone,async bytes=>{evidenceCompression=await compressBuildGzip(bytes);return evidenceCompression.gzip;});standalone=packedEvidence.html;
+const portableArtifact=await writePortableArtifact(root,standalone);
+const compressionInputs=['scripts/compress-build-gzip.mjs','scripts/pack-portable-program.mjs','scripts/pack-portable-evidence.mjs','scripts/build.mjs','package.json','package-lock.json'];
+const compressionAudit={format:'tropetrain-portable-build-compression-v1',version,library:'@gfx/zopfli@1.0.15',license:'Apache-2.0',browserDecoder:'unchanged gzip; legacy program/evidence envelopes retained',records:{torah:corpusCompression.proof,repertoire:repertoireCompression.proof,program:programCompression.proof,evidence:evidenceCompression.proof},portableHtmlBytes:portableArtifact.bytes,hostLimitBytes:100*1024*1024,physicalHeadroomBytes:100*1024*1024-portableArtifact.bytes,unchangedPhysicalReserveBytes:4*1024*1024,inputs:await Promise.all(compressionInputs.map(async input=>({path:input,sha256:createHash('sha256').update(await readFile(path.join(root,input))).digest('hex')})))};
+await writeFile(path.join(root,'docs/PORTABLE-COMPRESSION-AUDIT.json'),JSON.stringify(compressionAudit,null,2)+'\n');
 await auditPortableProgramImages(root);
 await auditPortableEvidence(root);
 console.log(`Packed ${packedEvidence.count} exact JSON evidence records in ${packedEvidence.links} links, saving ${packedEvidence.savedBytes} bytes without removing any source.`);

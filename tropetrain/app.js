@@ -7,6 +7,7 @@ import {createReadingModel,consonantal,noteName,melodyProfiles} from './music.js
 import {PRINTED_SCORE} from './printed-score.js';
 import {BAER_SCORE} from './baer-score.js';
 import {BAER_NO111_PROFILES} from './baer-no111-score.js';
+import {BAER_NO46_PROFILES} from './baer-no46-score.js';
 import {COHEN_PROPHETICAL} from './cohen-prophetical-score.js';
 import {COHEN_PENITENTIAL} from './cohen-penitential-score.js';
 import {IDELSOHN_SCORE} from './idelsohn-score.js';
@@ -264,6 +265,7 @@ function renderPronunciationFollow(){
   if(report?.status==='source-reading-group'){status.textContent=`${readerSource.name} · shared source syllable ${report.hebrew} · both displayed words together. Individual word ownership, written syllable ranges, sung phones and acoustic timing remain unassigned.`;return;}
   if(report?.status==='source-reading-word'){status.textContent=`${readerSource.name} · source reading ${report.hebrew} · word-level correspondence to the unchanged displayed Hebrew. Source text follows the instrument; written syllable ranges, sung phones and acoustic timing remain unassigned.`;return;}
   if(readerSource?.kind==='phonemic-research'&&report?.status==='exact-written-span'){status.textContent=`${readerSource.name} · ${report.hebrew} · existing exact source-syllable correspondence. Research text follows the instrument; candidate sounds, shared consonants and silences have no assigned acoustic timing or singing voice.`;return;}
+  if(model.profile.literalLatinWordStudy==='baer-no46'){status.textContent='Baer No46 follows unchanged whole-word candidates from its liturgical Deuteronomy11:21 source. Printed Latin units, Hebrew/MAM syllables and phonemes remain separate; no accepted syllable fitting or singing pronunciation is assigned.';return;}
   if(model.profile.wordOnly){status.textContent=error?'Personal fitting unavailable: '+error:model.profile.id===IDELSOHN_NO266.id?'Idelsohn No266 highlights candidate whole-word correspondence only. Its 95 printed groups remain separate from Hebrew/MAM syllables, phonemes and recorded timing. No No268 personal fitting is applied.':'Idelsohn No268 highlights whole-word correspondence candidates. Pronunciation syllables and acoustic timing are unassigned; independent pronunciation text stays in the reader.';return;}
   status.textContent=error?`Pronunciation highlighting unavailable: ${error}`:!activeInstrumentEvent?hint:!report?'Loading source syllable correspondence…':report.status==='exact-written-span'?`${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map(u=>u.text))].join(' / ')} · exact written-span match. Text follows the instrument; no sung syllable is implied.`:`${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
 }
@@ -891,6 +893,14 @@ function render(){
     $('score-help').textContent='Click a note to go to its Hebrew word. '+BAER_SCORE.performanceNote+' Slurs keep distinct attacks; no ties or notes for other verses are inferred.';
     if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah chant keeps its own original melody and pronunciation. The separate Baer instrumental study is not the recording’s melody.';$('score-description').textContent='Instrument score only; no pitches have been transcribed from the recording. '+$('score-description').textContent;}
   }
+  if(model.profile.literalLatinWordStudy==='baer-no46'){
+    $('music-badge').textContent='Instrumental source study · review pending';
+    $('music-notice').textContent=model.profile.description;
+    $('score-description').textContent='The complete No46 liturgical setting links all seventeen unchanged Deuteronomy11:21 words as lexical candidates. Literal Latin units appear separately; Hebrew/MAM syllable and phoneme fitting are unassigned.';
+    $('score-help').textContent='Click a note to select its Hebrew word. '+model.profile.performanceNote+' Both printed paths, source bars, tuplets, rests and overlapping slurs are retained. A question mark flags the unresolved raised stroke; inspect the original. Enable Follow playback to advance score pages automatically.';
+    $('source-syllables-status').textContent='No46 retains forty literal Latin units and seventeen whole-word candidates. These are not a Hebrew syllable segmentation, phoneme allocation or singing voice. Choose pronunciation text independently in the reader.';
+    if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah keeps its own fixed melody and pronunciation. Baer No46 is a separate instrumental liturgical source study.';$('score-description').textContent='Instrument score only; no pitches are transcribed from the recording. '+$('score-description').textContent;}
+  }
   if(model.profile.requiresNo111Grace){
     $('music-notice').textContent=model.profile.description;
     $('score-description').textContent='The selected No111 path links the opening five unchanged Hebrew words to printed note groups. Literal Latin source units appear separately above whole Hebrew words; no Hebrew/MAM syllable or phoneme fitting is asserted.';
@@ -1098,6 +1108,14 @@ $('idelsohn-score-open').addEventListener('click',()=>openIdelsohnScore());
 $('idelsohn-score-all').addEventListener('click',()=>openIdelsohnScore(true));
 function openNo266Score(all=false){libraryAction(()=>{stop('No266 source opened. Original study choices start off.');no266ParentheticalDemo=false;no266SmallEighthDemo=false;state.no266PrintedGroupIndex=1;state.melodyId=IDELSOHN_NO266.id;state.practiceAudio='instrument';applyRanges([{id:'idelsohn-no266',bookId:'exo',start:{chapter:12,verse:21},end:{chapter:12,verse:22},label:'Idelsohn No266 source-word study'}],{readingType:'torah'});state.cursor=0;state.anchor=all===true?words.length-1:all==='verse'?13:5;state.scope='selection';render();$('reader').focus();$('practice').scrollIntoView();});}
 $('no266-score-open').addEventListener('click',()=>openNo266Score());$('no266-score-verse').addEventListener('click',()=>openNo266Score('verse'));$('no266-score-all').addEventListener('click',()=>openNo266Score(true));
+
+function openNo46Score(index){libraryAction(()=>{
+ const profile=BAER_NO46_PROFILES[index];if(!profile)throw Error('Choose a documented No46 path.');
+ stop('No46 source opened. Printed durations use the independent instrument tempo.');state.melodyId=profile.id;state.practiceAudio='instrument';
+ applyRanges([{id:'baer-no46-'+index,bookId:'deu',start:{chapter:11,verse:21},end:{chapter:11,verse:21},label:'BaerNo46 complete liturgical source verse'}],{readingType:'torah'});
+ state.cursor=0;state.anchor=16;state.scope='selection';state.notePage=0;state.staffPage=0;render();$('reader').focus();$('practice').scrollIntoView();
+});}
+for(const [index,id]of ['no46-upper-open','no46-lower-open'].entries())$(id).addEventListener('click',()=>openNo46Score(index));
 
 function openNo111Score(index){libraryAction(()=>{
  const profile=BAER_NO111_PROFILES[index];if(!profile)throw Error('Choose a documented No111 path.');const gen=index<2,chapter=gen?2:13,verse=gen?3:21;
@@ -1333,7 +1351,7 @@ getRepertoireCorpus().then(value=>{
   $('source-study-open').disabled=false;
   $('baer-study-open').disabled=false;$('idelsohn-score-open').disabled=false;$('idelsohn-score-all').disabled=false;$('no266-score-open').disabled=false;$('no266-score-verse').disabled=false;$('no266-score-all').disabled=false;
   $('baer-high-holiday-open').disabled=false;
-  for(const id of ['no111-gen-upper-open','no111-gen-lower-open','no111-exo-open'])$(id).disabled=false;
+  for(const id of ['no46-upper-open','no46-lower-open','no111-gen-upper-open','no111-gen-lower-open','no111-exo-open'])$(id).disabled=false;
   $('implicit-reading-open').disabled=false;
   $('khan-pronunciation-open').disabled=false;
   $('prophetical-study-open').disabled=false;

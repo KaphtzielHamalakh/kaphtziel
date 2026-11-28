@@ -1,0 +1,9 @@
+Abraham Baer, Baal t’fillah, third expanded edition [1894], No46, printed11/PDF56. Complete Deuteronomy11:21 text in Shema liturgical context. Bibliographic source: https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537 . Full source: https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853595/full/full/0/default.jpg . Institutional public-domain digitization policy: https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy .
+
+No46 has a literal FOUR-sharp signature. Two printed paths are alternatives under the source prefaceIX convention, not harmony or two new named traditions. No111’s footnote refers to No46 as a possible third way; this does not supply a complete ordinary Torah grammar.
+
+The complete lossless WebP is an unretouched grayscale crop of the pinned institutional3000px page; exact source/native hashes, crop coordinates, all note/stem/rest/tuplet/slur components and literal Latin units are in docs/BAER-NO46-WORD-CANDIDATES.json. New manual transcription, word-candidate data and code: CC0-1.0. Original source image/notation: public-domain nineteenth-century print/institutional public-domain digitization.
+
+All17UXLC words, accents and IDs stay intact. Whole-word lexical candidates are distinct from Hebrew syllables, MAM units, phonemes, acoustic boundaries or accepted historical pronunciation. Musical/linguistic review, historical tuning/tempo, final-rest fermata hold and a raised-stroke interpretation remain unassigned. Modern12TET/quarter-note BPM/instrument articulation are approximations. No singing voice or ordinary Hebrew speech is substituted.
+
+To replace the draft: provide a reusable score/performance and named qualified review of each pitch, rhythm, alternate stem path, stress/syllable/melisma/word correspondence, rests, final fermata and raised stroke. Retain reviewer/date, disagreements and source edition; neither a Kinnor menu label nor this source’s cross-reference establishes a verified musical system.

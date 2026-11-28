@@ -3417,7 +3417,7 @@
     },
     {
       "path": "baer-no46-score.js",
-      "sha256": "f1f6696271c590c16f11bcc011b3d4fc61e156e877b8f294b247abd7d332cfff"
+      "sha256": "b501cbaf94b37d155843e88f264addc8a6ba15d43c476898df2f299e8510304d"
     },
     {
       "path": "printed-score-registry.js",
@@ -3425,11 +3425,11 @@
     },
     {
       "path": "music-exports.js",
-      "sha256": "8e6307e4dc32cb129e6b282593f5f1146354e71e2e64b533db202dbccd9d2a5b"
+      "sha256": "3e91e9e3c5dd990250c4eaa762d7ca46026f1997d40a11eb5e79c0219f635968"
     },
     {
       "path": "staff.js",
-      "sha256": "6811e18fdf178729154fac3174c3d99cde138c32d67d685e1c868143ccff73bc"
+      "sha256": "fdc7d43da52accd221b607438a851ee91f4c588c80cc3a4ae1301a0632ce867e"
     },
     {
       "path": "data/torah/deu.json",

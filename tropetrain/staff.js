@@ -57,7 +57,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
     svg+=`<text class="staff-pitch" x="${e.x}" y="165">${x(eventPitchName(e))}</text>`;
     if(e.sourcePrintedLyric!==undefined){
       const previous=notes.find(n=>n.index===e.index-1),start=!previous||previous.sourcePrintedSyllableId!==e.sourcePrintedSyllableId;
-      if(start)svg+=`<text class="staff-source-latin" x="${e.x}" y="181" font-size="11" text-anchor="middle" lang="und-Latn" direction="ltr" data-source-printed-unit="${x(e.sourcePrintedSyllableId)}"><title>Literal Latin source unit; Hebrew syllable and phoneme fitting unassigned</title>${x(e.sourcePrintedLyric)}</text>`;
+      if(start)svg+=`<text class="staff-source-latin" x="${e.x}" y="181" font-size="11" text-anchor="middle" lang="und-Latn" direction="ltr"${e.sourcePrintedFormatting?.underline?' text-decoration="underline"':''} data-source-printed-unit="${x(e.sourcePrintedSyllableId)}"><title>Literal Latin source unit; Hebrew syllable and phoneme fitting unassigned</title>${x(e.sourcePrintedLyric)}</text>`;
       else svg+=`<line class="melisma-line source-latin-extension" x1="${e.x-e.width/2+5}" x2="${e.x+e.width/2-5}" y1="186" y2="186"/>`;
     }
     if(!untexted&&(!e.continuation||e.continuedFromPrevious))svg+=`<text class="staff-lyric" x="${e.x}" y="${lyricY}" lang="he" xml:lang="he" direction="rtl" unicode-bidi="plaintext">${x(e.lyricText??e.syllable)}</text>`;

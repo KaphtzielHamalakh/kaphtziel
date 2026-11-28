@@ -2,13 +2,14 @@
   "name": "tropetrain",
   "private": true,
   "type": "module",
-  "version": "0.108.0",
+  "version": "0.109.0",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
     "check": "npm run build && npm test"
   },
   "devDependencies": {
+    "@gfx/zopfli": "1.0.15",
     "esbuild": "0.28.2",
     "web-audio-engine": "0.13.4"
   },

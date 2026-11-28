@@ -22,6 +22,7 @@ function identity(notes,context){
       ...(e.sourcePrintedLyric!==undefined?{sourceStudy:e.sourceStudy,sourceVariant:e.sourceVariant,sourcePrintedLyric:e.sourcePrintedLyric,sourcePrintedUnitCount:e.sourcePrintedUnitCount,sourcePage:e.sourcePage,sourcePdfPage:e.sourcePdfPage,...(e.sourceNo111Grace?{sourceNo111Grace:e.sourceNo111Grace,performanceTiming:e.performanceTiming}:{})}:{}),
       ...(e.sourceSlurPlacement?{sourceSlurPlacement:e.sourceSlurPlacement}:{}),
       ...(e.sourceSlurs?{sourceSlurs:e.sourceSlurs}:{}),
+      ...(e.sourcePrintedFormatting?{sourcePrintedFormatting:e.sourcePrintedFormatting}:{}),
       ...(e.sourceUnresolvedMarks&&!e.sourceSmallNote?{sourceUnresolvedMarks:e.sourceUnresolvedMarks}:{}),
       ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
 }
@@ -86,7 +87,7 @@ export function musicXml(plan,words,context){
     if(e.sourcePrintedLyric!==undefined){
       const prev=notes[index-1],next=notes[index+1],continued=prev?.sourcePrintedSyllableId===e.sourcePrintedSyllableId,extendsNext=next?.sourcePrintedSyllableId===e.sourcePrintedSyllableId,phase=extendsNext?(continued?'continue':'start'):continued?'stop':null;
       const syllabic=e.sourcePrintedUnitCount===1?'single':e.sourcePrintedSyllableIndex===1?'begin':e.sourcePrintedSyllableIndex===e.sourcePrintedUnitCount?'end':'middle';
-      xml+=`<lyric number="2" name="literal-printed-Latin-unit">${continued?'':`<syllabic>${syllabic}</syllabic><text xml:lang="und-Latn" dir="ltr">${x(e.sourcePrintedLyric)}</text>`}${phase?`<extend type="${phase}"/>`:''}</lyric>`;
+      xml+=`<lyric number="2" name="literal-printed-Latin-unit">${continued?'':`<syllabic>${syllabic}</syllabic><text xml:lang="und-Latn" dir="ltr"${e.sourcePrintedFormatting?.underline?' underline="1"':''}>${x(e.sourcePrintedLyric)}</text>`}${phase?`<extend type="${phase}"/>`:''}</lyric>`;
     }
     xml+='</note>';
     beat=e.startBeat+e.beats;
