@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "app.bundle.js",
-      "sha256": "113bfc68c16d35355184b7e19910a1a4a00b0b0c5f123a247ce1ccce6427dc32"
+      "sha256": "a6e33c5bae2c0e33136f00ebe0c90dd7c3f8feaf0fafa9f5b51842041c1cc689"
     },
     {
       "path": "assets/scores/cohen-1902-munah-revia.png",
@@ -94,8 +94,8 @@
   ],
   "imageCount": 3,
   "completeSourceImagesRetained": true,
-  "normalProgramBytes": 47316968,
-  "normalProgramSha256": "113bfc68c16d35355184b7e19910a1a4a00b0b0c5f123a247ce1ccce6427dc32",
+  "normalProgramBytes": 47317155,
+  "normalProgramSha256": "a6e33c5bae2c0e33136f00ebe0c90dd7c3f8feaf0fafa9f5b51842041c1cc689",
   "avoidedDuplicateDataUriBytes": 1116047,
   "historicalRealizationsAdded": 0,
   "singingVoicesAdded": 0

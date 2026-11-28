@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "app.bundle.js",
-      "sha256": "113bfc68c16d35355184b7e19910a1a4a00b0b0c5f123a247ce1ccce6427dc32"
+      "sha256": "a6e33c5bae2c0e33136f00ebe0c90dd7c3f8feaf0fafa9f5b51842041c1cc689"
     },
     {
       "path": "data/calendar/torah-verse-numbering.json",
@@ -64,7 +64,7 @@
     },
     {
       "path": "docs/BAER-NO111-WORD-CANDIDATES.json",
-      "sha256": "0a27d07bd9d4df363c2355b760ad0efbd893513983d0e47f1c6d7697dbff5985"
+      "sha256": "7a828d273a60d4f815eb6c842c9a7768912f860c815128edcfa70c756b0eff31"
     },
     {
       "path": "docs/BAER-NO938-PATTERNS.json",
@@ -100,7 +100,7 @@
     },
     {
       "path": "docs/COHEN-PENITENTIAL-PLAYBACK.json",
-      "sha256": "298608b9fd9aa1c2ff318868214486bde312d0dc651d23ccc1609418702f737d"
+      "sha256": "adab4c975831dc75a34b6ac4e0bdf6420e4aa02c11d4e9ac9bd7253a1b9c08b3"
     },
     {
       "path": "docs/COHEN-PENITENTIAL-SCORE.json",
@@ -148,11 +148,11 @@
     },
     {
       "path": "docs/IDELSOHN-NO266-PLAYBACK.json",
-      "sha256": "00f0d85c60afa28bc9fdc7281a07c1e55afad4eb54c158450efc8b4c399e14af"
+      "sha256": "e2328bfc63f1a9428e3a13755f62ae0a3a31ba04503e1b1259f13970a2bcdcf6"
     },
     {
       "path": "docs/IDELSOHN-NO267-SMALL-NOTE-STUDY.json",
-      "sha256": "f02c7e048adf1590525b9508e0005f5b32414b17fe31fb1d80c266a7cbd633d7"
+      "sha256": "11571902ffe2983b6c498ee3edada05339bc5a637c35f3733c68a4803f4618db"
     },
     {
       "path": "docs/IDELSOHN-NO268-SCORE.json",
@@ -1430,7 +1430,7 @@
     {
       "id": "72",
       "bytes": 7569,
-      "sha256": "298608b9fd9aa1c2ff318868214486bde312d0dc651d23ccc1609418702f737d",
+      "sha256": "adab4c975831dc75a34b6ac4e0bdf6420e4aa02c11d4e9ac9bd7253a1b9c08b3",
       "base64Bytes": 10092,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1500,7 +1500,7 @@
     {
       "id": "77",
       "bytes": 53306,
-      "sha256": "0a27d07bd9d4df363c2355b760ad0efbd893513983d0e47f1c6d7697dbff5985",
+      "sha256": "7a828d273a60d4f815eb6c842c9a7768912f860c815128edcfa70c756b0eff31",
       "base64Bytes": 71076,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1528,7 +1528,7 @@
     {
       "id": "79",
       "bytes": 9302,
-      "sha256": "00f0d85c60afa28bc9fdc7281a07c1e55afad4eb54c158450efc8b4c399e14af",
+      "sha256": "e2328bfc63f1a9428e3a13755f62ae0a3a31ba04503e1b1259f13970a2bcdcf6",
       "base64Bytes": 12404,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1612,7 +1612,7 @@
     {
       "id": "85",
       "bytes": 10666,
-      "sha256": "f02c7e048adf1590525b9508e0005f5b32414b17fe31fb1d80c266a7cbd633d7",
+      "sha256": "11571902ffe2983b6c498ee3edada05339bc5a637c35f3733c68a4803f4618db",
       "base64Bytes": 14224,
       "links": 1,
       "canonicalSourcePaths": [
@@ -1714,9 +1714,9 @@
     "format": "tropetrain-portable-evidence-v1",
     "encoding": "gzip+base64",
     "packetBytes": 15162697,
-    "packetSha256": "f43f799a1f5b1ff4ccadd0127e2f846d53c30f538c797dfab79a307e1f0d8004",
-    "gzipBytes": 1332134,
-    "gzipSha256": "bcd25a7eb8b150fd44d2ba6ccaafd5b750e4b6f4995566981954913482753448",
+    "packetSha256": "cb9a03803aa1eae7f1de95f2e0af21134e81df9afe127ca6047a9e794990db64",
+    "gzipBytes": 1332155,
+    "gzipSha256": "248bb1f64874e16475be32202aa186e5c78818893ca94d779b555c4b413cd1c9",
     "linkCount": 95,
     "records": [
       {
@@ -2226,7 +2226,7 @@
       {
         "id": "72",
         "bytes": 7569,
-        "sha256": "298608b9fd9aa1c2ff318868214486bde312d0dc651d23ccc1609418702f737d",
+        "sha256": "adab4c975831dc75a34b6ac4e0bdf6420e4aa02c11d4e9ac9bd7253a1b9c08b3",
         "base64Bytes": 10092,
         "links": 1
       },
@@ -2261,7 +2261,7 @@
       {
         "id": "77",
         "bytes": 53306,
-        "sha256": "0a27d07bd9d4df363c2355b760ad0efbd893513983d0e47f1c6d7697dbff5985",
+        "sha256": "7a828d273a60d4f815eb6c842c9a7768912f860c815128edcfa70c756b0eff31",
         "base64Bytes": 71076,
         "links": 1
       },
@@ -2275,7 +2275,7 @@
       {
         "id": "79",
         "bytes": 9302,
-        "sha256": "00f0d85c60afa28bc9fdc7281a07c1e55afad4eb54c158450efc8b4c399e14af",
+        "sha256": "e2328bfc63f1a9428e3a13755f62ae0a3a31ba04503e1b1259f13970a2bcdcf6",
         "base64Bytes": 12404,
         "links": 1
       },
@@ -2317,7 +2317,7 @@
       {
         "id": "85",
         "bytes": 10666,
-        "sha256": "f02c7e048adf1590525b9508e0005f5b32414b17fe31fb1d80c266a7cbd633d7",
+        "sha256": "11571902ffe2983b6c498ee3edada05339bc5a637c35f3733c68a4803f4618db",
         "base64Bytes": 14224,
         "links": 1
       },
@@ -2370,8 +2370,8 @@
   "strictUtf8Validated": true,
   "sourceNullsAndHebrewUnchanged": true,
   "normalProgram": {
-    "bytes": 47316968,
-    "sha256": "113bfc68c16d35355184b7e19910a1a4a00b0b0c5f123a247ce1ccce6427dc32"
+    "bytes": 47317155,
+    "sha256": "a6e33c5bae2c0e33136f00ebe0c90dd7c3f8feaf0fafa9f5b51842041c1cc689"
   },
   "historicalRealizationsAdded": 0,
   "singingVoicesAdded": 0
