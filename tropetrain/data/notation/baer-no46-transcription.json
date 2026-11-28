@@ -1,0 +1,1799 @@
+{
+  "format": "tropetrain-baer-no46-word-transcription-v1",
+  "revision": 1,
+  "id": "baer-1894-no46-lmaan-yirbu",
+  "source": {
+    "title": "Baal t’fillah, third expanded edition [1894]",
+    "creator": "Abraham Baer",
+    "no": 46,
+    "printedPage": 11,
+    "oneBasedPdfPage": 56,
+    "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "printedTitle": "למען ירבו",
+    "context": "Shema liturgical setting of Deuteronomy11:21; not a standalone ordinary Torah grammar",
+    "sourceMeter": "C",
+    "sourceKey": {
+      "fifths": 4,
+      "alteredPitchClasses": [
+        "F-sharp",
+        "C-sharp",
+        "G-sharp",
+        "D-sharp"
+      ],
+      "scope": "Literal four-sharp signature, no modal/traditional or Kinnor identity inferred"
+    },
+    "scan": {
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853595",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853595/full/3000,/0/default.jpg",
+      "bytes": 1099928,
+      "sha256": "c7791bde554f4232442f47b11fd509cc41d5a27fb059ed8d63926cd89726ef21",
+      "width": 3000,
+      "height": 4403,
+      "image": "assets/scores/baer-1894-no46-deu11-21.webp",
+      "inspectionCrop": [
+        105,
+        2960,
+        2810,
+        3620
+      ],
+      "imageBytes": 294822,
+      "imageSha256": "77f824141b029404eb8e431145ee4cc1b5432f72882da27dcc2cb059599ec4d4",
+      "imageWidth": 2705,
+      "imageHeight": 660,
+      "transformation": "Lossless WebP of exact unretouched grayscale institutional crop; all decoded grayscale pixels independently compare exact",
+      "nativeSource": {
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853595/full/full/0/default.jpg",
+        "bytes": 1743974,
+        "sha256": "b1938d96a21a03ac5932e825cae41aff91f40864fe5b653f23f285ef249d2fe1",
+        "width": 3868,
+        "height": 5677
+      }
+    },
+    "reuse": {
+      "policy": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+      "print": "Public-domain nineteenth-century print",
+      "institution": "Unrestricted reuse of institutional public-domain digitizations; edition/policy rechecked2026-11-28",
+      "newTranscription": "CC0-1.0"
+    },
+    "alternativeConvention": {
+      "source": "assets/scores/baer-preface-IX-alternatives.png",
+      "printedPage": "IX",
+      "finding": "Double note lines without Chor/bass are separate ways, not harmony; no Chor label or bass staff occurs here"
+    },
+    "no111Footnote": {
+      "printedPage": 37,
+      "oneBasedPdfPage": 82,
+      "literal": "Als 3. Weise kann No. 46 betrachtet werden.",
+      "meaning": "A cross-reference only; no additional tradition or general Torah grammar inferred"
+    }
+  },
+  "bookId": "deu",
+  "chapter": 11,
+  "verse": 21,
+  "words": [
+    {
+      "id": "deu-11-21-1",
+      "sourceHebrew": "לְמַ֨עַן",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "L’",
+        "ma",
+        "an"
+      ]
+    },
+    {
+      "id": "deu-11-21-2",
+      "sourceHebrew": "יִרְבּ֤וּ",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "jir",
+        "bu"
+      ]
+    },
+    {
+      "id": "deu-11-21-3",
+      "sourceHebrew": "יְמֵיכֶם֙",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "j’",
+        "me",
+        "chem"
+      ]
+    },
+    {
+      "id": "deu-11-21-4",
+      "sourceHebrew": "וִימֵ֣י",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "wime"
+      ]
+    },
+    {
+      "id": "deu-11-21-5",
+      "sourceHebrew": "בְנֵיכֶ֔ם",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "w’",
+        "nechem"
+      ]
+    },
+    {
+      "id": "deu-11-21-6",
+      "sourceHebrew": "עַ֚ל",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "al"
+      ]
+    },
+    {
+      "id": "deu-11-21-7",
+      "sourceHebrew": "הָֽאֲדָמָ֔ה",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "ho",
+        "a",
+        "domoh"
+      ],
+      "printedUnitFormatting": {
+        "2": {
+          "underline": true,
+          "meaningAssigned": null
+        }
+      }
+    },
+    {
+      "id": "deu-11-21-8",
+      "sourceHebrew": "אֲשֶׁ֨ר",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "a",
+        "scher"
+      ],
+      "printedUnitFormatting": {
+        "1": {
+          "underline": true,
+          "meaningAssigned": null
+        }
+      }
+    },
+    {
+      "id": "deu-11-21-9",
+      "sourceHebrew": "נִשְׁבַּ֧ע",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "nisch",
+        "ba"
+      ]
+    },
+    {
+      "id": "deu-11-21-10",
+      "sourceHebrew": "יְהוָ֛ה",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "a",
+        "do",
+        "noj"
+      ],
+      "printedUnitFormatting": {
+        "1": {
+          "underline": true,
+          "meaningAssigned": null
+        }
+      }
+    },
+    {
+      "id": "deu-11-21-11",
+      "sourceHebrew": "לַאֲבֹתֵיכֶ֖ם",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "la",
+        "a",
+        "wo",
+        "se",
+        "chem"
+      ],
+      "printedUnitFormatting": {
+        "2": {
+          "underline": true,
+          "meaningAssigned": null
+        }
+      }
+    },
+    {
+      "id": "deu-11-21-12",
+      "sourceHebrew": "לָתֵ֣ת",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "lo",
+        "ses"
+      ]
+    },
+    {
+      "id": "deu-11-21-13",
+      "sourceHebrew": "לָהֶ֑ם",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "lo",
+        "hem"
+      ]
+    },
+    {
+      "id": "deu-11-21-14",
+      "sourceHebrew": "כִּימֵ֥י",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "ki",
+        "me"
+      ]
+    },
+    {
+      "id": "deu-11-21-15",
+      "sourceHebrew": "הַשָּׁמַ֖יִם",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "haschscho",
+        "ma",
+        "jim"
+      ]
+    },
+    {
+      "id": "deu-11-21-16",
+      "sourceHebrew": "עַל־",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "al"
+      ]
+    },
+    {
+      "id": "deu-11-21-17",
+      "sourceHebrew": "הָאָֽרֶץ׃",
+      "acceptedWrittenRanges": null,
+      "acceptedSyllableMapping": null,
+      "phonemes": null,
+      "review": null,
+      "printedUnits": [
+        "ho",
+        "o",
+        "rez."
+      ]
+    }
+  ],
+  "components": [
+    {
+      "number": 1,
+      "kind": "note",
+      "bar": 0,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 1,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-1",
+      "slurs": []
+    },
+    {
+      "number": 2,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "B4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 1,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-2",
+      "slurs": []
+    },
+    {
+      "number": 3,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 1,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-3",
+      "slurs": []
+    },
+    {
+      "number": 4,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "B4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-4",
+      "slurs": []
+    },
+    {
+      "number": 5,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 1,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-5",
+      "slurs": []
+    },
+    {
+      "number": 6,
+      "kind": "rest",
+      "bar": 1,
+      "pitch": null,
+      "writtenCode": "q",
+      "dots": 0,
+      "wordOrdinal": null,
+      "printedUnitIndex": null,
+      "headId": null,
+      "slurs": []
+    },
+    {
+      "number": 7,
+      "kind": "rest",
+      "bar": 1,
+      "pitch": null,
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": null,
+      "printedUnitIndex": null,
+      "headId": null,
+      "slurs": []
+    },
+    {
+      "number": 8,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 2,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-8",
+      "slurs": []
+    },
+    {
+      "number": 9,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "B3",
+      "writtenCode": "e3",
+      "dots": 1,
+      "wordOrdinal": 2,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-9",
+      "slurs": [
+        {
+          "id": "slur-1",
+          "placement": "above",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "E4",
+      "writtenCode": "s3",
+      "dots": 0,
+      "wordOrdinal": 3,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-10",
+      "slurs": [
+        {
+          "id": "slur-1",
+          "placement": "above",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "kind": "note",
+      "bar": 1,
+      "pitch": "E4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 3,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-11",
+      "slurs": [
+        {
+          "id": "slur-1",
+          "placement": "above",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "B4",
+      "writtenCode": "e",
+      "dots": 1,
+      "wordOrdinal": 3,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-12",
+      "slurs": []
+    },
+    {
+      "number": 13,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 1,
+      "wordOrdinal": 3,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-13",
+      "slurs": []
+    },
+    {
+      "number": 14,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "B4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 4,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-14",
+      "slurs": []
+    },
+    {
+      "number": 15,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "G#4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 4,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-15",
+      "slurs": []
+    },
+    {
+      "number": 16,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "G#4",
+      "writtenCode": "e3",
+      "dots": 1,
+      "wordOrdinal": 5,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-16",
+      "slurs": [
+        {
+          "id": "slur-2",
+          "placement": "above",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "F#4",
+      "writtenCode": "s3",
+      "dots": 0,
+      "wordOrdinal": 5,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-17",
+      "slurs": [
+        {
+          "id": "slur-2",
+          "placement": "above",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "G#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 5,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-18",
+      "slurs": [
+        {
+          "id": "slur-2",
+          "placement": "above",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "kind": "note",
+      "bar": 2,
+      "pitch": "E4",
+      "writtenCode": "q",
+      "dots": 0,
+      "wordOrdinal": 5,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-19",
+      "slurs": []
+    },
+    {
+      "number": 20,
+      "kind": "rest",
+      "bar": 2,
+      "pitch": null,
+      "writtenCode": "q",
+      "dots": 0,
+      "wordOrdinal": null,
+      "printedUnitIndex": null,
+      "headId": null,
+      "slurs": []
+    },
+    {
+      "number": 21,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "C#5",
+      "writtenCode": "e",
+      "dots": 1,
+      "wordOrdinal": 6,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-21",
+      "slurs": [
+        {
+          "id": "slur-3",
+          "placement": "below",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "B4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 6,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-22",
+      "slurs": [
+        {
+          "id": "slur-3",
+          "placement": "below",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "F#4",
+      "writtenCode": "e3",
+      "dots": 1,
+      "wordOrdinal": 7,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-23",
+      "slurs": [
+        {
+          "id": "slur-4",
+          "placement": "above",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "F#4",
+      "writtenCode": "s3",
+      "dots": 0,
+      "wordOrdinal": 7,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-24",
+      "slurs": [
+        {
+          "id": "slur-4",
+          "placement": "above",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "F#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 7,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-25",
+      "slurs": [
+        {
+          "id": "slur-4",
+          "placement": "above",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 7,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-26",
+      "slurs": [
+        {
+          "id": "slur-5",
+          "placement": "above",
+          "phase": "start",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 7,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-27",
+      "slurs": [
+        {
+          "id": "slur-5",
+          "placement": "above",
+          "phase": "stop",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "G#4",
+      "writtenCode": "q",
+      "dots": 0,
+      "wordOrdinal": 7,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-26",
+      "sharedHeadDurationAlternativeTo": 26,
+      "slurs": []
+    },
+    {
+      "number": 29,
+      "kind": "rest",
+      "bar": 3,
+      "pitch": null,
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": null,
+      "printedUnitIndex": null,
+      "headId": null,
+      "slurs": []
+    },
+    {
+      "number": 30,
+      "kind": "note",
+      "bar": 3,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 8,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-30",
+      "slurs": []
+    },
+    {
+      "number": 31,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "B4",
+      "writtenCode": "q",
+      "dots": 1,
+      "wordOrdinal": 8,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-31",
+      "slurs": []
+    },
+    {
+      "number": 32,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "E4",
+      "writtenCode": "q",
+      "dots": 1,
+      "wordOrdinal": 8,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-32",
+      "slurs": []
+    },
+    {
+      "number": 33,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-33",
+      "slurs": []
+    },
+    {
+      "number": 34,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-34",
+      "slurs": []
+    },
+    {
+      "number": 35,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "B4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-35",
+      "slurs": [
+        {
+          "id": "slur-6",
+          "placement": "below",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "A4",
+      "writtenCode": "t",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-36",
+      "slurs": [
+        {
+          "id": "slur-6",
+          "placement": "below",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "G#4",
+      "writtenCode": "t",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-37",
+      "slurs": [
+        {
+          "id": "slur-6",
+          "placement": "below",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "F#4",
+      "writtenCode": "t",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-38",
+      "slurs": [
+        {
+          "id": "slur-6",
+          "placement": "below",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "E4",
+      "writtenCode": "t",
+      "dots": 0,
+      "wordOrdinal": 9,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-39",
+      "slurs": [
+        {
+          "id": "slur-6",
+          "placement": "below",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "G#4",
+      "writtenCode": "e3",
+      "dots": 1,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-40",
+      "slurs": [
+        {
+          "id": "slur-6",
+          "placement": "below",
+          "phase": "stop"
+        },
+        {
+          "id": "slur-7",
+          "placement": "above",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "F#4",
+      "writtenCode": "s3",
+      "dots": 0,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-41",
+      "slurs": [
+        {
+          "id": "slur-7",
+          "placement": "above",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "kind": "note",
+      "bar": 4,
+      "pitch": "F#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-42",
+      "slurs": [
+        {
+          "id": "slur-7",
+          "placement": "above",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "C#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-43",
+      "slurs": [
+        {
+          "id": "slur-8",
+          "placement": "below",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "B3",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-44",
+      "slurs": [
+        {
+          "id": "slur-8",
+          "placement": "below",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "C#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-45",
+      "slurs": [
+        {
+          "id": "slur-8",
+          "placement": "below",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "E4",
+      "writtenCode": "q",
+      "dots": 0,
+      "wordOrdinal": 10,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-46",
+      "slurs": [
+        {
+          "id": "slur-8",
+          "placement": "below",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "F#4",
+      "writtenCode": "e",
+      "dots": 1,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-47",
+      "slurs": []
+    },
+    {
+      "number": 48,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "F#4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-48",
+      "slurs": []
+    },
+    {
+      "number": 49,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "F#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-49",
+      "slurs": []
+    },
+    {
+      "number": 50,
+      "kind": "note",
+      "bar": 5,
+      "pitch": "F#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 4,
+      "headId": "baer46-head-50",
+      "slurs": []
+    },
+    {
+      "number": 51,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 5,
+      "headId": "baer46-head-51",
+      "slurs": [
+        {
+          "id": "slur-9",
+          "placement": "below",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 52,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "C#4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 5,
+      "headId": "baer46-head-52",
+      "slurs": [
+        {
+          "id": "slur-9",
+          "placement": "below",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 53,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "C#4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 11,
+      "printedUnitIndex": 5,
+      "headId": "baer46-head-53",
+      "slurs": []
+    },
+    {
+      "number": 54,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "G#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-54",
+      "slurs": [
+        {
+          "id": "slur-10",
+          "placement": "above",
+          "phase": "start",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "F#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 12,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-55",
+      "slurs": []
+    },
+    {
+      "number": 56,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "F#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 12,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-56",
+      "slurs": [
+        {
+          "id": "slur-10",
+          "placement": "above",
+          "phase": "continue",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 57,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "E4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 12,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-57",
+      "slurs": [
+        {
+          "id": "slur-10",
+          "placement": "above",
+          "phase": "stop",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 12,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-57",
+      "sharedHeadDurationAlternativeTo": 57,
+      "slurs": []
+    },
+    {
+      "number": 59,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "F#4",
+      "writtenCode": "e",
+      "dots": 1,
+      "wordOrdinal": 13,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-59",
+      "slurs": [
+        {
+          "id": "slur-11",
+          "placement": "above",
+          "phase": "start",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 1,
+      "wordOrdinal": 13,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-60",
+      "slurs": []
+    },
+    {
+      "number": 61,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "E4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 13,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-61",
+      "slurs": [
+        {
+          "id": "slur-11",
+          "placement": "above",
+          "phase": "stop",
+          "route": "upper"
+        }
+      ]
+    },
+    {
+      "number": 62,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "B3",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 13,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-62",
+      "slurs": []
+    },
+    {
+      "number": 63,
+      "kind": "rest",
+      "bar": 6,
+      "pitch": null,
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": null,
+      "printedUnitIndex": null,
+      "headId": null,
+      "slurs": []
+    },
+    {
+      "number": 64,
+      "kind": "note",
+      "bar": 6,
+      "pitch": "B3",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 14,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-64",
+      "slurs": []
+    },
+    {
+      "number": 65,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "F#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 14,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-65",
+      "slurs": []
+    },
+    {
+      "number": 66,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "F#4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 15,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-66",
+      "slurs": []
+    },
+    {
+      "number": 67,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "F#4",
+      "writtenCode": "s",
+      "dots": 0,
+      "wordOrdinal": 15,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-67",
+      "slurs": []
+    },
+    {
+      "number": 68,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "G#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 15,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-68",
+      "slurs": []
+    },
+    {
+      "number": 69,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "C#4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 15,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-69",
+      "slurs": []
+    },
+    {
+      "number": 70,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "C#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 16,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-70",
+      "slurs": [
+        {
+          "id": "slur-12",
+          "placement": "above",
+          "phase": "start"
+        }
+      ]
+    },
+    {
+      "number": 71,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "D#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 17,
+      "printedUnitIndex": 1,
+      "headId": "baer46-head-71",
+      "slurs": [
+        {
+          "id": "slur-12",
+          "placement": "above",
+          "phase": "continue"
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "F#4",
+      "writtenCode": "e3",
+      "dots": 0,
+      "wordOrdinal": 17,
+      "printedUnitIndex": 2,
+      "headId": "baer46-head-72",
+      "slurs": [
+        {
+          "id": "slur-12",
+          "placement": "above",
+          "phase": "stop"
+        }
+      ]
+    },
+    {
+      "number": 73,
+      "kind": "note",
+      "bar": 7,
+      "pitch": "E4",
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": 17,
+      "printedUnitIndex": 3,
+      "headId": "baer46-head-73",
+      "slurs": []
+    },
+    {
+      "number": 74,
+      "kind": "rest",
+      "bar": 7,
+      "pitch": null,
+      "writtenCode": "e",
+      "dots": 0,
+      "wordOrdinal": null,
+      "printedUnitIndex": null,
+      "headId": null,
+      "slurs": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "upper",
+      "label": "Literal upper alternatives",
+      "components": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        33,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        59,
+        61,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "measuredQuarterBeats": 28.5,
+      "expectedNotes": 57,
+      "expectedRests": 6,
+      "expectedBars": {
+        "0": 0.5,
+        "1": 4.0,
+        "2": 4.0,
+        "3": 4.0,
+        "4": 4.0,
+        "5": 4.0,
+        "6": 4.0,
+        "7": 4.0
+      }
+    },
+    {
+      "id": "lower",
+      "label": "Literal lower alternatives",
+      "components": [
+        1,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        28,
+        29,
+        30,
+        32,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        55,
+        58,
+        60,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "measuredQuarterBeats": 28.5,
+      "expectedNotes": 55,
+      "expectedRests": 6,
+      "expectedBars": {
+        "0": 0.5,
+        "1": 4.0,
+        "2": 4.0,
+        "3": 4.0,
+        "4": 4.0,
+        "5": 4.0,
+        "6": 4.0,
+        "7": 4.0
+      }
+    }
+  ],
+  "tuplets": [
+    {
+      "id": "tuplet-1",
+      "members": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "tuplet-2",
+      "members": [
+        16,
+        17,
+        18
+      ]
+    },
+    {
+      "id": "tuplet-3",
+      "members": [
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "id": "tuplet-4",
+      "members": [
+        40,
+        41,
+        42
+      ]
+    },
+    {
+      "id": "tuplet-5",
+      "members": [
+        43,
+        44,
+        45
+      ]
+    },
+    {
+      "id": "tuplet-6",
+      "members": [
+        54,
+        56,
+        57
+      ]
+    },
+    {
+      "id": "tuplet-7",
+      "members": [
+        70,
+        71,
+        72
+      ]
+    }
+  ],
+  "slurs": [
+    {
+      "id": "slur-1",
+      "members": [
+        9,
+        10,
+        11
+      ],
+      "placement": "above"
+    },
+    {
+      "id": "slur-2",
+      "members": [
+        16,
+        17,
+        18
+      ],
+      "placement": "above"
+    },
+    {
+      "id": "slur-3",
+      "members": [
+        21,
+        22
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-4",
+      "members": [
+        23,
+        24,
+        25
+      ],
+      "placement": "above"
+    },
+    {
+      "id": "slur-5",
+      "members": [
+        26,
+        27
+      ],
+      "placement": "above",
+      "route": "upper"
+    },
+    {
+      "id": "slur-6",
+      "members": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-7",
+      "members": [
+        40,
+        41,
+        42
+      ],
+      "placement": "above"
+    },
+    {
+      "id": "slur-8",
+      "members": [
+        43,
+        44,
+        45,
+        46
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-9",
+      "members": [
+        51,
+        52
+      ],
+      "placement": "below"
+    },
+    {
+      "id": "slur-10",
+      "members": [
+        54,
+        56,
+        57
+      ],
+      "placement": "above",
+      "route": "upper"
+    },
+    {
+      "id": "slur-11",
+      "members": [
+        59,
+        61
+      ],
+      "placement": "above",
+      "route": "upper"
+    },
+    {
+      "id": "slur-12",
+      "members": [
+        70,
+        71,
+        72
+      ],
+      "placement": "above"
+    }
+  ],
+  "fermatas": [
+    {
+      "component": 74,
+      "kind": "rest",
+      "shape": "normal",
+      "placement": "above",
+      "duration": null
+    }
+  ],
+  "unresolvedMarks": [
+    {
+      "component": 72,
+      "location": "above final triplet ending",
+      "literalShape": "raised slanted stroke",
+      "interpretation": null,
+      "duration": null,
+      "action": "Retain in source metadata; no invented breath, accent or timing"
+    }
+  ],
+  "method": {
+    "review": "Manual native and standard source inspection only, independent review pending",
+    "wordCorrespondence": "Whole unchanged UXLC words are lexical candidates from literal Latin underlay; no Hebrew/MAM syllable or phoneme fit",
+    "latinFormatting": "Units retain source spelling separately; underscore/hyphen joins and underlined a are source typography, not a phoneme grammar",
+    "keyCorrection": "Earlier private pending-inspection note said five sharps; close-up confirms four. No five-sharp realization was implemented or published.",
+    "bars": "Eighth pickup plus seven complete four-quarter bars; never pad or shorten to fit pickup arithmetic",
+    "sharedHeads": "Components26/28 and57/58 are distinct upper/lower stem-duration realizations on the same physical heads",
+    "overlappingSlurs": "Component40 ends one below-staff slur and begins a separate above-staff slur; preserve both, do not overwrite",
+    "sourceClock": "Quarter-note BPM is modern instrumental interpretation; fermata hold/breath duration, historical tuning and articulation unassigned"
+  },
+  "performance": {
+    "historicalTempo": null,
+    "fermataHolds": null,
+    "breathTiming": null,
+    "modernTuning": "12TET/A4=440 approximation",
+    "instrument": "neutral instrumental demonstration, not ordinary Hebrew speech or a singing voice"
+  },
+  "review": null,
+  "acceptedSyllableMapping": null,
+  "phonemes": null,
+  "singingVoice": null,
+  "completeTraditionGrammar": null
+}

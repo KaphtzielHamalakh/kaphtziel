@@ -21,27 +21,36 @@ function identity(notes,context){
       ...(e.sourceSmallNote?{sourceQuarterBeats:e.sourceQuarterBeats,sourceSmallNote:e.sourceSmallNote,sourceUnresolvedMarks:e.sourceUnresolvedMarks,performanceTiming:e.performanceTiming}:{}),
       ...(e.sourcePrintedLyric!==undefined?{sourceStudy:e.sourceStudy,sourceVariant:e.sourceVariant,sourcePrintedLyric:e.sourcePrintedLyric,sourcePrintedUnitCount:e.sourcePrintedUnitCount,sourcePage:e.sourcePage,sourcePdfPage:e.sourcePdfPage,...(e.sourceNo111Grace?{sourceNo111Grace:e.sourceNo111Grace,performanceTiming:e.performanceTiming}:{})}:{}),
       ...(e.sourceSlurPlacement?{sourceSlurPlacement:e.sourceSlurPlacement}:{}),
+      ...(e.sourceSlurs?{sourceSlurs:e.sourceSlurs}:{}),
+      ...(e.sourceUnresolvedMarks&&!e.sourceSmallNote?{sourceUnresolvedMarks:e.sourceUnresolvedMarks}:{}),
       ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
 }
 function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
   return `<type>${r.type}</type>${'<dot/>'.repeat(r.dots)}${accidental?`<accidental>${accidental}</accidental>`:''}${r.actual===r.normal?'':`<time-modification><actual-notes>${r.actual}</actual-notes><normal-notes>${r.normal}</normal-notes></time-modification>`}`;
 }
+function sourceSlurEntries(e){return e.sourceSlurs??(e.sourceSlurId?[{id:e.sourceSlurId,phase:e.sourceSlurPhase,placement:e.sourceSlurPlacement}]:[]);}
 function sourceSlurNumbers(notes){
  const assigned=new Map(),active=new Map();
- for(const e of notes){
-  if(!e.sourceSlurId||!['start','stop'].includes(e.sourceSlurPhase))continue;
-  if(!assigned.has(e.sourceSlurId)){
+ for(const e of notes)for(const slur of sourceSlurEntries(e)){
+  if(!['start','stop'].includes(slur.phase))continue;
+  if(!assigned.has(slur.id)){
    const used=new Set(active.values());let number=1;while(used.has(number))number++;
    if(number>16)throw Error('MusicXML supports at most16simultaneous slur numbers.');
-   assigned.set(e.sourceSlurId,number);
+   assigned.set(slur.id,number);
   }
-  if(e.sourceSlurPhase==='start')active.set(e.sourceSlurId,assigned.get(e.sourceSlurId));else active.delete(e.sourceSlurId);
+  if(slur.phase==='start')active.set(slur.id,assigned.get(slur.id));else active.delete(slur.id);
  }
  return assigned;
+}
+function restNotation(rest){
+ let result=`<note><rest/><duration>${Math.round(rest.beats*DIVISIONS)}</duration>${durationNotation(rest.beats,null,rest.rhythm)}`;
+ if(rest.sourceFermata){const f=rest.sourceFermata;if(f.shape!=='normal'||f.placement!=='above'||f.duration!==null)throw Error('Unsupported printed rest fermata.');result+='<notations><fermata type="upright">normal</fermata></notations>';}
+ return result+'</note>';
 }
 export function musicXml(plan,words,context){
   const notes=checked(plan,words,context),metadata=identity(notes,context);
   const slurNumbers=sourceSlurNumbers(notes);
+  const explicitRestBars=notes.some(e=>e.sourceRestsAfter?.length)&&notes.every(e=>(e.sourceRestsAfter??[]).every(r=>Number.isInteger(r.sourceBar)));
   const cohen=context.melody?.id==='cohen-1902-gen22-ending',baer=context.melody?.id==='baer-1894-gen1-1-5',printed=isPrintedScore(context.melody?.id);
   const creator=printed?context.melody.creator:'TropeTrain original demonstration';
   const rights=printed?'Printed source: public domain. New transcription: CC0-1.0. Hebrew: UXLC. Underlay and musical review pending; regularized timing; no singing or inferred coda.':'Original demo music: CC0-1.0. Hebrew: UXLC. Syllables unreviewed; no singing or traditional realization.';
@@ -64,13 +73,13 @@ export function musicXml(plan,words,context){
     if(gap>1e-7){
       const written=e.sourceWordOnly?(index===0?e.sourceRestsBefore:notes[index-1].sourceRestsAfter)??[]:[];
       if(e.sourceWordOnly&&Math.abs(written.reduce((n,r)=>n+r.beats,0)-gap)>1e-8)throw Error('Source-word export lost its individual printed rests.');
-      for(const rest of written.length?written:[{beats:gap}])xml+=`<note><rest/><duration>${Math.round(rest.beats*DIVISIONS)}</duration>${durationNotation(rest.beats,null,rest.rhythm)}</note>`;
+      for(const rest of written.length?written:[{beats:gap}])xml+=restNotation(rest);
     }
     const p=e.pitch,accidental=p.alter===1?'sharp':p.alter===-1?'flat':'natural';
     if(p.octave<0)throw Error('MusicXML pitch octaves begin at C0.');
     xml+=`<note id="note-${index+1}">${e.sourceNo111Grace?`<grace slash="${e.sourceNo111Grace.slash?'yes':'no'}"/>`:e.sourceSmallNote?'<grace slash="no"/>':''}<pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch>${e.sourceSmallNote||e.sourceNo111Grace?'':`<duration>${Math.round(e.beats*DIVISIONS)}</duration>`}${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,(e.sourceSmallEighth||e.sourceNo266SmallEighth)?rhythmSpelling(e.beats):e.rhythm)}`;
     if(e.sourceNo266Parenthetical)xml+='<notehead parentheses="yes">normal</notehead>';
-    const marks=(e.tieStop?'<tied type="stop"/>':'')+(e.tieStart?'<tied type="start"/>':'')+(e.sourceFermata?'<fermata type="upright">normal</fermata>':'')+(['start','stop'].includes(e.sourceSlurPhase)?`<slur type="${e.sourceSlurPhase}" number="${slurNumbers.get(e.sourceSlurId)}"${e.sourceSlurPlacement?` placement="${x(e.sourceSlurPlacement)}"`:""}/>`:'')+(['start','stop'].includes(e.sourceTupletPhase)?`<tuplet type="${e.sourceTupletPhase}" number="1"/>`:'');
+    const marks=(e.tieStop?'<tied type="stop"/>':'')+(e.tieStart?'<tied type="start"/>':'')+(e.sourceFermata?'<fermata type="upright">normal</fermata>':'')+sourceSlurEntries(e).filter(s=>['start','stop'].includes(s.phase)).map(s=>`<slur type="${s.phase}" number="${slurNumbers.get(s.id)}"${s.placement?` placement="${x(s.placement)}"`:""}/>`).join('')+(['start','stop'].includes(e.sourceTupletPhase)?`<tuplet type="${e.sourceTupletPhase}" number="1"/>`:'');
     if(marks||e.sourceSmallEighth||e.sourceNo266SmallEighth||e.sourceNo266Parenthetical||e.sourceUnresolvedMarks?.length)xml+=`<notations>${marks}${e.sourceSmallEighth?'<other-notation type="single">Printed small eighth; source role and duration unassigned. Exported duration is the optional original 80 ms instrumental study.</other-notation>':''}${e.sourceNo266SmallEighth?'<other-notation type="single">No266 final printed small C4 eighth; printed group2 retained, source duration and role unassigned. Original80ms instrumental timing, no Hebrew/MAM phonetic fit.</other-notation>':''}${e.sourceNo266Parenthetical?'<other-notation type="single">No266 printed parenthesized A4 quarter; original literal inclusion. Source performance role and mandatory performance remain unassigned.</other-notation>':''}${(e.sourceUnresolvedMarks??[]).map(mark=>`<other-notation type="single">${x(mark.id+": unresolved source mark; no realization assigned")}</other-notation>`).join('')}</notations>`;
     const extension=e.extendsNext?(e.continuation?'continue':'start'):e.continuation?'stop':null;
     xml+=`<lyric number="1">${e.continuation?'':`<syllabic>${e.syllabic}</syllabic><text xml:lang="he" dir="rtl">${x(e.lyricText??e.syllable)}</text>`}${extension?`<extend type="${extension}"/>`:''}</lyric>`;
@@ -81,9 +90,10 @@ export function musicXml(plan,words,context){
     }
     xml+='</note>';
     beat=e.startBeat+e.beats;
+    if(explicitRestBars)for(const rest of e.sourceRestsAfter??[]){if(rest.sourceBar!==e.sourceBar)throw Error('Printed rest belongs to another source bar.');xml+=restNotation(rest);beat+=rest.beats;}
   });
   const endingRest=notes.at(-1).gapAfterBeats;
-  if(endingRest>0)for(const rest of notes.at(-1).sourceWordOnly?notes.at(-1).sourceRestsAfter:[{beats:endingRest}])xml+=`<note><rest/><duration>${Math.round(rest.beats*DIVISIONS)}</duration>${durationNotation(rest.beats,null,rest.rhythm)}</note>`;
+  if(endingRest>0&&!explicitRestBars)for(const rest of notes.at(-1).sourceWordOnly?notes.at(-1).sourceRestsAfter:[{beats:endingRest}])xml+=restNotation(rest);
   return xml+'<barline location="right"><bar-style>light-heavy</bar-style></barline></measure></part></score-partwise>\n';
 }
 function join(parts){const result=new Uint8Array(parts.reduce((n,p)=>n+p.length,0));let offset=0;for(const p of parts){result.set(p,offset);offset+=p.length;}return result;}

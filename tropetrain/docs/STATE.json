@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
-  "nextTask": "Continue No46 literal source-word/alternative-route inspection and reusable pronunciation/chant evidence, then implement the next bounded source-backed word-aligned increment. Existing automatic staff paging is verified in both public editions when Follow playback is enabled. Preserve all 21 roadmap features/six completion requirements; printing waits, private voice labs frozen. Never repeat native downloadMedia/waitForEvent(download). v108 code is published and accepted; final metadata receipt is stored outside the app.",
+  "nextTask": "Continue v109 No46: wire UI/distribution and accurate source-word notices; implement measured build-only lossless compression preserving existing gzip decoders/all sources/4MiBreserve. Then full source/exports/preservation/build/test, supported CUA both editions/practice/cache, app-only connected publish/Pages/live/publicUI and canonical109save. Currentcompiled/package/cache108, do not serve109yet. Full21features/sixrequirements active; printing deferred; voice labs frozen.",
   "lastPassingTests": {
     "version": "0.108.0",
     "automated": 988,
@@ -231,7 +231,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.108.0",
+  "workingIteration": "0.109.0",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3443,8 +3443,8 @@
     "browserClockAccounting": "All5match original decoded duration plus half the unchanged Vorbis small block within1microsecond; actual deltas2.9026–11.6103ms retained separately. No source timestamps changed."
   },
   "currentCandidate": {
-    "version": "0.108.0",
-    "status": "published_and_public_browser_accepted_final_record_followup",
+    "version": "0.109.0",
+    "status": "private_literal_source_core8passes_UI_build_browser_publication_pending",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4928,5 +4928,34 @@
     "finalRecordPublication": "separate four-record metadata follow-up; final connected receipt stored outside the app",
     "automaticScorePagingPerEdition": true,
     "initialPagingFinding": "QA precondition error: Follow playback was false after earlier manual reader navigation. Corrected by UI checkbox and verified; no application change."
+  },
+  "privateV109Development": {
+    "basePrivate": "81e3636bf82ae21de500079ca60f280b99dd4781",
+    "worktree": "/private/tmp/tropetrain-v109-worktree",
+    "sourceRecord": "docs/BAER-NO46-WORD-CANDIDATES.json",
+    "candidateWords": 17,
+    "literalLatinUnits": 40,
+    "logicalComponents": 74,
+    "physicalNoteHeads": 66,
+    "rests": 6,
+    "routeNotes": [
+      57,
+      55
+    ],
+    "routeQuarterBeats": [
+      28.5,
+      28.5
+    ],
+    "coreSourceExportTests": 8,
+    "priorPrintedProfilesExact": 10,
+    "priorCompleteEventsXmlMidiExact": 651,
+    "priorStaffSvgStringsExact": 175,
+    "musicalReview": null,
+    "acceptedHebrewSyllableMapping": null,
+    "singingVoice": null,
+    "compiledOutputs": "108 unchanged; full109build pending",
+    "browser": "not started",
+    "publication": "not started",
+    "compressionExperiments": "exact gzip recovery verified; final physical size/reserve pending"
   }
 }

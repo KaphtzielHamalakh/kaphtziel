@@ -8,6 +8,7 @@ function restMarkup(rest,cx,height,beatsY){
  const names={whole:'\ue4e3',half:'\ue4e4',quarter:'\ue4e5',eighth:'\ue4e6','16th':'\ue4e7','32nd':'\ue4e8'},glyph=names[rest.rhythm?.type]??(Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5');
  let result=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="${height-15}" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text>`;
  for(let dot=0;dot<(rest.rhythm?.dots??0);dot++)result+=`<circle class="dot rest-dot" cx="${cx+12+dot*5}" cy="76" r="1.7"/>`;
+ if(rest.sourceFermata){const f=rest.sourceFermata;if(f.shape!=='normal'||f.placement!=='above'||f.duration!==null)throw Error('Unsupported printed rest fermata.');result+=`<g class="staff-fermata rest-fermata" role="img" aria-label="Printed fermata over rest; hold length unassigned"><path d="M${cx-11} 36 Q${cx} 12 ${cx+11} 36"/><circle cx="${cx}" cy="31" r="2.2"/></g>`;}
  return result+`<text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
 }
 
@@ -80,7 +81,7 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
       rests.forEach((rest,index)=>{
        if(!rest.rhythm)rest={...rest,rhythm:rhythmSpelling(rest.beats)};
        const glyph=Math.abs(rest.beats-.5)<1e-8?'\ue4e6':'\ue4e5',cx=e.x+e.width/2+e.gapWidth*(index+.5)/rests.length;
-       if(rest.rhythm?.dots||['whole','half','16th','32nd'].includes(rest.rhythm?.type)){svg+=restMarkup(rest,cx,height,beatsY);return;}
+       if(rest.sourceFermata||rest.rhythm?.dots||['whole','half','16th','32nd'].includes(rest.rhythm?.type)){svg+=restMarkup(rest,cx,height,beatsY);return;}
        svg+=`<g class="staff-rest" role="${rest.id?'button':'img'}"${rest.id?` tabindex="0" data-rest="${x(rest.id)}"`: ''} aria-label="Rest; ${beatLabel(rest.beats)} beats${rest.sourceLocation?'; '+x(rest.sourceLocation):''}">${rest.id?`<rect class="staff-hit" x="${cx-24}" y="8" width="48" height="${height-15}" rx="5"/>`: ''}<text class="music-symbol" x="${cx}" y="80">${glyph}</text><text class="staff-beats" x="${cx}" y="${beatsY}">${beatLabel(rest.beats)} rest</text></g>`;
       });
     }
@@ -101,10 +102,12 @@ export function staffMarkup(plan,words,from=0,count=STAFF_PAGE,{untexted=false,p
      const direction=e.sourceSlurPlacement==='above'?-1:1;svg+=`<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${x(e.sourceSlurId)}" aria-label="Printed slur continued from previous score page; notes remain distinct" d="M14 ${e.y+direction*10} Q${e.x/2} ${e.y+direction*32} ${e.x-8} ${e.y+direction*10}"/>`;
     }
     for(const slur of e.sourceSlurs??[]){
+      const above=slur.placement==='above',direction=above?-1:1;
+      if(slur.phase==='stop'&&e.sourceWordOnly&&!notes.some(n=>n.sourceSlurs?.some(s=>s.id===slur.id&&s.phase==='start'))&&plan.slice(0,from).some(n=>n.sourceSlurs?.some(s=>s.id===slur.id&&s.phase==='start')))svg+=`<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${x(slur.id)}" aria-label="Printed slur continued from previous score page; notes remain distinct" d="M14 ${e.y+direction*10} Q${e.x/2} ${e.y+direction*32} ${e.x-8} ${e.y+direction*10}"/>`;
       if(slur.phase!=='start')continue;
       const end=notes.find(n=>n.sourceSlurs?.some(s=>s.id===slur.id&&s.phase==='stop'));
-      if(!end)continue;
-      const above=slur.placement==='above',offset=10,direction=above?-1:1;
+      if(!end){if(e.sourceWordOnly)svg+=`<path class="tie-arc source-slur source-slur-continuation" data-source-slur="${x(slur.id)}" aria-label="Printed slur continues on next score page; notes remain distinct" d="M${e.x+8} ${e.y+direction*10} Q${(e.x+width)/2} ${e.y+direction*32} ${width-16} ${e.y+direction*10}"/>`;continue;}
+      const offset=10;
       const covered=notes.filter(n=>n.index>=e.index&&n.index<=end.index);
       const extreme=above?Math.min(...covered.map(n=>n.y)):Math.max(...covered.map(n=>n.y));
       const outer=(slur.lane??1)>1,control=extreme+direction*(outer?44+16*((slur.lane??2)-2):32);
