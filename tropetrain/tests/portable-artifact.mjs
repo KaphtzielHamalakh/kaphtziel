@@ -19,7 +19,10 @@ export function portableProgramBytes(raw){
  assert(m,'Actual portable program envelope is present');const proof=JSON.parse(m[1]),gzip=decodePortableProgramTransport(m[2],proof);assert.equal(gzip.length,proof.gzipBytes);assert.equal(sha(gzip),proof.gzipSha256);const bytes=gunzipSync(gzip);assert.equal(bytes.length,proof.programBytes);assert.equal(sha(bytes),proof.programSha256);assert.equal(new TextDecoder('utf-8',{fatal:true}).decode(bytes),bytes.toString('utf8'));return {bytes,proof,match:m,gzip};
 }
 export function restoredPortableHtml(raw){
- let html=restoredPortableEvidenceHtml(raw);if(!html.includes('<script id="portable-program-proof"'))return html;
+ let html=restoredPortableEvidenceHtml(raw);
+ const pitchProof=html.match(/<script id="portable-pitch-packet-proof"[^>]*>([^<]+)<\/script>/);
+ if(pitchProof){const p=JSON.parse(pitchProof[1]),data=html.match(/<script id="portable-pitch-packet-data"[^>]*>([^<]+)<\/script>/);assert.equal(p.format,'tropetrain-source-pitch-packets-v1');const gzip=decodePortableProgramTransport(data[1],{format:'tropetrain-portable-program-v3',encoding:p.encoding,gzipBytes:p.gzipBytes});assert.equal(gzip.length,p.gzipBytes);assert.equal(sha(gzip),p.gzipSha256);const bytes=gunzipSync(gzip,{maxOutputLength:p.packetBytes});assert.equal(bytes.length,p.packetBytes);assert.equal(sha(bytes),p.packetSha256);const original=new TextDecoder('utf-8',{fatal:true}).decode(bytes);assert.equal(Object.keys(JSON.parse(original)).length,p.recordCount);html=html.replace('<script id="source-pitch-packets" type="application/json"></script>','<script id="source-pitch-packets" type="application/json">'+original+'</script>');}
+if(!html.includes('<script id="portable-program-proof"'))return html;
  const decoded=portableProgramBytes(html),images=html.match(/<script id="portable-program-images-proof" type="application\/json">([^<]+)<\/script>/);
  if(images){
   const proof=JSON.parse(images[1]);assert.equal(proof.format,'tropetrain-portable-program-images-v1');assert.equal(proof.programBytes,decoded.bytes.length);assert.equal(proof.programSha256,sha(decoded.bytes));

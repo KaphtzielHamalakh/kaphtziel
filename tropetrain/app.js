@@ -1,3 +1,4 @@
+import {IDELSOHN_NO270} from './idelsohn-no270-score.js';
 import {startOfflineSources} from './offline-sources.js';
 import {getSourcePhraseLibrary} from './source-phrases.js';
 import {mountSourceRecall} from './source-recall-ui.js';
@@ -36,7 +37,7 @@ import {Player} from './audio.js';
 import {staffMarkup,STAFF_PAGE} from './staff.js';
 import {musicXml,midiFile} from './music-exports.js';
 import {renderWav,wavSummary} from './wav.js';
-import {instrument,soundingNotes,validatePlan} from './synthesis.js';
+import {instrumentForPlan,soundingNotes,validatePlan} from './synthesis.js';
 import {SIGN_ANALYSIS,sourceClassLabel} from './accents.js';
 import {SIGN_QUERIES,findSignsInReading,findSignsInCorpus} from './sign-search.js';
 import {RecordingPlayer} from './recorded-reference.js';
@@ -266,6 +267,7 @@ function renderPronunciationFollow(){
   if(report?.status==='source-reading-group'){status.textContent=`${readerSource.name} · shared source syllable ${report.hebrew} · both displayed words together. Individual word ownership, written syllable ranges, sung phones and acoustic timing remain unassigned.`;return;}
   if(report?.status==='source-reading-word'){status.textContent=`${readerSource.name} · source reading ${report.hebrew} · word-level correspondence to the unchanged displayed Hebrew. Source text follows the instrument; written syllable ranges, sung phones and acoustic timing remain unassigned.`;return;}
   if(readerSource?.kind==='phonemic-research'&&report?.status==='exact-written-span'){status.textContent=`${readerSource.name} · ${report.hebrew} · existing exact source-syllable correspondence. Research text follows the instrument; candidate sounds, shared consonants and silences have no assigned acoustic timing or singing voice.`;return;}
+  if(model.profile.id===IDELSOHN_NO270.id){status.textContent='No270 follows unchanged whole-word candidates. Latin group indices have no accepted Hebrew/MAM syllable or phoneme fitting. The source’s cross signs use nominal quarter-tone pitches in this unreviewed instrument study.';return;}
   if(model.profile.literalLatinWordStudy==='baer-no46'){status.textContent='Baer No46 follows unchanged whole-word candidates from its liturgical Deuteronomy11:21 source. Printed Latin units, Hebrew/MAM syllables and phonemes remain separate; no accepted syllable fitting or singing pronunciation is assigned.';return;}
   if(model.profile.wordOnly){status.textContent=error?'Personal fitting unavailable: '+error:model.profile.id===IDELSOHN_NO266.id?'Idelsohn No266 highlights candidate whole-word correspondence only. Its 95 printed groups remain separate from Hebrew/MAM syllables, phonemes and recorded timing. No No268 personal fitting is applied.':'Idelsohn No268 highlights whole-word correspondence candidates. Pronunciation syllables and acoustic timing are unassigned; independent pronunciation text stays in the reader.';return;}
   status.textContent=error?`Pronunciation highlighting unavailable: ${error}`:!activeInstrumentEvent?hint:!report?'Loading source syllable correspondence…':report.status==='exact-written-span'?`${pronunciationTools.scoreStatus().name} · ${report.hebrew} → ${[...new Set(report.units.map(u=>u.text))].join(' / ')} · exact written-span match. Text follows the instrument; no sung syllable is implied.`:`${report.hebrew} · ${NOTE_LINK_REASONS[report.reason]} No pronunciation syllable is highlighted.`;
@@ -758,7 +760,7 @@ function renderStaff(){
 }
 function exportContext(){
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
-  return {personalPronunciationFitting:model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportContext()??null):null,...(model.profile.id===IDELSOHN_NO266.id?{personalNo266PronunciationFitting:no266FitTools?.exportContext()??null}:{}),title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+  return {personalPronunciationFitting:model.profile.id===IDELSOHN_SCORE.id?(printedFitTools?.exportContext()??null):null,...(model.profile.id===IDELSOHN_NO266.id?{personalNo266PronunciationFitting:no266FitTools?.exportContext()??null}:{}),title:`${fullLabel(start)} to ${fullLabel(end)}`,melody:model.profile,instrument:instrumentForPlan(plan),signAnalysis:SIGN_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(plan.some(e=>e.sourceSmallNote)?{smallNoteStudy:{...SMALL_NOTE_STUDY}}:{}),
     ...(state.scope==='printed-syllable'?{printedSourceUnit:printedUnitContext(plan)}:{}),
@@ -893,6 +895,14 @@ function render(){
     $('score-description').textContent='The staff, note list and exports use the same 145 source notes across Genesis 1:1–5. The two pronunciation text styles remain independent of these notes; differing source syllable divisions stay unlinked.';
     $('score-help').textContent='Click a note to go to its Hebrew word. '+BAER_SCORE.performanceNote+' Slurs keep distinct attacks; no ties or notes for other verses are inferred.';
     if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah chant keeps its own original melody and pronunciation. The separate Baer instrumental study is not the recording’s melody.';$('score-description').textContent='Instrument score only; no pitches have been transcribed from the recording. '+$('score-description').textContent;}
+  }
+  if(model.profile.id===IDELSOHN_NO270.id){
+    $('music-badge').textContent='Quarter-tone instrumental draft';
+    $('music-notice').textContent='Idelsohn’s No270 prints Genesis25:19–20 under a Gibraltar heading. This unreviewed study has75 notes across27 unchanged marked words. The documentary label is separate from approval of this transcription, pronunciation or a complete melody system.';
+    $('score-description').textContent='The score, playback and exports retain the same75 written-note candidates, four triplets and four slurs. Two printed cross marks and one candidate carry use nominal50-cent quarter sharps; no rounding to ordinary semitones.';
+    $('score-help').textContent='Modern half-sharp signs represent the source’s cross glyph. Exact historical tuning and accidental carry are unreviewed; written values use your quarter-note BPM. Click a note to select its whole unchanged Hebrew word.';
+    $('source-syllables-status').textContent='Sixty separate Latin group indices preserve source grouping. Their phonetic/diacritic reading and Hebrew/MAM syllable mapping remain unassigned; the original glyphs remain in the facsimile. Reader pronunciation text, range, key and speed stay independent.';
+    if(state.practiceAudio==='recorded'){$('music-notice').textContent='PocketTorah keeps its own fixed melody and pronunciation. No270 is a separate unreviewed quarter-tone instrumental source study.';$('score-description').textContent='Instrument score only; no pitches transcribed from the recording. '+$('score-description').textContent;}
   }
   if(model.profile.literalLatinWordStudy==='baer-no46'){
     $('music-badge').textContent='Instrumental source study · review pending';
@@ -1110,6 +1120,13 @@ $('idelsohn-score-all').addEventListener('click',()=>openIdelsohnScore(true));
 function openNo266Score(all=false){libraryAction(()=>{stop('No266 source opened. Original study choices start off.');no266ParentheticalDemo=false;no266SmallEighthDemo=false;state.no266PrintedGroupIndex=1;state.melodyId=IDELSOHN_NO266.id;state.practiceAudio='instrument';applyRanges([{id:'idelsohn-no266',bookId:'exo',start:{chapter:12,verse:21},end:{chapter:12,verse:22},label:'Idelsohn No266 source-word study'}],{readingType:'torah'});state.cursor=0;state.anchor=all===true?words.length-1:all==='verse'?13:5;state.scope='selection';render();$('reader').focus();$('practice').scrollIntoView();});}
 $('no266-score-open').addEventListener('click',()=>openNo266Score());$('no266-score-verse').addEventListener('click',()=>openNo266Score('verse'));$('no266-score-all').addEventListener('click',()=>openNo266Score(true));
 
+function openNo270Score(all=false){libraryAction(()=>{
+ stop('No270 source opened. Nominal quarter-tone pitches and written durations are an unreviewed instrumental study.');state.melodyId=IDELSOHN_NO270.id;state.practiceAudio='instrument';
+ applyRanges([{id:'idelsohn-no270',bookId:'gen',start:{chapter:25,verse:19},end:{chapter:25,verse:20},label:'IdelsohnNo270 complete printed example'}],{readingType:'torah'});
+ state.cursor=0;state.anchor=all?26:8;state.scope='selection';state.notePage=0;state.staffPage=0;render();$('reader').focus();$('practice').scrollIntoView();
+});}
+$('no270-score-open').addEventListener('click',()=>openNo270Score());$('no270-score-all').addEventListener('click',()=>openNo270Score(true));
+
 function openNo46Score(index){libraryAction(()=>{
  const profile=BAER_NO46_PROFILES[index];if(!profile)throw Error('Choose a documented No46 path.');
  stop('No46 source opened. Printed durations use the independent instrument tempo.');state.melodyId=profile.id;state.practiceAudio='instrument';
@@ -1188,7 +1205,7 @@ $('download').addEventListener('click',()=>{
   const [start,end]=bounds(state.cursor,state.anchor,state.scope);
   let pronunciationResearch;
   try{pronunciationResearch=model.profile.wordOnly?null:pronunciationTools?.proposalNotes(plan,words)??null;}catch(error){say(`Pronunciation note references unavailable: ${error.message}`);return;}
-  const data={format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument,signAnalysis:SIGN_ANALYSIS,contextAnalysis:CONTEXT_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
+  const data={format:'tropetrain-events-v1',textSource:{...passage,verses:undefined},melody:model.profile,instrument:instrumentForPlan(plan),signAnalysis:SIGN_ANALYSIS,contextAnalysis:CONTEXT_ANALYSIS,pronunciation:{id:null,status:'not implemented'},
     ...(sourcePhraseTools?.matchSelection()?{sourcePhrase:sourcePhraseTools.matchSelection()}:{}),
     ...(model.sourceSyllableUnderlay?{syllableUnderlay:model.sourceSyllableUnderlay}:{}),
     ...(model.sourceJointGroups?.length?{sourceJointGroups:model.sourceJointGroups}:{}),
@@ -1352,7 +1369,7 @@ getRepertoireCorpus().then(value=>{
   $('source-study-open').disabled=false;
   $('baer-study-open').disabled=false;$('idelsohn-score-open').disabled=false;$('idelsohn-score-all').disabled=false;$('no266-score-open').disabled=false;$('no266-score-verse').disabled=false;$('no266-score-all').disabled=false;
   $('baer-high-holiday-open').disabled=false;
-  for(const id of ['no46-upper-open','no46-lower-open','no111-gen-upper-open','no111-gen-lower-open','no111-exo-open'])$(id).disabled=false;
+  for(const id of ['no270-score-open','no270-score-all','no46-upper-open','no46-lower-open','no111-gen-upper-open','no111-gen-lower-open','no111-exo-open'])$(id).disabled=false;
   $('implicit-reading-open').disabled=false;
   $('khan-pronunciation-open').disabled=false;
   $('prophetical-study-open').disabled=false;

@@ -1,3 +1,4 @@
+import {accidentalName} from './pitch.js';
 import {validatePlan,soundingNotes} from './synthesis.js';
 import {scoreData,rhythmSpelling,escapeXml as x} from './score-data.js';
 import {isPrintedScore} from './printed-score-registry.js';
@@ -24,6 +25,7 @@ function identity(notes,context){
       ...(e.sourceSlurs?{sourceSlurs:e.sourceSlurs}:{}),
       ...(e.sourcePrintedFormatting?{sourcePrintedFormatting:e.sourcePrintedFormatting}:{}),
       ...(e.sourceUnresolvedMarks&&!e.sourceSmallNote?{sourceUnresolvedMarks:e.sourceUnresolvedMarks}:{}),
+      ...(e.sourceLatinIndexReading?{sourceLatinIndexReading:true,sourceAccidentalOrigin:e.sourceAccidentalOrigin,sourceWrittenAccidental:e.sourceWrittenAccidental,sourcePrintedUnitLabel:e.sourcePrintedUnitLabel}:{}),
       ...(e.sourcePitch?{sourcePitch:e.sourcePitch,sourceTranspose:e.sourceTranspose,sourceNoteId:e.sourceNoteId,sourceSystem:e.sourceSystem,sourceFermata:e.sourceFermata,sourceSlurId:e.sourceSlurId,sourceSlurPhase:e.sourceSlurPhase,sourceTupletId:e.sourceTupletId,sourceTupletPhase:e.sourceTupletPhase}:{})}))};
 }
 function durationNotation(beats,accidental=null,r=rhythmSpelling(beats)){
@@ -76,7 +78,7 @@ export function musicXml(plan,words,context){
       if(e.sourceWordOnly&&Math.abs(written.reduce((n,r)=>n+r.beats,0)-gap)>1e-8)throw Error('Source-word export lost its individual printed rests.');
       for(const rest of written.length?written:[{beats:gap}])xml+=restNotation(rest);
     }
-    const p=e.pitch,accidental=p.alter===1?'sharp':p.alter===-1?'flat':'natural';
+    const p=e.pitch,accidental=accidentalName(p.alter);
     if(p.octave<0)throw Error('MusicXML pitch octaves begin at C0.');
     xml+=`<note id="note-${index+1}">${e.sourceNo111Grace?`<grace slash="${e.sourceNo111Grace.slash?'yes':'no'}"/>`:e.sourceSmallNote?'<grace slash="no"/>':''}<pitch><step>${p.step}</step>${p.alter?`<alter>${p.alter}</alter>`:''}<octave>${p.octave}</octave></pitch>${e.sourceSmallNote||e.sourceNo111Grace?'':`<duration>${Math.round(e.beats*DIVISIONS)}</duration>`}${e.tieStop?'<tie type="stop"/>':''}${e.tieStart?'<tie type="start"/>':''}${durationNotation(e.beats,accidental,(e.sourceSmallEighth||e.sourceNo266SmallEighth)?rhythmSpelling(e.beats):e.rhythm)}`;
     if(e.sourceNo266Parenthetical)xml+='<notehead parentheses="yes">normal</notehead>';
@@ -87,7 +89,7 @@ export function musicXml(plan,words,context){
     if(e.sourcePrintedLyric!==undefined){
       const prev=notes[index-1],next=notes[index+1],continued=prev?.sourcePrintedSyllableId===e.sourcePrintedSyllableId,extendsNext=next?.sourcePrintedSyllableId===e.sourcePrintedSyllableId,phase=extendsNext?(continued?'continue':'start'):continued?'stop':null;
       const syllabic=e.sourcePrintedUnitCount===1?'single':e.sourcePrintedSyllableIndex===1?'begin':e.sourcePrintedSyllableIndex===e.sourcePrintedUnitCount?'end':'middle';
-      xml+=`<lyric number="2" name="literal-printed-Latin-unit">${continued?'':`<syllabic>${syllabic}</syllabic><text xml:lang="und-Latn" dir="ltr"${e.sourcePrintedFormatting?.underline?' underline="1"':''}>${x(e.sourcePrintedLyric)}</text>`}${phase?`<extend type="${phase}"/>`:''}</lyric>`;
+      xml+=`<lyric number="2" name="${e.sourceLatinIndexReading?'unreviewed-source-Latin-group-index':'literal-printed-Latin-unit'}">${continued?'':`<syllabic>${syllabic}</syllabic><text xml:lang="und-Latn" dir="ltr"${e.sourcePrintedFormatting?.underline?' underline="1"':''}>${x(e.sourcePrintedLyric)}</text>`}${phase?`<extend type="${phase}"/>`:''}</lyric>`;
     }
     xml+='</note>';
     beat=e.startBeat+e.beats;
@@ -108,12 +110,19 @@ export function midiFile(plan,words,context){
   parts.push(Uint8Array.of(0,0xb0,7,Math.round(Math.min(100,Math.max(0,context.volume??70))*1.27)));
   // General MIDI triangle/synth timbres vary by player. MIDI contains notes,
   // not the application's instrument or a recording of its sound.
-  let tick=0;
+  const microtonal=notes.some(e=>!Number.isInteger(e.midi));
+  // Single-channel monophonic export: explicitly set the standard two-semitone
+  // bend range and reset bends between notes. Integer-only files stay exact.
+  if(microtonal){for(const [controller,value]of [[101,0],[100,0],[6,2],[38,0],[101,127],[100,127]])parts.push(Uint8Array.of(0,0xb0,controller,value));parts.push(Uint8Array.of(0,0xe0,0,64));}
+  let tick=0,bend=8192;
   for(const e of soundingNotes(notes)){
     const start=Math.round(e.startBeat*MIDI_PPQ),end=Math.round((e.startBeat+e.beats)*MIDI_PPQ);
     meta(start-tick,1,e.id);if(!e.continuation)meta(0,5,e.lyricText??e.syllable);
-    parts.push(Uint8Array.of(0,0x90,e.midi,80),vlq(end-start),Uint8Array.of(0x80,e.midi,0));tick=end;
+    const note=Math.floor(e.midi),nextBend=8192+Math.round((e.midi-note)*4096);
+    if(nextBend!==bend){parts.push(Uint8Array.of(0,0xe0,nextBend&127,nextBend>>>7));bend=nextBend;}
+    parts.push(Uint8Array.of(0,0x90,note,80),vlq(end-start),Uint8Array.of(0x80,note,0));tick=end;
   }
+  if(bend!==8192)parts.push(Uint8Array.of(0,0xe0,0,64));
   const end=Math.round(validatePlan(plan)*context.tempo/60*MIDI_PPQ);
   meta(Math.max(0,end-tick),0x2f,new Uint8Array());const track=join(parts);
   return join([text.encode('MThd'),u32(6),Uint8Array.of(0,0,0,1,MIDI_PPQ>>>8,MIDI_PPQ&255),text.encode('MTrk'),u32(track.length),track]);

@@ -3421,15 +3421,15 @@
     },
     {
       "path": "printed-score-registry.js",
-      "sha256": "aa1c05243754c58e028b649ad51937b09ceb23980023c84a073f4bf56b4a638a"
+      "sha256": "250e6cc8ea4a8f9bef8290e80943dcbd0b59e199b04bf4bf87126b173819e5b9"
     },
     {
       "path": "music-exports.js",
-      "sha256": "3e91e9e3c5dd990250c4eaa762d7ca46026f1997d40a11eb5e79c0219f635968"
+      "sha256": "851da74a3f9a542f7804a386c0c3c0b22d89fb6014951a420b0235e757677bd2"
     },
     {
       "path": "staff.js",
-      "sha256": "fdc7d43da52accd221b607438a851ee91f4c588c80cc3a4ae1301a0632ce867e"
+      "sha256": "280a3c8190784e06d30812804cafe432217a15e2069bb5eff46c443e9cf13c9a"
     },
     {
       "path": "data/torah/deu.json",

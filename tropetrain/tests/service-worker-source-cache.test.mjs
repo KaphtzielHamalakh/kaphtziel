@@ -22,13 +22,13 @@ test('the new worker activates only after complete caching and preserves separat
  f.stores.get(f.info.CACHE).delete(new URL('./assets/scores/baer-no105-third-p35.png',scope).href);assert.equal((await f.message('tropetrain-offline-status')).ready,false);
 });
 test('versioned programs and exact source facsimiles reopen from cache, while unversioned navigation still checks for new releases',async()=>{
- const f=fixture();await f.lifecycle('install');for(const file of ['app.bundle.js?v=0.110.0','style.css?v=0.110.0','assets/scores/baer-no105-second-p30.png']){assert.equal(await(await f.request(file)).text(),'included');assert.equal(f.network.length,0);}
+ const f=fixture();await f.lifecycle('install');for(const file of ['app.bundle.js?v=0.111.0','style.css?v=0.111.0','assets/scores/baer-no105-second-p30.png']){assert.equal(await(await f.request(file)).text(),'included');assert.equal(f.network.length,0);}
  await f.request('./',{mode:'navigate'});assert.equal(f.network.length,1);
  await f.request('app.bundle.js?v=0.109.0');assert.equal(f.network.length,2,'a different version cannot reuse the current program');
  f.state.offline=true;assert.equal(await(await f.request('index.html?uncached=1',{mode:'navigate'})).text(),'included');assert.equal((await f.request('assets/scores/baer-no105-first-p30.png')).status,200);
 });
 test('HTTP portable-page saving is complete, uses the existing HTTP cache, deduplicates concurrent requests and supports offline reopening',async()=>{
- const f=fixture();await f.lifecycle('install');const results=await Promise.all([f.message('tropetrain-save-portable'),f.message('tropetrain-save-portable')]);assert(results.every(r=>r.ready&&r.version==='0.110.0'));assert.equal(f.network.length,1);assert.equal(f.network[0].options.cache,'force-cache');
- f.state.offline=true;const r=await f.request('TropeTrain.html?v=0.110.0',{mode:'navigate'});assert.equal(r.status,200);assert.match(await r.text(),/server:/);assert.equal(f.network.length,1);assert.equal((await f.message('tropetrain-save-portable')).ready,true);assert.equal(f.network.length,1);
+ const f=fixture();await f.lifecycle('install');const results=await Promise.all([f.message('tropetrain-save-portable'),f.message('tropetrain-save-portable')]);assert(results.every(r=>r.ready&&r.version==='0.111.0'));assert.equal(f.network.length,1);assert.equal(f.network[0].options.cache,'force-cache');
+ f.state.offline=true;const r=await f.request('TropeTrain.html?v=0.111.0',{mode:'navigate'});assert.equal(r.status,200);assert.match(await r.text(),/server:/);assert.equal(f.network.length,1);assert.equal((await f.message('tropetrain-save-portable')).ready,true);assert.equal(f.network.length,1);
  const missing=fixture();await missing.lifecycle('install');missing.state.offline=true;assert.equal((await missing.message('tropetrain-save-portable')).ready,false);
 });

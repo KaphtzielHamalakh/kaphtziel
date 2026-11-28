@@ -25,15 +25,15 @@
     },
     {
       "path": "score-data.js",
-      "sha256": "c581ae7979c5df151103f4e69e74f6fc5ba29601aaeff08959d372b99f5158d4"
+      "sha256": "1c7b310f3cdd379fc51893936e9fe9b4c9d6061e8e08e7888ae384f39fb0e383"
     },
     {
       "path": "staff.js",
-      "sha256": "fdc7d43da52accd221b607438a851ee91f4c588c80cc3a4ae1301a0632ce867e"
+      "sha256": "280a3c8190784e06d30812804cafe432217a15e2069bb5eff46c443e9cf13c9a"
     },
     {
       "path": "index.html",
-      "sha256": "bdc604fb9fafe5347bee8b4c6a8aca530795bb4ce3e46985ab24233accc52e0a"
+      "sha256": "9ca5a341ffbec7fc403591a023df042e7b98498a7536492989c3e2370d8e1698"
     },
     {
       "path": "docs/IDELSOHN-NO267-PATTERNS.json",

@@ -1,5 +1,9 @@
 // Live playback and offline WAV rendering use this same instrument and envelope.
 export const instrument=Object.freeze({id:'triangle-soft',revision:2,name:'Soft triangle instrument',mode:'instrumental',tuning:'12-TET, A4 = 440 Hz',provenance:'New synthesis for this reconstruction; no historical voice attribution.'});
+export function instrumentForPlan(plan){
+  if(plan.every(e=>Number.isInteger(e.midi)))return instrument;
+  return {...instrument,tuning:plan.every(e=>Number.isInteger(e.midi*2))?'24-TET equal-quarter-tone study, A4 = 440 Hz':'Event-specific frequencies, A4 = 440 Hz note-number reference',tuningReview:null};
+}
 export function validatePlan(plan){
   if(!Array.isArray(plan)||!plan.length)throw Error('There are no notes in this span.');
   let previousEnd=0;
