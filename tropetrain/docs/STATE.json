@@ -3,8 +3,8 @@
   "updated": "2026-11-28",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "bfc6fd6a15309a6d11cf6bc7ce7a40a1f3291d4a",
-  "nextTask": "Publish locally accepted111 app-only through connected GitHub; verify Pages/live bodies/both public editions and exact15drafts/2fittings/7spans, save complete canonical111 and four final metadata files. Then continue sourced word-aligned chant and independent pronunciation; No270 carry/Latin/fitting and qualified musical review remain pending. Whole-Torah musical grammars and six independent singing pronunciations are incomplete. Printing waits; private voice labs stay frozen.",
+  "publishedCommit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
+  "nextTask": "Continue evidence-led word-aligned chanting and independent pronunciation across the Torah. Review the No270 quarter-sharp carry and Latin glyph readings before accepted syllable/phoneme fitting. Inspect the separate Genesis24:49 example on printed103/PDF106 and confirm its caption/context before transcription; do not merge it with Genesis25:19–20 or infer a complete Gibraltar/Kinnor grammar. Seek reusable reviewed whole-Torah scores/recordings and independent singing pronunciations. Preserve all21feature identities/sixcompletion requirements, exact marked Hebrew/IDs and personal drafts. Use pinned original-program archives and prior TaamimFlow reconciliation; do not rediscover or adopt unlicensed extracted data. Printing waits and private voice labs stay frozen.",
   "lastPassingTests": {
     "version": "0.111.0",
     "command": "npm test",
@@ -161,15 +161,12 @@
     }
   },
   "lastDeployment": {
-    "commit": "0bf4ccaf8205b7a127ed3c4e2f2d8c818dfbe89a",
-    "pagesRun": 46130820011,
-    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46130820011",
-    "status": "success",
-    "allThreeJobsSucceeded": true,
-    "all57ChangedLiveFilesExact": true,
-    "all34SourceImageBodiesExact": true,
-    "testedAppTree": "5d0b23dd44a0196810cde491b351d7d3657d7d04",
-    "finalReleaseRecordPublication": "separate metadata follow-up; exact final receipt retained outside app"
+    "version": "0.111.0",
+    "commit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
+    "appTree": "3e663f54f6e8e9c784fdad8e108ede751bfd7ab7",
+    "pagesRun": 46139088054,
+    "status": "published_code_and_both_public_editions_verified",
+    "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. The final commit, Pages/live results and complete canonical certificate with four exact overlays are recorded in the external RELEASE and RESUME records."
   },
   "corpusImport": {
     "books": 5,
@@ -1085,7 +1082,7 @@
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
-  "lastPublishedIteration": "0.110.0",
+  "lastPublishedIteration": "0.111.0",
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
     "publicRuntimeVersion": "0.52.0",
@@ -5552,6 +5549,109 @@
       "fullGoal": "active_incomplete",
       "printing": "deferred",
       "privateVoiceLabs": "frozen"
+    },
+    "publicAcceptance": {
+      "version": "0.111.0",
+      "connectedCodeCommit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
+      "testedCodeAppTree": "3e663f54f6e8e9c784fdad8e108ede751bfd7ab7",
+      "rootTree": "85283feca5d7e0284298e6ecf00cbfb21aab192a",
+      "outsideEntriesPreserved": 42,
+      "expectedHeadLease": true,
+      "pagesRun": 46139088054,
+      "allThreePagesJobsSuccess": true,
+      "liveChangedFiles": 80,
+      "liveChangedBytes": 133983543,
+      "allLiveDecodedBodiesExactWithDefaultTls": true,
+      "bothEditionsAccepted": true,
+      "No270": {
+        "words": 27,
+        "notes": 75,
+        "pages": 7,
+        "LatinGroups": 60,
+        "quarterSharps": 3,
+        "textChoices": 7,
+        "stops": 4,
+        "repeatAndViews": true,
+        "following": true,
+        "nativeWavFramesAt84Bpm": [
+          196875,
+          657563
+        ]
+      },
+      "retainedNo46PathsPerEdition": [
+        57,
+        55
+      ],
+      "retainedSourceImagesPerEdition": 34,
+      "fullRawDraftsExactPerEdition": 15,
+      "canonicalFittingsExactPerEdition": 2,
+      "listeningSpansExactPerEdition": 7,
+      "all378ActualPortablePitchDataExact": true,
+      "offline": {
+        "normal": "Included reading text & score sources · saved for offline practice",
+        "portable": "Portable page · saved for offline reopening"
+      },
+      "normal": {
+        "allMediaPaused": true,
+        "version": "v0.111.0",
+        "volumes": [
+          {
+            "id": "chant-volume",
+            "value": "0"
+          },
+          {
+            "id": "volume",
+            "value": "0"
+          },
+          {
+            "id": "haftarah-volume",
+            "value": "0"
+          },
+          {
+            "id": "voice-study-volume",
+            "value": "0"
+          },
+          {
+            "id": "reference-volume",
+            "value": "0"
+          }
+        ]
+      },
+      "portable": {
+        "allMediaPaused": true,
+        "version": "v0.111.0",
+        "volumes": [
+          {
+            "id": "chant-volume",
+            "value": "0"
+          },
+          {
+            "id": "volume",
+            "value": "0"
+          },
+          {
+            "id": "haftarah-volume",
+            "value": "0"
+          },
+          {
+            "id": "voice-study-volume",
+            "value": "0"
+          },
+          {
+            "id": "reference-volume",
+            "value": "0"
+          }
+        ]
+      },
+      "publicNetworkOffClaimed": false,
+      "nativePreparedFilePcmBytesClaimed": false,
+      "heardMusicalReview": false,
+      "screenshot": "public-no270-quarter-tones.jpg",
+      "fullGoal": "active_incomplete",
+      "newIndependentlyReviewedMusicalRealizations": 0,
+      "newSingingVoices": 0,
+      "qualifiedReview": null,
+      "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. The final commit, Pages/live results and complete canonical certificate with four exact overlays are recorded in the external RELEASE and RESUME records."
     }
   },
   "currentCandidate111": {
@@ -5657,9 +5757,215 @@
       },
       "wholeOriginalCheckRerun": false
     },
-    "publication": "pending",
+    "publication": "code_Pages_live_both_public_editions_and_practice_verified",
     "fullGoal": "active_incomplete",
     "printing": "deferred",
-    "privateVoiceLabs": "frozen"
+    "privateVoiceLabs": "frozen",
+    "publicAcceptance": {
+      "version": "0.111.0",
+      "connectedCodeCommit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
+      "testedCodeAppTree": "3e663f54f6e8e9c784fdad8e108ede751bfd7ab7",
+      "rootTree": "85283feca5d7e0284298e6ecf00cbfb21aab192a",
+      "outsideEntriesPreserved": 42,
+      "expectedHeadLease": true,
+      "pagesRun": 46139088054,
+      "allThreePagesJobsSuccess": true,
+      "liveChangedFiles": 80,
+      "liveChangedBytes": 133983543,
+      "allLiveDecodedBodiesExactWithDefaultTls": true,
+      "bothEditionsAccepted": true,
+      "No270": {
+        "words": 27,
+        "notes": 75,
+        "pages": 7,
+        "LatinGroups": 60,
+        "quarterSharps": 3,
+        "textChoices": 7,
+        "stops": 4,
+        "repeatAndViews": true,
+        "following": true,
+        "nativeWavFramesAt84Bpm": [
+          196875,
+          657563
+        ]
+      },
+      "retainedNo46PathsPerEdition": [
+        57,
+        55
+      ],
+      "retainedSourceImagesPerEdition": 34,
+      "fullRawDraftsExactPerEdition": 15,
+      "canonicalFittingsExactPerEdition": 2,
+      "listeningSpansExactPerEdition": 7,
+      "all378ActualPortablePitchDataExact": true,
+      "offline": {
+        "normal": "Included reading text & score sources · saved for offline practice",
+        "portable": "Portable page · saved for offline reopening"
+      },
+      "normal": {
+        "allMediaPaused": true,
+        "version": "v0.111.0",
+        "volumes": [
+          {
+            "id": "chant-volume",
+            "value": "0"
+          },
+          {
+            "id": "volume",
+            "value": "0"
+          },
+          {
+            "id": "haftarah-volume",
+            "value": "0"
+          },
+          {
+            "id": "voice-study-volume",
+            "value": "0"
+          },
+          {
+            "id": "reference-volume",
+            "value": "0"
+          }
+        ]
+      },
+      "portable": {
+        "allMediaPaused": true,
+        "version": "v0.111.0",
+        "volumes": [
+          {
+            "id": "chant-volume",
+            "value": "0"
+          },
+          {
+            "id": "volume",
+            "value": "0"
+          },
+          {
+            "id": "haftarah-volume",
+            "value": "0"
+          },
+          {
+            "id": "voice-study-volume",
+            "value": "0"
+          },
+          {
+            "id": "reference-volume",
+            "value": "0"
+          }
+        ]
+      },
+      "publicNetworkOffClaimed": false,
+      "nativePreparedFilePcmBytesClaimed": false,
+      "heardMusicalReview": false,
+      "screenshot": "public-no270-quarter-tones.jpg",
+      "fullGoal": "active_incomplete",
+      "newIndependentlyReviewedMusicalRealizations": 0,
+      "newSingingVoices": 0,
+      "qualifiedReview": null,
+      "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. The final commit, Pages/live results and complete canonical certificate with four exact overlays are recorded in the external RELEASE and RESUME records."
+    }
+  },
+  "publicV111Acceptance": {
+    "version": "0.111.0",
+    "connectedCodeCommit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
+    "testedCodeAppTree": "3e663f54f6e8e9c784fdad8e108ede751bfd7ab7",
+    "rootTree": "85283feca5d7e0284298e6ecf00cbfb21aab192a",
+    "outsideEntriesPreserved": 42,
+    "expectedHeadLease": true,
+    "pagesRun": 46139088054,
+    "allThreePagesJobsSuccess": true,
+    "liveChangedFiles": 80,
+    "liveChangedBytes": 133983543,
+    "allLiveDecodedBodiesExactWithDefaultTls": true,
+    "bothEditionsAccepted": true,
+    "No270": {
+      "words": 27,
+      "notes": 75,
+      "pages": 7,
+      "LatinGroups": 60,
+      "quarterSharps": 3,
+      "textChoices": 7,
+      "stops": 4,
+      "repeatAndViews": true,
+      "following": true,
+      "nativeWavFramesAt84Bpm": [
+        196875,
+        657563
+      ]
+    },
+    "retainedNo46PathsPerEdition": [
+      57,
+      55
+    ],
+    "retainedSourceImagesPerEdition": 34,
+    "fullRawDraftsExactPerEdition": 15,
+    "canonicalFittingsExactPerEdition": 2,
+    "listeningSpansExactPerEdition": 7,
+    "all378ActualPortablePitchDataExact": true,
+    "offline": {
+      "normal": "Included reading text & score sources · saved for offline practice",
+      "portable": "Portable page · saved for offline reopening"
+    },
+    "normal": {
+      "allMediaPaused": true,
+      "version": "v0.111.0",
+      "volumes": [
+        {
+          "id": "chant-volume",
+          "value": "0"
+        },
+        {
+          "id": "volume",
+          "value": "0"
+        },
+        {
+          "id": "haftarah-volume",
+          "value": "0"
+        },
+        {
+          "id": "voice-study-volume",
+          "value": "0"
+        },
+        {
+          "id": "reference-volume",
+          "value": "0"
+        }
+      ]
+    },
+    "portable": {
+      "allMediaPaused": true,
+      "version": "v0.111.0",
+      "volumes": [
+        {
+          "id": "chant-volume",
+          "value": "0"
+        },
+        {
+          "id": "volume",
+          "value": "0"
+        },
+        {
+          "id": "haftarah-volume",
+          "value": "0"
+        },
+        {
+          "id": "voice-study-volume",
+          "value": "0"
+        },
+        {
+          "id": "reference-volume",
+          "value": "0"
+        }
+      ]
+    },
+    "publicNetworkOffClaimed": false,
+    "nativePreparedFilePcmBytesClaimed": false,
+    "heardMusicalReview": false,
+    "screenshot": "public-no270-quarter-tones.jpg",
+    "fullGoal": "active_incomplete",
+    "newIndependentlyReviewedMusicalRealizations": 0,
+    "newSingingVoices": 0,
+    "qualifiedReview": null,
+    "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. The final commit, Pages/live results and complete canonical certificate with four exact overlays are recorded in the external RELEASE and RESUME records."
   }
 }
