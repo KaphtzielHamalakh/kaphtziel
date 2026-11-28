@@ -14,6 +14,6 @@ test('physical portable pitch envelope independently restores all378 exact origi
  const text=new TextDecoder('utf-8',{fatal:true}).decode(bytes),packet=JSON.parse(text);assert.equal(Object.keys(packet).length,378);
  const expected=Object.fromEntries(manifest.records.map(r=>[r.id,read('data/pitch/'+r.file).toString('base64')]));assert.equal(text,JSON.stringify(expected));
  for(const r of manifest.records){const file=Buffer.from(packet[r.id],'base64');assert.deepEqual(file,read('data/pitch/'+r.file));assert.equal(sha(file),r.sha256);}
- assert.deepEqual(audit.packet,p);assert.equal(audit.version,'0.111.0');for(const pin of audit.inputs)assert.equal(sha(read(pin.path)),pin.sha256,pin.path);
+ assert.deepEqual(audit.packet,p);assert.equal(audit.version,'0.112.0');for(const pin of audit.inputs)assert.equal(sha(read(pin.path)),pin.sha256,pin.path);
  assert(html.includes('<script id="source-pitch-packets" type="application/json"></script>'));assert(raw.length<=100*1024*1024-4*1024*1024);
 });

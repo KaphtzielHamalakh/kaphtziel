@@ -330,7 +330,7 @@
     },
     {
       "path": "music.js",
-      "sha256": "471fb6f38cd39099471c2b43c7fec667682d3c3d8956d682399d21774aeb54e6"
+      "sha256": "e78f54b6655473d800d4bea2854ad057ed4f56edf4453b64d00cab3b2d97a6db"
     },
     {
       "path": "pronunciation-note-links.js",
@@ -350,11 +350,11 @@
     },
     {
       "path": "score-data.js",
-      "sha256": "1c7b310f3cdd379fc51893936e9fe9b4c9d6061e8e08e7888ae384f39fb0e383"
+      "sha256": "8b94f1c4e094652e7b4d91cac37d95699a93e7d7a3c35c54ae13094e172a1386"
     },
     {
       "path": "music-exports.js",
-      "sha256": "851da74a3f9a542f7804a386c0c3c0b22d89fb6014951a420b0235e757677bd2"
+      "sha256": "23ebf32f654483ea0f2c4fe6741a77007e56565812efac438147efd83fb2e52f"
     }
   ],
   "method": "Explicit opt-in for a complete source pronunciation word shared across written words. The original source word segment and complete source-row syllable intervals must match, both MAM styles must agree on Hebrew syllables/stress, and all literal reader-form paths must give unique correspondence. Every note retains all reader-word occurrences together; individual word IDs/indices and written syllable ranges are null. Whole-source scope selects the group explicitly; clipped spans fail closed. No arbitrary syllable split or automatic extension of individual-word playback.",

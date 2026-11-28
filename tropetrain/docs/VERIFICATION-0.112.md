@@ -1,0 +1,16 @@
+# v0.112 verification
+
+Local normal/portable/cache acceptance is complete. Connected publication, Pages, live bodies, both public editions/practice preservation and canonical112 saving remain pending.
+
+
+### v0.112 local acceptance; publication pending
+
+The separate unnumbered Genesis24:49 source (Idelsohn1929 printed103/PDF106) retains20unchanged marked words/56components/38separate visual Latin indices, two systems/one cross-word triplet/five slurs/no rests.55measured notes total30.5quarterbeats. The small unslashed eighth c08/A4 has no assigned source role/duration; complete selections require explicit original80ms added timing, fixed under tempo changes. Measured words2–20 play immediately:46notes/26beats. Locality, complete grammar, Kinnor equivalence, accepted syllable/phoneme fitting, singing voice and qualified review remain unassigned. Faithful source crop remains pixel-exact.
+
+Full npm run check17491 ended0: 1046/1046passing, no failures/cancellations/skips, 723240.754875ms. Eleven focused checks also pass including actual native full offline PCM/small-note440Hz pitch. All13prior profiles/838complete plans/XML/MIDI and192SVGstrings are byte-exact to111. Preservation checks retain707old assets/data/vendor bytes/modes,122semanticreports excluding delivery/inputpins,469currentpins,210other root runtime files, full21feature identities and six requirements. Runtime,RESEARCH,build inputs and compiled artifacts are frozen.
+
+Normal and portable supported UI checks pass all20words/56notes/fivepages, measuredremainder19/46/fourpages, source image and exact portable image/notice bytes, seven independent pronunciation-text options, range/key/tempo independence, word/group/verse stops, cross-group repeat, three Hebrew views and automatic following to word8/page25–36. MusicXML/MIDI/WAV preparation passes; native decoder frames at84BPM/22050Hz409500(remainder)/482139(complete). Browser prepared-file PCM bytes and heard musical approval are not claimed. A private test-helper assumption guessed group5–6; actual UI/export group0 ends at etnachta/word10. Only the helper was corrected; application/source/artifacts stayed unchanged.
+
+All34retained facsimiles and No270first/full24/75note routes pass in both editions. Actual portable DOM restores the exact31132915-byte pitch JSON/378originalfiles. All36native served images/11390490bytes match. Owned55412preview54737 stopped0; curl7confirmed refusal before both exact cached URLs reopened with newsource/following/all34images. Audio stays zero/paused; no errors/outeroverflow. Owned17/18closed; protected1untouched; public4still111. Fresh public111private baseline saves15fullrawdrafts/two fittings/seven spans for public comparison. No personal raw exports are published.
+
+Normal artifact 32466050bytes/SHA79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d; portable 98584142bytes/SHAcdb68c10e2bd40f58720d5fa6a3993db741ac7ff38150091686b38f76e9a8f10. Portable headroom6273458 retains unchanged4194304reserve. All95canonical evidence records/98links retained. Public111 remains accepted rollback point (25a6b37b7319b88b039720d93a7224150495abb0/app321ca7d1cab98d0aea374034dc0ee856c1153f08). Connected112publication/Pages/live/publicpractice/canonical acceptance pending. Full goal ACTIVE/INCOMPLETE; printing deferred/privatevoice labs frozen.

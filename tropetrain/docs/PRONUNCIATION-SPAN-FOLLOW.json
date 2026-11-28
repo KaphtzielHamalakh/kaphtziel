@@ -271,7 +271,7 @@
     },
     {
       "path": "app.js",
-      "sha256": "0439cba5325357420fec6449f3edf5578e8953328d2606a253dea76ecc58adab"
+      "sha256": "613b2fc4a1c59e717da321ab5c8e2d27979d0ecd56b03f09d3296432877d713b"
     },
     {
       "path": "pronunciation-span-follow.js",
@@ -295,7 +295,7 @@
     },
     {
       "path": "docs/PRONUNCIATION-SCORE-GROUPS.json",
-      "sha256": "abcc312e6f597847367d783af984ce8b4eea9c48ad5ccd9f39820da1566130d0"
+      "sha256": "b1532767c26a3a498d6fff6890eb49cc2cb35571677e55e8a1906ef30202d30c"
     },
     {
       "path": "data/pronunciation/torah-display.json.gz",

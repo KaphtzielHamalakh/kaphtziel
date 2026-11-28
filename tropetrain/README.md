@@ -1,5 +1,12 @@
 # TropeTrain
 
+**v0.112.0 — locally accepted; publication pending.** Adds a bounded instrumental study of Genesis24:49 from Idelsohn’s1929 printed p103:20unchanged marked Hebrew words/56notes. Measured words2–20 play immediately. The full verse requires an explicit original80ms timing for the source’s unmeasured small note; its historical role/duration remain unknown. Melody, pronunciation text, range guide, key and tempo stay independent.
+
+**1,046 automated tests pass.** Both normal and portable editions pass playback, source alignment, five score pages, controls, export preparation and reopening with the local preview stopped. [Verification and limits](docs/VERIFICATION-0.112.md). No new reviewed tradition grammar or singing voice is claimed.
+
+Try **New → Genesis24:49 · Idelsohn source study → Open Genesis24:49 · measured words2–20**. Raise **Instrument volume**, enable **Follow playback**, then **Play**. For all20words choose **Select complete Genesis24:49 verse**, then explicitly enable the **original80ms timing study**. [Open TropeTrain](https://kaphtziel.com/tropetrain/?v=0.112.0#idelsohn-gen24-study). Run the complete saved folder: `python3 -m http.server 8821 --bind 127.0.0.1`, open `http://127.0.0.1:8821/tropetrain/`. Full21feature/sixrequirement reconstruction remains active; printing waits and privatevoice labs stay frozen.
+
+
 **v0.111.0 — published and verified in both public browser editions.** Adds Idelsohn’s1929 No270 Genesis25:19–20 as a clearly labeled instrumental candidate:27 unchanged marked words,75notes and nominal quarter-tone pitches. Melody, pronunciation text, guide range, transposition and tempo remain independent. The source and locality attribution are documented; accidental carry, phonetic reading, syllable fitting and actual historical intonation still need qualified review.
 
 **1,037 automated tests pass in the corrected full suite.** Both normal and portable editions pass playback, stops, repeat, all seven score pages, seven independent pronunciation-text choices, export preparation and reopening with the preview stopped. All previous asset/data/vendor files and musical exports remain exact. The portable file is98.43MB with the unchanged4MiBreserve. [Verification and limits](docs/VERIFICATION-0.111.md). Pages and all80changed live files are verified;15timing drafts/two fittings/seven listening spans are exact in each public edition.
