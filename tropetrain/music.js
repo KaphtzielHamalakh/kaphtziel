@@ -101,7 +101,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     let end=cursor;while(end+1<words.length&&words[end+1][field]===words[cursor][field])end++;
     return [cursor,end];
   }
-  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false,no266SmallEighthDemo=false,no266ParentheticalDemo=false,printedSyllableIndex=null,no266PrintedGroupIndex=null}={}){
+  function buildPlan(start,end,{tempo=84,transpose=0,smallNoteDemo=false,smallEighthDemo=false,no266SmallEighthDemo=false,no266ParentheticalDemo=false,no111GraceDemo=false,printedSyllableIndex=null,no266PrintedGroupIndex=null}={}){
     if(!Number.isInteger(start)||!Number.isInteger(end)||!words[start]||!words[end]||start>end)throw Error('Invalid playback span.');
     if(!Number.isFinite(tempo)||tempo<=0||!Number.isInteger(transpose)||Math.abs(transpose)>36)throw Error('Invalid tempo or transposition.');
     const cut=sourceJointGroups.find(g=>g.wordIndices.some(i=>i>=start&&i<=end)&&!g.wordIndices.every(i=>i>=start&&i<=end));
@@ -116,7 +116,7 @@ export function createReadingModel(passage,{melodyId=melody.id,sourceUnderlay}={
     let selected=events.filter(e=>isJointEvent(e)?e.wordIndices.every(i=>i>=start&&i<=end):e.wordIndex>=start&&e.wordIndex<=end);
     if(printedSyllableIndex!==null){selected=selected.filter(e=>e.sourcePrintedSyllableIndex===printedSyllableIndex);if(!selected.length)throw Error('This word has no such printed source syllable. Untexted small notes have no syllable assignment.');}
     if(no266PrintedGroupIndex!==null){selected=selected.filter(e=>e.sourcePrintedSyllableIndex===no266PrintedGroupIndex);if(!selected.length)throw Error('This word has no such No266 printed group. The parenthesized quarter has no group assignment.');}
-    if(profile.wordOnly)return printedWordPlan(profile.id,selected,{tempo,transpose,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo});
+    if(profile.wordOnly)return printedWordPlan(profile.id,selected,{tempo,transpose,smallEighthDemo,no266SmallEighthDemo,no266ParentheticalDemo,no111GraceDemo});
     return selected.map((e,index)=>{
       const small=smallNoteStudyTiming(e,{tempo,smallNoteDemo}),beats=small?.beats??e.beats;
       const event={...e,beats,midi:e.midi+transpose,...(e.sourcePitch?{sourceTranspose:transpose}:{}),startBeat:beat,startSeconds:beat*60/tempo,durationSeconds:small?.seconds??beats*60/tempo,

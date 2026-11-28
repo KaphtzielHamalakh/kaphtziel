@@ -12,6 +12,7 @@ import {validatePlan,soundingNotes} from '../synthesis.js';
 import {renderWav} from '../wav.js';
 import {availablePatternModes,patternContextChoices,printedPatternPlan,PRINTED_PATTERN_SOURCES} from '../printed-patterns.js';
 import {wordPatternCatalogue} from '../word-pattern-lookups.js';
+import {CURRENT_SECOND_SHA} from './baer-numbering-normalize.mjs';
 const data=row.record,read=p=>readFileSync(new URL('../'+p,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),p=(id,o={})=>plan(id,{tempo:60,transpose:0,...o});
 test('all29third-row columns have unreviewed literal routes; unknown choices supply no fitting or voices',()=>{
  assert.equal(data.figures.length,29);assert.equal(data.figures.filter(f=>f.status==='transcribed').length,27);assert.equal(data.figures.filter(f=>f.status==='unmeasured-grace').length,2);assert.equal(data.figures.filter(f=>f.status==='unresolved-route').length,0);assert.equal(data.notes.length,236);assert.equal(modes().length,42);assert.deepEqual(data.figures.map(f=>f.id),parent.record.figures.map(f=>f.id));assert.throws(()=>p('not-a-source-figure',{graceDemo:true,repeatDemo:true}));
@@ -20,7 +21,7 @@ test('all29third-row columns have unreviewed literal routes; unknown choices sup
 });
 test('literal third-row dto references preserve immediate and transitive source identities; written pickups override only their own first component',()=>{
  const byId=new Map(parent.record.notes.map(n=>[n.id,n]));let count=0;
- for(const n of data.notes.filter(n=>n.sourceNotation.method==='literal-dto-reference')){const old=byId.get(n.sourceNotation.parentComponentId);assert(old);assert.equal(n.sourceNotation.parentRecord,'docs/BAER-NO105-SECOND-PATTERNS.json');assert.equal(n.sourceNotation.parentSha256,'082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2');for(const k of['midi','sourcePitch','quarterBeats','rhythm'])assert.deepEqual(n[k],old[k]);assert.deepEqual(n.sourceNotation.transitiveSourceNotation,old.sourceNotation??null);count++;}
+ for(const n of data.notes.filter(n=>n.sourceNotation.method==='literal-dto-reference')){const old=byId.get(n.sourceNotation.parentComponentId);assert(old);assert.equal(n.sourceNotation.parentRecord,'docs/BAER-NO105-SECOND-PATTERNS.json');assert.equal(n.sourceNotation.parentSha256,CURRENT_SECOND_SHA);for(const k of['midi','sourcePitch','quarterBeats','rhythm'])assert.deepEqual(n[k],old[k]);assert.deepEqual(n.sourceNotation.transitiveSourceNotation,old.sourceNotation??null);count++;}
  assert(count>30);assert.equal(p('mahpakh-pashta-without-zaqef')[0].midi,69);assert.equal(baerSecondPatternPlan('mahpakh-pashta-without-zaqef')[0].midi,65);
 });
 test('Zarqa keeps the eighth-note triplet, B-flat key and alternative initial quarter rather than importing earlier tuplets',()=>{

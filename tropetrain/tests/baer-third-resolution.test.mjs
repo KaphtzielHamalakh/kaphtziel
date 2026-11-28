@@ -9,14 +9,15 @@ import {baerThirdPatternModes,baerThirdPatternPlan} from '../baer-third-patterns
 import {printedPatternRests,printedPatternBeats,printedPatternDuration} from '../baer-patterns.js';
 import {soundingNotes} from '../synthesis.js';
 import {renderWav} from '../wav.js';
+import {originalParentProvenance} from './baer-numbering-normalize.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url)),sha=b=>createHash('sha256').update(b).digest('hex'),old=JSON.parse(read('docs/BAER-NO105-THIRD-PATTERNS-R1.json')),data=row.record,p=(mode,o={})=>baerThirdPatternPlan(mode,{tempo:60,transpose:0,...o}),near=(a,b)=>assert(Math.abs(a-b)<1e-10);
-test('revision2 preserves the exact149accepted components and22figure objects, with a complete pinned revision1record',()=>{
+test('revision2 retains149accepted components and22figure objects after only the documented parent-citation correction, with the exact pinned revision1record',()=>{
  assert.equal(sha(read('docs/BAER-NO105-THIRD-PATTERNS-R1.json')),'3fad9153d3a0d05d396718dbce06e9026941e374013fe6e566e9938ad62cd81d');assert.equal(data.revision,2);assert.equal(old.revision,1);
- const ids=new Set(old.notes.map(n=>n.id)),figs=new Set(old.figures.filter(f=>f.status!=='unresolved-route').map(f=>f.id));assert.equal(ids.size,149);assert.equal(figs.size,22);assert.deepEqual(data.notes.filter(n=>ids.has(n.id)),old.notes);assert.deepEqual(data.figures.filter(f=>figs.has(f.id)),old.figures.filter(f=>figs.has(f.id)));assert.equal(data.notes.length-ids.size,87);
+ const ids=new Set(old.notes.map(n=>n.id)),figs=new Set(old.figures.filter(f=>f.status!=='unresolved-route').map(f=>f.id));assert.equal(ids.size,149);assert.equal(figs.size,22);assert.deepEqual(originalParentProvenance(data.notes.filter(n=>ids.has(n.id))),old.notes);assert.deepEqual(originalParentProvenance(data.figures.filter(f=>figs.has(f.id))),old.figures.filter(f=>figs.has(f.id)));assert.equal(data.notes.length-ids.size,87);
 });
-test('all28earlier third-row event and sounding plans change only their explicit source revision, preserving every clock, pitch, rest and ID',()=>{
+test('all28earlier third-row event and sounding plans change only source revision and the documented parent-citation hash, preserving every clock, pitch, rest and ID',()=>{
  const ids=new Set(old.figures.filter(f=>f.status!=='unresolved-route').map(f=>f.id)),normalize=value=>Array.isArray(value)?value.map(normalize):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).map(([k,v])=>[k,k==='sourceRevision'?(assert.equal(v,2),1):normalize(v)])):value;
- const actual=baerThirdPatternModes().filter(m=>ids.has(m.sourceFigureId)).map(m=>{const plan=p(m.id,{graceDemo:true});return normalize({source:'third',mode:m.id,plan,rests:printedPatternRests(plan),sounding:soundingNotes(plan)});});assert.equal(actual.length,28);assert.equal(sha(JSON.stringify(actual)),'8a138ef57f7eb6821512e08bf2bd80a70e09d43f4d408a938f4acfc06527a8d7');
+ const actual=baerThirdPatternModes().filter(m=>ids.has(m.sourceFigureId)).map(m=>{const plan=p(m.id,{graceDemo:true});return originalParentProvenance(normalize({source:'third',mode:m.id,plan,rests:printedPatternRests(plan),sounding:soundingNotes(plan)}));});assert.equal(actual.length,28);assert.equal(sha(JSON.stringify(actual)),'8a138ef57f7eb6821512e08bf2bd80a70e09d43f4d408a938f4acfc06527a8d7');
 });
 test('Mahpakh6/8 keeps the pickup and short closing bar, with two separately beamed twelve-eighth paths',()=>{
  const a=p('mahpakh-pashta-zaqef'),b=p('mahpakh-pashta-zaqef:lower');assert.deepEqual(a.map(n=>n.midi),[69,62,65,65,72,69,65,69,69,65,67,65]);assert.deepEqual(b.map(n=>n.midi),[69,62,65,65,72,69,64,65,67,69,67,65]);

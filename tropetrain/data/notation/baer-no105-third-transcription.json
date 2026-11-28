@@ -4,7 +4,7 @@
   "sourceSetting": "3. W.",
   "parentSecondSetting": {
     "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
-    "sha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+    "sha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
     "revision": 1,
     "purpose": "Only literal dto marks refer to the immediate preceding second row. Its first-row references retain their full transitive provenance; no same-name borrowing."
   },

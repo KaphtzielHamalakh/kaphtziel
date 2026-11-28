@@ -14,7 +14,7 @@
     },
     {
       "path": "scripts/import-baer-second-patterns.mjs",
-      "sha256": "6ffa4ec7fa7ae28272eb8a82fb5edd8984761b52d5b94de7fea489367fdf677a"
+      "sha256": "5e3fba4f93044ca528524a0501e86367c8bddeea3b702266c7cf7276507705d2"
     },
     {
       "path": "baer-notation.js",
@@ -27,6 +27,14 @@
     {
       "path": "source-repeat.js",
       "sha256": "0ba66b9822733fd0b69cabcb110d6df55756f5e8238e072c59d3595d7f7db425"
+    },
+    {
+      "path": "docs/BAER-NUMBERING-CORRECTION.json",
+      "sha256": "e4a1b75a41f308ac50882ff3c8cc31e5582acfc752ca0cedc630e4ac7480e39e"
+    },
+    {
+      "path": "assets/scores/baer-1894-numbering-before-correction.zip",
+      "sha256": "a8dd5c5f351c2480614a5cd1191feb82693f5b9a1a3005f4544d2367f7b6084f"
     },
     {
       "path": "assets/scores/baer-no105-second-p30.png",
@@ -276,6 +284,19 @@
     ],
     "imageAlt": "Unretouched excerpt of Baer No105 second printed ordinary-Torah setting; adjacent staff fragments remain context."
   },
+  "sourceMetadataRevision": 2,
+  "metadataCorrections": [
+    {
+      "id": "baer-1894-rare-supplement-numbering-108",
+      "record": "docs/BAER-NUMBERING-CORRECTION.json",
+      "recordSha256": "e4a1b75a41f308ac50882ff3c8cc31e5582acfc752ca0cedc630e4ac7480e39e",
+      "priorSnapshot": {
+        "path": "assets/scores/baer-1894-numbering-before-correction.zip",
+        "bytes": 48389,
+        "sha256": "a8dd5c5f351c2480614a5cd1191feb82693f5b9a1a3005f4544d2367f7b6084f"
+      }
+    }
+  ],
   "sourceKey": "One printed flat: B-flat. Written pitches are retained; instrumental tuning is12-TET.",
   "notationPrinciple": {
     "source": {
@@ -7361,7 +7382,7 @@
     }
   ],
   "matchingQueries": {},
-  "scope": "Complete29ordinary-table figure inventory of the second printed setting on30–35. The distinct No111rare-sign section on36 is not assigned to this setting. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
+  "scope": "Complete29ordinary-table figure inventory of the second printed setting on30–35. The rare-sign supplement on printed36 is separate. No111 begins the word-bearing application examples on printed37; it is not the rare-sign supplement. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
   "timing": "Written values at regular user quarter-note BPM; recitative timing, tuning and interpretation remain unreviewed. The one referenced unmeasured grace requires a separately chosen original timing demonstration.",
   "pronunciation": null,
   "syllableUnderlay": null,

@@ -1,0 +1,922 @@
+{
+  "format": "tropetrain-baer-no111-word-transcription-v1",
+  "revision": 1,
+  "id": "baer-1894-no111-ordinary-word-examples",
+  "source": {
+    "title": "Baal t’fillah, third expanded edition [1894]",
+    "creator": "Abraham Baer",
+    "no": 111,
+    "printedPage": 37,
+    "oneBasedPdfPage": 82,
+    "url": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "heading": "Anwendung in rythmischer (recitativer) Verbindung und zugleich Schluss.",
+    "readingLabel": "Torah / ordinary",
+    "sourceKey": {
+      "fifths": -1,
+      "alteredPitchClasses": [
+        "B-flat"
+      ],
+      "scope": "Literal one-flat signature; no modal/traditional or Kinnor identity inferred."
+    },
+    "scan": {
+      "page": 37,
+      "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853621",
+      "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853621/full/3000,/0/default.jpg",
+      "bytes": 1145527,
+      "sha256": "ae98cdbc6a2b84e6efe87368da80bbdf020bf7052c1974c246add71a8340dc96",
+      "width": 3000,
+      "height": 4403,
+      "image": "assets/scores/baer-1894-no111-torah.webp",
+      "inspectionCrop": [
+        140,
+        530,
+        2770,
+        1130
+      ],
+      "imageBytes": 279744,
+      "imageSha256": "5b3a16feb29eb3652e7f832fe9531ae674ed0ed205c0a6e6ad029583bd807be4",
+      "imageWidth": 2630,
+      "imageHeight": 600,
+      "transformation": "Lossless WebP encoding of an unretouched grayscale crop. All decoded grayscale pixels compare exactly to the pinned3000px institutional raster converted to grayscale. A4/tempo/articulation interpretation is separate from image provenance.",
+      "nativeSource": {
+        "page": 37,
+        "oneBasedPdfPage": 82,
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853621",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853621/full/full/0/default.jpg",
+        "bytes": 1799641,
+        "sha256": "13eead7038b2452185e437e847d07435793a784731010961b878e0c8c2bbd574",
+        "width": 3868,
+        "height": 5677,
+        "privateResearchFile": "primary/page-37-native.jpg"
+      },
+      "decodedGrayscaleSha256": "c1da33b5f589a93036627cce5079079d548958f77c7cfae65d841a3964c40a7e"
+    },
+    "metadataCorrection": "docs/BAER-NUMBERING-CORRECTION.json",
+    "rights": "Nineteenth-century print public domain; Frankfurt digitization policy, exceptions retained. New original transcription/code CC0-1.0."
+  },
+  "studies": [
+    {
+      "id": "first",
+      "printedSetting": "1. W.",
+      "bookId": "gen",
+      "chapter": 2,
+      "verse": 3,
+      "sourceReference": "1.B.M.C.2V.3.",
+      "coverageLabel": "Genesis2:3,opening five words only",
+      "words": [
+        {
+          "id": "gen-2-3-1",
+          "sourceHebrew": "וַיְבָ֤רֶךְ",
+          "printedUnits": [
+            "Waj",
+            "wo",
+            "rech"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "gen-2-3-2",
+          "sourceHebrew": "אֱלֹהִים֙",
+          "printedUnits": [
+            "e",
+            "lo",
+            "him"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "gen-2-3-3",
+          "sourceHebrew": "אֶת־",
+          "printedUnits": [
+            "es"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "gen-2-3-4",
+          "sourceHebrew": "י֣וֹם",
+          "printedUnits": [
+            "jom"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "gen-2-3-5",
+          "sourceHebrew": "הַשְּׁבִיעִ֔י",
+          "printedUnits": [
+            "hasch",
+            "sch'",
+            "wi",
+            "i"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        }
+      ],
+      "components": [
+        {
+          "number": 1,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 1,
+          "bar": 0
+        },
+        {
+          "number": 2,
+          "kind": "note",
+          "pitch": "D4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 2,
+          "bar": 1
+        },
+        {
+          "number": 3,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 4,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "g",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 1,
+          "bar": 1
+        },
+        {
+          "number": 5,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 2,
+          "bar": 1
+        },
+        {
+          "number": 6,
+          "kind": "note",
+          "pitch": "Bb4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 7,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 8,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 3,
+          "printedUnitIndex": 1,
+          "bar": 1
+        },
+        {
+          "number": 9,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 4,
+          "printedUnitIndex": 1,
+          "bar": 2
+        },
+        {
+          "number": 10,
+          "kind": "note",
+          "pitch": "G4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 1,
+          "bar": 2
+        },
+        {
+          "number": 11,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 1,
+          "bar": 2
+        },
+        {
+          "number": 12,
+          "kind": "note",
+          "pitch": "G4",
+          "writtenCode": "g",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 2,
+          "bar": 2
+        },
+        {
+          "number": 13,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "g",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 2,
+          "bar": 2
+        },
+        {
+          "number": 14,
+          "kind": "note",
+          "pitch": "G4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 3,
+          "bar": 2
+        },
+        {
+          "number": 15,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 3,
+          "bar": 2
+        },
+        {
+          "number": 16,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 4,
+          "bar": 2
+        },
+        {
+          "number": 17,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 4,
+          "bar": 2
+        }
+      ],
+      "routes": [
+        {
+          "id": "upper",
+          "label": "upper G4 line at hasch/sch’/wi",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            12,
+            14,
+            16,
+            17
+          ]
+        },
+        {
+          "id": "lower",
+          "label": "lower F4 line at hasch/sch’/wi",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            11,
+            13,
+            15,
+            16,
+            17
+          ]
+        }
+      ],
+      "tuplets": [
+        {
+          "id": "t1",
+          "members": [
+            2,
+            3,
+            5
+          ]
+        },
+        {
+          "id": "t2",
+          "members": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "id": "t3",
+          "routeMembers": {
+            "upper": [
+              9,
+              10,
+              14
+            ],
+            "lower": [
+              9,
+              11,
+              15
+            ]
+          }
+        }
+      ],
+      "slurs": [
+        {
+          "id": "s1",
+          "members": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "placement": "above"
+        },
+        {
+          "id": "s2",
+          "members": [
+            6,
+            7,
+            8
+          ],
+          "placement": "above"
+        },
+        {
+          "id": "s3",
+          "routeMembers": {
+            "upper": [
+              9,
+              10,
+              12,
+              14
+            ],
+            "lower": [
+              9,
+              11,
+              13,
+              15
+            ]
+          },
+          "placement": "above"
+        },
+        {
+          "id": "s4",
+          "members": [
+            16,
+            17
+          ],
+          "placement": "below"
+        }
+      ],
+      "graces": [
+        {
+          "members": [
+            4
+          ],
+          "previous": 3,
+          "next": 5,
+          "slash": true
+        },
+        {
+          "members": [
+            12
+          ],
+          "previous": 10,
+          "next": 14,
+          "slash": true,
+          "route": "upper"
+        },
+        {
+          "members": [
+            13
+          ],
+          "previous": 11,
+          "next": 15,
+          "slash": true,
+          "route": "lower"
+        }
+      ],
+      "sourceMeter": "C",
+      "expectedMeasuredQuarterBeats": 4.5,
+      "metricalLimit": "First eighth is before the first printed barline. The two subsequent source bars each contain two quarter-note beats; no missing beats are padded or inferred from C.",
+      "expectedNotesPerRoute": 14,
+      "expectedGracesPerRoute": 2
+    },
+    {
+      "id": "second",
+      "printedSetting": "2. W.",
+      "bookId": "exo",
+      "chapter": 13,
+      "verse": 21,
+      "sourceReference": "2.B.M.C.13V.21.",
+      "coverageLabel": "Exodus13:21,opening five words only",
+      "words": [
+        {
+          "id": "exo-13-21-1",
+          "sourceHebrew": "וַֽיהוָ֡ה",
+          "printedUnits": [
+            "Wa",
+            "do",
+            "noj"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "exo-13-21-2",
+          "sourceHebrew": "הֹלֵךְ֩",
+          "printedUnits": [
+            "ho",
+            "lech"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "exo-13-21-3",
+          "sourceHebrew": "לִפְנֵיהֶ֨ם",
+          "printedUnits": [
+            "lif",
+            "ne",
+            "hem"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "exo-13-21-4",
+          "sourceHebrew": "יוֹמָ֜ם",
+          "printedUnits": [
+            "jo",
+            "mom"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        },
+        {
+          "id": "exo-13-21-5",
+          "sourceHebrew": "בְּעַמּ֤וּד",
+          "printedUnits": [
+            "b'",
+            "am",
+            "mud"
+          ],
+          "acceptedWrittenRanges": null,
+          "acceptedSyllableMapping": null,
+          "phonemes": null,
+          "review": null
+        }
+      ],
+      "components": [
+        {
+          "number": 1,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 1,
+          "bar": 1
+        },
+        {
+          "number": 2,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 2,
+          "bar": 1
+        },
+        {
+          "number": 3,
+          "kind": "note",
+          "pitch": "C5",
+          "writtenCode": "e3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 2,
+          "bar": 1
+        },
+        {
+          "number": 4,
+          "kind": "note",
+          "pitch": "F5",
+          "writtenCode": "q",
+          "dots": 1,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 5,
+          "kind": "note",
+          "pitch": "E5",
+          "writtenCode": "s3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 6,
+          "kind": "note",
+          "pitch": "D5",
+          "writtenCode": "s3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 7,
+          "kind": "note",
+          "pitch": "C5",
+          "writtenCode": "s3",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 1
+        },
+        {
+          "number": 8,
+          "kind": "note",
+          "pitch": "D5",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 2
+        },
+        {
+          "number": 9,
+          "kind": "note",
+          "pitch": "C5",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 1,
+          "printedUnitIndex": 3,
+          "bar": 2
+        },
+        {
+          "number": 10,
+          "kind": "rest",
+          "pitch": null,
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": null,
+          "printedUnitIndex": null,
+          "bar": 2
+        },
+        {
+          "number": 11,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 1,
+          "bar": 2
+        },
+        {
+          "number": 12,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "h",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 2,
+          "bar": 3
+        },
+        {
+          "number": 13,
+          "kind": "note",
+          "pitch": "C4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 2,
+          "printedUnitIndex": 2,
+          "bar": 3
+        },
+        {
+          "number": 14,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 3,
+          "printedUnitIndex": 1,
+          "bar": 4
+        },
+        {
+          "number": 15,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "e",
+          "dots": 0,
+          "wordOrdinal": 3,
+          "printedUnitIndex": 2,
+          "bar": 4
+        },
+        {
+          "number": 16,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 3,
+          "printedUnitIndex": 3,
+          "bar": 4
+        },
+        {
+          "number": 17,
+          "kind": "note",
+          "pitch": "C5",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 3,
+          "printedUnitIndex": 3,
+          "bar": 4
+        },
+        {
+          "number": 18,
+          "kind": "note",
+          "pitch": "C5",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 4,
+          "printedUnitIndex": 1,
+          "bar": 5
+        },
+        {
+          "number": 19,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 4,
+          "printedUnitIndex": 2,
+          "bar": 5
+        },
+        {
+          "number": 20,
+          "kind": "note",
+          "pitch": "C5",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 4,
+          "printedUnitIndex": 2,
+          "bar": 5
+        },
+        {
+          "number": 21,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "g",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 1,
+          "bar": 6
+        },
+        {
+          "number": 22,
+          "kind": "note",
+          "pitch": "A4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 2,
+          "bar": 6
+        },
+        {
+          "number": 23,
+          "kind": "note",
+          "pitch": "C4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 3,
+          "bar": 6
+        },
+        {
+          "number": 24,
+          "kind": "note",
+          "pitch": "F4",
+          "writtenCode": "q",
+          "dots": 0,
+          "wordOrdinal": 5,
+          "printedUnitIndex": 3,
+          "bar": 6
+        }
+      ],
+      "routes": [
+        {
+          "id": "written",
+          "label": "written second example",
+          "components": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        }
+      ],
+      "tuplets": [
+        {
+          "id": "t1",
+          "members": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "t2",
+          "members": [
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "slurs": [
+        {
+          "id": "s1",
+          "members": [
+            1,
+            2,
+            3
+          ],
+          "placement": "below"
+        },
+        {
+          "id": "s2",
+          "members": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "placement": "above"
+        },
+        {
+          "id": "s3",
+          "members": [
+            16,
+            17
+          ],
+          "placement": "above"
+        },
+        {
+          "id": "s4",
+          "members": [
+            19,
+            20
+          ],
+          "placement": "above"
+        },
+        {
+          "id": "s5",
+          "members": [
+            23,
+            24
+          ],
+          "placement": "below"
+        }
+      ],
+      "graces": [
+        {
+          "members": [
+            21
+          ],
+          "previous": 20,
+          "next": 22,
+          "slash": true
+        }
+      ],
+      "fermatas": [
+        {
+          "component": 20,
+          "shape": "normal",
+          "placement": "above",
+          "duration": "unspecified"
+        }
+      ],
+      "sourceMeter": "3/4",
+      "expectedMeasuredQuarterBeats": 18,
+      "expectedMeasuredBeatsPerBar": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3
+      },
+      "expectedNotesPerRoute": 23,
+      "expectedRestsPerRoute": 1,
+      "expectedGracesPerRoute": 1,
+      "footnote": "The printed asterisk points to No46 as a possible third way. No No46 realization or equivalence is inferred."
+    }
+  ],
+  "method": "Original literal draft reading of pinned source. Word associations follow explicit verse references and printed Latin lyric positions. Original UXLC marked strings/IDs retained. Source units are not assigned to Hebrew/MAM syllables or phonemes. Upper/lower physical heads remain separate monophonic choices.",
+  "performance": {
+    "writtenRhythms": "Regularized quarter-note BPM; source Andante/Recit. carries no numeric tempo.",
+    "tuning": "Modern12TET/A4=440 approximation.",
+    "unmeasuredGraces": {
+      "sourceDuration": null,
+      "stealTimePrevious": null,
+      "stealTimeFollowing": null,
+      "default": "unavailable when a selected span contains a grace",
+      "optionalOriginalTimingSeconds": 0.08
+    },
+    "fermataHold": null
+  },
+  "review": null,
+  "acceptedSyllableMapping": null,
+  "phonemes": null,
+  "singingVoice": null,
+  "completeTraditionGrammar": null
+}

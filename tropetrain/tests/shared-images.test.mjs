@@ -7,7 +7,7 @@ test('portable image sharing preserves exact original bytes and unrelated links 
 });
 
 test('every shared full-resolution source link has its complete embedded image and the portable keeps all four original scans',()=>{
- const html=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8')),links=[...html.matchAll(/href="#([^"]+)" data-embedded-image="\1"/g)];assert.equal(links.length,6);
- const files={'cohen-penitential-second-scan':'cohen-1902-page547.jpg','printed-score-scan':'cohen-1902-genesis22.png','baer-score-scan':'baer-1894-genesis1.png','pattern-source-scan':'cohen-1902-munah-revia.png','pattern-context-scan':'cohen-1902-pentateuch-row-a.png'};
- for(const [,id]of links){const raw=readFileSync(new URL('../assets/scores/'+files[id],import.meta.url));assert(html.includes('data:image/'+(files[id].endsWith('.jpg')?'jpeg':'png')+';base64,'+raw.toString('base64')));assert(html.includes(`id="${id}"`));}
+ const html=restoredPortableHtml(readFileSync(new URL('../TropeTrain.html',import.meta.url),'utf8')),links=[...html.matchAll(/href="#([^"]+)" data-embedded-image="\1"/g)];assert.equal(links.length,7);
+ const files={'cohen-penitential-second-scan':'cohen-1902-page547.jpg','printed-score-scan':'cohen-1902-genesis22.png','baer-score-scan':'baer-1894-genesis1.png','pattern-source-scan':'cohen-1902-munah-revia.png','pattern-context-scan':'cohen-1902-pentateuch-row-a.png','no111-score-image':'baer-1894-no111-torah.webp'};
+ for(const [,id]of links){const raw=readFileSync(new URL('../assets/scores/'+files[id],import.meta.url));assert(html.includes('data:image/'+(files[id].endsWith('.jpg')?'jpeg':files[id].endsWith('.webp')?'webp':'png')+';base64,'+raw.toString('base64')));assert(html.includes(`id="${id}"`));}
 });

@@ -27,4 +27,6 @@ approximations. The optional 80ms grace timing is an original demonstration,
 not historical performance evidence. No arbitrary Hebrew-word/syllable or
 phoneme fitting, full contextual melody grammar, Kinnor preset equivalence,
 new singing voice or independent musical review is claimed. The separate
-No111 rare-sign settings on p36 have not been assigned to this second row.
+rare-sign supplement on p36 is separate. No111 begins the word-bearing
+application examples on p37, not the rare-sign supplement. The correction
+and exact earlier files are retained in BAER-NUMBERING-CORRECTION.json.

@@ -1,0 +1,82 @@
+{
+  "format": "tropetrain-baer-source-numbering-correction-v1",
+  "id": "baer-1894-rare-supplement-numbering-108",
+  "revision": 1,
+  "source": {
+    "title": "Baal t’fillah oder Der practische Vorbeter",
+    "creator": "Abraham Baer",
+    "edition": "Third expanded edition [1894], Kauffmann, Frankfurt a./M.",
+    "titleRecord": "https://sammlungen.ub.uni-frankfurt.de/freimann/content/titleinfo/853537",
+    "digitizationPolicy": "https://sammlungen.ub.uni-frankfurt.de/wiki/digipolicy",
+    "rights": "Nineteenth-century print public domain; institutional digitization policy permits unrestricted use with stated exceptions; metadata CC0. New correction/code CC0-1.0.",
+    "nativePages": [
+      {
+        "page": 36,
+        "oneBasedPdfPage": 81,
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853620",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853620/full/full/0/default.jpg",
+        "bytes": 1164876,
+        "sha256": "f4b128c60d0f80bc1830f2748e7311a10c14ab309a99c82faa787cfc17173b91",
+        "width": 3868,
+        "height": 5677,
+        "privateResearchFile": "primary/page-36-native.jpg"
+      },
+      {
+        "page": 37,
+        "oneBasedPdfPage": 82,
+        "canvas": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853537/canvas/853621",
+        "url": "https://sammlungen.ub.uni-frankfurt.de/i3f/v20/853621/full/full/0/default.jpg",
+        "bytes": 1799641,
+        "sha256": "13eead7038b2452185e437e847d07435793a784731010961b878e0c8c2bbd574",
+        "width": 3868,
+        "height": 5677,
+        "privateResearchFile": "primary/page-37-native.jpg"
+      }
+    ]
+  },
+  "correction": {
+    "incorrectPriorCitation": "No111rare-sign section on printed36",
+    "rareSupplement": {
+      "printedPage": 36,
+      "oneBasedPdfPage": 81,
+      "heading": "Ungewöhnliche Tonzeichen",
+      "additionalHeading": "Verschollene Tonzeichen",
+      "numbering": "No No111 heading appears on this supplement."
+    },
+    "workedApplications": {
+      "printedPage": 37,
+      "oneBasedPdfPage": 82,
+      "heading": "Anwendung in rythmischer (recitativer) Verbindung und zugleich Schluss.",
+      "no111": {
+        "readingType": "ordinary Torah",
+        "firstWayReference": "1.B.M.C.2V.3. (Genesis2:3)",
+        "secondWayReference": "2.B.M.C.13V.21. (Exodus13:21)",
+        "scope": "Word-bearing opening fragments, not complete verses or a general melody grammar."
+      },
+      "nextNumber": "No112Haftarah examples"
+    }
+  },
+  "affectedPublishedRecords": [
+    {
+      "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
+      "sha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+    },
+    {
+      "path": "docs/BAER-NO105-THIRD-PATTERNS.json",
+      "sha256": "24f82e9c50db45bb70c9b4e78b20249f9d398436034605ec1291e831b45f44ff"
+    }
+  ],
+  "priorSnapshot": {
+    "path": "assets/scores/baer-1894-numbering-before-correction.zip",
+    "bytes": 48389,
+    "sha256": "a8dd5c5f351c2480614a5cd1191feb82693f5b9a1a3005f4544d2367f7b6084f"
+  },
+  "effect": "Citation/provenance correction only. Existing29ordinary figures and all115accepted first/second/third draft playback paths retain pitches, rhythms, rests, IDs and clocks; third-row literal dto provenance updates to the corrected parent record hash.",
+  "review": {
+    "sourceNumbering": "Direct visual comparison of the two pinned primary pages; metadata/edition and digitization policy rechecked.",
+    "musical": null,
+    "phonological": null,
+    "wordFitting": null,
+    "singingVoice": null
+  }
+}

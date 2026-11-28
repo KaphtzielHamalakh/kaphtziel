@@ -6,15 +6,15 @@
   "inputs": [
     {
       "path": "data/notation/baer-no105-third-transcription.json",
-      "sha256": "6de643dc871c0125de5834ab3030331553274de4c3c5dffc8097678d6a0c355a"
+      "sha256": "3923c411b5e5e37b70becb1e634f9d8ed61a3d6ba54d29e4b6e67fff5b770a1c"
     },
     {
       "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
-      "sha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      "sha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
     },
     {
       "path": "scripts/import-baer-third-patterns.mjs",
-      "sha256": "07ce544a826d6c8f4c6d19b042d0a7c6774cfa76cec086c236bf9f0489c8e319"
+      "sha256": "212eb2bbb535a2fdc2049dac0fda634fb14e7c3751e14670b57025201f9928f3"
     },
     {
       "path": "baer-notation.js",
@@ -27,6 +27,14 @@
     {
       "path": "source-repeat.js",
       "sha256": "0ba66b9822733fd0b69cabcb110d6df55756f5e8238e072c59d3595d7f7db425"
+    },
+    {
+      "path": "docs/BAER-NUMBERING-CORRECTION.json",
+      "sha256": "e4a1b75a41f308ac50882ff3c8cc31e5582acfc752ca0cedc630e4ac7480e39e"
+    },
+    {
+      "path": "assets/scores/baer-1894-numbering-before-correction.zip",
+      "sha256": "a8dd5c5f351c2480614a5cd1191feb82693f5b9a1a3005f4544d2367f7b6084f"
     },
     {
       "path": "docs/BAER-NO105-THIRD-PATTERNS-R1.json",
@@ -374,6 +382,19 @@
     ],
     "imageAlt": "Unretouched excerpt of Baer No105 third printed ordinary-Torah setting; adjacent staff fragments remain context."
   },
+  "sourceMetadataRevision": 2,
+  "metadataCorrections": [
+    {
+      "id": "baer-1894-rare-supplement-numbering-108",
+      "record": "docs/BAER-NUMBERING-CORRECTION.json",
+      "recordSha256": "e4a1b75a41f308ac50882ff3c8cc31e5582acfc752ca0cedc630e4ac7480e39e",
+      "priorSnapshot": {
+        "path": "assets/scores/baer-1894-numbering-before-correction.zip",
+        "bytes": 48389,
+        "sha256": "a8dd5c5f351c2480614a5cd1191feb82693f5b9a1a3005f4544d2367f7b6084f"
+      }
+    }
+  ],
   "sourceKey": "One printed flat: B-flat. Written pitches are retained; instrumental tuning is12-TET.",
   "notationPrinciple": {
     "source": {
@@ -419,7 +440,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "Three beamed eighths C5/A4/F4 carry the printed3; native3868px raster confirms one beam, distinct from the following four16ths. The source key supplies B-flat, not B-natural.",
       "variants": [
@@ -474,7 +495,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The final rest is a quarter. Retain the three written beats; do not pad to common time or sound both alternatives together.",
       "variants": [
@@ -518,7 +539,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "variants": [
         {
@@ -564,7 +585,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "variants": [
         {
@@ -601,7 +622,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The opening upper-line arc is retained only on its literal upper endpoints. No lower-line arc endpoint or tie is invented; independent articulation review remains pending.",
       "variants": [
@@ -652,7 +673,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "printedDitto": {
         "scope": "The whole third-row cell is marked dto.",
@@ -681,7 +702,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "printedDitto": {
         "scope": "The whole third-row cell is marked dto.",
@@ -713,7 +734,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "printedDitto": {
         "scope": "The whole third-row cell is marked dto.",
@@ -742,7 +763,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "sourceMeter": "6/8",
       "contextPending": "The initial eighth is a pickup; the first full bar has six eighths and the closing bar has five, together twelve eighths. The central second-bar A4 belongs to the lower beamed eighth pair, not a common quarter. Each printed stem line is separate.",
@@ -822,7 +843,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The A4/C4 group has two beams, then a single beam to F4. Native inspection retains16ths; staff lines are not an extra beam.",
       "realizedComponents": 6,
@@ -842,7 +863,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "sourceCondition": {
         "literal": "ohne קטן",
@@ -878,7 +899,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "sourceCondition": {
         "literal": "auf einem Worte",
@@ -915,7 +936,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "printedDitto": {
         "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
@@ -941,7 +962,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "printedDitto": {
         "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
@@ -974,7 +995,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "variants": [
         {
@@ -1019,7 +1040,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The high3belongs to the upper double-beamed three-in-two sixteenths only. The following D4 eighth is common; upper F4 eighth is an alternative to lower D4/G4 sixteenths. Common F4/C4 eighths close both paths.",
       "sourceInspection": {
@@ -1080,7 +1101,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "printedDitto": {
         "scope": "After the explicitly written first note, the remaining source cell is marked dto.",
@@ -1110,7 +1131,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "realizedComponents": 7,
       "coherentMonophonicRoutes": 1,
@@ -1129,7 +1150,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The small slashed D5 before the dotted C5 has no measured duration. Both stem paths contain three measured quarter beats before that barline, then the common unmeasured grace and dotted eighth. Any80ms realization is an explicitly original instrument demonstration.",
       "sourceInspection": {
@@ -1198,7 +1219,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "Two adjacent equal C4 dotted quarters are linked by the printed arc across the bar; retain both written components with a held pitch, not a fabricated new attack.",
       "realizedComponents": 7,
@@ -1218,7 +1239,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "realizedComponents": 6,
       "coherentMonophonicRoutes": 1,
@@ -1237,7 +1258,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "realizedComponents": 5,
       "coherentMonophonicRoutes": 1,
@@ -1256,7 +1277,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "Both two-beam groups contain the same four sixteenths C5/B-natural4/D5/C5; the last quarter heads C5/A4 are the alternatives. No third beam or tuplet numeral is present.",
       "sourceInspection": {
@@ -1315,7 +1336,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The rapid group starts with one eighth, followed by two sixteenths in each line. The natural belongs only to upper B4; the lower notes are G4/F4. Two quarter rests and an eighth rest after the final quarter are retained.",
       "sourceInspection": {
@@ -1383,7 +1404,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "Only the pickup, middle two heads of the second four-sixteenth group and final quarter have separate pitches. Preserve the written sixteenth rest/E4 sixteenth before the barline, upper E-flat and explicit common E-natural, and final eighth rest. The first descending B is B-flat from the key after a barline.",
       "sourceInspection": {
@@ -1467,7 +1488,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "realizedComponents": 3,
       "coherentMonophonicRoutes": 1,
@@ -1486,7 +1507,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "realizedComponents": 3,
       "coherentMonophonicRoutes": 1,
@@ -1505,7 +1526,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "The upper opening pair has three beams and the lower pair two; no tuplet numeral is printed. The paths have unequal written extents2.25and2.5quarter beats and are not padded. Common A4 quarter and A4/D4 eighths remain separate attacks under the printed slur.",
       "sourceInspection": {
@@ -1567,7 +1588,7 @@
       "sourceReference": {
         "manualPath": "data/notation/baer-no105-third-transcription.json",
         "secondSettingRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "secondSettingSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+        "secondSettingSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
       },
       "contextPending": "Retain both interior eighth rests and final eighth rest. The two adjacent equal-pitch arc pairs C5 and D4 are written ties; keep source components and hold the sounding pitch.",
       "realizedComponents": 12,
@@ -2739,7 +2760,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-four-glyphs-1",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -2777,7 +2798,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-four-glyphs-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -2815,7 +2836,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-four-glyphs-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -2853,7 +2874,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-four-glyphs-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -2881,7 +2902,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-four-glyphs-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -2915,7 +2936,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-1",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -2957,7 +2978,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3003,7 +3024,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3049,7 +3070,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3095,7 +3116,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3137,7 +3158,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-6",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3179,7 +3200,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-7",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3207,7 +3228,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-mahpakh-8",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3241,7 +3262,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-merkha-tevir-1",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3287,7 +3308,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-merkha-tevir-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3333,7 +3354,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-merkha-tevir-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3383,7 +3404,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-merkha-tevir-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -3429,7 +3450,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-munah-before-merkha-tevir-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4039,7 +4060,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4073,7 +4094,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4107,7 +4128,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4141,7 +4162,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4175,7 +4196,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-6",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4209,7 +4230,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-7",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4248,7 +4269,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-mahpakh-pashta-without-zaqef-8",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4306,7 +4327,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4340,7 +4361,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4382,7 +4403,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4424,7 +4445,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4466,7 +4487,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-6",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4508,7 +4529,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-7",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4550,7 +4571,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-8",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4597,7 +4618,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-one-word-9",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4659,7 +4680,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-alone-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4697,7 +4718,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-alone-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4755,7 +4776,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4789,7 +4810,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4823,7 +4844,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4871,7 +4892,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -4905,7 +4926,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-pashta-zaqef-after-predecessors-6",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -5447,7 +5468,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-merkha-tevir-2",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -5481,7 +5502,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-merkha-tevir-3",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -5515,7 +5536,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-merkha-tevir-4",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -5549,7 +5570,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-merkha-tevir-5",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -5583,7 +5604,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-merkha-tevir-6",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -5617,7 +5638,7 @@
         "method": "literal-dto-reference",
         "sourceSetting": "3. W.",
         "parentRecord": "docs/BAER-NO105-SECOND-PATTERNS.json",
-        "parentSha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2",
+        "parentSha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48",
         "parentComponentId": "baer105-2w-merkha-tevir-7",
         "transitiveSourceNotation": {
           "method": "literal-dto-reference",
@@ -8350,7 +8371,7 @@
     }
   ],
   "matchingQueries": {},
-  "scope": "All29ordinary-table columns of the third printed setting on30–35 retain literal draft components and coherent alternatives. Two figures include unmeasured graces whose historical timing stays unassigned. The distinct No111rare-sign section on36 is not assigned to this setting. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
+  "scope": "All29ordinary-table columns of the third printed setting on30–35 retain literal draft components and coherent alternatives. Two figures include unmeasured graces whose historical timing stays unassigned. The rare-sign supplement on printed36 is separate. No111 begins the word-bearing application examples on printed37; it is not the rare-sign supplement. Literal instrumental source-name study, not a full contextual Torah melody grammar or Kinnor preset.",
   "timing": "Written values at regular user quarter-note BPM; recitative timing, tuning and interpretation remain unreviewed. Any directly written or referenced unmeasured grace requires a separately chosen original timing demonstration. Unknown route membership supplies no replacement music.",
   "pronunciation": null,
   "syllableUnderlay": null,
