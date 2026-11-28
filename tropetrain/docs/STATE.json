@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "35af1e8b566d740ac429f34ee0b655b8f9ea0f34",
-  "nextTask": "Publish the locally accepted v0.108 app only through connected GitHub; verify Pages, exact changed live bytes, both public editions and 15 drafts/two fittings/seven spans against the fresh private public107 baseline. Then exact Gitdiff/atomic 1430-file saved-candidate overlay, final release records and resume No46 word-underlay/source-pronunciation research. Never native downloadMedia/waitForEvent(download). Full 21 features/six requirements remain active.",
+  "publishedCommit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
+  "nextTask": "Implement and test automatic playback score paging without changing source events, marked Hebrew, pronunciation or axes. Then continue No46 literal source-word/alternative inspection and reusable pronunciation/chant evidence. Preserve all 21 roadmap features/six completion requirements; printing waits, private voice labs frozen. Never repeat native downloadMedia/waitForEvent(download). Current v108 is published and accepted; final four-record metadata deployment receipt is outside the app.",
   "lastPassingTests": {
     "version": "0.108.0",
     "automated": 988,
@@ -47,7 +47,7 @@
     "newSingingVoices": 0,
     "nativePreparedExportFileBytesVerified": false,
     "musicalListeningReview": null,
-    "publicUiAcceptance": "pending"
+    "publicUiAcceptance": "passed; see publicV108Acceptance"
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -196,16 +196,18 @@
     }
   },
   "lastDeployment": {
-    "commit": "35af1e8b566d740ac429f34ee0b655b8f9ea0f34",
-    "pagesRun": 46075267901,
-    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46075267901",
+    "commit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
+    "pagesRun": 46110099433,
+    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46110099433",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "all48ChangedLiveFilesExact": true,
-    "publicUiChecks": 396,
-    "privateCodeCommit": "a8228e861201b62173738b172b7ac001f8cfc91f",
-    "testedAppTree": "10fe384f4335666ac0fc0fb0dc606e9e7d374c30",
-    "finalReleaseRecordPublication": "separate metadata follow-up; exact final receipt retained outside the app"
+    "all76ChangedLiveFilesExact": true,
+    "publicNewLogicalChecksNormal": 23,
+    "publicNewLogicalChecksPortable": 25,
+    "publicRetainedLogicalChecksPerEdition": 95,
+    "privateCodeCommit": "e821fadef79959c5c18548d4a13cea314099ecfc",
+    "testedAppTree": "bee10bb7098d7dcdcabf7f550ab90f7366c5002f",
+    "finalReleaseRecordPublication": "separate metadata follow-up; exact receipt retained outside app"
   },
   "corpusImport": {
     "books": 5,
@@ -1121,7 +1123,7 @@
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
-  "lastPublishedIteration": "0.107.0",
+  "lastPublishedIteration": "0.108.0",
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
     "publicRuntimeVersion": "0.52.0",
@@ -3442,7 +3444,7 @@
   },
   "currentCandidate": {
     "version": "0.108.0",
-    "status": "local_browser_cache_and_source_accepted_publication_pending",
+    "status": "published_and_public_browser_accepted_final_record_followup",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4769,9 +4771,9 @@
       "newSingingVoices": 0,
       "nativePreparedExportFileBytesVerified": false,
       "musicalListeningReview": null,
-      "publicUiAcceptance": "pending"
+      "publicUiAcceptance": "passed"
     },
-    "publication": "pending",
+    "publication": "code Pages/live/both public editions/practice accepted",
     "correctedFailureSubsetTests": 30,
     "broadSourceRegression": {
       "initialTests": 161,
@@ -4879,5 +4881,50 @@
       "canonicalRecords": 92,
       "canonicalLinks": 95
     }
+  },
+  "publicV108Acceptance": {
+    "codeCommit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
+    "privateCodeCommit": "e821fadef79959c5c18548d4a13cea314099ecfc",
+    "testedCodeAppTree": "bee10bb7098d7dcdcabf7f550ab90f7366c5002f",
+    "pagesRun": 46110099433,
+    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46110099433",
+    "allThreePagesJobsSucceeded": true,
+    "outsideEntriesPreserved": 42,
+    "liveChangedFilesExact": 76,
+    "liveDecodedBytesExact": 154760646,
+    "publicNewLogicalChecks": {
+      "normal": 23,
+      "portable": 25
+    },
+    "publicRetainedLogicalChecksPerEdition": {
+      "wordRecordingNavigation": 25,
+      "opening": 5,
+      "withheldSources": 5,
+      "patterns": 60
+    },
+    "all42RetainedPatternRoutesAnd303ComponentsPerEdition": true,
+    "publicIndependentPronunciationTextChoicesPerEdition": 7,
+    "publicScorePagesPerEdition": 6,
+    "minimumRenderedTextRectangleClearancePx": 20,
+    "publicPreparedExportPathsPerEdition": 3,
+    "nativeDecodedWavFrameCountsPerEdition": [
+      74403,
+      74403,
+      285264
+    ],
+    "nativePreparedExportFileBytesVerified": false,
+    "publicDraftsPreservedPerEdition": 15,
+    "publicFullCanonicalFittingsPreservedPerEdition": 2,
+    "publicListeningSpansPreservedPerEdition": 7,
+    "sourceImagesPortableExact": 3,
+    "priorFullSourceLinksPortableExact": 6,
+    "priorResearchAssetsPortableExact": 4,
+    "allAudioMutedAndPaused": true,
+    "applicationErrors": 0,
+    "wordFollowing": "Exact reader/staff word 3 after manually selecting its second score page; note-to-word navigation exact. Automatic score paging not implemented/verified.",
+    "newSingingVoices": 0,
+    "reviewedHebrewSyllablePhonemeFittingsAdded": 0,
+    "fullGoal": "active_incomplete",
+    "finalRecordPublication": "separate four-record metadata follow-up; final connected receipt stored outside the app"
   }
 }
