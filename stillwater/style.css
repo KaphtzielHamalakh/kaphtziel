@@ -33,3 +33,10 @@ body{background:#eef0f3}.top{background:#fffffff7;border-color:#dfe3e9}.top-inne
 .sw-related-options [aria-pressed=true]{background:#dcecef;color:#192c33}
 .sw-revisit[hidden],#dialogBody [hidden]{display:none}
 @media(max-width:560px){.sw-compare,.sw-setup{grid-template-columns:1fr}.sw-compare .quote-tile{min-height:0}}
+
+/* A quiet visual anchor for text. Art cards remain their own focal point. */
+.sw-sit .sw-still{background:#17263a;color:#fcf1dc;padding:0 0 16px;overflow:hidden;border:1px solid #263c51}
+.sw-sit .sw-still .sw-lotus{width:100%;height:auto;max-height:none;object-fit:contain;margin:0}
+.sw-sit .sw-still .passage{margin:0;padding:8px 20px 0;text-align:center;color:#fcf1dc;background:none}
+.sw-sit .sw-still .sw-muted{text-align:center;color:#d2dce6;padding-inline:17px;margin-bottom:0}
+.sw-sit .sw-sit-art img{width:auto;max-width:100%;height:auto;max-height:min(44vh,390px);margin:10px auto 2px}

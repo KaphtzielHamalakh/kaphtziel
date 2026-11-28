@@ -197,7 +197,8 @@ function followThread(origin){
 }
 function sitWith(c){
  const data=window.StillwaterPracticeData||{}, practices=data.practices||[], tracks=data.tracks||[];
- const part=el('section','sw-sit'), still=el('div','sw-still');
+ const part=el('section','sw-sit'), still=el('div','sw-still'+(c.art?' sw-sit-art':''));
+ if(!c.art){const lotus=el('img','sw-lotus');lotus.src='./quiet-lotus.svg?v=1';lotus.alt='';lotus.width=700;lotus.height=280;still.append(lotus);}
  if(c.art){const img=el('img');img.src=new URL(c.art,document.baseURI);img.alt=c.alt||c.source;still.append(img);}
  still.append(el('blockquote','passage',c.text),el('p','sw-muted',c.author+' · '+c.source));part.append(still);
  if(!practices.length){part.append(el('p',null,'Try a quiet minute with this passage. Read slowly and notice which words stay with you.'));dialog('Sit with this',part);return;}
@@ -206,17 +207,21 @@ function sitWith(c){
  practices.forEach(p=>{const o=el('option',null,p.title+' · '+p.steps.reduce((a,b)=>a+b.seconds,0)+' sec');o.value=p.id;practice.append(o);});
  const wanted=c.art?'look-slowly':'sit-with-a-line';if(practices.some(p=>p.id===wanted))practice.value=wanted;
  const silent=el('option',null,'Silence');silent.value='';track.append(silent);
- tracks.filter(t=>t.url).forEach(({title,url})=>{const o=el('option',null,title);o.value=url;track.append(o);});
+ const chakraAudio=window.StillwaterChakraAudio;
+ const chakra=el('optgroup'), attune=el('optgroup');chakra.label='Chakra bowls · Stillwater originals';attune.label='From Attune';
+ chakraAudio?.tracks.forEach(({id,title})=>{const o=el('option',null,title);o.value='chakra:'+id;chakra.append(o);});
+ tracks.filter(t=>t.url).forEach(({title,url})=>{const o=el('option',null,title);o.value=url;attune.append(o);});
+ if(chakra.children.length)track.append(chakra);if(attune.children.length)track.append(attune);
  settings.append(pl,tl);const audioCredit=el('p','sw-muted');const desc=el('p','sw-muted');const instruction=el('p','sw-instruction'), stamp=el('p','sw-muted sw-clock'), sound=el('p','sw-muted');instruction.setAttribute('aria-live','polite');sound.setAttribute('role','status');
  const audio=el('audio');audio.loop=true;audio.preload='none';audio.volume=.35;
  const row=el('div','row');let mode='idle', interval, elapsed=0, last=0, active, endAt=0, stepBefore=-1, audioRun=0;
  const pick=()=>practices.find(p=>p.id===practice.value)||practices[0];
  function pauseAudio(){audioRun++;audio.pause();}
- function playAudio(){if(!track.value)return;const token=++audioRun;audio.play().catch(()=>{if(token===audioRun&&mode==='running')sound.textContent='Audio couldn’t play. Your practice can continue in silence.';});}
+ function playAudio(){if(!audio.getAttribute('src'))return;const token=++audioRun;audio.play().catch(()=>{if(token===audioRun&&mode==='running')sound.textContent='Audio couldn’t play. Your practice can continue in silence.';});}
  function cleanup(){clearInterval(interval);pauseAudio();audio.removeAttribute('src');audio.load();}
  function reset(){clearInterval(interval);pauseAudio();audio.removeAttribute('src');mode='idle';stamp.textContent='';instruction.textContent='';sound.textContent='';stepBefore=-1;elapsed=0;practice.disabled=track.disabled=false;desc.textContent=pick().description;controls();}
  function controls(){row.replaceChildren();if(mode==='idle')row.append(btn('Begin practice','small primary',begin));if(mode==='running')row.append(btn('Pause','small secondary',pause),btn('End practice','small secondary',complete));if(mode==='paused')row.append(btn('Resume','small primary',resume),btn('End practice','small secondary',complete));if(mode==='done')row.append(btn('Write a reflection','small primary',()=>editNote(c,saved(c)&&!!shelf[c.id]?.note),'pen'),btn('Sit again','small secondary',reset));}
- function begin(){if(mode!=='idle')return;active=pick();endAt=active.steps.reduce((a,b)=>a+b.seconds,0)*1000;practice.disabled=track.disabled=true;$('practiceAudio')?.pause();if(track.value)audio.src=track.value;resume();}
+ function begin(){if(mode!=='idle')return;active=pick();endAt=active.steps.reduce((a,b)=>a+b.seconds,0)*1000;practice.disabled=track.disabled=true;$('practiceAudio')?.pause();if(track.value){const src=track.value.startsWith('chakra:')?chakraAudio?.urlFor(track.value.slice(7)):track.value;if(src)audio.src=src;else sound.textContent='Audio unavailable. Your practice can continue in silence.';}resume();}
  function resume(){mode='running';last=performance.now();controls();playAudio();tick();if(mode==='running')interval=setInterval(tick,250);}
  function pause(){if(mode!=='running')return;tick();if(mode==='done')return;mode='paused';clearInterval(interval);pauseAudio();controls();}
  function complete(){clearInterval(interval);pauseAudio();mode='done';instruction.textContent='Take one more unhurried moment before you move on.';stamp.textContent='Practice ended';controls();}
