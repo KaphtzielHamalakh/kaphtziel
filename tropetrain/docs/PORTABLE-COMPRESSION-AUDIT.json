@@ -1,0 +1,99 @@
+{
+  "format": "tropetrain-portable-build-compression-v1",
+  "version": "0.109.0",
+  "library": "@gfx/zopfli@1.0.15",
+  "license": "Apache-2.0",
+  "browserDecoder": "unchanged gzip; legacy program/evidence envelopes retained",
+  "records": {
+    "torah": {
+      "inputBytes": 5570155,
+      "inputSha256": "ee6b5f4f78eadd1964175c35f43dadaa80d80f2384ff9507c1112dbc0d1d8264",
+      "gzipBytes": 643957,
+      "gzipSha256": "60cd14c0a35feaa102d44ec08dbd466e7126e96296b69381674b8f92ccdb8a05",
+      "exactRecoveredBytes": true,
+      "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
+      "options": {
+        "numiterations": 5,
+        "blocksplitting": true,
+        "blocksplittingmax": 15
+      },
+      "license": "Apache-2.0",
+      "browserCodec": "existing gzip decoder; no new browser dependency"
+    },
+    "repertoire": {
+      "inputBytes": 10657020,
+      "inputSha256": "3c7ea4c7c29103d3057e27b98291a4ab6854351e18ff68ab802e717a7155368c",
+      "gzipBytes": 1293180,
+      "gzipSha256": "9c37bac74f08e0e2502c13504faa5075f8c66f16d6544200600516802c99c31a",
+      "exactRecoveredBytes": true,
+      "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
+      "options": {
+        "numiterations": 5,
+        "blocksplitting": true,
+        "blocksplittingmax": 15
+      },
+      "license": "Apache-2.0",
+      "browserCodec": "existing gzip decoder; no new browser dependency"
+    },
+    "program": {
+      "inputBytes": 47189103,
+      "inputSha256": "f16085c9a4d2be4806eac5b8134fc6f8546ffbf69f99eee9d46653145ebbd0f9",
+      "gzipBytes": 29373107,
+      "gzipSha256": "ebdc4155d3a02e41aabe3e4b389ac4b1e542444d6a5a34d16e84fb95ad46f8dc",
+      "exactRecoveredBytes": true,
+      "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
+      "options": {
+        "numiterations": 5,
+        "blocksplitting": true,
+        "blocksplittingmax": 15
+      },
+      "license": "Apache-2.0",
+      "browserCodec": "existing gzip decoder; no new browser dependency"
+    },
+    "evidence": {
+      "inputBytes": 15267564,
+      "inputSha256": "f29e9a0b32f3cefe359ce7817fba1442d5bc462745394419967b438d46dae8c5",
+      "gzipBytes": 1286072,
+      "gzipSha256": "372e9d56bf3a5d0d15eaa82e101ef840032754696638868f7d66c8d0ac7eabf7",
+      "exactRecoveredBytes": true,
+      "buildToolFingerprint": "@gfx/zopfli@1.0.15;iterations5;split15;zlib9-minimum;v1",
+      "options": {
+        "numiterations": 5,
+        "blocksplitting": true,
+        "blocksplittingmax": 15
+      },
+      "license": "Apache-2.0",
+      "browserCodec": "existing gzip decoder; no new browser dependency"
+    }
+  },
+  "portableHtmlBytes": 100589421,
+  "hostLimitBytes": 104857600,
+  "physicalHeadroomBytes": 4268179,
+  "unchangedPhysicalReserveBytes": 4194304,
+  "inputs": [
+    {
+      "path": "scripts/compress-build-gzip.mjs",
+      "sha256": "e96e2d3eb28254dc1d603299947c5b3fd45c4c97858c642f0eb8226a0f2a5188"
+    },
+    {
+      "path": "scripts/pack-portable-program.mjs",
+      "sha256": "47aba91400afb3fa007ee6d64c28245fe9ae0ebde4651e5171f33cee7beec2b3"
+    },
+    {
+      "path": "scripts/pack-portable-evidence.mjs",
+      "sha256": "85fb640f0579872a0ecd0e2a9ad1d7dfccc375ca4c5e1a9e2a476192ebb63dec"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "46e729697aaa0f9cc3429e0c91142f3d029fbdd8063d309f8ca14b72f1fbe0de"
+    },
+    {
+      "path": "package.json",
+      "sha256": "b8bc4c6143bb088310a8a69f76d9481a9c683349cbdec9c798a4b63dd12bcb42"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "93134105c03655cf16c384392f93cf6a3134daace05258a224e0134a89fc8324"
+    }
+  ]
+}

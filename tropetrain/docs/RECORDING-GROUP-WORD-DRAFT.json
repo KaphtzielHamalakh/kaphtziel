@@ -9,7 +9,7 @@
   "inputs": [
     {
       "path": "app.js",
-      "sha256": "370ee80c20515a3e75f1959ff28717c3ed6c912e04a0ae906bbc3b0f10278742"
+      "sha256": "d2f2dccd154a2f488c5f17a28216954b66e7446dada8c2c7affe5edc7ebd8407"
     },
     {
       "path": "data/pitch/manifest.json",
@@ -49,7 +49,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "10be43b567beac7756f11028b069df0055970bd0ddda0a5935b9ccb1bba8c3e4"
+      "sha256": "c77d3f9c2817f132dfcc92e3b290cbeea8cf4481db92863a3752baeac37722e3"
     },
     {
       "path": "measured-practice.js",

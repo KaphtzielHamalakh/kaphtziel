@@ -217,11 +217,11 @@
     },
     {
       "path": "app.js",
-      "sha256": "370ee80c20515a3e75f1959ff28717c3ed6c912e04a0ae906bbc3b0f10278742"
+      "sha256": "d2f2dccd154a2f488c5f17a28216954b66e7446dada8c2c7affe5edc7ebd8407"
     },
     {
       "path": "index.html",
-      "sha256": "10be43b567beac7756f11028b069df0055970bd0ddda0a5935b9ccb1bba8c3e4"
+      "sha256": "c77d3f9c2817f132dfcc92e3b290cbeea8cf4481db92863a3752baeac37722e3"
     },
     {
       "path": "style.css",
@@ -229,11 +229,11 @@
     },
     {
       "path": "sw.js",
-      "sha256": "7e8a37c58ec23b35fdcd6f70a8e27cfb60fe3d74574951bb11f3771846be0bba"
+      "sha256": "abb2fd929700b9b72a336228e76a3c3d93ea5099a28170acdf0843a6b670c9ea"
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "ea9960019517052c78734978d0c9fea01f1f4b8b7902c8615c2e6f1d9e26e5d1"
+      "sha256": "46e729697aaa0f9cc3429e0c91142f3d029fbdd8063d309f8ca14b72f1fbe0de"
     },
     {
       "path": "data/torah/gen.json",
