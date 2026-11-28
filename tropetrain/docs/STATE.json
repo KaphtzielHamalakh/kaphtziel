@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
-  "nextTask": "Implement and test automatic playback score paging without changing source events, marked Hebrew, pronunciation or axes. Then continue No46 literal source-word/alternative inspection and reusable pronunciation/chant evidence. Preserve all 21 roadmap features/six completion requirements; printing waits, private voice labs frozen. Never repeat native downloadMedia/waitForEvent(download). Current v108 is published and accepted; final four-record metadata deployment receipt is outside the app.",
+  "nextTask": "Continue No46 literal source-word/alternative-route inspection and reusable pronunciation/chant evidence, then implement the next bounded source-backed word-aligned increment. Existing automatic staff paging is verified in both public editions when Follow playback is enabled. Preserve all 21 roadmap features/six completion requirements; printing waits, private voice labs frozen. Never repeat native downloadMedia/waitForEvent(download). v108 code is published and accepted; final metadata receipt is stored outside the app.",
   "lastPassingTests": {
     "version": "0.108.0",
     "automated": 988,
@@ -4921,10 +4921,12 @@
     "priorResearchAssetsPortableExact": 4,
     "allAudioMutedAndPaused": true,
     "applicationErrors": 0,
-    "wordFollowing": "Exact reader/staff word 3 after manually selecting its second score page; note-to-word navigation exact. Automatic score paging not implemented/verified.",
+    "wordFollowing": "With Follow playback enabled, both public editions automatically advance from score page one to notes13–23 and highlight exact Exodus13:21word3 in reader and staff; note-to-word navigation agrees. Manual reader paging intentionally switches Follow playback off.",
     "newSingingVoices": 0,
     "reviewedHebrewSyllablePhonemeFittingsAdded": 0,
     "fullGoal": "active_incomplete",
-    "finalRecordPublication": "separate four-record metadata follow-up; final connected receipt stored outside the app"
+    "finalRecordPublication": "separate four-record metadata follow-up; final connected receipt stored outside the app",
+    "automaticScorePagingPerEdition": true,
+    "initialPagingFinding": "QA precondition error: Follow playback was false after earlier manual reader navigation. Corrected by UI checkbox and verified; no application change."
   }
 }
