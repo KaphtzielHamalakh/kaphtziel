@@ -1,3 +1,4 @@
+import {assertProgramSourceImage} from './program-source-image-artifact.mjs';
 import {restoredPortableHtml} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -20,7 +21,7 @@ test('all123 prior Baer components remain exact while the original primary prefa
  assert.equal(raw.length,268701);assert.equal(createHash('sha256').update(raw).digest('hex'),'17ac5b0858a3b07f54fc2abfd2ce18ee8e3b70639e32733936704b0b046b2531');
  assert.deepEqual(Buffer.from(evidence.bytes),raw);assert.equal(evidence.mime,'image/png');assert.equal(data.notationPrinciple.sourcePage,'IX');
  assert.match(data.notationPrinciple.literalGerman,/zwei verschiedene Weisen/);assert.equal(data.notationPrinciple.musicalReview,null);
- for(const n of ['app.bundle.js','TropeTrain.html'])assert.ok(restoredPortableHtml(readFileSync(new URL('../'+n,import.meta.url),'utf8')).includes(raw.toString('base64')));
+ assertProgramSourceImage(readFileSync(new URL('../app.bundle.js',import.meta.url)),evidence.url,p.file);
 });
 
 test('Segol keeps two monophonic stem-lines and shared physical heads without merging them into a chord or composite melody',()=>{

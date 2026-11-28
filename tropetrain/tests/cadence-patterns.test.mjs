@@ -1,3 +1,4 @@
+import {assertProgramSourceImage} from './program-source-image-artifact.mjs';
 import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {PRINTED_PATTERN_CATALOG,PATTERN_IMAGE_DATA,availablePatternModes,printedPatternPlan,patternContextChoices,patternEvidence} from '../printed-patterns.js';import {eventPitchName} from '../score-data.js';import {staffMarkup} from '../staff.js';import {soundingNotes,validatePlan} from '../synthesis.js';import {Player} from '../audio.js';import {getCorpus} from '../library.js';import {findCombinationsInCorpus} from '../accent-context.js';import {createReadingModel,melodyProfiles} from '../music.js';import {passage} from '../passage.js';
@@ -28,7 +29,7 @@ test('six source fermatas engrave independently and never fabricate a fixed hold
 });
 test('both source page images are byte exact and both evidence links work without a substituted old row',()=>{
  const values=[['assets/scores/cohen-1902-etnahta-leading-p542.png','12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43'],['assets/scores/cohen-1902-etnahta-ending-p543.png','70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4']];
- for(const [file,sha] of values){assert.equal(createHash('sha256').update(read(file)).digest('hex'),sha);assert.deepEqual(Buffer.from(PATTERN_IMAGE_DATA[file].split(',')[1],'base64'),read(file));assert.ok(restoredPortableHtml(read('TropeTrain.html')).toString().includes(PATTERN_IMAGE_DATA[file]));}
+ for(const [file,sha] of values){assert.equal(createHash('sha256').update(read(file)).digest('hex'),sha);assert.deepEqual(Buffer.from(PATTERN_IMAGE_DATA[file].split(',')[1],'base64'),read(file));assertProgramSourceImage(read('app.bundle.js'),PATTERN_IMAGE_DATA[file],file);}
  assert.deepEqual(Buffer.from(patternEvidence(row('A').id,'continuation').bytes),read(values[1][0]));assert.deepEqual(Buffer.from(patternEvidence(row('A').id,'columns').bytes),read(values[0][0]));assert.throws(()=>patternEvidence(PRINTED_PATTERN_CATALOG.rows[0].id,'continuation'),/unavailable/);
 });
 test('cadence lookup selects the literal adjacent source context without applying untexted notes to Torah words',async()=>{

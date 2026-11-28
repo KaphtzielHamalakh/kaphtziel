@@ -1,3 +1,4 @@
+import {assertProgramSourceImage} from './program-source-image-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -11,7 +12,7 @@ test('both builds retain exact source partitions, original key facsimiles and re
  const normal=read('app.bundle.js').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString(),page=read('index.html').toString();
  for(const text of [normal,portable]){
   assert(text.includes(FIT_SOURCES_SHA256),'exact fitting-source identity retained');
-  for(const key of FIT_SOURCES.phoneticKey.pages){const bytes=read(key.image);assert.equal(sha(bytes),key.imageSha256);assert.equal(bytes.length,key.imageBytes);assert(text.includes(bytes.toString('base64')),'complete original key facsimile retained');}
+  for(const key of FIT_SOURCES.phoneticKey.pages){const bytes=read(key.image);assert.equal(sha(bytes),key.imageSha256);assert.equal(bytes.length,key.imageBytes);assertProgramSourceImage(normal,'data:image/'+(key.image.endsWith('.jpg')?'jpeg':'png')+';base64,'+bytes.toString('base64'),key.image);}
  }
  for(const html of [page,portable])for(const id of ['printed-fit-editor','printed-fit-enabled','printed-fit-from','printed-fit-to','printed-fit-mam-from','printed-fit-mam-to','printed-fit-undo','printed-fit-json','printed-fit-key-viewer'])assert(html.includes('id="'+id+'"'),id);
  const notice=read('assets/pronunciation/printed-mam-fitting-NOTICE.txt');assert(portable.includes('data:text/plain;base64,'+notice.toString('base64')),'portable attribution is available offline');assert(!portable.includes('href="./assets/pronunciation/printed-mam-fitting-NOTICE.txt"'),'no broken local notice link');
