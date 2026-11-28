@@ -4,7 +4,7 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "35af1e8b566d740ac429f34ee0b655b8f9ea0f34",
-  "nextTask": "Continue source-backed contextual Bible-word/stress/syllable underlay and reusable pronunciation/voice evidence. Preserve independently styled pronunciation data, existing Hebrew/accents/source ownership, all recorded studies and source boundaries. No automatic arbitrary-word melody rule or new singing voice without evidence/review. Printing waits; full21feature/sixrequirement goal active.",
+  "nextTask": "Finish targeted obsolete-roster/shared-image fixture rerun63806, final complete npmtest on unchanged108artifacts, recover supportedIAB30after native downloadtool stall (never repeat downloadMedia/waitForEvent download). Complete normal/portable No111and retainedQA, actualnewexportchecks via supported capabilities, exact public practice snapshots, app-onlypublish/Pages/live/canonical. Public107unchanged; all21features/sixrequirements active.",
   "lastPassingTests": {
     "version": "0.107.0",
     "automated": 972,
@@ -234,7 +234,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.107.0",
+  "workingIteration": "0.108.0",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -3446,8 +3446,8 @@
     "browserClockAccounting": "All5match original decoded duration plus half the unchanged Vorbis small block within1microsecond; actual deltas2.9026–11.6103ms retained separately. No source timestamps changed."
   },
   "currentCandidate": {
-    "version": "0.107.0",
-    "status": "published_public396_accepted",
+    "version": "0.108.0",
+    "status": "private_no111_source8_pass_older115plans_preserved_UI_staged_fullcheck_pending",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -4701,5 +4701,88 @@
     "allThreeJobsSucceeded": true,
     "liveFilesExact": 48,
     "liveDecodedBytesExact": 152188186
+  },
+  "privateV108Development": {
+    "basePrivateCommit": "2cc09d73d4d242bb5ee5c666cc5993f89840e7ba",
+    "source": "/private/tmp/tropetrain-v108-worktree/tropetrain",
+    "sourceCorrection": "docs/BAER-NUMBERING-CORRECTION.json",
+    "oldSourceSnapshotBytes": 48389,
+    "old115MusicalPlansPreserved": true,
+    "onlyCorrectedParentProvenanceFields": 94,
+    "newCandidateWords": 10,
+    "sourcePhysicalComponents": 41,
+    "routes": 3,
+    "routeComponentMemberships": 52,
+    "printedLatinUnits": 25,
+    "sourceFocusedTests": 25,
+    "publicCropBytes": 279744,
+    "publicCropPixelsExact": true,
+    "wordSyllablePhonemeFitting": null,
+    "musicalReview": null,
+    "newVoice": null,
+    "fullCheck": {
+      "session": 22307,
+      "exit": 1,
+      "buildSucceeded": true,
+      "tests": 988,
+      "pass": 985,
+      "fail": 3,
+      "cancelled": 0,
+      "skipped": 0,
+      "reasons": "two obsolete melody rosters and six-versus-seven shared-image links; test fixtures only corrected"
+    },
+    "compiledOutputs": "108complete_candidate",
+    "browserAcceptance": {
+      "normalNewChecks": 22,
+      "normalTab": "30",
+      "portable": "not_started",
+      "allLiveAudioMutedAndStopped": true,
+      "musicXmlPreparedNotes": 23,
+      "musicXmlPreparedBytes": 79289,
+      "nativeFileBytes": "pending",
+      "downloadMediaToolStalledSeconds": 12443.625,
+      "doNotRepeatDownloadTool": true
+    },
+    "publication": "not_started",
+    "correctedFailureSubsetTests": 30,
+    "broadSourceRegression": {
+      "initialTests": 161,
+      "initialPass": 159,
+      "initialFail": 2,
+      "reasons": [
+        "strict test expected prior corrected-parent report SHA",
+        "generated Baer note-link report input pins predated core extensions"
+      ],
+      "correctedSubset": 30,
+      "correctedSubsetPass": 30,
+      "fullRerunSession": 7496,
+      "fullRerun": "running"
+    },
+    "versionAndCache": "108staged",
+    "appInputsFrozen": true,
+    "broadSourceRerun": {
+      "session": 7496,
+      "exit": 1,
+      "interruptedAfterNoOutput": true,
+      "observedPass": 26,
+      "accepted": false,
+      "isolatedPcmPass": 1
+    },
+    "finalTestSuite": "pending",
+    "sourcePreservation": {
+      "assetsExact": 692,
+      "metadataChangesArchivedExact": 3,
+      "snapshotFiles": 7,
+      "semanticReports": 119,
+      "currentPins": 430,
+      "historicalR1Pins": 19,
+      "otherRuntimeFilesExact": 199,
+      "priorPrintedScores": 7,
+      "priorPrintedEvents": 600,
+      "priorPlansXmlMidiBytesExactAtReferenceConfiguration": true
+    },
+    "candidatePortableBytes": 100590320,
+    "portableHeadroom": 4267280,
+    "reserveBytes": 4194304
   }
 }

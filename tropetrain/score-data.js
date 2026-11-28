@@ -1,6 +1,7 @@
 import {validateNo266PerformanceEvent} from './source-no266-performance.js';
 import {isJointEvent,jointEventCorrespondence} from './event-correspondence.js';
 import {validateGraceEvent} from './source-grace.js';
+import {validateNo111GraceEvent} from './source-no111-performance.js';
 import {validateSmallNoteEvent} from './source-small-note.js';
 import {validatePatternSmallEighthEvent} from './source-pattern-small-eighth.js';
 import {validateSmallEighthEvent} from './source-small-eighth.js';
@@ -44,6 +45,7 @@ export function rhythmSpelling(beats){
 }
 export function eventRhythm(event){
   const r=event.sourceRhythm;
+  if(event.sourceNo111Grace){validateNo111GraceEvent(event);return r;}
   if(event.sourceNo266SmallEighth||event.sourceNo266Parenthetical){validateNo266PerformanceEvent(event);return r;}
   if(event.sourcePatternSmallEighth){validatePatternSmallEighthEvent(event);return r;}
   if(event.sourceSmallEighth){validateSmallEighthEvent(event);return r;}

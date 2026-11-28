@@ -15,7 +15,7 @@ test('checked source pitches, written sharps and literal note/rest durations rem
  for(const [letter,figures] of Object.entries(expected))for(const [mode,[pitches,beats]] of Object.entries(figures)){
   const notes=source(letter).record.notes.filter(n=>n.cell===mode);assert.deepEqual(notes.map(n=>n.midi),pitches);assert.deepEqual(notes.map(n=>n.quarterBeats),beats);assert.ok(notes.every(n=>n.sourceLocation.includes('p.541, row I.'+letter)));
  }
- assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268','idelsohn-1929-vol5-no266']);
+ assert.deepEqual(melodyProfiles.map(p=>p.id),['original-demo-01','cohen-1902-gen22-ending','baer-1894-gen1-1-5','cohen-1902-gen22-prophetical','baer-1894-gen22-19','cohen-1902-gen22-penitential','idelsohn-1929-vol5-no268','idelsohn-1929-vol5-no266','baer-1894-no111-gen2-3-upper','baer-1894-no111-gen2-3-lower','baer-1894-no111-exo13-21-written']);
 });
 test('separate source rests remain silent gaps and independently inspectable symbols, including the two Bagdad rests',()=>{
  const f=plan('F'),e=plan('E');assert.equal(f.length,4);assert.equal(validatePlan(f),3.5);assert.deepEqual(f[2].sourceRestsAfter.map(r=>r.beats),[.5,1]);assert.equal(f[3].startSeconds-(f[2].startSeconds+f[2].durationSeconds),1.5);

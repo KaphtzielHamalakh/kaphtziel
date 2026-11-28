@@ -8155,19 +8155,19 @@
     },
     {
       "path": "baer-third-pattern-data.js",
-      "sha256": "552afea22b559d7bac1b93f0fc1ec56c2c28633c219e911bd01fe0dcd6b96556"
+      "sha256": "302a871cb9cec627db8841e9ccecac3609a493c806980cc4dcd33400e8717569"
     },
     {
       "path": "docs/BAER-NO105-THIRD-PATTERNS.json",
-      "sha256": "24f82e9c50db45bb70c9b4e78b20249f9d398436034605ec1291e831b45f44ff"
+      "sha256": "77843346e24aa23cfe9e3e102a388663e5852a1e30433fa46257400bcf7a81ab"
     },
     {
       "path": "data/notation/baer-no105-third-transcription.json",
-      "sha256": "6de643dc871c0125de5834ab3030331553274de4c3c5dffc8097678d6a0c355a"
+      "sha256": "3923c411b5e5e37b70becb1e634f9d8ed61a3d6ba54d29e4b6e67fff5b770a1c"
     },
     {
       "path": "scripts/import-baer-third-patterns.mjs",
-      "sha256": "07ce544a826d6c8f4c6d19b042d0a7c6774cfa76cec086c236bf9f0489c8e319"
+      "sha256": "212eb2bbb535a2fdc2049dac0fda634fb14e7c3751e14670b57025201f9928f3"
     },
     {
       "path": "baer-second-patterns.js",
@@ -8175,11 +8175,11 @@
     },
     {
       "path": "baer-second-pattern-data.js",
-      "sha256": "e359eb2acc0e98fdc9c4daf0558750635180b0ee29fc6cc7f1fd08fcb8d01731"
+      "sha256": "3a4e202c29a2ea77e7d754883986f5869445ae82296211825a6e8d03e5ad6365"
     },
     {
       "path": "docs/BAER-NO105-SECOND-PATTERNS.json",
-      "sha256": "082909dd3e39f0ff45d92e0518b7a9b34909edddcf6574b159b6c08d3e4df9e2"
+      "sha256": "7896c327f22de0197e0670f9108f6e05761dabeffbce89ad98b9ba1403a6cb48"
     },
     {
       "path": "data/notation/baer-no105-second-transcription.json",
@@ -8187,7 +8187,7 @@
     },
     {
       "path": "scripts/import-baer-second-patterns.mjs",
-      "sha256": "6ffa4ec7fa7ae28272eb8a82fb5edd8984761b52d5b94de7fea489367fdf677a"
+      "sha256": "5e3fba4f93044ca528524a0501e86367c8bddeea3b702266c7cf7276507705d2"
     },
     {
       "path": "word-pattern-lookups.js",
