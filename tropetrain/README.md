@@ -1,6 +1,6 @@
 # TropeTrain
 
-**v0.110.0 — locally tested; publication verification pending.** The normal program is smaller (32.35MB versus47.19MB) because34 source images load separately. All originals remain in the self-contained portable edition and the normal offline cache. The source viewer now reports loading/readiness, and offline status confirms the current saved version.
+**v0.110.0 — published and verified in both public browser editions.** The normal program is smaller (32.35MB versus47.19MB) because34 source images load separately. All originals remain in the self-contained portable edition and the normal offline cache. The source viewer now reports loading/readiness, and offline status confirms the current saved version.
 
 **1,020 automated tests pass after five old image-location assertions were corrected.** Both browser editions retain the marked Hebrew, independent pronunciation text, source music and cached source images. The first full build succeeded; the corrected complete test suite passed without changing runtime or compiled files. [Validation details](docs/VERIFICATION-0.110.md).
 

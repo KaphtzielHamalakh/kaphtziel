@@ -3,8 +3,8 @@
   "updated": "2026-11-28",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "46826e7e7a66004b78164a8a4ed6ed46de93b3a5",
-  "nextTask": "Publish locally accepted110 app only through connectedGitHub/freshroot/outsideentry preservation/expected-head lease; Pages/allchangedlivebytes/publicnormal+portablecontrols/all34sourceimages and private109baseline15drafts/2fittings/7spans. Save complete canonical110 tree and final4metadatarecords. Then continue word-aligned chanting and independent pronunciation using reusable source evidence and qualified review; next printed candidate IdelsohnNo270 has explicitGenesis25:19–20 plus separateGenesis24:49 example underGibraltar heading; do not merge examples or infer full grammar. All21features/sixrequirements active; printing deferred; voice labs frozen.",
+  "publishedCommit": "0bf4ccaf8205b7a127ed3c4e2f2d8c818dfbe89a",
+  "nextTask": "Finish final4metadata connected app-only publication/Pages/live/canonical1456-file overlay. Continue the full21feature/sixrequirement request toward word-aligned whole-Torah chanting with independent melody/pronunciation/range/transposition. Next primary-score candidate IdelsohnNo270: separateGenesis25:19–20(27words) andGenesis24:49(20words),Gibraltar documentaryheading; sourcepages/markedtext pinned privately, allnote/underlay/grammar/review/voice fields pending. Preserve source labels vs realizations, all original data and personaldrafts. Seek reusable named performances/scores and qualified review; do not adopt alreadyexamined unlicensed TaamimFlow/Kinnor data. Printing waits; privatevoiceLabs frozen. Never browserdownloadwaits.",
   "lastPassingTests": {
     "version": "0.110.0",
     "automated": 1020,
@@ -54,7 +54,10 @@
     "newSingingVoices": 0,
     "newMusicalRealizations": 0,
     "musicalListeningReview": null,
-    "publicUiAcceptance": "pending"
+    "publicUiAcceptance": "both_editions_passed",
+    "publicDraftExportsPreservedPerEdition": 15,
+    "publicFittingsPreservedPerEdition": 2,
+    "publicListeningSpansPreservedPerEdition": 7
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -203,18 +206,15 @@
     }
   },
   "lastDeployment": {
-    "commit": "6fd070cfb8d0a7dfc6f8509d6e095479d6e61614",
-    "pagesRun": 46110099433,
-    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46110099433",
+    "commit": "0bf4ccaf8205b7a127ed3c4e2f2d8c818dfbe89a",
+    "pagesRun": 46130820011,
+    "pagesRunUrl": "https://github.com/KaphtzielHamalakh/kaphtziel/actions/runs/46130820011",
     "status": "success",
     "allThreeJobsSucceeded": true,
-    "all76ChangedLiveFilesExact": true,
-    "publicNewLogicalChecksNormal": 23,
-    "publicNewLogicalChecksPortable": 25,
-    "publicRetainedLogicalChecksPerEdition": 95,
-    "privateCodeCommit": "e821fadef79959c5c18548d4a13cea314099ecfc",
-    "testedAppTree": "bee10bb7098d7dcdcabf7f550ab90f7366c5002f",
-    "finalReleaseRecordPublication": "separate metadata follow-up; exact receipt retained outside app"
+    "all57ChangedLiveFilesExact": true,
+    "all34SourceImageBodiesExact": true,
+    "testedAppTree": "5d0b23dd44a0196810cde491b351d7d3657d7d04",
+    "finalReleaseRecordPublication": "separate metadata follow-up; exact final receipt retained outside app"
   },
   "corpusImport": {
     "books": 5,
@@ -1130,7 +1130,7 @@
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
-  "lastPublishedIteration": "0.109.0",
+  "lastPublishedIteration": "0.110.0",
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
     "publicRuntimeVersion": "0.52.0",
@@ -3451,7 +3451,7 @@
   },
   "currentCandidate": {
     "version": "0.110.0",
-    "status": "local_accepted_publication_pending",
+    "status": "published_code_pages_live_public_ui_practice_accepted",
     "goal": "active_incomplete"
   },
   "chukatLinkedWordStudy": {
@@ -5186,7 +5186,7 @@
     "goal": "active_incomplete"
   },
   "privateV110Development": {
-    "phase": "local_accepted_publication_pending",
+    "phase": "published_code_pages_live_public_both_editions_practice_accepted",
     "basePrivate": "a249c2a5b726ce041993a85535518f1a7b8bc98a",
     "source": "/private/tmp/tropetrain-v110-worktree/tropetrain",
     "movedSourceImages": 34,
@@ -5234,7 +5234,7 @@
     },
     "actualFinalArtifacts": "pending",
     "browser": "pending",
-    "publication": "pending",
+    "publication": "code_published_verified",
     "newVoices": 0,
     "newMusicalRealizations": 0,
     "musicalReview": null,
@@ -5344,7 +5344,10 @@
           "gzipSha256": "8c5e770e02c52b7cfa9292dd6d4c720115badfdb034ecbe1147e379c62fbaff5"
         }
       }
-    }
+    },
+    "connectedCodeCommit": "0bf4ccaf8205b7a127ed3c4e2f2d8c818dfbe89a",
+    "codePagesRun": 46130820011,
+    "canonicalCandidateFiles": 1456
   },
   "acceptedV109PassingTests": {
     "version": "0.109.0",
@@ -5406,7 +5409,27 @@
   },
   "currentCandidate110": {
     "version": "0.110.0",
-    "status": "local_accepted_publication_pending",
+    "status": "published_code_pages_live_public_ui_practice_accepted",
     "goal": "active_incomplete"
+  },
+  "publicV110Acceptance": {
+    "version": "0.110.0",
+    "connectedCodeCommit": "0bf4ccaf8205b7a127ed3c4e2f2d8c818dfbe89a",
+    "testedAppTree": "5d0b23dd44a0196810cde491b351d7d3657d7d04",
+    "codePagesRun": 46130820011,
+    "allThreePagesJobsSucceeded": true,
+    "all57ChangedLiveFilesExact": true,
+    "all34SourceImageBodiesExact": true,
+    "sourceImagesPerPublicEdition": 34,
+    "no46RoutesPerEdition": 2,
+    "scorePagesPerEdition": 10,
+    "pronunciationTextChoicesPerEdition": 7,
+    "fullTimingDraftsExactPerEdition": 15,
+    "fullCanonicalFittingsExactPerEdition": 2,
+    "listeningSpansExactPerEdition": 7,
+    "allRawPersonalSnapshotsPrivate": true,
+    "newMusicalRealizations": 0,
+    "newSingingVoices": 0,
+    "musicalReview": null
   }
 }
