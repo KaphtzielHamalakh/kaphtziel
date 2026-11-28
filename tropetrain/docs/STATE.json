@@ -3,8 +3,8 @@
   "updated": "2026-11-28",
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
-  "publishedCommit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
-  "nextTask": "Publish locally accepted112 app-only with connected GitHub and expected-head lease; verify Pages/live bodies/both public editions and15drafts/2fittings/7spans; save complete canonical112 plus four final metadata overlays. Then continue sourced word-aligned chant/independent pronunciation across Torah. Gen24 small-note role/timing, source Latin reading, syllable/phoneme fitting and qualified review remain unassigned. Preserve all21features/sixrequirements. Printing deferred; private voice labs frozen.",
+  "publishedCommit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
+  "nextTask": "Continue sourced word-aligned chanting and independent pronunciation across Torah, prioritizing qualified musical/linguistic review and reusable aligned sung recordings. Review the separate Gen24:49 unnumbered score, its small-note role/timing, printed Latin/diacritics and word/syllable/phoneme fitting; also No270 quarter-sharp carry/intonation remains a candidate. Do not infer locality, complete tradition grammar or Kinnor equivalence from bounded examples. Existing original-program3.2/V6archives are pinned and TaamimFlow reconciled110; do not rediscover or adopt unlicensed extracted data. All21features/sixrequirements remain active. Preserve exact Hebrew/IDs, independent melody/pronunciation/range/key/tempo and personal drafts. Printing waits/privatevoice labs frozen.",
   "lastPassingTests": {
     "version": "0.112.0",
     "command": "npm run check",
@@ -161,12 +161,12 @@
     }
   },
   "lastDeployment": {
-    "version": "0.111.0",
-    "commit": "fa5c56bbdbe15c51679346d71f6ac03f2ad58ef3",
-    "appTree": "3e663f54f6e8e9c784fdad8e108ede751bfd7ab7",
-    "pagesRun": 46139088054,
+    "version": "0.112.0",
+    "commit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
+    "appTree": "19a898b5c9f2112977e916d262db0d9819551ae7",
+    "pagesRun": 46147252769,
     "status": "published_code_and_both_public_editions_verified",
-    "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. The final commit, Pages/live results and complete canonical certificate with four exact overlays are recorded in the external RELEASE and RESUME records."
+    "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. Final commit/Pages/live and complete canonical certificate with four exact overlays are recorded outside the app in RELEASE/RESUME records."
   },
   "corpusImport": {
     "books": 5,
@@ -1082,7 +1082,7 @@
     "review": null,
     "status": "published_466checks_public_normal_portable_verified_review_pending"
   },
-  "lastPublishedIteration": "0.111.0",
+  "lastPublishedIteration": "0.112.0",
   "voiceEngineLab": {
     "status": "private_engineering_prototype_not_a_public_voice",
     "publicRuntimeVersion": "0.52.0",
@@ -6105,6 +6105,110 @@
       "fullGoal": "active_incomplete",
       "printing": "deferred",
       "privateVoiceLabs": "frozen"
+    },
+    "publicAcceptance": {
+      "version": "0.112.0",
+      "connectedCodeCommit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
+      "testedCodeAppTree": "19a898b5c9f2112977e916d262db0d9819551ae7",
+      "rootTree": "f5382a89b0bf10ae7171138116f3063e9c13494a",
+      "outsideEntriesPreserved": 42,
+      "expectedHeadLease": true,
+      "pagesRun": 46147252769,
+      "allThreePagesJobsSuccess": true,
+      "liveChangedFiles": 75,
+      "liveChangedBytes": 134216302,
+      "allLiveDecodedBodiesExactWithDefaultTls": true,
+      "bothEditionsAccepted": true,
+      "markedWords": 20,
+      "notes": 56,
+      "LatinIndices": 38,
+      "sourcePages": 5,
+      "measuredRemainderWords": 19,
+      "measuredRemainderNotes": 46,
+      "sourceSmallNoteDefaultGateAndExplicit80msChoice": true,
+      "sevenIndependentPronunciationTextOptions": true,
+      "rangeKeyTempoIndependence": true,
+      "wordGroupVerseStopsRepeatViewsFollowing": true,
+      "xmlMidiWavPreparation": true,
+      "browserPreparedFilePcmBytesVerified": false,
+      "heardMusicalReview": false,
+      "priorFacsimilesPerEdition": 34,
+      "priorNo270RetainedBoth": true,
+      "portableOriginalPitchPackets": {
+        "bytes": 31132915,
+        "sha256": "79f13baf49ca823cd3f63cfe6e1bda83e89a737f4b652f5c7ef0f0a5806ffc18",
+        "records": 378
+      },
+      "fullRawDraftsExactPerEdition": 15,
+      "canonicalFittingsExactPerEdition": 2,
+      "listeningSpansExactPerEdition": 7,
+      "practiceRawSnapshotsPrivate": true,
+      "cacheStatus": {
+        "normal": "Included reading text & score sources · saved for offline practice",
+        "portable": "Portable page · saved for offline reopening"
+      },
+      "publicNetworkOffClaimed": false,
+      "finalAudio": {
+        "normal": {
+          "allMediaPaused": true,
+          "version": "v0.112.0",
+          "volumes": [
+            {
+              "id": "chant-volume",
+              "value": "0"
+            },
+            {
+              "id": "volume",
+              "value": "0"
+            },
+            {
+              "id": "haftarah-volume",
+              "value": "0"
+            },
+            {
+              "id": "voice-study-volume",
+              "value": "0"
+            },
+            {
+              "id": "reference-volume",
+              "value": "0"
+            }
+          ]
+        },
+        "portable": {
+          "allMediaPaused": true,
+          "version": "v0.112.0",
+          "volumes": [
+            {
+              "id": "chant-volume",
+              "value": "0"
+            },
+            {
+              "id": "volume",
+              "value": "0"
+            },
+            {
+              "id": "haftarah-volume",
+              "value": "0"
+            },
+            {
+              "id": "voice-study-volume",
+              "value": "0"
+            },
+            {
+              "id": "reference-volume",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "nativeScreenshot": "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.112/public-gen24-source-study.jpg",
+      "all21FeaturesAndSixRequirementsRemainActive": true,
+      "fullGoal": "active_incomplete",
+      "newIndependentlyReviewedMusicalRealizations": 0,
+      "newSingingVoices": 0,
+      "qualifiedReview": null,
+      "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. Final commit/Pages/live and complete canonical certificate with four exact overlays are recorded outside the app in RELEASE/RESUME records."
     }
   },
   "currentCandidate112": {
@@ -6203,9 +6307,217 @@
       "durationMs": 723240.754875,
       "failures": []
     },
-    "publication": "pending",
+    "publication": "code_Pages_live_both_public_editions_and_practice_verified",
     "fullGoal": "active_incomplete",
     "printing": "deferred",
-    "privateVoiceLabs": "frozen"
+    "privateVoiceLabs": "frozen",
+    "publicAcceptance": {
+      "version": "0.112.0",
+      "connectedCodeCommit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
+      "testedCodeAppTree": "19a898b5c9f2112977e916d262db0d9819551ae7",
+      "rootTree": "f5382a89b0bf10ae7171138116f3063e9c13494a",
+      "outsideEntriesPreserved": 42,
+      "expectedHeadLease": true,
+      "pagesRun": 46147252769,
+      "allThreePagesJobsSuccess": true,
+      "liveChangedFiles": 75,
+      "liveChangedBytes": 134216302,
+      "allLiveDecodedBodiesExactWithDefaultTls": true,
+      "bothEditionsAccepted": true,
+      "markedWords": 20,
+      "notes": 56,
+      "LatinIndices": 38,
+      "sourcePages": 5,
+      "measuredRemainderWords": 19,
+      "measuredRemainderNotes": 46,
+      "sourceSmallNoteDefaultGateAndExplicit80msChoice": true,
+      "sevenIndependentPronunciationTextOptions": true,
+      "rangeKeyTempoIndependence": true,
+      "wordGroupVerseStopsRepeatViewsFollowing": true,
+      "xmlMidiWavPreparation": true,
+      "browserPreparedFilePcmBytesVerified": false,
+      "heardMusicalReview": false,
+      "priorFacsimilesPerEdition": 34,
+      "priorNo270RetainedBoth": true,
+      "portableOriginalPitchPackets": {
+        "bytes": 31132915,
+        "sha256": "79f13baf49ca823cd3f63cfe6e1bda83e89a737f4b652f5c7ef0f0a5806ffc18",
+        "records": 378
+      },
+      "fullRawDraftsExactPerEdition": 15,
+      "canonicalFittingsExactPerEdition": 2,
+      "listeningSpansExactPerEdition": 7,
+      "practiceRawSnapshotsPrivate": true,
+      "cacheStatus": {
+        "normal": "Included reading text & score sources · saved for offline practice",
+        "portable": "Portable page · saved for offline reopening"
+      },
+      "publicNetworkOffClaimed": false,
+      "finalAudio": {
+        "normal": {
+          "allMediaPaused": true,
+          "version": "v0.112.0",
+          "volumes": [
+            {
+              "id": "chant-volume",
+              "value": "0"
+            },
+            {
+              "id": "volume",
+              "value": "0"
+            },
+            {
+              "id": "haftarah-volume",
+              "value": "0"
+            },
+            {
+              "id": "voice-study-volume",
+              "value": "0"
+            },
+            {
+              "id": "reference-volume",
+              "value": "0"
+            }
+          ]
+        },
+        "portable": {
+          "allMediaPaused": true,
+          "version": "v0.112.0",
+          "volumes": [
+            {
+              "id": "chant-volume",
+              "value": "0"
+            },
+            {
+              "id": "volume",
+              "value": "0"
+            },
+            {
+              "id": "haftarah-volume",
+              "value": "0"
+            },
+            {
+              "id": "voice-study-volume",
+              "value": "0"
+            },
+            {
+              "id": "reference-volume",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "nativeScreenshot": "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.112/public-gen24-source-study.jpg",
+      "all21FeaturesAndSixRequirementsRemainActive": true,
+      "fullGoal": "active_incomplete",
+      "newIndependentlyReviewedMusicalRealizations": 0,
+      "newSingingVoices": 0,
+      "qualifiedReview": null,
+      "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. Final commit/Pages/live and complete canonical certificate with four exact overlays are recorded outside the app in RELEASE/RESUME records."
+    }
+  },
+  "publicV112Acceptance": {
+    "version": "0.112.0",
+    "connectedCodeCommit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
+    "testedCodeAppTree": "19a898b5c9f2112977e916d262db0d9819551ae7",
+    "rootTree": "f5382a89b0bf10ae7171138116f3063e9c13494a",
+    "outsideEntriesPreserved": 42,
+    "expectedHeadLease": true,
+    "pagesRun": 46147252769,
+    "allThreePagesJobsSuccess": true,
+    "liveChangedFiles": 75,
+    "liveChangedBytes": 134216302,
+    "allLiveDecodedBodiesExactWithDefaultTls": true,
+    "bothEditionsAccepted": true,
+    "markedWords": 20,
+    "notes": 56,
+    "LatinIndices": 38,
+    "sourcePages": 5,
+    "measuredRemainderWords": 19,
+    "measuredRemainderNotes": 46,
+    "sourceSmallNoteDefaultGateAndExplicit80msChoice": true,
+    "sevenIndependentPronunciationTextOptions": true,
+    "rangeKeyTempoIndependence": true,
+    "wordGroupVerseStopsRepeatViewsFollowing": true,
+    "xmlMidiWavPreparation": true,
+    "browserPreparedFilePcmBytesVerified": false,
+    "heardMusicalReview": false,
+    "priorFacsimilesPerEdition": 34,
+    "priorNo270RetainedBoth": true,
+    "portableOriginalPitchPackets": {
+      "bytes": 31132915,
+      "sha256": "79f13baf49ca823cd3f63cfe6e1bda83e89a737f4b652f5c7ef0f0a5806ffc18",
+      "records": 378
+    },
+    "fullRawDraftsExactPerEdition": 15,
+    "canonicalFittingsExactPerEdition": 2,
+    "listeningSpansExactPerEdition": 7,
+    "practiceRawSnapshotsPrivate": true,
+    "cacheStatus": {
+      "normal": "Included reading text & score sources · saved for offline practice",
+      "portable": "Portable page · saved for offline reopening"
+    },
+    "publicNetworkOffClaimed": false,
+    "finalAudio": {
+      "normal": {
+        "allMediaPaused": true,
+        "version": "v0.112.0",
+        "volumes": [
+          {
+            "id": "chant-volume",
+            "value": "0"
+          },
+          {
+            "id": "volume",
+            "value": "0"
+          },
+          {
+            "id": "haftarah-volume",
+            "value": "0"
+          },
+          {
+            "id": "voice-study-volume",
+            "value": "0"
+          },
+          {
+            "id": "reference-volume",
+            "value": "0"
+          }
+        ]
+      },
+      "portable": {
+        "allMediaPaused": true,
+        "version": "v0.112.0",
+        "volumes": [
+          {
+            "id": "chant-volume",
+            "value": "0"
+          },
+          {
+            "id": "volume",
+            "value": "0"
+          },
+          {
+            "id": "haftarah-volume",
+            "value": "0"
+          },
+          {
+            "id": "voice-study-volume",
+            "value": "0"
+          },
+          {
+            "id": "reference-volume",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    "nativeScreenshot": "/Users/benjaminnewman/Documents/Codex/2026-11-18/read-tropetrainer-reconstruction-md-in-full/outputs/Development-v0.112/public-gen24-source-study.jpg",
+    "all21FeaturesAndSixRequirementsRemainActive": true,
+    "fullGoal": "active_incomplete",
+    "newIndependentlyReviewedMusicalRealizations": 0,
+    "newSingingVoices": 0,
+    "qualifiedReview": null,
+    "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. Final commit/Pages/live and complete canonical certificate with four exact overlays are recorded outside the app in RELEASE/RESUME records."
   }
 }
