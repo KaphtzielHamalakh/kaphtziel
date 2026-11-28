@@ -4,15 +4,15 @@
   "objective": "Complete the full independently reconstructed trainer; retain all brief features.",
   "status": "active",
   "publishedCommit": "84e927d1162908c5ebbb6cdd21c0c291afea7157",
-  "nextTask": "Continue sourced word-aligned chanting and independent pronunciation across Torah, prioritizing qualified musical/linguistic review and reusable aligned sung recordings. Review the separate Gen24:49 unnumbered score, its small-note role/timing, printed Latin/diacritics and word/syllable/phoneme fitting; also No270 quarter-sharp carry/intonation remains a candidate. Do not infer locality, complete tradition grammar or Kinnor equivalence from bounded examples. Existing original-program3.2/V6archives are pinned and TaamimFlow reconciled110; do not rediscover or adopt unlicensed extracted data. All21features/sixrequirements remain active. Preserve exact Hebrew/IDs, independent melody/pronunciation/range/key/tempo and personal drafts. Printing waits/privatevoice labs frozen.",
+  "nextTask": "Publish locally accepted113 app-only with connected GitHub and an expected-head lease; verify Pages/live files, both public editions and15timingdrafts/2fittings/7spans; save complete canonical113 and four final metadata overlays. Continue complete sourced/reviewed Torah melody grammars and independent pronunciation/singing systems. The partial Tiberian inventory leaves vowels/contextual phonetics and qualified review pending. Preserve all21features/sixrequirements. Printing waits/privatevoice labs frozen.",
   "lastPassingTests": {
-    "version": "0.112.0",
-    "command": "npm run check",
-    "tests": 1046,
-    "pass": 1046,
+    "version": "0.113.0",
+    "command": "npm run check (build passed, four stale count assertions failed); corrected entire npm test",
+    "tests": 1055,
+    "pass": 1055,
     "fail": 0,
     "fullSuite": true,
-    "receipt": "docs/VERIFICATION-0.112.md"
+    "receipt": "docs/VERIFICATION-0.113.md"
   },
   "completionRequires": [
     "All roadmap features complete and tested",
@@ -51,7 +51,7 @@
     {
       "id": "pronunciations",
       "description": "Six historical Accent profiles with independent reviewed phonemes",
-      "status": "two_MAM_text_styles_two_incomplete_regional_profiles_modern_inventory_with_separate_optional_final_loss_two_bounded_Tiberian_streams_full_reviewed_historical_grammars_and_singing_voices_pending"
+      "status": "Two MAM text styles, two incomplete regional profiles, modern inventory with optional final loss, two bounded published Tiberian streams and a partial Torah Tiberian consonant inventory. Six complete reviewed historical grammars and singing voices remain pending."
     },
     {
       "id": "melodies",
@@ -96,7 +96,7 @@
     {
       "id": "score",
       "description": "Staff notation, Hebrew/transliteration underlay, note navigation",
-      "status": "bounded_source_specific_scores_including_No111_complete_No46_Deut11_21_and_No270_Gen25_19_20_independent_pronunciation_text_No266_No268_separate_personal_fitting_no_accepted_phonetic_fit_or_new_voice"
+      "status": "Bounded source scores including No111, complete No46, No270 and separate Genesis24:49. Independent pronunciation text; No266/No268 personal fittings remain separate. Accepted phonetic fitting and new singing remain pending."
     },
     {
       "id": "display",
@@ -190,7 +190,7 @@
     "originalCommit": "c8540eae1c5e07138aafc89afb571b71326d13dd",
     "coverageAudit": "docs/TORAH-REFERENCE-AUDIT.json"
   },
-  "workingIteration": "0.112.0",
+  "workingIteration": "0.113.0",
   "sourceAnalysisIssue": {
     "example": "Genesis 1:7 word 2",
     "codepoint": "U+05AE",
@@ -6519,5 +6519,383 @@
     "newSingingVoices": 0,
     "qualifiedReview": null,
     "finalMetadataRecord": "Only README/STATE/PROGRESS/VERIFICATION change after accepted code. Final commit/Pages/live and complete canonical certificate with four exact overlays are recorded outside the app in RELEASE/RESUME records."
+  },
+  "privateV113Development": {
+    "scope": "Partial source-based Tiberian consonant inventory across Torah word/source bindings; no voice, complete grammar or Kinnor equivalence",
+    "sourcePackBytes": 504982,
+    "boundCategories": 57,
+    "observedTorahCategories": 55,
+    "wholeTorahAudit": {
+      "exit": 0,
+      "styles": 2,
+      "readerWordsPerStyle": 79985,
+      "categoryReferencesPerStyle": 518726,
+      "consonantCandidatesPerStyle": 273715,
+      "sourceSilentPerStyle": 48421,
+      "unassignedPerStyle": 196590
+    },
+    "focusedChecks": {
+      "exit": 0,
+      "pass": 18,
+      "fail": 0
+    },
+    "priorPreservation": {
+      "printedProfiles": 14,
+      "events": 894,
+      "plansXmlMidiExact": true,
+      "svgStringsExact": 197
+    },
+    "compiledArtifacts": "still112untilactualbuildcompletion",
+    "publication": "not_started",
+    "review": null,
+    "newSingingVoice": null,
+    "localAcceptance": {
+      "version": "0.113.0",
+      "newProfile": "khan-2020-tiberian-consonant-inventory",
+      "kind": "Partial Tiberian consonant phoneme inventory, source-category adaptation for Torah; text research only",
+      "scopeBooks": [
+        "gen",
+        "exo",
+        "lev",
+        "num",
+        "deu"
+      ],
+      "definedConsonantCategories": 57,
+      "observedTorahConsonantCategories": 55,
+      "readerWordsPerSourceStyle": 79985,
+      "consonantCandidateReferencesPerStyle": 273715,
+      "sourceSilentReferencesPerStyle": 48421,
+      "unassignedReferencesPerStyle": 196590,
+      "sharedSourceEventsPerStyle": 18250,
+      "sourceGeminateEventsPerStyle": 18578,
+      "review": null,
+      "acceptedPhonemes": null,
+      "singingVoice": null,
+      "completeGrammar": false,
+      "kinnorPreset": null,
+      "newMelodySystem": null,
+      "normalAndPortableAccepted": true,
+      "casesPerEdition": 9,
+      "sourceStylesPerCase": 2,
+      "nativeSourceReportsComparedPerEdition": 18,
+      "independentReaderSources": 8,
+      "allAvailableNotesAndClocksExact": true,
+      "existingMusicalGatesPreserved": true,
+      "sourceOnlyAndCollectiveBindingsUnchanged": true,
+      "rangeKeyTempoIndependent": true,
+      "allSevenLicensedSourcePagesRgbPixelExact": true,
+      "sourcePackBytes": 504982,
+      "sourcePackSha256": "e66cc65eeec641828b6cc0676c0ce78e29e183a8d1274b2f84eec7068f4cd4bd",
+      "normalServedEvidence": {
+        "count": 4,
+        "bytes": 528612,
+        "allExact": true
+      },
+      "stoppedPreview": {
+        "session": 85433,
+        "terminalExit": 0,
+        "connectionRefusedCurlExit": 7,
+        "port": 55413
+      },
+      "cacheChecks": {
+        "normal": {
+          "sameCachedUrlReloaded": true,
+          "case": "gen-13-3-13",
+          "newEvidenceCanonicalHrefs": true,
+          "retainedGen24Following": true,
+          "end": {
+            "noErrors": true,
+            "noOuterHorizontalOverflow": true,
+            "allMediaPaused": true,
+            "allFiveVolumesZero": true
+          }
+        },
+        "portable": {
+          "sameCachedUrlReloaded": true,
+          "case": "gen-43-26-4",
+          "allFourEmbeddedEvidenceBodiesExact": true,
+          "retainedGen24Following": true,
+          "end": {
+            "noErrors": true,
+            "noOuterHorizontalOverflow": true,
+            "allMediaPaused": true,
+            "allFiveVolumesZero": true
+          }
+        },
+        "limits": "Owned local preview server stopped with terminal0 and native curl refusal7. Normal cached new evidence hrefs inspected; no cached normal ZIP download bytes or public network-off claim."
+      },
+      "preservation": {
+        "base": "041fb9ba6d577cbb69582e83eb4f08582412a0a9",
+        "allPriorAssetsDataVendorExact": 710,
+        "allPriorSemanticReportsExactExcludingInputPins": 123,
+        "currentInputPinsExact": 481,
+        "unchangedRootRuntimeFiles": 218,
+        "all21FeatureIdentitiesAndSixCompletionRequirementsExact": true,
+        "priorPrintedProfiles": 14,
+        "priorEvents": 894,
+        "allPriorPlansXmlMidiAnd197SvgExact": true,
+        "newIndependentMusicalReviews": 0,
+        "newSingingVoices": 0
+      },
+      "artifacts": [
+        {
+          "path": "app.bundle.js",
+          "bytes": 32477304,
+          "sha256": "819729e8ceabaf08cc91030e32a293ec5e95a9576af36f41d7bd61316b562afc"
+        },
+        {
+          "path": "TropeTrain.html",
+          "bytes": 99274701,
+          "sha256": "4b0acb354e5a514d28171be384ec5670d537f559e9587a79867a874b5e8bc6e8"
+        }
+      ],
+      "portableHeadroomBytes": 5582899,
+      "unchangedPortableReserveBytes": 4194304,
+      "fullCheck": {
+        "session": 36274,
+        "exit": 0,
+        "command": "npm run check (build passed, four stale count assertions failed); corrected entire npm test",
+        "buildSucceeded": true,
+        "buildSession": 26688,
+        "firstCheck": {
+          "session": 26688,
+          "exit": 1,
+          "command": "npm run check",
+          "buildSucceeded": true,
+          "failures": [
+            "not ok 89 - both finished editions retain the bounded No111 controls, exact source/correction evidence and lossless image within the unchanged reserve",
+            "not ok 102 - both compiled editions retain complete No46 controls, exact source evidence/image/notice, existing transport and unchanged4MiBreserve",
+            "not ok 294 - finished Genesis24 editions retain the complete bounded source, explicit optional timing and all20 exact marked words without source substitution",
+            "not ok 315 - finished No270 editions retain the complete marked source candidate, primary image and explicit review limits"
+          ],
+          "tests": 1055,
+          "pass": 1051,
+          "fail": 4,
+          "cancelled": 0,
+          "skipped": 0,
+          "durationMs": 746767.518333
+        },
+        "testOnlyCorrection": {
+          "correction": [
+            {
+              "path": "tests/baer-no111-build.test.mjs",
+              "oldSha256": "42dc658a4fdf214acaa54fe4399ffc2d40ea4da6aed60db9b3d1f1d058ae73be",
+              "newSha256": "a77c98649acd45da41d90746e0f1e32fcf7306f89510b6fca683c37483e65a56",
+              "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+            },
+            {
+              "path": "tests/baer-no46-build.test.mjs",
+              "oldSha256": "5e517c9b36eb0c99480b1afcddb15fb51f3d36fc49c34758c7ebd52e7cc4401f",
+              "newSha256": "11e7f94783ee1a9221d8675ef351e1f31e0bf721f5ed2d933a995ddf1d664c35",
+              "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+            },
+            {
+              "path": "tests/idelsohn-gen24-build.test.mjs",
+              "oldSha256": "6f07279ebfd49fc2a264c1acde2163bef8d8ac6bed9354f36b55ef1091f245c8",
+              "newSha256": "1cb954ed5dc79d99b6ed4c3367175f6b04ec4d70b1398f20580e33941fac8782",
+              "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+            },
+            {
+              "path": "tests/idelsohn-no270-build.test.mjs",
+              "oldSha256": "3cf31f02262ffdd19741516635b7724fb8e8ec5bad30b46a7757899509f1826c",
+              "newSha256": "23b0a2d5505e15bb84412be2c0783901f96aa53d6f9754b68528c864d5dc4666",
+              "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+            }
+          ],
+          "runtimeOrBuiltBytesChanged": false,
+          "buildInputPinsAffected": false,
+          "firstSuite": "26688 still finishing; retain full original outcome",
+          "next": "Run corrected entire npm test against same compiled artifacts; report original failed check plus corrected full-suite result accurately."
+        },
+        "noRuntimeBuildInputOrCompiledArtifactChangeAfterBuild": true,
+        "tests": 1055,
+        "pass": 1055,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "durationMs": 710030.84675,
+        "failures": []
+      },
+      "browserPreparedFilePcmBytesVerified": false,
+      "heardMusicalReview": false,
+      "publication": "pending",
+      "fullGoal": "active_incomplete",
+      "printing": "deferred",
+      "privateVoiceLabs": "frozen"
+    }
+  },
+  "currentCandidate113": {
+    "version": "0.113.0",
+    "newProfile": "khan-2020-tiberian-consonant-inventory",
+    "kind": "Partial Tiberian consonant phoneme inventory, source-category adaptation for Torah; text research only",
+    "scopeBooks": [
+      "gen",
+      "exo",
+      "lev",
+      "num",
+      "deu"
+    ],
+    "definedConsonantCategories": 57,
+    "observedTorahConsonantCategories": 55,
+    "readerWordsPerSourceStyle": 79985,
+    "consonantCandidateReferencesPerStyle": 273715,
+    "sourceSilentReferencesPerStyle": 48421,
+    "unassignedReferencesPerStyle": 196590,
+    "sharedSourceEventsPerStyle": 18250,
+    "sourceGeminateEventsPerStyle": 18578,
+    "review": null,
+    "acceptedPhonemes": null,
+    "singingVoice": null,
+    "completeGrammar": false,
+    "kinnorPreset": null,
+    "newMelodySystem": null,
+    "normalAndPortableAccepted": true,
+    "casesPerEdition": 9,
+    "sourceStylesPerCase": 2,
+    "nativeSourceReportsComparedPerEdition": 18,
+    "independentReaderSources": 8,
+    "allAvailableNotesAndClocksExact": true,
+    "existingMusicalGatesPreserved": true,
+    "sourceOnlyAndCollectiveBindingsUnchanged": true,
+    "rangeKeyTempoIndependent": true,
+    "allSevenLicensedSourcePagesRgbPixelExact": true,
+    "sourcePackBytes": 504982,
+    "sourcePackSha256": "e66cc65eeec641828b6cc0676c0ce78e29e183a8d1274b2f84eec7068f4cd4bd",
+    "normalServedEvidence": {
+      "count": 4,
+      "bytes": 528612,
+      "allExact": true
+    },
+    "stoppedPreview": {
+      "session": 85433,
+      "terminalExit": 0,
+      "connectionRefusedCurlExit": 7,
+      "port": 55413
+    },
+    "cacheChecks": {
+      "normal": {
+        "sameCachedUrlReloaded": true,
+        "case": "gen-13-3-13",
+        "newEvidenceCanonicalHrefs": true,
+        "retainedGen24Following": true,
+        "end": {
+          "noErrors": true,
+          "noOuterHorizontalOverflow": true,
+          "allMediaPaused": true,
+          "allFiveVolumesZero": true
+        }
+      },
+      "portable": {
+        "sameCachedUrlReloaded": true,
+        "case": "gen-43-26-4",
+        "allFourEmbeddedEvidenceBodiesExact": true,
+        "retainedGen24Following": true,
+        "end": {
+          "noErrors": true,
+          "noOuterHorizontalOverflow": true,
+          "allMediaPaused": true,
+          "allFiveVolumesZero": true
+        }
+      },
+      "limits": "Owned local preview server stopped with terminal0 and native curl refusal7. Normal cached new evidence hrefs inspected; no cached normal ZIP download bytes or public network-off claim."
+    },
+    "preservation": {
+      "base": "041fb9ba6d577cbb69582e83eb4f08582412a0a9",
+      "allPriorAssetsDataVendorExact": 710,
+      "allPriorSemanticReportsExactExcludingInputPins": 123,
+      "currentInputPinsExact": 481,
+      "unchangedRootRuntimeFiles": 218,
+      "all21FeatureIdentitiesAndSixCompletionRequirementsExact": true,
+      "priorPrintedProfiles": 14,
+      "priorEvents": 894,
+      "allPriorPlansXmlMidiAnd197SvgExact": true,
+      "newIndependentMusicalReviews": 0,
+      "newSingingVoices": 0
+    },
+    "artifacts": [
+      {
+        "path": "app.bundle.js",
+        "bytes": 32477304,
+        "sha256": "819729e8ceabaf08cc91030e32a293ec5e95a9576af36f41d7bd61316b562afc"
+      },
+      {
+        "path": "TropeTrain.html",
+        "bytes": 99274701,
+        "sha256": "4b0acb354e5a514d28171be384ec5670d537f559e9587a79867a874b5e8bc6e8"
+      }
+    ],
+    "portableHeadroomBytes": 5582899,
+    "unchangedPortableReserveBytes": 4194304,
+    "fullCheck": {
+      "session": 36274,
+      "exit": 0,
+      "command": "npm run check (build passed, four stale count assertions failed); corrected entire npm test",
+      "buildSucceeded": true,
+      "buildSession": 26688,
+      "firstCheck": {
+        "session": 26688,
+        "exit": 1,
+        "command": "npm run check",
+        "buildSucceeded": true,
+        "failures": [
+          "not ok 89 - both finished editions retain the bounded No111 controls, exact source/correction evidence and lossless image within the unchanged reserve",
+          "not ok 102 - both compiled editions retain complete No46 controls, exact source evidence/image/notice, existing transport and unchanged4MiBreserve",
+          "not ok 294 - finished Genesis24 editions retain the complete bounded source, explicit optional timing and all20 exact marked words without source substitution",
+          "not ok 315 - finished No270 editions retain the complete marked source candidate, primary image and explicit review limits"
+        ],
+        "tests": 1055,
+        "pass": 1051,
+        "fail": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "durationMs": 746767.518333
+      },
+      "testOnlyCorrection": {
+        "correction": [
+          {
+            "path": "tests/baer-no111-build.test.mjs",
+            "oldSha256": "42dc658a4fdf214acaa54fe4399ffc2d40ea4da6aed60db9b3d1f1d058ae73be",
+            "newSha256": "a77c98649acd45da41d90746e0f1e32fcf7306f89510b6fca683c37483e65a56",
+            "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+          },
+          {
+            "path": "tests/baer-no46-build.test.mjs",
+            "oldSha256": "5e517c9b36eb0c99480b1afcddb15fb51f3d36fc49c34758c7ebd52e7cc4401f",
+            "newSha256": "11e7f94783ee1a9221d8675ef351e1f31e0bf721f5ed2d933a995ddf1d664c35",
+            "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+          },
+          {
+            "path": "tests/idelsohn-gen24-build.test.mjs",
+            "oldSha256": "6f07279ebfd49fc2a264c1acde2163bef8d8ac6bed9354f36b55ef1091f245c8",
+            "newSha256": "1cb954ed5dc79d99b6ed4c3367175f6b04ec4d70b1398f20580e33941fac8782",
+            "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+          },
+          {
+            "path": "tests/idelsohn-no270-build.test.mjs",
+            "oldSha256": "3cf31f02262ffdd19741516635b7724fb8e8ec5bad30b46a7757899509f1826c",
+            "newSha256": "23b0a2d5505e15bb84412be2c0783901f96aa53d6f9754b68528c864d5dc4666",
+            "change": "Expected embedded evidence record count95→97;100links and all exact payload/source/reserve assertions retained."
+          }
+        ],
+        "runtimeOrBuiltBytesChanged": false,
+        "buildInputPinsAffected": false,
+        "firstSuite": "26688 still finishing; retain full original outcome",
+        "next": "Run corrected entire npm test against same compiled artifacts; report original failed check plus corrected full-suite result accurately."
+      },
+      "noRuntimeBuildInputOrCompiledArtifactChangeAfterBuild": true,
+      "tests": 1055,
+      "pass": 1055,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 710030.84675,
+      "failures": []
+    },
+    "browserPreparedFilePcmBytesVerified": false,
+    "heardMusicalReview": false,
+    "publication": "pending",
+    "fullGoal": "active_incomplete",
+    "printing": "deferred",
+    "privateVoiceLabs": "frozen"
   }
 }

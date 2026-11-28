@@ -5,7 +5,7 @@ import {READER_PRONUNCIATION_SOURCES} from '../khan-pronunciation.js';import {ge
 const json=n=>JSON.parse(gunzipSync(readFileSync(new URL('../data/pronunciation/'+n+'.json.gz',import.meta.url)))),lib=new PronunciationLibrary(json('torah-display'),{underlay:json('torah-underlay'),segments:json('torah-segments')});
 const word=id=>{const h=lib.byWord.get(id);return{id,sourceHebrew:h.group.readerHebrew[h.index]};};const report=(id,style='sephardic',p=profile.id)=>{const w=word(id);return propose(lib.study(w,style),w,style,p);};const fragments=r=>r.routes.flatMap(r=>r.units.flatMap(u=>u.fragments));
 test('the third runtime profile is an attributed modern inventory adaptation, separate from the two regional profiles and six historical labels',()=>{
- assert.equal(PHONOLOGY_PROFILES.length,2);assert.equal(ALL_PHONOLOGY_PROFILES.length,4);assert.equal(READER_PRONUNCIATION_SOURCES.filter(p=>p.kind==='phonemic-research').length,4);
+ assert.equal(PHONOLOGY_PROFILES.length,2);assert.equal(ALL_PHONOLOGY_PROFILES.length,5);assert.equal(READER_PRONUNCIATION_SOURCES.filter(p=>p.kind==='phonemic-research').length,5);
  assert.equal(phonologySourceForProfile(profile.id),source);assert.equal(source.commit,'a29a75b473b0f132a0bbee41dad38763035211dc');assert.equal(source.license,'CC-BY-4.0');assert(Object.isFrozen(profile)&&Object.isFrozen(source));
  for(const p of ALL_PHONOLOGY_PROFILES){assert.equal(p.kinnorAccentId,null);assert.equal(p.playable,false);assert.equal(p.singingVoice,null);assert.equal(p.review,null);}
 });

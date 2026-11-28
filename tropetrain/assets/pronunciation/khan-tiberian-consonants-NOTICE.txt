@@ -1,0 +1,9 @@
+Tiberian consonant inventory research adaptation
+
+Geoffrey Khan (2020), The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I, Open Book Publishers. https://doi.org/10.11647/OBP.0163 . Text copyright Geoffrey Khan, CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ . No endorsement implied.
+
+consonant-sources.pdf retains the complete copyright page (original PDF5), printed pp161-162,165 (PDF178-179,182, on consonantal he/mappiq), and printed pp608-610 (PDF625-627, the complete consonant summary with footnotes/continuation). Page extraction only; no retyping or glyph repair. The complete pinned original is 9857295 bytes, SHA256 bcab644037f62795041c3c6e6e37f1c1eb28f29d147b6d2c4409fd6bc3c0da24.
+
+Original project category-to-inventory bindings adapt the source's phoneme column to unchanged Phonetic MAM source categories, under their separate CC BY-SA4.0 attribution. Bindings are unreviewed research proposals. They preserve word/letter/syllable IDs and source alternatives. They do not approve a complete pronunciation, acoustic allophone, gemination duration, vowel, note allocation, singing voice, tradition or Kinnor label. Source silent categories remain explicit source silence. Vowels, vowel/consonant compounds and the source's special alef-mappiq category remain unresolved. The rare emphatic pe in Daniel11:45 is outside this Torah-only adaptation; it is not replaced by ordinary pe. Source gemination/shared halves remain one source event with explicit metadata, not degemination or an assigned acoustic realization.
+
+The earlier two published Genesis1:1-13 phonetic streams and all other research profiles remain separate. No source recording or speech model is used to manufacture chanting.

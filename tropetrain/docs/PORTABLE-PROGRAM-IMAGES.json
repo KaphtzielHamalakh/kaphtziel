@@ -4,7 +4,7 @@
   "inputs": [
     {
       "path": "app.bundle.js",
-      "sha256": "79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d"
+      "sha256": "819729e8ceabaf08cc91030e32a293ec5e95a9576af36f41d7bd61316b562afc"
     },
     {
       "path": "assets/scores/cohen-1902-munah-revia.png",
@@ -20,7 +20,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "6878b98ff9f8b3a1ecbc9d5137bdec40d8ce836297ed1d41caf700573c32eb93"
+      "sha256": "ce882d023c91b8fc0d541827495a164d9becee38002f0b7ee16a406b7e3dc350"
     },
     {
       "path": "portable-program-images.js",
@@ -36,7 +36,7 @@
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "7714709f2b25643975efaa10094335a660ae568d685b6c5ba9e3ace4d559b17e"
+      "sha256": "c2614e38aca09dddda452d5440ce319a3c85cd3c1665e5e8df1d873075092029"
     },
     {
       "path": "scripts/decode-portable-program.mjs",
@@ -94,8 +94,8 @@
   ],
   "imageCount": 3,
   "completeSourceImagesRetained": true,
-  "normalProgramBytes": 32466050,
-  "normalProgramSha256": "79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d",
+  "normalProgramBytes": 32477304,
+  "normalProgramSha256": "819729e8ceabaf08cc91030e32a293ec5e95a9576af36f41d7bd61316b562afc",
   "avoidedDuplicateDataUriBytes": 1116047,
   "historicalRealizationsAdded": 0,
   "singingVoicesAdded": 0
