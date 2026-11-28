@@ -64,7 +64,7 @@ function watchReading(cards){
  for(const n of cards)readingObserver.observe(n);
 }
 let shelf={},storageOK=true,group='All',limit=batch,tab='feed',toastTime;
-function validated(x){const out={};if(!x||typeof x!=='object'||Array.isArray(x))return out;for(const id of Object.keys(x)){const v=x[id];if(!byId.has(id)||!v||typeof v!=='object'||Array.isArray(v))continue;out[id]={note:typeof v.note==='string'?v.note.slice(0,4000):'',pin:v.pin===true,at:typeof v.at==='number'&&Number.isFinite(v.at)?Math.max(0,v.at):0};}return out;}
+function validated(x){const out={};if(!x||typeof x!=='object'||Array.isArray(x))return out;for(const id of Object.keys(x)){const v=x[id];if(!byId.has(id)||!v||typeof v!=='object'||Array.isArray(v))continue;out[id]={note:typeof v.note==='string'?v.note.slice(0,4000):'',history: Array.isArray(v.history)?v.history.filter(h=>h&&typeof h.note==='string'&&Number.isFinite(h.at)).slice(0,30).map(h=>({note:h.note.slice(0,4000),at:h.at})):[], reflectedAt:Number.isFinite(v.reflectedAt)?v.reflectedAt:0,pin:v.pin===true,at:typeof v.at==='number'&&Number.isFinite(v.at)?Math.max(0,v.at):0};}return out;}
 try{shelf=validated(JSON.parse(localStorage.getItem(STORE)||'{}'));}catch(e){storageOK=false;}
 const count=()=>Object.keys(shelf).length;
 function persist(){try{localStorage.setItem(STORE,JSON.stringify(shelf));storageOK=true;return true;}catch(e){storageOK=false;return false;}}
@@ -93,7 +93,8 @@ function card(c,mode='feed'){
  const actions=el('div','actions');const save=btn('','action',()=>saved(c)?remove(c):keep(c),'save');save.append(el('span',null,'Save'));save.dataset.save=c.id;
  const share=btn('Share','action',()=>shareCard(c),'share');
  if(mode==='notes'){const pinned=shelf[c.id]?.pin;const pin=btn(pinned?'Pinned':'Pin','action'+(pinned?' pin':''),()=>change(()=>shelf[c.id].pin=!pinned,pinned?'Unpinned':'Pinned to the top'),'pin');pin.setAttribute('aria-pressed',String(!!pinned));actions.append(btn('Reflection','action',()=>editNote(c),'pen'),pin,share,save);}
- else actions.append(share,save);
+ else actions.append(btn('Reflect','action',()=>inlineReflect(c,n),'pen'),share,save);
+ if(mode!=='related')actions.append(btn('Sit with this','action',()=>sitWith(c),'spark'),btn('Follow the thread','action',()=>followThread(c)));
  inner.append(actions);
  const a=el('p','attribution');a.append(el('span','context',c.source));if(c.credit)a.append(el('span','context credit',c.credit));inner.append(a);
  if(c.url){
@@ -102,7 +103,8 @@ function card(c,mode='feed'){
    const host=new URL(c.url).hostname.replace(/^www[.]/,'');
    anchor.append(el('span',null,'Read source'),el('small',null,host));inner.append(anchor);
  }
- if(mode==='notes'&&shelf[c.id]?.note)inner.append(el('p','note-preview',shelf[c.id].note));
+ if(mode==='notes'&&shelf[c.id]?.note)inner.append(el('p','note-preview sw-lines',shelf[c.id].note));
+ if(mode==='notes'&&shelf[c.id]?.history?.length){const details=el('details','sw-history');details.append(el('summary',null,'Earlier reflections'));for(const h of shelf[c.id].history){details.append(el('p','sw-date',new Date(h.at).toLocaleDateString()),el('p','sw-lines',h.note));}inner.append(details);}
  n.append(inner);return n;
 }
 function renderFilters(){const n=$('filters');for(const type of ['All',...new Set(catalog.map(c=>c.group))]){const b=btn('','chip',()=>{group=type;limit=batch;syncFilters();renderFeed();});b.dataset.group=type;
@@ -122,7 +124,9 @@ function renderFeed({append=false}={}){
 }
 function renderNotebook(){
  const root=$('notebook'), q=$('noteSearch').value;root.replaceChildren();
- const list=Object.keys(shelf).sort((a,b)=>Number(shelf[b].pin)-Number(shelf[a].pin)||shelf[b].at-shelf[a].at).map(a=>byId.get(a)).filter(c=>matches(c,q,shelf[c.id].note));
+ const today=Object.keys(shelf).filter(id=>shelf[id].note&&Date.now()-(shelf[id].reflectedAt||shelf[id].at)>=30*86400000).sort((a,b)=>(shelf[b].reflectedAt||shelf[b].at)-(shelf[a].reflectedAt||shelf[a].at))[0];
+ const revisit=$('revisit');revisit.replaceChildren();revisit.hidden=!today||!!q.trim();if(!revisit.hidden){const c=byId.get(today);revisit.append(el('strong',null,'From your notebook'),el('p',null,'Revisit your reflection on '+c.author+' · '+c.source),btn('Revisit','small secondary',()=>editNote(c,true)));}
+ const list=Object.keys(shelf).sort((a,b)=>Number(shelf[b].pin)-Number(shelf[a].pin)||shelf[b].at-shelf[a].at).map(a=>byId.get(a)).filter(c=>matches(c,q,[shelf[c.id].note,...(shelf[c.id].history||[]).map(h=>h.note)].join(' ')));
  $('noteCount').textContent=count()===1?'1 SAVED PASSAGE':count()+' SAVED PASSAGES';
  if(!list.length){const box=el('div','empty');box.append(el('h2',null,q?'No matching passages':'What stays with you goes here'),el('p',null,q?'Try a different word.':'Tap Save on any feed card, then find it here to add a reflection.'));if(!q)box.append(btn('Browse the feed','small primary',()=>switchTab('feed')));root.append(box);}
  else for(const c of list)root.append(card(c,'notes'));
@@ -132,26 +136,35 @@ function switchTab(next){const old=tab;tab=next;$('feedPage').hidden=next!=='fee
 function focusCard(id){const a=[...$('feed').children].find(n=>n.dataset.card===id);if(a){a.focus({preventScroll:true});a.scrollIntoView({behavior:'auto',block:'start'});}}
 let lastSurprise;
 function jump(){const a=filtered();if(!a.length)return;let i=Math.floor(Math.random()*a.length);if(a.length>1&&a[i].id===lastSurprise)i=(i+1)%a.length;lastSurprise=a[i].id;if(i>=limit){limit=i+1;renderFeed({append:true});}focusCard(a[i].id);}
-function dialog(title,part){$('dialogTitle').textContent=title;$('dialogBody').replaceChildren(part);if(!$('modal').open)$('modal').showModal();}
-function editNote(c){
- const f=el('form');const l=el('label',null,'What stays with you about this passage?');l.htmlFor='reflection';const t=el('textarea');t.id='reflection';t.maxLength=4000;t.value=shelf[c.id]?.note||'';t.placeholder='Write for yourself…';const b=el('button','small primary','Save reflection');b.type='submit';f.append(l,t,b);
- f.addEventListener('submit',ev=>{ev.preventDefault();const existing=shelf[c.id]||{at:Date.now(),pin:false};change(()=>shelf[c.id]={...existing,note:t.value.trim()},'Reflection saved');$('modal').close();});dialog('Reflection',f);t.focus();
+function dialog(title,part){stopSit?.();stopSit=null;$('dialogTitle').textContent=title;$('dialogBody').replaceChildren(part);if(!$('modal').open)$('modal').showModal();}
+function reflectionForm(c,finish,asNew=false){
+ const f=el('form','sw-reflection'), l=el('label',null,'What did this bring up for you?');
+ const t=el('textarea');t.maxLength=4000;t.required=true;t.value=asNew?'':shelf[c.id]?.note||'';t.placeholder='A line, a journal entry, or a poem…';l.append(t);
+ const b=el('button','small primary','Save to Notebook');b.type='submit';
+ const row=el('div','row');row.append(b,btn('Cancel','small secondary',finish));
+ f.append(l,el('p','sw-muted','Private on this device unless you choose to share.'),row);
+ f.addEventListener('submit',ev=>{ev.preventDefault();const note=t.value.trim();if(!note){t.setCustomValidity('Write a reflection first.');t.reportValidity();return;}const old=shelf[c.id]||{at:Date.now(),pin:false};let history=old.history||[];if(asNew&&old.note)history=[{note:old.note,at:old.reflectedAt||old.at||Date.now()},...history].slice(0,30);change(()=>shelf[c.id]={...old,history,note,reflectedAt:Date.now()},'Reflection saved to Notebook');finish();});
+ t.addEventListener('input',()=>t.setCustomValidity(''));return {f,t};
 }
+function inlineReflect(c,n){const above=n.querySelector('.sw-reflection');if(above){above.querySelector('textarea').focus();return;}const trigger=document.activeElement;const {f,t}=reflectionForm(c,()=>{f.remove();if(trigger?.isConnected)trigger.focus();});n.querySelector('.card-inner').append(f);t.focus();}
+function editNote(c,asNew=false){const part=el('div');if(asNew&&shelf[c.id]?.note)part.append(el('p','note-preview sw-lines',shelf[c.id].note));const {f,t}=reflectionForm(c,()=>$('modal').close(),asNew);part.append(f);dialog(asNew?'Add a new reflection':'Reflection',part);t.focus();}
 function shareText(c){return c.text+'\n\n'+c.kind+' · '+c.author+' · '+c.source+(c.url?'\n'+c.url:'')+'\n\nStillwater card: SW-'+c.id;}
 function deepLink(c){return location.protocol==='https:' ? new URL('#card='+encodeURIComponent(c.id),location.href).href : '';}
 async function copy(text){try{await navigator.clipboard.writeText(text);toast('Copied');}catch(e){const part=el('div');const t=el('textarea');t.readOnly=true;t.value=text;part.append(el('p',null,'Select the text below to copy it.'),t);dialog('Copy passage',part);t.focus();t.select();}}
 function shareCard(c){
- const panel=el('div');const txt=shareText(c), url=deepLink(c);
- panel.append(el('p',null,'Share the passage without sharing your private reflection. The card code can be added to another Stillwater notebook.'));
- const row=el('div','row');
- if(typeof navigator.share==='function')row.append(btn('Share…','small primary',async()=>{try{await navigator.share({title:'Stillwater · '+c.author,text:txt});}catch(err){if(err.name!=='AbortError')toast('Use Text, Email, or Copy instead.');}}));
- const sms=el('a','small secondary','Text');sms.href=(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)?'sms:&body=':'sms:?body=')+encodeURIComponent(txt);
- const a=el('a','small secondary','Email');a.href='mailto:?subject='+encodeURIComponent('A passage from Stillwater')+'&body='+encodeURIComponent(txt);
- row.append(sms,a,btn('Copy passage','small secondary',()=>copy(txt)));
- if(url)row.append(btn('Copy app link','small secondary',()=>copy(url)));
- panel.append(row);
- if(url)panel.append(el('p',null,'The app link opens this card in Stillwater. Your notebook reflections are never included.'));
- dialog('Share passage',panel);
+ const panel=el('div'), row=el('div','row'), url=deepLink(c), note=shelf[c.id]?.note;
+ const box=el('input');box.type='checkbox';
+ if(note){const label=el('label','sw-check');label.append(box,document.createTextNode('Include my reflection'));panel.append(label);}
+ const preview=el('textarea');preview.readOnly=true;preview.setAttribute('aria-label','Message preview');
+ const txt=()=>shareText(c)+(url?'\n'+url:'')+(box.checked&&note?'\n\nMy reflection:\n'+note:'');
+ const sms=el('a','small secondary','Text'), mail=el('a','small secondary','Email');
+ function update(){const value=txt();preview.value=value;const apple=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);if(value.length<1800){sms.href=(apple?'sms:&body=':'sms:?body=')+encodeURIComponent(value);mail.href='mailto:?subject='+encodeURIComponent('A passage from Stillwater')+'&body='+encodeURIComponent(value);sms.hidden=mail.hidden=false;}else{sms.hidden=mail.hidden=true;}}
+ box.onchange=update;update();
+ if(typeof navigator.share==='function')row.append(btn('Share…','small primary',async()=>{try{await navigator.share({title:'Stillwater · '+c.author,text:txt()});}catch(err){if(err.name!=='AbortError')toast('Use Copy to share your message.');}}));
+ row.append(sms,mail,btn('Copy message','small secondary',()=>copy(txt())));
+ if(url)row.append(btn('Copy card link','small secondary',()=>copy(url)));
+ panel.append(preview,row,el('p','sw-muted','A card link contains only the card. Reflection text is included only if you select it above. For long messages, use Share or Copy.'));
+ dialog(note?'Send a reflection':'Share passage',panel);
 }
 function parseCode(input){
  let str=input.trim();const m=str.match(/(?:\bSW-|#card=)([a-z][a-z0-9-]*)\b/i);const id=(m?m[1]:str).toLowerCase();return byId.get(id);
@@ -160,7 +173,7 @@ function promptImport(){
  const f=el('form'), l=el('label',null,'Paste the card code, link, or shared message.'), t=el('input'), msg=el('p'), b=el('button','small primary','Add to notebook');l.htmlFor='shareInput';t.id='shareInput';t.type='text';t.autocapitalize='none';t.placeholder='SW-tarfon';b.type='submit';msg.setAttribute('role','status');f.append(l,t,b,msg);
  f.addEventListener('submit',ev=>{ev.preventDefault();const c=parseCode(t.value);if(!c){msg.textContent='That card code isn’t in this version of Stillwater.';return;} $('modal').close();keep(c);});dialog('Add a shared card',f);t.focus();
 }
-function openShared(){if(!location.hash.startsWith('#card='))return;const c=parseCode(location.hash);if(!c)return;const part=el('div');part.append(el('blockquote','passage',c.text),el('p',null,c.kind+' · '+c.author+' · '+c.source),btn('Save to notebook','small primary',()=>{$('modal').close();keep(c);switchTab('notes');},'save'));dialog('A shared passage',part);}
+function openShared(){if(!location.hash.startsWith('#card='))return;const c=parseCode(location.hash);if(!c)return;const part=el('div');part.append(el('blockquote','passage',c.text),el('p',null,c.kind+' · '+c.author+' · '+c.source),btn('Save to notebook','small primary',()=>{$('modal').close();keep(c);switchTab('notes');},'save'));part.append(btn('Reflect','small secondary',()=>editNote(c),'pen'),btn('Sit with this','small secondary',()=>sitWith(c),'spark'),btn('Follow the thread','small secondary',()=>followThread(c)));dialog('A shared passage',part);}
 function exportBackup(){
  const blob=new Blob([JSON.stringify({app:'Stillwater',version:1,entries:shelf},null,2)],{type:'application/json'}), url=URL.createObjectURL(blob), a=el('a');
  a.href=url;a.download='Stillwater-notebook-'+new Date().toISOString().slice(0,10)+'.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);toast('Notebook backup created');
@@ -169,6 +182,51 @@ async function importBackup(){
  const f=$('importFile').files[0];$('importFile').value='';if(!f)return;
  try{if(f.size>1000000)throw 0;const obj=JSON.parse(await f.text());if(obj?.app!=='Stillwater'||obj?.version!==1||!obj.entries||typeof obj.entries!=='object'||Array.isArray(obj.entries))throw 0;const incoming=validated(obj.entries);const fresh=Object.keys(incoming).filter(id=>!Object.hasOwn(shelf,id));if(!fresh.length){toast('No new passages in this backup');return;}change(()=>{for(const id of fresh)shelf[id]=incoming[id];},'Added '+fresh.length+' from backup');}catch(e){toast('Choose a valid Stillwater notebook backup');}
 }
+function followThread(origin){
+ const part=el('div','sw-thread'), related=window.stillwaterRelated?.(origin,[...byId.values()])||[];
+ part.append(el('p','sw-muted','Read the original beside another perspective. What changes when you read them together?'));
+ const compare=el('div','sw-compare'), initial=card(origin,'related'), next=el('div','sw-related-next');
+ compare.append(initial,next);
+ if(related.length){
+   const options=el('div','row sw-related-options');options.setAttribute('aria-label','Related passages');
+   for(const {card:c,theme} of related){const b=btn(c.group+' · '+c.author,'small secondary',()=>select(c,theme,b));b.setAttribute('aria-pressed','false');options.append(b);}
+   function select(c,theme,b){[...options.children].forEach(x=>x.setAttribute('aria-pressed',String(x===b)));next.replaceChildren(el('p','sw-muted','Shared thread: '+theme),card(c,'related'));syncButtons();}
+   part.append(options,compare);select(related[0].card,related[0].theme,options.firstChild);
+ }else{part.append(initial,el('p','sw-muted','There isn’t a close companion passage for this card yet.'));}
+ dialog('Follow the thread',part);syncButtons();
+}
+function sitWith(c){
+ const data=window.StillwaterPracticeData||{}, practices=data.practices||[], tracks=data.tracks||[];
+ const part=el('section','sw-sit'), still=el('div','sw-still');
+ if(c.art){const img=el('img');img.src=new URL(c.art,document.baseURI);img.alt=c.alt||c.source;still.append(img);}
+ still.append(el('blockquote','passage',c.text),el('p','sw-muted',c.author+' · '+c.source));part.append(still);
+ if(!practices.length){part.append(el('p',null,'Try a quiet minute with this passage. Read slowly and notice which words stay with you.'));dialog('Sit with this',part);return;}
+ const settings=el('div','sw-setup'), practice=el('select'), track=el('select'), pl=el('label',null,'Practice'), tl=el('label',null,'Background audio');
+ pl.append(practice);tl.append(track);
+ practices.forEach(p=>{const o=el('option',null,p.title+' · '+p.steps.reduce((a,b)=>a+b.seconds,0)+' sec');o.value=p.id;practice.append(o);});
+ const wanted=c.art?'look-slowly':'sit-with-a-line';if(practices.some(p=>p.id===wanted))practice.value=wanted;
+ const silent=el('option',null,'Silence');silent.value='';track.append(silent);
+ tracks.filter(t=>t.url).forEach(({title,url})=>{const o=el('option',null,title);o.value=url;track.append(o);});
+ settings.append(pl,tl);const audioCredit=el('p','sw-muted');const desc=el('p','sw-muted');const instruction=el('p','sw-instruction'), stamp=el('p','sw-muted sw-clock'), sound=el('p','sw-muted');instruction.setAttribute('aria-live','polite');sound.setAttribute('role','status');
+ const audio=el('audio');audio.loop=true;audio.preload='none';audio.volume=.35;
+ const row=el('div','row');let mode='idle', interval, elapsed=0, last=0, active, endAt=0, stepBefore=-1, audioRun=0;
+ const pick=()=>practices.find(p=>p.id===practice.value)||practices[0];
+ function pauseAudio(){audioRun++;audio.pause();}
+ function playAudio(){if(!track.value)return;const token=++audioRun;audio.play().catch(()=>{if(token===audioRun&&mode==='running')sound.textContent='Audio couldn’t play. Your practice can continue in silence.';});}
+ function cleanup(){clearInterval(interval);pauseAudio();audio.removeAttribute('src');audio.load();}
+ function reset(){clearInterval(interval);pauseAudio();audio.removeAttribute('src');mode='idle';stamp.textContent='';instruction.textContent='';sound.textContent='';stepBefore=-1;elapsed=0;practice.disabled=track.disabled=false;desc.textContent=pick().description;controls();}
+ function controls(){row.replaceChildren();if(mode==='idle')row.append(btn('Begin practice','small primary',begin));if(mode==='running')row.append(btn('Pause','small secondary',pause),btn('End practice','small secondary',complete));if(mode==='paused')row.append(btn('Resume','small primary',resume),btn('End practice','small secondary',complete));if(mode==='done')row.append(btn('Write a reflection','small primary',()=>editNote(c,saved(c)&&!!shelf[c.id]?.note),'pen'),btn('Sit again','small secondary',reset));}
+ function begin(){if(mode!=='idle')return;active=pick();endAt=active.steps.reduce((a,b)=>a+b.seconds,0)*1000;practice.disabled=track.disabled=true;$('practiceAudio')?.pause();if(track.value)audio.src=track.value;resume();}
+ function resume(){mode='running';last=performance.now();controls();playAudio();tick();if(mode==='running')interval=setInterval(tick,250);}
+ function pause(){if(mode!=='running')return;tick();if(mode==='done')return;mode='paused';clearInterval(interval);pauseAudio();controls();}
+ function complete(){clearInterval(interval);pauseAudio();mode='done';instruction.textContent='Take one more unhurried moment before you move on.';stamp.textContent='Practice ended';controls();}
+ function tick(){const now=performance.now();elapsed+=now-last;last=now;if(elapsed>=endAt){complete();return;}let until=0;const i=active.steps.findIndex(s=>(until+=s.seconds*1000)>elapsed);if(i!==stepBefore){instruction.textContent=active.steps[i].text;stepBefore=i;}const left=Math.ceil((endAt-elapsed)/1000);stamp.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0')+' remaining';}
+ practice.onchange=()=>{desc.textContent=pick().description;};
+ track.onchange=()=>{const choice=tracks.find(t=>t.url===track.value);audioCredit.replaceChildren();if(choice?.source){const a=el('a',null,choice.credit||'Original track');a.href=choice.source;a.target='_blank';a.rel='noopener noreferrer';audioCredit.append(a);}};
+ audio.onerror=()=>{if(track.value&&mode==='running')sound.textContent='Audio couldn’t load. Your practice can continue in silence.';};
+ part.append(settings,audioCredit,desc,instruction,stamp,sound,audio,row);dialog('Sit with this',part);stopSit=cleanup;reset();
+}
+
 function about(){const part=el('div');part.append(el('p',null,'A library of sourced passages, sacred art and quiet practices. Cards distinguish historical excerpts, original renderings and Stillwater reading notes. Follow the source link to read each in context.'),el('p',null,'Your notebook stays in this browser. It doesn’t sync automatically or post anywhere. Export it to keep a backup or move it to another device.'),el('p',null,'On iPhone, open Stillwater in Safari and choose Share → Add to Home Screen.'));if(!storageOK)part.append(el('p','callout','Browser storage is blocked right now. Export anything you want to keep.'));dialog('About Stillwater',part);}
 $('tabFeed').innerHTML=icon('feed')+'<span>Feed</span>';$('tabNotes').innerHTML=icon('book')+'<span>Notebook</span>';
 $('tabFeed').onclick=()=>switchTab('feed');$('tabNotes').onclick=()=>switchTab('notes');$('home').onclick=()=>{switchTab('feed');window.scrollTo(0,0);};$('info').onclick=about;
@@ -176,4 +234,6 @@ $('surprise').innerHTML=icon('spark')+'Surprise me';$('surprise').onclick=jump;
 $('feedSearch').oninput=()=>{limit=batch;renderFeed();};$('noteSearch').oninput=renderNotebook;
 $('close').onclick=()=>$('modal').close();$('export').onclick=exportBackup;$('importCode').onclick=promptImport;$('importFile').onchange=importBackup;
 window.addEventListener('hashchange',openShared);
+let stopSit=null;
+$('modal').addEventListener('close',()=>{if(!$('modal').open){stopSit?.();stopSit=null;}});
 renderFilters();renderFeed();openShared();
