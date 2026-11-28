@@ -1,0 +1,556 @@
+{
+  "format": "tropetrain-program-source-images-audit-v1",
+  "version": "0.110.0",
+  "normalProgramBytes": 32351664,
+  "normalProgramSha256": "05d7c33895953d2bf569d732c8ad5f6486a0ccbca025d645011b6d77d2f302ac",
+  "imageCount": 34,
+  "removedInitialProgramImageUriBytes": 14848040,
+  "records": [
+    {
+      "key": "06295b512100bd5992d99698f41b65ed69bfc04cc69fa06dc1eee68bc2f7a1a7",
+      "path": "assets/scores/baer-no105-third-p30.png",
+      "mime": "image/png",
+      "bytes": 93871,
+      "sha256": "ccdd718083062da513f832073d06e0ced5887f17f999c4b116d930ccd5bc25e4",
+      "dataUriBytes": 125186,
+      "dataUriSha256": "06295b512100bd5992d99698f41b65ed69bfc04cc69fa06dc1eee68bc2f7a1a7",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "06923f7679ab50614f2e1ca203804cab562e223e0cf78574739dd6e914c4dd64",
+      "path": "assets/scores/baer-no938-p209.jpg",
+      "mime": "image/jpeg",
+      "bytes": 1299639,
+      "sha256": "381821206980e39ea31f19ea969a0ccf0c38361f3759eedcd77f6fdee83cbe4a",
+      "dataUriBytes": 1732875,
+      "dataUriSha256": "06923f7679ab50614f2e1ca203804cab562e223e0cf78574739dd6e914c4dd64",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "08c8bb67e0f1cb647a128e12eaff5c7d2744af469a8bab465f58ac3f770218d1",
+      "path": "assets/scores/baer-no105-third-p32.png",
+      "mime": "image/png",
+      "bytes": 140300,
+      "sha256": "291d786d41819c2836f36f79e892ec051e18e384aa39adffb705cfd23641ef73",
+      "dataUriBytes": 187090,
+      "dataUriSha256": "08c8bb67e0f1cb647a128e12eaff5c7d2744af469a8bab465f58ac3f770218d1",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "09c580ed5f130a40e96dbb6d843d8333a6d6e2e98e4024de9f49e6e16a1a0cde",
+      "path": "assets/scores/baer-no105-second-p30.png",
+      "mime": "image/png",
+      "bytes": 111895,
+      "sha256": "c592fcabf3446504414ccbad20dbc558adff3ebfe518d3786b26b373cfbfd30b",
+      "dataUriBytes": 149218,
+      "dataUriSha256": "09c580ed5f130a40e96dbb6d843d8333a6d6e2e98e4024de9f49e6e16a1a0cde",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "0fb060aa905fd540326b3805d194c0f9f058f3803ef985388c9e49c7830b2467",
+      "path": "assets/scores/idelsohn-1929-no266.jpg",
+      "mime": "image/jpeg",
+      "bytes": 170458,
+      "sha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6",
+      "dataUriBytes": 227303,
+      "dataUriSha256": "0fb060aa905fd540326b3805d194c0f9f058f3803ef985388c9e49c7830b2467",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "1e45f3fd5f4c5c6613be2ec08fceea102d2df36d9e18f826988428795fe08feb",
+      "path": "assets/scores/cohen-1902-torah-rows-a-f.png",
+      "mime": "image/png",
+      "bytes": 754803,
+      "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6",
+      "dataUriBytes": 1006426,
+      "dataUriSha256": "1e45f3fd5f4c5c6613be2ec08fceea102d2df36d9e18f826988428795fe08feb",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "1e6144e64307ace0a3288d500afc2dc6510228ca08b6dbdf138afb1687e85bff",
+      "path": "assets/scores/idelsohn-1929-phonetic-key-vowels.jpg",
+      "mime": "image/jpeg",
+      "bytes": 698110,
+      "sha256": "de20a30fdc3ab1a47b9872e392a3ed15dfdc09e233cf71906cdbe441ef5bbae3",
+      "dataUriBytes": 930839,
+      "dataUriSha256": "1e6144e64307ace0a3288d500afc2dc6510228ca08b6dbdf138afb1687e85bff",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "20866cc9958a38b76214f2a740de9ae4cf8411fdfdd6ada6b54639846ceb511f",
+      "path": "assets/scores/baer-no105-third-p34-complete.png",
+      "mime": "image/png",
+      "bytes": 195373,
+      "sha256": "019c59d252912b3c2ee0a20f91fb22442641d061fb8c564bbaa3192ba630ee5a",
+      "dataUriBytes": 260522,
+      "dataUriSha256": "20866cc9958a38b76214f2a740de9ae4cf8411fdfdd6ada6b54639846ceb511f",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "2c5c4cab18ded762d7a6669f7127042d0d46b6383e2b7a057112ddc33309f29e",
+      "path": "assets/scores/baer-no105-first-p32.png",
+      "mime": "image/png",
+      "bytes": 338619,
+      "sha256": "bc5e999bae0e4eaf35bf6c89a967249830eba0b5340121b2c79aa94b60c9cde3",
+      "dataUriBytes": 451514,
+      "dataUriSha256": "2c5c4cab18ded762d7a6669f7127042d0d46b6383e2b7a057112ddc33309f29e",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "3138320d5eee4a95981c49dc77614b54e961ebeb49bba45e88980126cf5d57de",
+      "path": "assets/scores/baer-no105-third-p33.png",
+      "mime": "image/png",
+      "bytes": 140048,
+      "sha256": "e9987d53d5d3ef1238eb93fd08953b264cccda23cc9b050a9e554770e226bc18",
+      "dataUriBytes": 186754,
+      "dataUriSha256": "3138320d5eee4a95981c49dc77614b54e961ebeb49bba45e88980126cf5d57de",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "31c8e901ed7454e7c0f23323b55d96f19ddba286e890629362d7345977bf8c20",
+      "path": "assets/scores/cohen-1902-torah-columns-a-f.png",
+      "mime": "image/png",
+      "bytes": 241525,
+      "sha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb",
+      "dataUriBytes": 322058,
+      "dataUriSha256": "31c8e901ed7454e7c0f23323b55d96f19ddba286e890629362d7345977bf8c20",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "3705f7af43770a5f7abfa4a968ee517dec0f6e06727fc13ca8b74d89a17c0c27",
+      "path": "assets/scores/baer-no105-first-p34.png",
+      "mime": "image/png",
+      "bytes": 306711,
+      "sha256": "b80c22aaf1d5d455765d4fd8f4ba7fbd39351c456d7bc561f502ca9c2e1d1f56",
+      "dataUriBytes": 408970,
+      "dataUriSha256": "3705f7af43770a5f7abfa4a968ee517dec0f6e06727fc13ca8b74d89a17c0c27",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "3ba793a023aa4a496b483babed7e8d5480477c07b00b6399147dc4bd2a512d16",
+      "path": "assets/scores/baer-no105-rare-first-detail.png",
+      "mime": "image/png",
+      "bytes": 209252,
+      "sha256": "75884b88d2c5ef47dccd6b049753551c44a4846a44925ede156db62401950d83",
+      "dataUriBytes": 279026,
+      "dataUriSha256": "3ba793a023aa4a496b483babed7e8d5480477c07b00b6399147dc4bd2a512d16",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "43f8c39c9a232b2c1341eb01ac452ec98edd0200cca747f0a02b07d574efa672",
+      "path": "assets/scores/baer-preface-IX-alternatives.png",
+      "mime": "image/png",
+      "bytes": 268701,
+      "sha256": "17ac5b0858a3b07f54fc2abfd2ce18ee8e3b70639e32733936704b0b046b2531",
+      "dataUriBytes": 358290,
+      "dataUriSha256": "43f8c39c9a232b2c1341eb01ac452ec98edd0200cca747f0a02b07d574efa672",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "4bf44d7a7a574c3394d105186614169b9007f0ff3864cd11c09825db0b0ed2fb",
+      "path": "assets/scores/baer-no105-second-p35.png",
+      "mime": "image/png",
+      "bytes": 172942,
+      "sha256": "0015362157913ee37b7c4d18da23c2cdebd30e3d224a3f19f8e807d70ab1b39c",
+      "dataUriBytes": 230614,
+      "dataUriSha256": "4bf44d7a7a574c3394d105186614169b9007f0ff3864cd11c09825db0b0ed2fb",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "5e53a2ad147c57757b0ba9dadc69bb0e68fa52c97e256b5d94426645ce9193ae",
+      "path": "assets/scores/baer-no105-first-p36.jpg",
+      "mime": "image/jpeg",
+      "bytes": 149985,
+      "sha256": "4d69de883939e1afbacc24241e6f1ddc5747f0e003cb99326a5378fd3588745f",
+      "dataUriBytes": 200003,
+      "dataUriSha256": "5e53a2ad147c57757b0ba9dadc69bb0e68fa52c97e256b5d94426645ce9193ae",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "61e4d6469deee8b0e30fa9424b36700737c9e8848c3285780b227e3b4548a308",
+      "path": "assets/scores/baer-no105-second-p33.png",
+      "mime": "image/png",
+      "bytes": 120694,
+      "sha256": "5ad3a5ff630be80cd4d5c7cd1f90b622d1d1df9679a79c44538e121ac7a3a40a",
+      "dataUriBytes": 160950,
+      "dataUriSha256": "61e4d6469deee8b0e30fa9424b36700737c9e8848c3285780b227e3b4548a308",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "6624977ce0481818079a13c6d9a21f450d549c17d3510db6a0a700baca0e795f",
+      "path": "assets/scores/baer-no105-third-p31.png",
+      "mime": "image/png",
+      "bytes": 134569,
+      "sha256": "e1cfcc33fe5724e8350b6475c51deef374be844d840e10ed8c3da0dfcbdab778",
+      "dataUriBytes": 179450,
+      "dataUriSha256": "6624977ce0481818079a13c6d9a21f450d549c17d3510db6a0a700baca0e795f",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "759d2e4ec723a775c3649c7a75a8cd4c0e8e3d8720c4c1f45aa164f5395f51e3",
+      "path": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+      "mime": "image/png",
+      "bytes": 267740,
+      "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4",
+      "dataUriBytes": 357010,
+      "dataUriSha256": "759d2e4ec723a775c3649c7a75a8cd4c0e8e3d8720c4c1f45aa164f5395f51e3",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "75f06f93349724afc21bb2c915d83ea484a4d703d3a1729443f33e24ba704501",
+      "path": "assets/scores/baer-no938-table-p209.png",
+      "mime": "image/png",
+      "bytes": 871473,
+      "sha256": "940c0bc69543461912b60da64d050f8ff257edf7ddc096a9d84e7046f5dc5fb7",
+      "dataUriBytes": 1161986,
+      "dataUriSha256": "75f06f93349724afc21bb2c915d83ea484a4d703d3a1729443f33e24ba704501",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "7e2ac9b991c72f58f584f2de0890063cd6c584473557a19c2429e8963946b3b4",
+      "path": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+      "mime": "image/png",
+      "bytes": 318606,
+      "sha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43",
+      "dataUriBytes": 424830,
+      "dataUriSha256": "7e2ac9b991c72f58f584f2de0890063cd6c584473557a19c2429e8963946b3b4",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "7ee465b55b47900d862c1664ce36144c68c30be0fcc6755c43b91c8eb7941790",
+      "path": "assets/scores/baer-no105-third-p35.png",
+      "mime": "image/png",
+      "bytes": 122514,
+      "sha256": "d10f92f32e33aa721b6bd4ff0dafb7655d52ef7d291c46d6f2145ee87dc12771",
+      "dataUriBytes": 163374,
+      "dataUriSha256": "7ee465b55b47900d862c1664ce36144c68c30be0fcc6755c43b91c8eb7941790",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "85f841d7bde9eb64486c327dccfe16a91037cfba087ed233254a279ab4a55a59",
+      "path": "assets/scores/idelsohn-1929-phonetic-key-consonants.jpg",
+      "mime": "image/jpeg",
+      "bytes": 471690,
+      "sha256": "e0c17c983ab831f9339f18fc8a1b1d78413d0cbe5c2e6081ce367fa3f86a410c",
+      "dataUriBytes": 628943,
+      "dataUriSha256": "85f841d7bde9eb64486c327dccfe16a91037cfba087ed233254a279ab4a55a59",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "8f9f0f3b2a8b3cdfc80be255eb2554bac92ebcfe5fc71cf67e74572c601dc412",
+      "path": "assets/scores/baer-no105-second-p34.png",
+      "mime": "image/png",
+      "bytes": 149721,
+      "sha256": "3744a5b8b79020a847c207332796a69bd147e01c007853d3d9c9e22d70154a03",
+      "dataUriBytes": 199650,
+      "dataUriSha256": "8f9f0f3b2a8b3cdfc80be255eb2554bac92ebcfe5fc71cf67e74572c601dc412",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "922b5fc46c8b635c0211a28eaed39a1457f6098fa48db76a78930faf79e715e9",
+      "path": "assets/scores/baer-no105-first-p35.png",
+      "mime": "image/png",
+      "bytes": 303657,
+      "sha256": "f7e245e48a3de2c400061c678ed37e5f81184405725ed8df19233be6e016e7b5",
+      "dataUriBytes": 404898,
+      "dataUriSha256": "922b5fc46c8b635c0211a28eaed39a1457f6098fa48db76a78930faf79e715e9",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "94d53428f671f8c8c5413d1f87fcc10bce0fdee5c19b025becf9c809774dab1a",
+      "path": "assets/scores/baer-no105-first-p30.png",
+      "mime": "image/png",
+      "bytes": 278905,
+      "sha256": "108f6af8f4c1e7101308f0bc59c5aa165a85a39119f0b91d291d214452c4b471",
+      "dataUriBytes": 371898,
+      "dataUriSha256": "94d53428f671f8c8c5413d1f87fcc10bce0fdee5c19b025becf9c809774dab1a",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "99b58cc04469adfc015150fde26e03edf876ffac60bcbadff79844ad3cd3fe86",
+      "path": "assets/scores/baer-no105-first-p33.png",
+      "mime": "image/png",
+      "bytes": 256302,
+      "sha256": "5d105dfa41e123dac0c1f32ae6d7fcd7d2782c9dfe129508e5ef158b6ccadc65",
+      "dataUriBytes": 341758,
+      "dataUriSha256": "99b58cc04469adfc015150fde26e03edf876ffac60bcbadff79844ad3cd3fe86",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "bf977df5e7f47b2b9379670e120b9599a034a21009bb896ad8619364629c5108",
+      "path": "assets/scores/idelsohn-1929-no268-underlay.jpg",
+      "mime": "image/jpeg",
+      "bytes": 548395,
+      "sha256": "7709cbfb106a9e4311f8154048c6c6432b8da93f4eab24ae6020c3d184ae1207",
+      "dataUriBytes": 731219,
+      "dataUriSha256": "bf977df5e7f47b2b9379670e120b9599a034a21009bb896ad8619364629c5108",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "c38b05ba19ee6f025aa797a70aea6fe1026ec80457ecc9b40f1eca02bccfabf4",
+      "path": "assets/scores/baer-no105-second-p32.png",
+      "mime": "image/png",
+      "bytes": 148030,
+      "sha256": "5dacfd8b20b87bbefd973c64736aa97c30270ef6364c543f42fb0992af5dca40",
+      "dataUriBytes": 197398,
+      "dataUriSha256": "c38b05ba19ee6f025aa797a70aea6fe1026ec80457ecc9b40f1eca02bccfabf4",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "d73b0563abc93d324009e86699a5da1101b51d5c1aedd6ae4c9f17cb4bf08851",
+      "path": "assets/scores/cohen-1902-conditional-p541.png",
+      "mime": "image/png",
+      "bytes": 894098,
+      "sha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447",
+      "dataUriBytes": 1192154,
+      "dataUriSha256": "d73b0563abc93d324009e86699a5da1101b51d5c1aedd6ae4c9f17cb4bf08851",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "dd8ccc694dfa420acf02b0b99c92295e6e0411c799e941ab71900df48a6e6d21",
+      "path": "assets/scores/baer-no105-second-p31.png",
+      "mime": "image/png",
+      "bytes": 112712,
+      "sha256": "3b0f49607bb5c5b890918593ccd8283e21728678ecc30a9bc339ddbae1a57134",
+      "dataUriBytes": 150306,
+      "dataUriSha256": "dd8ccc694dfa420acf02b0b99c92295e6e0411c799e941ab71900df48a6e6d21",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "e3cc48a23d359f115b4d47ab564aad9009c7ce579e7c51f49237c2a98011cb75",
+      "path": "assets/scores/baer-no105-page30-context.jpg",
+      "mime": "image/jpeg",
+      "bytes": 267509,
+      "sha256": "b5d7e372639f42de17fbb4f1309b66c4dbb251d074646cc7939bee61f2ce8d82",
+      "dataUriBytes": 356703,
+      "dataUriSha256": "e3cc48a23d359f115b4d47ab564aad9009c7ce579e7c51f49237c2a98011cb75",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "eb3723b6c32aa25c354265ae64dfcde0623e4603c807402ced25ca1ec4ad322c",
+      "path": "assets/scores/idelsohn-1929-no267.jpg",
+      "mime": "image/jpeg",
+      "bytes": 241861,
+      "sha256": "e52f2ac9d40678437f565dc6ae4c66db54ea004f33349313febd9d02bd74c887",
+      "dataUriBytes": 322507,
+      "dataUriSha256": "eb3723b6c32aa25c354265ae64dfcde0623e4603c807402ced25ca1ec4ad322c",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    },
+    {
+      "key": "f9ee40d456180499040acbe52a9f4592831652cf59e65a28ce77974afb70a330",
+      "path": "assets/scores/baer-no105-first-p31.png",
+      "mime": "image/png",
+      "bytes": 334720,
+      "sha256": "d6810adabc2251d543fe5e4993252ea88e4b47f50878f090aef010791c7ae02a",
+      "dataUriBytes": 446318,
+      "dataUriSha256": "f9ee40d456180499040acbe52a9f4592831652cf59e65a28ce77974afb70a330",
+      "uses": 1,
+      "allOriginalBytesExact": true
+    }
+  ],
+  "packet": {
+    "format": "tropetrain-program-source-images-v1",
+    "encoding": "gzip+html-base93",
+    "imageCount": 34,
+    "packetBytes": 14860155,
+    "packetSha256": "cacf0868f143a3af92e2cc3bcb80885b20481acfaee616f291d450f2a7aecf72",
+    "gzipBytes": 10877405,
+    "gzipSha256": "8c5e770e02c52b7cfa9292dd6d4c720115badfdb034ecbe1147e379c62fbaff5"
+  },
+  "portableHtmlBytes": 100610879,
+  "physicalHeadroomBytes": 4246721,
+  "unchangedReserveBytes": 4194304,
+  "newMusicalRealizations": 0,
+  "newSingingVoices": 0,
+  "inputs": [
+    {
+      "path": "scripts/program-source-images.mjs",
+      "sha256": "5ef468c3cd95f037f9777c087293bdcf287dc99bff255b2c9d468260ba20b873"
+    },
+    {
+      "path": "program-source-images.js",
+      "sha256": "12c25aa7b52fb32cebaa1247920e997b397080705bce7306a6798418fe5c9c26"
+    },
+    {
+      "path": "portable-source-image-loader.js",
+      "sha256": "6ae16119140ef0e41d0dda717129f577117360efeed91129773a7988c47293f6"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "7cd2cb5a2ddffe2d416324b5dbf1dfec9a83b538fc15bfeaab6b91008748cef7"
+    },
+    {
+      "path": "scripts/pack-portable-program.mjs",
+      "sha256": "387c3280c9664703ad9415f3f97330d02338d5e9ca28763a9effbd5d7f6ac653"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p30.png",
+      "sha256": "ccdd718083062da513f832073d06e0ced5887f17f999c4b116d930ccd5bc25e4"
+    },
+    {
+      "path": "assets/scores/baer-no938-p209.jpg",
+      "sha256": "381821206980e39ea31f19ea969a0ccf0c38361f3759eedcd77f6fdee83cbe4a"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p32.png",
+      "sha256": "291d786d41819c2836f36f79e892ec051e18e384aa39adffb705cfd23641ef73"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p30.png",
+      "sha256": "c592fcabf3446504414ccbad20dbc558adff3ebfe518d3786b26b373cfbfd30b"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no266.jpg",
+      "sha256": "9aa20f18e09d830066d9c71c80b4803384f30d97a18e3afd6f327cde3a4c2de6"
+    },
+    {
+      "path": "assets/scores/cohen-1902-torah-rows-a-f.png",
+      "sha256": "09ca203adbebe8669ece1b98e10e8f2e79f59b9f11c4cc27ffdaf10eddcb0da6"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-phonetic-key-vowels.jpg",
+      "sha256": "de20a30fdc3ab1a47b9872e392a3ed15dfdc09e233cf71906cdbe441ef5bbae3"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p34-complete.png",
+      "sha256": "019c59d252912b3c2ee0a20f91fb22442641d061fb8c564bbaa3192ba630ee5a"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p32.png",
+      "sha256": "bc5e999bae0e4eaf35bf6c89a967249830eba0b5340121b2c79aa94b60c9cde3"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p33.png",
+      "sha256": "e9987d53d5d3ef1238eb93fd08953b264cccda23cc9b050a9e554770e226bc18"
+    },
+    {
+      "path": "assets/scores/cohen-1902-torah-columns-a-f.png",
+      "sha256": "8e83224dfd7711bd93e23258b702e6bd258883547a8479a41bfb903f3181bdeb"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p34.png",
+      "sha256": "b80c22aaf1d5d455765d4fd8f4ba7fbd39351c456d7bc561f502ca9c2e1d1f56"
+    },
+    {
+      "path": "assets/scores/baer-no105-rare-first-detail.png",
+      "sha256": "75884b88d2c5ef47dccd6b049753551c44a4846a44925ede156db62401950d83"
+    },
+    {
+      "path": "assets/scores/baer-preface-IX-alternatives.png",
+      "sha256": "17ac5b0858a3b07f54fc2abfd2ce18ee8e3b70639e32733936704b0b046b2531"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p35.png",
+      "sha256": "0015362157913ee37b7c4d18da23c2cdebd30e3d224a3f19f8e807d70ab1b39c"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p36.jpg",
+      "sha256": "4d69de883939e1afbacc24241e6f1ddc5747f0e003cb99326a5378fd3588745f"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p33.png",
+      "sha256": "5ad3a5ff630be80cd4d5c7cd1f90b622d1d1df9679a79c44538e121ac7a3a40a"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p31.png",
+      "sha256": "e1cfcc33fe5724e8350b6475c51deef374be844d840e10ed8c3da0dfcbdab778"
+    },
+    {
+      "path": "assets/scores/cohen-1902-etnahta-ending-p543.png",
+      "sha256": "70ecb2c899cc5cd48db5bc22284cda20477f88371923b62913cb1c301ae9f6b4"
+    },
+    {
+      "path": "assets/scores/baer-no938-table-p209.png",
+      "sha256": "940c0bc69543461912b60da64d050f8ff257edf7ddc096a9d84e7046f5dc5fb7"
+    },
+    {
+      "path": "assets/scores/cohen-1902-etnahta-leading-p542.png",
+      "sha256": "12eb72a917b7e0f0bef2e3bc03e57b039a7f079ddbd4742150a26af91de9ee43"
+    },
+    {
+      "path": "assets/scores/baer-no105-third-p35.png",
+      "sha256": "d10f92f32e33aa721b6bd4ff0dafb7655d52ef7d291c46d6f2145ee87dc12771"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-phonetic-key-consonants.jpg",
+      "sha256": "e0c17c983ab831f9339f18fc8a1b1d78413d0cbe5c2e6081ce367fa3f86a410c"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p34.png",
+      "sha256": "3744a5b8b79020a847c207332796a69bd147e01c007853d3d9c9e22d70154a03"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p35.png",
+      "sha256": "f7e245e48a3de2c400061c678ed37e5f81184405725ed8df19233be6e016e7b5"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p30.png",
+      "sha256": "108f6af8f4c1e7101308f0bc59c5aa165a85a39119f0b91d291d214452c4b471"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p33.png",
+      "sha256": "5d105dfa41e123dac0c1f32ae6d7fcd7d2782c9dfe129508e5ef158b6ccadc65"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no268-underlay.jpg",
+      "sha256": "7709cbfb106a9e4311f8154048c6c6432b8da93f4eab24ae6020c3d184ae1207"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p32.png",
+      "sha256": "5dacfd8b20b87bbefd973c64736aa97c30270ef6364c543f42fb0992af5dca40"
+    },
+    {
+      "path": "assets/scores/cohen-1902-conditional-p541.png",
+      "sha256": "704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447"
+    },
+    {
+      "path": "assets/scores/baer-no105-second-p31.png",
+      "sha256": "3b0f49607bb5c5b890918593ccd8283e21728678ecc30a9bc339ddbae1a57134"
+    },
+    {
+      "path": "assets/scores/baer-no105-page30-context.jpg",
+      "sha256": "b5d7e372639f42de17fbb4f1309b66c4dbb251d074646cc7939bee61f2ce8d82"
+    },
+    {
+      "path": "assets/scores/idelsohn-1929-no267.jpg",
+      "sha256": "e52f2ac9d40678437f565dc6ae4c66db54ea004f33349313febd9d02bd74c887"
+    },
+    {
+      "path": "assets/scores/baer-no105-first-p31.png",
+      "sha256": "d6810adabc2251d543fe5e4993252ea88e4b47f50878f090aef010791c7ae02a"
+    }
+  ]
+}

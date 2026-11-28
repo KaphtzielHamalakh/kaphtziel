@@ -7,6 +7,7 @@ import {BAER_THIRD_PATTERN_ROW,BAER_THIRD_PATTERN_IMAGES,BAER_THIRD_PATTERN_RECO
 import {BAER_THIRD_PATTERN_ID,baerThirdPatternModes,baerThirdPatternSource,baerThirdPatternPlan} from './baer-third-patterns.js';
 import {IDELSOHN_PATTERN_ROW,IDELSOHN_PATTERN_IMAGES,IDELSOHN_PATTERN_RECORDS} from './idelsohn-pattern-data.js';
 import {hasPatternSmallEighthStudy} from './source-pattern-small-eighth.js';
+import {loadProgramSourceImage} from './program-source-images.js';
 import {IDELSOHN_PATTERN_ID,idelsohnPatternModes,idelsohnPatternSource,idelsohnPatternPlan} from './idelsohn-patterns.js';
 import {BAER_PATTERN_ID,baerPatternModes,baerPatternSource,baerPatternPlan} from './baer-patterns.js';
 import {PRINTED_PATTERNS} from './printed-pattern-data.js';
@@ -33,14 +34,25 @@ export function availablePatternModes(sourceId=PRINTED_PATTERNS.id,{graceDemo=fa
  const cells=new Set(patternSource(sourceId).record.notes.map(n=>n.cell));
  return PATTERN_MODES.filter(m=>(m.cells??[m.id]).every(c=>cells.has(c)));
 }
-export function patternEvidence(sourceId,kind,mode){
+function patternEvidenceReference(sourceId,kind,mode){
  const row=patternSource(sourceId,mode),record=row.record;let file,url,mime;
  if(kind==='record'){file=row.recordPath??'docs/PRINTED-PATTERN-CATALOG.json';url=patternRecord(file);mime='application/json';}
  else if(['columns','context','continuation','preface'].includes(kind)){file=kind==='columns'?record.source.image:kind==='context'?record.source.contextImage.image:kind==='preface'?record.notationPrinciple?.source.file:record.source.continuationImage?.image;url=patternImage(file);mime=file?.endsWith('.jpg')?'image/jpeg':'image/png';}
  else throw Error('Choose a source image or record.');
- const prefix=`data:${mime};base64,`;if(!url?.startsWith(prefix))throw Error('Source evidence is unavailable.');
+ return {file,name:file?.split('/').at(-1),url,mime};
+}
+function decodePatternEvidence(reference){
+ const {url,mime}=reference,prefix=`data:${mime};base64,`;if(!url?.startsWith(prefix))throw Error('Source evidence is unavailable.');
  const bytes=Uint8Array.from(atob(url.slice(prefix.length)),c=>c.charCodeAt(0));
- return {file,name:file.split('/').at(-1),url,mime,bytes,text:mime==='application/json'?new TextDecoder('utf-8',{fatal:true}).decode(bytes):null};
+ return {...reference,bytes,text:mime==='application/json'?new TextDecoder('utf-8',{fatal:true}).decode(bytes):null};
+}
+export function patternEvidence(sourceId,kind,mode){
+ return decodePatternEvidence(patternEvidenceReference(sourceId,kind,mode));
+}
+export async function loadPatternEvidence(sourceId,kind,mode){
+ const reference=patternEvidenceReference(sourceId,kind,mode);
+ if(reference.mime.startsWith('image/'))reference.url=await loadProgramSourceImage(reference.url);
+ return decodePatternEvidence(reference);
 }
 export const PATTERN_MODES=Object.freeze([
   {id:'pair',name:'Munaḥ → Revia · both printed columns',cells:['munah','revia']},

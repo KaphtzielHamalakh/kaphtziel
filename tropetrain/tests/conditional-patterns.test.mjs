@@ -1,3 +1,4 @@
+import {assertProgramSourceImage} from './program-source-image-artifact.mjs';
 import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {PRINTED_PATTERN_CATALOG,availablePatternModes,printedPatternPlan,patternContextChoices,PATTERN_IMAGE_DATA} from '../printed-patterns.js';
@@ -49,5 +50,5 @@ test('the muted player reports both rest intervals and the following note withou
 });
 test('the added source image is unchanged and embedded, and all legacy records keep their canonical data hash',()=>{
  const raw=JSON.parse(read('docs/PRINTED-PATTERN-CATALOG.json'));assert.equal(createHash('sha256').update(JSON.stringify(raw.rows.slice(0,6))).digest('hex'),'79888bc4c582f8f500425549ed2786ba5dd657877f643d53f3d95e57e70f89b7');
- const path='assets/scores/cohen-1902-conditional-p541.png',bytes=read(path),url=PATTERN_IMAGE_DATA[path];assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),'704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447');assert.ok(restoredPortableHtml(read('TropeTrain.html')).toString().includes(url));
+ const path='assets/scores/cohen-1902-conditional-p541.png',bytes=read(path),url=PATTERN_IMAGE_DATA[path];assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes);assert.equal(createHash('sha256').update(bytes).digest('hex'),'704356faa350292d8ae72d0cc50f13c1646968d3dbace9c317b5e34a8b4cf447');assertProgramSourceImage(read('app.bundle.js'),url,path);
 });

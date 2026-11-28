@@ -1,5 +1,11 @@
 # TropeTrain
 
+**v0.110.0 — locally tested; publication verification pending.** The normal program is smaller (32.35MB versus47.19MB) because34 source images load separately. All originals remain in the self-contained portable edition and the normal offline cache. The source viewer now reports loading/readiness, and offline status confirms the current saved version.
+
+**1,020 automated tests pass after five old image-location assertions were corrected.** Both browser editions retain the marked Hebrew, independent pronunciation text, source music and cached source images. The first full build succeeded; the corrected complete test suite passed without changing runtime or compiled files. [Validation details](docs/VERIFICATION-0.110.md).
+
+Try **New → Complete Deuteronomy verse · Baer No46 → Open Deuteronomy11:21 · upper line**. Raise **Instrument volume**, keep **Follow playback** checked, then **Play**; compare **lower line**. For the changed viewer, open **Hear the pattern table → Inspect the printed pattern source → Open full-resolution selected columns**. Pronunciation text remains independent; no new singing voice or complete historical melody grammar is claimed. [Open TropeTrain](https://kaphtziel.com/tropetrain/?v=0.110.0#baer-no46-study). Run the complete saved `Development-v0.110` folder with `python3 -m http.server 8820 --bind 127.0.0.1`, then open `http://127.0.0.1:8820/tropetrain/`. Full reconstruction remains active; printing waits.
+
 **v0.109.0 — published and verified in both public browser editions.** Adds the complete Deuteronomy11:21 from Baer’s1894 No46 liturgical setting: two separate printed lines, seventeen unchanged marked Hebrew word candidates, literal Latin underlay, slurs, tuplets, six rests and a final-rest fermata. This is an unreviewed instrumental transcription, with no complete Torah melody grammar or new singing pronunciation voice claimed.
 
 **1,002 automated tests pass.** GitHub Pages and all61changed live files are verified; all public practice drafts, fittings and listening spans remain exact. Both browser editions verify the two paths/all ten score pages, seven independent pronunciation-text choices, selection/repeat/Stop, score following and export preparation. Cached reloads preserve all fifteen timing drafts, two full fittings and seven listening spans. [Verification](docs/VERIFICATION-0.109.md).

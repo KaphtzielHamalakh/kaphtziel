@@ -33,5 +33,5 @@ test('both finished editions retain the bounded No111 controls, exact source/cor
  const image='assets/scores/baer-1894-no111-torah.webp',uri='data:image/webp;base64,'+read(image).toString('base64');
  assert(portable.includes('id="no111-score-image" src="'+uri+'"'));assert(portable.includes('data-embedded-image="no111-score-image"'));assert(sw.includes('./'+image));
  assert.equal((portable.match(/data-embedded-image="/g)||[]).length,8);assert.equal(read(image).length,279744);assert.equal(sha(read(image)),record.source.scan.imageSha256);
- assert(portableFileBytes()<=100*1024*1024-4*1024*1024);assert(sw.includes('tropetrain-v109-baer-no46-full-word-study'));
+ assert(portableFileBytes()<=100*1024*1024-4*1024*1024);assert(sw.includes('tropetrain-v110-on-demand-source-images'));
 });

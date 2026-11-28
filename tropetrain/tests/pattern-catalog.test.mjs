@@ -1,3 +1,4 @@
+import {assertProgramSourceImage} from './program-source-image-artifact.mjs';
 import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -68,7 +69,7 @@ test('source choice, transposition, pace and range leave marked Hebrew, pronunci
 test('all seven source images and both source records are exact and portable in the standalone',()=>{
  const html=restoredPortableHtml(bytes('TropeTrain.html')).toString();assert.equal(Object.keys(PATTERN_IMAGE_DATA).length,7);
  for(const [path,url] of Object.entries(PATTERN_IMAGE_DATA)){
-  assert.ok(url.startsWith('data:image/png;base64,'));assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes(path));assert.ok(html.includes(url));
+  assert.ok(url.startsWith('data:image/png;base64,'));assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes(path));assertProgramSourceImage(bytes('app.bundle.js'),url,path);
  }
  for(const [path,url] of Object.entries(PATTERN_RECORD_DATA)){assert.deepEqual(Buffer.from(url.split(',')[1],'base64'),bytes(path));assert.ok(html.includes(url));}
  const original=JSON.parse(bytes('docs/PRINTED-PATTERN-CATALOG.json'));

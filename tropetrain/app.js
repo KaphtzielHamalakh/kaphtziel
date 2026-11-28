@@ -1,3 +1,4 @@
+import {startOfflineSources} from './offline-sources.js';
 import {getSourcePhraseLibrary} from './source-phrases.js';
 import {mountSourceRecall} from './source-recall-ui.js';
 import {mountSourcePhrases} from './source-phrase-ui.js';
@@ -1370,6 +1371,5 @@ getReferenceLibrary().then(value=>{
   createRecordingGroupWordDrafts(value).then(drafts=>{recordingGroupWordDrafts=drafts;recordingGroupTimingTools?.refresh();}).catch(error=>{$('recording-group-timing-status').textContent=error.message;});
 }).catch(error=>{$('reference-library-status').textContent=error.message;});
 getScrollLayout().then(value=>{scrollLayout=value;scrollMessage='245-column layout reference · exact written UXLC letters · edition differences flagged';$('scroll-layout').disabled=false;render();}).catch(error=>{scrollMessage=`Sourced scroll lines unavailable: ${error.message}`;$('scroll-layout-status').textContent=scrollMessage;});
-if(location.protocol==='file:')$('offline-status').textContent='Local file · ready without a server';
-else if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offline-status').textContent='Local instrument & reading text · available offline after first load';}).catch(()=>{});
+startOfflineSources();
 if(sourceSyllablesEnabled)prepareSourceSyllables();

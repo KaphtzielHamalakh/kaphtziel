@@ -3,6 +3,7 @@ import {createHash} from 'node:crypto';
 import {startPortableProgram} from '../portable-program-loader.js';
 import {restorePortableEvidence} from '../portable-evidence-loader.js';
 import {restorePortableProgramImages} from '../portable-program-images.js';
+import {restorePortableSourceImages} from '../portable-source-image-loader.js';
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 export function encodePortableProgramBytes(bytes){
  const alphabet='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;:=>?@^_`{|}~',parts=[];let part='';
@@ -26,10 +27,11 @@ export function encodePortableProgramBytes93(bytes){
 }
 // Compress only the exact external program. Preserve the page, source records,
 // images, notices and canonical code bytes; no identifier/syntax changes.
-export function packPortableProgram(program,{compressedGzip=null}={}){
+export function packPortableProgram(program,{compressedGzip=null,sourceImages=false}={}){
  const bytes=Buffer.from(program,'utf8'),gzip=compressedGzip===null?gzipSync(bytes,{level:9}):Buffer.from(compressedGzip);
  if(!gunzipSync(gzip,{maxOutputLength:Math.max(1,bytes.length)}).equals(bytes))throw Error('Portable gzip changed the exact normal program.');
  const proof={format:'tropetrain-portable-program-v3',encoding:'gzip+html-base93',programBytes:bytes.length,programSha256:sha(bytes),gzipBytes:gzip.length,gzipSha256:sha(gzip)};
- const markup='<script id="portable-program-proof" type="application/json">'+JSON.stringify(proof)+'</script><script id="portable-program-data" type="application/octet-stream">'+encodePortableProgramBytes93(gzip)+'</script><script id="portable-program-loader">('+startPortableProgram.toString()+')(null,{beforeStart:async({program})=>{const images=await ('+restorePortableProgramImages.toString()+')(program);const evidence=await ('+restorePortableEvidence.toString()+')();return {...evidence,sharedImages:images};}});</script>';
+ const sourceInitialization=sourceImages?'const sourceImages=await ('+restorePortableSourceImages.toString()+')({required:true});':'';
+ const markup='<script id="portable-program-proof" type="application/json">'+JSON.stringify(proof)+'</script><script id="portable-program-data" type="application/octet-stream">'+encodePortableProgramBytes93(gzip)+'</script><script id="portable-program-loader">('+startPortableProgram.toString()+')(null,{beforeStart:async({program})=>{'+sourceInitialization+'const images=await ('+restorePortableProgramImages.toString()+')(program);const evidence=await ('+restorePortableEvidence.toString()+')();return {...evidence,sharedImages:images'+(sourceImages?',sourceImages':'')+'};}});</script>';
  return {markup,proof,savedProgramBytes:bytes.length-Buffer.byteLength(markup)};
 }

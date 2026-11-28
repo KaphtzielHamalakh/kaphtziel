@@ -1,3 +1,4 @@
+import {assertProgramSourceImage} from './program-source-image-artifact.mjs';
 import {restoredPortableHtml,portableFileBytes} from './portable-artifact.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -80,6 +81,6 @@ test('muted live player visits leading rest, notes, final rest and the next loop
 
 test('both distributions embed the exact new source record and image bytes without altering the original Cohen catalogue',()=>{
  const bundle=read('app.bundle.js').toString(),portable=restoredPortableHtml(read('TropeTrain.html')).toString();
- for(const spec of [...Object.values(data.source.pages),...Object.values(data.source.detailImages),data.source.contextImage])for(const html of [bundle,portable])assert.ok(html.includes(read(spec.image).toString('base64')),spec.image);
+ for(const spec of [...Object.values(data.source.pages),...Object.values(data.source.detailImages),data.source.contextImage])assertProgramSourceImage(bundle,'data:image/'+(spec.image.endsWith('.jpg')?'jpeg':'png')+';base64,'+read(spec.image).toString('base64'),spec.image);
  assert.ok(portable.includes(read('docs/BAER-NO105-PATTERNS.json').toString('base64')));assert.equal(PRINTED_PATTERN_SOURCES.find(r=>r.id==='baer-1894-no938-sephardic-table')?.id,'baer-1894-no938-sephardic-table');assert.equal(PRINTED_PATTERN_CATALOG.rows.length,18);
 });

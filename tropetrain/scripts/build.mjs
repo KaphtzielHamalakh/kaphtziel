@@ -12,6 +12,7 @@ import {packPortableProgram} from './pack-portable-program.mjs';
 import {packPortableEvidenceWithCompression} from './pack-portable-evidence.mjs';
 import {auditPortableEvidence} from './audit-portable-evidence.mjs';
 import {auditPortableProgramImages} from './audit-portable-program-images.mjs';
+import {programSourceImagePlugin,sourceImagePacket,packSourceImagePacket} from './program-source-images.mjs';
 import './import-printed-score.mjs';
 import './import-baer-score.mjs';
 import './import-cohen-prophetical.mjs';
@@ -135,6 +136,9 @@ const pitchWorker=await build({absWorkingDir:root,entryPoints:['recorded-pitch-w
 const pitchWorkerSource=pitchWorker.outputFiles[0].text;
 const contourWorker=await build({absWorkingDir:root,entryPoints:['source-contour-worker.js'],bundle:true,format:'iife',platform:'browser',target:['es2022'],write:false,legalComments:'eof',charset:'utf8'});
 const contourWorkerSource=contourWorker.outputFiles[0].text;
+// Keep all original source data. Normal pages use canonical image URLs;
+// the portable page restores their exact image strings before this program runs.
+const sourceImageDelivery=await programSourceImagePlugin(root);
 // Compact only formatting; retain identifier names, source data and syntax choices.
 await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife',target:['es2022'],minifyWhitespace:true,minifyIdentifiers:false,minifySyntax:false,outfile:'app.bundle.js',legalComments:'eof',charset:'utf8',banner:{js:`/*! havarotjs license:\n${license.replaceAll('*/','* /')}\n*/`},plugins:[{
   name:'embedded-corpus',setup(builder){builder.onLoad({filter:/source-phrase-data\.js$/},()=>({loader:'js',contents:`const encoded=${JSON.stringify(sourcePhrasesEncoded)};let promise;export function loadSourcePhrasePacket(){return promise??=(async()=>JSON.parse(await new Response(new Blob([Uint8Array.from(atob(encoded),c=>c.charCodeAt(0))]).stream().pipeThrough(new DecompressionStream('gzip'))).text()))();}`}));builder.onLoad({filter:/vowel-anchor-data\.js$/},()=>({loader:'js',contents:`const packets=${JSON.stringify(vowelAnchorsEncoded)};export async function loadVowelAnchorPacket(file){if(!Object.hasOwn(packets,file))throw Error('Unknown source vowel packet.');return Uint8Array.from(atob(packets[file]),c=>c.charCodeAt(0));}`}));builder.onLoad({filter:/phonetic-word-data\.js$/},()=>({loader:'js',contents:`const packets=${JSON.stringify(phoneticWordsEncoded)};export async function loadPhoneticWordPacket(file){if(!Object.hasOwn(packets,file))throw Error('Unknown phonetic word source packet.');return Uint8Array.from(atob(packets[file]),c=>c.charCodeAt(0));}`}));builder.onLoad({filter:/word-support-data\.js$/},()=>({loader:'js',contents:`const packets=${JSON.stringify(wordSupportEncoded)};export async function loadWordSupportPacket(file){if(!Object.hasOwn(packets,file))throw Error('Unknown word-support source packet.');return Uint8Array.from(atob(packets[file]),c=>c.charCodeAt(0));}`}));builder.onLoad({filter:/pronunciation-repertoire-underlay-data\.js$/},()=>({loader:'js',contents:`
@@ -199,11 +203,13 @@ await build({absWorkingDir:root,entryPoints:['app.js'],bundle:true,format:'iife'
       const stream=new Blob([data]).stream().pipeThrough(new DecompressionStream('gzip'));
       return JSON.parse(await new Response(stream).text());
     }` }));}
-}]});
+},sourceImageDelivery.plugin]});
 const html=await readFile(path.join(root,'index.html'),'utf8');
 const script=await readFile(path.join(root,'app.bundle.js'),'utf8');
 const programCompression=await compressBuildGzip(script);
-const portableProgram=packPortableProgram(script,{compressedGzip:programCompression.gzip});
+const imageRecords=sourceImageDelivery.records(),imagePacket=sourceImagePacket(imageRecords),sourceImageCompression=await compressBuildGzip(imagePacket);
+const sourceImages=packSourceImagePacket(imagePacket,{compressedGzip:sourceImageCompression.gzip});
+const portableProgram=packPortableProgram(script,{compressedGzip:programCompression.gzip,sourceImages:true});
 const font=await readFile(path.join(root,'assets/NotoSerifHebrew.ttf'));
 await writeFile(path.join(root,'assets/havarotjs-LICENSE.txt'),license);
 const fontLicense=await readFile(path.join(root,'assets/OFL.txt'),'utf8');
@@ -264,7 +270,7 @@ const roadmap=await readFile(path.join(root,'docs/RESEARCH.md'),'utf8');
 const escape=text=>text.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const css=(await readFile(path.join(root,'style.css'),'utf8')).replace("url('./assets/NotoSerifHebrew.ttf')",`url('data:font/ttf;base64,${font.toString('base64')}')`).replace("url('./assets/Bravura.otf')",`url('data:font/otf;base64,${musicFont.toString('base64')}')`).replace("url('./assets/ShlomoStam.ttf')",`url('data:font/ttf;base64,${scrollFont.toString('base64')}')`);
 let standalone=html.replace(`<link rel="stylesheet" href="./style.css?v=${version}">`,()=>`<style>${css}</style>`)
- .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script>${portableProgram.markup}`)
+ .replace(`<script defer src="./app.bundle.js?v=${version}"></script>`,()=>`<script id="source-pitch-packets" type="application/json">${JSON.stringify(pitchPackets)}</script>${sourceImages.markup}${portableProgram.markup}`)
  .replaceAll('href="./docs/PRONUNCIATION-EDITION-WORDS.json"',()=>`href="data:application/json;base64,${Buffer.from(editionEvidence).toString('base64')}"`)
  .replaceAll('href="./assets/pronunciation/mam-simple-torah-sources.zip"',()=>`href="data:application/zip;base64,${editionPack.toString('base64')}"`)
  .replaceAll('href="./docs/PRONUNCIATION-SCORE-GROUPS.json"',()=>`href="data:application/json;base64,${Buffer.from(scoreGroupsEvidence).toString('base64')}"`)
@@ -338,8 +344,12 @@ console.log(`Reused ${sharedImages.count} embedded original-image links, saving 
 let evidenceCompression;
 const packedEvidence=await packPortableEvidenceWithCompression(standalone,async bytes=>{evidenceCompression=await compressBuildGzip(bytes);return evidenceCompression.gzip;});standalone=packedEvidence.html;
 const portableArtifact=await writePortableArtifact(root,standalone);
+const imageInputs=['scripts/program-source-images.mjs','program-source-images.js','portable-source-image-loader.js','scripts/build.mjs','scripts/pack-portable-program.mjs',...imageRecords.map(r=>r.path)];
+const imageAudit={format:'tropetrain-program-source-images-audit-v1',version,normalProgramBytes:Buffer.byteLength(script),normalProgramSha256:createHash('sha256').update(script).digest('hex'),imageCount:imageRecords.length,removedInitialProgramImageUriBytes:imageRecords.reduce((n,r)=>n+r.dataUriBytes*r.uses,0),records:imageRecords.map(({dataUri,...r})=>({...r,allOriginalBytesExact:true})),packet:sourceImages.proof,portableHtmlBytes:portableArtifact.bytes,physicalHeadroomBytes:100*1024*1024-portableArtifact.bytes,unchangedReserveBytes:4*1024*1024,newMusicalRealizations:0,newSingingVoices:0,inputs:await Promise.all(imageInputs.map(async input=>({path:input,sha256:createHash('sha256').update(await readFile(path.join(root,input))).digest('hex')})))};
+const worker=await readFile(path.join(root,'sw.js'),'utf8');for(const r of imageRecords)if(!worker.includes('./'+r.path))throw Error('Source image is not retained in offline cache: '+r.path);
+await writeFile(path.join(root,'docs/PROGRAM-SOURCE-IMAGES.json'),JSON.stringify(imageAudit,null,2)+'\n');
 const compressionInputs=['scripts/compress-build-gzip.mjs','scripts/pack-portable-program.mjs','scripts/pack-portable-evidence.mjs','scripts/build.mjs','package.json','package-lock.json'];
-const compressionAudit={format:'tropetrain-portable-build-compression-v1',version,library:'@gfx/zopfli@1.0.15',license:'Apache-2.0',browserDecoder:'unchanged gzip; legacy program/evidence envelopes retained',records:{torah:corpusCompression.proof,repertoire:repertoireCompression.proof,program:programCompression.proof,evidence:evidenceCompression.proof},portableHtmlBytes:portableArtifact.bytes,hostLimitBytes:100*1024*1024,physicalHeadroomBytes:100*1024*1024-portableArtifact.bytes,unchangedPhysicalReserveBytes:4*1024*1024,inputs:await Promise.all(compressionInputs.map(async input=>({path:input,sha256:createHash('sha256').update(await readFile(path.join(root,input))).digest('hex')})))};
+const compressionAudit={format:'tropetrain-portable-build-compression-v1',version,library:'@gfx/zopfli@1.0.15',license:'Apache-2.0',browserDecoder:'unchanged program/evidence gzip and legacy envelopes; separate bounded original-image packet',records:{torah:corpusCompression.proof,repertoire:repertoireCompression.proof,program:programCompression.proof,evidence:evidenceCompression.proof,sourceImages:sourceImageCompression.proof},portableHtmlBytes:portableArtifact.bytes,hostLimitBytes:100*1024*1024,physicalHeadroomBytes:100*1024*1024-portableArtifact.bytes,unchangedPhysicalReserveBytes:4*1024*1024,inputs:await Promise.all(compressionInputs.map(async input=>({path:input,sha256:createHash('sha256').update(await readFile(path.join(root,input))).digest('hex')})))};
 await writeFile(path.join(root,'docs/PORTABLE-COMPRESSION-AUDIT.json'),JSON.stringify(compressionAudit,null,2)+'\n');
 await auditPortableProgramImages(root);
 await auditPortableEvidence(root);
