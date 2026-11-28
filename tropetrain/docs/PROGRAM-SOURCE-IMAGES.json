@@ -1,8 +1,8 @@
 {
   "format": "tropetrain-program-source-images-audit-v1",
-  "version": "0.112.0",
-  "normalProgramBytes": 32466050,
-  "normalProgramSha256": "79cb01d2769fc39b1b63c1ea4a81336e832ba1f93def83732d0ebefa0c93125d",
+  "version": "0.113.0",
+  "normalProgramBytes": 32477304,
+  "normalProgramSha256": "819729e8ceabaf08cc91030e32a293ec5e95a9576af36f41d7bd61316b562afc",
   "imageCount": 34,
   "removedInitialProgramImageUriBytes": 14848040,
   "records": [
@@ -390,8 +390,8 @@
     "gzipBytes": 10877405,
     "gzipSha256": "8c5e770e02c52b7cfa9292dd6d4c720115badfdb034ecbe1147e379c62fbaff5"
   },
-  "portableHtmlBytes": 98584142,
-  "physicalHeadroomBytes": 6273458,
+  "portableHtmlBytes": 99274701,
+  "physicalHeadroomBytes": 5582899,
   "unchangedReserveBytes": 4194304,
   "newMusicalRealizations": 0,
   "newSingingVoices": 0,
@@ -410,7 +410,7 @@
     },
     {
       "path": "scripts/build.mjs",
-      "sha256": "7714709f2b25643975efaa10094335a660ae568d685b6c5ba9e3ace4d559b17e"
+      "sha256": "c2614e38aca09dddda452d5440ce319a3c85cd3c1665e5e8df1d873075092029"
     },
     {
       "path": "scripts/pack-portable-program.mjs",

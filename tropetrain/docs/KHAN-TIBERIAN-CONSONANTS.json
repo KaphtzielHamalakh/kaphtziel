@@ -1,0 +1,484 @@
+{
+  "format": "tropetrain-khan-tiberian-consonant-bindings-v1",
+  "revision": 1,
+  "date": "2026-11-28",
+  "source": {
+    "id": "khan-2020-tiberian-consonant-inventory",
+    "author": "Geoffrey Khan",
+    "year": 2020,
+    "title": "The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I",
+    "url": "https://doi.org/10.11647/OBP.0163.05",
+    "publisherPage": "https://www.openbookpublishers.com/books/10.11647/OBP.0163",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "originalPdfBytes": 9857295,
+    "originalPdfSha256": "bcab644037f62795041c3c6e6e37f1c1eb28f29d147b6d2c4409fd6bc3c0da24",
+    "printedPages": [
+      161,
+      162,
+      165,
+      608,
+      609,
+      610
+    ],
+    "attribution": "Geoffrey Khan (2020), The Tiberian Pronunciation Tradition of Biblical Hebrew, Volume I, Open Book Publishers. https://doi.org/10.11647/OBP.0163 . Text copyright Geoffrey Khan, CC BY 4.0: https://creativecommons.org/licenses/by/4.0/ . No endorsement implied.",
+    "scope": "Partial Tiberian consonant phoneme inventory adapted to Torah source categories. No vowel or phonetic/allophonic grammar, acoustic gemination, quantity, duration, melody, Kinnor equivalence or singing voice is supplied; independent linguistic/cantorial review remains pending."
+  },
+  "sourcePack": {
+    "file": "assets/pronunciation/khan-tiberian-consonants-sources.zip",
+    "bytes": 504982,
+    "sha256": "e66cc65eeec641828b6cc0676c0ce78e29e183a8d1274b2f84eec7068f4cd4bd",
+    "excerptBytes": 534113,
+    "excerptSha256": "a2fe78751293ee2114211837c5cfa1a1b6a1d09207dbc8aa52cd49666ae7487b",
+    "originalPdfPages": [
+      5,
+      178,
+      179,
+      182,
+      625,
+      626,
+      627
+    ]
+  },
+  "rules": [
+    {
+      "id": "alef",
+      "categoryIds": [
+        "ALEF_0MAPIQ_CON"
+      ],
+      "candidatePhoneme": "ʔ",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.1",
+      "review": null
+    },
+    {
+      "id": "bet-rafe",
+      "categoryIds": [
+        "BET_0DAG"
+      ],
+      "candidatePhoneme": "v",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.2",
+      "review": null
+    },
+    {
+      "id": "bet-dagesh",
+      "categoryIds": [
+        "BET_1DAG_QAL",
+        "BET_1DAG_XAZAQ"
+      ],
+      "candidatePhoneme": "b",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.2",
+      "review": null
+    },
+    {
+      "id": "gimel-rafe",
+      "categoryIds": [
+        "GIMEL_0DAG"
+      ],
+      "candidatePhoneme": "ʁ",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.3",
+      "review": null
+    },
+    {
+      "id": "gimel-dagesh",
+      "categoryIds": [
+        "GIMEL_1DAG_QAL",
+        "GIMEL_1DAG_XAZAQ"
+      ],
+      "candidatePhoneme": "g",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.3",
+      "review": null
+    },
+    {
+      "id": "dalet-rafe",
+      "categoryIds": [
+        "DALET_0DAG"
+      ],
+      "candidatePhoneme": "ð",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.4",
+      "review": null
+    },
+    {
+      "id": "dalet-dagesh",
+      "categoryIds": [
+        "DALET_1DAG_QAL",
+        "DALET_1DAG_XAZAQ"
+      ],
+      "candidatePhoneme": "d",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.4",
+      "review": null
+    },
+    {
+      "id": "he",
+      "categoryIds": [
+        "HE_0MAPIQ_CON"
+      ],
+      "candidatePhoneme": "h",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.5",
+      "review": null
+    },
+    {
+      "id": "he-mappiq",
+      "categoryIds": [
+        "HE_1MAPIQ"
+      ],
+      "candidatePhoneme": "h",
+      "printedPages": [
+        161,
+        162,
+        165,
+        608
+      ],
+      "section": "I.1.5",
+      "review": null
+    },
+    {
+      "id": "vav",
+      "categoryIds": [
+        "VAV_0DAGOSD_CON",
+        "VAV_1DAG"
+      ],
+      "candidatePhoneme": "v",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.6",
+      "review": null
+    },
+    {
+      "id": "zayin",
+      "categoryIds": [
+        "ZAYIN_0DAG",
+        "ZAYIN_1DAG"
+      ],
+      "candidatePhoneme": "z",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.7",
+      "review": null
+    },
+    {
+      "id": "het",
+      "categoryIds": [
+        "XET_0DAG"
+      ],
+      "candidatePhoneme": "ħ",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.8",
+      "review": null
+    },
+    {
+      "id": "tet",
+      "categoryIds": [
+        "TET_0DAG",
+        "TET_1DAG"
+      ],
+      "candidatePhoneme": "tˁ",
+      "printedPages": [
+        608
+      ],
+      "section": "I.1.9",
+      "review": null
+    },
+    {
+      "id": "yod",
+      "categoryIds": [
+        "YOD_0DAG_CON",
+        "YOD_1DAG"
+      ],
+      "candidatePhoneme": "j",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.10",
+      "review": null
+    },
+    {
+      "id": "kaf-dagesh",
+      "categoryIds": [
+        "KAF_1DAG_QAL",
+        "KAF_1DAG_XAZAQ",
+        "FKAF_1DAG_QAL",
+        "FKAF_1DAG_XAZAQ"
+      ],
+      "candidatePhoneme": "kʰ",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.11",
+      "review": null
+    },
+    {
+      "id": "kaf-rafe",
+      "categoryIds": [
+        "KAF_0DAG",
+        "FKAF_0DAG"
+      ],
+      "candidatePhoneme": "χ",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.11",
+      "review": null
+    },
+    {
+      "id": "lamed",
+      "categoryIds": [
+        "LAMED_0DAG",
+        "LAMED_1DAG"
+      ],
+      "candidatePhoneme": "l",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.12",
+      "review": null
+    },
+    {
+      "id": "mem",
+      "categoryIds": [
+        "MEM_0DAG",
+        "MEM_1DAG",
+        "FMEM_0DAG"
+      ],
+      "candidatePhoneme": "m",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.13",
+      "review": null
+    },
+    {
+      "id": "nun",
+      "categoryIds": [
+        "NUN_0DAG",
+        "NUN_1DAG",
+        "FNUN_0DAG"
+      ],
+      "candidatePhoneme": "n",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.14",
+      "review": null
+    },
+    {
+      "id": "samekh",
+      "categoryIds": [
+        "SAMEKH_0DAG",
+        "SAMEKH_1DAG"
+      ],
+      "candidatePhoneme": "s",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.15",
+      "review": null
+    },
+    {
+      "id": "ayin",
+      "categoryIds": [
+        "AYIN_0DAG"
+      ],
+      "candidatePhoneme": "ʕ",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.16",
+      "review": null
+    },
+    {
+      "id": "pe-dagesh",
+      "categoryIds": [
+        "PE_1DAG_QAL",
+        "PE_1DAG_XAZAQ",
+        "FPE_1DAG_QAL"
+      ],
+      "candidatePhoneme": "pʰ",
+      "printedPages": [
+        609
+      ],
+      "section": "I.1.17",
+      "review": null
+    },
+    {
+      "id": "pe-rafe",
+      "categoryIds": [
+        "PE_0DAG",
+        "FPE_0DAG"
+      ],
+      "candidatePhoneme": "f",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.17",
+      "review": null
+    },
+    {
+      "id": "sade",
+      "categoryIds": [
+        "TSADI_0DAG",
+        "TSADI_1DAG",
+        "FTSADI_0DAG"
+      ],
+      "candidatePhoneme": "sˁ",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.18",
+      "review": null
+    },
+    {
+      "id": "qof",
+      "categoryIds": [
+        "QOF_0DAG",
+        "QOF_1DAG"
+      ],
+      "candidatePhoneme": "q̟",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.19",
+      "review": null
+    },
+    {
+      "id": "resh",
+      "categoryIds": [
+        "RESH_0DAG",
+        "RESH_1DAG"
+      ],
+      "candidatePhoneme": "r",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.20",
+      "review": null
+    },
+    {
+      "id": "sin",
+      "categoryIds": [
+        "SIN_0DAG",
+        "SIN_1DAG"
+      ],
+      "candidatePhoneme": "s",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.21",
+      "review": null
+    },
+    {
+      "id": "shin",
+      "categoryIds": [
+        "TRUESHIN_0DAG",
+        "TRUESHIN_1DAG"
+      ],
+      "candidatePhoneme": "ʃ",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.22",
+      "review": null
+    },
+    {
+      "id": "tav-dagesh",
+      "categoryIds": [
+        "TAV_1DAG_QAL",
+        "TAV_1DAG_XAZAQ"
+      ],
+      "candidatePhoneme": "tʰ",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.23",
+      "review": null
+    },
+    {
+      "id": "tav-rafe",
+      "categoryIds": [
+        "TAV_0DAG"
+      ],
+      "candidatePhoneme": "θ",
+      "printedPages": [
+        610
+      ],
+      "section": "I.1.23",
+      "review": null
+    }
+  ],
+  "withheldConsonants": [
+    {
+      "categoryId": "ALEF_1MAPIQ",
+      "reason": "The source category calls this alef mappiq; its relationship to canonical Tiberian alef dagesh and gemination needs separate comparison. No role or acoustic duration is inferred.",
+      "review": null
+    }
+  ],
+  "unassignedVowelsAndCompounds": true,
+  "sourceSilenceOnly": true,
+  "scopeBookIds": [
+    "gen",
+    "exo",
+    "lev",
+    "num",
+    "deu"
+  ],
+  "acceptedPhonemes": null,
+  "acousticRealizations": null,
+  "musicalNotes": null,
+  "voice": null,
+  "review": null,
+  "counts": {
+    "ruleGroups": 30,
+    "boundConsonantCategories": 57,
+    "withheldConsonantCategories": 1,
+    "sourceSilentCategories": 5,
+    "unassignedVowelAndCompoundCategories": 24,
+    "acceptedRealizations": 0,
+    "newSingingVoices": 0
+  },
+  "categorySource": {
+    "sourceCommit": "6f0612ed2109d32e288d7c0ca41ae3dbfaad702b",
+    "inputSha256": "a1a0590524bd5545a24a1bb405f4e26d7a8a0412f87fb37ce9b14c0cb2c880c2",
+    "license": "CC-BY-SA-4.0"
+  },
+  "inputs": [
+    {
+      "path": "data/phonology/khan-tiberian-consonants.json",
+      "sha256": "96bd21d313f1e94e2979c976651b727e7041cca8a4bf1dc201144978f0c28ef5"
+    },
+    {
+      "path": "assets/pronunciation/khan-tiberian-consonants-sources.zip",
+      "sha256": "e66cc65eeec641828b6cc0676c0ce78e29e183a8d1274b2f84eec7068f4cd4bd"
+    },
+    {
+      "path": "historical-pronunciation-categories.js",
+      "sha256": "52920ee006d48dc038989ff4d5ac91312c4df787fdce780c66ddefba0e5c9bbd"
+    }
+  ]
+}
